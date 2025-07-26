@@ -10,8 +10,8 @@ return new class extends Migration
         Schema::create('question_answers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('question_id')->constrained('questions')->cascadeOnDelete();
+            $table->foreignId('option_id')->constrained('question_options')->cascadeOnDelete();
             $table->string('marker'); // a1, a2
-            $table->string('answer');
             $table->timestamps();
         });
     }

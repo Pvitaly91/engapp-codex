@@ -263,18 +263,18 @@ class GrammarTestSeeder extends Seeder
                 'difficulty' => $q['difficulty'],
                 'category_id' => $cats[$q['category']]->id,
             ]);
+            $optionIds = [];
             foreach ($q['options'] as $option) {
-                QuestionOption::create([
+                $optionIds[$option] = QuestionOption::create([
                     'question_id' => $question->id,
                     'option' => $option,
-                ]);
+                ])->id;
             }
             foreach ($q['answers'] as $marker => $answerData) {
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $question->id,
                     'marker' => $marker,
-                    'answer' => $answerData['answer'],
-                    'verb_hint' => $answerData['verb_hint'] ?? null,
+                    'option_id' => $optionIds[$answerData['answer']] ?? null,
                 ]);
             }
         }

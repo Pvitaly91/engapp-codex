@@ -293,11 +293,14 @@ class ShortAnswersSeeder extends Seeder
                 'flag'        => $d['flag'],
             ]);
             foreach ($d['answers'] as $ans) {
+                $opt = QuestionOption::create([
+                    'question_id' => $q->id,
+                    'option'      => $ans['answer'],
+                ]);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'],
+                    'option_id'   => $opt->id,
                 ]);
             }
         }

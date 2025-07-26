@@ -184,15 +184,15 @@ class GrammarTestController extends Controller
     public function autocomplete(Request $request)
     {
         $q = $request->input('q', '');
-        $query = \App\Models\QuestionAnswer::query();
-    
+        $query = \App\Models\QuestionOption::query();
+
         if ($q) {
-            $query->where('answer', 'like', '%' . $q . '%')
-                ->orderByRaw('answer LIKE ? DESC', [$q . '%']) // Сортуємо так, щоб ті, що починаються з $q були вище
-                ->orderBy('answer'); // Додаткове сортування по алфавіту (можна прибрати, якщо не потрібно)
+            $query->where('option', 'like', '%' . $q . '%')
+                ->orderByRaw('option LIKE ? DESC', [$q . '%'])
+                ->orderBy('option');
         }
-    
-        $answers = $query->distinct()->limit(5)->pluck('answer');
+
+        $answers = $query->distinct()->limit(5)->pluck('option');
     
         return response()->json($answers);
     }
@@ -211,8 +211,9 @@ class GrammarTestController extends Controller
         $correctArr = [];
         foreach ($answers as $marker => $answer) {
             $answerRow = $question->answers->where('marker', $marker)->first();
-            $correctArr[$marker] = $answerRow ? $answerRow->answer : '';
-            if(!$answerRow || mb_strtolower(trim($answer)) !== mb_strtolower($answerRow->answer)) {
+            $correctOption = $answerRow ? optional($answerRow->option)->option : '';
+            $correctArr[$marker] = $correctOption;
+            if(!$answerRow || mb_strtolower(trim($answer)) !== mb_strtolower($correctOption)) {
                 $allCorrect = false;
             }
         }
@@ -253,7 +254,8 @@ class GrammarTestController extends Controller
                 $inputName = "question_{$question->id}_{$ans->marker}";
                 $userAnswer = $request->input($inputName, '');
                 $userAnswers[$ans->marker] = $userAnswer;
-                if (strtolower(trim($userAnswer)) === strtolower($ans->answer)) {
+                $correctOption = optional($ans->option)->option;
+                if (strtolower(trim($userAnswer)) === strtolower($correctOption)) {
                     $correctCount++;
                 }
             }
@@ -262,7 +264,7 @@ class GrammarTestController extends Controller
                 'question' => $question,
                 'user_answers' => $userAnswers,
                 'is_correct' => ($correctCount === $total),
-                'correct_answers' => $question->answers->pluck('answer', 'marker'),
+                'correct_answers' => $question->answers->mapWithKeys(function ($a) { return [$a->marker => optional($a->option)->option]; }),
             ];
         }
 

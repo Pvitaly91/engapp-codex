@@ -370,22 +370,22 @@ class ToBeTenseSeeder extends Seeder
                 'flag'        => $d['flag'],
             ]);
 
+            $optionIds = [];
+            if (!empty($d['options'])) {
+                foreach ($d['options'] as $opt) {
+                    $optionIds[$opt] = \App\Models\QuestionOption::create([
+                        'question_id' => $q->id,
+                        'option'      => $opt,
+                    ])->id;
+                }
+            }
+
             foreach ($d['answers'] as $ans) {
                 \App\Models\QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'] ?? null,
+                    'option_id'   => $optionIds[$ans['answer']] ?? null,
                 ]);
-            }
-
-            if (!empty($d['options'])) {
-                foreach ($d['options'] as $opt) {
-                    \App\Models\QuestionOption::create([
-                        'question_id' => $q->id,
-                        'option'      => $opt,
-                    ]);
-                }
             }
         }
     }

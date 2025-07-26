@@ -167,8 +167,7 @@
                                 $num = $matches[1][$i];
                                 $markerKey = 'a' . $num;
                                 $inputName = "question_{$q->id}_{$markerKey}";
-                                $answerRow = $q->answers->where('marker', $markerKey)->first();
-                                $verbHint = $answerRow ? $answerRow->verb_hint : null;
+                            $answerRow = $q->answers->where('marker', $markerKey)->first();
 
                                 // ==== AJAX autocomplete інпут на Alpine.js ====
                                 if(!empty($manualInput) && !empty($autocompleteInput)) {
@@ -239,10 +238,6 @@ HTML;
                                         $input .= '<option value="'.$opt->option.'">'.$opt->option.'</option>';
                                     }
                                     $input .= '</select>';
-                                }
-                                // ==== verb_hint ====
-                                if($verbHint){
-                                    $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')</span>';
                                 }
                                 $replacements[$marker] = $input;
                             }

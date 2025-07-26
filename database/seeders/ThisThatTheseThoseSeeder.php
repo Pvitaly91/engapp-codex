@@ -78,18 +78,18 @@ class ThisThatTheseThoseSeeder extends Seeder
                 'source_id'   => $sourceId,
                 'flag'        => 0,
             ]);
+            $optionIds = [];
+            foreach ($d['options'] as $opt) {
+                $optionIds[$opt] = QuestionOption::create([
+                    'question_id' => $q->id,
+                    'option'      => $opt,
+                ])->id;
+            }
             foreach ($d['answers'] as $ans) {
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'] ?? null,
-                ]);
-            }
-            foreach ($d['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
+                    'option_id'   => $optionIds[$ans['answer']] ?? null,
                 ]);
             }
         }
