@@ -14,6 +14,7 @@ class FutureSimpleTest1Seeder extends Seeder
     public function run()
     {
         $cat_future = Category::firstOrCreate(['name' => 'Future'])->id;
+        $sourceId = Source::firstOrCreate(['name' => 'FutureSimple'])->id;
 
         $data = [
             [

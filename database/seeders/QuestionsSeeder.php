@@ -13,7 +13,7 @@ class QuestionsSeeder extends Seeder
      */
     public function run()
     {
-        $questions = [
+        /*$questions = [
             [
                 'question' => 'Walter __________ to school last week.',
                 'correct_answer' => 'went',
@@ -31,6 +31,6 @@ class QuestionsSeeder extends Seeder
 
         foreach ($questions as $q) {
             Question::create($q);
-        }
+        }*/
     }
 }
