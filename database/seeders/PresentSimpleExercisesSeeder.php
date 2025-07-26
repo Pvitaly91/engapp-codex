@@ -188,7 +188,7 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
+                QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'answer'      => $ans['answer'],
@@ -212,7 +212,7 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
+                QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'answer'      => $ans['answer'],

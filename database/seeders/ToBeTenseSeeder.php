@@ -371,7 +371,7 @@ class ToBeTenseSeeder extends Seeder
             ]);
 
             foreach ($d['answers'] as $ans) {
-                \App\Models\QuestionAnswer::create([
+                \App\Models\QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'answer'      => $ans['answer'],

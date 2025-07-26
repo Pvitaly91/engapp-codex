@@ -328,7 +328,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'flag'        => $d['flag'],
             ]);
             foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
+                QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'answer'      => $ans['answer'],

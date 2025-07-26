@@ -79,7 +79,7 @@ class ThisThatTheseThoseExercise3Seeder extends Seeder
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
+                QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'answer'      => $ans['answer'],
