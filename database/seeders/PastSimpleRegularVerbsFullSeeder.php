@@ -6,12 +6,16 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\Source;
 
 class PastSimpleRegularVerbsFullSeeder extends Seeder
 {
     public function run()
     {
         $cat_past = 1;
+        $source1 = Source::firstOrCreate(['name' => 'Past Simple Regular Verbs - 1'])->id;
+        $source2 = Source::firstOrCreate(['name' => 'Past Simple Regular Verbs – Positive'])->id;
+        $source3 = Source::firstOrCreate(['name' => 'Past Simple Regular Verbs – Negative'])->id;
 
         // A) Write the past forms of the regular verbs below.
         $verbs = [
@@ -47,7 +51,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'difficulty'  => 1,
                 'category_id' => $cat_past,
                 'flag'        => 0,
-                'source'      => 'Past Simple Regular Verbs - 1',
+                'source_id'   => $source1,
             ]);
             QuestionAnswer::create([
                 'question_id' => $q->id,
@@ -79,7 +83,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'difficulty'  => 2,
                 'category_id' => $cat_past,
                 'flag'        => 1,
-                'source'      => 'Past Simple Regular Verbs – Positive',
+                'source_id'   => $source2,
             ]);
             QuestionAnswer::create([
                 'question_id' => $q->id,
@@ -106,7 +110,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'difficulty'  => 2,
                 'category_id' => $cat_past,
                 'flag'        => 1,
-                'source'      => 'Past Simple Regular Verbs – Negative',
+                'source_id'   => $source3,
             ]);
             QuestionAnswer::create([
                 'question_id' => $q->id,

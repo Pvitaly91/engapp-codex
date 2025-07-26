@@ -7,19 +7,21 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\Category;
+use App\Models\Source;
 
 class FutureSimpleTest1Seeder extends Seeder
 {
     public function run()
     {
         $cat_future = Category::firstOrCreate(['name' => 'Future'])->id;
+        $sourceId = Source::firstOrCreate(['name' => 'FutureSimple'])->id;
 
         $data = [
             [
                 'question' => '{a1} a good plan?',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "Won't it be", 'verb_hint' => 'be'],
@@ -34,7 +36,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'Think what it {a1} to him.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will mean', 'verb_hint' => 'mean'],
@@ -49,7 +51,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'I {a1} to you again in the morning.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will speak', 'verb_hint' => 'speak'],
@@ -64,7 +66,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'I think you {a1} a child again.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will turn', 'verb_hint' => 'turn'],
@@ -79,7 +81,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'But I {a1} even with him.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will be', 'verb_hint' => 'be'],
@@ -94,7 +96,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'They {a1} to one another.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "won't listen", 'verb_hint' => 'listen'],
@@ -109,7 +111,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'I {a1}, if I live.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "won't fail", 'verb_hint' => 'fail'],
@@ -124,7 +126,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => '{a1} for them again?',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "Will they go and look", 'verb_hint' => 'go, look'],
@@ -139,7 +141,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'I {a1} this kind of letter.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "won't answer", 'verb_hint' => 'answer'],
@@ -154,7 +156,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'I {a1} her in other ways.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will help', 'verb_hint' => 'help'],
@@ -169,7 +171,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'Now we {a1} who he is.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will see', 'verb_hint' => 'see'],
@@ -184,7 +186,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'They {a1} you, but they know.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "won't tell", 'verb_hint' => 'tell'],
@@ -199,7 +201,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'But he {a1} my opinion first.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "won't ask", 'verb_hint' => 'ask'],
@@ -214,7 +216,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'I {a1} you some of mine.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will tell', 'verb_hint' => 'tell'],
@@ -229,7 +231,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'Now {a1} me that number?',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'Will you give', 'verb_hint' => 'give'],
@@ -244,7 +246,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'But I {a1} for that next time.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will come', 'verb_hint' => 'come'],
@@ -259,7 +261,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => '{a1} me have a line?',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'Will you let', 'verb_hint' => 'let'],
@@ -274,7 +276,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'He {a1} that he has lost a wife.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "won't know", 'verb_hint' => 'know'],
@@ -289,7 +291,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => '{a1} of us?',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "What will those people think", 'verb_hint' => 'think'],
@@ -304,7 +306,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question' => 'You {a1} it go far!',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => 'Future Simple - Test 1',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "won't find", 'verb_hint' => 'find'],
@@ -322,7 +324,7 @@ class FutureSimpleTest1Seeder extends Seeder
                 'question'    => $d['question'],
                 'category_id' => $d['category_id'],
                 'difficulty'  => $d['difficulty'],
-                'source'      => $d['source'],
+                'source_id'   => $d['source_id'],
                 'flag'        => $d['flag'],
             ]);
             foreach ($d['answers'] as $ans) {

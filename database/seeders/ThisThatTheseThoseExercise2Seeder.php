@@ -7,6 +7,7 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\Category;
+use App\Models\Source;
 
 class ThisThatTheseThoseExercise2Seeder extends Seeder
 {
@@ -14,6 +15,7 @@ class ThisThatTheseThoseExercise2Seeder extends Seeder
     {
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
         $source = 'Choose this, that, these, those to complete the following sentences.';
+        $sourceId = Source::firstOrCreate(['name' => $source])->id;
 
         $data = [
             [
@@ -73,7 +75,7 @@ class ThisThatTheseThoseExercise2Seeder extends Seeder
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 1,
-                'source'      => $source,
+                'source_id'   => $sourceId,
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {

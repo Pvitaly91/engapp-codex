@@ -6,12 +6,14 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\Source;
 
 class DoDoesIsAreSeeder extends Seeder
 {
     public function run()
     {
         $cat_present = 2; // Present Simple (заміни під свою структуру)
+        $sourceId = Source::firstOrCreate(['name' => 'Do Does Am Is Are'])->id;
         $options = ['do', 'does', 'am', 'is', 'are'];
         $questions = [
             ['What {a1} you like to eat for breakfast?',         'do'],
@@ -46,7 +48,7 @@ class DoDoesIsAreSeeder extends Seeder
                 'difficulty'  => 1,
                 'category_id' => $cat_present,
                 'flag'        => 0,
-                'source'      => 'Do Does Am Is Are',
+                'source_id'   => $sourceId,
             ]);
             QuestionAnswer::create([
                 'question_id' => $q->id,
