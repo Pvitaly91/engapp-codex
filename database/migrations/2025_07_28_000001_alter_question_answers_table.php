@@ -8,6 +8,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('question_answers', function (Blueprint $table) {
+            if (Schema::hasColumn('question_answers', 'marker') && Schema::hasColumn('question_answers', 'answer')) {
+                $table->dropUnique('question_marker_answer_unique');
+            }
+        });
+        Schema::table('question_answers', function (Blueprint $table) {
             if (Schema::hasColumn('question_answers', 'answer')) {
                 $table->dropColumn('answer');
             }
@@ -17,7 +22,6 @@ return new class extends Migration
         });
         Schema::table('question_answers', function (Blueprint $table) {
             if (Schema::hasColumn('question_answers', 'marker') && Schema::hasColumn('question_answers', 'option_id')) {
-                $table->dropUnique('question_marker_answer_unique');
                 $table->unique(['question_id','marker','option_id'],'question_marker_option_unique');
             }
         });
