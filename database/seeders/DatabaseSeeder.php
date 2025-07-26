@@ -12,13 +12,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //$this->call(WordsWithTranslationsSeeder::class);
-        //$this->call(QuestionsSeeder::class);
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            DoDoesIsAreSeeder::class,
+            FutureSimpleTest1Seeder::class,
+            GrammarQuizPastSimpleSeeder::class,
+            GrammarTestAISeeder::class,
+            GrammarTestSeeder::class,
+            PastSimpleRegularSeeder::class,
+            PastSimpleRegularVerbsFullSeeder::class,
+            PresentPastRevisionSeeder::class,
+            PresentSimpleExercisesSeeder::class,
+            PresentSimpleSeeder::class,
+            QuestionsSeeder::class,
+            QuizPresentSimpleSeeder::class,
+            RevisionTensesFullSeeder::class,
+            ShortAnswersSeeder::class,
+            SimplePresentPastSeeder::class,
+            ThisThatTheseThoseExercise2Seeder::class,
+            ThisThatTheseThoseExercise3Seeder::class,
+            ThisThatTheseThoseSeeder::class,
+            ToBeTenseSeeder::class,
+            WordsWithTranslationsSeeder::class,
+        ]);
     }
 }
