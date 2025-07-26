@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\VerbHint;
 use App\Models\Category;
 use App\Models\Source;
 
@@ -188,15 +189,29 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {
+                $option = QuestionOption::firstOrCreate([
+                    'question_id' => $q->id,
+                    'option'      => $ans['answer'],
+                ]);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'],
+                    'option_id'   => $option->id,
                 ]);
+                if (!empty($ans['verb_hint'])) {
+                    $hintOption = QuestionOption::firstOrCreate([
+                        'question_id' => $q->id,
+                        'option'      => $ans['verb_hint'],
+                    ]);
+                    VerbHint::firstOrCreate([
+                        'question_id' => $q->id,
+                        'marker'      => $ans['marker'],
+                        'option_id'   => $hintOption->id,
+                    ]);
+                }
             }
             foreach ($d['options'] as $opt) {
-                QuestionOption::create([
+                QuestionOption::firstOrCreate([
                     'question_id' => $q->id,
                     'option'      => $opt,
                 ]);
@@ -212,15 +227,29 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {
+                $option = QuestionOption::firstOrCreate([
+                    'question_id' => $q->id,
+                    'option'      => $ans['answer'],
+                ]);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'],
+                    'option_id'   => $option->id,
                 ]);
+                if (!empty($ans['verb_hint'])) {
+                    $hintOption = QuestionOption::firstOrCreate([
+                        'question_id' => $q->id,
+                        'option'      => $ans['verb_hint'],
+                    ]);
+                    VerbHint::firstOrCreate([
+                        'question_id' => $q->id,
+                        'marker'      => $ans['marker'],
+                        'option_id'   => $hintOption->id,
+                    ]);
+                }
             }
             foreach ($d['options'] as $opt) {
-                QuestionOption::create([
+                QuestionOption::firstOrCreate([
                     'question_id' => $q->id,
                     'option'      => $opt,
                 ]);

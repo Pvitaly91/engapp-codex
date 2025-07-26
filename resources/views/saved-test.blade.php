@@ -29,7 +29,8 @@
                             $markerKey = 'a' . $num;
                             $inputName = "question_{$q->id}_{$markerKey}";
                             $answerRow = $q->answers->where('marker', $markerKey)->first();
-                            $verbHint = $answerRow ? $answerRow->verb_hint : null;
+                            $verbHintRow = $q->verbHints->where('marker', $markerKey)->first();
+                            $verbHint = $verbHintRow?->option?->option;
                             $autocompleteRoute = route('grammar-test.autocomplete');
 
                             // ==== AJAX autocomplete input ====

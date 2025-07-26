@@ -31,5 +31,10 @@ class Question extends Model
     {
         return $this->hasMany(QuestionAnswer::class);
     }
+
+    public function verbHints()
+    {
+        return $this->hasMany(VerbHint::class);
+    }
 }
 

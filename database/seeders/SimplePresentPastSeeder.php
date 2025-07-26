@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\VerbHint;
 use App\Models\Source;
 
 class SimplePresentPastSeeder extends Seeder
@@ -254,15 +255,29 @@ class SimplePresentPastSeeder extends Seeder
                 'source_id'   => $data['source_id'],
             ]);
             foreach ($data['answers'] as $ans) {
+                $option = QuestionOption::firstOrCreate([
+                    'question_id' => $q->id,
+                    'option'      => $ans['answer'],
+                ]);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'] ?? null,
+                    'option_id'   => $option->id,
                 ]);
+                if (!empty($ans['verb_hint'])) {
+                    $hintOption = QuestionOption::firstOrCreate([
+                        'question_id' => $q->id,
+                        'option'      => $ans['verb_hint'],
+                    ]);
+                    VerbHint::firstOrCreate([
+                        'question_id' => $q->id,
+                        'marker'      => $ans['marker'],
+                        'option_id'   => $hintOption->id,
+                    ]);
+                }
             }
             foreach ($data['options'] as $opt) {
-                QuestionOption::create([
+                QuestionOption::firstOrCreate([
                     'question_id' => $q->id,
                     'option'      => $opt,
                 ]);

@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\QuestionAnswer;
+use App\Models\VerbHint;
 use App\Models\Category;
 use App\Models\Source;
 
@@ -371,17 +372,31 @@ class ToBeTenseSeeder extends Seeder
             ]);
 
             foreach ($d['answers'] as $ans) {
+                $option = \App\Models\QuestionOption::firstOrCreate([
+                    'question_id' => $q->id,
+                    'option'      => $ans['answer'],
+                ]);
                 \App\Models\QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'] ?? null,
+                    'option_id'   => $option->id,
                 ]);
+                if (!empty($ans['verb_hint'])) {
+                    $hintOption = \App\Models\QuestionOption::firstOrCreate([
+                        'question_id' => $q->id,
+                        'option'      => $ans['verb_hint'],
+                    ]);
+                    \App\Models\VerbHint::firstOrCreate([
+                        'question_id' => $q->id,
+                        'marker'      => $ans['marker'],
+                        'option_id'   => $hintOption->id,
+                    ]);
+                }
             }
 
             if (!empty($d['options'])) {
                 foreach ($d['options'] as $opt) {
-                    \App\Models\QuestionOption::create([
+                    \App\Models\QuestionOption::firstOrCreate([
                         'question_id' => $q->id,
                         'option'      => $opt,
                     ]);

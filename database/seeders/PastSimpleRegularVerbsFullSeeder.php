@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\VerbHint;
 use App\Models\Source;
 
 class PastSimpleRegularVerbsFullSeeder extends Seeder
@@ -53,16 +54,28 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 0,
                 'source_id'   => $source1,
             ]);
+            $opt = QuestionOption::firstOrCreate([
+                'question_id' => $q->id,
+                'option'      => $past,
+            ]);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
-                'answer'      => $past,
-                'verb_hint'   => $inf,
+                'option_id'   => $opt->id,
             ]);
-            foreach([$past, $inf] as $opt) {
-                QuestionOption::create([
+            $hintOpt = QuestionOption::firstOrCreate([
+                'question_id' => $q->id,
+                'option'      => $inf,
+            ]);
+            VerbHint::firstOrCreate([
+                'question_id' => $q->id,
+                'marker'      => 'a1',
+                'option_id'   => $hintOpt->id,
+            ]);
+            foreach([$past, $inf] as $optStr) {
+                QuestionOption::firstOrCreate([
                     'question_id' => $q->id,
-                    'option'      => $opt,
+                    'option'      => $optStr,
                 ]);
             }
         }
@@ -85,11 +98,23 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 1,
                 'source_id'   => $source2,
             ]);
+            $opt = QuestionOption::firstOrCreate([
+                'question_id' => $q->id,
+                'option'      => $pos,
+            ]);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
-                'answer'      => $pos,
-                'verb_hint'   => 'make positive',
+                'option_id'   => $opt->id,
+            ]);
+            $hintOpt = QuestionOption::firstOrCreate([
+                'question_id' => $q->id,
+                'option'      => 'make positive',
+            ]);
+            VerbHint::firstOrCreate([
+                'question_id' => $q->id,
+                'marker'      => 'a1',
+                'option_id'   => $hintOpt->id,
             ]);
         }
 
@@ -112,11 +137,23 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 1,
                 'source_id'   => $source3,
             ]);
+            $opt = QuestionOption::firstOrCreate([
+                'question_id' => $q->id,
+                'option'      => $neg,
+            ]);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
-                'answer'      => $neg,
-                'verb_hint'   => 'make negative',
+                'option_id'   => $opt->id,
+            ]);
+            $hintOpt = QuestionOption::firstOrCreate([
+                'question_id' => $q->id,
+                'option'      => 'make negative',
+            ]);
+            VerbHint::firstOrCreate([
+                'question_id' => $q->id,
+                'marker'      => 'a1',
+                'option_id'   => $hintOpt->id,
             ]);
         }*/
     }
