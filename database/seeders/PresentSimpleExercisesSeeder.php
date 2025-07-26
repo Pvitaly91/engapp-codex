@@ -187,18 +187,18 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'source_id'   => $source1,
                 'flag'        => 0,
             ]);
+            $optionIds = [];
+            foreach ($d['options'] as $opt) {
+                $optionIds[$opt] = QuestionOption::create([
+                    'question_id' => $q->id,
+                    'option'      => $opt,
+                ])->id;
+            }
             foreach ($d['answers'] as $ans) {
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'],
-                ]);
-            }
-            foreach ($d['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
+                    'option_id'   => $optionIds[$ans['answer']] ?? null,
                 ]);
             }
         }
@@ -211,18 +211,18 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'source_id'   => $source2,
                 'flag'        => 0,
             ]);
+            $optionIds = [];
+            foreach ($d['options'] as $opt) {
+                $optionIds[$opt] = QuestionOption::create([
+                    'question_id' => $q->id,
+                    'option'      => $opt,
+                ])->id;
+            }
             foreach ($d['answers'] as $ans) {
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'],
-                ]);
-            }
-            foreach ($d['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
+                    'option_id'   => $optionIds[$ans['answer']] ?? null,
                 ]);
             }
         }

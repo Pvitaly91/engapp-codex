@@ -29,7 +29,6 @@
                             $markerKey = 'a' . $num;
                             $inputName = "question_{$q->id}_{$markerKey}";
                             $answerRow = $q->answers->where('marker', $markerKey)->first();
-                            $verbHint = $answerRow ? $answerRow->verb_hint : null;
                             $autocompleteRoute = route('grammar-test.autocomplete');
 
                             // ==== AJAX autocomplete input ====
@@ -101,10 +100,6 @@ HTML;
                                     $input .= '<option value="'.$opt->option.'">'.$opt->option.'</option>';
                                 }
                                 $input .= '</select>';
-                            }
-                            // ==== verb_hint ====
-                            if($verbHint){
-                                $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')</span>';
                             }
                             $replacements[$marker] = $input;
                         }

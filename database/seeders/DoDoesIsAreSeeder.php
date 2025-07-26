@@ -50,18 +50,18 @@ class DoDoesIsAreSeeder extends Seeder
                 'flag'        => 0,
                 'source_id'   => $sourceId,
             ]);
+            $optionIds = [];
+            foreach($options as $opt) {
+                $optionIds[$opt] = QuestionOption::create([
+                    'question_id' => $q->id,
+                    'option'      => $opt,
+                ])->id;
+            }
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
-                'answer'      => $data[1],
-                'verb_hint'   => 'choose do/does/am/is/are',
+                'option_id'   => $optionIds[$data[1]] ?? null,
             ]);
-            foreach($options as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
-            }
         }
     }
 }

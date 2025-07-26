@@ -53,18 +53,18 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 0,
                 'source_id'   => $source1,
             ]);
+            $optionIds = [];
+            foreach([$past, $inf] as $opt) {
+                $optionIds[$opt] = QuestionOption::create([
+                    'question_id' => $q->id,
+                    'option'      => $opt,
+                ])->id;
+            }
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
-                'answer'      => $past,
-                'verb_hint'   => $inf,
+                'option_id'   => $optionIds[$past],
             ]);
-            foreach([$past, $inf] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
-            }
         }
         /*    
         // B) Rewrite these sentences making them positive.
@@ -85,11 +85,14 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 1,
                 'source_id'   => $source2,
             ]);
+            $opt = QuestionOption::create([
+                'question_id' => $q->id,
+                'option'      => $pos,
+            ]);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
-                'answer'      => $pos,
-                'verb_hint'   => 'make positive',
+                'option_id'   => $opt->id,
             ]);
         }
 
@@ -112,11 +115,14 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 1,
                 'source_id'   => $source3,
             ]);
+            $opt = QuestionOption::create([
+                'question_id' => $q->id,
+                'option'      => $neg,
+            ]);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
-                'answer'      => $neg,
-                'verb_hint'   => 'make negative',
+                'option_id'   => $opt->id,
             ]);
         }*/
     }

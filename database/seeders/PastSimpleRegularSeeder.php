@@ -167,18 +167,18 @@ class PastSimpleRegularSeeder extends Seeder
                 'flag'        => 0,
                 'source_id'   => $sourceId,
             ]);
+            $optionIds = [];
+            foreach ($data['options'] as $opt) {
+                $optionIds[$opt] = QuestionOption::create([
+                    'question_id' => $q->id,
+                    'option'      => $opt,
+                ])->id;
+            }
             foreach ($data['answers'] as $ans) {
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'] ?? null,
-                ]);
-            }
-            foreach ($data['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
+                    'option_id'   => $optionIds[$ans['answer']] ?? null,
                 ]);
             }
         }
