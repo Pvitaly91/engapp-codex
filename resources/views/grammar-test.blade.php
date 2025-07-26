@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Grammar Test Constructor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="//unpkg.com/alpinejs" defer></script>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Grammar Test Constructor')
+
+@section('content')
 <div class="max-w-3xl mx-auto p-4">
     @php
         $autocompleteRoute = route('grammar-test.autocomplete');
@@ -341,5 +337,5 @@ function checkFullQuestionAjax(btn, questionId, markerList) {
     });
 }
 </script>
-</body>
-</html>
+@endsection
+
