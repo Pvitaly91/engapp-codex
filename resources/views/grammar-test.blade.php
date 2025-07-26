@@ -11,7 +11,7 @@
     @php
         $autocompleteRoute = route('grammar-test.autocomplete');
         $checkOneRoute = route('grammar-test.checkOne');
-        $sources = \App\Models\Question::whereNotNull('source')->distinct()->pluck('source')->filter()->sort()->values();
+        $sources = \App\Models\Source::orderBy('name')->get();
     @endphp
     
         <div class="flex items-center justify-between mb-6">
@@ -49,11 +49,11 @@
                 <div class="flex flex-wrap gap-4">
                     @foreach($sources as $source)
                         <label class="inline-flex items-center">
-                            <input type="checkbox" name="sources[]" value="{{ $source }}"
-                                {{ isset($selectedSources) && in_array($source, $selectedSources) ? 'checked' : '' }}
+                            <input type="checkbox" name="sources[]" value="{{ $source->id }}"
+                                {{ isset($selectedSources) && in_array($source->id, $selectedSources) ? 'checked' : '' }}
                                 class="form-checkbox h-5 w-5 text-indigo-600"
                             >
-                            <span class="ml-2">{{ $source }}</span>
+                            <span class="ml-2">{{ $source->name }}</span>
                         </label>
                     @endforeach
                 </div>
@@ -153,7 +153,7 @@
                                 {{ ucfirst($q->category->name) }}
                             </span>
                             @if($q->source)
-                                <span class="ml-2 text-xs text-gray-500">Source: {{ $q->source }}</span>
+                                <span class="ml-2 text-xs text-gray-500">Source: {{ $q->source->name }}</span>
                             @endif
                             @if($q->flag)
                                 <span class="inline-block ml-2 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>

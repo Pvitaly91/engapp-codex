@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Category;
 use App\Models\QuestionAnswer;
+use App\Models\Source;
 use Illuminate\Support\Str;
 use App\Models\Test;
 
@@ -101,12 +102,12 @@ class GrammarTestController extends Controller
         $onlyAi = $request->boolean('only_ai');
     
         // MULTI-SOURCE support
-        $selectedSources = $request->input('sources', []); // array
-    
-        // Групування: якщо вибрано sources — по source, інакше по категоріях
-        $groupBy = !empty($selectedSources) ? 'source' : 'category_id';
-    
-        if ($groupBy === 'source') {
+        $selectedSources = $request->input('sources', []); // array of source IDs
+
+        // Групування: якщо вибрано sources — по source_id, інакше по категоріях
+        $groupBy = !empty($selectedSources) ? 'source_id' : 'category_id';
+
+        if ($groupBy === 'source_id') {
             $groups = $selectedSources;
         } else {
             $groups = !empty($selectedCategories) ? $selectedCategories : $categories->pluck('id')->toArray();
@@ -123,17 +124,17 @@ class GrammarTestController extends Controller
             $take = $questionsPerGroup + ($remaining > 0 ? 1 : 0);
             if ($remaining > 0) $remaining--;
     
-            $query = \App\Models\Question::with(['category', 'answers', 'options'])
+            $query = \App\Models\Question::with(['category', 'answers', 'options', 'source'])
                 ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
-    
-            if ($groupBy === 'source') {
-                $query->where('source', $group);
+
+            if ($groupBy === 'source_id') {
+                $query->where('source_id', $group);
             } else {
                 $query->where('category_id', $group);
             }
-    
-            if (!empty($selectedSources) && $groupBy !== 'source') {
-                $query->whereIn('source', $selectedSources);
+
+            if (!empty($selectedSources) && $groupBy !== 'source_id') {
+                $query->whereIn('source_id', $selectedSources);
             }
             if (!empty($selectedCategories) && $groupBy !== 'category_id') {
                 $query->whereIn('category_id', $selectedCategories);
@@ -153,7 +154,7 @@ class GrammarTestController extends Controller
         $questions = $questions->shuffle();
     
         // Автоматичне ім'я тесту
-       // $sourcesForName = collect($questions)->pluck('source')->filter()->unique()->values();
+       // $sourcesForName = collect($questions)->pluck('source.name')->filter()->unique()->values();
        // if ($sourcesForName->count() > 0) {
        //     $autoTestName = $sourcesForName->join(', ');
       //  } else {
@@ -161,8 +162,8 @@ class GrammarTestController extends Controller
             $autoTestName = ucwords($categoryNames->join(' - '));
       //  }
     
-        // Для фільтра — всі унікальні source (як було)
-        $sources = \App\Models\Question::whereNotNull('source')->distinct()->pluck('source')->filter()->sort()->values();
+        // Для фільтра — всі унікальні source
+        $sources = Source::orderBy('name')->get();
     
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
