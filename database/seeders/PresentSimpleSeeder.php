@@ -169,7 +169,7 @@ class PresentSimpleSeeder extends Seeder
             ]);
 
             foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
+                QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'answer'      => $ans['answer'],

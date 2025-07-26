@@ -50,7 +50,7 @@ class DoDoesIsAreSeeder extends Seeder
                 'flag'        => 0,
                 'source_id'   => $sourceId,
             ]);
-            QuestionAnswer::create([
+            QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'answer'      => $data[1],

@@ -270,7 +270,7 @@ class GrammarTestSeeder extends Seeder
                 ]);
             }
             foreach ($q['answers'] as $marker => $answerData) {
-                QuestionAnswer::create([
+                QuestionAnswer::firstOrCreate([
                     'question_id' => $question->id,
                     'marker' => $marker,
                     'answer' => $answerData['answer'],

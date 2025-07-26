@@ -53,7 +53,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 0,
                 'source_id'   => $source1,
             ]);
-            QuestionAnswer::create([
+            QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'answer'      => $past,
@@ -85,7 +85,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 1,
                 'source_id'   => $source2,
             ]);
-            QuestionAnswer::create([
+            QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'answer'      => $pos,
@@ -112,7 +112,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 1,
                 'source_id'   => $source3,
             ]);
-            QuestionAnswer::create([
+            QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'answer'      => $neg,

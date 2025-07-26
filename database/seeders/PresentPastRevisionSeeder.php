@@ -183,7 +183,7 @@ class PresentPastRevisionSeeder extends Seeder
                 'source_id'   => $sourceId,
             ]);
             foreach ($data['answers'] as $ans) {
-                QuestionAnswer::create([
+                QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'answer'      => $ans['answer'],
