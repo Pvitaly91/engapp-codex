@@ -7,6 +7,7 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\Category;
+use App\Models\Source;
 
 class ThisThatTheseThoseExercise3Seeder extends Seeder
 {
@@ -14,6 +15,7 @@ class ThisThatTheseThoseExercise3Seeder extends Seeder
     {
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
         $source = 'Transform singular sentences into plural sentences and plural sentences into singular sentences using this, that, these, those and other missing words.';
+        $sourceId = Source::firstOrCreate(['name' => $source])->id;
 
         $data = [
             [
@@ -73,7 +75,7 @@ class ThisThatTheseThoseExercise3Seeder extends Seeder
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,
-                'source'      => $source,
+                'source_id'   => $sourceId,
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {

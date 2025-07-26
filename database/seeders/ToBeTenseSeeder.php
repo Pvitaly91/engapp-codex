@@ -6,6 +6,7 @@ use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\QuestionAnswer;
 use App\Models\Category;
+use App\Models\Source;
 
 class ToBeTenseSeeder extends Seeder
 {
@@ -15,13 +16,14 @@ class ToBeTenseSeeder extends Seeder
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
         $cat_past = Category::firstOrCreate(['name' => 'past'])->id;
         $cat_future = Category::firstOrCreate(['name' => 'Future'])->id;
+        $sourceId = Source::firstOrCreate(["name" => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms."])->id;
 
         $data = [
             [
                 'question' => 'Jordan and Alan {a1} basketball players. They {a2} tall.',
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
@@ -33,7 +35,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'The pupils {a1} in the class now.',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
@@ -44,7 +46,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'There {a1} an interesting picture on the wall.',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -55,7 +57,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'I {a1} a sportsman when I grow up.',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will be', 'verb_hint' => 'be'],
@@ -66,7 +68,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Julian {a1} five last year.',
                 'difficulty' => 1,
                 'category_id' => $cat_past,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'was', 'verb_hint' => 'be'],
@@ -77,7 +79,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Dr. Jeremy {a1} a famous surgeon.',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -88,7 +90,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Yesterday we {a1} at the zoo.',
                 'difficulty' => 1,
                 'category_id' => $cat_past,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'were', 'verb_hint' => 'be'],
@@ -99,7 +101,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Our class {a1} in Moscow next month.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will be', 'verb_hint' => 'be'],
@@ -110,7 +112,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'When my uncle {a1} young, he {a2} a singer.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'was', 'verb_hint' => 'be'],
@@ -122,7 +124,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'My friend {a1} at home now.',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -133,7 +135,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'She {a1} 18 in two days. She {a2} happy.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will be', 'verb_hint' => 'be'],
@@ -145,7 +147,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Where {a1} Lucy? She {a2} in the bathroom.',
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -157,7 +159,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Will you {a1} at school tomorrow?',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'be', 'verb_hint' => 'be'],
@@ -168,7 +170,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Where {a1} you now? - I {a2} at the cinema.',
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
@@ -180,7 +182,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Henry {a1} ill three weeks ago.',
                 'difficulty' => 1,
                 'category_id' => $cat_past,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'was', 'verb_hint' => 'be'],
@@ -191,7 +193,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'The teacher {a1} in the classroom.',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -202,7 +204,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Where {a1} they yesterday? - They {a2} in the restaurant.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'were', 'verb_hint' => 'be'],
@@ -214,7 +216,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'I {a1} Mr. White. Nice to meet you!',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'am', 'verb_hint' => 'be'],
@@ -225,7 +227,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'This {a1} your apple. Take it!',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -236,7 +238,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'There {a1} many books on the shelf.',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
@@ -247,7 +249,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Where {a1} they from? - They {a2} from Wales.',
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
@@ -259,7 +261,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Who {a1} you? - I {a2} Nick Green.',
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
@@ -271,7 +273,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'What {a1} you? - I {a2} a bus-driver.',
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
@@ -283,7 +285,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => '{a1} there any honey in the jar? - Yes, it {a2}.',
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -295,7 +297,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Why {a1} your brother here?',
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -306,7 +308,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => "Don't phone him. He {a1} out.",
                 'difficulty' => 2,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -317,7 +319,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'What {a1} your favourite book?',
                 'difficulty' => 1,
                 'category_id' => $cat_present,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
@@ -328,7 +330,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'My parents {a1} in Hawaii last month.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'were', 'verb_hint' => 'be'],
@@ -339,7 +341,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'The boss {a1} here in a minute.',
                 'difficulty' => 2,
                 'category_id' => $cat_future,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'will be', 'verb_hint' => 'be'],
@@ -350,7 +352,7 @@ class ToBeTenseSeeder extends Seeder
                 'question' => 'Rosie {a1} at hairdresser\'s last week.',
                 'difficulty' => 1,
                 'category_id' => $cat_past,
-                'source' => "To Be. Fill in the gaps with the verb 'to be' in Present, Past, Future forms.",
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'was', 'verb_hint' => 'be'],
@@ -364,7 +366,7 @@ class ToBeTenseSeeder extends Seeder
                 'question'    => $d['question'],
                 'category_id' => $d['category_id'],
                 'difficulty'  => $d['difficulty'],
-                'source'      => $d['source'],
+                'source_id'   => $d['source_id'],
                 'flag'        => $d['flag'],
             ]);
 

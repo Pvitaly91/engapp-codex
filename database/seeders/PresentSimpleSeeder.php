@@ -5,18 +5,22 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\QuestionAnswer;
+use App\Models\Source;
 
 class PresentSimpleSeeder extends Seeder
 {
     public function run()
     {
         $categoryId = 2; // ID категорії для Present Simple
+        $sourceId = Source::firstOrCreate([
+            'name' => 'Present simple. Complete the sentences with the correct variant.'
+        ])->id;
 
         $data = [
             [
                 'question' => 'Bob always {a1} tea in the morning.',
                 'difficulty' => 1,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -30,7 +34,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'We {a1} to the music every day.',
                 'difficulty' => 1,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -44,7 +48,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'Mary usually {a1} TV in the evening.',
                 'difficulty' => 2,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -58,7 +62,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'The girls often {a1} with the dolls.',
                 'difficulty' => 2,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -72,7 +76,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'They {a1} their homework every day.',
                 'difficulty' => 1,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -86,7 +90,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'I {a1} watch TV after school.',
                 'difficulty' => 2,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -100,7 +104,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'My sister {a1} play tennis.',
                 'difficulty' => 3,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -114,7 +118,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'Marta {a1} her dad’s car.',
                 'difficulty' => 2,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -128,7 +132,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'The baby {a1} every night.',
                 'difficulty' => 2,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -142,7 +146,7 @@ class PresentSimpleSeeder extends Seeder
             [
                 'question' => 'The birds {a1} in the sky.',
                 'difficulty' => 1,
-                'source' => 'Present simple. Complete the sentences with the correct variant.',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     [
@@ -160,7 +164,7 @@ class PresentSimpleSeeder extends Seeder
                 'question'    => $d['question'],
                 'category_id' => $categoryId,
                 'difficulty'  => $d['difficulty'],
-                'source'      => $d['source'],
+                'source_id'   => $d['source_id'],
                 'flag'        => $d['flag'],
             ]);
 

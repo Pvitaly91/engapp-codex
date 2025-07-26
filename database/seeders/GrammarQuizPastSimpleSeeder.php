@@ -7,19 +7,21 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\Category;
+use App\Models\Source;
 
 class GrammarQuizPastSimpleSeeder extends Seeder
 {
     public function run()
     {
         $cat_past = Category::firstOrCreate(['name' => 'past'])->id;
+        $sourceId = Source::firstOrCreate(['name' => 'Grammar Quiz: Past Simple'])->id;
 
         $data = [
             [
                 'question' => 'My family and I {a1} in London when I was young.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'lived', 'verb_hint' => 'live'],
@@ -30,7 +32,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'We {a1} some sandwiches and fresh fruit to eat for lunch.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'bought', 'verb_hint' => 'buy'],
@@ -41,7 +43,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'They wanted to {a1} a movie but there were no more tickets.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'see', 'verb_hint' => 'see'],
@@ -52,7 +54,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'Did you have a good time? — Yes, I {a1}.',
                 'difficulty' => 1,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'had', 'verb_hint' => 'have'],
@@ -63,7 +65,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'He didn’t {a1} me because I was behind the tree.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'see', 'verb_hint' => 'see'],
@@ -74,7 +76,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => '{a1} you a good student in school? — Yes, I was.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'Were', 'verb_hint' => 'be'],
@@ -85,7 +87,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'When did they {a1} back to their country?',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'fly', 'verb_hint' => 'fly'],
@@ -96,7 +98,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'They {a1} back to their country after a few weeks.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'flew', 'verb_hint' => 'fly'],
@@ -107,7 +109,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'Did you {a1} lots of interesting photos on your holiday?',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'take', 'verb_hint' => 'take'],
@@ -118,7 +120,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'We had a great time and we {a1} lots of fun and exciting things.',
                 'difficulty' => 1,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'did', 'verb_hint' => 'do'],
@@ -129,7 +131,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'Why {a1} you finish your math homework last week?',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "didn't", 'verb_hint' => 'do'],
@@ -140,7 +142,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'He {a1} see a dentist yesterday because he had a toothache.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'had to', 'verb_hint' => 'have to'],
@@ -151,7 +153,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'I wanted to {a1}, but I couldn’t. I had to stay and help my friend.',
                 'difficulty' => 1,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'go', 'verb_hint' => 'go'],
@@ -162,7 +164,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => '{a1} they late or on time yesterday afternoon?',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'Were', 'verb_hint' => 'be'],
@@ -173,7 +175,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => 'She didn’t answer the phone because she {a1} at home.',
                 'difficulty' => 1,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'wasn\'t', 'verb_hint' => 'be'],
@@ -184,7 +186,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question' => '{a1} they tired after the long trip? — Yes, they {a2}.',
                 'difficulty' => 2,
                 'category_id' => $cat_past,
-                'source' => 'Grammar Quiz: Past Simple',
+                'source_id' => $sourceId,
                 'flag' => 0,
                 'answers' => [
                     ['marker' => 'a1', 'answer' => 'Were', 'verb_hint' => 'be'],
@@ -199,7 +201,7 @@ class GrammarQuizPastSimpleSeeder extends Seeder
                 'question'    => $d['question'],
                 'category_id' => $d['category_id'],
                 'difficulty'  => $d['difficulty'],
-                'source'      => $d['source'],
+                'source_id'   => $d['source_id'],
                 'flag'        => $d['flag'],
             ]);
             foreach ($d['answers'] as $ans) {

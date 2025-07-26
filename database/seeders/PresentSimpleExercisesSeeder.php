@@ -7,12 +7,19 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\Category;
+use App\Models\Source;
 
 class PresentSimpleExercisesSeeder extends Seeder
 {
     public function run()
     {
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
+        $source1 = Source::firstOrCreate([
+            'name' => 'Present Simple Exercises: Put the verbs in the correct form of the simple present.'
+        ])->id;
+        $source2 = Source::firstOrCreate([
+            'name' => 'Present Simple Exercises: Match the verbs in the box with the sentences and rewrite them in the correct form.'
+        ])->id;
 
         // SECTION 1
         $section1 = [
@@ -177,7 +184,7 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,
-                'source'      => 'Present Simple Exercises: Put the verbs in the correct form of the simple present.',
+                'source_id'   => $source1,
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {
@@ -201,7 +208,7 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,
-                'source'      => 'Present Simple Exercises: Match the verbs in the box with the sentences and rewrite them in the correct form.',
+                'source_id'   => $source2,
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {

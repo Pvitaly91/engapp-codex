@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\Source;
 
 class PastSimpleRegularSeeder extends Seeder
 {
@@ -13,6 +14,7 @@ class PastSimpleRegularSeeder extends Seeder
     {
         // Категорія Past Simple (1)
         $cat_past = 1;
+        $sourceId = Source::firstOrCreate(['name' => 'Past Simple Regular Verbs'])->id;
 
         $questions = [
             [
@@ -163,7 +165,7 @@ class PastSimpleRegularSeeder extends Seeder
                 'difficulty'  => 2,
                 'category_id' => $cat_past,
                 'flag'        => 0,
-                'source'      => 'Past Simple Regular Verbs',
+                'source_id'   => $sourceId,
             ]);
             foreach ($data['answers'] as $ans) {
                 QuestionAnswer::create([
