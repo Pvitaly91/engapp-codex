@@ -45,7 +45,7 @@ class GrammarTestController extends Controller
     public function showSavedTest($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
-        $questions = \App\Models\Question::with(['category', 'answers', 'options'])
+        $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option'])
             ->whereIn('id', $test->questions)
             ->get();
             $manualInput = !empty($test->filters['manual_input']);
@@ -124,7 +124,7 @@ class GrammarTestController extends Controller
             $take = $questionsPerGroup + ($remaining > 0 ? 1 : 0);
             if ($remaining > 0) $remaining--;
     
-            $query = \App\Models\Question::with(['category', 'answers', 'options', 'source'])
+            $query = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
                 ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
 
             if ($groupBy === 'source_id') {
@@ -184,15 +184,16 @@ class GrammarTestController extends Controller
     public function autocomplete(Request $request)
     {
         $q = $request->input('q', '');
-        $query = \App\Models\QuestionAnswer::query();
+        $query = \App\Models\QuestionAnswer::query()
+            ->join('question_options', 'question_answers.option_id', '=', 'question_options.id');
     
         if ($q) {
-            $query->where('answer', 'like', '%' . $q . '%')
-                ->orderByRaw('answer LIKE ? DESC', [$q . '%']) // Сортуємо так, щоб ті, що починаються з $q були вище
-                ->orderBy('answer'); // Додаткове сортування по алфавіту (можна прибрати, якщо не потрібно)
+            $query->where('question_options.option', 'like', '%' . $q . '%')
+                ->orderByRaw('question_options.option LIKE ? DESC', [$q . '%'])
+                ->orderBy('question_options.option');
         }
     
-        $answers = $query->distinct()->limit(5)->pluck('answer');
+        $answers = $query->distinct()->limit(5)->pluck('question_options.option');
     
         return response()->json($answers);
     }
@@ -203,7 +204,7 @@ class GrammarTestController extends Controller
     {
         $questionId = $request->input('question_id');
         $answers = $request->input('answers', []);
-        $question = \App\Models\Question::with('answers')->find($questionId);
+        $question = \App\Models\Question::with('answers.option')->find($questionId);
         if(!$question) {
             return response()->json(['result' => 'not_found']);
         }
@@ -211,8 +212,9 @@ class GrammarTestController extends Controller
         $correctArr = [];
         foreach ($answers as $marker => $answer) {
             $answerRow = $question->answers->where('marker', $marker)->first();
-            $correctArr[$marker] = $answerRow ? $answerRow->answer : '';
-            if(!$answerRow || mb_strtolower(trim($answer)) !== mb_strtolower($answerRow->answer)) {
+            $correctValue = $answerRow?->option?->option ?? '';
+            $correctArr[$marker] = $correctValue;
+            if(!$answerRow || mb_strtolower(trim($answer)) !== mb_strtolower($correctValue)) {
                 $allCorrect = false;
             }
         }
@@ -241,7 +243,7 @@ class GrammarTestController extends Controller
 
     public function check(Request $request)
     {
-        $questions = Question::with(['answers', 'category'])->whereIn('id', array_keys($request->get('questions', [])))->get();
+        $questions = Question::with(['answers.option', 'category'])->whereIn('id', array_keys($request->get('questions', [])))->get();
         $results = [];
 
         foreach ($questions as $question) {
@@ -253,7 +255,8 @@ class GrammarTestController extends Controller
                 $inputName = "question_{$question->id}_{$ans->marker}";
                 $userAnswer = $request->input($inputName, '');
                 $userAnswers[$ans->marker] = $userAnswer;
-                if (strtolower(trim($userAnswer)) === strtolower($ans->answer)) {
+                $correctValue = $ans->option->option;
+                if (strtolower(trim($userAnswer)) === strtolower($correctValue)) {
                     $correctCount++;
                 }
             }
@@ -262,7 +265,7 @@ class GrammarTestController extends Controller
                 'question' => $question,
                 'user_answers' => $userAnswers,
                 'is_correct' => ($correctCount === $total),
-                'correct_answers' => $question->answers->pluck('answer', 'marker'),
+                'correct_answers' => $question->answers->mapWithKeys(fn($a) => [$a->marker => $a->option->option]),
             ];
         }
 

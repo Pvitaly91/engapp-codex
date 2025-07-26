@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\VerbHint;
 use App\Models\Source;
 
 class DoDoesIsAreSeeder extends Seeder
@@ -50,14 +51,28 @@ class DoDoesIsAreSeeder extends Seeder
                 'flag'        => 0,
                 'source_id'   => $sourceId,
             ]);
+
+            $answerOption = QuestionOption::firstOrCreate([
+                'question_id' => $q->id,
+                'option'      => $data[1],
+            ]);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
-                'answer'      => $data[1],
-                'verb_hint'   => 'choose do/does/am/is/are',
+                'option_id'   => $answerOption->id,
             ]);
+            $hintOption = QuestionOption::firstOrCreate([
+                'question_id' => $q->id,
+                'option'      => 'choose do/does/am/is/are',
+            ]);
+            VerbHint::firstOrCreate([
+                'question_id' => $q->id,
+                'marker'      => 'a1',
+                'option_id'   => $hintOption->id,
+            ]);
+
             foreach($options as $opt) {
-                QuestionOption::create([
+                QuestionOption::firstOrCreate([
                     'question_id' => $q->id,
                     'option'      => $opt,
                 ]);

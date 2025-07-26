@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\VerbHint;
 use App\Models\Category;
 use App\Models\Source;
 
@@ -79,14 +80,18 @@ class ThisThatTheseThoseExercise2Seeder extends Seeder
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {
+                $option = QuestionOption::firstOrCreate([
+                    'question_id' => $q->id,
+                    'option'      => $ans['answer'],
+                ]);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
+                    'option_id'   => $option->id,
                 ]);
             }
             foreach ($d['options'] as $opt) {
-                QuestionOption::create([
+                QuestionOption::firstOrCreate([
                     'question_id' => $q->id,
                     'option'      => $opt,
                 ]);

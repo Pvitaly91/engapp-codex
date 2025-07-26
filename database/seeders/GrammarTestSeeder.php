@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\QuestionAnswer;
+use App\Models\VerbHint;
 
 class GrammarTestSeeder extends Seeder
 {
@@ -264,18 +265,32 @@ class GrammarTestSeeder extends Seeder
                 'category_id' => $cats[$q['category']]->id,
             ]);
             foreach ($q['options'] as $option) {
-                QuestionOption::create([
+                QuestionOption::firstOrCreate([
                     'question_id' => $question->id,
                     'option' => $option,
                 ]);
             }
             foreach ($q['answers'] as $marker => $answerData) {
+                $opt = QuestionOption::firstOrCreate([
+                    'question_id' => $question->id,
+                    'option' => $answerData['answer'],
+                ]);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $question->id,
                     'marker' => $marker,
-                    'answer' => $answerData['answer'],
-                    'verb_hint' => $answerData['verb_hint'] ?? null,
+                    'option_id' => $opt->id,
                 ]);
+                if (!empty($answerData['verb_hint'])) {
+                    $hintOpt = QuestionOption::firstOrCreate([
+                        'question_id' => $question->id,
+                        'option' => $answerData['verb_hint'],
+                    ]);
+                    VerbHint::firstOrCreate([
+                        'question_id' => $question->id,
+                        'marker' => $marker,
+                        'option_id' => $hintOpt->id,
+                    ]);
+                }
             }
         }
     }
