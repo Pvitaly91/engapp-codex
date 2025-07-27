@@ -69,10 +69,16 @@ class PronounWordsSeeder extends Seeder
                 foreach ($items as $item) {
                     $word = Word::firstOrCreate(['word' => $item['en']]);
 
-                    Translate::updateOrCreate(
-                        ['word_id' => $word->id, 'lang' => 'uk'],
-                        ['translation' => $item['uk']]
-                    );
+                    if (! Translate::where('word_id', $word->id)
+                        ->where('lang', 'uk')
+                        ->where('translation', $item['uk'])
+                        ->exists()) {
+                        Translate::create([
+                            'word_id' => $word->id,
+                            'lang' => 'uk',
+                            'translation' => $item['uk'],
+                        ]);
+                    }
 
                     $word->tags()->syncWithoutDetaching([
                         $pronounTag->id,

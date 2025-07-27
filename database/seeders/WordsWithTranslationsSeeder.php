@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\Word;
+use App\Models\Tag;
 use App\Models\Translate;
+use App\Models\Word;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class WordsWithTranslationsSeeder extends Seeder
@@ -17,24 +18,31 @@ class WordsWithTranslationsSeeder extends Seeder
 
         DB::beginTransaction();
         try {
+            $popularTag = Tag::firstOrCreate(['name' => '1000_most_popular']);
             foreach ($rows as $row) {
                 $en = trim($row[0]);
                 $uk = trim($row[1]);
-                if (empty($en) || empty($uk)) continue;
+                if (empty($en) || empty($uk)) {
+                    continue;
+                }
 
                 // Створюємо слово
                 $word = Word::firstOrCreate(['word' => $en]);
 
-                // Додаємо переклад
-                Translate::updateOrCreate(
-                    [
+                // Додаємо переклад якщо такого ще немає
+                if (! Translate::where('word_id', $word->id)
+                    ->where('lang', 'uk')
+                    ->where('translation', $uk)
+                    ->exists()) {
+                    Translate::create([
                         'word_id' => $word->id,
                         'lang' => 'uk',
-                    ],
-                    [
                         'translation' => $uk,
-                    ]
-                );
+                    ]);
+                }
+
+                // Прив'язуємо тег
+                $word->tags()->syncWithoutDetaching([$popularTag->id]);
             }
             DB::commit();
         } catch (\Exception $e) {

@@ -12,6 +12,7 @@ class PronounsTestTest extends TestCase
     {
         Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_18_182347_create_words_table.php']);
         Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_18_182357_create_translates_table.php']);
+        Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_31_000001_update_translates_unique_index.php']);
         Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_30_000001_create_tags_table.php']);
         Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_30_000002_create_tag_word_table.php']);
 
