@@ -2,86 +2,98 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Word;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class WordsTestController extends Controller
 {
+    private function getWords(array $tags): Collection
+    {
+        $query = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags']);
+
+        if (! empty($tags)) {
+            $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tags));
+        }
+
+        return $query->get();
+    }
+
     public function index(Request $request)
     {
-        $lang = $request->get('lang', 'uk');
+        $selectedTags = $request->input('tags', session('words_selected_tags', []));
+
+        if ($request->has('tags') && $selectedTags !== session('words_selected_tags')) {
+            session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
+        }
+        session(['words_selected_tags' => $selectedTags]);
+
         $feedback = session('feedback');
         $stats = session('words_test_stats', [
             'correct' => 0,
             'wrong' => 0,
             'total' => 0,
         ]);
+        $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
 
-        // Випадково: 0 — слово англ, 1 — слово укр
-        $questionType = rand(0, 1);
+        $queue = session('words_queue');
+        $totalCount = session('words_total_count', 0);
 
-        if ($questionType === 0) {
-            // EN -> UK (як було)
-            $word = Word::with(['translates' => function($q) use ($lang) {
-                $q->where('lang', $lang);
-            }])->inRandomOrder()->first();
+        if (! $queue) {
+            $words = $this->getWords($selectedTags);
+            $queue = $words->pluck('id')->shuffle()->toArray();
+            $totalCount = count($queue);
+            session(['words_queue' => $queue, 'words_total_count' => $totalCount]);
+        }
 
-            if (!$word || !$word->translates->first()) {
-                return view('words.test', ['word' => null]);
-            }
-
-            $correct = $word->translates->first()->translation;
-
-            $otherTranslations = \App\Models\Translate::where('lang', $lang)
-                ->where('translation', '!=', $correct)
-                ->inRandomOrder()
-                ->limit(4)
-                ->pluck('translation')
-                ->toArray();
-
-            $options = $otherTranslations;
-            $options[] = $correct;
-            shuffle($options);
-
-            return view('words.test', [
-                'word' => $word,
-                'options' => $options,
-                'lang' => $lang,
-                'feedback' => $feedback,
+        if (empty($queue) || $percentage >= 95) {
+            return view('words.complete', [
                 'stats' => $stats,
-                'questionType' => 'en_to_uk', // для Blade
-            ]);
-        } else {
-            // UK -> EN
-            // Випадковий переклад
-            $translate = \App\Models\Translate::where('lang', $lang)->inRandomOrder()->first();
-
-            if (!$translate || !$translate->word) {
-                return view('words.test', ['word' => null]);
-            }
-
-            $correctEn = $translate->word->word;
-
-            $otherWords = Word::where('id', '!=', $translate->word_id)
-                ->inRandomOrder()
-                ->limit(4)
-                ->pluck('word')
-                ->toArray();
-
-            $options = $otherWords;
-            $options[] = $correctEn;
-            shuffle($options);
-
-            return view('words.test', [
-                'word' => $translate->word, // тут важливо: word — модель Word!
-                'translation' => $translate->translation, // слово українською
-                'options' => $options,
-                'lang' => $lang,
-                'feedback' => $feedback,
-                'stats' => $stats,
-                'questionType' => 'uk_to_en',
+                'percentage' => $percentage,
+                'totalCount' => $totalCount,
+                'selectedTags' => $selectedTags,
+                'allTags' => Tag::all(),
             ]);
         }
+
+        $wordId = array_shift($queue);
+        session(['words_queue' => $queue]);
+
+        $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])->find($wordId);
+
+        $otherWords = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
+            ->when($selectedTags, fn ($q) => $q->whereHas('tags', fn ($q2) => $q2->whereIn('name', $selectedTags)))
+            ->where('id', '!=', $wordId)
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
+
+        $questionType = rand(0, 1) === 0 ? 'en_to_uk' : 'uk_to_en';
+
+        if ($questionType === 'en_to_uk') {
+            $correct = optional($word->translates->first())->translation ?? '';
+            $options = $otherWords->map(fn ($w) => optional($w->translates->first())->translation ?? '')->toArray();
+        } else {
+            $correct = $word->word;
+            $options = $otherWords->pluck('word')->toArray();
+        }
+
+        $options[] = $correct;
+        shuffle($options);
+
+        return view('words.test', [
+            'word' => $word,
+            'translation' => optional($word->translates->first())->translation ?? '',
+            'options' => $options,
+            'questionType' => $questionType,
+            'feedback' => $feedback,
+            'stats' => $stats,
+            'percentage' => $percentage,
+            'totalCount' => $totalCount,
+            'selectedTags' => $selectedTags,
+            'allTags' => Tag::all(),
+        ]);
     }
 
     public function check(Request $request)
@@ -89,11 +101,9 @@ class WordsTestController extends Controller
         $request->validate([
             'word_id' => 'required|exists:words,id',
             'answer' => 'required|string',
-            'lang' => 'required|string',
             'questionType' => 'required|in:en_to_uk,uk_to_en',
         ]);
 
-        $lang = $request->input('lang', 'uk');
         $stats = session('words_test_stats', [
             'correct' => 0,
             'wrong' => 0,
@@ -101,17 +111,11 @@ class WordsTestController extends Controller
         ]);
         $stats['total']++;
 
-        if ($request->input('questionType') === 'en_to_uk') {
-            $word = Word::with(['translates' => function($q) use ($lang) {
-                $q->where('lang', $lang);
-            }])->findOrFail($request->input('word_id'));
-            $correct = optional($word->translates->first())->translation ?? '';
-        } else {
-            $word = Word::findOrFail($request->input('word_id'));
-            // знаходимо переклад
-            $translate = $word->translates()->where('lang', $lang)->first();
-            $correct = $word->word;
-        }
+        $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])->findOrFail($request->input('word_id'));
+
+        $correct = $request->input('questionType') === 'en_to_uk'
+            ? optional($word->translates->first())->translation ?? ''
+            : $word->word;
 
         $isCorrect = trim($request->input('answer')) === trim($correct);
 

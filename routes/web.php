@@ -31,7 +31,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
-use App\Http\Controllers\PronounsTestController;
 use App\Http\Controllers\WordsTestController;
 
 Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
@@ -41,15 +40,6 @@ Route::post('/words/test/reset', function () {
 
     return redirect()->route('words.test');
 })->name('words.test.reset');
-
-Route::get('/pronouns/test', [PronounsTestController::class, 'index'])->name('pronouns.test');
-Route::post('/pronouns/test/check', [PronounsTestController::class, 'check'])->name('pronouns.test.check');
-Route::post('/pronouns/test/reset', function () {
-    session()->forget('pronouns_test_stats');
-    session()->forget('pronouns_queue');
-
-    return redirect()->route('pronouns.test');
-})->name('pronouns.test.reset');
 
 Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
 Route::post('/grammar-test', [GrammarTestController::class, 'generate'])->name('grammar-test.generate');

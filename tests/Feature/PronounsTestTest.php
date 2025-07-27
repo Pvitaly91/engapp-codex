@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use Illuminate\Support\Facades\Artisan;
+use Tests\TestCase;
 
 class PronounsTestTest extends TestCase
 {
@@ -17,7 +17,7 @@ class PronounsTestTest extends TestCase
 
         $this->seed(\Database\Seeders\PronounWordsSeeder::class);
 
-        $response = $this->get('/pronouns/test');
+        $response = $this->get('/words/test?tags[]=pronouns');
         $response->assertStatus(200);
     }
 }

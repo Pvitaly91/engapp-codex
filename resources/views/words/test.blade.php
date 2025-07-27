@@ -4,52 +4,68 @@
 
 @section('content')
     <div class="max-w-xl mx-auto mt-8 p-8 bg-white rounded-xl shadow">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Test your vocabulary</h2>
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">Words Test</h2>
 
-        {{-- Статистика --}}
+        <form method="GET" action="{{ route('words.test') }}" class="mb-4">
+            <div class="mb-2 text-sm">Filter Tags:</div>
+            <div class="flex flex-wrap gap-2">
+                @foreach($allTags as $tag)
+                    <label class="text-sm">
+                        <input type="checkbox" name="tags[]" value="{{ $tag->name }}" class="mr-1" {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}>
+                        {{ $tag->name }}
+                    </label>
+                @endforeach
+            </div>
+            <button type="submit" class="bg-gray-200 px-4 py-1 mt-2 rounded hover:bg-gray-300 transition text-sm">Apply</button>
+        </form>
+
         @if(isset($stats))
             <div class="mb-4 flex gap-4 text-gray-600 text-base">
-                <div>Всього: <b>{{ $stats['total'] }}</b></div>
-                <div>Вірно: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
-                <div>Помилки: <b class="text-red-700">{{ $stats['wrong'] }}</b></div>
+                <div>Total: <b>{{ $stats['total'] }} / {{ $totalCount }}</b></div>
+                <div>Correct: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
+                <div>Wrong: <b class="text-red-700">{{ $stats['wrong'] }}</b></div>
+                <div>Percent: <b>{{ $percentage }}%</b></div>
             </div>
+            <form method="POST" action="{{ route('words.test.reset') }}" class="mb-4">
+                @csrf
+                <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
+            </form>
         @endif
 
-        {{-- Flash feedback про попередню відповідь --}}
         @if(isset($feedback))
             <div class="mb-4">
                 @if($feedback['isCorrect'])
                     <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-2">
-                        Вірно! 🎉 — <b>{{ $feedback['word'] }}</b> = <b>{{ $feedback['correctAnswer'] }}</b>
+                        Correct! <b>{{ $feedback['word'] }}</b> = <b>{{ $feedback['correctAnswer'] }}</b>
                     </div>
                 @else
                     <div class="bg-red-100 text-red-800 px-4 py-2 rounded mb-2">
-                        Неправильно для <b>{{ $feedback['word'] }}</b>.<br>
-                        Ваша відповідь: <b>{{ $feedback['userAnswer'] }}</b><br>
-                        Правильно: <b>{{ $feedback['correctAnswer'] }}</b>
+                        Wrong for <b>{{ $feedback['word'] }}</b>.<br>
+                        Your answer: <b>{{ $feedback['userAnswer'] }}</b><br>
+                        Correct: <b>{{ $feedback['correctAnswer'] }}</b>
                     </div>
                 @endif
             </div>
         @endif
 
         @if($word)
-            <form method="POST" action="{{ route('words.test.check') }}">
+            <form method="POST" action="{{ route('words.test.check') }}" class="mt-4">
                 @csrf
                 <input type="hidden" name="word_id" value="{{ $word->id }}">
-                <input type="hidden" name="lang" value="{{ $lang }}">
                 <input type="hidden" name="questionType" value="{{ $questionType }}">
 
                 <div class="mb-6">
+                    <div class="text-sm text-gray-500 mb-1">
+                        @foreach($word->tags as $tag)
+                            {{ $tag->name }}@if(!$loop->last),@endif
+                        @endforeach
+                    </div>
                     @if($questionType == 'en_to_uk')
-                        <div class="text-lg mb-2">Оберіть правильний <b>український переклад</b> для слова:</div>
-                        <div class="text-3xl font-bold text-blue-900 mb-6">
-                            {{ $word->word }}
-                        </div>
+                        <div class="text-lg mb-2">Choose the correct <b>Ukrainian translation</b> for:</div>
+                        <div class="text-3xl font-bold text-blue-900 mb-6">{{ $word->word }}</div>
                     @else
-                        <div class="text-lg mb-2">Оберіть правильне <b>англійське слово</b> для перекладу:</div>
-                        <div class="text-3xl font-bold text-blue-900 mb-6">
-                            {{ $translation }}
-                        </div>
+                        <div class="text-lg mb-2">Choose the correct <b>English word</b> for:</div>
+                        <div class="text-3xl font-bold text-blue-900 mb-6">{{ $translation }}</div>
                     @endif
 
                     <div class="flex flex-col gap-3">
@@ -63,11 +79,12 @@
                 </div>
 
                 <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition">
-                    Перевірити
+                    Check
                 </button>
             </form>
         @else
-            <div class="text-gray-500">Немає слів у словнику!</div>
+            <div class="text-gray-500">No words available!</div>
         @endif
     </div>
 @endsection
+
