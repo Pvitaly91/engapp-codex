@@ -29,6 +29,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
 use App\Http\Controllers\WordsTestController;
+use App\Http\Controllers\PronounsTestController;
 
 Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
 Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
@@ -36,6 +37,20 @@ Route::post('/words/test/reset', function() {
     session()->forget('words_test_stats');
     return redirect()->route('words.test');
 })->name('words.test.reset');
+
+Route::get('/pronouns/test', [PronounsTestController::class, 'index'])->name('pronouns.test');
+Route::post('/pronouns/test/check', [PronounsTestController::class, 'check'])->name('pronouns.test.check');
+Route::post('/pronouns/test/reset', function() {
+    session()->forget('pronouns_test_stats');
+    return redirect()->route('pronouns.test');
+})->name('pronouns.test.reset');
+Route::get('/pronouns/image', function() {
+    $path = storage_path('test1.jpg');
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+    abort(404);
+})->name('pronouns.image');
 
 
 Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
