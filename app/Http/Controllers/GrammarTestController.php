@@ -168,7 +168,8 @@ class GrammarTestController extends Controller
     
         // Для фільтра — всі унікальні source
         $sources = Source::orderBy('name')->get();
-        $allTags = \App\Models\Tag::all();
+        // Show only tags that have at least one question assigned
+        $allTags = \App\Models\Tag::whereHas('questions')->get();
 
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
@@ -238,7 +239,8 @@ class GrammarTestController extends Controller
         $minDifficulty = Question::min('difficulty') ?? 1;
         $maxDifficulty = Question::max('difficulty') ?? 10;
         $maxQuestions = Question::count();
-        $allTags = \App\Models\Tag::all();
+        // Show only tags that have at least one question assigned
+        $allTags = \App\Models\Tag::whereHas('questions')->get();
         $selectedTags = [];
 
         return view('grammar-test', [

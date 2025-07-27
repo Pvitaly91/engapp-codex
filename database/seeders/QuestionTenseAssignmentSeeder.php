@@ -17,8 +17,6 @@ class QuestionTenseAssignmentSeeder extends Seeder
             'present perfect' => 'Present Perfect',
         ];
 
-        $tags = Tag::whereIn('name', $map)->get()->keyBy('name');
-
         $questions = Question::with(['category', 'answers.option'])->get();
         foreach ($questions as $q) {
             $tagName = null;
@@ -48,10 +46,13 @@ class QuestionTenseAssignmentSeeder extends Seeder
                 }
             }
 
-            if ($tagName) {
-                $tag = Tag::firstOrCreate(['name' => $tagName]);
-                $q->tags()->syncWithoutDetaching([$tag->id]);
+            if (!$tagName) {
+                // Fallback to Present Simple if nothing matched
+                $tagName = 'Present Simple';
             }
+
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $q->tags()->syncWithoutDetaching([$tag->id]);
         }
     }
 }
