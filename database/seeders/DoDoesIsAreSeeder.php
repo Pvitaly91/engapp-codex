@@ -11,6 +11,13 @@ use App\Models\Source;
 
 class DoDoesIsAreSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+        $question->options()->syncWithoutDetaching($option->id);
+        return $option;
+    }
+
     public function run()
     {
         $cat_present = 2; // Present Simple (заміни під свою структуру)
@@ -52,19 +59,13 @@ class DoDoesIsAreSeeder extends Seeder
                 'source_id'   => $sourceId,
             ]);
 
-            $answerOption = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => $data[1],
-            ]);
+            $answerOption = $this->attachOption($q, $data[1]);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'option_id'   => $answerOption->id,
             ]);
-            $hintOption = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => 'choose do/does/am/is/are',
-            ]);
+            $hintOption = $this->attachOption($q, 'choose do/does/am/is/are');
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
@@ -72,10 +73,7 @@ class DoDoesIsAreSeeder extends Seeder
             ]);
 
             foreach($options as $opt) {
-                QuestionOption::firstOrCreate([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
+                $this->attachOption($q, $opt);
             }
         }
     }
