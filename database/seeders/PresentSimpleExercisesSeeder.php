@@ -15,9 +15,13 @@ class PresentSimpleExercisesSeeder extends Seeder
     private function attachOption(Question $question, string $value, ?int $flag = null)
     {
         $option = QuestionOption::firstOrCreate(['option' => $value]);
-        $question->options()->syncWithoutDetaching([
-            $option->id => ['flag' => $flag]
-        ]);
+        $exists = $question->options()
+            ->wherePivot('option_id', $option->id)
+            ->wherePivot('flag', $flag)
+            ->exists();
+        if (! $exists) {
+            $question->options()->attach($option->id, ['flag' => $flag]);
+        }
         return $option;
     }
 
