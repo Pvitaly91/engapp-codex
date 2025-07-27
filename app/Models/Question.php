@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Tag;
 
 class Question extends Model
 {
@@ -29,10 +30,10 @@ class Question extends Model
             'question_option_question',
             'question_id',
             'option_id'
-            )->where(function ($query) {
-                $query->whereNull('question_option_question.flag')
-                    ->orWhere('question_option_question.flag', '=', 0);
-            })->withPivot('flag');
+        )->where(function ($query) {
+            $query->whereNull('question_option_question.flag')
+                ->orWhere('question_option_question.flag', '=', 0);
+        })->withPivot('flag');
     }
 
     public function answers()
@@ -44,5 +45,9 @@ class Question extends Model
     {
         return $this->hasMany(VerbHint::class);
     }
-}
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+}

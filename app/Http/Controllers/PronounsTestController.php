@@ -2,65 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Word;
 use Illuminate\Http\Request;
 
 class PronounsTestController extends Controller
 {
-    protected array $pronouns = [
-        'personal_subject' => [
-            ['en' => 'I', 'uk' => 'я'],
-            ['en' => 'you', 'uk' => 'ти'],
-            ['en' => 'he', 'uk' => 'він'],
-            ['en' => 'she', 'uk' => 'вона'],
-            ['en' => 'it', 'uk' => 'воно'],
-            ['en' => 'we', 'uk' => 'ми'],
-            ['en' => 'they', 'uk' => 'вони'],
-        ],
-        'personal_object' => [
-            ['en' => 'me', 'uk' => 'мене'],
-            ['en' => 'you', 'uk' => 'тебе'],
-            ['en' => 'him', 'uk' => 'його'],
-            ['en' => 'her', 'uk' => 'її'],
-            ['en' => 'it', 'uk' => 'його'],
-            ['en' => 'us', 'uk' => 'нас'],
-            ['en' => 'them', 'uk' => 'їх'],
-        ],
-        'possessive_adjective' => [
-            ['en' => 'my', 'uk' => 'мій'],
-            ['en' => 'your', 'uk' => 'твій'],
-            ['en' => 'his', 'uk' => 'його'],
-            ['en' => 'her', 'uk' => 'її'],
-            ['en' => 'its', 'uk' => 'його'],
-            ['en' => 'our', 'uk' => 'наш'],
-            ['en' => 'their', 'uk' => 'їх'],
-        ],
-        'possessive_pronoun' => [
-            ['en' => 'mine', 'uk' => 'моє'],
-            ['en' => 'yours', 'uk' => 'твоє'],
-            ['en' => 'his', 'uk' => 'його'],
-            ['en' => 'hers', 'uk' => 'її'],
-            ['en' => 'its', 'uk' => 'його'],
-            ['en' => 'ours', 'uk' => 'наш'],
-            ['en' => 'theirs', 'uk' => 'їх'],
-        ],
-        'reflexive' => [
-            ['en' => 'myself', 'uk' => 'себе'],
-            ['en' => 'yourself', 'uk' => 'себе'],
-            ['en' => 'himself', 'uk' => 'себе'],
-            ['en' => 'herself', 'uk' => 'себе'],
-            ['en' => 'itself', 'uk' => 'себе'],
-            ['en' => 'ourselves', 'uk' => 'себе'],
-            ['en' => 'themselves', 'uk' => 'себе'],
-        ],
-    ];
-
     private function allPronouns(): array
     {
+        $words = Word::with(['translates' => function ($q) {
+            $q->where('lang', 'uk');
+        }, 'tags'])
+            ->whereHas('tags', fn ($q) => $q->where('name', 'pronouns'))
+            ->get();
+
         $list = [];
-        foreach ($this->pronouns as $group => $items) {
-            foreach ($items as $item) {
-                $list[] = array_merge($item, ['group' => $group]);
-            }
+        foreach ($words as $word) {
+            $groupTag = $word->tags->firstWhere('name', '!=', 'pronouns');
+            $list[] = [
+                'en' => $word->word,
+                'uk' => optional($word->translates->first())->translation,
+                'group' => $groupTag?->name,
+            ];
         }
 
         return $list;

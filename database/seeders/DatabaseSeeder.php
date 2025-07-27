@@ -3,24 +3,23 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Category;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    
     public function run(): void
     {
 
-         $categories = [
+        $categories = [
             1 => 'Past',
             2 => 'Present',
             3 => 'Present Continuous',
             4 => 'Future',
             5 => 'Present Perfect',
-            6 => 'Conditionals'
+            6 => 'Conditionals',
         ];
-        
+
         foreach ($categories as $id => $name) {
             Category::firstOrCreate(['id' => $id], ['name' => $name]);
         }
@@ -45,6 +44,7 @@ class DatabaseSeeder extends Seeder
             ThisThatTheseThoseSeeder::class,
             ToBeTenseSeeder::class,
             WordsWithTranslationsSeeder::class,
+            PronounWordsSeeder::class,
         ]);
     }
 }
