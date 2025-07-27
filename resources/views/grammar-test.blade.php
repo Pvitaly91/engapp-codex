@@ -163,8 +163,8 @@
                 <div class="bg-white shadow rounded-2xl p-4 mb-4">
                     <div class="mb-2 flex items-center justify-between">
                         <span class="text-base font-bold">
-                            {{ $loop->iteration }}. Категорія:
-                            <span class="uppercase px-2 py-1 rounded text-xs 
+                            Категорія:
+                            <span class="uppercase px-2 py-1 rounded text-xs
                                 {{ $q->category->name === 'past' ? 'bg-red-100 text-red-700' : ($q->category->name === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700') }}">
                                 {{ ucfirst($q->category->name) }}
                             </span>
@@ -176,16 +176,9 @@
                             @endif
                             <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
                         </span>
-                        @if($q->tags->count())
-                            <span class="ml-2 text-xs text-gray-600">
-                                @foreach($q->tags as $tag)
-                                    <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="hover:underline">{{ $tag->name }}</a>@if(!$loop->last),@endif
-                                @endforeach
-                            </span>
-                        @endif
-
                     </div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2 items-baseline">
+                        <span class="font-bold mr-2">{{ $loop->iteration }}.</span>
                         @php
                             $questionText = $q->question;
                             preg_match_all('/\{a(\d+)\}/', $questionText, $matches);
@@ -278,6 +271,16 @@ HTML;
                         @endphp
                         <label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
                     </div>
+                    @if($q->tags->count())
+                        <div class="mt-1 space-x-1">
+                            @php
+                                $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
+                            @endphp
+                            @foreach($q->tags as $tag)
+                                <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-block px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
+                            @endforeach
+                        </div>
+                    @endif
                     @if(!empty($checkOneInput))
                         <button
                             type="button"
