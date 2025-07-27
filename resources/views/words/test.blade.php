@@ -11,20 +11,22 @@
             <div class="mb-2 text-sm">Filter Tags:</div>
             <div class="flex flex-wrap gap-2">
                 @foreach($allTags as $tag)
-                    <input
-                        type="checkbox"
-                        name="tags[]"
-                        value="{{ $tag->name }}"
-                        id="tag-{{ $tag->id }}"
-                        class="hidden peer"
-                        {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}
-                    >
-                    <label
-                        for="tag-{{ $tag->id }}"
-                        class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white"
-                    >
-                        {{ $tag->name }}
-                    </label>
+                    <div>
+                        <input
+                            type="checkbox"
+                            name="tags[]"
+                            value="{{ $tag->name }}"
+                            id="tag-{{ $tag->id }}"
+                            class="hidden peer"
+                            {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}
+                        >
+                        <label
+                            for="tag-{{ $tag->id }}"
+                            class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white"
+                        >
+                            {{ $tag->name }}
+                        </label>
+                    </div>
                 @endforeach
             </div>
             <div class="mt-2 flex gap-2">
