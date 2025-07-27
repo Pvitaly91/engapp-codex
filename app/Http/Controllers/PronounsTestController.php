@@ -78,6 +78,8 @@ class PronounsTestController extends Controller
             ? round(($stats['correct'] / $stats['total']) * 100, 2)
             : 0;
 
+        $totalCount = count($this->allPronouns());
+
         $queue = session('pronouns_queue');
         if (! $queue) {
             $queue = $this->allPronouns();
@@ -92,6 +94,7 @@ class PronounsTestController extends Controller
             return view('pronouns.complete', [
                 'stats' => $stats,
                 'percentage' => $percentage,
+                'totalCount' => $totalCount,
             ]);
         }
 
@@ -120,6 +123,7 @@ class PronounsTestController extends Controller
             'questionType' => $questionType,
             'stats' => $stats,
             'percentage' => $percentage,
+            'totalCount' => $totalCount,
             'feedback' => session('pronouns_test_feedback'),
         ]);
     }
