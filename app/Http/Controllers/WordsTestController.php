@@ -55,7 +55,7 @@ class WordsTestController extends Controller
             session(['words_queue' => $queue, 'words_total_count' => $totalCount]);
         }
 
-        if (empty($queue) || $percentage >= 95) {
+        if (empty($queue) || ($percentage >= 95 && $stats['total'] >= $totalCount)) {
             return view('words.complete', [
                 'stats' => $stats,
                 'percentage' => $percentage,
