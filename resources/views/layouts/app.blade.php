@@ -42,6 +42,7 @@
             <ul class="flex gap-6 text-gray-600 font-medium">
                 <li><a href="{{ url('/words/test') }}" class="hover:text-blue-500">Words</a></li>
                 <li><a href="{{ url('/tests') }}" class="hover:text-blue-500">Train</a></li>
+                <li><a href="{{ route('saved-tests.cards') }}" class="hover:text-blue-500">Tests Catalog</a></li>
                 <li><a href="{{ url('/about') }}" class="hover:text-blue-500">About</a></li>
             </ul>
             <!-- Dropdown у layout'і -->

@@ -289,5 +289,33 @@ class GrammarTestController extends Controller
         $tests = \App\Models\Test::latest()->paginate(20); // пагінація, якщо тестів багато
         return view('saved-tests', compact('tests'));
     }
+
+    public function catalog(Request $request)
+    {
+        $selectedTag = $request->input('tag');
+
+        $tests = \App\Models\Test::latest()->get();
+
+        $allQuestionIds = collect($tests)->flatMap(fn($t) => $t->questions)->unique();
+        $questions = Question::with('tags')->whereIn('id', $allQuestionIds)->get()->keyBy('id');
+
+        foreach ($tests as $test) {
+            $testQuestions = collect($test->questions)->map(fn($id) => $questions[$id] ?? null)->filter();
+            $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
+            $test->tag_names = $tagNames->unique()->values();
+        }
+
+        $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
+
+        if ($selectedTag) {
+            $tests = $tests->filter(fn($t) => $t->tag_names->contains($selectedTag))->values();
+        }
+
+        return view('saved-tests-cards', [
+            'tests' => $tests,
+            'tags' => $availableTags,
+            'selectedTag' => $selectedTag,
+        ]);
+    }
     
 }
