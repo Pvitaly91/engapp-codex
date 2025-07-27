@@ -11,6 +11,13 @@ use App\Models\VerbHint;
 
 class GrammarTestSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+        $question->options()->syncWithoutDetaching($option->id);
+        return $option;
+    }
+
     public function run(): void
     {
         $cats = [
@@ -265,26 +272,17 @@ class GrammarTestSeeder extends Seeder
                 'category_id' => $cats[$q['category']]->id,
             ]);
             foreach ($q['options'] as $option) {
-                QuestionOption::firstOrCreate([
-                    'question_id' => $question->id,
-                    'option' => $option,
-                ]);
+                $this->attachOption($question, $option);
             }
             foreach ($q['answers'] as $marker => $answerData) {
-                $opt = QuestionOption::firstOrCreate([
-                    'question_id' => $question->id,
-                    'option' => $answerData['answer'],
-                ]);
+                $opt = $this->attachOption($question, $answerData['answer']);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $question->id,
                     'marker' => $marker,
                     'option_id' => $opt->id,
                 ]);
                 if (!empty($answerData['verb_hint'])) {
-                    $hintOpt = QuestionOption::firstOrCreate([
-                        'question_id' => $question->id,
-                        'option' => $answerData['verb_hint'],
-                    ]);
+                    $hintOpt = $this->attachOption($question, $answerData['verb_hint']);
                     VerbHint::firstOrCreate([
                         'question_id' => $question->id,
                         'marker' => $marker,

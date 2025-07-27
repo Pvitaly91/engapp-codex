@@ -10,6 +10,13 @@ use App\Models\Source;
 
 class QuizPresentSimpleSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+        $question->options()->syncWithoutDetaching($option->id);
+        return $option;
+    }
+
     public function run()
     {
         $categoryId = 2; // Present Simple
@@ -189,20 +196,14 @@ class QuizPresentSimpleSeeder extends Seeder
             ]);
 
             foreach ($d['answers'] as $ans) {
-                $option = QuestionOption::firstOrCreate([
-                    'question_id' => $q->id,
-                    'option'      => $ans['answer'],
-                ]);
+                $option = $this->attachOption($q, $ans['answer']);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'option_id'   => $option->id,
                 ]);
                 if (!empty($ans['verb_hint'])) {
-                    $hintOption = QuestionOption::firstOrCreate([
-                        'question_id' => $q->id,
-                        'option'      => $ans['verb_hint'],
-                    ]);
+                    $hintOption = $this->attachOption($q, $ans['verb_hint']);
                     VerbHint::firstOrCreate([
                         'question_id' => $q->id,
                         'marker'      => $ans['marker'],
@@ -213,10 +214,7 @@ class QuizPresentSimpleSeeder extends Seeder
 
             if (!empty($d['options'])) {
                 foreach ($d['options'] as $opt) {
-                    QuestionOption::firstOrCreate([
-                        'question_id' => $q->id,
-                        'option'      => $opt,
-                    ]);
+                    $this->attachOption($q, $opt);
                 }
             }
         }

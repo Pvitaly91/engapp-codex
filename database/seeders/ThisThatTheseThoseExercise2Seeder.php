@@ -12,6 +12,13 @@ use App\Models\Source;
 
 class ThisThatTheseThoseExercise2Seeder extends Seeder
 {
+    private function attachOption(Question $question, string $value)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+        $question->options()->syncWithoutDetaching($option->id);
+        return $option;
+    }
+
     public function run()
     {
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
@@ -80,10 +87,7 @@ class ThisThatTheseThoseExercise2Seeder extends Seeder
                 'flag'        => 0,
             ]);
             foreach ($d['answers'] as $ans) {
-                $option = QuestionOption::firstOrCreate([
-                    'question_id' => $q->id,
-                    'option'      => $ans['answer'],
-                ]);
+                $option = $this->attachOption($q, $ans['answer']);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
@@ -91,10 +95,7 @@ class ThisThatTheseThoseExercise2Seeder extends Seeder
                 ]);
             }
             foreach ($d['options'] as $opt) {
-                QuestionOption::firstOrCreate([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
+                $this->attachOption($q, $opt);
             }
         }
     }

@@ -11,6 +11,13 @@ use App\Models\Source;
 
 class ToBeTenseSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+        $question->options()->syncWithoutDetaching($option->id);
+        return $option;
+    }
+
     public function run()
     {
         // Категорії
@@ -372,20 +379,14 @@ class ToBeTenseSeeder extends Seeder
             ]);
 
             foreach ($d['answers'] as $ans) {
-                $option = \App\Models\QuestionOption::firstOrCreate([
-                    'question_id' => $q->id,
-                    'option'      => $ans['answer'],
-                ]);
+                $option = $this->attachOption($q, $ans['answer']);
                 \App\Models\QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'option_id'   => $option->id,
                 ]);
                 if (!empty($ans['verb_hint'])) {
-                    $hintOption = \App\Models\QuestionOption::firstOrCreate([
-                        'question_id' => $q->id,
-                        'option'      => $ans['verb_hint'],
-                    ]);
+                    $hintOption = $this->attachOption($q, $ans['verb_hint']);
                     \App\Models\VerbHint::firstOrCreate([
                         'question_id' => $q->id,
                         'marker'      => $ans['marker'],
@@ -396,10 +397,7 @@ class ToBeTenseSeeder extends Seeder
 
             if (!empty($d['options'])) {
                 foreach ($d['options'] as $opt) {
-                    \App\Models\QuestionOption::firstOrCreate([
-                        'question_id' => $q->id,
-                        'option'      => $opt,
-                    ]);
+                    $this->attachOption($q, $opt);
                 }
             }
         }

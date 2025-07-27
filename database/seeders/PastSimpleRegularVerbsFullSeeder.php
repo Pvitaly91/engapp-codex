@@ -11,6 +11,13 @@ use App\Models\Source;
 
 class PastSimpleRegularVerbsFullSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+        $question->options()->syncWithoutDetaching($option->id);
+        return $option;
+    }
+
     public function run()
     {
         $cat_past = 1;
@@ -54,29 +61,20 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 0,
                 'source_id'   => $source1,
             ]);
-            $opt = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => $past,
-            ]);
+            $opt = $this->attachOption($q, $past);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'option_id'   => $opt->id,
             ]);
-            $hintOpt = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => $inf,
-            ]);
+            $hintOpt = $this->attachOption($q, $inf);
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'option_id'   => $hintOpt->id,
             ]);
             foreach([$past, $inf] as $optStr) {
-                QuestionOption::firstOrCreate([
-                    'question_id' => $q->id,
-                    'option'      => $optStr,
-                ]);
+                $this->attachOption($q, $optStr);
             }
         }
         /*    
@@ -98,19 +96,13 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 1,
                 'source_id'   => $source2,
             ]);
-            $opt = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => $pos,
-            ]);
+            $opt = $this->attachOption($q, $pos);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'option_id'   => $opt->id,
             ]);
-            $hintOpt = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => 'make positive',
-            ]);
+            $hintOpt = $this->attachOption($q, 'make positive');
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
@@ -137,19 +129,13 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'flag'        => 1,
                 'source_id'   => $source3,
             ]);
-            $opt = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => $neg,
-            ]);
+            $opt = $this->attachOption($q, $neg);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'option_id'   => $opt->id,
             ]);
-            $hintOpt = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => 'make negative',
-            ]);
+            $hintOpt = $this->attachOption($q, 'make negative');
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
