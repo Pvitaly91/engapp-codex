@@ -29,7 +29,10 @@ class Question extends Model
             'question_option_question',
             'question_id',
             'option_id'
-        )->wherePivot('flag', '!=', 1)->withPivot('flag');
+            )->where(function ($query) {
+                $query->whereNull('question_option_question.flag')
+                    ->orWhere('question_option_question.flag', '=', 0);
+            })->withPivot('flag');
     }
 
     public function answers()
