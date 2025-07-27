@@ -45,7 +45,7 @@ class GrammarTestController extends Controller
     public function showSavedTest($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
-        $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option'])
+        $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'tags'])
             ->whereIn('id', $test->questions)
             ->get();
             $manualInput = !empty($test->filters['manual_input']);

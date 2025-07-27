@@ -3,6 +3,12 @@
 @section('title', $test->name)
 
 @section('content')
+<style>
+    .text-base {
+
+    line-height: 2.5rem;
+}
+ </style>   
 <div class="max-w-3xl mx-auto p-4">
     <div class="flex items-center justify-between mb-6">
         <h1 class="text-2xl font-bold mb-2">{{ $test->name }}</h1>
@@ -19,7 +25,9 @@
         @foreach($questions as $q)
             <input type="hidden" name="questions[{{ $q->id }}]" value="1">
             <div class="bg-white shadow rounded-2xl p-4 mb-4">
+               
                 <div class="flex flex-wrap gap-2">
+                     <span class="font-bold text-base">{{ $loop->iteration }}.</span>
                     @php
                         $questionText = $q->question;
                         preg_match_all('/\{a(\d+)\}/', $questionText, $matches);
@@ -112,6 +120,16 @@ HTML;
                         $finalQuestion = strtr(e($questionText), $replacements);
                     @endphp
                     <label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
+                    
+                </div> <div class="mb-2 flex items-center justify-between">
+                   
+                    @if($q->tags->count())
+                        <span class="ml-2 text-xs text-gray-600">
+                            @foreach($q->tags as $tag)
+                                <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="hover:underline">{{ $tag->name }}</a>@if(!$loop->last),@endif
+                            @endforeach
+                        </span>
+                    @endif
                 </div>
             </div>
         @endforeach
