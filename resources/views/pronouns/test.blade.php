@@ -38,6 +38,7 @@
                 <input type="hidden" name="questionType" value="{{ $questionType }}">
 
                 <div class="mb-6">
+                    <div class="text-sm text-gray-500 mb-1">{{ ucwords(str_replace('_', ' ', $item['group'])) }}</div>
                     @if($questionType == 'en_to_uk')
                         <div class="text-lg mb-2">Choose the correct <b>Ukrainian translation</b> for:</div>
                         <div class="text-3xl font-bold text-blue-900 mb-6">{{ $item['en'] }}</div>
