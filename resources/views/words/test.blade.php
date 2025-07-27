@@ -10,13 +10,26 @@
             <div class="mb-2 text-sm">Filter Tags:</div>
             <div class="flex flex-wrap gap-2">
                 @foreach($allTags as $tag)
-                    <label class="text-sm">
-                        <input type="checkbox" name="tags[]" value="{{ $tag->name }}" class="mr-1" {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}>
+                    <input
+                        type="checkbox"
+                        name="tags[]"
+                        value="{{ $tag->name }}"
+                        id="tag-{{ $tag->id }}"
+                        class="hidden peer"
+                        {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}
+                    >
+                    <label
+                        for="tag-{{ $tag->id }}"
+                        class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white"
+                    >
                         {{ $tag->name }}
                     </label>
                 @endforeach
             </div>
-            <button type="submit" class="bg-gray-200 px-4 py-1 mt-2 rounded hover:bg-gray-300 transition text-sm">Apply</button>
+            <div class="mt-2 flex gap-2">
+                <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Apply</button>
+                <a href="{{ route('words.test', ['reset' => 1]) }}" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset Filter</a>
+            </div>
         </form>
 
         @if(isset($stats))

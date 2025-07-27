@@ -17,6 +17,9 @@
                 Restart Test
             </button>
         </form>
+        <div class="mt-4">
+            <a href="{{ route('words.test', ['reset' => 1]) }}" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset Filter</a>
+        </div>
     </div>
 @endsection
 
