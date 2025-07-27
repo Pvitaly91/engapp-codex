@@ -39,6 +39,26 @@
                 <div class="text-red-500 text-sm">{{ $message }}</div>
             @enderror
         </div>
+        <div>
+            <label class="block font-bold mb-1">Tags:</label>
+            <div class="flex flex-wrap gap-2">
+                @foreach($allTags as $tag)
+                    <div>
+                        <input
+                            type="checkbox"
+                            name="tags[]"
+                            value="{{ $tag->name }}"
+                            id="tag-{{ $tag->id }}"
+                            class="hidden peer"
+                            {{ in_array($tag->name, $selectedTags ?? []) ? 'checked' : '' }}
+                        >
+                        <label for="tag-{{ $tag->id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">
+                            {{ $tag->name }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
+        </div>
         @if($sources->count())
             <div>
                 <label class="block font-bold mb-1">Source:</label>
@@ -156,7 +176,14 @@
                             @endif
                             <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
                         </span>
-                         
+                        @if($q->tags->count())
+                            <span class="ml-2 text-xs text-gray-600">
+                                @foreach($q->tags as $tag)
+                                    {{ $tag->name }}@if(!$loop->last),@endif
+                                @endforeach
+                            </span>
+                        @endif
+
                     </div>
                     <div class="flex flex-wrap gap-2">
                         @php
