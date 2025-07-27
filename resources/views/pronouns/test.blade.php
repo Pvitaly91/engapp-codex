@@ -30,10 +30,7 @@
             </div>
         @endif
 
-        <div class="mb-6 text-center">
-            <img src="{{ route('pronouns.image') }}" alt="Pronouns" class="mx-auto mb-4 max-w-full">
-        </div>
-
+    
         @if($item)
             <form method="POST" action="{{ route('pronouns.test.check') }}" class="mt-4">
                 @csrf

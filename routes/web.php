@@ -44,13 +44,7 @@ Route::post('/pronouns/test/reset', function() {
     session()->forget('pronouns_test_stats');
     return redirect()->route('pronouns.test');
 })->name('pronouns.test.reset');
-Route::get('/pronouns/image', function() {
-    $path = storage_path('test1.jpg');
-    if (file_exists($path)) {
-        return response()->file($path);
-    }
-    abort(404);
-})->name('pronouns.image');
+
 
 
 Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
