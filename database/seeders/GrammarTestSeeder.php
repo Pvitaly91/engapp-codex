@@ -11,10 +11,12 @@ use App\Models\VerbHint;
 
 class GrammarTestSeeder extends Seeder
 {
-    private function attachOption(Question $question, string $value)
+    private function attachOption(Question $question, string $value, ?int $flag = null)
     {
         $option = QuestionOption::firstOrCreate(['option' => $value]);
-        $question->options()->syncWithoutDetaching($option->id);
+        $question->options()->syncWithoutDetaching([
+            $option->id => ['flag' => $flag]
+        ]);
         return $option;
     }
 
@@ -282,7 +284,7 @@ class GrammarTestSeeder extends Seeder
                     'option_id' => $opt->id,
                 ]);
                 if (!empty($answerData['verb_hint'])) {
-                    $hintOpt = $this->attachOption($question, $answerData['verb_hint']);
+                    $hintOpt = $this->attachOption($question, $answerData['verb_hint'], 1);
                     VerbHint::firstOrCreate([
                         'question_id' => $question->id,
                         'marker' => $marker,

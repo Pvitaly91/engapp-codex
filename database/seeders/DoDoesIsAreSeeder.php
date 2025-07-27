@@ -11,10 +11,12 @@ use App\Models\Source;
 
 class DoDoesIsAreSeeder extends Seeder
 {
-    private function attachOption(Question $question, string $value)
+    private function attachOption(Question $question, string $value, ?int $flag = null)
     {
         $option = QuestionOption::firstOrCreate(['option' => $value]);
-        $question->options()->syncWithoutDetaching($option->id);
+        $question->options()->syncWithoutDetaching([
+            $option->id => ['flag' => $flag]
+        ]);
         return $option;
     }
 
@@ -65,7 +67,7 @@ class DoDoesIsAreSeeder extends Seeder
                 'marker'      => 'a1',
                 'option_id'   => $answerOption->id,
             ]);
-            $hintOption = $this->attachOption($q, 'choose do/does/am/is/are');
+            $hintOption = $this->attachOption($q, 'choose do/does/am/is/are', 1);
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',

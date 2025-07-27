@@ -11,10 +11,12 @@ use App\Models\Source;
 
 class PresentPastRevisionSeeder extends Seeder
 {
-    private function attachOption(Question $question, string $value)
+    private function attachOption(Question $question, string $value, ?int $flag = null)
     {
         $option = QuestionOption::firstOrCreate(['option' => $value]);
-        $question->options()->syncWithoutDetaching($option->id);
+        $question->options()->syncWithoutDetaching([
+            $option->id => ['flag' => $flag]
+        ]);
         return $option;
     }
 
@@ -198,7 +200,7 @@ class PresentPastRevisionSeeder extends Seeder
                     'option_id'   => $option->id,
                 ]);
                 if (!empty($ans['verb_hint'])) {
-                    $hintOption = $this->attachOption($q, $ans['verb_hint']);
+                    $hintOption = $this->attachOption($q, $ans['verb_hint'], 1);
                     VerbHint::firstOrCreate([
                         'question_id' => $q->id,
                         'marker'      => $ans['marker'],

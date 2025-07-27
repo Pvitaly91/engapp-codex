@@ -12,10 +12,12 @@ use App\Models\Source;
 
 class ThisThatTheseThoseExercise2Seeder extends Seeder
 {
-    private function attachOption(Question $question, string $value)
+    private function attachOption(Question $question, string $value, ?int $flag = null)
     {
         $option = QuestionOption::firstOrCreate(['option' => $value]);
-        $question->options()->syncWithoutDetaching($option->id);
+        $question->options()->syncWithoutDetaching([
+            $option->id => ['flag' => $flag]
+        ]);
         return $option;
     }
 

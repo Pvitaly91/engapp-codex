@@ -24,7 +24,12 @@ class Question extends Model
 
     public function options()
     {
-        return $this->belongsToMany(QuestionOption::class, 'question_option_question', 'question_id', 'option_id');
+        return $this->belongsToMany(
+            QuestionOption::class,
+            'question_option_question',
+            'question_id',
+            'option_id'
+        )->wherePivot('flag', '!=', 1)->withPivot('flag');
     }
 
     public function answers()

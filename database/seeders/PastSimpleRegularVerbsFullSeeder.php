@@ -11,10 +11,12 @@ use App\Models\Source;
 
 class PastSimpleRegularVerbsFullSeeder extends Seeder
 {
-    private function attachOption(Question $question, string $value)
+    private function attachOption(Question $question, string $value, ?int $flag = null)
     {
         $option = QuestionOption::firstOrCreate(['option' => $value]);
-        $question->options()->syncWithoutDetaching($option->id);
+        $question->options()->syncWithoutDetaching([
+            $option->id => ['flag' => $flag]
+        ]);
         return $option;
     }
 
@@ -67,7 +69,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'marker'      => 'a1',
                 'option_id'   => $opt->id,
             ]);
-            $hintOpt = $this->attachOption($q, $inf);
+            $hintOpt = $this->attachOption($q, $inf, 1);
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
@@ -102,7 +104,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'marker'      => 'a1',
                 'option_id'   => $opt->id,
             ]);
-            $hintOpt = $this->attachOption($q, 'make positive');
+            $hintOpt = $this->attachOption($q, 'make positive', 1);
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
@@ -135,7 +137,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'marker'      => 'a1',
                 'option_id'   => $opt->id,
             ]);
-            $hintOpt = $this->attachOption($q, 'make negative');
+            $hintOpt = $this->attachOption($q, 'make negative', 1);
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
