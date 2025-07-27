@@ -30,8 +30,8 @@
                 @endforeach
             </div>
             <div class="mt-2 flex gap-2">
-                <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Apply</button>
-                <a href="{{ route('words.test', ['reset' => 1]) }}" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset Filter</a>
+                <button type="submit" class="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700 transition text-sm">Apply</button>
+                <a href="{{ route('words.test', ['reset' => 1]) }}" class="bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700 transition text-sm">Reset Filter</a>
             </div>
         </form>
 
@@ -84,12 +84,21 @@
                         <div class="text-3xl font-bold text-blue-900 mb-6">{{ $translation }}</div>
                     @endif
 
-                    <div class="flex flex-col gap-3">
+                    <div class="flex flex-wrap gap-2">
                         @foreach($options as $option)
-                            <label class="block">
-                                <input type="radio" name="answer" value="{{ $option }}" required class="mr-2 align-middle">
-                                <span class="align-middle">{{ $option }}</span>
-                            </label>
+                            <div>
+                                <input
+                                    type="radio"
+                                    name="answer"
+                                    value="{{ $option }}"
+                                    id="opt-{{ $loop->index }}"
+                                    class="hidden peer"
+                                    required
+                                >
+                                <label for="opt-{{ $loop->index }}" class="px-4 py-2 rounded border cursor-pointer bg-gray-200 peer-checked:bg-green-600 peer-checked:text-white">
+                                    {{ $option }}
+                                </label>
+                            </div>
                         @endforeach
                     </div>
                 </div>
