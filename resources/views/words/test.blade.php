@@ -3,7 +3,7 @@
 @section('title', 'Words Test')
 
 @section('content')
-    <div class="max-w-xl mx-auto mt-8 p-8 bg-white rounded-xl shadow">
+    <div class=" mx-auto mt-8 p-8 bg-white rounded-xl shadow w-[800px]">
         <h2 class="text-2xl font-bold mb-4 text-blue-700">Words Test</h2>
 
         <form method="GET" action="{{ route('words.test') }}" class="mb-4">
