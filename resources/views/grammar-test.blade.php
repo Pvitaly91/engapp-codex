@@ -163,7 +163,7 @@
                 <div class="bg-white shadow rounded-2xl p-4 mb-4">
                     <div class="mb-2 flex items-center justify-between">
                         <span class="text-base font-bold">
-                            Категорія:
+                            {{ $loop->iteration }}. Категорія:
                             <span class="uppercase px-2 py-1 rounded text-xs 
                                 {{ $q->category->name === 'past' ? 'bg-red-100 text-red-700' : ($q->category->name === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700') }}">
                                 {{ ucfirst($q->category->name) }}
@@ -179,7 +179,7 @@
                         @if($q->tags->count())
                             <span class="ml-2 text-xs text-gray-600">
                                 @foreach($q->tags as $tag)
-                                    {{ $tag->name }}@if(!$loop->last),@endif
+                                    <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="hover:underline">{{ $tag->name }}</a>@if(!$loop->last),@endif
                                 @endforeach
                             </span>
                         @endif

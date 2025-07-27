@@ -19,6 +19,16 @@
         @foreach($questions as $q)
             <input type="hidden" name="questions[{{ $q->id }}]" value="1">
             <div class="bg-white shadow rounded-2xl p-4 mb-4">
+                <div class="mb-2 flex items-center justify-between">
+                    <span class="font-bold text-base">{{ $loop->iteration }}.</span>
+                    @if($q->tags->count())
+                        <span class="ml-2 text-xs text-gray-600">
+                            @foreach($q->tags as $tag)
+                                <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="hover:underline">{{ $tag->name }}</a>@if(!$loop->last),@endif
+                            @endforeach
+                        </span>
+                    @endif
+                </div>
                 <div class="flex flex-wrap gap-2">
                     @php
                         $questionText = $q->question;
