@@ -90,7 +90,7 @@ class PronounsTestController extends Controller
             ]);
         }
 
-        if (empty($queue) || $percentage >= 95) {
+        if (empty($queue)) {
             return view('pronouns.complete', [
                 'stats' => $stats,
                 'percentage' => $percentage,
