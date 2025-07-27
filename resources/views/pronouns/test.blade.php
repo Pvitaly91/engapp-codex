@@ -11,7 +11,12 @@
                 <div>Total: <b>{{ $stats['total'] }}</b></div>
                 <div>Correct: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
                 <div>Wrong: <b class="text-red-700">{{ $stats['wrong'] }}</b></div>
+                <div>Percent: <b>{{ $percentage }}%</b></div>
             </div>
+            <form method="POST" action="{{ route('pronouns.test.reset') }}" class="mb-4">
+                @csrf
+                <button type="submit" class="text-sm text-blue-600 underline">Reset</button>
+            </form>
         @endif
 
         @if(isset($feedback))

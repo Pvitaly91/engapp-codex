@@ -74,15 +74,25 @@ class PronounsTestController extends Controller
             'total' => 0,
         ]);
 
+        $percentage = $stats['total'] > 0
+            ? round(($stats['correct'] / $stats['total']) * 100, 2)
+            : 0;
+
         $queue = session('pronouns_queue');
         if (! $queue) {
             $queue = $this->allPronouns();
             shuffle($queue);
-            session(['pronouns_queue' => $queue, 'pronouns_test_stats' => $stats]);
+            session([
+                'pronouns_queue' => $queue,
+                'pronouns_test_stats' => $stats,
+            ]);
         }
 
-        if (empty($queue)) {
-            return view('pronouns.complete', ['stats' => $stats]);
+        if (empty($queue) || $percentage >= 95) {
+            return view('pronouns.complete', [
+                'stats' => $stats,
+                'percentage' => $percentage,
+            ]);
         }
 
         $item = array_shift($queue);
@@ -109,6 +119,7 @@ class PronounsTestController extends Controller
             'options' => $options,
             'questionType' => $questionType,
             'stats' => $stats,
+            'percentage' => $percentage,
             'feedback' => session('pronouns_test_feedback'),
         ]);
     }

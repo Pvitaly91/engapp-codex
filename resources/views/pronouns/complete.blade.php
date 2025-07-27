@@ -6,9 +6,10 @@
     <div class="max-w-xl mx-auto mt-8 p-8 bg-white rounded-xl shadow">
         <h2 class="text-2xl font-bold mb-4 text-blue-700">Pronouns Test Finished</h2>
         <div class="mb-4 flex gap-4 text-gray-600 text-base">
-            <div>Total: <b>{{ \$stats['total'] }}</b></div>
-            <div>Correct: <b class="text-green-700">{{ \$stats['correct'] }}</b></div>
-            <div>Wrong: <b class="text-red-700">{{ \$stats['wrong'] }}</b></div>
+            <div>Total: <b>{{ $stats['total'] }}</b></div>
+            <div>Correct: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
+            <div>Wrong: <b class="text-red-700">{{ $stats['wrong'] }}</b></div>
+            <div>Percent: <b>{{ $percentage }}%</b></div>
         </div>
         <form method="POST" action="{{ route('pronouns.test.reset') }}">
             @csrf
