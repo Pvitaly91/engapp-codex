@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->call([
+            TenseTagsSeeder::class,
             DoDoesIsAreSeeder::class,
             FutureSimpleTest1Seeder::class,
             GrammarQuizPastSimpleSeeder::class,
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
             ToBeTenseSeeder::class,
             WordsWithTranslationsSeeder::class,
             PronounWordsSeeder::class,
+            QuestionTenseAssignmentSeeder::class,
         ]);
     }
 }

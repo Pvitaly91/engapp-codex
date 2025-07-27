@@ -100,6 +100,7 @@ class GrammarTestController extends Controller
         $checkOneInput = $request->boolean('check_one_input');
         $includeAi = $request->boolean('include_ai');
         $onlyAi = $request->boolean('only_ai');
+        $selectedTags = $request->input('tags', []);
     
         // MULTI-SOURCE support
         $selectedSources = $request->input('sources', []); // array of source IDs
@@ -139,6 +140,9 @@ class GrammarTestController extends Controller
             if (!empty($selectedCategories) && $groupBy !== 'category_id') {
                 $query->whereIn('category_id', $selectedCategories);
             }
+            if (!empty($selectedTags)) {
+                $query->whereHas('tags', fn ($q) => $q->whereIn('name', $selectedTags));
+            }
     
             // AI-фільтри
             if ($onlyAi) {
@@ -164,13 +168,16 @@ class GrammarTestController extends Controller
     
         // Для фільтра — всі унікальні source
         $sources = Source::orderBy('name')->get();
-    
+        // Show only tags that have at least one question assigned
+        $allTags = \App\Models\Tag::whereHas('questions')->get();
+
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
             'selectedCategories', 'difficultyFrom', 'difficultyTo', 'numQuestions',
             'manualInput', 'autocompleteInput', 'checkOneInput',
             'includeAi', 'onlyAi', 'questions',
-            'sources', 'selectedSources', 'autoTestName'
+            'sources', 'selectedSources', 'autoTestName',
+            'allTags', 'selectedTags'
         ));
     }
     
@@ -232,12 +239,17 @@ class GrammarTestController extends Controller
         $minDifficulty = Question::min('difficulty') ?? 1;
         $maxDifficulty = Question::max('difficulty') ?? 10;
         $maxQuestions = Question::count();
+        // Show only tags that have at least one question assigned
+        $allTags = \App\Models\Tag::whereHas('questions')->get();
+        $selectedTags = [];
 
         return view('grammar-test', [
             'categories' => $categories,
             'minDifficulty' => $minDifficulty,
             'maxDifficulty' => $maxDifficulty,
             'maxQuestions' => $maxQuestions,
+            'allTags' => $allTags,
+            'selectedTags' => $selectedTags,
         ]);
     }
 
