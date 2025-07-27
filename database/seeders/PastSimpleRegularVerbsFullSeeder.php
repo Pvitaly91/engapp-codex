@@ -8,19 +8,30 @@ use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\VerbHint;
 use App\Models\Source;
+use Illuminate\Support\Facades\DB;
 
 class PastSimpleRegularVerbsFullSeeder extends Seeder
 {
     private function attachOption(Question $question, string $value, ?int $flag = null)
     {
         $option = QuestionOption::firstOrCreate(['option' => $value]);
-        $exists = $question->options()
-            ->wherePivot('option_id', $option->id)
-            ->wherePivot('flag', $flag)
+
+        $exists = DB::table('question_option_question')
+            ->where('question_id', $question->id)
+            ->where('option_id', $option->id)
+            ->where(function ($query) use ($flag) {
+                if ($flag === null) {
+                    $query->whereNull('flag');
+                } else {
+                    $query->where('flag', $flag);
+                }
+            })
             ->exists();
+
         if (! $exists) {
             $question->options()->attach($option->id, ['flag' => $flag]);
         }
+
         return $option;
     }
 
