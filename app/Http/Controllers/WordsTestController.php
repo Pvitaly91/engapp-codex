@@ -25,13 +25,16 @@ class WordsTestController extends Controller
         if ($request->boolean('reset')) {
             $selectedTags = [];
             session()->forget(['words_selected_tags', 'words_test_stats', 'words_queue', 'words_total_count']);
-        } else {
-            $selectedTags = $request->input('tags', session('words_selected_tags', []));
+        } elseif ($request->has('filter')) {
+            $selectedTags = $request->input('tags', []);
 
-            if ($request->has('tags') && $selectedTags !== session('words_selected_tags')) {
+            if ($selectedTags !== session('words_selected_tags')) {
                 session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
             }
+        } else {
+            $selectedTags = session('words_selected_tags', []);
         }
+
         session(['words_selected_tags' => $selectedTags]);
 
         $feedback = session('feedback');

@@ -7,6 +7,7 @@
         <h2 class="text-2xl font-bold mb-4 text-blue-700">Words Test</h2>
 
         <form method="GET" action="{{ route('words.test') }}" class="mb-4">
+            <input type="hidden" name="filter" value="1">
             <div class="mb-2 text-sm">Filter Tags:</div>
             <div class="flex flex-wrap gap-2">
                 @foreach($allTags as $tag)
