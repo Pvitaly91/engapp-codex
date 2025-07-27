@@ -9,9 +9,33 @@ use App\Models\QuestionOption;
 use App\Models\VerbHint;
 use App\Models\Category;
 use App\Models\Source;
+use Illuminate\Support\Facades\DB;
 
 class ShortAnswersSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value, ?int $flag = null)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+
+        $exists = DB::table('question_option_question')
+            ->where('question_id', $question->id)
+            ->where('option_id', $option->id)
+            ->where(function ($query) use ($flag) {
+                if ($flag === null) {
+                    $query->whereNull('flag');
+                } else {
+                    $query->where('flag', $flag);
+                }
+            })
+            ->exists();
+
+        if (! $exists) {
+            $question->options()->attach($option->id, ['flag' => $flag]);
+        }
+
+        return $option;
+    }
+
     public function run()
     {
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
@@ -295,20 +319,14 @@ class ShortAnswersSeeder extends Seeder
                 'flag'        => $d['flag'],
             ]);
             foreach ($d['answers'] as $ans) {
-                $option = QuestionOption::firstOrCreate([
-                    'question_id' => $q->id,
-                    'option'      => $ans['answer'],
-                ]);
+                $option = $this->attachOption($q, $ans['answer']);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
                     'option_id'   => $option->id,
                 ]);
                 if (!empty($ans['verb_hint'])) {
-                    $hintOption = QuestionOption::firstOrCreate([
-                        'question_id' => $q->id,
-                        'option'      => $ans['verb_hint'],
-                    ]);
+                    $hintOption = $this->attachOption($q, $ans['verb_hint'], 1);
                     VerbHint::firstOrCreate([
                         'question_id' => $q->id,
                         'marker'      => $ans['marker'],

@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class QuestionOption extends Model
 {
-    protected $fillable = ['question_id', 'option'];
-    public function question()
+    protected $fillable = ['option'];
+    public function questions()
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsToMany(Question::class, 'question_option_question', 'option_id', 'question_id');
     }
 
     public function answers()

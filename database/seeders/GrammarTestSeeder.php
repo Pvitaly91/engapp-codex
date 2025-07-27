@@ -8,9 +8,33 @@ use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\QuestionAnswer;
 use App\Models\VerbHint;
+use Illuminate\Support\Facades\DB;
 
 class GrammarTestSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value, ?int $flag = null)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+
+        $exists = DB::table('question_option_question')
+            ->where('question_id', $question->id)
+            ->where('option_id', $option->id)
+            ->where(function ($query) use ($flag) {
+                if ($flag === null) {
+                    $query->whereNull('flag');
+                } else {
+                    $query->where('flag', $flag);
+                }
+            })
+            ->exists();
+
+        if (! $exists) {
+            $question->options()->attach($option->id, ['flag' => $flag]);
+        }
+
+        return $option;
+    }
+
     public function run(): void
     {
         $cats = [
@@ -265,26 +289,17 @@ class GrammarTestSeeder extends Seeder
                 'category_id' => $cats[$q['category']]->id,
             ]);
             foreach ($q['options'] as $option) {
-                QuestionOption::firstOrCreate([
-                    'question_id' => $question->id,
-                    'option' => $option,
-                ]);
+                $this->attachOption($question, $option);
             }
             foreach ($q['answers'] as $marker => $answerData) {
-                $opt = QuestionOption::firstOrCreate([
-                    'question_id' => $question->id,
-                    'option' => $answerData['answer'],
-                ]);
+                $opt = $this->attachOption($question, $answerData['answer']);
                 QuestionAnswer::firstOrCreate([
                     'question_id' => $question->id,
                     'marker' => $marker,
                     'option_id' => $opt->id,
                 ]);
                 if (!empty($answerData['verb_hint'])) {
-                    $hintOpt = QuestionOption::firstOrCreate([
-                        'question_id' => $question->id,
-                        'option' => $answerData['verb_hint'],
-                    ]);
+                    $hintOpt = $this->attachOption($question, $answerData['verb_hint'], 1);
                     VerbHint::firstOrCreate([
                         'question_id' => $question->id,
                         'marker' => $marker,

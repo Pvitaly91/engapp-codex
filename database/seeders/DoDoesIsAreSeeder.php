@@ -8,9 +8,33 @@ use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\VerbHint;
 use App\Models\Source;
+use Illuminate\Support\Facades\DB;
 
 class DoDoesIsAreSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value, ?int $flag = null)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+
+        $exists = DB::table('question_option_question')
+            ->where('question_id', $question->id)
+            ->where('option_id', $option->id)
+            ->where(function ($query) use ($flag) {
+                if ($flag === null) {
+                    $query->whereNull('flag');
+                } else {
+                    $query->where('flag', $flag);
+                }
+            })
+            ->exists();
+
+        if (! $exists) {
+            $question->options()->attach($option->id, ['flag' => $flag]);
+        }
+
+        return $option;
+    }
+
     public function run()
     {
         $cat_present = 2; // Present Simple (заміни під свою структуру)
@@ -52,19 +76,13 @@ class DoDoesIsAreSeeder extends Seeder
                 'source_id'   => $sourceId,
             ]);
 
-            $answerOption = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => $data[1],
-            ]);
+            $answerOption = $this->attachOption($q, $data[1]);
             QuestionAnswer::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
                 'option_id'   => $answerOption->id,
             ]);
-            $hintOption = QuestionOption::firstOrCreate([
-                'question_id' => $q->id,
-                'option'      => 'choose do/does/am/is/are',
-            ]);
+            $hintOption = $this->attachOption($q, 'choose do/does/am/is/are', 1);
             VerbHint::firstOrCreate([
                 'question_id' => $q->id,
                 'marker'      => 'a1',
@@ -72,10 +90,7 @@ class DoDoesIsAreSeeder extends Seeder
             ]);
 
             foreach($options as $opt) {
-                QuestionOption::firstOrCreate([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
+                $this->attachOption($q, $opt);
             }
         }
     }
