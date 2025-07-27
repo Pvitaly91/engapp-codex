@@ -61,7 +61,7 @@ class WordsTestController extends Controller
                 'percentage' => $percentage,
                 'totalCount' => $totalCount,
                 'selectedTags' => $selectedTags,
-                'allTags' => Tag::all(),
+                'allTags' => Tag::whereHas('words')->get(),
             ]);
         }
 
@@ -100,7 +100,7 @@ class WordsTestController extends Controller
             'percentage' => $percentage,
             'totalCount' => $totalCount,
             'selectedTags' => $selectedTags,
-            'allTags' => Tag::all(),
+            'allTags' => Tag::whereHas('words')->get(),
         ]);
     }
 
