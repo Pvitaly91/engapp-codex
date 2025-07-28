@@ -10,6 +10,7 @@ use App\Models\VerbHint;
 use App\Models\Category;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class FutureSimpleTest1Seeder extends Seeder
 {
@@ -346,6 +347,7 @@ class FutureSimpleTest1Seeder extends Seeder
 
         foreach ($data as $d) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $d['question'],
                 'category_id' => $d['category_id'],
                 'difficulty'  => $d['difficulty'],

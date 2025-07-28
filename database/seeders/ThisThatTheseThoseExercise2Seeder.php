@@ -10,6 +10,7 @@ use App\Models\VerbHint;
 use App\Models\Category;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ThisThatTheseThoseExercise2Seeder extends Seeder
 {
@@ -97,6 +98,7 @@ class ThisThatTheseThoseExercise2Seeder extends Seeder
 
         foreach ($data as $d) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 1,

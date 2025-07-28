@@ -9,6 +9,7 @@ use App\Models\QuestionOption;
 use App\Models\VerbHint;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DoDoesIsAreSeeder extends Seeder
 {
@@ -69,6 +70,7 @@ class DoDoesIsAreSeeder extends Seeder
 
         foreach ($questions as $data) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $data[0],
                 'difficulty'  => 1,
                 'category_id' => $cat_present,

@@ -9,6 +9,7 @@ use App\Models\QuestionOption;
 use App\Models\VerbHint;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PresentPastRevisionSeeder extends Seeder
 {
@@ -201,6 +202,7 @@ class PresentPastRevisionSeeder extends Seeder
         // --- Запис у БД ---
         foreach ($questions as $data) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $data['question'],
                 'difficulty'  => 2,
                 'category_id' => $data['category_id'],

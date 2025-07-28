@@ -9,6 +9,7 @@ use App\Models\QuestionOption;
 use App\Models\VerbHint;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PastSimpleRegularSeeder extends Seeder
 {
@@ -186,6 +187,7 @@ class PastSimpleRegularSeeder extends Seeder
 
         foreach ($questions as $data) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $data['question'],
                 'difficulty'  => 2,
                 'category_id' => $cat_past,

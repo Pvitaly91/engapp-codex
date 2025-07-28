@@ -8,6 +8,7 @@ use App\Models\QuestionAnswer;
 use App\Models\VerbHint;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class QuizPresentSimpleSeeder extends Seeder
 {
@@ -205,6 +206,7 @@ class QuizPresentSimpleSeeder extends Seeder
 
         foreach ($data as $d) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $d['question'],
                 'category_id' => $categoryId,
                 'difficulty'  => $d['difficulty'],

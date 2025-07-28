@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
+use Illuminate\Support\Str;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Tag};
 
 class QuestionReviewTest extends TestCase
@@ -31,6 +32,7 @@ class QuestionReviewTest extends TestCase
             '2025_07_28_112705_create_question_review_results_table.php',
             '2025_07_28_113005_add_comment_to_question_review_results_table.php',
             '2025_07_28_113010_add_original_tags_to_question_review_results_table.php',
+            '2025_07_31_000002_add_uuid_to_questions_table.php',
         ];
         foreach ($migrations as $file) {
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
@@ -42,6 +44,7 @@ class QuestionReviewTest extends TestCase
 
         $category = Category::create(['name' => 'test']);
         $question = Question::create([
+            'uuid' => (string) Str::uuid(),
             'question' => 'Choose {a1}',
             'difficulty' => 1,
             'category_id' => $category->id,

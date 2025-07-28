@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use App\Models\Category;
 use App\Models\Question;
 use App\Models\QuestionOption;
@@ -284,6 +285,7 @@ class GrammarTestSeeder extends Seeder
 
         foreach ($questions as $q) {
             $question = Question::create([
+                'uuid' => (string) Str::uuid(),
                 'question' => $q['question'],
                 'difficulty' => $q['difficulty'],
                 'category_id' => $cats[$q['category']]->id,

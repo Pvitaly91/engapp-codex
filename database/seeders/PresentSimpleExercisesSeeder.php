@@ -10,6 +10,7 @@ use App\Models\VerbHint;
 use App\Models\Category;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PresentSimpleExercisesSeeder extends Seeder
 {
@@ -206,6 +207,7 @@ class PresentSimpleExercisesSeeder extends Seeder
 
         foreach ($section1 as $d) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,
@@ -235,6 +237,7 @@ class PresentSimpleExercisesSeeder extends Seeder
 
         foreach ($section2 as $d) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,

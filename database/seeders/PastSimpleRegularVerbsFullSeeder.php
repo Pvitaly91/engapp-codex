@@ -9,6 +9,7 @@ use App\Models\QuestionOption;
 use App\Models\VerbHint;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PastSimpleRegularVerbsFullSeeder extends Seeder
 {
@@ -72,6 +73,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
 
         foreach ($verbs as $i => [$inf, $past]) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => ucfirst($inf) . ' → {a1} (past form)',
                 'difficulty'  => 1,
                 'category_id' => $cat_past,
@@ -107,6 +109,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
 
         foreach ($positives as $neg => $pos) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $neg . ' (positive form: {a1})',
                 'difficulty'  => 2,
                 'category_id' => $cat_past,
@@ -140,6 +143,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
 
         foreach ($negatives as $pos => $neg) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $pos . ' (negative form: {a1})',
                 'difficulty'  => 2,
                 'category_id' => $cat_past,

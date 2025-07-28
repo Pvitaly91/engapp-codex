@@ -10,6 +10,7 @@ use App\Models\VerbHint;
 use App\Models\Category;
 use App\Models\Source;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class GrammarTestAISeeder extends Seeder
 {
@@ -236,6 +237,7 @@ class GrammarTestAISeeder extends Seeder
 
         foreach ($aiQuestions as $data) {
             $q = Question::create([
+                'uuid'        => (string) Str::uuid(),
                 'question'    => $data['question'],
                 'difficulty'  => $data['difficulty'],
                 'category_id' => $data['category_id'],

@@ -11,7 +11,7 @@ class Question extends Model
         'flag' => 'boolean',
     ];
 
-    protected $fillable = ['question', 'difficulty', 'category_id', 'source_id'];
+    protected $fillable = ['uuid', 'question', 'difficulty', 'category_id', 'source_id'];
 
     public function category()
     {
