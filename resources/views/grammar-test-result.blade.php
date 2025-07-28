@@ -25,7 +25,7 @@
                             if (strtolower($answer) !== strtolower($right)) {
                                 $show .= ' <span class="text-xs text-gray-500">(правильна: '.$right.')</span>';
                                 if ($explanation) {
-                                    $show .= '<div class="text-xs text-gray-700 mt-1">'.e($explanation).'</div>';
+                                    $show .= '<div class="text-xs italic text-blue-800 bg-blue-50 rounded px-2 py-1 mt-1">'.e($explanation).'</div>';
                                 }
                             }
                             $replacements['{a'.$num.'}'] = $show;
