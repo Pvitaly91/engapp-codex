@@ -33,7 +33,9 @@
                 @if($modified)
                     <div class="mt-1">{!! $changed !!}</div>
                 @endif
-                <div class="text-sm">Original tags: {{ $tagNames($origTags) }}</div>
+                @if(count($origTags))
+                    <div class="text-sm">Original tags: {{ $tagNames($origTags) }}</div>
+                @endif
                 <div class="text-sm">
                     @if($tagsChanged)
                         Updated tags: <span class="font-medium">{{ $tagNames($newTags) }}</span>
