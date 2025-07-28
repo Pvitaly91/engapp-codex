@@ -22,7 +22,9 @@ class QuestionReviewController extends Controller
             return view('question-review-complete');
         }
 
-        $allTags = Tag::orderBy('name')->get();
+        $allTags = Tag::whereHas('questions')
+            ->orderBy('name')
+            ->get();
 
         return view('question-review', [
             'question' => $question,

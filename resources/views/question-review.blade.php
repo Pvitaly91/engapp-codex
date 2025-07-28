@@ -33,9 +33,9 @@
             <div class="font-semibold mb-2">Теги:</div>
             <div class="flex flex-wrap gap-2">
                 @foreach($allTags as $tag)
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="mr-1" {{ $question->tags->contains($tag->id) ? 'checked' : '' }}>
-                        <span>{{ $tag->name }}</span>
+                    <input type="checkbox" id="tag{{ $tag->id }}" name="tags[]" value="{{ $tag->id }}" class="peer hidden" {{ $question->tags->contains($tag->id) ? 'checked' : '' }}>
+                    <label for="tag{{ $tag->id }}" class="cursor-pointer px-3 py-1 rounded-full border bg-white peer-checked:bg-blue-600 peer-checked:text-white">
+                        {{ $tag->name }}
                     </label>
                 @endforeach
             </div>
