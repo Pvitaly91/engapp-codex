@@ -33,11 +33,14 @@
                 @if($modified)
                     <div class="mt-1">{!! $changed !!}</div>
                 @endif
-                @if($tagsChanged)
-                    <div class="text-sm">Tags: <span class="line-through">{{ $tagNames($origTags) }}</span> → <span class="font-medium">{{ $tagNames($newTags) }}</span></div>
-                @else
-                    <div class="text-sm">Tags: {{ $tagNames($newTags) }}</div>
-                @endif
+                <div class="text-sm">Original tags: {{ $tagNames($origTags) }}</div>
+                <div class="text-sm">
+                    @if($tagsChanged)
+                        Updated tags: <span class="font-medium">{{ $tagNames($newTags) }}</span>
+                    @else
+                        Current tags: {{ $tagNames($newTags) }}
+                    @endif
+                </div>
                 @if($result->comment)
                     <div class="text-sm text-gray-600">Comment: {{ $result->comment }}</div>
                 @endif

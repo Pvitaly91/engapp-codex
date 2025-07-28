@@ -87,6 +87,7 @@ class QuestionReviewTest extends TestCase
         $page->assertStatus(200);
         $page->assertSee('Choose <strong>yes</strong>', false);
         $page->assertSee('Choose <strong>no</strong>', false);
-        $page->assertSeeInOrder(['Tags:', 'tag1', 'tag2'], false);
+        $page->assertSeeInOrder(['Original tags:', 'tag1'], false);
+        $page->assertSeeInOrder(['Updated tags:', 'tag2'], false);
     }
 }
