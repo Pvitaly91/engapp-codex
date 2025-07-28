@@ -30,7 +30,10 @@
                 echo strtr(e($text), $repl);
             @endphp
             </div>
-            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded self-start">Next</button>
+            <div class="flex gap-2 self-start">
+                <a href="{{ route('question-review.edit', $question->id) }}" class="bg-gray-200 px-4 py-2 rounded">Edit</a>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Next</button>
+            </div>
         </div>
         <div class="bg-white shadow rounded-2xl p-4">
             <div class="font-semibold mb-2">{{ ucfirst($question->category->name) }}</div>

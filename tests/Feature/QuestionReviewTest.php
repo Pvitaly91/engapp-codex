@@ -67,6 +67,7 @@ class QuestionReviewTest extends TestCase
 
         $response = $this->get('/question-review');
         $response->assertStatus(200);
+        $response->assertSee('/question-review/' . $question->id);
 
         $edit = $this->get('/question-review/'.$question->id);
         $edit->assertStatus(200);
