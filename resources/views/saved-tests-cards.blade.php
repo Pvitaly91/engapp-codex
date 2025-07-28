@@ -19,6 +19,7 @@
                                 id="tag-{{ $tag->id }}"
                                 class="hidden peer"
                                 {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}
+                                onchange="this.form.submit()"
                             >
                             <label for="tag-{{ $tag->id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">
                                 {{ $tag->name }}
@@ -27,12 +28,11 @@
                     @endforeach
                 </div>
             @endforeach
-            <div class="flex gap-2 mt-2">
-                <button type="submit" class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700">Застосувати</button>
-                @if(count($selectedTags))
+            @if(count($selectedTags))
+                <div class="mt-2">
                     <a href="{{ route('saved-tests.cards') }}" class="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700">Скинути</a>
-                @endif
-            </div>
+                </div>
+            @endif
         </form>
     </aside>
     <div class="flex-1">
