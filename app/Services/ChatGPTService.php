@@ -3,35 +3,35 @@
 namespace App\Services;
 
 use Exception;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use OpenAI\Client;
-use OpenAI; // the facade for building the client
 
 class ChatGPTService
 {
-    private Client $client;
-
-    public function __construct()
-    {
-        $apiKey = config('services.chatgpt.key');
-        $this->client = OpenAI::client($apiKey);
-    }
-
     public function explainWrongAnswer(string $question, string $wrongAnswer, string $correctAnswer): string
     {
         $prompt = "Question: {$question}\nWrong answer: {$wrongAnswer}\nCorrect answer: {$correctAnswer}\nExplain in 1-2 sentences why the wrong answer is incorrect.";
+
         try {
-            $response = $this->client->chat()->create([
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . config('services.chatgpt.key'),
+                'Content-Type' => 'application/json',
+            ])->post('https://api.openai.com/v1/chat/completions', [
                 'model' => 'gpt-4o',
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt],
                 ],
             ]);
 
-            return trim($response->choices[0]->message->content ?? '');
+            if ($response->successful()) {
+                return trim($response->json('choices.0.message.content', ''));
+            }
+
+            Log::warning('ChatGPT explanation failed: ' . $response->body());
         } catch (Exception $e) {
-            Log::warning('ChatGPT explanation failed: '.$e->getMessage());
-            return '';
+            Log::warning('ChatGPT explanation failed: ' . $e->getMessage());
         }
+
+        return '';
     }
 }
