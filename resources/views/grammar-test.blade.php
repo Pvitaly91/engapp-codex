@@ -263,7 +263,7 @@ HTML;
                                 }
                                 // ==== verb_hint ====
                                 if($verbHint){
-                                    $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')</span>';
+                                    $input .= ' <span class="ml-1 cursor-help text-blue-500" title="'.e($verbHint).'">&#8505;</span>';
                                 }
                                 $replacements[$marker] = $input;
                             }

@@ -51,7 +51,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'past',
                 'options' => ['go', 'goes', 'went', 'will go', 'gone'],
                 'answers' => [
-                    'a1' => ['answer' => 'went', 'verb_hint' => 'go'],
+                    'a1' => ['answer' => 'went', 'verb_hint' => 'Past simple: use the second form of the verb'],
                 ],
             ],
             [
@@ -60,7 +60,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['slept', 'sleep', 'sleeps', 'will sleep', 'sleeping'],
                 'answers' => [
-                    'a1' => ['answer' => 'sleep', 'verb_hint' => 'sleep'],
+                    'a1' => ['answer' => 'sleep', 'verb_hint' => 'Present simple: base verb after do/does'],
                 ],
             ],
             [
@@ -69,7 +69,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'future',
                 'options' => ['did', 'do', 'done', 'does', 'doing'],
                 'answers' => [
-                    'a1' => ['answer' => 'do', 'verb_hint' => 'do'],
+                    'a1' => ['answer' => 'do', 'verb_hint' => 'Future simple: will + base verb'],
                 ],
             ],
             [
@@ -78,7 +78,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'future',
                 'options' => ['celebrate', 'celebrated', 'celebrates', 'celebrating', 'have celebrated'],
                 'answers' => [
-                    'a1' => ['answer' => 'celebrate', 'verb_hint' => 'not/celebrate'],
+                    'a1' => ['answer' => 'celebrate', 'verb_hint' => 'Future negative: will not + base verb'],
                 ],
             ],
             [
@@ -87,7 +87,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['stay', 'stays', 'stayed', 'staying', 'will stay'],
                 'answers' => [
-                    'a1' => ['answer' => 'stays', 'verb_hint' => 'stay'],
+                    'a1' => ['answer' => 'stays', 'verb_hint' => 'Present simple: he/she/it takes -s'],
                 ],
             ],
             [
@@ -96,7 +96,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['sat', 'sit', 'sitting', 'sits', 'will sit'],
                 'answers' => [
-                    'a1' => ['answer' => 'sit', 'verb_hint' => 'sit'],
+                    'a1' => ['answer' => 'sit', 'verb_hint' => 'Question: use base verb after do'],
                 ],
             ],
             [
@@ -105,7 +105,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['earns', 'earned', 'earning', 'earn', 'will earn'],
                 'answers' => [
-                    'a1' => ['answer' => 'earn', 'verb_hint' => 'earn'],
+                    'a1' => ['answer' => 'earn', 'verb_hint' => 'Use base verb after does'],
                 ],
             ],
             [
@@ -114,7 +114,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'past',
                 'options' => ['watch', 'watched', 'watches', 'watching', 'will watch'],
                 'answers' => [
-                    'a1' => ['answer' => 'watch', 'verb_hint' => 'not/watch'],
+                    'a1' => ['answer' => 'watch', 'verb_hint' => 'Past negative: did not + base verb'],
                 ],
             ],
             [
@@ -123,7 +123,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'past',
                 'options' => ['was', 'were', 'are', 'is', 'will be'],
                 'answers' => [
-                    'a1' => ['answer' => 'were', 'verb_hint' => 'be'],
+                    'a1' => ['answer' => 'were', 'verb_hint' => "Past of 'be' is was/were"],
                 ],
             ],
             [
@@ -132,7 +132,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'past',
                 'options' => ['stand', 'stood', 'stands', 'standing', 'will stand'],
                 'answers' => [
-                    'a1' => ['answer' => 'stood', 'verb_hint' => 'stand'],
+                    'a1' => ['answer' => 'stood', 'verb_hint' => 'Past simple form of stand'],
                 ],
             ],
             [
@@ -141,7 +141,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['buy', 'bought', 'buys', 'will buy', 'buying'],
                 'answers' => [
-                    'a1' => ['answer' => 'buy', 'verb_hint' => 'buy'],
+                    'a1' => ['answer' => 'buy', 'verb_hint' => 'Present simple with adverbs of frequency'],
                 ],
             ],
             [
@@ -150,7 +150,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'past',
                 'options' => ['met', 'meet', 'meets', 'meeting', 'will meet'],
                 'answers' => [
-                    'a1' => ['answer' => 'meet', 'verb_hint' => 'meet'],
+                    'a1' => ['answer' => 'meet', 'verb_hint' => 'Past question: did + subject + base verb'],
                 ],
             ],
             [
@@ -159,7 +159,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['read', 'reads', 'reading', 'readed', 'will read'],
                 'answers' => [
-                    'a1' => ['answer' => 'reads', 'verb_hint' => 'read'],
+                    'a1' => ['answer' => 'reads', 'verb_hint' => 'Present simple: he/she/it takes -s'],
                 ],
             ],
             [
@@ -168,8 +168,8 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['think', 'thinks', 'thought', 'will think', 'thinking', 'stole', 'steals', 'steal', 'will steal', 'stolen'],
                 'answers' => [
-                    'a1' => ['answer' => 'think', 'verb_hint' => 'think'],
-                    'a2' => ['answer' => 'stole', 'verb_hint' => 'steal'],
+                    'a1' => ['answer' => 'think', 'verb_hint' => 'Conditional: would + base verb'],
+                    'a2' => ['answer' => 'stole', 'verb_hint' => 'If-clause uses past simple'],
                 ],
             ],
             [
@@ -178,7 +178,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['was', 'were', 'are', 'is', 'will be'],
                 'answers' => [
-                    'a1' => ['answer' => 'are', 'verb_hint' => 'be'],
+                    'a1' => ['answer' => 'are', 'verb_hint' => "Use present form of 'be'"],
                 ],
             ],
             [
@@ -187,7 +187,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'past',
                 'options' => ['hear', 'heard', 'hears', 'hearing', 'will hear'],
                 'answers' => [
-                    'a1' => ['answer' => 'hear', 'verb_hint' => 'not/hear'],
+                    'a1' => ['answer' => 'hear', 'verb_hint' => 'Past negative: did not + base verb'],
                 ],
             ],
             [
@@ -196,7 +196,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'future',
                 'options' => ['clean', 'cleaned', 'cleans', 'cleaning', 'will clean'],
                 'answers' => [
-                    'a1' => ['answer' => 'clean', 'verb_hint' => 'clean'],
+                    'a1' => ['answer' => 'clean', 'verb_hint' => 'Future simple: will + base verb'],
                 ],
             ],
             [
@@ -205,7 +205,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'past',
                 'options' => ['stand', 'stood', 'stands', 'standing', 'will stand'],
                 'answers' => [
-                    'a1' => ['answer' => 'stand', 'verb_hint' => 'cannot/stand'],
+                    'a1' => ['answer' => 'stand', 'verb_hint' => 'Modal could not + base verb'],
                 ],
             ],
             [
@@ -214,7 +214,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['talk', 'talks', 'talked', 'talking', 'will talk'],
                 'answers' => [
-                    'a1' => ['answer' => 'talk', 'verb_hint' => 'talk'],
+                    'a1' => ['answer' => 'talk', 'verb_hint' => 'Question: use base verb after do'],
                 ],
             ],
             [
@@ -223,8 +223,8 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['leave', 'leaves', 'left', 'leaving', 'miss', 'misses', 'missed', 'missing', 'will miss'],
                 'answers' => [
-                    'a1' => ['answer' => 'leave', 'verb_hint' => 'leave'],
-                    'a2' => ['answer' => 'miss', 'verb_hint' => 'miss'],
+                    'a1' => ['answer' => 'leave', 'verb_hint' => 'If-clause: present simple'],
+                    'a2' => ['answer' => 'miss', 'verb_hint' => 'Main clause: will + base verb'],
                 ],
             ],
             [
@@ -233,7 +233,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['eat', 'eats', 'ate', 'eating', 'will eat'],
                 'answers' => [
-                    'a1' => ['answer' => 'eat', 'verb_hint' => 'not/eat'],
+                    'a1' => ['answer' => 'eat', 'verb_hint' => 'Present negative: do not + base verb'],
                 ],
             ],
             [
@@ -242,7 +242,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['waters', 'watered', 'water', 'watering', 'will water'],
                 'answers' => [
-                    'a1' => ['answer' => 'waters', 'verb_hint' => 'water'],
+                    'a1' => ['answer' => 'waters', 'verb_hint' => 'Present simple: he/she/it takes -s'],
                 ],
             ],
             [
@@ -251,7 +251,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'past',
                 'options' => ['get', 'gets', 'got', 'getting', 'will get'],
                 'answers' => [
-                    'a1' => ['answer' => 'get', 'verb_hint' => 'not/get'],
+                    'a1' => ['answer' => 'get', 'verb_hint' => 'Past negative: did not + base verb'],
                 ],
             ],
             [
@@ -260,7 +260,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['play', 'played', 'plays', 'playing', 'will play'],
                 'answers' => [
-                    'a1' => ['answer' => 'play', 'verb_hint' => 'not/play'],
+                    'a1' => ['answer' => 'play', 'verb_hint' => 'Present negative: do not + base verb'],
                 ],
             ],
             [
@@ -269,7 +269,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['know', 'knows', 'knew', 'knowing', 'will know'],
                 'answers' => [
-                    'a1' => ['answer' => 'know', 'verb_hint' => 'know'],
+                    'a1' => ['answer' => 'know', 'verb_hint' => 'Question: use base verb after do'],
                 ],
             ],
             [
@@ -278,7 +278,7 @@ class GrammarTestSeeder extends Seeder
                 'category' => 'present',
                 'options' => ['help', 'helps', 'helped', 'helping', 'will help'],
                 'answers' => [
-                    'a1' => ['answer' => 'help', 'verb_hint' => 'help'],
+                    'a1' => ['answer' => 'help', 'verb_hint' => 'Imperative: base verb only'],
                 ],
             ],
         ];
