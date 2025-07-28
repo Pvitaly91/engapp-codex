@@ -52,3 +52,7 @@ Route::get('/test/{slug}', [GrammarTestController::class, 'showSavedTest'])->nam
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
 Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
+
+use App\Http\Controllers\QuestionReviewController;
+Route::get('/question-review', [QuestionReviewController::class, 'index'])->name('question-review.index');
+Route::post('/question-review', [QuestionReviewController::class, 'store'])->name('question-review.store');
