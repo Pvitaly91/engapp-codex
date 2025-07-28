@@ -5,16 +5,18 @@
 @section('content')
 <div class="flex gap-6">
     <aside class="w-48 shrink-0">
-        <h2 class="text-lg font-bold mb-2">Теги</h2>
-        <ul class="space-y-1 text-sm">
-            @foreach($tags as $tag)
-                <li>
-                    <a href="{{ route('saved-tests.cards', ['tag' => $tag]) }}" class="{{ $selectedTag === $tag ? 'text-blue-700 font-semibold' : 'text-blue-600 hover:underline' }}">
-                        {{ $tag }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+        @foreach($tags as $category => $tagNames)
+            <h3 class="text-lg font-bold mb-2">{{ $category }}</h3>
+            <ul class="space-y-1 text-sm mb-4">
+                @foreach($tagNames as $tag)
+                    <li>
+                        <a href="{{ route('saved-tests.cards', ['tag' => $tag]) }}" class="{{ $selectedTag === $tag ? 'text-blue-700 font-semibold' : 'text-blue-600 hover:underline' }}">
+                            {{ $tag }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endforeach
         @if($selectedTag)
             <div class="mt-2">
                 <a href="{{ route('saved-tests.cards') }}" class="text-xs text-gray-500 hover:underline">Скинути фільтр</a>

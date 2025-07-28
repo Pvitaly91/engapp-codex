@@ -24,7 +24,10 @@ class TenseTagsSeeder extends Seeder
         ];
 
         foreach ($tenses as $name) {
-            Tag::firstOrCreate(['name' => $name]);
+            Tag::firstOrCreate(
+                ['name' => $name],
+                ['category' => 'Tenses']
+            );
         }
     }
 }

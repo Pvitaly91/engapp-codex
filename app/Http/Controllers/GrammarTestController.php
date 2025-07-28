@@ -10,6 +10,7 @@ use App\Models\QuestionAnswer;
 use App\Models\Source;
 use Illuminate\Support\Str;
 use App\Models\Test;
+use App\Models\Tag;
 
 class GrammarTestController extends Controller
 {
@@ -312,13 +313,17 @@ class GrammarTestController extends Controller
 
         $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
 
+        $tagModels = Tag::whereIn('name', $availableTags)->get();
+        $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')
+            ->map(fn($group) => $group->pluck('name')->sort()->values());
+
         if ($selectedTag) {
             $tests = $tests->filter(fn($t) => $t->tag_names->contains($selectedTag))->values();
         }
 
         return view('saved-tests-cards', [
             'tests' => $tests,
-            'tags' => $availableTags,
+            'tags' => $tagsByCategory,
             'selectedTag' => $selectedTag,
         ]);
     }
