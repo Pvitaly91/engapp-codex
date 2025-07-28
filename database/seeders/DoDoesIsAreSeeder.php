@@ -68,9 +68,9 @@ class DoDoesIsAreSeeder extends Seeder
             ['What time {a1} you usually go to bed?',            'do'],
         ];
 
-        foreach ($questions as $data) {
+        foreach ($questions as $i => $data) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
                 'question'    => $data[0],
                 'difficulty'  => 1,
                 'category_id' => $cat_present,

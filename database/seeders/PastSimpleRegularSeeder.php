@@ -185,9 +185,9 @@ class PastSimpleRegularSeeder extends Seeder
             ],
         ];
 
-        foreach ($questions as $data) {
+        foreach ($questions as $i => $data) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
                 'question'    => $data['question'],
                 'difficulty'  => 2,
                 'category_id' => $cat_past,

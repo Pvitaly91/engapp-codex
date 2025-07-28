@@ -482,9 +482,9 @@ class RevisionTensesFullSeeder extends Seeder
 
         // =========================
         // Запис у базу:
-        foreach ($data as $d) {
+        foreach ($data as $i => $d) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
                 'question'    => $d['question'],
                 'category_id' => $d['category_id'],
                 'difficulty'  => $d['difficulty'],

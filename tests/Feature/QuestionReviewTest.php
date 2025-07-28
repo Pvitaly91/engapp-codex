@@ -44,7 +44,7 @@ class QuestionReviewTest extends TestCase
 
         $category = Category::create(['name' => 'test']);
         $question = Question::create([
-            'uuid' => (string) Str::uuid(),
+            'uuid' => 'test-question-1',
             'question' => 'Choose {a1}',
             'difficulty' => 1,
             'category_id' => $category->id,

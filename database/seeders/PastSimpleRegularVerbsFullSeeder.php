@@ -73,7 +73,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
 
         foreach ($verbs as $i => [$inf, $past]) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
                 'question'    => ucfirst($inf) . ' → {a1} (past form)',
                 'difficulty'  => 1,
                 'category_id' => $cat_past,
@@ -107,9 +107,10 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
             "Her aunt didn’t cook the dinner on Tuesday." => "Her aunt cooked the dinner on Tuesday.",
         ];
 
-        foreach ($positives as $neg => $pos) {
+        foreach ($positives as $i => $pos) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1 + count($verbs)),
+                // original negative sentence is stored in $neg
                 'question'    => $neg . ' (positive form: {a1})',
                 'difficulty'  => 2,
                 'category_id' => $cat_past,
@@ -141,9 +142,10 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
             "Debra and Rachel cycled to school yesterday." => "Debra and Rachel didn’t cycle to school yesterday.",
         ];
 
-        foreach ($negatives as $pos => $neg) {
+        foreach ($negatives as $j => $neg) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($j + 1 + count($verbs) + count($positives)),
+                // original positive sentence is stored in $pos
                 'question'    => $pos . ' (negative form: {a1})',
                 'difficulty'  => 2,
                 'category_id' => $cat_past,

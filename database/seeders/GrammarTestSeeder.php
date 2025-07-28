@@ -283,9 +283,9 @@ class GrammarTestSeeder extends Seeder
             ],
         ];
 
-        foreach ($questions as $q) {
+        foreach ($questions as $i => $q) {
             $question = Question::create([
-                'uuid' => (string) Str::uuid(),
+                'uuid' => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
                 'question' => $q['question'],
                 'difficulty' => $q['difficulty'],
                 'category_id' => $cats[$q['category']]->id,

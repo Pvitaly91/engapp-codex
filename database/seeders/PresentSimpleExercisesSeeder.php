@@ -205,9 +205,9 @@ class PresentSimpleExercisesSeeder extends Seeder
             ],
         ];
 
-        foreach ($section1 as $d) {
+        foreach ($section1 as $i => $d) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,
@@ -235,9 +235,9 @@ class PresentSimpleExercisesSeeder extends Seeder
             }
         }
 
-        foreach ($section2 as $d) {
+        foreach ($section2 as $i => $d) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1 + count($section1)),
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,

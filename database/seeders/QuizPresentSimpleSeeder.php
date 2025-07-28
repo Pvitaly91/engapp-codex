@@ -204,9 +204,9 @@ class QuizPresentSimpleSeeder extends Seeder
             ],
         ];
 
-        foreach ($data as $d) {
+        foreach ($data as $i => $d) {
             $q = Question::create([
-                'uuid'        => (string) Str::uuid(),
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
                 'question'    => $d['question'],
                 'category_id' => $categoryId,
                 'difficulty'  => $d['difficulty'],
