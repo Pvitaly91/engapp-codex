@@ -68,7 +68,7 @@ class QuestionReviewTest extends TestCase
 
         $response = $this->post('/question-review', [
             'question_id' => $question->id,
-            'answers' => ['a1' => 'yes'],
+            'answers' => ['a1' => 'no'],
             'tags' => [$tag->id],
             'comment' => 'ok',
         ]);
@@ -79,6 +79,9 @@ class QuestionReviewTest extends TestCase
             'comment' => 'ok',
         ]);
 
-        $this->get('/question-review-results')->assertStatus(200);
+        $page = $this->get('/question-review-results');
+        $page->assertStatus(200);
+        $page->assertSee('Choose <strong>yes</strong>', false);
+        $page->assertSee('Choose <strong>no</strong>', false);
     }
 }

@@ -8,8 +8,25 @@
     @if($results->count())
         <ul class="divide-y">
             @foreach($results as $result)
-            <li class="py-3">
-                <div class="font-semibold">{{ $result->question->question }}</div>
+            @php
+                $questionText = $result->question->question;
+                $orig = $questionText;
+                $changed = $questionText;
+                $modified = false;
+                foreach($result->question->answers as $ans){
+                    $marker = '{'.$ans->marker.'}';
+                    $origVal = $ans->option->option ?? $ans->answer;
+                    $orig = str_replace($marker, '<strong>'.$origVal.'</strong>', $orig);
+                    $newVal = $result->answers[$ans->marker] ?? $origVal;
+                    if($newVal !== $origVal){ $modified = true; }
+                    $changed = str_replace($marker, '<strong>'.$newVal.'</strong>', $changed);
+                }
+            @endphp
+            <li class="py-3 {{ $modified ? 'bg-yellow-50' : '' }}">
+                <div class="font-semibold">{!! $orig !!}</div>
+                @if($modified)
+                    <div class="mt-1">{!! $changed !!}</div>
+                @endif
                 @if($result->comment)
                     <div class="text-sm text-gray-600">Comment: {{ $result->comment }}</div>
                 @endif
