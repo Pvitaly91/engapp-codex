@@ -16,7 +16,7 @@ class ChatGPTService
             return '';
         }
 
-        $lang = $lang ?? config('services.chatgpt.language', 'uk');
+        $lang = "ua";//$lang ?? config('services.chatgpt.language', 'ua');
 
         $cached = ChatGPTExplanation::where('question', $question)
             ->where('wrong_answer', $wrongAnswer)
