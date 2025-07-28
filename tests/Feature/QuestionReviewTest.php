@@ -8,7 +8,11 @@ use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Tag};
 
 class QuestionReviewTest extends TestCase
 {
-    /** @test */
+    // Ensures the question review flow shows a question and stores the user's selection
+    /**
+     * @test
+     * Verify that a user can review a question and the review is saved.
+     */
     public function question_review_flow(): void
     {
         $migrations = [

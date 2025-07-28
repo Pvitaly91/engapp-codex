@@ -13,7 +13,7 @@ class QuestionReviewController extends Controller
     {
         $reviewed = session('reviewed_questions', []);
 
-        $question = Question::with(['options', 'answers', 'tags'])
+        $question = Question::with(['options', 'answers', 'tags', 'category'])
             ->whereNotIn('id', $reviewed)
             ->inRandomOrder()
             ->first();
