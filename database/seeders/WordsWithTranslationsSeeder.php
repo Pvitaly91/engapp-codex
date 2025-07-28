@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Tag;
+use App\Models\TagCategory;
 use App\Models\Translate;
 use App\Models\Word;
 use Illuminate\Database\Seeder;
@@ -18,7 +19,10 @@ class WordsWithTranslationsSeeder extends Seeder
 
         DB::beginTransaction();
         try {
-            $popularTag = Tag::firstOrCreate(['name' => '1000_most_popular']);
+            $category = TagCategory::firstOrCreate(['name' => 'Words']);
+            $popularTag = Tag::firstOrCreate(['name' => '1000_most_popular'], [
+                'tag_category_id' => $category->id,
+            ]);
             foreach ($rows as $row) {
                 $en = trim($row[0]);
                 $uk = trim($row[1]);

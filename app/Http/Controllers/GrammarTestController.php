@@ -305,7 +305,10 @@ class GrammarTestController extends Controller
             $test->tag_names = $tagNames->unique()->values();
         }
 
-        $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
+        $availableTagNames = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
+        $availableTags = \App\Models\Tag::with('category')
+            ->whereIn('name', $availableTagNames)
+            ->get();
 
         if ($selectedTag) {
             $tests = $tests->filter(fn($t) => $t->tag_names->contains($selectedTag))->values();

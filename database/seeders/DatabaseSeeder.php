@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->call([
+            TagCategorySeeder::class,
             TenseTagsSeeder::class,
             DoDoesIsAreSeeder::class,
             FutureSimpleTest1Seeder::class,

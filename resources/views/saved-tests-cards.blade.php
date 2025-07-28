@@ -6,15 +6,18 @@
 <div class="flex gap-6">
     <aside class="w-48 shrink-0">
         <h2 class="text-lg font-bold mb-2">Теги</h2>
-        <ul class="space-y-1 text-sm">
-            @foreach($tags as $tag)
-                <li>
-                    <a href="{{ route('saved-tests.cards', ['tag' => $tag]) }}" class="{{ $selectedTag === $tag ? 'text-blue-700 font-semibold' : 'text-blue-600 hover:underline' }}">
-                        {{ $tag }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+        @foreach($tags->groupBy(fn($t) => optional($t->category)->name ?? 'Other') as $catName => $group)
+            <div class="mb-1 font-semibold">{{ $catName }}</div>
+            <ul class="space-y-1 text-sm mb-2">
+                @foreach($group as $tag)
+                    <li>
+                        <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="{{ $selectedTag === $tag->name ? 'text-blue-700 font-semibold' : 'text-blue-600 hover:underline' }}">
+                            {{ $tag->name }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endforeach
         @if($selectedTag)
             <div class="mt-2">
                 <a href="{{ route('saved-tests.cards') }}" class="text-xs text-gray-500 hover:underline">Скинути фільтр</a>

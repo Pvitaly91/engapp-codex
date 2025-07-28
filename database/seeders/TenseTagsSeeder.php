@@ -3,6 +3,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Tag;
+use App\Models\TagCategory;
 
 class TenseTagsSeeder extends Seeder
 {
@@ -23,8 +24,14 @@ class TenseTagsSeeder extends Seeder
             'Future Perfect Continuous',
         ];
 
+        $category = TagCategory::firstOrCreate(['name' => 'Tenses']);
+
         foreach ($tenses as $name) {
-            Tag::firstOrCreate(['name' => $name]);
+            Tag::firstOrCreate([
+                'name' => $name
+            ], [
+                'tag_category_id' => $category->id
+            ]);
         }
     }
 }
