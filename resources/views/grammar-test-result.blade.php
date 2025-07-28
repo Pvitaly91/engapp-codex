@@ -19,10 +19,14 @@
                             $key = "a".$num;
                             $answer = $answers[$key] ?? '—';
                             $right = $res['correct_answers'][$key] ?? '';
+                            $explanation = $res['explanations'][$key] ?? null;
                             $color = strtolower($answer) === strtolower($right) ? 'text-green-700 font-bold' : 'text-red-700 font-bold underline';
                             $show = '<span class="'.$color.'">'.$answer.'</span>';
                             if (strtolower($answer) !== strtolower($right)) {
                                 $show .= ' <span class="text-xs text-gray-500">(правильна: '.$right.')</span>';
+                                if ($explanation) {
+                                    $show .= '<div class="text-xs text-gray-700 mt-1">'.e($explanation).'</div>';
+                                }
                             }
                             $replacements['{a'.$num.'}'] = $show;
                         }

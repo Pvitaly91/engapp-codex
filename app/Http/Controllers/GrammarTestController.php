@@ -257,11 +257,13 @@ class GrammarTestController extends Controller
     {
         $questions = Question::with(['answers.option', 'category'])->whereIn('id', array_keys($request->get('questions', [])))->get();
         $results = [];
+        $gpt = app(\App\Services\ChatGPTService::class);
 
         foreach ($questions as $question) {
             $correctCount = 0;
             $total = $question->answers->count();
             $userAnswers = [];
+            $explanations = [];
 
             foreach ($question->answers as $ans) {
                 $inputName = "question_{$question->id}_{$ans->marker}";
@@ -270,6 +272,8 @@ class GrammarTestController extends Controller
                 $correctValue = $ans->option->option;
                 if (strtolower(trim($userAnswer)) === strtolower($correctValue)) {
                     $correctCount++;
+                } else {
+                    $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $userAnswer, $correctValue);
                 }
             }
 
@@ -278,6 +282,7 @@ class GrammarTestController extends Controller
                 'user_answers' => $userAnswers,
                 'is_correct' => ($correctCount === $total),
                 'correct_answers' => $question->answers->mapWithKeys(fn($a) => [$a->marker => $a->option->option]),
+                'explanations' => $explanations,
             ];
         }
 
