@@ -29,6 +29,7 @@ class QuestionReviewTest extends TestCase
             '2025_07_30_000001_create_tags_table.php',
             '2025_07_30_000003_create_question_tag_table.php',
             '2025_07_28_112705_create_question_review_results_table.php',
+            '2025_07_28_113005_add_comment_to_question_review_results_table.php',
         ];
         foreach ($migrations as $file) {
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
@@ -62,15 +63,22 @@ class QuestionReviewTest extends TestCase
         $response = $this->get('/question-review');
         $response->assertStatus(200);
 
+        $edit = $this->get('/question-review/'.$question->id);
+        $edit->assertStatus(200);
+
         $response = $this->post('/question-review', [
             'question_id' => $question->id,
             'answers' => ['a1' => 'yes'],
             'tags' => [$tag->id],
+            'comment' => 'ok',
         ]);
         $response->assertRedirect('/question-review');
 
         $this->assertDatabaseHas('question_review_results', [
             'question_id' => $question->id,
+            'comment' => 'ok',
         ]);
+
+        $this->get('/question-review-results')->assertStatus(200);
     }
 }

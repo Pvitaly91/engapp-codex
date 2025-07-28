@@ -56,3 +56,7 @@ Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 
 use App\Http\Controllers\QuestionReviewController;
 Route::get('/question-review', [QuestionReviewController::class, 'index'])->name('question-review.index');
 Route::post('/question-review', [QuestionReviewController::class, 'store'])->name('question-review.store');
+Route::get('/question-review/{question}', [QuestionReviewController::class, 'edit'])->name('question-review.edit');
+
+use App\Http\Controllers\QuestionReviewResultController;
+Route::get('/question-review-results', [QuestionReviewResultController::class, 'index'])->name('question-review-results.index');

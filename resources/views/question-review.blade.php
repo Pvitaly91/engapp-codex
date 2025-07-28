@@ -43,6 +43,10 @@
                 @endforeach
             </div>
         </div>
+        <div class="bg-white shadow rounded-2xl p-4">
+            <label for="comment" class="font-semibold mb-1 block">Comment</label>
+            <textarea name="comment" id="comment" rows="3" class="w-full border rounded px-2 py-1">{{ old('comment') }}</textarea>
+        </div>
     </form>
 </div>
 @endsection

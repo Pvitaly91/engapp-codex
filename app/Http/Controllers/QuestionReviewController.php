@@ -32,6 +32,17 @@ class QuestionReviewController extends Controller
         ]);
     }
 
+    public function edit(Question $question)
+    {
+        $question->load(['options', 'answers', 'tags', 'category']);
+        $allTags = Tag::whereHas('questions')->orderBy('name')->get();
+
+        return view('question-review', [
+            'question' => $question,
+            'allTags' => $allTags,
+        ]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -53,6 +64,7 @@ class QuestionReviewController extends Controller
             'question_id' => $question->id,
             'answers' => $answers,
             'tags' => $tags,
+            'comment' => $request->input('comment'),
         ]);
 
         $reviewed = session('reviewed_questions', []);
