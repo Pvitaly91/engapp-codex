@@ -33,6 +33,7 @@ class QuestionReviewTest extends TestCase
             '2025_07_28_113005_add_comment_to_question_review_results_table.php',
             '2025_07_28_113010_add_original_tags_to_question_review_results_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
+            '2025_07_20_184450_create_tests_table.php',
         ];
         foreach ($migrations as $file) {
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
@@ -67,10 +68,20 @@ class QuestionReviewTest extends TestCase
 
         $response = $this->get('/question-review');
         $response->assertStatus(200);
-        $response->assertSee('/question-review/' . $question->id);
 
         $edit = $this->get('/question-review/'.$question->id);
         $edit->assertStatus(200);
+
+        $testModel = \App\Models\Test::create([
+            'name' => 'sample',
+            'slug' => 'sample',
+            'filters' => [],
+            'questions' => [$question->id],
+        ]);
+
+        $testPage = $this->get('/test/'.$testModel->slug);
+        $testPage->assertStatus(200);
+        $testPage->assertSee('/question-review/' . $question->id);
 
         $response = $this->post('/question-review', [
             'question_id' => $question->id,

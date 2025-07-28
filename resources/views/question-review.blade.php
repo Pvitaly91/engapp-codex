@@ -30,8 +30,7 @@
                 echo strtr(e($text), $repl);
             @endphp
             </div>
-            <div class="flex gap-2 self-start">
-                <a href="{{ route('question-review.edit', $question->id) }}" class="bg-gray-200 px-4 py-2 rounded">Edit</a>
+            <div class="self-start">
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Next</button>
             </div>
         </div>

@@ -120,6 +120,7 @@ HTML;
                         $finalQuestion = strtr(e($questionText), $replacements);
                     @endphp
                     <label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
+                    <a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Edit</a>
                     
                 </div>
                 @if($q->tags->count())
