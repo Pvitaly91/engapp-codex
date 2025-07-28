@@ -298,7 +298,7 @@ class GrammarTestController extends Controller
 
     public function catalog(Request $request)
     {
-        $selectedTag = $request->input('tag');
+        $selectedTags = (array) $request->input('tags', []);
 
         $tests = \App\Models\Test::latest()->get();
 
@@ -317,14 +317,20 @@ class GrammarTestController extends Controller
         $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')
             ->map(fn($group) => $group->pluck('name')->sort()->values());
 
-        if ($selectedTag) {
-            $tests = $tests->filter(fn($t) => $t->tag_names->contains($selectedTag))->values();
+        if (!empty($selectedTags)) {
+            $tests = $tests->filter(function ($t) use ($selectedTags) {
+                return $t->tag_names->intersect($selectedTags)->isNotEmpty();
+            })->values();
         }
 
         return view('saved-tests-cards', [
             'tests' => $tests,
             'tags' => $tagsByCategory,
-            'selectedTag' => $selectedTag,
+            'selectedTags' => $selectedTags,
+            'breadcrumbs' => [
+                ['label' => 'Home', 'url' => route('home')],
+                ['label' => 'Tests Catalog'],
+            ],
         ]);
     }
     
