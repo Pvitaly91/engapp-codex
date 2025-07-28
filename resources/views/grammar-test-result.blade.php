@@ -23,15 +23,16 @@
                             $color = strtolower($answer) === strtolower($right) ? 'text-green-700 font-bold' : 'text-red-700 font-bold underline';
                             $show = '<span class="'.$color.'">'.$answer.'</span>';
                             if (strtolower($answer) !== strtolower($right)) {
-                                $show .= ' <span class="text-xs text-gray-500">(правильна: '.$right.')</span>';
+                                $show .= ' <span class="text-xs text-gray-500">(правильна: <strong>'.$right.'</strong>)</span>';
                                 if ($explanation) {
-                                    $paragraphs = preg_split("/\r?\n/", trim($explanation));
+                                    $show .= '<div class="text-xs text-blue-800  rounded px-2 py-1 mt-1 space-y-1">'.$explanation.'</div>';
+                                 /*   $paragraphs = preg_split("/\r?\n/", trim($explanation));
                                     $paragraphs = array_filter($paragraphs);
-                                    $formatted = array_map(fn($p) => '<p class="mb-1 font-semibold">'.e($p).'</p>', $paragraphs);
+                                    $formatted = array_map(fn($p) => e($p), $paragraphs);
                                     $show .= '<div class="text-xs text-blue-800 bg-blue-50 rounded px-2 py-1 mt-1 space-y-1">'.implode('', $formatted).'</div>';
-                                }
+                               */}
                             }
-                            $replacements['{a'.$num.'}'] = $show;
+                          $replacements['{a'.$num.'}'] = $show;
                         }
                         $finalQuestion = strtr(e($questionText), $replacements);
                     @endphp
