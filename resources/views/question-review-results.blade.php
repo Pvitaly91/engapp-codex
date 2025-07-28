@@ -21,11 +21,22 @@
                     if($newVal !== $origVal){ $modified = true; }
                     $changed = str_replace($marker, '<strong>'.$newVal.'</strong>', $changed);
                 }
+                $origTags = $result->original_tags ?? [];
+                $newTags = $result->tags ?? [];
+                $tagNames = function($ids) {
+                    return \App\Models\Tag::whereIn('id', $ids)->pluck('name')->implode(', ');
+                };
+                $tagsChanged = array_diff($origTags, $newTags) || array_diff($newTags, $origTags);
             @endphp
             <li class="py-3 {{ $modified ? 'bg-yellow-50' : '' }}">
                 <div class="font-semibold">{!! $orig !!}</div>
                 @if($modified)
                     <div class="mt-1">{!! $changed !!}</div>
+                @endif
+                @if($tagsChanged)
+                    <div class="text-sm">Tags: <span class="line-through">{{ $tagNames($origTags) }}</span> → <span class="font-medium">{{ $tagNames($newTags) }}</span></div>
+                @else
+                    <div class="text-sm">Tags: {{ $tagNames($newTags) }}</div>
                 @endif
                 @if($result->comment)
                     <div class="text-sm text-gray-600">Comment: {{ $result->comment }}</div>

@@ -14,12 +14,14 @@ class QuestionReviewResult extends Model
         'question_id',
         'answers',
         'tags',
+        'original_tags',
         'comment',
     ];
 
     protected $casts = [
         'answers' => 'array',
         'tags' => 'array',
+        'original_tags' => 'array',
     ];
 
     public function question()

@@ -30,6 +30,7 @@ class QuestionReviewTest extends TestCase
             '2025_07_30_000003_create_question_tag_table.php',
             '2025_07_28_112705_create_question_review_results_table.php',
             '2025_07_28_113005_add_comment_to_question_review_results_table.php',
+            '2025_07_28_113010_add_original_tags_to_question_review_results_table.php',
         ];
         foreach ($migrations as $file) {
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
@@ -57,8 +58,9 @@ class QuestionReviewTest extends TestCase
         $qa->question_id = $question->id;
         $qa->answer = 'yes';
         $qa->save();
-        $tag = Tag::create(['name' => 'tag1']);
-        $question->tags()->attach($tag->id);
+        $tag1 = Tag::create(['name' => 'tag1']);
+        $tag2 = Tag::create(['name' => 'tag2']);
+        $question->tags()->attach($tag1->id);
 
         $response = $this->get('/question-review');
         $response->assertStatus(200);
@@ -69,7 +71,7 @@ class QuestionReviewTest extends TestCase
         $response = $this->post('/question-review', [
             'question_id' => $question->id,
             'answers' => ['a1' => 'no'],
-            'tags' => [$tag->id],
+            'tags' => [$tag2->id],
             'comment' => 'ok',
         ]);
         $response->assertRedirect('/question-review');
@@ -77,11 +79,14 @@ class QuestionReviewTest extends TestCase
         $this->assertDatabaseHas('question_review_results', [
             'question_id' => $question->id,
             'comment' => 'ok',
+            'original_tags' => json_encode([$tag1->id]),
+            'tags' => json_encode([$tag2->id]),
         ]);
 
         $page = $this->get('/question-review-results');
         $page->assertStatus(200);
         $page->assertSee('Choose <strong>yes</strong>', false);
         $page->assertSee('Choose <strong>no</strong>', false);
+        $page->assertSeeInOrder(['Tags:', 'tag1', 'tag2'], false);
     }
 }

@@ -58,12 +58,14 @@ class QuestionReviewController extends Controller
         }
 
         $tags = $request->input('tags', []);
+        $originalTags = $question->tags->pluck('id')->all();
         $question->tags()->sync($tags);
 
         QuestionReviewResult::create([
             'question_id' => $question->id,
             'answers' => $answers,
             'tags' => $tags,
+            'original_tags' => $originalTags,
             'comment' => $request->input('comment'),
         ]);
 
