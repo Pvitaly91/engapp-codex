@@ -45,6 +45,9 @@ Route::post('/words/test/reset', function () {
 Route::get('/translate/test', [SentenceTranslationTestController::class, 'index'])->name('translate.test');
 Route::post('/translate/test/check', [SentenceTranslationTestController::class, 'check'])->name('translate.test.check');
 Route::post('/translate/test/reset', [SentenceTranslationTestController::class, 'reset'])->name('translate.test.reset');
+Route::get('/translate/test2', [SentenceTranslationTestController::class, 'indexV2'])->name('translate.test2');
+Route::post('/translate/test2/check', [SentenceTranslationTestController::class, 'checkV2'])->name('translate.test2.check');
+Route::post('/translate/test2/reset', [SentenceTranslationTestController::class, 'resetV2'])->name('translate.test2.reset');
 
 Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
 Route::post('/grammar-test', [GrammarTestController::class, 'generate'])->name('grammar-test.generate');
