@@ -7,7 +7,6 @@ use Illuminate\Support\Str;
 use App\Models\Category;
 use App\Services\QuestionSeedingService;
 use App\Models\Tag;
-use App\Models\Tag;
 
 class GrammarTestSeeder extends Seeder
 {
