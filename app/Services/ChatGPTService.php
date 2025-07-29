@@ -70,13 +70,32 @@ class ChatGPTService
             return ['is_correct' => true, 'explanation' => ''];
         }
 
+        $lang = $lang ?? config('services.chatgpt.language', 'uk');
+
+        $normalized = [
+            'original' => trim(mb_strtolower($original)),
+            'reference' => trim(mb_strtolower($correct)),
+            'user' => trim(mb_strtolower($user)),
+        ];
+
+        $cached = \App\Models\ChatGPTTranslationCheck::where('original', $normalized['original'])
+            ->where('reference', $normalized['reference'])
+            ->where('user_text', $normalized['user'])
+            ->where('language', $lang)
+            ->first();
+
+        if ($cached) {
+            return [
+                'is_correct' => (bool) $cached->is_correct,
+                'explanation' => $cached->explanation ?? '',
+            ];
+        }
+
         $key = config('services.chatgpt.key');
         if (empty($key)) {
             Log::warning('ChatGPT API key not configured');
             return ['is_correct' => false, 'explanation' => ''];
         }
-
-        $lang = $lang ?? config('services.chatgpt.language', 'uk');
 
         $prompt = "You are a language teacher.\n" .
             "Original: {$original}\n" .
@@ -107,10 +126,21 @@ class ChatGPTService
             }
 
             if (is_array($data) && isset($data['correct'])) {
-                return [
+                $result = [
                     'is_correct' => (bool) $data['correct'],
                     'explanation' => $data['explanation'] ?? '',
                 ];
+
+                \App\Models\ChatGPTTranslationCheck::create([
+                    'original' => $normalized['original'],
+                    'reference' => $normalized['reference'],
+                    'user_text' => $normalized['user'],
+                    'language' => $lang,
+                    'is_correct' => $result['is_correct'],
+                    'explanation' => $result['explanation'],
+                ]);
+
+                return $result;
             }
         } catch (Exception $e) {
             Log::warning('ChatGPT translation check failed: ' . $e->getMessage());
