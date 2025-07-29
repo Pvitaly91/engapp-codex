@@ -33,6 +33,7 @@ return [
 
     'chatgpt' => [
         'key' => env('CHAT_GPT_API_KEY'),
+        'language' => env('CHAT_GPT_LANGUAGE', 'uk'),
     ],
 
 ];

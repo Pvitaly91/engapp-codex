@@ -41,6 +41,7 @@
 
             <ul class="flex gap-6 text-gray-600 font-medium">
                 <li><a href="{{ url('/words/test') }}" class="hover:text-blue-500">Words</a></li>
+                <li><a href="{{ route('translate.test') }}" class="hover:text-blue-500">Translate Test</a></li>
                 <li><a href="{{ route('question-review.index') }}" class="hover:text-blue-500">Question Review</a></li>
                 <li><a href="{{ route('question-review-results.index') }}" class="hover:text-blue-500">Review Results</a></li>
                 <li><a href="{{ route('saved-tests.cards') }}" class="hover:text-blue-500">Tests Catalog</a></li>
@@ -79,6 +80,15 @@
     </script>
     <!-- Контент -->
     <main class="flex-1 container mx-auto px-4">
+        @php $pageTitle = trim($__env->yieldContent('title')); @endphp
+        @if(isset($breadcrumbs))
+            @include('components.breadcrumbs', ['items' => $breadcrumbs])
+        @elseif(request()->path() !== '/' && !empty($pageTitle))
+            @include('components.breadcrumbs', ['items' => [
+                ['label' => 'Home', 'url' => route('home')],
+                ['label' => $pageTitle]
+            ]])
+        @endif
         @yield('content')
     </main>
 
