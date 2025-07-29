@@ -5,36 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Models\Category;
-use App\Models\Question;
-use App\Models\QuestionOption;
-use App\Models\QuestionAnswer;
-use App\Models\VerbHint;
-use Illuminate\Support\Facades\DB;
+use App\Services\QuestionSeedingService;
 
 class GrammarTestSeeder extends Seeder
 {
-    private function attachOption(Question $question, string $value, ?int $flag = null)
-    {
-        $option = QuestionOption::firstOrCreate(['option' => $value]);
-
-        $exists = DB::table('question_option_question')
-            ->where('question_id', $question->id)
-            ->where('option_id', $option->id)
-            ->where(function ($query) use ($flag) {
-                if ($flag === null) {
-                    $query->whereNull('flag');
-                } else {
-                    $query->where('flag', $flag);
-                }
-            })
-            ->exists();
-
-        if (! $exists) {
-            $question->options()->attach($option->id, ['flag' => $flag]);
-        }
-
-        return $option;
-    }
 
     public function run(): void
     {
@@ -283,32 +257,35 @@ class GrammarTestSeeder extends Seeder
             ],
         ];
 
+        $service = new QuestionSeedingService();
+        $items = [];
         foreach ($questions as $i => $q) {
-            $question = Question::create([
-                'uuid' => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
-                'question' => $q['question'],
-                'difficulty' => $q['difficulty'],
-                'category_id' => $cats[$q['category']]->id,
-            ]);
-            foreach ($q['options'] as $option) {
-                $this->attachOption($question, $option);
-            }
+            $index = $i + 1;
+            $slug  = Str::slug(class_basename(self::class));
+            $max   = 36 - strlen((string) $index) - 1;
+            $uuid  = substr($slug, 0, $max) . '-' . $index;
+
+            $answers = [];
             foreach ($q['answers'] as $marker => $answerData) {
-                $opt = $this->attachOption($question, $answerData['answer']);
-                QuestionAnswer::firstOrCreate([
-                    'question_id' => $question->id,
-                    'marker' => $marker,
-                    'option_id' => $opt->id,
-                ]);
-                if (!empty($answerData['verb_hint'])) {
-                    $hintOpt = $this->attachOption($question, $answerData['verb_hint'], 1);
-                    VerbHint::firstOrCreate([
-                        'question_id' => $question->id,
-                        'marker' => $marker,
-                        'option_id' => $hintOpt->id,
-                    ]);
-                }
+                $answers[] = [
+                    'marker'    => $marker,
+                    'answer'    => $answerData['answer'],
+                    'verb_hint' => $answerData['verb_hint'] ?? null,
+                ];
             }
+
+            $items[] = [
+                'uuid'        => $uuid,
+                'question'    => $q['question'],
+                'difficulty'  => $q['difficulty'],
+                'category_id' => $cats[$q['category']]->id,
+                'flag'        => 0,
+                'source_id'   => null,
+                'answers'     => $answers,
+                'options'     => $q['options'],
+            ];
         }
+
+        $service->seed($items);
     }
 }

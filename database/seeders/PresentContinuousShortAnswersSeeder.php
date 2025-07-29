@@ -3,17 +3,24 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Question;
-use App\Models\QuestionAnswer;
-use App\Models\QuestionOption;
+use App\Services\QuestionSeedingService;
 use App\Models\Category;
+use App\Models\Source;
+use App\Models\Tag;
+use Illuminate\Support\Str;
 
 class PresentContinuousShortAnswersSeeder extends Seeder
 {
+
     public function run()
     {
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
-        $source = 'Write questions and short answers in present continuous with the words in brackets. Use short forms when possible.';
+        $sourceId = Source::firstOrCreate([
+            'name' => 'Present Continuous Short Answers'
+        ])->id;
+
+        $tenseTag = Tag::firstOrCreate(['name' => 'Present Continuous'], ['category' => 'Tenses']);
+        $themeTag = Tag::firstOrCreate(['name' => 'present_continuous_short_answers']);
 
         $data = [
             [
@@ -128,28 +135,24 @@ class PresentContinuousShortAnswersSeeder extends Seeder
             ],
         ];
 
-        foreach ($data as $d) {
-            $q = Question::create([
-                'question'    => $d['question'],
-                'category_id' => $cat_present,
-                'difficulty'  => 2,
-                'source'      => $source,
-                'flag'        => 0,
-            ]);
-            foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
-                    'question_id' => $q->id,
-                    'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'] ?? null,
-                ]);
-            }
-            foreach ($d['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
-            }
+        $service = new QuestionSeedingService();
+        $items = [];
+        foreach ($data as $i => $d) {
+            $index = $i + 1;
+            $slug  = Str::slug(class_basename(self::class));
+            $max   = 36 - strlen((string) $index) - 1;
+            $uuid  = substr($slug, 0, $max) . '-' . $index;
+
+            $d['uuid']        = $uuid;
+            $d['category_id'] = $cat_present;
+            $d['difficulty']  = 2;
+            $d['source_id']   = $sourceId;
+            $d['flag']        = 0;
+            $d['tag_ids']     = [$tenseTag->id, $themeTag->id];
+
+            $items[] = $d;
         }
+
+        $service->seed($items);
     }
 }

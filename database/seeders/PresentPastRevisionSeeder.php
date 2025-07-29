@@ -3,38 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Question;
-use App\Models\QuestionAnswer;
-use App\Models\QuestionOption;
-use App\Models\VerbHint;
+use App\Services\QuestionSeedingService;
 use App\Models\Source;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class PresentPastRevisionSeeder extends Seeder
 {
-    private function attachOption(Question $question, string $value, ?int $flag = null)
-    {
-        $option = QuestionOption::firstOrCreate(['option' => $value]);
-
-        $exists = DB::table('question_option_question')
-            ->where('question_id', $question->id)
-            ->where('option_id', $option->id)
-            ->where(function ($query) use ($flag) {
-                if ($flag === null) {
-                    $query->whereNull('flag');
-                } else {
-                    $query->where('flag', $flag);
-                }
-            })
-            ->exists();
-
-        if (! $exists) {
-            $question->options()->attach($option->id, ['flag' => $flag]);
-        }
-
-        return $option;
-    }
 
     public function run()
     {
@@ -200,36 +174,22 @@ class PresentPastRevisionSeeder extends Seeder
         ]);
 
         // --- Запис у БД ---
+        $service = new QuestionSeedingService();
+        $items = [];
         foreach ($questions as $i => $data) {
-            $q = Question::create([
-                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
-                'question'    => $data['question'],
-                'difficulty'  => 2,
-                'category_id' => $data['category_id'],
-                'flag'        => 0,
-                'source_id'   => $sourceId,
-            ]);
-            foreach ($data['answers'] as $ans) {
-                $option = $this->attachOption($q, $ans['answer']);
-                QuestionAnswer::firstOrCreate([
-                    'question_id' => $q->id,
-                    'marker'      => $ans['marker'],
-                    'option_id'   => $option->id,
-                ]);
-                if (!empty($ans['verb_hint'])) {
-                    $hintOption = $this->attachOption($q, $ans['verb_hint'], 1);
-                    VerbHint::firstOrCreate([
-                        'question_id' => $q->id,
-                        'marker'      => $ans['marker'],
-                        'option_id'   => $hintOption->id,
-                    ]);
-                }
-            }
-            if (!empty($data['options'])) {
-                foreach ($data['options'] as $opt) {
-                    $this->attachOption($q, $opt);
-                }
-            }
+            $index = $i + 1;
+            $slug  = Str::slug(class_basename(self::class));
+            $max   = 36 - strlen((string) $index) - 1;
+            $uuid  = substr($slug, 0, $max) . '-' . $index;
+
+            $data['uuid']      = $uuid;
+            $data['difficulty'] = 2;
+            $data['source_id'] = $sourceId;
+            $data['flag']      = 0;
+
+            $items[] = $data;
         }
+
+        $service->seed($items);
     }
 }
