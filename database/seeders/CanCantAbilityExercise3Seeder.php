@@ -1,19 +1,25 @@
-<?php 
+<?php
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\Question;
-use App\Models\QuestionAnswer;
-use App\Models\QuestionOption;
 use App\Models\Category;
+use App\Models\Source;
+use App\Models\Tag;
+use App\Services\QuestionSeedingService;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CanCantAbilityExercise3Seeder extends Seeder
 {
     public function run()
     {
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
-        $source = "Complete this job interview with can, can't and the words in brackets.";
+        $sourceId = Source::firstOrCreate([
+            'name' => "Complete this job interview with can, can't and the words in brackets.",
+        ])->id;
+
+        $modalTag = Tag::firstOrCreate(['name' => 'Can'], ['category' => 'Modals']);
+        $themeTag = Tag::firstOrCreate(['name' => 'can_cant_ability_exercise_3']);
 
         $data = [
             [
@@ -35,7 +41,7 @@ class CanCantAbilityExercise3Seeder extends Seeder
                 'question' => 'Ann: I {a1} (not accept) negative criticism, but I {a2} (accept) constructive criticism.',
                 'answers' => [
                     ['marker' => 'a1', 'answer' => "can\'t"],
-                    ['marker' => 'a2', 'answer' => "can"],
+                    ['marker' => 'a2', 'answer' => 'can'],
                 ],
                 'options' => ['can', "can\'t"],
             ],
@@ -74,27 +80,24 @@ class CanCantAbilityExercise3Seeder extends Seeder
             ],
         ];
 
-        foreach ($data as $d) {
-            $q = Question::create([
-                'question'    => $d['question'],
-                'category_id' => $cat_present,
-                'difficulty'  => 2,
-                'source'      => $source,
-                'flag'        => 0,
-            ]);
-            foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
-                    'question_id' => $q->id,
-                    'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                ]);
-            }
-            foreach ($d['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
-            }
+        $service = new QuestionSeedingService;
+        $items = [];
+        foreach ($data as $i => $d) {
+            $index = $i + 1;
+            $slug = Str::slug(class_basename(self::class));
+            $max = 36 - strlen((string) $index) - 1;
+            $uuid = substr($slug, 0, $max).'-'.$index;
+
+            $d['uuid'] = $uuid;
+            $d['category_id'] = $cat_present;
+            $d['difficulty'] = 2;
+            $d['source_id'] = $sourceId;
+            $d['flag'] = 0;
+            $d['tag_ids'] = [$modalTag->id, $themeTag->id];
+
+            $items[] = $d;
         }
+
+        $service->seed($items);
     }
 }
