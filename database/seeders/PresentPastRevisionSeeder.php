@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class PresentPastRevisionSeeder extends Seeder
@@ -16,6 +17,8 @@ class PresentPastRevisionSeeder extends Seeder
         $cat_past = 1;
         $cat_present = 2;
         $sourceId = Source::firstOrCreate(['name' => 'Revision: Present or Past Simple'])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'present_past_revision']);
 
         // 1. Underline the correct form (варіанти відповіді — зображено у формі select)
         $questions = [
@@ -186,6 +189,7 @@ class PresentPastRevisionSeeder extends Seeder
             $data['difficulty'] = 2;
             $data['source_id'] = $sourceId;
             $data['flag']      = 0;
+            $data['tag_ids']   = [$themeTag->id];
 
             $items[] = $data;
         }

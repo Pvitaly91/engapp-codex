@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Category;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class GrammarQuizPastSimpleSeeder extends Seeder
@@ -15,6 +16,8 @@ class GrammarQuizPastSimpleSeeder extends Seeder
     {
         $cat_past = Category::firstOrCreate(['name' => 'past'])->id;
         $sourceId = Source::firstOrCreate(['name' => 'Grammar Quiz: Past Simple'])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'grammar_quiz_past_simple']);
 
         $data = [
             [
@@ -204,7 +207,8 @@ class GrammarQuizPastSimpleSeeder extends Seeder
             $max   = 36 - strlen((string) $index) - 1;
             $uuid  = substr($slug, 0, $max) . '-' . $index;
 
-            $d['uuid'] = $uuid;
+           $d['uuid'] = $uuid;
+            $d['tag_ids'] = [$themeTag->id];
             $items[]   = $d;
         }
 

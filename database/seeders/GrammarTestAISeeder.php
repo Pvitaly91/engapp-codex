@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Category;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class GrammarTestAISeeder extends Seeder
@@ -26,6 +27,8 @@ class GrammarTestAISeeder extends Seeder
         foreach ($categories as $id => $name) {
             Category::firstOrCreate(['id' => $id], ['name' => $name]);
         }
+
+        $themeTag = Tag::firstOrCreate(['name' => 'grammar_test_ai']);
 
         $sourceNames = [
             'AI: Present Simple',
@@ -217,8 +220,9 @@ class GrammarTestAISeeder extends Seeder
             $max   = 36 - strlen((string) $index) - 1;
             $uuid  = substr($slug, 0, $max) . '-' . $index;
 
-            $data['uuid']  = $uuid;
-            $data['flag']  = 1;
+           $data['uuid']  = $uuid;
+           $data['flag']  = 1;
+            $data['tag_ids'] = [$themeTag->id];
             $items[] = $data;
         }
 

@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Category;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class ThisThatTheseThoseExercise3Seeder extends Seeder
@@ -16,6 +17,7 @@ class ThisThatTheseThoseExercise3Seeder extends Seeder
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
         $source = 'Transform singular sentences into plural sentences and plural sentences into singular sentences using this, that, these, those and other missing words.';
         $sourceId = Source::firstOrCreate(['name' => $source])->id;
+        $themeTag = Tag::firstOrCreate(['name' => 'this_that_these_those_exercise_3']);
 
         $data = [
             [
@@ -85,6 +87,7 @@ class ThisThatTheseThoseExercise3Seeder extends Seeder
                 'difficulty'  => 2,
                 'source_id'   => $sourceId,
                 'flag'        => 0,
+                'tag_ids'     => [$themeTag->id],
                 'answers'     => $d['answers'],
                 'options'     => $d['options'],
             ];

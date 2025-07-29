@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Category;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class ThisThatTheseThoseExercise2Seeder extends Seeder
@@ -16,6 +17,8 @@ class ThisThatTheseThoseExercise2Seeder extends Seeder
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
         $source = 'Choose this, that, these, those to complete the following sentences.';
         $sourceId = Source::firstOrCreate(['name' => $source])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'this_that_these_those_exercise_2']);
 
         $data = [
             [
@@ -85,6 +88,7 @@ class ThisThatTheseThoseExercise2Seeder extends Seeder
                 'difficulty'  => 1,
                 'source_id'   => $sourceId,
                 'flag'        => 0,
+                'tag_ids'     => [$themeTag->id],
                 'answers'     => $d['answers'],
                 'options'     => $d['options'],
             ];

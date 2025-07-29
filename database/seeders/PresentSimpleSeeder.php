@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class PresentSimpleSeeder extends Seeder
@@ -15,6 +16,8 @@ class PresentSimpleSeeder extends Seeder
         $sourceId = Source::firstOrCreate([
             'name' => 'Present simple. Complete the sentences with the correct variant.'
         ])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'present_simple']);
 
         $data = [
             [
@@ -169,6 +172,7 @@ class PresentSimpleSeeder extends Seeder
 
             $d['uuid']        = $uuid;
             $d['category_id'] = $categoryId;
+            $d['tag_ids']     = [$themeTag->id];
 
             $items[] = $d;
         }

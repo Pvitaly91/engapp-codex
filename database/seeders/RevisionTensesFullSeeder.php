@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Category;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class RevisionTensesFullSeeder extends Seeder
@@ -21,6 +22,8 @@ class RevisionTensesFullSeeder extends Seeder
         $sourceNeg = Source::firstOrCreate(['name' => 'Write negative sentences: Заперечні речення.'])->id;
         $sourceGeneral = Source::firstOrCreate(['name' => 'Write general questions: Побудуй загальне питання.'])->id;
         $sourceSpec = Source::firstOrCreate(['name' => 'Write questions to the underlined words: Побудуй спеціальне питання до підкреслених слів.'])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'revision_tenses_full']);
 
         // 1. Write positive sentences
         $data[] = [
@@ -464,7 +467,8 @@ class RevisionTensesFullSeeder extends Seeder
             $max   = 36 - strlen((string) $index) - 1;
             $uuid  = substr($slug, 0, $max) . '-' . $index;
 
-            $d['uuid'] = $uuid;
+           $d['uuid'] = $uuid;
+            $d['tag_ids'] = [$themeTag->id];
             $items[]   = $d;
         }
 

@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Category;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class FutureSimpleTest1Seeder extends Seeder
@@ -15,6 +16,8 @@ class FutureSimpleTest1Seeder extends Seeder
     {
         $cat_future = Category::firstOrCreate(['name' => 'Future'])->id;
         $sourceId = Source::firstOrCreate(['name' => 'FutureSimple'])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'future_simple_test_1']);
 
         $data = [
             [
@@ -327,7 +330,8 @@ class FutureSimpleTest1Seeder extends Seeder
             $max   = 36 - strlen((string) $index) - 1;
             $uuid  = substr($slug, 0, $max) . '-' . $index;
 
-            $d['uuid'] = $uuid;
+           $d['uuid'] = $uuid;
+            $d['tag_ids'] = [$themeTag->id];
             $items[]   = $d;
         }
 
