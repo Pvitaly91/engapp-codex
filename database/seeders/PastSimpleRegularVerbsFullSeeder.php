@@ -3,38 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Question;
-use App\Models\QuestionAnswer;
-use App\Models\QuestionOption;
-use App\Models\VerbHint;
+use App\Services\QuestionSeedingService;
 use App\Models\Source;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class PastSimpleRegularVerbsFullSeeder extends Seeder
 {
-    private function attachOption(Question $question, string $value, ?int $flag = null)
-    {
-        $option = QuestionOption::firstOrCreate(['option' => $value]);
-
-        $exists = DB::table('question_option_question')
-            ->where('question_id', $question->id)
-            ->where('option_id', $option->id)
-            ->where(function ($query) use ($flag) {
-                if ($flag === null) {
-                    $query->whereNull('flag');
-                } else {
-                    $query->where('flag', $flag);
-                }
-            })
-            ->exists();
-
-        if (! $exists) {
-            $question->options()->attach($option->id, ['flag' => $flag]);
-        }
-
-        return $option;
-    }
 
     public function run()
     {
@@ -71,99 +45,28 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
             ['like', 'liked'],
         ];
 
+        $service = new QuestionSeedingService();
+        $items = [];
         foreach ($verbs as $i => [$inf, $past]) {
-            $q = Question::create([
-                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
+            $index = $i + 1;
+            $slug  = Str::slug(class_basename(self::class));
+            $max   = 36 - strlen((string) $index) - 1;
+            $uuid  = substr($slug, 0, $max) . '-' . $index;
+
+            $items[] = [
+                'uuid'        => $uuid,
                 'question'    => ucfirst($inf) . ' → {a1} (past form)',
                 'difficulty'  => 1,
                 'category_id' => $cat_past,
                 'flag'        => 0,
                 'source_id'   => $source1,
-            ]);
-            $opt = $this->attachOption($q, $past);
-            QuestionAnswer::firstOrCreate([
-                'question_id' => $q->id,
-                'marker'      => 'a1',
-                'option_id'   => $opt->id,
-            ]);
-            $hintOpt = $this->attachOption($q, $inf, 1);
-            VerbHint::firstOrCreate([
-                'question_id' => $q->id,
-                'marker'      => 'a1',
-                'option_id'   => $hintOpt->id,
-            ]);
-            foreach([$past, $inf] as $optStr) {
-                $this->attachOption($q, $optStr);
-            }
-        }
-        /*    
-        // B) Rewrite these sentences making them positive.
-        $positives = [
-            "Robert didn’t wait for his friends this morning." => "Robert waited for his friends this morning.",
-            "They didn’t listen to music at 11 p.m. last night." => "They listened to music at 11 p.m. last night.",
-            "My mother didn’t clean the kitchen yesterday." => "My mother cleaned the kitchen yesterday.",
-            "The students didn’t learn Japanese last year." => "The students learned Japanese last year.",
-            "Mr. Smith didn’t arrive home before dinner." => "Mr. Smith arrived home before dinner.",
-            "Her aunt didn’t cook the dinner on Tuesday." => "Her aunt cooked the dinner on Tuesday.",
-        ];
-
-        foreach ($positives as $i => $pos) {
-            $q = Question::create([
-                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1 + count($verbs)),
-                // original negative sentence is stored in $neg
-                'question'    => $neg . ' (positive form: {a1})',
-                'difficulty'  => 2,
-                'category_id' => $cat_past,
-                'flag'        => 1,
-                'source_id'   => $source2,
-            ]);
-            $opt = $this->attachOption($q, $pos);
-            QuestionAnswer::firstOrCreate([
-                'question_id' => $q->id,
-                'marker'      => 'a1',
-                'option_id'   => $opt->id,
-            ]);
-            $hintOpt = $this->attachOption($q, 'make positive', 1);
-            VerbHint::firstOrCreate([
-                'question_id' => $q->id,
-                'marker'      => 'a1',
-                'option_id'   => $hintOpt->id,
-            ]);
+                'answers'     => [
+                    ['marker' => 'a1', 'answer' => $past, 'verb_hint' => $inf],
+                ],
+                'options'     => [$past, $inf],
+            ];
         }
 
-        // C) Rewrite these sentences making them negative.
-        $negatives = [
-            "Patricia watched a film at 10 p.m. last night." => "Patricia didn’t watch a film at 10 p.m. last night.",
-            "I borrowed a book from the library last week." => "I didn’t borrow a book from the library last week.",
-            "My classmates answered all the questions." => "My classmates didn’t answer all the questions.",
-            "She talked to her English teacher five days ago." => "She didn’t talk to her English teacher five days ago.",
-            "Mrs. Jackson repaired the chair last weekend." => "Mrs. Jackson didn’t repair the chair last weekend.",
-            "Eric brushed his teeth before breakfast today." => "Eric didn’t brush his teeth before breakfast today.",
-            "Debra and Rachel cycled to school yesterday." => "Debra and Rachel didn’t cycle to school yesterday.",
-        ];
-
-        foreach ($negatives as $j => $neg) {
-            $q = Question::create([
-                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($j + 1 + count($verbs) + count($positives)),
-                // original positive sentence is stored in $pos
-                'question'    => $pos . ' (negative form: {a1})',
-                'difficulty'  => 2,
-                'category_id' => $cat_past,
-                'flag'        => 1,
-                'source_id'   => $source3,
-            ]);
-            $opt = $this->attachOption($q, $neg);
-            QuestionAnswer::firstOrCreate([
-                'question_id' => $q->id,
-                'marker'      => 'a1',
-                'option_id'   => $opt->id,
-            ]);
-            $hintOpt = $this->attachOption($q, 'make negative', 1);
-            VerbHint::firstOrCreate([
-                'question_id' => $q->id,
-                'marker'      => 'a1',
-                'option_id'   => $hintOpt->id,
-            ]);
-        }*/
+        $service->seed($items);
     }
 }
