@@ -26,8 +26,7 @@
                 @else
                     <div class="bg-red-100 text-red-800 px-4 py-2 rounded mb-2">
                         {{ $feedback['explanation'] }}<br>
-                        Your answer: <b>{{ $feedback['userAnswer'] }}</b><br>
-                        Correct: <b>{{ $feedback['correct'] }}</b>
+                        Your answer: <b>{{ $feedback['userAnswer'] }}</b>
                     </div>
                 @endif
             </div>

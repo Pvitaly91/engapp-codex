@@ -65,6 +65,11 @@ class ChatGPTService
 
     public function checkTranslation(string $original, string $correct, string $user, ?string $lang = null): array
     {
+        // Simple check first: ignore case and surrounding whitespace
+        if (strcasecmp(trim($correct), trim($user)) === 0) {
+            return ['is_correct' => true, 'explanation' => ''];
+        }
+
         $key = config('services.chatgpt.key');
         if (empty($key)) {
             Log::warning('ChatGPT API key not configured');
@@ -73,10 +78,10 @@ class ChatGPTService
 
         $lang = $lang ?? config('services.chatgpt.language', 'uk');
 
-        $prompt = "You are a language teacher.\n".
-            "Original: {$original}\n".
-            "Reference translation: {$correct}\n".
-            "Student translation: {$user}\n".
+        $prompt = "You are a language teacher.\n" .
+            "Original: {$original}\n" .
+            "Reference translation: {$correct}\n" .
+            "Student translation: {$user}\n" .
             "Respond in JSON with keys 'correct' (true or false) and 'explanation' in {$lang}.";
 
         try {
@@ -90,6 +95,17 @@ class ChatGPTService
 
             $content = trim($result->choices[0]->message->content);
             $data = json_decode($content, true);
+
+            // Sometimes GPT returns additional text around JSON
+            if (!is_array($data)) {
+                $start = strpos($content, '{');
+                $end = strrpos($content, '}');
+                if ($start !== false && $end !== false && $end > $start) {
+                    $json = substr($content, $start, $end - $start + 1);
+                    $data = json_decode($json, true);
+                }
+            }
+
             if (is_array($data) && isset($data['correct'])) {
                 return [
                     'is_correct' => (bool) $data['correct'],
