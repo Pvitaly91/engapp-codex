@@ -39,8 +39,10 @@
             <div class="flex flex-wrap gap-2 mb-4">
                 <template x-for="(word, index) in words" :key="index">
                     <div class="relative">
-                        <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1" autocomplete="off"
+                        <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1 w-1/2" autocomplete="off"
                                x-model="words[index]"
+                               pattern="^\S+$" title="One word only"
+                               @keydown.space.prevent
                                @focus="fetchSuggestions(index)" @input="fetchSuggestions(index)" required>
                         <template x-if="suggestions[index] && suggestions[index].length">
                             <ul class="absolute left-0 z-10 bg-white shadow-lg border mt-1 max-h-40 rounded-md overflow-auto w-full">

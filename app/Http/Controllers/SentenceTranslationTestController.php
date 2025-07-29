@@ -193,7 +193,7 @@ class SentenceTranslationTestController extends Controller
         $request->validate([
             'sentence_id' => 'required|exists:sentences,id',
             'words' => 'required|array|min:1',
-            'words.*' => 'string',
+            'words.*' => ['string', 'regex:/^\S+$/'],
         ]);
 
         $sentence = Sentence::findOrFail($request->input('sentence_id'));
