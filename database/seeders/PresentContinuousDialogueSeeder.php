@@ -6,14 +6,47 @@ use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
+use App\Models\VerbHint;
 use App\Models\Category;
+use App\Models\Source;
+use App\Models\Tag;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PresentContinuousDialogueSeeder extends Seeder
 {
+    private function attachOption(Question $question, string $value, ?int $flag = null)
+    {
+        $option = QuestionOption::firstOrCreate(['option' => $value]);
+
+        $exists = DB::table('question_option_question')
+            ->where('question_id', $question->id)
+            ->where('option_id', $option->id)
+            ->where(function ($query) use ($flag) {
+                if ($flag === null) {
+                    $query->whereNull('flag');
+                } else {
+                    $query->where('flag', $flag);
+                }
+            })
+            ->exists();
+
+        if (! $exists) {
+            $question->options()->attach($option->id, ['flag' => $flag]);
+        }
+
+        return $option;
+    }
+
     public function run()
     {
         $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
-        $source = 'Complete the dialogues with the verbs in brackets in present continuous. Use short forms when possible.';
+        $sourceId = Source::firstOrCreate([
+            'name' => 'Present Continuous Dialogue'
+        ])->id;
+
+        $tenseTag = Tag::firstOrCreate(['name' => 'Present Continuous'], ['category' => 'Tenses']);
+        $themeTag = Tag::firstOrCreate(['name' => 'present_continuous_dialogue']);
 
         $data = [
             [
@@ -68,28 +101,38 @@ class PresentContinuousDialogueSeeder extends Seeder
             ],
         ];
 
-        foreach ($data as $d) {
+        foreach ($data as $i => $d) {
             $q = Question::create([
+                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,
-                'source'      => $source,
+                'source_id'   => $sourceId,
                 'flag'        => 0,
             ]);
+
             foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
+                $option = $this->attachOption($q, $ans['answer']);
+                QuestionAnswer::firstOrCreate([
                     'question_id' => $q->id,
                     'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                    'verb_hint'   => $ans['verb_hint'] ?? null,
+                    'option_id'   => $option->id,
                 ]);
+                if (!empty($ans['verb_hint'])) {
+                    $hintOption = $this->attachOption($q, $ans['verb_hint'], 1);
+                    VerbHint::firstOrCreate([
+                        'question_id' => $q->id,
+                        'marker'      => $ans['marker'],
+                        'option_id'   => $hintOption->id,
+                    ]);
+                }
             }
+
             foreach ($d['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
+                $this->attachOption($q, $opt);
             }
+
+            $q->tags()->syncWithoutDetaching([$tenseTag->id, $themeTag->id]);
         }
     }
 }
