@@ -66,11 +66,13 @@ class QuestionSeedingService
                 }
             }
 
-            foreach ($data['options'] as $opt) {
-                $this->attachOption($q, $opt);
+            if (! empty($data['options'] ?? [])) {
+                foreach ($data['options'] as $opt) {
+                    $this->attachOption($q, $opt);
+                }
             }
 
-            if (!empty($data['tag_ids'])) {
+            if (! empty($data['tag_ids'] ?? [])) {
                 $q->tags()->syncWithoutDetaching($data['tag_ids']);
             }
         }
