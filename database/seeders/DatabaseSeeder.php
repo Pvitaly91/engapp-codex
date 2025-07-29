@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
             ToBeTenseSeeder::class,
             WordsWithTranslationsSeeder::class,
             PronounWordsSeeder::class,
+            SentenceTranslationSeeder::class,
             TestsSqlSeeder::class,
             QuestionTenseAssignmentSeeder::class,
         ]);
