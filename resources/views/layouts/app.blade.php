@@ -78,6 +78,23 @@
     </script>
     <!-- Контент -->
     <main class="flex-1 container mx-auto px-4">
+        @isset($breadcrumbs)
+            <nav class="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
+                <ol class="list-reset flex">
+                    <li><a href="{{ route('home') }}" class="text-blue-600 hover:underline">Home</a></li>
+                    @foreach($breadcrumbs as $crumb)
+                        <li class="mx-2">/</li>
+                        <li>
+                            @if(isset($crumb['url']))
+                                <a href="{{ $crumb['url'] }}" class="text-blue-600 hover:underline">{{ $crumb['label'] }}</a>
+                            @else
+                                <span>{{ $crumb['label'] }}</span>
+                            @endif
+                        </li>
+                    @endforeach
+                </ol>
+            </nav>
+        @endisset
         @yield('content')
     </main>
 

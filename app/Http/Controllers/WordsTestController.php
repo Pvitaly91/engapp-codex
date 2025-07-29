@@ -62,6 +62,9 @@ class WordsTestController extends Controller
                 'totalCount' => $totalCount,
                 'selectedTags' => $selectedTags,
                 'allTags' => Tag::whereHas('words')->get(),
+                'breadcrumbs' => [
+                    ['label' => 'Words Test'],
+                ],
             ]);
         }
 
@@ -101,6 +104,9 @@ class WordsTestController extends Controller
             'totalCount' => $totalCount,
             'selectedTags' => $selectedTags,
             'allTags' => Tag::whereHas('words')->get(),
+            'breadcrumbs' => [
+                ['label' => 'Words Test'],
+            ],
         ]);
     }
 

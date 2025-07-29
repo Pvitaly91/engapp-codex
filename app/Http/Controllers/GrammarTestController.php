@@ -56,6 +56,10 @@ class GrammarTestController extends Controller
             'questions' => $questions,
             'manualInput' => $manualInput,
             'autocompleteInput' => $autocompleteInput,
+            'breadcrumbs' => [
+                ['label' => 'Tests Catalog', 'url' => route('saved-tests.cards')],
+                ['label' => $test->name],
+            ],
         ]);
     }
 
@@ -80,7 +84,11 @@ class GrammarTestController extends Controller
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
             'selectedCategories', 'difficultyFrom', 'difficultyTo', 'numQuestions',
             'manualInput', 'autocompleteInput', 'checkOneInput', 'questions'
-        ));
+        ) + [
+            'breadcrumbs' => [
+                ['label' => 'Grammar Test'],
+            ],
+        ]);
     }
 
     public function generate(Request $request)
@@ -178,7 +186,11 @@ class GrammarTestController extends Controller
             'includeAi', 'onlyAi', 'questions',
             'sources', 'selectedSources', 'autoTestName',
             'allTags', 'selectedTags'
-        ));
+        ) + [
+            'breadcrumbs' => [
+                ['label' => 'Grammar Test'],
+            ],
+        ]);
     }
     
     public function destroy(\App\Models\Test $test)
@@ -250,6 +262,9 @@ class GrammarTestController extends Controller
             'maxQuestions' => $maxQuestions,
             'allTags' => $allTags,
             'selectedTags' => $selectedTags,
+            'breadcrumbs' => [
+                ['label' => 'Grammar Test'],
+            ],
         ]);
     }
 
@@ -281,18 +296,32 @@ class GrammarTestController extends Controller
             ];
         }
 
-        return view('grammar-test-result', compact('results'));
+        return view('grammar-test-result', [
+            'results' => $results,
+            'breadcrumbs' => [
+                ['label' => 'Grammar Test', 'url' => route('grammar-test')],
+                ['label' => 'Result'],
+            ],
+        ]);
     }
 
     public function list()
     {
         $tests = \App\Models\Test::latest()->paginate(20); // пагінація, якщо тестів багато
-        return view('saved-tests', compact('tests'));
+        return view('saved-tests', [
+            'tests' => $tests,
+            'breadcrumbs' => [
+                ['label' => 'Saved Tests'],
+            ],
+        ]);
     }
 
     public function catalog(Request $request)
     {
-        $selectedTag = $request->input('tag');
+        $selectedTags = $request->input('tags', []);
+        if (empty($selectedTags) && $request->filled('tag')) {
+            $selectedTags = [$request->input('tag')];
+        }
 
         $tests = \App\Models\Test::latest()->get();
 
@@ -305,16 +334,24 @@ class GrammarTestController extends Controller
             $test->tag_names = $tagNames->unique()->values();
         }
 
-        $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
+        $availableTagNames = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
+        $availableTags = \App\Models\Tag::with('category')
+            ->whereIn('name', $availableTagNames)
+            ->get();
 
-        if ($selectedTag) {
-            $tests = $tests->filter(fn($t) => $t->tag_names->contains($selectedTag))->values();
+        if ($selectedTags) {
+            $tests = $tests->filter(function ($t) use ($selectedTags) {
+                return collect($selectedTags)->every(fn($tag) => $t->tag_names->contains($tag));
+            })->values();
         }
 
         return view('saved-tests-cards', [
             'tests' => $tests,
             'tags' => $availableTags,
-            'selectedTag' => $selectedTag,
+            'selectedTags' => $selectedTags,
+            'breadcrumbs' => [
+                ['label' => 'Tests Catalog'],
+            ],
         ]);
     }
     

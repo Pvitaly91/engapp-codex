@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Question;
 use App\Models\Tag;
+use App\Models\TagCategory;
 
 class QuestionTenseAssignmentSeeder extends Seeder
 {
@@ -51,7 +52,8 @@ class QuestionTenseAssignmentSeeder extends Seeder
                 $tagName = 'Present Simple';
             }
 
-            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $category = TagCategory::firstOrCreate(['name' => 'Tenses']);
+            $tag = Tag::firstOrCreate(['name' => $tagName], ['tag_category_id' => $category->id]);
             $q->tags()->syncWithoutDetaching([$tag->id]);
         }
     }

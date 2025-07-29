@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Tag;
+use App\Models\TagCategory;
 use App\Models\Translate;
 use App\Models\Word;
 use Illuminate\Database\Seeder;
@@ -61,10 +62,11 @@ class PronounWordsSeeder extends Seeder
         ];
 
         DB::transaction(function () use ($pronouns) {
-            $pronounTag = Tag::firstOrCreate(['name' => 'pronouns']);
+            $category = TagCategory::firstOrCreate(['name' => 'Words']);
+            $pronounTag = Tag::firstOrCreate(['name' => 'pronouns'], ['tag_category_id' => $category->id]);
 
             foreach ($pronouns as $group => $items) {
-                $groupTag = Tag::firstOrCreate(['name' => $group]);
+                $groupTag = Tag::firstOrCreate(['name' => $group], ['tag_category_id' => $category->id]);
 
                 foreach ($items as $item) {
                     $word = Word::firstOrCreate(['word' => $item['en']]);
