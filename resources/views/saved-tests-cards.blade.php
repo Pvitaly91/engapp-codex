@@ -5,19 +5,21 @@
 @section('content')
 <div class="flex gap-6">
     <aside class="w-48 shrink-0">
-        @foreach($tags as $category => $tagNames)
-            <h3 class="text-lg font-bold mb-2">{{ $category }}</h3>
-            <ul class="space-y-1 text-sm mb-4">
-                @foreach($tagNames as $tag)
-                    <li>
-                        <a href="{{ route('saved-tests.cards', ['tag' => $tag]) }}" class="{{ $selectedTag === $tag ? 'text-blue-700 font-semibold' : 'text-blue-600 hover:underline' }}">
-                            {{ $tag }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        @endforeach
-        @if($selectedTag)
+        <form id="tag-filter" action="{{ route('saved-tests.cards') }}" method="GET">
+            @foreach($tags as $category => $tagNames)
+                <h3 class="text-lg font-bold mb-2">{{ $category }}</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    @foreach($tagNames as $tag)
+                        @php $id = 'tag-' . md5($tag); @endphp
+                        <div>
+                            <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
+                            <label for="{{ $id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $tag }}</label>
+                        </div>
+                    @endforeach
+                </div>
+            @endforeach
+        </form>
+        @if(!empty($selectedTags))
             <div class="mt-2">
                 <a href="{{ route('saved-tests.cards') }}" class="text-xs text-gray-500 hover:underline">Скинути фільтр</a>
             </div>
@@ -45,6 +47,11 @@
         @else
             <div class="text-gray-600">Ще немає збережених тестів.</div>
         @endif
-    </div>
 </div>
+</div>
+<script>
+    document.querySelectorAll('#tag-filter input[type=checkbox]').forEach(el => {
+        el.addEventListener('change', () => document.getElementById('tag-filter').submit());
+    });
+</script>
 @endsection

@@ -79,6 +79,15 @@
     </script>
     <!-- Контент -->
     <main class="flex-1 container mx-auto px-4">
+        @php $pageTitle = trim($__env->yieldContent('title')); @endphp
+        @if(isset($breadcrumbs))
+            @include('components.breadcrumbs', ['items' => $breadcrumbs])
+        @elseif(request()->path() !== '/' && !empty($pageTitle))
+            @include('components.breadcrumbs', ['items' => [
+                ['label' => 'Home', 'url' => route('home')],
+                ['label' => $pageTitle]
+            ]])
+        @endif
         @yield('content')
     </main>
 
