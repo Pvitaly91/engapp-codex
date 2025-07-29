@@ -102,8 +102,13 @@ class PresentContinuousDialogueSeeder extends Seeder
         ];
 
         foreach ($data as $i => $d) {
+            $index = $i + 1;
+            $slug  = Str::slug(class_basename(self::class));
+            $max   = 36 - strlen((string) $index) - 1; // keep uuid within 36 chars
+            $uuid  = substr($slug, 0, $max) . '-' . $index;
+
             $q = Question::create([
-                'uuid'        => Str::slug(class_basename(self::class)) . '-' . ($i + 1),
+                'uuid'        => $uuid,
                 'question'    => $d['question'],
                 'category_id' => $cat_present,
                 'difficulty'  => 2,
