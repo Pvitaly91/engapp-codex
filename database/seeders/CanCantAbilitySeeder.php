@@ -18,7 +18,8 @@ class CanCantAbilitySeeder extends Seeder
             'name' => 'Choose the correct option to complete the sentences.',
         ])->id;
 
-        $modalTag = Tag::firstOrCreate(['name' => 'Can'], ['category' => 'Modals']);
+        $canTag = Tag::firstOrCreate(['name' => 'Can'], ['category' => 'Modals']);
+        $cantTag = Tag::firstOrCreate(['name' => "Can't"], ['category' => 'Modals']);
         $themeTag = Tag::firstOrCreate(['name' => 'can_cant_ability']);
 
         $data = [
@@ -30,47 +31,47 @@ class CanCantAbilitySeeder extends Seeder
             [
                 'question' => 'I {a1}. The music is too loud.',
                 'answers' => [['marker' => 'a1', 'answer' => "can't"]],
-                'options' => ['can', "can\'t"],
+                'options' => ['can', "can't"],
             ],
             [
                 'question' => '\'Can you play the piano?\' \'Yes, I {a1}.\'',
                 'answers' => [['marker' => 'a1', 'answer' => 'can']],
-                'options' => ['can', "can\'t"],
+                'options' => ['can', "can't"],
             ],
             [
                 'question' => 'He {a1} four languages.',
                 'answers' => [['marker' => 'a1', 'answer' => 'can']],
-                'options' => ['can', "can\'t"],
+                'options' => ['can', "can't"],
             ],
             [
                 'question' => 'He says that he {a1} me.',
                 'answers' => [['marker' => 'a1', 'answer' => "can't"]],
-                'options' => ['can', "can\'t"],
+                'options' => ['can', "can't"],
             ],
             [
                 'question' => '{a1} a ham and cheese pizza, please?',
                 'answers' => [['marker' => 'a1', 'answer' => 'Can I have']],
-                'options' => ['Can I have', "Can\'t I have"],
+                'options' => ['Can I have', "Can't I have"],
             ],
             [
                 'question' => '\'Can I smoke here?\' \'No, you {a1}.\'',
                 'answers' => [['marker' => 'a1', 'answer' => "can't"]],
-                'options' => ['can', "can\'t"],
+                'options' => ['can', "can't"],
             ],
             [
                 'question' => 'We {a1} use our phones in class.',
                 'answers' => [['marker' => 'a1', 'answer' => "can't"]],
-                'options' => ['can', "can\'t"],
+                'options' => ['can', "can't"],
             ],
             [
                 'question' => 'He {a1} my car if he needs it.',
                 'answers' => [['marker' => 'a1', 'answer' => 'can use']],
-                'options' => ['can use', "can\'t use"],
+                'options' => ['can use', "can't use"],
             ],
             [
                 'question' => '{a1} the window, please?',
                 'answers' => [['marker' => 'a1', 'answer' => 'Can you open']],
-                'options' => ['Can you open', "Can\'t you open"],
+                'options' => ['Can you open', "Can't you open"],
             ],
         ];
 
@@ -87,7 +88,14 @@ class CanCantAbilitySeeder extends Seeder
             $d['difficulty'] = 1;
             $d['source_id'] = $sourceId;
             $d['flag'] = 0;
-            $d['tag_ids'] = [$modalTag->id, $themeTag->id];
+            $answersText = implode(' ', array_column($d['answers'], 'answer'));
+            $tagIds = [$themeTag->id];
+            if (str_contains($answersText, "can't")) {
+                $tagIds[] = $cantTag->id;
+            } else {
+                $tagIds[] = $canTag->id;
+            }
+            $d['tag_ids'] = $tagIds;
 
             $items[] = $d;
         }
