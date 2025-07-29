@@ -39,7 +39,7 @@
             <div class="flex flex-wrap items-center gap-2 mb-4">
                 <template x-for="(word, index) in words" :key="index">
                     <div class="relative">
-                        <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1 w-1/2" autocomplete="off"
+                        <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1" autocomplete="off"
                                x-model="words[index]"
                                pattern="^\S+$" title="One word only"
                                @keydown.space.prevent
