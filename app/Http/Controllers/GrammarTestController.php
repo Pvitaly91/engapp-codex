@@ -319,7 +319,8 @@ class GrammarTestController extends Controller
 
         if (!empty($selectedTags)) {
             $tests = $tests->filter(function ($t) use ($selectedTags) {
-                return $t->tag_names->intersect($selectedTags)->isNotEmpty();
+                return collect($selectedTags)
+                    ->every(fn($tag) => $t->tag_names->contains($tag));
             })->values();
         }
 
