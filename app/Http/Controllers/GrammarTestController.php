@@ -317,6 +317,16 @@ class GrammarTestController extends Controller
         $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')
             ->map(fn($group) => $group->pluck('name')->sort()->values());
 
+        $tagsByCategory = $tagsByCategory->sortKeys();
+        if ($tagsByCategory->has('Tenses')) {
+            $tenses = $tagsByCategory->pull('Tenses');
+            $tagsByCategory = $tagsByCategory->prepend($tenses, 'Tenses');
+        }
+        if ($tagsByCategory->has('Other')) {
+            $other = $tagsByCategory->pull('Other');
+            $tagsByCategory->put('Other', $other);
+        }
+
         if (!empty($selectedTags)) {
             $tests = $tests->filter(function ($t) use ($selectedTags) {
                 return collect($selectedTags)
