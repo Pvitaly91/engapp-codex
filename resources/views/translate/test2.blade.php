@@ -36,7 +36,8 @@
             @csrf
             <input type="hidden" name="sentence_id" value="{{ $sentence->id }}">
             <div class="mb-6 text-xl font-semibold">{{ $sentence->text_uk }}</div>
-            <div class="flex flex-wrap gap-2 mb-4">
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+                <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-first">+</button>
                 <template x-for="(word, index) in words" :key="index">
                     <div class="relative">
                         <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1 w-1/2" autocomplete="off"
@@ -55,7 +56,6 @@
                         </template>
                     </div>
                 </template>
-                <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded">+</button>
             </div>
             <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition">
                 {{ $attempts > 0 ? 'Submit' : 'Check' }}
