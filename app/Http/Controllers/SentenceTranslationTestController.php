@@ -105,7 +105,6 @@ class SentenceTranslationTestController extends Controller
                 session()->flash('translation_feedback', [
                     'isCorrect' => false,
                     'userAnswer' => $request->input('answer'),
-                    'correct' => $sentence->text_en,
                     'explanation' => $result['explanation'] ?? '',
                 ]);
             } else {
@@ -113,7 +112,6 @@ class SentenceTranslationTestController extends Controller
                 session()->flash('translation_feedback', [
                     'isCorrect' => false,
                     'userAnswer' => $request->input('answer'),
-                    'correct' => $sentence->text_en,
                     'explanation' => $result['explanation'] ?? '',
                 ]);
             }
