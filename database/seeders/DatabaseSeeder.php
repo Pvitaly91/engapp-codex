@@ -49,6 +49,7 @@ class DatabaseSeeder extends Seeder
             SentenceTranslationSeeder::class,
             TestsSqlSeeder::class,
             QuestionTenseAssignmentSeeder::class,
+            WordsFromSentencesSeeder::class,
         ]);
     }
 }
