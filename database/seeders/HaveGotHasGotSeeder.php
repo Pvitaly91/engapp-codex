@@ -19,7 +19,7 @@ class HaveGotHasGotSeeder extends Seeder
         ])->id;
 
         $themeTag = Tag::firstOrCreate(['name' => 'have_has_got']);
-        $modalTag = Tag::firstOrCreate(['name' => 'Have Has Got'], ['category' => 'modal']);
+        $modalTag = Tag::firstOrCreate(['name' => 'Have Has Got'], ['category' => 'Modals']);
 
         $data = [
             [
