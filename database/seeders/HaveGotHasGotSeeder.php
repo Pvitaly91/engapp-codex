@@ -15,10 +15,13 @@ class HaveGotHasGotSeeder extends Seeder
     {
         $categoryId = Category::firstOrCreate(['name' => 'present'])->id;
         $sourceId = Source::firstOrCreate([
-            'name' => 'Complete the sentences with have got or has got.'
+            'name' => 'Complete the sentences with have got or has got.',
         ])->id;
 
         $themeTag = Tag::firstOrCreate(['name' => 'have_has_got']);
+        $haveTag = Tag::firstOrCreate(['name' => 'Have'], ['category' => 'modal']);
+        $hasTag = Tag::firstOrCreate(['name' => 'Has'], ['category' => 'modal']);
+        $gotTag = Tag::firstOrCreate(['name' => 'Got'], ['category' => 'modal']);
 
         $data = [
             [
@@ -73,24 +76,36 @@ class HaveGotHasGotSeeder extends Seeder
             ],
         ];
 
-        $service = new QuestionSeedingService();
+        $service = new QuestionSeedingService;
         $items = [];
         foreach ($data as $i => $d) {
             $index = $i + 1;
-            $slug  = Str::slug(class_basename(self::class));
-            $max   = 36 - strlen((string) $index) - 1;
-            $uuid  = substr($slug, 0, $max) . '-' . $index;
+            $slug = Str::slug(class_basename(self::class));
+            $max = 36 - strlen((string) $index) - 1;
+            $uuid = substr($slug, 0, $max).'-'.$index;
+
+            $answersText = strtolower(implode(' ', array_column($d['answers'], 'answer')));
+            $tagIds = [$themeTag->id];
+            if (str_contains($answersText, 'have')) {
+                $tagIds[] = $haveTag->id;
+            }
+            if (str_contains($answersText, 'has')) {
+                $tagIds[] = $hasTag->id;
+            }
+            if (str_contains($answersText, 'got')) {
+                $tagIds[] = $gotTag->id;
+            }
 
             $items[] = [
-                'uuid'        => $uuid,
-                'question'    => $d['question'],
+                'uuid' => $uuid,
+                'question' => $d['question'],
                 'category_id' => $categoryId,
-                'difficulty'  => 1,
-                'source_id'   => $sourceId,
-                'flag'        => 0,
-                'tag_ids'     => [$themeTag->id],
-                'answers'     => $d['answers'],
-                'options'     => $d['options'],
+                'difficulty' => 1,
+                'source_id' => $sourceId,
+                'flag' => 0,
+                'tag_ids' => $tagIds,
+                'answers' => $d['answers'],
+                'options' => $d['options'],
             ];
         }
 
