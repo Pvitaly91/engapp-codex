@@ -45,7 +45,7 @@
                         <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1" autocomplete="off"
                                x-model="words[index]"
                                pattern="^\S+$" title="One word only"
-                               @keydown.space.prevent
+                               @keydown.space.prevent="completeWord(index)"
                                @focus="fetchSuggestions(index)" @input="fetchSuggestions(index)" required>
                         <template x-if="suggestions[index] && suggestions[index].length">
                             <ul class="absolute left-0 z-10 bg-white shadow-lg border mt-1 max-h-40 rounded-md overflow-auto w-full">
@@ -69,12 +69,24 @@
                 return {
                     words: [''],
                     suggestions: [[]],
+                    valid: [false],
                     addWord() {
+                        const idx = this.words.length - 1;
+                        if (this.words[idx].trim() === '' || !this.valid[idx]) return;
                         this.words.push('');
                         this.suggestions.push([]);
+                        this.valid.push(false);
+                    },
+                    completeWord(index) {
+                        if (this.words[index].trim() !== '' && this.valid[index]) {
+                            if (index === this.words.length - 1) {
+                                this.addWord();
+                            }
+                        }
                     },
                     fetchSuggestions(index) {
                         const query = this.words[index];
+                        this.valid[index] = false;
                         if (query.length === 0) {
                             this.suggestions[index] = [];
                             return;
@@ -87,6 +99,7 @@
                     },
                     selectSuggestion(index, val) {
                         this.words[index] = val;
+                        this.valid[index] = true;
                         this.suggestions[index] = [];
                     }
                 }
