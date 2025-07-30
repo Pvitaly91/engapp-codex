@@ -59,6 +59,8 @@ class DatabaseSeeder extends Seeder
             TestsSqlSeeder::class,
             QuestionTenseAssignmentSeeder::class,
             WordsFromSentencesSeeder::class,
+            ChatGPTExplanationsSeeder::class,
+            ChatGPTTranslationChecksSeeder::class,
         ]);
     }
 }
