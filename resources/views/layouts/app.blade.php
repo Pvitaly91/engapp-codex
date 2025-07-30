@@ -42,9 +42,7 @@
             <ul class="flex gap-6 text-gray-600 font-medium">
                 <li><a href="{{ url('/words/test') }}" class="hover:text-blue-500">Words</a></li>
                 <li><a href="{{ route('translate.test') }}" class="hover:text-blue-500">Translate Test</a></li>
-                <li><a href="{{ route('translate.test2') }}" class="hover:text-blue-500">Translate Test V2</a></li>
                 <li><a href="{{ route('question-review.index') }}" class="hover:text-blue-500">Question Review</a></li>
-                <li><a href="{{ route('question-review-results.index') }}" class="hover:text-blue-500">Review Results</a></li>
                 <li><a href="{{ route('saved-tests.cards') }}" class="hover:text-blue-500">Tests Catalog</a></li>
                 <li><a href="{{ url('/about') }}" class="hover:text-blue-500">About</a></li>
             </ul>

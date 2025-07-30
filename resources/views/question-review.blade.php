@@ -4,7 +4,10 @@
 
 @section('content')
 <div class="max-w-3xl mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-4">Question Review</h1>
+    <div class="flex items-center justify-between mb-4">
+        <h1 class="text-2xl font-bold">Question Review</h1>
+        <a href="{{ route('question-review-results.index') }}" class="text-sm text-blue-600 underline">Review Results</a>
+    </div>
     <form method="POST" action="{{ route('question-review.store') }}" class="space-y-4">
         @csrf
         <input type="hidden" name="question_id" value="{{ $question->id }}">

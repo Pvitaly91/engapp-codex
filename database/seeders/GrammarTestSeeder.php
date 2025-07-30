@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Models\Category;
 use App\Services\QuestionSeedingService;
+use App\Models\Tag;
 
 class GrammarTestSeeder extends Seeder
 {
@@ -17,6 +18,8 @@ class GrammarTestSeeder extends Seeder
             'present' => Category::firstOrCreate(['name' => 'present']),
             'future'  => Category::firstOrCreate(['name' => 'future']),
         ];
+
+        $themeTag = Tag::firstOrCreate(['name' => 'grammar_test']);
 
         $questions = [
             [
@@ -281,6 +284,7 @@ class GrammarTestSeeder extends Seeder
                 'category_id' => $cats[$q['category']]->id,
                 'flag'        => 0,
                 'source_id'   => null,
+                'tag_ids'     => [$themeTag->id],
                 'answers'     => $answers,
                 'options'     => $q['options'],
             ];

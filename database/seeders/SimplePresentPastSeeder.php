@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class SimplePresentPastSeeder extends Seeder
@@ -16,6 +17,8 @@ class SimplePresentPastSeeder extends Seeder
         $categoryPresent = 2;
         $categoryPast = 1;
         $sourceId = Source::firstOrCreate(['name' => 'Simple Present x Simple Past'])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'simple_present_past']);
 
         $questions = [
             [
@@ -253,9 +256,10 @@ class SimplePresentPastSeeder extends Seeder
             $max   = 36 - strlen((string) $index) - 1;
             $uuid  = substr($slug, 0, $max) . '-' . $index;
 
-            $data['uuid']       = $uuid;
-            $data['difficulty'] = 2;
-            $data['flag']       = 0;
+           $data['uuid']       = $uuid;
+           $data['difficulty'] = 2;
+           $data['flag']       = 0;
+            $data['tag_ids']   = [$themeTag->id];
 
             $items[] = $data;
         }

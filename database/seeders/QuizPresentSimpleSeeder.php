@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class QuizPresentSimpleSeeder extends Seeder
@@ -14,6 +15,8 @@ class QuizPresentSimpleSeeder extends Seeder
         $categoryId = 2; // Present Simple
         $source = 'Quiz – present simple. Вибери правильний варіант.';
         $sourceId = Source::firstOrCreate(['name' => $source])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'quiz_present_simple']);
 
         $data = [
             [
@@ -188,6 +191,7 @@ class QuizPresentSimpleSeeder extends Seeder
 
             $d['uuid']        = $uuid;
             $d['category_id'] = $categoryId;
+            $d['tag_ids']     = [$themeTag->id];
 
             $items[] = $d;
         }

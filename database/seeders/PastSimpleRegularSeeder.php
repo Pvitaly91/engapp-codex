@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class PastSimpleRegularSeeder extends Seeder
@@ -15,6 +16,8 @@ class PastSimpleRegularSeeder extends Seeder
         // Категорія Past Simple (1)
         $cat_past = 1;
         $sourceId = Source::firstOrCreate(['name' => 'Past Simple Regular Verbs'])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'past_simple_regular']);
 
         $questions = [
             [
@@ -174,6 +177,7 @@ class PastSimpleRegularSeeder extends Seeder
                 'category_id' => $cat_past,
                 'flag'        => 0,
                 'source_id'   => $sourceId,
+                'tag_ids'     => [$themeTag->id],
                 'answers'     => $data['answers'],
                 'options'     => $data['options'],
             ];

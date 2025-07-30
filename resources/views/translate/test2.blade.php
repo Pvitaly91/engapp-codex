@@ -4,7 +4,10 @@
 
 @section('content')
     <div class="mx-auto mt-8 p-8 bg-white rounded-xl shadow w-[800px]">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700">Sentence Translation Test V2</h2>
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-2xl font-bold text-blue-700">Sentence Translation Test V2</h2>
+            <a href="{{ route('translate.test') }}" class="text-sm text-blue-600 underline">Back to V1</a>
+        </div>
 
         <div class="mb-4 flex gap-4 text-gray-600 text-base">
             <div>Total: <b>{{ $stats['total'] }} / {{ $totalCount }}</b></div>

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class DoDoesIsAreSeeder extends Seeder
@@ -14,6 +15,7 @@ class DoDoesIsAreSeeder extends Seeder
     {
         $cat_present = 2; // Present Simple (заміни під свою структуру)
         $sourceId = Source::firstOrCreate(['name' => 'Do Does Am Is Are'])->id;
+        $themeTag = Tag::firstOrCreate(['name' => 'do_does_is_are']);
         $options = ['do', 'does', 'am', 'is', 'are'];
         $questions = [
             ['What {a1} you like to eat for breakfast?',         'do'],
@@ -57,6 +59,7 @@ class DoDoesIsAreSeeder extends Seeder
                 'category_id' => $cat_present,
                 'flag'        => 0,
                 'source_id'   => $sourceId,
+                'tag_ids'     => [$themeTag->id],
                 'answers'     => [
                     ['marker' => 'a1', 'answer' => $data[1], 'verb_hint' => 'choose do/does/am/is/are'],
                 ],

@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Category;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class PresentSimpleExercisesSeeder extends Seeder
@@ -20,6 +21,8 @@ class PresentSimpleExercisesSeeder extends Seeder
         $source2 = Source::firstOrCreate([
             'name' => 'Present Simple Exercises: Match the verbs in the box with the sentences and rewrite them in the correct form.'
         ])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'present_simple_exercises']);
 
         // SECTION 1
         $section1 = [
@@ -194,6 +197,7 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'difficulty'  => 2,
                 'source_id'   => $source1,
                 'flag'        => 0,
+                'tag_ids'     => [$themeTag->id],
                 'answers'     => $d['answers'],
                 'options'     => $d['options'],
             ];
@@ -212,6 +216,7 @@ class PresentSimpleExercisesSeeder extends Seeder
                 'difficulty'  => 2,
                 'source_id'   => $source2,
                 'flag'        => 0,
+                'tag_ids'     => [$themeTag->id],
                 'answers'     => $d['answers'],
                 'options'     => $d['options'],
             ];

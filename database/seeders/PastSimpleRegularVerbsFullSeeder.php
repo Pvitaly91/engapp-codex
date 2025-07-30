@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class PastSimpleRegularVerbsFullSeeder extends Seeder
@@ -16,6 +17,8 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
         $source1 = Source::firstOrCreate(['name' => 'Past Simple Regular Verbs - 1'])->id;
         $source2 = Source::firstOrCreate(['name' => 'Past Simple Regular Verbs – Positive'])->id;
         $source3 = Source::firstOrCreate(['name' => 'Past Simple Regular Verbs – Negative'])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'past_simple_regular_verbs_full']);
 
         // A) Write the past forms of the regular verbs below.
         $verbs = [
@@ -60,6 +63,7 @@ class PastSimpleRegularVerbsFullSeeder extends Seeder
                 'category_id' => $cat_past,
                 'flag'        => 0,
                 'source_id'   => $source1,
+                'tag_ids'     => [$themeTag->id],
                 'answers'     => [
                     ['marker' => 'a1', 'answer' => $past, 'verb_hint' => $inf],
                 ],
