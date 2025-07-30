@@ -82,6 +82,12 @@
                             if (index === this.words.length - 1) {
                                 this.addWord();
                             }
+                            this.$nextTick(() => {
+                                const fields = this.$el.querySelectorAll('input[name^="words"]');
+                                if (fields[index + 1]) {
+                                    fields[index + 1].focus();
+                                }
+                            });
                         }
                     },
                     fetchSuggestions(index) {
