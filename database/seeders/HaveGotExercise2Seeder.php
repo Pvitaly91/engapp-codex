@@ -1,94 +1,99 @@
-<?php 
+<?php
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\Question;
-use App\Models\QuestionAnswer;
-use App\Models\QuestionOption;
 use App\Models\Category;
+use App\Models\Source;
+use App\Models\Tag;
+use App\Services\QuestionSeedingService;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class HaveGotExercise2Seeder extends Seeder
 {
     public function run()
     {
-        $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
-        $source = "Transform these sentences using the verb have got like in the example below. Use short forms when possible: 've got, 's got, haven't got, hasn't got.";
+        $categoryId = Category::firstOrCreate(['name' => 'present'])->id;
+        $sourceId = Source::firstOrCreate([
+            'name' => "Write affirmative (+) and negative (-) sentences using have/has got."
+        ])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'have_has_got_exercise_2']);
 
         $data = [
             [
-                'question' => 'I have a new computer. ⇒ I {a1} a new computer.',
-                'answers' => [['marker' => 'a1', 'answer' => "'ve got"]],
-                'options' => ["'ve got", 'have', "haven't got", 'got'],
+                'question' => 'She / a brother. ⇒ She {a1}. (+)',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got a brother']],
+                'options' => ['has got a brother', "hasn't got a brother"],
             ],
             [
-                'question' => 'Do you have a new profile photo? ⇒ {a1} a new profile photo?',
-                'answers' => [['marker' => 'a1', 'answer' => 'Have you got']],
-                'options' => ['Have you got', 'Do you got', 'Have you have'],
+                'question' => 'I / a new car. ⇒ I {a1}. (-)',
+                'answers' => [['marker' => 'a1', 'answer' => "haven't got a new car"]],
+                'options' => ['have got a new car', "haven't got a new car"],
             ],
             [
-                'question' => 'She has blonde hair and blue eyes. ⇒ She {a1} blonde hair and blue eyes.',
-                'answers' => [['marker' => 'a1', 'answer' => "'s got"]],
-                'options' => ["'s got", "has", "hasn't got"],
+                'question' => 'They / a big house. ⇒ They {a1}. (+)',
+                'answers' => [['marker' => 'a1', 'answer' => 'have got a big house']],
+                'options' => ['have got a big house', "haven't got a big house"],
             ],
             [
-                'question' => "I don't have a Twitter account. ⇒ I {a1} a Twitter account.",
-                'answers' => [['marker' => 'a1', 'answer' => "haven't got"]],
-                'options' => ["haven't got", "don't got", "haven't"],
+                'question' => 'He / any pets. ⇒ He {a1}. (-)',
+                'answers' => [['marker' => 'a1', 'answer' => "hasn't got any pets"]],
+                'options' => ['has got any pets', "hasn't got any pets"],
             ],
             [
-                'question' => "She doesn't have any money. ⇒ She {a1} any money.",
-                'answers' => [['marker' => 'a1', 'answer' => "hasn't got"]],
-                'options' => ["hasn't got", "doesn't have", "hasn't"],
+                'question' => 'We / a lot of time. ⇒ We {a1}. (+)',
+                'answers' => [['marker' => 'a1', 'answer' => 'have got a lot of time']],
+                'options' => ['have got a lot of time', "haven't got a lot of time"],
             ],
             [
-                'question' => 'A: Do you have a laptop? B: Yes, I do. ⇒ A: Have you got a laptop? B: Yes, I {a1}.',
-                'answers' => [['marker' => 'a1', 'answer' => "'ve got"]],
-                'options' => ["'ve got", 'have', "haven't got"],
+                'question' => 'The car / four doors. ⇒ The car {a1}. (+)',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got four doors']],
+                'options' => ['has got four doors', "hasn't got four doors"],
             ],
             [
-                'question' => 'They have a lot of Youtube fans. ⇒ They {a1} a lot of Youtube fans.',
-                'answers' => [['marker' => 'a1', 'answer' => "'ve got"]],
-                'options' => ["'ve got", "has got", 'have'],
+                'question' => 'You / a cold. ⇒ You {a1}. (-)',
+                'answers' => [['marker' => 'a1', 'answer' => "haven't got a cold"]],
+                'options' => ['have got a cold', "haven't got a cold"],
             ],
             [
-                'question' => "He doesn't have any interest in science. ⇒ He {a1} any interest in science.",
-                'answers' => [['marker' => 'a1', 'answer' => "hasn't got"]],
-                'options' => ["hasn't got", "doesn't have", "haven't got"],
+                'question' => 'My friend / a bike. ⇒ My friend {a1}. (+)',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got a bike']],
+                'options' => ['has got a bike', "hasn't got a bike"],
             ],
             [
-                'question' => 'Does she have a sister? ⇒ {a1} a sister?',
-                'answers' => [['marker' => 'a1', 'answer' => 'Has she got']],
-                'options' => ['Has she got', 'Does she got', 'Does she have got'],
+                'question' => 'They / any money. ⇒ They {a1}. (-)',
+                'answers' => [['marker' => 'a1', 'answer' => "haven't got any money"]],
+                'options' => ['have got any money', "haven't got any money"],
             ],
             [
-                'question' => 'I have a terrible headache. ⇒ I {a1} a terrible headache.',
-                'answers' => [['marker' => 'a1', 'answer' => "'ve got"]],
-                'options' => ["'ve got", "have", "haven't got"],
+                'question' => 'He / a new job. ⇒ He {a1}. (+)',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got a new job']],
+                'options' => ['has got a new job', "hasn't got a new job"],
             ],
         ];
 
-        foreach ($data as $d) {
-            $q = Question::create([
+        $service = new QuestionSeedingService();
+        $items = [];
+        foreach ($data as $i => $d) {
+            $index = $i + 1;
+            $slug  = Str::slug(class_basename(self::class));
+            $max   = 36 - strlen((string) $index) - 1;
+            $uuid  = substr($slug, 0, $max) . '-' . $index;
+
+            $items[] = [
+                'uuid'        => $uuid,
                 'question'    => $d['question'],
-                'category_id' => $cat_present,
+                'category_id' => $categoryId,
                 'difficulty'  => 2,
-                'source'      => $source,
+                'source_id'   => $sourceId,
                 'flag'        => 0,
-            ]);
-            foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
-                    'question_id' => $q->id,
-                    'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                ]);
-            }
-            foreach ($d['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
-            }
+                'tag_ids'     => [$themeTag->id],
+                'answers'     => $d['answers'],
+                'options'     => $d['options'],
+            ];
         }
+
+        $service->seed($items);
     }
 }

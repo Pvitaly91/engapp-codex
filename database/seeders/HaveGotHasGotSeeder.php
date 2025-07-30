@@ -2,93 +2,98 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\Question;
-use App\Models\QuestionAnswer;
-use App\Models\QuestionOption;
 use App\Models\Category;
+use App\Models\Source;
+use App\Models\Tag;
+use App\Services\QuestionSeedingService;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class HaveGotHasGotSeeder extends Seeder
 {
     public function run()
     {
-        $cat_present = Category::firstOrCreate(['name' => 'present'])->id;
-        $source = 'Вибери правильний варіант для заповнення пропуску.';
+        $categoryId = Category::firstOrCreate(['name' => 'present'])->id;
+        $sourceId = Source::firstOrCreate([
+            'name' => 'Complete the sentences with have got or has got.'
+        ])->id;
+
+        $themeTag = Tag::firstOrCreate(['name' => 'have_has_got']);
 
         $data = [
             [
-                'question' => '{a1} a pen?',
-                'answers' => [['marker' => 'a1', 'answer' => 'Have you got']],
-                'options' => ['Do you have got', 'Have you got', 'You have got'],
+                'question' => 'I {a1} a new phone.',
+                'answers' => [['marker' => 'a1', 'answer' => 'have got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => 'They {a1} any children.',
-                'answers' => [['marker' => 'a1', 'answer' => "haven't got"]],
-                'options' => ["don't have got", "don't got", "haven't got"],
+                'question' => 'She {a1} long hair.',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => 'A: "Have you got a car?" B: "Yes, I {a1}."',
-                'answers' => [['marker' => 'a1', 'answer' => "'ve got"]],
-                'options' => ['have', 'do', "'ve got"],
+                'question' => 'They {a1} three children.',
+                'answers' => [['marker' => 'a1', 'answer' => 'have got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => 'When we were kids, we {a1} many toys.',
-                'answers' => [['marker' => 'a1', 'answer' => "didn't have"]],
-                'options' => ["hadn't got", "didn't have", "hadn't"],
+                'question' => 'He {a1} a dog.',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => 'He {a1} a very nice family.',
-                'answers' => [['marker' => 'a1', 'answer' => "'s got"]],
-                'options' => ["'s got", "have got", "'ve got"],
+                'question' => 'We {a1} a garden.',
+                'answers' => [['marker' => 'a1', 'answer' => 'have got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => 'There is a door here. {a1} the key?',
-                'answers' => [['marker' => 'a1', 'answer' => 'Have you got']],
-                'options' => ['Have you got', 'Do you got', 'Do you have got'],
+                'question' => 'The car {a1} four doors.',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => 'They {a1} two cats and two dogs.',
-                'answers' => [['marker' => 'a1', 'answer' => "'ve got"]],
-                'options' => ['has got', "'ve", "'ve got"],
+                'question' => 'You {a1} a nice smile.',
+                'answers' => [['marker' => 'a1', 'answer' => 'have got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => '{a1} a question?',
-                'answers' => [['marker' => 'a1', 'answer' => 'Have you']],
-                'options' => ['Have you', 'Do you have got', 'Do you have'],
+                'question' => 'My friend {a1} two cats.',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => 'I {a1} the answer to your question.',
-                'answers' => [['marker' => 'a1', 'answer' => "haven't got"]],
-                'options' => ["haven't", "don't have got", "haven't got"],
+                'question' => 'They {a1} a new house.',
+                'answers' => [['marker' => 'a1', 'answer' => 'have got']],
+                'options' => ['have got', 'has got'],
             ],
             [
-                'question' => 'I {a1} a lot of money at the moment.',
-                'answers' => [['marker' => 'a1', 'answer' => "don't have"]],
-                'options' => ["don't have got", "don't have", "haven't"],
+                'question' => 'It {a1} big eyes.',
+                'answers' => [['marker' => 'a1', 'answer' => 'has got']],
+                'options' => ['have got', 'has got'],
             ],
         ];
 
-        foreach ($data as $d) {
-            $q = Question::create([
+        $service = new QuestionSeedingService();
+        $items = [];
+        foreach ($data as $i => $d) {
+            $index = $i + 1;
+            $slug  = Str::slug(class_basename(self::class));
+            $max   = 36 - strlen((string) $index) - 1;
+            $uuid  = substr($slug, 0, $max) . '-' . $index;
+
+            $items[] = [
+                'uuid'        => $uuid,
                 'question'    => $d['question'],
-                'category_id' => $cat_present,
-                'difficulty'  => 2,
-                'source'      => $source,
+                'category_id' => $categoryId,
+                'difficulty'  => 1,
+                'source_id'   => $sourceId,
                 'flag'        => 0,
-            ]);
-            foreach ($d['answers'] as $ans) {
-                QuestionAnswer::create([
-                    'question_id' => $q->id,
-                    'marker'      => $ans['marker'],
-                    'answer'      => $ans['answer'],
-                ]);
-            }
-            foreach ($d['options'] as $opt) {
-                QuestionOption::create([
-                    'question_id' => $q->id,
-                    'option'      => $opt,
-                ]);
-            }
+                'tag_ids'     => [$themeTag->id],
+                'answers'     => $d['answers'],
+                'options'     => $d['options'],
+            ];
         }
+
+        $service->seed($items);
     }
 }
