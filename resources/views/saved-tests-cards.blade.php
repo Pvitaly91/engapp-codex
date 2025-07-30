@@ -7,16 +7,35 @@
     <aside class="w-48 shrink-0">
         <form id="tag-filter" action="{{ route('saved-tests.cards') }}" method="GET">
             @foreach($tags as $category => $tagNames)
-                <h3 class="text-lg font-bold mb-2">{{ $category }}</h3>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    @foreach($tagNames as $tag)
-                        @php $id = 'tag-' . md5($tag); @endphp
-                        <div>
-                            <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
-                            <label for="{{ $id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $tag }}</label>
+                @php $isOther = in_array(strtolower($category), ['other', 'others']); @endphp
+                @if($isOther)
+                    <div class="mb-4" id="others-filter" data-open="false">
+                        <h3 class="text-lg font-bold mb-2 flex justify-between items-center">
+                            <span>{{ $category }}</span>
+                            <button type="button" id="toggle-others-btn" class="text-xs text-blue-500 underline">Show</button>
+                        </h3>
+                        <div id="others-tags" class="flex flex-wrap gap-2" style="display:none;">
+                            @foreach($tagNames as $tag)
+                                @php $id = 'tag-' . md5($tag); @endphp
+                                <div>
+                                    <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
+                                    <label for="{{ $id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $tag }}</label>
+                                </div>
+                            @endforeach
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @else
+                    <h3 class="text-lg font-bold mb-2">{{ $category }}</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        @foreach($tagNames as $tag)
+                            @php $id = 'tag-' . md5($tag); @endphp
+                            <div>
+                                <input type="checkbox" name="tags[]" value="{{ $tag }}" id="{{ $id }}" class="hidden peer" {{ in_array($tag, $selectedTags ?? []) ? 'checked' : '' }}>
+                                <label for="{{ $id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $tag }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
             @endforeach
         </form>
         @if(!empty($selectedTags))
@@ -53,5 +72,14 @@
     document.querySelectorAll('#tag-filter input[type=checkbox]').forEach(el => {
         el.addEventListener('change', () => document.getElementById('tag-filter').submit());
     });
+    const toggleBtn = document.getElementById('toggle-others-btn');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const tags = document.getElementById('others-tags');
+            const hidden = tags.style.display === 'none';
+            tags.style.display = hidden ? '' : 'none';
+            toggleBtn.textContent = hidden ? 'Hide' : 'Show';
+        });
+    }
 </script>
 @endsection
