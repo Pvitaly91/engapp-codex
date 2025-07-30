@@ -19,9 +19,7 @@ class HaveGotHasGotSeeder extends Seeder
         ])->id;
 
         $themeTag = Tag::firstOrCreate(['name' => 'have_has_got']);
-        $haveTag = Tag::firstOrCreate(['name' => 'Have'], ['category' => 'modal']);
-        $hasTag = Tag::firstOrCreate(['name' => 'Has'], ['category' => 'modal']);
-        $gotTag = Tag::firstOrCreate(['name' => 'Got'], ['category' => 'modal']);
+        $modalTag = Tag::firstOrCreate(['name' => 'Have Has Got'], ['category' => 'modal']);
 
         $data = [
             [
@@ -84,17 +82,7 @@ class HaveGotHasGotSeeder extends Seeder
             $max = 36 - strlen((string) $index) - 1;
             $uuid = substr($slug, 0, $max).'-'.$index;
 
-            $answersText = strtolower(implode(' ', array_column($d['answers'], 'answer')));
-            $tagIds = [$themeTag->id];
-            if (str_contains($answersText, 'have')) {
-                $tagIds[] = $haveTag->id;
-            }
-            if (str_contains($answersText, 'has')) {
-                $tagIds[] = $hasTag->id;
-            }
-            if (str_contains($answersText, 'got')) {
-                $tagIds[] = $gotTag->id;
-            }
+            $tagIds = [$themeTag->id, $modalTag->id];
 
             $items[] = [
                 'uuid' => $uuid,
