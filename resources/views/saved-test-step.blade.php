@@ -70,7 +70,7 @@ HTML;
 <div x-data="builder('{$autocompleteRoute}', '{$inputName}[')" class="inline-flex items-center gap-1">
     <template x-for="(word, index) in words" :key="index">
         <div class="relative">
-            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1" autocomplete="off"
+            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1 w-[70%]" autocomplete="off"
                    x-model="words[index]" pattern="^\\S+$" title="One word only"
                    @keydown.space.prevent="completeWord(index)" @focus="fetchSuggestions(index)" @input="fetchSuggestions(index)" required>
             <template x-if="suggestions[index] && suggestions[index].length">
@@ -82,7 +82,7 @@ HTML;
             </template>
         </div>
     </template>
-    <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last -ml-2">+</button>
+    <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last -ml-[30%]">+</button>
 </div>
 HTML;
                 } elseif($method === 'text') {

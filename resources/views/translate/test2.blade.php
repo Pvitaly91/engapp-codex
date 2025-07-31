@@ -42,7 +42,7 @@
             <div class="flex flex-wrap items-center gap-2 mb-4">
                 <template x-for="(word, index) in words" :key="index">
                     <div class="relative">
-                        <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1" autocomplete="off"
+                        <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1 w-[70%]" autocomplete="off"
                                x-model="words[index]"
                                pattern="^\S+$" title="One word only"
                                @keydown.space.prevent="completeWord(index)"
@@ -58,7 +58,7 @@
                         </template>
                     </div>
                 </template>
-                <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last -ml-2">+</button>
+                <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last -ml-[30%]">+</button>
             </div>
             <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition">
                 {{ $attempts > 0 ? 'Submit' : 'Check' }}
