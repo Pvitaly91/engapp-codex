@@ -61,6 +61,7 @@ class DatabaseSeeder extends Seeder
             WordsFromSentencesSeeder::class,
             ChatGPTExplanationsSeeder::class,
             ChatGPTTranslationChecksSeeder::class,
+            PresentContinuousStorySeeder::class,
         ]);
     }
 }
