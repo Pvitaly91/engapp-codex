@@ -89,7 +89,7 @@ class GrammarTestController extends Controller
         }
         $currentId = session($key . '_current');
         if (!$currentId) {
-            if (empty($queue) || ($stats['total'] > 0 && ($stats['correct'] / $stats['total']) >= 0.9)) {
+            if (empty($queue)) {
                 return view('saved-test-complete', [
                     'test' => $test,
                     'stats' => $stats,
