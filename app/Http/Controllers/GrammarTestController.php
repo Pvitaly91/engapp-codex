@@ -127,10 +127,14 @@ class GrammarTestController extends Controller
         $question = \App\Models\Question::with('answers.option')->findOrFail($request->input('question_id'));
         $userAnswers = $request->input('answers', []);
         $correct = true;
+        $explanations = [];
+        $gpt = app(\App\Services\ChatGPTService::class);
         foreach ($question->answers as $ans) {
             $given = $userAnswers[$ans->marker] ?? '';
-            if (mb_strtolower(trim($given)) !== mb_strtolower($ans->answer)) {
+            $correctValue = $ans->option->option ?? $ans->answer;
+            if (mb_strtolower(trim($given)) !== mb_strtolower($correctValue)) {
                 $correct = false;
+                $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $given, $correctValue);
             }
         }
         $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
@@ -143,7 +147,10 @@ class GrammarTestController extends Controller
         session([
             $key . '_stats' => $stats,
             $key . '_current' => null,
-            $key . '_feedback' => ['isCorrect' => $correct],
+            $key . '_feedback' => [
+                'isCorrect' => $correct,
+                'explanations' => $explanations,
+            ],
         ]);
 
         return redirect()->route('saved-test.step', $slug);

@@ -25,6 +25,13 @@
                 <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-2">Correct!</div>
             @else
                 <div class="bg-red-100 text-red-800 px-4 py-2 rounded mb-2">Wrong</div>
+                @if(!empty($feedback['explanations']))
+                    <div class="bg-blue-50 text-gray-800 text-sm rounded px-3 py-2 space-y-1">
+                        @foreach($feedback['explanations'] as $exp)
+                            <p>{!! $exp !!}</p>
+                        @endforeach
+                    </div>
+                @endif
             @endif
         </div>
     @endif
