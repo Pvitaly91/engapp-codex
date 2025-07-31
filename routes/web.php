@@ -72,3 +72,7 @@ Route::get('/question-review/{question}', [QuestionReviewController::class, 'edi
 
 use App\Http\Controllers\QuestionReviewResultController;
 Route::get('/question-review-results', [QuestionReviewResultController::class, 'index'])->name('question-review-results.index');
+
+use App\Http\Controllers\Task2Controller;
+Route::get('/task2', [Task2Controller::class, 'index'])->name('task2');
+Route::post('/task2/check', [Task2Controller::class, 'check'])->name('task2.check');
