@@ -104,7 +104,7 @@ HTML;
                             }
                             // ==== Простий ручний інпут ====
                             elseif(!empty($manualInput)) {
-                                $input = '<input type="text" name="'.$inputName.'" required class="border rounded px-2 py-1 mx-1">';
+                                $input = '<input type="text" name="'.$inputName.'" required autocomplete="off" class="border rounded px-2 py-1 mx-1">';
                             }
                             // ==== select ====
                             else {

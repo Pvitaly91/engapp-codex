@@ -250,7 +250,7 @@ HTML;
                                 }
                                 // ==== Простий ручний інпут ====
                                 elseif(!empty($manualInput)) {
-                                    $input = '<input type="text" name="'.$inputName.'" required class="border rounded px-2 py-1 mx-1">';
+                                    $input = '<input type="text" name="'.$inputName.'" required autocomplete="off" class="border rounded px-2 py-1 mx-1">';
                                 }
                                 // ==== select ====
                                 else {
@@ -314,7 +314,7 @@ HTML;
                     'only_ai' => $onlyAi ?? false
                 ])) }}">
                 <input type="hidden" name="questions" value="{{ htmlentities(json_encode($questions->pluck('id'))) }}">
-                <input type="text" name="name" value="{{$autoTestName}}" placeholder="Назва тесту" required
+                <input type="text" name="name" value="{{$autoTestName}}" placeholder="Назва тесту" required autocomplete="off"
                     class="border rounded px-2 py-1 w-72">
                 <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-2xl shadow font-semibold">
                     Зберегти тест
