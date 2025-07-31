@@ -51,12 +51,14 @@ class GrammarTestController extends Controller
             ->get();
         $manualInput = !empty($test->filters['manual_input']);
         $autocompleteInput = !empty($test->filters['autocomplete_input']);
+        $builderInput = !empty($test->filters['builder_input']);
         // Показати тільки питання — без фільтрів, флагів, тощо
         return view('saved-test', [
             'test' => $test,
             'questions' => $questions,
             'manualInput' => $manualInput,
             'autocompleteInput' => $autocompleteInput,
+            'builderInput' => $builderInput,
         ]);
     }
 
@@ -131,6 +133,9 @@ class GrammarTestController extends Controller
         $gpt = app(\App\Services\ChatGPTService::class);
         foreach ($question->answers as $ans) {
             $given = $userAnswers[$ans->marker] ?? '';
+            if (is_array($given)) {
+                $given = implode(' ', $given);
+            }
             $correctValue = $ans->option->option ?? $ans->answer;
             if (mb_strtolower(trim($given)) !== mb_strtolower($correctValue)) {
                 $correct = false;
@@ -185,12 +190,13 @@ class GrammarTestController extends Controller
         $manualInput = false;
         $autocompleteInput = false;
         $checkOneInput = false;
+        $builderInput = false;
         $questions = [];
 
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
             'selectedCategories', 'difficultyFrom', 'difficultyTo', 'numQuestions',
-            'manualInput', 'autocompleteInput', 'checkOneInput', 'questions'
+            'manualInput', 'autocompleteInput', 'checkOneInput', 'questions', 'builderInput'
         ));
     }
 
@@ -209,6 +215,7 @@ class GrammarTestController extends Controller
         $manualInput = $request->boolean('manual_input');
         $autocompleteInput = $request->boolean('autocomplete_input');
         $checkOneInput = $request->boolean('check_one_input');
+        $builderInput = $request->boolean('builder_input');
         $includeAi = $request->boolean('include_ai');
         $onlyAi = $request->boolean('only_ai');
         $selectedTags = $request->input('tags', []);
@@ -285,7 +292,7 @@ class GrammarTestController extends Controller
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
             'selectedCategories', 'difficultyFrom', 'difficultyTo', 'numQuestions',
-            'manualInput', 'autocompleteInput', 'checkOneInput',
+            'manualInput', 'autocompleteInput', 'checkOneInput', 'builderInput',
             'includeAi', 'onlyAi', 'questions',
             'sources', 'selectedSources', 'autoTestName',
             'allTags', 'selectedTags'
@@ -379,6 +386,9 @@ class GrammarTestController extends Controller
             foreach ($question->answers as $ans) {
                 $inputName = "question_{$question->id}_{$ans->marker}";
                 $userAnswer = $request->input($inputName, '');
+                if (is_array($userAnswer)) {
+                    $userAnswer = implode(' ', $userAnswer);
+                }
                 $userAnswers[$ans->marker] = $userAnswer;
                 $correctValue = $ans->option->option;
                 if (strtolower(trim($userAnswer)) === strtolower($correctValue)) {

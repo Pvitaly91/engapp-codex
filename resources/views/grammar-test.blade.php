@@ -96,10 +96,11 @@
             @endif
         </div>
         <div class="flex gap-8 items-center"
-             x-data="{
+            x-data="{
                 manual: {{ !empty($manualInput) ? 'true' : 'false' }},
                 auto: {{ !empty($autocompleteInput) ? 'true' : 'false' }},
-                checkOne: {{ !empty($checkOneInput) ? 'true' : 'false' }}
+                checkOne: {{ !empty($checkOneInput) ? 'true' : 'false' }},
+                builder: {{ !empty($builderInput) ? 'true' : 'false' }}
              }"
         >
             <label class="inline-flex items-center">
@@ -124,6 +125,14 @@
                     class="form-checkbox h-5 w-5 text-purple-600"
                 >
                 <span class="ml-2 text-purple-700">Перевіряти окремо</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="builder_input" value="1"
+                    x-model="builder"
+                    :disabled="!manual"
+                    class="form-checkbox h-5 w-5 text-emerald-600"
+                >
+                <span class="ml-2 text-emerald-700">Вводити по словах</span>
             </label>
         </div>
 
@@ -248,6 +257,30 @@
 </div>
 HTML;
                                 }
+                                // ==== Ввід по словах ====
+                                elseif(!empty($builderInput)) {
+                                    $input = <<<HTML
+<div x-data="builder('{$autocompleteRoute}', '{$inputName}[')" class="inline-flex items-center gap-1">
+    <template x-for="(word, index) in words" :key="index">
+        <div class="relative">
+            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1" autocomplete="off"
+                   x-model="words[index]"
+                   pattern="^\\S+$" title="One word only"
+                   @keydown.space.prevent="completeWord(index)"
+                   @focus="fetchSuggestions(index)" @input="fetchSuggestions(index)" required>
+            <template x-if="suggestions[index] && suggestions[index].length">
+                <ul class="absolute left-0 z-10 bg-white shadow-lg border mt-1 max-h-40 rounded-md overflow-auto w-full">
+                    <template x-for="suggestion in suggestions[index]" :key="suggestion">
+                        <li class="cursor-pointer px-3 py-1 hover:bg-blue-100" @mousedown.prevent="selectSuggestion(index, suggestion)" x-text="suggestion"></li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </template>
+    <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last -ml-2">+</button>
+</div>
+HTML;
+                                }
                                 // ==== Простий ручний інпут ====
                                 elseif(!empty($manualInput)) {
                                     $input = '<input type="text" name="'.$inputName.'" required autocomplete="off" class="border rounded px-2 py-1 mx-1">';
@@ -310,6 +343,7 @@ HTML;
                     'manual_input' => $manualInput,
                     'autocomplete_input' => $autocompleteInput,
                     'check_one_input' => $checkOneInput,
+                    'builder_input' => $builderInput,
                     'include_ai' => $includeAi ?? false,
                     'only_ai' => $onlyAi ?? false
                 ])) }}">
@@ -366,6 +400,52 @@ function checkFullQuestionAjax(btn, questionId, markerList) {
             resultSpan.className = 'ml-2 text-xs font-bold text-gray-500';
         }
     });
+}
+
+function builder(route, prefix) {
+    return {
+        words: [''],
+        suggestions: [[]],
+        valid: [false],
+        addWord() {
+            const idx = this.words.length - 1;
+            if (this.words[idx].trim() === '' || !this.valid[idx]) return;
+            this.words.push('');
+            this.suggestions.push([]);
+            this.valid.push(false);
+        },
+        completeWord(index) {
+            if (this.words[index].trim() !== '' && this.valid[index]) {
+                if (index === this.words.length - 1) {
+                    this.addWord();
+                }
+                this.$nextTick(() => {
+                    const fields = this.$el.querySelectorAll(`input[name^="${prefix}"]`);
+                    if (fields[index + 1]) {
+                        fields[index + 1].focus();
+                    }
+                });
+            }
+        },
+        fetchSuggestions(index) {
+            const query = this.words[index];
+            this.valid[index] = false;
+            if (query.length === 0) {
+                this.suggestions[index] = [];
+                return;
+            }
+            fetch(route + '?q=' + encodeURIComponent(query))
+                .then(res => res.json())
+                .then(data => {
+                    this.suggestions[index] = data;
+                });
+        },
+        selectSuggestion(index, val) {
+            this.words[index] = val;
+            this.valid[index] = true;
+            this.suggestions[index] = [];
+        }
+    }
 }
 </script>
 @endsection
