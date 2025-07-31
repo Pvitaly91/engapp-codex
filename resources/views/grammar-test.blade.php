@@ -260,7 +260,7 @@ HTML;
                                 // ==== Ввід по словах ====
                                 elseif(!empty($builderInput)) {
                                     $input = <<<HTML
-<div x-data="builder('{$autocompleteRoute}', '{$inputName}[')" class="inline-flex items-center gap-1">
+<div x-data="builder('{$autocompleteRoute}', '{$inputName}[')" class="inline-flex items-center gap-[3px]">
     <template x-for="(word, index) in words" :key="index">
         <div class="relative">
             <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1 w-[70%]" autocomplete="off"
@@ -277,7 +277,7 @@ HTML;
             </template>
         </div>
     </template>
-    <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last -ml-[30%]">+</button>
+    <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last ml-[3px]">+</button>
 </div>
 HTML;
                                 }
@@ -408,8 +408,6 @@ function builder(route, prefix) {
         suggestions: [[]],
         valid: [false],
         addWord() {
-            const idx = this.words.length - 1;
-            if (this.words[idx].trim() === '' || !this.valid[idx]) return;
             this.words.push('');
             this.suggestions.push([]);
             this.valid.push(false);

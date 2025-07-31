@@ -39,7 +39,7 @@
             @csrf
             <input type="hidden" name="sentence_id" value="{{ $sentence->id }}">
             <div class="mb-6 text-xl font-semibold">{{ $sentence->text_uk }}</div>
-            <div class="flex flex-wrap items-center gap-2 mb-4">
+            <div class="flex flex-wrap items-center gap-[3px] mb-4">
                 <template x-for="(word, index) in words" :key="index">
                     <div class="relative">
                         <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1 w-[70%]" autocomplete="off"
@@ -58,7 +58,7 @@
                         </template>
                     </div>
                 </template>
-                <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last -ml-[30%]">+</button>
+                <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last ml-[3px]">+</button>
             </div>
             <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition">
                 {{ $attempts > 0 ? 'Submit' : 'Check' }}
@@ -71,8 +71,6 @@
                     suggestions: [[]],
                     valid: [false],
                     addWord() {
-                        const idx = this.words.length - 1;
-                        if (this.words[idx].trim() === '' || !this.valid[idx]) return;
                         this.words.push('');
                         this.suggestions.push([]);
                         this.valid.push(false);
