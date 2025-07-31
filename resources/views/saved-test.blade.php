@@ -107,8 +107,8 @@ HTML;
                                 $input = <<<HTML
 <div x-data="builder('{$autocompleteRoute}', '{$inputName}[')" class="inline-flex items-center gap-[3px]">
     <template x-for="(word, index) in words" :key="index">
-        <div class="relative">
-            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1 w-[70%]" autocomplete="off"
+        <div class="relative w-[120px]">
+            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1 w-[99%]" autocomplete="off"
                    x-model="words[index]" pattern="^\\S+$" title="One word only"
                    @keydown.space.prevent="completeWord(index)"
                    @focus="fetchSuggestions(index)" @input="fetchSuggestions(index)" required>

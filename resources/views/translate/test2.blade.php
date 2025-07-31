@@ -41,8 +41,8 @@
             <div class="mb-6 text-xl font-semibold">{{ $sentence->text_uk }}</div>
             <div class="flex flex-wrap items-center gap-[3px] mb-4">
                 <template x-for="(word, index) in words" :key="index">
-                    <div class="relative">
-                        <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1 w-[70%]" autocomplete="off"
+                    <div class="relative w-[120px]" >
+                        <input type="text" :name="'words['+index+']'" class="border rounded px-2 py-1 w-[99%]" autocomplete="off"
                                x-model="words[index]"
                                pattern="^\S+$" title="One word only"
                                @keydown.space.prevent="completeWord(index)"
