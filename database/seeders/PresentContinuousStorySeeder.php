@@ -16,16 +16,11 @@ class PresentContinuousStorySeeder extends Seeder
         $sourceId = Source::firstOrCreate(['name' => 'Present Continuous Story'])->id;
         $tenseTag = Tag::firstOrCreate(['name' => 'Present Continuous'], ['category' => 'Tenses']);
 
-        $question = "It's Saturday. {a1} lunch for my family.\n".
-            "My husband {a2} baseball.\n".
-            "My daughter {a3} in her room.\n".
-            "My son {a4} to music.\n".
-            "Now, the dog {a5}.\n".
-            "A delivery driver {a6} a package to the door.\n".
-            "I {a7} the window.\n".
-            "My neighbor {a8} outside.\n".
-            "A family {a9} on the sidewalk.\n".
-            "What’s that sound? Oh, the birds {a10} outside.";
+        $question = "It's Saturday. {a1} lunch. My husband {a2} baseball. "
+            . "My daughter {a3} in her room. My son {a4} to music. "
+            . "The dog {a5}. A driver {a6} a package. I {a7} the window. "
+            . "Neighbor {a8} outside. A family {a9} on the sidewalk. "
+            . "What's that sound? The birds {a10}.";
 
         $answers = [
             ['marker' => 'a1', 'answer' => "I'm cooking",   'verb_hint' => 'cook'],
