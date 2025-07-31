@@ -42,12 +42,32 @@
                 $inputName = "answers[{$markerKey}]";
                 $verbHintRow = $question->verbHints->where('marker', $markerKey)->first();
                 $verbHint = $verbHintRow?->option?->option;
-                $input = '<select name="'.$inputName.'" required class="border rounded px-2 py-1 mx-1">';
-                $input .= '<option value="">---</option>';
-                foreach($question->options as $opt){
-                    $input .= '<option value="'.$opt->option.'">'.$opt->option.'</option>';
+                $methods = ['select', 'text', 'autocomplete'];
+                $method = $methods[array_rand($methods)];
+                $autocompleteRoute = route('grammar-test.autocomplete');
+                if($method === 'autocomplete') {
+                    $input = <<<HTML
+<div x-data="{open:false,value:'',suggestions:[],fetch(){if(this.value.length==0){this.suggestions=[];this.open=false;return;}fetch('{$autocompleteRoute}?q='+encodeURIComponent(this.value)).then(res=>res.json()).then(data=>{this.suggestions=data;this.open=!!this.suggestions.length;});},pick(val){this.value=val;this.open=false;}}" class="relative inline-block" @click.away="open=false" x-init="\$watch('value', fetch)">
+    <input type="text" name="{$inputName}" required autocomplete="off" class="border rounded px-2 py-1 mx-1" x-model="value" @focus="fetch(); open=true" @input="fetch(); open=true">
+    <template x-if="open && suggestions.length">
+        <ul class="absolute left-0 z-10 bg-white shadow-lg border mt-1 max-h-40 rounded-md overflow-auto w-full" style="min-width:120px">
+            <template x-for="item in suggestions" :key="item">
+                <li @mousedown.prevent="pick(item)" class="cursor-pointer px-3 py-1 hover:bg-blue-100" x-text="item"></li>
+            </template>
+        </ul>
+    </template>
+</div>
+HTML;
+                } elseif($method === 'text') {
+                    $input = '<input type="text" name="'.$inputName.'" required class="border rounded px-2 py-1 mx-1">';
+                } else {
+                    $input = '<select name="'.$inputName.'" required class="border rounded px-2 py-1 mx-1">';
+                    $input .= '<option value="">---</option>';
+                    foreach($question->options as $opt){
+                        $input .= '<option value="'.$opt->option.'">'.$opt->option.'</option>';
+                    }
+                    $input .= '</select>';
                 }
-                $input .= '</select>';
                 if($verbHint){
                     $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')</span>';
                 }

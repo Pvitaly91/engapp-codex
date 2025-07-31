@@ -89,7 +89,7 @@ class GrammarTestController extends Controller
         }
         $currentId = session($key . '_current');
         if (!$currentId) {
-            if (empty($queue)) {
+            if (empty($queue) || ($stats['total'] > 0 && ($stats['correct'] / $stats['total']) >= 0.9)) {
                 return view('saved-test-complete', [
                     'test' => $test,
                     'stats' => $stats,
@@ -129,7 +129,7 @@ class GrammarTestController extends Controller
         $correct = true;
         foreach ($question->answers as $ans) {
             $given = $userAnswers[$ans->marker] ?? '';
-            if (mb_strtolower(trim($given)) !== mb_strtolower($ans->option->option)) {
+            if (mb_strtolower(trim($given)) !== mb_strtolower($ans->answer)) {
                 $correct = false;
             }
         }
