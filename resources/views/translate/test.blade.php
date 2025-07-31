@@ -39,7 +39,7 @@
             @csrf
             <input type="hidden" name="sentence_id" value="{{ $sentence->id }}">
             <div class="mb-6 text-xl font-semibold">{{ $sentence->text_uk }}</div>
-            <input type="text" name="answer" class="border rounded w-full p-2 mb-4" autofocus required>
+            <input type="text" name="answer" class="border rounded w-full p-2 mb-4" autofocus required autocomplete="off">
             <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition">
                 {{ $attempts > 0 ? 'Submit' : 'Check' }}
             </button>
