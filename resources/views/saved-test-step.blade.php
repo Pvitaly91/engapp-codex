@@ -51,10 +51,10 @@
                 $verbHint = $verbHintRow?->option?->option;
                 $methods = ['select', 'text', 'autocomplete', 'builder'];
                 $method = $methods[array_rand($methods)];
-                $autocompleteRoute = route('grammar-test.autocomplete');
+                $autocompleteRoute = url('/api/search?lang=en');
                 if($method === 'autocomplete') {
                     $input = <<<HTML
-<div x-data="{open:false,value:'',suggestions:[],fetch(){if(this.value.length==0){this.suggestions=[];this.open=false;return;}fetch('{$autocompleteRoute}?q='+encodeURIComponent(this.value)).then(res=>res.json()).then(data=>{this.suggestions=data;this.open=!!this.suggestions.length;});},pick(val){this.value=val;this.open=false;}}" class="relative inline-block" @click.away="open=false" x-init="\$watch('value', fetch)">
+<div x-data="{open:false,value:'',suggestions:[],fetch(){if(this.value.length==0){this.suggestions=[];this.open=false;return;}fetch('{$autocompleteRoute}&q='+encodeURIComponent(this.value)).then(res=>res.json()).then(data=>{this.suggestions=data.map(i=>i.en);this.open=!!this.suggestions.length;});},pick(val){this.value=val;this.open=false;}}" class="relative inline-block" @click.away="open=false" x-init="\$watch('value', fetch)">
     <input type="text" name="{$inputName}" required autocomplete="off" class="border rounded px-2 py-1 mx-1" x-model="value" @focus="fetch(); open=true" @input="fetch(); open=true">
     <template x-if="open && suggestions.length">
         <ul class="absolute left-0 z-10 bg-white shadow-lg border mt-1 max-h-40 rounded-md overflow-auto w-full" style="min-width:120px">
@@ -139,9 +139,9 @@ function builder(route, prefix) {
                 this.suggestions[index] = [];
                 return;
             }
-            fetch(route + '?q=' + encodeURIComponent(query))
+            fetch(route + '&q=' + encodeURIComponent(query))
                 .then(res => res.json())
-                .then(data => { this.suggestions[index] = data; });
+                .then(data => { this.suggestions[index] = data.map(i => i.en); });
         },
         selectSuggestion(index, val) {
             this.words[index] = val;

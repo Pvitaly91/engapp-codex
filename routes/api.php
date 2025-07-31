@@ -33,4 +33,5 @@ Route::get('/search', function (\Illuminate\Http\Request $request) {
             'translation' => optional($word->translates->first())->translation ?? '',
         ];
     });
-});
+})->name('words.search');
+

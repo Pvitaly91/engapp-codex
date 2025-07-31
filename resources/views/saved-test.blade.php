@@ -43,7 +43,7 @@
                             $answerRow = $q->answers->where('marker', $markerKey)->first();
                             $verbHintRow = $q->verbHints->where('marker', $markerKey)->first();
                             $verbHint = $verbHintRow?->option?->option;
-                            $autocompleteRoute = route('grammar-test.autocomplete');
+                            $autocompleteRoute = url('/api/search?lang=en');
 
                             // ==== AJAX autocomplete input ====
                             if(!empty($manualInput) && !empty($autocompleteInput)) {
@@ -59,10 +59,10 @@
                 this.open = false;
                 return;
             }
-            fetch('{$autocompleteRoute}?q=' + encodeURIComponent(this.value))
+            fetch('{$autocompleteRoute}&q=' + encodeURIComponent(this.value))
                 .then(res => res.json())
                 .then(data => {
-                    this.suggestions = data;
+                    this.suggestions = data.map(i => i.en);
                     this.open = !!this.suggestions.length;
                 });
         },
@@ -199,10 +199,10 @@ function builder(route, prefix) {
                 this.suggestions[index] = [];
                 return;
             }
-            fetch(route + '?q=' + encodeURIComponent(query))
+            fetch(route + '&q=' + encodeURIComponent(query))
                 .then(res => res.json())
                 .then(data => {
-                    this.suggestions[index] = data;
+                    this.suggestions[index] = data.map(i => i.en);
                 });
         },
         selectSuggestion(index, val) {

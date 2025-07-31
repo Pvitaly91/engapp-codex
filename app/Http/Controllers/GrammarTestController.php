@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Category;
 use App\Models\QuestionAnswer;
+use App\Models\Word;
 use App\Models\Source;
 use Illuminate\Support\Str;
 use App\Models\Test;
@@ -309,18 +310,13 @@ class GrammarTestController extends Controller
     public function autocomplete(Request $request)
     {
         $q = $request->input('q', '');
-        $query = \App\Models\QuestionAnswer::query()
-            ->join('question_options', 'question_answers.option_id', '=', 'question_options.id');
-    
-        if ($q) {
-            $query->where('question_options.option', 'like', '%' . $q . '%')
-                ->orderByRaw('question_options.option LIKE ? DESC', [$q . '%'])
-                ->orderBy('question_options.option');
-        }
-    
-        $answers = $query->distinct()->limit(5)->pluck('question_options.option');
-    
-        return response()->json($answers);
+        $words = \App\Models\Word::where('word', 'like', $q . '%')
+            ->orderByRaw('word LIKE ? DESC', [$q . '%'])
+            ->orderBy('word')
+            ->limit(5)
+            ->pluck('word');
+
+        return response()->json($words);
     }
     
 
