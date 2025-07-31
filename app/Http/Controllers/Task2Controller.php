@@ -25,17 +25,16 @@ class Task2Controller extends Controller
     {
         $feedback = session('task2_feedback');
         session()->forget('task2_feedback');
-        $textWithBlanks = preg_replace_callback('/\{(a\d+)\}/', function ($m) use ($feedback) {
+        $textWithInputs = preg_replace_callback('/\{(a\d+)\}/', function ($m) use ($feedback) {
             $key = $m[1];
             $val = $feedback['result'][$key]['user'] ?? '';
             $status = $feedback['result'][$key]['is_correct'] ?? null;
-            $class = $status === null ? '' : ($status ? 'text-green-700' : 'text-red-700');
-            return '<span id="blank-'.$key.'" class="inline-block min-w-[100px] border-b border-gray-400 text-center '.$class.'" ondragover="event.preventDefault()" @drop="drop(event, \''.$key.'\')">'.e($val).'</span><input type="hidden" id="input-'.$key.'" name="answers['.$key.']" value="'.e($val).'">';
+            $class = $status === null ? '' : ($status ? 'border-green-600' : 'border-red-600');
+            return '<input type="text" name="answers['.$key.']" value="'.e($val).'" class="border-b-2 outline-none '.$class.' w-40 text-center">';
         }, e($this->text));
-        $words = array_values($this->answers);
+
         return view('task2.index', [
-            'textWithBlanks' => $textWithBlanks,
-            'words' => $words,
+            'textWithInputs' => nl2br($textWithInputs),
             'feedback' => $feedback,
         ]);
     }
