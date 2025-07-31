@@ -75,7 +75,7 @@ class PresentContinuousShortAnswersSeeder extends Seeder
                 ],
                 'options' => [
                     'Are we doing', 'Do we do', 'Are we do',
-                    'are', 'aren\'t', 'do', 'don\'t'
+                    'are', 'aren\'t', 'do', "don't"
                 ],
             ],
             [
