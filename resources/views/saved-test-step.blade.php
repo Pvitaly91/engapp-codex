@@ -10,7 +10,7 @@
     </div>
     @if($test->description)
         <div class="test-description text-gray-800 flex justify-between">
-            <span>{{ $test->description }}</span>
+            <span>{!! $test->description !!}</span>
             <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="ml-2">
                 @csrf
                 <button type="submit" class="text-xs text-blue-600 underline">Оновити опис</button>
