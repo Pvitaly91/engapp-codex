@@ -5,7 +5,8 @@
     'manualInput' => false,
     'autocompleteInput' => false,
     'builderInput' => false,
-    'autocompleteRoute' => url('/api/search?lang=en')
+    'autocompleteRoute' => url('/api/search?lang=en'),
+    'methodMap' => []
 ])
 @php
     $questionText = $question->question;
@@ -19,7 +20,19 @@
             : "{$inputNamePrefix}{$markerKey}";
         $verbHintRow = $question->verbHints->where('marker', $markerKey)->first();
         $verbHint = $verbHintRow?->option?->option;
-        if(!empty($manualInput) && !empty($autocompleteInput)) {
+        $method = $methodMap[$markerKey] ?? null;
+        if($method === null) {
+            if(!empty($builderInput)) {
+                $method = 'builder';
+            } elseif(!empty($manualInput) && !empty($autocompleteInput)) {
+                $method = 'autocomplete';
+            } elseif(!empty($manualInput)) {
+                $method = 'text';
+            } else {
+                $method = 'select';
+            }
+        }
+        if($method === 'autocomplete') {
             $input = <<<HTML
 <div
     x-data="{open:false,value:'',suggestions:[],fetch(){if(this.value.length===0){this.suggestions=[];this.open=false;return;}fetch('{$autocompleteRoute}&q='+encodeURIComponent(this.value)).then(res=>res.json()).then(data=>{this.suggestions=data.map(i=>i.en);this.open=!!this.suggestions.length;});},pick(val){this.value=val;this.open=false;}}"
@@ -37,7 +50,7 @@
     </template>
 </div>
 HTML;
-        } elseif(!empty($builderInput)) {
+        } elseif($method === 'builder') {
             $input = <<<HTML
 <div x-data="builder('{$autocompleteRoute}', '{$inputName}[')" class="inline-flex items-center gap-[3px]">
     <template x-for="(word, index) in words" :key="index">
@@ -55,7 +68,7 @@ HTML;
     <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last ml-[3px]">+</button>
 </div>
 HTML;
-        } elseif(!empty($manualInput)) {
+        } elseif($method === 'text') {
             $input = '<input type="text" name="'.$inputName.'" required autocomplete="off" class="border rounded px-2 py-1 mx-1">';
         } else {
             $input = '<select name="'.$inputName.'" required class="border rounded px-2 py-1 mx-1">';

@@ -18,15 +18,17 @@
                 </div>
 @php
     $methods = ['select', 'text', 'autocomplete', 'builder'];
-    $method = $methods[array_rand($methods)];
+    preg_match_all('/\{a(\d+)\}/', $q->question, $matches);
+    $methodMap = [];
+    foreach($matches[1] as $num){
+        $methodMap['a'.$num] = $methods[array_rand($methods)];
+    }
     $autocompleteRoute = url('/api/search?lang=en');
 @endphp
 @include('components.question-input', [
     'question' => $q,
     'inputNamePrefix' => "question_{$q->id}_",
-    'manualInput' => in_array($method, ['text','autocomplete','builder']),
-    'autocompleteInput' => $method === 'autocomplete',
-    'builderInput' => $method === 'builder',
+    'methodMap' => $methodMap,
     'autocompleteRoute' => $autocompleteRoute,
 ])
 <a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Edit</a>
