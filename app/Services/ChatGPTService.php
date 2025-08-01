@@ -189,4 +189,51 @@ class ChatGPTService
 
         return '';
     }
+
+    /**
+     * Generate grammar questions for given tenses.
+     * Each question should contain the specified number of missing words
+     * marked as {a1}, {a2}, ... and return JSON with the correct answers.
+     */
+    public function generateGrammarQuestions(array $tenses, int $numQuestions = 1, int $answersCount = 1): array
+    {
+        $key = config('services.chatgpt.key');
+        if (empty($key)) {
+            Log::warning('ChatGPT API key not configured');
+            return [];
+        }
+
+        $answersCount = max(1, min(3, $answersCount));
+        $tensesText = implode(', ', $tenses);
+        $prompt = "Generate {$numQuestions} short English grammar questions for the following tenses: {$tensesText}. " .
+            "Each question must contain {$answersCount} missing word(s) represented as {a1}, {a2}, ... . " .
+            "Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}}].";
+
+        try {
+            $client = \OpenAI::client($key);
+            $result = $client->chat()->create([
+                'model' => 'gpt-4o',
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+            ]);
+
+            $content = trim($result->choices[0]->message->content);
+            $data = json_decode($content, true);
+            if (! is_array($data)) {
+                $start = strpos($content, '[');
+                $end = strrpos($content, ']');
+                if ($start !== false && $end !== false && $end > $start) {
+                    $json = substr($content, $start, $end - $start + 1);
+                    $data = json_decode($json, true);
+                }
+            }
+
+            return is_array($data) ? $data : [];
+        } catch (Exception $e) {
+            Log::warning('ChatGPT question generation failed: ' . $e->getMessage());
+        }
+
+        return [];
+    }
 }

@@ -66,6 +66,13 @@ Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'
 Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
 
+use App\Http\Controllers\AiTestController;
+Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
+Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');
+Route::get('/ai-test/step', [AiTestController::class, 'step'])->name('ai-test.step');
+Route::post('/ai-test/check', [AiTestController::class, 'check'])->name('ai-test.check');
+Route::post('/ai-test/reset', [AiTestController::class, 'reset'])->name('ai-test.reset');
+
 use App\Http\Controllers\QuestionReviewController;
 Route::get('/question-review', [QuestionReviewController::class, 'index'])->name('question-review.index');
 Route::post('/question-review', [QuestionReviewController::class, 'store'])->name('question-review.store');

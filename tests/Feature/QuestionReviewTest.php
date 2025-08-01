@@ -34,6 +34,7 @@ class QuestionReviewTest extends TestCase
             '2025_07_28_113010_add_original_tags_to_question_review_results_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
             '2025_07_20_184450_create_tests_table.php',
+            '2025_08_04_000002_add_description_to_tests_table.php',
         ];
         foreach ($migrations as $file) {
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
