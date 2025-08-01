@@ -236,4 +236,13 @@ class ChatGPTService
 
         return [];
     }
+
+    /**
+     * Convenience wrapper to generate a single grammar question.
+     */
+    public function generateGrammarQuestion(array $tenses, int $answersCount = 1): ?array
+    {
+        $all = $this->generateGrammarQuestions($tenses, 1, $answersCount);
+        return $all[0] ?? null;
+    }
 }

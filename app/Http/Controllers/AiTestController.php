@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\ChatGPTService;
 use App\Models\Category;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+use App\Services\QuestionSeedingService;
+use App\Models\Source;
 
 class AiTestController extends Controller
 {
@@ -16,66 +17,52 @@ class AiTestController extends Controller
         return view('ai-test-form', compact('categories'));
     }
 
-    public function start(Request $request, ChatGPTService $gpt)
+    public function start(Request $request)
     {
         $request->validate([
             'categories' => 'required|array|min:1',
-            'num_questions' => 'required|integer|min:1|max:3',
+            'answers_count' => 'required|integer|min:1|max:3',
         ]);
 
-        $tenseNames = Category::whereIn('id', $request->input('categories'))
-            ->pluck('name')
-            ->toArray();
-
-        $questions = $gpt->generateGrammarQuestions(
-            $tenseNames,
-            (int) $request->input('num_questions'),
-            1
-        );
-
         session([
-            'ai_questions' => $questions,
-            'ai_queue' => array_keys($questions),
-            'ai_total' => count($questions),
-            'ai_stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
-            'ai_current' => null,
-            'ai_feedback' => null,
+            'ai_step.categories' => $request->input('categories'),
+            'ai_step.answers_count' => (int) $request->input('answers_count'),
+            'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
+            'ai_step.current_question' => null,
+            'ai_step.feedback' => null,
         ]);
 
         return redirect()->route('ai-test.step');
     }
 
-    public function step()
+    public function step(ChatGPTService $gpt)
     {
-        $questions = session('ai_questions', []);
-        $stats = session('ai_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
-        $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
-        $queue = session('ai_queue', []);
-        $totalCount = session('ai_total', 0);
-
-        $currentIndex = session('ai_current');
-        if ($currentIndex === null) {
-            if (empty($queue)) {
-                return view('ai-test-complete', [
-                    'stats' => $stats,
-                    'percentage' => $percentage,
-                    'totalCount' => $totalCount,
-                ]);
-            }
-            $currentIndex = array_shift($queue);
-            session(['ai_queue' => $queue, 'ai_current' => $currentIndex]);
+        $catIds = session('ai_step.categories');
+        if (!$catIds) {
+            return redirect()->route('ai-test.form');
         }
 
-        $question = $questions[$currentIndex];
-        $feedback = session('ai_feedback');
-        session()->forget('ai_feedback');
+        $stats = session('ai_step.stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
+        $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
+
+        $question = session('ai_step.current_question');
+        if (!$question) {
+            $tenseNames = Category::whereIn('id', $catIds)->pluck('name')->toArray();
+            $answersCount = session('ai_step.answers_count', 1);
+            $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount);
+            if ($question) {
+                $this->storeQuestion($question, $catIds[0]);
+                session(['ai_step.current_question' => $question]);
+            }
+        }
+
+        $feedback = session('ai_step.feedback');
+        session()->forget('ai_step.feedback');
 
         return view('ai-test-step', [
             'question' => $question,
-            'index' => $currentIndex,
             'stats' => $stats,
             'percentage' => $percentage,
-            'totalCount' => $totalCount,
             'feedback' => $feedback,
         ]);
     }
@@ -83,16 +70,14 @@ class AiTestController extends Controller
     public function check(Request $request, ChatGPTService $gpt)
     {
         $request->validate([
-            'index' => 'required',
             'answers' => 'required|array',
         ]);
 
-        $questions = session('ai_questions', []);
-        $idx = $request->input('index');
-        if (!isset($questions[$idx])) {
+        $question = session('ai_step.current_question');
+        if (!$question) {
             return redirect()->route('ai-test.step');
         }
-        $question = $questions[$idx];
+
         $userAnswers = $request->input('answers', []);
         $correct = true;
         $explanations = [];
@@ -108,7 +93,7 @@ class AiTestController extends Controller
             }
         }
 
-        $stats = session('ai_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
+        $stats = session('ai_step.stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $stats['total']++;
         if ($correct) {
             $stats['correct']++;
@@ -117,9 +102,9 @@ class AiTestController extends Controller
         }
 
         session([
-            'ai_stats' => $stats,
-            'ai_current' => null,
-            'ai_feedback' => [
+            'ai_step.stats' => $stats,
+            'ai_step.current_question' => null,
+            'ai_step.feedback' => [
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
             ],
@@ -130,7 +115,39 @@ class AiTestController extends Controller
 
     public function reset()
     {
-        session()->forget(['ai_questions', 'ai_queue', 'ai_total', 'ai_current', 'ai_stats', 'ai_feedback']);
+        session()->forget([
+            'ai_step.categories',
+            'ai_step.answers_count',
+            'ai_step.stats',
+            'ai_step.current_question',
+            'ai_step.feedback',
+        ]);
         return redirect()->route('ai-test.form');
+    }
+
+    private function storeQuestion(array $question, int $categoryId): void
+    {
+        $service = app(QuestionSeedingService::class);
+        $sourceId = Source::firstOrCreate(['name' => 'AI Generated'])->id;
+
+        $answers = [];
+        $options = [];
+        foreach ($question['answers'] as $marker => $val) {
+            $answers[] = ['marker' => $marker, 'answer' => $val];
+            $options[] = $val;
+        }
+
+        $service->seed([
+            [
+                'uuid' => Str::uuid()->toString(),
+                'question' => $question['question'],
+                'difficulty' => 1,
+                'category_id' => $categoryId,
+                'flag' => 1,
+                'source_id' => $sourceId,
+                'answers' => $answers,
+                'options' => $options,
+            ],
+        ]);
     }
 }

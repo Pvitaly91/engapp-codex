@@ -9,7 +9,7 @@
         <a href="{{ route('ai-test.form') }}" class="text-sm text-blue-600 underline">Start over</a>
     </div>
     <div class="mb-4 flex gap-4 text-gray-600 text-base">
-        <div>Total: <b>{{ $stats['total'] }} / {{ $totalCount }}</b></div>
+        <div>Total: <b>{{ $stats['total'] }}</b></div>
         <div>Correct: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
         <div>Wrong: <b class="text-red-700">{{ $stats['wrong'] }}</b></div>
         <div>Percent: <b>{{ $percentage }}%</b></div>
@@ -38,7 +38,6 @@
 
     <form method="POST" action="{{ route('ai-test.check') }}" class="space-y-4">
         @csrf
-        <input type="hidden" name="index" value="{{ $index }}">
         @php
             $answersCol = collect();
             foreach($question['answers'] as $m => $val){
@@ -50,9 +49,9 @@
             'question' => $obj,
             'inputNamePrefix' => 'answers',
             'arrayInput' => true,
-            'manualInput' => true,
+            'manualInput' => false,
             'autocompleteInput' => false,
-            'builderInput' => false,
+            'builderInput' => true,
         ])
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
             {{ isset($feedback) ? 'Next' : 'Check' }}
