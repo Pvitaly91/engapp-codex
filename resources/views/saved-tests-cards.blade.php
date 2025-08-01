@@ -59,6 +59,9 @@
                                 <span class="inline-block bg-gray-200 px-2 py-0.5 mr-1 mb-1 rounded">{{ $t }}</span>
                             @endforeach
                         </div>
+                        @if($test->description)
+                            <div class="test-description text-sm text-gray-800 mb-3">{{ \Illuminate\Support\Str::limit($test->description, 120) }}</div>
+                        @endif
                         <a href="{{ route('saved-test.show', $test->slug) }}" class="mt-auto inline-block text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>
                     </div>
                 @endforeach

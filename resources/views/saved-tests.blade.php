@@ -23,6 +23,9 @@
                         <span>Створено: {{ $test->created_at->format('d.m.Y H:i') }}</span>
                         <span>Питань: {{ is_array($test->questions) ? count($test->questions) : (is_string($test->questions) ? count(json_decode($test->questions, true) ?? []) : 0) }}</span>
                     </div>
+                    @if($test->description)
+                        <div class="test-description text-sm text-gray-800 mt-1">{{ \Illuminate\Support\Str::limit($test->description, 120) }}</div>
+                    @endif
                 </div>
                 <div class="flex gap-2">
                     <a href="{{ route('saved-test.show', $test->slug) }}"

@@ -148,4 +148,45 @@ class ChatGPTService
 
         return ['is_correct' => false, 'explanation' => ''];
     }
+
+    /**
+     * Generate a detailed description of what to do in a test based on its questions.
+     * The description should include a short explanation of the grammar rule that
+     * is tested so students know how to form the correct answers.
+     */
+    public function generateTestDescription(array $questions, ?string $lang = null): string
+    {
+        $key = config('services.chatgpt.key');
+        if (empty($key)) {
+            Log::warning('ChatGPT API key not configured');
+            return '';
+        }
+
+        $lang = $lang ?? config('services.chatgpt.language', 'uk');
+        $prompt = 'Визнач які часи використувуються в питаннях цього тесту,
+            питання:';
+      //  $prompt = "Сформулюй детальний опис українською того, що потрібно зробити у цьому тесті." .
+      //      " Додай коротке пояснення правила або формули, за якою утворюються правильні відповіді." .
+     //       " Ось питання тесту:\n";
+        foreach ($questions as $i => $q) {
+             $prompt .= ($i + 1) . ". {$q}\n";
+        }
+        $prompt .= "Напиши формули по яких утворюються речення для ціх часів, вивиди відформатований текст готовий для використання на html сторінці (ВАЖЛИВО! не потрібно писати технічні  слова: HTML код і т. д. потрібни текст готовий відформатований для читання користувачем на строінці, також приладу придумай свої приклади та виділи їх іншим кольором, та не використовуй питання з тесту, назву часів та ключові слова англійською виділяй жирним та іншим кольором ) ";
+       
+        try {
+            $client = \OpenAI::client($key);
+            $result = $client->chat()->create([
+                'model' => 'gpt-4o',
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+            ]);
+
+            return trim($result->choices[0]->message->content);
+        } catch (Exception $e) {
+            Log::warning('ChatGPT test description failed: ' . $e->getMessage());
+        }
+
+        return '';
+    }
 }

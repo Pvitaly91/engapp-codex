@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
-    protected $fillable = ['name', 'slug', 'filters', 'questions'];
+    protected $fillable = ['name', 'slug', 'filters', 'questions', 'description'];
     protected $casts = [
         'filters' => 'array',
         'questions' => 'array',
