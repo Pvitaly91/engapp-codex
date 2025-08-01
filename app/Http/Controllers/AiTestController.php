@@ -133,7 +133,11 @@ class AiTestController extends Controller
         $answers = [];
         $options = [];
         foreach ($question['answers'] as $marker => $val) {
-            $answers[] = ['marker' => $marker, 'answer' => $val];
+            $ans = ['marker' => $marker, 'answer' => $val];
+            if (!empty($question['verb_hints'][$marker] ?? null)) {
+                $ans['verb_hint'] = $question['verb_hints'][$marker];
+            }
+            $answers[] = $ans;
             $options[] = $val;
         }
 

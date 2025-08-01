@@ -53,6 +53,7 @@ class AiGrammarTestPageTest extends TestCase
                 ->andReturn([
                     'question' => 'He {a1} here.',
                     'answers' => ['a1' => 'is'],
+                    'verb_hints' => ['a1' => 'be'],
                 ]);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
@@ -65,5 +66,6 @@ class AiGrammarTestPageTest extends TestCase
         $this->get('/ai-test/step')->assertStatus(200);
 
         $this->assertDatabaseHas('questions', ['question' => 'He {a1} here.']);
+        $this->assertDatabaseHas('verb_hints', ['marker' => 'a1']);
     }
 }

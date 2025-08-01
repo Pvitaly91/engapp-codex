@@ -207,7 +207,8 @@ class ChatGPTService
         $tensesText = implode(', ', $tenses);
         $prompt = "Generate {$numQuestions} short English grammar questions for the following tenses: {$tensesText}. " .
             "Each question must contain {$answersCount} missing word(s) represented as {a1}, {a2}, ... . " .
-            "Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}}].";
+            "Provide the base form of each missing verb as verb_hints. " .
+            "Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}, \"verb_hints\":{\"a1\":\"go\"}}].";
 
         try {
             $client = \OpenAI::client($key);

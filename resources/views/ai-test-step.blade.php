@@ -40,10 +40,14 @@
         @csrf
         @php
             $answersCol = collect();
+            $hintsCol = collect();
             foreach($question['answers'] as $m => $val){
                 $answersCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$val]]);
+                if(isset($question['verb_hints'][$m])){
+                    $hintsCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$question['verb_hints'][$m]]]);
+                }
             }
-            $obj = (object)['question'=>$question['question'], 'verbHints'=>collect(), 'options'=>collect(), 'answers'=>$answersCol];
+            $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol];
         @endphp
     @include('components.question-input', [
             'question' => $obj,
