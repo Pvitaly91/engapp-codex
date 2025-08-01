@@ -138,6 +138,17 @@ class GrammarTestController extends Controller
         ]);
     }
 
+    public function refreshDescription($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = Question::whereIn('id', $test->questions)->pluck('question');
+        $gpt = app(\App\Services\ChatGPTService::class);
+        $test->description = $gpt->generateTestDescription($questions->toArray());
+        $test->save();
+
+        return redirect()->back();
+    }
+
     public function checkSavedTestStep(Request $request, $slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();

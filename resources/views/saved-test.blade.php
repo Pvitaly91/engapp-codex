@@ -25,7 +25,18 @@
         </div>
     </div>
     @if($test->description)
-        <div class="test-description text-gray-800">{!! $test->description !!}</div>
+        <div class="test-description text-gray-800 flex justify-between">
+            <span>{{ $test->description }}</span>
+            <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="ml-2">
+                @csrf
+                <button type="submit" class="text-xs text-blue-600 underline">Оновити опис</button>
+            </form>
+        </div>
+    @else
+        <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="mb-4">
+            @csrf
+            <button type="submit" class="text-xs text-blue-600 underline">Згенерувати опис</button>
+        </form>
     @endif
     <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
         @csrf
