@@ -40,12 +40,16 @@
         @csrf
         @php
             $answersCol = collect();
+            $hintsCol = collect();
             foreach($question['answers'] as $m => $val){
                 $answersCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$val]]);
+                if(isset($question['verb_hints'][$m])){
+                    $hintsCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$question['verb_hints'][$m]]]);
+                }
             }
-            $obj = (object)['question'=>$question['question'], 'verbHints'=>collect(), 'options'=>collect(), 'answers'=>$answersCol];
+            $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol];
         @endphp
-        @include('components.question-input', [
+    @include('components.question-input', [
             'question' => $obj,
             'inputNamePrefix' => 'answers',
             'arrayInput' => true,
@@ -58,4 +62,47 @@
         </button>
     </form>
 </div>
+<script>
+function builder(route, prefix) {
+    return {
+        words: [''],
+        suggestions: [[]],
+        valid: [false],
+        addWord() {
+            this.words.push('');
+            this.suggestions.push([]);
+            this.valid.push(false);
+        },
+        completeWord(index) {
+            if (this.words[index].trim() !== '' && this.valid[index]) {
+                if (index === this.words.length - 1) {
+                    this.addWord();
+                }
+                this.$nextTick(() => {
+                    const fields = this.$el.querySelectorAll(`input[name^="${prefix}"]`);
+                    if (fields[index + 1]) {
+                        fields[index + 1].focus();
+                    }
+                });
+            }
+        },
+        fetchSuggestions(index) {
+            const query = this.words[index];
+            this.valid[index] = false;
+            if (query.length === 0) {
+                this.suggestions[index] = [];
+                return;
+            }
+            fetch(route + '&q=' + encodeURIComponent(query))
+                .then(res => res.json())
+                .then(data => { this.suggestions[index] = data.map(i => i.en); });
+        },
+        selectSuggestion(index, val) {
+            this.words[index] = val;
+            this.valid[index] = true;
+            this.suggestions[index] = [];
+        }
+    }
+}
+</script>
 @endsection
