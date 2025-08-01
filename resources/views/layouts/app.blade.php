@@ -5,6 +5,11 @@
     <title>@yield('title', 'English App')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .text-base{
+            line-height: 2.2rem !important;
+        }
+    </style>    
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
