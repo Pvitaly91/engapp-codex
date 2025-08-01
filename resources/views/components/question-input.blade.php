@@ -72,4 +72,4 @@ HTML;
     }
     $finalQuestion = strtr(e($questionText), $replacements);
 @endphp
-{!! $finalQuestion !!}
+<label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
