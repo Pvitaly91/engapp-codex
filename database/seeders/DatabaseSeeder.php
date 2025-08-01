@@ -64,6 +64,7 @@ class DatabaseSeeder extends Seeder
             ChatGPTTranslationChecksSeeder::class,
             PresentContinuousStorySeeder::class,
             PresentSimpleOrContinuousSeeder::class,
+            ChatGPTServiceTestSeeder::class,
         ]);
     }
 }
