@@ -28,16 +28,16 @@ class PresentSimpleOrContinuousSeeder extends Seeder
             [
                 'question' => 'How often {a1} you {a2} to the cinema?',
                 'answers'  => [
-                    'a1' => ['answer' => 'do', 'verb_hint' => 'do'],
-                    'a2' => ['answer' => 'go', 'verb_hint' => 'go'],
+                    ['marker' => 'a1', 'answer' => 'do', 'verb_hint' => 'do'],
+                    ['marker' => 'a2', 'answer' => 'go', 'verb_hint' => 'go'],
                 ],
                 'options'  => ['do', 'are', 'go', 'going'],
             ],
             [
                 'question' => 'Why {a1} you {a2} at me now?',
                 'answers'  => [
-                    'a1' => ['answer' => 'are', 'verb_hint' => 'be'],
-                    'a2' => ['answer' => 'shouting', 'verb_hint' => 'shout'],
+                    ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
+                    ['marker' => 'a2', 'answer' => 'shouting', 'verb_hint' => 'shout'],
                 ],
                 'options'  => ['are', 'do', 'shout', 'shouting'],
             ],
@@ -49,16 +49,16 @@ class PresentSimpleOrContinuousSeeder extends Seeder
             [
                 'question' => '{a1} you {a2} who I am?',
                 'answers'  => [
-                    'a1' => ['answer' => 'Do', 'verb_hint' => 'do'],
-                    'a2' => ['answer' => 'know', 'verb_hint' => 'know'],
+                    ['marker' => 'a1', 'answer' => 'Do', 'verb_hint' => 'do'],
+                    ['marker' => 'a2', 'answer' => 'know', 'verb_hint' => 'know'],
                 ],
                 'options'  => ['Do', 'Are', 'know', 'knowing'],
             ],
             [
                 'question' => 'How much coffee {a1} you {a2}?',
                 'answers'  => [
-                    'a1' => ['answer' => 'do', 'verb_hint' => 'do'],
-                    'a2' => ['answer' => 'drink', 'verb_hint' => 'drink'],
+                    ['marker' => 'a1', 'answer' => 'do', 'verb_hint' => 'do'],
+                    ['marker' => 'a2', 'answer' => 'drink', 'verb_hint' => 'drink'],
                 ],
                 'options'  => ['do', 'are', 'drink', 'drinking'],
             ],
@@ -80,8 +80,8 @@ class PresentSimpleOrContinuousSeeder extends Seeder
             [
                 'question' => 'Who {a1} you {a2} to now?',
                 'answers'  => [
-                    'a1' => ['answer' => 'are', 'verb_hint' => 'be'],
-                    'a2' => ['answer' => 'talking', 'verb_hint' => 'talk'],
+                    ['marker' => 'a1', 'answer' => 'are', 'verb_hint' => 'be'],
+                    ['marker' => 'a2', 'answer' => 'talking', 'verb_hint' => 'talk'],
                 ],
                 'options'  => ['are', 'do', 'talk', 'talking'],
             ],
@@ -93,8 +93,8 @@ class PresentSimpleOrContinuousSeeder extends Seeder
             [
                 'question' => '{a1} you {a2} chocolate?',
                 'answers'  => [
-                    'a1' => ['answer' => 'Do', 'verb_hint' => 'do'],
-                    'a2' => ['answer' => 'like', 'verb_hint' => 'like'],
+                    ['marker' => 'a1', 'answer' => 'Do', 'verb_hint' => 'do'],
+                    ['marker' => 'a2', 'answer' => 'like', 'verb_hint' => 'like'],
                 ],
                 'options'  => ['Do', 'Are', 'like', 'liking'],
             ],
@@ -126,16 +126,16 @@ class PresentSimpleOrContinuousSeeder extends Seeder
             [
                 'question' => 'Rebecca {a1} books, she {a2} films.',
                 'answers'  => [
-                    'a1' => ['answer' => "doesn't read", 'verb_hint' => 'not/read'],
-                    'a2' => ['answer' => 'prefers', 'verb_hint' => 'prefer'],
+                    ['marker' => 'a1', 'answer' => "doesn't read", 'verb_hint' => 'not/read'],
+                    ['marker' => 'a2', 'answer' => 'prefers', 'verb_hint' => 'prefer'],
                 ],
                 'options'  => ["doesn't read", "isn't reading", 'prefer', 'prefers'],
             ],
             [
                 'question' => 'Look! Who {a1} she {a2} to?',
                 'answers'  => [
-                    'a1' => ['answer' => 'is', 'verb_hint' => 'be'],
-                    'a2' => ['answer' => 'talking', 'verb_hint' => 'talk'],
+                    ['marker' => 'a1', 'answer' => 'is', 'verb_hint' => 'be'],
+                    ['marker' => 'a2', 'answer' => 'talking', 'verb_hint' => 'talk'],
                 ],
                 'options'  => ['is', 'does', 'talking', 'talks'],
             ],
