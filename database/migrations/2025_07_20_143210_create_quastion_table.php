@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('question');
+            $table->text('question');
             $table->unsignedTinyInteger('difficulty')->default(1);
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->timestamps();

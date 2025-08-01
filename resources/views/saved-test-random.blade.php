@@ -31,7 +31,7 @@
                             if($method === 'autocomplete') {
                                 $input = <<<HTML
 <div x-data="{open:false,value:'',suggestions:[],fetch(){if(this.value.length===0){this.suggestions=[];this.open=false;return;}fetch('{$autocompleteRoute}&q='+encodeURIComponent(this.value)).then(res=>res.json()).then(data=>{this.suggestions=data.map(i=>i.en);this.open=!!this.suggestions.length;});},pick(val){this.value=val;this.open=false;}}" class="relative inline-block" @click.away="open=false" x-init="\$watch('value', fetch)">
-    <input type="text" name="{$inputName}" required autocomplete="off" class="border rounded px-2 py-1 mx-1" x-model="value" @focus="fetch(); open=true" @input="fetch(); open=true">
+    <input type="text" name="{$inputName}" required autocomplete="off" class="border rounded px-2 py-1 mx-1 w-[90px] h-[30px]" x-model="value" @focus="fetch(); open=true" @input="fetch(); open=true">
     <template x-if="open && suggestions.length">
         <ul class="absolute left-0 z-10 bg-white shadow-lg border mt-1 max-h-40 rounded-md overflow-auto w-full" style="min-width:120px">
             <template x-for="item in suggestions" :key="item">
@@ -46,7 +46,7 @@ HTML;
 <div x-data="builder('{$autocompleteRoute}', '{$inputName}[')" class="inline-flex items-center gap-[3px]">
     <template x-for="(word, index) in words" :key="index">
         <div class="relative w-[120px]">
-            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1 w-[99%]" autocomplete="off"
+            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1 w-[99%] h-[30px]" autocomplete="off"
                    x-model="words[index]" pattern="^\\S+$" title="One word only"
                    @keydown.space.prevent="completeWord(index)" @focus="fetchSuggestions(index)" @input="fetchSuggestions(index)" required>
             <template x-if="suggestions[index] && suggestions[index].length">
@@ -58,11 +58,11 @@ HTML;
             </template>
         </div>
     </template>
-    <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last ml-[3px]">+</button>
+    <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last ml-[3px] h-[30px]">+</button>
 </div>
 HTML;
                             } elseif($method === 'text') {
-                                $input = '<input type="text" name="'.$inputName.'" required autocomplete="off" class="border rounded px-2 py-1 mx-1">';
+                                $input = '<input type="text" name="'.$inputName.'" required autocomplete="off" class="border rounded px-2 py-1 mx-1 w-[90px] h-[30px]">';
                             } else {
                                 $input = '<select name="'.$inputName.'" required class="border rounded px-2 py-1 mx-1">';
                                 $input .= '<option value="">---</option>';
