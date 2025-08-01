@@ -54,17 +54,15 @@
         @csrf
         <input type="hidden" name="question_id" value="{{ $question->id }}">
         @php
-            $methods = ['select', 'text', 'autocomplete', 'builder'];
-            $method = $methods[array_rand($methods)];
             $autocompleteRoute = url('/api/search?lang=en');
         @endphp
         @include('components.question-input', [
             'question' => $question,
             'inputNamePrefix' => 'answers',
             'arrayInput' => true,
-            'manualInput' => in_array($method, ['text','autocomplete','builder']),
-            'autocompleteInput' => $method === 'autocomplete',
-            'builderInput' => $method === 'builder',
+            'manualInput' => false,
+            'autocompleteInput' => false,
+            'builderInput' => true,
             'autocompleteRoute' => $autocompleteRoute,
         ])
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
