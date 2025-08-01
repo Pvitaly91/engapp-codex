@@ -72,3 +72,4 @@ Route::get('/question-review/{question}', [QuestionReviewController::class, 'edi
 
 use App\Http\Controllers\QuestionReviewResultController;
 Route::get('/question-review-results', [QuestionReviewResultController::class, 'index'])->name('question-review-results.index');
+
