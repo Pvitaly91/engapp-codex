@@ -9,7 +9,7 @@
         <a href="{{ route('saved-test.show', $test->slug) }}" class="text-sm text-blue-600 underline">Back</a>
     </div>
     @if($test->description)
-        <div class="mb-4 text-gray-800">{{ $test->description }}</div>
+        <div class="test-description text-gray-800">{{ $test->description }}</div>
     @endif
     <div class="mb-4 flex gap-4 text-gray-600 text-base">
         <div>Total: <b>{{ $stats['total'] }} / {{ $totalCount }}</b></div>

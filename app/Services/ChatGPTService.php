@@ -150,7 +150,9 @@ class ChatGPTService
     }
 
     /**
-     * Generate a short description of what to do in a test based on its questions.
+     * Generate a detailed description of what to do in a test based on its questions.
+     * The description should include a short explanation of the grammar rule that
+     * is tested so students know how to form the correct answers.
      */
     public function generateTestDescription(array $questions, ?string $lang = null): string
     {
@@ -162,7 +164,9 @@ class ChatGPTService
 
         $lang = $lang ?? config('services.chatgpt.language', 'uk');
 
-        $prompt = "Сформулюй короткий опис українською, що потрібно зробити у цьому тесті. Ось питання тесту:\n";
+        $prompt = "Сформулюй детальний опис українською того, що потрібно зробити у цьому тесті." .
+            " Додай коротке пояснення правила або формули, за якою утворюються правильні відповіді." .
+            " Ось питання тесту:\n";
         foreach ($questions as $i => $q) {
             $prompt .= ($i + 1) . ". {$q}\n";
         }

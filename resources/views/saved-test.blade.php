@@ -25,7 +25,7 @@
         </div>
     </div>
     @if($test->description)
-        <div class="mb-6 text-gray-800">{{ $test->description }}</div>
+        <div class="test-description text-gray-800">{{ $test->description }}</div>
     @endif
     <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
         @csrf

@@ -9,7 +9,14 @@
         .text-base{
             line-height: 2.2rem !important;
         }
-    </style>    
+        .test-description {
+            background-color: #fefce8; /* yellow-50 */
+            border-left: 4px solid #f59e0b; /* yellow-500 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
