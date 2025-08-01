@@ -148,4 +148,39 @@ class ChatGPTService
 
         return ['is_correct' => false, 'explanation' => ''];
     }
+
+    /**
+     * Generate a short description of what to do in a test based on its questions.
+     */
+    public function generateTestDescription(array $questions, ?string $lang = null): string
+    {
+        $key = config('services.chatgpt.key');
+        if (empty($key)) {
+            Log::warning('ChatGPT API key not configured');
+            return '';
+        }
+
+        $lang = $lang ?? config('services.chatgpt.language', 'uk');
+
+        $prompt = "Сформулюй короткий опис українською, що потрібно зробити у цьому тесті. Ось питання тесту:\n";
+        foreach ($questions as $i => $q) {
+            $prompt .= ($i + 1) . ". {$q}\n";
+        }
+
+        try {
+            $client = \OpenAI::client($key);
+            $result = $client->chat()->create([
+                'model' => 'gpt-4o',
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+            ]);
+
+            return trim($result->choices[0]->message->content);
+        } catch (Exception $e) {
+            Log::warning('ChatGPT test description failed: ' . $e->getMessage());
+        }
+
+        return '';
+    }
 }

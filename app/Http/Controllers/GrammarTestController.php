@@ -50,6 +50,13 @@ class GrammarTestController extends Controller
         $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'tags'])
             ->whereIn('id', $test->questions)
             ->get();
+
+        if (empty($test->description)) {
+            $gpt = app(\App\Services\ChatGPTService::class);
+            $test->description = $gpt->generateTestDescription($questions->pluck('question')->toArray());
+            $test->save();
+        }
+
         $manualInput = !empty($test->filters['manual_input']);
         $autocompleteInput = !empty($test->filters['autocomplete_input']);
         $builderInput = !empty($test->filters['builder_input']);
@@ -70,6 +77,12 @@ class GrammarTestController extends Controller
             ->whereIn('id', $test->questions)
             ->get();
 
+        if (empty($test->description)) {
+            $gpt = app(\App\Services\ChatGPTService::class);
+            $test->description = $gpt->generateTestDescription($questions->pluck('question')->toArray());
+            $test->save();
+        }
+
         return view('saved-test-random', [
             'test' => $test,
             'questions' => $questions,
@@ -79,6 +92,12 @@ class GrammarTestController extends Controller
     public function showSavedTestStep($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
+        if (empty($test->description)) {
+            $questions = \App\Models\Question::whereIn('id', $test->questions)->pluck('question');
+            $gpt = app(\App\Services\ChatGPTService::class);
+            $test->description = $gpt->generateTestDescription($questions->toArray());
+            $test->save();
+        }
         $key = 'step_' . $test->slug;
         $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;

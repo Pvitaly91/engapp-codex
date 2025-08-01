@@ -8,6 +8,9 @@
         <h1 class="text-2xl font-bold mb-2">{{ $test->name }} - Random Inputs</h1>
         <a href="{{ route('saved-test.show', $test->slug) }}" class="text-sm text-blue-600 underline">Back</a>
     </div>
+    @if($test->description)
+        <div class="mb-6 text-gray-800">{{ $test->description }}</div>
+    @endif
     <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
         @csrf
         @foreach($questions as $q)
