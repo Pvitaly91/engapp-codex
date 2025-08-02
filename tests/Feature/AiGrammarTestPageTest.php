@@ -67,7 +67,13 @@ class AiGrammarTestPageTest extends TestCase
 
         $this->get('/ai-test/step')->assertStatus(200);
 
-        $this->assertDatabaseHas('questions', ['question' => 'He {a1} here.']);
+        $this->assertDatabaseMissing('questions', ['question' => 'He {a1} here.']);
+
+        $this->post('/ai-test/check', [
+            'answers' => ['a1' => 'is'],
+        ])->assertRedirect('/ai-test/step');
+
+        $this->assertDatabaseHas('questions', ['question' => 'He {a1} here.', 'flag' => 1]);
         $this->assertDatabaseHas('verb_hints', ['marker' => 'a1']);
     }
 }

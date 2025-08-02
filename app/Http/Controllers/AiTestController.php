@@ -15,11 +15,11 @@ class AiTestController extends Controller
     public function form()
     {
         $tags = Tag::whereHas('questions')
-            ->where(function ($q) {
-                $q->where('category', '!=', 'others')
-                  ->orWhereNull('category');
-            })
-            ->get();
+            ->whereNotNull('category')
+            ->where('category', '!=', 'others')
+            ->orderBy('category')
+            ->get()
+            ->groupBy('category');
         return view('ai-test-form', compact('tags'));
     }
 
@@ -30,13 +30,17 @@ class AiTestController extends Controller
             'answers_count' => 'required|integer|min:1|max:3',
         ]);
 
+        $tagIds = $request->input('tags');
+        $topic = Tag::whereIn('id', $tagIds)->pluck('name')->implode(', ');
+
         session([
-            'ai_step.tags' => $request->input('tags'),
+            'ai_step.tags' => $tagIds,
             'ai_step.answers_count' => (int) $request->input('answers_count'),
             'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
             'ai_step.current_question' => null,
             'ai_step.feedback' => null,
             'ai_step.last_question' => null,
+            'ai_step.topic' => $topic,
         ]);
 
         return redirect()->route('ai-test.step');
@@ -63,7 +67,6 @@ class AiTestController extends Controller
                 $attempts++;
             } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
             if ($question) {
-                $this->storeQuestion($question, $tagIds[0]);
                 session(['ai_step.current_question' => $question]);
             }
         }
@@ -76,6 +79,7 @@ class AiTestController extends Controller
             'stats' => $stats,
             'percentage' => $percentage,
             'feedback' => $feedback,
+            'topic' => session('ai_step.topic'),
         ]);
     }
 
@@ -113,6 +117,9 @@ class AiTestController extends Controller
             $stats['wrong']++;
         }
 
+        $tagIds = session('ai_step.tags', []);
+        $this->storeQuestion($question, $tagIds);
+
         session([
             'ai_step.stats' => $stats,
             'ai_step.current_question' => null,
@@ -135,11 +142,22 @@ class AiTestController extends Controller
             'ai_step.current_question',
             'ai_step.feedback',
             'ai_step.last_question',
+            'ai_step.topic',
         ]);
         return redirect()->route('ai-test.form');
     }
 
-    private function storeQuestion(array $question, int $tagId): void
+    public function skip()
+    {
+        $question = session('ai_step.current_question');
+        if ($question) {
+            session(['ai_step.last_question' => $question['question']]);
+        }
+        session(['ai_step.current_question' => null]);
+        return redirect()->route('ai-test.step');
+    }
+
+    private function storeQuestion(array $question, array $tagIds): void
     {
         $service = app(QuestionSeedingService::class);
         $sourceId = Source::firstOrCreate(['name' => 'AI Generated'])->id;
@@ -167,7 +185,7 @@ class AiTestController extends Controller
                 'source_id' => $sourceId,
                 'answers' => $answers,
                 'options' => $options,
-                'tag_ids' => [$tagId],
+                'tag_ids' => $tagIds,
             ],
         ]);
     }

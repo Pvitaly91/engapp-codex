@@ -9,14 +9,19 @@
         @csrf
         <div>
             <label class="block font-bold mb-1">Choose tags:</label>
-            <div class="flex flex-wrap gap-2">
-                @foreach($tags as $tag)
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-checkbox h-5 w-5 text-blue-600">
-                        <span class="ml-2">{{ $tag->name }}</span>
-                    </label>
-                @endforeach
-            </div>
+            @foreach($tags as $category => $group)
+                <div class="mt-2">
+                    <h2 class="font-semibold mb-1">{{ $category }}</h2>
+                    <div class="flex flex-wrap gap-2">
+                        @foreach($group as $tag)
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="hidden peer">
+                                <span class="px-3 py-1 rounded-full border peer-checked:bg-blue-600 peer-checked:text-white">{{ $tag->name }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
         </div>
         <div>
             <label class="block font-bold mb-1">Number of blanks (1-3):</label>
