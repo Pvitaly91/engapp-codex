@@ -3,7 +3,7 @@
 @section('title', $test->name . ' - Step Test')
 
 @section('content')
-<div class="max-w-xl mx-auto p-4">
+<div class="w-[800px] mx-auto p-4">
     <div class="flex items-center justify-between mb-4">
         <h1 class="text-2xl font-bold">{{ $test->name }} - Step Mode</h1>
         <a href="{{ route('saved-test.show', $test->slug) }}" class="text-sm text-blue-600 underline">Back</a>

@@ -3,7 +3,7 @@
 @section('title', 'AI Grammar Test')
 
 @section('content')
-<div class="max-w-xl mx-auto p-4">
+<div class="w-[800px] mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">AI Grammar Test</h1>
     <form method="POST" action="{{ route('ai-test.start') }}" class="space-y-4">
         @csrf
