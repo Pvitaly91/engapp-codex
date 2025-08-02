@@ -27,32 +27,15 @@ class AiTestController extends Controller
     {
         $request->validate([
             'tags' => 'required|array|min:1',
-            'answers_count' => [
-                'required',
-                'string',
-                function ($attribute, $value, $fail) {
-                    if (!preg_match('/^\d+(?:-\d+)?$/', $value)) {
-                        return $fail('Invalid format.');
-                    }
-                    [$min, $max] = strpos($value, '-') !== false
-                        ? array_map('intval', explode('-', $value, 2))
-                        : [intval($value), intval($value)];
-                    if ($min < 1 || $max > 10 || $min > $max) {
-                        $fail('Number of blanks must be between 1 and 10.');
-                    }
-                },
-            ],
+            'answers_min' => 'required|integer|min:1|max:10',
+            'answers_max' => 'required|integer|min:1|max:10|gte:answers_min',
         ]);
 
         $tagIds = $request->input('tags');
         $topic = Tag::whereIn('id', $tagIds)->pluck('name')->implode(', ');
 
-        $input = $request->input('answers_count');
-        if (strpos($input, '-') !== false) {
-            [$min, $max] = array_map('intval', explode('-', $input, 2));
-        } else {
-            $min = $max = (int) $input;
-        }
+        $min = (int) $request->input('answers_min');
+        $max = (int) $request->input('answers_max');
 
         session([
             'ai_step.tags' => $tagIds,
