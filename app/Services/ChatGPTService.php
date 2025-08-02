@@ -203,7 +203,8 @@ class ChatGPTService
             return [];
         }
 
-        $answersCount = max(1, min(3, $answersCount));
+        // Allow up to 10 blanks per question instead of hard-capping at 3
+        $answersCount = max(1, min(10, $answersCount));
         $tensesText = implode(', ', $tenses);
         $prompt = "Generate {$numQuestions} short English grammar questions for the following tenses: {$tensesText}. " .
             "Each question must contain {$answersCount} missing word(s) represented as {a1}, {a2}, ... . " .

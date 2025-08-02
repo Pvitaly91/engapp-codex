@@ -40,7 +40,7 @@
     @click.away="open=false"
     x-init="\$watch('value', fetch)"
 >
-    <input type="text" name="{$inputName}" required autocomplete="off" class="border rounded px-2 py-1 mx-1 w-[80px] h-[28px]" x-model="value" @focus="fetch(); open=true" @input="fetch(); open=true">
+    <input type="text" name="{$inputName}" autocomplete="off" class="border rounded px-2 py-1 mx-1 w-[80px] h-[28px]" x-model="value" @focus="fetch(); open=true" @input="fetch(); open=true">
     <template x-if="open && suggestions.length">
         <ul class="absolute left-0 z-10 bg-white shadow-lg border mt-1 max-h-40 rounded-md overflow-auto w-full" style="min-width:120px">
             <template x-for="item in suggestions" :key="item">
@@ -55,7 +55,7 @@ HTML;
 <div x-data="builder('{$autocompleteRoute}', '{$inputName}[')" class="inline-flex items-center gap-[3px]">
     <template x-for="(word, index) in words" :key="index">
         <div class="relative w-[90px]">
-            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1 w-[99%] h-[28px]" autocomplete="off" x-model="words[index]" pattern="^\\S+$" title="One word only" @keydown.space.prevent="completeWord(index)" @focus="fetchSuggestions(index)" @input="fetchSuggestions(index)" required>
+            <input type="text" :name="'{$inputName}['+index+']'" class="border rounded px-2 py-1 w-[99%] h-[28px]" autocomplete="off" x-model="words[index]" pattern="^\\S+$" title="One word only" @keydown.space.prevent="completeWord(index)" @focus="fetchSuggestions(index)" @input="fetchSuggestions(index)">
             <template x-if="suggestions[index] && suggestions[index].length">
                 <ul class="absolute left-0 z-10 bg-white shadow-lg border mt-1 max-h-40 rounded-md overflow-auto w-full">
                     <template x-for="suggestion in suggestions[index]" :key="suggestion">
@@ -69,9 +69,9 @@ HTML;
 </div>
 HTML;
         } elseif($method === 'text') {
-            $input = '<input type="text" name="'.$inputName.'" required autocomplete="off" class="border rounded px-2 py-1 mx-1 w-[80px] h-[28px]">';
+            $input = '<input type="text" name="'.$inputName.'" autocomplete="off" class="border rounded px-2 py-1 mx-1 w-[80px] h-[28px]">';
         } else {
-            $input = '<select name="'.$inputName.'" required class="border rounded px-2 py-1 mx-1 w-[80px] h-[28px]">';
+            $input = '<select name="'.$inputName.'" class="border rounded px-2 py-1 mx-1 w-[80px] h-[28px]">';
             $input .= '<option value="">---</option>';
             foreach($question->options as $opt){
                 $input .= '<option value="'.$opt->option.'">'.$opt->option.'</option>';

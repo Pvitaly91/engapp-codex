@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\ChatGPTService;
 use App\Models\Category;
+use App\Models\Tag;
+use App\Models\Word;
 use Illuminate\Support\Str;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
@@ -13,23 +15,36 @@ class AiTestController extends Controller
 {
     public function form()
     {
-        $categories = Category::all();
-        return view('ai-test-form', compact('categories'));
+        $tags = Tag::whereNotNull('category')
+            ->where('category', '!=', 'others')
+            ->orderBy('category')
+            ->get()
+            ->groupBy('category');
+        return view('ai-test-form', compact('tags'));
     }
 
     public function start(Request $request)
     {
         $request->validate([
-            'categories' => 'required|array|min:1',
-            'answers_count' => 'required|integer|min:1|max:3',
+            'tags' => 'required|array|min:1',
+            'answers_min' => 'required|integer|min:1|max:10',
+            'answers_max' => 'required|integer|min:1|max:10|gte:answers_min',
         ]);
 
+        $tagIds = $request->input('tags');
+        $topic = Tag::whereIn('id', $tagIds)->pluck('name')->implode(', ');
+
+        $min = (int) $request->input('answers_min');
+        $max = (int) $request->input('answers_max');
+
         session([
-            'ai_step.categories' => $request->input('categories'),
-            'ai_step.answers_count' => (int) $request->input('answers_count'),
+            'ai_step.tags' => $tagIds,
+            'ai_step.answers_range' => [$min, $max],
             'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
             'ai_step.current_question' => null,
             'ai_step.feedback' => null,
+            'ai_step.last_question' => null,
+            'ai_step.topic' => $topic,
         ]);
 
         return redirect()->route('ai-test.step');
@@ -37,8 +52,8 @@ class AiTestController extends Controller
 
     public function step(ChatGPTService $gpt)
     {
-        $catIds = session('ai_step.categories');
-        if (!$catIds) {
+        $tagIds = session('ai_step.tags');
+        if (!$tagIds) {
             return redirect()->route('ai-test.form');
         }
 
@@ -47,11 +62,17 @@ class AiTestController extends Controller
 
         $question = session('ai_step.current_question');
         if (!$question) {
-            $tenseNames = Category::whereIn('id', $catIds)->pluck('name')->toArray();
-            $answersCount = session('ai_step.answers_count', 1);
-            $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount);
+            $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
+            $range = session('ai_step.answers_range', [1, 1]);
+            $answersCount = random_int($range[0], $range[1]);
+            $lastQuestion = session('ai_step.last_question');
+            $attempts = 0;
+            do {
+                $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount);
+                $attempts++;
+            } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
             if ($question) {
-                $this->storeQuestion($question, $catIds[0]);
+                $this->storeWords($question);
                 session(['ai_step.current_question' => $question]);
             }
         }
@@ -64,6 +85,7 @@ class AiTestController extends Controller
             'stats' => $stats,
             'percentage' => $percentage,
             'feedback' => $feedback,
+            'topic' => session('ai_step.topic'),
         ]);
     }
 
@@ -101,6 +123,9 @@ class AiTestController extends Controller
             $stats['wrong']++;
         }
 
+        $tagIds = session('ai_step.tags', []);
+        $this->storeQuestion($question, $tagIds);
+
         session([
             'ai_step.stats' => $stats,
             'ai_step.current_question' => null,
@@ -108,6 +133,7 @@ class AiTestController extends Controller
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
             ],
+            'ai_step.last_question' => $question['question'],
         ]);
 
         return redirect()->route('ai-test.step');
@@ -116,16 +142,28 @@ class AiTestController extends Controller
     public function reset()
     {
         session()->forget([
-            'ai_step.categories',
-            'ai_step.answers_count',
+            'ai_step.tags',
+            'ai_step.answers_range',
             'ai_step.stats',
             'ai_step.current_question',
             'ai_step.feedback',
+            'ai_step.last_question',
+            'ai_step.topic',
         ]);
         return redirect()->route('ai-test.form');
     }
 
-    private function storeQuestion(array $question, int $categoryId): void
+    public function skip()
+    {
+        $question = session('ai_step.current_question');
+        if ($question) {
+            session(['ai_step.last_question' => $question['question']]);
+        }
+        session(['ai_step.current_question' => null]);
+        return redirect()->route('ai-test.step');
+    }
+
+    private function storeQuestion(array $question, array $tagIds): void
     {
         $service = app(QuestionSeedingService::class);
         $sourceId = Source::firstOrCreate(['name' => 'AI Generated'])->id;
@@ -141,6 +179,8 @@ class AiTestController extends Controller
             $options[] = $val;
         }
 
+        $categoryId = Category::query()->value('id');
+
         $service->seed([
             [
                 'uuid' => Str::uuid()->toString(),
@@ -151,7 +191,30 @@ class AiTestController extends Controller
                 'source_id' => $sourceId,
                 'answers' => $answers,
                 'options' => $options,
+                'tag_ids' => $tagIds,
             ],
         ]);
+    }
+
+    private function storeWords(array $question): void
+    {
+        $words = $this->extractWords($question['question']);
+        foreach ($question['answers'] as $answer) {
+            $words = array_merge($words, $this->extractWords($answer));
+        }
+
+        $words = array_unique($words);
+        foreach ($words as $word) {
+            if ($word !== '') {
+                Word::firstOrCreate(['word' => $word]);
+            }
+        }
+    }
+
+    private function extractWords(string $text): array
+    {
+        $text = preg_replace('/\{a\d+\}/', ' ', $text);
+        preg_match_all("/[A-Za-z']+/u", strtolower($text), $matches);
+        return $matches[0];
     }
 }
