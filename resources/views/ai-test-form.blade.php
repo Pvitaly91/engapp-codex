@@ -8,12 +8,12 @@
     <form method="POST" action="{{ route('ai-test.start') }}" class="space-y-4">
         @csrf
         <div>
-            <label class="block font-bold mb-1">Choose tenses:</label>
+            <label class="block font-bold mb-1">Choose tags:</label>
             <div class="flex flex-wrap gap-2">
-                @foreach($categories as $cat)
+                @foreach($tags as $tag)
                     <label class="inline-flex items-center">
-                        <input type="checkbox" name="categories[]" value="{{ $cat->id }}" class="form-checkbox h-5 w-5 text-blue-600">
-                        <span class="ml-2">{{ $cat->name }}</span>
+                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="ml-2">{{ $tag->name }}</span>
                     </label>
                 @endforeach
             </div>

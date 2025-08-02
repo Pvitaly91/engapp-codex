@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\ChatGPTService;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
@@ -13,23 +14,29 @@ class AiTestController extends Controller
 {
     public function form()
     {
-        $categories = Category::all();
-        return view('ai-test-form', compact('categories'));
+        $tags = Tag::whereHas('questions')
+            ->where(function ($q) {
+                $q->where('category', '!=', 'others')
+                  ->orWhereNull('category');
+            })
+            ->get();
+        return view('ai-test-form', compact('tags'));
     }
 
     public function start(Request $request)
     {
         $request->validate([
-            'categories' => 'required|array|min:1',
+            'tags' => 'required|array|min:1',
             'answers_count' => 'required|integer|min:1|max:3',
         ]);
 
         session([
-            'ai_step.categories' => $request->input('categories'),
+            'ai_step.tags' => $request->input('tags'),
             'ai_step.answers_count' => (int) $request->input('answers_count'),
             'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
             'ai_step.current_question' => null,
             'ai_step.feedback' => null,
+            'ai_step.last_question' => null,
         ]);
 
         return redirect()->route('ai-test.step');
@@ -37,8 +44,8 @@ class AiTestController extends Controller
 
     public function step(ChatGPTService $gpt)
     {
-        $catIds = session('ai_step.categories');
-        if (!$catIds) {
+        $tagIds = session('ai_step.tags');
+        if (!$tagIds) {
             return redirect()->route('ai-test.form');
         }
 
@@ -47,11 +54,16 @@ class AiTestController extends Controller
 
         $question = session('ai_step.current_question');
         if (!$question) {
-            $tenseNames = Category::whereIn('id', $catIds)->pluck('name')->toArray();
+            $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
             $answersCount = session('ai_step.answers_count', 1);
-            $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount);
+            $lastQuestion = session('ai_step.last_question');
+            $attempts = 0;
+            do {
+                $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount);
+                $attempts++;
+            } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
             if ($question) {
-                $this->storeQuestion($question, $catIds[0]);
+                $this->storeQuestion($question, $tagIds[0]);
                 session(['ai_step.current_question' => $question]);
             }
         }
@@ -108,6 +120,7 @@ class AiTestController extends Controller
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
             ],
+            'ai_step.last_question' => $question['question'],
         ]);
 
         return redirect()->route('ai-test.step');
@@ -116,16 +129,17 @@ class AiTestController extends Controller
     public function reset()
     {
         session()->forget([
-            'ai_step.categories',
+            'ai_step.tags',
             'ai_step.answers_count',
             'ai_step.stats',
             'ai_step.current_question',
             'ai_step.feedback',
+            'ai_step.last_question',
         ]);
         return redirect()->route('ai-test.form');
     }
 
-    private function storeQuestion(array $question, int $categoryId): void
+    private function storeQuestion(array $question, int $tagId): void
     {
         $service = app(QuestionSeedingService::class);
         $sourceId = Source::firstOrCreate(['name' => 'AI Generated'])->id;
@@ -141,6 +155,8 @@ class AiTestController extends Controller
             $options[] = $val;
         }
 
+        $categoryId = Category::query()->value('id');
+
         $service->seed([
             [
                 'uuid' => Str::uuid()->toString(),
@@ -151,6 +167,7 @@ class AiTestController extends Controller
                 'source_id' => $sourceId,
                 'answers' => $answers,
                 'options' => $options,
+                'tag_ids' => [$tagId],
             ],
         ]);
     }

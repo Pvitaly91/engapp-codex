@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
-use App\Models\Category;
+use App\Models\{Category, Tag};
 use App\Services\ChatGPTService;
 
 class AiGrammarTestPageTest extends TestCase
@@ -28,6 +28,7 @@ class AiGrammarTestPageTest extends TestCase
             '2025_07_30_000003_create_question_tag_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
             '2025_07_20_184450_create_tests_table.php',
+            '2025_08_01_000001_add_category_to_tags_table.php',
             '2025_08_04_000002_add_description_to_tests_table.php',
         ];
         foreach ($migrations as $file) {
@@ -47,6 +48,7 @@ class AiGrammarTestPageTest extends TestCase
         });
 
         $category = Category::create(['name' => 'Present']);
+        $tag = Tag::create(['name' => 'tag1', 'category' => 'Tenses']);
 
         $this->mock(ChatGPTService::class, function ($mock) {
             $mock->shouldReceive('generateGrammarQuestion')
@@ -59,7 +61,7 @@ class AiGrammarTestPageTest extends TestCase
         });
 
         $this->post('/ai-test/start', [
-            'categories' => [$category->id],
+            'tags' => [$tag->id],
             'answers_count' => 1,
         ])->assertRedirect('/ai-test/step');
 
