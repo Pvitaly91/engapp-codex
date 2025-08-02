@@ -24,8 +24,8 @@
             @endforeach
         </div>
         <div>
-            <label class="block font-bold mb-1">Number of blanks (1-3):</label>
-            <input type="number" name="answers_count" min="1" max="3" value="1" class="border rounded p-1 w-20">
+            <label class="block font-bold mb-1">Number of blanks (1-10 or range like 2-3):</label>
+            <input type="text" name="answers_count" value="1" class="border rounded p-1 w-24" placeholder="1-3">
         </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">Start</button>
     </form>

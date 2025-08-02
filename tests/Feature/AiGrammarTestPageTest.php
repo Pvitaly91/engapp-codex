@@ -63,7 +63,7 @@ class AiGrammarTestPageTest extends TestCase
 
         $this->post('/ai-test/start', [
             'tags' => [$tag->id],
-            'answers_count' => 1,
+            'answers_count' => '1-2',
         ])->assertRedirect('/ai-test/step');
 
         $this->get('/ai-test/step')->assertStatus(200);

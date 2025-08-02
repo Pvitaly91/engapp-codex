@@ -15,8 +15,7 @@ class AiTestController extends Controller
 {
     public function form()
     {
-        $tags = Tag::whereHas('questions')
-            ->whereNotNull('category')
+        $tags = Tag::whereNotNull('category')
             ->where('category', '!=', 'others')
             ->orderBy('category')
             ->get()
@@ -28,15 +27,36 @@ class AiTestController extends Controller
     {
         $request->validate([
             'tags' => 'required|array|min:1',
-            'answers_count' => 'required|integer|min:1|max:3',
+            'answers_count' => [
+                'required',
+                'string',
+                function ($attribute, $value, $fail) {
+                    if (!preg_match('/^\d+(?:-\d+)?$/', $value)) {
+                        return $fail('Invalid format.');
+                    }
+                    [$min, $max] = strpos($value, '-') !== false
+                        ? array_map('intval', explode('-', $value, 2))
+                        : [intval($value), intval($value)];
+                    if ($min < 1 || $max > 10 || $min > $max) {
+                        $fail('Number of blanks must be between 1 and 10.');
+                    }
+                },
+            ],
         ]);
 
         $tagIds = $request->input('tags');
         $topic = Tag::whereIn('id', $tagIds)->pluck('name')->implode(', ');
 
+        $input = $request->input('answers_count');
+        if (strpos($input, '-') !== false) {
+            [$min, $max] = array_map('intval', explode('-', $input, 2));
+        } else {
+            $min = $max = (int) $input;
+        }
+
         session([
             'ai_step.tags' => $tagIds,
-            'ai_step.answers_count' => (int) $request->input('answers_count'),
+            'ai_step.answers_range' => [$min, $max],
             'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
             'ai_step.current_question' => null,
             'ai_step.feedback' => null,
@@ -60,7 +80,8 @@ class AiTestController extends Controller
         $question = session('ai_step.current_question');
         if (!$question) {
             $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
-            $answersCount = session('ai_step.answers_count', 1);
+            $range = session('ai_step.answers_range', [1, 1]);
+            $answersCount = random_int($range[0], $range[1]);
             $lastQuestion = session('ai_step.last_question');
             $attempts = 0;
             do {
@@ -139,7 +160,7 @@ class AiTestController extends Controller
     {
         session()->forget([
             'ai_step.tags',
-            'ai_step.answers_count',
+            'ai_step.answers_range',
             'ai_step.stats',
             'ai_step.current_question',
             'ai_step.feedback',
