@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\ChatGPTService;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Word;
 use Illuminate\Support\Str;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
@@ -67,6 +68,7 @@ class AiTestController extends Controller
                 $attempts++;
             } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
             if ($question) {
+                $this->storeWords($question);
                 session(['ai_step.current_question' => $question]);
             }
         }
@@ -188,5 +190,27 @@ class AiTestController extends Controller
                 'tag_ids' => $tagIds,
             ],
         ]);
+    }
+
+    private function storeWords(array $question): void
+    {
+        $words = $this->extractWords($question['question']);
+        foreach ($question['answers'] as $answer) {
+            $words = array_merge($words, $this->extractWords($answer));
+        }
+
+        $words = array_unique($words);
+        foreach ($words as $word) {
+            if ($word !== '') {
+                Word::firstOrCreate(['word' => $word]);
+            }
+        }
+    }
+
+    private function extractWords(string $text): array
+    {
+        $text = preg_replace('/\{a\d+\}/', ' ', $text);
+        preg_match_all("/[A-Za-z']+/u", strtolower($text), $matches);
+        return $matches[0];
     }
 }

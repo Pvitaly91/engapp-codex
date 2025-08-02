@@ -27,6 +27,7 @@ class AiGrammarTestPageTest extends TestCase
             '2025_07_30_000001_create_tags_table.php',
             '2025_07_30_000003_create_question_tag_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
+            '2025_07_18_182347_create_words_table.php',
             '2025_07_20_184450_create_tests_table.php',
             '2025_08_01_000001_add_category_to_tags_table.php',
             '2025_08_04_000002_add_description_to_tests_table.php',
@@ -66,6 +67,10 @@ class AiGrammarTestPageTest extends TestCase
         ])->assertRedirect('/ai-test/step');
 
         $this->get('/ai-test/step')->assertStatus(200);
+
+        $this->assertDatabaseHas('words', ['word' => 'he']);
+        $this->assertDatabaseHas('words', ['word' => 'here']);
+        $this->assertDatabaseHas('words', ['word' => 'is']);
 
         $this->assertDatabaseMissing('questions', ['question' => 'He {a1} here.']);
 
