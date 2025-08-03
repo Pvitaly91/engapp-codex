@@ -57,7 +57,6 @@ class DatabaseSeeder extends Seeder
             HaveGotExercise2Seeder::class,
             HaveGotExercise3Seeder::class,
             TestsSqlSeeder::class,
-            QuestionTenseAssignmentSeeder::class,
             WordsFromSentencesSeeder::class,
             WordsFromOptionsSeeder::class,
             ChatGPTExplanationsSeeder::class,
@@ -65,7 +64,9 @@ class DatabaseSeeder extends Seeder
             PresentContinuousStorySeeder::class,
             PresentSimpleOrContinuousSeeder::class,
             PresentContinuousPastSimpleTestSeeder::class,
-            PastContinuousTenseTestSeeder::class
+            PastContinuousTenseTestSeeder::class,
+            PastSimpleContinuousImageTestSeeder::class,
+            QuestionTenseAssignmentSeeder::class
         ]);
     }
 }
