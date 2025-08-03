@@ -5,7 +5,7 @@
 @section('content')
 <div class="w-[800px] mx-auto p-4">
     <div class="flex items-center justify-between mb-4">
-        <h1 class="text-2xl font-bold">AI Grammar Test</h1>
+        <h1 class="text-2xl font-bold">{{ $topic }}</h1>
         <a href="{{ route('ai-test.form') }}" class="text-sm text-blue-600 underline">Start over</a>
     </div>
     <div class="mb-4 flex gap-4 text-gray-600 text-base">
@@ -36,31 +36,40 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('ai-test.check') }}" class="space-y-4">
-        @csrf
-        @php
-            $answersCol = collect();
-            $hintsCol = collect();
-            foreach($question['answers'] as $m => $val){
-                $answersCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$val]]);
-                if(isset($question['verb_hints'][$m])){
-                    $hintsCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$question['verb_hints'][$m]]]);
+    @if($question)
+        <form method="POST" action="{{ route('ai-test.check') }}" class="space-y-4">
+            @csrf
+            @php
+                $answersCol = collect();
+                $hintsCol = collect();
+                foreach($question['answers'] as $m => $val){
+                    $answersCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$val]]);
+                    if(isset($question['verb_hints'][$m])){
+                        $hintsCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$question['verb_hints'][$m]]]);
+                    }
                 }
-            }
-            $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol];
-        @endphp
-    @include('components.question-input', [
-            'question' => $obj,
-            'inputNamePrefix' => 'answers',
-            'arrayInput' => true,
-            'manualInput' => false,
-            'autocompleteInput' => false,
-            'builderInput' => true,
-        ])
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
-            {{ isset($feedback) ? 'Next' : 'Check' }}
-        </button>
-    </form>
+                $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol];
+            @endphp
+        @include('components.question-input', [
+                'question' => $obj,
+                'inputNamePrefix' => 'answers',
+                'arrayInput' => true,
+                'manualInput' => false,
+                'autocompleteInput' => false,
+                'builderInput' => true,
+            ])
+            <div class="flex gap-2">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
+                    {{ isset($feedback) ? 'Next' : 'Check' }}
+                </button>
+                @if(!isset($feedback))
+                    <button type="submit" formaction="{{ route('ai-test.skip') }}" class="bg-gray-300 px-6 py-2 rounded-xl">Skip</button>
+                @endif
+            </div>
+        </form>
+    @else
+        <div class="text-center text-gray-700">No question generated. <a href="{{ route('ai-test.step') }}" class="underline">Try again</a>.</div>
+    @endif
 </div>
 <script>
 function builder(route, prefix) {

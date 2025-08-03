@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
-use App\Models\Category;
+use App\Models\{Category, Tag};
 use App\Services\ChatGPTService;
 
 class AiGrammarTestPageTest extends TestCase
@@ -27,7 +27,9 @@ class AiGrammarTestPageTest extends TestCase
             '2025_07_30_000001_create_tags_table.php',
             '2025_07_30_000003_create_question_tag_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
+            '2025_07_18_182347_create_words_table.php',
             '2025_07_20_184450_create_tests_table.php',
+            '2025_08_01_000001_add_category_to_tags_table.php',
             '2025_08_04_000002_add_description_to_tests_table.php',
         ];
         foreach ($migrations as $file) {
@@ -47,25 +49,69 @@ class AiGrammarTestPageTest extends TestCase
         });
 
         $category = Category::create(['name' => 'Present']);
+        $tag = Tag::create(['name' => 'tag1', 'category' => 'Tenses']);
 
-        $this->mock(ChatGPTService::class, function ($mock) {
+        $questionText = 'He {a1} {a2} {a3} {a4} {a5} {a6} {a7} {a8} {a9} {a10} here.';
+
+        $this->mock(ChatGPTService::class, function ($mock) use ($questionText) {
             $mock->shouldReceive('generateGrammarQuestion')
+                ->once()
+                ->with(
+                    \Mockery::on(fn($tenses) => $tenses === ['tag1']),
+                    10
+                )
                 ->andReturn([
-                    'question' => 'He {a1} here.',
-                    'answers' => ['a1' => 'is'],
-                    'verb_hints' => ['a1' => 'be'],
+                    'question' => $questionText,
+                    'answers' => [
+                        'a1' => 'one',
+                        'a2' => 'two',
+                        'a3' => 'three',
+                        'a4' => 'four',
+                        'a5' => 'five',
+                        'a6' => 'six',
+                        'a7' => 'seven',
+                        'a8' => 'eight',
+                        'a9' => 'nine',
+                        'a10' => 'ten',
+                    ],
+                    'verb_hints' => [
+                        'a1' => 'be',
+                    ],
                 ]);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
 
         $this->post('/ai-test/start', [
-            'categories' => [$category->id],
-            'answers_count' => 1,
+            'tags' => [$tag->id],
+            'answers_min' => 10,
+            'answers_max' => 10,
         ])->assertRedirect('/ai-test/step');
 
         $this->get('/ai-test/step')->assertStatus(200);
 
-        $this->assertDatabaseHas('questions', ['question' => 'He {a1} here.']);
+        $this->assertDatabaseHas('words', ['word' => 'he']);
+        $this->assertDatabaseHas('words', ['word' => 'here']);
+        $this->assertDatabaseHas('words', ['word' => 'one']);
+        $this->assertDatabaseHas('words', ['word' => 'ten']);
+
+        $this->assertDatabaseMissing('questions', ['question' => $questionText]);
+
+        $this->post('/ai-test/check', [
+            'answers' => [
+                'a1' => 'one',
+                'a2' => 'two',
+                'a3' => 'three',
+                'a4' => 'four',
+                'a5' => 'five',
+                'a6' => 'six',
+                'a7' => 'seven',
+                'a8' => 'eight',
+                'a9' => 'nine',
+                'a10' => 'ten',
+            ],
+        ])->assertRedirect('/ai-test/step');
+
+        $this->assertDatabaseHas('questions', ['question' => $questionText, 'flag' => 1]);
         $this->assertDatabaseHas('verb_hints', ['marker' => 'a1']);
     }
 }
