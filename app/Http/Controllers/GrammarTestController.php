@@ -49,15 +49,130 @@ class GrammarTestController extends Controller
         $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'tags'])
             ->whereIn('id', $test->questions)
             ->get();
-            $manualInput = !empty($test->filters['manual_input']);
-            $autocompleteInput = !empty($test->filters['autocomplete_input']);
+        $manualInput = !empty($test->filters['manual_input']);
+        $autocompleteInput = !empty($test->filters['autocomplete_input']);
+        $builderInput = !empty($test->filters['builder_input']);
         // Показати тільки питання — без фільтрів, флагів, тощо
         return view('saved-test', [
             'test' => $test,
             'questions' => $questions,
             'manualInput' => $manualInput,
             'autocompleteInput' => $autocompleteInput,
+            'builderInput' => $builderInput,
         ]);
+    }
+
+    public function showSavedTestRandom($slug)
+    {
+        $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
+        $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'tags'])
+            ->whereIn('id', $test->questions)
+            ->get();
+
+        return view('saved-test-random', [
+            'test' => $test,
+            'questions' => $questions,
+        ]);
+    }
+
+    public function showSavedTestStep($slug)
+    {
+        $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
+        $key = 'step_' . $test->slug;
+        $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
+        $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
+        $queue = session($key . '_queue');
+        $totalCount = session($key . '_total', 0);
+        if (!$queue) {
+            $queue = $test->questions;
+            shuffle($queue);
+            $totalCount = count($queue);
+            session([$key . '_queue' => $queue, $key . '_total' => $totalCount]);
+        }
+        $currentId = session($key . '_current');
+        if (!$currentId) {
+            if (empty($queue)) {
+                return view('saved-test-complete', [
+                    'test' => $test,
+                    'stats' => $stats,
+                    'percentage' => $percentage,
+                    'totalCount' => $totalCount,
+                ]);
+            }
+            $currentId = array_shift($queue);
+            session([$key . '_queue' => $queue, $key . '_current' => $currentId]);
+        }
+
+        $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option'])
+            ->findOrFail($currentId);
+        $feedback = session($key . '_feedback');
+        session()->forget($key . '_feedback');
+
+        return view('saved-test-step', [
+            'test' => $test,
+            'question' => $question,
+            'stats' => $stats,
+            'percentage' => $percentage,
+            'totalCount' => $totalCount,
+            'feedback' => $feedback,
+        ]);
+    }
+
+    public function checkSavedTestStep(Request $request, $slug)
+    {
+        $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
+        $key = 'step_' . $test->slug;
+        $request->validate([
+            'question_id' => 'required|integer',
+            'answers' => 'required|array',
+        ]);
+        $question = \App\Models\Question::with('answers.option')->findOrFail($request->input('question_id'));
+        $userAnswers = $request->input('answers', []);
+        $correct = true;
+        $explanations = [];
+        $gpt = app(\App\Services\ChatGPTService::class);
+        foreach ($question->answers as $ans) {
+            $given = $userAnswers[$ans->marker] ?? '';
+            if (is_array($given)) {
+                $given = implode(' ', $given);
+            }
+            $correctValue = $ans->option->option ?? $ans->answer;
+            if (mb_strtolower(trim($given)) !== mb_strtolower($correctValue)) {
+                $correct = false;
+                $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $given, $correctValue);
+            }
+        }
+        $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
+        $stats['total']++;
+        if ($correct) {
+            $stats['correct']++;
+        } else {
+            $stats['wrong']++;
+        }
+        session([
+            $key . '_stats' => $stats,
+            $key . '_current' => null,
+            $key . '_feedback' => [
+                'isCorrect' => $correct,
+                'explanations' => $explanations,
+            ],
+        ]);
+
+        return redirect()->route('saved-test.step', $slug);
+    }
+
+    public function resetSavedTestStep($slug)
+    {
+        $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
+        $key = 'step_' . $test->slug;
+        session()->forget([
+            $key . '_stats',
+            $key . '_queue',
+            $key . '_total',
+            $key . '_current',
+            $key . '_feedback',
+        ]);
+        return redirect()->route('saved-test.step', $slug);
     }
 
     public function show(Request $request)
@@ -75,12 +190,13 @@ class GrammarTestController extends Controller
         $manualInput = false;
         $autocompleteInput = false;
         $checkOneInput = false;
+        $builderInput = false;
         $questions = [];
 
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
             'selectedCategories', 'difficultyFrom', 'difficultyTo', 'numQuestions',
-            'manualInput', 'autocompleteInput', 'checkOneInput', 'questions'
+            'manualInput', 'autocompleteInput', 'checkOneInput', 'questions', 'builderInput'
         ));
     }
 
@@ -99,6 +215,7 @@ class GrammarTestController extends Controller
         $manualInput = $request->boolean('manual_input');
         $autocompleteInput = $request->boolean('autocomplete_input');
         $checkOneInput = $request->boolean('check_one_input');
+        $builderInput = $request->boolean('builder_input');
         $includeAi = $request->boolean('include_ai');
         $onlyAi = $request->boolean('only_ai');
         $selectedTags = $request->input('tags', []);
@@ -175,7 +292,7 @@ class GrammarTestController extends Controller
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
             'selectedCategories', 'difficultyFrom', 'difficultyTo', 'numQuestions',
-            'manualInput', 'autocompleteInput', 'checkOneInput',
+            'manualInput', 'autocompleteInput', 'checkOneInput', 'builderInput',
             'includeAi', 'onlyAi', 'questions',
             'sources', 'selectedSources', 'autoTestName',
             'allTags', 'selectedTags'
@@ -269,6 +386,9 @@ class GrammarTestController extends Controller
             foreach ($question->answers as $ans) {
                 $inputName = "question_{$question->id}_{$ans->marker}";
                 $userAnswer = $request->input($inputName, '');
+                if (is_array($userAnswer)) {
+                    $userAnswer = implode(' ', $userAnswer);
+                }
                 $userAnswers[$ans->marker] = $userAnswer;
                 $correctValue = $ans->option->option;
                 if (strtolower(trim($userAnswer)) === strtolower($correctValue)) {
