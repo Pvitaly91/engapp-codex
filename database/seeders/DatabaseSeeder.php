@@ -66,6 +66,7 @@ class DatabaseSeeder extends Seeder
             PresentContinuousPastSimpleTestSeeder::class,
             PastContinuousTenseTestSeeder::class,
             PastSimpleContinuousImageTestSeeder::class,
+            PastSimpleContinuousStorySeeder::class,
             QuestionTenseAssignmentSeeder::class
         ]);
     }
