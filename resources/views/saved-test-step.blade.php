@@ -28,10 +28,17 @@
         <div>Wrong: <b class="text-red-700">{{ $stats['wrong'] }}</b></div>
         <div>Percent: <b>{{ $percentage }}%</b></div>
     </div>
-    <form method="POST" action="{{ route('saved-test.step.reset', $test->slug) }}" class="mb-4">
-        @csrf
-        <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
-    </form>
+    <div class="mb-4 flex gap-2">
+        <form method="POST" action="{{ route('saved-test.step.reset', $test->slug) }}">
+            @csrf
+            <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
+        </form>
+        <form method="POST" action="{{ route('saved-test.question.destroy', [$test->slug, $question->id]) }}" onsubmit="return confirm('Delete this question?')">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="bg-red-200 px-4 py-1 rounded hover:bg-red-300 transition text-sm">Delete</button>
+        </form>
+    </div>
 
     @if(isset($feedback))
         <div class="mb-4">

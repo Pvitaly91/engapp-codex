@@ -62,6 +62,7 @@ Route::get('/test/{slug}/step', [GrammarTestController::class, 'showSavedTestSte
 Route::post('/test/{slug}/refresh-description', [GrammarTestController::class, 'refreshDescription'])->name('saved-test.refresh');
 Route::post('/test/{slug}/step/check', [GrammarTestController::class, 'checkSavedTestStep'])->name('saved-test.step.check');
 Route::post('/test/{slug}/step/reset', [GrammarTestController::class, 'resetSavedTestStep'])->name('saved-test.step.reset');
+Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
 Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');

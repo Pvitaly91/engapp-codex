@@ -45,8 +45,8 @@
             <div class="bg-white shadow rounded-2xl p-4 mb-4">
                
                 <div class="flex gap-2 items-baseline">
-                     <span class="font-bold text-base">{{ $loop->iteration }}.</span>
-                    
+                    <span class="font-bold text-base">{{ $loop->iteration }}.</span>
+
 @php preg_match_all('/\{a(\d+)\}/', $q->question, $matches); @endphp
 @include('components.question-input', [
     'question' => $q,
@@ -56,6 +56,7 @@
     'builderInput' => $builderInput,
 ])
 <a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Edit</a>
+<button type="submit" form="delete-question-{{ $q->id }}" class="text-sm text-red-600 underline" onclick="return confirm('Delete this question?')">Delete</button>
                 </div>
                 @if($q->tags->count())
                     <div class="mt-1 space-x-1">
@@ -74,6 +75,12 @@
             Перевірити
         </button>
     </form>
+@foreach($questions as $q)
+    <form id="delete-question-{{ $q->id }}" action="{{ route('saved-test.question.destroy', [$test->slug, $q->id]) }}" method="POST" class="hidden">
+        @csrf
+        @method('DELETE')
+    </form>
+@endforeach
 </div>
 <script>
 function builder(route, prefix) {
