@@ -206,6 +206,29 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.step', $slug);
     }
 
+    public function deleteQuestion($slug, Question $question)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $test->questions = array_values(array_filter(
+            $test->questions,
+            fn ($id) => (int) $id !== $question->id
+        ));
+        $test->save();
+
+        $key = 'step_' . $test->slug;
+        $queue = array_values(array_filter(session($key . '_queue', []), fn ($id) => (int) $id !== $question->id));
+        session([$key . '_queue' => $queue]);
+
+        if (session($key . '_current') == $question->id) {
+            session([$key . '_current' => null]);
+        }
+        if (session()->has($key . '_total')) {
+            session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
+        }
+
+        return redirect()->back();
+    }
+
     public function show(Request $request)
     {
         $categories = Category::all();
