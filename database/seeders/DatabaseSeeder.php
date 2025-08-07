@@ -65,6 +65,7 @@ class DatabaseSeeder extends Seeder
             PresentSimpleOrContinuousSeeder::class,
             PresentContinuousPastSimpleTestSeeder::class,
             PastContinuousTenseTestSeeder::class,
+            PastSimpleContinuousSentencesTestSeeder::class,
             PastSimpleContinuousImageTestSeeder::class,
             PastSimpleContinuousStorySeeder::class,
             QuestionTenseAssignmentSeeder::class
