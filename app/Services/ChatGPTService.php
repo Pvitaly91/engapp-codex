@@ -36,7 +36,7 @@ class ChatGPTService
             $client = \OpenAI::client($key);
 
             $result = $client->chat()->create([
-                'model' => 'gpt-4o',
+                'model' => 'gpt-5',
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt],
                 ],
@@ -106,7 +106,7 @@ class ChatGPTService
         try {
             $client = \OpenAI::client($key);
             $result = $client->chat()->create([
-                'model' => 'gpt-4o',
+                'model' => 'gpt-5',
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt],
                 ],
@@ -176,7 +176,7 @@ class ChatGPTService
         try {
             $client = \OpenAI::client($key);
             $result = $client->chat()->create([
-                'model' => 'gpt-4o',
+                'model' => 'gpt-5',
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt],
                 ],
@@ -214,7 +214,7 @@ class ChatGPTService
         try {
             $client = \OpenAI::client($key);
             $result = $client->chat()->create([
-                'model' => 'gpt-4o',
+                'model' => 'gpt-5',
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt],
                 ],
