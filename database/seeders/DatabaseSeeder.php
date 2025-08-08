@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             CanCantAbilitySeeder::class,
             CanCantAbilityExercise2Seeder::class,
             CanCantAbilityExercise3Seeder::class,
-             HaveGotHasGotSeeder::class,
+            HaveGotHasGotSeeder::class,
             HaveGotExercise2Seeder::class,
             HaveGotExercise3Seeder::class,
             TestsSqlSeeder::class,
@@ -67,8 +67,9 @@ class DatabaseSeeder extends Seeder
             PastContinuousTenseTestSeeder::class,
             PastSimpleContinuousSentencesTestSeeder::class,
             PastSimpleContinuousImageTestSeeder::class,
+            PastSimpleOrPastContinuousTestSeeder::class,
             PastSimpleContinuousStorySeeder::class,
-            QuestionTenseAssignmentSeeder::class
+            QuestionTenseAssignmentSeeder::class,
         ]);
     }
 }
