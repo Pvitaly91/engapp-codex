@@ -34,13 +34,12 @@ class WordScanningService
             return 0;
         }
 
-        $existing = Word::whereIn('word', $words)->pluck('word')->all();
-        $newWords = array_diff($words, $existing);
+        $now = now();
+        $payload = array_map(
+            fn ($word) => ['word' => $word, 'created_at' => $now, 'updated_at' => $now],
+            $words
+        );
 
-        foreach ($newWords as $word) {
-            Word::create(['word' => $word]);
-        }
-
-        return count($newWords);
+        return Word::query()->insertOrIgnore($payload);
     }
 }
