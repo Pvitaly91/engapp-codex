@@ -212,7 +212,22 @@ class ChatGPTService
             "Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}, \"verb_hints\":{\"a1\":\"go\"}}].";
 
         try {
-            $models = ['gpt-3', 'gpt-4', 'gpt-5'];
+            $models =  [
+                'gpt-5',
+                'gpt-5-mini',
+                'gpt-5-nano',
+                'gpt-4.1',
+                'gpt-4.1-mini',
+                'gpt-4.1-nano',
+                'gpt-4o',
+                'gpt-4o-mini',
+                'o1',
+                'o1-preview',
+                'o1-mini',
+                'o3',
+                'o3-mini',
+                'o4-mini',
+            ];
             $model = $models[array_rand($models)];
 
             $client = \OpenAI::client($key);
