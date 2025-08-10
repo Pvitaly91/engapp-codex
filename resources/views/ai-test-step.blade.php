@@ -28,6 +28,10 @@
             <input type="radio" name="provider" value="gemini" {{ $provider === 'gemini' ? 'checked' : '' }}>
             Gemini
         </label>
+        <label class="mr-4">
+            <input type="radio" name="provider" value="mixed" {{ $provider === 'mixed' ? 'checked' : '' }}>
+            Mixed
+        </label>
         <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Switch</button>
     </form>
 
