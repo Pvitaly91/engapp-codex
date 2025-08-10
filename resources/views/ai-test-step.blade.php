@@ -66,13 +66,15 @@
                 }
                 $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol];
             @endphp
-            @if($provider === 'mixed')
-                <div class="mb-2">
-                    <span class="text-xs font-semibold px-2 py-1 rounded {{ $currentProvider === 'gemini' ? 'bg-purple-200 text-purple-800' : 'bg-green-200 text-green-800' }}">
-                        {{ ucfirst($currentProvider) }}
+            <div class="mb-2">
+                @if($provider === 'gemini' || ($provider === 'mixed' && $currentProvider === 'gemini'))
+                    <span class="text-xs font-semibold px-2 py-1 rounded bg-purple-200 text-purple-800">Gemini</span>
+                @else
+                    <span class="text-xs font-semibold px-2 py-1 rounded bg-green-200 text-green-800">
+                        ChatGPT{{ isset($question['model']) ? ' (' . $question['model'] . ')' : '' }}
                     </span>
-                </div>
-            @endif
+                @endif
+            </div>
         @include('components.question-input', [
                 'question' => $obj,
                 'inputNamePrefix' => 'answers',

@@ -212,9 +212,12 @@ class ChatGPTService
             "Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}, \"verb_hints\":{\"a1\":\"go\"}}].";
 
         try {
+            $models = ['gpt-3', 'gpt-4', 'gpt-5'];
+            $model = $models[array_rand($models)];
+
             $client = \OpenAI::client($key);
             $result = $client->chat()->create([
-                'model' => 'gpt-5',
+                'model' => $model,
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt],
                 ],
@@ -231,7 +234,15 @@ class ChatGPTService
                 }
             }
 
-            return is_array($data) ? $data : [];
+            if (is_array($data)) {
+                foreach ($data as &$item) {
+                    $item['model'] = $model;
+                }
+                unset($item);
+                return $data;
+            }
+
+            return [];
         } catch (Exception $e) {
             Log::warning('ChatGPT question generation failed: ' . $e->getMessage());
         }
