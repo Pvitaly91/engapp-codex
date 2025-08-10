@@ -58,7 +58,8 @@ class AiGrammarTestPageTest extends TestCase
                 ->once()
                 ->with(
                     \Mockery::on(fn($tenses) => $tenses === ['tag1']),
-                    10
+                    10,
+                    'random'
                 )
                 ->andReturn([
                     'question' => $questionText,
@@ -86,6 +87,7 @@ class AiGrammarTestPageTest extends TestCase
             'answers_min' => 10,
             'answers_max' => 10,
             'provider' => 'chatgpt',
+            'model' => 'random',
         ])->assertRedirect('/ai-test/step');
 
         $this->get('/ai-test/step')->assertStatus(200);

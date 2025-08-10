@@ -18,20 +18,29 @@
         @csrf
         <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
     </form>
-    <form method="POST" action="{{ route('ai-test.provider') }}" class="mb-4">
+    <form method="POST" action="{{ route('ai-test.provider') }}" class="mb-4" x-data="{ provider: '{{ $provider }}' }">
         @csrf
         <label class="mr-4">
-            <input type="radio" name="provider" value="chatgpt" {{ $provider === 'chatgpt' ? 'checked' : '' }}>
+            <input type="radio" name="provider" value="chatgpt" x-model="provider" {{ $provider === 'chatgpt' ? 'checked' : '' }}>
             ChatGPT
         </label>
         <label class="mr-4">
-            <input type="radio" name="provider" value="gemini" {{ $provider === 'gemini' ? 'checked' : '' }}>
+            <input type="radio" name="provider" value="gemini" x-model="provider" {{ $provider === 'gemini' ? 'checked' : '' }}>
             Gemini
         </label>
         <label class="mr-4">
-            <input type="radio" name="provider" value="mixed" {{ $provider === 'mixed' ? 'checked' : '' }}>
+            <input type="radio" name="provider" value="mixed" x-model="provider" {{ $provider === 'mixed' ? 'checked' : '' }}>
             Mixed
         </label>
+        <div class="mt-2" x-show="provider === 'chatgpt'">
+            <label class="block font-bold mb-1">Model:</label>
+            <select name="model" class="border rounded p-1">
+                <option value="random" {{ $model === 'random' ? 'selected' : '' }}>Random</option>
+                @foreach($models as $m)
+                    <option value="{{ $m }}" {{ $model === $m ? 'selected' : '' }}>{{ $m }}</option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Switch</button>
     </form>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\{ChatGPTService, GeminiService};
+use Illuminate\Validation\Rule;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Word;
@@ -20,24 +21,30 @@ class AiTestController extends Controller
             ->orderBy('category')
             ->get()
             ->groupBy('category');
-        return view('ai-test-form', compact('tags'));
+        $models = ChatGPTService::availableModels();
+        return view('ai-test-form', compact('tags', 'models'));
     }
 
     public function start(Request $request)
     {
-        $request->validate([
+        $rules = [
             'tags' => 'required|array|min:1',
             'answers_min' => 'required|integer|min:1|max:10',
             'answers_max' => 'required|integer|min:1|max:10|gte:answers_min',
             'provider' => 'required|in:chatgpt,gemini,mixed',
-        ]);
+        ];
+        if ($request->input('provider') === 'chatgpt') {
+            $rules['model'] = ['required', Rule::in(array_merge(['random'], ChatGPTService::availableModels()))];
+        }
+        $validated = $request->validate($rules);
 
-        $tagIds = $request->input('tags');
+        $tagIds = $validated['tags'];
         $topic = Tag::whereIn('id', $tagIds)->pluck('name')->implode(', ');
 
-        $min = (int) $request->input('answers_min');
-        $max = (int) $request->input('answers_max');
-        $provider = $request->input('provider');
+        $min = (int) $validated['answers_min'];
+        $max = (int) $validated['answers_max'];
+        $provider = $validated['provider'];
+        $model = $provider === 'chatgpt' ? $validated['model'] : null;
 
         session([
             'ai_step.tags' => $tagIds,
@@ -50,6 +57,7 @@ class AiTestController extends Controller
             'ai_step.provider' => $provider,
             'ai_step.current_provider' => $provider === 'mixed' ? null : $provider,
             'ai_step.next_provider' => $provider === 'mixed' ? 'gemini' : null,
+            'ai_step.model' => $model,
         ]);
 
         return redirect()->route('ai-test.step');
@@ -75,10 +83,8 @@ class AiTestController extends Controller
                     'ai_step.next_provider' => $currentProvider === 'gemini' ? 'chatgpt' : 'gemini',
                 ]);
             }
-            $ai = $currentProvider === 'gemini' ? $gemini : $gpt;
         } else {
             $currentProvider = $providerSetting;
-            $ai = $providerSetting === 'gemini' ? $gemini : $gpt;
             session(['ai_step.current_provider' => $providerSetting]);
         }
 
@@ -92,7 +98,12 @@ class AiTestController extends Controller
             $lastQuestion = session('ai_step.last_question');
             $attempts = 0;
             do {
-                $question = $ai->generateGrammarQuestion($tenseNames, $answersCount);
+                if ($currentProvider === 'gemini') {
+                    $question = $gemini->generateGrammarQuestion($tenseNames, $answersCount);
+                } else {
+                    $model = session('ai_step.model', 'random');
+                    $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model);
+                }
                 $attempts++;
             } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
             if ($question) {
@@ -112,6 +123,8 @@ class AiTestController extends Controller
             'topic' => session('ai_step.topic'),
             'provider' => $providerSetting,
             'currentProvider' => $currentProvider,
+            'models' => ChatGPTService::availableModels(),
+            'model' => session('ai_step.model', 'random'),
         ]);
     }
 
@@ -170,8 +183,13 @@ class AiTestController extends Controller
 
     public function provider(Request $request)
     {
-        $request->validate(['provider' => 'required|in:chatgpt,gemini,mixed']);
-        $provider = $request->input('provider');
+        $rules = ['provider' => 'required|in:chatgpt,gemini,mixed'];
+        if ($request->input('provider') === 'chatgpt') {
+            $rules['model'] = ['required', Rule::in(array_merge(['random'], ChatGPTService::availableModels()))];
+        }
+        $validated = $request->validate($rules);
+        $provider = $validated['provider'];
+        $model = $provider === 'chatgpt' ? $validated['model'] : null;
         session([
             'ai_step.provider' => $provider,
             'ai_step.current_question' => null,
@@ -179,6 +197,7 @@ class AiTestController extends Controller
             'ai_step.last_question' => null,
             'ai_step.current_provider' => $provider === 'mixed' ? null : $provider,
             'ai_step.next_provider' => $provider === 'mixed' ? 'gemini' : null,
+            'ai_step.model' => $model,
         ]);
         return redirect()->route('ai-test.step');
     }
@@ -196,6 +215,7 @@ class AiTestController extends Controller
             'ai_step.provider',
             'ai_step.current_provider',
             'ai_step.next_provider',
+            'ai_step.model',
         ]);
         return redirect()->route('ai-test.form');
     }
