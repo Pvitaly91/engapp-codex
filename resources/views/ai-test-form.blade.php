@@ -42,6 +42,10 @@
                     <input type="radio" name="provider" value="gemini" class="mr-2">
                     Gemini
                 </label>
+                <label class="flex items-center">
+                    <input type="radio" name="provider" value="mixed" class="mr-2">
+                    Mixed
+                </label>
             </div>
         </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">Start</button>

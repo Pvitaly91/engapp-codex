@@ -11,16 +11,28 @@
     @if($test->description)
         <div class="test-description text-gray-800 flex justify-between">
             <span>{{ $test->description }}</span>
-            <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="ml-2">
-                @csrf
-                <button type="submit" class="text-xs text-blue-600 underline">Оновити опис</button>
-            </form>
+            <div class="ml-2 space-x-2">
+                <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="inline">
+                    @csrf
+                    <button type="submit" class="text-xs text-blue-600 underline">Оновити опис</button>
+                </form>
+                <form method="POST" action="{{ route('saved-test.refresh-gemini', $test->slug) }}" class="inline">
+                    @csrf
+                    <button type="submit" class="text-xs text-blue-600 underline">Оновити опис Gemini</button>
+                </form>
+            </div>
         </div>
     @else
-        <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="mb-4">
-            @csrf
-            <button type="submit" class="text-xs text-blue-600 underline">Згенерувати опис</button>
-        </form>
+        <div class="mb-4 space-x-2">
+            <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="inline">
+                @csrf
+                <button type="submit" class="text-xs text-blue-600 underline">Згенерувати опис</button>
+            </form>
+            <form method="POST" action="{{ route('saved-test.refresh-gemini', $test->slug) }}" class="inline">
+                @csrf
+                <button type="submit" class="text-xs text-blue-600 underline">Згенерувати опис Gemini</button>
+            </form>
+        </div>
     @endif
     <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
         @csrf

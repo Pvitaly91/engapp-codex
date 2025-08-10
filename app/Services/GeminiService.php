@@ -87,4 +87,16 @@ class GeminiService
         $all = $this->generateGrammarQuestions($tenses, 1, $answersCount);
         return $all[0] ?? null;
     }
+
+    public function generateTestDescription(array $questions, ?string $lang = null): string
+    {
+        $lang = $lang ?? 'uk';
+        $prompt = 'Визнач які часи використувуються в питаннях цього тесту, питання:';
+        foreach ($questions as $i => $q) {
+            $prompt .= ($i + 1) . ". {$q}\n";
+        }
+        $prompt .= "Напиши формули по яких утворюються речення для ціх часів, вивиди відформатований текст готовий для використання на html сторінці (ВАЖЛИВО! не потрібно писати технічні  слова: HTML код і т. д. потрібни текст готовий відформатований для читання користувачем на строінці, також приладу придумай свої приклади, та не використовуй питання з тесту в якості прикладу, назву часів та ключові слова англійською виділяй жирним та іншим кольором ) ";
+
+        return $this->request($prompt) ?? '';
+    }
 }

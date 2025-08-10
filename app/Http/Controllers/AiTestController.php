@@ -29,7 +29,7 @@ class AiTestController extends Controller
             'tags' => 'required|array|min:1',
             'answers_min' => 'required|integer|min:1|max:10',
             'answers_max' => 'required|integer|min:1|max:10|gte:answers_min',
-            'provider' => 'required|in:chatgpt,gemini',
+            'provider' => 'required|in:chatgpt,gemini,mixed',
         ]);
 
         $tagIds = $request->input('tags');
@@ -37,6 +37,7 @@ class AiTestController extends Controller
 
         $min = (int) $request->input('answers_min');
         $max = (int) $request->input('answers_max');
+        $provider = $request->input('provider');
 
         session([
             'ai_step.tags' => $tagIds,
@@ -46,7 +47,9 @@ class AiTestController extends Controller
             'ai_step.feedback' => null,
             'ai_step.last_question' => null,
             'ai_step.topic' => $topic,
-            'ai_step.provider' => $request->input('provider'),
+            'ai_step.provider' => $provider,
+            'ai_step.current_provider' => $provider === 'mixed' ? null : $provider,
+            'ai_step.next_provider' => $provider === 'mixed' ? 'gemini' : null,
         ]);
 
         return redirect()->route('ai-test.step');
@@ -59,13 +62,29 @@ class AiTestController extends Controller
             return redirect()->route('ai-test.form');
         }
 
-        $provider = session('ai_step.provider', 'chatgpt');
-        $ai = $provider === 'gemini' ? $gemini : $gpt;
+        $providerSetting = session('ai_step.provider', 'chatgpt');
+        $question = session('ai_step.current_question');
+
+        if ($providerSetting === 'mixed') {
+            $currentProvider = session('ai_step.current_provider');
+            $nextProvider = session('ai_step.next_provider', 'gemini');
+            if (!$question) {
+                $currentProvider = $nextProvider;
+                session([
+                    'ai_step.current_provider' => $currentProvider,
+                    'ai_step.next_provider' => $currentProvider === 'gemini' ? 'chatgpt' : 'gemini',
+                ]);
+            }
+            $ai = $currentProvider === 'gemini' ? $gemini : $gpt;
+        } else {
+            $currentProvider = $providerSetting;
+            $ai = $providerSetting === 'gemini' ? $gemini : $gpt;
+            session(['ai_step.current_provider' => $providerSetting]);
+        }
 
         $stats = session('ai_step.stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
 
-        $question = session('ai_step.current_question');
         if (!$question) {
             $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
             $range = session('ai_step.answers_range', [1, 1]);
@@ -91,7 +110,8 @@ class AiTestController extends Controller
             'percentage' => $percentage,
             'feedback' => $feedback,
             'topic' => session('ai_step.topic'),
-            'provider' => $provider,
+            'provider' => $providerSetting,
+            'currentProvider' => $currentProvider,
         ]);
     }
 
@@ -110,7 +130,7 @@ class AiTestController extends Controller
         $correct = true;
         $explanations = [];
 
-        $provider = session('ai_step.provider', 'chatgpt');
+        $provider = session('ai_step.current_provider', session('ai_step.provider', 'chatgpt'));
         $ai = $provider === 'gemini' ? $gemini : $gpt;
 
         foreach ($question['answers'] as $marker => $correctValue) {
@@ -150,12 +170,15 @@ class AiTestController extends Controller
 
     public function provider(Request $request)
     {
-        $request->validate(['provider' => 'required|in:chatgpt,gemini']);
+        $request->validate(['provider' => 'required|in:chatgpt,gemini,mixed']);
+        $provider = $request->input('provider');
         session([
-            'ai_step.provider' => $request->input('provider'),
+            'ai_step.provider' => $provider,
             'ai_step.current_question' => null,
             'ai_step.feedback' => null,
             'ai_step.last_question' => null,
+            'ai_step.current_provider' => $provider === 'mixed' ? null : $provider,
+            'ai_step.next_provider' => $provider === 'mixed' ? 'gemini' : null,
         ]);
         return redirect()->route('ai-test.step');
     }
@@ -171,6 +194,8 @@ class AiTestController extends Controller
             'ai_step.last_question',
             'ai_step.topic',
             'ai_step.provider',
+            'ai_step.current_provider',
+            'ai_step.next_provider',
         ]);
         return redirect()->route('ai-test.form');
     }

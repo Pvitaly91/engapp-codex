@@ -149,6 +149,17 @@ class GrammarTestController extends Controller
         return redirect()->back();
     }
 
+    public function refreshDescriptionGemini($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = Question::whereIn('id', $test->questions)->pluck('question');
+        $gemini = app(\App\Services\GeminiService::class);
+        $test->description = $gemini->generateTestDescription($questions->toArray());
+        $test->save();
+
+        return redirect()->back();
+    }
+
     public function checkSavedTestStep(Request $request, $slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
