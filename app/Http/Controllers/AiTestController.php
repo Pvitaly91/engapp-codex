@@ -77,6 +77,7 @@ class AiTestController extends Controller
             }
             $ai = $currentProvider === 'gemini' ? $gemini : $gpt;
         } else {
+            $currentProvider = $providerSetting;
             $ai = $providerSetting === 'gemini' ? $gemini : $gpt;
             session(['ai_step.current_provider' => $providerSetting]);
         }
@@ -110,6 +111,7 @@ class AiTestController extends Controller
             'feedback' => $feedback,
             'topic' => session('ai_step.topic'),
             'provider' => $providerSetting,
+            'currentProvider' => $currentProvider,
         ]);
     }
 

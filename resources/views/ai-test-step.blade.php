@@ -66,6 +66,13 @@
                 }
                 $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol];
             @endphp
+            @if($provider === 'mixed')
+                <div class="mb-2">
+                    <span class="text-xs font-semibold px-2 py-1 rounded {{ $currentProvider === 'gemini' ? 'bg-purple-200 text-purple-800' : 'bg-green-200 text-green-800' }}">
+                        {{ ucfirst($currentProvider) }}
+                    </span>
+                </div>
+            @endif
         @include('components.question-input', [
                 'question' => $obj,
                 'inputNamePrefix' => 'answers',
