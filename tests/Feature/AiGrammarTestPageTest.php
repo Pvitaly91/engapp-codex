@@ -119,9 +119,12 @@ class AiGrammarTestPageTest extends TestCase
         $this->assertDatabaseHas('questions', ['question' => $questionText, 'flag' => 1]);
         $this->assertDatabaseHas('verb_hints', ['marker' => 'a1']);
 
-        $aiTag = Tag::where('name', 'ChatGPT + GPT-5')->where('category', 'AI')->first();
-        $this->assertNotNull($aiTag);
+        $chatGPTTag = Tag::where('name', 'ChatGPT')->where('category', 'AI')->first();
+        $modelTag = Tag::where('name', 'GPT-5')->where('category', 'AI')->first();
+        $this->assertNotNull($chatGPTTag);
+        $this->assertNotNull($modelTag);
         $questionId = DB::table('questions')->where('question', $questionText)->value('id');
-        $this->assertDatabaseHas('question_tag', ['question_id' => $questionId, 'tag_id' => $aiTag->id]);
+        $this->assertDatabaseHas('question_tag', ['question_id' => $questionId, 'tag_id' => $chatGPTTag->id]);
+        $this->assertDatabaseHas('question_tag', ['question_id' => $questionId, 'tag_id' => $modelTag->id]);
     }
 }
