@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\ChatGPTService;
+use App\Services\{ChatGPTService, GeminiService};
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Word;
@@ -29,6 +29,7 @@ class AiTestController extends Controller
             'tags' => 'required|array|min:1',
             'answers_min' => 'required|integer|min:1|max:10',
             'answers_max' => 'required|integer|min:1|max:10|gte:answers_min',
+            'provider' => 'required|in:chatgpt,gemini',
         ]);
 
         $tagIds = $request->input('tags');
@@ -45,17 +46,21 @@ class AiTestController extends Controller
             'ai_step.feedback' => null,
             'ai_step.last_question' => null,
             'ai_step.topic' => $topic,
+            'ai_step.provider' => $request->input('provider'),
         ]);
 
         return redirect()->route('ai-test.step');
     }
 
-    public function step(ChatGPTService $gpt)
+    public function step(ChatGPTService $gpt, GeminiService $gemini)
     {
         $tagIds = session('ai_step.tags');
         if (!$tagIds) {
             return redirect()->route('ai-test.form');
         }
+
+        $provider = session('ai_step.provider', 'chatgpt');
+        $ai = $provider === 'gemini' ? $gemini : $gpt;
 
         $stats = session('ai_step.stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
@@ -68,7 +73,7 @@ class AiTestController extends Controller
             $lastQuestion = session('ai_step.last_question');
             $attempts = 0;
             do {
-                $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount);
+                $question = $ai->generateGrammarQuestion($tenseNames, $answersCount);
                 $attempts++;
             } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
             if ($question) {
@@ -86,10 +91,11 @@ class AiTestController extends Controller
             'percentage' => $percentage,
             'feedback' => $feedback,
             'topic' => session('ai_step.topic'),
+            'provider' => $provider,
         ]);
     }
 
-    public function check(Request $request, ChatGPTService $gpt)
+    public function check(Request $request, ChatGPTService $gpt, GeminiService $gemini)
     {
         $request->validate([
             'answers' => 'required|array',
@@ -104,6 +110,9 @@ class AiTestController extends Controller
         $correct = true;
         $explanations = [];
 
+        $provider = session('ai_step.provider', 'chatgpt');
+        $ai = $provider === 'gemini' ? $gemini : $gpt;
+
         foreach ($question['answers'] as $marker => $correctValue) {
             $given = $userAnswers[$marker] ?? '';
             if (is_array($given)) {
@@ -111,7 +120,7 @@ class AiTestController extends Controller
             }
             if (mb_strtolower(trim($given)) !== mb_strtolower($correctValue)) {
                 $correct = false;
-                $explanations[$marker] = $gpt->explainWrongAnswer($question['question'], $given, $correctValue);
+                $explanations[$marker] = $ai->explainWrongAnswer($question['question'], $given, $correctValue);
             }
         }
 
@@ -139,6 +148,18 @@ class AiTestController extends Controller
         return redirect()->route('ai-test.step');
     }
 
+    public function provider(Request $request)
+    {
+        $request->validate(['provider' => 'required|in:chatgpt,gemini']);
+        session([
+            'ai_step.provider' => $request->input('provider'),
+            'ai_step.current_question' => null,
+            'ai_step.feedback' => null,
+            'ai_step.last_question' => null,
+        ]);
+        return redirect()->route('ai-test.step');
+    }
+
     public function reset()
     {
         session()->forget([
@@ -149,6 +170,7 @@ class AiTestController extends Controller
             'ai_step.feedback',
             'ai_step.last_question',
             'ai_step.topic',
+            'ai_step.provider',
         ]);
         return redirect()->route('ai-test.form');
     }

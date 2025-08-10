@@ -74,6 +74,7 @@ Route::get('/ai-test/step', [AiTestController::class, 'step'])->name('ai-test.st
 Route::post('/ai-test/check', [AiTestController::class, 'check'])->name('ai-test.check');
 Route::post('/ai-test/skip', [AiTestController::class, 'skip'])->name('ai-test.skip');
 Route::post('/ai-test/reset', [AiTestController::class, 'reset'])->name('ai-test.reset');
+Route::post('/ai-test/provider', [AiTestController::class, 'provider'])->name('ai-test.provider');
 
 use App\Http\Controllers\QuestionReviewController;
 Route::get('/question-review', [QuestionReviewController::class, 'index'])->name('question-review.index');
