@@ -166,6 +166,20 @@ class AiTestController extends Controller
         }
 
         $tagIds = session('ai_step.tags', []);
+        $provider = session('ai_step.current_provider', session('ai_step.provider', 'chatgpt'));
+        if ($provider === 'chatgpt') {
+            $model = $question['model'] ?? session('ai_step.model', 'unknown');
+            $tagName = 'ChatGPT + ' . strtoupper($model);
+        } else {
+            $tagName = 'Gemini';
+        }
+        $aiTag = Tag::firstOrCreate([
+            'name' => $tagName,
+            'category' => 'AI',
+        ]);
+        $tagIds[] = $aiTag->id;
+        $tagIds = array_unique($tagIds);
+
         $this->storeQuestion($question, $tagIds);
 
         session([

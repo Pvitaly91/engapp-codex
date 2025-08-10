@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 use App\Models\{Category, Tag};
+use Illuminate\Support\Facades\DB;
 use App\Services\ChatGPTService;
 
 class AiGrammarTestPageTest extends TestCase
@@ -63,6 +64,7 @@ class AiGrammarTestPageTest extends TestCase
                 )
                 ->andReturn([
                     'question' => $questionText,
+                    'model' => 'gpt-5',
                     'answers' => [
                         'a1' => 'one',
                         'a2' => 'two',
@@ -116,5 +118,10 @@ class AiGrammarTestPageTest extends TestCase
 
         $this->assertDatabaseHas('questions', ['question' => $questionText, 'flag' => 1]);
         $this->assertDatabaseHas('verb_hints', ['marker' => 'a1']);
+
+        $aiTag = Tag::where('name', 'ChatGPT + GPT-5')->where('category', 'AI')->first();
+        $this->assertNotNull($aiTag);
+        $questionId = DB::table('questions')->where('question', $questionText)->value('id');
+        $this->assertDatabaseHas('question_tag', ['question_id' => $questionId, 'tag_id' => $aiTag->id]);
     }
 }
