@@ -8,27 +8,32 @@ use Illuminate\Support\Facades\Log;
 
 class GeminiService
 {
+    protected string $endpoint = 'https://generativelanguage.googleapis.com/v1beta';
+
     protected function request(string $prompt): ?string
     {
         $key = config('services.gemini.key');
+        $model = config('services.gemini.model', 'gemini-2.5-flash'); // << важливо: актуальна модель
         if (empty($key)) {
             Log::warning('Gemini API key not configured');
             return null;
         }
 
+        $url = "{$this->endpoint}/models/{$model}:generateContent?key={$key}";
+
         try {
-            $response = Http::post(
-                'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' . $key,
-                [
-                    'contents' => [
-                        [
-                            'parts' => [
-                                ['text' => $prompt],
-                            ],
-                        ],
+            $payload = [
+                'contents' => [[
+                    'parts' => [
+                        ['text' => $prompt],
                     ],
-                ]
-            );
+                ]],
+            ];
+
+            $response = Http::timeout(30)
+                ->retry(2, 300)  // легка повторна спроба на мережеві збої
+                ->withHeaders(['Content-Type' => 'application/json'])
+                ->post($url, $payload);
 
             if ($response->failed()) {
                 Log::warning('Gemini request failed: ' . $response->body());
@@ -36,7 +41,10 @@ class GeminiService
             }
 
             $data = $response->json();
+
+            // типовий шлях до тексту
             return $data['candidates'][0]['content']['parts'][0]['text'] ?? null;
+
         } catch (Exception $e) {
             Log::warning('Gemini request failed: ' . $e->getMessage());
             return null;
