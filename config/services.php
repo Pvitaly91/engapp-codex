@@ -36,4 +36,8 @@ return [
         'language' => env('CHAT_GPT_LANGUAGE', 'uk'),
     ],
 
+    'gemini' => [
+        'key' => env('GEMINI_API_KEY'),
+    ],
+
 ];

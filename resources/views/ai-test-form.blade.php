@@ -31,6 +31,19 @@
                 <input type="number" name="answers_max" value="1" class="border rounded p-1 w-24" min="1" max="10">
             </div>
         </div>
+        <div>
+            <label class="block font-bold mb-1">AI Provider:</label>
+            <div class="flex gap-4">
+                <label class="flex items-center">
+                    <input type="radio" name="provider" value="chatgpt" class="mr-2" checked>
+                    ChatGPT
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" name="provider" value="gemini" class="mr-2">
+                    Gemini
+                </label>
+            </div>
+        </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">Start</button>
     </form>
 </div>

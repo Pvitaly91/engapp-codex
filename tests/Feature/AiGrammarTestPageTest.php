@@ -85,6 +85,7 @@ class AiGrammarTestPageTest extends TestCase
             'tags' => [$tag->id],
             'answers_min' => 10,
             'answers_max' => 10,
+            'provider' => 'chatgpt',
         ])->assertRedirect('/ai-test/step');
 
         $this->get('/ai-test/step')->assertStatus(200);

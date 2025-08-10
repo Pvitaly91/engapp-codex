@@ -18,6 +18,18 @@
         @csrf
         <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
     </form>
+    <form method="POST" action="{{ route('ai-test.provider') }}" class="mb-4">
+        @csrf
+        <label class="mr-4">
+            <input type="radio" name="provider" value="chatgpt" {{ $provider === 'chatgpt' ? 'checked' : '' }}>
+            ChatGPT
+        </label>
+        <label class="mr-4">
+            <input type="radio" name="provider" value="gemini" {{ $provider === 'gemini' ? 'checked' : '' }}>
+            Gemini
+        </label>
+        <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Switch</button>
+    </form>
 
     @if(isset($feedback))
         <div class="mb-4">
