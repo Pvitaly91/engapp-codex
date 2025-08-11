@@ -110,6 +110,10 @@
                 @endforeach
             </div>
         @endif
+        <div class="mt-2">
+            <button type="button" id="determine-tense" class="text-xs text-blue-600 underline">Визначити час</button>
+            <span id="tense-result" class="ml-2 text-sm text-gray-700"></span>
+        </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
             {{ isset($feedback) ? 'Next' : 'Check' }}
         </button>
@@ -161,5 +165,20 @@ function builder(route, prefix) {
         }
     }
 }
+
+document.getElementById('determine-tense').addEventListener('click', () => {
+    fetch('{{ route('saved-test.step.determine-tense', $test->slug) }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }} })
+    })
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById('tense-result').textContent = d.tag || '';
+        });
+});
 </script>
 @endsection

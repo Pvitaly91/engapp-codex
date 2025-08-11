@@ -149,6 +149,34 @@ class ChatGPTService
         return ['is_correct' => false, 'explanation' => ''];
     }
 
+    public function determineTenseTag(string $question, array $tags): string
+    {
+        $key = config('services.chatgpt.key');
+        if (empty($key) || empty($tags)) {
+            Log::warning('ChatGPT API key not configured or no tags provided');
+            return '';
+        }
+
+        $tagsList = implode(', ', $tags);
+        $prompt = "Question: {$question}\nChoose the most appropriate tense from this list: {$tagsList}.\nRespond with only the tag name.";
+
+        try {
+            $client = \OpenAI::client($key);
+            $result = $client->chat()->create([
+                'model' => 'gpt-5',
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+            ]);
+
+            return trim($result->choices[0]->message->content);
+        } catch (Exception $e) {
+            Log::warning('ChatGPT determine tense failed: ' . $e->getMessage());
+        }
+
+        return '';
+    }
+
     /**
      * Generate a detailed description of what to do in a test based on its questions.
      * The description should include a short explanation of the grammar rule that

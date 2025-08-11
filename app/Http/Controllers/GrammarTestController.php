@@ -239,6 +239,25 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.step', $slug);
     }
 
+    public function determineTense(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $tags = Tag::pluck('name')->toArray();
+        $gpt = app(\App\Services\ChatGPTService::class);
+        $suggested = $gpt->determineTenseTag($question->question, $tags);
+
+        return response()->json(['tag' => $suggested]);
+    }
+
     public function resetSavedTestStep($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
