@@ -2,8 +2,7 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
 
@@ -33,6 +32,9 @@ class SavedTestStepActionsTest extends TestCase
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
         }
 
+        DB::statement('DROP TABLE question_options');
+        DB::statement('CREATE TABLE question_options (id INTEGER PRIMARY KEY AUTOINCREMENT, option VARCHAR UNIQUE, created_at DATETIME, updated_at DATETIME)');
+
         Schema::table('question_option_question', function ($table) {
             $table->tinyInteger('flag')->nullable()->after('option_id');
         });
@@ -45,18 +47,15 @@ class SavedTestStepActionsTest extends TestCase
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $option = new QuestionOption(['option' => 'yes']);
-        $option->question_id = $question->id;
-        $option->save();
+        $option = QuestionOption::create(['option' => 'yes']);
         $question->options()->attach($option->id);
         $answer = new QuestionAnswer();
         $answer->marker = 'a1';
         $answer->answer = 'yes';
         $answer->question_id = $question->id;
         $answer->save();
-        $hintOpt = new QuestionOption(['option' => 'do']);
-        $hintOpt->question_id = $question->id;
-        $hintOpt->save();
+        $hintOpt = QuestionOption::create(['option' => 'do']);
+        $question->options()->attach($hintOpt->id, ['flag' => 1]);
         $verbHint = VerbHint::create([
             'question_id' => $question->id,
             'marker' => 'a1',

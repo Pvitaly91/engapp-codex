@@ -2,8 +2,7 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
@@ -33,6 +32,9 @@ class SavedTestStepWrongAnswerTest extends TestCase
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
         }
 
+        DB::statement('DROP TABLE question_options');
+        DB::statement('CREATE TABLE question_options (id INTEGER PRIMARY KEY AUTOINCREMENT, option VARCHAR UNIQUE, created_at DATETIME, updated_at DATETIME)');
+
         Schema::table('question_option_question', function ($table) {
             $table->tinyInteger('flag')->nullable()->after('option_id');
         });
@@ -45,13 +47,9 @@ class SavedTestStepWrongAnswerTest extends TestCase
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $opt1 = new QuestionOption(['option' => 'yes']);
-        $opt1->question_id = $q1->id;
-        $opt1->save();
-        $opt1b = new QuestionOption(['option' => 'ok']);
-        $opt1b->question_id = $q1->id;
-        $opt1b->save();
-        $q1->options()->attach([$opt1->id, $opt1b->id]);
+        $opt1 = QuestionOption::create(['option' => 'yes']);
+        $okOption = QuestionOption::create(['option' => 'ok']);
+        $q1->options()->attach([$opt1->id, $okOption->id]);
         $ans1 = new QuestionAnswer(['marker' => 'a1']);
         $ans1->answer = 'yes';
         $ans1->question_id = $q1->id;
@@ -67,10 +65,7 @@ class SavedTestStepWrongAnswerTest extends TestCase
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $opt2 = new QuestionOption(['option' => 'ok']);
-        $opt2->question_id = $q2->id;
-        $opt2->save();
-        $q2->options()->attach($opt2->id);
+        $q2->options()->attach($okOption->id);
         $ans2 = new QuestionAnswer(['marker' => 'a1']);
         $ans2->answer = 'ok';
         $ans2->question_id = $q2->id;

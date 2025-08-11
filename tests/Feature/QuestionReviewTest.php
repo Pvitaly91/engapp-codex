@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\{Artisan, DB};
 use Tests\TestCase;
 use Illuminate\Support\Str;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Tag};
@@ -40,6 +40,9 @@ class QuestionReviewTest extends TestCase
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
         }
 
+        DB::statement('DROP TABLE question_options');
+        DB::statement('CREATE TABLE question_options (id INTEGER PRIMARY KEY AUTOINCREMENT, option VARCHAR UNIQUE, created_at DATETIME, updated_at DATETIME)');
+
         \Illuminate\Support\Facades\Schema::table('question_option_question', function ($table) {
             $table->tinyInteger('flag')->nullable()->after('option_id');
         });
@@ -51,14 +54,9 @@ class QuestionReviewTest extends TestCase
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $opt1 = new QuestionOption(['option' => 'yes']);
-        $opt1->question_id = $question->id;
-        $opt1->save();
-        $opt2 = new QuestionOption(['option' => 'no']);
-        $opt2->question_id = $question->id;
-        $opt2->save();
-        $question->options()->attach($opt1->id);
-        $question->options()->attach($opt2->id);
+        $opt1 = QuestionOption::create(['option' => 'yes']);
+        $opt2 = QuestionOption::create(['option' => 'no']);
+        $question->options()->attach([$opt1->id, $opt2->id]);
         $qa = new QuestionAnswer(['marker' => 'a1']);
         $qa->question_id = $question->id;
         $qa->answer = 'yes';

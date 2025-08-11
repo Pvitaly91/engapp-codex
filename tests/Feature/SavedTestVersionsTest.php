@@ -2,8 +2,7 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
@@ -33,6 +32,9 @@ class SavedTestVersionsTest extends TestCase
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
         }
 
+        DB::statement('DROP TABLE question_options');
+        DB::statement('CREATE TABLE question_options (id INTEGER PRIMARY KEY AUTOINCREMENT, option VARCHAR UNIQUE, created_at DATETIME, updated_at DATETIME)');
+
         Schema::table('question_option_question', function ($table) {
             $table->tinyInteger('flag')->nullable()->after('option_id');
         });
@@ -44,9 +46,7 @@ class SavedTestVersionsTest extends TestCase
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $opt = new QuestionOption(['option' => 'yes']);
-        $opt->question_id = $question->id;
-        $opt->save();
+        $opt = QuestionOption::create(['option' => 'yes']);
         $question->options()->attach($opt->id);
         $qa = new QuestionAnswer();
         $qa->marker = 'a1';

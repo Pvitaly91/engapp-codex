@@ -30,12 +30,10 @@ class VerbHintController extends Controller
             ->exists();
 
         if ($isShared) {
-            $newOption = new QuestionOption(['option' => $newHint]);
-            $newOption->question_id = $question->id;
-            $newOption->save();
+            $newOption = QuestionOption::create(['option' => $newHint]);
 
             $question->options()->updateExistingPivot($option->id, ['flag' => 1]);
-            $question->options()->attach($newOption->id);
+            $question->options()->attach($newOption->id, ['flag' => 1]);
 
             $verbHint->option_id = $newOption->id;
             $verbHint->save();

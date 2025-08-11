@@ -2,8 +2,7 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
@@ -33,6 +32,9 @@ class VerbHintUpdateCreatesNewOptionTest extends TestCase
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
         }
 
+        DB::statement('DROP TABLE question_options');
+        DB::statement('CREATE TABLE question_options (id INTEGER PRIMARY KEY AUTOINCREMENT, option VARCHAR UNIQUE, created_at DATETIME, updated_at DATETIME)');
+
         Schema::table('question_option_question', function ($table) {
             $table->tinyInteger('flag')->nullable()->after('option_id');
         });
@@ -52,9 +54,7 @@ class VerbHintUpdateCreatesNewOptionTest extends TestCase
             'category_id' => $category->id,
         ]);
 
-        $opt1 = new QuestionOption(['option' => 'yes']);
-        $opt1->question_id = $q1->id;
-        $opt1->save();
+        $opt1 = QuestionOption::create(['option' => 'yes']);
         $q1->options()->attach($opt1->id);
         $ans1 = new QuestionAnswer();
         $ans1->marker = 'a1';
@@ -62,9 +62,7 @@ class VerbHintUpdateCreatesNewOptionTest extends TestCase
         $ans1->question_id = $q1->id;
         $ans1->save();
 
-        $opt2 = new QuestionOption(['option' => 'no']);
-        $opt2->question_id = $q2->id;
-        $opt2->save();
+        $opt2 = QuestionOption::create(['option' => 'no']);
         $q2->options()->attach($opt2->id);
         $ans2 = new QuestionAnswer();
         $ans2->marker = 'b1';
@@ -72,11 +70,9 @@ class VerbHintUpdateCreatesNewOptionTest extends TestCase
         $ans2->question_id = $q2->id;
         $ans2->save();
 
-        $sharedHint = new QuestionOption(['option' => 'do']);
-        $sharedHint->question_id = $q1->id;
-        $sharedHint->save();
-        $q1->options()->attach($sharedHint->id);
-        $q2->options()->attach($sharedHint->id);
+        $sharedHint = QuestionOption::create(['option' => 'do']);
+        $q1->options()->attach($sharedHint->id, ['flag' => 1]);
+        $q2->options()->attach($sharedHint->id, ['flag' => 1]);
 
         $verbHint1 = VerbHint::create([
             'question_id' => $q1->id,
@@ -107,7 +103,13 @@ class VerbHintUpdateCreatesNewOptionTest extends TestCase
         $this->assertDatabaseHas('question_option_question', [
             'question_id' => $q2->id,
             'option_id' => $sharedHint->id,
-            'flag' => null,
+            'flag' => 1,
+        ]);
+        $newOptionId = $verbHint1->fresh()->option_id;
+        $this->assertDatabaseHas('question_option_question', [
+            'question_id' => $q1->id,
+            'option_id' => $newOptionId,
+            'flag' => 1,
         ]);
     }
 }
