@@ -251,11 +251,11 @@ class GrammarTestController extends Controller
             abort(404);
         }
 
-        $tags = Tag::pluck('name')->toArray();
+        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
         $gpt = app(\App\Services\ChatGPTService::class);
-        $suggested = $gpt->determineTenseTag($question->question, $tags);
+        $suggested = $gpt->determineTenseTags($question->question, $tags);
 
-        return response()->json(['tag' => $suggested]);
+        return response()->json(['tags' => $suggested]);
     }
 
     public function resetSavedTestStep($slug)

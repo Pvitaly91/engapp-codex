@@ -149,16 +149,18 @@ class ChatGPTService
         return ['is_correct' => false, 'explanation' => ''];
     }
 
-    public function determineTenseTag(string $question, array $tags): string
+    public function determineTenseTags(string $question, array $tags): array
     {
         $key = config('services.chatgpt.key');
         if (empty($key) || empty($tags)) {
             Log::warning('ChatGPT API key not configured or no tags provided');
-            return '';
+            return [];
         }
 
         $tagsList = implode(', ', $tags);
-        $prompt = "Question: {$question}\nChoose the most appropriate tense from this list: {$tagsList}.\nRespond with only the tag name.";
+        $prompt = "Question: {$question}\n" .
+            "Choose all appropriate tenses from this list: {$tagsList}.\n" .
+            "Respond with a comma-separated list of tag names.";
 
         try {
             $client = \OpenAI::client($key);
@@ -169,12 +171,16 @@ class ChatGPTService
                 ],
             ]);
 
-            return trim($result->choices[0]->message->content);
+            $response = trim($result->choices[0]->message->content);
+            $parts = array_filter(array_map('trim', explode(',', $response)));
+
+            // Ensure only known tags are returned
+            return array_values(array_intersect($tags, $parts));
         } catch (Exception $e) {
             Log::warning('ChatGPT determine tense failed: ' . $e->getMessage());
         }
 
-        return '';
+        return [];
     }
 
     /**

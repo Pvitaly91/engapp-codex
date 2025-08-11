@@ -177,7 +177,8 @@ document.getElementById('determine-tense').addEventListener('click', () => {
     })
         .then(r => r.json())
         .then(d => {
-            document.getElementById('tense-result').textContent = d.tag || '';
+            const tags = Array.isArray(d.tags) ? d.tags.join(', ') : '';
+            document.getElementById('tense-result').textContent = tags;
         });
 });
 </script>

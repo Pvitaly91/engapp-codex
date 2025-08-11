@@ -7,10 +7,10 @@ use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, Tag};
 use App\Services\ChatGPTService;
 
-class DetermineTenseTagTest extends TestCase
+class DetermineTenseTagsTest extends TestCase
 {
     /** @test */
-    public function determine_tense_returns_tag_from_chatgpt(): void
+    public function determine_tense_returns_tags_from_chatgpt(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -27,6 +27,7 @@ class DetermineTenseTagTest extends TestCase
             '2025_07_30_000003_create_question_tag_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
             '2025_07_20_184450_create_tests_table.php',
+            '2025_08_01_000001_add_category_to_tags_table.php',
             '2025_08_04_000002_add_description_to_tests_table.php',
         ];
         foreach ($migrations as $file) {
@@ -57,8 +58,9 @@ class DetermineTenseTagTest extends TestCase
         $answer->question_id = $question->id;
         $answer->save();
 
-        Tag::create(['name' => 'Past Simple']);
-        Tag::create(['name' => 'Present Simple']);
+        Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Present Simple', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Not Tense']);
 
         $testModel = Test::create([
             'name' => 'sample',
@@ -68,7 +70,12 @@ class DetermineTenseTagTest extends TestCase
         ]);
 
         $this->mock(ChatGPTService::class, function ($mock) {
-            $mock->shouldReceive('determineTenseTag')->once()->andReturn('Past Simple');
+            $mock->shouldReceive('determineTenseTags')
+                ->withArgs(function ($questionText, $tenses) {
+                    return $questionText === 'Q1 {a1}' && $tenses === ['Past Simple', 'Present Simple'];
+                })
+                ->once()
+                ->andReturn(['Past Simple', 'Present Simple']);
         });
 
         $response = $this->postJson('/test/' . $testModel->slug . '/step/determine-tense', [
@@ -76,6 +83,6 @@ class DetermineTenseTagTest extends TestCase
         ]);
 
         $response->assertStatus(200);
-        $response->assertJson(['tag' => 'Past Simple']);
+        $response->assertJson(['tags' => ['Past Simple', 'Present Simple']]);
     }
 }
