@@ -25,12 +25,18 @@ class VerbHintController extends Controller
         $question = $verbHint->question;
         $newHint = $request->input('hint');
 
+        $redirectTo = $request->input('from', url()->previous());
+
+        if ($newHint === $option->option) {
+            return redirect($redirectTo);
+        }
+
         $isShared = $option->questions()
             ->where('questions.id', '!=', $question->id)
             ->exists();
 
         if ($isShared) {
-            $newOption = QuestionOption::create(['option' => $newHint]);
+            $newOption = QuestionOption::firstOrCreate(['option' => $newHint]);
 
             $question->options()->updateExistingPivot($option->id, ['flag' => 1]);
             $question->options()->attach($newOption->id, ['flag' => 1]);
@@ -42,7 +48,6 @@ class VerbHintController extends Controller
             $option->save();
         }
 
-        $redirectTo = $request->input('from', url()->previous());
         return redirect($redirectTo);
     }
 }
