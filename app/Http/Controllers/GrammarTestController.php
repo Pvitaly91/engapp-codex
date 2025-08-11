@@ -89,7 +89,7 @@ class GrammarTestController extends Controller
         ]);
     }
 
-    public function showSavedTestStep($slug)
+    public function showSavedTestStep(Request $request, $slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
         if (empty($test->description)) {
@@ -98,17 +98,38 @@ class GrammarTestController extends Controller
             $test->description = $gpt->generateTestDescription($questions->toArray());
             $test->save();
         }
+
         $key = 'step_' . $test->slug;
+
+        $orderParam = $request->query('order');
+        $allowedOrders = ['sequential', 'random'];
+        if ($orderParam && in_array($orderParam, $allowedOrders)) {
+            if ($orderParam !== session($key . '_order')) {
+                session([$key . '_order' => $orderParam]);
+                session()->forget([
+                    $key . '_stats',
+                    $key . '_queue',
+                    $key . '_total',
+                    $key . '_current',
+                    $key . '_feedback',
+                ]);
+            }
+        }
+
+        $order = session($key . '_order', 'sequential');
         $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
         $queue = session($key . '_queue');
         $totalCount = session($key . '_total', 0);
         if (!$queue) {
             $queue = $test->questions;
-            shuffle($queue);
+            if ($order === 'random') {
+                shuffle($queue);
+            }
             $totalCount = count($queue);
             session([$key . '_queue' => $queue, $key . '_total' => $totalCount]);
         }
+
         $currentId = session($key . '_current');
         if (!$currentId) {
             if (empty($queue)) {
@@ -135,6 +156,7 @@ class GrammarTestController extends Controller
             'percentage' => $percentage,
             'totalCount' => $totalCount,
             'feedback' => $feedback,
+            'order' => $order,
         ]);
     }
 

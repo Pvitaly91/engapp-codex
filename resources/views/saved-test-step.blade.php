@@ -34,6 +34,11 @@
             </form>
         </div>
     @endif
+    <div class="mb-4 text-sm">
+        <span class="mr-2">Порядок питань:</span>
+        <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'order' => 'sequential']) }}" class="underline mr-2 {{ $order === 'sequential' ? 'font-bold' : '' }}">По порядку</a>
+        <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'order' => 'random']) }}" class="underline {{ $order === 'random' ? 'font-bold' : '' }}">Випадково</a>
+    </div>
     <div class="mb-4 flex gap-4 text-gray-600 text-base">
         <div>Total: <b>{{ $stats['total'] }} / {{ $totalCount }}</b></div>
         <div>Correct: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
