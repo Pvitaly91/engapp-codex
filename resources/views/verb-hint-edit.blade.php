@@ -8,6 +8,7 @@
     <form method="POST" action="{{ route('verb-hints.update', $verbHint->id) }}" class="space-y-4">
         @csrf
         @method('PUT')
+        <input type="hidden" name="from" value="{{ $from }}">
         <div>
             <label class="block mb-1" for="hint">Verb Hint</label>
             <input type="text" id="hint" name="hint" value="{{ old('hint', $verbHint->option->option) }}" class="border rounded px-2 py-1 w-full">

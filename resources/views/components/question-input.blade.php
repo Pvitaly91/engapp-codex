@@ -82,7 +82,7 @@ HTML;
         if($verbHint){
             $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')';
             if(!empty($showVerbHintEdit) && $verbHintRow){
-                $url = route('verb-hints.edit', $verbHintRow->id);
+                $url = route('verb-hints.edit', ['verbHint' => $verbHintRow->id, 'from' => request()->getRequestUri()]);
                 $input .= ' <a href="'.$url.'" class="underline">Edit</a>';
             }
             $input .= '</span>';

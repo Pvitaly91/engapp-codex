@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
 
-class SavedTestVerbHintEditLinkTest extends TestCase
+class VerbHintUpdateRedirectTest extends TestCase
 {
     /** @test */
-    public function saved_test_page_shows_edit_links_for_verb_hints(): void
+    public function updating_verb_hint_redirects_back_to_source_page(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -70,9 +70,12 @@ class SavedTestVerbHintEditLinkTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $response = $this->get('/test/' . $testModel->slug);
-        $response->assertStatus(200);
-        $editUrl = route('verb-hints.edit', ['verbHint' => $verbHint->id, 'from' => '/test/' . $testModel->slug]);
-        $response->assertSee($editUrl);
+        $response = $this->put(route('verb-hints.update', $verbHint->id), [
+            'hint' => 'go',
+            'from' => '/test/' . $testModel->slug,
+        ]);
+
+        $response->assertRedirect('/test/' . $testModel->slug);
+        $this->assertEquals('go', $verbHint->fresh()->option->option);
     }
 }

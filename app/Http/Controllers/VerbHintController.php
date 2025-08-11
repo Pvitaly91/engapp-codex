@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 
 class VerbHintController extends Controller
 {
-    public function edit(VerbHint $verbHint)
+    public function edit(Request $request, VerbHint $verbHint)
     {
         $verbHint->load('option');
-        return view('verb-hint-edit', compact('verbHint'));
+        $from = $request->query('from', url()->previous());
+
+        return view('verb-hint-edit', compact('verbHint', 'from'));
     }
 
     public function update(Request $request, VerbHint $verbHint)
@@ -22,6 +24,7 @@ class VerbHintController extends Controller
         $option->option = $request->input('hint');
         $option->save();
 
-        return redirect()->back();
+        $redirectTo = $request->input('from', url()->previous());
+        return redirect($redirectTo);
     }
 }
