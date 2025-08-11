@@ -100,19 +100,17 @@
             <a href="{{ route('question-review.edit', $question->id) }}" class="text-sm text-blue-600 underline">Edit</a>
             <button type="submit" form="delete-question-{{ $question->id }}" class="text-sm text-red-600 underline" onclick="return confirm('Delete this question?')">Delete</button>
         </div>
-        @if($question->tags->count())
-            <div class="mt-1 space-x-1">
-                @php
-                    $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
-                @endphp
-                @foreach($question->tags as $tag)
-                    <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-block px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
-                @endforeach
-            </div>
-        @endif
+        @php
+            $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
+        @endphp
+        <div id="question-tags" class="mt-1 space-x-1">
+            @foreach($question->tags as $tag)
+                <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-block px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
+            @endforeach
+        </div>
         <div class="mt-2">
             <button type="button" id="determine-tense" class="text-xs text-blue-600 underline">Визначити час</button>
-            <span id="tense-result" class="ml-2 text-sm text-gray-700"></span>
+            <div id="tense-result" class="ml-2 text-sm text-gray-700 space-y-1"></div>
         </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
             {{ isset($feedback) ? 'Next' : 'Check' }}
@@ -166,6 +164,37 @@ function builder(route, prefix) {
     }
 }
 
+const tagColors = @json($colors);
+
+function renderTags(tags) {
+    const container = document.getElementById('question-tags');
+    container.innerHTML = '';
+    tags.forEach((name, index) => {
+        const a = document.createElement('a');
+        a.href = '{{ route('saved-tests.cards') }}?tag=' + encodeURIComponent(name);
+        a.className = 'inline-block px-2 py-0.5 rounded text-xs font-semibold hover:underline ' + tagColors[index % tagColors.length];
+        a.textContent = name;
+        container.appendChild(a);
+    });
+}
+
+function addTag(tag) {
+    fetch('{{ route('saved-test.step.add-tag', $test->slug) }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }}, tag})
+    })
+        .then(r => r.json())
+        .then(d => {
+            if (Array.isArray(d.tags)) {
+                renderTags(d.tags);
+            }
+        });
+}
+
 document.getElementById('determine-tense').addEventListener('click', () => {
     fetch('{{ route('saved-test.step.determine-tense', $test->slug) }}', {
         method: 'POST',
@@ -177,8 +206,23 @@ document.getElementById('determine-tense').addEventListener('click', () => {
     })
         .then(r => r.json())
         .then(d => {
-            const tags = Array.isArray(d.tags) ? d.tags.join(', ') : '';
-            document.getElementById('tense-result').textContent = tags;
+            const container = document.getElementById('tense-result');
+            container.innerHTML = '';
+            if (Array.isArray(d.tags)) {
+                d.tags.forEach(tag => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'flex items-center gap-1';
+                    const span = document.createElement('span');
+                    span.textContent = tag;
+                    const btn = document.createElement('button');
+                    btn.textContent = 'Додати тег';
+                    btn.className = 'text-xs text-blue-600 underline';
+                    btn.addEventListener('click', () => addTag(tag));
+                    wrapper.appendChild(span);
+                    wrapper.appendChild(btn);
+                    container.appendChild(wrapper);
+                });
+            }
         });
 });
 </script>
