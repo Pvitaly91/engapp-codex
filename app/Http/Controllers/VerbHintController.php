@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\VerbHint;
+use App\Models\QuestionOption;
 use Illuminate\Http\Request;
 
 class VerbHintController extends Controller
@@ -21,8 +22,27 @@ class VerbHintController extends Controller
             'hint' => 'required|string|max:255',
         ]);
         $option = $verbHint->option;
-        $option->option = $request->input('hint');
-        $option->save();
+        $question = $verbHint->question;
+        $newHint = $request->input('hint');
+
+        $isShared = $option->questions()
+            ->where('questions.id', '!=', $question->id)
+            ->exists();
+
+        if ($isShared) {
+            $newOption = new QuestionOption(['option' => $newHint]);
+            $newOption->question_id = $question->id;
+            $newOption->save();
+
+            $question->options()->updateExistingPivot($option->id, ['flag' => 1]);
+            $question->options()->attach($newOption->id);
+
+            $verbHint->option_id = $newOption->id;
+            $verbHint->save();
+        } else {
+            $option->option = $newHint;
+            $option->save();
+        }
 
         $redirectTo = $request->input('from', url()->previous());
         return redirect($redirectTo);
