@@ -44,7 +44,7 @@ class AiTestController extends Controller
         $min = (int) $validated['answers_min'];
         $max = (int) $validated['answers_max'];
         $provider = $validated['provider'];
-        $model = $provider === 'chatgpt' ? $validated['model'] : null;
+        $model = $provider === 'chatgpt' ? $validated['model'] : 'random';
 
         session([
             'ai_step.tags' => $tagIds,
@@ -218,7 +218,7 @@ class AiTestController extends Controller
         }
         $validated = $request->validate($rules);
         $provider = $validated['provider'];
-        $model = $provider === 'chatgpt' ? $validated['model'] : null;
+        $model = $provider === 'chatgpt' ? $validated['model'] : 'random';
         session([
             'ai_step.provider' => $provider,
             'ai_step.current_question' => null,
