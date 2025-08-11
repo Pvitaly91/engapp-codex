@@ -217,6 +217,7 @@ document.getElementById('determine-tense').addEventListener('click', () => {
                     const btn = document.createElement('button');
                     btn.textContent = 'Додати тег';
                     btn.className = 'text-xs text-blue-600 underline';
+                    btn.type = 'button';
                     btn.addEventListener('click', () => addTag(tag));
                     wrapper.appendChild(span);
                     wrapper.appendChild(btn);
