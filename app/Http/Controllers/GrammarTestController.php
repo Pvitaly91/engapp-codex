@@ -148,7 +148,7 @@ class GrammarTestController extends Controller
             session([$key . '_queue' => $queue, $key . '_current' => $currentId]);
         }
 
-        $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option'])
+        $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option', 'tags'])
             ->findOrFail($currentId);
         $feedback = session($key . '_feedback');
         session()->forget($key . '_feedback');
