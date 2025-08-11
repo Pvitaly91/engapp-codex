@@ -74,8 +74,12 @@ class SavedTestStepOrderTest extends TestCase
             'name' => 'sample',
             'slug' => 'sample',
             'filters' => [],
-            'questions' => [$q1->id, $q2->id],
+            'questions' => [$q2->id, $q1->id],
         ]);
+
+        $response = $this->get('/test/' . $testModel->slug);
+        $response->assertStatus(200);
+        $response->assertSeeInOrder(['Q1', 'Q2']);
 
         $response = $this->get('/test/' . $testModel->slug . '/step');
         $response->assertStatus(200);

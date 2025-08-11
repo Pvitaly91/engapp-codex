@@ -49,6 +49,7 @@ class GrammarTestController extends Controller
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
         $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'tags'])
             ->whereIn('id', $test->questions)
+            ->orderBy('id')
             ->get();
 
         if (empty($test->description)) {
@@ -122,7 +123,10 @@ class GrammarTestController extends Controller
         $queue = session($key . '_queue');
         $totalCount = session($key . '_total', 0);
         if (!$queue) {
-            $queue = $test->questions;
+            $queue = \App\Models\Question::whereIn('id', $test->questions)
+                ->orderBy('id')
+                ->pluck('id')
+                ->toArray();
             if ($order === 'random') {
                 shuffle($queue);
             }
