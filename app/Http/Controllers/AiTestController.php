@@ -51,6 +51,8 @@ class AiTestController extends Controller
             'ai_step.answers_range' => [$min, $max],
             'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
             'ai_step.current_question' => null,
+            'ai_step.next_question' => null,
+            'ai_step.next_question_provider' => null,
             'ai_step.feedback' => null,
             'ai_step.last_question' => null,
             'ai_step.topic' => $topic,
@@ -72,45 +74,52 @@ class AiTestController extends Controller
 
         $providerSetting = session('ai_step.provider', 'chatgpt');
         $question = session('ai_step.current_question');
+        $currentProvider = session('ai_step.current_provider');
 
-        if ($providerSetting === 'mixed') {
-            $currentProvider = session('ai_step.current_provider');
-            $nextProvider = session('ai_step.next_provider', 'gemini');
-            if (!$question) {
-                $currentProvider = $nextProvider;
+        if (!$question) {
+            if (session()->has('ai_step.next_question')) {
+                $question = session('ai_step.next_question');
+                $currentProvider = session('ai_step.next_question_provider', $providerSetting);
                 session([
+                    'ai_step.current_question' => $question,
                     'ai_step.current_provider' => $currentProvider,
-                    'ai_step.next_provider' => $currentProvider === 'gemini' ? 'chatgpt' : 'gemini',
                 ]);
+                session()->forget(['ai_step.next_question', 'ai_step.next_question_provider']);
+            } else {
+                if ($providerSetting === 'mixed') {
+                    $currentProvider = session('ai_step.next_provider', 'gemini');
+                    session([
+                        'ai_step.current_provider' => $currentProvider,
+                        'ai_step.next_provider' => $currentProvider === 'gemini' ? 'chatgpt' : 'gemini',
+                    ]);
+                } else {
+                    $currentProvider = $providerSetting;
+                    session(['ai_step.current_provider' => $providerSetting]);
+                }
+
+                $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
+                $range = session('ai_step.answers_range', [1, 1]);
+                $answersCount = random_int($range[0], $range[1]);
+                $lastQuestion = session('ai_step.last_question');
+                $attempts = 0;
+                do {
+                    if ($currentProvider === 'gemini') {
+                        $question = $gemini->generateGrammarQuestion($tenseNames, $answersCount);
+                    } else {
+                        $model = session('ai_step.model', 'random');
+                        $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model);
+                    }
+                    $attempts++;
+                } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
+                if ($question) {
+                    $this->storeWords($question);
+                    session(['ai_step.current_question' => $question]);
+                }
             }
-        } else {
-            $currentProvider = $providerSetting;
-            session(['ai_step.current_provider' => $providerSetting]);
         }
 
         $stats = session('ai_step.stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
-
-        if (!$question) {
-            $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
-            $range = session('ai_step.answers_range', [1, 1]);
-            $answersCount = random_int($range[0], $range[1]);
-            $lastQuestion = session('ai_step.last_question');
-            $attempts = 0;
-            do {
-                if ($currentProvider === 'gemini') {
-                    $question = $gemini->generateGrammarQuestion($tenseNames, $answersCount);
-                } else {
-                    $model = session('ai_step.model', 'random');
-                    $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model);
-                }
-                $attempts++;
-            } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
-            if ($question) {
-                $this->storeWords($question);
-                session(['ai_step.current_question' => $question]);
-            }
-        }
 
         $feedback = session('ai_step.feedback');
         session()->forget('ai_step.feedback');
@@ -122,7 +131,7 @@ class AiTestController extends Controller
             'feedback' => $feedback,
             'topic' => session('ai_step.topic'),
             'provider' => $providerSetting,
-            'currentProvider' => $currentProvider,
+            'currentProvider' => $currentProvider ?? $providerSetting,
             'models' => ChatGPTService::availableModels(),
             'model' => session('ai_step.model', 'random'),
         ]);
@@ -213,6 +222,8 @@ class AiTestController extends Controller
         session([
             'ai_step.provider' => $provider,
             'ai_step.current_question' => null,
+            'ai_step.next_question' => null,
+            'ai_step.next_question_provider' => null,
             'ai_step.feedback' => null,
             'ai_step.last_question' => null,
             'ai_step.current_provider' => $provider === 'mixed' ? null : $provider,
@@ -229,6 +240,8 @@ class AiTestController extends Controller
             'ai_step.answers_range',
             'ai_step.stats',
             'ai_step.current_question',
+            'ai_step.next_question',
+            'ai_step.next_question_provider',
             'ai_step.feedback',
             'ai_step.last_question',
             'ai_step.topic',
@@ -238,6 +251,47 @@ class AiTestController extends Controller
             'ai_step.model',
         ]);
         return redirect()->route('ai-test.form');
+    }
+
+    public function next(ChatGPTService $gpt, GeminiService $gemini)
+    {
+        $tagIds = session('ai_step.tags');
+        if (!$tagIds) {
+            return response()->json(['status' => 'no-session'], 400);
+        }
+
+        $providerSetting = session('ai_step.provider', 'chatgpt');
+        if ($providerSetting === 'mixed') {
+            $provider = session('ai_step.next_provider', 'gemini');
+            session(['ai_step.next_provider' => $provider === 'gemini' ? 'chatgpt' : 'gemini']);
+        } else {
+            $provider = $providerSetting;
+        }
+
+        $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
+        $range = session('ai_step.answers_range', [1, 1]);
+        $answersCount = random_int($range[0], $range[1]);
+        $lastQuestion = session('ai_step.last_question');
+        $attempts = 0;
+        $question = null;
+        do {
+            if ($provider === 'gemini') {
+                $question = $gemini->generateGrammarQuestion($tenseNames, $answersCount);
+            } else {
+                $model = session('ai_step.model', 'random');
+                $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model);
+            }
+            $attempts++;
+        } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
+        if ($question) {
+            $this->storeWords($question);
+            session([
+                'ai_step.next_question' => $question,
+                'ai_step.next_question_provider' => $provider,
+            ]);
+        }
+
+        return response()->json(['status' => 'ok']);
     }
 
     public function skip()

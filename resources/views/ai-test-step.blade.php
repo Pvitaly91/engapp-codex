@@ -147,5 +147,8 @@ function builder(route, prefix) {
         }
     }
 }
+@if($question)
+fetch('{{ route('ai-test.next') }}');
+@endif
 </script>
 @endsection
