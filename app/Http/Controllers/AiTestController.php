@@ -106,7 +106,7 @@ class AiTestController extends Controller
                     if ($currentProvider === 'gemini') {
                         $question = $gemini->generateGrammarQuestion($tenseNames, $answersCount);
                     } else {
-                        $model = session('ai_step.model', 'random');
+                        $model = session('ai_step.model') ?? 'random';
                         $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model);
                     }
                     $attempts++;
@@ -288,7 +288,7 @@ class AiTestController extends Controller
             if ($provider === 'gemini') {
                 $question = $gemini->generateGrammarQuestion($tenseNames, $answersCount);
             } else {
-                $model = session('ai_step.model', 'random');
+                $model = session('ai_step.model') ?? 'random';
                 $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model);
             }
             $attempts++;
