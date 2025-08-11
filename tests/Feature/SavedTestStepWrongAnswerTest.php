@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Support\Facades\{Artisan, DB};
+use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
-use App\Models\{Category, Question, QuestionOption, QuestionAnswer};
+use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
-class DeleteQuestionTest extends TestCase
+class SavedTestStepWrongAnswerTest extends TestCase
 {
     /** @test */
-    public function question_can_be_deleted_from_saved_test(): void
+    public function step_mode_shows_user_answer_when_wrong(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -22,9 +22,11 @@ class DeleteQuestionTest extends TestCase
             '2025_07_27_000001_add_unique_index_to_question_answers.php',
             '2025_07_28_000002_create_verb_hints_table.php',
             '2025_07_29_000001_create_question_option_question_table.php',
+            '2025_07_30_000001_create_tags_table.php',
             '2025_07_30_000003_create_question_tag_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
             '2025_07_20_184450_create_tests_table.php',
+            '2025_08_04_000002_add_description_to_tests_table.php',
         ];
         foreach ($migrations as $file) {
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
@@ -33,50 +35,59 @@ class DeleteQuestionTest extends TestCase
         DB::statement('DROP TABLE question_options');
         DB::statement('CREATE TABLE question_options (id INTEGER PRIMARY KEY AUTOINCREMENT, option VARCHAR UNIQUE, created_at DATETIME, updated_at DATETIME)');
 
-        \Illuminate\Support\Facades\Schema::table('question_option_question', function ($table) {
+        Schema::table('question_option_question', function ($table) {
             $table->tinyInteger('flag')->nullable()->after('option_id');
         });
 
         $category = Category::create(['name' => 'test']);
 
         $q1 = Question::create([
-            'uuid' => 'uuid-1',
-            'question' => 'Choose {a1}',
+            'uuid' => 'q1',
+            'question' => 'Q1 {a1} {a2}',
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
         $opt1 = QuestionOption::create(['option' => 'yes']);
-        $q1->options()->attach($opt1->id);
-        $qa1 = new QuestionAnswer(['marker' => 'a1']);
-        $qa1->question_id = $q1->id;
-        $qa1->answer = 'yes';
-        $qa1->save();
+        $okOption = QuestionOption::create(['option' => 'ok']);
+        $q1->options()->attach([$opt1->id, $okOption->id]);
+        $ans1 = new QuestionAnswer(['marker' => 'a1']);
+        $ans1->answer = 'yes';
+        $ans1->question_id = $q1->id;
+        $ans1->save();
+        $ans1b = new QuestionAnswer(['marker' => 'a2']);
+        $ans1b->answer = 'ok';
+        $ans1b->question_id = $q1->id;
+        $ans1b->save();
 
         $q2 = Question::create([
-            'uuid' => 'uuid-2',
-            'question' => 'Choose {a1} too',
+            'uuid' => 'q2',
+            'question' => 'Q2 {a1}',
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $opt2 = QuestionOption::create(['option' => 'no']);
-        $q2->options()->attach($opt2->id);
-        $qa2 = new QuestionAnswer(['marker' => 'a1']);
-        $qa2->question_id = $q2->id;
-        $qa2->answer = 'no';
-        $qa2->save();
+        $q2->options()->attach($okOption->id);
+        $ans2 = new QuestionAnswer(['marker' => 'a1']);
+        $ans2->answer = 'ok';
+        $ans2->question_id = $q2->id;
+        $ans2->save();
 
-        $test = \App\Models\Test::create([
+        $testModel = Test::create([
             'name' => 'sample',
             'slug' => 'sample',
             'filters' => [],
             'questions' => [$q1->id, $q2->id],
         ]);
 
-        $response = $this->delete('/test/'.$test->slug.'/question/'.$q1->id, [], ['HTTP_REFERER' => '/test/'.$test->slug]);
-        $response->assertRedirect('/test/'.$test->slug);
+        $this->post('/test/'.$testModel->slug.'/step/check', [
+            'question_id' => $q1->id,
+            'answers' => ['a1' => 'yes', 'a2' => 'no'],
+        ]);
 
-        $test->refresh();
-        $this->assertEquals([$q2->id], $test->questions);
+        $response = $this->get('/test/'.$testModel->slug.'/step');
+        $response->assertStatus(200);
+        $response->assertSee('Wrong');
+        $response->assertSee('Your answer: Q1', false);
+        $response->assertSee('<span class="text-green-700 font-bold">yes</span>', false);
+        $response->assertSee('<span class="text-red-700 font-bold">no</span>', false);
     }
 }
-

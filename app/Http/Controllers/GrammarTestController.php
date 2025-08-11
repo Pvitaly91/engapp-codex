@@ -49,6 +49,7 @@ class GrammarTestController extends Controller
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
         $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'tags'])
             ->whereIn('id', $test->questions)
+            ->orderBy('id')
             ->get();
 
         if (empty($test->description)) {
@@ -89,7 +90,7 @@ class GrammarTestController extends Controller
         ]);
     }
 
-    public function showSavedTestStep($slug)
+    public function showSavedTestStep(Request $request, $slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
         if (empty($test->description)) {
@@ -98,17 +99,41 @@ class GrammarTestController extends Controller
             $test->description = $gpt->generateTestDescription($questions->toArray());
             $test->save();
         }
+
         $key = 'step_' . $test->slug;
+
+        $orderParam = $request->query('order');
+        $allowedOrders = ['sequential', 'random'];
+        if ($orderParam && in_array($orderParam, $allowedOrders)) {
+            if ($orderParam !== session($key . '_order')) {
+                session([$key . '_order' => $orderParam]);
+                session()->forget([
+                    $key . '_stats',
+                    $key . '_queue',
+                    $key . '_total',
+                    $key . '_current',
+                    $key . '_feedback',
+                ]);
+            }
+        }
+
+        $order = session($key . '_order', 'sequential');
         $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
         $queue = session($key . '_queue');
         $totalCount = session($key . '_total', 0);
         if (!$queue) {
-            $queue = $test->questions;
-            shuffle($queue);
+            $queue = \App\Models\Question::whereIn('id', $test->questions)
+                ->orderBy('id')
+                ->pluck('id')
+                ->toArray();
+            if ($order === 'random') {
+                shuffle($queue);
+            }
             $totalCount = count($queue);
             session([$key . '_queue' => $queue, $key . '_total' => $totalCount]);
         }
+
         $currentId = session($key . '_current');
         if (!$currentId) {
             if (empty($queue)) {
@@ -135,6 +160,7 @@ class GrammarTestController extends Controller
             'percentage' => $percentage,
             'totalCount' => $totalCount,
             'feedback' => $feedback,
+            'order' => $order,
         ]);
     }
 
@@ -172,17 +198,25 @@ class GrammarTestController extends Controller
         $userAnswers = $request->input('answers', []);
         $correct = true;
         $explanations = [];
+        $givenAnswers = [];
         $gpt = app(\App\Services\ChatGPTService::class);
+        $sentenceHtml = e($question->question);
         foreach ($question->answers as $ans) {
             $given = $userAnswers[$ans->marker] ?? '';
             if (is_array($given)) {
                 $given = implode(' ', $given);
             }
+            $given = trim($given);
+            $givenAnswers[$ans->marker] = $given;
             $correctValue = $ans->option->option ?? $ans->answer;
-            if (mb_strtolower(trim($given)) !== mb_strtolower($correctValue)) {
+            $isCorrectAnswer = mb_strtolower($given) === mb_strtolower($correctValue);
+            if (! $isCorrectAnswer) {
                 $correct = false;
                 $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $given, $correctValue);
             }
+            $class = $isCorrectAnswer ? 'text-green-700 font-bold' : 'text-red-700 font-bold';
+            $replacement = '<span class="' . $class . '">' . e($given) . '</span>';
+            $sentenceHtml = str_replace('{' . $ans->marker . '}', $replacement, $sentenceHtml);
         }
         $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $stats['total']++;
@@ -197,6 +231,8 @@ class GrammarTestController extends Controller
             $key . '_feedback' => [
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
+                'answers' => $givenAnswers,
+                'answer_sentence' => $sentenceHtml,
             ],
         ]);
 

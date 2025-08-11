@@ -4,12 +4,12 @@ namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
-use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
+use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
-class SavedTestVersionsTest extends TestCase
+class VerbHintUpdateReusesExistingOptionTest extends TestCase
 {
     /** @test */
-    public function random_and_step_pages_load(): void
+    public function editing_shared_verb_hint_reuses_existing_option(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -40,29 +40,56 @@ class SavedTestVersionsTest extends TestCase
         });
 
         $category = Category::create(['name' => 'test']);
-        $question = Question::create([
+
+        $q1 = Question::create([
             'uuid' => 'q1',
-            'question' => 'Choose {a1}',
+            'question' => 'Q1 {a1}',
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $opt = QuestionOption::create(['option' => 'yes']);
-        $question->options()->attach($opt->id);
-        $qa = new QuestionAnswer();
-        $qa->marker = 'a1';
-        $qa->answer = 'yes';
-        $qa->question_id = $question->id;
-        $qa->save();
-
-        $testModel = Test::create([
-            'name' => 'sample',
-            'slug' => 'sample',
-            'filters' => [],
-            'questions' => [$question->id],
+        $q2 = Question::create([
+            'uuid' => 'q2',
+            'question' => 'Q2 {b1}',
+            'difficulty' => 1,
+            'category_id' => $category->id,
         ]);
 
-        $this->get('/test/' . $testModel->slug . '/random')->assertStatus(200);
-        $this->get('/test/' . $testModel->slug . '/step')->assertStatus(200);
-    }
+        $optExisting = QuestionOption::create(['option' => 'go']);
+        $q2->options()->attach($optExisting->id);
+        $ans2 = new QuestionAnswer();
+        $ans2->marker = 'b1';
+        $ans2->answer = 'go';
+        $ans2->question_id = $q2->id;
+        $ans2->save();
 
+        $sharedHint = QuestionOption::create(['option' => 'do']);
+        $q1->options()->attach($sharedHint->id, ['flag' => 1]);
+        $q2->options()->attach($sharedHint->id, ['flag' => 1]);
+
+        $verbHint1 = VerbHint::create([
+            'question_id' => $q1->id,
+            'marker' => 'a1',
+            'option_id' => $sharedHint->id,
+        ]);
+        VerbHint::create([
+            'question_id' => $q2->id,
+            'marker' => 'b1',
+            'option_id' => $sharedHint->id,
+        ]);
+
+        $response = $this->put(route('verb-hints.update', $verbHint1->id), [
+            'hint' => 'go',
+            'from' => '/back',
+        ]);
+
+        $response->assertRedirect('/back');
+
+        $this->assertEquals($optExisting->id, $verbHint1->fresh()->option_id);
+        $this->assertEquals(1, QuestionOption::where('option', 'go')->count());
+        $this->assertDatabaseHas('question_option_question', [
+            'question_id' => $q1->id,
+            'option_id' => $optExisting->id,
+            'flag' => 1,
+        ]);
+    }
 }

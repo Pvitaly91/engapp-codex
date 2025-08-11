@@ -6,7 +6,8 @@
     'autocompleteInput' => false,
     'builderInput' => false,
     'autocompleteRoute' => url('/api/search?lang=en'),
-    'methodMap' => []
+    'methodMap' => [],
+    'showVerbHintEdit' => false,
 ])
 @php
     $questionText = $question->question;
@@ -79,7 +80,12 @@ HTML;
             $input .= '</select>';
         }
         if($verbHint){
-            $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')</span>';
+            $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')';
+            if(!empty($showVerbHintEdit) && $verbHintRow){
+                $url = route('verb-hints.edit', ['verbHint' => $verbHintRow->id, 'from' => request()->getRequestUri()]);
+                $input .= ' <a href="'.$url.'" class="underline">Edit</a>';
+            }
+            $input .= '</span>';
         }
         $replacements[$marker] = $input;
     }

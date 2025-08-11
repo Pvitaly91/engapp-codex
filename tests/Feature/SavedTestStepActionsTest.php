@@ -4,12 +4,12 @@ namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
-use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
+use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
 
-class SavedTestVersionsTest extends TestCase
+class SavedTestStepActionsTest extends TestCase
 {
     /** @test */
-    public function random_and_step_pages_load(): void
+    public function step_page_shows_edit_and_delete_controls(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -40,19 +40,27 @@ class SavedTestVersionsTest extends TestCase
         });
 
         $category = Category::create(['name' => 'test']);
+
         $question = Question::create([
             'uuid' => 'q1',
-            'question' => 'Choose {a1}',
+            'question' => 'Q1 {a1}',
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $opt = QuestionOption::create(['option' => 'yes']);
-        $question->options()->attach($opt->id);
-        $qa = new QuestionAnswer();
-        $qa->marker = 'a1';
-        $qa->answer = 'yes';
-        $qa->question_id = $question->id;
-        $qa->save();
+        $option = QuestionOption::create(['option' => 'yes']);
+        $question->options()->attach($option->id);
+        $answer = new QuestionAnswer();
+        $answer->marker = 'a1';
+        $answer->answer = 'yes';
+        $answer->question_id = $question->id;
+        $answer->save();
+        $hintOpt = QuestionOption::create(['option' => 'do']);
+        $question->options()->attach($hintOpt->id, ['flag' => 1]);
+        $verbHint = VerbHint::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $hintOpt->id,
+        ]);
 
         $testModel = Test::create([
             'name' => 'sample',
@@ -61,8 +69,13 @@ class SavedTestVersionsTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $this->get('/test/' . $testModel->slug . '/random')->assertStatus(200);
-        $this->get('/test/' . $testModel->slug . '/step')->assertStatus(200);
+        $response = $this->get('/test/' . $testModel->slug . '/step');
+        $response->assertStatus(200);
+        $response->assertSee(route('question-review.edit', $question->id));
+        $response->assertSee('form="delete-question-' . $question->id . '"', false);
+        $response->assertSee(route('saved-test.question.destroy', [$testModel->slug, $question->id]));
+        $editUrl = route('verb-hints.edit', ['verbHint' => $verbHint->id, 'from' => '/test/' . $testModel->slug . '/step']);
+        $response->assertSee($editUrl);
     }
-
 }
+

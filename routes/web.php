@@ -72,6 +72,7 @@ use App\Http\Controllers\AiTestController;
 Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
 Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');
 Route::get('/ai-test/step', [AiTestController::class, 'step'])->name('ai-test.step');
+Route::get('/ai-test/next', [AiTestController::class, 'next'])->name('ai-test.next');
 Route::post('/ai-test/check', [AiTestController::class, 'check'])->name('ai-test.check');
 Route::post('/ai-test/skip', [AiTestController::class, 'skip'])->name('ai-test.skip');
 Route::post('/ai-test/reset', [AiTestController::class, 'reset'])->name('ai-test.reset');
@@ -83,5 +84,9 @@ Route::post('/question-review', [QuestionReviewController::class, 'store'])->nam
 Route::get('/question-review/{question}', [QuestionReviewController::class, 'edit'])->name('question-review.edit');
 
 use App\Http\Controllers\QuestionReviewResultController;
+use App\Http\Controllers\VerbHintController;
 Route::get('/question-review-results', [QuestionReviewResultController::class, 'index'])->name('question-review-results.index');
+
+Route::get('/verb-hints/{verbHint}/edit', [VerbHintController::class, 'edit'])->name('verb-hints.edit');
+Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
 

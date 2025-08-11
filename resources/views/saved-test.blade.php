@@ -25,8 +25,16 @@
         </div>
     </div>
     @if($test->description)
-        <div class="test-description text-gray-800 flex justify-between">
-            <span>{!!$test->description !!}</span>
+        <div x-data="{ open: false }" class="test-description text-gray-800 flex justify-between">
+            <div>
+                <button type="button" @click="open = !open" class="text-xs text-blue-600 underline mb-2">
+                    <span x-show="!open">Показати опис</span>
+                    <span x-show="open" style="display: none;">Сховати опис</span>
+                </button>
+                <div x-show="open" style="display: none;">
+                    <span>{!! $test->description !!}</span>
+                </div>
+            </div>
             <div class="ml-2 space-x-2">
                 <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="inline">
                     @csrf
@@ -66,6 +74,7 @@
     'manualInput' => $manualInput,
     'autocompleteInput' => $autocompleteInput,
     'builderInput' => $builderInput,
+    'showVerbHintEdit' => true,
 ])
 <a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Edit</a>
 <button type="submit" form="delete-question-{{ $q->id }}" class="text-sm text-red-600 underline" onclick="return confirm('Delete this question?')">Delete</button>

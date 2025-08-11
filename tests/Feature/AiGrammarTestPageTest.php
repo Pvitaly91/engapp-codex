@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 use App\Models\{Category, Tag};
+use Illuminate\Support\Facades\DB;
 use App\Services\ChatGPTService;
 
 class AiGrammarTestPageTest extends TestCase
@@ -58,10 +59,12 @@ class AiGrammarTestPageTest extends TestCase
                 ->once()
                 ->with(
                     \Mockery::on(fn($tenses) => $tenses === ['tag1']),
-                    10
+                    10,
+                    'random'
                 )
                 ->andReturn([
                     'question' => $questionText,
+                    'model' => 'gpt-5',
                     'answers' => [
                         'a1' => 'one',
                         'a2' => 'two',
@@ -86,6 +89,7 @@ class AiGrammarTestPageTest extends TestCase
             'answers_min' => 10,
             'answers_max' => 10,
             'provider' => 'chatgpt',
+            'model' => 'random',
         ])->assertRedirect('/ai-test/step');
 
         $this->get('/ai-test/step')->assertStatus(200);
@@ -114,5 +118,13 @@ class AiGrammarTestPageTest extends TestCase
 
         $this->assertDatabaseHas('questions', ['question' => $questionText, 'flag' => 1]);
         $this->assertDatabaseHas('verb_hints', ['marker' => 'a1']);
+
+        $chatGPTTag = Tag::where('name', 'ChatGPT')->where('category', 'AI')->first();
+        $modelTag = Tag::where('name', 'GPT-5')->where('category', 'AI')->first();
+        $this->assertNotNull($chatGPTTag);
+        $this->assertNotNull($modelTag);
+        $questionId = DB::table('questions')->where('question', $questionText)->value('id');
+        $this->assertDatabaseHas('question_tag', ['question_id' => $questionId, 'tag_id' => $chatGPTTag->id]);
+        $this->assertDatabaseHas('question_tag', ['question_id' => $questionId, 'tag_id' => $modelTag->id]);
     }
 }

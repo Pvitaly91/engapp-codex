@@ -191,11 +191,34 @@ class ChatGPTService
     }
 
     /**
+     * Return available ChatGPT models.
+     */
+    public static function availableModels(): array
+    {
+        return [
+            'gpt-5',
+            'gpt-5-mini',
+            'gpt-5-nano',
+            'gpt-4.1',
+            'gpt-4.1-mini',
+            'gpt-4.1-nano',
+            'gpt-4o',
+            'gpt-4o-mini',
+            'o1',
+            'o1-preview',
+            'o1-mini',
+            'o3',
+            'o3-mini',
+            'o4-mini',
+        ];
+    }
+
+    /**
      * Generate grammar questions for given tenses.
      * Each question should contain the specified number of missing words
      * marked as {a1}, {a2}, ... and return JSON with the correct answers.
      */
-    public function generateGrammarQuestions(array $tenses, int $numQuestions = 1, int $answersCount = 1): array
+    public function generateGrammarQuestions(array $tenses, int $numQuestions = 1, int $answersCount = 1, string $model = 'random'): array
     {
         $key = config('services.chatgpt.key');
         if (empty($key)) {
@@ -212,23 +235,10 @@ class ChatGPTService
             "Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}, \"verb_hints\":{\"a1\":\"go\"}}].";
 
         try {
-            $models =  [
-                'gpt-5',
-                'gpt-5-mini',
-                'gpt-5-nano',
-                'gpt-4.1',
-                'gpt-4.1-mini',
-                'gpt-4.1-nano',
-                'gpt-4o',
-                'gpt-4o-mini',
-                'o1',
-                'o1-preview',
-                'o1-mini',
-                'o3',
-                'o3-mini',
-                'o4-mini',
-            ];
-            $model = $models[array_rand($models)];
+            $models = self::availableModels();
+            if ($model === 'random' || ! in_array($model, $models, true)) {
+                $model = $models[array_rand($models)];
+            }
 
             $client = \OpenAI::client($key);
             $result = $client->chat()->create([
@@ -268,9 +278,9 @@ class ChatGPTService
     /**
      * Convenience wrapper to generate a single grammar question.
      */
-    public function generateGrammarQuestion(array $tenses, int $answersCount = 1): ?array
+    public function generateGrammarQuestion(array $tenses, int $answersCount = 1, string $model = 'random'): ?array
     {
-        $all = $this->generateGrammarQuestions($tenses, 1, $answersCount);
+        $all = $this->generateGrammarQuestions($tenses, 1, $answersCount, $model);
         return $all[0] ?? null;
     }
 }

@@ -9,8 +9,16 @@
         <a href="{{ route('saved-test.show', $test->slug) }}" class="text-sm text-blue-600 underline">Back</a>
     </div>
     @if($test->description)
-        <div class="test-description text-gray-800 flex justify-between">
-            <span>{!! $test->description !!}</span>
+        <div x-data="{ open: false }" class="test-description text-gray-800 flex justify-between">
+            <div>
+                <button type="button" @click="open = !open" class="text-xs text-blue-600 underline mb-2">
+                    <span x-show="!open">Показати опис</span>
+                    <span x-show="open" style="display: none;">Сховати опис</span>
+                </button>
+                <div x-show="open" style="display: none;">
+                    <span>{!! $test->description !!}</span>
+                </div>
+            </div>
             <div class="ml-2 space-x-2">
                 <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="inline">
                     @csrf
@@ -34,6 +42,11 @@
             </form>
         </div>
     @endif
+    <div class="mb-4 text-sm">
+        <span class="mr-2">Порядок питань:</span>
+        <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'order' => 'sequential']) }}" class="underline mr-2 {{ $order === 'sequential' ? 'font-bold' : '' }}">По порядку</a>
+        <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'order' => 'random']) }}" class="underline {{ $order === 'random' ? 'font-bold' : '' }}">Випадково</a>
+    </div>
     <div class="mb-4 flex gap-4 text-gray-600 text-base">
         <div>Total: <b>{{ $stats['total'] }} / {{ $totalCount }}</b></div>
         <div>Correct: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
@@ -45,11 +58,6 @@
             @csrf
             <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
         </form>
-        <form method="POST" action="{{ route('saved-test.question.destroy', [$test->slug, $question->id]) }}" onsubmit="return confirm('Delete this question?')">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="bg-red-200 px-4 py-1 rounded hover:bg-red-300 transition text-sm">Delete</button>
-        </form>
     </div>
 
     @if(isset($feedback))
@@ -58,6 +66,9 @@
                 <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-2">Correct!</div>
             @else
                 <div class="bg-red-100 text-red-800 px-4 py-2 rounded mb-2">Wrong</div>
+                @if(!empty($feedback['answer_sentence']))
+                    <div class="text-sm text-gray-800 mb-2">Your answer: {!! $feedback['answer_sentence'] !!}</div>
+                @endif
                 @if(!empty($feedback['explanations']))
                     <div class="bg-blue-50 text-gray-800 text-sm rounded px-3 py-2 space-y-1">
                         @foreach($feedback['explanations'] as $exp)
@@ -83,10 +94,19 @@
             'autocompleteInput' => false,
             'builderInput' => true,
             'autocompleteRoute' => $autocompleteRoute,
+            'showVerbHintEdit' => true,
         ])
+        <div class="flex gap-2 mt-2">
+            <a href="{{ route('question-review.edit', $question->id) }}" class="text-sm text-blue-600 underline">Edit</a>
+            <button type="submit" form="delete-question-{{ $question->id }}" class="text-sm text-red-600 underline" onclick="return confirm('Delete this question?')">Delete</button>
+        </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
             {{ isset($feedback) ? 'Next' : 'Check' }}
         </button>
+    </form>
+    <form id="delete-question-{{ $question->id }}" action="{{ route('saved-test.question.destroy', [$test->slug, $question->id]) }}" method="POST" class="hidden">
+        @csrf
+        @method('DELETE')
     </form>
 </div>
 <script>
