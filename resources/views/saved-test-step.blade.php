@@ -50,11 +50,6 @@
             @csrf
             <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
         </form>
-        <form method="POST" action="{{ route('saved-test.question.destroy', [$test->slug, $question->id]) }}" onsubmit="return confirm('Delete this question?')">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="bg-red-200 px-4 py-1 rounded hover:bg-red-300 transition text-sm">Delete</button>
-        </form>
     </div>
 
     @if(isset($feedback))
@@ -89,9 +84,17 @@
             'builderInput' => true,
             'autocompleteRoute' => $autocompleteRoute,
         ])
+        <div class="flex gap-2 mt-2">
+            <a href="{{ route('question-review.edit', $question->id) }}" class="text-sm text-blue-600 underline">Edit</a>
+            <button type="submit" form="delete-question-{{ $question->id }}" class="text-sm text-red-600 underline" onclick="return confirm('Delete this question?')">Delete</button>
+        </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
             {{ isset($feedback) ? 'Next' : 'Check' }}
         </button>
+    </form>
+    <form id="delete-question-{{ $question->id }}" action="{{ route('saved-test.question.destroy', [$test->slug, $question->id]) }}" method="POST" class="hidden">
+        @csrf
+        @method('DELETE')
     </form>
 </div>
 <script>
