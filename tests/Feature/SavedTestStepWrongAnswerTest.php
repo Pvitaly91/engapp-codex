@@ -5,12 +5,12 @@ namespace Tests\Feature;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
-use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
+use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
-class SavedTestStepActionsTest extends TestCase
+class SavedTestStepWrongAnswerTest extends TestCase
 {
     /** @test */
-    public function step_page_shows_edit_and_delete_controls(): void
+    public function step_mode_shows_user_answer_when_wrong(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -39,43 +39,51 @@ class SavedTestStepActionsTest extends TestCase
 
         $category = Category::create(['name' => 'test']);
 
-        $question = Question::create([
+        $q1 = Question::create([
             'uuid' => 'q1',
             'question' => 'Q1 {a1}',
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $option = new QuestionOption(['option' => 'yes']);
-        $option->question_id = $question->id;
-        $option->save();
-        $question->options()->attach($option->id);
-        $answer = new QuestionAnswer();
-        $answer->marker = 'a1';
-        $answer->answer = 'yes';
-        $answer->question_id = $question->id;
-        $answer->save();
-        $hintOpt = new QuestionOption(['option' => 'do']);
-        $hintOpt->question_id = $question->id;
-        $hintOpt->save();
-        $verbHint = VerbHint::create([
-            'question_id' => $question->id,
-            'marker' => 'a1',
-            'option_id' => $hintOpt->id,
+        $opt1 = new QuestionOption(['option' => 'yes']);
+        $opt1->question_id = $q1->id;
+        $opt1->save();
+        $q1->options()->attach($opt1->id);
+        $ans1 = new QuestionAnswer(['marker' => 'a1']);
+        $ans1->answer = 'yes';
+        $ans1->question_id = $q1->id;
+        $ans1->save();
+
+        $q2 = Question::create([
+            'uuid' => 'q2',
+            'question' => 'Q2 {a1}',
+            'difficulty' => 1,
+            'category_id' => $category->id,
         ]);
+        $opt2 = new QuestionOption(['option' => 'ok']);
+        $opt2->question_id = $q2->id;
+        $opt2->save();
+        $q2->options()->attach($opt2->id);
+        $ans2 = new QuestionAnswer(['marker' => 'a1']);
+        $ans2->answer = 'ok';
+        $ans2->question_id = $q2->id;
+        $ans2->save();
 
         $testModel = Test::create([
             'name' => 'sample',
             'slug' => 'sample',
             'filters' => [],
-            'questions' => [$question->id],
+            'questions' => [$q1->id, $q2->id],
         ]);
 
-        $response = $this->get('/test/' . $testModel->slug . '/step');
+        $this->post('/test/'.$testModel->slug.'/step/check', [
+            'question_id' => $q1->id,
+            'answers' => ['a1' => 'no'],
+        ]);
+
+        $response = $this->get('/test/'.$testModel->slug.'/step');
         $response->assertStatus(200);
-        $response->assertSee(route('question-review.edit', $question->id));
-        $response->assertSee('form="delete-question-' . $question->id . '"', false);
-        $response->assertSee(route('saved-test.question.destroy', [$testModel->slug, $question->id]));
-        $response->assertSee(route('verb-hints.edit', $verbHint->id));
+        $response->assertSee('Wrong');
+        $response->assertSee('no');
     }
 }
-

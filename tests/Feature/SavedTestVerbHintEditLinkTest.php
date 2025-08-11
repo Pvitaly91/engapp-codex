@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
 
-class SavedTestStepActionsTest extends TestCase
+class SavedTestVerbHintEditLinkTest extends TestCase
 {
     /** @test */
-    public function step_page_shows_edit_and_delete_controls(): void
+    public function saved_test_page_shows_edit_links_for_verb_hints(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -70,12 +70,8 @@ class SavedTestStepActionsTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $response = $this->get('/test/' . $testModel->slug . '/step');
+        $response = $this->get('/test/' . $testModel->slug);
         $response->assertStatus(200);
-        $response->assertSee(route('question-review.edit', $question->id));
-        $response->assertSee('form="delete-question-' . $question->id . '"', false);
-        $response->assertSee(route('saved-test.question.destroy', [$testModel->slug, $question->id]));
         $response->assertSee(route('verb-hints.edit', $verbHint->id));
     }
 }
-

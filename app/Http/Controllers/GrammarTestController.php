@@ -198,14 +198,17 @@ class GrammarTestController extends Controller
         $userAnswers = $request->input('answers', []);
         $correct = true;
         $explanations = [];
+        $givenAnswers = [];
         $gpt = app(\App\Services\ChatGPTService::class);
         foreach ($question->answers as $ans) {
             $given = $userAnswers[$ans->marker] ?? '';
             if (is_array($given)) {
                 $given = implode(' ', $given);
             }
+            $given = trim($given);
+            $givenAnswers[$ans->marker] = $given;
             $correctValue = $ans->option->option ?? $ans->answer;
-            if (mb_strtolower(trim($given)) !== mb_strtolower($correctValue)) {
+            if (mb_strtolower($given) !== mb_strtolower($correctValue)) {
                 $correct = false;
                 $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $given, $correctValue);
             }
@@ -223,6 +226,7 @@ class GrammarTestController extends Controller
             $key . '_feedback' => [
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
+                'answers' => $givenAnswers,
             ],
         ]);
 

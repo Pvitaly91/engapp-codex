@@ -83,5 +83,9 @@ Route::post('/question-review', [QuestionReviewController::class, 'store'])->nam
 Route::get('/question-review/{question}', [QuestionReviewController::class, 'edit'])->name('question-review.edit');
 
 use App\Http\Controllers\QuestionReviewResultController;
+use App\Http\Controllers\VerbHintController;
 Route::get('/question-review-results', [QuestionReviewResultController::class, 'index'])->name('question-review-results.index');
+
+Route::get('/verb-hints/{verbHint}/edit', [VerbHintController::class, 'edit'])->name('verb-hints.edit');
+Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
 
