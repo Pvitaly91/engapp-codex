@@ -41,18 +41,25 @@ class SavedTestStepWrongAnswerTest extends TestCase
 
         $q1 = Question::create([
             'uuid' => 'q1',
-            'question' => 'Q1 {a1}',
+            'question' => 'Q1 {a1} {a2}',
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
         $opt1 = new QuestionOption(['option' => 'yes']);
         $opt1->question_id = $q1->id;
         $opt1->save();
-        $q1->options()->attach($opt1->id);
+        $opt1b = new QuestionOption(['option' => 'ok']);
+        $opt1b->question_id = $q1->id;
+        $opt1b->save();
+        $q1->options()->attach([$opt1->id, $opt1b->id]);
         $ans1 = new QuestionAnswer(['marker' => 'a1']);
         $ans1->answer = 'yes';
         $ans1->question_id = $q1->id;
         $ans1->save();
+        $ans1b = new QuestionAnswer(['marker' => 'a2']);
+        $ans1b->answer = 'ok';
+        $ans1b->question_id = $q1->id;
+        $ans1b->save();
 
         $q2 = Question::create([
             'uuid' => 'q2',
@@ -78,12 +85,14 @@ class SavedTestStepWrongAnswerTest extends TestCase
 
         $this->post('/test/'.$testModel->slug.'/step/check', [
             'question_id' => $q1->id,
-            'answers' => ['a1' => 'no'],
+            'answers' => ['a1' => 'yes', 'a2' => 'no'],
         ]);
 
         $response = $this->get('/test/'.$testModel->slug.'/step');
         $response->assertStatus(200);
         $response->assertSee('Wrong');
-        $response->assertSee('no');
+        $response->assertSee('Your answer: Q1', false);
+        $response->assertSee('<span class="text-green-700 font-bold">yes</span>', false);
+        $response->assertSee('<span class="text-red-700 font-bold">no</span>', false);
     }
 }

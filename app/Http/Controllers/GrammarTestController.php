@@ -200,6 +200,7 @@ class GrammarTestController extends Controller
         $explanations = [];
         $givenAnswers = [];
         $gpt = app(\App\Services\ChatGPTService::class);
+        $sentenceHtml = e($question->question);
         foreach ($question->answers as $ans) {
             $given = $userAnswers[$ans->marker] ?? '';
             if (is_array($given)) {
@@ -208,10 +209,14 @@ class GrammarTestController extends Controller
             $given = trim($given);
             $givenAnswers[$ans->marker] = $given;
             $correctValue = $ans->option->option ?? $ans->answer;
-            if (mb_strtolower($given) !== mb_strtolower($correctValue)) {
+            $isCorrectAnswer = mb_strtolower($given) === mb_strtolower($correctValue);
+            if (! $isCorrectAnswer) {
                 $correct = false;
                 $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $given, $correctValue);
             }
+            $class = $isCorrectAnswer ? 'text-green-700 font-bold' : 'text-red-700 font-bold';
+            $replacement = '<span class="' . $class . '">' . e($given) . '</span>';
+            $sentenceHtml = str_replace('{' . $ans->marker . '}', $replacement, $sentenceHtml);
         }
         $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $stats['total']++;
@@ -227,6 +232,7 @@ class GrammarTestController extends Controller
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
                 'answers' => $givenAnswers,
+                'answer_sentence' => $sentenceHtml,
             ],
         ]);
 

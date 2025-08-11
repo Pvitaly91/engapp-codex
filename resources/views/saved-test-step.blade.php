@@ -66,8 +66,8 @@
                 <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-2">Correct!</div>
             @else
                 <div class="bg-red-100 text-red-800 px-4 py-2 rounded mb-2">Wrong</div>
-                @if(!empty($feedback['answers']))
-                    <div class="text-sm text-gray-800 mb-2">Your answer: {{ implode(', ', $feedback['answers']) }}</div>
+                @if(!empty($feedback['answer_sentence']))
+                    <div class="text-sm text-gray-800 mb-2">Your answer: {!! $feedback['answer_sentence'] !!}</div>
                 @endif
                 @if(!empty($feedback['explanations']))
                     <div class="bg-blue-50 text-gray-800 text-sm rounded px-3 py-2 space-y-1">
