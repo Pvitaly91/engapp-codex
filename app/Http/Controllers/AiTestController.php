@@ -151,6 +151,8 @@ class AiTestController extends Controller
         $userAnswers = $request->input('answers', []);
         $correct = true;
         $explanations = [];
+        $givenAnswers = [];
+        $sentenceHtml = e($question['question']);
 
         $provider = session('ai_step.current_provider', session('ai_step.provider', 'chatgpt'));
         $ai = $provider === 'gemini' ? $gemini : $gpt;
@@ -160,10 +162,16 @@ class AiTestController extends Controller
             if (is_array($given)) {
                 $given = implode(' ', $given);
             }
-            if (mb_strtolower(trim($given)) !== mb_strtolower($correctValue)) {
+            $given = trim($given);
+            $givenAnswers[$marker] = $given;
+            $isCorrectAnswer = mb_strtolower($given) === mb_strtolower($correctValue);
+            if (! $isCorrectAnswer) {
                 $correct = false;
                 $explanations[$marker] = $ai->explainWrongAnswer($question['question'], $given, $correctValue);
             }
+            $class = $isCorrectAnswer ? 'text-green-700 font-bold' : 'text-red-700 font-bold';
+            $replacement = '<span class="' . $class . '">' . e($given) . '</span>';
+            $sentenceHtml = str_replace('{' . $marker . '}', $replacement, $sentenceHtml);
         }
 
         $stats = session('ai_step.stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
@@ -203,6 +211,8 @@ class AiTestController extends Controller
             'ai_step.feedback' => [
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
+                'answers' => $givenAnswers,
+                'answer_sentence' => $sentenceHtml,
             ],
             'ai_step.last_question' => $question['question'],
         ]);
