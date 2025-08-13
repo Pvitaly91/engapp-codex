@@ -95,6 +95,18 @@
                 'autocompleteInput' => false,
                 'builderInput' => true,
             ])
+            <div class="mt-2 space-y-2">
+                <div>
+                    <button type="button" id="determine-tense-chatgpt" class="text-xs text-blue-600 underline">Визначити час ChatGPT</button>
+                    <button type="button" id="determine-tense-gemini" class="text-xs text-blue-600 underline ml-2">Визначити час Gemini</button>
+                    <div id="tense-result" class="mt-1 text-sm text-gray-700 space-y-1"></div>
+                </div>
+                <div>
+                    <button type="button" id="determine-level-chatgpt" class="text-xs text-blue-600 underline">Визначити рівень ChatGPT</button>
+                    <button type="button" id="determine-level-gemini" class="text-xs text-blue-600 underline ml-2">Визначити рівень Gemini</button>
+                    <div id="level-result" class="mt-1 text-sm text-gray-700"></div>
+                </div>
+            </div>
             <div class="flex gap-2">
                 <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
                     {{ isset($feedback) ? 'Next' : 'Check' }}
@@ -159,6 +171,88 @@ function builder(route, prefix) {
 }
 @if($question)
 fetch('{{ route('ai-test.next') }}');
+
+const tenseChat = document.getElementById('determine-tense-chatgpt');
+tenseChat.addEventListener('click', () => {
+    fetch('{{ route('ai-test.step.determine-tense') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ provider: 'chatgpt' })
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('tense-result');
+            container.innerHTML = '';
+            if (Array.isArray(d.tags)) {
+                d.tags.forEach(tag => {
+                    const div = document.createElement('div');
+                    div.textContent = tag;
+                    container.appendChild(div);
+                });
+            }
+        });
+});
+
+const tenseGem = document.getElementById('determine-tense-gemini');
+tenseGem.addEventListener('click', () => {
+    fetch('{{ route('ai-test.step.determine-tense') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ provider: 'gemini' })
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('tense-result');
+            container.innerHTML = '';
+            if (Array.isArray(d.tags)) {
+                d.tags.forEach(tag => {
+                    const div = document.createElement('div');
+                    div.textContent = tag;
+                    container.appendChild(div);
+                });
+            }
+        });
+});
+
+const levelChat = document.getElementById('determine-level-chatgpt');
+levelChat.addEventListener('click', () => {
+    fetch('{{ route('ai-test.step.determine-level') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ provider: 'chatgpt' })
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('level-result');
+            container.textContent = d.level || '';
+        });
+});
+
+const levelGem = document.getElementById('determine-level-gemini');
+levelGem.addEventListener('click', () => {
+    fetch('{{ route('ai-test.step.determine-level') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ provider: 'gemini' })
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('level-result');
+            container.textContent = d.level || '';
+        });
+});
 @endif
 </script>
 @endsection
