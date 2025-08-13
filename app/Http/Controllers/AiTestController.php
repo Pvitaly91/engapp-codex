@@ -391,6 +391,28 @@ class AiTestController extends Controller
         return response()->json(['level' => $level]);
     }
 
+    public function addTag(Request $request)
+    {
+        $request->validate([
+            'tag' => 'required|string',
+        ]);
+
+        $tag = Tag::where('name', $request->input('tag'))->first();
+        if (! $tag) {
+            return response()->json(['message' => 'Tag not found'], 404);
+        }
+
+        $tagIds = session('ai_step.tags', []);
+        if (! in_array($tag->id, $tagIds)) {
+            $tagIds[] = $tag->id;
+            session(['ai_step.tags' => $tagIds]);
+        }
+
+        $names = Tag::whereIn('id', $tagIds)->pluck('name');
+
+        return response()->json(['tags' => $names]);
+    }
+
     private function storeQuestion(array $question, array $tagIds): void
     {
         $service = app(QuestionSeedingService::class);
