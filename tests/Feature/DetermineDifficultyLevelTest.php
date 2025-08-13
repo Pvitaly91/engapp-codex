@@ -4,10 +4,10 @@ namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
-use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, Tag};
+use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 use App\Services\{ChatGPTService, GeminiService};
 
-class DetermineTenseTagsTest extends TestCase
+class DetermineDifficultyLevelTest extends TestCase
 {
     private array $migrations = [
         '2025_07_20_143201_create_categories_table.php',
@@ -59,61 +59,54 @@ class DetermineTenseTagsTest extends TestCase
         $answer->question_id = $question->id;
         $answer->save();
 
-        Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
-        Tag::create(['name' => 'Present Simple', 'category' => 'Tenses']);
-        Tag::create(['name' => 'Not Tense']);
-
-        $testModel = Test::create([
+        $test = Test::create([
             'name' => 'sample',
             'slug' => 'sample',
             'filters' => [],
             'questions' => [$question->id],
         ]);
 
-        return [$question, $testModel];
+        return [$question, $test];
     }
 
     /** @test */
-    public function determine_tense_returns_tags_from_chatgpt(): void
+    public function determine_level_returns_level_from_chatgpt(): void
     {
-        [$question, $testModel] = $this->setupDatabase();
+        [$question, $test] = $this->setupDatabase();
 
         $this->mock(ChatGPTService::class, function ($mock) {
-            $mock->shouldReceive('determineTenseTags')
-                ->withArgs(function ($questionText, $tenses) {
-                    return $questionText === 'Q1 {a1}' && $tenses === ['Past Simple', 'Present Simple'];
-                })
+            $mock->shouldReceive('determineDifficulty')
+                ->with('Q1 {a1}')
                 ->once()
-                ->andReturn(['Past Simple', 'Present Simple']);
+                ->andReturn('A1');
         });
 
-        $response = $this->postJson('/test/' . $testModel->slug . '/step/determine-tense', [
+        $response = $this->postJson('/test/' . $test->slug . '/step/determine-level', [
             'question_id' => $question->id,
         ]);
 
         $response->assertStatus(200);
-        $response->assertJson(['tags' => ['Past Simple', 'Present Simple']]);
+        $response->assertJson(['level' => 'A1']);
     }
 
     /** @test */
-    public function determine_tense_returns_tags_from_gemini(): void
+    public function determine_level_returns_level_from_gemini(): void
     {
-        [$question, $testModel] = $this->setupDatabase();
+        [$question, $test] = $this->setupDatabase();
 
         $this->mock(GeminiService::class, function ($mock) {
-            $mock->shouldReceive('determineTenseTags')
-                ->withArgs(function ($questionText, $tenses) {
-                    return $questionText === 'Q1 {a1}' && $tenses === ['Past Simple', 'Present Simple'];
-                })
+            $mock->shouldReceive('determineDifficulty')
+                ->with('Q1 {a1}')
                 ->once()
-                ->andReturn(['Past Simple', 'Present Simple']);
+                ->andReturn('B1');
         });
 
-        $response = $this->postJson('/test/' . $testModel->slug . '/step/determine-tense-gemini', [
+        $response = $this->postJson('/test/' . $test->slug . '/step/determine-level-gemini', [
             'question_id' => $question->id,
         ]);
 
         $response->assertStatus(200);
-        $response->assertJson(['tags' => ['Past Simple', 'Present Simple']]);
+        $response->assertJson(['level' => 'B1']);
     }
 }
+

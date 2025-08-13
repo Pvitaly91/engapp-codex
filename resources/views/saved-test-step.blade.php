@@ -108,9 +108,21 @@
                 <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-block px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
             @endforeach
         </div>
-        <div class="mt-2">
-            <button type="button" id="determine-tense" class="text-xs text-blue-600 underline">Визначити час</button>
-            <div id="tense-result" class="ml-2 text-sm text-gray-700 space-y-1"></div>
+        <div class="mt-2 space-y-2">
+            <div class="space-x-2">
+                <button type="button" id="determine-tense-gpt" class="text-xs text-blue-600 underline">Визначити час ChatGPT</button>
+                <button type="button" id="determine-tense-gemini" class="text-xs text-blue-600 underline">Визначити час Gemini</button>
+            </div>
+            <div class="flex gap-4">
+                <div id="tense-result-gpt" class="text-sm text-gray-700 space-y-1"></div>
+                <div id="tense-result-gemini" class="text-sm text-gray-700 space-y-1"></div>
+            </div>
+            <div class="space-x-2">
+                <button type="button" id="determine-level-gpt" class="text-xs text-blue-600 underline">Визначити рівень ChatGPT</button>
+                <span id="level-result-gpt" class="inline text-sm text-gray-700"></span>
+                <button type="button" id="determine-level-gemini" class="text-xs text-blue-600 underline">Визначити рівень Gemini</button>
+                <span id="level-result-gemini" class="inline text-sm text-gray-700"></span>
+            </div>
         </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
             {{ isset($feedback) ? 'Next' : 'Check' }}
@@ -202,7 +214,7 @@ function addTag(tag) {
         });
 }
 
-document.getElementById('determine-tense').addEventListener('click', () => {
+document.getElementById('determine-tense-gpt').addEventListener('click', () => {
     fetch('{{ route('saved-test.step.determine-tense', $test->slug) }}', {
         method: 'POST',
         headers: {
@@ -213,7 +225,7 @@ document.getElementById('determine-tense').addEventListener('click', () => {
     })
         .then(r => r.json())
         .then(d => {
-            const container = document.getElementById('tense-result');
+            const container = document.getElementById('tense-result-gpt');
             container.innerHTML = '';
             if (Array.isArray(d.tags)) {
                 d.tags.forEach(tag => {
@@ -231,6 +243,70 @@ document.getElementById('determine-tense').addEventListener('click', () => {
                     container.appendChild(wrapper);
                 });
             }
+        });
+});
+
+document.getElementById('determine-tense-gemini').addEventListener('click', () => {
+    fetch('{{ route('saved-test.step.determine-tense-gemini', $test->slug) }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }} })
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('tense-result-gemini');
+            container.innerHTML = '';
+            if (Array.isArray(d.tags)) {
+                d.tags.forEach(tag => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'flex items-center gap-1';
+                    const span = document.createElement('span');
+                    span.textContent = tag;
+                    const btn = document.createElement('button');
+                    btn.textContent = 'Додати тег';
+                    btn.className = 'text-xs text-blue-600 underline';
+                    btn.type = 'button';
+                    btn.addEventListener('click', () => addTag(tag));
+                    wrapper.appendChild(span);
+                    wrapper.appendChild(btn);
+                    container.appendChild(wrapper);
+                });
+            }
+        });
+});
+
+document.getElementById('determine-level-gpt').addEventListener('click', () => {
+    fetch('{{ route('saved-test.step.determine-level', $test->slug) }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }} })
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('level-result-gpt');
+            container.textContent = d.level ? 'ChatGPT: ' + d.level : '';
+        });
+});
+
+document.getElementById('determine-level-gemini').addEventListener('click', () => {
+    fetch('{{ route('saved-test.step.determine-level-gemini', $test->slug) }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }} })
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('level-result-gemini');
+            container.textContent = d.level ? 'Gemini: ' + d.level : '';
         });
 });
 </script>

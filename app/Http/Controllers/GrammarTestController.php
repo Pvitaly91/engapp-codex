@@ -258,6 +258,61 @@ class GrammarTestController extends Controller
         return response()->json(['tags' => $suggested]);
     }
 
+    public function determineTenseGemini(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
+        $gemini = app(\App\Services\GeminiService::class);
+        $suggested = $gemini->determineTenseTags($question->question, $tags);
+
+        return response()->json(['tags' => $suggested]);
+    }
+
+    public function determineLevel(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $gpt = app(\App\Services\ChatGPTService::class);
+        $level = $gpt->determineDifficulty($question->question);
+
+        return response()->json(['level' => $level]);
+    }
+
+    public function determineLevelGemini(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $gemini = app(\App\Services\GeminiService::class);
+        $level = $gemini->determineDifficulty($question->question);
+
+        return response()->json(['level' => $level]);
+    }
+
     public function addTag(Request $request, $slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();

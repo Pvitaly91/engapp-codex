@@ -186,6 +186,37 @@ class ChatGPTService
         return [];
     }
 
+    public function determineDifficulty(string $question): string
+    {
+        $key = config('services.chatgpt.key');
+        if (empty($key)) {
+            Log::warning('ChatGPT API key not configured');
+            return '';
+        }
+
+        $prompt = "Question: {$question}\n" .
+            "Classify its CEFR difficulty level (A1, A2, B1, B2, C1, C2).\n" .
+            "Respond with one level code.";
+
+        try {
+            $client = \OpenAI::client($key);
+            $result = $client->chat()->create([
+                'model' => 'gpt-5',
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+            ]);
+
+            $response = trim($result->choices[0]->message->content);
+            $levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+            return in_array($response, $levels, true) ? $response : '';
+        } catch (Exception $e) {
+            Log::warning('ChatGPT determine difficulty failed: ' . $e->getMessage());
+        }
+
+        return '';
+    }
+
     /**
      * Generate a detailed description of what to do in a test based on its questions.
      * The description should include a short explanation of the grammar rule that

@@ -64,6 +64,9 @@ Route::post('/test/{slug}/refresh-description-gemini', [GrammarTestController::c
 Route::post('/test/{slug}/step/check', [GrammarTestController::class, 'checkSavedTestStep'])->name('saved-test.step.check');
 Route::post('/test/{slug}/step/reset', [GrammarTestController::class, 'resetSavedTestStep'])->name('saved-test.step.reset');
 Route::post('/test/{slug}/step/determine-tense', [GrammarTestController::class, 'determineTense'])->name('saved-test.step.determine-tense');
+Route::post('/test/{slug}/step/determine-tense-gemini', [GrammarTestController::class, 'determineTenseGemini'])->name('saved-test.step.determine-tense-gemini');
+Route::post('/test/{slug}/step/determine-level', [GrammarTestController::class, 'determineLevel'])->name('saved-test.step.determine-level');
+Route::post('/test/{slug}/step/determine-level-gemini', [GrammarTestController::class, 'determineLevelGemini'])->name('saved-test.step.determine-level-gemini');
 Route::post('/test/{slug}/step/add-tag', [GrammarTestController::class, 'addTag'])->name('saved-test.step.add-tag');
 Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
@@ -79,6 +82,10 @@ Route::post('/ai-test/check', [AiTestController::class, 'check'])->name('ai-test
 Route::post('/ai-test/skip', [AiTestController::class, 'skip'])->name('ai-test.skip');
 Route::post('/ai-test/reset', [AiTestController::class, 'reset'])->name('ai-test.reset');
 Route::post('/ai-test/provider', [AiTestController::class, 'provider'])->name('ai-test.provider');
+Route::post('/ai-test/step/determine-tense', [AiTestController::class, 'determineTense'])->name('ai-test.step.determine-tense');
+Route::post('/ai-test/step/determine-tense-gemini', [AiTestController::class, 'determineTenseGemini'])->name('ai-test.step.determine-tense-gemini');
+Route::post('/ai-test/step/determine-level', [AiTestController::class, 'determineLevel'])->name('ai-test.step.determine-level');
+Route::post('/ai-test/step/determine-level-gemini', [AiTestController::class, 'determineLevelGemini'])->name('ai-test.step.determine-level-gemini');
 
 use App\Http\Controllers\QuestionReviewController;
 Route::get('/question-review', [QuestionReviewController::class, 'index'])->name('question-review.index');

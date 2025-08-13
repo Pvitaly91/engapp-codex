@@ -341,6 +341,56 @@ class AiTestController extends Controller
         return redirect()->route('ai-test.step');
     }
 
+    public function determineTense(ChatGPTService $gpt)
+    {
+        $question = session('ai_step.current_question');
+        if (! $question) {
+            return response()->json(['tags' => []], 400);
+        }
+
+        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
+        $suggested = $gpt->determineTenseTags($question['question'], $tags);
+
+        return response()->json(['tags' => $suggested]);
+    }
+
+    public function determineTenseGemini(GeminiService $gemini)
+    {
+        $question = session('ai_step.current_question');
+        if (! $question) {
+            return response()->json(['tags' => []], 400);
+        }
+
+        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
+        $suggested = $gemini->determineTenseTags($question['question'], $tags);
+
+        return response()->json(['tags' => $suggested]);
+    }
+
+    public function determineLevel(ChatGPTService $gpt)
+    {
+        $question = session('ai_step.current_question');
+        if (! $question) {
+            return response()->json(['level' => null], 400);
+        }
+
+        $level = $gpt->determineDifficulty($question['question']);
+
+        return response()->json(['level' => $level]);
+    }
+
+    public function determineLevelGemini(GeminiService $gemini)
+    {
+        $question = session('ai_step.current_question');
+        if (! $question) {
+            return response()->json(['level' => null], 400);
+        }
+
+        $level = $gemini->determineDifficulty($question['question']);
+
+        return response()->json(['level' => $level]);
+    }
+
     private function storeQuestion(array $question, array $tagIds): void
     {
         $service = app(QuestionSeedingService::class);
