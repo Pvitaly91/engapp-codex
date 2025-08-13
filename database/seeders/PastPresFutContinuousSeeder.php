@@ -28,21 +28,21 @@ class PastPresFutContinuousSeeder extends Seeder
         $tests = [
             'A' => [
                 [
-                    'question' => 'Ann: Hi, Jane. What {a1}?',
+                    'question' => 'Ann: Hi, Jane. What {a1}? Jane: Hallo, Ann.',
                     'answers' => [
-                        ['marker' => 'a1', 'answer' => 'are you doing', 'verb_hint' => 'do'],
+                        ['marker' => 'a1', 'answer' => 'are you doing', 'verb_hint' => 'what/do'],
                     ],
                     'options' => [],
                 ],
                 [
-                    'question' => 'Jane: Hallo, Ann. I {a1} for my sister to pick me up.',
+                    'question' => "Jane: Hallo, Ann. I {a1} for my sister to pick me up. Ann: Why doesn't your dad pick you up like usual? Jane: Oh, he had an accident two days ago. Ann: Really? I'm sorry to hear that. How is your dad's condition now?",
                     'answers' => [
                         ['marker' => 'a1', 'answer' => 'am waiting', 'verb_hint' => 'wait'],
                     ],
                     'options' => [],
                 ],
                 [
-                    'question' => 'Jane: When the doctor {a1} and {a2} him, I {a3} and my mom was very restless.',
+                    'question' => "Jane: When the doctor {a1} and {a2} him, I {a3} and my mom was very restless. Praise God, it's better now. Ann: I pray he gets well soon. Jane: Thanks, Ann.",
                     'answers' => [
                         ['marker' => 'a1', 'answer' => 'was examining', 'verb_hint' => 'examine'],
                         ['marker' => 'a2', 'answer' => 'was treating', 'verb_hint' => 'treat'],
