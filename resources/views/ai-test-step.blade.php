@@ -64,6 +64,10 @@
         </div>
     @endif
 
+    @php
+        $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
+    @endphp
+
     @if($question)
         <p><strong>Tenses:</strong> {{implode(",",$tenseNames)}}</p>
         <p><strong>Refferance:</strong> {{session('ai_step.refferance')}}</p>
@@ -97,6 +101,11 @@
                 'autocompleteInput' => false,
                 'builderInput' => true,
             ])
+            <div id="question-tags" class="mt-1 space-x-1">
+                @foreach($tenseNames as $tag)
+                    <span class="inline-block px-2 py-0.5 rounded text-xs font-semibold {{ $colors[$loop->index % count($colors)] }}">{{ $tag }}</span>
+                @endforeach
+            </div>
             <div class="mt-2 space-y-2">
                 <div class="space-x-2">
                     <button type="button" id="determine-tense-gpt" class="text-xs text-blue-600 underline">Визначити час ChatGPT</button>
@@ -176,6 +185,36 @@ function builder(route, prefix) {
     }
 }
 
+const tagColors = @json($colors);
+
+function renderTags(tags) {
+    const container = document.getElementById('question-tags');
+    container.innerHTML = '';
+    tags.forEach((name, index) => {
+        const span = document.createElement('span');
+        span.className = 'inline-block px-2 py-0.5 rounded text-xs font-semibold ' + tagColors[index % tagColors.length];
+        span.textContent = name;
+        container.appendChild(span);
+    });
+}
+
+function addTag(tag) {
+    fetch('{{ route('ai-test.step.add-tag') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({tag})
+    })
+        .then(r => r.json())
+        .then(d => {
+            if (Array.isArray(d.tags)) {
+                renderTags(d.tags);
+            }
+        });
+}
+
 document.getElementById('determine-tense-gpt').addEventListener('click', () => {
     fetch('{{ route('ai-test.step.determine-tense') }}', {
         method: 'POST',
@@ -190,9 +229,18 @@ document.getElementById('determine-tense-gpt').addEventListener('click', () => {
             container.innerHTML = '';
             if (Array.isArray(d.tags)) {
                 d.tags.forEach(tag => {
-                    const div = document.createElement('div');
-                    div.textContent = tag;
-                    container.appendChild(div);
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'flex items-center gap-1';
+                    const span = document.createElement('span');
+                    span.textContent = tag;
+                    const btn = document.createElement('button');
+                    btn.textContent = 'Додати тег';
+                    btn.className = 'text-xs text-blue-600 underline';
+                    btn.type = 'button';
+                    btn.addEventListener('click', () => addTag(tag));
+                    wrapper.appendChild(span);
+                    wrapper.appendChild(btn);
+                    container.appendChild(wrapper);
                 });
             }
         });
@@ -212,9 +260,18 @@ document.getElementById('determine-tense-gemini').addEventListener('click', () =
             container.innerHTML = '';
             if (Array.isArray(d.tags)) {
                 d.tags.forEach(tag => {
-                    const div = document.createElement('div');
-                    div.textContent = tag;
-                    container.appendChild(div);
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'flex items-center gap-1';
+                    const span = document.createElement('span');
+                    span.textContent = tag;
+                    const btn = document.createElement('button');
+                    btn.textContent = 'Додати тег';
+                    btn.className = 'text-xs text-blue-600 underline';
+                    btn.type = 'button';
+                    btn.addEventListener('click', () => addTag(tag));
+                    wrapper.appendChild(span);
+                    wrapper.appendChild(btn);
+                    container.appendChild(wrapper);
                 });
             }
         });
