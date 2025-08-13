@@ -5,6 +5,9 @@ namespace App\Services;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use App\Models\ChatGPTExplanation;
+use App\Models\Question;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class ChatGPTService
 {
@@ -252,22 +255,27 @@ class ChatGPTService
      * Each question should contain the specified number of missing words
      * marked as {a1}, {a2}, ... and return JSON with the correct answers.
      */
-    public function generateGrammarQuestions(array $tenses, int $numQuestions = 1, int $answersCount = 1, string $model = 'random'): array
+    public function generateGrammarQuestions(array $tenses, int $numQuestions = 1, int $answersCount = 1, string $model = 'random', string $question = ''): array
     {
         $key = config('services.chatgpt.key');
         if (empty($key)) {
             Log::warning('ChatGPT API key not configured');
             return [];
         }
-
-        // Allow up to 10 blanks per question instead of hard-capping at 3
-        $answersCount = max(1, min(10, $answersCount));
-        $tensesText = implode(', ', $tenses);
+         $max = DB::table('question_answers')
+        ->selectRaw('MAX(CAST(SUBSTRING(marker, 2) AS UNSIGNED)) as max_n')
+        ->value('max_n');
+   
+        $answersCount = max(1, min($max, $answersCount));
+       // $tensesText = Arr::random($tenses); 
+        $tensesText = implode(",",$tenses);
+    
         $prompt = "Generate {$numQuestions} short English grammar questions for the following tenses: {$tensesText}. " .
-            "Each question must contain {$answersCount} missing word(s) represented as {a1}, {a2}, ... . " .
+            "based on this question: ".$question
+            ."Each question must contain {$answersCount} missing word(s) represented as {a1}, {a2}, ... . " .
             "Provide the base form of each missing verb as verb_hints. " .
             "Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}, \"verb_hints\":{\"a1\":\"go\"}}].";
-
+      
         try {
             $models = self::availableModels();
             if ($model === 'random' || ! in_array($model, $models, true)) {
@@ -312,9 +320,9 @@ class ChatGPTService
     /**
      * Convenience wrapper to generate a single grammar question.
      */
-    public function generateGrammarQuestion(array $tenses, int $answersCount = 1, string $model = 'random'): ?array
+    public function generateGrammarQuestion(array $tenses, int $answersCount = 1, string $model = 'random',string $refferance): ?array
     {
-        $all = $this->generateGrammarQuestions($tenses, 1, $answersCount, $model);
+        $all = $this->generateGrammarQuestions($tenses, 1, $answersCount, $model, $refferance);
         return $all[0] ?? null;
     }
 }

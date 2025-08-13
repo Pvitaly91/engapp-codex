@@ -24,11 +24,11 @@
             @endforeach
         </div>
         <div>
-            <label class="block font-bold mb-1">Number of blanks (min and max up to 10):</label>
+            <label class="block font-bold mb-1">Number of blanks (min and max up to {{$max}}):</label>
             <div class="flex items-center gap-2">
-                <input type="number" name="answers_min" value="1" class="border rounded p-1 w-24" min="1" max="10">
+                <input type="number" name="answers_min" value="1" class="border rounded p-1 w-24" min="1" max="{{$max}}">
                 <span>-</span>
-                <input type="number" name="answers_max" value="1" class="border rounded p-1 w-24" min="1" max="10">
+                <input type="number" name="answers_max" value="1" class="border rounded p-1 w-24" min="1" max="{{$max}}">
             </div>
         </div>
         <div>

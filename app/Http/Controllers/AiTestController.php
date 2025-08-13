@@ -11,6 +11,7 @@ use App\Models\Word;
 use Illuminate\Support\Str;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
+use Illuminate\Support\Facades\DB;
 
 class AiTestController extends Controller
 {
@@ -22,15 +23,24 @@ class AiTestController extends Controller
             ->get()
             ->groupBy('category');
         $models = ChatGPTService::availableModels();
-        return view('ai-test-form', compact('tags', 'models'));
+        $max = DB::table('question_answers')
+        ->selectRaw('MAX(CAST(SUBSTRING(marker, 2) AS UNSIGNED)) as max_n')
+        ->value('max_n');
+
+        return view('ai-test-form', compact('tags', 'models','max'));
     }
 
     public function start(Request $request)
     {
+
+         $max = DB::table('question_answers')
+        ->selectRaw('MAX(CAST(SUBSTRING(marker, 2) AS UNSIGNED)) as max_n')
+        ->value('max_n');
+
         $rules = [
             'tags' => 'required|array|min:1',
-            'answers_min' => 'required|integer|min:1|max:10',
-            'answers_max' => 'required|integer|min:1|max:10|gte:answers_min',
+            'answers_min' => 'required|integer|min:1|max:'.$max,
+            'answers_max' => 'required|integer|min:1|max:'.$max.'|gte:answers_min',
             'provider' => 'required|in:chatgpt,gemini,mixed',
         ];
         if ($request->input('provider') === 'chatgpt') {
@@ -42,13 +52,13 @@ class AiTestController extends Controller
         $topic = Tag::whereIn('id', $tagIds)->pluck('name')->implode(', ');
 
         $min = (int) $validated['answers_min'];
-        $max = (int) $validated['answers_max'];
+      
         $provider = $validated['provider'];
         $model = $provider === 'chatgpt' ? $validated['model'] : 'random';
 
         session([
             'ai_step.tags' => $tagIds,
-            'ai_step.answers_range' => [$min, $max],
+            'ai_step.answers_range' => [$min, $validated['answers_max']],
             'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
             'ai_step.current_question' => null,
             'ai_step.next_question' => null,
@@ -64,14 +74,23 @@ class AiTestController extends Controller
 
         return redirect()->route('ai-test.step');
     }
+    public function getRefferance($answersCount){
 
+        $randomRow = DB::table('question_answers')
+                    ->select(["question_id"])
+                    ->where('marker', 'a' . $answersCount)
+                    ->inRandomOrder()
+                    ->first();
+         return \App\Models\Question::find($randomRow->question_id)->question;
+    }
     public function step(ChatGPTService $gpt, GeminiService $gemini)
     {
+
         $tagIds = session('ai_step.tags');
         if (!$tagIds) {
             return redirect()->route('ai-test.form');
         }
-
+        $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
         $providerSetting = session('ai_step.provider', 'chatgpt');
         $question = session('ai_step.current_question');
         $currentProvider = session('ai_step.current_provider');
@@ -97,17 +116,21 @@ class AiTestController extends Controller
                     session(['ai_step.current_provider' => $providerSetting]);
                 }
 
-                $tenseNames = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
+               
                 $range = session('ai_step.answers_range', [1, 1]);
+              
                 $answersCount = random_int($range[0], $range[1]);
                 $lastQuestion = session('ai_step.last_question');
                 $attempts = 0;
+                $refferance = $this->getRefferance($answersCount);
+                session(['ai_step.refferance' => $refferance]);
+      
                 do {
                     if ($currentProvider === 'gemini') {
                         $question = $gemini->generateGrammarQuestion($tenseNames, $answersCount);
                     } else {
                         $model = session('ai_step.model') ?? 'random';
-                        $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model);
+                        $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model,$refferance);
                     }
                     $attempts++;
                 } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
@@ -125,6 +148,7 @@ class AiTestController extends Controller
         session()->forget('ai_step.feedback');
 
         return view('ai-test-step', [
+            'tenseNames' => $tenseNames,
             'question' => $question,
             'stats' => $stats,
             'percentage' => $percentage,
@@ -284,12 +308,15 @@ class AiTestController extends Controller
         $lastQuestion = session('ai_step.last_question');
         $attempts = 0;
         $question = null;
+
+        $refferance = $this->getRefferance($answersCount);
+        session(['ai_step.refferance' => $refferance]);
         do {
             if ($provider === 'gemini') {
                 $question = $gemini->generateGrammarQuestion($tenseNames, $answersCount);
             } else {
                 $model = session('ai_step.model') ?? 'random';
-                $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model);
+                $question = $gpt->generateGrammarQuestion($tenseNames, $answersCount, $model,$refferance);
             }
             $attempts++;
         } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);

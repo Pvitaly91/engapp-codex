@@ -65,6 +65,8 @@
     @endif
 
     @if($question)
+        <p><strong>Tenses:</strong> {{implode(",",$tenseNames)}}</p>
+        <p><strong>Refferance:</strong> {{session('ai_step.refferance')}}</p>
         <form method="POST" action="{{ route('ai-test.check') }}" class="space-y-4">
             @csrf
             @php
