@@ -64,6 +64,8 @@ Route::post('/test/{slug}/refresh-description-gemini', [GrammarTestController::c
 Route::post('/test/{slug}/step/check', [GrammarTestController::class, 'checkSavedTestStep'])->name('saved-test.step.check');
 Route::post('/test/{slug}/step/reset', [GrammarTestController::class, 'resetSavedTestStep'])->name('saved-test.step.reset');
 Route::post('/test/{slug}/step/determine-tense', [GrammarTestController::class, 'determineTense'])->name('saved-test.step.determine-tense');
+Route::post('/test/{slug}/step/determine-level', [GrammarTestController::class, 'determineLevel'])->name('saved-test.step.determine-level');
+Route::post('/test/{slug}/step/determine-level-gemini', [GrammarTestController::class, 'determineLevelGemini'])->name('saved-test.step.determine-level-gemini');
 Route::post('/test/{slug}/step/add-tag', [GrammarTestController::class, 'addTag'])->name('saved-test.step.add-tag');
 Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');

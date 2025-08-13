@@ -58,6 +58,24 @@ class GeminiService
         return $this->request($prompt) ?? '';
     }
 
+    public function determineDifficulty(string $question): string
+    {
+        $prompt = "Question: {$question}\n" .
+            "Classify its CEFR difficulty level (A1, A2, B1, B2, C1, C2).\n" .
+            "Respond with one level code.";
+
+        $response = $this->request($prompt);
+        if (! $response) {
+            return '';
+        }
+
+        if (preg_match('/A1|A2|B1|B2|C1|C2/', $response, $m)) {
+            return $m[0];
+        }
+
+        return '';
+    }
+
     public function generateGrammarQuestions(array $tenses, int $numQuestions = 1, int $answersCount = 1): array
     {
         $answersCount = max(1, min(10, $answersCount));
