@@ -97,6 +97,22 @@
                 'autocompleteInput' => false,
                 'builderInput' => true,
             ])
+            <div class="mt-2 space-y-2">
+                <div class="space-x-2">
+                    <button type="button" id="determine-tense-gpt" class="text-xs text-blue-600 underline">Визначити час ChatGPT</button>
+                    <button type="button" id="determine-tense-gemini" class="text-xs text-blue-600 underline">Визначити час Gemini</button>
+                </div>
+                <div class="flex gap-4">
+                    <div id="tense-result-gpt" class="text-sm text-gray-700 space-y-1"></div>
+                    <div id="tense-result-gemini" class="text-sm text-gray-700 space-y-1"></div>
+                </div>
+                <div class="space-x-2">
+                    <button type="button" id="determine-level-gpt" class="text-xs text-blue-600 underline">Визначити рівень ChatGPT</button>
+                    <span id="level-result-gpt" class="inline text-sm text-gray-700"></span>
+                    <button type="button" id="determine-level-gemini" class="text-xs text-blue-600 underline">Визначити рівень Gemini</button>
+                    <span id="level-result-gemini" class="inline text-sm text-gray-700"></span>
+                </div>
+            </div>
             <div class="flex gap-2">
                 <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
                     {{ isset($feedback) ? 'Next' : 'Check' }}
@@ -159,6 +175,81 @@ function builder(route, prefix) {
         }
     }
 }
+
+document.getElementById('determine-tense-gpt').addEventListener('click', () => {
+    fetch('{{ route('ai-test.step.determine-tense') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('tense-result-gpt');
+            container.innerHTML = '';
+            if (Array.isArray(d.tags)) {
+                d.tags.forEach(tag => {
+                    const div = document.createElement('div');
+                    div.textContent = tag;
+                    container.appendChild(div);
+                });
+            }
+        });
+});
+
+document.getElementById('determine-tense-gemini').addEventListener('click', () => {
+    fetch('{{ route('ai-test.step.determine-tense-gemini') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('tense-result-gemini');
+            container.innerHTML = '';
+            if (Array.isArray(d.tags)) {
+                d.tags.forEach(tag => {
+                    const div = document.createElement('div');
+                    div.textContent = tag;
+                    container.appendChild(div);
+                });
+            }
+        });
+});
+
+document.getElementById('determine-level-gpt').addEventListener('click', () => {
+    fetch('{{ route('ai-test.step.determine-level') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('level-result-gpt');
+            container.textContent = d.level ? 'ChatGPT: ' + d.level : '';
+        });
+});
+
+document.getElementById('determine-level-gemini').addEventListener('click', () => {
+    fetch('{{ route('ai-test.step.determine-level-gemini') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    })
+        .then(r => r.json())
+        .then(d => {
+            const container = document.getElementById('level-result-gemini');
+            container.textContent = d.level ? 'Gemini: ' + d.level : '';
+        });
+});
+
 @if($question)
 fetch('{{ route('ai-test.next') }}');
 @endif

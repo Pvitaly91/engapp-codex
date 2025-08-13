@@ -82,6 +82,10 @@ Route::post('/ai-test/check', [AiTestController::class, 'check'])->name('ai-test
 Route::post('/ai-test/skip', [AiTestController::class, 'skip'])->name('ai-test.skip');
 Route::post('/ai-test/reset', [AiTestController::class, 'reset'])->name('ai-test.reset');
 Route::post('/ai-test/provider', [AiTestController::class, 'provider'])->name('ai-test.provider');
+Route::post('/ai-test/step/determine-tense', [AiTestController::class, 'determineTense'])->name('ai-test.step.determine-tense');
+Route::post('/ai-test/step/determine-tense-gemini', [AiTestController::class, 'determineTenseGemini'])->name('ai-test.step.determine-tense-gemini');
+Route::post('/ai-test/step/determine-level', [AiTestController::class, 'determineLevel'])->name('ai-test.step.determine-level');
+Route::post('/ai-test/step/determine-level-gemini', [AiTestController::class, 'determineLevelGemini'])->name('ai-test.step.determine-level-gemini');
 
 use App\Http\Controllers\QuestionReviewController;
 Route::get('/question-review', [QuestionReviewController::class, 'index'])->name('question-review.index');
