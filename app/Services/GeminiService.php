@@ -127,6 +127,37 @@ class GeminiService
         return $all[0] ?? null;
     }
 
+    public function determineTenseTags(string $question, array $tags): array
+    {
+        if (empty($tags)) {
+            return [];
+        }
+
+        $tagsList = implode(', ', $tags);
+        $prompt = "Question: {$question}\nChoose all appropriate tenses from this list: {$tagsList}.\nRespond with a comma-separated list of tag names.";
+
+        $text = $this->request($prompt);
+        if (!$text) {
+            return [];
+        }
+
+        $parts = array_filter(array_map('trim', explode(',', $text)));
+        return array_values(array_intersect($tags, $parts));
+    }
+
+    public function determineLevel(string $question): string
+    {
+        $prompt = "Question: {$question}\nDetermine the CEFR English level (A1, A2, B1, B2, C1, C2) of the question. Respond with just the level.";
+        $text = $this->request($prompt);
+        if (!$text) {
+            return '';
+        }
+
+        $level = strtoupper(trim($text));
+        $allowed = ['A1','A2','B1','B2','C1','C2'];
+        return in_array($level, $allowed, true) ? $level : '';
+    }
+
     public function generateTestDescription(array $questions, ?string $lang = null): string
     {
         $lang = $lang ?? 'uk';

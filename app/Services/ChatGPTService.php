@@ -186,7 +186,7 @@ class ChatGPTService
         return [];
     }
 
-    public function determineDifficulty(string $question): string
+    public function determineLevel(string $question): string
     {
         $key = config('services.chatgpt.key');
         if (empty($key)) {
@@ -194,9 +194,7 @@ class ChatGPTService
             return '';
         }
 
-        $prompt = "Question: {$question}\n" .
-            "Classify its CEFR difficulty level (A1, A2, B1, B2, C1, C2).\n" .
-            "Respond with one level code.";
+        $prompt = "Question: {$question}\nDetermine the CEFR English level (A1, A2, B1, B2, C1, C2) of the question. Respond with just the level.";
 
         try {
             $client = \OpenAI::client($key);
@@ -207,11 +205,11 @@ class ChatGPTService
                 ],
             ]);
 
-            $response = trim($result->choices[0]->message->content);
-            $levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
-            return in_array($response, $levels, true) ? $response : '';
+            $level = strtoupper(trim($result->choices[0]->message->content));
+            $allowed = ['A1','A2','B1','B2','C1','C2'];
+            return in_array($level, $allowed, true) ? $level : '';
         } catch (Exception $e) {
-            Log::warning('ChatGPT determine difficulty failed: ' . $e->getMessage());
+            Log::warning('ChatGPT determine level failed: ' . $e->getMessage());
         }
 
         return '';

@@ -287,6 +287,43 @@ class AiTestController extends Controller
         return redirect()->route('ai-test.form');
     }
 
+    public function determineTense(Request $request, ChatGPTService $gpt, GeminiService $gemini)
+    {
+        $question = session('ai_step.current_question');
+        if (!$question) {
+            return response()->json(['tags' => []]);
+        }
+
+        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
+        $provider = $request->input('provider', 'chatgpt');
+
+        if ($provider === 'gemini') {
+            $suggested = $gemini->determineTenseTags($question['question'], $tags);
+        } else {
+            $suggested = $gpt->determineTenseTags($question['question'], $tags);
+        }
+
+        return response()->json(['tags' => $suggested]);
+    }
+
+    public function determineLevel(Request $request, ChatGPTService $gpt, GeminiService $gemini)
+    {
+        $question = session('ai_step.current_question');
+        if (!$question) {
+            return response()->json(['level' => '']);
+        }
+
+        $provider = $request->input('provider', 'chatgpt');
+
+        if ($provider === 'gemini') {
+            $level = $gemini->determineLevel($question['question']);
+        } else {
+            $level = $gpt->determineLevel($question['question']);
+        }
+
+        return response()->json(['level' => $level]);
+    }
+
     public function next(ChatGPTService $gpt, GeminiService $gemini)
     {
         $tagIds = session('ai_step.tags');
