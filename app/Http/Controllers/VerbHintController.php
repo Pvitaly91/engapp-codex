@@ -44,8 +44,20 @@ class VerbHintController extends Controller
             $verbHint->option_id = $newOption->id;
             $verbHint->save();
         } else {
-            $option->option = $newHint;
-            $option->save();
+            $existingOption = QuestionOption::where('option', $newHint)->first();
+
+            if ($existingOption) {
+                $question->options()->updateExistingPivot($option->id, ['flag' => 1]);
+                $question->options()->attach($existingOption->id, ['flag' => 1]);
+
+                $verbHint->option_id = $existingOption->id;
+                $verbHint->save();
+
+                $option->delete();
+            } else {
+                $option->option = $newHint;
+                $option->save();
+            }
         }
 
         return redirect($redirectTo);
