@@ -132,6 +132,13 @@ function builder(route, prefix) {
             this.suggestions.push([]);
             this.valid.push(false);
         },
+        removeWord() {
+            if (this.words.length > 1) {
+                this.words.pop();
+                this.suggestions.pop();
+                this.valid.pop();
+            }
+        },
         completeWord(index) {
             if (this.words[index].trim() !== '' && this.valid[index]) {
                 if (index === this.words.length - 1) {
@@ -217,6 +224,7 @@ document.getElementById('determine-tense').addEventListener('click', () => {
                     const btn = document.createElement('button');
                     btn.textContent = 'Додати тег';
                     btn.className = 'text-xs text-blue-600 underline';
+                    btn.type = 'button';
                     btn.addEventListener('click', () => addTag(tag));
                     wrapper.appendChild(span);
                     wrapper.appendChild(btn);

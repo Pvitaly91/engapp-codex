@@ -67,6 +67,7 @@ HTML;
         </div>
     </template>
     <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last  h-[28px]" style="line-height: 0">+</button>
+    <button type="button" x-show="words.length > 1" @click="removeWord" class="bg-gray-200 px-2 py-1 rounded order-last  h-[28px]" style="line-height: 0">-</button>
 </div>
 HTML;
         } elseif($method === 'text') {

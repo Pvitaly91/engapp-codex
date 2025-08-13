@@ -59,6 +59,7 @@
                     </div>
                 </template>
                 <button type="button" @click="addWord" class="bg-gray-200 px-2 py-1 rounded order-last ml-[3px]">+</button>
+                <button type="button" x-show="words.length > 1" @click="removeWord" class="bg-gray-200 px-2 py-1 rounded order-last ml-[3px]">-</button>
             </div>
             <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition">
                 {{ $attempts > 0 ? 'Submit' : 'Check' }}
@@ -74,6 +75,13 @@
                         this.words.push('');
                         this.suggestions.push([]);
                         this.valid.push(false);
+                    },
+                    removeWord() {
+                        if (this.words.length > 1) {
+                            this.words.pop();
+                            this.suggestions.pop();
+                            this.valid.pop();
+                        }
                     },
                     completeWord(index) {
                         if (this.words[index].trim() !== '' && this.valid[index]) {

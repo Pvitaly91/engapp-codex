@@ -92,6 +92,13 @@ function builder(route, prefix) {
             this.suggestions.push([]);
             this.valid.push(false);
         },
+        removeWord() {
+            if (this.words.length > 1) {
+                this.words.pop();
+                this.suggestions.pop();
+                this.valid.pop();
+            }
+        },
         completeWord(index) {
             if (this.words[index].trim() !== '' && this.valid[index]) {
                 if (index === this.words.length - 1) {
