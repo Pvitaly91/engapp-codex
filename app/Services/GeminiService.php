@@ -76,6 +76,27 @@ class GeminiService
         return '';
     }
 
+    public function determineTenseTags(string $question, array $tags): array
+    {
+        if (empty($tags)) {
+            return [];
+        }
+
+        $tagsList = implode(', ', $tags);
+        $prompt = "Question: {$question}\n" .
+            "Choose all appropriate tenses from this list: {$tagsList}.\n" .
+            "Respond with a comma-separated list of tag names.";
+
+        $response = $this->request($prompt);
+        if (! $response) {
+            return [];
+        }
+
+        $parts = array_filter(array_map('trim', explode(',', $response)));
+
+        return array_values(array_intersect($tags, $parts));
+    }
+
     public function generateGrammarQuestions(array $tenses, int $numQuestions = 1, int $answersCount = 1): array
     {
         $answersCount = max(1, min(10, $answersCount));

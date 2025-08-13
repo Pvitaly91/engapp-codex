@@ -258,6 +258,25 @@ class GrammarTestController extends Controller
         return response()->json(['tags' => $suggested]);
     }
 
+    public function determineTenseGemini(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
+        $gemini = app(\App\Services\GeminiService::class);
+        $suggested = $gemini->determineTenseTags($question->question, $tags);
+
+        return response()->json(['tags' => $suggested]);
+    }
+
     public function determineLevel(Request $request, $slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();

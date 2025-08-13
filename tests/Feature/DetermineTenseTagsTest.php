@@ -5,32 +5,33 @@ namespace Tests\Feature;
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, Tag};
-use App\Services\ChatGPTService;
+use App\Services\{ChatGPTService, GeminiService};
 
 class DetermineTenseTagsTest extends TestCase
 {
-    /** @test */
-    public function determine_tense_returns_tags_from_chatgpt(): void
+    private array $migrations = [
+        '2025_07_20_143201_create_categories_table.php',
+        '2025_07_20_143210_create_quastion_table.php',
+        '2025_07_20_143230_create_quastion_options_table.php',
+        '2025_07_20_143243_create_quastion_answers_table.php',
+        '2025_07_20_164021_add_verb_hint_to_question_answers.php',
+        '2025_07_20_180521_add_flag_to_question_table.php',
+        '2025_07_20_193626_add_source_to_qustion_table.php',
+        '2025_07_27_000001_add_unique_index_to_question_answers.php',
+        '2025_07_28_000002_create_verb_hints_table.php',
+        '2025_07_29_000001_create_question_option_question_table.php',
+        '2025_07_30_000001_create_tags_table.php',
+        '2025_07_30_000003_create_question_tag_table.php',
+        '2025_07_31_000002_add_uuid_to_questions_table.php',
+        '2025_07_20_184450_create_tests_table.php',
+        '2025_08_01_000001_add_category_to_tags_table.php',
+        '2025_08_04_000002_add_description_to_tests_table.php',
+    ];
+
+    private function setupDatabase(): array
     {
-        $migrations = [
-            '2025_07_20_143201_create_categories_table.php',
-            '2025_07_20_143210_create_quastion_table.php',
-            '2025_07_20_143230_create_quastion_options_table.php',
-            '2025_07_20_143243_create_quastion_answers_table.php',
-            '2025_07_20_164021_add_verb_hint_to_question_answers.php',
-            '2025_07_20_180521_add_flag_to_question_table.php',
-            '2025_07_20_193626_add_source_to_qustion_table.php',
-            '2025_07_27_000001_add_unique_index_to_question_answers.php',
-            '2025_07_28_000002_create_verb_hints_table.php',
-            '2025_07_29_000001_create_question_option_question_table.php',
-            '2025_07_30_000001_create_tags_table.php',
-            '2025_07_30_000003_create_question_tag_table.php',
-            '2025_07_31_000002_add_uuid_to_questions_table.php',
-            '2025_07_20_184450_create_tests_table.php',
-            '2025_08_01_000001_add_category_to_tags_table.php',
-            '2025_08_04_000002_add_description_to_tests_table.php',
-        ];
-        foreach ($migrations as $file) {
+        Artisan::call('migrate:reset');
+        foreach ($this->migrations as $file) {
             Artisan::call('migrate', ['--path' => 'database/migrations/' . $file]);
         }
 
@@ -69,6 +70,14 @@ class DetermineTenseTagsTest extends TestCase
             'questions' => [$question->id],
         ]);
 
+        return [$question, $testModel];
+    }
+
+    /** @test */
+    public function determine_tense_returns_tags_from_chatgpt(): void
+    {
+        [$question, $testModel] = $this->setupDatabase();
+
         $this->mock(ChatGPTService::class, function ($mock) {
             $mock->shouldReceive('determineTenseTags')
                 ->withArgs(function ($questionText, $tenses) {
@@ -79,6 +88,28 @@ class DetermineTenseTagsTest extends TestCase
         });
 
         $response = $this->postJson('/test/' . $testModel->slug . '/step/determine-tense', [
+            'question_id' => $question->id,
+        ]);
+
+        $response->assertStatus(200);
+        $response->assertJson(['tags' => ['Past Simple', 'Present Simple']]);
+    }
+
+    /** @test */
+    public function determine_tense_returns_tags_from_gemini(): void
+    {
+        [$question, $testModel] = $this->setupDatabase();
+
+        $this->mock(GeminiService::class, function ($mock) {
+            $mock->shouldReceive('determineTenseTags')
+                ->withArgs(function ($questionText, $tenses) {
+                    return $questionText === 'Q1 {a1}' && $tenses === ['Past Simple', 'Present Simple'];
+                })
+                ->once()
+                ->andReturn(['Past Simple', 'Present Simple']);
+        });
+
+        $response = $this->postJson('/test/' . $testModel->slug . '/step/determine-tense-gemini', [
             'question_id' => $question->id,
         ]);
 
