@@ -70,6 +70,7 @@ class DatabaseSeeder extends Seeder
             PastSimpleOrPastContinuousTestSeeder::class,
             PastSimpleContinuousStorySeeder::class,
             QuestionTenseAssignmentSeeder::class,
+            TestContiniusesSeeder::class,
         ]);
     }
 }
