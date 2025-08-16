@@ -418,6 +418,7 @@ class GrammarTestController extends Controller
         $includeAi = $request->boolean('include_ai');
         $onlyAi = $request->boolean('only_ai');
         $selectedTags = $request->input('tags', []);
+        $selectedLevel = $request->input('level');
     
         // MULTI-SOURCE support
         $selectedSources = $request->input('sources', []); // array of source IDs
@@ -444,6 +445,9 @@ class GrammarTestController extends Controller
     
             $query = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
                 ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
+            if ($selectedLevel) {
+                $query->where('level', $selectedLevel);
+            }
 
             if ($groupBy === 'source_id') {
                 $query->where('source_id', $group);
@@ -487,6 +491,7 @@ class GrammarTestController extends Controller
         $sources = Source::orderBy('name')->get();
         // Show only tags that have at least one question assigned
         $allTags = \App\Models\Tag::whereHas('questions')->get();
+        $levels = Question::select('level')->distinct()->pluck('level');
 
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
@@ -494,7 +499,7 @@ class GrammarTestController extends Controller
             'manualInput', 'autocompleteInput', 'checkOneInput', 'builderInput',
             'includeAi', 'onlyAi', 'questions',
             'sources', 'selectedSources', 'autoTestName',
-            'allTags', 'selectedTags'
+            'allTags', 'selectedTags', 'levels', 'selectedLevel'
         ));
     }
     
@@ -554,6 +559,7 @@ class GrammarTestController extends Controller
         // Show only tags that have at least one question assigned
         $allTags = \App\Models\Tag::whereHas('questions')->get();
         $selectedTags = [];
+        $levels = Question::select('level')->distinct()->pluck('level');
 
         return view('grammar-test', [
             'categories' => $categories,
@@ -562,6 +568,8 @@ class GrammarTestController extends Controller
             'maxQuestions' => $maxQuestions,
             'allTags' => $allTags,
             'selectedTags' => $selectedTags,
+            'levels' => $levels,
+            'selectedLevel' => null,
         ]);
     }
 
@@ -613,6 +621,7 @@ class GrammarTestController extends Controller
     public function catalog(Request $request)
     {
         $selectedTags = (array) $request->input('tags', []);
+        $selectedLevel = $request->input('level');
 
         $tests = \App\Models\Test::latest()->get();
 
@@ -623,9 +632,11 @@ class GrammarTestController extends Controller
             $testQuestions = collect($test->questions)->map(fn($id) => $questions[$id] ?? null)->filter();
             $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
             $test->tag_names = $tagNames->unique()->values();
+            $test->levels = $testQuestions->pluck('level')->unique()->values();
         }
 
         $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
+        $availableLevels = $tests->flatMap(fn($t) => $t->levels)->unique()->values();
 
         $tagModels = Tag::whereIn('name', $availableTags)->get();
         $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')
@@ -647,11 +658,16 @@ class GrammarTestController extends Controller
                     ->every(fn($tag) => $t->tag_names->contains($tag));
             })->values();
         }
+        if ($selectedLevel) {
+            $tests = $tests->filter(fn($t) => $t->levels->contains($selectedLevel))->values();
+        }
 
         return view('saved-tests-cards', [
             'tests' => $tests,
             'tags' => $tagsByCategory,
             'selectedTags' => $selectedTags,
+            'availableLevels' => $availableLevels,
+            'selectedLevel' => $selectedLevel,
             'breadcrumbs' => [
                 ['label' => 'Home', 'url' => route('home')],
                 ['label' => 'Tests Catalog'],

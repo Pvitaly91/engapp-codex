@@ -86,6 +86,7 @@
         @php
             $autocompleteRoute = url('/api/search?lang=en');
         @endphp
+        <div class="text-xs text-gray-500">Level: {{ $question->level }}</div>
         @include('components.question-input', [
             'question' => $question,
             'inputNamePrefix' => 'answers',

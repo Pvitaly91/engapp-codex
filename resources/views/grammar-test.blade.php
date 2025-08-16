@@ -59,6 +59,17 @@
                 @endforeach
             </div>
         </div>
+        @if(isset($levels) && count($levels))
+        <div>
+            <label class="block font-bold mb-1">Level:</label>
+            <select name="level" class="border rounded p-1">
+                <option value="">Any</option>
+                @foreach($levels as $lvl)
+                    <option value="{{ $lvl }}" {{ (isset($selectedLevel) && $selectedLevel === $lvl) ? 'selected' : '' }}>{{ $lvl }}</option>
+                @endforeach
+            </select>
+        </div>
+        @endif
         @if($sources->count())
             <div>
                 <label class="block font-bold mb-1">Source:</label>
@@ -184,6 +195,7 @@
                                 <span class="inline-block ml-2 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
                             @endif
                             <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
+                            <span class="text-xs text-gray-400 ml-2">Level: {{ $q->level }}</span>
                         </span>
                     </div>
                     <div class="flex flex-wrap gap-2 items-baseline">
@@ -239,7 +251,8 @@
                     'check_one_input' => $checkOneInput,
                     'builder_input' => $builderInput,
                     'include_ai' => $includeAi ?? false,
-                    'only_ai' => $onlyAi ?? false
+                    'only_ai' => $onlyAi ?? false,
+                    'level' => $selectedLevel ?? null
                 ])) }}">
                 <input type="hidden" name="questions" value="{{ htmlentities(json_encode($questions->pluck('id'))) }}">
                 <input type="text" name="name" value="{{$autoTestName}}" placeholder="Назва тесту" required autocomplete="off"

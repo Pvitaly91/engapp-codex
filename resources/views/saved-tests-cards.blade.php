@@ -6,6 +6,17 @@
 <div class="flex gap-6">
     <aside class="w-48 shrink-0">
         <form id="tag-filter" action="{{ route('saved-tests.cards') }}" method="GET">
+            @if(isset($availableLevels) && $availableLevels->count())
+                <div class="mb-4">
+                    <label class="block text-sm mb-1">Level:</label>
+                    <select name="level" class="w-full border rounded p-1 text-sm" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        @foreach($availableLevels as $lvl)
+                            <option value="{{ $lvl }}" {{ ($selectedLevel === $lvl) ? 'selected' : '' }}>{{ $lvl }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
             @foreach($tags as $category => $tagNames)
                 @php $isOther = in_array(strtolower($category), ['other', 'others']); @endphp
                 @if($isOther)
@@ -38,7 +49,7 @@
                 @endif
             @endforeach
         </form>
-        @if(!empty($selectedTags))
+        @if(!empty($selectedTags) || !empty($selectedLevel))
             <div class="mt-2">
                 <a href="{{ route('saved-tests.cards') }}" class="text-xs text-gray-500 hover:underline">Скинути фільтр</a>
             </div>
@@ -52,7 +63,8 @@
                         <div class="font-bold text-lg mb-1">{{ $test->name }}</div>
                         <div class="text-xs text-gray-500 mb-2">
                             Створено: {{ $test->created_at->format('d.m.Y') }}<br>
-                            Питань: {{ count($test->questions) }}
+                            Питань: {{ count($test->questions) }}<br>
+                            Рівні: {{ $test->levels->join(', ') }}
                         </div>
                         <div class="mb-3 text-xs">
                             @foreach($test->tag_names as $t)

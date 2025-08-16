@@ -82,7 +82,7 @@
                         $hintsCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$question['verb_hints'][$m]]]);
                     }
                 }
-                $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol];
+                $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol, 'level'=>$question['level'] ?? null];
             @endphp
             <div class="mb-2">
                 @if($provider === 'gemini' || ($provider === 'mixed' && $currentProvider === 'gemini'))
@@ -93,6 +93,9 @@
                     </span>
                 @endif
             </div>
+            @if(!empty($question['level']))
+                <div class="text-xs text-gray-500 mb-1">Level: {{ $question['level'] }}</div>
+            @endif
         @include('components.question-input', [
                 'question' => $obj,
                 'inputNamePrefix' => 'answers',
