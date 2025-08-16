@@ -391,6 +391,23 @@ class AiTestController extends Controller
         return response()->json(['level' => $level]);
     }
 
+    public function setLevel(Request $request)
+    {
+        $request->validate([
+            'level' => 'required|in:A1,A2,B1,B2,C1,C2',
+        ]);
+
+        $question = session('ai_step.current_question');
+        if (! $question) {
+            return response()->json(['status' => 'error'], 400);
+        }
+
+        $question['level'] = $request->input('level');
+        session(['ai_step.current_question' => $question]);
+
+        return response()->json(['status' => 'ok']);
+    }
+
     public function addTag(Request $request)
     {
         $request->validate([
@@ -439,6 +456,7 @@ class AiTestController extends Controller
                 'category_id' => $categoryId,
                 'flag' => 1,
                 'source_id' => $sourceId,
+                'level' => $question['level'] ?? null,
                 'answers' => $answers,
                 'options' => $options,
                 'tag_ids' => $tagIds,

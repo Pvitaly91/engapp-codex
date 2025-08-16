@@ -313,6 +313,25 @@ class GrammarTestController extends Controller
         return response()->json(['level' => $level]);
     }
 
+    public function setLevel(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+            'level' => 'required|in:A1,A2,B1,B2,C1,C2',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $question->level = $request->input('level');
+        $question->save();
+
+        return response()->json(['status' => 'ok']);
+    }
+
     public function addTag(Request $request, $slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();

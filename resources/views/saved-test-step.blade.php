@@ -86,7 +86,7 @@
         @php
             $autocompleteRoute = url('/api/search?lang=en');
         @endphp
-        <div class="text-xs text-gray-500">Level: {{ $question->level ?? 'N/A' }}</div>
+        <div class="text-xs text-gray-500" id="question-level">Level: {{ $question->level ?? 'N/A' }}</div>
         @include('components.question-input', [
             'question' => $question,
             'inputNamePrefix' => 'answers',
@@ -118,11 +118,17 @@
                 <div id="tense-result-gpt" class="text-sm text-gray-700 space-y-1"></div>
                 <div id="tense-result-gemini" class="text-sm text-gray-700 space-y-1"></div>
             </div>
-            <div class="space-x-2">
-                <button type="button" id="determine-level-gpt" class="text-xs text-blue-600 underline">Визначити рівень ChatGPT</button>
-                <span id="level-result-gpt" class="inline text-sm text-gray-700"></span>
-                <button type="button" id="determine-level-gemini" class="text-xs text-blue-600 underline">Визначити рівень Gemini</button>
-                <span id="level-result-gemini" class="inline text-sm text-gray-700"></span>
+            <div class="space-y-1">
+                <div class="space-x-2">
+                    <button type="button" id="determine-level-gpt" class="text-xs text-blue-600 underline">Визначити рівень ChatGPT</button>
+                    <span id="level-result-gpt" class="inline text-sm text-gray-700" data-level=""></span>
+                    <button type="button" id="set-level-gpt" class="text-xs text-blue-600 underline hidden">Set level</button>
+                </div>
+                <div class="space-x-2">
+                    <button type="button" id="determine-level-gemini" class="text-xs text-blue-600 underline">Визначити рівень Gemini</button>
+                    <span id="level-result-gemini" class="inline text-sm text-gray-700" data-level=""></span>
+                    <button type="button" id="set-level-gemini" class="text-xs text-blue-600 underline hidden">Set level</button>
+                </div>
             </div>
         </div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
@@ -292,6 +298,8 @@ document.getElementById('determine-level-gpt').addEventListener('click', () => {
         .then(d => {
             const container = document.getElementById('level-result-gpt');
             container.textContent = d.level ? 'ChatGPT: ' + d.level : '';
+            container.dataset.level = d.level || '';
+            document.getElementById('set-level-gpt').classList.toggle('hidden', !d.level);
         });
 });
 
@@ -308,7 +316,39 @@ document.getElementById('determine-level-gemini').addEventListener('click', () =
         .then(d => {
             const container = document.getElementById('level-result-gemini');
             container.textContent = d.level ? 'Gemini: ' + d.level : '';
+            container.dataset.level = d.level || '';
+            document.getElementById('set-level-gemini').classList.toggle('hidden', !d.level);
         });
+});
+
+document.getElementById('set-level-gpt').addEventListener('click', () => {
+    const level = document.getElementById('level-result-gpt').dataset.level;
+    if (!level) return;
+    fetch('{{ route('saved-test.step.set-level', $test->slug) }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }}, level})
+    }).then(() => {
+        document.getElementById('question-level').textContent = 'Level: ' + level;
+    });
+});
+
+document.getElementById('set-level-gemini').addEventListener('click', () => {
+    const level = document.getElementById('level-result-gemini').dataset.level;
+    if (!level) return;
+    fetch('{{ route('saved-test.step.set-level', $test->slug) }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }}, level})
+    }).then(() => {
+        document.getElementById('question-level').textContent = 'Level: ' + level;
+    });
 });
 </script>
 @endsection

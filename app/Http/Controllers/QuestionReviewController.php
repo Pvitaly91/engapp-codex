@@ -22,24 +22,32 @@ class QuestionReviewController extends Controller
             return view('question-review-complete');
         }
 
-        $allTags = Tag::whereHas('questions')
+        $tagsByCategory = Tag::whereHas('questions')
+            ->whereNotIn('category', ['AI', 'ai', 'Others', 'others'])
+            ->orderBy('category')
             ->orderBy('name')
-            ->get();
+            ->get()
+            ->groupBy('category');
 
         return view('question-review', [
             'question' => $question,
-            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
     public function edit(Question $question)
     {
         $question->load(['options', 'answers', 'tags', 'category']);
-        $allTags = Tag::whereHas('questions')->orderBy('name')->get();
+        $tagsByCategory = Tag::whereHas('questions')
+            ->whereNotIn('category', ['AI', 'ai', 'Others', 'others'])
+            ->orderBy('category')
+            ->orderBy('name')
+            ->get()
+            ->groupBy('category');
 
         return view('question-review', [
             'question' => $question,
-            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
