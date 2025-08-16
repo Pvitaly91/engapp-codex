@@ -6,8 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Category;
-use App\Models\QuestionAnswer;
-use App\Models\Word;
+use Illuminate\Support\Arr;
 use App\Models\Source;
 use Illuminate\Support\Str;
 use App\Models\Test;
@@ -239,42 +238,61 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.step', $slug);
     }
 
-    public function determineTense(Request $request, $slug)
+    public function determineTense(Request $request, string $slug)
+    {
+        return $this->handleDetermineTense($request, $slug, \App\Services\ChatGPTService::class);
+    }
+
+    public function determineTenseGemini(Request $request, string $slug)
+    {
+        return $this->handleDetermineTense($request, $slug, \App\Services\GeminiService::class);
+    }
+
+    /**
+     * @param  class-string  $serviceClass
+     */
+    private function handleDetermineTense(Request $request, string $slug, string $serviceClass)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
+
         $request->validate([
-            'question_id' => 'required|integer',
+            'question_id' => ['required', 'integer', 'exists:questions,id'],
         ]);
 
-        $question = Question::findOrFail($request->input('question_id'));
-        if (! in_array($question->id, $test->questions)) {
+        $question = Question::with(['answers.option'])->findOrFail($request->integer('question_id'));
+
+        // Переконуємось, що питання належить до цього тесту
+        $testQuestionIds = Arr::wrap($test->questions); // якщо зкастовано до array — ок
+        if (! in_array($question->id, $testQuestionIds, true)) {
             abort(404);
         }
 
-        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
-        $gpt = app(\App\Services\ChatGPTService::class);
-        $suggested = $gpt->determineTenseTags($question->question, $tags);
+        $questionText = $this->renderQuestionText($question);
+
+        // Список тегів (категорія "Tenses")
+        $tags = Tag::where('category', 'Tenses')->pluck('name')->all();
+
+        // Визначаємо теги через потрібний сервіс
+        $service   = app($serviceClass);
+        $suggested = $service->determineTenseTags($questionText, $tags);
 
         return response()->json(['tags' => $suggested]);
     }
 
-    public function determineTenseGemini(Request $request, $slug)
+    /**
+     * Підставляє опції замість маркерів у тексті питання.
+     * Підтримує маркери у форматі {a1}, {a2}, ... (з дужками).
+     */
+    private function renderQuestionText(Question $question): string
     {
-        $test = Test::where('slug', $slug)->firstOrFail();
-        $request->validate([
-            'question_id' => 'required|integer',
-        ]);
+        $questionText = $question->question;
 
-        $question = Question::findOrFail($request->input('question_id'));
-        if (! in_array($question->id, $test->questions)) {
-            abort(404);
+        foreach($question->answers as $answer){
+             $questionText = str_replace("{$answer->marker}","{$answer->option->option}",$questionText); 
         }
 
-        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
-        $gemini = app(\App\Services\GeminiService::class);
-        $suggested = $gemini->determineTenseTags($question->question, $tags);
-
-        return response()->json(['tags' => $suggested]);
+    
+        return $questionText;
     }
 
     public function determineLevel(Request $request, $slug)

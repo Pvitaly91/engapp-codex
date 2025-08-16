@@ -84,8 +84,9 @@ class GeminiService
 
         $tagsList = implode(', ', $tags);
         $prompt = "Question: {$question}\n" .
-            "Choose all appropriate tenses from this list: {$tagsList}.\n" .
+            "Choose all appropriate tenses from this list: {$tagsList}. that apply only to the {missing words}.\n" .
             "Respond with a comma-separated list of tag names.";
+
 
         $response = $this->request($prompt);
         if (! $response) {

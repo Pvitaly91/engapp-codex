@@ -344,6 +344,7 @@ class AiTestController extends Controller
     public function determineTense(ChatGPTService $gpt)
     {
         $question = session('ai_step.current_question');
+        dd($question); exit;
         if (! $question) {
             return response()->json(['tags' => []], 400);
         }
