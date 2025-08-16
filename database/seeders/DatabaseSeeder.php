@@ -71,6 +71,7 @@ class DatabaseSeeder extends Seeder
             PastSimpleContinuousStorySeeder::class,
             QuestionTenseAssignmentSeeder::class,
             TestContiniusesSeeder::class,
+            QuestionLevelSeeder::class,
         ]);
     }
 }
