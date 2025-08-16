@@ -49,6 +49,15 @@
             </div>
         </div>
         <div class="bg-white shadow rounded-2xl p-4">
+            <label for="level" class="font-semibold mb-1 block">Level</label>
+            <select name="level" id="level" class="border rounded px-2 py-1">
+                <option value="">N/A</option>
+                @foreach(['A1','A2','B1','B2','C1','C2'] as $lvl)
+                    <option value="{{ $lvl }}" {{ $question->level === $lvl ? 'selected' : '' }}>{{ $lvl }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="bg-white shadow rounded-2xl p-4">
             <label for="comment" class="font-semibold mb-1 block">Comment</label>
             <textarea name="comment" id="comment" rows="3" class="w-full border rounded px-2 py-1">{{ old('comment') }}</textarea>
         </div>

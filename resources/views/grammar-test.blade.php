@@ -197,7 +197,7 @@
                                 <span class="inline-block ml-2 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
                             @endif
                             <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
-                            <span class="text-xs text-gray-400 ml-2">Level: {{ $q->level }}</span>
+                            <span class="text-xs text-gray-400 ml-2">Level: {{ $q->level ?? 'N/A' }}</span>
                         </span>
                     </div>
                     <div class="flex flex-wrap gap-2 items-baseline">

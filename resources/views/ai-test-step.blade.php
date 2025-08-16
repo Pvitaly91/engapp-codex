@@ -93,9 +93,7 @@
                     </span>
                 @endif
             </div>
-            @if(!empty($question['level']))
-                <div class="text-xs text-gray-500 mb-1">Level: {{ $question['level'] }}</div>
-            @endif
+            <div class="text-xs text-gray-500 mb-1">Level: {{ $question['level'] ?? 'N/A' }}</div>
         @include('components.question-input', [
                 'question' => $obj,
                 'inputNamePrefix' => 'answers',

@@ -38,7 +38,7 @@
                     {!! $finalQuestion !!}
                 </div>
                 <div class="text-xs text-gray-500">
-                    Категорія: {{ ucfirst($res['question']->category->name) }} | Складність: {{ $res['question']->difficulty }}/10 | Level: {{ $res['question']->level }}
+                    Категорія: {{ ucfirst($res['question']->category->name) }} | Складність: {{ $res['question']->difficulty }}/10 | Level: {{ $res['question']->level ?? 'N/A' }}
                 </div>
             </li>
         @endforeach

@@ -491,7 +491,11 @@ class GrammarTestController extends Controller
         $sources = Source::orderBy('name')->get();
         // Show only tags that have at least one question assigned
         $allTags = \App\Models\Tag::whereHas('questions')->get();
-        $levels = Question::select('level')->distinct()->pluck('level');
+        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        $levels = Question::select('level')->distinct()->pluck('level')
+            ->filter()
+            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->values();
 
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
@@ -559,7 +563,11 @@ class GrammarTestController extends Controller
         // Show only tags that have at least one question assigned
         $allTags = \App\Models\Tag::whereHas('questions')->get();
         $selectedTags = [];
-        $levels = Question::select('level')->distinct()->pluck('level');
+        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        $levels = Question::select('level')->distinct()->pluck('level')
+            ->filter()
+            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->values();
 
         return view('grammar-test', [
             'categories' => $categories,
@@ -628,15 +636,21 @@ class GrammarTestController extends Controller
         $allQuestionIds = collect($tests)->flatMap(fn($t) => $t->questions)->unique();
         $questions = Question::with('tags')->whereIn('id', $allQuestionIds)->get()->keyBy('id');
 
+        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
         foreach ($tests as $test) {
             $testQuestions = collect($test->questions)->map(fn($id) => $questions[$id] ?? null)->filter();
             $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
             $test->tag_names = $tagNames->unique()->values();
-            $test->levels = $testQuestions->pluck('level')->unique()->values();
+            $test->levels = $testQuestions->pluck('level')->unique()
+                ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+                ->values();
         }
 
         $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
-        $availableLevels = $tests->flatMap(fn($t) => $t->levels)->unique()->values();
+        $availableLevels = $tests->flatMap(fn($t) => $t->levels)->unique()
+            ->filter()
+            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->values();
 
         $tagModels = Tag::whereIn('name', $availableTags)->get();
         $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')

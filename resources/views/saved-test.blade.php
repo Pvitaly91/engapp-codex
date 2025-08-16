@@ -63,7 +63,7 @@
         @foreach($questions as $q)
             <input type="hidden" name="questions[{{ $q->id }}]" value="1">
             <div class="bg-white shadow rounded-2xl p-4 mb-4">
-                <div class="text-xs text-gray-500 mb-1">Level: {{ $q->level }}</div>
+                <div class="text-xs text-gray-500 mb-1">Level: {{ $q->level ?? 'N/A' }}</div>
                 <div class="flex gap-2 items-baseline">
                     <span class="font-bold text-base">{{ $loop->iteration }}.</span>
 

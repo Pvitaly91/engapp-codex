@@ -47,6 +47,7 @@ class QuestionReviewController extends Controller
     {
         $request->validate([
             'question_id' => 'required|exists:questions,id',
+            'level' => 'nullable|in:A1,A2,B1,B2,C1,C2',
         ]);
 
         $question = Question::with('tags', 'answers')->findOrFail($request->input('question_id'));
@@ -60,6 +61,8 @@ class QuestionReviewController extends Controller
         $tags = $request->input('tags', []);
         $originalTags = $question->tags->pluck('id')->all();
         $question->tags()->sync($tags);
+        $question->level = $request->input('level') ?: null;
+        $question->save();
 
         QuestionReviewResult::create([
             'question_id' => $question->id,

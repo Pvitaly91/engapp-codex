@@ -67,7 +67,13 @@
                         <div class="text-xs text-gray-500 mb-2">
                             Створено: {{ $test->created_at->format('d.m.Y') }}<br>
                             Питань: {{ count($test->questions) }}<br>
-                            Рівні: {{ $test->levels->join(', ') }}
+                            @php
+                                $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+                                $levels = $test->levels
+                                    ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+                                    ->map(fn($lvl) => $lvl ?? 'N/A');
+                            @endphp
+                            Рівні: {{ $levels->join(', ') }}
                         </div>
                         <div class="mb-3 text-xs">
                             @foreach($test->tag_names as $t)
