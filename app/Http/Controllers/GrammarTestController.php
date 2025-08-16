@@ -418,7 +418,7 @@ class GrammarTestController extends Controller
         $includeAi = $request->boolean('include_ai');
         $onlyAi = $request->boolean('only_ai');
         $selectedTags = $request->input('tags', []);
-        $selectedLevel = $request->input('level');
+        $selectedLevels = (array) $request->input('levels', []);
     
         // MULTI-SOURCE support
         $selectedSources = $request->input('sources', []); // array of source IDs
@@ -445,8 +445,8 @@ class GrammarTestController extends Controller
     
             $query = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
                 ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
-            if ($selectedLevel) {
-                $query->where('level', $selectedLevel);
+            if (!empty($selectedLevels)) {
+                $query->whereIn('level', $selectedLevels);
             }
 
             if ($groupBy === 'source_id') {
@@ -499,7 +499,7 @@ class GrammarTestController extends Controller
             'manualInput', 'autocompleteInput', 'checkOneInput', 'builderInput',
             'includeAi', 'onlyAi', 'questions',
             'sources', 'selectedSources', 'autoTestName',
-            'allTags', 'selectedTags', 'levels', 'selectedLevel'
+            'allTags', 'selectedTags', 'levels', 'selectedLevels'
         ));
     }
     
@@ -569,7 +569,7 @@ class GrammarTestController extends Controller
             'allTags' => $allTags,
             'selectedTags' => $selectedTags,
             'levels' => $levels,
-            'selectedLevel' => null,
+            'selectedLevels' => [],
         ]);
     }
 
@@ -621,7 +621,7 @@ class GrammarTestController extends Controller
     public function catalog(Request $request)
     {
         $selectedTags = (array) $request->input('tags', []);
-        $selectedLevel = $request->input('level');
+        $selectedLevels = (array) $request->input('levels', []);
 
         $tests = \App\Models\Test::latest()->get();
 
@@ -658,8 +658,10 @@ class GrammarTestController extends Controller
                     ->every(fn($tag) => $t->tag_names->contains($tag));
             })->values();
         }
-        if ($selectedLevel) {
-            $tests = $tests->filter(fn($t) => $t->levels->contains($selectedLevel))->values();
+        if (!empty($selectedLevels)) {
+            $tests = $tests->filter(function ($t) use ($selectedLevels) {
+                return collect($selectedLevels)->every(fn($lvl) => $t->levels->contains($lvl));
+            })->values();
         }
 
         return view('saved-tests-cards', [
@@ -667,7 +669,7 @@ class GrammarTestController extends Controller
             'tags' => $tagsByCategory,
             'selectedTags' => $selectedTags,
             'availableLevels' => $availableLevels,
-            'selectedLevel' => $selectedLevel,
+            'selectedLevels' => $selectedLevels,
             'breadcrumbs' => [
                 ['label' => 'Home', 'url' => route('home')],
                 ['label' => 'Tests Catalog'],

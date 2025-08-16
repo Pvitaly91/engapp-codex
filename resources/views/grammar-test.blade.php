@@ -62,12 +62,14 @@
         @if(isset($levels) && count($levels))
         <div>
             <label class="block font-bold mb-1">Level:</label>
-            <select name="level" class="border rounded p-1">
-                <option value="">Any</option>
+            <div class="flex flex-wrap gap-2">
                 @foreach($levels as $lvl)
-                    <option value="{{ $lvl }}" {{ (isset($selectedLevel) && $selectedLevel === $lvl) ? 'selected' : '' }}>{{ $lvl }}</option>
+                    <div>
+                        <input type="checkbox" name="levels[]" value="{{ $lvl }}" id="level-{{ $lvl }}" class="hidden peer" {{ in_array($lvl, $selectedLevels ?? []) ? 'checked' : '' }}>
+                        <label for="level-{{ $lvl }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $lvl }}</label>
+                    </div>
                 @endforeach
-            </select>
+            </div>
         </div>
         @endif
         @if($sources->count())
@@ -252,7 +254,7 @@
                     'builder_input' => $builderInput,
                     'include_ai' => $includeAi ?? false,
                     'only_ai' => $onlyAi ?? false,
-                    'level' => $selectedLevel ?? null
+                    'levels' => $selectedLevels ?? []
                 ])) }}">
                 <input type="hidden" name="questions" value="{{ htmlentities(json_encode($questions->pluck('id'))) }}">
                 <input type="text" name="name" value="{{$autoTestName}}" placeholder="Назва тесту" required autocomplete="off"

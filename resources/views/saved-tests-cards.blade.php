@@ -9,12 +9,15 @@
             @if(isset($availableLevels) && $availableLevels->count())
                 <div class="mb-4">
                     <label class="block text-sm mb-1">Level:</label>
-                    <select name="level" class="w-full border rounded p-1 text-sm" onchange="this.form.submit()">
-                        <option value="">All</option>
+                    <div class="flex flex-wrap gap-2">
                         @foreach($availableLevels as $lvl)
-                            <option value="{{ $lvl }}" {{ ($selectedLevel === $lvl) ? 'selected' : '' }}>{{ $lvl }}</option>
+                            @php $id = 'level-' . md5($lvl); @endphp
+                            <div>
+                                <input type="checkbox" name="levels[]" value="{{ $lvl }}" id="{{ $id }}" class="hidden peer" {{ in_array($lvl, $selectedLevels ?? []) ? 'checked' : '' }}>
+                                <label for="{{ $id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $lvl }}</label>
+                            </div>
                         @endforeach
-                    </select>
+                    </div>
                 </div>
             @endif
             @foreach($tags as $category => $tagNames)
@@ -49,7 +52,7 @@
                 @endif
             @endforeach
         </form>
-        @if(!empty($selectedTags) || !empty($selectedLevel))
+        @if(!empty($selectedTags) || !empty($selectedLevels))
             <div class="mt-2">
                 <a href="{{ route('saved-tests.cards') }}" class="text-xs text-gray-500 hover:underline">Скинути фільтр</a>
             </div>
