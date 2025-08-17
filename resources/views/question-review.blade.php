@@ -12,7 +12,7 @@
         @csrf
         <input type="hidden" name="question_id" value="{{ $question->id }}">
         <div class="bg-white shadow rounded-2xl p-4 flex justify-between items-start gap-4">
-            <div x-data="{hints:{chatgpt:'',gemini:''},fetchHints(){fetch('{{ route('question.hint') }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':'{{ csrf_token() }}'},body:JSON.stringify({question_id:{{ $question->id }}})}).then(r=>r.json()).then(d=>this.hints=d);}}">
+            <div x-data="{hints:{chatgpt:'',gemini:''},fetchHints(refresh=false){fetch('{{ route('question.hint') }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':'{{ csrf_token() }}'},body:JSON.stringify({question_id:{{ $question->id }},refresh})}).then(r=>r.json()).then(d=>this.hints=d);}}">
             @php
                 $text = $question->question;
                 preg_match_all('/\{a(\d+)\}/', $text, $m);
@@ -37,6 +37,7 @@
                     <div class="text-sm text-gray-600 mt-1">
                         <p><strong>ChatGPT:</strong> <span x-text="hints.chatgpt"></span></p>
                         <p><strong>Gemini:</strong> <span x-text="hints.gemini"></span></p>
+                        <button type="button" class="text-xs text-blue-600 underline" @click="fetchHints(true)">Refresh</button>
                     </div>
                 </template>
             </div>

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Question;
+use App\Models\{Question, QuestionHint};
 use App\Services\{ChatGPTService, GeminiService};
-use Illuminate\Support\Facades\Cache;
 
 class QuestionHelpController extends Controller
 {
@@ -13,28 +12,40 @@ class QuestionHelpController extends Controller
     {
         $data = $request->validate([
             'question_id' => 'required|integer|exists:questions,id',
+            'refresh' => 'sometimes|boolean',
         ]);
 
         $question = Question::findOrFail($data['question_id']);
         $lang = app()->getLocale();
+        $refresh = $data['refresh'] ?? false;
 
-        $ttl = now()->addDay();
+        $chatgptHint = QuestionHint::where('question_id', $question->id)
+            ->where('provider', 'chatgpt')
+            ->where('locale', $lang)
+            ->first();
+        if (!$chatgptHint || $refresh) {
+            $text = $gpt->hintSentenceStructure($question->question, $lang);
+            $chatgptHint = QuestionHint::updateOrCreate(
+                ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => $lang],
+                ['hint' => $text]
+            );
+        }
 
-        $chatgptHint = Cache::remember(
-            "question_hint_chatgpt_{$question->id}",
-            $ttl,
-            fn () => $gpt->hintSentenceStructure($question->question, $lang)
-        );
-
-        $geminiHint = Cache::remember(
-            "question_hint_gemini_{$lang}_{$question->id}",
-            $ttl,
-            fn () => $gemini->hintSentenceStructure($question->question, $lang)
-        );
+        $geminiHint = QuestionHint::where('question_id', $question->id)
+            ->where('provider', 'gemini')
+            ->where('locale', $lang)
+            ->first();
+        if (!$geminiHint || $refresh) {
+            $text = $gemini->hintSentenceStructure($question->question, $lang);
+            $geminiHint = QuestionHint::updateOrCreate(
+                ['question_id' => $question->id, 'provider' => 'gemini', 'locale' => $lang],
+                ['hint' => $text]
+            );
+        }
 
         return response()->json([
-            'chatgpt' => $chatgptHint,
-            'gemini' => $geminiHint,
+            'chatgpt' => $chatgptHint->hint,
+            'gemini' => $geminiHint->hint,
         ]);
     }
 }
