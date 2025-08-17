@@ -92,4 +92,9 @@ HTML;
     }
     $finalQuestion = strtr(e($questionText), $replacements);
 @endphp
-<label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
+<div x-data="{hint:'',fetchHint(provider){fetch('{{ route('question.hint') }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':'{{ csrf_token() }}'},body:JSON.stringify({question_id:{{ $question->id }},provider})}).then(r=>r.json()).then(d=>this.hint=d.hint);}}">
+    <label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
+    <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHint('chatgpt')">ChatGPT</button>
+    <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHint('gemini')">Gemini</button>
+    <p x-text="hint" class="text-sm text-gray-600 mt-1"></p>
+</div>

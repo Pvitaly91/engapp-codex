@@ -58,6 +58,12 @@ class GeminiService
         return $this->request($prompt) ?? '';
     }
 
+    public function hintSentenceStructure(string $question, string $lang = 'uk'): string
+    {
+        $prompt = "Provide a short hint in {$lang} on how to construct the following sentence: {$question}";
+        return $this->request($prompt) ?? '';
+    }
+
     public function determineDifficulty(string $question): string
     {
         $prompt = "Question: {$question}\n" .

@@ -4,6 +4,7 @@ use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TrainController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuestionHelpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,4 +103,6 @@ Route::get('/question-review-results', [QuestionReviewResultController::class, '
 
 Route::get('/verb-hints/{verbHint}/edit', [VerbHintController::class, 'edit'])->name('verb-hints.edit');
 Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
+
+Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
 

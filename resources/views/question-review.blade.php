@@ -12,7 +12,7 @@
         @csrf
         <input type="hidden" name="question_id" value="{{ $question->id }}">
         <div class="bg-white shadow rounded-2xl p-4 flex justify-between items-start gap-4">
-            <div>
+            <div x-data="{hint:'',fetchHint(provider){fetch('{{ route('question.hint') }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':'{{ csrf_token() }}'},body:JSON.stringify({question_id:{{ $question->id }},provider})}).then(r=>r.json()).then(d=>this.hint=d.hint);}}">
             @php
                 $text = $question->question;
                 preg_match_all('/\{a(\d+)\}/', $text, $m);
@@ -32,6 +32,9 @@
                 }
                 echo strtr(e($text), $repl);
             @endphp
+                <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHint('chatgpt')">ChatGPT</button>
+                <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHint('gemini')">Gemini</button>
+                <p x-text="hint" class="text-sm text-gray-600 mt-1"></p>
             </div>
             <div class="self-start">
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Next</button>
