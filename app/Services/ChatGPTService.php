@@ -152,6 +152,33 @@ class ChatGPTService
         return ['is_correct' => false, 'explanation' => ''];
     }
 
+    public function hintSentenceStructure(string $question, string $lang = 'uk'): string
+    {
+        $key = config('services.chatgpt.key');
+        if (empty($key)) {
+            Log::warning('ChatGPT API key not configured');
+            return '';
+        }
+
+        $prompt = "Provide a short hint in {$lang} on how to construct the following sentence:\n{$question}";
+
+        try {
+            $client = \OpenAI::client($key);
+            $result = $client->chat()->create([
+                'model' => 'gpt-5',
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+            ]);
+
+            return trim($result->choices[0]->message->content);
+        } catch (Exception $e) {
+            Log::warning('ChatGPT hint failed: ' . $e->getMessage());
+        }
+
+        return '';
+    }
+
     public function determineTenseTags(string $question, array $tags): array
     {
         $key = config('services.chatgpt.key');

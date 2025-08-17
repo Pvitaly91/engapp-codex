@@ -91,5 +91,22 @@ HTML;
         $replacements[$marker] = $input;
     }
     $finalQuestion = strtr(e($questionText), $replacements);
+    $questionId = $question->id ?? null;
 @endphp
-<label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
+@if($questionId)
+<div x-data="{hints:{chatgpt:'',gemini:''},fetchHints(refresh=false){fetch('{{ route('question.hint') }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':'{{ csrf_token() }}'},body:JSON.stringify({question_id:{{ $questionId }},refresh})}).then(r=>r.json()).then(d=>this.hints=d);}}">
+    <label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
+    <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHints()">Help</button>
+    <template x-if="hints.chatgpt || hints.gemini">
+        <div class="text-sm text-gray-600 mt-1">
+            <p><strong>ChatGPT:</strong> <span x-text="hints.chatgpt"></span></p>
+            <p><strong>Gemini:</strong> <span x-text="hints.gemini"></span></p>
+            <button type="button" class="text-xs text-blue-600 underline" @click="fetchHints(true)">Refresh</button>
+        </div>
+    </template>
+</div>
+@else
+<div>
+    <label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
+</div>
+@endif
