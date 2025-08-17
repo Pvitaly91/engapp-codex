@@ -16,7 +16,7 @@ class QuestionHelpController extends Controller
         ]);
 
         $question = Question::findOrFail($data['question_id']);
-        $lang = app()->getLocale();
+        $lang = "uk";//app()->getLocale();
         $refresh = $data['refresh'] ?? false;
 
         $chatgptHint = QuestionHint::where('question_id', $question->id)
@@ -24,7 +24,7 @@ class QuestionHelpController extends Controller
             ->where('locale', $lang)
             ->first();
         if (!$chatgptHint || $refresh) {
-            $text = $gpt->hintSentenceStructure($question->question, $lang);
+            $text = $gpt->hintSentenceStructure($question->renderQuestionText(), $lang);
             $chatgptHint = QuestionHint::updateOrCreate(
                 ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => $lang],
                 ['hint' => $text]
@@ -36,7 +36,7 @@ class QuestionHelpController extends Controller
             ->where('locale', $lang)
             ->first();
         if (!$geminiHint || $refresh) {
-            $text = $gemini->hintSentenceStructure($question->question, $lang);
+            $text = $gemini->hintSentenceStructure($question->renderQuestionText(), $lang);
             $geminiHint = QuestionHint::updateOrCreate(
                 ['question_id' => $question->id, 'provider' => 'gemini', 'locale' => $lang],
                 ['hint' => $text]

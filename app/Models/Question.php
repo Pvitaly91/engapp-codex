@@ -11,6 +11,19 @@ class Question extends Model
         'flag' => 'boolean',
     ];
 
+
+    public function renderQuestionText(): string
+    {
+        $questionText = $this->question;
+
+        foreach($this->answers as $answer){
+             $questionText = str_replace("{$answer->marker}","{$answer->option->option}",$questionText); 
+        }
+
+    
+        return $questionText;
+    }
+
     protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag'];
 
     public function category()

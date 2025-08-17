@@ -267,7 +267,7 @@ class GrammarTestController extends Controller
             abort(404);
         }
 
-        $questionText = $this->renderQuestionText($question);
+        $questionText = $question->renderQuestionText();
 
         // Список тегів (категорія "Tenses")
         $tags = Tag::where('category', 'Tenses')->pluck('name')->all();
@@ -277,22 +277,6 @@ class GrammarTestController extends Controller
         $suggested = $service->determineTenseTags($questionText, $tags);
 
         return response()->json(['tags' => $suggested]);
-    }
-
-    /**
-     * Підставляє опції замість маркерів у тексті питання.
-     * Підтримує маркери у форматі {a1}, {a2}, ... (з дужками).
-     */
-    private function renderQuestionText(Question $question): string
-    {
-        $questionText = $question->question;
-
-        foreach($question->answers as $answer){
-             $questionText = str_replace("{$answer->marker}","{$answer->option->option}",$questionText); 
-        }
-
-    
-        return $questionText;
     }
 
     public function determineLevel(Request $request, $slug)

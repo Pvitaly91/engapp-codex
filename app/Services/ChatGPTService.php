@@ -160,7 +160,7 @@ class ChatGPTService
             return '';
         }
 
-        $prompt = "Provide a short hint in {$lang} on how to construct the following sentence:\n{$question}";
+        $prompt = "Give a short hint in {$lang} on how to construct the following sentence (but do not provide a correct statement, just the formula by which the sentence is constructed):\n{$question}";
 
         try {
             $client = \OpenAI::client($key);

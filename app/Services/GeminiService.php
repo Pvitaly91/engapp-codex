@@ -60,7 +60,9 @@ class GeminiService
 
     public function hintSentenceStructure(string $question, string $lang = 'uk'): string
     {
-        $prompt = "Provide a short hint in {$lang} on how to construct the following sentence: {$question}";
+        $lang = "ua";
+        $prompt = "Give a short hint in {$lang} on how to construct the following sentence (but do not provide a correct statement, just the formula by which the sentence is constructed):\n{$question}";
+
         return $this->request($prompt) ?? '';
     }
 
