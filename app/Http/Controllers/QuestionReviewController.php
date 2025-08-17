@@ -68,7 +68,13 @@ class QuestionReviewController extends Controller
 
         $tags = $request->input('tags', []);
         $originalTags = $question->tags->pluck('id')->all();
-        $question->tags()->sync($tags);
+
+        $preserved = $question->tags()
+            ->whereIn('category', ['AI', 'ai', 'Others', 'others'])
+            ->pluck('tags.id')
+            ->all();
+
+        $question->tags()->sync(array_unique(array_merge($tags, $preserved)));
         $question->level = $request->input('level') ?: null;
         $question->save();
 
