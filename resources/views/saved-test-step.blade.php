@@ -86,7 +86,7 @@
         @php
             $autocompleteRoute = url('/api/search?lang=en');
         @endphp
-        <div class="text-xs text-gray-500" id="question-level">Level: {{ $question->level ?? 'N/A' }}</div>
+        <div id="question-level" class="mt-1 space-x-1"></div>
         @include('components.question-input', [
             'question' => $question,
             'inputNamePrefix' => 'answers',
@@ -104,11 +104,7 @@
         @php
             $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
         @endphp
-        <div id="question-tags" class="mt-1 space-x-1">
-            @foreach($question->tags as $tag)
-                <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-block px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
-            @endforeach
-        </div>
+        <div id="question-tags" class="mt-1 space-x-1"></div>
         <div class="mt-2 space-y-2">
             <div class="space-x-2">
                 <button type="button" id="determine-tense-gpt" class="text-xs text-blue-600 underline">Визначити час ChatGPT</button>
@@ -196,11 +192,20 @@ function renderTags(tags) {
     const container = document.getElementById('question-tags');
     container.innerHTML = '';
     tags.forEach((name, index) => {
-        const a = document.createElement('a');
-        a.href = '{{ route('saved-tests.cards') }}?tag=' + encodeURIComponent(name);
-        a.className = 'inline-block px-2 py-0.5 rounded text-xs font-semibold hover:underline ' + tagColors[index % tagColors.length];
-        a.textContent = name;
-        container.appendChild(a);
+        const wrap = document.createElement('span');
+        wrap.className = 'inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold ' + tagColors[index % tagColors.length];
+        const link = document.createElement('a');
+        link.href = '{{ route('saved-tests.cards') }}?tag=' + encodeURIComponent(name);
+        link.className = 'hover:underline';
+        link.textContent = name;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = 'x';
+        btn.className = 'ml-1 text-xs text-red-600';
+        btn.addEventListener('click', () => removeTag(name));
+        wrap.appendChild(link);
+        wrap.appendChild(btn);
+        container.appendChild(wrap);
     });
 }
 
@@ -220,6 +225,54 @@ function addTag(tag) {
             }
         });
 }
+
+function removeTag(tag) {
+    fetch('{{ route('saved-test.step.remove-tag', $test->slug) }}', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }}, tag})
+    })
+        .then(r => r.json())
+        .then(d => {
+            if (Array.isArray(d.tags)) {
+                renderTags(d.tags);
+            }
+        });
+}
+
+renderTags(@json($question->tags->pluck('name')));
+
+const levels = ['A1','A2','B1','B2','C1','C2'];
+
+function renderLevel(selected) {
+    const container = document.getElementById('question-level');
+    container.innerHTML = '';
+    levels.forEach(level => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.dataset.level = level;
+        btn.textContent = level;
+        btn.className = 'px-2 py-0.5 rounded text-xs font-semibold mr-1 ' + (level === selected ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800');
+        btn.addEventListener('click', () => setLevel(level));
+        container.appendChild(btn);
+    });
+}
+
+function setLevel(level) {
+    fetch('{{ route('saved-test.step.set-level', $test->slug) }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({question_id: {{ $question->id }}, level})
+    }).then(() => renderLevel(level));
+}
+
+renderLevel(@json($question->level));
 
 document.getElementById('determine-tense-gpt').addEventListener('click', () => {
     fetch('{{ route('saved-test.step.determine-tense', $test->slug) }}', {
@@ -324,31 +377,13 @@ document.getElementById('determine-level-gemini').addEventListener('click', () =
 document.getElementById('set-level-gpt').addEventListener('click', () => {
     const level = document.getElementById('level-result-gpt').dataset.level;
     if (!level) return;
-    fetch('{{ route('saved-test.step.set-level', $test->slug) }}', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-        body: JSON.stringify({question_id: {{ $question->id }}, level})
-    }).then(() => {
-        document.getElementById('question-level').textContent = 'Level: ' + level;
-    });
+    setLevel(level);
 });
 
 document.getElementById('set-level-gemini').addEventListener('click', () => {
     const level = document.getElementById('level-result-gemini').dataset.level;
     if (!level) return;
-    fetch('{{ route('saved-test.step.set-level', $test->slug) }}', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-        body: JSON.stringify({question_id: {{ $question->id }}, level})
-    }).then(() => {
-        document.getElementById('question-level').textContent = 'Level: ' + level;
-    });
+    setLevel(level);
 });
 </script>
 @endsection

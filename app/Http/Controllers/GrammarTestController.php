@@ -374,6 +374,30 @@ class GrammarTestController extends Controller
         return response()->json(['tags' => $question->tags->pluck('name')]);
     }
 
+    public function removeTag(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+            'tag' => 'required|string',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $tag = Tag::where('name', $request->input('tag'))->first();
+        if (! $tag) {
+            return response()->json(['message' => 'Tag not found'], 404);
+        }
+
+        $question->tags()->detach($tag->id);
+        $question->load('tags');
+
+        return response()->json(['tags' => $question->tags->pluck('name')]);
+    }
+
     public function resetSavedTestStep($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
