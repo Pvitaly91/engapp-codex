@@ -22,24 +22,32 @@ class QuestionReviewController extends Controller
             return view('question-review-complete');
         }
 
-        $allTags = Tag::whereHas('questions')
+        $tagsByCategory = Tag::whereHas('questions')
+            ->whereNotIn('category', ['AI', 'ai', 'Others', 'others'])
+            ->orderBy('category')
             ->orderBy('name')
-            ->get();
+            ->get()
+            ->groupBy('category');
 
         return view('question-review', [
             'question' => $question,
-            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
     public function edit(Question $question)
     {
         $question->load(['options', 'answers', 'tags', 'category']);
-        $allTags = Tag::whereHas('questions')->orderBy('name')->get();
+        $tagsByCategory = Tag::whereHas('questions')
+            ->whereNotIn('category', ['AI', 'ai', 'Others', 'others'])
+            ->orderBy('category')
+            ->orderBy('name')
+            ->get()
+            ->groupBy('category');
 
         return view('question-review', [
             'question' => $question,
-            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
@@ -47,6 +55,7 @@ class QuestionReviewController extends Controller
     {
         $request->validate([
             'question_id' => 'required|exists:questions,id',
+            'level' => 'nullable|in:A1,A2,B1,B2,C1,C2',
         ]);
 
         $question = Question::with('tags', 'answers')->findOrFail($request->input('question_id'));
@@ -60,6 +69,8 @@ class QuestionReviewController extends Controller
         $tags = $request->input('tags', []);
         $originalTags = $question->tags->pluck('id')->all();
         $question->tags()->sync($tags);
+        $question->level = $request->input('level') ?: null;
+        $question->save();
 
         QuestionReviewResult::create([
             'question_id' => $question->id,

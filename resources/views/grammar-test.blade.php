@@ -59,6 +59,19 @@
                 @endforeach
             </div>
         </div>
+        @if(isset($levels) && count($levels))
+        <div>
+            <label class="block font-bold mb-1">Level:</label>
+            <div class="flex flex-wrap gap-2">
+                @foreach($levels as $lvl)
+                    <div>
+                        <input type="checkbox" name="levels[]" value="{{ $lvl }}" id="level-{{ $lvl }}" class="hidden peer" {{ in_array($lvl, $selectedLevels ?? []) ? 'checked' : '' }}>
+                        <label for="level-{{ $lvl }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $lvl }}</label>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        @endif
         @if($sources->count())
             <div>
                 <label class="block font-bold mb-1">Source:</label>
@@ -184,6 +197,7 @@
                                 <span class="inline-block ml-2 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
                             @endif
                             <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
+                            <span class="text-xs text-gray-400 ml-2">Level: {{ $q->level ?? 'N/A' }}</span>
                         </span>
                     </div>
                     <div class="flex flex-wrap gap-2 items-baseline">
@@ -239,7 +253,8 @@
                     'check_one_input' => $checkOneInput,
                     'builder_input' => $builderInput,
                     'include_ai' => $includeAi ?? false,
-                    'only_ai' => $onlyAi ?? false
+                    'only_ai' => $onlyAi ?? false,
+                    'levels' => $selectedLevels ?? []
                 ])) }}">
                 <input type="hidden" name="questions" value="{{ htmlentities(json_encode($questions->pluck('id'))) }}">
                 <input type="text" name="name" value="{{$autoTestName}}" placeholder="Назва тесту" required autocomplete="off"

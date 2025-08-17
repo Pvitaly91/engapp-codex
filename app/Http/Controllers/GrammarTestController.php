@@ -313,6 +313,25 @@ class GrammarTestController extends Controller
         return response()->json(['level' => $level]);
     }
 
+    public function setLevel(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+            'level' => 'required|in:A1,A2,B1,B2,C1,C2',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $question->level = $request->input('level');
+        $question->save();
+
+        return response()->json(['status' => 'ok']);
+    }
+
     public function addTag(Request $request, $slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
@@ -418,6 +437,7 @@ class GrammarTestController extends Controller
         $includeAi = $request->boolean('include_ai');
         $onlyAi = $request->boolean('only_ai');
         $selectedTags = $request->input('tags', []);
+        $selectedLevels = (array) $request->input('levels', []);
     
         // MULTI-SOURCE support
         $selectedSources = $request->input('sources', []); // array of source IDs
@@ -444,6 +464,9 @@ class GrammarTestController extends Controller
     
             $query = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
                 ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
+            if (!empty($selectedLevels)) {
+                $query->whereIn('level', $selectedLevels);
+            }
 
             if ($groupBy === 'source_id') {
                 $query->where('source_id', $group);
@@ -487,6 +510,11 @@ class GrammarTestController extends Controller
         $sources = Source::orderBy('name')->get();
         // Show only tags that have at least one question assigned
         $allTags = \App\Models\Tag::whereHas('questions')->get();
+        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        $levels = Question::select('level')->distinct()->pluck('level')
+            ->filter()
+            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->values();
 
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
@@ -494,7 +522,7 @@ class GrammarTestController extends Controller
             'manualInput', 'autocompleteInput', 'checkOneInput', 'builderInput',
             'includeAi', 'onlyAi', 'questions',
             'sources', 'selectedSources', 'autoTestName',
-            'allTags', 'selectedTags'
+            'allTags', 'selectedTags', 'levels', 'selectedLevels'
         ));
     }
     
@@ -554,6 +582,11 @@ class GrammarTestController extends Controller
         // Show only tags that have at least one question assigned
         $allTags = \App\Models\Tag::whereHas('questions')->get();
         $selectedTags = [];
+        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        $levels = Question::select('level')->distinct()->pluck('level')
+            ->filter()
+            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->values();
 
         return view('grammar-test', [
             'categories' => $categories,
@@ -562,6 +595,8 @@ class GrammarTestController extends Controller
             'maxQuestions' => $maxQuestions,
             'allTags' => $allTags,
             'selectedTags' => $selectedTags,
+            'levels' => $levels,
+            'selectedLevels' => [],
         ]);
     }
 
@@ -613,19 +648,28 @@ class GrammarTestController extends Controller
     public function catalog(Request $request)
     {
         $selectedTags = (array) $request->input('tags', []);
+        $selectedLevels = (array) $request->input('levels', []);
 
         $tests = \App\Models\Test::latest()->get();
 
         $allQuestionIds = collect($tests)->flatMap(fn($t) => $t->questions)->unique();
         $questions = Question::with('tags')->whereIn('id', $allQuestionIds)->get()->keyBy('id');
 
+        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
         foreach ($tests as $test) {
             $testQuestions = collect($test->questions)->map(fn($id) => $questions[$id] ?? null)->filter();
             $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
             $test->tag_names = $tagNames->unique()->values();
+            $test->levels = $testQuestions->pluck('level')->unique()
+                ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+                ->values();
         }
 
         $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
+        $availableLevels = $tests->flatMap(fn($t) => $t->levels)->unique()
+            ->filter()
+            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->values();
 
         $tagModels = Tag::whereIn('name', $availableTags)->get();
         $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')
@@ -647,11 +691,18 @@ class GrammarTestController extends Controller
                     ->every(fn($tag) => $t->tag_names->contains($tag));
             })->values();
         }
+        if (!empty($selectedLevels)) {
+            $tests = $tests->filter(function ($t) use ($selectedLevels) {
+                return collect($selectedLevels)->every(fn($lvl) => $t->levels->contains($lvl));
+            })->values();
+        }
 
         return view('saved-tests-cards', [
             'tests' => $tests,
             'tags' => $tagsByCategory,
             'selectedTags' => $selectedTags,
+            'availableLevels' => $availableLevels,
+            'selectedLevels' => $selectedLevels,
             'breadcrumbs' => [
                 ['label' => 'Home', 'url' => route('home')],
                 ['label' => 'Tests Catalog'],

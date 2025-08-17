@@ -47,6 +47,7 @@ class QuestionSeedingService
                 'difficulty'  => $data['difficulty'] ?? 1,
                 'source_id'   => $data['source_id'] ?? null,
                 'flag'        => $data['flag'] ?? 0,
+                'level'       => $data['level'] ?? null,
             ]);
 
             foreach ($data['answers'] as $ans) {

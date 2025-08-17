@@ -6,6 +6,20 @@
 <div class="flex gap-6">
     <aside class="w-48 shrink-0">
         <form id="tag-filter" action="{{ route('saved-tests.cards') }}" method="GET">
+            @if(isset($availableLevels) && $availableLevels->count())
+                <div class="mb-4">
+                    <label class="block text-sm mb-1">Level:</label>
+                    <div class="flex flex-wrap gap-2">
+                        @foreach($availableLevels as $lvl)
+                            @php $id = 'level-' . md5($lvl); @endphp
+                            <div>
+                                <input type="checkbox" name="levels[]" value="{{ $lvl }}" id="{{ $id }}" class="hidden peer" {{ in_array($lvl, $selectedLevels ?? []) ? 'checked' : '' }}>
+                                <label for="{{ $id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $lvl }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
             @foreach($tags as $category => $tagNames)
                 @php $isOther = in_array(strtolower($category), ['other', 'others']); @endphp
                 @if($isOther)
@@ -38,7 +52,7 @@
                 @endif
             @endforeach
         </form>
-        @if(!empty($selectedTags))
+        @if(!empty($selectedTags) || !empty($selectedLevels))
             <div class="mt-2">
                 <a href="{{ route('saved-tests.cards') }}" class="text-xs text-gray-500 hover:underline">Скинути фільтр</a>
             </div>
@@ -52,7 +66,14 @@
                         <div class="font-bold text-lg mb-1">{{ $test->name }}</div>
                         <div class="text-xs text-gray-500 mb-2">
                             Створено: {{ $test->created_at->format('d.m.Y') }}<br>
-                            Питань: {{ count($test->questions) }}
+                            Питань: {{ count($test->questions) }}<br>
+                            @php
+                                $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+                                $levels = $test->levels
+                                    ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+                                    ->map(fn($lvl) => $lvl ?? 'N/A');
+                            @endphp
+                            Рівні: {{ $levels->join(', ') }}
                         </div>
                         <div class="mb-3 text-xs">
                             @foreach($test->tag_names as $t)
