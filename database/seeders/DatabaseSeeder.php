@@ -69,7 +69,6 @@ class DatabaseSeeder extends Seeder
             PastSimpleContinuousImageTestSeeder::class,
             PastSimpleOrPastContinuousTestSeeder::class,
             PastSimpleContinuousStorySeeder::class,
-            ThereIsThereAreTestSeeder::class,
             QuestionTenseAssignmentSeeder::class,
             TestContiniusesSeeder::class,
             QuestionLevelSeeder::class,
