@@ -20,15 +20,16 @@ class ThereIsThereAreSeeder extends Seeder
 
         $themeTag = Tag::firstOrCreate(['name' => 'There is/There are'], ['category' => 'Grammar']);
 
+        $phraseCategory = 'There is/There are details';
         $phraseTags = [
-            'there_is' => Tag::firstOrCreate(['name' => 'There is'], ['category' => 'Grammar']),
-            'there_are' => Tag::firstOrCreate(['name' => 'There are'], ['category' => 'Grammar']),
-            'is_there' => Tag::firstOrCreate(['name' => 'Is there'], ['category' => 'Grammar']),
-            'are_there' => Tag::firstOrCreate(['name' => 'Are there'], ['category' => 'Grammar']),
-            'there_isnt' => Tag::firstOrCreate(['name' => "There isn't"], ['category' => 'Grammar']),
-            'there_arent' => Tag::firstOrCreate(['name' => "There aren't"], ['category' => 'Grammar']),
-            'there_arent_any' => Tag::firstOrCreate(['name' => "There aren't any"], ['category' => 'Grammar']),
-            'there_isnt_any' => Tag::firstOrCreate(['name' => "There isn't any"], ['category' => 'Grammar']),
+            'there_is' => Tag::firstOrCreate(['name' => 'There is'], ['category' => $phraseCategory]),
+            'there_are' => Tag::firstOrCreate(['name' => 'There are'], ['category' => $phraseCategory]),
+            'is_there' => Tag::firstOrCreate(['name' => 'Is there'], ['category' => $phraseCategory]),
+            'are_there' => Tag::firstOrCreate(['name' => 'Are there'], ['category' => $phraseCategory]),
+            'there_isnt' => Tag::firstOrCreate(['name' => "There isn't"], ['category' => $phraseCategory]),
+            'there_arent' => Tag::firstOrCreate(['name' => "There aren't"], ['category' => $phraseCategory]),
+            'there_arent_any' => Tag::firstOrCreate(['name' => "There aren't any"], ['category' => $phraseCategory]),
+            'there_isnt_any' => Tag::firstOrCreate(['name' => "There isn't any"], ['category' => $phraseCategory]),
         ];
 
         $data = [
