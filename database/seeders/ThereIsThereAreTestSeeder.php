@@ -11,9 +11,11 @@ class ThereIsThereAreTestSeeder extends Seeder
 {
     public function run(): void
     {
-        $categoryId = Category::firstOrCreate(['name' => 'present'])->id;
-        $sourceId = Source::firstOrCreate(['name' => 'There is/There are worksheet'])->id;
-        $themeTag = Tag::firstOrCreate(['name' => 'there_is_there_are']);
+        $categoryId   = Category::firstOrCreate(['name' => 'present'])->id;
+        $sourceId     = Source::firstOrCreate(['name' => 'There is/There are worksheet'])->id;
+        $themeTag     = Tag::firstOrCreate(['name' => 'there_is_there_are']);
+        $thereIsTag   = Tag::firstOrCreate(['name' => 'There is']);
+        $thereAreTag  = Tag::firstOrCreate(['name' => 'There are']);
 
         $questions = [
             [
@@ -91,14 +93,19 @@ class ThereIsThereAreTestSeeder extends Seeder
             $max   = 36 - strlen((string) $index) - 1;
             $uuid  = substr($slug, 0, $max) . '-' . $index;
 
+            $answerLower   = strtolower($q['answer']);
+            $questionTagId = Str::contains($answerLower, ['there are', 'are there', "there aren't"]) ?
+                $thereAreTag->id : $thereIsTag->id;
+
             $items[] = [
                 'uuid'        => $uuid,
                 'question'    => $q['question'],
                 'category_id' => $categoryId,
                 'difficulty'  => 1,
+                'level'       => 'A1',
                 'source_id'   => $sourceId,
                 'flag'        => 0,
-                'tag_ids'     => [$themeTag->id],
+                'tag_ids'     => [$themeTag->id, $questionTagId],
                 'answers'     => [
                     ['marker' => 'a1', 'answer' => $q['answer']],
                 ],

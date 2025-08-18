@@ -49,7 +49,6 @@ class QuestionLevelSeeder extends Seeder
             GrammarTestAISeeder::class                   => 'B2',
             PresentContinuousDialogueSeeder::class       => 'A2',
             SimplePresentPastSeeder::class               => 'A1',
-            ThereIsThereAreTestSeeder::class            => 'A1',
             TestContiniusesSeeder::class                 => 'B1',
         ];
 
