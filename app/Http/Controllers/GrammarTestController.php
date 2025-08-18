@@ -517,11 +517,11 @@ class GrammarTestController extends Controller
                 $query->where('flag', 0);
             }
     
-            $questions = $questions->merge($query->inRandomOrder()->limit($take)->get());
+            $questions = $questions->merge($query->orderBy('id')->limit($take)->get());
         }
-    
-        // Перемішати всі питання
-        $questions = $questions->shuffle();
+
+        // Відсортувати питання за ID, щоб зберегти порядок із сидера
+        $questions = $questions->sortBy('id')->values();
     
         // Автоматичне ім'я тесту
        // $sourcesForName = collect($questions)->pluck('source.name')->filter()->unique()->values();
