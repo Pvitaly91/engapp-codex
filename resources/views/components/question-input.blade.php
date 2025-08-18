@@ -97,7 +97,7 @@ HTML;
 <div 
     x-data="{
         hints: { chatgpt:'', gemini:'' },
-        fetchHints(refresh = false) {
+        async fetchHints(refresh = false) {
             let qid = {{ $question?->id ?? 'null' }};
             let qtext = @json($question->question);
             if (!qid && !qtext) return; // немає даних питання
@@ -107,16 +107,20 @@ HTML;
             } else {
                 payload.question = qtext;
             }
-            fetch('{{ route('question.hint') }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(r => r.json())
-            .then(d => this.hints = d);
+            try {
+                const r = await fetch('{{ route('question.hint') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                const d = await r.json();
+                this.hints = d;
+            } catch (e) {
+                console.error(e);
+            }
         }
     }"
 ><label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
