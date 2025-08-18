@@ -167,50 +167,7 @@ class GrammarTestAISeeder extends Seeder
                 'answers' => [['marker' => 'a1', 'answer' => 'will be', 'verb_hint' => 'be']],
                 'options' => ['is', 'was', 'be', 'will be', 'being'],
             ],
-            // Додаємо ще 30 питань для всіх рівнів складності і різних часів (буде частина скопійовано зі змінами!)
         ];
-
-        // --- Генеруємо ще питання (для прикладу просто змінюємо дані на схожі) ---
-        $catIds = [1,2,3,4,5,6]; // Приклад категорій
-        $verbs = [
-            ['play', 'plays', 'played', 'playing', 'has played'],
-            ['run', 'runs', 'ran', 'running', 'has run'],
-            ['swim', 'swims', 'swam', 'swimming', 'has swum'],
-            ['drive', 'drives', 'drove', 'driving', 'has driven'],
-            ['eat', 'eats', 'ate', 'eating', 'has eaten'],
-        ];
-        for ($i=0; $i<30; $i++) {
-            $diff = 5 + ($i % 6); // 5–10
-            $cat = $catIds[$i % count($catIds)];
-            $v = $verbs[$i % count($verbs)];
-            $aiQuestions[] = [
-                'question' => 'He {a1} and then {a2} every morning.',
-                'difficulty' => $diff,
-                'category_id' => $cat,
-                'flag' => 1,
-                'source_id' => $sourceIds['AI: Mixed Tenses'],
-                'answers' => [
-                    ['marker' => 'a1', 'answer' => $v[1], 'verb_hint' => $v[0]],
-                    ['marker' => 'a2', 'answer' => $v[3], 'verb_hint' => $v[0]],
-                ],
-                'options' => [$v[0], $v[1], $v[2], $v[3], $v[4]],
-            ];
-        }
-        // --- Додаємо ще декілька для max diff ---
-        for ($i=0; $i<5; $i++) {
-            $aiQuestions[] = [
-                'question' => 'If I {a1} enough time, I {a2} this project.',
-                'difficulty' => 10,
-                'category_id' => 6,
-                'flag' => 1,
-                'source_id' => $sourceIds['AI: Conditionals Advanced'],
-                'answers' => [
-                    ['marker' => 'a1', 'answer' => 'had', 'verb_hint' => 'have'],
-                    ['marker' => 'a2', 'answer' => 'would finish', 'verb_hint' => 'finish'],
-                ],
-                'options' => ['have', 'had', 'will finish', 'finished', 'would finish'],
-            ];
-        }
 
         $service = new QuestionSeedingService();
         $items = [];
