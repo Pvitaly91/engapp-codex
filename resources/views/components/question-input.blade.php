@@ -96,17 +96,24 @@ HTML;
 
 <div 
     x-data="{
-        hints: { chatgpt:'', gemini:'' }, 
+        hints: { chatgpt:'', gemini:'' },
         fetchHints(refresh = false) {
             let qid = {{ $question?->id ?? 'null' }};
-            if (!qid) return; // немає question_id
+            let qtext = @json($question->question);
+            if (!qid && !qtext) return; // немає даних питання
+            const payload = { refresh };
+            if (qid) {
+                payload.question_id = qid;
+            } else {
+                payload.question = qtext;
+            }
             fetch('{{ route('question.hint') }}', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                body: JSON.stringify({ question_id: qid, refresh })
+                body: JSON.stringify(payload)
             })
             .then(r => r.json())
             .then(d => this.hints = d);

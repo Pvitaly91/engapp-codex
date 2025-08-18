@@ -11,41 +11,51 @@ class QuestionHelpController extends Controller
     public function hint(Request $request, ChatGPTService $gpt, GeminiService $gemini)
     {
         $data = $request->validate([
-            'question_id' => 'required|integer|exists:questions,id',
+            'question_id' => 'sometimes|integer|exists:questions,id',
+            'question' => 'required_without:question_id|string',
             'refresh' => 'sometimes|boolean',
         ]);
 
-        $question = Question::findOrFail($data['question_id']);
-        $lang = "uk";//app()->getLocale();
-        $refresh = $data['refresh'] ?? false;
+        $lang = "uk"; // app()->getLocale();
 
-        $chatgptHint = QuestionHint::where('question_id', $question->id)
-            ->where('provider', 'chatgpt')
-            ->where('locale', $lang)
-            ->first();
-        if (!$chatgptHint || $refresh) {
-            $text = $gpt->hintSentenceStructure($question->renderQuestionText(), $lang);
-            $chatgptHint = QuestionHint::updateOrCreate(
-                ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => $lang],
-                ['hint' => $text]
-            );
+        if (isset($data['question_id'])) {
+            $question = Question::findOrFail($data['question_id']);
+            $refresh = $data['refresh'] ?? false;
+
+            $chatgptHint = QuestionHint::where('question_id', $question->id)
+                ->where('provider', 'chatgpt')
+                ->where('locale', $lang)
+                ->first();
+            if (! $chatgptHint || $refresh) {
+                $text = $gpt->hintSentenceStructure($question->renderQuestionText(), $lang);
+                $chatgptHint = QuestionHint::updateOrCreate(
+                    ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => $lang],
+                    ['hint' => $text]
+                );
+            }
+
+            $geminiHint = QuestionHint::where('question_id', $question->id)
+                ->where('provider', 'gemini')
+                ->where('locale', $lang)
+                ->first();
+            if (! $geminiHint || $refresh) {
+                $text = $gemini->hintSentenceStructure($question->renderQuestionText(), $lang);
+                $geminiHint = QuestionHint::updateOrCreate(
+                    ['question_id' => $question->id, 'provider' => 'gemini', 'locale' => $lang],
+                    ['hint' => $text]
+                );
+            }
+
+            return response()->json([
+                'chatgpt' => $chatgptHint->hint,
+                'gemini' => $geminiHint->hint,
+            ]);
         }
 
-        $geminiHint = QuestionHint::where('question_id', $question->id)
-            ->where('provider', 'gemini')
-            ->where('locale', $lang)
-            ->first();
-        if (!$geminiHint || $refresh) {
-            $text = $gemini->hintSentenceStructure($question->renderQuestionText(), $lang);
-            $geminiHint = QuestionHint::updateOrCreate(
-                ['question_id' => $question->id, 'provider' => 'gemini', 'locale' => $lang],
-                ['hint' => $text]
-            );
-        }
-
+        $text = $data['question'];
         return response()->json([
-            'chatgpt' => $chatgptHint->hint,
-            'gemini' => $geminiHint->hint,
+            'chatgpt' => $gpt->hintSentenceStructure($text, $lang),
+            'gemini' => $gemini->hintSentenceStructure($text, $lang),
         ]);
     }
 }
