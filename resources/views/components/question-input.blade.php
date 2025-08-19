@@ -94,24 +94,35 @@ HTML;
 
 @endphp
 
-<div 
-    x-data="{
-        hints: { chatgpt:'', gemini:'' }, 
-        fetchHints(refresh = false) {
-            let qid = {{ $question?->id ?? 'null' }};
-            if (!qid) return; // немає question_id
-            fetch('{{ route('question.hint') }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify({ question_id: qid, refresh })
-            })
-            .then(r => r.json())
-            .then(d => this.hints = d);
+<div
+    x-data='{
+        qid: {{ $question?->id ?? 'null' }},
+        qtext: @json($question->question),
+        hints: { chatgpt: "", gemini: "" },
+        async fetchHints(refresh = false) {
+            if (!this.qid && !this.qtext) return; // немає даних питання
+            const payload = { refresh };
+            if (this.qid) {
+                payload.question_id = this.qid;
+            } else {
+                payload.question = this.qtext;
+            }
+            try {
+                const r = await fetch("{{ route('question.hint') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify(payload)
+                });
+                const d = await r.json();
+                this.hints = d;
+            } catch (e) {
+                console.error(e);
+            }
         }
-    }"
+    }'
 ><label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
     <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHints()">Help</button>
     <template x-if="hints.chatgpt || hints.gemini">

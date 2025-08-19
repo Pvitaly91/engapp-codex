@@ -16,6 +16,7 @@ class QuestionHintCacheTest extends TestCase
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
             '2025_07_20_143210_create_quastion_table.php',
+            '2025_07_20_143243_create_quastion_answers_table.php',
             '2025_07_31_000002_add_uuid_to_questions_table.php',
             '2025_08_05_000001_create_question_hints_table.php',
         ];
@@ -72,5 +73,26 @@ class QuestionHintCacheTest extends TestCase
             'provider' => 'chatgpt',
             'hint' => 'second-gpt',
         ]);
+    }
+
+    /** @test */
+    public function hints_can_be_generated_from_question_text()
+    {
+        $this->mock(ChatGPTService::class, function ($mock) {
+            $mock->shouldReceive('hintSentenceStructure')
+                ->once()
+                ->andReturn('text-gpt');
+        });
+        $this->mock(GeminiService::class, function ($mock) {
+            $mock->shouldReceive('hintSentenceStructure')
+                ->once()
+                ->andReturn('text-gemini');
+        });
+
+        $this->postJson(route('question.hint'), ['question' => 'Sample sentence?'])
+            ->assertJson([
+                'chatgpt' => 'text-gpt',
+                'gemini' => 'text-gemini',
+            ]);
     }
 }
