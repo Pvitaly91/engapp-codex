@@ -76,6 +76,7 @@ class DatabaseSeeder extends Seeder
             AAnSomeAnyTestSeeder::class,
             AAnTheTestSeeder::class,
             AAnTheTest2Seeder::class,
+            PresentPerfectPastSimpleTestSeeder::class,
             QuestionTenseAssignmentSeeder::class,
             TestContiniusesSeeder::class,
             QuestionLevelSeeder::class,
