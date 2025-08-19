@@ -34,11 +34,11 @@
         <div class="mb-4 space-x-2">
             <form method="POST" action="{{ route('saved-test.refresh', $test->slug) }}" class="inline">
                 @csrf
-                <button type="submit" class="text-xs text-blue-600 underline">Згенерувати опис</button>
+                <button type="submit" class="text-xs text-blue-600 underline">Оновити опис</button>
             </form>
             <form method="POST" action="{{ route('saved-test.refresh-gemini', $test->slug) }}" class="inline">
                 @csrf
-                <button type="submit" class="text-xs text-blue-600 underline">Згенерувати опис Gemini</button>
+                <button type="submit" class="text-xs text-blue-600 underline">Оновити опис Gemini</button>
             </form>
         </div>
     @endif

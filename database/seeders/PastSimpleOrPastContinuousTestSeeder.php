@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Source;
 use App\Models\Tag;
 use App\Models\Test;
-use App\Services\ChatGPTService;
 use App\Services\QuestionSeedingService;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -182,17 +181,12 @@ class PastSimpleOrPastContinuousTestSeeder extends Seeder
 
         $service->seed($items);
 
-        $chatgpt = app(ChatGPTService::class);
-        $questionTexts = array_column($questions, 'question');
-        $description = $chatgpt->generateTestDescription($questionTexts);
-
         Test::updateOrCreate(
             ['slug' => 'past-simple-or-past-continuous'],
             [
                 'name' => 'Past Simple or Past Continuous',
                 'filters' => [],
                 'questions' => array_column($items, 'uuid'),
-                'description' => $description,
             ]
         );
     }

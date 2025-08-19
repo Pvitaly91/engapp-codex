@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\{Category, Source, Tag, Test};
-use App\Services\{ChatGPTService, QuestionSeedingService};
+use App\Services\QuestionSeedingService;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -211,17 +211,12 @@ class FutConImageTestSeeder extends Seeder
 
         $service->seed($items);
 
-        $chatgpt = app(ChatGPTService::class);
-        $questionTexts = array_column($questions, 'question');
-        $description = $chatgpt->generateTestDescription($questionTexts);
-
         Test::updateOrCreate(
             ['slug' => 'fut-con-image-test'],
             [
                 'name' => 'Past Simple and Continuous (Fut Con Image)',
                 'filters' => [],
                 'questions' => array_column($items, 'uuid'),
-                'description' => $description,
             ]
         );
     }
