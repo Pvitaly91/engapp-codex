@@ -14,7 +14,8 @@ class SomeAnyTestSeeder extends Seeder
     {
         $categoryId = 2; // Present Simple
         $sourceId   = Source::firstOrCreate(['name' => 'Some Any Test 1'])->id;
-        $grammarTag = Tag::firstOrCreate(['name' => 'Some or Any'], ['category' => 'Quantifiers']);
+        $grammarTag    = Tag::firstOrCreate(['name' => 'Some or Any'], ['category' => 'Quantifiers']);
+        $vocabularyTag = Tag::firstOrCreate(['name' => 'Food'], ['category' => 'Vocabulary']);
 
         $questions = [
             [
@@ -22,84 +23,72 @@ class SomeAnyTestSeeder extends Seeder
                 'options'  => ['some', 'any'],
                 'answer'   => 'any',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'eggs', 'category' => 'Food'],
             ],
             [
                 'question' => 'There is {a1} milk.',
                 'options'  => ['some', 'any'],
                 'answer'   => 'some',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'milk', 'category' => 'Food'],
             ],
             [
                 'question' => 'There are {a1} grapes in the fridge.',
                 'options'  => ['some', 'any'],
                 'answer'   => 'some',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'grapes', 'category' => 'Food'],
             ],
             [
                 'question' => "I don't have {a1} tomatoes.",
                 'options'  => ['some', 'any'],
                 'answer'   => 'any',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'tomatoes', 'category' => 'Food'],
             ],
             [
                 'question' => "There aren't {a1} oranges in the cupboard.",
                 'options'  => ['some', 'any'],
                 'answer'   => 'any',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'oranges', 'category' => 'Food'],
             ],
             [
                 'question' => 'There are {a1} carrots on the table.',
                 'options'  => ['some', 'any'],
                 'answer'   => 'some',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'carrots', 'category' => 'Food'],
             ],
             [
                 'question' => 'Have you got {a1} avocados?',
                 'options'  => ['some', 'any'],
                 'answer'   => 'any',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'avocados', 'category' => 'Food'],
             ],
             [
                 'question' => "We haven't got {a1} peppers.",
                 'options'  => ['some', 'any'],
                 'answer'   => 'any',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'peppers', 'category' => 'Food'],
             ],
             [
                 'question' => 'There is {a1} milk in the bottle.',
                 'options'  => ['some', 'any'],
                 'answer'   => 'some',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'milk', 'category' => 'Food'],
             ],
             [
                 'question' => "We don't have {a1} pineapples.",
                 'options'  => ['some', 'any'],
                 'answer'   => 'any',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'pineapples', 'category' => 'Food'],
             ],
             [
                 'question' => "I don't need {a1} flour.",
                 'options'  => ['some', 'any'],
                 'answer'   => 'any',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'flour', 'category' => 'Food'],
             ],
             [
                 'question' => 'I have {a1} cherries.',
                 'options'  => ['some', 'any'],
                 'answer'   => 'some',
                 'level'    => 'A1',
-                'tag'      => ['name' => 'cherries', 'category' => 'Food'],
             ],
         ];
 
@@ -112,11 +101,6 @@ class SomeAnyTestSeeder extends Seeder
             $max   = 36 - strlen((string) $index) - 1;
             $uuid  = substr($slug, 0, $max) . '-' . $index;
 
-            $themeTag = Tag::firstOrCreate(
-                ['name' => $q['tag']['name']],
-                ['category' => $q['tag']['category']]
-            );
-
             $items[] = [
                 'uuid'        => $uuid,
                 'question'    => $q['question'],
@@ -124,7 +108,7 @@ class SomeAnyTestSeeder extends Seeder
                 'category_id' => $categoryId,
                 'flag'        => 0,
                 'source_id'   => $sourceId,
-                'tag_ids'     => [$grammarTag->id, $themeTag->id],
+                'tag_ids'     => [$grammarTag->id, $vocabularyTag->id],
                 'level'       => $q['level'],
                 'answers'     => [
                     ['marker' => 'a1', 'answer' => $q['answer']],
