@@ -226,7 +226,7 @@ class ThereIsThereAreWorksheetSeeder extends Seeder
             ],
             [
                 'question' => '{a1} any eggs in the fridge.',
-                'answers' => [['marker' => 'a1', 'answer' => 'Are there']],
+                'answers' => [['marker' => 'a1', 'answer' => "There aren't"]],
                 'options' => ['There is', 'There are', 'Is there', 'Are there', "There isn't", "There aren't"],
                 'tag_ids' => [$phraseTags['are_there']->id],
                 'level' => 'A1',
