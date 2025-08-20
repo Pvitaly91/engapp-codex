@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Models\{Category, Source, Tag, Test};
 use App\Services\QuestionSeedingService;
-use App\Services\ChatGPTService;
 
 class PastSimpleContinuousImageTestSeeder extends Seeder
 {
@@ -188,17 +187,12 @@ class PastSimpleContinuousImageTestSeeder extends Seeder
 
         $service->seed($items);
 
-        $chatgpt = app(ChatGPTService::class);
-        $questionTexts = array_column($questions, 'question');
-        $description = $chatgpt->generateTestDescription($questionTexts);
-
         Test::updateOrCreate(
             ['slug' => 'past-simple-continuous-image'],
             [
                 'name' => 'Past Simple and Continuous (Image)',
                 'filters' => [],
                 'questions' => array_column($items, 'uuid'),
-                'description' => $description,
             ]
         );
     }
