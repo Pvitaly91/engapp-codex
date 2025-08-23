@@ -101,8 +101,11 @@ use App\Http\Controllers\QuestionReviewResultController;
 use App\Http\Controllers\VerbHintController;
 Route::get('/question-review-results', [QuestionReviewResultController::class, 'index'])->name('question-review-results.index');
 
+Route::get('/verb-hints/create', [VerbHintController::class, 'create'])->name('verb-hints.create');
+Route::post('/verb-hints', [VerbHintController::class, 'store'])->name('verb-hints.store');
 Route::get('/verb-hints/{verbHint}/edit', [VerbHintController::class, 'edit'])->name('verb-hints.edit');
 Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
+Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])->name('verb-hints.destroy');
 
 Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
 

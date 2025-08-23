@@ -80,13 +80,20 @@ HTML;
             }
             $input .= '</select>';
         }
-        if($verbHint){
+        if($verbHintRow){
             $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')';
-            if(!empty($showVerbHintEdit) && $verbHintRow){
-                $url = route('verb-hints.edit', ['verbHint' => $verbHintRow->id, 'from' => request()->getRequestUri()]);
-                $input .= ' <a href="'.$url.'" class="underline">Edit</a>';
+            if(!empty($showVerbHintEdit)){
+                $editUrl = route('verb-hints.edit', ['verbHint' => $verbHintRow->id, 'from' => request()->getRequestUri()]);
+                $deleteId = 'delete-verb-hint-'.$verbHintRow->id;
+                $deleteUrl = route('verb-hints.destroy', $verbHintRow->id);
+                $input .= ' <a href="'.$editUrl.'" class="underline">Edit</a>';
+                $input .= ' <button type="submit" form="'.$deleteId.'" class="underline text-red-600" onclick="return confirm(\'Delete verb hint?\')">Delete</button>';
+                $input .= '<form id="'.$deleteId.'" action="'.$deleteUrl.'" method="POST" class="hidden">'.csrf_field().method_field('DELETE').'<input type="hidden" name="from" value="'.e(request()->getRequestUri()).'"></form>';
             }
             $input .= '</span>';
+        } elseif(!empty($showVerbHintEdit)) {
+            $createUrl = route('verb-hints.create', ['question_id' => $question->id, 'marker' => $markerKey, 'from' => request()->getRequestUri()]);
+            $input .= ' <a href="'.$createUrl.'" class="text-xs text-blue-600 underline">Add hint</a>';
         }
         $replacements[$marker] = $input;
     }
