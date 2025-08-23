@@ -88,7 +88,9 @@ HTML;
                 $csrf = csrf_token();
                 $from = urlencode(request()->getRequestUri());
                 $input .= ' <a href="'.$editUrl.'" class="underline">Edit</a>';
-                $input .= ' <button type="button" class="underline text-red-600" onclick="if(confirm(\\'Delete verb hint?\\')){fetch(\\''.$deleteUrl.'?from='.$from.'\\',{method:\\'DELETE\\',headers:{\\'X-CSRF-TOKEN\\':\\''.$csrf.'\\'}}).then(()=>location.reload());}">Delete</button>';
+                $input .= <<<HTML
+ <button type="button" class="underline text-red-600" onclick="if(confirm('Delete verb hint?')){fetch('{$deleteUrl}?from={$from}',{method:'DELETE',headers:{'X-CSRF-TOKEN':'{$csrf}'}}).then(()=>location.reload());}">Delete</button>
+HTML;
             }
             $input .= '</span>';
         } elseif(!empty($showVerbHintEdit)) {
