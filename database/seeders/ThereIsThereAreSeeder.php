@@ -100,7 +100,7 @@ class ThereIsThereAreSeeder extends Seeder
                 'tag_ids' => [$phraseTags['is_there']->id],
             ],
             [
-                'question' => 'I have cans of soda in the cooler, but {a1} any bottles left.',
+                'question' => 'I have cans of soda in the cooler, but {a1} bottles left.',
                 'answers' => [['marker' => 'a1', 'answer' => 'there aren\'t any']],
                 'options' => ['there are', 'there aren\'t', 'there aren\'t any'],
                 'tag_ids' => [$phraseTags['there_arent_any']->id],

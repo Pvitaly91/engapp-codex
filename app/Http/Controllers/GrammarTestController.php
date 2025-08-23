@@ -278,7 +278,7 @@ class GrammarTestController extends Controller
 
         return response()->json(['level' => $level]);
     }
-
+ 
     public function determineLevelGemini(Request $request, $slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
