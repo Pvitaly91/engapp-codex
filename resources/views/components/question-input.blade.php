@@ -195,5 +195,35 @@ HTML;
                 btn.replaceWith(span);
             });
         }
+        function storageKey(name) {
+            return `answer:${location.pathname}:${name}`;
+        }
+        function restoreSavedAnswers() {
+            document.querySelectorAll('input[name], select[name], textarea[name]').forEach(el => {
+                const key = storageKey(el.name);
+                const saved = localStorage.getItem(key);
+                if (saved === null) return;
+                if (el.type === 'checkbox') {
+                    el.checked = saved === 'true';
+                } else if (el.type === 'radio') {
+                    if (el.value === saved) el.checked = true;
+                } else {
+                    el.value = saved;
+                }
+            });
+        }
+        document.addEventListener('input', e => {
+            const el = e.target;
+            if (!el.name) return;
+            const key = storageKey(el.name);
+            if (el.type === 'checkbox') {
+                localStorage.setItem(key, el.checked);
+            } else if (el.type === 'radio') {
+                if (el.checked) localStorage.setItem(key, el.value);
+            } else {
+                localStorage.setItem(key, el.value);
+            }
+        });
+        window.addEventListener('DOMContentLoaded', restoreSavedAnswers);
     </script>
 @endonce
