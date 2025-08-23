@@ -28,14 +28,14 @@ class VerbHintController extends Controller
             $question->options()->attach($option->id, ['flag' => 1]);
         }
 
-        VerbHint::create([
+        $verbHint = VerbHint::create([
             'question_id' => $question->id,
             'marker' => $data['marker'],
             'option_id' => $option->id,
         ]);
 
         if ($request->expectsJson()) {
-            return response()->noContent();
+            return response()->json(['id' => $verbHint->id], 201);
         }
 
         $redirectTo = $request->input('from', url()->previous());

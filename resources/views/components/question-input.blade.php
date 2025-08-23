@@ -81,24 +81,14 @@ HTML;
             $input .= '</select>';
         }
         if($verbHintRow){
-            $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')';
+            $input .= ' <span class="verb-hint text-red-700 text-xs font-bold">(<span class="verb-hint-text">'.e($verbHint).'</span>)';
             if(!empty($showVerbHintEdit)){
-                $updateUrl = route('verb-hints.update', $verbHintRow->id);
-                $deleteUrl = route('verb-hints.destroy', $verbHintRow->id);
-                $csrf = csrf_token();
-                $verbHintJs = e(json_encode($verbHint));
-                $input .= <<<HTML
- <button type="button" class="underline" onclick="(function(){const hint=prompt('Edit verb hint', {$verbHintJs}); if(hint===null)return; fetch('{$updateUrl}',{method:'PUT',headers:{'X-CSRF-TOKEN':'{$csrf}','Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({hint})}).then(()=>location.reload());})()">Edit</button>
- <button type="button" class="underline text-red-600" onclick="if(confirm('Delete verb hint?')){fetch('{$deleteUrl}',{method:'DELETE',headers:{'X-CSRF-TOKEN':'{$csrf}','Accept':'application/json'}}).then(()=>location.reload());}">Delete</button>
-HTML;
+                $input .= " <button type=\"button\" class=\"verb-hint-edit underline\" onclick=\"editVerbHint({$verbHintRow->id}, this)\">Edit</button>";
+                $input .= " <button type=\"button\" class=\"verb-hint-delete underline text-red-600\" onclick=\"deleteVerbHint({$verbHintRow->id}, this, {$question->id}, '{$markerKey}')\">Delete</button>";
             }
             $input .= '</span>';
         } elseif(!empty($showVerbHintEdit)) {
-            $storeUrl = route('verb-hints.store');
-            $csrf = csrf_token();
-            $input .= <<<HTML
- <button type="button" class="text-xs text-blue-600 underline" onclick="(function(){const hint=prompt('Enter verb hint'); if(!hint)return; fetch('{$storeUrl}',{method:'POST',headers:{'X-CSRF-TOKEN':'{$csrf}','Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({question_id: {$question->id}, marker: '{$markerKey}', hint})}).then(()=>location.reload());})()">Add hint</button>
-HTML;
+            $input .= " <button type=\"button\" class=\"text-xs text-blue-600 underline\" onclick=\"addVerbHint({$question->id}, '{$markerKey}', this)\">Add hint</button>";
         }
         $replacements[$marker] = $input;
     }
@@ -145,3 +135,65 @@ HTML;
         </div>
     </template>
 </div>
+
+@once
+    <script>
+        const verbHintBaseUrl = '{{ url('/verb-hints') }}';
+        const verbHintCsrf = '{{ csrf_token() }}';
+        function editVerbHint(id, btn) {
+            const span = btn.closest('.verb-hint');
+            const current = span.querySelector('.verb-hint-text').textContent;
+            const hint = prompt('Edit verb hint', current);
+            if (hint === null) return;
+            fetch(`${verbHintBaseUrl}/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': verbHintCsrf,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ hint })
+            }).then(() => {
+                span.querySelector('.verb-hint-text').textContent = hint;
+            });
+        }
+        function deleteVerbHint(id, btn, qid, marker) {
+            if (!confirm('Delete verb hint?')) return;
+            fetch(`${verbHintBaseUrl}/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': verbHintCsrf,
+                    'Accept': 'application/json'
+                }
+            }).then(() => {
+                const addBtn = document.createElement('button');
+                addBtn.type = 'button';
+                addBtn.className = 'text-xs text-blue-600 underline';
+                addBtn.textContent = 'Add hint';
+                addBtn.onclick = function(){ addVerbHint(qid, marker, addBtn); };
+                btn.closest('.verb-hint').replaceWith(addBtn);
+            });
+        }
+        function addVerbHint(qid, marker, btn) {
+            const hint = prompt('Enter verb hint');
+            if (!hint) return;
+            fetch(verbHintBaseUrl, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': verbHintCsrf,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ question_id: qid, marker, hint })
+            }).then(r => r.json()).then(data => {
+                const span = document.createElement('span');
+                span.className = 'verb-hint text-red-700 text-xs font-bold';
+                span.innerHTML = '(<span class="verb-hint-text"></span>) <button type="button" class="verb-hint-edit underline">Edit</button> <button type="button" class="verb-hint-delete underline text-red-600">Delete</button>';
+                span.querySelector('.verb-hint-text').textContent = hint;
+                span.querySelector('.verb-hint-edit').onclick = function(){ editVerbHint(data.id, this); };
+                span.querySelector('.verb-hint-delete').onclick = function(){ deleteVerbHint(data.id, this, qid, marker); };
+                btn.replaceWith(span);
+            });
+        }
+    </script>
+@endonce

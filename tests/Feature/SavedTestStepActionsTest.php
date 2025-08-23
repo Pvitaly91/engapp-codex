@@ -74,8 +74,7 @@ class SavedTestStepActionsTest extends TestCase
         $response->assertSee(route('question-review.edit', $question->id));
         $response->assertSee('form="delete-question-' . $question->id . '"', false);
         $response->assertSee(route('saved-test.question.destroy', [$testModel->slug, $question->id]));
-        $updateUrl = route('verb-hints.update', $verbHint->id);
-        $response->assertSee($updateUrl);
+        $response->assertSee("editVerbHint({$verbHint->id}", false);
     }
 }
 

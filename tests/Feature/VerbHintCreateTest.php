@@ -61,8 +61,7 @@ class VerbHintCreateTest extends TestCase
             'marker' => 'a1',
             'hint' => 'do',
         ]);
-
-        $response->assertNoContent();
+        $response->assertStatus(201)->assertJsonStructure(['id']);
         $this->assertDatabaseHas('verb_hints', [
             'question_id' => $question->id,
             'marker' => 'a1',
@@ -129,8 +128,7 @@ class VerbHintCreateTest extends TestCase
             'marker' => 'a1',
             'hint' => 'run',
         ]);
-
-        $response->assertNoContent();
+        $response->assertStatus(201)->assertJsonStructure(['id']);
 
         $this->assertEquals(1, QuestionOption::where('option', 'run')->count());
         $this->assertDatabaseHas('question_option_question', [

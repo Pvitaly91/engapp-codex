@@ -71,8 +71,7 @@ class SavedTestVerbHintEditLinkTest extends TestCase
 
         $response = $this->get('/test/' . $testModel->slug);
         $response->assertStatus(200);
-        $updateUrl = route('verb-hints.update', $verbHint->id);
-        $response->assertSee($updateUrl);
+        $response->assertSee("editVerbHint({$verbHint->id}", false);
         $response->assertSee('Edit');
     }
 }
