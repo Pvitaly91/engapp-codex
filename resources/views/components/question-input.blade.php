@@ -84,11 +84,11 @@ HTML;
             $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')';
             if(!empty($showVerbHintEdit)){
                 $editUrl = route('verb-hints.edit', ['verbHint' => $verbHintRow->id, 'from' => request()->getRequestUri()]);
-                $deleteId = 'delete-verb-hint-'.$verbHintRow->id;
                 $deleteUrl = route('verb-hints.destroy', $verbHintRow->id);
+                $csrf = csrf_token();
+                $from = urlencode(request()->getRequestUri());
                 $input .= ' <a href="'.$editUrl.'" class="underline">Edit</a>';
-                $input .= ' <button type="submit" form="'.$deleteId.'" class="underline text-red-600" onclick="return confirm(\'Delete verb hint?\')">Delete</button>';
-                $input .= '<form id="'.$deleteId.'" action="'.$deleteUrl.'" method="POST" class="hidden">'.csrf_field().method_field('DELETE').'<input type="hidden" name="from" value="'.e(request()->getRequestUri()).'"></form>';
+                $input .= ' <button type="button" class="underline text-red-600" onclick="if(confirm(\\'Delete verb hint?\\')){fetch(\\''.$deleteUrl.'?from='.$from.'\\',{method:\\'DELETE\\',headers:{\\'X-CSRF-TOKEN\\':\\''.$csrf.'\\'}}).then(()=>location.reload());}">Delete</button>';
             }
             $input .= '</span>';
         } elseif(!empty($showVerbHintEdit)) {
