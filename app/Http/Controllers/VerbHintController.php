@@ -18,12 +18,13 @@ class VerbHintController extends Controller
         $question = Question::findOrFail($data['question_id']);
         $option = QuestionOption::firstOrCreate(['option' => $data['hint']]);
 
-        $exists = DB::table('question_option_question')
+        $pivot = DB::table('question_option_question')
             ->where('question_id', $question->id)
-            ->where('option_id', $option->id)
-            ->where('flag', 1)
-            ->exists();
-        if (! $exists) {
+            ->where('option_id', $option->id);
+
+        if ($pivot->exists()) {
+            $pivot->update(['flag' => 1]);
+        } else {
             $question->options()->attach($option->id, ['flag' => 1]);
         }
 
@@ -65,7 +66,15 @@ class VerbHintController extends Controller
             $newOption = QuestionOption::firstOrCreate(['option' => $newHint]);
 
             $question->options()->detach($option->id);
-            $question->options()->attach($newOption->id, ['flag' => 1]);
+
+            $pivot = DB::table('question_option_question')
+                ->where('question_id', $question->id)
+                ->where('option_id', $newOption->id);
+            if ($pivot->exists()) {
+                $pivot->update(['flag' => 1]);
+            } else {
+                $question->options()->attach($newOption->id, ['flag' => 1]);
+            }
 
             $verbHint->option_id = $newOption->id;
             $verbHint->save();
@@ -74,7 +83,15 @@ class VerbHintController extends Controller
 
             if ($existingOption) {
                 $question->options()->detach($option->id);
-                $question->options()->attach($existingOption->id, ['flag' => 1]);
+
+                $pivot = DB::table('question_option_question')
+                    ->where('question_id', $question->id)
+                    ->where('option_id', $existingOption->id);
+                if ($pivot->exists()) {
+                    $pivot->update(['flag' => 1]);
+                } else {
+                    $question->options()->attach($existingOption->id, ['flag' => 1]);
+                }
 
                 $verbHint->option_id = $existingOption->id;
                 $verbHint->save();
