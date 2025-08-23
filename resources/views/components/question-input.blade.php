@@ -86,7 +86,7 @@ HTML;
                 $updateUrl = route('verb-hints.update', $verbHintRow->id);
                 $deleteUrl = route('verb-hints.destroy', $verbHintRow->id);
                 $csrf = csrf_token();
-                $verbHintJs = json_encode($verbHint);
+                $verbHintJs = e(json_encode($verbHint));
                 $input .= <<<HTML
  <button type="button" class="underline" onclick="(function(){const hint=prompt('Edit verb hint', {$verbHintJs}); if(hint===null)return; fetch('{$updateUrl}',{method:'PUT',headers:{'X-CSRF-TOKEN':'{$csrf}','Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({hint})}).then(()=>location.reload());})()">Edit</button>
  <button type="button" class="underline text-red-600" onclick="if(confirm('Delete verb hint?')){fetch('{$deleteUrl}',{method:'DELETE',headers:{'X-CSRF-TOKEN':'{$csrf}','Accept':'application/json'}}).then(()=>location.reload());}">Delete</button>
