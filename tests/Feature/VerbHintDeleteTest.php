@@ -64,11 +64,9 @@ class VerbHintDeleteTest extends TestCase
             'option_id' => $hintOption->id,
         ]);
 
-        $response = $this->delete(route('verb-hints.destroy', $verbHint->id), [
-            'from' => '/back',
-        ]);
+        $response = $this->deleteJson(route('verb-hints.destroy', $verbHint->id));
 
-        $response->assertRedirect('/back');
+        $response->assertNoContent();
         $this->assertDatabaseMissing('verb_hints', ['id' => $verbHint->id]);
         $this->assertDatabaseMissing('question_option_question', [
             'question_id' => $question->id,
@@ -139,9 +137,9 @@ class VerbHintDeleteTest extends TestCase
             'option_id' => $sharedOption->id,
         ]);
 
-        $response = $this->delete(route('verb-hints.destroy', $verbHint1->id));
+        $response = $this->deleteJson(route('verb-hints.destroy', $verbHint1->id));
 
-        $response->assertRedirect();
+        $response->assertNoContent();
         $this->assertDatabaseMissing('verb_hints', ['id' => $verbHint1->id]);
         $this->assertDatabaseHas('verb_hints', [
             'question_id' => $q2->id,

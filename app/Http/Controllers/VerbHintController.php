@@ -8,22 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class VerbHintController extends Controller
 {
-    public function create(Request $request)
-    {
-        $request->validate([
-            'question_id' => 'required|exists:questions,id',
-            'marker' => 'required|string|max:255',
-        ]);
-
-        $from = $request->query('from', url()->previous());
-        $verbHint = new VerbHint([
-            'question_id' => $request->query('question_id'),
-            'marker' => $request->query('marker'),
-        ]);
-
-        return view('verb-hint-edit', compact('verbHint', 'from'));
-    }
-
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -31,8 +15,6 @@ class VerbHintController extends Controller
             'marker' => 'required|string|max:255',
             'hint' => 'required|string|max:255',
         ]);
-        $redirectTo = $request->input('from', url()->previous());
-
         $question = Question::findOrFail($data['question_id']);
         $option = QuestionOption::firstOrCreate(['option' => $data['hint']]);
 
@@ -51,15 +33,13 @@ class VerbHintController extends Controller
             'option_id' => $option->id,
         ]);
 
+        if ($request->expectsJson()) {
+            return response()->noContent();
+        }
+
+        $redirectTo = $request->input('from', url()->previous());
+
         return redirect($redirectTo);
-    }
-
-    public function edit(Request $request, VerbHint $verbHint)
-    {
-        $verbHint->load('option');
-        $from = $request->query('from', url()->previous());
-
-        return view('verb-hint-edit', compact('verbHint', 'from'));
     }
 
     public function update(Request $request, VerbHint $verbHint)
@@ -71,10 +51,10 @@ class VerbHintController extends Controller
         $question = $verbHint->question;
         $newHint = $request->input('hint');
 
-        $redirectTo = $request->input('from', url()->previous());
-
         if ($newHint === $option->option) {
-            return redirect($redirectTo);
+            return $request->expectsJson()
+                ? response()->noContent()
+                : redirect($request->input('from', url()->previous()));
         }
 
         $isShared = $option->questions()
@@ -106,13 +86,17 @@ class VerbHintController extends Controller
             }
         }
 
+        if ($request->expectsJson()) {
+            return response()->noContent();
+        }
+
+        $redirectTo = $request->input('from', url()->previous());
+
         return redirect($redirectTo);
     }
 
     public function destroy(Request $request, VerbHint $verbHint)
     {
-        $redirectTo = $request->input('from', url()->previous());
-
         $option = $verbHint->option;
         $question = $verbHint->question;
 
@@ -128,6 +112,12 @@ class VerbHintController extends Controller
             && ! DB::table('question_option_question')->where('option_id', $option->id)->exists()) {
             $option->delete();
         }
+
+        if ($request->expectsJson()) {
+            return response()->noContent();
+        }
+
+        $redirectTo = $request->input('from', url()->previous());
 
         return redirect($redirectTo);
     }

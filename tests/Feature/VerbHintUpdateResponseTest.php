@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
 use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
 
-class VerbHintUpdateRedirectTest extends TestCase
+class VerbHintUpdateResponseTest extends TestCase
 {
     /** @test */
-    public function updating_verb_hint_redirects_back_to_source_page(): void
+    public function updating_verb_hint_returns_no_content(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -69,12 +69,11 @@ class VerbHintUpdateRedirectTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $response = $this->put(route('verb-hints.update', $verbHint->id), [
+        $response = $this->putJson(route('verb-hints.update', $verbHint->id), [
             'hint' => 'go',
-            'from' => '/test/' . $testModel->slug,
         ]);
 
-        $response->assertRedirect('/test/' . $testModel->slug);
+        $response->assertNoContent();
         $this->assertEquals('go', $verbHint->fresh()->option->option);
     }
 }

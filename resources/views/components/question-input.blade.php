@@ -83,19 +83,22 @@ HTML;
         if($verbHintRow){
             $input .= ' <span class="text-red-700 text-xs font-bold">('.e($verbHint).')';
             if(!empty($showVerbHintEdit)){
-                $editUrl = route('verb-hints.edit', ['verbHint' => $verbHintRow->id, 'from' => request()->getRequestUri()]);
+                $updateUrl = route('verb-hints.update', $verbHintRow->id);
                 $deleteUrl = route('verb-hints.destroy', $verbHintRow->id);
                 $csrf = csrf_token();
-                $from = urlencode(request()->getRequestUri());
-                $input .= ' <a href="'.$editUrl.'" class="underline">Edit</a>';
+                $verbHintJs = json_encode($verbHint);
                 $input .= <<<HTML
- <button type="button" class="underline text-red-600" onclick="if(confirm('Delete verb hint?')){fetch('{$deleteUrl}?from={$from}',{method:'DELETE',headers:{'X-CSRF-TOKEN':'{$csrf}'}}).then(()=>location.reload());}">Delete</button>
+ <button type="button" class="underline" onclick="(function(){const hint=prompt('Edit verb hint', {$verbHintJs}); if(hint===null)return; fetch('{$updateUrl}',{method:'PUT',headers:{'X-CSRF-TOKEN':'{$csrf}','Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({hint})}).then(()=>location.reload());})()">Edit</button>
+ <button type="button" class="underline text-red-600" onclick="if(confirm('Delete verb hint?')){fetch('{$deleteUrl}',{method:'DELETE',headers:{'X-CSRF-TOKEN':'{$csrf}','Accept':'application/json'}}).then(()=>location.reload());}">Delete</button>
 HTML;
             }
             $input .= '</span>';
         } elseif(!empty($showVerbHintEdit)) {
-            $createUrl = route('verb-hints.create', ['question_id' => $question->id, 'marker' => $markerKey, 'from' => request()->getRequestUri()]);
-            $input .= ' <a href="'.$createUrl.'" class="text-xs text-blue-600 underline">Add hint</a>';
+            $storeUrl = route('verb-hints.store');
+            $csrf = csrf_token();
+            $input .= <<<HTML
+ <button type="button" class="text-xs text-blue-600 underline" onclick="(function(){const hint=prompt('Enter verb hint'); if(!hint)return; fetch('{$storeUrl}',{method:'POST',headers:{'X-CSRF-TOKEN':'{$csrf}','Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({question_id: {$question->id}, marker: '{$markerKey}', hint})}).then(()=>location.reload());})()">Add hint</button>
+HTML;
         }
         $replacements[$marker] = $input;
     }

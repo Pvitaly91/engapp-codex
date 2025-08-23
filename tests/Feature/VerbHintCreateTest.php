@@ -56,14 +56,13 @@ class VerbHintCreateTest extends TestCase
         $ans->question_id = $question->id;
         $ans->save();
 
-        $response = $this->post(route('verb-hints.store'), [
+        $response = $this->postJson(route('verb-hints.store'), [
             'question_id' => $question->id,
             'marker' => 'a1',
             'hint' => 'do',
-            'from' => '/back',
         ]);
 
-        $response->assertRedirect('/back');
+        $response->assertNoContent();
         $this->assertDatabaseHas('verb_hints', [
             'question_id' => $question->id,
             'marker' => 'a1',

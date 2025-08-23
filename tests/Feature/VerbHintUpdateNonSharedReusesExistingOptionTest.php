@@ -71,12 +71,11 @@ class VerbHintUpdateNonSharedReusesExistingOptionTest extends TestCase
             'option_id' => $hintOption->id,
         ]);
 
-        $response = $this->put(route('verb-hints.update', $verbHint->id), [
+        $response = $this->putJson(route('verb-hints.update', $verbHint->id), [
             'hint' => 'go',
-            'from' => '/back',
         ]);
 
-        $response->assertRedirect('/back');
+        $response->assertNoContent();
 
         $this->assertEquals($optExisting->id, $verbHint->fresh()->option_id);
         $this->assertEquals(1, QuestionOption::where('option', 'go')->count());
