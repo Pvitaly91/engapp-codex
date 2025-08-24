@@ -80,6 +80,8 @@ class AiGrammarTestPageTest extends TestCase
                     'verb_hints' => [
                         'a1' => 'be',
                     ],
+                    'level' => 'B1',
+                    'generated_at' => '2025-01-01T00:00:00Z',
                 ]);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });

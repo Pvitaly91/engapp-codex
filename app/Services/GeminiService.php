@@ -110,7 +110,7 @@ class GeminiService
     {
         $answersCount = max(1, min(10, $answersCount));
         $tensesText = implode(', ', $tenses);
-        $prompt = "Generate {$numQuestions} short English grammar questions for the following tenses: {$tensesText}. Each question must contain {$answersCount} missing word(s) represented as {a1}, {a2}, ... . Provide the base form of each missing verb as verb_hints. Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}, \"verb_hints\":{\"a1\":\"go\"}}].";
+        $prompt = "Generate {$numQuestions} short English grammar questions for the following tenses: {$tensesText}. Each question must contain {$answersCount} missing word(s) represented as {a1}, {a2}, ... . Provide the base form of each missing verb as verb_hints. Include a CEFR level for each question as \\\"level\\\" (A1, A2, B1, B2, C1, or C2) and the current timestamp in ISO 8601 format as \\\"generated_at\\\". Respond strictly in JSON format like: [{\\\"question\\\":\\\"He {a1} ...\\\", \\\"answers\\\":{\\\"a1\\\":\\\"goes\\\"}, \\\"verb_hints\\\":{\\\"a1\\\":\\\"go\\\"}, \\\"level\\\":\\\"B1\\\", \\\"generated_at\\\":\\\"2025-01-01T12:00:00Z\\\"}].";
 
         $text = $this->request($prompt);
         if (!$text) {

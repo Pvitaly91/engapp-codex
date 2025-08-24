@@ -81,7 +81,14 @@
                         $hintsCol->push((object)['marker'=>$m, 'option'=>(object)['option'=>$question['verb_hints'][$m]]]);
                     }
                 }
-                $obj = (object)['question'=>$question['question'], 'verbHints'=>$hintsCol, 'options'=>collect(), 'answers'=>$answersCol, 'level'=>$question['level'] ?? null];
+                $obj = (object)[
+                    'question'=>$question['question'],
+                    'verbHints'=>$hintsCol,
+                    'options'=>collect(),
+                    'answers'=>$answersCol,
+                    'level'=>$question['level'] ?? null,
+                    'generated_at'=>$question['generated_at'] ?? null,
+                ];
             @endphp
             <div class="mb-2">
                 @if($provider === 'gemini' || ($provider === 'mixed' && $currentProvider === 'gemini'))
@@ -92,6 +99,9 @@
                     </span>
                 @endif
             </div>
+            @if(isset($question['generated_at']))
+                <div class="text-xs text-gray-500 mb-1">Generated at: {{ $question['generated_at'] }}</div>
+            @endif
             <div id="question-level" class="mt-1 space-x-1"></div>
         @include('components.question-input', [
                 'question' => $obj,

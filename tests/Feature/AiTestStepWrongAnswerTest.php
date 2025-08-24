@@ -64,6 +64,8 @@ class AiTestStepWrongAnswerTest extends TestCase
                         'a2' => 'ok',
                     ],
                     'verb_hints' => [],
+                    'level' => 'B1',
+                    'generated_at' => '2025-01-01T00:00:00Z',
                 ]);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
