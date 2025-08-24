@@ -129,7 +129,7 @@ HTML;
 ><label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
     <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHints()">Help</button>
     @if($showQuestionEdit)
-        <button type="button" class="text-xs text-blue-600 underline ml-1" onclick="editQuestion({{ $question->id }}, this)">Edit question</button>
+        <button type="button" class="text-xs text-blue-600 underline ml-1" data-question="{{ e($question->question) }}" onclick="editQuestion({{ $question->id }}, this)">Edit question</button>
     @endif
     <template x-if="hints.chatgpt || hints.gemini">
         <div class="text-sm text-gray-600 mt-1">
@@ -201,8 +201,7 @@ HTML;
             });
         }
         function editQuestion(id, btn) {
-            const root = btn.closest('div[x-data]');
-            const current = root.__x.$data.qtext;
+            const current = btn.dataset.question || '';
             const text = prompt('Edit question', current);
             if (text === null) return;
             fetch(`${questionBaseUrl}/${id}`, {
@@ -213,7 +212,10 @@ HTML;
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({ question: text })
-            }).then(() => location.reload());
+            }).then(() => {
+                btn.dataset.question = text;
+                location.reload();
+            });
         }
         function storageKey(name) {
             return `answer:${location.pathname}:${name}`;
