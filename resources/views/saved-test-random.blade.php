@@ -65,6 +65,7 @@
     'inputNamePrefix' => "question_{$q->id}_",
     'methodMap' => $methodMap,
     'autocompleteRoute' => $autocompleteRoute,
+    'showQuestionEdit' => true,
 ])
 <a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Review</a>
                 @if($q->tags->count())

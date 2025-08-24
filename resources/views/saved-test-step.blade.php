@@ -109,6 +109,7 @@
             'builderInput' => true,
             'autocompleteRoute' => $autocompleteRoute,
             'showVerbHintEdit' => true,
+            'showQuestionEdit' => true,
         ])
         <div class="flex gap-2 mt-2">
             <a href="{{ route('question-review.edit', $question->id) }}" class="text-sm text-blue-600 underline">Review</a>

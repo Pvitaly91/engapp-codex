@@ -75,6 +75,7 @@
     'autocompleteInput' => $autocompleteInput,
     'builderInput' => $builderInput,
     'showVerbHintEdit' => true,
+    'showQuestionEdit' => true,
 ])
 <a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Review</a>
 <button type="submit" form="delete-question-{{ $q->id }}" class="text-sm text-red-600 underline" onclick="return confirm('Delete this question?')">Delete</button>

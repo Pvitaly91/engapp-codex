@@ -8,6 +8,7 @@
     'autocompleteRoute' => url('/api/search?lang=en'),
     'methodMap' => [],
     'showVerbHintEdit' => false,
+    'showQuestionEdit' => false,
 ])
 @php
     $questionText = $question->question;
@@ -127,6 +128,9 @@ HTML;
     }'
 ><label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
     <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHints()">Help</button>
+    @if($showQuestionEdit)
+        <button type="button" class="text-xs text-blue-600 underline ml-1" onclick="editQuestion({{ $question->id }}, this)">Edit question</button>
+    @endif
     <template x-if="hints.chatgpt || hints.gemini">
         <div class="text-sm text-gray-600 mt-1">
             <p><strong>ChatGPT:</strong> <span x-text="hints.chatgpt"></span></p>
@@ -139,6 +143,7 @@ HTML;
 @once
     <script>
         const verbHintBaseUrl = '{{ url('/verb-hints') }}';
+        const questionBaseUrl = '{{ url('/questions') }}';
         const verbHintCsrf = '{{ csrf_token() }}';
         function editVerbHint(id, btn) {
             const span = btn.closest('.verb-hint');
@@ -194,6 +199,21 @@ HTML;
                 span.querySelector('.verb-hint-delete').onclick = function(){ deleteVerbHint(data.id, this, qid, marker); };
                 btn.replaceWith(span);
             });
+        }
+        function editQuestion(id, btn) {
+            const root = btn.closest('div[x-data]');
+            const current = root.__x.$data.qtext;
+            const text = prompt('Edit question', current);
+            if (text === null) return;
+            fetch(`${questionBaseUrl}/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': verbHintCsrf,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ question: text })
+            }).then(() => location.reload());
         }
         function storageKey(name) {
             return `answer:${location.pathname}:${name}`;
