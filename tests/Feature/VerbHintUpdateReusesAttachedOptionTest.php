@@ -4,12 +4,12 @@ namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
-use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
+use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
-class VerbHintUpdateRedirectTest extends TestCase
+class VerbHintUpdateReusesAttachedOptionTest extends TestCase
 {
     /** @test */
-    public function updating_verb_hint_redirects_back_to_source_page(): void
+    public function renaming_hint_to_option_already_attached_updates_flag(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -47,34 +47,36 @@ class VerbHintUpdateRedirectTest extends TestCase
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
-        $option = QuestionOption::create(['option' => 'yes']);
-        $question->options()->attach($option->id);
-        $answer = new QuestionAnswer();
-        $answer->marker = 'a1';
-        $answer->answer = 'yes';
-        $answer->question_id = $question->id;
-        $answer->save();
-        $hintOpt = QuestionOption::create(['option' => 'do']);
-        $question->options()->attach($hintOpt->id, ['flag' => 1]);
+
+        $optExisting = QuestionOption::create(['option' => 'go']);
+        $question->options()->attach($optExisting->id);
+        $ans = new QuestionAnswer();
+        $ans->marker = 'a1';
+        $ans->answer = 'go';
+        $ans->question_id = $question->id;
+        $ans->save();
+
+        $hintOption = QuestionOption::create(['option' => 'do']);
+        $question->options()->attach($hintOption->id, ['flag' => 1]);
+
         $verbHint = VerbHint::create([
             'question_id' => $question->id,
             'marker' => 'a1',
-            'option_id' => $hintOpt->id,
+            'option_id' => $hintOption->id,
         ]);
 
-        $testModel = Test::create([
-            'name' => 'sample',
-            'slug' => 'sample',
-            'filters' => [],
-            'questions' => [$question->id],
-        ]);
-
-        $response = $this->put(route('verb-hints.update', $verbHint->id), [
+        $response = $this->putJson(route('verb-hints.update', $verbHint->id), [
             'hint' => 'go',
-            'from' => '/test/' . $testModel->slug,
         ]);
 
-        $response->assertRedirect('/test/' . $testModel->slug);
-        $this->assertEquals('go', $verbHint->fresh()->option->option);
+        $response->assertNoContent();
+
+        $this->assertEquals($optExisting->id, $verbHint->fresh()->option_id);
+        $this->assertEquals(1, QuestionOption::where('option', 'go')->count());
+        $this->assertDatabaseHas('question_option_question', [
+            'question_id' => $question->id,
+            'option_id' => $optExisting->id,
+            'flag' => 1,
+        ]);
     }
 }

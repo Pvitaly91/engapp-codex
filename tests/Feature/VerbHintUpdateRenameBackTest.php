@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
+use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
-use App\Models\{Category, Question, QuestionOption, QuestionAnswer, VerbHint};
 
-class VerbHintUpdateNonSharedReusesExistingOptionTest extends TestCase
+class VerbHintUpdateRenameBackTest extends TestCase
 {
     /** @test */
-    public function editing_unshared_verb_hint_to_existing_option_reuses_it(): void
+    public function can_rename_verb_hint_back_to_original_value(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -49,42 +49,63 @@ class VerbHintUpdateNonSharedReusesExistingOptionTest extends TestCase
         ]);
         $q2 = Question::create([
             'uuid' => 'q2',
-            'question' => 'Q2 {b1}',
+            'question' => 'Q2 {a1}',
             'difficulty' => 1,
             'category_id' => $category->id,
         ]);
 
-        $optExisting = QuestionOption::create(['option' => 'go']);
-        $q2->options()->attach($optExisting->id);
+        $optionRun = QuestionOption::create(['option' => 'run']);
+        $q1->options()->attach($optionRun->id);
+        $ans1 = new QuestionAnswer();
+        $ans1->marker = 'a1';
+        $ans1->answer = 'run';
+        $ans1->question_id = $q1->id;
+        $ans1->save();
+
+        $q2->options()->attach($optionRun->id);
         $ans2 = new QuestionAnswer();
-        $ans2->marker = 'b1';
-        $ans2->answer = 'go';
+        $ans2->marker = 'a1';
+        $ans2->answer = 'run';
         $ans2->question_id = $q2->id;
         $ans2->save();
 
-        $hintOption = QuestionOption::create(['option' => 'do']);
-        $q1->options()->attach($hintOption->id, ['flag' => 1]);
-
-        $verbHint = VerbHint::create([
+        $verbHint1 = VerbHint::create([
             'question_id' => $q1->id,
             'marker' => 'a1',
-            'option_id' => $hintOption->id,
+            'option_id' => $optionRun->id,
+        ]);
+        VerbHint::create([
+            'question_id' => $q2->id,
+            'marker' => 'a1',
+            'option_id' => $optionRun->id,
         ]);
 
-        $response = $this->putJson(route('verb-hints.update', $verbHint->id), [
-            'hint' => 'go',
+        $this->putJson(route('verb-hints.update', $verbHint1->id), ['hint' => 'jump'])
+            ->assertNoContent();
+
+        $verbHint1 = $verbHint1->fresh();
+
+        $this->putJson(route('verb-hints.update', $verbHint1->id), ['hint' => 'run'])
+            ->assertNoContent();
+
+        $this->assertDatabaseHas('verb_hints', [
+            'id' => $verbHint1->id,
+            'option_id' => $optionRun->id,
         ]);
 
-        $response->assertNoContent();
-
-        $this->assertEquals($optExisting->id, $verbHint->fresh()->option_id);
-        $this->assertEquals(1, QuestionOption::where('option', 'go')->count());
-        $this->assertDatabaseMissing('question_options', ['option' => 'do']);
         $this->assertDatabaseHas('question_option_question', [
             'question_id' => $q1->id,
-            'option_id' => $optExisting->id,
+            'option_id' => $optionRun->id,
             'flag' => 1,
         ]);
+
+        $this->assertDatabaseMissing('question_options', [
+            'option' => 'jump',
+        ]);
+
+        $this->assertEquals(1, DB::table('question_option_question')
+            ->where('question_id', $q1->id)
+            ->where('option_id', $optionRun->id)
+            ->count());
     }
 }
-

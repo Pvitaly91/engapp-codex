@@ -312,10 +312,18 @@ function checkFullQuestionAjax(btn, questionId, markerList) {
 }
 
 function builder(route, prefix) {
+    const stored = [];
+    for (let i = 0; ; i++) {
+        const key = storageKey(`${prefix}${i}]`);
+        const val = localStorage.getItem(key);
+        if (val === null) break;
+        stored.push(val);
+    }
+    if (stored.length === 0) stored.push('');
     return {
-        words: [''],
-        suggestions: [[]],
-        valid: [false],
+        words: stored,
+        suggestions: stored.map(() => []),
+        valid: stored.map(() => false),
         addWord() {
             this.words.push('');
             this.suggestions.push([]);

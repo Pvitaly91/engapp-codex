@@ -4,12 +4,12 @@ namespace Tests\Feature;
 
 use Illuminate\Support\Facades\{Artisan, Schema, DB};
 use Tests\TestCase;
-use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test, VerbHint};
+use App\Models\{Category, Question, QuestionOption, QuestionAnswer, Test};
 
-class SavedTestVerbHintEditLinkTest extends TestCase
+class SavedTestStepNavigationTest extends TestCase
 {
     /** @test */
-    public function saved_test_page_shows_edit_links_for_verb_hints(): void
+    public function user_can_navigate_questions_without_answering(): void
     {
         $migrations = [
             '2025_07_20_143201_create_categories_table.php',
@@ -39,39 +39,45 @@ class SavedTestVerbHintEditLinkTest extends TestCase
             $table->tinyInteger('flag')->nullable()->after('option_id');
         });
 
-        $category = Category::create(['name' => 'test']);
+        $category = Category::create(['name' => 'cat']);
 
-        $question = Question::create([
-            'uuid' => 'q1',
-            'question' => 'Q1 {a1}',
-            'difficulty' => 1,
-            'category_id' => $category->id,
-        ]);
-        $option = QuestionOption::create(['option' => 'yes']);
-        $question->options()->attach($option->id);
-        $answer = new QuestionAnswer();
-        $answer->marker = 'a1';
-        $answer->answer = 'yes';
-        $answer->question_id = $question->id;
-        $answer->save();
-        $hintOpt = QuestionOption::create(['option' => 'do']);
-        $question->options()->attach($hintOpt->id, ['flag' => 1]);
-        $verbHint = VerbHint::create([
-            'question_id' => $question->id,
-            'marker' => 'a1',
-            'option_id' => $hintOpt->id,
-        ]);
+        $questions = [];
+        for ($i = 1; $i <= 3; $i++) {
+            $q = Question::create([
+                'uuid' => 'q' . $i,
+                'question' => 'Q' . $i . ' {a' . $i . '}',
+                'difficulty' => 1,
+                'category_id' => $category->id,
+            ]);
+            $option = QuestionOption::create(['option' => 'opt' . $i]);
+            $q->options()->attach($option->id);
+            $ans = new QuestionAnswer();
+            $ans->marker = 'a' . $i;
+            $ans->answer = 'opt' . $i;
+            $ans->question_id = $q->id;
+            $ans->save();
+            $questions[] = $q->id;
+        }
 
         $testModel = Test::create([
             'name' => 'sample',
             'slug' => 'sample',
             'filters' => [],
-            'questions' => [$question->id],
+            'questions' => $questions,
         ]);
 
-        $response = $this->get('/test/' . $testModel->slug);
+        $response = $this->get('/test/' . $testModel->slug . '/step');
         $response->assertStatus(200);
-        $response->assertSee("editVerbHint({$verbHint->id}", false);
-        $response->assertSee('aria-label="Edit hint"', false);
+        $response->assertSee('Q1');
+        $response->assertSee('?nav=next');
+
+        $response = $this->get('/test/' . $testModel->slug . '/step?nav=next');
+        $response->assertStatus(200);
+        $response->assertSee('Q2');
+        $response->assertSee('?nav=prev');
+
+        $response = $this->get('/test/' . $testModel->slug . '/step?nav=prev');
+        $response->assertStatus(200);
+        $response->assertSee('Q1');
     }
 }

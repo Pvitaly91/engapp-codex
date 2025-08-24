@@ -85,17 +85,16 @@ class VerbHintUpdateCreatesNewOptionTest extends TestCase
             'option_id' => $sharedHint->id,
         ]);
 
-        $response = $this->put(route('verb-hints.update', $verbHint1->id), [
+        $response = $this->putJson(route('verb-hints.update', $verbHint1->id), [
             'hint' => 'go',
-            'from' => '/back',
         ]);
 
-        $response->assertRedirect('/back');
+        $response->assertNoContent();
 
         $this->assertEquals('go', $verbHint1->fresh()->option->option);
         $this->assertEquals('do', $verbHint2->fresh()->option->option);
         $this->assertNotEquals($sharedHint->id, $verbHint1->fresh()->option_id);
-        $this->assertDatabaseHas('question_option_question', [
+        $this->assertDatabaseMissing('question_option_question', [
             'question_id' => $q1->id,
             'option_id' => $sharedHint->id,
             'flag' => 1,
