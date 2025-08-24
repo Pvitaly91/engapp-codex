@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Models\QuestionReviewResult;
@@ -75,7 +76,9 @@ class QuestionReviewController extends Controller
             ->all();
 
         $question->tags()->sync(array_unique(array_merge($tags, $preserved)));
-        $question->level = $request->input('level') ?: null;
+        if (Schema::hasColumn('questions', 'level')) {
+            $question->level = $request->input('level') ?: null;
+        }
         $question->save();
 
         QuestionReviewResult::create([

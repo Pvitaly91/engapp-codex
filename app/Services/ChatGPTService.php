@@ -387,7 +387,7 @@ class ChatGPTService
     /**
      * Convenience wrapper to generate a single grammar question.
      */
-    public function generateGrammarQuestion(array $tenses, int $answersCount = 1, string $model = 'random',string $refferance): ?array
+    public function generateGrammarQuestion(array $tenses, int $answersCount = 1, string $model = 'random', string $refferance = ''): ?array
     {
         $all = $this->generateGrammarQuestions($tenses, 1, $answersCount, $model, $refferance);
         return $all[0] ?? null;

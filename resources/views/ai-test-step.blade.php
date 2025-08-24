@@ -99,12 +99,7 @@
                     </span>
                 @endif
             </div>
-            <div>
-
-                @foreach($tenseNames as $tag)
-                    <span class="inline-block px-2 py-0.5 rounded text-xs font-semibold {{ $colors[$loop->index % count($colors)] }}">{{ $tag }}</span>
-                @endforeach
-            </div>
+            <div id="question-tags" class="mt-1 space-x-1"></div>
             @if(isset($question['tense']))
                 <div class="text-xs text-gray-500 mb-1">Tense: {{ $question['tense'] }}</div>
             @endif
@@ -117,9 +112,6 @@
                 'autocompleteInput' => false,
                 'builderInput' => true,
             ])
-            <div id="question-tags" class="mt-1 space-x-1">
-                
-            </div>
             <div class="mt-2 space-y-2">
                 <div class="space-x-2">
                     <button type="button" id="determine-tense-gpt" class="text-xs text-blue-600 underline">Визначити час ChatGPT</button>
@@ -291,6 +283,8 @@ function removeTag(tag) {
             }
         });
 }
+
+renderTags(@json($tenseNames));
 
 const levels = ['A1','A2','B1','B2','C1','C2'];
 
