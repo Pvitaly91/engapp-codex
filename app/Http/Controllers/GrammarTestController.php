@@ -92,7 +92,7 @@ class GrammarTestController extends Controller
                     $key . '_stats',
                     $key . '_queue',
                     $key . '_total',
-                    $key . '_current',
+                    $key . '_index',
                     $key . '_feedback',
                 ]);
             }
@@ -102,8 +102,9 @@ class GrammarTestController extends Controller
         $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
         $queue = session($key . '_queue');
+        $index = session($key . '_index', 0);
         $totalCount = session($key . '_total', 0);
-        if (!$queue) {
+        if (! $queue) {
             $queue = \App\Models\Question::whereIn('id', $test->questions)
                 ->orderBy('id')
                 ->pluck('id')
@@ -112,23 +113,29 @@ class GrammarTestController extends Controller
                 shuffle($queue);
             }
             $totalCount = count($queue);
-            session([$key . '_queue' => $queue, $key . '_total' => $totalCount]);
+            session([$key . '_queue' => $queue, $key . '_total' => $totalCount, $key . '_index' => 0]);
+            $index = 0;
         }
 
-        $currentId = session($key . '_current');
-        if (!$currentId) {
-            if (empty($queue)) {
-                return view('saved-test-complete', [
-                    'test' => $test,
-                    'stats' => $stats,
-                    'percentage' => $percentage,
-                    'totalCount' => $totalCount,
-                ]);
-            }
-            $currentId = array_shift($queue);
-            session([$key . '_queue' => $queue, $key . '_current' => $currentId]);
+        $nav = $request->query('nav');
+        if ($nav === 'next' && $index < count($queue) - 1) {
+            $index++;
+            session([$key . '_index' => $index]);
+        } elseif ($nav === 'prev' && $index > 0) {
+            $index--;
+            session([$key . '_index' => $index]);
         }
 
+        if ($index >= count($queue)) {
+            return view('saved-test-complete', [
+                'test' => $test,
+                'stats' => $stats,
+                'percentage' => $percentage,
+                'totalCount' => $totalCount,
+            ]);
+        }
+
+        $currentId = $queue[$index];
         $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option', 'tags'])
             ->findOrFail($currentId);
         $feedback = session($key . '_feedback');
@@ -142,6 +149,8 @@ class GrammarTestController extends Controller
             'totalCount' => $totalCount,
             'feedback' => $feedback,
             'order' => $order,
+            'hasPrev' => $index > 0,
+            'hasNext' => $index < count($queue) - 1,
         ]);
     }
 
@@ -206,9 +215,14 @@ class GrammarTestController extends Controller
         } else {
             $stats['wrong']++;
         }
+        $queue = session($key . '_queue', []);
+        $index = session($key . '_index', 0);
+        if ($index < count($queue)) {
+            $index++;
+        }
         session([
             $key . '_stats' => $stats,
-            $key . '_current' => null,
+            $key . '_index' => $index,
             $key . '_feedback' => [
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
@@ -372,7 +386,7 @@ class GrammarTestController extends Controller
             $key . '_stats',
             $key . '_queue',
             $key . '_total',
-            $key . '_current',
+            $key . '_index',
             $key . '_feedback',
         ]);
         return redirect()->route('saved-test.step', $slug);
@@ -388,12 +402,16 @@ class GrammarTestController extends Controller
         $test->save();
 
         $key = 'step_' . $test->slug;
-        $queue = array_values(array_filter(session($key . '_queue', []), fn ($id) => (int) $id !== $question->id));
-        session([$key . '_queue' => $queue]);
-
-        if (session($key . '_current') == $question->id) {
-            session([$key . '_current' => null]);
+        $queue = session($key . '_queue', []);
+        $index = session($key . '_index', 0);
+        $removedIndex = array_search($question->id, $queue, true);
+        $queue = array_values(array_filter($queue, fn ($id) => (int) $id !== $question->id));
+        if ($removedIndex !== false && $removedIndex < $index) {
+            $index = max($index - 1, 0);
+        } elseif ($removedIndex !== false && $removedIndex === $index) {
+            $index = min($index, max(count($queue) - 1, 0));
         }
+        session([$key . '_queue' => $queue, $key . '_index' => $index]);
         if (session()->has($key . '_total')) {
             session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
         }

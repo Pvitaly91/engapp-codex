@@ -60,6 +60,19 @@
         </form>
     </div>
 
+    <div class="mb-4 flex justify-between">
+        @if($hasPrev)
+            <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'nav' => 'prev', 'order' => $order]) }}" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Prev</a>
+        @else
+            <span class="bg-gray-100 px-4 py-1 rounded text-sm text-gray-400">Prev</span>
+        @endif
+        @if($hasNext)
+            <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'nav' => 'next', 'order' => $order]) }}" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Next</a>
+        @else
+            <span class="bg-gray-100 px-4 py-1 rounded text-sm text-gray-400">Next</span>
+        @endif
+    </div>
+
     @if(isset($feedback))
         <div class="mb-4">
             @if($feedback['isCorrect'])
