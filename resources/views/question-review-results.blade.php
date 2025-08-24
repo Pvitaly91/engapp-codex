@@ -48,7 +48,7 @@
                 @endif
                 <div class="text-xs text-gray-500 flex gap-2">
                     <span>{{ $result->created_at->format('d.m.Y H:i') }}</span>
-                    <a href="{{ route('question-review.edit', $result->question_id) }}" class="text-blue-600 underline">Edit</a>
+                    <a href="{{ route('question-review.edit', $result->question_id) }}" class="text-blue-600 underline">Review</a>
                 </div>
             </li>
             @endforeach

@@ -111,7 +111,7 @@
             'showVerbHintEdit' => true,
         ])
         <div class="flex gap-2 mt-2">
-            <a href="{{ route('question-review.edit', $question->id) }}" class="text-sm text-blue-600 underline">Edit</a>
+            <a href="{{ route('question-review.edit', $question->id) }}" class="text-sm text-blue-600 underline">Review</a>
             <button type="submit" form="delete-question-{{ $question->id }}" class="text-sm text-red-600 underline" onclick="return confirm('Delete this question?')">Delete</button>
         </div>
         @php

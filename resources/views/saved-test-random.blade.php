@@ -66,7 +66,7 @@
     'methodMap' => $methodMap,
     'autocompleteRoute' => $autocompleteRoute,
 ])
-<a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Edit</a>
+<a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Review</a>
                 @if($q->tags->count())
                     <div class="mt-1 space-x-1">
                         @php
