@@ -99,6 +99,12 @@
                     </span>
                 @endif
             </div>
+            <div>
+
+                @foreach($tenseNames as $tag)
+                    <span class="inline-block px-2 py-0.5 rounded text-xs font-semibold {{ $colors[$loop->index % count($colors)] }}">{{ $tag }}</span>
+                @endforeach
+            </div>
             @if(isset($question['tense']))
                 <div class="text-xs text-gray-500 mb-1">Tense: {{ $question['tense'] }}</div>
             @endif
@@ -112,9 +118,7 @@
                 'builderInput' => true,
             ])
             <div id="question-tags" class="mt-1 space-x-1">
-                @foreach($tenseNames as $tag)
-                    <span class="inline-block px-2 py-0.5 rounded text-xs font-semibold {{ $colors[$loop->index % count($colors)] }}">{{ $tag }}</span>
-                @endforeach
+                
             </div>
             <div class="mt-2 space-y-2">
                 <div class="space-x-2">
