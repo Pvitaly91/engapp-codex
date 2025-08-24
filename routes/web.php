@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuestionHelpController;
 use App\Http\Controllers\TrainController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\QuestionHelpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +32,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
-use App\Http\Controllers\WordsTestController;
 use App\Http\Controllers\SentenceTranslationTestController;
+use App\Http\Controllers\WordsTestController;
 
 Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
 Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
@@ -77,6 +77,7 @@ Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::cla
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
 
 use App\Http\Controllers\AiTestController;
+
 Route::get('/ai-test', [AiTestController::class, 'form'])->name('ai-test.form');
 Route::post('/ai-test/start', [AiTestController::class, 'start'])->name('ai-test.start');
 Route::get('/ai-test/step', [AiTestController::class, 'step'])->name('ai-test.step');
@@ -91,15 +92,18 @@ Route::post('/ai-test/step/determine-level', [AiTestController::class, 'determin
 Route::post('/ai-test/step/determine-level-gemini', [AiTestController::class, 'determineLevelGemini'])->name('ai-test.step.determine-level-gemini');
 Route::post('/ai-test/step/set-level', [AiTestController::class, 'setLevel'])->name('ai-test.step.set-level');
 Route::post('/ai-test/step/add-tag', [AiTestController::class, 'addTag'])->name('ai-test.step.add-tag');
+Route::delete('/ai-test/step/remove-tag', [AiTestController::class, 'removeTag'])->name('ai-test.step.remove-tag');
 
 use App\Http\Controllers\QuestionReviewController;
+
 Route::get('/question-review', [QuestionReviewController::class, 'index'])->name('question-review.index');
 Route::post('/question-review', [QuestionReviewController::class, 'store'])->name('question-review.store');
 Route::get('/question-review/{question}', [QuestionReviewController::class, 'edit'])->name('question-review.edit');
 
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionReviewResultController;
 use App\Http\Controllers\VerbHintController;
-use App\Http\Controllers\QuestionController;
+
 Route::get('/question-review-results', [QuestionReviewResultController::class, 'index'])->name('question-review-results.index');
 
 Route::post('/verb-hints', [VerbHintController::class, 'store'])->name('verb-hints.store');
@@ -108,4 +112,3 @@ Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])-
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
 
 Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
-

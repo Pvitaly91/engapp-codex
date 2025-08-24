@@ -209,6 +209,8 @@ function builder(route, prefix) {
 }
 
 const tagColors = @json($colors);
+let selectedGptTags = [];
+let selectedGeminiTags = [];
 
 function renderTags(tags) {
     const container = document.getElementById('question-tags');
@@ -231,8 +233,26 @@ function renderTags(tags) {
     });
 }
 
+function renderSelected(container, tags) {
+    container.innerHTML = '';
+    tags.forEach(tag => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'flex items-center gap-1';
+        const span = document.createElement('span');
+        span.textContent = tag;
+        const btn = document.createElement('button');
+        btn.textContent = 'x';
+        btn.className = 'text-xs text-red-600 underline';
+        btn.type = 'button';
+        btn.addEventListener('click', () => removeTag(tag));
+        wrapper.appendChild(span);
+        wrapper.appendChild(btn);
+        container.appendChild(wrapper);
+    });
+}
+
 function addTag(tag) {
-    fetch('{{ route('saved-test.step.add-tag', $test->slug) }}', {
+    return fetch('{{ route('saved-test.step.add-tag', $test->slug) }}', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -249,7 +269,7 @@ function addTag(tag) {
 }
 
 function removeTag(tag) {
-    fetch('{{ route('saved-test.step.remove-tag', $test->slug) }}', {
+    return fetch('{{ route('saved-test.step.remove-tag', $test->slug) }}', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -261,6 +281,10 @@ function removeTag(tag) {
         .then(d => {
             if (Array.isArray(d.tags)) {
                 renderTags(d.tags);
+                selectedGptTags = selectedGptTags.filter(t => t !== tag);
+                selectedGeminiTags = selectedGeminiTags.filter(t => t !== tag);
+                renderSelected(document.getElementById('tense-result-gpt'), selectedGptTags);
+                renderSelected(document.getElementById('tense-result-gemini'), selectedGeminiTags);
             }
         });
 }
@@ -319,7 +343,14 @@ document.getElementById('determine-tense-gpt').addEventListener('click', () => {
                     btn.textContent = 'Додати тег';
                     btn.className = 'text-xs text-blue-600 underline';
                     btn.type = 'button';
-                    btn.addEventListener('click', () => addTag(tag));
+                    btn.addEventListener('click', () => {
+                        addTag(tag).then(() => {
+                            if (!selectedGptTags.includes(tag)) {
+                                selectedGptTags.push(tag);
+                            }
+                            renderSelected(container, selectedGptTags);
+                        });
+                    });
                     wrapper.appendChild(span);
                     wrapper.appendChild(btn);
                     container.appendChild(wrapper);
@@ -351,7 +382,14 @@ document.getElementById('determine-tense-gemini').addEventListener('click', () =
                     btn.textContent = 'Додати тег';
                     btn.className = 'text-xs text-blue-600 underline';
                     btn.type = 'button';
-                    btn.addEventListener('click', () => addTag(tag));
+                    btn.addEventListener('click', () => {
+                        addTag(tag).then(() => {
+                            if (!selectedGeminiTags.includes(tag)) {
+                                selectedGeminiTags.push(tag);
+                            }
+                            renderSelected(container, selectedGeminiTags);
+                        });
+                    });
                     wrapper.appendChild(span);
                     wrapper.appendChild(btn);
                     container.appendChild(wrapper);
