@@ -57,7 +57,7 @@ class AiTestMixedModeModelTest extends TestCase
         $this->mock(GeminiService::class, function ($mock) {
             $mock->shouldReceive('generateGrammarQuestion')
                 ->once()
-                ->andReturn(['question' => 'First {a1}.', 'answers' => ['a1' => 'one'], 'verb_hints' => []]);
+                ->andReturn(['question' => 'First {a1}.', 'answers' => ['a1' => 'one'], 'verb_hints' => [], 'level' => 'B1', 'tense' => 'Present Simple']);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
 
@@ -65,7 +65,7 @@ class AiTestMixedModeModelTest extends TestCase
             $mock->shouldReceive('generateGrammarQuestion')
                 ->once()
                 ->with(Mockery::type('array'), Mockery::type('int'), 'random')
-                ->andReturn(['question' => 'Second {a1}.', 'model' => 'gpt-5', 'answers' => ['a1' => 'two'], 'verb_hints' => []]);
+                ->andReturn(['question' => 'Second {a1}.', 'model' => 'gpt-5', 'answers' => ['a1' => 'two'], 'verb_hints' => [], 'level' => 'B2', 'tense' => 'Present Simple']);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
 

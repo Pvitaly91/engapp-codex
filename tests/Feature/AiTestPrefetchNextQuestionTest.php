@@ -60,8 +60,8 @@ class AiTestPrefetchNextQuestionTest extends TestCase
             $mock->shouldReceive('generateGrammarQuestion')
                 ->twice()
                 ->andReturn(
-                    ['question' => $q1, 'model' => 'gpt-5', 'answers' => ['a1' => 'one'], 'verb_hints' => []],
-                    ['question' => $q2, 'model' => 'gpt-5', 'answers' => ['a1' => 'two'], 'verb_hints' => []]
+                    ['question' => $q1, 'model' => 'gpt-5', 'answers' => ['a1' => 'one'], 'verb_hints' => [], 'level' => 'B1', 'tense' => 'Present Simple'],
+                    ['question' => $q2, 'model' => 'gpt-5', 'answers' => ['a1' => 'two'], 'verb_hints' => [], 'level' => 'B2', 'tense' => 'Present Simple']
                 );
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });

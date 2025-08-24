@@ -64,6 +64,8 @@ class AiTestStepWrongAnswerTest extends TestCase
                         'a2' => 'ok',
                     ],
                     'verb_hints' => [],
+                    'level' => 'B1',
+                    'tense' => 'Present Simple',
                 ]);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });

@@ -80,6 +80,8 @@ class AiGrammarTestPageTest extends TestCase
                     'verb_hints' => [
                         'a1' => 'be',
                     ],
+                    'level' => 'B1',
+                    'tense' => 'Present Simple',
                 ]);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
