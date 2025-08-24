@@ -83,8 +83,8 @@ HTML;
         if($verbHintRow){
             $input .= ' <span class="verb-hint text-red-700 text-xs font-bold">(<span class="verb-hint-text">'.e($verbHint).'</span>)';
             if(!empty($showVerbHintEdit)){
-                $input .= " <button type=\"button\" class=\"verb-hint-edit underline\" onclick=\"editVerbHint({$verbHintRow->id}, this)\">Edit</button>";
-                $input .= " <button type=\"button\" class=\"verb-hint-delete underline text-red-600\" onclick=\"deleteVerbHint({$verbHintRow->id}, this, {$question->id}, '{$markerKey}')\">Delete</button>";
+                $input .= " <button type=\"button\" class=\"verb-hint-edit\" aria-label=\"Edit hint\" onclick=\"editVerbHint({$verbHintRow->id}, this)\"><i class=\"fa-solid fa-pen\"></i></button>";
+                $input .= " <button type=\"button\" class=\"verb-hint-delete text-red-600\" aria-label=\"Delete hint\" onclick=\"deleteVerbHint({$verbHintRow->id}, this, {$question->id}, '{$markerKey}')\"><i class=\"fa-solid fa-trash\"></i></button>";
             }
             $input .= '</span>';
         } elseif(!empty($showVerbHintEdit)) {
@@ -188,7 +188,7 @@ HTML;
             }).then(r => r.json()).then(data => {
                 const span = document.createElement('span');
                 span.className = 'verb-hint text-red-700 text-xs font-bold';
-                span.innerHTML = '(<span class="verb-hint-text"></span>) <button type="button" class="verb-hint-edit underline">Edit</button> <button type="button" class="verb-hint-delete underline text-red-600">Delete</button>';
+                span.innerHTML = '(<span class="verb-hint-text"></span>) <button type="button" class="verb-hint-edit" aria-label="Edit hint"><i class="fa-solid fa-pen"></i></button> <button type="button" class="verb-hint-delete text-red-600" aria-label="Delete hint"><i class="fa-solid fa-trash"></i></button>';
                 span.querySelector('.verb-hint-text').textContent = hint;
                 span.querySelector('.verb-hint-edit').onclick = function(){ editVerbHint(data.id, this); };
                 span.querySelector('.verb-hint-delete').onclick = function(){ deleteVerbHint(data.id, this, qid, marker); };

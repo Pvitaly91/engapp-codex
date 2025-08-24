@@ -72,6 +72,6 @@ class SavedTestVerbHintEditLinkTest extends TestCase
         $response = $this->get('/test/' . $testModel->slug);
         $response->assertStatus(200);
         $response->assertSee("editVerbHint({$verbHint->id}", false);
-        $response->assertSee('Edit');
+        $response->assertSee('aria-label="Edit hint"', false);
     }
 }
