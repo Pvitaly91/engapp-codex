@@ -132,7 +132,7 @@
                 <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
                     {{ isset($feedback) ? 'Next' : 'Check' }}
                 </button>
-                @if(!isset($feedback))
+                @if(!isset($feedback) || !$feedback['isCorrect'])
                     <button type="submit" formaction="{{ route('ai-test.skip') }}" class="bg-gray-300 px-6 py-2 rounded-xl">Skip</button>
                 @endif
             </div>
