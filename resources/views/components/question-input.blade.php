@@ -246,6 +246,21 @@ HTML;
                 localStorage.setItem(key, el.value);
             }
         });
-        window.addEventListener('DOMContentLoaded', restoreSavedAnswers);
+
+        function clearSavedAnswers() {
+            Object.keys(localStorage)
+                .filter(k => k.startsWith(`answer:${location.pathname}:`))
+                .forEach(k => localStorage.removeItem(k));
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            restoreSavedAnswers();
+            document.querySelectorAll('form').forEach(f => {
+                f.addEventListener('submit', clearSavedAnswers);
+            });
+            document.querySelectorAll('a[href*="nav=next"], a[href*="nav=prev"]').forEach(a => {
+                a.addEventListener('click', clearSavedAnswers);
+            });
+        });
     </script>
 @endonce
