@@ -315,25 +315,33 @@ class ChatGPTService
      */
     public function generateGrammarQuestions(array $tenses, int $numQuestions = 1, int $answersCount = 1, string $model = 'random', string $question = ''): array
     {
+       
         $key = config('services.chatgpt.key');
         if (empty($key)) {
             Log::warning('ChatGPT API key not configured');
             return [];
         }
-         $max = DB::table('question_answers')
-        ->selectRaw('MAX(CAST(SUBSTRING(marker, 2) AS UNSIGNED)) as max_n')
-        ->value('max_n');
-   
-        $answersCount = max(1, min($max, $answersCount));
-       // $tensesText = Arr::random($tenses); 
-        $tensesText = implode(",",$tenses);
     
-        $prompt = "Generate {$numQuestions} short English grammar questions for the following tenses: {$tensesText}. " .
+    
+        $tensesText = "";
+      
+        $i = 1;
+        $random = rand($i, count($tenses));
+       
+        foreach($tenses as $category => $items){
+            if($random == $i){
+                $tensesText .= $category . ': ' . implode(', ', $items) . "\n";
+                break;
+            }
+            $i++;
+        }
+       
+        $prompt = "Generate {$numQuestions} short English grammar questions for the following themes: {$tensesText}. " .
             "based on this question: ".$question
             ."Each question must contain {$answersCount} missing word(s) represented as {a1}, {a2}, ... . " .
             "Provide the base form of each missing verb as verb_hints. " .
             "Respond strictly in JSON format like: [{\"question\":\"He {a1} ...\", \"answers\":{\"a1\":\"goes\"}, \"verb_hints\":{\"a1\":\"go\"}}].";
-      
+
         try {
             $models = self::availableModels();
             if ($model === 'random' || ! in_array($model, $models, true)) {

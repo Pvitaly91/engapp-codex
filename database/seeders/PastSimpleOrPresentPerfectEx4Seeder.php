@@ -15,7 +15,7 @@ class PastSimpleOrPresentPerfectEx4Seeder extends Seeder
     {
         $categoryId = Category::firstOrCreate(['name' => 'past'])->id;
         $sourceId   = Source::firstOrCreate(['name' => 'Past Simple or Present Perfect Exercise 4'])->id;
-        $grammarTag = Tag::firstOrCreate(['name' => 'Past Simple or Present Perfect'], ['category' => 'Tenses']);
+        $grammarTag = Tag::firstOrCreate(['name' => 'Past Simple or Present Perfect']);
 
         $vocabularyTags = [
             'Family'        => Tag::firstOrCreate(['name' => 'Family'], ['category' => 'Vocabulary']),
