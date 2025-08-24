@@ -87,7 +87,7 @@
                     'options'=>collect(),
                     'answers'=>$answersCol,
                     'level'=>$question['level'] ?? null,
-                    'generated_at'=>$question['generated_at'] ?? null,
+                    'tense'=>$question['tense'] ?? null,
                 ];
             @endphp
             <div class="mb-2">
@@ -99,8 +99,8 @@
                     </span>
                 @endif
             </div>
-            @if(isset($question['generated_at']))
-                <div class="text-xs text-gray-500 mb-1">Generated at: {{ $question['generated_at'] }}</div>
+            @if(isset($question['tense']))
+                <div class="text-xs text-gray-500 mb-1">Tense: {{ $question['tense'] }}</div>
             @endif
             <div id="question-level" class="mt-1 space-x-1"></div>
         @include('components.question-input', [

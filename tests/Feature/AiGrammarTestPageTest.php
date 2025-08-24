@@ -81,7 +81,7 @@ class AiGrammarTestPageTest extends TestCase
                         'a1' => 'be',
                     ],
                     'level' => 'B1',
-                    'generated_at' => '2025-01-01T00:00:00Z',
+                    'tense' => 'Present Simple',
                 ]);
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
