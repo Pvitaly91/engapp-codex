@@ -92,7 +92,7 @@
                     </span>
                 @endif
             </div>
-            <div class="text-xs text-gray-500 mb-1" id="question-level">Level: {{ $question['level'] ?? 'N/A' }}</div>
+            <div id="question-level" class="mt-1 space-x-1"></div>
         @include('components.question-input', [
                 'question' => $obj,
                 'inputNamePrefix' => 'answers',
@@ -229,6 +229,36 @@ function addTag(tag) {
         });
 }
 
+const levels = ['A1','A2','B1','B2','C1','C2'];
+
+function renderLevel(selected) {
+    const container = document.getElementById('question-level');
+    if (!container) return;
+    container.innerHTML = '';
+    levels.forEach(level => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.dataset.level = level;
+        btn.textContent = level;
+        btn.className = 'px-2 py-0.5 rounded text-xs font-semibold mr-1 ' + (level === selected ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800');
+        btn.addEventListener('click', () => setLevel(level));
+        container.appendChild(btn);
+    });
+}
+
+function setLevel(level) {
+    fetch('{{ route('ai-test.step.set-level') }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({level})
+    }).then(() => renderLevel(level));
+}
+
+renderLevel(@json($question['level'] ?? null));
+
 document.getElementById('determine-tense-gpt').addEventListener('click', () => {
     fetch('{{ route('ai-test.step.determine-tense') }}', {
         method: 'POST',
@@ -328,31 +358,13 @@ document.getElementById('determine-level-gemini').addEventListener('click', () =
 document.getElementById('set-level-gpt').addEventListener('click', () => {
     const level = document.getElementById('level-result-gpt').dataset.level;
     if (!level) return;
-    fetch('{{ route('ai-test.step.set-level') }}', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-        body: JSON.stringify({level})
-    }).then(() => {
-        document.getElementById('question-level').textContent = 'Level: ' + level;
-    });
+    setLevel(level);
 });
 
 document.getElementById('set-level-gemini').addEventListener('click', () => {
     const level = document.getElementById('level-result-gemini').dataset.level;
     if (!level) return;
-    fetch('{{ route('ai-test.step.set-level') }}', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-        body: JSON.stringify({level})
-    }).then(() => {
-        document.getElementById('question-level').textContent = 'Level: ' + level;
-    });
+    setLevel(level);
 });
 
 @if($question)
