@@ -36,55 +36,6 @@ class AiTestController extends Controller
         return view('ai-test-form', compact('tags', 'models', 'max'));
     }
 
-    public function start(Request $request)
-    {
-
-        $max = DB::table('question_answers')
-            ->selectRaw('MAX(CAST(SUBSTRING(marker, 2) AS UNSIGNED)) as max_n')
-            ->value('max_n');
-
-        $rules = [
-            'tags' => 'required|array|min:1',
-            'answers_min' => 'required|integer|min:1',
-            'answers_max' => 'required|integer|min:1|gte:answers_min',
-            'provider' => 'required|in:chatgpt,gemini,mixed',
-        ];
-        if ($max !== null) {
-            $rules['answers_min'] .= '|max:' . $max;
-            $rules['answers_max'] .= '|max:' . $max;
-        }
-        if ($request->input('provider') === 'chatgpt') {
-            $rules['model'] = ['required', Rule::in(array_merge(['random'], ChatGPTService::availableModels()))];
-        }
-        $validated = $request->validate($rules);
-
-        $tagIds = $validated['tags'];
-        $topic = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
-
-        $min = (int) $validated['answers_min'];
-
-        $provider = $validated['provider'];
-        $model = $provider === 'chatgpt' ? $validated['model'] : 'random';
-
-        session([
-            'ai_step.tags' => $tagIds,
-            'ai_step.answers_range' => [$min, $validated['answers_max']],
-            'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
-            'ai_step.current_question' => null,
-            'ai_step.next_question' => null,
-            'ai_step.next_question_provider' => null,
-            'ai_step.feedback' => null,
-            'ai_step.last_question' => null,
-            'ai_step.topic' => $topic,
-            'ai_step.provider' => $provider,
-            'ai_step.current_provider' => $provider === 'mixed' ? null : $provider,
-            'ai_step.next_provider' => $provider === 'mixed' ? 'gemini' : null,
-            'ai_step.model' => $model,
-        ]);
-
-        return redirect()->route('ai-test.step');
-    }
-
     public function getRefferance($answersCountStart, $answersCountEnd, &$responseAnswersCount = 0)
     {
         $responseAnswersCount = $answersCountEnd;
@@ -116,6 +67,57 @@ class AiTestController extends Controller
         return \App\Models\Question::find($randomRow->question_id)->question;
     }
 
+    public function start(Request $request)
+    {
+
+        $max = DB::table('question_answers')
+            ->selectRaw('MAX(CAST(SUBSTRING(marker, 2) AS UNSIGNED)) as max_n')
+            ->value('max_n');
+
+        $rules = [
+            'tags' => 'required|array|min:1',
+            'answers_min' => 'required|integer|min:1',
+            'answers_max' => 'required|integer|min:1|gte:answers_min',
+            'provider' => 'required|in:chatgpt,gemini,mixed',
+        ];
+        if ($max !== null) {
+            $rules['answers_min'] .= '|max:' . $max;
+            $rules['answers_max'] .= '|max:' . $max;
+        }
+        if ($request->input('provider') === 'chatgpt') {
+            $rules['model'] = ['required', Rule::in(array_merge(['random'], ChatGPTService::availableModels()))];
+        }
+        $validated = $request->validate($rules);
+
+        $tagIds = $validated['tags'];
+        $topic = Tag::whereIn('id', $tagIds)->pluck('name')->toArray();
+      //  dd($topic,"test");
+        $min = (int) $validated['answers_min'];
+
+        $provider = $validated['provider'];
+        $model = $provider === 'chatgpt' ? $validated['model'] : 'random';
+
+        session([
+            'ai_step.tags' => $tagIds,
+            'ai_step.answers_range' => [$min, $validated['answers_max']],
+            'ai_step.stats' => ['correct' => 0, 'wrong' => 0, 'total' => 0],
+            'ai_step.current_question' => null,
+            'ai_step.next_question' => null,
+            'ai_step.next_question_provider' => null,
+            'ai_step.feedback' => null,
+            'ai_step.last_question' => null,
+            'ai_step.topic' => $topic,
+            'ai_step.provider' => $provider,
+            'ai_step.current_provider' => $provider === 'mixed' ? null : $provider,
+            'ai_step.next_provider' => $provider === 'mixed' ? 'gemini' : null,
+            'ai_step.model' => $model,
+        ]);
+
+        return redirect()->route('ai-test.step');
+    }
+
+   
+
     public function step(ChatGPTService $gpt, GeminiService $gemini)
     {
 
@@ -130,6 +132,7 @@ class AiTestController extends Controller
             })
             ->toArray();
         $flatTenses = [];
+        
         foreach ($tenseNames as $arr) {
             $flatTenses = array_merge($flatTenses, $arr);
         }
@@ -174,7 +177,7 @@ class AiTestController extends Controller
                         $question = $gemini->generateGrammarQuestion($flatTenses, $answersCount);
                     } else {
                         $model = session('ai_step.model') ?? 'random';
-                        $question = $gpt->generateGrammarQuestion($flatTenses, $responseAnswersCount, $model);
+                        $question = $gpt->generateGrammarQuestion($tenseNames, $responseAnswersCount, $model);
                     }
                     $attempts++;
                 } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);

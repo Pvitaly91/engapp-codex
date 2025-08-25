@@ -327,7 +327,7 @@ class ChatGPTService
       
         $i = 1;
         $random = rand($i, count($tenses));
-       
+      // dd($tenses);
         foreach($tenses as $category => $items){
             if($random == $i){
                 $tensesText .= $category . ': ' . implode(', ', $items) . "\n";
