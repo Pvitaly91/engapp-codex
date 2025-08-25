@@ -40,7 +40,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => 'Paula and James {a1} their homework yet.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => "haven't finished"],
+                    ['marker' => 'a1', 'answer' => "haven't finished", 'verb_hint' => 'not/finish'],
                 ],
                 'options'  => ["haven't finished", 'finished', "didn't finished"],
                 'vocab'    => 'Education',
@@ -48,7 +48,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => '{a1} you and Sarah see the movie yesterday?',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'Did'],
+                    ['marker' => 'a1', 'answer' => 'Did', 'verb_hint' => 'do'],
                 ],
                 'options'  => ['Were', 'Have', 'Did'],
                 'vocab'    => 'Cinema',
@@ -56,7 +56,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => 'I have never {a1} a bicycle.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'ridden'],
+                    ['marker' => 'a1', 'answer' => 'ridden', 'verb_hint' => 'ride'],
                 ],
                 'options'  => ['ride', 'rode', 'ridden'],
                 'vocab'    => 'Transport',
@@ -64,7 +64,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => 'Have they ever {a1} in a hot air balloon?',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'flown'],
+                    ['marker' => 'a1', 'answer' => 'flown', 'verb_hint' => 'fly'],
                 ],
                 'options'  => ['flew', 'flown', 'have flown'],
                 'vocab'    => 'Travel',
@@ -72,7 +72,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => '(A) Did you have a good time? (B) Yes, we {a1}.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'did'],
+                    ['marker' => 'a1', 'answer' => 'did', 'verb_hint' => 'do'],
                 ],
                 'options'  => ['have', 'did', 'had'],
                 'vocab'    => 'Leisure',
@@ -80,8 +80,8 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => '{a1} Maria {a2} London and Madrid last year?',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'Did'],
-                    ['marker' => 'a2', 'answer' => 'visit'],
+                    ['marker' => 'a1', 'answer' => 'Did',   'verb_hint' => 'do'],
+                    ['marker' => 'a2', 'answer' => 'visit', 'verb_hint' => 'visit'],
                 ],
                 'options'  => ['Did / visit', 'Has / visited', 'Did / visited'],
                 'vocab'    => 'Travel',
@@ -89,7 +89,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => '(A) Has the movie already begun? (B) No, it {a1}.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => "hasn't"],
+                    ['marker' => 'a1', 'answer' => "hasn't", 'verb_hint' => 'have'],
                 ],
                 'options'  => ["haven't", "hasn't", "didn't"],
                 'vocab'    => 'Cinema',
@@ -105,7 +105,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => 'My family and I {a1} at home last Saturday.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => "weren't"],
+                    ['marker' => 'a1', 'answer' => "weren't", 'verb_hint' => 'be'],
                 ],
                 'options'  => ["weren't", "haven't", "wasn't"],
                 'vocab'    => 'Family',
@@ -113,8 +113,8 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => '(A) {a1} you ever seen a ghost? (B) No, I {a2}.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'Have'],
-                    ['marker' => 'a2', 'answer' => "haven't"],
+                    ['marker' => 'a1', 'answer' => 'Have',   'verb_hint' => 'have'],
+                    ['marker' => 'a2', 'answer' => "haven't", 'verb_hint' => 'have'],
                 ],
                 'options'  => ["Did / didn't", "Did / haven't", "Have / haven't"],
                 'vocab'    => 'Supernatural',
@@ -122,8 +122,8 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => '(A) {a1} John check his e-mail? (B) Yes, he {a2}.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'Has'],
-                    ['marker' => 'a2', 'answer' => 'has'],
+                    ['marker' => 'a1', 'answer' => 'Has', 'verb_hint' => 'have'],
+                    ['marker' => 'a2', 'answer' => 'has', 'verb_hint' => 'have'],
                 ],
                 'options'  => ['Did / did', 'Has / has', 'Has / did'],
                 'vocab'    => 'Technology',
@@ -139,7 +139,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => '(A) Have you ever visited Toronto? (B) Yes, I {a1}.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'have'],
+                    ['marker' => 'a1', 'answer' => 'have', 'verb_hint' => 'have'],
                 ],
                 'options'  => ['did', 'have', 'visited'],
                 'vocab'    => 'Travel',
@@ -147,8 +147,8 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => '(A) {a1} Dr. Smith talked to you? (B) Yes, she {a2}.',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'Has'],
-                    ['marker' => 'a2', 'answer' => 'has'],
+                    ['marker' => 'a1', 'answer' => 'Has', 'verb_hint' => 'have'],
+                    ['marker' => 'a2', 'answer' => 'has', 'verb_hint' => 'have'],
                 ],
                 'options'  => ['Has / has', 'Did / has', 'Has / did'],
                 'vocab'    => 'Health',
@@ -156,7 +156,7 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => 'What {a1} you done since ten o\'clock this morning?',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'have'],
+                    ['marker' => 'a1', 'answer' => 'have', 'verb_hint' => 'have'],
                 ],
                 'options'  => ['did', 'has', 'have'],
                 'vocab'    => 'Routine',
@@ -164,8 +164,8 @@ class PastSimpleVsPresentPerfectMultipleChoiceSeeder extends Seeder
             [
                 'question' => 'How many cookies {a1} you {a2} last night?',
                 'answers'  => [
-                    ['marker' => 'a1', 'answer' => 'did'],
-                    ['marker' => 'a2', 'answer' => 'eat'],
+                    ['marker' => 'a1', 'answer' => 'did', 'verb_hint' => 'do'],
+                    ['marker' => 'a2', 'answer' => 'eat', 'verb_hint' => 'eat'],
                 ],
                 'options'  => ['did / eat', 'have / eat', 'did / ate'],
                 'vocab'    => 'Food',
