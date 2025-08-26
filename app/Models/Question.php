@@ -16,8 +16,9 @@ class Question extends Model
     {
         $questionText = $this->question;
 
-        foreach($this->answers as $answer){
-             $questionText = str_replace("{$answer->marker}","{$answer->option->option}",$questionText); 
+        foreach ($this->answers as $answer) {
+            $replacement = $answer->option->option ?? $answer->answer;
+            $questionText = str_replace("{$answer->marker}", $replacement, $questionText);
         }
 
     

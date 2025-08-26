@@ -263,7 +263,7 @@ class GrammarTestController extends Controller
             abort(404);
         }
 
-        $questionText = $question->renderQuestionText();
+        $questionText = $question->question;
 
         // Список тегів (категорія "Tenses")
         $tags = Tag::where('category', 'Tenses')->pluck('name')->all();
