@@ -9,7 +9,7 @@ use App\Models\Source;
 use App\Models\Tag;
 use Illuminate\Support\Str;
 
-class PastSimplePastPerfectTest2Seeder extends Seeder
+class PastSimplePastPerfectTestSeeder extends Seeder
 {
     public function run()
     {
@@ -46,7 +46,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'showed', 'verb_hint' => null],
                         ],
                         'options' => ["'d shown", 'showed'],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -55,7 +55,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'started', 'verb_hint' => null],
                         ],
                         'options' => ['had started', 'started'],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -82,7 +82,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'had', 'verb_hint' => null],
                         ],
                         'options' => ["'d had", 'had'],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -91,7 +91,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'gave', 'verb_hint' => null],
                         ],
                         'options' => ['had given', 'gave'],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -109,7 +109,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'finished', 'verb_hint' => null],
                         ],
                         'options' => ['finished', "'d finished"],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -131,7 +131,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => "hadn't finished", 'verb_hint' => null],
                         ],
                         'options' => ["hadn't finished", "didn't finish", "hadn't finish"],
-                        'tenses' => ['Past Perfect'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -149,7 +149,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'visited', 'verb_hint' => null],
                         ],
                         'options' => ["'d visited", "'d visit", 'visited'],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -167,7 +167,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'ate', 'verb_hint' => null],
                         ],
                         'options' => ["'d eaten", "'d eat", 'ate'],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -176,7 +176,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'left', 'verb_hint' => null],
                         ],
                         'options' => ["'d left", 'left', "'d leave"],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                     [
@@ -212,7 +212,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                             ['marker' => 'a1', 'answer' => 'gave', 'verb_hint' => null],
                         ],
                         'options' => ["'d given", "'d give", 'gave'],
-                        'tenses' => ['Past Simple'],
+                        'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
                 ],
@@ -332,7 +332,7 @@ class PastSimplePastPerfectTest2Seeder extends Seeder
                 $items[] = [
                     'uuid'        => $uuid,
                     'question'    => $q['q'],
-                    'difficulty'  => 2,
+                    'difficulty'  => $q['level'] === 'A1' ? 1 : 2,
                     'category_id' => $categoryId,
                     'flag'        => 0,
                     'source_id'   => $sources[$section],
