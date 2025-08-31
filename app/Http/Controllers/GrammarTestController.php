@@ -138,6 +138,10 @@ class GrammarTestController extends Controller
         $currentId = $queue[$index];
         $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option', 'tags'])
             ->findOrFail($currentId);
+
+        $questionNumber = array_search($currentId, $test->questions, true);
+        $questionNumber = $questionNumber === false ? null : $questionNumber + 1;
+
         $feedback = session($key . '_feedback');
         session()->forget($key . '_feedback');
 
@@ -151,6 +155,7 @@ class GrammarTestController extends Controller
             'order' => $order,
             'hasPrev' => $index > 0,
             'hasNext' => $index < count($queue) - 1,
+            'questionNumber' => $questionNumber,
         ]);
     }
 

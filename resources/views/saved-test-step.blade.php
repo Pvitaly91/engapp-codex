@@ -48,6 +48,7 @@
         <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'order' => 'random']) }}" class="underline {{ $order === 'random' ? 'font-bold' : '' }}">Випадково</a>
     </div>
     <div class="mb-4 flex gap-4 text-gray-600 text-base">
+        <div>Question: <b>{{ $questionNumber }} / {{ $totalCount }}</b></div>
         <div>Total: <b>{{ $stats['total'] }} / {{ $totalCount }}</b></div>
         <div>Correct: <b class="text-green-700">{{ $stats['correct'] }}</b></div>
         <div>Wrong: <b class="text-red-700">{{ $stats['wrong'] }}</b></div>
