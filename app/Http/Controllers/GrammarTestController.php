@@ -235,15 +235,9 @@ class GrammarTestController extends Controller
             $stats['wrong']++;
             $answered[$question->id] = 'wrong';
         }
-        $queue = session($key . '_queue', []);
-        $index = session($key . '_index', 0);
-        if ($index < count($queue)) {
-            $index++;
-        }
         session([
             $key . '_stats' => $stats,
             $key . '_answered' => $answered,
-            $key . '_index' => $index,
             $key . '_feedback' => [
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
