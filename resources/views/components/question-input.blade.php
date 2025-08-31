@@ -101,7 +101,7 @@ HTML;
     x-data='{
         qid: {{ $question?->id ?? 'null' }},
         qtext: @json($question->question),
-        hints: { chatgpt: "", gemini: "" },
+        hints: { chatgpt: "" },
         async fetchHints(refresh = false) {
             if (!this.qid && !this.qtext) return; // немає даних питання
             const payload = { refresh };
@@ -133,8 +133,7 @@ HTML;
     @endif
     <template x-if="hints.chatgpt || hints.gemini">
         <div class="text-sm text-gray-600 mt-1">
-            <p><strong>ChatGPT:</strong> <span x-text="hints.chatgpt"></span></p>
-            <p><strong>Gemini:</strong> <span x-text="hints.gemini"></span></p>
+            <p><strong>ChatGPT:</strong> <span x-text="hints.chatgpt"></span></p>          
             <button type="button" class="text-xs text-blue-600 underline" @click="fetchHints(true)">Refresh</button>
         </div>
     </template>

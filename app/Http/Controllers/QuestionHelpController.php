@@ -34,6 +34,7 @@ class QuestionHelpController extends Controller
                 );
             }
 
+            /*
             $geminiHint = QuestionHint::where('question_id', $question->id)
                 ->where('provider', 'gemini')
                 ->where('locale', $lang)
@@ -44,11 +45,11 @@ class QuestionHelpController extends Controller
                     ['question_id' => $question->id, 'provider' => 'gemini', 'locale' => $lang],
                     ['hint' => $text]
                 );
-            }
+            }*/
 
             return response()->json([
                 'chatgpt' => $chatgptHint->hint,
-                'gemini' => $geminiHint->hint,
+                //'gemini' => //$geminiHint->hint,
             ]);
         }
 
