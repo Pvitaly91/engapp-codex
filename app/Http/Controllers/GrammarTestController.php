@@ -138,6 +138,10 @@ class GrammarTestController extends Controller
         $currentId = $queue[$index];
         $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option', 'tags'])
             ->findOrFail($currentId);
+
+        $questionNumber = array_search($currentId, $test->questions, true);
+        $questionNumber = $questionNumber === false ? null : $questionNumber + 1;
+
         $feedback = session($key . '_feedback');
         session()->forget($key . '_feedback');
 
@@ -151,6 +155,7 @@ class GrammarTestController extends Controller
             'order' => $order,
             'hasPrev' => $index > 0,
             'hasNext' => $index < count($queue) - 1,
+            'questionNumber' => $questionNumber,
         ]);
     }
 
@@ -209,11 +214,26 @@ class GrammarTestController extends Controller
             $sentenceHtml = str_replace('{' . $ans->marker . '}', $replacement, $sentenceHtml);
         }
         $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
-        $stats['total']++;
-        if ($correct) {
+        $answered = session($key . '_answered', []);
+        $prev = $answered[$question->id] ?? null;
+
+        if ($prev === null) {
+            $stats['total']++;
+            if ($correct) {
+                $stats['correct']++;
+                $answered[$question->id] = 'correct';
+            } else {
+                $stats['wrong']++;
+                $answered[$question->id] = 'wrong';
+            }
+        } elseif ($prev === 'wrong' && $correct) {
+            $stats['wrong']--;
             $stats['correct']++;
-        } else {
+            $answered[$question->id] = 'correct';
+        } elseif ($prev === 'correct' && ! $correct) {
+            $stats['correct']--;
             $stats['wrong']++;
+            $answered[$question->id] = 'wrong';
         }
         $queue = session($key . '_queue', []);
         $index = session($key . '_index', 0);
@@ -222,6 +242,7 @@ class GrammarTestController extends Controller
         }
         session([
             $key . '_stats' => $stats,
+            $key . '_answered' => $answered,
             $key . '_index' => $index,
             $key . '_feedback' => [
                 'isCorrect' => $correct,
@@ -384,6 +405,7 @@ class GrammarTestController extends Controller
         $key = 'step_' . $test->slug;
         session()->forget([
             $key . '_stats',
+            $key . '_answered',
             $key . '_queue',
             $key . '_total',
             $key . '_index',
