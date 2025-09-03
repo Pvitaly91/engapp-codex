@@ -101,8 +101,8 @@ HTML;
     x-data='{
         qid: {{ $question?->id ?? 'null' }},
         qtext: @json($question->question),
-        hints: { chatgpt: "" },
-        async fetchHints(refresh = false) {
+        hints: { chatgpt: "", gemini: "" },
+        fetchHints(refresh = false) {
             if (!this.qid && !this.qtext) return; // немає даних питання
             const payload = { refresh };
             if (this.qid) {
@@ -110,26 +110,25 @@ HTML;
             } else {
                 payload.question = this.qtext;
             }
-            try {
-                const r = await fetch("{{ route('question.hint') }}", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                    },
-                    body: JSON.stringify(payload)
-                });
-                const d = await r.json();
-                if (d.chatgpt) {
-                    d.chatgpt = d.chatgpt.replace(/\{a\d+\}/g, '\n$&');
-                }
-                if (d.gemini) {
-                    d.gemini = d.gemini.replace(/\{a\d+\}/g, '\n$&');
-                }
-                this.hints = d;
-            } catch (e) {
-                console.error(e);
-            }
+            fetch("{{ route('question.hint') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(r => r.json())
+                .then(d => {
+                    if (d.chatgpt) {
+                        d.chatgpt = d.chatgpt.replace(/\{a\d+\}/g, '\n$&');
+                    }
+                    if (d.gemini) {
+                        d.gemini = d.gemini.replace(/\{a\d+\}/g, '\n$&');
+                    }
+                    this.hints = d;
+                })
+                .catch(e => console.error(e));
         }
     }'
 ><label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
@@ -140,6 +139,9 @@ HTML;
     <template x-if="hints.chatgpt || hints.gemini">
         <div class="text-sm text-gray-600 mt-1">
             <p><strong>ChatGPT:</strong> <span class="whitespace-pre-line" x-text="hints.chatgpt"></span></p>
+            <template x-if="hints.gemini">
+                <p><strong>Gemini:</strong> <span class="whitespace-pre-line" x-text="hints.gemini"></span></p>
+            </template>
             <button type="button" class="text-xs text-blue-600 underline" @click="fetchHints(true)">Refresh</button>
         </div>
     </template>
