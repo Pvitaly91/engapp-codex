@@ -100,7 +100,7 @@ HTML;
 <div
     x-data="{
         qid: {{ $question?->id ?? 'null' }},
-        qtext: @json($question->question),
+        qtext: @js($question->question),
         hints: { chatgpt: '', gemini: '' },
         fetchHints(refresh = false) {
             if (!this.qid && !this.qtext) return; // немає даних питання
