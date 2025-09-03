@@ -245,8 +245,15 @@ class GrammarTestController extends Controller
                 'answer_sentence' => $sentenceHtml,
             ],
         ]);
-
-        return redirect()->route('saved-test.step', $slug);
+        if($correct){
+            return redirect()->route('saved-test.step', [
+                'slug' => $slug,
+                'nav'  => 'next',
+            ]);
+        }else{
+            return redirect()->route('saved-test.step', $slug);    
+        }    
+       
     }
 
     public function determineTense(Request $request, string $slug)
@@ -644,6 +651,7 @@ class GrammarTestController extends Controller
 
     public function check(Request $request)
     {
+      
         $questions = Question::with(['answers.option', 'category'])->whereIn('id', array_keys($request->get('questions', [])))->get();
         $results = [];
         $gpt = app(\App\Services\ChatGPTService::class);

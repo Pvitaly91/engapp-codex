@@ -14,7 +14,7 @@ class PastSimpleOrPastPerfectTestSeeder extends Seeder
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'past'])->id;
-        $sourceId = Source::firstOrCreate(['name' => 'Past Simple or Past Perfect'])->id;
+        $sourceId = Source::firstOrCreate(['name' => 'Past Simple or Past Perfect -2'])->id;
 
         $themeTag = Tag::firstOrCreate(['name' => 'Past Simple or Past Perfect'], ['category' => 'Grammar']);
         $pastSimpleTag = Tag::firstOrCreate(['name' => 'Past Simple'], ['category' => 'Tenses']);
