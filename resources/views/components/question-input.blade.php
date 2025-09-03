@@ -98,10 +98,10 @@ HTML;
 @endphp
 
 <div
-    x-data='{
+    x-data="{
         qid: {{ $question?->id ?? 'null' }},
         qtext: @json($question->question),
-        hints: { chatgpt: "", gemini: "" },
+        hints: { chatgpt: '', gemini: '' },
         fetchHints(refresh = false) {
             if (!this.qid && !this.qtext) return; // немає даних питання
             const payload = { refresh };
@@ -110,11 +110,11 @@ HTML;
             } else {
                 payload.question = this.qtext;
             }
-            fetch("{{ route('question.hint') }}", {
-                method: "POST",
+            fetch('{{ route('question.hint') }}', {
+                method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
                 body: JSON.stringify(payload)
             })
@@ -130,8 +130,9 @@ HTML;
                 })
                 .catch(e => console.error(e));
         }
-    }'
-><label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
+    }"
+>
+<label class="text-base" style="white-space:normal">{!! $finalQuestion !!}</label>
     <button type="button" class="text-xs text-blue-600 underline ml-1" @click="fetchHints()">Help</button>
     @if($showQuestionEdit)
         <button type="button" class="text-xs text-blue-600 underline ml-1" data-question="{{ e($question->question) }}" onclick="editQuestion({{ $question->id }}, this)">Edit question</button>
