@@ -86,6 +86,7 @@ class DatabaseSeeder extends Seeder
             QuestionTenseAssignmentSeeder::class,
             TestContiniusesSeeder::class,
             QuestionLevelSeeder::class,
+            PastPerfectVsPastSimpleTestSeeder::class,
         ]);
     }
 }
