@@ -120,6 +120,12 @@ HTML;
                     body: JSON.stringify(payload)
                 });
                 const d = await r.json();
+                if (d.chatgpt) {
+                    d.chatgpt = d.chatgpt.replace(/\{a\d+\}/g, '\n$&');
+                }
+                if (d.gemini) {
+                    d.gemini = d.gemini.replace(/\{a\d+\}/g, '\n$&');
+                }
                 this.hints = d;
             } catch (e) {
                 console.error(e);
@@ -133,7 +139,7 @@ HTML;
     @endif
     <template x-if="hints.chatgpt || hints.gemini">
         <div class="text-sm text-gray-600 mt-1">
-            <p><strong>ChatGPT:</strong> <span x-text="hints.chatgpt"></span></p>          
+            <p><strong>ChatGPT:</strong> <span class="whitespace-pre-line" x-text="hints.chatgpt"></span></p>
             <button type="button" class="text-xs text-blue-600 underline" @click="fetchHints(true)">Refresh</button>
         </div>
     </template>
