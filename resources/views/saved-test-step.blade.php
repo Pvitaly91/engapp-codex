@@ -141,16 +141,9 @@
                 </div>
             </div>
         </div>
-        @if(isset($feedback))
-            <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'nav' => 'next', 'order' => $order]) }}"
-               class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold inline-block text-center">
-                Next
-            </a>
-        @else
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
-                Check
-            </button>
-        @endif
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
+            Check
+        </button>
     </form>
     <form id="delete-question-{{ $question->id }}" action="{{ route('saved-test.question.destroy', [$test->slug, $question->id]) }}" method="POST" class="hidden">
         @csrf
