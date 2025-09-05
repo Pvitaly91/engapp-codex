@@ -7,6 +7,73 @@ use App\Models\Page;
 
 class PagesSeeder extends Seeder
 {
+    private function style(): string
+    {
+        return <<<'HTML'
+  <style>
+    /* СТИЛІ ЛИШЕ ДЛЯ ЦЬОГО БЛОКУ */
+    .grammar-card { --bg:#ffffff; --text:#1f2937; --muted:#6b7280; --accent:#2563eb; --chip:#f3f4f6; --ok:#10b981; --warn:#f59e0b;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text); background: var(--bg); border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; max-width: 980px; margin: 0 auto 24px; box-shadow: 0 6px 18px rgba(0,0,0,.04);
+    }
+    .grammar-card * { box-sizing: border-box; }
+    .gw-title { font-size: 28px; line-height: 1.2; margin: 0 0 10px; }
+    .gw-sub { color: var(--muted); margin: 0 0 18px; }
+    .gw-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .gw-box { border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px; background: #fff; }
+    .gw-box h3 { margin: 0 0 8px; font-size: 18px; }
+    .gw-list { margin: 8px 0 0 18px; }
+    .gw-list li { margin: 6px 0; }
+    .gw-formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: #0b1220; color: #e5e7eb; border-radius: 10px; padding: 12px; font-size: 14px; overflow:auto;
+    }
+    .gw-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .gw-chip { background: var(--chip); border:1px solid #e5e7eb; padding:6px 10px; border-radius:999px; font-size:13px; }
+    @media (min-width: 720px) {
+      .gw-grid { grid-template-columns: 1.2fr 1fr; }
+    }
+  </style>
+HTML;
+    }
+
+    private function card(string $title, string $sub, array $usage, string $formula, array $markers = []): string
+    {
+        $usageItems = implode('', array_map(fn($u) => "<li>$u</li>", $usage));
+        $markersHtml = '';
+        if ($markers) {
+            $chips = implode('', array_map(fn($m) => "<span class=\"gw-chip\">$m</span>", $markers));
+            $markersHtml = <<<HTML
+      <div class="gw-box">
+        <h3>Маркери часу</h3>
+        <div class="gw-chips">$chips</div>
+      </div>
+HTML;
+        }
+
+        return <<<HTML
+<section class="grammar-card" lang="uk">
+  {$this->style()}
+  <header>
+    <h2 class="gw-title">$title</h2>
+    <p class="gw-sub">$sub</p>
+  </header>
+  <div class="gw-grid">
+    <div class="gw-col">
+      <div class="gw-box">
+        <h3>Коли вживати?</h3>
+        <ul class="gw-list">$usageItems</ul>
+      </div>
+      <div class="gw-box">
+        <h3>Формула</h3>
+        <pre class="gw-formula">$formula</pre>
+      </div>
+      $markersHtml
+    </div>
+  </div>
+</section>
+HTML;
+    }
+
     public function run(): void
     {
         Page::firstOrCreate(
@@ -162,5 +229,135 @@ She <span style="color:#93c5fd">won’t have</span> <span style="color:#86efac">
 HTML
             ]
         );
+
+        $pages = [
+            'present-simple' => [
+                'title' => 'Present Simple — Теперішній простий час',
+                'sub' => 'Використовуємо для звичних дій, фактів і розкладів.',
+                'usage' => [
+                    'Регулярні дії: I go to school every day.',
+                    'Факти й істини: Water boils at 100°C.',
+                    'Розклади: The train leaves at 6 pm.',
+                ],
+                'formula' => '[Підмет] + V1 (+s у 3-й особі однини)',
+                'markers' => ['always', 'usually', 'often', 'never', 'every day'],
+            ],
+            'present-continuous' => [
+                'title' => 'Present Continuous — Теперішній тривалий час',
+                'sub' => 'Показує дію, що відбувається зараз або навколо теперішнього моменту.',
+                'usage' => [
+                    'Дія в момент мовлення: She is reading now.',
+                    'Тимчасові дії: I am staying with friends.',
+                    'Заплановане майбутнє: We are meeting tomorrow.',
+                ],
+                'formula' => '[Підмет] + am/is/are + V-ing',
+                'markers' => ['now', 'at the moment', 'today', 'this week'],
+            ],
+            'present-perfect' => [
+                'title' => 'Present Perfect — Теперішній доконаний час',
+                'sub' => 'Показує зв\'язок між минулим і теперішнім.',
+                'usage' => [
+                    'Досвід без уточнення часу: I have been to London.',
+                    'Дія, що триває до тепер: She has lived here for years.',
+                    'Нещодавно завершена дія з результатом: He has just finished.',
+                ],
+                'formula' => '[Підмет] + have/has + V3',
+                'markers' => ['already', 'just', 'yet', 'ever', 'never', 'since', 'for'],
+            ],
+            'present-perfect-continuous' => [
+                'title' => 'Present Perfect Continuous — Теперішній доконаний тривалий',
+                'sub' => 'Підкреслює тривалість дії, що почалася в минулому і триває досі.',
+                'usage' => [
+                    'Дія триває до тепер: I have been working since morning.',
+                    'Нещодавно завершена дія з наголосом на тривалості: She is tired because she has been running.',
+                ],
+                'formula' => '[Підмет] + have/has been + V-ing',
+                'markers' => ['for', 'since', 'all day', 'lately'],
+            ],
+            'past-simple' => [
+                'title' => 'Past Simple — Минулий простий час',
+                'sub' => 'Розповідає про завершені дії в минулому.',
+                'usage' => [
+                    'Одноразова дія: I visited Paris last year.',
+                    'Послідовність дій: He opened the door and entered.',
+                    'Факт у минулому: She was 20 in 2010.',
+                ],
+                'formula' => '[Підмет] + V2/V-ed',
+                'markers' => ['yesterday', 'last week', 'in 1990', 'ago'],
+            ],
+            'past-continuous' => [
+                'title' => 'Past Continuous — Минулий тривалий час',
+                'sub' => 'Описує дію, що тривала в конкретний момент у минулому.',
+                'usage' => [
+                    'Дія в процесі: At 5 pm I was cooking.',
+                    'Паралельні дії: I was reading while he was playing.',
+                    'Перервані дії: I was walking when it started to rain.',
+                ],
+                'formula' => '[Підмет] + was/were + V-ing',
+                'markers' => ['while', 'when', 'at 5 pm'],
+            ],
+            'past-perfect' => [
+                'title' => 'Past Perfect — Минулий доконаний час',
+                'sub' => 'Показує дію, що сталася до іншої минулої події.',
+                'usage' => [
+                    'Перед іншою дією: I had finished before he arrived.',
+                    'Причина: She was happy because she had won.',
+                ],
+                'formula' => '[Підмет] + had + V3',
+                'markers' => ['by', 'before'],
+            ],
+            'past-perfect-continuous' => [
+                'title' => 'Past Perfect Continuous — Минулий доконаний тривалий',
+                'sub' => 'Підкреслює тривалість дії до певного моменту в минулому.',
+                'usage' => [
+                    'Дія тривала до іншої: We had been waiting for an hour when she came.',
+                    'Причина стану: He was tired because he had been running.',
+                ],
+                'formula' => '[Підмет] + had been + V-ing',
+                'markers' => ['for', 'since', 'before'],
+            ],
+            'future-simple' => [
+                'title' => 'Future Simple — Майбутній простий час',
+                'sub' => 'Говорить про прості дії в майбутньому.',
+                'usage' => [
+                    'Спонтанні рішення: I will help you.',
+                    'Прогнози: It will rain tomorrow.',
+                    'Обіцянки/пропозиції: I will call you.',
+                ],
+                'formula' => '[Підмет] + will + V1',
+                'markers' => ['tomorrow', 'next week', 'soon'],
+            ],
+            'future-continuous' => [
+                'title' => 'Future Continuous — Майбутній тривалий час',
+                'sub' => 'Вказує на дію, що буде в процесі в конкретний момент у майбутньому.',
+                'usage' => [
+                    'Дія в процесі: At 5 pm I will be traveling.',
+                    'Паралельні дії: She will be studying while we are working.',
+                    'Ввічливі запитання: Will you be using the car?',
+                ],
+                'formula' => '[Підмет] + will be + V-ing',
+                'markers' => ['this time tomorrow', 'at 8 pm'],
+            ],
+            'future-perfect-continuous' => [
+                'title' => 'Future Perfect Continuous — Майбутній доконаний тривалий',
+                'sub' => 'Підкреслює тривалість дії до певного моменту в майбутньому.',
+                'usage' => [
+                    'Дія триватиме до майбутньої точки: By June she will have been working here for a year.',
+                    'Акцент на тривалості: He will have been studying for hours.',
+                ],
+                'formula' => '[Підмет] + will have been + V-ing',
+                'markers' => ['for', 'by'],
+            ],
+        ];
+
+        foreach ($pages as $slug => $data) {
+            Page::firstOrCreate(
+                ['slug' => $slug],
+                [
+                    'title' => $data['title'],
+                    'text' => $this->card($data['title'], $data['sub'], $data['usage'], $data['formula'], $data['markers'])
+                ]
+            );
+        }
     }
 }
