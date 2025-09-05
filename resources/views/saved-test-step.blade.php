@@ -42,7 +42,7 @@
             </form>
         </div>
     @endif
-    @include('components.irregular-verb-search')
+    @include('components.word-search')
     <div class="mb-4 text-sm">
         <span class="mr-2">Порядок питань:</span>
         <a href="{{ route('saved-test.step', ['slug' => $test->slug, 'order' => 'sequential']) }}" class="underline mr-2 {{ $order === 'sequential' ? 'font-bold' : '' }}">По порядку</a>

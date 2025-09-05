@@ -43,7 +43,7 @@
         </div>
         <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Switch</button>
     </form>
-    @include('components.irregular-verb-search')
+    @include('components.word-search')
 
     @if(isset($feedback))
         <div class="mb-4">

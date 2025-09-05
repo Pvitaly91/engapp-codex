@@ -12,7 +12,7 @@
         </a>
     </div>
 
-    @include('components.irregular-verb-search')
+    @include('components.word-search')
     @if($tests->count())
         <ul class="divide-y">
             @foreach($tests as $test)
