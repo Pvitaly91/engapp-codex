@@ -57,6 +57,7 @@
                 <li><a href="{{ route('translate.test') }}" class="hover:text-blue-500">Translate Test</a></li>
                 <li><a href="{{ route('question-review.index') }}" class="hover:text-blue-500">Question Review</a></li>
                 <li><a href="{{ route('saved-tests.cards') }}" class="hover:text-blue-500">Tests Catalog</a></li>
+                <li><a href="{{ route('pages.index') }}" class="hover:text-blue-500">Theory</a></li>
                 <li><a href="{{ url('/about') }}" class="hover:text-blue-500">About</a></li>
             </ul>
             <!-- Dropdown у layout'і -->
