@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionHelpController;
 use App\Http\Controllers\TrainController;
+use App\Http\Controllers\IrregularVerbController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,6 +80,8 @@ Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class,
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
 Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
+
+Route::get('/irregular-verbs', [IrregularVerbController::class, 'search'])->name('irregular-verbs.search');
 
 use App\Http\Controllers\AiTestController;
 
