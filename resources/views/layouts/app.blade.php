@@ -28,15 +28,18 @@
 
             <!-- Пошук по сайту -->
             <div x-data="siteSearch()" class="relative w-72 mx-4">
-                <input
-                    id="site_search"
-                    type="text"
-                    x-model="query"
-                    @input="search"
-                    class="w-full rounded-xl border px-4 py-2 focus:outline-blue-400"
-                    placeholder="{{ __('messages.search_placeholder') }}"
-                    autocomplete="off"
-                >
+                <form action="{{ route('site.search') }}" method="GET">
+                    <input
+                        id="site_search"
+                        name="q"
+                        type="text"
+                        x-model="query"
+                        @input="search"
+                        class="w-full rounded-xl border px-4 py-2 focus:outline-blue-400"
+                        placeholder="{{ __('messages.search_placeholder') }}"
+                        autocomplete="off"
+                    >
+                </form>
                 <!-- Список підказок, absolute! -->
                 <ul
                     x-show="results.length"
@@ -85,7 +88,11 @@
                     this.results = [];
                     return;
                 }
-                fetch('/search?q=' + encodeURIComponent(this.query))
+                fetch('/search?q=' + encodeURIComponent(this.query), {
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
                     .then(res => res.json())
                     .then(data => this.results = data);
             }

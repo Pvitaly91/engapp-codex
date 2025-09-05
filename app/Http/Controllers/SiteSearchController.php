@@ -12,33 +12,43 @@ class SiteSearchController extends Controller
     {
         $query = $request->query('q', '');
 
-        if (strlen($query) < 2) {
-            return response()->json([]);
+        $pages = collect();
+        $tests = collect();
+
+        if (strlen($query) >= 2) {
+            $pages = Page::query()
+                ->where('title', 'like', "%{$query}%")
+                ->orWhere('slug', 'like', "%{$query}%")
+                ->limit(10)
+                ->get()
+                ->map(fn($p) => [
+                    'title' => $p->title,
+                    'type' => 'page',
+                    'url' => route('pages.show', $p->slug),
+                ]);
+
+            $tests = Test::query()
+                ->where('name', 'like', "%{$query}%")
+                ->orWhere('slug', 'like', "%{$query}%")
+                ->limit(10)
+                ->get()
+                ->map(fn($t) => [
+                    'title' => $t->name,
+                    'type' => 'test',
+                    'url' => route('saved-test.show', $t->slug),
+                ]);
         }
 
-        $pages = Page::query()
-            ->where('title', 'like', "%{$query}%")
-            ->orWhere('slug', 'like', "%{$query}%")
-            ->limit(5)
-            ->get()
-            ->map(fn($p) => [
-                'title' => $p->title,
-                'type' => 'page',
-                'url' => route('pages.show', $p->slug),
-            ]);
+        $results = $pages->concat($tests)->values();
 
-        $tests = Test::query()
-            ->where('name', 'like', "%{$query}%")
-            ->orWhere('slug', 'like', "%{$query}%")
-            ->limit(5)
-            ->get()
-            ->map(fn($t) => [
-                'title' => $t->name,
-                'type' => 'test',
-                'url' => route('saved-test.show', $t->slug),
-            ]);
+        if ($request->expectsJson()) {
+            return response()->json($results);
+        }
 
-        return response()->json($pages->concat($tests)->values());
+        return view('search.results', [
+            'query' => $query,
+            'results' => $results,
+        ]);
     }
 }
 
