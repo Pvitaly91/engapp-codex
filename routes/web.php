@@ -6,6 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionHelpController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\WordSearchController;
+use App\Http\Controllers\SiteSearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,6 +83,8 @@ Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::cla
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
 
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
+
+Route::get('/search', SiteSearchController::class)->name('site.search');
 
 use App\Http\Controllers\AiTestController;
 

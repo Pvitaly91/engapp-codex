@@ -26,10 +26,10 @@
         <div class="container mx-auto flex justify-between items-center px-4">
             <a href="{{ url('/') }}" class="text-2xl font-bold text-blue-700">English Test Hub</a>
 
-            <!-- Пошук по словах -->
-            <div x-data="predictiveSearch()" class="relative w-72 mx-4">
+            <!-- Пошук по сайту -->
+            <div x-data="siteSearch()" class="relative w-72 mx-4">
                 <input
-                    id="word_search"
+                    id="site_search"
                     type="text"
                     x-model="query"
                     @input="search"
@@ -38,15 +38,17 @@
                     autocomplete="off"
                 >
                 <!-- Список підказок, absolute! -->
-                <ul 
-                    x-show="results.length" 
+                <ul
+                    x-show="results.length"
                     class="absolute left-0 right-0 bg-white shadow rounded-xl divide-y mt-1 z-50"
                     style="top: 100%;"
                 >
-                    <template x-for="item in results" :key="item.en">
-                        <li class="px-4 py-2 hover:bg-blue-50 cursor-pointer flex items-center justify-between">
-                            <span class="font-medium text-gray-900" x-text="item.en"></span>
-                            <span class="ml-3 text-gray-500" x-text="item.translation"></span>
+                    <template x-for="item in results" :key="item.url">
+                        <li>
+                            <a :href="item.url" class="block px-4 py-2 hover:bg-blue-50 flex items-center justify-between">
+                                <span class="font-medium text-gray-900" x-text="item.title"></span>
+                                <span class="ml-3 text-gray-500" x-text="item.type"></span>
+                            </a>
                         </li>
                     </template>
                 </ul>
@@ -74,17 +76,16 @@
     <!-- Alpine.js для реактивності -->
     <script src="//unpkg.com/alpinejs" defer></script>
     <script>
-    function predictiveSearch() {
+    function siteSearch() {
         return {
             query: '',
             results: [],
-            lang: 'uk', // автоматично підставляє обрану мову!
             search() {
                 if (this.query.length < 2) {
                     this.results = [];
                     return;
                 }
-                fetch('/api/search?q=' + encodeURIComponent(this.query) + '&lang=' + this.lang)
+                fetch('/search?q=' + encodeURIComponent(this.query))
                     .then(res => res.json())
                     .then(data => this.results = data);
             }

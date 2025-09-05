@@ -3,5 +3,5 @@
     'dictionary' => 'Словник',
     'train' => 'Тренування',
     'about' => 'Про сайт',
-    'search_placeholder' => 'Почніть вводити слово...',
+    'search_placeholder' => 'Пошук по сайту...',
 ];
