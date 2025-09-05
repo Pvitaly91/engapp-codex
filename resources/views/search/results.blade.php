@@ -3,7 +3,7 @@
 @section('title', 'Search')
 
 @section('content')
-    <h1 class="text-2xl font-bold mb-4">Search results for "{{ \Illuminate\Support\Str::of($query)->e() }}"</h1>
+    <h1 class="text-2xl font-bold mb-4">Search results for "{{ e($query) }}"</h1>
 
     @if($results->isEmpty())
         <p>No results found.</p>
