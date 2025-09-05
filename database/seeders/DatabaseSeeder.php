@@ -89,6 +89,7 @@ class DatabaseSeeder extends Seeder
             QuestionLevelSeeder::class,
             PastPerfectVsPastSimpleTestSeeder::class,
             PagesSeeder::class,
+            IrregularVerbsSeeder::class,
         ]);
     }
 }

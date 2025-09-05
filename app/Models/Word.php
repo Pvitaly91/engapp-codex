@@ -12,6 +12,7 @@ class Word extends Model
 
     protected $fillable = [
         'word',
+        'type',
     ];
 
     public function translates()
