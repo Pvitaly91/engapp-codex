@@ -58,6 +58,7 @@
             </form>
         </div>
     @endif
+    @include('components.irregular-verb-search')
     <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
         @csrf
         @foreach($questions as $q)
