@@ -91,6 +91,7 @@ class DatabaseSeeder extends Seeder
             PastPerfectVsPastSimpleTestSeeder::class,
             PagesSeeder::class,
             IrregularVerbsSeeder::class,
+            FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
         ]);
     }
 }
