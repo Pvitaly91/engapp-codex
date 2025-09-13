@@ -146,9 +146,6 @@ function renderOptionButton(q, idx, opt, i) {
 
 function renderFeedback(q) {
   if (q.done) {
-    if (q.wrongAttempt) {
-      return '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
-    }
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
   return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';

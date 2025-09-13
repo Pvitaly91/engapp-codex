@@ -142,14 +142,11 @@ function renderOptionButton(q, opt, i) {
 
 function renderFeedback(q) {
   if (q.done) {
-    if (q.wrongAttempt) {
-      let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
-      if (q.explanation) {
-        htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
-      }
-      return htmlStr;
+    let htmlStr = '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+    if (q.explanation) {
+      htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
     }
-    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+    return htmlStr;
   }
   return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
 }
