@@ -43,6 +43,7 @@
 <script>
 const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
+const EXPLAIN_URL = '{{ route('question.explain') }}';
 </script>
 <script>
 const state = {
@@ -60,6 +61,7 @@ function init() {
       options: opts,
       chosen: null,
       isCorrect: null,
+      explanation: '',
     };
   });
   state.current = 0;
@@ -124,7 +126,11 @@ function renderFeedback(q) {
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
   if (q.isCorrect === false) {
-    return '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answer) + '</b></div>';
+    let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answer) + '</b></div>';
+    if (q.explanation) {
+      htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
+    }
+    return htmlStr;
   }
   return '';
 }
@@ -140,7 +146,11 @@ function onChoose(opt) {
   if (q.isCorrect !== null) return;
   q.chosen = opt;
   q.isCorrect = (opt === q.answer);
-  if (q.isCorrect) state.correct += 1;
+  if (q.isCorrect) {
+    state.correct += 1;
+  } else {
+    fetchExplanation(q, opt);
+  }
   render();
   updateProgress();
 }
@@ -216,6 +226,23 @@ function renderHints(q) {
   htmlStr += `<button type="button" id="refresh-hint" class="text-xs text-blue-600 underline">Refresh</button>`;
   el.innerHTML = htmlStr;
   document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
+}
+
+function fetchExplanation(q, given) {
+  fetch(EXPLAIN_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify({ question_id: q.id, answer: given }),
+  })
+    .then((r) => r.json())
+    .then((d) => {
+      q.explanation = d.explanation || '';
+      render();
+    })
+    .catch((e) => console.error(e));
 }
 
 function hookGlobalEvents() {

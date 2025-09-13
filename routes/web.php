@@ -125,3 +125,4 @@ Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])-
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
 
 Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
+Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');

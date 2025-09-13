@@ -59,4 +59,28 @@ class QuestionHelpController extends Controller
             'gemini' => $gemini->hintSentenceStructure($text, $lang),
         ]);
     }
+
+    public function explain(Request $request, ChatGPTService $gpt)
+    {
+        $data = $request->validate([
+            'question_id' => 'required|integer|exists:questions,id',
+            'answer' => 'required|string',
+        ]);
+
+        $lang = 'uk'; // app()->getLocale();
+        $question = Question::with('answers.option')->findOrFail($data['question_id']);
+        $correct = $question->answers->first()->option->option ?? $question->answers->first()->answer ?? '';
+        $given = trim($data['answer']);
+
+        if (mb_strtolower($given) === mb_strtolower($correct)) {
+            return response()->json(['correct' => true, 'explanation' => '']);
+        }
+
+        $explanation = $gpt->explainWrongAnswer($question->question, $given, $correct, $lang);
+
+        return response()->json([
+            'correct' => false,
+            'explanation' => $explanation,
+        ]);
+    }
 }
