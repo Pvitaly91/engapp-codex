@@ -804,7 +804,11 @@ class GrammarTestController extends Controller
             })->values();
         }
 
-        return view('saved-tests-cards', [
+        $view = $request->routeIs('catalog-tests.cards')
+            ? 'catalog-tests-cards'
+            : 'saved-tests-cards';
+
+        return view($view, [
             'tests' => $tests,
             'tags' => $tagsByCategory,
             'selectedTags' => $selectedTags,

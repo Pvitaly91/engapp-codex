@@ -124,12 +124,13 @@
           <span class="ml-2 inline-flex items-center rounded-lg bg-accent text-accent-foreground px-2 py-0.5 text-xs font-medium">beta</span>
         </div>
         <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a class="text-muted-foreground hover:text-foreground" href="{{ route('saved-tests.cards') }}">Тести</a>
+          <a class="text-muted-foreground hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Тести</a>
           <a class="text-muted-foreground hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
         </nav>
         <div class="flex items-center gap-2">
-          <form action="{{ route('site.search') }}" method="GET" class="hidden md:block">
-            <input type="search" name="q" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+          <form action="{{ route('site.search') }}" method="GET" class="hidden md:block relative">
+            <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+            <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
           </form>
           <button id="mobile-search-btn" class="md:hidden rounded-xl border border-border p-2 text-sm">🔍</button>
           <button id="theme-toggle" class="hidden sm:inline-flex rounded-xl border border-border px-3 py-2 text-sm">🌙 Тема</button>
@@ -137,8 +138,9 @@
         </div>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
-        <form action="{{ route('site.search') }}" method="GET">
-          <input type="search" name="q" placeholder="Пошук..." class="mt-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+        <form action="{{ route('site.search') }}" method="GET" class="relative">
+          <input type="search" name="q" id="search-box-mobile" autocomplete="off" placeholder="Пошук..." class="mt-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+          <div id="search-box-mobile-list" class="absolute left-0 right-0 mt-1 bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
         </form>
       </div>
     </div>
@@ -179,6 +181,32 @@
     document.getElementById('mobile-search-btn')?.addEventListener('click', () => {
       document.getElementById('mobile-search')?.classList.toggle('hidden');
     });
+
+    function setupPredictiveSearch(inputId, listId) {
+      const input = document.getElementById(inputId);
+      const list = document.getElementById(listId);
+      if (!input || !list) return;
+      let controller;
+      input.addEventListener('input', async () => {
+        const q = input.value.trim();
+        if (q.length < 2) { list.innerHTML = ''; list.classList.add('hidden'); return; }
+        controller?.abort();
+        controller = new AbortController();
+        try {
+          const res = await fetch(input.form.action + '?q=' + encodeURIComponent(q), {
+            headers: { 'Accept': 'application/json' },
+            signal: controller.signal,
+          });
+          const data = await res.json();
+          if (!data.length) { list.innerHTML = ''; list.classList.add('hidden'); return; }
+          list.innerHTML = data.map(item => `<a href="${item.url}" class="block px-3 py-2 hover:bg-muted">${item.title}</a>`).join('');
+          list.classList.remove('hidden');
+        } catch (e) {}
+      });
+      input.addEventListener('blur', () => setTimeout(() => list.classList.add('hidden'), 200));
+    }
+    setupPredictiveSearch('search-box', 'search-box-list');
+    setupPredictiveSearch('search-box-mobile', 'search-box-mobile-list');
   </script>
 
   @yield('scripts')
