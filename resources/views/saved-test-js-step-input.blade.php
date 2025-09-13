@@ -51,6 +51,7 @@ const state = {
 function init() {
   state.items = QUESTIONS.map((q) => ({
     ...q,
+    words: [''],
     input: '',
     isCorrect: null,
   }));
@@ -62,10 +63,24 @@ function init() {
   updateProgress();
 }
 
+function buildInputs(q) {
+  const fields = q.words
+    .map((w, i) => `
+      <span class="inline-flex items-center">
+        <input type="text" data-idx="${i}" class="w-20 px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none" list="opts-${state.current}-${i}" value="${html(w)}">
+        <datalist id="opts-${state.current}-${i}"></datalist>
+      </span>`)
+    .join(' ');
+  return `<span id="builder" class="inline-flex items-center gap-1">${fields}<button type="button" id="add-word" class="ml-1 px-2 py-1 rounded border border-stone-300">+</button><button type="button" id="remove-word" class="px-2 py-1 rounded border border-stone-300">-</button></span>`;
+}
+
 function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
-  const sentence = q.question.replace(/\{a\d+\}/, `<mark class="px-1 py-0.5 rounded bg-amber-100">${q.input || '____'}</mark>`);
+  const blank = q.isCorrect === null
+    ? buildInputs(q)
+    : `<mark class="px-1 py-0.5 rounded bg-amber-100">${html(q.words.join(' '))}</mark>`;
+  const sentence = q.question.replace(/\{a\d+\}/, blank);
   wrap.innerHTML = `
     <article class="rounded-2xl border border-stone-200 bg-white p-4 focus-within:ring-2 ring-stone-900/20 outline-none" data-idx="${state.current}">
       <div class="flex items-start justify-between gap-3">
@@ -75,29 +90,35 @@ function render() {
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${state.current + 1}/${state.items.length}]</div>
       </div>
-      <div class="mt-3 flex gap-2">
-        <input id="answer-input" type="text" class="flex-1 px-3 py-2 rounded-xl border border-stone-300" list="opts-${state.current}" ${q.isCorrect !== null ? 'disabled' : ''} value="${q.input}">
-        <datalist id="opts-${state.current}">
-          ${q.options.map(opt => `<option value="${html(opt)}"></option>`).join('')}
-        </datalist>
-        <button id="check" class="px-4 py-2 rounded-xl bg-stone-900 text-white" ${q.isCorrect !== null ? 'disabled' : ''}>Перевірити</button>
-      </div>
+      ${q.isCorrect === null ? '<div class="mt-3"><button id="check" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити</button></div>' : ''}
       <div class="mt-2 h-5" id="feedback">${renderFeedback(q)}</div>
     </article>
   `;
 
   document.getElementById('prev').disabled = state.current === 0;
   document.getElementById('next').disabled = q.isCorrect === null;
-  document.getElementById('check').addEventListener('click', onCheck);
-  const input = document.getElementById('answer-input');
-  input.focus();
-  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
+  if (q.isCorrect === null) {
+    document.getElementById('check').addEventListener('click', onCheck);
+    document.querySelectorAll('#builder input').forEach((inp) => {
+      const idx = parseInt(inp.dataset.idx);
+      inp.addEventListener('input', () => {
+        q.words[idx] = inp.value;
+        fetchSuggestions(inp, idx);
+      });
+      inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
+      fetchSuggestions(inp, idx);
+    });
+    document.getElementById('add-word').addEventListener('click', () => { q.words.push(''); render(); });
+    document.getElementById('remove-word').addEventListener('click', () => { if (q.words.length > 1) { q.words.pop(); render(); } });
+    const first = document.querySelector('#builder input');
+    if (first) first.focus();
+  }
 }
 
 function onCheck() {
   const q = state.items[state.current];
   if (q.isCorrect !== null) return;
-  const val = document.getElementById('answer-input').value.trim();
+  const val = q.words.join(' ').trim();
   q.input = val;
   q.isCorrect = val.toLowerCase() === q.answer.toLowerCase();
   if (q.isCorrect) state.correct += 1;
@@ -136,6 +157,16 @@ function showSummary() {
   summary.classList.remove('hidden');
   document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
   document.getElementById('retry').onclick = init;
+}
+
+function fetchSuggestions(input, idx) {
+  const query = input.value.trim();
+  const listId = `opts-${state.current}-${idx}`;
+  const dl = document.getElementById(listId);
+  if (!query) { dl.innerHTML = ''; return; }
+  fetch('/api/search?lang=en&q=' + encodeURIComponent(query))
+    .then(res => res.json())
+    .then(data => { dl.innerHTML = data.map(it => `<option value="${html(it.en)}"></option>`).join(''); });
 }
 
 function renderFeedback(q) {
