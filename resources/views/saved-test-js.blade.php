@@ -92,6 +92,7 @@ function renderQuestions(showOnlyWrong = false) {
         <div>
           <div class="text-sm text-stone-500">${q.level} • ${q.tense}</div>
           <div class="mt-1 text-base leading-relaxed text-stone-900">${sentence}</div>
+          <div class="mt-1 text-xs text-stone-500" id="slot-label-${idx}">${renderSlotLabel(q)}</div>
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${idx + 1}/${state.items.length}]</div>
       </div>
@@ -154,6 +155,11 @@ function renderFeedback(q) {
   return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
 }
 
+function renderSlotLabel(q) {
+  if (q.answers.length <= 1 || q.done) return '';
+  return `Поточний пропуск: a${q.slot + 1}`;
+}
+
 function onChoose(idx, opt) {
   const item = state.items[idx];
   if (item.done) return;
@@ -180,6 +186,8 @@ function onChoose(idx, opt) {
     const group = container.querySelector('[role="group"]');
     group.innerHTML = item.options.map((optText, i) => renderOptionButton(item, idx, optText, i)).join('');
     container.querySelector(`#feedback-${idx}`).innerHTML = renderFeedback(item);
+    const slotEl = container.querySelector(`#slot-label-${idx}`);
+    if (slotEl) slotEl.innerHTML = renderSlotLabel(item);
   }
 
   updateProgress();

@@ -105,6 +105,7 @@ function render() {
         <div>
           <div class="text-sm text-stone-500">${q.level} • ${q.tense}</div>
           <div class="mt-1 text-base leading-relaxed text-stone-900">${sentence}</div>
+          <div class="mt-1 text-xs text-stone-500" id="slot-label">${renderSlotLabel(q)}</div>
           <button type="button" id="help" class="text-xs text-blue-600 underline mt-1">Help</button>
           <div id="hints" class="mt-2 text-base text-gray-800 space-y-2"></div>
         </div>
@@ -152,6 +153,11 @@ function renderFeedback(q) {
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
   return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
+}
+
+function renderSlotLabel(q) {
+  if (q.answers.length <= 1 || q.done) return '';
+  return `Поточний пропуск: a${q.slot + 1}`;
 }
 
 document.getElementById('question-card').addEventListener('click', (e) => {
