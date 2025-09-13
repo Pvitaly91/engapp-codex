@@ -57,8 +57,12 @@ function init() {
     return {
       ...q,
       options: opts,
-      chosen: null,
-      isCorrect: null,
+      chosen: Array(q.answers.length).fill(null),
+      slot: 0,
+      done: false,
+      wrongAttempt: false,
+      lastWrong: null,
+      feedback: '',
     };
   });
   state.correct = 0;
@@ -74,15 +78,14 @@ function renderQuestions(showOnlyWrong = false) {
   wrap.innerHTML = '';
 
   state.items.forEach((q, idx) => {
-    if (showOnlyWrong && q.isCorrect !== false) return;
+    if (showOnlyWrong && (!q.done || !q.wrongAttempt)) return;
 
     const card = document.createElement('article');
     card.className = 'rounded-2xl border border-stone-200 bg-white p-4 focus-within:ring-2 ring-stone-900/20 outline-none';
     card.tabIndex = 0;
     card.dataset.idx = idx;
 
-    const slotText = q.chosen ?? '____';
-    const sentence = q.question.replace(/\{a\d+\}/, `<mark class="px-1 py-0.5 rounded bg-amber-100">${slotText}</mark>`);
+    const sentence = renderSentence(q);
 
     card.innerHTML = `
       <div class="flex items-start justify-between gap-3">
@@ -113,7 +116,7 @@ function renderQuestions(showOnlyWrong = false) {
     wrap.appendChild(card);
   });
 
-  const allDone = state.items.every(it => it.isCorrect !== null);
+  const allDone = state.items.every(it => it.done);
   document.getElementById('summary').classList.toggle('hidden', !allDone);
 
   if (allDone) {
@@ -125,21 +128,16 @@ function renderQuestions(showOnlyWrong = false) {
 }
 
 function renderOptionButton(q, idx, opt, i) {
-  const chosen = q.chosen === opt;
-  const answered = q.isCorrect !== null;
   const base = 'w-full text-left px-3 py-2 rounded-xl border transition';
-
   let cls = 'border-stone-300 hover:border-stone-400 bg-white';
-  if (answered) {
-    if (opt === q.answer) cls = 'border-emerald-300 bg-emerald-50';
-    if (chosen && opt !== q.answer) cls = 'border-rose-300 bg-rose-50';
-  } else if (chosen) {
-    cls = 'border-stone-900';
+  if (q.done) {
+    cls = 'border-stone-300 bg-stone-100';
+  } else if (q.lastWrong === opt) {
+    cls = 'border-rose-300 bg-rose-50';
   }
-
   const hotkey = i + 1;
   return `
-    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="Натисни ${hotkey}">
+    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="Натисни ${hotkey}" ${q.done ? 'disabled' : ''}>
       <span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-md border text-xs">${hotkey}</span>
       ${opt}
     </button>
@@ -147,33 +145,40 @@ function renderOptionButton(q, idx, opt, i) {
 }
 
 function renderFeedback(q) {
-  if (q.isCorrect === true) {
+  if (q.done) {
+    if (q.wrongAttempt) {
+      return '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
+    }
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
-  if (q.isCorrect === false) {
-    return '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answer) + '</b></div>';
-  }
-  return '';
+  return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
 }
 
 function onChoose(idx, opt) {
   const item = state.items[idx];
-  if (item.isCorrect !== null) {
-    return;
+  if (item.done) return;
+
+  if (opt === item.answers[item.slot]) {
+    item.chosen[item.slot] = opt;
+    item.slot += 1;
+    item.lastWrong = null;
+    item.feedback = '';
+    if (item.slot === item.answers.length) {
+      item.done = true;
+      state.answered += 1;
+      if (!item.wrongAttempt) state.correct += 1;
+    }
+  } else {
+    item.wrongAttempt = true;
+    item.lastWrong = opt;
+    item.feedback = 'Невірно, спробуй ще раз';
   }
-  item.chosen = opt;
-  item.isCorrect = (opt === item.answer);
-  state.answered += 1;
-  if (item.isCorrect) state.correct += 1;
 
   const container = document.querySelector(`article[data-idx="${idx}"]`);
   if (container) {
-    const sentenceHtml = item.question.replace(/\{a\d+\}/, `<mark class="px-1 py-0.5 rounded bg-amber-100">${html(item.chosen)}</mark>`);
-    container.querySelector('.leading-relaxed').innerHTML = sentenceHtml;
-
+    container.querySelector('.leading-relaxed').innerHTML = renderSentence(item);
     const group = container.querySelector('[role="group"]');
     group.innerHTML = item.options.map((optText, i) => renderOptionButton(item, idx, optText, i)).join('');
-
     container.querySelector(`#feedback-${idx}`).innerHTML = renderFeedback(item);
   }
 
@@ -194,10 +199,20 @@ function updateProgress() {
 }
 
 function checkAllDone() {
-  const allDone = state.items.every(it => it.isCorrect !== null);
+  const allDone = state.items.every(it => it.done);
   if (allDone) {
     renderQuestions();
   }
+}
+
+function renderSentence(q) {
+  let text = q.question;
+  q.answers.forEach((ans, i) => {
+    const replacement = q.chosen[i] ? `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>` : '____';
+    const regex = new RegExp(`\\{a${i + 1}\\}`);
+    text = text.replace(regex, replacement);
+  });
+  return text;
 }
 
 function hookGlobalEvents() {
@@ -207,7 +222,7 @@ function hookGlobalEvents() {
 
     const idx = state.activeCardIdx ?? 0;
     const item = state.items[idx];
-    if (!item || item.isCorrect !== null) return;
+    if (!item || item.done) return;
 
     const opt = item.options[n - 1];
     if (!opt) return;

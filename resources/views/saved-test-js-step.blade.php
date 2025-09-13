@@ -77,9 +77,13 @@ function init() {
     return {
       ...q,
       options: opts,
-      chosen: null,
-      isCorrect: null,
+      chosen: Array(q.answers.length).fill(null),
+      slot: 0,
+      done: false,
+      wrongAttempt: false,
+      lastWrong: null,
       explanation: '',
+      feedback: '',
     };
   });
   state.current = 0;
@@ -94,7 +98,7 @@ function init() {
 function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
-  const sentence = q.question.replace(/\{a\d+\}/, `<mark class="px-1 py-0.5 rounded bg-amber-100">${q.chosen ?? '____'}</mark>`);
+  const sentence = renderSentence(q);
   wrap.innerHTML = `
     <article class="rounded-2xl border border-stone-200 bg-white p-4 focus-within:ring-2 ring-stone-900/20 outline-none" data-idx="${state.current}">
       <div class="flex items-start justify-between gap-3">
@@ -114,25 +118,22 @@ function render() {
   `;
 
   document.getElementById('prev').disabled = state.current === 0;
-  document.getElementById('next').disabled = q.isCorrect === null;
+  document.getElementById('next').disabled = !q.done;
   document.getElementById('help').addEventListener('click', () => fetchHints(q));
   renderHints(q);
 }
 
 function renderOptionButton(q, opt, i) {
-  const chosen = q.chosen === opt;
-  const answered = q.isCorrect !== null;
   const base = 'w-full text-left px-3 py-2 rounded-xl border transition';
   let cls = 'border-stone-300 hover:border-stone-400 bg-white';
-  if (answered) {
-    if (opt === q.answer) cls = 'border-emerald-300 bg-emerald-50';
-    if (chosen && opt !== q.answer) cls = 'border-rose-300 bg-rose-50';
-  } else if (chosen) {
-    cls = 'border-stone-900';
+  if (q.done) {
+    cls = 'border-stone-300 bg-stone-100';
+  } else if (q.lastWrong === opt) {
+    cls = 'border-rose-300 bg-rose-50';
   }
   const hotkey = i + 1;
   return `
-    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="Натисни ${hotkey}" ${answered ? 'disabled' : ''}>
+    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="Натисни ${hotkey}" ${q.done ? 'disabled' : ''}>
       <span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-md border text-xs">${hotkey}</span>
       ${opt}
     </button>
@@ -140,17 +141,17 @@ function renderOptionButton(q, opt, i) {
 }
 
 function renderFeedback(q) {
-  if (q.isCorrect === true) {
+  if (q.done) {
+    if (q.wrongAttempt) {
+      let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
+      if (q.explanation) {
+        htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
+      }
+      return htmlStr;
+    }
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
-  if (q.isCorrect === false) {
-    let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answer) + '</b></div>';
-    if (q.explanation) {
-      htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
-    }
-    return htmlStr;
-  }
-  return '';
+  return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
 }
 
 document.getElementById('question-card').addEventListener('click', (e) => {
@@ -161,13 +162,22 @@ document.getElementById('question-card').addEventListener('click', (e) => {
 
 function onChoose(opt) {
   const q = state.items[state.current];
-  if (q.isCorrect !== null) return;
-  q.chosen = opt;
-  q.isCorrect = (opt === q.answer);
-  if (q.isCorrect) {
-    state.correct += 1;
+  if (q.done) return;
+
+  if (opt === q.answers[q.slot]) {
+    q.chosen[q.slot] = opt;
+    q.slot += 1;
+    q.lastWrong = null;
+    q.feedback = '';
+    if (q.slot === q.answers.length) {
+      q.done = true;
+      if (!q.wrongAttempt) state.correct += 1;
+      else fetchExplanation(q, opt);
+    }
   } else {
-    fetchExplanation(q, opt);
+    q.wrongAttempt = true;
+    q.lastWrong = opt;
+    q.feedback = 'Невірно, спробуй ще раз';
   }
   render();
   updateProgress();
@@ -192,10 +202,20 @@ document.getElementById('next').addEventListener('click', () => {
 });
 
 function updateProgress() {
-  const answered = state.items.filter(it => it.isCorrect !== null).length;
+  const answered = state.items.filter(it => it.done).length;
   document.getElementById('progress-label').textContent = `${state.current + 1} / ${state.items.length}`;
   document.getElementById('score-label').textContent = `Точність: ${pct(state.correct, state.items.length)}%`;
   document.getElementById('progress-bar').style.width = `${(answered / state.items.length) * 100}%`;
+}
+
+function renderSentence(q) {
+  let text = q.question;
+  q.answers.forEach((ans, i) => {
+    const replacement = q.chosen[i] ? `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>` : '____';
+    const regex = new RegExp(`\\{a${i + 1}\\}`);
+    text = text.replace(regex, replacement);
+  });
+  return text;
 }
 
 function showSummary() {
@@ -272,7 +292,7 @@ function hookGlobalEvents() {
     const n = Number(e.key);
     if (!Number.isInteger(n) || n < 1 || n > 4) return;
     const q = state.items[state.current];
-    if (!q || q.isCorrect !== null) return;
+    if (!q || q.done) return;
     const opt = q.options[n - 1];
     if (opt) onChoose(opt);
   });
