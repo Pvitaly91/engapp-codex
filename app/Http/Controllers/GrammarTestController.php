@@ -123,6 +123,7 @@ class GrammarTestController extends Controller
                     $options[] = $answer;
                 }
                 return [
+                    'id' => $q->id,
                     'question' => $q->question,
                     'answer' => $answer,
                     'verb_hint' => $q->verbHints->first()->option->option ?? '',

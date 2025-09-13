@@ -9,6 +9,8 @@
         <p class="text-sm text-stone-600 mt-1">Перевіряй відповіді одразу, клавіші 1–4 працюють для активного запитання.</p>
     </header>
 
+    @include('components.word-search')
+
     <div class="mb-6">
         <div class="flex items-center justify-between text-sm">
             <span id="progress-label" class="text-stone-600">1 / 0</span>
@@ -40,6 +42,7 @@
 
 <script>
 const QUESTIONS = @json($questionData);
+const CSRF_TOKEN = '{{ csrf_token() }}';
 </script>
 <script>
 const state = {
@@ -78,6 +81,8 @@ function render() {
         <div>
           <div class="text-sm text-stone-500">${q.level} • ${q.tense}</div>
           <div class="mt-1 text-base leading-relaxed text-stone-900">${sentence}</div>
+          <button type="button" id="help" class="text-xs text-blue-600 underline mt-1">Help</button>
+          <div id="hints" class="text-sm text-gray-600 mt-1"></div>
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${state.current + 1}/${state.items.length}]</div>
       </div>
@@ -90,6 +95,8 @@ function render() {
 
   document.getElementById('prev').disabled = state.current === 0;
   document.getElementById('next').disabled = q.isCorrect === null;
+  document.getElementById('help').addEventListener('click', () => fetchHints(q));
+  renderHints(q);
 }
 
 function renderOptionButton(q, opt, i) {
@@ -169,6 +176,46 @@ function showSummary() {
   summary.classList.remove('hidden');
   document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
   document.getElementById('retry').onclick = init;
+}
+
+function fetchHints(q, refresh = false) {
+  const payload = q.id ? { question_id: q.id } : { question: q.question };
+  if (refresh) payload.refresh = true;
+  fetch('{{ route('question.hint') }}', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((r) => r.json())
+    .then((d) => {
+      if (d.chatgpt) d.chatgpt = d.chatgpt.replace(/\{a\d+\}/g, '\n$&');
+      if (d.gemini) d.gemini = d.gemini.replace(/\{a\d+\}/g, '\n$&');
+      q.hints = d;
+      renderHints(q);
+    })
+    .catch((e) => console.error(e));
+}
+
+function renderHints(q) {
+  const el = document.getElementById('hints');
+  if (!el) return;
+  if (!q.hints || (!q.hints.chatgpt && !q.hints.gemini)) {
+    el.innerHTML = '';
+    return;
+  }
+  let htmlStr = '';
+  if (q.hints.chatgpt) {
+    htmlStr += `<p><strong>ChatGPT:</strong> <span class="whitespace-pre-line">${html(q.hints.chatgpt)}</span></p>`;
+  }
+  if (q.hints.gemini) {
+    htmlStr += `<p><strong>Gemini:</strong> <span class="whitespace-pre-line">${html(q.hints.gemini)}</span></p>`;
+  }
+  htmlStr += `<button type="button" id="refresh-hint" class="text-xs text-blue-600 underline">Refresh</button>`;
+  el.innerHTML = htmlStr;
+  document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
 }
 
 function hookGlobalEvents() {
