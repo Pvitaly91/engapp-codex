@@ -145,10 +145,12 @@ function renderOptionButton(q, idx, opt, i) {
 }
 
 function renderFeedback(q) {
-  if (q.done) {
+  if (q.done || q.feedback === 'correct') {
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
-  return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
+  return q.feedback
+    ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>`
+    : '';
 }
 
 function onChoose(idx, opt) {
@@ -159,7 +161,7 @@ function onChoose(idx, opt) {
     item.chosen[item.slot] = opt;
     item.slot += 1;
     item.lastWrong = null;
-    item.feedback = '';
+    item.feedback = 'correct';
     if (item.slot === item.answers.length) {
       item.done = true;
       state.answered += 1;

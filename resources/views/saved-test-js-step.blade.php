@@ -141,9 +141,9 @@ function renderOptionButton(q, opt, i) {
 }
 
 function renderFeedback(q) {
-  if (q.done) {
+  if (q.done || q.feedback === 'correct') {
     let htmlStr = '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
-    if (q.explanation) {
+    if (q.done && q.explanation) {
       htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
     }
     return htmlStr;
@@ -165,7 +165,7 @@ function onChoose(opt) {
     q.chosen[q.slot] = opt;
     q.slot += 1;
     q.lastWrong = null;
-    q.feedback = '';
+    q.feedback = 'correct';
     if (q.slot === q.answers.length) {
       q.done = true;
       if (!q.wrongAttempt) state.correct += 1;
