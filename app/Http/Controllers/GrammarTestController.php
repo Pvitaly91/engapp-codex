@@ -80,25 +80,7 @@ class GrammarTestController extends Controller
     public function showSavedTestJs($slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = Question::with(['category', 'answers.option', 'options', 'verbHints.option'])
-            ->whereIn('id', $test->questions)
-            ->orderBy('id')
-            ->get()
-            ->map(function ($q) {
-                $answer = $q->answers->first()->option->option ?? $q->answers->first()->answer ?? '';
-                $options = $q->options->pluck('option')->toArray();
-                if ($answer && ! in_array($answer, $options)) {
-                    $options[] = $answer;
-                }
-                return [
-                    'question' => $q->question,
-                    'answer' => $answer,
-                    'verb' => $q->verbHints->first()->option->option ?? '',
-                    'options' => $options,
-                    'tense' => $q->category->name ?? '',
-                    'level' => $q->level ?? '',
-                ];
-            });
+        $questions = $this->buildQuestionDataset($test);
 
         return view('saved-test-js', [
             'test' => $test,
@@ -109,7 +91,28 @@ class GrammarTestController extends Controller
     public function showSavedTestJsStep($slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = Question::with(['category', 'answers.option', 'options', 'verbHints.option'])
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-step', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
+    public function showSavedTestJsStepInput($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-step-input', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
+    private function buildQuestionDataset(Test $test)
+    {
+        return Question::with(['category', 'answers.option', 'options', 'verbHints.option'])
             ->whereIn('id', $test->questions)
             ->orderBy('id')
             ->get()
@@ -128,11 +131,6 @@ class GrammarTestController extends Controller
                     'level' => $q->level ?? '',
                 ];
             });
-
-        return view('saved-test-js-step', [
-            'test' => $test,
-            'questionData' => $questions,
-        ]);
     }
 
     public function showSavedTestStep(Request $request, $slug)
