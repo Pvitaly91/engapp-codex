@@ -39,6 +39,12 @@
         </div>
     </div>
 </div>
+<div id="ajax-loader" class="hidden fixed inset-0 bg-white/70 flex items-center justify-center z-50">
+    <svg class="h-8 w-8 animate-spin text-stone-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+    </svg>
+</div>
 
 <script>
 const QUESTIONS = @json($questionData);
@@ -51,6 +57,12 @@ const state = {
   current: 0,
   correct: 0,
 };
+
+const loaderEl = document.getElementById('ajax-loader');
+function showLoader(show) {
+  if (!loaderEl) return;
+  loaderEl.classList.toggle('hidden', !show);
+}
 
 function init() {
   state.items = QUESTIONS.map((q) => ({
@@ -94,7 +106,7 @@ function render() {
           <div class="text-sm text-stone-500">${q.level} • ${q.tense}</div>
           <div class="mt-1 text-base leading-relaxed text-stone-900">${sentence}</div>
           <button type="button" id="help" class="text-xs text-blue-600 underline mt-1">Help</button>
-          <div id="hints" class="text-sm text-gray-600 mt-1"></div>
+          <div id="hints" class="mt-2 text-base text-gray-800 space-y-2"></div>
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${state.current + 1}/${state.items.length}]</div>
       </div>
@@ -176,6 +188,7 @@ function showSummary() {
 function fetchHints(q, refresh = false) {
   const payload = q.id ? { question_id: q.id } : { question: q.question };
   if (refresh) payload.refresh = true;
+  showLoader(true);
   fetch('{{ route('question.hint') }}', {
     method: 'POST',
     headers: {
@@ -191,7 +204,8 @@ function fetchHints(q, refresh = false) {
       q.hints = d;
       renderHints(q);
     })
-    .catch((e) => console.error(e));
+    .catch((e) => console.error(e))
+    .finally(() => showLoader(false));
 }
 
 function renderHints(q) {
@@ -203,17 +217,18 @@ function renderHints(q) {
   }
   let htmlStr = '';
   if (q.hints.chatgpt) {
-    htmlStr += `<p><strong>ChatGPT:</strong> <span class="whitespace-pre-line">${html(q.hints.chatgpt)}</span></p>`;
+    htmlStr += `<p class="p-2 bg-stone-50 rounded"><strong>ChatGPT:</strong> <span class="whitespace-pre-line">${html(q.hints.chatgpt)}</span></p>`;
   }
   if (q.hints.gemini) {
-    htmlStr += `<p><strong>Gemini:</strong> <span class="whitespace-pre-line">${html(q.hints.gemini)}</span></p>`;
+    htmlStr += `<p class="p-2 bg-stone-50 rounded"><strong>Gemini:</strong> <span class="whitespace-pre-line">${html(q.hints.gemini)}</span></p>`;
   }
-  htmlStr += `<button type="button" id="refresh-hint" class="text-xs text-blue-600 underline">Refresh</button>`;
+  htmlStr += `<button type="button" id="refresh-hint" class="mt-2 text-xs text-blue-600 underline block w-fit">Refresh</button>`;
   el.innerHTML = htmlStr;
   document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
 }
 
 function fetchExplanation(q, given) {
+  showLoader(true);
   fetch(EXPLAIN_URL, {
     method: 'POST',
     headers: {
@@ -227,7 +242,8 @@ function fetchExplanation(q, given) {
       q.explanation = d.explanation || '';
       render();
     })
-    .catch((e) => console.error(e));
+    .catch((e) => console.error(e))
+    .finally(() => showLoader(false));
 }
 
 function fetchSuggestions(input, idx) {
