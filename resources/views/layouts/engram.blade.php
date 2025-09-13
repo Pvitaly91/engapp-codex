@@ -117,24 +117,29 @@
   <!-- HEADER / NAV -->
   <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/80">
     <div class="container mx-auto px-4">
-      <div class="flex h-16 items-center justify-between">
+      <div class="flex h-16 items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <div class="h-9 w-9 rounded-2xl bg-primary text-primary-foreground grid place-items-center font-bold">E</div>
           <span class="text-lg font-semibold tracking-tight">Engram</span>
           <span class="ml-2 inline-flex items-center rounded-lg bg-accent text-accent-foreground px-2 py-0.5 text-xs font-medium">beta</span>
         </div>
         <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a class="text-muted-foreground hover:text-foreground" href="#tests">Тести</a>
-          <a class="text-muted-foreground hover:text-foreground" href="#theory">Теорія</a>
-          <a class="text-muted-foreground hover:text-foreground" href="#quiz">Швидкий тест</a>
-          <a class="text-muted-foreground hover:text-foreground" href="#faq">FAQ</a>
+          <a class="text-muted-foreground hover:text-foreground" href="{{ route('saved-tests.cards') }}">Тести</a>
+          <a class="text-muted-foreground hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
         </nav>
         <div class="flex items-center gap-2">
-          <button id="theme-toggle" class="hidden sm:inline-flex rounded-xl border border-border px-3 py-2 text-sm">
-            🌙 Тема
-          </button>
+          <form action="{{ route('site.search') }}" method="GET" class="hidden md:block">
+            <input type="search" name="q" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+          </form>
+          <button id="mobile-search-btn" class="md:hidden rounded-xl border border-border p-2 text-sm">🔍</button>
+          <button id="theme-toggle" class="hidden sm:inline-flex rounded-xl border border-border px-3 py-2 text-sm">🌙 Тема</button>
           <button class="rounded-2xl bg-primary px-4 py-2 text-primary-foreground text-sm">Реєстрація</button>
         </div>
+      </div>
+      <div id="mobile-search" class="md:hidden hidden pb-3">
+        <form action="{{ route('site.search') }}" method="GET">
+          <input type="search" name="q" placeholder="Пошук..." class="mt-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+        </form>
       </div>
     </div>
   </header>
@@ -171,6 +176,9 @@
     })();
 
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('mobile-search-btn')?.addEventListener('click', () => {
+      document.getElementById('mobile-search')?.classList.toggle('hidden');
+    });
   </script>
 
   @yield('scripts')
