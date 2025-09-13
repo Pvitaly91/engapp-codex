@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Future Simple — Drag & Drop Тест</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-50 text-stone-800">
+  <div class="mx-auto max-w-3xl px-4 py-8" id="app">
+    <header class="mb-6">
+      <h1 class="text-2xl sm:text-3xl font-bold text-stone-900">Future Simple — Drag & Drop</h1>
+      <p class="text-sm text-stone-600 mt-1">Перетягни (або натисни) правильний варіант у поле. Миттєва перевірка. Клавіші <b>1–4</b> працюють для активного запитання.</p>
+    </header>
+
+    <!-- Прогрес -->
+    <div class="mb-6">
+      <div class="flex items-center justify-between text-sm">
+        <span id="progress-label" class="text-stone-600">0 / 0</span>
+        <span id="score-label" class="text-stone-600">Точність: 0%</span>
+      </div>
+      <div class="w-full h-2 bg-stone-200 rounded-full mt-2">
+        <div id="progress-bar" class="h-2 bg-stone-900 rounded-full" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- Список запитань -->
+    <div id="questions" class="space-y-5"></div>
+
+    <!-- Підсумок -->
+    <div id="summary" class="mt-8 hidden">
+      <div class="rounded-2xl border border-stone-200 bg-white p-4">
+        <div class="text-lg font-semibold">Підсумок</div>
+        <p class="text-sm text-stone-600 mt-1" id="summary-text"></p>
+        <div class="mt-3 flex gap-3">
+          <button id="retry" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Пройти ще раз</button>
+          <button id="show-wrong" class="px-4 py-2 rounded-xl border border-stone-300">Показати тільки помилки</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/** Масив питань (можеш підставити з бекенду 1:1) */
+const QUESTIONS = [
+  {
+    question: 'I suppose the concert {a1} about 6.',
+    answer: 'will finish',
+    verb: 'finish',
+    options: ['will finish', 'will be finishing', 'will have finished', 'finishes'],
+    tense: 'Future Simple',
+    level: 'A2',
+  },
+  {
+    question: 'I {a2} very sad if you do that.',
+    answer: 'will be',
+    verb: 'be',
+    options: ['will be', 'am going to be', 'will have been', 'will be being'],
+    tense: 'Future Simple',
+    level: 'A2',
+  },
+  {
+    question: 'I {a3} you everything when I go back.',
+    answer: 'will tell',
+    verb: 'tell',
+    options: ['will tell', 'will be telling', 'will have told', 'am telling'],
+    tense: 'Future Simple',
+    level: 'A2',
+  },
+];
+
+/** Стан */
+const state = {
+  items: [],
+  correct: 0,
+  answered: 0,
+  activeIdx: 0, // для гарячих клавіш
+};
+
+function init() {
+  state.items = QUESTIONS.map(q => ({
+    ...q,
+    options: shuffled([...q.options]),
+    chosen: null,
+    isCorrect: null,
+  }));
+  state.correct = 0;
+  state.answered = 0;
+  render(false);
+  updateProgress();
+  wireHotkeys();
+}
+
+function render(showOnlyWrong) {
+  const list = document.getElementById('questions');
+  list.innerHTML = '';
+
+  state.items.forEach((q, idx) => {
+    if (showOnlyWrong && q.isCorrect !== false) return;
+
+    const card = document.createElement('article');
+    card.className = 'rounded-2xl border border-stone-200 bg-white p-4 outline-none focus-within:ring-2 ring-stone-900/20';
+    card.tabIndex = 0;
+    card.dataset.idx = idx;
+
+    const filled = q.chosen ?? '____';
+    const sentence = q.question.replace(/\{a\d+\}/, `<span id="slot-${idx}" class="inline-flex items-center justify-center min-w-24 px-2 py-1 rounded-lg border border-dashed ${colorFor(q)}">${html(filled)}</span>`);
+
+    card.innerHTML = `
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <div class="text-sm text-stone-500">${q.level} • ${q.tense}</div>
+          <div class="mt-1 text-base leading-relaxed text-stone-900">${sentence}</div>
+        </div>
+        <div class="text-xs text-stone-500 shrink-0">[${idx + 1}/${state.items.length}]</div>
+      </div>
+
+      <div class="mt-3">
+        <div class="text-xs text-stone-500 mb-1">Варіанти</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" role="group" aria-label="Варіанти відповіді">
+          ${q.options.map((opt, i) => optionChip(opt, idx, i, q)).join('')}
+        </div>
+      </div>
+
+      <div class="mt-2 h-5" id="fb-${idx}">${feedback(q)}</div>
+    `;
+
+    // делегування подій
+    card.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-opt]');
+      if (!btn) return;
+      placeAnswer(idx, btn.dataset.opt);
+    });
+
+    // dnd зона
+    const slot = card.querySelector(`#slot-${idx}`);
+    slot.addEventListener('dragover', (e) => { e.preventDefault(); slot.classList.add('bg-stone-50'); });
+    slot.addEventListener('dragleave', () => slot.classList.remove('bg-stone-50'));
+    slot.addEventListener('drop', (e) => {
+      e.preventDefault();
+      slot.classList.remove('bg-stone-50');
+      const payload = e.dataTransfer.getData('text/plain');
+      if (!payload) return;
+      const { qidx, opt } = JSON.parse(payload);
+      if (Number(qidx) !== idx) return; // не дозволяємо змішувати між картками
+      placeAnswer(idx, opt);
+    });
+
+    card.addEventListener('focusin', () => state.activeIdx = idx);
+
+    // зберегти
+    list.appendChild(card);
+  });
+
+  // Підсумок
+  const allDone = state.items.every(it => it.isCorrect !== null);
+  document.getElementById('summary').classList.toggle('hidden', !allDone);
+  if (allDone) {
+    document.getElementById('summary-text').textContent =
+      `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
+    document.getElementById('retry').onclick = init;
+    document.getElementById('show-wrong').onclick = () => render(true);
+  }
+}
+
+function optionChip(opt, idx, i, q) {
+  const used = q.chosen !== null; // після відповіді блокуємо всі чипи
+  const hotkey = i + 1; // 1..4
+  return `
+    <button
+      type="button"
+      class="flex items-center gap-2 px-3 py-2 rounded-xl border ${used ? 'border-stone-200 text-stone-400 bg-stone-50 cursor-not-allowed' : 'border-stone-300 hover:border-stone-400 bg-white'} transition"
+      data-opt="${html(opt)}"
+      draggable="${!used}"
+      ondragstart='event.dataTransfer.setData("text/plain", ${JSON.stringify(JSON.stringify({ qidx: idx, opt }))})'
+      title="Натисни ${hotkey}"
+      ${used ? 'disabled' : ''}
+    >
+      <span class="inline-flex h-5 w-5 items-center justify-center rounded-md border text-xs">${hotkey}</span>
+      <span>${html(opt)}</span>
+    </button>
+  `;
+}
+
+function placeAnswer(idx, opt) {
+  const item = state.items[idx];
+  if (item.isCorrect !== null) return; // зафіксовано
+
+  item.chosen = opt;
+  item.isCorrect = (opt === item.answer);
+  state.answered++;
+  if (item.isCorrect) state.correct++;
+
+  // оновити лише картку
+  const card = document.querySelector(`article[data-idx="${idx}"]`);
+  if (card) {
+    // слот
+    const slot = card.querySelector(`#slot-${idx}`);
+    slot.textContent = item.chosen;
+    slot.className = `inline-flex items-center justify-center min-w-24 px-2 py-1 rounded-lg border ${colorFor(item)}`;
+    // фідбек
+    const fb = card.querySelector(`#fb-${idx}`);
+    fb.innerHTML = feedback(item);
+    // відключити всі чипи
+    card.querySelectorAll('button[data-opt]').forEach(b => { b.disabled = true; b.classList.add('cursor-not-allowed','bg-stone-50','text-stone-400','border-stone-200'); b.draggable = false; });
+  }
+
+  updateProgress();
+  const allDone = state.items.every(it => it.isCorrect !== null);
+  if (allDone) render(false);
+}
+
+// стилізація слота залежно від стейту
+function colorFor(q) {
+  if (q.isCorrect === true)  return 'border-emerald-300 bg-emerald-50 text-emerald-800';
+  if (q.isCorrect === false) return 'border-rose-300 bg-rose-50 text-rose-800';
+  return 'border-stone-300 text-stone-700';
+}
+
+function feedback(q) {
+  if (q.isCorrect === true)  return `<span class="text-sm text-emerald-700">✅ Вірно!</span>`;
+  if (q.isCorrect === false) return `<span class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>${html(q.answer)}</b></span>`;
+  return '';
+}
+
+function updateProgress() {
+  const total = state.items.length;
+  const label = document.getElementById('progress-label');
+  label.textContent = `${state.answered} / ${total}`;
+
+  const percent = state.answered ? pct(state.correct, total) : 0;
+  document.getElementById('score-label').textContent = `Точність: ${percent}%`;
+
+  const bar = document.getElementById('progress-bar');
+  bar.style.width = `${(state.answered / total) * 100}%`;
+}
+
+/** Гарячі клавіші 1–4 для активного питання */
+function wireHotkeys() {
+  document.addEventListener('keydown', (e) => {
+    const n = Number(e.key);
+    if (!Number.isInteger(n) || n < 1 || n > 4) return;
+    const idx = state.activeIdx ?? 0;
+    const item = state.items[idx];
+    if (!item || item.isCorrect !== null) return;
+    const opt = item.options[n - 1];
+    if (!opt) return;
+    placeAnswer(idx, opt);
+  });
+}
+
+/** Утиліти */
+function shuffled(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = (Math.random() * (i + 1)) | 0;
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+function pct(a, b){ return Math.round((a/(b||1))*100); }
+function html(s){
+  return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'","&#039;");
+}
+
+init();
+</script>
+</body>
+</html>
