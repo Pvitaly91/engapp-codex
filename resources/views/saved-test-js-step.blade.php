@@ -55,7 +55,6 @@
 <script>
 const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
-const EXPLAIN_URL = '{{ route('question.explain') }}';
 </script>
 <script>
 const state = {
@@ -82,7 +81,6 @@ function init() {
       done: false,
       wrongAttempt: false,
       lastWrong: null,
-      explanation: '',
       feedback: '',
     };
   });
@@ -142,11 +140,7 @@ function renderOptionButton(q, opt, i) {
 
 function renderFeedback(q) {
   if (q.done || q.feedback === 'correct') {
-    let htmlStr = '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
-    if (q.done && q.explanation) {
-      htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
-    }
-    return htmlStr;
+    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
   return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
 }
@@ -169,7 +163,6 @@ function onChoose(opt) {
     if (q.slot === q.answers.length) {
       q.done = true;
       if (!q.wrongAttempt) state.correct += 1;
-      else fetchExplanation(q, opt);
     }
   } else {
     q.wrongAttempt = true;
@@ -267,25 +260,6 @@ function renderHints(q) {
   htmlStr += `<button type="button" id="refresh-hint" class="mt-2 text-xs text-blue-600 underline block w-fit">Refresh</button>`;
   el.innerHTML = htmlStr;
   document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
-}
-
-function fetchExplanation(q, given) {
-  showLoader(true);
-  fetch(EXPLAIN_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-TOKEN': CSRF_TOKEN,
-    },
-    body: JSON.stringify({ question_id: q.id, answer: given }),
-  })
-    .then((r) => r.json())
-    .then((d) => {
-      q.explanation = d.explanation || '';
-      render();
-    })
-    .catch((e) => console.error(e))
-    .finally(() => showLoader(false));
 }
 
 function hookGlobalEvents() {
