@@ -77,9 +77,10 @@ function buildInputs(q) {
 function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
+  const hint = q.verb_hint ? ` <span class="verb-hint text-red-700 text-xs font-bold">(${html(q.verb_hint)})</span>` : '';
   const blank = q.isCorrect === null
-    ? buildInputs(q)
-    : `<mark class="px-1 py-0.5 rounded bg-amber-100">${html(q.words.join(' '))}</mark>`;
+    ? buildInputs(q) + hint
+    : `<mark class="px-1 py-0.5 rounded bg-amber-100">${html(q.words.join(' '))}</mark>` + hint;
   const sentence = q.question.replace(/\{a\d+\}/, blank);
   wrap.innerHTML = `
     <article class="rounded-2xl border border-stone-200 bg-white p-4 focus-within:ring-2 ring-stone-900/20 outline-none" data-idx="${state.current}">

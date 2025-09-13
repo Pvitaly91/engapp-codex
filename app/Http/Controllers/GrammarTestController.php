@@ -125,7 +125,7 @@ class GrammarTestController extends Controller
                 return [
                     'question' => $q->question,
                     'answer' => $answer,
-                    'verb' => $q->verbHints->first()->option->option ?? '',
+                    'verb_hint' => $q->verbHints->first()->option->option ?? '',
                     'options' => $options,
                     'tense' => $q->category->name ?? '',
                     'level' => $q->level ?? '',
