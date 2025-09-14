@@ -25,7 +25,7 @@
 
     <div id="questions" class="space-y-4"></div>
 
-    <div id="final-check" class="mt-6"><button id="check-all" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити всі</button></div>
+    <div id="final-check" class="mt-6"><button id="check-all" type="button" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити всі</button></div>
 
     <div id="summary" class="mt-8 hidden">
         <div class="rounded-2xl border border-stone-200 bg-white p-4">
@@ -66,8 +66,14 @@ function init() {
 
 function renderQuestions() {
   const wrap = document.getElementById('questions');
-  wrap.innerHTML = state.items.map((_, i) => `<article class=\"rounded-2xl border border-stone-200 bg-white p-4\" data-idx=\"${i}\"></article>`).join('');
-  state.items.forEach((_, i) => renderQuestion(i));
+  wrap.innerHTML = '';
+  state.items.forEach((_, i) => {
+    const card = document.createElement('article');
+    card.className = 'rounded-2xl border border-stone-200 bg-white p-4';
+    card.dataset.idx = i;
+    wrap.appendChild(card);
+    renderQuestion(i);
+  });
 }
 
 function renderQuestion(idx) {
