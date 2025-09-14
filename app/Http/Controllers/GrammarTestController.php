@@ -143,6 +143,28 @@ class GrammarTestController extends Controller
         ]);
     }
 
+    public function showSavedTestJsStepSelect($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-step-select', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
+    public function showSavedTestJsSelect($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-select', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
     private function buildQuestionDataset(Test $test)
     {
         return Question::with(['category', 'answers.option', 'options', 'verbHints.option'])
