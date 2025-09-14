@@ -12,16 +12,7 @@
     @include('components.test-mode-nav')
 
     @include('components.word-search')
-
-    <div class="mb-6">
-        <div class="flex items-center justify-between text-sm">
-            <span id="progress-label" class="text-stone-600">0 / 0</span>
-            <span id="score-label" class="text-stone-600">Точність: 0%</span>
-        </div>
-        <div class="w-full h-2 bg-stone-200 rounded-full mt-2">
-            <div id="progress-bar" class="h-2 bg-stone-900 rounded-full" style="width:0%"></div>
-        </div>
-    </div>
+    @include('components.saved-test-progress')
 
     <div id="questions" class="space-y-4"></div>
 
@@ -42,6 +33,7 @@
 <script>
 const QUESTIONS = @json($questionData);
 </script>
+@include('components.saved-test-js-helpers')
 <script>
 const state = {
   items: [],
@@ -187,16 +179,6 @@ function updateProgress() {
   score.textContent = `Точність: ${percent}%`;
   const bar = document.getElementById('progress-bar');
   bar.style.width = `${(state.answered / state.items.length) * 100}%`;
-}
-
-function pct(a, b) { return Math.round((a / (b || 1)) * 100); }
-function html(str) {
-  return String(str)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
 }
 
 init();

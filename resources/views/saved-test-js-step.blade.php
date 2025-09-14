@@ -12,16 +12,7 @@
     @include('components.test-mode-nav')
 
     @include('components.word-search')
-
-    <div class="mb-6">
-        <div class="flex items-center justify-between text-sm">
-            <span id="progress-label" class="text-stone-600">1 / 0</span>
-            <span id="score-label" class="text-stone-600">Точність: 0%</span>
-        </div>
-        <div class="w-full h-2 bg-stone-200 rounded-full mt-2">
-            <div id="progress-bar" class="h-2 bg-stone-900 rounded-full" style="width:0%"></div>
-        </div>
-    </div>
+    @include('components.saved-test-progress', ['progress' => '1 / 0'])
 
     <div id="question-wrap">
         <div id="question-card"></div>
@@ -52,6 +43,7 @@
 const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
 </script>
+@include('components.saved-test-js-helpers')
 <script>
 const state = {
   items: [],
@@ -271,22 +263,6 @@ function hookGlobalEvents() {
     const opt = q.options[n - 1];
     if (opt) onChoose(opt);
   });
-}
-
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = (Math.random() * (i + 1)) | 0;
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-}
-function pct(a, b) { return Math.round((a / (b || 1)) * 100); }
-function html(str) {
-  return String(str)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
 }
 
 init();

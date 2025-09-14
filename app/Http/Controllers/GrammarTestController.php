@@ -79,87 +79,50 @@ class GrammarTestController extends Controller
 
     public function showSavedTestJs($slug)
     {
-        $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = $this->buildQuestionDataset($test);
-
-        return view('saved-test-js', [
-            'test' => $test,
-            'questionData' => $questions,
-        ]);
+        return $this->renderSavedTestJsView($slug, 'saved-test-js');
     }
 
     public function showSavedTestJsStep($slug)
     {
-        $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = $this->buildQuestionDataset($test);
-
-        return view('saved-test-js-step', [
-            'test' => $test,
-            'questionData' => $questions,
-        ]);
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-step');
     }
 
     public function showSavedTestJsManual($slug)
     {
-        $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = $this->buildQuestionDataset($test);
-
-        return view('saved-test-js-manual', [
-            'test' => $test,
-            'questionData' => $questions,
-        ]);
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-manual');
     }
 
     public function showSavedTestJsStepManual($slug)
     {
-        $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = $this->buildQuestionDataset($test);
-
-        return view('saved-test-js-step-manual', [
-            'test' => $test,
-            'questionData' => $questions,
-        ]);
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-step-manual');
     }
 
     public function showSavedTestJsStepInput($slug)
     {
-        $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = $this->buildQuestionDataset($test);
-
-        return view('saved-test-js-step-input', [
-            'test' => $test,
-            'questionData' => $questions,
-        ]);
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-step-input');
     }
 
     public function showSavedTestJsInput($slug)
     {
-        $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = $this->buildQuestionDataset($test);
-
-        return view('saved-test-js-input', [
-            'test' => $test,
-            'questionData' => $questions,
-        ]);
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-input');
     }
 
     public function showSavedTestJsStepSelect($slug)
     {
-        $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = $this->buildQuestionDataset($test);
-
-        return view('saved-test-js-step-select', [
-            'test' => $test,
-            'questionData' => $questions,
-        ]);
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-step-select');
     }
 
     public function showSavedTestJsSelect($slug)
     {
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-select');
+    }
+
+    private function renderSavedTestJsView(string $slug, string $view)
+    {
         $test = Test::where('slug', $slug)->firstOrFail();
         $questions = $this->buildQuestionDataset($test);
 
-        return view('saved-test-js-select', [
+        return view($view, [
             'test' => $test,
             'questionData' => $questions,
         ]);
