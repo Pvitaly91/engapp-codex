@@ -99,6 +99,28 @@ class GrammarTestController extends Controller
         ]);
     }
 
+    public function showSavedTestJsManual($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-manual', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
+    public function showSavedTestJsStepManual($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-step-manual', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
     public function showSavedTestJsStepInput($slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();

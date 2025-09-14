@@ -6,7 +6,7 @@
 <div class="mx-auto max-w-3xl px-4 py-8 text-stone-800" id="quiz-app">
     <header class="mb-6">
         <h1 class="text-2xl sm:text-3xl font-bold text-stone-900">{{ $test->name }}</h1>
-        <p class="text-sm text-stone-600 mt-1">Перевіряй відповіді одразу, клавіші 1–4 працюють для активного запитання.</p>
+        <p class="text-sm text-stone-600 mt-1">Введи відповідь без підказок.</p>
     </header>
 
     <nav class="mb-6 flex gap-2 text-sm">
@@ -50,30 +50,21 @@ const state = {
   items: [],
   correct: 0,
   answered: 0,
-  activeCardIdx: 0,
 };
 
 function init() {
-  state.items = QUESTIONS.map((q) => {
-    const opts = [...q.options];
-    shuffle(opts);
-    return {
-      ...q,
-      options: opts,
-      chosen: Array(q.answers.length).fill(null),
-      slot: 0,
-      done: false,
-      wrongAttempt: false,
-      lastWrong: null,
-      feedback: '',
-    };
-  });
+  state.items = QUESTIONS.map((q) => ({
+    ...q,
+    chosen: Array(q.answers.length).fill(''),
+    slot: 0,
+    done: false,
+    wrongAttempt: false,
+    feedback: '',
+  }));
   state.correct = 0;
   state.answered = 0;
-
   renderQuestions();
   updateProgress();
-  hookGlobalEvents();
 }
 
 function renderQuestions(showOnlyWrong = false) {
@@ -84,8 +75,7 @@ function renderQuestions(showOnlyWrong = false) {
     if (showOnlyWrong && (!q.done || !q.wrongAttempt)) return;
 
     const card = document.createElement('article');
-    card.className = 'rounded-2xl border border-stone-200 bg-white p-4 focus-within:ring-2 ring-stone-900/20 outline-none';
-    card.tabIndex = 0;
+    card.className = 'rounded-2xl border border-stone-200 bg-white p-4';
     card.dataset.idx = idx;
 
     const sentence = renderSentence(q);
@@ -98,72 +88,39 @@ function renderQuestions(showOnlyWrong = false) {
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${idx + 1}/${state.items.length}]</div>
       </div>
-
-      <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2" role="group" aria-label="Варіанти відповіді">
-        ${q.options.map((opt, i) => renderOptionButton(q, idx, opt, i)).join('')}
+      <div class="mt-3 flex gap-2" ${q.done ? '' : ''}>
+        <input type="text" id="input-${idx}" class="flex-1 rounded-lg border border-stone-300 px-3 py-2" ${q.done ? 'disabled' : ''} autocomplete="off" />
+        <button type="button" data-check="${idx}" class="px-4 py-2 rounded-xl bg-stone-900 text-white" ${q.done ? 'disabled' : ''}>OK</button>
       </div>
-
       <div class="mt-2 h-5" id="feedback-${idx}">${renderFeedback(q)}</div>
     `;
 
-    card.addEventListener('click', (e) => {
-      const btn = e.target.closest('button[data-opt]');
-      if (!btn) return;
-      onChoose(idx, btn.dataset.opt);
-    });
-
-    card.addEventListener('focusin', () => {
-      state.activeCardIdx = idx;
-    });
-
     wrap.appendChild(card);
+
+    if (!q.done) {
+      const input = card.querySelector(`#input-${idx}`);
+      const btn = card.querySelector('button[data-check]');
+      btn.addEventListener('click', () => onCheck(idx, input.value));
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(idx, input.value); });
+    }
   });
 
   const allDone = state.items.every(it => it.done);
   document.getElementById('summary').classList.toggle('hidden', !allDone);
-
   if (allDone) {
-    const summaryText = document.getElementById('summary-text');
-    summaryText.textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
+    document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
     document.getElementById('retry').onclick = init;
     document.getElementById('show-wrong').onclick = () => renderQuestions(true);
   }
 }
 
-function renderOptionButton(q, idx, opt, i) {
-  const base = 'w-full text-left px-3 py-2 rounded-xl border transition';
-  let cls = 'border-stone-300 hover:border-stone-400 bg-white';
-  if (q.done) {
-    cls = 'border-stone-300 bg-stone-100';
-  } else if (q.lastWrong === opt) {
-    cls = 'border-rose-300 bg-rose-50';
-  }
-  const hotkey = i + 1;
-  return `
-    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="Натисни ${hotkey}" ${q.done ? 'disabled' : ''}>
-      <span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-md border text-xs">${hotkey}</span>
-      ${opt}
-    </button>
-  `;
-}
-
-function renderFeedback(q) {
-  if (q.done || q.feedback === 'correct') {
-    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
-  }
-  return q.feedback
-    ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>`
-    : '';
-}
-
-function onChoose(idx, opt) {
+function onCheck(idx, val) {
   const item = state.items[idx];
   if (item.done) return;
-
-  if (opt === item.answers[item.slot]) {
-    item.chosen[item.slot] = opt;
+  val = val.trim();
+  if (val.toLowerCase() === (item.answers[item.slot] || '').toLowerCase()) {
+    item.chosen[item.slot] = val;
     item.slot += 1;
-    item.lastWrong = null;
     item.feedback = 'correct';
     if (item.slot === item.answers.length) {
       item.done = true;
@@ -172,39 +129,17 @@ function onChoose(idx, opt) {
     }
   } else {
     item.wrongAttempt = true;
-    item.lastWrong = opt;
     item.feedback = 'Невірно, спробуй ще раз';
   }
-
-  const container = document.querySelector(`article[data-idx="${idx}"]`);
-  if (container) {
-    container.querySelector('.leading-relaxed').innerHTML = renderSentence(item);
-    const group = container.querySelector('[role="group"]');
-    group.innerHTML = item.options.map((optText, i) => renderOptionButton(item, idx, optText, i)).join('');
-    container.querySelector(`#feedback-${idx}`).innerHTML = renderFeedback(item);
-  }
-
+  renderQuestions();
   updateProgress();
-  checkAllDone();
 }
 
-function updateProgress() {
-  const label = document.getElementById('progress-label');
-  label.textContent = `${state.answered} / ${state.items.length}`;
-
-  const score = document.getElementById('score-label');
-  const percent = state.answered ? pct(state.correct, state.items.length) : 0;
-  score.textContent = `Точність: ${percent}%`;
-
-  const bar = document.getElementById('progress-bar');
-  bar.style.width = `${(state.answered / state.items.length) * 100}%`;
-}
-
-function checkAllDone() {
-  const allDone = state.items.every(it => it.done);
-  if (allDone) {
-    renderQuestions();
+function renderFeedback(q) {
+  if (q.done || q.feedback === 'correct') {
+    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
+  return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
 }
 
 function renderSentence(q) {
@@ -216,37 +151,21 @@ function renderSentence(q) {
         ? `<mark class=\"px-1 py-0.5 rounded bg-amber-200\">____</mark>`
         : '____');
     const regex = new RegExp(`\\{a${i + 1}\\}`);
-    const marker = `a${i + 1}`;
-    const hint = q.verb_hints && q.verb_hints[marker]
-      ? ` <span class=\"verb-hint text-red-700 text-xs font-bold\">(${html(q.verb_hints[marker])})</span>`
-      : '';
-    text = text.replace(regex, replacement + hint);
+    text = text.replace(regex, replacement);
   });
   return text;
 }
 
-function hookGlobalEvents() {
-  document.addEventListener('keydown', (e) => {
-    const n = Number(e.key);
-    if (!Number.isInteger(n) || n < 1 || n > 4) return;
-
-    const idx = state.activeCardIdx ?? 0;
-    const item = state.items[idx];
-    if (!item || item.done) return;
-
-    const opt = item.options[n - 1];
-    if (!opt) return;
-
-    onChoose(idx, opt);
-  });
+function updateProgress() {
+  const label = document.getElementById('progress-label');
+  label.textContent = `${state.answered} / ${state.items.length}`;
+  const score = document.getElementById('score-label');
+  const percent = state.answered ? pct(state.correct, state.items.length) : 0;
+  score.textContent = `Точність: ${percent}%`;
+  const bar = document.getElementById('progress-bar');
+  bar.style.width = `${(state.answered / state.items.length) * 100}%`;
 }
 
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = (Math.random() * (i + 1)) | 0;
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-}
 function pct(a, b) { return Math.round((a / (b || 1)) * 100); }
 function html(str) {
   return String(str)
