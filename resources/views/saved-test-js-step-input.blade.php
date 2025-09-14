@@ -299,7 +299,7 @@ function renderSentence(q) {
     if (q.isCorrect === null) {
       const words = q.inputs[i];
       const inputs = words
-        .map((w, j) => `<span class=\"inline-block\"><input type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:5rem\" list=\"opts-${state.current}-${i}-${j}\" value=\"${html(w)}\"><datalist id=\"opts-${state.current}-${i}-${j}\"></datalist></span>`)
+        .map((w, j) => `<span class=\"inline-block\"><input type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:2rem\" list=\"opts-${state.current}-${i}-${j}\" value=\"${html(w)}\"><datalist id=\"opts-${state.current}-${i}-${j}\"></datalist></span>`)
         .join(' ');
       const addBtn = `<button type=\"button\" data-add=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">+</button>`;
       const removeBtn = words.length > 1
@@ -320,7 +320,8 @@ function renderSentence(q) {
 }
 
 function autoResize(el) {
-  const min = parseFloat(el.dataset.minWidth || el.offsetWidth);
+ 
+  const min = parseFloat(el.dataset.minWidth || el.offsetWidth)*0.3;
   const span = document.createElement('span');
   span.style.visibility = 'hidden';
   span.style.position = 'absolute';

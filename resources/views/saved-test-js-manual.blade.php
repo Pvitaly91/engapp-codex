@@ -166,7 +166,7 @@ function renderSentence(q, idx) {
 }
 
 function autoResize(el) {
-  const min = parseFloat(el.dataset.minWidth || el.offsetWidth);
+  const min = parseFloat(el.dataset.minWidth || el.offsetWidth)*0.2;
   const span = document.createElement('span');
   span.style.visibility = 'hidden';
   span.style.position = 'absolute';

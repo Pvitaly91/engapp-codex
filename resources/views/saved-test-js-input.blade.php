@@ -184,7 +184,7 @@ function renderSentence(q, qIdx) {
 }
 
 function autoResize(el) {
-  const min = parseFloat(el.dataset.minWidth || el.offsetWidth);
+  const min = parseFloat(el.dataset.minWidth || el.offsetWidth)*0.3;
   const span = document.createElement('span');
   span.style.visibility = 'hidden';
   span.style.position = 'absolute';
