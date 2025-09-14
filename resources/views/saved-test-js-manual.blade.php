@@ -159,7 +159,11 @@ function renderSentence(q, idx) {
       replacement = `<input id=\"input-${idx}-${i}\" class=\"w-24 text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
     }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
-    text = text.replace(regex, replacement);
+    const marker = `a${i + 1}`;
+    const hint = q.verb_hints && q.verb_hints[marker]
+      ? ` <span class=\\"verb-hint text-red-700 text-xs font-bold\\">(${html(q.verb_hints[marker])})</span>`
+      : '';
+    text = text.replace(regex, replacement + hint);
   });
   return text;
 }
