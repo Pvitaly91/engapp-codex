@@ -236,13 +236,17 @@ function fetchExplanation(q, given) {
 }
 
 function fetchSuggestions(input, idx) {
-  const query = input.value.trim();
+  const val = input.value;
   const listId = `opts-${state.current}-${idx}`;
   const dl = document.getElementById(listId);
+  const parts = val.split(/\s+/);
+  const last = parts.pop();
+  const prefix = val.slice(0, val.length - last.length);
+  const query = last.trim();
   if (!query) { dl.innerHTML = ''; return; }
   fetch('/api/search?lang=en&q=' + encodeURIComponent(query))
     .then(res => res.json())
-    .then(data => { dl.innerHTML = data.map(it => `<option value="${html(it.en)}"></option>`).join(''); });
+    .then(data => { dl.innerHTML = data.map(it => `<option value="${html(prefix + it.en)}"></option>`).join(''); });
 }
 
 function renderFeedback(q) {
