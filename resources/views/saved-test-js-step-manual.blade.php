@@ -164,7 +164,7 @@ function renderSentence(q) {
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     const marker = `a${i + 1}`;
     const hint = q.verb_hints && q.verb_hints[marker]
-      ? ` <span class=\\"verb-hint text-red-600 font-bold\\">(${html(q.verb_hints[marker])})</span>`
+      ? ` <span class=\\"verb-hint text-red-700 text-xs font-bold\\">(${html(q.verb_hints[marker])})</span>`
       : '';
     text = text.replace(regex, replacement + hint);
   });
