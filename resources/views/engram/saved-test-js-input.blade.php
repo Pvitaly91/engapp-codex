@@ -86,7 +86,6 @@ function renderQuestion(idx) {
     card.querySelectorAll('input[data-idx][data-word]').forEach(inp => {
       const aIdx = parseInt(inp.dataset.idx);
       const wIdx = parseInt(inp.dataset.word);
-      if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
       inp.addEventListener('keydown', e => {
         if (e.key === ' ') e.preventDefault();
       });
@@ -159,7 +158,7 @@ function renderSentence(q, qIdx) {
     if (q.isCorrect === null) {
       const words = q.inputs[i];
       const inputs = words
-        .map((w, j) => `<span class=\"inline-block\"><input type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:5rem\" list=\"opts-${qIdx}-${i}-${j}\" value=\"${html(w)}\"><datalist id=\"opts-${qIdx}-${i}-${j}\"></datalist></span>`)
+        .map((w, j) => `<span class=\"inline-block\"><input type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto\" list=\"opts-${qIdx}-${i}-${j}\" value=\"${html(w)}\"><datalist id=\"opts-${qIdx}-${i}-${j}\"></datalist></span>`)
         .join(' ');
       const addBtn = `<button type=\"button\" data-add=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">+</button>`;
       const removeBtn = words.length > 1 ? `<button type=\"button\" data-remove=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">-</button>` : '';
@@ -178,7 +177,6 @@ function renderSentence(q, qIdx) {
 }
 
 function autoResize(el) {
-  const min = parseFloat(el.dataset.minWidth || el.offsetWidth)*0.3;
   const span = document.createElement('span');
   span.style.visibility = 'hidden';
   span.style.position = 'absolute';
@@ -188,7 +186,7 @@ function autoResize(el) {
   document.body.appendChild(span);
   const width = span.offsetWidth + 8;
   document.body.removeChild(span);
-  el.style.width = Math.max(min, width) + 'px';
+  el.style.width = width + 'px';
 }
 
 function updateProgress() {
