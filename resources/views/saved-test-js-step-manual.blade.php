@@ -164,7 +164,7 @@ function renderSentence(q) {
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     const marker = `a${i + 1}`;
     const hint = q.verb_hints && q.verb_hints[marker]
-      ? ` <span class=\\"verb-hint text-red-700 text-xs font-bold\\">(${html(q.verb_hints[marker])})</span>`
+      ? ` <span class=\\"verb-hint text-red-700 text-xs font-bold\\"><strong style='color:red'>(${html(q.verb_hints[marker])})</strong></span>`
       : '';
     text = text.replace(regex, replacement + hint);
   });
@@ -173,7 +173,7 @@ function renderSentence(q) {
 
 function renderFeedback(q) {
   if (q.done || q.feedback === 'correct') {
-    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+    return '<div class="text-sm text-emerald-700 ">✅ Вірно!</div>';
   }
   return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
 }
