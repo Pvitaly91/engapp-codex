@@ -85,7 +85,9 @@ function renderQuestion(idx) {
   if (q.isCorrect === null) {
     card.querySelectorAll('select[data-idx]').forEach(sel => {
       const aIdx = parseInt(sel.dataset.idx);
-      sel.addEventListener('change', () => { q.chosen[aIdx] = sel.value; });
+      const update = () => resizeSelect(sel);
+      sel.addEventListener('change', () => { q.chosen[aIdx] = sel.value; update(); });
+      update();
     });
   }
 }

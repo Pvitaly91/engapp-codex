@@ -6,7 +6,7 @@
 <div class="mx-auto max-w-3xl px-4 py-8 text-stone-800" id="quiz-app">
     <header class="mb-6">
         <h1 class="text-2xl sm:text-3xl font-bold text-stone-900">{{ $test->name }}</h1>
-        <p class="text-sm text-stone-600 mt-1">Вибери правильну відповідь зі списку.</p>
+        <p class="text-sm text-stone-600 mt-1">Перевіряй відповіді одразу, клавіші 1–4 працюють для активного запитання.</p>
     </header>
 
     @include('components.test-mode-nav')
@@ -42,7 +42,6 @@
 <script>
 const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
-const EXPLAIN_URL = '{{ route('question.explain') }}';
 </script>
 @include('components.saved-test-js-helpers')
 <script>
@@ -59,18 +58,28 @@ function showLoader(show) {
 }
 
 function init() {
-  state.items = QUESTIONS.map((q) => ({
-    ...q,
-    chosen: Array(q.answers.length).fill(''),
-    isCorrect: null,
-    explanation: '',
-  }));
+  state.items = QUESTIONS.map((q) => {
+    const opts = [...q.options];
+    shuffle(opts);
+    return {
+      ...q,
+      options: opts,
+      chosen: Array(q.answers.length).fill(null),
+      slot: 0,
+      done: false,
+      wrongAttempt: false,
+      lastWrong: null,
+      feedback: '',
+      attempts: 0,
+    };
+  });
   state.current = 0;
   state.correct = 0;
   document.getElementById('summary').classList.add('hidden');
   document.getElementById('question-wrap').classList.remove('hidden');
   render();
   updateProgress();
+  hookGlobalEvents();
 }
 
 function render() {
@@ -88,36 +97,79 @@ function render() {
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${state.current + 1}/${state.items.length}]</div>
       </div>
-      ${q.isCorrect === null ? '<div class="mt-3"><button id="check" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити</button></div>' : ''}
+      <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2" role="group" aria-label="Варіанти відповіді">
+        ${q.options.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
+      </div>
       <div class="mt-2 h-5" id="feedback">${renderFeedback(q)}</div>
     </article>
   `;
 
   document.getElementById('prev').disabled = state.current === 0;
-  document.getElementById('next').disabled = q.isCorrect === null;
+  document.getElementById('next').disabled = !q.done;
   document.getElementById('help').addEventListener('click', () => fetchHints(q));
   renderHints(q);
-  if (q.isCorrect === null) {
-    document.getElementById('check').addEventListener('click', onCheck);
-    document.querySelectorAll('select[data-idx]').forEach(sel => {
-      const idx = parseInt(sel.dataset.idx);
-      sel.addEventListener('change', () => {
-        q.chosen[idx] = sel.value;
-      });
-    });
-    const first = document.querySelector('select[data-idx]');
-    if (first) first.focus();
-  }
 }
 
-function onCheck() {
+function renderOptionButton(q, opt, i) {
+  const base = 'w-full text-left px-3 py-2 rounded-xl border transition';
+  let cls = 'border-stone-300 hover:border-stone-400 bg-white';
+  if (q.done) {
+    cls = 'border-stone-300 bg-stone-100';
+  } else if (q.lastWrong === opt) {
+    cls = 'border-rose-300 bg-rose-50';
+  }
+  const hotkey = i + 1;
+  return `
+    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="Натисни ${hotkey}" ${q.done ? 'disabled' : ''}>
+      <span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-md border text-xs">${hotkey}</span>
+      ${opt}
+    </button>
+  `;
+}
+
+function renderFeedback(q) {
+  if (q.feedback === 'correct') {
+    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+  }
+  return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
+}
+
+document.getElementById('question-card').addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-opt]');
+  if (!btn) return;
+  onChoose(btn.dataset.opt);
+});
+
+function onChoose(opt) {
   const q = state.items[state.current];
-  if (q.isCorrect !== null) return;
-  q.isCorrect = q.answers.every((ans, i) => (q.chosen[i] || '').toLowerCase() === (ans || '').toLowerCase());
-  if (q.isCorrect) {
-    state.correct += 1;
+  if (q.done) return;
+
+  if (opt === q.answers[q.slot]) {
+    q.chosen[q.slot] = opt;
+    q.slot += 1;
+    q.lastWrong = null;
+    q.feedback = 'correct';
+    q.attempts = 0;
+    if (q.slot === q.answers.length) {
+      q.done = true;
+      if (!q.wrongAttempt) state.correct += 1;
+    }
   } else {
-    fetchExplanation(q, q.chosen.join(' '));
+    q.wrongAttempt = true;
+    q.lastWrong = opt;
+    q.attempts += 1;
+    if (q.attempts >= 2) {
+      const correct = q.answers[q.slot];
+      q.chosen[q.slot] = correct;
+      q.slot += 1;
+      q.feedback = `Правильна відповідь: ${correct}`;
+      q.attempts = 0;
+      if (q.slot === q.answers.length) {
+        q.done = true;
+      }
+    } else {
+      q.feedback = 'Невірно, спробуй ще раз';
+    }
   }
   render();
   updateProgress();
@@ -142,10 +194,28 @@ document.getElementById('next').addEventListener('click', () => {
 });
 
 function updateProgress() {
-  const answered = state.items.filter(it => it.isCorrect !== null).length;
+  const answered = state.items.filter(it => it.done).length;
   document.getElementById('progress-label').textContent = `${state.current + 1} / ${state.items.length}`;
   document.getElementById('score-label').textContent = `Точність: ${pct(state.correct, state.items.length)}%`;
   document.getElementById('progress-bar').style.width = `${(answered / state.items.length) * 100}%`;
+}
+
+function renderSentence(q) {
+  let text = q.question;
+  q.answers.forEach((ans, i) => {
+    const replacement = q.chosen[i]
+      ? `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`
+      : (i === q.slot
+        ? `<mark class=\"px-1 py-0.5 rounded bg-amber-200\">____</mark>`
+        : '____');
+    const regex = new RegExp(`\\{a${i + 1}\\}`);
+    const marker = `a${i + 1}`;
+    const hint = q.verb_hints && q.verb_hints[marker]
+      ? ` <span class=\"verb-hint text-red-700 text-xs font-bold\">(${html(q.verb_hints[marker])})</span>`
+      : '';
+    text = text.replace(regex, replacement + hint);
+  });
+  return text;
 }
 
 function showSummary() {
@@ -198,60 +268,17 @@ function renderHints(q) {
   document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
 }
 
-function fetchExplanation(q, given) {
-  showLoader(true);
-  fetch(EXPLAIN_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-TOKEN': CSRF_TOKEN,
-    },
-    body: JSON.stringify({ question_id: q.id, answer: given }),
-  })
-    .then((r) => r.json())
-    .then((d) => {
-      q.explanation = d.explanation || '';
-      render();
-    })
-    .catch((e) => console.error(e))
-    .finally(() => showLoader(false));
-}
-
-function renderFeedback(q) {
-  if (q.isCorrect === true) {
-    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
-  }
-  if (q.isCorrect === false) {
-    let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
-    if (q.explanation) {
-      htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
-    }
-    return htmlStr;
-  }
-  return '';
-}
-
-function renderSentence(q) {
-  let text = q.question;
-  q.answers.forEach((ans, i) => {
-    let replacement = '';
-    if (q.isCorrect === null) {
-      const opts = q.options.map(o => `<option value=\"${html(o)}\">${html(o)}</option>`).join('');
-      replacement = `<select data-idx=\"${i}\" class=\"px-1 py-0.5 border-b border-stone-400\"><option value=\"\"></option>${opts}</select>`;
-    } else {
-      replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`;
-    }
-    const regex = new RegExp(`\\{a${i + 1}\\}`);
-    const marker = `a${i + 1}`;
-    const hint = q.verb_hints && q.verb_hints[marker]
-      ? ` <span class=\"verb-hint text-red-700 text-xs font-bold\">(${html(q.verb_hints[marker])})</span>`
-      : '';
-    text = text.replace(regex, replacement + hint);
+function hookGlobalEvents() {
+  document.addEventListener('keydown', (e) => {
+    const n = Number(e.key);
+    if (!Number.isInteger(n) || n < 1 || n > 4) return;
+    const q = state.items[state.current];
+    if (!q || q.done) return;
+    const opt = q.options[n - 1];
+    if (opt) onChoose(opt);
   });
-  return text;
 }
 
 init();
 </script>
 @endsection
-

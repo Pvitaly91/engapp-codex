@@ -6,7 +6,7 @@
 <div class="mx-auto max-w-3xl px-4 py-8 text-stone-800" id="quiz-app">
     <header class="mb-6">
         <h1 class="text-2xl sm:text-3xl font-bold text-stone-900">{{ $test->name }}</h1>
-        <p class="text-sm text-stone-600 mt-1">Перевіряй відповіді одразу, клавіші 1–4 працюють для активного запитання.</p>
+        <p class="text-sm text-stone-600 mt-1">Введи відповідь, використовуючи підказки.</p>
     </header>
 
     @include('components.test-mode-nav')
@@ -42,6 +42,7 @@
 <script>
 const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
+const EXPLAIN_URL = '{{ route('question.explain') }}';
 </script>
 @include('components.saved-test-js-helpers')
 <script>
@@ -58,27 +59,20 @@ function showLoader(show) {
 }
 
 function init() {
-  state.items = QUESTIONS.map((q) => {
-    const opts = [...q.options];
-    shuffle(opts);
-    return {
-      ...q,
-      options: opts,
-      chosen: Array(q.answers.length).fill(null),
-      slot: 0,
-      done: false,
-      wrongAttempt: false,
-      lastWrong: null,
-      feedback: '',
-    };
-  });
+  state.items = QUESTIONS.map((q) => ({
+    ...q,
+    inputs: Array(q.answers.length)
+      .fill(null)
+      .map(() => ['']),
+    isCorrect: null,
+    explanation: '',
+  }));
   state.current = 0;
   state.correct = 0;
   document.getElementById('summary').classList.add('hidden');
   document.getElementById('question-wrap').classList.remove('hidden');
   render();
   updateProgress();
-  hookGlobalEvents();
 }
 
 function render() {
@@ -96,66 +90,65 @@ function render() {
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${state.current + 1}/${state.items.length}]</div>
       </div>
-      <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2" role="group" aria-label="Варіанти відповіді">
-        ${q.options.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
-      </div>
+      ${q.isCorrect === null ? '<div class="mt-3"><button id="check" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити</button></div>' : ''}
       <div class="mt-2 h-5" id="feedback">${renderFeedback(q)}</div>
     </article>
   `;
 
   document.getElementById('prev').disabled = state.current === 0;
-  document.getElementById('next').disabled = !q.done;
+  document.getElementById('next').disabled = q.isCorrect === null;
   document.getElementById('help').addEventListener('click', () => fetchHints(q));
   renderHints(q);
-}
-
-function renderOptionButton(q, opt, i) {
-  const base = 'w-full text-left px-3 py-2 rounded-xl border transition';
-  let cls = 'border-stone-300 hover:border-stone-400 bg-white';
-  if (q.done) {
-    cls = 'border-stone-300 bg-stone-100';
-  } else if (q.lastWrong === opt) {
-    cls = 'border-rose-300 bg-rose-50';
+  if (q.isCorrect === null) {
+    document.getElementById('check').addEventListener('click', onCheck);
+    document.querySelectorAll('input[data-idx][data-word]').forEach((inp) => {
+      const idx = parseInt(inp.dataset.idx);
+      const widx = parseInt(inp.dataset.word);
+      if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
+      inp.addEventListener('keydown', (e) => {
+        if (e.key === ' ') e.preventDefault();
+        if (e.key === 'Enter') onCheck();
+      });
+      const handle = () => {
+        const val = inp.value.replace(/\s+/g, '');
+        if (val !== inp.value) inp.value = val;
+        q.inputs[idx][widx] = val;
+        fetchSuggestions(inp, idx, widx);
+        autoResize(inp);
+      };
+      inp.addEventListener('input', handle);
+      inp.addEventListener('change', handle);
+      autoResize(inp);
+      fetchSuggestions(inp, idx, widx);
+    });
+    document.querySelectorAll('button[data-add]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        addWord(q, parseInt(btn.dataset.add));
+      });
+    });
+    document.querySelectorAll('button[data-remove]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        removeWord(q, parseInt(btn.dataset.remove));
+      });
+    });
+    const first = document.querySelector('input[data-idx][data-word]');
+    if (first) first.focus();
   }
-  const hotkey = i + 1;
-  return `
-    <button type="button" class="${base} ${cls}" data-opt="${html(opt)}" title="Натисни ${hotkey}" ${q.done ? 'disabled' : ''}>
-      <span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-md border text-xs">${hotkey}</span>
-      ${opt}
-    </button>
-  `;
 }
 
-function renderFeedback(q) {
-  if (q.done || q.feedback === 'correct') {
-    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
-  }
-  return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
-}
-
-document.getElementById('question-card').addEventListener('click', (e) => {
-  const btn = e.target.closest('button[data-opt]');
-  if (!btn) return;
-  onChoose(btn.dataset.opt);
-});
-
-function onChoose(opt) {
+function onCheck() {
   const q = state.items[state.current];
-  if (q.done) return;
-
-  if (opt === q.answers[q.slot]) {
-    q.chosen[q.slot] = opt;
-    q.slot += 1;
-    q.lastWrong = null;
-    q.feedback = 'correct';
-    if (q.slot === q.answers.length) {
-      q.done = true;
-      if (!q.wrongAttempt) state.correct += 1;
-    }
+  if (q.isCorrect !== null) return;
+  const valParts = q.inputs.map((words) => words.join(' ').trim());
+  const val = valParts.join(' ');
+  q.input = val;
+  q.isCorrect = q.answers.every((ans, i) =>
+    valParts[i].toLowerCase() === (ans || '').toLowerCase()
+  );
+  if (q.isCorrect) {
+    state.correct += 1;
   } else {
-    q.wrongAttempt = true;
-    q.lastWrong = opt;
-    q.feedback = 'Невірно, спробуй ще раз';
+    fetchExplanation(q, val);
   }
   render();
   updateProgress();
@@ -180,28 +173,10 @@ document.getElementById('next').addEventListener('click', () => {
 });
 
 function updateProgress() {
-  const answered = state.items.filter(it => it.done).length;
+  const answered = state.items.filter(it => it.isCorrect !== null).length;
   document.getElementById('progress-label').textContent = `${state.current + 1} / ${state.items.length}`;
   document.getElementById('score-label').textContent = `Точність: ${pct(state.correct, state.items.length)}%`;
   document.getElementById('progress-bar').style.width = `${(answered / state.items.length) * 100}%`;
-}
-
-function renderSentence(q) {
-  let text = q.question;
-  q.answers.forEach((ans, i) => {
-    const replacement = q.chosen[i]
-      ? `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`
-      : (i === q.slot
-        ? `<mark class=\"px-1 py-0.5 rounded bg-amber-200\">____</mark>`
-        : '____');
-    const regex = new RegExp(`\\{a${i + 1}\\}`);
-    const marker = `a${i + 1}`;
-    const hint = q.verb_hints && q.verb_hints[marker]
-      ? ` <span class=\"verb-hint text-red-700 text-xs font-bold\">(${html(q.verb_hints[marker])})</span>`
-      : '';
-    text = text.replace(regex, replacement + hint);
-  });
-  return text;
 }
 
 function showSummary() {
@@ -254,15 +229,103 @@ function renderHints(q) {
   document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
 }
 
-function hookGlobalEvents() {
-  document.addEventListener('keydown', (e) => {
-    const n = Number(e.key);
-    if (!Number.isInteger(n) || n < 1 || n > 4) return;
-    const q = state.items[state.current];
-    if (!q || q.done) return;
-    const opt = q.options[n - 1];
-    if (opt) onChoose(opt);
+function fetchExplanation(q, given) {
+  showLoader(true);
+  fetch(EXPLAIN_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify({ question_id: q.id, answer: given }),
+  })
+    .then((r) => r.json())
+    .then((d) => {
+      q.explanation = d.explanation || '';
+      render();
+    })
+    .catch((e) => console.error(e))
+    .finally(() => showLoader(false));
+}
+
+function addWord(q, idx) {
+  q.inputs[idx].push('');
+  render();
+}
+
+function removeWord(q, idx) {
+  if (q.inputs[idx].length > 1) {
+    q.inputs[idx].pop();
+    render();
+  }
+}
+
+function fetchSuggestions(input, idx, widx) {
+  const val = input.value.trim();
+  const listId = `opts-${state.current}-${idx}-${widx}`;
+  const dl = document.getElementById(listId);
+  if (!val) { dl.innerHTML = ''; return; }
+  fetch('/api/search?lang=en&q=' + encodeURIComponent(val))
+    .then(res => res.json())
+    .then(data => {
+      dl.innerHTML = data.map(it => `<option value="${html(it.en)}"></option>`).join('');
+    });
+}
+
+function renderFeedback(q) {
+  if (q.isCorrect === true) {
+    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+  }
+  if (q.isCorrect === false) {
+    let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
+    if (q.explanation) {
+      htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
+    }
+    return htmlStr;
+  }
+  return '';
+}
+
+function renderSentence(q) {
+  let text = q.question;
+  q.answers.forEach((ans, i) => {
+    let replacement = '';
+    if (q.isCorrect === null) {
+      const words = q.inputs[i];
+      const inputs = words
+        .map((w, j) => `<span class=\"inline-block\"><input type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:2rem\" list=\"opts-${state.current}-${i}-${j}\" value=\"${html(w)}\"><datalist id=\"opts-${state.current}-${i}-${j}\"></datalist></span>`)
+        .join(' ');
+      const addBtn = `<button type=\"button\" data-add=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">+</button>`;
+      const removeBtn = words.length > 1
+        ? `<button type=\"button\" data-remove=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">-</button>`
+        : '';
+      replacement = `<span class=\"inline-flex items-center gap-1\">${inputs}${addBtn}${removeBtn}</span>`;
+    } else {
+      replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.inputs[i].join(' '))}</mark>`;
+    }
+    const regex = new RegExp(`\\{a${i + 1}\\}`);
+    const marker = `a${i + 1}`;
+    const hint = q.verb_hints && q.verb_hints[marker]
+      ? ` <span class="verb-hint text-red-700 text-xs font-bold">(${html(q.verb_hints[marker])})</span>`
+      : '';
+    text = text.replace(regex, replacement + hint);
   });
+  return text;
+}
+
+function autoResize(el) {
+ 
+  const min = parseFloat(el.dataset.minWidth || el.offsetWidth)*0.3;
+  const span = document.createElement('span');
+  span.style.visibility = 'hidden';
+  span.style.position = 'absolute';
+  span.style.whiteSpace = 'pre';
+  span.style.font = getComputedStyle(el).font;
+  span.textContent = el.value || '';
+  document.body.appendChild(span);
+  const width = span.offsetWidth + 8;
+  document.body.removeChild(span);
+  el.style.width = Math.max(min, width) + 'px';
 }
 
 init();

@@ -16,4 +16,17 @@ function html(str) {
         .replaceAll('"', '&quot;')
         .replaceAll("'", '&#039;');
 }
+
+function resizeSelect(el) {
+    const span = document.createElement('span');
+    span.style.visibility = 'hidden';
+    span.style.position = 'absolute';
+    span.style.whiteSpace = 'pre';
+    span.style.font = getComputedStyle(el).font;
+    span.textContent = el.options[el.selectedIndex]?.text || '';
+    document.body.appendChild(span);
+    const width = span.offsetWidth + 32;
+    document.body.removeChild(span);
+    el.style.width = width + 'px';
+}
 </script>

@@ -6,7 +6,7 @@
 <div class="mx-auto max-w-3xl px-4 py-8 text-stone-800" id="quiz-app">
     <header class="mb-6">
         <h1 class="text-2xl sm:text-3xl font-bold text-stone-900">{{ $test->name }}</h1>
-        <p class="text-sm text-stone-600 mt-1">Введи відповідь, використовуючи підказки.</p>
+        <p class="text-sm text-stone-600 mt-1">Вибери правильну відповідь зі списку.</p>
     </header>
 
     @include('components.test-mode-nav')
@@ -61,9 +61,7 @@ function showLoader(show) {
 function init() {
   state.items = QUESTIONS.map((q) => ({
     ...q,
-    inputs: Array(q.answers.length)
-      .fill(null)
-      .map(() => ['']),
+    chosen: Array(q.answers.length).fill(''),
     isCorrect: null,
     explanation: '',
   }));
@@ -101,35 +99,16 @@ function render() {
   renderHints(q);
   if (q.isCorrect === null) {
     document.getElementById('check').addEventListener('click', onCheck);
-    document.querySelectorAll('input[data-idx][data-word]').forEach((inp) => {
-      const idx = parseInt(inp.dataset.idx);
-      const widx = parseInt(inp.dataset.word);
-      if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
-      inp.addEventListener('keydown', (e) => {
-        if (e.key === ' ') e.preventDefault();
-        if (e.key === 'Enter') onCheck();
+    document.querySelectorAll('select[data-idx]').forEach(sel => {
+      const idx = parseInt(sel.dataset.idx);
+      const update = () => resizeSelect(sel);
+      sel.addEventListener('change', () => {
+        q.chosen[idx] = sel.value;
+        update();
       });
-      inp.addEventListener('input', () => {
-        const val = inp.value.replace(/\s+/g, '');
-        if (val !== inp.value) inp.value = val;
-        q.inputs[idx][widx] = val;
-        fetchSuggestions(inp, idx, widx);
-        autoResize(inp);
-      });
-      autoResize(inp);
-      fetchSuggestions(inp, idx, widx);
+      update();
     });
-    document.querySelectorAll('button[data-add]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        addWord(q, parseInt(btn.dataset.add));
-      });
-    });
-    document.querySelectorAll('button[data-remove]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        removeWord(q, parseInt(btn.dataset.remove));
-      });
-    });
-    const first = document.querySelector('input[data-idx][data-word]');
+    const first = document.querySelector('select[data-idx]');
     if (first) first.focus();
   }
 }
@@ -137,16 +116,11 @@ function render() {
 function onCheck() {
   const q = state.items[state.current];
   if (q.isCorrect !== null) return;
-  const valParts = q.inputs.map((words) => words.join(' ').trim());
-  const val = valParts.join(' ');
-  q.input = val;
-  q.isCorrect = q.answers.every((ans, i) =>
-    valParts[i].toLowerCase() === (ans || '').toLowerCase()
-  );
+  q.isCorrect = q.answers.every((ans, i) => (q.chosen[i] || '').toLowerCase() === (ans || '').toLowerCase());
   if (q.isCorrect) {
     state.correct += 1;
   } else {
-    fetchExplanation(q, val);
+    fetchExplanation(q, q.chosen.join(' '));
   }
   render();
   updateProgress();
@@ -246,30 +220,6 @@ function fetchExplanation(q, given) {
     .finally(() => showLoader(false));
 }
 
-function addWord(q, idx) {
-  q.inputs[idx].push('');
-  render();
-}
-
-function removeWord(q, idx) {
-  if (q.inputs[idx].length > 1) {
-    q.inputs[idx].pop();
-    render();
-  }
-}
-
-function fetchSuggestions(input, idx, widx) {
-  const val = input.value.trim();
-  const listId = `opts-${state.current}-${idx}-${widx}`;
-  const dl = document.getElementById(listId);
-  if (!val) { dl.innerHTML = ''; return; }
-  fetch('/api/search?lang=en&q=' + encodeURIComponent(val))
-    .then(res => res.json())
-    .then(data => {
-      dl.innerHTML = data.map(it => `<option value="${html(it.en)}"></option>`).join('');
-    });
-}
-
 function renderFeedback(q) {
   if (q.isCorrect === true) {
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
@@ -289,43 +239,22 @@ function renderSentence(q) {
   q.answers.forEach((ans, i) => {
     let replacement = '';
     if (q.isCorrect === null) {
-      const words = q.inputs[i];
-      const inputs = words
-        .map((w, j) => `<span class=\"inline-block\"><input type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:2rem\" list=\"opts-${state.current}-${i}-${j}\" value=\"${html(w)}\"><datalist id=\"opts-${state.current}-${i}-${j}\"></datalist></span>`)
-        .join(' ');
-      const addBtn = `<button type=\"button\" data-add=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">+</button>`;
-      const removeBtn = words.length > 1
-        ? `<button type=\"button\" data-remove=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">-</button>`
-        : '';
-      replacement = `<span class=\"inline-flex items-center gap-1\">${inputs}${addBtn}${removeBtn}</span>`;
+      const opts = q.options.map(o => `<option value=\"${html(o)}\">${html(o)}</option>`).join('');
+      replacement = `<select data-idx=\"${i}\" class=\"px-1 py-0.5 border-b border-stone-400\"><option value=\"\"></option>${opts}</select>`;
     } else {
-      replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.inputs[i].join(' '))}</mark>`;
+      replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`;
     }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     const marker = `a${i + 1}`;
     const hint = q.verb_hints && q.verb_hints[marker]
-      ? ` <span class="verb-hint text-red-700 text-xs font-bold">(${html(q.verb_hints[marker])})</span>`
+      ? ` <span class=\"verb-hint text-red-700 text-xs font-bold\">(${html(q.verb_hints[marker])})</span>`
       : '';
     text = text.replace(regex, replacement + hint);
   });
   return text;
 }
 
-function autoResize(el) {
- 
-  const min = parseFloat(el.dataset.minWidth || el.offsetWidth)*0.3;
-  const span = document.createElement('span');
-  span.style.visibility = 'hidden';
-  span.style.position = 'absolute';
-  span.style.whiteSpace = 'pre';
-  span.style.font = getComputedStyle(el).font;
-  span.textContent = el.value || '';
-  document.body.appendChild(span);
-  const width = span.offsetWidth + 8;
-  document.body.removeChild(span);
-  el.style.width = Math.max(min, width) + 'px';
-}
-
 init();
 </script>
 @endsection
+

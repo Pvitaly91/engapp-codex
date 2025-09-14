@@ -90,13 +90,15 @@ function renderQuestion(idx) {
       inp.addEventListener('keydown', e => {
         if (e.key === ' ') e.preventDefault();
       });
-      inp.addEventListener('input', () => {
+      const handle = () => {
         const val = inp.value.replace(/\s+/g, '');
         if (val !== inp.value) inp.value = val;
         q.inputs[aIdx][wIdx] = val;
         fetchSuggestions(inp, idx, aIdx, wIdx);
         autoResize(inp);
-      });
+      };
+      inp.addEventListener('input', handle);
+      inp.addEventListener('change', handle);
       autoResize(inp);
       fetchSuggestions(inp, idx, aIdx, wIdx);
     });

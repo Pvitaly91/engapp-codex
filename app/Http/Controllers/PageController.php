@@ -9,7 +9,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::all();
-        return view('pages.index', compact('pages'));
+        return view('engram.pages.index', compact('pages'));
     }
 
     public function show(string $slug)
@@ -20,6 +20,6 @@ class PageController extends Controller
             ['label' => 'Theory', 'url' => route('pages.index')],
             ['label' => $page->title],
         ];
-        return view('pages.show', compact('page', 'breadcrumbs'));
+        return view('engram.pages.show', compact('page', 'breadcrumbs'));
     }
 }

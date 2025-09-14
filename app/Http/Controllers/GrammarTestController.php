@@ -122,7 +122,7 @@ class GrammarTestController extends Controller
         $test = Test::where('slug', $slug)->firstOrFail();
         $questions = $this->buildQuestionDataset($test);
 
-        return view($view, [
+        return view("engram.$view", [
             'test' => $test,
             'questionData' => $questions,
         ]);
@@ -839,7 +839,7 @@ class GrammarTestController extends Controller
             ? 'catalog-tests-cards'
             : 'saved-tests-cards';
 
-        return view($view, [
+        return view('engram.' . $view, [
             'tests' => $tests,
             'tags' => $tagsByCategory,
             'selectedTags' => $selectedTags,

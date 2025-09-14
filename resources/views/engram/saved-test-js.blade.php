@@ -53,6 +53,7 @@ function init() {
       wrongAttempt: false,
       lastWrong: null,
       feedback: '',
+      attempts: 0,
     };
   });
   state.correct = 0;
@@ -135,7 +136,7 @@ function renderOptionButton(q, idx, opt, i) {
 }
 
 function renderFeedback(q) {
-  if (q.done || q.feedback === 'correct') {
+  if (q.feedback === 'correct') {
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
   return q.feedback
@@ -152,6 +153,7 @@ function onChoose(idx, opt) {
     item.slot += 1;
     item.lastWrong = null;
     item.feedback = 'correct';
+    item.attempts = 0;
     if (item.slot === item.answers.length) {
       item.done = true;
       state.answered += 1;
@@ -160,7 +162,20 @@ function onChoose(idx, opt) {
   } else {
     item.wrongAttempt = true;
     item.lastWrong = opt;
-    item.feedback = 'Невірно, спробуй ще раз';
+    item.attempts += 1;
+    if (item.attempts >= 2) {
+      const correct = item.answers[item.slot];
+      item.chosen[item.slot] = correct;
+      item.slot += 1;
+      item.feedback = `Правильна відповідь: ${correct}`;
+      item.attempts = 0;
+      if (item.slot === item.answers.length) {
+        item.done = true;
+        state.answered += 1;
+      }
+    } else {
+      item.feedback = 'Невірно, спробуй ще раз';
+    }
   }
 
   const container = document.querySelector(`article[data-idx="${idx}"]`);
