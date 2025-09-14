@@ -23,6 +23,8 @@
 
     <div id="questions" class="space-y-4"></div>
 
+    <div id="final-check" class="mt-6"><button id="check-all" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити всі</button></div>
+
     <div id="summary" class="mt-8 hidden">
         <div class="rounded-2xl border border-stone-200 bg-white p-4">
             <div class="text-lg font-semibold">Підсумок</div>
@@ -57,6 +59,10 @@ function init() {
   state.answered = 0;
   renderQuestions();
   updateProgress();
+  document.getElementById('final-check').classList.remove('hidden');
+  document.getElementById('check-all').onclick = () => {
+    state.items.forEach((_, i) => onCheck(i));
+  };
 }
 
 function renderQuestions(showOnlyWrong = false) {
@@ -80,25 +86,16 @@ function renderQuestions(showOnlyWrong = false) {
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${idx + 1}/${state.items.length}]</div>
       </div>
-      <div class="mt-3">
-        <button type="button" data-check="${idx}" class="px-4 py-2 rounded-xl bg-stone-900 text-white" ${q.done ? 'disabled' : ''}>Перевірити</button>
-      </div>
       <div class="mt-2 h-5" id="feedback-${idx}">${renderFeedback(q)}</div>
     `;
 
     wrap.appendChild(card);
 
-    if (!q.done) {
-      const btn = card.querySelector('button[data-check]');
-      btn.addEventListener('click', () => onCheck(idx));
-      card.querySelectorAll('input').forEach(inp => {
-        inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(idx); });
-      });
-    }
   });
 
   const allDone = state.items.every(it => it.done);
   document.getElementById('summary').classList.toggle('hidden', !allDone);
+  document.getElementById('final-check').classList.toggle('hidden', allDone);
   if (allDone) {
     document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
     document.getElementById('retry').onclick = init;

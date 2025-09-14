@@ -25,6 +25,8 @@
 
     <div id="questions" class="space-y-4"></div>
 
+    <div id="final-check" class="mt-6"><button id="check-all" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити всі</button></div>
+
     <div id="summary" class="mt-8 hidden">
         <div class="rounded-2xl border border-stone-200 bg-white p-4">
             <div class="text-lg font-semibold">Підсумок</div>
@@ -56,6 +58,10 @@ function init() {
   state.answered = 0;
   renderQuestions();
   updateProgress();
+  document.getElementById('final-check').classList.remove('hidden');
+  document.getElementById('check-all').onclick = () => {
+    state.items.forEach((_, i) => onCheck(i));
+  };
 }
 
 function renderQuestions() {
@@ -76,7 +82,6 @@ function renderQuestion(idx) {
       </div>
       <div class="text-xs text-stone-500 shrink-0">[${idx + 1}/${state.items.length}]</div>
     </div>
-    ${q.isCorrect === null ? '<div class="mt-3"><button data-check class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити</button></div>' : ''}
     <div class="mt-2 h-5" id="feedback-${idx}">${renderFeedback(q)}</div>
   `;
   if (q.isCorrect === null) {
@@ -87,7 +92,6 @@ function renderQuestion(idx) {
         q.inputs[aIdx][wIdx] = inp.value;
         fetchSuggestions(inp, idx, aIdx, wIdx);
       });
-      inp.addEventListener('keydown', e => { if (e.key === 'Enter') onCheck(idx); });
       fetchSuggestions(inp, idx, aIdx, wIdx);
     });
     card.querySelectorAll('button[data-add]').forEach(btn => {
@@ -96,8 +100,6 @@ function renderQuestion(idx) {
     card.querySelectorAll('button[data-remove]').forEach(btn => {
       btn.addEventListener('click', () => { removeWord(q, parseInt(btn.dataset.remove)); renderQuestion(idx); });
     });
-    const checkBtn = card.querySelector('button[data-check]');
-    if (checkBtn) checkBtn.addEventListener('click', () => onCheck(idx));
   }
 }
 
@@ -178,6 +180,7 @@ function updateProgress() {
     document.getElementById('summary').classList.remove('hidden');
     document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
     document.getElementById('retry').onclick = init;
+    document.getElementById('final-check').classList.add('hidden');
   }
 }
 
