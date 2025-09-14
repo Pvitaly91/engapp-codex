@@ -166,7 +166,7 @@ function renderSentence(q, idx) {
     text = text.replace(regex, replacement + hint);
   });
   return text;
-}
+} 
 
 function updateProgress() {
   const label = document.getElementById('progress-label');
