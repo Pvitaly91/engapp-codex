@@ -112,12 +112,15 @@ function render() {
     document.querySelectorAll('input[data-idx][data-word]').forEach((inp) => {
       const idx = parseInt(inp.dataset.idx);
       const widx = parseInt(inp.dataset.word);
-      inp.addEventListener('input', () => {
-        q.inputs[idx][widx] = inp.value;
-        fetchSuggestions(inp, idx, widx);
-      });
       inp.addEventListener('keydown', (e) => {
+        if (e.key === ' ') e.preventDefault();
         if (e.key === 'Enter') onCheck();
+      });
+      inp.addEventListener('input', () => {
+        const val = inp.value.replace(/\s+/g, '');
+        if (val !== inp.value) inp.value = val;
+        q.inputs[idx][widx] = val;
+        fetchSuggestions(inp, idx, widx);
       });
       fetchSuggestions(inp, idx, widx);
     });

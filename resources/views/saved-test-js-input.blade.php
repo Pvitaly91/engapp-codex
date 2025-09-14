@@ -94,8 +94,13 @@ function renderQuestion(idx) {
     card.querySelectorAll('input[data-idx][data-word]').forEach(inp => {
       const aIdx = parseInt(inp.dataset.idx);
       const wIdx = parseInt(inp.dataset.word);
+      inp.addEventListener('keydown', e => {
+        if (e.key === ' ') e.preventDefault();
+      });
       inp.addEventListener('input', () => {
-        q.inputs[aIdx][wIdx] = inp.value;
+        const val = inp.value.replace(/\s+/g, '');
+        if (val !== inp.value) inp.value = val;
+        q.inputs[aIdx][wIdx] = val;
         fetchSuggestions(inp, idx, aIdx, wIdx);
       });
       fetchSuggestions(inp, idx, aIdx, wIdx);
