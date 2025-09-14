@@ -61,7 +61,6 @@ function init() {
   state.items = QUESTIONS.map((q) => ({
     ...q,
     chosen: Array(q.answers.length).fill(''),
-    slot: 0,
     done: false,
     feedback: '',
   }));
@@ -87,32 +86,39 @@ function render() {
         <div class="text-xs text-stone-500 shrink-0">[${state.current + 1}/${state.items.length}]</div>
       </div>
       <div class="mt-3 flex gap-2">
-        <input type="text" id="answer" class="flex-1 rounded-lg border border-stone-300 px-3 py-2" autocomplete="off" />
-        <button id="check" class="px-4 py-2 rounded-xl bg-stone-900 text-white">OK</button>
+        <button id="check" class="px-4 py-2 rounded-xl bg-stone-900 text-white" ${q.done ? 'disabled' : ''}>Перевірити</button>
       </div>
       <div class="mt-2 h-5" id="feedback">${renderFeedback(q)}</div>
     </article>
   `;
   document.getElementById('prev').disabled = state.current === 0;
   document.getElementById('next').disabled = !q.done;
-  const input = document.getElementById('answer');
-  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
   document.getElementById('check').addEventListener('click', onCheck);
-  input.focus();
+  wrap.querySelectorAll('input').forEach(inp => {
+    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
+  });
+  wrap.querySelector('input')?.focus();
 }
 
 function onCheck() {
   const q = state.items[state.current];
   if (q.done) return;
-  const val = document.getElementById('answer').value.trim();
-  if (val.toLowerCase() === (q.answers[q.slot] || '').toLowerCase()) {
-    q.chosen[q.slot] = val;
-    q.slot += 1;
-    q.feedback = 'correct';
-    if (q.slot === q.answers.length) {
-      q.done = true;
-      state.correct += 1;
+  let allCorrect = true;
+  q.answers.forEach((ans, i) => {
+    const el = document.getElementById(`input-${i}`);
+    const val = (el.value || '').trim();
+    q.chosen[i] = val;
+    if (val.toLowerCase() !== ans.toLowerCase()) {
+      allCorrect = false;
+      el.classList.add('border-rose-400');
+    } else {
+      el.classList.remove('border-rose-400');
     }
+  });
+  if (allCorrect) {
+    q.done = true;
+    q.feedback = 'correct';
+    state.correct += 1;
   } else {
     q.feedback = 'Невірно, спробуй ще раз';
   }
@@ -148,11 +154,13 @@ function updateProgress() {
 function renderSentence(q) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
-    const replacement = q.chosen[i]
-      ? `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`
-      : (i === q.slot
-        ? `<mark class=\"px-1 py-0.5 rounded bg-amber-200\">____</mark>`
-        : '____');
+    let replacement;
+    if (q.done) {
+      replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`;
+    } else {
+      const val = q.chosen[i] || '';
+      replacement = `<input id=\"input-${i}\" class=\"w-24 text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
+    }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     text = text.replace(regex, replacement);
   });

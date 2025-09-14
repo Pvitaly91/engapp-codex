@@ -56,7 +56,6 @@ function init() {
   state.items = QUESTIONS.map((q) => ({
     ...q,
     chosen: Array(q.answers.length).fill(''),
-    slot: 0,
     done: false,
     wrongAttempt: false,
     feedback: '',
@@ -78,7 +77,7 @@ function renderQuestions(showOnlyWrong = false) {
     card.className = 'rounded-2xl border border-stone-200 bg-white p-4';
     card.dataset.idx = idx;
 
-    const sentence = renderSentence(q);
+    const sentence = renderSentence(q, idx);
 
     card.innerHTML = `
       <div class="flex items-start justify-between gap-3">
@@ -88,9 +87,8 @@ function renderQuestions(showOnlyWrong = false) {
         </div>
         <div class="text-xs text-stone-500 shrink-0">[${idx + 1}/${state.items.length}]</div>
       </div>
-      <div class="mt-3 flex gap-2" ${q.done ? '' : ''}>
-        <input type="text" id="input-${idx}" class="flex-1 rounded-lg border border-stone-300 px-3 py-2" ${q.done ? 'disabled' : ''} autocomplete="off" />
-        <button type="button" data-check="${idx}" class="px-4 py-2 rounded-xl bg-stone-900 text-white" ${q.done ? 'disabled' : ''}>OK</button>
+      <div class="mt-3">
+        <button type="button" data-check="${idx}" class="px-4 py-2 rounded-xl bg-stone-900 text-white" ${q.done ? 'disabled' : ''}>Перевірити</button>
       </div>
       <div class="mt-2 h-5" id="feedback-${idx}">${renderFeedback(q)}</div>
     `;
@@ -98,10 +96,11 @@ function renderQuestions(showOnlyWrong = false) {
     wrap.appendChild(card);
 
     if (!q.done) {
-      const input = card.querySelector(`#input-${idx}`);
       const btn = card.querySelector('button[data-check]');
-      btn.addEventListener('click', () => onCheck(idx, input.value));
-      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(idx, input.value); });
+      btn.addEventListener('click', () => onCheck(idx));
+      card.querySelectorAll('input').forEach(inp => {
+        inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(idx); });
+      });
     }
   });
 
@@ -114,19 +113,26 @@ function renderQuestions(showOnlyWrong = false) {
   }
 }
 
-function onCheck(idx, val) {
+function onCheck(idx) {
   const item = state.items[idx];
   if (item.done) return;
-  val = val.trim();
-  if (val.toLowerCase() === (item.answers[item.slot] || '').toLowerCase()) {
-    item.chosen[item.slot] = val;
-    item.slot += 1;
-    item.feedback = 'correct';
-    if (item.slot === item.answers.length) {
-      item.done = true;
-      state.answered += 1;
-      if (!item.wrongAttempt) state.correct += 1;
+  let allCorrect = true;
+  item.answers.forEach((ans, i) => {
+    const el = document.getElementById(`input-${idx}-${i}`);
+    const val = (el.value || '').trim();
+    item.chosen[i] = val;
+    if (val.toLowerCase() !== ans.toLowerCase()) {
+      allCorrect = false;
+      el.classList.add('border-rose-400');
+    } else {
+      el.classList.remove('border-rose-400');
     }
+  });
+  if (allCorrect) {
+    item.done = true;
+    item.feedback = 'correct';
+    state.answered += 1;
+    if (!item.wrongAttempt) state.correct += 1;
   } else {
     item.wrongAttempt = true;
     item.feedback = 'Невірно, спробуй ще раз';
@@ -142,14 +148,16 @@ function renderFeedback(q) {
   return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
 }
 
-function renderSentence(q) {
+function renderSentence(q, idx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
-    const replacement = q.chosen[i]
-      ? `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`
-      : (i === q.slot
-        ? `<mark class=\"px-1 py-0.5 rounded bg-amber-200\">____</mark>`
-        : '____');
+    let replacement;
+    if (q.done) {
+      replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`;
+    } else {
+      const val = q.chosen[i] || '';
+      replacement = `<input id=\"input-${idx}-${i}\" class=\"w-24 text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
+    }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     text = text.replace(regex, replacement);
   });
