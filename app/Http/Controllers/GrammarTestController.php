@@ -99,12 +99,45 @@ class GrammarTestController extends Controller
         ]);
     }
 
+    public function showSavedTestJsManual($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-manual', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
+    public function showSavedTestJsStepManual($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-step-manual', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
     public function showSavedTestJsStepInput($slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
         $questions = $this->buildQuestionDataset($test);
 
         return view('saved-test-js-step-input', [
+            'test' => $test,
+            'questionData' => $questions,
+        ]);
+    }
+
+    public function showSavedTestJsInput($slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $questions = $this->buildQuestionDataset($test);
+
+        return view('saved-test-js-input', [
             'test' => $test,
             'questionData' => $questions,
         ]);
@@ -117,16 +150,29 @@ class GrammarTestController extends Controller
             ->orderBy('id')
             ->get()
             ->map(function ($q) {
-                $answer = $q->answers->first()->option->option ?? $q->answers->first()->answer ?? '';
+                $answers = $q->answers->map(function ($a) {
+                    return $a->option->option ?? $a->answer ?? '';
+                });
+
+                $answerList = $answers->values()->toArray();
                 $options = $q->options->pluck('option')->toArray();
-                if ($answer && ! in_array($answer, $options)) {
-                    $options[] = $answer;
+                foreach ($answerList as $ans) {
+                    if ($ans && ! in_array($ans, $options)) {
+                        $options[] = $ans;
+                    }
                 }
+
+                $verbHints = $q->verbHints
+                    ->mapWithKeys(fn($vh) => [$vh->marker => $vh->option->option ?? ''])
+                    ->toArray();
+
                 return [
                     'id' => $q->id,
                     'question' => $q->question,
-                    'answer' => $answer,
-                    'verb_hint' => $q->verbHints->first()->option->option ?? '',
+                    'answer' => $answerList[0] ?? '',
+                    'answers' => $answerList,
+                    'verb_hint' => $verbHints['a1'] ?? '',
+                    'verb_hints' => $verbHints,
                     'options' => $options,
                     'tense' => $q->category->name ?? '',
                     'level' => $q->level ?? '',
@@ -804,7 +850,11 @@ class GrammarTestController extends Controller
             })->values();
         }
 
-        return view('saved-tests-cards', [
+        $view = $request->routeIs('catalog-tests.cards')
+            ? 'catalog-tests-cards'
+            : 'saved-tests-cards';
+
+        return view($view, [
             'tests' => $tests,
             'tags' => $tagsByCategory,
             'selectedTags' => $selectedTags,

@@ -65,7 +65,10 @@ Route::post('/grammar-test-check-answer', [GrammarTestController::class, 'checkO
 Route::post('/grammar-test-save', [GrammarTestController::class, 'save'])->name('grammar-test.save');
 Route::get('/test/{slug}/js', [GrammarTestController::class, 'showSavedTestJs'])->name('saved-test.js');
 Route::get('/test/{slug}/js/step', [GrammarTestController::class, 'showSavedTestJsStep'])->name('saved-test.js.step');
+Route::get('/test/{slug}/js/manual', [GrammarTestController::class, 'showSavedTestJsManual'])->name('saved-test.js.manual');
+Route::get('/test/{slug}/js/step/manual', [GrammarTestController::class, 'showSavedTestJsStepManual'])->name('saved-test.js.step-manual');
 Route::get('/test/{slug}/js/step/input', [GrammarTestController::class, 'showSavedTestJsStepInput'])->name('saved-test.js.step-input');
+Route::get('/test/{slug}/js/input', [GrammarTestController::class, 'showSavedTestJsInput'])->name('saved-test.js.input');
 Route::get('/test/{slug}', [GrammarTestController::class, 'showSavedTest'])->name('saved-test.show');
 Route::get('/test/{slug}/random', [GrammarTestController::class, 'showSavedTestRandom'])->name('saved-test.random');
 Route::get('/test/{slug}/step', [GrammarTestController::class, 'showSavedTestStep'])->name('saved-test.step');
@@ -84,6 +87,7 @@ Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class,
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
 Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
+Route::get('/catalog-tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
 
 Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
 

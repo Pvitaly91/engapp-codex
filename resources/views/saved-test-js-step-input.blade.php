@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.engram')
 
 @section('title', $test->name)
 
@@ -8,6 +8,15 @@
         <h1 class="text-2xl sm:text-3xl font-bold text-stone-900">{{ $test->name }}</h1>
         <p class="text-sm text-stone-600 mt-1">Введи відповідь, використовуючи підказки.</p>
     </header>
+
+    <nav class="mb-6 flex gap-2 text-sm">
+        <a href="{{ route('saved-test.js', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js') ? 'bg-stone-900 text-white' : '' }}">Карти</a>
+        <a href="{{ route('saved-test.js.step', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.step') ? 'bg-stone-900 text-white' : '' }}">Step</a>
+        <a href="{{ route('saved-test.js.manual', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.manual') ? 'bg-stone-900 text-white' : '' }}">Manual</a>
+        <a href="{{ route('saved-test.js.step-manual', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.step-manual') ? 'bg-stone-900 text-white' : '' }}">Step Manual</a>
+        <a href="{{ route('saved-test.js.step-input', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.step-input') ? 'bg-stone-900 text-white' : '' }}">Step Input</a>
+        <a href="{{ route('saved-test.js.input', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.input') ? 'bg-stone-900 text-white' : '' }}">Input All</a>
+    </nav>
 
     @include('components.word-search')
 
@@ -67,8 +76,9 @@ function showLoader(show) {
 function init() {
   state.items = QUESTIONS.map((q) => ({
     ...q,
-    words: [''],
-    input: '',
+    inputs: Array(q.answers.length)
+      .fill(null)
+      .map(() => ['']),
     isCorrect: null,
     explanation: '',
   }));
@@ -80,25 +90,10 @@ function init() {
   updateProgress();
 }
 
-function buildInputs(q) {
-  const fields = q.words
-    .map((w, i) => `
-      <span class="inline-flex items-center">
-        <input type="text" data-idx="${i}" class="w-20 px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none" list="opts-${state.current}-${i}" value="${html(w)}">
-        <datalist id="opts-${state.current}-${i}"></datalist>
-      </span>`)
-    .join(' ');
-  return `<span id="builder" class="inline-flex items-center gap-1">${fields}<button type="button" id="add-word" class="ml-1 px-2 py-1 rounded border border-stone-300">+</button><button type="button" id="remove-word" class="px-2 py-1 rounded border border-stone-300">-</button></span>`;
-}
-
 function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
-  const hint = q.verb_hint ? ` <span class="verb-hint text-red-700 text-xs font-bold">(${html(q.verb_hint)})</span>` : '';
-  const blank = q.isCorrect === null
-    ? buildInputs(q) + hint
-    : `<mark class="px-1 py-0.5 rounded bg-amber-100">${html(q.words.join(' '))}</mark>` + hint;
-  const sentence = q.question.replace(/\{a\d+\}/, blank);
+  const sentence = renderSentence(q);
   wrap.innerHTML = `
     <article class="rounded-2xl border border-stone-200 bg-white p-4 focus-within:ring-2 ring-stone-900/20 outline-none" data-idx="${state.current}">
       <div class="flex items-start justify-between gap-3">
@@ -121,18 +116,29 @@ function render() {
   renderHints(q);
   if (q.isCorrect === null) {
     document.getElementById('check').addEventListener('click', onCheck);
-    document.querySelectorAll('#builder input').forEach((inp) => {
+    document.querySelectorAll('input[data-idx][data-word]').forEach((inp) => {
       const idx = parseInt(inp.dataset.idx);
+      const widx = parseInt(inp.dataset.word);
       inp.addEventListener('input', () => {
-        q.words[idx] = inp.value;
-        fetchSuggestions(inp, idx);
+        q.inputs[idx][widx] = inp.value;
+        fetchSuggestions(inp, idx, widx);
       });
-      inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
-      fetchSuggestions(inp, idx);
+      inp.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') onCheck();
+      });
+      fetchSuggestions(inp, idx, widx);
     });
-    document.getElementById('add-word').addEventListener('click', () => { q.words.push(''); render(); });
-    document.getElementById('remove-word').addEventListener('click', () => { if (q.words.length > 1) { q.words.pop(); render(); } });
-    const first = document.querySelector('#builder input');
+    document.querySelectorAll('button[data-add]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        addWord(q, parseInt(btn.dataset.add));
+      });
+    });
+    document.querySelectorAll('button[data-remove]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        removeWord(q, parseInt(btn.dataset.remove));
+      });
+    });
+    const first = document.querySelector('input[data-idx][data-word]');
     if (first) first.focus();
   }
 }
@@ -140,9 +146,12 @@ function render() {
 function onCheck() {
   const q = state.items[state.current];
   if (q.isCorrect !== null) return;
-  const val = q.words.join(' ').trim();
+  const valParts = q.inputs.map((words) => words.join(' ').trim());
+  const val = valParts.join(' ');
   q.input = val;
-  q.isCorrect = val.toLowerCase() === q.answer.toLowerCase();
+  q.isCorrect = q.answers.every((ans, i) =>
+    valParts[i].toLowerCase() === (ans || '').toLowerCase()
+  );
   if (q.isCorrect) {
     state.correct += 1;
   } else {
@@ -246,14 +255,28 @@ function fetchExplanation(q, given) {
     .finally(() => showLoader(false));
 }
 
-function fetchSuggestions(input, idx) {
-  const query = input.value.trim();
-  const listId = `opts-${state.current}-${idx}`;
+function addWord(q, idx) {
+  q.inputs[idx].push('');
+  render();
+}
+
+function removeWord(q, idx) {
+  if (q.inputs[idx].length > 1) {
+    q.inputs[idx].pop();
+    render();
+  }
+}
+
+function fetchSuggestions(input, idx, widx) {
+  const val = input.value.trim();
+  const listId = `opts-${state.current}-${idx}-${widx}`;
   const dl = document.getElementById(listId);
-  if (!query) { dl.innerHTML = ''; return; }
-  fetch('/api/search?lang=en&q=' + encodeURIComponent(query))
+  if (!val) { dl.innerHTML = ''; return; }
+  fetch('/api/search?lang=en&q=' + encodeURIComponent(val))
     .then(res => res.json())
-    .then(data => { dl.innerHTML = data.map(it => `<option value="${html(it.en)}"></option>`).join(''); });
+    .then(data => {
+      dl.innerHTML = data.map(it => `<option value="${html(it.en)}"></option>`).join('');
+    });
 }
 
 function renderFeedback(q) {
@@ -261,13 +284,40 @@ function renderFeedback(q) {
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
   if (q.isCorrect === false) {
-    let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answer) + '</b></div>';
+    let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
     if (q.explanation) {
       htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
     }
     return htmlStr;
   }
   return '';
+}
+
+function renderSentence(q) {
+  let text = q.question;
+  q.answers.forEach((ans, i) => {
+    let replacement = '';
+    if (q.isCorrect === null) {
+      const words = q.inputs[i];
+      const inputs = words
+        .map((w, j) => `<span class=\"inline-block\"><input type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"w-20 px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" list=\"opts-${state.current}-${i}-${j}\" value=\"${html(w)}\"><datalist id=\"opts-${state.current}-${i}-${j}\"></datalist></span>`)
+        .join(' ');
+      const addBtn = `<button type=\"button\" data-add=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">+</button>`;
+      const removeBtn = words.length > 1
+        ? `<button type=\"button\" data-remove=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">-</button>`
+        : '';
+      replacement = `<span class=\"inline-flex items-center gap-1\">${inputs}${addBtn}${removeBtn}</span>`;
+    } else {
+      replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.inputs[i].join(' '))}</mark>`;
+    }
+    const regex = new RegExp(`\\{a${i + 1}\\}`);
+    const marker = `a${i + 1}`;
+    const hint = q.verb_hints && q.verb_hints[marker]
+      ? ` <span class="verb-hint text-red-700 text-xs font-bold">(${html(q.verb_hints[marker])})</span>`
+      : '';
+    text = text.replace(regex, replacement + hint);
+  });
+  return text;
 }
 
 function pct(a, b) { return Math.round((a / (b || 1)) * 100); }
