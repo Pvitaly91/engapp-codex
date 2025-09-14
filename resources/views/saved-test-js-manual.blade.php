@@ -92,6 +92,11 @@ function renderQuestions(showOnlyWrong = false) {
     `;
 
     wrap.appendChild(card);
+    card.querySelectorAll('input').forEach(inp => {
+      if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
+      inp.addEventListener('input', () => autoResize(inp));
+      autoResize(inp);
+    });
 
   });
 
@@ -148,7 +153,7 @@ function renderSentence(q, idx) {
       replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`;
     } else {
       const val = q.chosen[i] || '';
-      replacement = `<input id=\"input-${idx}-${i}\" class=\"w-24 text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
+      replacement = `<input id=\"input-${idx}-${i}\" class=\"text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:6rem\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
     }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     const marker = `a${i + 1}`;
@@ -158,7 +163,21 @@ function renderSentence(q, idx) {
     text = text.replace(regex, replacement + hint);
   });
   return text;
-} 
+}
+
+function autoResize(el) {
+  const min = parseFloat(el.dataset.minWidth || el.offsetWidth);
+  const span = document.createElement('span');
+  span.style.visibility = 'hidden';
+  span.style.position = 'absolute';
+  span.style.whiteSpace = 'pre';
+  span.style.font = getComputedStyle(el).font;
+  span.textContent = el.value || '';
+  document.body.appendChild(span);
+  const width = span.offsetWidth + 8;
+  document.body.removeChild(span);
+  el.style.width = Math.max(min, width) + 'px';
+}
 
 function updateProgress() {
   const label = document.getElementById('progress-label');
