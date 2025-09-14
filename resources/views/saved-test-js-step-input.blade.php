@@ -90,8 +90,7 @@ function init() {
 function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
-  const hint = q.verb_hint ? ` <span class="verb-hint text-red-700 text-xs font-bold">(${html(q.verb_hint)})</span>` : '';
-  const sentence = renderSentence(q, hint);
+  const sentence = renderSentence(q);
   wrap.innerHTML = `
     <article class="rounded-2xl border border-stone-200 bg-white p-4 focus-within:ring-2 ring-stone-900/20 outline-none" data-idx="${state.current}">
       <div class="flex items-start justify-between gap-3">
@@ -291,7 +290,7 @@ function renderFeedback(q) {
   return '';
 }
 
-function renderSentence(q, hint) {
+function renderSentence(q) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
     let replacement = '';
@@ -309,7 +308,11 @@ function renderSentence(q, hint) {
       replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.inputs[i].join(' '))}</mark>`;
     }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
-    text = text.replace(regex, replacement + (i === q.answers.length - 1 ? hint : ''));
+    const marker = `a${i + 1}`;
+    const hint = q.verb_hints && q.verb_hints[marker]
+      ? ` <span class="verb-hint text-red-700 text-xs font-bold">(${html(q.verb_hints[marker])})</span>`
+      : '';
+    text = text.replace(regex, replacement + hint);
   });
   return text;
 }

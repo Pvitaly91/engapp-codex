@@ -129,12 +129,17 @@ class GrammarTestController extends Controller
                     }
                 }
 
+                $verbHints = $q->verbHints
+                    ->mapWithKeys(fn($vh) => [$vh->marker => $vh->option->option ?? ''])
+                    ->toArray();
+
                 return [
                     'id' => $q->id,
                     'question' => $q->question,
                     'answer' => $answerList[0] ?? '',
                     'answers' => $answerList,
-                    'verb_hint' => $q->verbHints->first()->option->option ?? '',
+                    'verb_hint' => $verbHints['a1'] ?? '',
+                    'verb_hints' => $verbHints,
                     'options' => $options,
                     'tense' => $q->category->name ?? '',
                     'level' => $q->level ?? '',
