@@ -38,7 +38,11 @@
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
     </svg>
 </div>
-
+<style>
+  datalist option{
+    font-size: 18px;
+  }
+</style>
 <script>
 const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
@@ -320,7 +324,7 @@ function autoResize(el) {
   span.style.font = getComputedStyle(el).font;
   span.textContent = el.value || '';
   document.body.appendChild(span);
-  const width = span.offsetWidth + 8;
+  const width = span.offsetWidth + 35;
   document.body.removeChild(span);
   el.style.width = width + 'px';
 }

@@ -184,7 +184,7 @@ function autoResize(el) {
   span.style.font = getComputedStyle(el).font;
   span.textContent = el.value || '';
   document.body.appendChild(span);
-  const width = span.offsetWidth + 8;
+  const width = span.offsetWidth + 35;
   document.body.removeChild(span);
   el.style.width = width + 'px';
 }
