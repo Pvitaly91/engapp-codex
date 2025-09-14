@@ -92,6 +92,7 @@ class DatabaseSeeder extends Seeder
             PagesSeeder::class,
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
+            FutureSimpleOrFutureContinuousSeeder::class,
         ]);
     }
 }
