@@ -11,6 +11,8 @@
 
     @include('components.test-mode-nav')
 
+    @include('components.word-search')
+
     <div class="mb-6">
         <div class="flex items-center justify-between text-sm">
             <span id="progress-label" class="text-stone-600">1 / 0</span>
