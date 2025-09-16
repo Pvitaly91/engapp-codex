@@ -44,6 +44,11 @@
   #question-card article{
         background-color: #fef6db;
   }
+
+  #question-card article ul{
+    min-width: 100px;
+
+  }
 </style>
 <script>
 const QUESTIONS = @json($questionData);
@@ -330,7 +335,7 @@ function fetchSuggestions(input, idx, widx) {
         hideList();
         return;
       }
-      const options = ['<li class="suggestion-hint px-2 py-1 text-xs uppercase tracking-wide text-stone-400 select-none">Обери підказку</li>'];
+      const options = [];
       data.forEach(it => {
         const value = html(it.en);
         options.push(`<li data-value="${value}" class="suggestion-item cursor-pointer px-2 py-1 hover:bg-stone-100">${value}</li>`);
@@ -376,7 +381,7 @@ function renderSentence(q) {
         .map((w, j) => {
           const inputId = `input-${state.current}-${i}-${j}`;
           const listId = `opts-${state.current}-${i}-${j}`;
-          return `<span class=\"inline-flex flex-col items-start gap-1\"><input id=\"${inputId}\" type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto\" value=\"${html(w)}\" data-list=\"${listId}\"><ul id=\"${listId}\" data-input=\"${inputId}\" data-has-options=\"0\" role=\"listbox\" class=\"suggestion-list hidden mt-1 w-full max-h-40 overflow-auto rounded border border-stone-300 bg-white text-sm text-stone-700 shadow list-none p-0\"></ul></span>`;
+          return `<span class=\"inline-flex flex-col items-start gap-1\"><input id=\"${inputId}\"  autocomplete="off" type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto\" value=\"${html(w)}\" data-list=\"${listId}\"><ul id=\"${listId}\" data-input=\"${inputId}\" data-has-options=\"0\" role=\"listbox\" class=\"suggestion-list hidden mt-1 w-full max-h-40 overflow-auto rounded border border-stone-300 bg-white text-sm text-stone-700 shadow list-none p-0\"></ul></span>`;
         })
         .join(' ');
       const addBtn = `<button type=\"button\" data-add=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">+</button>`;
