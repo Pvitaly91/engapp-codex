@@ -37,7 +37,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'A2',
             ],
             [
-                'question' => 'I {a2} very sad if you do that.',
+                'question' => 'I {a1} very sad if you do that.',
                 'answer'   => 'will be',
                 'verb'     => 'be',
                 'options'  => ['will be', 'am going to be', 'will have been', 'will be being'],
@@ -45,7 +45,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'A2',
             ],
             [
-                'question' => 'I {a3} you everything when I go back.',
+                'question' => 'I {a1} you everything when I go back.',
                 'answer'   => 'will tell',
                 'verb'     => 'tell',
                 'options'  => ['will tell', 'will be telling', 'will have told', 'am telling'],
@@ -53,7 +53,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'A2',
             ],
             [
-                'question' => 'This time tomorrow I {a4} to France.',
+                'question' => 'This time tomorrow I {a1} to France.',
                 'answer'   => 'will be flying',
                 'verb'     => 'fly',
                 'options'  => ['will be flying', 'will fly', 'will have flown', 'fly'],
@@ -61,7 +61,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B1',
             ],
             [
-                'question' => 'Next month we {a5} for 25 years.',
+                'question' => 'Next month we {a1} for 25 years.',
                 'answer'   => 'will have been married',
                 'verb'     => 'be married',
                 'options'  => ['will have been married', 'will be married', 'will marry', 'are going to be married'],
@@ -69,7 +69,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B2',
             ],
             [
-                'question' => 'Tomorrow she {a6} a very important exam.',
+                'question' => 'Tomorrow she {a1} a very important exam.',
                 'answer'   => 'will be writing',
                 'verb'     => 'write',
                 'options'  => ['will be writing', 'will write', 'will have written', 'writes'],
@@ -77,7 +77,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B1',
             ],
             [
-                'question' => "Don't phone me between 8 a.m. and 12 p.m. I {a7}.",
+                'question' => "Don't phone me between 8 a.m. and 12 p.m. I {a1}.",
                 'answer'   => 'will be working',
                 'verb'     => 'work',
                 'options'  => ['will be working', 'will work', 'will have worked', 'am working'],
@@ -85,7 +85,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B1',
             ],
             [
-                'question' => 'John is very upset today. I {a8} to talk to him.',
+                'question' => 'John is very upset today. I {a1} to talk to him.',
                 'answer'   => 'will try',
                 'verb'     => 'try',
                 'options'  => ['will try', 'will be trying', 'try', 'will have tried'],
@@ -93,7 +93,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'A2',
             ],
             [
-                'question' => 'By the end of the week he {a9} all his money.',
+                'question' => 'By the end of the week he {a1} all his money.',
                 'answer'   => 'will have spent',
                 'verb'     => 'spend',
                 'options'  => ['will have spent', 'will spend', 'will be spending', 'spends'],
@@ -101,7 +101,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B2',
             ],
             [
-                'question' => 'By the time you arrive, she {a10}.',
+                'question' => 'By the time you arrive, she {a1}.',
                 'answer'   => 'will have gone',
                 'verb'     => 'go',
                 'options'  => ['will have gone', 'will go', 'will be going', 'goes'],
@@ -109,7 +109,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B2',
             ],
             [
-                'question' => 'This time next week I {a11} at the beach.',
+                'question' => 'This time next week I {a1} at the beach.',
                 'answer'   => 'will be relaxing',
                 'verb'     => 'relax',
                 'options'  => ['will be relaxing', 'will relax', 'will have relaxed', 'relax'],
@@ -117,7 +117,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B1',
             ],
             [
-                'question' => "I think she {a12} tomorrow's exam.",
+                'question' => "I think she {a1} tomorrow's exam.",
                 'answer'   => 'will pass',
                 'verb'     => 'pass',
                 'options'  => ['will pass', 'will have passed', 'will be passing', 'passes'],
@@ -125,7 +125,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'A2',
             ],
             [
-                'question' => 'I can visit you at 5. We {a13} the game by then.',
+                'question' => 'I can visit you at 5. We {a1} the game by then.',
                 'answer'   => 'will have finished',
                 'verb'     => 'finish',
                 'options'  => ['will have finished', 'will finish', 'will be finishing', 'finish'],
@@ -133,7 +133,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B2',
             ],
             [
-                'question' => "Sorry, but I can't come at 5. I {a14} football with my mates.",
+                'question' => "Sorry, but I can't come at 5. I {a1} football with my mates.",
                 'answer'   => 'will be playing',
                 'verb'     => 'play',
                 'options'  => ['will be playing', 'will play', 'will have played', 'play'],
@@ -141,7 +141,7 @@ class FutureSimpleFutureContinuousFuturePerfectTestSeeder extends Seeder
                 'level'    => 'B1',
             ],
             [
-                'question' => 'In half an hour everybody {a15} the film.',
+                'question' => 'In half an hour everybody {a1} the film.',
                 'answer'   => 'will be watching',
                 'verb'     => 'watch',
                 'options'  => ['will be watching', 'will watch', 'will have watched', 'watches'],

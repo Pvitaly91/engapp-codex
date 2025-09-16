@@ -45,9 +45,12 @@
         background-color: #fef6db;
   }
 
-  #question-card article ul{
-    min-width: 100px;
 
+   #question-card article ul{
+    min-width: 100px;
+  }
+  #question-card article ul li{
+    margin: 2px 8px;
   }
 </style>
 <script>
