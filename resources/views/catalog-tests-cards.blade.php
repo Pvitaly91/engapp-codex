@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex flex-col md:flex-row gap-6">
     <aside class="md:w-48 w-full md:shrink-0">
-        <form id="tag-filter" action="{{ route('saved-tests.cards') }}" method="GET">
+        <form id="tag-filter" action="{{ route('catalog-tests.cards') }}" method="GET">
             @if(isset($availableLevels) && $availableLevels->count())
                 <div class="mb-4">
                     <label class="block text-sm mb-1">Level:</label>
@@ -54,7 +54,7 @@
         </form>
         @if(!empty($selectedTags) || !empty($selectedLevels))
             <div class="mt-2">
-                <a href="{{ route('saved-tests.cards') }}" class="text-xs text-muted-foreground hover:underline">Скинути фільтр</a>
+                <a href="{{ route('catalog-tests.cards') }}" class="text-xs text-muted-foreground hover:underline">Скинути фільтр</a>
             </div>
         @endif
     </aside>

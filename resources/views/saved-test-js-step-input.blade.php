@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.engram')
 
 @section('title', $test->name)
 
@@ -8,6 +8,12 @@
         <h1 class="text-2xl sm:text-3xl font-bold text-stone-900">{{ $test->name }}</h1>
         <p class="text-sm text-stone-600 mt-1">Введи відповідь, використовуючи підказки.</p>
     </header>
+
+    <nav class="mb-6 flex gap-2 text-sm">
+        <a href="{{ route('saved-test.js', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js') ? 'bg-stone-900 text-white' : '' }}">Карти</a>
+        <a href="{{ route('saved-test.js.step', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.step') ? 'bg-stone-900 text-white' : '' }}">Step</a>
+        <a href="{{ route('saved-test.js.step-input', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.step-input') ? 'bg-stone-900 text-white' : '' }}">Input</a>
+    </nav>
 
     @include('components.word-search')
 
@@ -67,8 +73,7 @@ function showLoader(show) {
 function init() {
   state.items = QUESTIONS.map((q) => ({
     ...q,
-    words: [''],
-    input: '',
+    inputs: Array(q.answers.length).fill(''),
     isCorrect: null,
     explanation: '',
   }));
@@ -80,25 +85,11 @@ function init() {
   updateProgress();
 }
 
-function buildInputs(q) {
-  const fields = q.words
-    .map((w, i) => `
-      <span class="inline-flex items-center">
-        <input type="text" data-idx="${i}" class="w-20 px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none" list="opts-${state.current}-${i}" value="${html(w)}">
-        <datalist id="opts-${state.current}-${i}"></datalist>
-      </span>`)
-    .join(' ');
-  return `<span id="builder" class="inline-flex items-center gap-1">${fields}<button type="button" id="add-word" class="ml-1 px-2 py-1 rounded border border-stone-300">+</button><button type="button" id="remove-word" class="px-2 py-1 rounded border border-stone-300">-</button></span>`;
-}
-
 function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
   const hint = q.verb_hint ? ` <span class="verb-hint text-red-700 text-xs font-bold">(${html(q.verb_hint)})</span>` : '';
-  const blank = q.isCorrect === null
-    ? buildInputs(q) + hint
-    : `<mark class="px-1 py-0.5 rounded bg-amber-100">${html(q.words.join(' '))}</mark>` + hint;
-  const sentence = q.question.replace(/\{a\d+\}/, blank);
+  const sentence = renderSentence(q, hint);
   wrap.innerHTML = `
     <article class="rounded-2xl border border-stone-200 bg-white p-4 focus-within:ring-2 ring-stone-900/20 outline-none" data-idx="${state.current}">
       <div class="flex items-start justify-between gap-3">
@@ -121,18 +112,16 @@ function render() {
   renderHints(q);
   if (q.isCorrect === null) {
     document.getElementById('check').addEventListener('click', onCheck);
-    document.querySelectorAll('#builder input').forEach((inp) => {
+    document.querySelectorAll('input[data-idx]').forEach((inp) => {
       const idx = parseInt(inp.dataset.idx);
       inp.addEventListener('input', () => {
-        q.words[idx] = inp.value;
+        q.inputs[idx] = inp.value;
         fetchSuggestions(inp, idx);
       });
       inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
       fetchSuggestions(inp, idx);
     });
-    document.getElementById('add-word').addEventListener('click', () => { q.words.push(''); render(); });
-    document.getElementById('remove-word').addEventListener('click', () => { if (q.words.length > 1) { q.words.pop(); render(); } });
-    const first = document.querySelector('#builder input');
+    const first = document.querySelector('input[data-idx]');
     if (first) first.focus();
   }
 }
@@ -140,9 +129,9 @@ function render() {
 function onCheck() {
   const q = state.items[state.current];
   if (q.isCorrect !== null) return;
-  const val = q.words.join(' ').trim();
+  const val = q.inputs.map(w => w.trim()).join(' ');
   q.input = val;
-  q.isCorrect = val.toLowerCase() === q.answer.toLowerCase();
+  q.isCorrect = q.inputs.every((v, i) => v.trim().toLowerCase() === (q.answers[i] || '').toLowerCase());
   if (q.isCorrect) {
     state.correct += 1;
   } else {
@@ -247,13 +236,17 @@ function fetchExplanation(q, given) {
 }
 
 function fetchSuggestions(input, idx) {
-  const query = input.value.trim();
+  const val = input.value;
   const listId = `opts-${state.current}-${idx}`;
   const dl = document.getElementById(listId);
+  const parts = val.split(/\s+/);
+  const last = parts.pop();
+  const prefix = val.slice(0, val.length - last.length);
+  const query = last.trim();
   if (!query) { dl.innerHTML = ''; return; }
   fetch('/api/search?lang=en&q=' + encodeURIComponent(query))
     .then(res => res.json())
-    .then(data => { dl.innerHTML = data.map(it => `<option value="${html(it.en)}"></option>`).join(''); });
+    .then(data => { dl.innerHTML = data.map(it => `<option value="${html(prefix + it.en)}"></option>`).join(''); });
 }
 
 function renderFeedback(q) {
@@ -261,13 +254,25 @@ function renderFeedback(q) {
     return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
   }
   if (q.isCorrect === false) {
-    let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answer) + '</b></div>';
+    let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
     if (q.explanation) {
       htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
     }
     return htmlStr;
   }
   return '';
+}
+
+function renderSentence(q, hint) {
+  let text = q.question;
+  q.answers.forEach((ans, i) => {
+    const replacement = q.isCorrect === null
+      ? `<input type=\"text\" data-idx=\"${i}\" class=\"w-20 px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" list=\"opts-${state.current}-${i}\" value=\"${html(q.inputs[i])}\"><datalist id=\"opts-${state.current}-${i}\"></datalist>`
+      : `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.inputs[i])}</mark>`;
+    const regex = new RegExp(`\\{a${i + 1}\\}`);
+    text = text.replace(regex, replacement + (i === q.answers.length - 1 ? hint : ''));
+  });
+  return text;
 }
 
 function pct(a, b) { return Math.round((a / (b || 1)) * 100); }
