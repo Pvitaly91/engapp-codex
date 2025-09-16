@@ -105,21 +105,40 @@ function renderQuestion(idx) {
       inp.addEventListener('change', handle);
       autoResize(inp);
       fetchSuggestions(inp, idx, aIdx, wIdx);
-      const selectId = inp.dataset.select;
-      if (selectId) {
-        const selectEl = card.querySelector(`#${selectId}`);
-        if (selectEl) {
-          selectEl.addEventListener('change', () => {
-            const chosen = selectEl.value.trim();
-            if (!chosen) return;
-            const sanitized = chosen.replace(/\s+/g, '');
-            inp.value = sanitized;
-            q.inputs[aIdx][wIdx] = sanitized;
-            autoResize(inp);
-            selectEl.value = '';
-          });
-        }
+      const listId = inp.dataset.list;
+      const getListEl = () => (listId ? card.querySelector(`#${listId}`) : null);
+      const listEl = getListEl();
+      if (listEl) {
+        listEl.addEventListener('click', (event) => {
+          const item = event.target.closest('li[data-value]');
+          if (!item) return;
+          const chosen = (item.dataset.value || item.textContent || '').trim();
+          if (!chosen) return;
+          const sanitized = chosen.replace(/\s+/g, '');
+          const ignoreQuery = listEl.dataset.pendingQuery || inp.value.trim();
+          listEl.dataset.ignoreQuery = ignoreQuery;
+          inp.value = sanitized;
+          q.inputs[aIdx][wIdx] = sanitized;
+          autoResize(inp);
+          listEl.innerHTML = '';
+          listEl.dataset.hasOptions = '0';
+          listEl.dataset.pendingQuery = '';
+          listEl.classList.add('hidden');
+          inp.focus();
+        });
       }
+      inp.addEventListener('blur', () => {
+        const el = getListEl();
+        if (!el) return;
+        setTimeout(() => {
+          el.classList.add('hidden');
+        }, 150);
+      });
+      inp.addEventListener('focus', () => {
+        const el = getListEl();
+        if (!el || el.dataset.hasOptions !== '1') return;
+        el.classList.remove('hidden');
+      });
     });
     card.querySelectorAll('button[data-add]').forEach(btn => {
       btn.addEventListener('click', () => { addWord(q, parseInt(btn.dataset.add)); renderQuestion(idx); });
@@ -152,32 +171,53 @@ function removeWord(q, idx) {
 function fetchSuggestions(input, qIdx, idx, widx) {
   const val = input.value.trim();
   const listId = `opts-${qIdx}-${idx}-${widx}`;
-  const selectEl = document.getElementById(listId);
-  if (!selectEl) return;
+  const listEl = document.getElementById(listId);
+  if (!listEl) return;
+  const hideList = () => {
+    listEl.innerHTML = '';
+    listEl.classList.add('hidden');
+    listEl.dataset.hasOptions = '0';
+    listEl.dataset.pendingQuery = '';
+    listEl.dataset.ignoreQuery = '';
+  };
   if (!val) {
-    selectEl.innerHTML = '';
-    selectEl.classList.add('hidden');
+    hideList();
     return;
   }
-  fetch('/api/search?lang=en&q=' + encodeURIComponent(val))
+  const query = val;
+  listEl.dataset.pendingQuery = query;
+  fetch('/api/search?lang=en&q=' + encodeURIComponent(query))
     .then(res => res.json())
     .then(data => {
-      if (!Array.isArray(data) || data.length === 0) {
-        selectEl.innerHTML = '';
-        selectEl.classList.add('hidden');
+      if (input.value.trim() !== query) return;
+      if (listEl.dataset.ignoreQuery === query) {
+        listEl.dataset.ignoreQuery = '';
+        listEl.dataset.pendingQuery = '';
         return;
       }
-      const options = ['<option value="">Обери підказку</option>'];
+      if (!Array.isArray(data) || data.length === 0) {
+        hideList();
+        return;
+      }
+      const options = ['<li class="suggestion-hint px-2 py-1 text-xs uppercase tracking-wide text-stone-400 select-none">Обери підказку</li>'];
       data.forEach(it => {
         const value = html(it.en);
-        options.push(`<option value="${value}">${value}</option>`);
+        options.push(`<li data-value="${value}" class="suggestion-item cursor-pointer px-2 py-1 hover:bg-stone-100">${value}</li>`);
       });
-      selectEl.innerHTML = options.join('');
-      selectEl.value = '';
-      selectEl.classList.remove('hidden');
-      if (input.dataset.select) {
-        selectEl.style.width = input.style.width;
+      listEl.innerHTML = options.join('');
+      listEl.dataset.hasOptions = '1';
+      listEl.dataset.pendingQuery = '';
+      listEl.scrollTop = 0;
+      if (document.activeElement === input) {
+        listEl.classList.remove('hidden');
       }
+      if (input.dataset.list) {
+        const width = input.style.width || input.getBoundingClientRect().width + 'px';
+        listEl.style.width = width;
+      }
+    })
+    .catch(() => {
+      hideList();
     });
 }
 
@@ -200,8 +240,8 @@ function renderSentence(q, qIdx) {
       const inputs = words
         .map((w, j) => {
           const inputId = `input-${qIdx}-${i}-${j}`;
-          const selectId = `opts-${qIdx}-${i}-${j}`;
-          return `<span class=\"inline-flex flex-col items-start gap-1\"><input id=\"${inputId}\" type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto\" value=\"${html(w)}\" data-select=\"${selectId}\"><select id=\"${selectId}\" data-input=\"${inputId}\" class=\"suggestion-select hidden rounded border border-stone-300 bg-white px-2 py-1 text-sm text-stone-700 focus:outline-none\"></select></span>`;
+          const listId = `opts-${qIdx}-${i}-${j}`;
+          return `<span class=\"inline-flex flex-col items-start gap-1\"><input id=\"${inputId}\" type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto\" value=\"${html(w)}\" data-list=\"${listId}\"><ul id=\"${listId}\" data-input=\"${inputId}\" data-has-options=\"0\" role=\"listbox\" class=\"suggestion-list hidden mt-1 w-full max-h-40 overflow-auto rounded border border-stone-300 bg-white text-sm text-stone-700 shadow list-none p-0\"></ul></span>`;
         })
         .join(' ');
       const addBtn = `<button type=\"button\" data-add=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">+</button>`;
@@ -231,11 +271,11 @@ function autoResize(el) {
   const width = span.offsetWidth + 35;
   document.body.removeChild(span);
   el.style.width = width + 'px';
-  const selectId = el.dataset.select;
-  if (selectId) {
-    const selectEl = document.getElementById(selectId);
-    if (selectEl) {
-      selectEl.style.width = width + 'px';
+  const listId = el.dataset.list;
+  if (listId) {
+    const listEl = document.getElementById(listId);
+    if (listEl) {
+      listEl.style.width = width + 'px';
     }
   }
 }
