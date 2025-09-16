@@ -38,7 +38,14 @@
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
     </svg>
 </div>
-
+<style>
+  #question-card select{
+    min-width: 60px;
+  }
+  #question-card article{
+        background-color: #fef6db;
+  }
+</style>
 <script>
 const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
@@ -89,7 +96,7 @@ function render() {
         <div class="text-xs text-stone-500 shrink-0">[${state.current + 1}/${state.items.length}]</div>
       </div>
       ${q.isCorrect === null ? '<div class="mt-3"><button id="check" class="px-4 py-2 rounded-xl bg-stone-900 text-white">Перевірити</button></div>' : ''}
-      <div class="mt-2 h-5" id="feedback">${renderFeedback(q)}</div>
+      ${renderFeedback(q)}
     </article>
   `;
 
@@ -227,7 +234,7 @@ function renderFeedback(q) {
   if (q.isCorrect === false) {
     let htmlStr = '<div class="text-sm text-rose-700">❌ Невірно. Правильна відповідь: <b>' + html(q.answers.join(' ')) + '</b></div>';
     if (q.explanation) {
-      htmlStr += '<div class="mt-1 text-xs bg-blue-50 text-blue-800 rounded px-2 py-1">' + html(q.explanation) + '</div>';
+      htmlStr += '<div class="whitespace-pre-line" style="background-color:#ffcccc; padding:10px; border-radius:5px; matgin-top:20px;">' + html(q.explanation) + '</div>';
     }
     return htmlStr;
   }

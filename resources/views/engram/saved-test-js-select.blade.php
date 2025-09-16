@@ -28,7 +28,11 @@
         </div>
     </div>
 </div>
-
+<style>
+  #questions select{
+    min-width: 60px;
+  }
+</style>
 <script>
 const QUESTIONS = @json($questionData);
 </script>

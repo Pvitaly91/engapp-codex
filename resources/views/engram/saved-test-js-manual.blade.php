@@ -29,7 +29,12 @@
         </div>
     </div>
 </div>
-
+<style>
+ 
+  #questions article{
+        background-color: #fef6db;
+  }
+</style>
 <script>
 const QUESTIONS = @json($questionData);
 </script>

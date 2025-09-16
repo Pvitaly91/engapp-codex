@@ -38,7 +38,12 @@
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
     </svg>
 </div>
-
+<style>
+ 
+  #question-card article{
+        background-color: #fef6db;
+  }
+</style>
 <script>
 const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
