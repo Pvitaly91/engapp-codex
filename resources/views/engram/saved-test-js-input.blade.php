@@ -105,6 +105,21 @@ function renderQuestion(idx) {
       inp.addEventListener('change', handle);
       autoResize(inp);
       fetchSuggestions(inp, idx, aIdx, wIdx);
+      const selectId = inp.dataset.select;
+      if (selectId) {
+        const selectEl = card.querySelector(`#${selectId}`);
+        if (selectEl) {
+          selectEl.addEventListener('change', () => {
+            const chosen = selectEl.value.trim();
+            if (!chosen) return;
+            const sanitized = chosen.replace(/\s+/g, '');
+            inp.value = sanitized;
+            q.inputs[aIdx][wIdx] = sanitized;
+            autoResize(inp);
+            selectEl.value = '';
+          });
+        }
+      }
     });
     card.querySelectorAll('button[data-add]').forEach(btn => {
       btn.addEventListener('click', () => { addWord(q, parseInt(btn.dataset.add)); renderQuestion(idx); });
@@ -137,12 +152,32 @@ function removeWord(q, idx) {
 function fetchSuggestions(input, qIdx, idx, widx) {
   const val = input.value.trim();
   const listId = `opts-${qIdx}-${idx}-${widx}`;
-  const dl = document.getElementById(listId);
-  if (!val) { dl.innerHTML = ''; return; }
+  const selectEl = document.getElementById(listId);
+  if (!selectEl) return;
+  if (!val) {
+    selectEl.innerHTML = '';
+    selectEl.classList.add('hidden');
+    return;
+  }
   fetch('/api/search?lang=en&q=' + encodeURIComponent(val))
     .then(res => res.json())
     .then(data => {
-      dl.innerHTML = data.map(it => `<option value="${html(it.en)}"></option>`).join('');
+      if (!Array.isArray(data) || data.length === 0) {
+        selectEl.innerHTML = '';
+        selectEl.classList.add('hidden');
+        return;
+      }
+      const options = ['<option value="">Обери підказку</option>'];
+      data.forEach(it => {
+        const value = html(it.en);
+        options.push(`<option value="${value}">${value}</option>`);
+      });
+      selectEl.innerHTML = options.join('');
+      selectEl.value = '';
+      selectEl.classList.remove('hidden');
+      if (input.dataset.select) {
+        selectEl.style.width = input.style.width;
+      }
     });
 }
 
@@ -163,7 +198,11 @@ function renderSentence(q, qIdx) {
     if (q.isCorrect === null) {
       const words = q.inputs[i];
       const inputs = words
-        .map((w, j) => `<span class=\"inline-block\"><input type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto\" list=\"opts-${qIdx}-${i}-${j}\" value=\"${html(w)}\"><datalist id=\"opts-${qIdx}-${i}-${j}\"></datalist></span>`)
+        .map((w, j) => {
+          const inputId = `input-${qIdx}-${i}-${j}`;
+          const selectId = `opts-${qIdx}-${i}-${j}`;
+          return `<span class=\"inline-flex flex-col items-start gap-1\"><input id=\"${inputId}\" type=\"text\" data-idx=\"${i}\" data-word=\"${j}\" class=\"px-1 py-0.5 text-center border-b border-stone-400 focus:outline-none\" style=\"width:auto\" value=\"${html(w)}\" data-select=\"${selectId}\"><select id=\"${selectId}\" data-input=\"${inputId}\" class=\"suggestion-select hidden rounded border border-stone-300 bg-white px-2 py-1 text-sm text-stone-700 focus:outline-none\"></select></span>`;
+        })
         .join(' ');
       const addBtn = `<button type=\"button\" data-add=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">+</button>`;
       const removeBtn = words.length > 1 ? `<button type=\"button\" data-remove=\"${i}\" class=\"ml-1 px-2 py-0.5 rounded bg-stone-200\">-</button>` : '';
@@ -192,6 +231,13 @@ function autoResize(el) {
   const width = span.offsetWidth + 35;
   document.body.removeChild(span);
   el.style.width = width + 'px';
+  const selectId = el.dataset.select;
+  if (selectId) {
+    const selectEl = document.getElementById(selectId);
+    if (selectEl) {
+      selectEl.style.width = width + 'px';
+    }
+  }
 }
 
 function updateProgress() {
