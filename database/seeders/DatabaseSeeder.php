@@ -79,6 +79,7 @@ class DatabaseSeeder extends Seeder
             PresentPerfectPastSimpleTestSeeder::class,
             PresentPerfectExercisesSeeder::class,
             PresentPerfectOrPresentPerfectContinuousExercise03Seeder::class,
+            PresentPerfectOrPresentPerfectContinuousExercise04Seeder::class,
             PastSimpleOrPresentPerfectEx4Seeder::class,
             PastSimpleVsPresentPerfectMultipleChoiceSeeder::class,
             PastSimplePresentPerfectPastPerfectTestSeeder::class,
