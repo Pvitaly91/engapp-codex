@@ -25,15 +25,15 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
         ];
 
         $detailTags = [
-            1 => Tag::firstOrCreate(['name' => 'present_perfect_continuous_recent_activity_result'], ['category' => 'Details']),
-            2 => Tag::firstOrCreate(['name' => 'present_perfect_completed_action_fixing'], ['category' => 'Details']),
-            3 => Tag::firstOrCreate(['name' => 'present_perfect_continuous_duration_since_morning'], ['category' => 'Details']),
-            4 => Tag::firstOrCreate(['name' => 'present_perfect_result_visible_evidence'], ['category' => 'Details']),
-            5 => Tag::firstOrCreate(['name' => 'present_perfect_continuous_symptom_cause'], ['category' => 'Details']),
-            6 => Tag::firstOrCreate(['name' => 'present_perfect_continuous_recent_activity_question'], ['category' => 'Details']),
-            7 => Tag::firstOrCreate(['name' => 'present_perfect_support_preparation'], ['category' => 'Details']),
-            8 => Tag::firstOrCreate(['name' => 'present_perfect_continuous_recent_activity_smell'], ['category' => 'Details']),
-            9 => Tag::firstOrCreate(['name' => 'present_perfect_continuous_emotion_result'], ['category' => 'Details']),
+            'recent_activity'    => Tag::firstOrCreate(['name' => 'present_perfect_recent_activity'], ['category' => 'Details']),
+            'completed_action'   => Tag::firstOrCreate(['name' => 'present_perfect_completed_action'], ['category' => 'Details']),
+            'duration'           => Tag::firstOrCreate(['name' => 'present_perfect_duration'], ['category' => 'Details']),
+            'visible_result'     => Tag::firstOrCreate(['name' => 'present_perfect_visible_result'], ['category' => 'Details']),
+            'symptom'            => Tag::firstOrCreate(['name' => 'present_perfect_symptom'], ['category' => 'Details']),
+            'activity_question'  => Tag::firstOrCreate(['name' => 'present_perfect_recent_activity_question'], ['category' => 'Details']),
+            'support'            => Tag::firstOrCreate(['name' => 'present_perfect_support'], ['category' => 'Details']),
+            'sensory_result'     => Tag::firstOrCreate(['name' => 'present_perfect_sensory_result'], ['category' => 'Details']),
+            'emotion_result'     => Tag::firstOrCreate(['name' => 'present_perfect_emotion_result'], ['category' => 'Details']),
         ];
 
         $questions = [
@@ -45,7 +45,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['have dug', 'have been digging', 'dug', 'was digging'],
                 'level' => 'B1',
                 'tenses' => ['perfect_continuous'],
-                'detail_tag' => 1,
+                'detail_tag' => 'recent_activity',
             ],
             [
                 'question' => 'The computer works fine again. Tom {a1} it.',
@@ -55,7 +55,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['has fixed', 'has been fixing', 'fixed', 'was fixing'],
                 'level' => 'A2',
                 'tenses' => ['perfect'],
-                'detail_tag' => 2,
+                'detail_tag' => 'completed_action',
             ],
             [
                 'question' => 'I need a break, I {a1} emails since the morning.',
@@ -65,7 +65,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['have written', 'have been writing', 'wrote', 'was writing'],
                 'level' => 'B1',
                 'tenses' => ['perfect_continuous'],
-                'detail_tag' => 3,
+                'detail_tag' => 'duration',
             ],
             [
                 'question' => 'The windows look shiny. Somebody {a1} them.',
@@ -75,7 +75,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['has cleaned', 'has been cleaning', 'cleaned', 'was cleaning'],
                 'level' => 'A2',
                 'tenses' => ['perfect'],
-                'detail_tag' => 4,
+                'detail_tag' => 'visible_result',
             ],
             [
                 'question' => 'I’m sneezing a lot. I {a1} flowers outside.',
@@ -85,7 +85,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['have picked', 'have been picking', 'picked', 'was picking'],
                 'level' => 'B1',
                 'tenses' => ['perfect_continuous'],
-                'detail_tag' => 5,
+                'detail_tag' => 'symptom',
             ],
             [
                 'question' => 'You smell of paint! {a1}?',
@@ -95,7 +95,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['Have you painted', 'Have you been painting', 'Did you paint', 'Were you painting'],
                 'level' => 'B1',
                 'tenses' => ['perfect_continuous'],
-                'detail_tag' => 6,
+                'detail_tag' => 'activity_question',
             ],
             [
                 'question' => 'Anna is confident for her driving test. I {a1} her to practise.',
@@ -105,7 +105,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['have helped', 'have been helping', 'helped', 'was helping'],
                 'level' => 'A2',
                 'tenses' => ['perfect'],
-                'detail_tag' => 7,
+                'detail_tag' => 'support',
             ],
             [
                 'question' => 'It smells nice in here because we {a1} a cake.',
@@ -115,7 +115,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['have baked', 'have been baking', 'baked', 'were baking'],
                 'level' => 'B1',
                 'tenses' => ['perfect_continuous'],
-                'detail_tag' => 8,
+                'detail_tag' => 'sensory_result',
             ],
             [
                 'question' => 'His eyes are red because he {a1} for hours.',
@@ -125,7 +125,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 'options' => ['has cried', 'has been crying', 'cried', 'was crying'],
                 'level' => 'B1',
                 'tenses' => ['perfect_continuous'],
-                'detail_tag' => 9,
+                'detail_tag' => 'emotion_result',
             ],
         ];
 
