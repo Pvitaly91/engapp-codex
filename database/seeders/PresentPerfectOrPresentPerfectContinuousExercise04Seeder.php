@@ -16,7 +16,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
         $categoryId = Category::firstOrCreate(['name' => 'Present Perfect'])->id;
 
         $sourceId = Source::firstOrCreate([
-            'name' => 'Present Perfect or Present Perfect Continuous — Exercise 04',
+            'name' => 'Present Perfect or Present Perfect Continuous — Exercise 04 - AI',
         ])->id;
 
         $tenseTags = [
@@ -135,7 +135,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
         $index = 1;
 
         foreach ($questions as $question) {
-            $uuid = substr($slug, 0, 36 - strlen((string) $index) - 1) . '-' . $index;
+            $uuid = substr($slug, 0, 33 - strlen((string) $index) - 1) . '-' . $index."-ai";
 
             $answers = [];
             foreach ($question['answers'] as $marker => $answerData) {
@@ -146,7 +146,7 @@ class PresentPerfectOrPresentPerfectContinuousExercise04Seeder extends Seeder
                 ];
             }
 
-            $tagIds = [$detailTags[$question['detail_tag']]->id];
+            $tagIds = [];//[$detailTags[$question['detail_tag']]->id];
             foreach ($question['tenses'] as $tense) {
                 $tagIds[] = $tenseTags[$tense]->id;
             }
