@@ -15,6 +15,17 @@ use App\Services\QuestionVariantService;
 
 class GrammarTestController extends Controller
 {
+    private const JS_VIEWS = [
+        'saved-test-js',
+        'saved-test-js-step',
+        'saved-test-js-manual',
+        'saved-test-js-step-manual',
+        'saved-test-js-step-input',
+        'saved-test-js-input',
+        'saved-test-js-step-select',
+        'saved-test-js-select',
+    ];
+
     public function __construct(private QuestionVariantService $variantService)
     {
     }
@@ -142,11 +153,41 @@ class GrammarTestController extends Controller
     {
         $test = Test::where('slug', $slug)->firstOrFail();
         $questions = $this->buildQuestionDataset($test);
+        $savedState = session($this->jsStateSessionKey($test, $view));
 
         return view("engram.$view", [
             'test' => $test,
             'questionData' => $questions,
+            'jsStateMode' => $view,
+            'savedState' => $savedState,
         ]);
+    }
+
+    public function storeSavedTestJsState(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $mode = $request->input('mode');
+
+        if (! $mode || ! in_array($mode, self::JS_VIEWS, true)) {
+            return response()->json(['message' => 'Invalid mode'], 422);
+        }
+
+        $key = $this->jsStateSessionKey($test, $mode);
+        $state = $request->input('state');
+
+        if ($state === null) {
+            session()->forget($key);
+
+            return response()->noContent();
+        }
+
+        if (! is_array($state)) {
+            return response()->json(['message' => 'Invalid state'], 422);
+        }
+
+        session([$key => $state]);
+
+        return response()->noContent();
     }
 
     private function buildQuestionDataset(Test $test)
@@ -184,6 +225,11 @@ class GrammarTestController extends Controller
                     'level' => $q->level ?? '',
                 ];
             });
+    }
+
+    private function jsStateSessionKey(Test $test, string $view): string
+    {
+        return sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
     }
 
     public function showSavedTestStep(Request $request, $slug)

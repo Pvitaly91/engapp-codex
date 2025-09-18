@@ -41,6 +41,7 @@
 <script>
 const QUESTIONS = @json($questionData);
 </script>
+@include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
 <script>
 const state = {
@@ -49,19 +50,37 @@ const state = {
   correct: 0,
 };
 
-function init() {
-  state.items = QUESTIONS.map((q) => ({
-    ...q,
-    chosen: Array(q.answers.length).fill(''),
-    done: false,
-    feedback: '',
-  }));
-  state.current = 0;
-  state.correct = 0;
+function init(forceFresh = false) {
+  let restored = false;
+  if (!forceFresh) {
+    const saved = getSavedState();
+    if (saved && Array.isArray(saved.items)) {
+      state.items = saved.items;
+      state.current = Number.isFinite(saved.current) ? saved.current : 0;
+      state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
+      restored = true;
+    }
+  }
+
+  if (!restored) {
+    state.items = QUESTIONS.map((q) => ({
+      ...q,
+      chosen: Array(q.answers.length).fill(''),
+      done: false,
+      feedback: '',
+    }));
+    state.current = 0;
+    state.correct = 0;
+  }
+
+  if (state.current < 0) state.current = 0;
+  if (state.current >= state.items.length) state.current = Math.max(0, state.items.length - 1);
+
   document.getElementById('summary').classList.add('hidden');
   document.getElementById('question-wrap').classList.remove('hidden');
   render();
   updateProgress();
+  persistState(state, true);
 }
 
 function render() {
@@ -89,7 +108,16 @@ function render() {
   wrap.querySelectorAll('input').forEach(inp => {
     if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
     inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') onCheck(); });
-    inp.addEventListener('input', () => autoResize(inp));
+    const handle = () => {
+      autoResize(inp);
+      const slot = Number(inp.dataset.slot);
+      if (Number.isInteger(slot)) {
+        q.chosen[slot] = inp.value;
+        persistState(state);
+      }
+    };
+    inp.addEventListener('input', handle);
+    inp.addEventListener('change', handle);
     autoResize(inp);
   });
   wrap.querySelector('input')?.focus();
@@ -119,6 +147,7 @@ function onCheck() {
   }
   render();
   updateProgress();
+  persistState(state);
 }
 
 document.getElementById('prev').addEventListener('click', () => {
@@ -126,6 +155,7 @@ document.getElementById('prev').addEventListener('click', () => {
     state.current -= 1;
     render();
     updateProgress();
+    persistState(state);
   }
 });
 
@@ -134,6 +164,7 @@ document.getElementById('next').addEventListener('click', () => {
     state.current += 1;
     render();
     updateProgress();
+    persistState(state);
   } else {
     showSummary();
   }
@@ -154,7 +185,7 @@ function renderSentence(q) {
       replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`;
     } else {
       const val = q.chosen[i] || '';
-      replacement = `<input id=\"input-${i}\" class=\"text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:6rem\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
+      replacement = `<input id=\"input-${i}\" data-slot=\"${i}\" class=\"text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:6rem\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
     }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     const marker = `a${i + 1}`;
@@ -192,7 +223,7 @@ function showSummary() {
   const summary = document.getElementById('summary');
   summary.classList.remove('hidden');
   document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
-  document.getElementById('retry').onclick = init;
+  document.getElementById('retry').onclick = () => init(true);
 }
 
 init();

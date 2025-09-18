@@ -38,6 +38,7 @@
 <script>
 const QUESTIONS = @json($questionData);
 </script>
+@include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
 <script>
 const state = {
@@ -46,22 +47,37 @@ const state = {
   answered: 0,
 };
 
-function init() {
-  state.items = QUESTIONS.map((q) => ({
-    ...q,
-    chosen: Array(q.answers.length).fill(''),
-    done: false,
-    wrongAttempt: false,
-    feedback: '',
-  }));
-  state.correct = 0;
-  state.answered = 0;
+function init(forceFresh = false) {
+  let restored = false;
+  if (!forceFresh) {
+    const saved = getSavedState();
+    if (saved && Array.isArray(saved.items)) {
+      state.items = saved.items;
+      state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
+      state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
+      restored = true;
+    }
+  }
+
+  if (!restored) {
+    state.items = QUESTIONS.map((q) => ({
+      ...q,
+      chosen: Array(q.answers.length).fill(''),
+      done: false,
+      wrongAttempt: false,
+      feedback: '',
+    }));
+    state.correct = 0;
+    state.answered = 0;
+  }
+
   renderQuestions();
   updateProgress();
   document.getElementById('final-check').classList.remove('hidden');
   document.getElementById('check-all').onclick = () => {
     state.items.forEach((_, i) => onCheck(i));
   };
+  persistState(state, true);
 }
 
 function renderQuestions(showOnlyWrong = false) {
@@ -89,9 +105,19 @@ function renderQuestions(showOnlyWrong = false) {
     `;
 
     wrap.appendChild(card);
-    card.querySelectorAll('input').forEach(inp => {
+    card.querySelectorAll('input[data-question][data-slot]').forEach(inp => {
       if (!inp.dataset.minWidth) inp.dataset.minWidth = inp.offsetWidth;
-      inp.addEventListener('input', () => autoResize(inp));
+      const handle = () => {
+        autoResize(inp);
+        const qIdx = Number(inp.dataset.question);
+        const slot = Number(inp.dataset.slot);
+        if (Number.isInteger(qIdx) && Number.isInteger(slot) && state.items[qIdx]) {
+          state.items[qIdx].chosen[slot] = inp.value;
+          persistState(state);
+        }
+      };
+      inp.addEventListener('input', handle);
+      inp.addEventListener('change', handle);
       autoResize(inp);
     });
 
@@ -102,7 +128,7 @@ function renderQuestions(showOnlyWrong = false) {
   document.getElementById('final-check').classList.toggle('hidden', allDone);
   if (allDone) {
     document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
-    document.getElementById('retry').onclick = init;
+    document.getElementById('retry').onclick = () => init(true);
     document.getElementById('show-wrong').onclick = () => renderQuestions(true);
   }
 }
@@ -133,6 +159,7 @@ function onCheck(idx) {
   }
   renderQuestions();
   updateProgress();
+  persistState(state);
 }
 
 function renderFeedback(q) {
@@ -150,7 +177,7 @@ function renderSentence(q, idx) {
       replacement = `<mark class=\"px-1 py-0.5 rounded bg-amber-100\">${html(q.chosen[i])}</mark>`;
     } else {
       const val = q.chosen[i] || '';
-      replacement = `<input id=\"input-${idx}-${i}\" class=\"text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:6rem\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
+      replacement = `<input id=\"input-${idx}-${i}\" data-question=\"${idx}\" data-slot=\"${i}\" class=\"text-center bg-transparent border-0 border-b border-stone-400 focus:outline-none\" style=\"width:auto;min-width:6rem\" placeholder=\"____\" autocomplete=\"off\" value=\"${html(val)}\" />`;
     }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     const marker = `a${i + 1}`;

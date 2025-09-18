@@ -36,6 +36,7 @@
 <script>
 const QUESTIONS = @json($questionData);
 </script>
+@include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
 <script>
 const state = {
@@ -45,28 +46,53 @@ const state = {
   activeCardIdx: 0,
 };
 
-function init() {
-  state.items = QUESTIONS.map((q) => {
-    const opts = [...q.options];
-    shuffle(opts);
-    return {
-      ...q,
-      options: opts,
-      chosen: Array(q.answers.length).fill(null),
-      slot: 0,
-      done: false,
-      wrongAttempt: false,
-      lastWrong: null,
-      feedback: '',
-      attempts: 0,
-    };
-  });
-  state.correct = 0;
-  state.answered = 0;
+let globalEventsHooked = false;
 
+function ensureGlobalEvents() {
+  if (globalEventsHooked) return;
+  hookGlobalEvents();
+  globalEventsHooked = true;
+}
+
+function init(forceFresh = false) {
+  let restored = false;
+  if (!forceFresh) {
+    const saved = getSavedState();
+    if (saved && Array.isArray(saved.items)) {
+      state.items = saved.items;
+      state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
+      state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
+      state.activeCardIdx = Number.isFinite(saved.activeCardIdx) ? saved.activeCardIdx : 0;
+      restored = true;
+    }
+  }
+
+  if (!restored) {
+    state.items = QUESTIONS.map((q) => {
+      const opts = [...q.options];
+      shuffle(opts);
+      return {
+        ...q,
+        options: opts,
+        chosen: Array(q.answers.length).fill(null),
+        slot: 0,
+        done: false,
+        wrongAttempt: false,
+        lastWrong: null,
+        feedback: '',
+        attempts: 0,
+      };
+    });
+    state.correct = 0;
+    state.answered = 0;
+    state.activeCardIdx = 0;
+  }
+
+  ensureGlobalEvents();
   renderQuestions();
   updateProgress();
-  hookGlobalEvents();
+  checkAllDone();
+  persistState(state, true);
 }
 
 function renderQuestions(showOnlyWrong = false) {
@@ -106,7 +132,10 @@ function renderQuestions(showOnlyWrong = false) {
     });
 
     card.addEventListener('focusin', () => {
-      state.activeCardIdx = idx;
+      if (state.activeCardIdx !== idx) {
+        state.activeCardIdx = idx;
+        persistState(state);
+      }
     });
 
     wrap.appendChild(card);
@@ -118,7 +147,7 @@ function renderQuestions(showOnlyWrong = false) {
   if (allDone) {
     const summaryText = document.getElementById('summary-text');
     summaryText.textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
-    document.getElementById('retry').onclick = init;
+    document.getElementById('retry').onclick = () => init(true);
     document.getElementById('show-wrong').onclick = () => renderQuestions(true);
   }
 }
@@ -193,6 +222,7 @@ function onChoose(idx, opt) {
 
   updateProgress();
   checkAllDone();
+  persistState(state);
 }
 
 function updateProgress() {

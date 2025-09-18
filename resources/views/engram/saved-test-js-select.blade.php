@@ -36,6 +36,7 @@
 <script>
 const QUESTIONS = @json($questionData);
 </script>
+@include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
 <script>
 const state = {
@@ -44,20 +45,35 @@ const state = {
   answered: 0,
 };
 
-function init() {
-  state.items = QUESTIONS.map(q => ({
-    ...q,
-    chosen: Array(q.answers.length).fill(''),
-    isCorrect: null,
-  }));
-  state.correct = 0;
-  state.answered = 0;
+function init(forceFresh = false) {
+  let restored = false;
+  if (!forceFresh) {
+    const saved = getSavedState();
+    if (saved && Array.isArray(saved.items)) {
+      state.items = saved.items;
+      state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
+      state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
+      restored = true;
+    }
+  }
+
+  if (!restored) {
+    state.items = QUESTIONS.map(q => ({
+      ...q,
+      chosen: Array(q.answers.length).fill(''),
+      isCorrect: null,
+    }));
+    state.correct = 0;
+    state.answered = 0;
+  }
+
   renderQuestions();
   updateProgress();
   document.getElementById('final-check').classList.remove('hidden');
   document.getElementById('check-all').onclick = () => {
     state.items.forEach((_, i) => onCheck(i));
   };
+  persistState(state, true);
 }
 
 function renderQuestions() {
@@ -90,7 +106,11 @@ function renderQuestion(idx) {
     card.querySelectorAll('select[data-idx]').forEach(sel => {
       const aIdx = parseInt(sel.dataset.idx);
       const update = () => resizeSelect(sel);
-      sel.addEventListener('change', () => { q.chosen[aIdx] = sel.value; update(); });
+      sel.addEventListener('change', () => {
+        q.chosen[aIdx] = sel.value;
+        update();
+        persistState(state);
+      });
       update();
     });
   }
@@ -104,6 +124,7 @@ function onCheck(idx) {
   state.answered += 1;
   renderQuestion(idx);
   updateProgress();
+  persistState(state);
 }
 
 function renderFeedback(q) {
@@ -146,7 +167,7 @@ function updateProgress() {
   if (state.answered === state.items.length) {
     document.getElementById('summary').classList.remove('hidden');
     document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
-    document.getElementById('retry').onclick = init;
+    document.getElementById('retry').onclick = () => init(true);
     document.getElementById('final-check').classList.add('hidden');
   }
 }

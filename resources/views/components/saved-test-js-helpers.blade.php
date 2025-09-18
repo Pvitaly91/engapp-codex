@@ -29,4 +29,67 @@ function resizeSelect(el) {
     document.body.removeChild(span);
     el.style.width = width + 'px';
 }
+
+function cloneState(data) {
+    if (data === null || data === undefined) {
+        return null;
+    }
+
+    return JSON.parse(JSON.stringify(data));
+}
+
+const JS_TEST_PERSISTENCE = window.JS_TEST_PERSISTENCE || null;
+let JS_TEST_SAVE_TIMER = null;
+
+if (JS_TEST_PERSISTENCE && JS_TEST_PERSISTENCE.saved) {
+    JS_TEST_PERSISTENCE.saved = cloneState(JS_TEST_PERSISTENCE.saved);
+}
+
+function getSavedState() {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.saved) {
+        return null;
+    }
+
+    return cloneState(JS_TEST_PERSISTENCE.saved);
+}
+
+function persistState(state, immediate = false) {
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.endpoint) {
+        return;
+    }
+
+    const snapshot = cloneState(state);
+    JS_TEST_PERSISTENCE.saved = snapshot;
+
+    const payload = {
+        mode: JS_TEST_PERSISTENCE.mode,
+        state: snapshot,
+    };
+
+    const send = () => {
+        fetch(JS_TEST_PERSISTENCE.endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': JS_TEST_PERSISTENCE.token,
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify(payload),
+        }).catch(() => {});
+    };
+
+    if (immediate) {
+        if (JS_TEST_SAVE_TIMER) {
+            clearTimeout(JS_TEST_SAVE_TIMER);
+        }
+        send();
+        return;
+    }
+
+    if (JS_TEST_SAVE_TIMER) {
+        clearTimeout(JS_TEST_SAVE_TIMER);
+    }
+    JS_TEST_SAVE_TIMER = setTimeout(send, 250);
+}
 </script>

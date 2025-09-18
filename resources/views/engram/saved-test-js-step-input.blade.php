@@ -55,6 +55,7 @@ const QUESTIONS = @json($questionData);
 const CSRF_TOKEN = '{{ csrf_token() }}';
 const EXPLAIN_URL = '{{ route('question.explain') }}';
 </script>
+@include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
 <script>
 const state = {
@@ -69,21 +70,39 @@ function showLoader(show) {
   loaderEl.classList.toggle('hidden', !show);
 }
 
-function init() {
-  state.items = QUESTIONS.map((q) => ({
-    ...q,
-    inputs: Array(q.answers.length)
-      .fill(null)
-      .map(() => ['']),
-    isCorrect: null,
-    explanation: '',
-  }));
-  state.current = 0;
-  state.correct = 0;
+function init(forceFresh = false) {
+  let restored = false;
+  if (!forceFresh) {
+    const saved = getSavedState();
+    if (saved && Array.isArray(saved.items)) {
+      state.items = saved.items;
+      state.current = Number.isFinite(saved.current) ? saved.current : 0;
+      state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
+      restored = true;
+    }
+  }
+
+  if (!restored) {
+    state.items = QUESTIONS.map((q) => ({
+      ...q,
+      inputs: Array(q.answers.length)
+        .fill(null)
+        .map(() => ['']),
+      isCorrect: null,
+      explanation: '',
+    }));
+    state.current = 0;
+    state.correct = 0;
+  }
+
+  if (state.current < 0) state.current = 0;
+  if (state.current >= state.items.length) state.current = Math.max(0, state.items.length - 1);
+
   document.getElementById('summary').classList.add('hidden');
   document.getElementById('question-wrap').classList.remove('hidden');
   render();
   updateProgress();
+  persistState(state, true);
 }
 
 function render() {
@@ -125,6 +144,7 @@ function render() {
         q.inputs[idx][widx] = val;
         fetchSuggestions(inp, idx, widx);
         autoResize(inp);
+        persistState(state);
       };
       inp.addEventListener('input', handle);
       inp.addEventListener('change', handle);
@@ -150,6 +170,7 @@ function render() {
           listEl.dataset.pendingQuery = '';
           listEl.classList.add('hidden');
           inp.focus();
+          persistState(state);
         });
       }
       inp.addEventListener('blur', () => {
@@ -196,6 +217,7 @@ function onCheck() {
   }
   render();
   updateProgress();
+  persistState(state);
 }
 
 document.getElementById('prev').addEventListener('click', () => {
@@ -203,6 +225,7 @@ document.getElementById('prev').addEventListener('click', () => {
     state.current -= 1;
     render();
     updateProgress();
+    persistState(state);
   }
 });
 
@@ -211,6 +234,7 @@ document.getElementById('next').addEventListener('click', () => {
     state.current += 1;
     render();
     updateProgress();
+    persistState(state);
   } else {
     showSummary();
   }
@@ -228,7 +252,8 @@ function showSummary() {
   const summary = document.getElementById('summary');
   summary.classList.remove('hidden');
   document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
-  document.getElementById('retry').onclick = init;
+  document.getElementById('retry').onclick = () => init(true);
+  persistState(state);
 }
 
 function fetchHints(q, refresh = false) {
@@ -249,6 +274,7 @@ function fetchHints(q, refresh = false) {
       if (d.gemini) d.gemini = d.gemini.replace(/\{a\d+\}/g, '\n$&');
       q.hints = d;
       renderHints(q);
+      persistState(state);
     })
     .catch((e) => console.error(e))
     .finally(() => showLoader(false));
@@ -287,6 +313,7 @@ function fetchExplanation(q, given) {
     .then((d) => {
       q.explanation = d.explanation || '';
       render();
+      persistState(state);
     })
     .catch((e) => console.error(e))
     .finally(() => showLoader(false));
@@ -295,12 +322,14 @@ function fetchExplanation(q, given) {
 function addWord(q, idx) {
   q.inputs[idx].push('');
   render();
+  persistState(state);
 }
 
 function removeWord(q, idx) {
   if (q.inputs[idx].length > 1) {
     q.inputs[idx].pop();
     render();
+    persistState(state);
   }
 }
 
