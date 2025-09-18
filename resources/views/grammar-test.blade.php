@@ -165,6 +165,20 @@
                 >
                 <span class="ml-2 text-orange-700">Тільки AI-згенеровані питання</span>
             </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="include_ai_v2" value="1"
+                    {{ !empty($includeAiV2) ? 'checked' : '' }}
+                    class="form-checkbox h-5 w-5 text-sky-600"
+                >
+                <span class="ml-2 text-sky-700">Додати AI (flag = 2)</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="only_ai_v2" value="1"
+                    {{ !empty($onlyAiV2) ? 'checked' : '' }}
+                    class="form-checkbox h-5 w-5 text-cyan-600"
+                >
+                <span class="ml-2 text-cyan-700">Тільки AI (flag = 2)</span>
+            </label>
         </div>
 
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg">

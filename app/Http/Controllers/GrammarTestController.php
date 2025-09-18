@@ -581,12 +581,17 @@ class GrammarTestController extends Controller
         $autocompleteInput = false;
         $checkOneInput = false;
         $builderInput = false;
+        $includeAi = false;
+        $onlyAi = false;
+        $includeAiV2 = false;
+        $onlyAiV2 = false;
         $questions = [];
 
         return view('grammar-test', compact(
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
             'selectedCategories', 'difficultyFrom', 'difficultyTo', 'numQuestions',
-            'manualInput', 'autocompleteInput', 'checkOneInput', 'questions', 'builderInput'
+            'manualInput', 'autocompleteInput', 'checkOneInput', 'questions', 'builderInput',
+            'includeAi', 'onlyAi', 'includeAiV2', 'onlyAiV2'
         ));
     }
 
@@ -608,6 +613,8 @@ class GrammarTestController extends Controller
         $builderInput = $request->boolean('builder_input');
         $includeAi = $request->boolean('include_ai');
         $onlyAi = $request->boolean('only_ai');
+        $includeAiV2 = $request->boolean('include_ai_v2');
+        $onlyAiV2 = $request->boolean('only_ai_v2');
         $selectedTags = $request->input('tags', []);
         $selectedLevels = (array) $request->input('levels', []);
     
@@ -657,12 +664,38 @@ class GrammarTestController extends Controller
             }
     
             // AI-фільтри
+            $onlyFlags = [];
             if ($onlyAi) {
-                $query->where('flag', 1);
-            } elseif (!$includeAi) {
-                $query->where('flag', 0);
+                $onlyFlags[] = 1;
             }
-    
+            if ($onlyAiV2) {
+                $onlyFlags[] = 2;
+            }
+
+            if (!empty($onlyFlags)) {
+                if (count($onlyFlags) === 1) {
+                    $query->where('flag', $onlyFlags[0]);
+                } else {
+                    $query->whereIn('flag', $onlyFlags);
+                }
+            } else {
+                $allowedFlags = [0];
+                if ($includeAi) {
+                    $allowedFlags[] = 1;
+                }
+                if ($includeAiV2) {
+                    $allowedFlags[] = 2;
+                }
+
+                $allowedFlags = array_values(array_unique($allowedFlags));
+
+                if (count($allowedFlags) === 1) {
+                    $query->where('flag', $allowedFlags[0]);
+                } elseif (count($allowedFlags) < 3) {
+                    $query->whereIn('flag', $allowedFlags);
+                }
+            }
+
             $questions = $questions->merge($query->orderBy('id')->limit($take)->get());
         }
 
@@ -692,7 +725,7 @@ class GrammarTestController extends Controller
             'categories', 'minDifficulty', 'maxDifficulty', 'maxQuestions',
             'selectedCategories', 'difficultyFrom', 'difficultyTo', 'numQuestions',
             'manualInput', 'autocompleteInput', 'checkOneInput', 'builderInput',
-            'includeAi', 'onlyAi', 'questions',
+            'includeAi', 'onlyAi', 'includeAiV2', 'onlyAiV2', 'questions',
             'sources', 'selectedSources', 'autoTestName',
             'allTags', 'selectedTags', 'levels', 'selectedLevels'
         ));
