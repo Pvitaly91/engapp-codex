@@ -197,7 +197,7 @@ class PastPerfectA2TestSeeder extends Seeder
                         'tenses' => ['Past Simple', 'Past Perfect'],
                         'level' => 'B1',
                     ],
-                    [
+                    [ 
                         'q' => 'First, she finished reading my book. Second, she gave it back. ⇒ She gave me back my book because she {a9} reading it.',
                         'answers' => [
                             ['marker' => 'a9', 'answer' => "'d finished", 'verb_hint' => null],
