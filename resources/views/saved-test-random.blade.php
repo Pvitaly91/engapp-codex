@@ -44,6 +44,7 @@
     @endif
     <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
         @csrf
+        <input type="hidden" name="test_slug" value="{{ $test->slug }}">
         @foreach($questions as $q)
             <input type="hidden" name="questions[{{ $q->id }}]" value="1">
             <div class="bg-white shadow rounded-2xl p-4 mb-4">
@@ -66,6 +67,7 @@
     'methodMap' => $methodMap,
     'autocompleteRoute' => $autocompleteRoute,
     'showQuestionEdit' => true,
+    'testSlug' => $test->slug,
 ])
 <a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Review</a>
                 @if($q->tags->count())

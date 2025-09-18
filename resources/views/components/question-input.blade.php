@@ -9,6 +9,7 @@
     'methodMap' => [],
     'showVerbHintEdit' => false,
     'showQuestionEdit' => false,
+    'testSlug' => null,
 ])
 @php
     $questionText = $question->question;
@@ -101,6 +102,7 @@ HTML;
     x-data="{
         qid: {{ $question?->id ?? 'null' }},
         qtext: @js($question->question),
+        testSlug: @js($testSlug),
         hints: { chatgpt: '', gemini: '' },
         fetchHints(refresh = false) {
             if (!this.qid && !this.qtext) return; // немає даних питання
@@ -109,6 +111,9 @@ HTML;
                 payload.question_id = this.qid;
             } else {
                 payload.question = this.qtext;
+            }
+            if (this.testSlug) {
+                payload.test_slug = this.testSlug;
             }
             fetch('{{ route('question.hint') }}', {
                 method: 'POST',

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -95,6 +96,7 @@ class DatabaseSeeder extends Seeder
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
             FutureSimpleOrFutureContinuousSeeder::class,
+            NegativePresentPerfectHabitsTestSeeder::class,
         ]);
     }
 }

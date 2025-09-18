@@ -177,7 +177,7 @@ class AiTestController extends Controller
                         $question = $gemini->generateGrammarQuestion($flatTenses, $answersCount);
                     } else {
                         $model = session('ai_step.model') ?? 'random';
-                        $question = $gpt->generateGrammarQuestion($tenseNames, $responseAnswersCount, $model);
+                        $question = $gpt->generateGrammarQuestion($flatTenses, $responseAnswersCount, $model);
                     }
                     $attempts++;
                 } while ($question && $lastQuestion && $question['question'] === $lastQuestion && $attempts < 3);
@@ -361,6 +361,10 @@ class AiTestController extends Controller
                 return $items->pluck('name')->toArray();
             })
             ->toArray();
+        $flatTenses = [];
+        foreach ($tenseNames as $arr) {
+            $flatTenses = array_merge($flatTenses, $arr);
+        }
         $range = session('ai_step.answers_range', [1, 1]);
         $answersCount = random_int($range[0], $range[1]);
         $lastQuestion = session('ai_step.last_question');

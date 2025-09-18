@@ -11,9 +11,14 @@ use App\Models\Source;
 use Illuminate\Support\Str;
 use App\Models\Test;
 use App\Models\Tag;
+use App\Services\QuestionVariantService;
 
 class GrammarTestController extends Controller
 {
+    public function __construct(private QuestionVariantService $variantService)
+    {
+    }
+
     public function save(Request $request)
     {
         $request->validate([
@@ -46,10 +51,18 @@ class GrammarTestController extends Controller
     public function showSavedTest($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
-        $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'tags'])
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags'];
+        if ($this->variantService->supportsVariants()) {
+            $relations[] = 'variants';
+        }
+
+        $questions = \App\Models\Question::with($relations)
             ->whereIn('id', $test->questions)
             ->orderBy('id')
             ->get();
+
+        $this->variantService->clearForTest($test->slug);
+        $questions = $this->variantService->applyRandomVariants($test, $questions);
 
         $manualInput = !empty($test->filters['manual_input']);
         $autocompleteInput = !empty($test->filters['autocomplete_input']);
@@ -67,9 +80,17 @@ class GrammarTestController extends Controller
     public function showSavedTestRandom($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
-        $questions = \App\Models\Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'tags'])
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags'];
+        if ($this->variantService->supportsVariants()) {
+            $relations[] = 'variants';
+        }
+
+        $questions = \App\Models\Question::with($relations)
             ->whereIn('id', $test->questions)
             ->get();
+
+        $this->variantService->clearForTest($test->slug);
+        $questions = $this->variantService->applyRandomVariants($test, $questions);
 
         return view('saved-test-random', [
             'test' => $test,
@@ -224,8 +245,15 @@ class GrammarTestController extends Controller
         }
 
         $currentId = $queue[$index];
-        $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option', 'tags'])
+        $relations = ['options', 'answers.option', 'verbHints.option', 'tags'];
+        if ($this->variantService->supportsVariants()) {
+            $relations[] = 'variants';
+        }
+
+        $question = \App\Models\Question::with($relations)
             ->findOrFail($currentId);
+
+        $this->variantService->applyRandomVariant($test, $question);
 
         $questionNumber = array_search($currentId, $test->questions, true);
         $questionNumber = $questionNumber === false ? null : $questionNumber + 1;
@@ -278,6 +306,7 @@ class GrammarTestController extends Controller
             'answers' => 'required|array',
         ]);
         $question = \App\Models\Question::with('answers.option')->findOrFail($request->input('question_id'));
+        $this->variantService->applyStoredVariant($slug, $question);
         $userAnswers = $request->input('answers', []);
         $correct = true;
         $explanations = [];
@@ -373,6 +402,8 @@ class GrammarTestController extends Controller
             abort(404);
         }
 
+        $this->variantService->applyStoredVariant($slug, $question);
+
         $questionText = $question->question;
 
         // Список тегів (категорія "Tenses")
@@ -397,6 +428,8 @@ class GrammarTestController extends Controller
             abort(404);
         }
 
+        $this->variantService->applyStoredVariant($slug, $question);
+
         $gpt = app(\App\Services\ChatGPTService::class);
         $level = $gpt->determineDifficulty($question->question);
 
@@ -414,6 +447,8 @@ class GrammarTestController extends Controller
         if (! in_array($question->id, $test->questions)) {
             abort(404);
         }
+
+        $this->variantService->applyStoredVariant($slug, $question);
 
         $gemini = app(\App\Services\GeminiService::class);
         $level = $gemini->determineDifficulty($question->question);
@@ -740,11 +775,13 @@ class GrammarTestController extends Controller
     public function check(Request $request)
     {
       
+        $slug = $request->input('test_slug');
         $questions = Question::with(['answers.option', 'category'])->whereIn('id', array_keys($request->get('questions', [])))->get();
         $results = [];
         $gpt = app(\App\Services\ChatGPTService::class);
 
         foreach ($questions as $question) {
+            $this->variantService->applyStoredVariant($slug, $question);
             $correctCount = 0;
             $total = $question->answers->count();
             $userAnswers = [];

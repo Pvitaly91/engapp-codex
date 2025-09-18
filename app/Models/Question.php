@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tag;
+use App\Models\QuestionVariant;
 
 class Question extends Model
 {
     protected $casts = [
-        'flag' => 'boolean',
+        'flag' => 'integer',
     ];
 
 
@@ -18,10 +19,9 @@ class Question extends Model
 
         foreach ($this->answers as $answer) {
             $replacement = $answer->option->option ?? $answer->answer;
-            $questionText = str_replace("{$answer->marker}", $replacement, $questionText);
+            $questionText = str_replace('{' . $answer->marker . '}', $replacement, $questionText);
         }
 
-    
         return $questionText;
     }
 
@@ -63,5 +63,10 @@ class Question extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(QuestionVariant::class);
     }
 }

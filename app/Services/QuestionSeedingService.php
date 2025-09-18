@@ -6,7 +6,9 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\VerbHint;
+use App\Models\QuestionVariant;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class QuestionSeedingService
 {
@@ -40,15 +42,20 @@ class QuestionSeedingService
                 continue;
             }
 
-            $q = Question::create([
+            $attributes = [
                 'uuid'        => $data['uuid'],
                 'question'    => $data['question'],
                 'category_id' => $data['category_id'] ?? null,
                 'difficulty'  => $data['difficulty'] ?? 1,
                 'source_id'   => $data['source_id'] ?? null,
                 'flag'        => $data['flag'] ?? 0,
-                'level'       => $data['level'] ?? null,
-            ]);
+            ];
+
+            if (Schema::hasColumn('questions', 'level')) {
+                $attributes['level'] = $data['level'] ?? null;
+            }
+
+            $q = Question::create($attributes);
 
             foreach ($data['answers'] as $ans) {
                 $option = $this->attachOption($q, $ans['answer']);
@@ -70,6 +77,19 @@ class QuestionSeedingService
             if (! empty($data['options'] ?? [])) {
                 foreach ($data['options'] as $opt) {
                     $this->attachOption($q, $opt);
+                }
+            }
+
+            if (! empty($data['variants'] ?? [])) {
+                foreach ($data['variants'] as $variantText) {
+                    if (! $variantText) {
+                        continue;
+                    }
+
+                    QuestionVariant::firstOrCreate([
+                        'question_id' => $q->id,
+                        'text' => $variantText,
+                    ]);
                 }
             }
 

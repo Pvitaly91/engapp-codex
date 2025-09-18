@@ -61,6 +61,7 @@
     @include('components.word-search')
     <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
         @csrf
+        <input type="hidden" name="test_slug" value="{{ $test->slug }}">
         @foreach($questions as $q)
             <input type="hidden" name="questions[{{ $q->id }}]" value="1">
             <div class="bg-white shadow rounded-2xl p-4 mb-4">
@@ -77,6 +78,7 @@
     'builderInput' => $builderInput,
     'showVerbHintEdit' => true,
     'showQuestionEdit' => true,
+    'testSlug' => $test->slug,
 ])
 <a href="{{ route('question-review.edit', $q->id) }}" class="ml-2 text-sm text-blue-600 underline">Review</a>
 <button type="submit" form="delete-question-{{ $q->id }}" class="text-sm text-red-600 underline" onclick="return confirm('Delete this question?')">Delete</button>

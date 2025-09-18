@@ -4,22 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{Question, QuestionHint};
-use App\Services\{ChatGPTService, GeminiService};
+use App\Services\{ChatGPTService, GeminiService, QuestionVariantService};
 
 class QuestionHelpController extends Controller
 {
+    public function __construct(private QuestionVariantService $variantService)
+    {
+    }
+
     public function hint(Request $request, ChatGPTService $gpt, GeminiService $gemini)
     {
         $data = $request->validate([
             'question_id' => 'sometimes|integer|exists:questions,id',
             'question' => 'required_without:question_id|string',
             'refresh' => 'sometimes|boolean',
+            'test_slug' => 'sometimes|string',
         ]);
 
         $lang = "uk"; // app()->getLocale();
 
         if (isset($data['question_id'])) {
             $question = Question::findOrFail($data['question_id']);
+            if (! empty($data['test_slug'])) {
+                $this->variantService->applyStoredVariant($data['test_slug'], $question);
+            }
             $refresh = $data['refresh'] ?? false;
 
             $chatgptHint = QuestionHint::where('question_id', $question->id)
@@ -34,7 +42,6 @@ class QuestionHelpController extends Controller
                 );
             }
 
-            /*
             $geminiHint = QuestionHint::where('question_id', $question->id)
                 ->where('provider', 'gemini')
                 ->where('locale', $lang)
@@ -45,11 +52,11 @@ class QuestionHelpController extends Controller
                     ['question_id' => $question->id, 'provider' => 'gemini', 'locale' => $lang],
                     ['hint' => $text]
                 );
-            }*/
+            }
 
             return response()->json([
                 'chatgpt' => $chatgptHint->hint,
-                //'gemini' => //$geminiHint->hint,
+                'gemini' => $geminiHint->hint,
             ]);
         }
 
@@ -65,10 +72,14 @@ class QuestionHelpController extends Controller
         $data = $request->validate([
             'question_id' => 'required|integer|exists:questions,id',
             'answer' => 'required|string',
+            'test_slug' => 'sometimes|string',
         ]);
 
         $lang = 'uk'; // app()->getLocale();
         $question = Question::with('answers.option')->findOrFail($data['question_id']);
+        if (! empty($data['test_slug'])) {
+            $this->variantService->applyStoredVariant($data['test_slug'], $question);
+        }
         $correct = $question->answers->first()->option->option ?? $question->answers->first()->answer ?? '';
         $given = trim($data['answer']);
 
