@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Ai;
+namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\ChatGPTExplanation;
@@ -18,7 +18,7 @@ class MixedTenseUsageAiSeeder extends Seeder
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Mixed Tenses'])->id;
-        $sourceId = Source::firstOrCreate(['name' => 'AI: Mixed Tense Usage Review'])->id;
+        $sourceId = Source::firstOrCreate(['name' => 'Mixed Tense Usage Review -generated AI help hints'])->id;
 
         $grammarTags = [
             'duration_result' => Tag::firstOrCreate(['name' => 'Duration vs Result'], ['category' => 'Grammar Focus'])->id,
@@ -554,7 +554,7 @@ class MixedTenseUsageAiSeeder extends Seeder
                 'category_id' => $categoryId,
                 'difficulty' => $levelDifficulty[$data['level']] ?? 3,
                 'source_id' => $sourceId,
-                'flag' => 2,
+                'flag' => 0,
                 'level' => $data['level'],
                 'tag_ids' => $tagIds,
                 'answers' => $answers,
