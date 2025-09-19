@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class QuestionLevelSeeder extends Seeder
 {
-    public function run(): void
+    public function run(): void 
     {
         $mapping = [
             PastSimpleOrPastContinuousTestSeeder::class => 'B1',
