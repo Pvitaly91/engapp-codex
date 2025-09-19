@@ -95,6 +95,63 @@ class QuestionOptionControllerTest extends TestCase
         ]);
     }
 
+    /** @test */
+    public function it_stores_a_new_option_for_a_question(): void
+    {
+        $question = Question::create([
+            'uuid' => 'q-option-store',
+            'question' => 'Do they {a1}?',
+            'difficulty' => 1,
+        ]);
+
+        $response = $this->from('/back')->post(route('question-options.store'), [
+            'question_id' => $question->id,
+            'option' => 'agree',
+            'from' => '/back',
+        ]);
+
+        $response->assertRedirect('/back');
+
+        $option = QuestionOption::where('option', 'agree')->first();
+        $this->assertNotNull($option);
+
+        $this->assertDatabaseHas('question_option_question', [
+            'question_id' => $question->id,
+            'option_id' => $option->id,
+            'flag' => 0,
+        ]);
+    }
+
+    /** @test */
+    public function it_deletes_an_unused_option_from_a_question(): void
+    {
+        $question = Question::create([
+            'uuid' => 'q-option-delete',
+            'question' => 'He will {a1}.',
+            'difficulty' => 1,
+        ]);
+
+        $option = QuestionOption::create(['option' => 'respond']);
+        $question->options()->attach($option->id, ['flag' => 0]);
+
+        $response = $this->from('/back')->delete(route('question-options.destroy', $option), [
+            'question_id' => $question->id,
+            'from' => '/back',
+        ]);
+
+        $response->assertRedirect('/back');
+
+        $this->assertDatabaseMissing('question_option_question', [
+            'question_id' => $question->id,
+            'option_id' => $option->id,
+            'flag' => 0,
+        ]);
+
+        $this->assertDatabaseMissing('question_options', [
+            'id' => $option->id,
+        ]);
+    }
+
     private function ensureSchema(): void
     {
         if (! Schema::hasTable('questions')) {

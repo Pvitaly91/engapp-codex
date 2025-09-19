@@ -11,6 +11,39 @@ use Illuminate\Support\Facades\DB;
 
 class QuestionOptionController extends Controller
 {
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'question_id' => 'required|exists:questions,id',
+            'option' => 'required|string|max:255',
+        ]);
+
+        $question = Question::findOrFail($data['question_id']);
+        $value = trim($data['option']);
+
+        DB::transaction(function () use ($question, $value) {
+            $option = QuestionOption::firstOrCreate(['option' => $value]);
+
+            $pivotExists = DB::table('question_option_question')
+                ->where('question_id', $question->id)
+                ->where('option_id', $option->id)
+                ->where(function ($query) {
+                    $query->whereNull('flag')->orWhere('flag', 0);
+                })
+                ->exists();
+
+            if (! $pivotExists) {
+                $question->options()->attach($option->id, ['flag' => 0]);
+            }
+        });
+
+        if ($request->expectsJson()) {
+            return response()->noContent(201);
+        }
+
+        return redirect($request->input('from', url()->previous()));
+    }
+
     public function update(Request $request, QuestionOption $questionOption)
     {
         $data = $request->validate([
@@ -82,6 +115,53 @@ class QuestionOptionController extends Controller
             if (! $pivotExists) {
                 $question->options()->attach($targetOption->id, ['flag' => 0]);
             }
+
+            $stillUsed = $questionOption->answers()->exists()
+                || $questionOption->verbHints()->exists()
+                || DB::table('question_option_question')
+                    ->where('option_id', $questionOption->id)
+                    ->exists();
+
+            if (! $stillUsed) {
+                $questionOption->delete();
+            }
+        });
+
+        if ($request->expectsJson()) {
+            return response()->noContent();
+        }
+
+        return redirect($request->input('from', url()->previous()));
+    }
+
+    public function destroy(Request $request, QuestionOption $questionOption)
+    {
+        $data = $request->validate([
+            'question_id' => 'required|exists:questions,id',
+        ]);
+
+        $question = Question::findOrFail($data['question_id']);
+
+        DB::transaction(function () use ($question, $questionOption) {
+            $inUseByAnswer = $question->answers()
+                ->where('option_id', $questionOption->id)
+                ->exists();
+
+            $inUseByVerbHint = $question->verbHints()
+                ->where('option_id', $questionOption->id)
+                ->exists();
+
+            if ($inUseByAnswer || $inUseByVerbHint) {
+                return;
+            }
+
+            DB::table('question_option_question')
+                ->where('question_id', $question->id)
+                ->where('option_id', $questionOption->id)
+                ->where(function ($query) {
+                    $query->whereNull('flag')->orWhere('flag', 0);
+                })
+                ->delete();
 
             $stillUsed = $questionOption->answers()->exists()
                 || $questionOption->verbHints()->exists()

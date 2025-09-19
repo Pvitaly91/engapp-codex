@@ -175,6 +175,36 @@ class GrammarTestController extends Controller
         ]);
     }
 
+    public function storeSavedTestQuestion(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        $data = $request->validate([
+            'question' => 'required|string',
+            'level' => 'nullable|string|max:10',
+        ]);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => $data['question'],
+            'difficulty' => 1,
+            'level' => $data['level'] !== '' ? $data['level'] : null,
+        ]);
+
+        $questions = $test->questions ?? [];
+        $questions[] = $question->id;
+        $questions = array_values(array_unique(array_map('intval', $questions)));
+
+        $test->questions = $questions;
+        $test->save();
+
+        if ($request->expectsJson()) {
+            return response()->json(['id' => $question->id], 201);
+        }
+
+        return redirect($request->input('from', route('saved-test.tech', $test->slug)));
+    }
+
     public function showSavedTestRandom($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
@@ -715,7 +745,7 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.step', $slug);
     }
 
-    public function deleteQuestion($slug, Question $question)
+    public function deleteQuestion(Request $request, $slug, Question $question)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
         $test->questions = array_values(array_filter(
@@ -739,7 +769,7 @@ class GrammarTestController extends Controller
             session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
         }
 
-        return redirect()->back();
+        return redirect($request->input('from', url()->previous()));
     }
 
     public function show(Request $request)

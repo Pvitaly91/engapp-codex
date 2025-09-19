@@ -64,6 +64,79 @@ class QuestionAnswerControllerTest extends TestCase
         ]);
     }
 
+    /** @test */
+    public function it_creates_a_new_answer_for_a_question(): void
+    {
+        $question = Question::create([
+            'uuid' => 'q-store',
+            'question' => 'She {a1} quickly.',
+            'difficulty' => 1,
+        ]);
+
+        $response = $this->from('/back')->post(route('question-answers.store'), [
+            'question_id' => $question->id,
+            'marker' => 'A1',
+            'value' => 'runs',
+            'from' => '/back',
+        ]);
+
+        $response->assertRedirect('/back');
+
+        $option = QuestionOption::where('option', 'runs')->first();
+        $this->assertNotNull($option);
+
+        $this->assertDatabaseHas('question_answers', [
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $option->id,
+        ]);
+
+        $this->assertDatabaseHas('question_option_question', [
+            'question_id' => $question->id,
+            'option_id' => $option->id,
+            'flag' => 0,
+        ]);
+    }
+
+    /** @test */
+    public function it_deletes_an_answer_and_cleans_up_unused_option(): void
+    {
+        $question = Question::create([
+            'uuid' => 'q-delete',
+            'question' => 'They {a1} every day.',
+            'difficulty' => 1,
+        ]);
+
+        $option = QuestionOption::create(['option' => 'train']);
+        $question->options()->attach($option->id, ['flag' => 0]);
+
+        $answer = QuestionAnswer::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $option->id,
+        ]);
+
+        $response = $this->from('/back')->delete(route('question-answers.destroy', $answer), [
+            'from' => '/back',
+        ]);
+
+        $response->assertRedirect('/back');
+
+        $this->assertDatabaseMissing('question_answers', [
+            'id' => $answer->id,
+        ]);
+
+        $this->assertDatabaseMissing('question_option_question', [
+            'question_id' => $question->id,
+            'option_id' => $option->id,
+            'flag' => 0,
+        ]);
+
+        $this->assertDatabaseMissing('question_options', [
+            'id' => $option->id,
+        ]);
+    }
+
     private function ensureSchema(): void
     {
         if (! Schema::hasTable('questions')) {
