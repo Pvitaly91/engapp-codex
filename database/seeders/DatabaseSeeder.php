@@ -98,6 +98,7 @@ class DatabaseSeeder extends Seeder
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
             FutureSimpleOrFutureContinuousSeeder::class,
             NegativePresentPerfectHabitsTestSeeder::class,
+            MixedPerfectTenseDetailedSeeder::class,
             MixedTenseUsageAiSeeder::class,
         ]);
     }
