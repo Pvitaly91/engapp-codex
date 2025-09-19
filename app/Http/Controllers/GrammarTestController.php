@@ -11,6 +11,7 @@ use App\Models\Source;
 use Illuminate\Support\Str;
 use App\Models\Test;
 use App\Models\Tag;
+use App\Models\ChatGPTExplanation;
 use App\Services\QuestionVariantService;
 
 class GrammarTestController extends Controller
@@ -89,6 +90,70 @@ class GrammarTestController extends Controller
             'manualInput' => $manualInput,
             'autocompleteInput' => $autocompleteInput,
             'builderInput' => $builderInput,
+        ]);
+    }
+
+    public function showSavedTestTech(string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $supportsVariants = $this->variantService->supportsVariants();
+
+        $relations = ['answers.option', 'options', 'verbHints.option', 'hints'];
+        if ($supportsVariants) {
+            $relations[] = 'variants';
+        }
+
+        $questions = Question::with($relations)
+            ->whereIn('id', $test->questions)
+            ->orderBy('id')
+            ->get();
+
+        $textToQuestionIds = [];
+
+        foreach ($questions as $question) {
+            $texts = collect([
+                $question->getOriginal('question'),
+                $question->question,
+                $question->renderQuestionText(),
+            ]);
+
+            if ($supportsVariants) {
+                $texts = $texts->merge($question->variants->pluck('text'));
+            }
+
+            $texts
+                ->filter(fn($text) => is_string($text) && trim($text) !== '')
+                ->map(fn($text) => trim($text))
+                ->unique()
+                ->each(function (string $text) use ($question, &$textToQuestionIds) {
+                    $textToQuestionIds[$text][] = $question->id;
+                });
+        }
+
+        $explanationsByQuestionId = [];
+
+        if (! empty($textToQuestionIds)) {
+            $explanations = ChatGPTExplanation::query()
+                ->whereIn('question', array_keys($textToQuestionIds))
+                ->orderBy('language')
+                ->orderBy('wrong_answer')
+                ->orderBy('correct_answer')
+                ->get();
+
+            foreach ($explanations as $explanation) {
+                $key = trim((string) $explanation->question);
+                $questionIds = $textToQuestionIds[$key] ?? [];
+
+                foreach ($questionIds as $questionId) {
+                    $explanationsByQuestionId[$questionId][] = $explanation;
+                }
+            }
+        }
+
+        return view('engram.saved-test-tech', [
+            'test' => $test,
+            'questions' => $questions,
+            'explanationsByQuestionId' => $explanationsByQuestionId,
         ]);
     }
 

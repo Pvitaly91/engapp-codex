@@ -22,6 +22,7 @@
         <div class="mt-2 space-x-4">
             <a href="{{ route('saved-test.random', $test->slug) }}" class="text-blue-600 underline">Random Inputs</a>
             <a href="{{ route('saved-test.step', $test->slug) }}" class="text-blue-600 underline">Step Mode</a>
+            <a href="{{ route('saved-test.tech', $test->slug) }}" class="text-blue-600 underline">Технічна сторінка</a>
         </div>
     </div>
     @if($test->description)
