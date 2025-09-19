@@ -66,7 +66,7 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
         ];
 
         $questions = [
-            [
+            [ 
                 'question'  => 'Jane {a1} in the house for hours. He {a2} three rooms so far.',
                 'verb_hint' => ['a1' => '(work)', 'a2' => '(clean)'],
                 'options'   => [
@@ -83,7 +83,7 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
                 'hints' => [
                     'a1' => "Present Perfect Continuous: have/has + been + V-ing → для тривалості ('for hours').",
                     'a2' => "Present Perfect Simple: have/has + V3 → для результату ('so far').",
-                ],
+                ], 
                 'level' => 'B2',
                 'tense' => ['Present Perfect Continuous','Present Perfect Simple'],
                 'variants' => [
