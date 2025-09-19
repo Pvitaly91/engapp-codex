@@ -92,4 +92,58 @@ function persistState(state, immediate = false) {
     }
     JS_TEST_SAVE_TIMER = setTimeout(send, 250);
 }
+
+async function loadQuestions(forceFresh = false) {
+    const current = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
+        ? window.__INITIAL_JS_TEST_QUESTIONS__
+        : [];
+
+    if (!forceFresh) {
+        return current;
+    }
+
+    if (!JS_TEST_PERSISTENCE || !JS_TEST_PERSISTENCE.questionsEndpoint) {
+        if (JS_TEST_PERSISTENCE) {
+            JS_TEST_PERSISTENCE.saved = null;
+        }
+
+        window.__INITIAL_JS_TEST_QUESTIONS__ = current;
+
+        return current;
+    }
+
+    try {
+        const url = new URL(JS_TEST_PERSISTENCE.questionsEndpoint, window.location.origin);
+        if (JS_TEST_PERSISTENCE.mode) {
+            url.searchParams.set('mode', JS_TEST_PERSISTENCE.mode);
+        }
+
+        const response = await fetch(url.toString(), {
+            headers: {
+                'Accept': 'application/json',
+            },
+            credentials: 'same-origin',
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to load fresh questions');
+        }
+
+        const payload = await response.json();
+        if (payload && Array.isArray(payload.questions)) {
+            JS_TEST_PERSISTENCE.saved = null;
+            window.__INITIAL_JS_TEST_QUESTIONS__ = payload.questions;
+
+            return payload.questions;
+        }
+    } catch (error) {
+        console.error(error);
+    }
+
+    if (JS_TEST_PERSISTENCE) {
+        JS_TEST_PERSISTENCE.saved = null;
+    }
+
+    return current;
+}
 </script>

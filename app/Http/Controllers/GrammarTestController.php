@@ -62,8 +62,9 @@ class GrammarTestController extends Controller
     public function showSavedTest($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
+        $supportsVariants = $this->variantService->supportsVariants();
         $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags'];
-        if ($this->variantService->supportsVariants()) {
+        if ($supportsVariants) {
             $relations[] = 'variants';
         }
 
@@ -72,8 +73,11 @@ class GrammarTestController extends Controller
             ->orderBy('id')
             ->get();
 
-        $this->variantService->clearForTest($test->slug);
-        $questions = $this->variantService->applyRandomVariants($test, $questions);
+        if ($supportsVariants) {
+            $previousVariants = $this->variantService->getStoredVariants($test->slug);
+            $this->variantService->clearForTest($test->slug);
+            $questions = $this->variantService->applyRandomVariants($test, $questions, $previousVariants);
+        }
 
         $manualInput = !empty($test->filters['manual_input']);
         $autocompleteInput = !empty($test->filters['autocomplete_input']);
@@ -91,8 +95,9 @@ class GrammarTestController extends Controller
     public function showSavedTestRandom($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
+        $supportsVariants = $this->variantService->supportsVariants();
         $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags'];
-        if ($this->variantService->supportsVariants()) {
+        if ($supportsVariants) {
             $relations[] = 'variants';
         }
 
@@ -100,8 +105,11 @@ class GrammarTestController extends Controller
             ->whereIn('id', $test->questions)
             ->get();
 
-        $this->variantService->clearForTest($test->slug);
-        $questions = $this->variantService->applyRandomVariants($test, $questions);
+        if ($supportsVariants) {
+            $previousVariants = $this->variantService->getStoredVariants($test->slug);
+            $this->variantService->clearForTest($test->slug);
+            $questions = $this->variantService->applyRandomVariants($test, $questions, $previousVariants);
+        }
 
         return view('saved-test-random', [
             'test' => $test,
@@ -152,8 +160,9 @@ class GrammarTestController extends Controller
     private function renderSavedTestJsView(string $slug, string $view)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
-        $questions = $this->buildQuestionDataset($test);
-        $savedState = session($this->jsStateSessionKey($test, $view));
+        $stateKey = $this->jsStateSessionKey($test, $view);
+        $savedState = session($stateKey);
+        $questions = $this->buildQuestionDataset($test, empty($savedState));
 
         return view("engram.$view", [
             'test' => $test,
@@ -161,6 +170,24 @@ class GrammarTestController extends Controller
             'jsStateMode' => $view,
             'savedState' => $savedState,
         ]);
+    }
+
+    public function fetchSavedTestJsQuestions(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $mode = $request->query('mode');
+
+        if ($mode && ! in_array($mode, self::JS_VIEWS, true)) {
+            return response()->json(['message' => 'Invalid mode'], 422);
+        }
+
+        if ($mode) {
+            session()->forget($this->jsStateSessionKey($test, $mode));
+        }
+
+        $questions = $this->buildQuestionDataset($test, true);
+
+        return response()->json(['questions' => $questions]);
     }
 
     public function storeSavedTestJsState(Request $request, string $slug)
@@ -190,41 +217,62 @@ class GrammarTestController extends Controller
         return response()->noContent();
     }
 
-    private function buildQuestionDataset(Test $test)
+    private function buildQuestionDataset(Test $test, bool $freshVariants = false)
     {
-        return Question::with(['category', 'answers.option', 'options', 'verbHints.option'])
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option'];
+        $supportsVariants = $this->variantService->supportsVariants();
+        if ($supportsVariants) {
+            $relations[] = 'variants';
+        }
+
+        $questions = Question::with($relations)
             ->whereIn('id', $test->questions)
             ->orderBy('id')
-            ->get()
-            ->map(function ($q) {
-                $answers = $q->answers->map(function ($a) {
-                    return $a->option->option ?? $a->answer ?? '';
+            ->get();
+
+        if ($supportsVariants) {
+            if ($freshVariants) {
+                $previousVariants = $this->variantService->getStoredVariants($test->slug);
+                $this->variantService->clearForTest($test->slug);
+                $questions = $this->variantService->applyRandomVariants($test, $questions, $previousVariants);
+            } else {
+                $questions = $questions->map(function (Question $question) use ($test) {
+                    $this->variantService->applyStoredVariant($test->slug, $question);
+
+                    return $question;
                 });
+            }
+        }
 
-                $answerList = $answers->values()->toArray();
-                $options = $q->options->pluck('option')->toArray();
-                foreach ($answerList as $ans) {
-                    if ($ans && ! in_array($ans, $options)) {
-                        $options[] = $ans;
-                    }
-                }
-
-                $verbHints = $q->verbHints
-                    ->mapWithKeys(fn($vh) => [$vh->marker => $vh->option->option ?? ''])
-                    ->toArray();
-
-                return [
-                    'id' => $q->id,
-                    'question' => $q->question,
-                    'answer' => $answerList[0] ?? '',
-                    'answers' => $answerList,
-                    'verb_hint' => $verbHints['a1'] ?? '',
-                    'verb_hints' => $verbHints,
-                    'options' => $options,
-                    'tense' => $q->category->name ?? '',
-                    'level' => $q->level ?? '',
-                ];
+        return $questions->map(function ($q) {
+            $answers = $q->answers->map(function ($a) {
+                return $a->option->option ?? $a->answer ?? '';
             });
+
+            $answerList = $answers->values()->toArray();
+            $options = $q->options->pluck('option')->toArray();
+            foreach ($answerList as $ans) {
+                if ($ans && ! in_array($ans, $options)) {
+                    $options[] = $ans;
+                }
+            }
+
+            $verbHints = $q->verbHints
+                ->mapWithKeys(fn($vh) => [$vh->marker => $vh->option->option ?? ''])
+                ->toArray();
+
+            return [
+                'id' => $q->id,
+                'question' => $q->question,
+                'answer' => $answerList[0] ?? '',
+                'answers' => $answerList,
+                'verb_hint' => $verbHints['a1'] ?? '',
+                'verb_hints' => $verbHints,
+                'options' => $options,
+                'tense' => $q->category->name ?? '',
+                'level' => $q->level ?? '',
+            ];
+        })->values()->all();
     }
 
     private function jsStateSessionKey(Test $test, string $view): string

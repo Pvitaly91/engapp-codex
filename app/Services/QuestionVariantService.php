@@ -25,7 +25,18 @@ class QuestionVariantService
         session()->forget($this->namespaceKey($slug));
     }
 
-    public function applyRandomVariant(Test $test, Question $question): void
+    public function getStoredVariants(string $slug): array
+    {
+        $variants = session($this->namespaceKey($slug));
+
+        if (! is_array($variants)) {
+            return [];
+        }
+
+        return $variants;
+    }
+
+    public function applyRandomVariant(Test $test, Question $question, ?string $previousVariant = null): void
     {
         if (! $this->supportsVariants()) {
             return;
@@ -47,8 +58,19 @@ class QuestionVariantService
         }
 
         $options = $variants->prepend($question->getOriginal('question'))
+            ->filter()
             ->unique()
             ->values();
+
+        $previous = $previousVariant ?? session($this->questionKey($test->slug, $question->id));
+
+        if ($previous && $options->count() > 1) {
+            $filtered = $options->reject(fn($text) => $text === $previous)->values();
+
+            if ($filtered->isNotEmpty()) {
+                $options = $filtered;
+            }
+        }
 
         $choice = $options->random();
 
@@ -56,14 +78,14 @@ class QuestionVariantService
         $question->setAttribute('question', $choice);
     }
 
-    public function applyRandomVariants(Test $test, Collection $questions): Collection
+    public function applyRandomVariants(Test $test, Collection $questions, array $previousVariants = []): Collection
     {
         if (! $this->supportsVariants()) {
             return $questions;
         }
 
-        return $questions->map(function (Question $question) use ($test) {
-            $this->applyRandomVariant($test, $question);
+        return $questions->map(function (Question $question) use ($test, $previousVariants) {
+            $this->applyRandomVariant($test, $question, $previousVariants[$question->id] ?? null);
 
             return $question;
         });

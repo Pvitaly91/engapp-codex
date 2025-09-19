@@ -45,7 +45,10 @@
   }
 </style>
 <script>
-const QUESTIONS = @json($questionData);
+window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
+let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
+    ? window.__INITIAL_JS_TEST_QUESTIONS__
+    : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
@@ -71,7 +74,10 @@ function ensureGlobalEvents() {
   globalEventsHooked = true;
 }
 
-function init(forceFresh = false) {
+async function init(forceFresh = false) {
+  const baseQuestions = await loadQuestions(forceFresh);
+  QUESTIONS = Array.isArray(baseQuestions) ? baseQuestions : [];
+
   let restored = false;
   if (!forceFresh) {
     const saved = getSavedState();
