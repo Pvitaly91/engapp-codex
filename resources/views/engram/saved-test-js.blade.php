@@ -38,6 +38,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
+const CSRF_TOKEN = '{{ csrf_token() }}';
+const EXPLAIN_URL = '{{ route('question.explain') }}';
+const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
@@ -70,6 +73,11 @@ async function init(forceFresh = false) {
       state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
       state.activeCardIdx = Number.isFinite(saved.activeCardIdx) ? saved.activeCardIdx : 0;
       restored = true;
+      state.items.forEach((item) => {
+        if (typeof item.explanation !== 'string') item.explanation = '';
+        if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
+        if (!('pendingExplanationKey' in item)) item.pendingExplanationKey = null;
+      });
     }
   }
 
@@ -87,6 +95,9 @@ async function init(forceFresh = false) {
         lastWrong: null,
         feedback: '',
         attempts: 0,
+        explanation: '',
+        explanationsCache: {},
+        pendingExplanationKey: null,
       };
     });
     state.correct = 0;
@@ -128,7 +139,7 @@ function renderQuestions(showOnlyWrong = false) {
         ${q.options.map((opt, i) => renderOptionButton(q, idx, opt, i)).join('')}
       </div>
 
-      <div class="mt-2 h-5" id="feedback-${idx}">${renderFeedback(q)}</div>
+      <div class="mt-2" id="feedback-${idx}">${renderFeedback(q)}</div>
     `;
 
     card.addEventListener('click', (e) => {
@@ -177,19 +188,49 @@ function renderOptionButton(q, idx, opt, i) {
 
 function renderFeedback(q) {
   if (q.feedback === 'correct') {
-    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+    let htmlStr = '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+    if (q.explanation) {
+      htmlStr += `<div class="mt-2 whitespace-pre-line text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-2 rounded-xl">${html(q.explanation)}</div>`;
+    }
+    return htmlStr;
   }
-  return q.feedback
-    ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>`
-    : '';
+  if (q.feedback) {
+    let htmlStr = `<div class="text-sm text-rose-700">${html(q.feedback)}</div>`;
+    if (q.explanation) {
+      htmlStr += `<div class="mt-2 whitespace-pre-line text-sm text-rose-700 bg-rose-50 border border-rose-200 px-3 py-2 rounded-xl">${html(q.explanation)}</div>`;
+    }
+    return htmlStr;
+  }
+  if (q.explanation) {
+    return `<div class="mt-2 whitespace-pre-line text-sm text-stone-700 bg-stone-50 border border-stone-200 px-3 py-2 rounded-xl">${html(q.explanation)}</div>`;
+  }
+  return '';
 }
 
 function onChoose(idx, opt) {
   const item = state.items[idx];
   if (item.done) return;
 
-  if (opt === item.answers[item.slot]) {
-    item.chosen[item.slot] = opt;
+  const slotIndex = item.slot;
+  const expected = item.answers[slotIndex];
+  if (expected === undefined) return;
+
+  if (!item.explanationsCache) {
+    item.explanationsCache = {};
+  }
+
+  const key = buildExplanationKey(opt, expected);
+  item.pendingExplanationKey = key;
+  if (Object.prototype.hasOwnProperty.call(item.explanationsCache, key)) {
+    item.explanation = item.explanationsCache[key];
+  } else {
+    item.explanation = '';
+  }
+
+  const explanationPromise = ensureExplanation(item, idx, opt, expected, key, slotIndex);
+
+  if (opt === expected) {
+    item.chosen[slotIndex] = opt;
     item.slot += 1;
     item.lastWrong = null;
     item.feedback = 'correct';
@@ -204,8 +245,8 @@ function onChoose(idx, opt) {
     item.lastWrong = opt;
     item.attempts += 1;
     if (item.attempts >= 2) {
-      const correct = item.answers[item.slot];
-      item.chosen[item.slot] = correct;
+      const correct = expected;
+      item.chosen[slotIndex] = correct;
       item.slot += 1;
       item.feedback = `Правильна відповідь: ${correct}`;
       item.attempts = 0;
@@ -229,6 +270,25 @@ function onChoose(idx, opt) {
   updateProgress();
   checkAllDone();
   persistState(state);
+
+  explanationPromise
+    .then((text) => {
+      if (item.pendingExplanationKey !== key) {
+        return;
+      }
+      item.explanation = text || '';
+      const card = document.querySelector(`article[data-idx="${idx}"]`);
+      if (card) {
+        const feedbackEl = card.querySelector(`#feedback-${idx}`);
+        if (feedbackEl) {
+          feedbackEl.innerHTML = renderFeedback(item);
+        }
+      }
+      persistState(state);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 function updateProgress() {
@@ -266,6 +326,69 @@ function renderSentence(q) {
     text = text.replace(regex, replacement + hint);
   });
   return text;
+}
+
+function buildExplanationKey(selected, expected) {
+  const normSelected = (selected ?? '').toString().trim().toLowerCase();
+  const normExpected = (expected ?? '').toString().trim().toLowerCase();
+
+  return `${normSelected}|||${normExpected}`;
+}
+
+function ensureExplanation(item, idx, selected, expected, key, slotIndex) {
+  if (!expected && !selected) {
+    return Promise.resolve('');
+  }
+
+  if (!item.explanationsCache) {
+    item.explanationsCache = {};
+  }
+
+  if (Object.prototype.hasOwnProperty.call(item.explanationsCache, key)) {
+    return Promise.resolve(item.explanationsCache[key] || '');
+  }
+
+  const payload = {
+    question_id: item.id,
+    answer: selected,
+    correct_answer: expected,
+  };
+
+  if (typeof slotIndex === 'number') {
+    payload.marker = `a${slotIndex + 1}`;
+  }
+
+  if (TEST_SLUG) {
+    payload.test_slug = TEST_SLUG;
+  }
+
+  return fetch(EXPLAIN_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Failed to load explanation');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const text = data && typeof data.explanation === 'string' ? data.explanation : '';
+      item.explanationsCache[key] = text;
+
+      return text;
+    })
+    .catch((error) => {
+      console.error(error);
+      item.explanationsCache[key] = '';
+
+      return '';
+    });
 }
 
 function hookGlobalEvents() {

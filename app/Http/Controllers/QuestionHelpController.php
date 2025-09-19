@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Question, QuestionHint};
+use App\Models\{ChatGPTExplanation, Question, QuestionHint};
 use App\Services\{ChatGPTService, GeminiService, QuestionVariantService};
 
 class QuestionHelpController extends Controller
@@ -73,25 +73,133 @@ class QuestionHelpController extends Controller
             'question_id' => 'required|integer|exists:questions,id',
             'answer' => 'required|string',
             'test_slug' => 'sometimes|string',
+            'correct_answer' => 'sometimes|string',
+            'marker' => 'sometimes|string',
+            'language' => 'sometimes|string',
         ]);
 
-        $lang = 'uk'; // app()->getLocale();
+        $lang = $data['language'] ?? 'ua'; // Stored explanations use 'ua'
         $question = Question::with('answers.option')->findOrFail($data['question_id']);
+
+        $originalQuestionText = $question->getOriginal('question') ?? $question->question;
+
         if (! empty($data['test_slug'])) {
             $this->variantService->applyStoredVariant($data['test_slug'], $question);
         }
-        $correct = $question->answers->first()->option->option ?? $question->answers->first()->answer ?? '';
-        $given = trim($data['answer']);
 
-        if (mb_strtolower($given) === mb_strtolower($correct)) {
-            return response()->json(['correct' => true, 'explanation' => '']);
+        $questionTexts = [];
+        foreach ([$originalQuestionText, $question->question] as $text) {
+            if (is_string($text)) {
+                $trimmed = trim($text);
+                if ($trimmed !== '' && ! in_array($trimmed, $questionTexts, true)) {
+                    $questionTexts[] = $trimmed;
+                }
+            }
         }
 
-        $explanation = $gpt->explainWrongAnswer($question->question, $given, $correct, $lang);
+        if (empty($questionTexts)) {
+            $questionTexts[] = $question->question;
+        }
+
+        $answersByMarker = $question->answers->mapWithKeys(function ($answer) {
+            $value = $answer->option->option ?? $answer->answer ?? '';
+
+            return [$answer->marker => $value];
+        });
+
+        $correctAnswer = trim((string) ($data['correct_answer'] ?? ''));
+
+        if ($correctAnswer === '' && isset($data['marker']) && $answersByMarker->has($data['marker'])) {
+            $correctAnswer = trim((string) $answersByMarker->get($data['marker']));
+        }
+
+        if ($correctAnswer === '') {
+            $correctAnswer = trim($answersByMarker->implode(' '));
+        }
+
+        if ($correctAnswer === '') {
+            $correctAnswer = trim((string) ($answersByMarker->first() ?? ''));
+        }
+
+        $given = trim($data['answer']);
+        $normalizedGiven = mb_strtolower($given, 'UTF-8');
+        $normalizedCorrect = mb_strtolower($correctAnswer, 'UTF-8');
+        $isCorrect = $normalizedCorrect !== '' && $normalizedGiven === $normalizedCorrect;
+
+        $storedExplanation = $this->findStoredExplanation(
+            $questionTexts,
+            $normalizedGiven,
+            $normalizedCorrect,
+            $lang,
+            $isCorrect
+        );
+
+        if ($storedExplanation !== null) {
+            return response()->json([
+                'correct' => $isCorrect,
+                'explanation' => $storedExplanation,
+            ]);
+        }
+
+        if ($isCorrect) {
+            return response()->json([
+                'correct' => true,
+                'explanation' => '',
+            ]);
+        }
+
+        $questionTextForGpt = $questionTexts[0] ?? $question->question;
+        $fallbackCorrect = $correctAnswer !== '' ? $correctAnswer : ($answersByMarker->first() ?? '');
+        $explanation = $gpt->explainWrongAnswer($questionTextForGpt, $given, $fallbackCorrect, $lang);
 
         return response()->json([
             'correct' => false,
             'explanation' => $explanation,
         ]);
+    }
+
+    private function findStoredExplanation(array $questionTexts, string $normalizedGiven, string $normalizedCorrect, string $lang, bool $isCorrect): ?string
+    {
+        if (empty($questionTexts) || $normalizedCorrect === '') {
+            return null;
+        }
+
+        $languages = [];
+        foreach ([$lang, 'ua', 'uk'] as $candidate) {
+            if (is_string($candidate) && $candidate !== '' && ! in_array($candidate, $languages, true)) {
+                $languages[] = $candidate;
+            }
+        }
+
+        $baseQuery = ChatGPTExplanation::query()
+            ->whereIn('question', $questionTexts)
+            ->whereIn('language', $languages)
+            ->whereRaw('LOWER(TRIM(correct_answer)) = ?', [$normalizedCorrect]);
+
+        if ($normalizedGiven !== '') {
+            $match = (clone $baseQuery)
+                ->whereRaw('LOWER(TRIM(wrong_answer)) = ?', [$normalizedGiven])
+                ->first();
+
+            if ($match) {
+                return $match->explanation;
+            }
+        }
+
+        if ($isCorrect) {
+            $match = (clone $baseQuery)
+                ->where(function ($query) use ($normalizedCorrect) {
+                    $query->whereRaw('LOWER(TRIM(wrong_answer)) = ?', [$normalizedCorrect])
+                        ->orWhereNull('wrong_answer')
+                        ->orWhereRaw("TRIM(wrong_answer) = ''");
+                })
+                ->first();
+
+            if ($match) {
+                return $match->explanation;
+            }
+        }
+
+        return null;
     }
 }

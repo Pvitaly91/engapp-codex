@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tag;
 use App\Models\QuestionVariant;
+use App\Models\QuestionHint;
 
 class Question extends Model
 {
@@ -63,6 +64,11 @@ class Question extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function hints()
+    {
+        return $this->hasMany(QuestionHint::class);
     }
 
     public function variants()

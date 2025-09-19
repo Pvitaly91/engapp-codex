@@ -50,6 +50,8 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
+const EXPLAIN_URL = '{{ route('question.explain') }}';
+const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
@@ -86,6 +88,11 @@ async function init(forceFresh = false) {
       state.current = Number.isFinite(saved.current) ? saved.current : 0;
       state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
       restored = true;
+      state.items.forEach((item) => {
+        if (typeof item.explanation !== 'string') item.explanation = '';
+        if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
+        if (!('pendingExplanationKey' in item)) item.pendingExplanationKey = null;
+      });
     }
   }
 
@@ -103,6 +110,9 @@ async function init(forceFresh = false) {
         lastWrong: null,
         feedback: '',
         attempts: 0,
+        explanation: '',
+        explanationsCache: {},
+        pendingExplanationKey: null,
       };
     });
     state.current = 0;
@@ -138,7 +148,7 @@ function render() {
       <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2" role="group" aria-label="Варіанти відповіді">
         ${q.options.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
       </div>
-      <div class="mt-2 h-5" id="feedback">${renderFeedback(q)}</div>
+      <div class="mt-2" id="feedback">${renderFeedback(q)}</div>
     </article>
   `;
 
@@ -167,9 +177,23 @@ function renderOptionButton(q, opt, i) {
 
 function renderFeedback(q) {
   if (q.feedback === 'correct') {
-    return '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+    let htmlStr = '<div class="text-sm text-emerald-700">✅ Вірно!</div>';
+    if (q.explanation) {
+      htmlStr += `<div class="mt-2 whitespace-pre-line text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-2 rounded-xl">${html(q.explanation)}</div>`;
+    }
+    return htmlStr;
   }
-  return q.feedback ? `<div class="text-sm text-rose-700">${html(q.feedback)}</div>` : '';
+  if (q.feedback) {
+    let htmlStr = `<div class="text-sm text-rose-700">${html(q.feedback)}</div>`;
+    if (q.explanation) {
+      htmlStr += `<div class="mt-2 whitespace-pre-line text-sm text-rose-700 bg-rose-50 border border-rose-200 px-3 py-2 rounded-xl">${html(q.explanation)}</div>`;
+    }
+    return htmlStr;
+  }
+  if (q.explanation) {
+    return `<div class="mt-2 whitespace-pre-line text-sm text-stone-700 bg-stone-50 border border-stone-200 px-3 py-2 rounded-xl">${html(q.explanation)}</div>`;
+  }
+  return '';
 }
 
 document.getElementById('question-card').addEventListener('click', (e) => {
@@ -180,10 +204,28 @@ document.getElementById('question-card').addEventListener('click', (e) => {
 
 function onChoose(opt) {
   const q = state.items[state.current];
-  if (q.done) return;
+  if (!q || q.done) return;
 
-  if (opt === q.answers[q.slot]) {
-    q.chosen[q.slot] = opt;
+  const slotIndex = q.slot;
+  const expected = q.answers[slotIndex];
+  if (expected === undefined) return;
+
+  if (!q.explanationsCache) {
+    q.explanationsCache = {};
+  }
+
+  const key = buildExplanationKey(opt, expected);
+  q.pendingExplanationKey = key;
+  if (Object.prototype.hasOwnProperty.call(q.explanationsCache, key)) {
+    q.explanation = q.explanationsCache[key];
+  } else {
+    q.explanation = '';
+  }
+
+  const explanationPromise = ensureExplanation(q, opt, expected, key, slotIndex);
+
+  if (opt === expected) {
+    q.chosen[slotIndex] = opt;
     q.slot += 1;
     q.lastWrong = null;
     q.feedback = 'correct';
@@ -197,8 +239,8 @@ function onChoose(opt) {
     q.lastWrong = opt;
     q.attempts += 1;
     if (q.attempts >= 2) {
-      const correct = q.answers[q.slot];
-      q.chosen[q.slot] = correct;
+      const correct = expected;
+      q.chosen[slotIndex] = correct;
       q.slot += 1;
       q.feedback = `Правильна відповідь: ${correct}`;
       q.attempts = 0;
@@ -212,6 +254,24 @@ function onChoose(opt) {
   render();
   updateProgress();
   persistState(state);
+
+  explanationPromise
+    .then((text) => {
+      if (q.pendingExplanationKey !== key) {
+        return;
+      }
+      q.explanation = text || '';
+      if (state.items[state.current] === q) {
+        const feedbackEl = document.getElementById('feedback');
+        if (feedbackEl) {
+          feedbackEl.innerHTML = renderFeedback(q);
+        }
+      }
+      persistState(state);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 document.getElementById('prev').addEventListener('click', () => {
@@ -257,6 +317,69 @@ function renderSentence(q) {
     text = text.replace(regex, replacement + hint);
   });
   return text;
+}
+
+function buildExplanationKey(selected, expected) {
+  const normSelected = (selected ?? '').toString().trim().toLowerCase();
+  const normExpected = (expected ?? '').toString().trim().toLowerCase();
+
+  return `${normSelected}|||${normExpected}`;
+}
+
+function ensureExplanation(q, selected, expected, key, slotIndex) {
+  if (!expected && !selected) {
+    return Promise.resolve('');
+  }
+
+  if (!q.explanationsCache) {
+    q.explanationsCache = {};
+  }
+
+  if (Object.prototype.hasOwnProperty.call(q.explanationsCache, key)) {
+    return Promise.resolve(q.explanationsCache[key] || '');
+  }
+
+  const payload = {
+    question_id: q.id,
+    answer: selected,
+    correct_answer: expected,
+  };
+
+  if (typeof slotIndex === 'number') {
+    payload.marker = `a${slotIndex + 1}`;
+  }
+
+  if (TEST_SLUG) {
+    payload.test_slug = TEST_SLUG;
+  }
+
+  return fetch(EXPLAIN_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Failed to load explanation');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const text = data && typeof data.explanation === 'string' ? data.explanation : '';
+      q.explanationsCache[key] = text;
+
+      return text;
+    })
+    .catch((error) => {
+      console.error(error);
+      q.explanationsCache[key] = '';
+
+      return '';
+    });
 }
 
 function showSummary() {
