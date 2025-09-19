@@ -24,7 +24,7 @@
                 </div>
                 <p class="text-sm text-stone-600">Технічна інформація про тест · Питань: {{ $questions->count() }}</p>
             </div>
-            <form x-show="editing" x-ref="form" method="POST" action="{{ route('saved-tests.update', $test) }}" class="hidden rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-3">
+            <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('saved-tests.update', $test) }}" class="rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-3">
                 @csrf
                 @method('put')
                 <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -159,7 +159,7 @@
                         <span>Редагувати питання</span>
                     </button>
                 </div>
-                <form x-show="editingQuestion" x-ref="form" method="POST" action="{{ route('questions.update', $question) }}" class="hidden rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-4">
+                <form x-show="editingQuestion" x-cloak x-ref="form" method="POST" action="{{ route('questions.update', $question) }}" class="rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-4">
                     @csrf
                     @method('put')
                     <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -208,7 +208,7 @@
                                     </div>
                                     <span>{!! $highlightSegments($variant->text) !!}</span>
                                 </div>
-                                <form x-show="editing" x-ref="form" method="POST" action="{{ route('question-variants.update', $variant) }}" class="hidden space-y-2">
+                                <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-variants.update', $variant) }}" class="space-y-2">
                                     @csrf
                                     @method('put')
                                     <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -255,7 +255,7 @@
                                         <span>Редагувати відповідь</span>
                                     </button>
                                 </div>
-                                <form x-show="editingAnswer" x-ref="form" method="POST" action="{{ route('question-answers.update', $answer) }}" class="hidden space-y-2">
+                                <form x-show="editingAnswer" x-cloak x-ref="form" method="POST" action="{{ route('question-answers.update', $answer) }}" class="space-y-2">
                                     @csrf
                                     @method('put')
                                     <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -290,7 +290,7 @@
                                             <span>Редагувати підказку</span>
                                         </button>
                                     </div>
-                                    <form x-show="editingHint" x-ref="form" method="POST" action="{{ route('verb-hints.update', $verbHintModel) }}" class="hidden space-y-2">
+                                    <form x-show="editingHint" x-cloak x-ref="form" method="POST" action="{{ route('verb-hints.update', $verbHintModel) }}" class="space-y-2">
                                         @csrf
                                         @method('put')
                                         <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -343,7 +343,7 @@
                                             <span>Редагувати</span>
                                         </button>
                                     </div>
-                                    <form x-show="editing" x-ref="form" method="POST" action="{{ route('question-options.update', $optionItem->model) }}" class="hidden space-y-2 rounded-xl border border-stone-200 bg-white px-3 py-2">
+                                    <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-options.update', $optionItem->model) }}" class="space-y-2 rounded-xl border border-stone-200 bg-white px-3 py-2">
                                         @csrf
                                         @method('put')
                                         <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -390,7 +390,7 @@
                                     </div>
                                     <div class="whitespace-pre-line text-stone-800">{{ $hint->hint }}</div>
                                 </div>
-                                <form x-show="editing" x-ref="form" method="POST" action="{{ route('question-hints.update', $hint) }}" class="hidden space-y-3 rounded-xl border border-blue-200 bg-white px-3 py-3">
+                                <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-hints.update', $hint) }}" class="space-y-3 rounded-xl border border-blue-200 bg-white px-3 py-3">
                                     @csrf
                                     @method('put')
                                     <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -467,7 +467,7 @@
                                                 </button>
                                             </div>
                                         </td>
-                                        <td x-show="editing" colspan="4" class="hidden py-3">
+                                        <td x-show="editing" x-cloak colspan="4" class="py-3">
                                             <form x-ref="form" method="POST" action="{{ route('chatgpt-explanations.update', $explanation) }}" class="space-y-3 rounded-2xl border border-stone-200 bg-white px-4 py-3">
                                                 @csrf
                                                 @method('put')
