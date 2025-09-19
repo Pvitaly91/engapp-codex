@@ -88,7 +88,25 @@
                 </div>
             </header>
 
-            <details open class="group">
+            @if($variantTexts->isNotEmpty())
+                <details class="group">
+                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                        <span>Варіанти запитання</span>
+                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                    </summary>
+                    <ul class="mt-3 space-y-2 text-sm text-stone-800">
+                        @foreach($variantTexts as $variant)
+                            <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
+                                <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
+                                <span>{!! $highlightSegments($variant) !!}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                </details>
+            @endif
+
+            <details class="group">
                 <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
                     <span>Правильні відповіді</span>
                     <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
@@ -117,7 +135,7 @@
             </details>
 
             @if($options->isNotEmpty())
-                <details open class="group">
+                <details class="group">
                     <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
                         <span>Варіанти відповіді</span>
                         <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
@@ -143,26 +161,8 @@
                 </details>
             @endif
 
-            @if($variantTexts->isNotEmpty())
-                <details open class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>Варіанти запитання</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <ul class="mt-3 space-y-2 text-sm text-stone-800">
-                        @foreach($variantTexts as $variant)
-                            <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
-                                <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
-                                <span>{!! $highlightSegments($variant) !!}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                </details>
-            @endif
-
             @if($questionHints->isNotEmpty())
-                <details open class="group">
+                <details class="group">
                     <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
                         <span>Question hints</span>
                         <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
@@ -180,7 +180,7 @@
             @endif
 
             @if($explanations->isNotEmpty())
-                <details open class="group">
+                <details class="group">
                     <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
                         <span>ChatGPT explanations</span>
                         <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
