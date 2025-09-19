@@ -97,16 +97,18 @@ class SavedTestTechnicalPageTest extends TestCase
         $response = $this->get(route('saved-test.tech', $test->slug));
 
         $response->assertOk();
-        $response->assertSee('I go to school every day.');
+        $response->assertSee('Правильні відповіді');
+        $response->assertSee('Показати ▼');
+        $response->assertSee('I <mark class="rounded bg-emerald-100 px-1 py-0.5 font-semibold text-emerald-800">go</mark> to school every day.', false);
         $response->assertSee('Варіанти відповіді');
         $response->assertSee('goes');
-        $response->assertSee('Verb hints');
+        $response->assertSee('Verb hint');
         $response->assertSee('Question hints');
         $response->assertSee('ChatGPT explanations');
         $response->assertSee('Форма go вживається з I.');
 
         if (Schema::hasTable('question_variants')) {
-            $response->assertSee('They go to school together.');
+            $response->assertSee('They <mark class="rounded bg-emerald-100 px-1 py-0.5 font-semibold text-emerald-800">go</mark> to school together.', false);
         }
     }
 
