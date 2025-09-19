@@ -578,7 +578,7 @@ class MixedTenseUsageAiSeeder extends Seeder
                 continue;
             }
 
-            $hintText = $this->combineHints($item['hints']);
+            $hintText = $this->formatHints($item['hints']);
             if ($hintText !== null) {
                 QuestionHint::updateOrCreate(
                     ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => 'uk'],
@@ -612,7 +612,7 @@ class MixedTenseUsageAiSeeder extends Seeder
         return trim($value, "() \t\n\r");
     }
 
-    private function combineHints(array $hints): ?string
+    private function formatHints(array $hints): ?string
     {
         if (empty($hints)) {
             return null;
@@ -620,8 +620,8 @@ class MixedTenseUsageAiSeeder extends Seeder
 
         $parts = [];
         foreach ($hints as $marker => $text) {
-            $label = strtoupper($marker);
-            $parts[] = "$label: $text";
+            $markerLabel = '{' . $marker . '}';
+            $parts[] = $markerLabel . ' ' . ltrim($text);
         }
 
         return implode("\n", $parts);
