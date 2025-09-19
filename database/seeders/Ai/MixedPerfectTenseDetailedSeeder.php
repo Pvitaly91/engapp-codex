@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Ai;
 
 use App\Models\Category;
 use App\Models\ChatGPTExplanation;
@@ -635,7 +635,7 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
                 'category_id' => $categoryId,
                 'difficulty'  => $levelDifficulty[$data['level']] ?? 3,
                 'source_id'   => $sourceId,
-                'flag'        => 0,
+                'flag'        => 2,
                 'level'       => $data['level'],
                 'tag_ids'     => $tagIds,
                 'answers'     => $answers,
