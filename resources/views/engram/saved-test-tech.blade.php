@@ -6,12 +6,16 @@
 <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div x-data="{ editing: false }" class="flex-1 space-y-3">
-            <div x-show="!editing" class="space-y-2">
+            <div x-show="!editing" x-ref="display" class="space-y-2">
                 <div class="flex flex-wrap items-center gap-3">
                     <h1 class="text-2xl font-bold text-stone-900">{{ $test->name }}</h1>
                     <button type="button"
                             class="inline-flex items-center gap-1 rounded-lg border border-stone-300 px-3 py-1.5 text-sm font-semibold text-stone-600 hover:bg-stone-100"
-                            @click="editing = true">
+                            @click="
+                                window.highlightEditable($refs.display);
+                                editing = true;
+                                $nextTick(() => window.highlightEditable($refs.form));
+                            ">
                         <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m13.5 6.5-8 8-3 3 .5-3.5 8-8 2.5 2.5Zm0 0 2-2a1.586 1.586 0 0 1 2.243 0 1.586 1.586 0 0 1 0 2.243l-2 2M10 4h-6a2 2 0 0 0-2 2v10c0 1.105.895 2 2 2h10a2 2 0 0 0 2-2v-6" />
                         </svg>
@@ -20,7 +24,7 @@
                 </div>
                 <p class="text-sm text-stone-600">Технічна інформація про тест · Питань: {{ $questions->count() }}</p>
             </div>
-            <form x-show="editing" method="POST" action="{{ route('saved-tests.update', $test) }}" class="hidden rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-3">
+            <form x-show="editing" x-ref="form" method="POST" action="{{ route('saved-tests.update', $test) }}" class="hidden rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-3">
                 @csrf
                 @method('put')
                 <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -134,7 +138,7 @@
                             <span class="font-semibold uppercase tracking-wide">Питання {{ $loop->iteration }}</span>
                             <span>ID: {{ $question->id }}</span>
                         </div>
-                        <div x-show="!editingQuestion">
+                        <div x-show="!editingQuestion" x-ref="display">
                             <p class="mt-2 text-lg leading-relaxed text-stone-900">{!! $filledQuestion !!}</p>
                         </div>
                     </div>
@@ -144,14 +148,18 @@
                     </div>
                 </div>
                 <div x-show="!editingQuestion" class="flex justify-end">
-                    <button type="button" class="inline-flex items-center gap-1 rounded-lg border border-stone-300 px-3 py-1.5 text-sm font-semibold text-stone-700 hover:bg-stone-100" @click="editingQuestion = true">
+                    <button type="button" class="inline-flex items-center gap-1 rounded-lg border border-stone-300 px-3 py-1.5 text-sm font-semibold text-stone-700 hover:bg-stone-100" @click="
+                        window.highlightEditable($refs.display);
+                        editingQuestion = true;
+                        $nextTick(() => window.highlightEditable($refs.form));
+                    ">
                         <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m13.5 6.5-8 8-3 3 .5-3.5 8-8 2.5 2.5Zm0 0 2-2a1.586 1.586 0 0 1 2.243 0 1.586 1.586 0 0 1 0 2.243l-2 2M10 4h-6a2 2 0 0 0-2 2v10c0 1.105.895 2 2 2h10a2 2 0 0 0 2-2v-6" />
                         </svg>
                         <span>Редагувати питання</span>
                     </button>
                 </div>
-                <form x-show="editingQuestion" method="POST" action="{{ route('questions.update', $question) }}" class="hidden rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-4">
+                <form x-show="editingQuestion" x-ref="form" method="POST" action="{{ route('questions.update', $question) }}" class="hidden rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-4">
                     @csrf
                     @method('put')
                     <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -187,16 +195,20 @@
                     <ul class="mt-3 space-y-2 text-sm text-stone-800">
                         @foreach($variantItems as $variant)
                             <li x-data="{ editing: false }" class="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
-                                <div x-show="!editing" class="space-y-1">
+                                <div x-show="!editing" x-ref="display" class="space-y-1">
                                     <div class="flex items-center justify-between gap-2">
                                         <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
-                                        <button type="button" class="inline-flex items-center gap-1 rounded border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600 hover:bg-stone-100" @click="editing = true">
+                                        <button type="button" class="inline-flex items-center gap-1 rounded border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600 hover:bg-stone-100" @click="
+                                            window.highlightEditable($refs.display);
+                                            editing = true;
+                                            $nextTick(() => window.highlightEditable($refs.form));
+                                        ">
                                             <span>Редагувати</span>
                                         </button>
                                     </div>
                                     <span>{!! $highlightSegments($variant->text) !!}</span>
                                 </div>
-                                <form x-show="editing" method="POST" action="{{ route('question-variants.update', $variant) }}" class="hidden space-y-2">
+                                <form x-show="editing" x-ref="form" method="POST" action="{{ route('question-variants.update', $variant) }}" class="hidden space-y-2">
                                     @csrf
                                     @method('put')
                                     <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -232,14 +244,18 @@
                         @endphp
                         <li class="rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-3">
                             <div x-data="{ editingAnswer: false }" class="space-y-2">
-                                <div x-show="!editingAnswer" class="flex flex-wrap items-center gap-2">
+                                <div x-show="!editingAnswer" x-ref="display" class="flex flex-wrap items-center gap-2">
                                     <span class="font-mono text-xs uppercase text-emerald-500">{{ $marker }}</span>
                                     <span class="font-semibold text-emerald-900">{{ $answerValue }}</span>
-                                    <button type="button" class="inline-flex items-center gap-1 rounded border border-emerald-200 bg-white px-2 py-1 text-xs font-semibold text-emerald-700 hover:bg-emerald-100" @click="editingAnswer = true">
+                                    <button type="button" class="inline-flex items-center gap-1 rounded border border-emerald-200 bg-white px-2 py-1 text-xs font-semibold text-emerald-700 hover:bg-emerald-100" @click="
+                                        window.highlightEditable($refs.display);
+                                        editingAnswer = true;
+                                        $nextTick(() => window.highlightEditable($refs.form));
+                                    ">
                                         <span>Редагувати відповідь</span>
                                     </button>
                                 </div>
-                                <form x-show="editingAnswer" method="POST" action="{{ route('question-answers.update', $answer) }}" class="hidden space-y-2">
+                                <form x-show="editingAnswer" x-ref="form" method="POST" action="{{ route('question-answers.update', $answer) }}" class="hidden space-y-2">
                                     @csrf
                                     @method('put')
                                     <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -263,14 +279,18 @@
                             </div>
                             @if($verbHintModel && $verbHintValue)
                                 <div x-data="{ editingHint: false }" class="mt-3 rounded-lg border border-emerald-200 bg-white px-3 py-2">
-                                    <div x-show="!editingHint" class="flex flex-wrap items-center gap-2">
+                                    <div x-show="!editingHint" x-ref="display" class="flex flex-wrap items-center gap-2">
                                         <span class="font-semibold uppercase text-[10px] tracking-wide text-emerald-600">Verb hint</span>
                                         <span class="text-sm text-emerald-800">{{ $verbHintValue }}</span>
-                                        <button type="button" class="inline-flex items-center gap-1 rounded border border-emerald-200 px-2 py-1 text-xs font-semibold text-emerald-700 hover:bg-emerald-50" @click="editingHint = true">
+                                        <button type="button" class="inline-flex items-center gap-1 rounded border border-emerald-200 px-2 py-1 text-xs font-semibold text-emerald-700 hover:bg-emerald-50" @click="
+                                            window.highlightEditable($refs.display);
+                                            editingHint = true;
+                                            $nextTick(() => window.highlightEditable($refs.form));
+                                        ">
                                             <span>Редагувати підказку</span>
                                         </button>
                                     </div>
-                                    <form x-show="editingHint" method="POST" action="{{ route('verb-hints.update', $verbHintModel) }}" class="hidden space-y-2">
+                                    <form x-show="editingHint" x-ref="form" method="POST" action="{{ route('verb-hints.update', $verbHintModel) }}" class="hidden space-y-2">
                                         @csrf
                                         @method('put')
                                         <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -301,7 +321,7 @@
                     <div class="mt-3 flex flex-wrap gap-2">
                         @foreach($options as $optionItem)
                             <div x-data="{ editing: false }" class="inline-flex flex-col items-start gap-2">
-                                <div x-show="!editing" @class([
+                                <div x-show="!editing" x-ref="display" @class([
                                     'inline-flex items-center gap-1 rounded-full border px-3 py-1 text-sm shadow-sm',
                                     'border-emerald-200 bg-emerald-50 text-emerald-900 font-semibold' => $optionItem->is_correct,
                                     'border-stone-200 bg-stone-50 text-stone-800' => ! $optionItem->is_correct,
@@ -315,11 +335,15 @@
                                 </div>
                                 @if($optionItem->editable && $optionItem->model)
                                     <div class="flex flex-wrap gap-2">
-                                        <button x-show="!editing" type="button" class="inline-flex items-center gap-1 rounded border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600 hover:bg-stone-100" @click="editing = true">
+                                        <button x-show="!editing" type="button" class="inline-flex items-center gap-1 rounded border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600 hover:bg-stone-100" @click="
+                                            window.highlightEditable($refs.display);
+                                            editing = true;
+                                            $nextTick(() => window.highlightEditable($refs.form));
+                                        ">
                                             <span>Редагувати</span>
                                         </button>
                                     </div>
-                                    <form x-show="editing" method="POST" action="{{ route('question-options.update', $optionItem->model) }}" class="hidden space-y-2 rounded-xl border border-stone-200 bg-white px-3 py-2">
+                                    <form x-show="editing" x-ref="form" method="POST" action="{{ route('question-options.update', $optionItem->model) }}" class="hidden space-y-2 rounded-xl border border-stone-200 bg-white px-3 py-2">
                                         @csrf
                                         @method('put')
                                         <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -351,18 +375,22 @@
                     <ul class="mt-3 space-y-3 text-sm text-stone-800">
                         @foreach($questionHints as $hint)
                             <li x-data="{ editing: false }" class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-3">
-                                <div x-show="!editing" class="space-y-2">
+                                <div x-show="!editing" x-ref="display" class="space-y-2">
                                     <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
                                         <span>{{ $hint->provider }}</span>
                                         <span>·</span>
                                         <span>{{ strtoupper($hint->locale) }}</span>
-                                        <button type="button" class="inline-flex items-center gap-1 rounded border border-blue-200 px-2 py-1 text-[11px] font-semibold text-blue-700 hover:bg-blue-100" @click="editing = true">
+                                        <button type="button" class="inline-flex items-center gap-1 rounded border border-blue-200 px-2 py-1 text-[11px] font-semibold text-blue-700 hover:bg-blue-100" @click="
+                                            window.highlightEditable($refs.display);
+                                            editing = true;
+                                            $nextTick(() => window.highlightEditable($refs.form));
+                                        ">
                                             <span>Редагувати</span>
                                         </button>
                                     </div>
                                     <div class="whitespace-pre-line text-stone-800">{{ $hint->hint }}</div>
                                 </div>
-                                <form x-show="editing" method="POST" action="{{ route('question-hints.update', $hint) }}" class="hidden space-y-3 rounded-xl border border-blue-200 bg-white px-3 py-3">
+                                <form x-show="editing" x-ref="form" method="POST" action="{{ route('question-hints.update', $hint) }}" class="hidden space-y-3 rounded-xl border border-blue-200 bg-white px-3 py-3">
                                     @csrf
                                     @method('put')
                                     <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -427,16 +455,20 @@
                                         ])>
                                             {{ $explanation->correct_answer }}
                                         </td>
-                                        <td x-show="!editing" class="py-2">
+                                        <td x-show="!editing" x-ref="display" class="py-2">
                                             <div class="flex items-start justify-between gap-3">
                                                 <span class="flex-1">{{ $explanation->explanation }}</span>
-                                                <button type="button" class="inline-flex items-center gap-1 rounded border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600 hover:bg-stone-100" @click="editing = true">
+                                                <button type="button" class="inline-flex items-center gap-1 rounded border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-600 hover:bg-stone-100" @click="
+                                                    window.highlightEditable($refs.display);
+                                                    editing = true;
+                                                    $nextTick(() => window.highlightEditable($refs.form));
+                                                ">
                                                     <span>Редагувати</span>
                                                 </button>
                                             </div>
                                         </td>
                                         <td x-show="editing" colspan="4" class="hidden py-3">
-                                            <form method="POST" action="{{ route('chatgpt-explanations.update', $explanation) }}" class="space-y-3 rounded-2xl border border-stone-200 bg-white px-4 py-3">
+                                            <form x-ref="form" method="POST" action="{{ route('chatgpt-explanations.update', $explanation) }}" class="space-y-3 rounded-2xl border border-stone-200 bg-white px-4 py-3">
                                                 @csrf
                                                 @method('put')
                                                 <input type="hidden" name="from" value="{{ request()->fullUrl() }}">
@@ -481,4 +513,38 @@
         </article>
     @endforeach
 </div>
+
+<style>
+    .editable-highlight {
+        outline: 3px solid rgba(250, 204, 21, 0.85);
+        outline-offset: 4px;
+        transition: outline-color 0.2s ease, outline-width 0.2s ease;
+    }
+</style>
+<script>
+    window.highlightEditable = function (element) {
+        if (! element) {
+            return;
+        }
+
+        const cleanup = () => {
+            element.classList.remove('editable-highlight');
+            delete element.dataset.highlightTimeoutId;
+        };
+
+        if (element.dataset.highlightTimeoutId) {
+            window.clearTimeout(Number(element.dataset.highlightTimeoutId));
+            cleanup();
+        }
+
+        element.classList.add('editable-highlight');
+
+        if (typeof element.scrollIntoView === 'function') {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        const timeoutId = window.setTimeout(cleanup, 1800);
+        element.dataset.highlightTimeoutId = String(timeoutId);
+    };
+</script>
 @endsection
