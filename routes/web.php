@@ -7,6 +7,11 @@ use App\Http\Controllers\QuestionHelpController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\SiteSearchController;
+use App\Http\Controllers\QuestionAnswerController;
+use App\Http\Controllers\QuestionHintController;
+use App\Http\Controllers\QuestionOptionController;
+use App\Http\Controllers\QuestionVariantController;
+use App\Http\Controllers\ChatGPTExplanationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -91,6 +96,7 @@ Route::delete('/test/{slug}/step/remove-tag', [GrammarTestController::class, 're
 Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
 Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
+Route::put('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'update'])->name('saved-tests.update');
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
 Route::get('/catalog-tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
 
@@ -132,6 +138,11 @@ Route::post('/verb-hints', [VerbHintController::class, 'store'])->name('verb-hin
 Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
 Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])->name('verb-hints.destroy');
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
+Route::put('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'update'])->name('question-answers.update');
+Route::put('/question-options/{questionOption}', [QuestionOptionController::class, 'update'])->name('question-options.update');
+Route::put('/question-variants/{questionVariant}', [QuestionVariantController::class, 'update'])->name('question-variants.update');
+Route::put('/question-hints/{questionHint}', [QuestionHintController::class, 'update'])->name('question-hints.update');
+Route::put('/chatgpt-explanations/{chatgptExplanation}', [ChatGPTExplanationController::class, 'update'])->name('chatgpt-explanations.update');
 
 Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
 Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');

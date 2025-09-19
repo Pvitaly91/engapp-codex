@@ -60,6 +60,24 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.show', $slug);
     }
 
+    public function update(Request $request, Test $test)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $test->name = $data['name'];
+        $test->save();
+
+        if ($request->expectsJson()) {
+            return response()->noContent();
+        }
+
+        $redirectTo = $request->input('from', route('saved-test.tech', $test->slug));
+
+        return redirect($redirectTo);
+    }
+
     public function showSavedTest($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();

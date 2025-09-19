@@ -11,9 +11,15 @@ class QuestionController extends Controller
     {
         $data = $request->validate([
             'question' => 'required|string',
+            'level' => 'nullable|string|max:10',
         ]);
 
         $question->question = $data['question'];
+
+        if ($request->has('level')) {
+            $question->level = $data['level'] !== '' ? $data['level'] : null;
+        }
+
         $question->save();
 
         if ($request->wantsJson()) {
