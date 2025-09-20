@@ -114,16 +114,60 @@ class GrammarTestController extends Controller
     public function showSavedTestTech(string $slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
+
+        [$questions, $explanationsByQuestionId] = $this->prepareSavedTestTechData($test);
+
+        return view('engram.saved-test-tech', [
+            'test' => $test,
+            'questions' => $questions,
+            'explanationsByQuestionId' => $explanationsByQuestionId,
+            'returnUrl' => route('saved-test.tech', $test->slug),
+        ]);
+    }
+
+    public function fetchSavedTestTechQuestions(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        [$questions, $explanationsByQuestionId] = $this->prepareSavedTestTechData($test);
+
+        $html = view('engram.partials.saved-test-tech-question-list', [
+            'test' => $test,
+            'questions' => $questions,
+            'explanationsByQuestionId' => $explanationsByQuestionId,
+            'returnUrl' => route('saved-test.tech', $test->slug),
+        ])->render();
+
+        return response()->json([
+            'html' => $html,
+            'question_count' => $questions->count(),
+        ]);
+    }
+
+    private function prepareSavedTestTechData(Test $test): array
+    {
         $supportsVariants = $this->variantService->supportsVariants();
+
+        $questionIds = collect($test->questions ?? [])
+            ->filter(fn ($id) => $id !== null && $id !== '')
+            ->map(fn ($id) => (int) $id)
+            ->unique()
+            ->values();
 
         $relations = ['answers.option', 'options', 'verbHints.option', 'hints'];
         if ($supportsVariants) {
             $relations[] = 'variants';
         }
 
+        if ($questionIds->isEmpty()) {
+            return [collect(), []];
+        }
+
+        $orderBy = 'CASE id ' . $questionIds->values()->map(fn ($id, $index) => 'WHEN ' . $id . ' THEN ' . $index)->implode(' ') . ' ELSE ' . $questionIds->count() . ' END';
+
         $questions = Question::with($relations)
-            ->whereIn('id', $test->questions)
-            ->orderBy('id')
+            ->whereIn('id', $questionIds)
+            ->orderByRaw($orderBy)
             ->get();
 
         $textToQuestionIds = [];
@@ -140,8 +184,8 @@ class GrammarTestController extends Controller
             }
 
             $texts
-                ->filter(fn($text) => is_string($text) && trim($text) !== '')
-                ->map(fn($text) => trim($text))
+                ->filter(fn ($text) => is_string($text) && trim($text) !== '')
+                ->map(fn ($text) => trim($text))
                 ->unique()
                 ->each(function (string $text) use ($question, &$textToQuestionIds) {
                     $textToQuestionIds[$text][] = $question->id;
@@ -160,19 +204,15 @@ class GrammarTestController extends Controller
 
             foreach ($explanations as $explanation) {
                 $key = trim((string) $explanation->question);
-                $questionIds = $textToQuestionIds[$key] ?? [];
+                $questionIdsForText = $textToQuestionIds[$key] ?? [];
 
-                foreach ($questionIds as $questionId) {
+                foreach ($questionIdsForText as $questionId) {
                     $explanationsByQuestionId[$questionId][] = $explanation;
                 }
             }
         }
 
-        return view('engram.saved-test-tech', [
-            'test' => $test,
-            'questions' => $questions,
-            'explanationsByQuestionId' => $explanationsByQuestionId,
-        ]);
+        return [$questions, $explanationsByQuestionId];
     }
 
     public function storeSavedTestQuestion(Request $request, string $slug)
@@ -214,7 +254,7 @@ class GrammarTestController extends Controller
         ]);
 
         $questions = $test->questions ?? [];
-        $questions[] = $question->id;
+        array_unshift($questions, $question->id);
         $questions = array_values(array_unique(array_map('intval', $questions)));
 
         $test->questions = $questions;

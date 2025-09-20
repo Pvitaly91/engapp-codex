@@ -80,11 +80,12 @@ class SavedTestQuestionCreationTest extends TestCase
         $questions = $test->questions;
         $this->assertCount(2, $questions);
 
-        $newQuestionId = end($questions);
+        $newQuestionId = $questions[0];
         $newQuestion = Question::findOrFail($newQuestionId);
 
         $this->assertSame($category->id, $newQuestion->category_id);
         $this->assertSame('B1', $newQuestion->level);
+        $this->assertSame($existingQuestion->id, $questions[1]);
     }
 
     /** @test */
