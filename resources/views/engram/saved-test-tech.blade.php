@@ -3,7 +3,13 @@
 @section('title', $test->name . ' — Технічна сторінка')
 
 @section('content')
-<div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
+@php
+    $changeCount = $pendingChanges->count();
+@endphp
+
+<div id="saved-test-tech-root"
+     class="max-w-6xl mx-auto px-4 py-6 space-y-6"
+     data-queue-url="{{ route('saved-test.tech.changes.store', $test->slug) }}">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div x-data="{ editing: false, name: @js($test->name), formName: @js($test->name) }" class="flex-1 space-y-3">
             <div x-show="!editing" x-ref="display" class="space-y-2">
@@ -80,6 +86,11 @@
             </button>
         </div>
         <form x-show="addingQuestion" x-cloak x-ref="form" method="POST" action="{{ route('saved-test.questions.store', $test->slug) }}" class="mt-4 space-y-3 rounded-2xl border border-emerald-200 bg-white p-4"
+              data-queue-change="true"
+              data-change-type="question.create"
+              data-change-summary="Створити нове питання"
+              data-route-name="saved-test.questions.store"
+              data-route-params="@js(['slug' => $test->slug])"
               x-on:submit.prevent="
                   const form = $event.target;
                   window.SavedTestTech.submitForm(form, {
@@ -114,13 +125,51 @@
         </form>
     </div>
 
-    <div id="saved-test-question-list" class="space-y-6" data-refresh-url="{{ route('saved-test.tech.questions', $test->slug) }}">
-        @include('engram.partials.saved-test-tech-question-list', [
-            'questions' => $questions,
-            'test' => $test,
-            'explanationsByQuestionId' => $explanationsByQuestionId,
-            'returnUrl' => $returnUrl,
-        ])
+    <div x-data="{ tab: 'questions' }" class="space-y-6">
+        <div class="inline-flex overflow-hidden rounded-full border border-stone-200 bg-white p-1 text-sm font-semibold text-stone-600 shadow-sm">
+            <button type="button"
+                    class="rounded-full px-4 py-1.5 transition"
+                    :class="tab === 'questions' ? 'bg-stone-900 text-white shadow' : 'hover:bg-stone-100'"
+                    @click="tab = 'questions'">
+                Питання
+            </button>
+            <button type="button"
+                    class="flex items-center gap-2 rounded-full px-4 py-1.5 transition"
+                    :class="tab === 'changes' ? 'bg-stone-900 text-white shadow' : 'hover:bg-stone-100'"
+                    @click="tab = 'changes'">
+                Черга змін
+                <span data-change-count
+                      class="inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-amber-500 px-2 text-xs font-bold text-white"
+                      @class(['hidden' => $changeCount === 0])
+                      x-text="window.SavedTestTech?.changeCount ?? {{ $changeCount }}"></span>
+            </button>
+        </div>
+
+        <div x-show="tab === 'questions'" class="space-y-6">
+            <div id="saved-test-question-list"
+                 class="space-y-6"
+                 data-refresh-url="{{ route('saved-test.tech.questions', $test->slug) }}"
+                 data-test-slug="{{ $test->slug }}">
+                @include('engram.partials.saved-test-tech-question-list', [
+                    'questions' => $questions,
+                    'test' => $test,
+                    'explanationsByQuestionId' => $explanationsByQuestionId,
+                    'returnUrl' => $returnUrl,
+                ])
+            </div>
+        </div>
+
+        <div x-show="tab === 'changes'" x-cloak class="space-y-6">
+            <div id="saved-test-change-list"
+                 class="space-y-4"
+                 data-refresh-url="{{ route('saved-test.tech.changes.index', $test->slug) }}">
+                @include('engram.partials.saved-test-tech-change-list', [
+                    'test' => $test,
+                    'changes' => $pendingChanges,
+                    'returnUrl' => $returnUrl,
+                ])
+            </div>
+        </div>
     </div>
 
 </div>
@@ -134,20 +183,51 @@
 </style>
 <script>
     window.SavedTestTech = {
+        root: null,
         questionList: null,
+        changeList: null,
         questionCountEl: null,
-        refreshUrl: null,
-        isRefreshing: false,
+        changeCountEl: null,
+        queueUrl: null,
+        questionRefreshUrl: null,
+        changeRefreshUrl: null,
+        isRefreshingQuestions: false,
+        isRefreshingChanges: false,
         highlightAfterRefresh: false,
+        changeCount: 0,
 
         init() {
+            this.root = document.getElementById('saved-test-tech-root');
             this.questionList = document.getElementById('saved-test-question-list');
+            this.changeList = document.getElementById('saved-test-change-list');
             this.questionCountEl = document.querySelector('[data-question-count]');
+            this.changeCountEl = document.querySelector('[data-change-count]');
+            this.queueUrl = this.root ? this.root.dataset.queueUrl || null : null;
+            this.questionRefreshUrl = this.questionList ? this.questionList.dataset.refreshUrl || null : null;
+            this.changeRefreshUrl = this.changeList ? this.changeList.dataset.refreshUrl || null : null;
+
+            if (this.changeCountEl) {
+                const initial = Number(this.changeCountEl.textContent?.trim() || '0');
+                this.changeCount = Number.isNaN(initial) ? 0 : initial;
+                if (this.changeCount === 0) {
+                    this.changeCountEl.classList.add('hidden');
+                }
+            }
 
             if (this.questionList) {
-                this.refreshUrl = this.questionList.dataset.refreshUrl || null;
-
                 this.questionList.addEventListener('submit', (event) => {
+                    const form = event.target;
+                    if (!(form instanceof HTMLFormElement)) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    this.submitForm(form);
+                });
+            }
+
+            if (this.changeList) {
+                this.changeList.addEventListener('submit', (event) => {
                     const form = event.target;
                     if (!(form instanceof HTMLFormElement)) {
                         return;
@@ -160,6 +240,12 @@
         },
 
         async submitForm(form, options = {}) {
+            if ('queueChange' in form.dataset) {
+                await this.submitQueuedChange(form, options);
+
+                return;
+            }
+
             const confirmMessage = options.confirm ?? form.dataset.confirm;
             if (confirmMessage && ! window.confirm(confirmMessage)) {
                 return;
@@ -169,6 +255,9 @@
             submitButtons.forEach((button) => {
                 button.disabled = true;
             });
+
+            const refreshQuestions = options.refresh !== false && form.dataset.refreshQuestions !== 'false';
+            const refreshChanges = options.refreshChanges === true || form.dataset.refreshChanges === 'true';
 
             try {
                 const methodAttr = (form.getAttribute('method') || 'POST').toUpperCase();
@@ -215,11 +304,147 @@
                     await options.onSuccess(payload);
                 }
 
-                if (options.refresh !== false) {
+                if (refreshQuestions) {
                     await this.refreshQuestions();
+                }
+
+                if (refreshChanges) {
+                    await this.refreshChanges();
                 }
             } catch (error) {
                 const message = error && error.message ? error.message : 'Сталася неочікувана помилка.';
+                this.showError(message);
+            } finally {
+                submitButtons.forEach((button) => {
+                    button.disabled = false;
+                });
+            }
+        },
+
+        resolveMethod(form, formData) {
+            const baseMethod = (form.getAttribute('method') || 'POST').toUpperCase();
+            if (baseMethod === 'GET') {
+                return 'GET';
+            }
+
+            const override = formData.get('_method');
+            if (override) {
+                return String(override).toUpperCase();
+            }
+
+            return baseMethod;
+        },
+
+        normalizeFormData(formData) {
+            const payload = {};
+
+            formData.forEach((value, key) => {
+                if (['_token', '_method', 'from'].includes(key)) {
+                    return;
+                }
+
+                if (Object.prototype.hasOwnProperty.call(payload, key)) {
+                    const existing = payload[key];
+                    if (Array.isArray(existing)) {
+                        existing.push(value);
+                    } else {
+                        payload[key] = [existing, value];
+                    }
+                } else {
+                    payload[key] = value;
+                }
+            });
+
+            return payload;
+        },
+
+        async submitQueuedChange(form, options = {}) {
+            const confirmMessage = options.confirm ?? form.dataset.confirm;
+            if (confirmMessage && ! window.confirm(confirmMessage)) {
+                return;
+            }
+
+            if (!this.queueUrl) {
+                this.showError('Черга змін тимчасово недоступна.');
+
+                return;
+            }
+
+            const submitButtons = Array.from(form.querySelectorAll('[type="submit"]'));
+            submitButtons.forEach((button) => {
+                button.disabled = true;
+            });
+
+            try {
+                const formData = new FormData(form);
+                const method = this.resolveMethod(form, formData);
+                const payload = this.normalizeFormData(formData);
+                const routeName = form.dataset.routeName;
+
+                if (!routeName) {
+                    throw new Error('Не вказано маршрут для цієї зміни.');
+                }
+
+                let routeParams = {};
+                if (form.dataset.routeParams) {
+                    try {
+                        routeParams = JSON.parse(form.dataset.routeParams);
+                    } catch (error) {
+                        // ignore JSON parse errors
+                    }
+                }
+
+                const questionId = form.dataset.questionId || formData.get('question_id') || null;
+                const csrf = document.querySelector('meta[name="csrf-token"]')?.content;
+
+                const response = await fetch(this.queueUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        ...(csrf ? { 'X-CSRF-TOKEN': csrf } : {}),
+                    },
+                    body: JSON.stringify({
+                        route: routeName,
+                        route_params: routeParams,
+                        method,
+                        payload,
+                        change_type: form.dataset.changeType || null,
+                        summary: form.dataset.changeSummary || null,
+                        question_id: questionId ? Number(questionId) : null,
+                    }),
+                });
+
+                const clone = response.clone();
+
+                if (!response.ok) {
+                    await this.handleError(clone, options);
+                    return;
+                }
+
+                let data = null;
+                try {
+                    data = await response.json();
+                } catch {
+                    data = null;
+                }
+
+                if (typeof options.onSuccess === 'function') {
+                    await options.onSuccess(data);
+                }
+
+                await this.refreshChanges();
+
+                if (data && typeof data.change_count === 'number') {
+                    this.updateChangeCount(data.change_count);
+                }
+
+                if (this.changeList) {
+                    window.highlightEditable(this.changeList);
+                }
+            } catch (error) {
+                const message = error && error.message ? error.message : 'Не вдалося додати зміну до черги.';
                 this.showError(message);
             } finally {
                 submitButtons.forEach((button) => {
@@ -266,14 +491,14 @@
         },
 
         async refreshQuestions() {
-            if (!this.questionList || !this.refreshUrl || this.isRefreshing) {
+            if (!this.questionList || !this.questionRefreshUrl || this.isRefreshingQuestions) {
                 return;
             }
 
-            this.isRefreshing = true;
+            this.isRefreshingQuestions = true;
 
             try {
-                const response = await fetch(this.refreshUrl, {
+                const response = await fetch(this.questionRefreshUrl, {
                     headers: {
                         'Accept': 'application/json',
                         'X-Requested-With': 'XMLHttpRequest',
@@ -306,7 +531,57 @@
                 const message = error && error.message ? error.message : 'Не вдалося оновити список питань.';
                 this.showError(message);
             } finally {
-                this.isRefreshing = false;
+                this.isRefreshingQuestions = false;
+            }
+        },
+
+        async refreshChanges() {
+            if (!this.changeList || !this.changeRefreshUrl || this.isRefreshingChanges) {
+                return;
+            }
+
+            this.isRefreshingChanges = true;
+
+            try {
+                const response = await fetch(this.changeRefreshUrl, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Не вдалося оновити чергу змін.');
+                }
+
+                const data = await response.json();
+                this.changeList.innerHTML = data.html;
+
+                if (window.Alpine) {
+                    window.Alpine.initTree(this.changeList);
+                }
+
+                if (typeof data.change_count === 'number') {
+                    this.updateChangeCount(data.change_count);
+                }
+            } catch (error) {
+                const message = error && error.message ? error.message : 'Не вдалося оновити чергу змін.';
+                this.showError(message);
+            } finally {
+                this.isRefreshingChanges = false;
+            }
+        },
+
+        updateChangeCount(count) {
+            this.changeCount = count;
+
+            if (this.changeCountEl) {
+                this.changeCountEl.textContent = count;
+                if (count > 0) {
+                    this.changeCountEl.classList.remove('hidden');
+                } else {
+                    this.changeCountEl.classList.add('hidden');
+                }
             }
         },
 

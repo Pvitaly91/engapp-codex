@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
+use App\Services\PendingTestChangeRepository;
 use App\Services\QuestionVariantService;
 
 class GrammarTestController extends Controller
@@ -27,7 +28,10 @@ class GrammarTestController extends Controller
         'saved-test-js-select',
     ];
 
-    public function __construct(private QuestionVariantService $variantService)
+    public function __construct(
+        private QuestionVariantService $variantService,
+        private PendingTestChangeRepository $changeRepository
+    )
     {
     }
 
@@ -117,11 +121,14 @@ class GrammarTestController extends Controller
 
         [$questions, $explanationsByQuestionId] = $this->prepareSavedTestTechData($test);
 
+        $pendingChanges = collect($this->changeRepository->all($slug));
+
         return view('engram.saved-test-tech', [
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
             'returnUrl' => route('saved-test.tech', $test->slug),
+            'pendingChanges' => $pendingChanges,
         ]);
     }
 
