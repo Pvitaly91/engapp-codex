@@ -13,6 +13,7 @@ use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
 use App\Services\QuestionVariantService;
+use App\Services\QuestionDumpService;
 
 class GrammarTestController extends Controller
 {
@@ -150,10 +151,18 @@ class GrammarTestController extends Controller
             }
         }
 
+        $dumpService = app(QuestionDumpService::class);
+        $questionDumps = [];
+
+        foreach ($questions as $question) {
+            $questionDumps[$question->id] = $dumpService->getDumpInfo($question);
+        }
+
         return view('engram.saved-test-tech', [
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
+            'questionDumps' => $questionDumps,
         ]);
     }
 
@@ -631,6 +640,8 @@ class GrammarTestController extends Controller
         $question->level = $request->input('level');
         $question->save();
 
+        app(QuestionDumpService::class)->storeDump($question);
+
         return response()->json(['status' => 'ok']);
     }
 
@@ -655,6 +666,8 @@ class GrammarTestController extends Controller
         $question->tags()->syncWithoutDetaching([$tag->id]);
         $question->load('tags');
 
+        app(QuestionDumpService::class)->storeDump($question);
+
         return response()->json(['tags' => $question->tags->pluck('name')]);
     }
 
@@ -678,6 +691,8 @@ class GrammarTestController extends Controller
 
         $question->tags()->detach($tag->id);
         $question->load('tags');
+
+        app(QuestionDumpService::class)->storeDump($question);
 
         return response()->json(['tags' => $question->tags->pluck('name')]);
     }

@@ -34,6 +34,8 @@ class VerbHintController extends Controller
             'option_id' => $option->id,
         ]);
 
+        app(\App\Services\QuestionDumpService::class)->storeDump($question);
+
         if ($request->expectsJson()) {
             return response()->json(['id' => $verbHint->id], 201);
         }
@@ -103,6 +105,8 @@ class VerbHintController extends Controller
             }
         }
 
+        app(\App\Services\QuestionDumpService::class)->storeDump($question);
+
         if ($request->expectsJson()) {
             return response()->noContent();
         }
@@ -129,6 +133,8 @@ class VerbHintController extends Controller
             && ! DB::table('question_option_question')->where('option_id', $option->id)->exists()) {
             $option->delete();
         }
+
+        app(\App\Services\QuestionDumpService::class)->storeDump($question);
 
         if ($request->expectsJson()) {
             return response()->noContent();
