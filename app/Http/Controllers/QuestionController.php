@@ -10,11 +10,17 @@ class QuestionController extends Controller
     public function update(Request $request, Question $question)
     {
         $data = $request->validate([
-            'question' => 'required|string',
+            'question' => 'sometimes|required|string',
+            'level' => 'sometimes|nullable|string|max:10',
         ]);
 
-        $question->question = $data['question'];
-        $question->save();
+        if (! empty($data)) {
+            $question->fill($data);
+
+            if ($question->isDirty()) {
+                $question->save();
+            }
+        }
 
         if ($request->wantsJson()) {
             return response()->noContent();

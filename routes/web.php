@@ -4,6 +4,10 @@ use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionHelpController;
+use App\Http\Controllers\QuestionAnswerController;
+use App\Http\Controllers\QuestionHintController;
+use App\Http\Controllers\QuestionOptionController;
+use App\Http\Controllers\QuestionVariantController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\SiteSearchController;
@@ -132,6 +136,10 @@ Route::post('/verb-hints', [VerbHintController::class, 'store'])->name('verb-hin
 Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
 Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])->name('verb-hints.destroy');
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
+Route::put('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'update'])->name('question-answers.update');
+Route::put('/questions/{question}/options/{option}', [QuestionOptionController::class, 'update'])->name('questions.options.update');
+Route::put('/question-variants/{questionVariant}', [QuestionVariantController::class, 'update'])->name('question-variants.update');
+Route::put('/question-hints/{questionHint}', [QuestionHintController::class, 'update'])->name('question-hints.update');
 
 Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
 Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');

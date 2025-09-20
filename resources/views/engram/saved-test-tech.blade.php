@@ -49,22 +49,49 @@
                 })->implode('');
             };
             $filledQuestion = $highlightSegments($question->question);
-            $options = $question->options->pluck('option')->filter()->unique()->values();
-            foreach ($answersByMarker as $value) {
-                if ($value !== '' && ! $options->contains($value)) {
-                    $options->push($value);
-                }
-            }
-            $variantTexts = $question->relationLoaded('variants')
-                ? $question->variants->pluck('text')->filter()->unique()->values()
-                : collect();
-            $verbHints = $question->verbHints
-                ->sortBy('marker')
-                ->mapWithKeys(function ($hint) {
-                    $value = $hint->option->option ?? '';
+            $correctOptionIds = $question->answers
+                ->pluck('option_id')
+                ->filter()
+                ->unique()
+                ->values();
 
-                    return $value !== '' ? [strtolower($hint->marker) => $value] : [];
+            $options = $question->options
+                ->map(function ($option) use ($correctOptionIds) {
+                    return [
+                        'id' => $option->id,
+                        'label' => $option->option,
+                        'is_correct' => $correctOptionIds->contains($option->id),
+                    ];
                 });
+            foreach ($question->answers as $answer) {
+                $option = $answer->option;
+
+                if (! $option) {
+                    continue;
+                }
+
+                if ($options->contains(fn ($item) => $item['id'] === $option->id)) {
+                    continue;
+                }
+
+                $options->push([
+                    'id' => $option->id,
+                    'label' => $option->option,
+                    'is_correct' => true,
+                ]);
+            }
+            $options = $options
+                ->filter(fn ($item) => filled($item['label']))
+                ->unique('id')
+                ->values();
+            $variants = $question->relationLoaded('variants')
+                ? $question->variants->filter(function ($variant) {
+                    return is_string($variant->text) && trim($variant->text) !== '';
+                })
+                : collect();
+            $verbHintsByMarker = $question->verbHints
+                ->sortBy('marker')
+                ->keyBy(fn ($hint) => strtolower($hint->marker));
             $questionHints = $question->hints
                 ->sortBy(function ($hint) {
                     return $hint->provider . '|' . $hint->locale;
@@ -81,14 +108,29 @@
                         <span>ID: {{ $question->id }}</span>
                     </div>
                     <p class="mt-2 text-lg leading-relaxed text-stone-900">{!! $filledQuestion !!}</p>
+                    <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-blue-600">
+                        <button type="button"
+                                class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-blue-700 hover:bg-blue-100"
+                                onclick="editQuestion({{ $question->id }}, @js($question->question))">
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path d="M15.728 2.272a2.625 2.625 0 0 1 0 3.712l-8.1 8.1a3.5 3.5 0 0 1-1.563.888l-2.82.705a.625.625 0 0 1-.757-.757l.706-2.82a3.5 3.5 0 0 1 .888-1.564l8.1-8.1a2.625 2.625 0 0 1 3.712 0Zm-2.65 1.062-8.1 8.1a2.25 2.25 0 0 0-.57 1.006l-.46 1.838 1.838-.46a2.25 2.25 0 0 0 1.006-.57l8.1-8.1a1.375 1.375 0 1 0-1.94-1.94Z" />
+                            </svg>
+                            <span>Редагувати питання</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-xs uppercase tracking-wide text-stone-500">Level</span>
                     <span class="inline-flex items-center px-3 py-1 rounded-full bg-stone-900 text-white text-sm font-semibold">{{ $levelLabel }}</span>
+                    <button type="button"
+                            class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
+                            onclick="editQuestionLevel({{ $question->id }}, @js($question->level))">
+                        Змінити
+                    </button>
                 </div>
             </header>
 
-            @if($variantTexts->isNotEmpty())
+            @if($variants->isNotEmpty())
                 <details class="group">
                     <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
                         <span>Варіанти запитання</span>
@@ -96,10 +138,13 @@
                         <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
                     </summary>
                     <ul class="mt-3 space-y-2 text-sm text-stone-800">
-                        @foreach($variantTexts as $variant)
+                        @foreach($variants as $variant)
                             <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
-                                <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
-                                <span>{!! $highlightSegments($variant) !!}</span>
+                                <div class="flex items-center justify-between gap-2">
+                                    <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
+                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800" onclick="editVariant({{ $variant->id }}, @js($variant->text))">Редагувати</button>
+                                </div>
+                                <span>{!! $highlightSegments($variant->text) !!}</span>
                             </li>
                         @endforeach
                     </ul>
@@ -118,17 +163,24 @@
                             $marker = strtoupper($answer->marker);
                             $markerKey = strtolower($answer->marker);
                             $answerValue = $answersByMarker->get($markerKey, '');
-                            $verbHint = $verbHints->get($markerKey);
+                            $verbHintModel = $verbHintsByMarker->get($markerKey);
+                            $verbHintValue = $verbHintModel?->option?->option;
                         @endphp
-                        <li class="flex flex-wrap items-center gap-2 rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2">
-                            <span class="font-mono text-xs uppercase text-emerald-500">{{ $marker }}</span>
-                            <span class="font-semibold text-emerald-900">{{ $answerValue }}</span>
-                            @if($verbHint)
-                                <span class="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-emerald-700">
-                                    <span class="font-semibold uppercase text-[10px] tracking-wide">Verb hint</span>
-                                    <span>{{ $verbHint }}</span>
-                                </span>
-                            @endif
+                        <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2">
+                            <div class="flex flex-wrap items-center gap-2 text-sm">
+                                <span class="font-mono text-xs uppercase text-emerald-500">{{ $marker }}</span>
+                                <span class="font-semibold text-emerald-900">{{ $answerValue }}</span>
+                                @if($verbHintValue)
+                                    <span class="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-emerald-700">
+                                        <span class="font-semibold uppercase text-[10px] tracking-wide">Verb hint</span>
+                                        <span>{{ $verbHintValue }}</span>
+                                        @if($verbHintModel)
+                                            <button type="button" class="text-[10px] font-semibold text-blue-600 underline hover:text-blue-800" onclick="editVerbHintValue({{ $verbHintModel->id }}, @js($verbHintValue))">Редагувати</button>
+                                        @endif
+                                    </span>
+                                @endif
+                            </div>
+                            <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800" onclick="editAnswer({{ $answer->id }}, @js($marker), @js($answerValue))">Редагувати відповідь</button>
                         </li>
                     @endforeach
                 </ul>
@@ -143,9 +195,9 @@
                     </summary>
                     <div class="mt-3 flex flex-wrap gap-2">
                         @foreach($options as $option)
-                            @php $isCorrectOption = $answersByMarker->contains(function ($value) use ($option) { return $value === $option; }); @endphp
-                            <span @class([
-                                'inline-flex items-center gap-1 rounded-full border px-3 py-1 text-sm',
+                            @php $isCorrectOption = (bool) ($option['is_correct'] ?? false); @endphp
+                            <div @class([
+                                'inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm',
                                 'border-emerald-200 bg-emerald-50 text-emerald-900 font-semibold shadow-sm' => $isCorrectOption,
                                 'border-stone-200 bg-stone-50 text-stone-800' => ! $isCorrectOption,
                             ])>
@@ -154,8 +206,11 @@
                                         <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425.01L3.29 9.967a1 1 0 1 1 1.42-1.407l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd" />
                                     </svg>
                                 @endif
-                                <span>{{ $option }}</span>
-                            </span>
+                                <span>{{ $option['label'] }}</span>
+                                @if(! empty($option['id']))
+                                    <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800" onclick="editOption({{ $question->id }}, {{ $option['id'] }}, @js($option['label']))">Редагувати</button>
+                                @endif
+                            </div>
                         @endforeach
                     </div>
                 </details>
@@ -171,7 +226,10 @@
                     <ul class="mt-3 space-y-3 text-sm text-stone-800">
                         @foreach($questionHints as $hint)
                             <li class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-2">
-                                <div class="text-xs font-semibold uppercase tracking-wide text-blue-700">{{ $hint->provider }} · {{ strtoupper($hint->locale) }}</div>
+                                <div class="flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
+                                    <span>{{ $hint->provider }} · {{ strtoupper($hint->locale) }}</span>
+                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800" onclick="editQuestionHint({{ $hint->id }}, @js($hint->hint))">Редагувати</button>
+                                </div>
                                 <div class="mt-1 whitespace-pre-line text-stone-800">{{ $hint->hint }}</div>
                             </li>
                         @endforeach
@@ -224,4 +282,118 @@
         </article>
     @endforeach
 </div>
+<script>
+    const techCsrfToken = '{{ csrf_token() }}';
+    const questionUpdateUrl = '{{ url('/questions') }}';
+    const answerUpdateUrl = '{{ url('/question-answers') }}';
+    const variantUpdateUrl = '{{ url('/question-variants') }}';
+    const optionUpdateBaseUrl = '{{ url('/questions') }}';
+    const questionHintUpdateUrl = '{{ url('/question-hints') }}';
+    const verbHintUpdateUrl = '{{ url('/verb-hints') }}';
+
+    function sendUpdate(url, payload) {
+        return fetch(url, {
+            method: 'PUT',
+            headers: {
+                'X-CSRF-TOKEN': techCsrfToken,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+        });
+    }
+
+    function handleSuccess() {
+        location.reload();
+    }
+
+    function handleError(error) {
+        console.error(error);
+        alert('Не вдалося зберегти зміни.');
+    }
+
+    function editQuestion(id, currentText) {
+        const updated = prompt('Оновіть текст питання', currentText ?? '');
+        if (updated === null) {
+            return;
+        }
+
+        sendUpdate(`${questionUpdateUrl}/${id}`, { question: updated })
+            .then(handleSuccess)
+            .catch(handleError);
+    }
+
+    function editQuestionLevel(id, currentLevel) {
+        const updated = prompt('Вкажіть рівень питання', currentLevel ?? '');
+        if (updated === null) {
+            return;
+        }
+
+        const payload = { level: updated === '' ? null : updated };
+
+        sendUpdate(`${questionUpdateUrl}/${id}`, payload)
+            .then(handleSuccess)
+            .catch(handleError);
+    }
+
+    function editVariant(id, currentText) {
+        const updated = prompt('Оновіть варіант питання', currentText ?? '');
+        if (updated === null) {
+            return;
+        }
+
+        sendUpdate(`${variantUpdateUrl}/${id}`, { text: updated })
+            .then(handleSuccess)
+            .catch(handleError);
+    }
+
+    function editAnswer(id, marker, currentValue) {
+        const label = marker ? `Оновіть відповідь для ${marker}` : 'Оновіть відповідь';
+        const updated = prompt(label, currentValue ?? '');
+        if (updated === null) {
+            return;
+        }
+
+        sendUpdate(`${answerUpdateUrl}/${id}`, { value: updated })
+            .then(handleSuccess)
+            .catch(handleError);
+    }
+
+    function editOption(questionId, optionId, currentValue) {
+        const updated = prompt('Оновіть варіант відповіді', currentValue ?? '');
+        if (updated === null) {
+            return;
+        }
+
+        sendUpdate(`${optionUpdateBaseUrl}/${questionId}/options/${optionId}`, { value: updated })
+            .then(handleSuccess)
+            .catch(handleError);
+    }
+
+    function editQuestionHint(id, currentValue) {
+        const updated = prompt('Оновіть текст підказки', currentValue ?? '');
+        if (updated === null) {
+            return;
+        }
+
+        sendUpdate(`${questionHintUpdateUrl}/${id}`, { hint: updated })
+            .then(handleSuccess)
+            .catch(handleError);
+    }
+
+    function editVerbHintValue(id, currentValue) {
+        const updated = prompt('Оновіть verb hint', currentValue ?? '');
+        if (updated === null) {
+            return;
+        }
+
+        sendUpdate(`${verbHintUpdateUrl}/${id}`, { hint: updated })
+            .then(handleSuccess)
+            .catch(handleError);
+    }
+</script>
 @endsection
