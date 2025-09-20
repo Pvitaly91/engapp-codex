@@ -257,12 +257,21 @@ class SavedTestChangeController extends Controller
         $route = $router->getRoutes()->match($fakeRequest);
         $route->setContainer(app());
         $route->bind($fakeRequest);
+        $router->substituteBindings($route);
+        $router->substituteImplicitBindings($route);
+
+        $action = $route->getAction();
+        $callable = $action['uses'] ?? ($action['controller'] ?? null);
+
+        if ($callable === null) {
+            throw new \RuntimeException('Route action is missing a callable handler.');
+        }
 
         $currentRequest = request();
         app()->instance('request', $fakeRequest);
 
         try {
-            return app()->call($route->getAction(), array_merge($route->parameters(), [
+            return app()->call($callable, array_merge($route->parameters(), [
                 'request' => $fakeRequest,
             ]));
         } finally {
