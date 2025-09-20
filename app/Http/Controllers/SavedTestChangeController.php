@@ -213,7 +213,7 @@ class SavedTestChangeController extends Controller
             throw $exception;
         }
 
-        $this->repository->remove($slug, $changeId, $questionId);
+        $this->repository->markApplied($slug, $changeId);
 
         if ($request->expectsJson()) {
             return response()->json([
@@ -244,7 +244,7 @@ class SavedTestChangeController extends Controller
         $questionId = $found['question_id'];
         $questionUuid = $found['question_uuid'] ?? null;
 
-        $this->repository->remove($slug, $changeId, $questionId);
+        $this->repository->markDiscarded($slug, $changeId);
 
         if ($request->expectsJson()) {
             return response()->json([
