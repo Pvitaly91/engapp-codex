@@ -394,7 +394,10 @@
                     }
                 }
 
-                const questionId = form.dataset.questionId || formData.get('question_id') || null;
+                const rawQuestionId = form.dataset.questionId || formData.get('question_id');
+                const hasQuestionId = rawQuestionId !== null && rawQuestionId !== undefined && String(rawQuestionId).trim() !== '';
+                const numericQuestionId = hasQuestionId ? Number(rawQuestionId) : null;
+                const normalizedQuestionId = Number.isFinite(numericQuestionId) ? numericQuestionId : null;
                 const csrf = document.querySelector('meta[name="csrf-token"]')?.content;
 
                 const response = await fetch(this.queueUrl, {
@@ -412,7 +415,7 @@
                         payload,
                         change_type: form.dataset.changeType || null,
                         summary: form.dataset.changeSummary || null,
-                        question_id: questionId ? Number(questionId) : null,
+                        question_id: normalizedQuestionId,
                     }),
                 });
 
@@ -434,11 +437,17 @@
                     await options.onSuccess(data);
                 }
 
-                await this.refreshChanges();
+                this.handleQueuedFormSuccess(form, {
+                    response: data,
+                    questionId: normalizedQuestionId,
+                    changeType: form.dataset.changeType || null,
+                });
 
                 if (data && typeof data.change_count === 'number') {
                     this.updateChangeCount(data.change_count);
                 }
+
+                await this.refreshChanges();
 
                 if (this.changeList) {
                     window.highlightEditable(this.changeList);
@@ -451,6 +460,73 @@
                     button.disabled = false;
                 });
             }
+        },
+
+        handleQueuedFormSuccess(form, context = {}) {
+            this.closeFormWithAlpine(form);
+
+            const isObject = context && typeof context === 'object';
+            const detail = {
+                form,
+                questionId: isObject && Number.isFinite(context.questionId)
+                    ? context.questionId
+                    : null,
+                changeType: isObject && Object.prototype.hasOwnProperty.call(context, 'changeType')
+                    ? context.changeType
+                    : null,
+                response: isObject && Object.prototype.hasOwnProperty.call(context, 'response')
+                    ? context.response
+                    : null,
+            };
+
+            form.dispatchEvent(new CustomEvent('saved-test-tech:change-queued', {
+                bubbles: true,
+                detail,
+            }));
+
+            window.dispatchEvent(new CustomEvent('saved-test-tech:change-queued', {
+                detail: Object.assign({}, detail),
+            }));
+        },
+
+        closeFormWithAlpine(form) {
+            if (!form) {
+                return false;
+            }
+
+            const expression = form.getAttribute('x-show');
+            if (!expression) {
+                return false;
+            }
+
+            const trimmed = expression.trim();
+            if (!trimmed || /[^a-zA-Z0-9_.$]/.test(trimmed)) {
+                return false;
+            }
+
+            let current = form;
+
+            while (current) {
+                const component = current.__x;
+                if (component) {
+                    const target = component.$data ?? component.getUnobservedData?.();
+
+                    if (target) {
+                        try {
+                            const setter = new Function('value', `with (this) { ${trimmed} = value; }`);
+                            setter.call(target, false);
+
+                            return true;
+                        } catch (error) {
+                            // If the expression isn't valid in this scope, continue traversing upwards.
+                        }
+                    }
+                }
+
+                current = current.parentElement;
+            }
+
+            return false;
         },
 
         async handleError(response, options = {}) {
