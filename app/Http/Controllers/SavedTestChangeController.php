@@ -100,6 +100,16 @@ class SavedTestChangeController extends Controller
             }
         }
 
+        if ($routeName && Str::startsWith($routeName, 'question-hints.')) {
+            $payloadHintId = Arr::get($payload, 'question_hint_id');
+
+            if ($payloadHintId !== null && $payloadHintId !== '' && ! array_key_exists('questionHint', $routeParams)) {
+                $routeParams['questionHint'] = is_numeric($payloadHintId)
+                    ? (int) $payloadHintId
+                    : $payloadHintId;
+            }
+        }
+
         $change = [
             'route' => $routeName,
             'route_params' => $routeParams,
@@ -497,6 +507,18 @@ class SavedTestChangeController extends Controller
                 $routeParams['questionAnswer'] = is_numeric($payloadAnswerId)
                     ? (int) $payloadAnswerId
                     : $payloadAnswerId;
+            }
+        }
+
+        if ($routeName && Str::startsWith($routeName, 'question-hints.')
+            && ! array_key_exists('questionHint', $routeParams)
+        ) {
+            $payloadHintId = Arr::get($payload, 'question_hint_id');
+
+            if ($payloadHintId !== null && $payloadHintId !== '') {
+                $routeParams['questionHint'] = is_numeric($payloadHintId)
+                    ? (int) $payloadHintId
+                    : $payloadHintId;
             }
         }
 

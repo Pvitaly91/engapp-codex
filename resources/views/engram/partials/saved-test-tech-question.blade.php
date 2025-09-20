@@ -648,6 +648,7 @@
                           data-route-params="@js(['questionHint' => $hint->id])">
                         @csrf
                         @method('put')
+                        <input type="hidden" name="question_hint_id" value="{{ $hint->id }}">
                         <input type="hidden" name="from" value="{{ $returnUrl }}">
                         <div class="grid gap-3 sm:grid-cols-2">
                             <div>
