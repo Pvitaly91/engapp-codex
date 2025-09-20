@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Category;
@@ -12,6 +13,7 @@ use Illuminate\Support\Str;
 use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
+use App\Services\QuestionDumpService;
 use App\Services\QuestionVariantService;
 
 class GrammarTestController extends Controller
@@ -27,7 +29,10 @@ class GrammarTestController extends Controller
         'saved-test-js-select',
     ];
 
-    public function __construct(private QuestionVariantService $variantService)
+    public function __construct(
+        private QuestionVariantService $variantService,
+        private QuestionDumpService $questionDumpService
+    )
     {
     }
 
@@ -108,6 +113,10 @@ class GrammarTestController extends Controller
             ->orderBy('id')
             ->get();
 
+        $questionPayloads = $questions->mapWithKeys(function (Question $question) {
+            return [$question->id => $this->questionDumpService->getEffectivePayload($question)];
+        });
+
         $textToQuestionIds = [];
 
         foreach ($questions as $question) {
@@ -154,7 +163,86 @@ class GrammarTestController extends Controller
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
+            'questionPayloads' => $questionPayloads,
         ]);
+    }
+
+    public function fetchSavedTestTechDump(string $slug, Question $question): JsonResponse
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $this->assertQuestionBelongsToTest($test, $question);
+
+        $payload = $this->questionDumpService->getEffectivePayload($question);
+
+        return response()->json(['payload' => $payload]);
+    }
+
+    public function storeSavedTestTechDraft(Request $request, string $slug, Question $question): JsonResponse
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $this->assertQuestionBelongsToTest($test, $question);
+
+        $data = $this->validateTechPayload($request);
+
+        $payload = $this->questionDumpService->storeDraft($question, $data);
+
+        return response()->json(['payload' => $payload]);
+    }
+
+    public function applySavedTestTechDraft(string $slug, Question $question): JsonResponse
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $this->assertQuestionBelongsToTest($test, $question);
+
+        $payload = $this->questionDumpService->applyDraft($question);
+
+        return response()->json(['payload' => $payload]);
+    }
+
+    private function validateTechPayload(Request $request): array
+    {
+        return $request->validate([
+            'question' => ['required', 'array'],
+            'question.question' => ['required', 'string'],
+            'question.level' => ['nullable', 'string', 'max:10'],
+            'question.difficulty' => ['nullable'],
+            'question.flag' => ['nullable'],
+            'question.category_id' => ['nullable'],
+            'question.source_id' => ['nullable'],
+            'variants' => ['array'],
+            'variants.*.id' => ['nullable'],
+            'variants.*.text' => ['nullable', 'string'],
+            'options' => ['array'],
+            'options.*.id' => ['nullable'],
+            'options.*.value' => ['nullable', 'string'],
+            'answers' => ['array'],
+            'answers.*.id' => ['nullable'],
+            'answers.*.marker' => ['nullable', 'string'],
+            'answers.*.value' => ['nullable', 'string'],
+            'answers.*.option_id' => ['nullable'],
+            'verb_hints' => ['array'],
+            'verb_hints.*.id' => ['nullable'],
+            'verb_hints.*.marker' => ['nullable', 'string'],
+            'verb_hints.*.value' => ['nullable', 'string'],
+            'verb_hints.*.option_id' => ['nullable'],
+            'hints' => ['array'],
+            'hints.*.id' => ['nullable'],
+            'hints.*.provider' => ['nullable', 'string'],
+            'hints.*.locale' => ['nullable', 'string'],
+            'hints.*.hint' => ['nullable', 'string'],
+        ]);
+    }
+
+    private function assertQuestionBelongsToTest(Test $test, Question $question): void
+    {
+        $questionIdentifiers = $test->questions ?? [];
+        $questionIdentifiers = array_map(function ($value) {
+            return is_numeric($value) ? (int) $value : $value;
+        }, $questionIdentifiers);
+
+        if (! in_array($question->id, $questionIdentifiers, true) && ! in_array($question->uuid, $questionIdentifiers, true)) {
+            abort(404);
+        }
     }
 
     public function showSavedTestRandom($slug)

@@ -74,6 +74,9 @@ Route::get('/test/{slug}/js/input', [GrammarTestController::class, 'showSavedTes
 Route::get('/test/{slug}/js/step/select', [GrammarTestController::class, 'showSavedTestJsStepSelect'])->name('saved-test.js.step-select');
 Route::get('/test/{slug}/js/select', [GrammarTestController::class, 'showSavedTestJsSelect'])->name('saved-test.js.select');
 Route::get('/test/{slug}/tech', [GrammarTestController::class, 'showSavedTestTech'])->name('saved-test.tech');
+Route::get('/test/{slug}/tech/questions/{question}/dump', [GrammarTestController::class, 'fetchSavedTestTechDump'])->name('saved-test.tech.dump');
+Route::post('/test/{slug}/tech/questions/{question}/draft', [GrammarTestController::class, 'storeSavedTestTechDraft'])->name('saved-test.tech.draft');
+Route::post('/test/{slug}/tech/questions/{question}/apply', [GrammarTestController::class, 'applySavedTestTechDraft'])->name('saved-test.tech.apply');
 Route::get('/test/{slug}', [GrammarTestController::class, 'showSavedTest'])->name('saved-test.show');
 Route::get('/test/{slug}/random', [GrammarTestController::class, 'showSavedTestRandom'])->name('saved-test.random');
 Route::get('/test/{slug}/step', [GrammarTestController::class, 'showSavedTestStep'])->name('saved-test.step');
