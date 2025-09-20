@@ -90,9 +90,22 @@ class SavedTestChangeController extends Controller
             ->reject(fn ($value, $key) => in_array($key, ['_token', '_method', 'from'], true))
             ->all();
 
+        $routeName = $data['route'];
+        $routeParams = $this->normalizeRouteParams($data['route_params'] ?? []);
+
+        if ($routeName && Str::startsWith($routeName, 'question-answers.')) {
+            $payloadAnswerId = Arr::get($payload, 'question_answer_id');
+
+            if ($payloadAnswerId !== null && $payloadAnswerId !== '' && ! array_key_exists('questionAnswer', $routeParams)) {
+                $routeParams['questionAnswer'] = is_numeric($payloadAnswerId)
+                    ? (int) $payloadAnswerId
+                    : $payloadAnswerId;
+            }
+        }
+
         $change = [
-            'route' => $data['route'],
-            'route_params' => $this->normalizeRouteParams($data['route_params'] ?? []),
+            'route' => $routeName,
+            'route_params' => $routeParams,
             'method' => strtoupper($data['method']),
             'payload' => $payload,
             'change_type' => $data['change_type'] ?? 'generic',
@@ -240,6 +253,22 @@ class SavedTestChangeController extends Controller
 
         if (! is_array($routeParams)) {
             $routeParams = [];
+        }
+
+        if (! is_array($payload)) {
+            $payload = [];
+        }
+
+        if ($routeName && Str::startsWith($routeName, 'question-answers.')
+            && ! array_key_exists('questionAnswer', $routeParams)
+        ) {
+            $payloadAnswerId = Arr::get($payload, 'question_answer_id');
+
+            if ($payloadAnswerId !== null && $payloadAnswerId !== '') {
+                $routeParams['questionAnswer'] = is_numeric($payloadAnswerId)
+                    ? (int) $payloadAnswerId
+                    : $payloadAnswerId;
+            }
         }
 
         $questionId = Arr::get($change, 'question_id');

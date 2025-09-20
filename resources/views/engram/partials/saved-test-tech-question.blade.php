@@ -335,6 +335,7 @@
                               data-route-params="@js(['questionAnswer' => $answer->id])">
                             @csrf
                             @method('put')
+                            <input type="hidden" name="question_answer_id" value="{{ $answer->id }}">
                             <input type="hidden" name="from" value="{{ $returnUrl }}">
                             <div class="grid gap-3 sm:grid-cols-5">
                                 <div class="sm:col-span-1">
