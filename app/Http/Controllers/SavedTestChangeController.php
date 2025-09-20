@@ -238,6 +238,16 @@ class SavedTestChangeController extends Controller
             throw new \RuntimeException('Route name is missing for queued change.');
         }
 
+        if (! is_array($routeParams)) {
+            $routeParams = [];
+        }
+
+        $questionId = Arr::get($change, 'question_id');
+
+        if (! array_key_exists('question', $routeParams) && $questionId !== null) {
+            $routeParams['question'] = $questionId;
+        }
+
         $url = route($routeName, $routeParams);
         $fakeRequest = Request::create($url, $method, $payload);
         $fakeRequest->headers->set('Accept', 'application/json');

@@ -559,22 +559,25 @@
                 return false;
             }
 
+            const path = trimmed.split('.').filter(Boolean);
+            if (path.length === 0) {
+                return false;
+            }
+
             let current = form;
 
             while (current) {
                 const component = current.__x;
+
                 if (component) {
                     const target = component.$data ?? component.getUnobservedData?.();
 
-                    if (target) {
-                        try {
-                            const setter = new Function('value', `with (this) { ${trimmed} = value; }`);
-                            setter.call(target, false);
-
-                            return true;
-                        } catch (error) {
-                            // If the expression isn't valid in this scope, continue traversing upwards.
+                    if (target && this.assignAlpineValue(target, path, false)) {
+                        if (typeof component.updateElements === 'function') {
+                            component.updateElements(component.$el);
                         }
+
+                        return true;
                     }
                 }
 
@@ -582,6 +585,50 @@
             }
 
             return false;
+        },
+
+        assignAlpineValue(target, path, value) {
+            if (!Array.isArray(path) || path.length === 0) {
+                return false;
+            }
+
+            let scope = target;
+
+            for (let index = 0; index < path.length - 1; index += 1) {
+                const key = path[index];
+
+                if (!key) {
+                    return false;
+                }
+
+                if (scope === null || (typeof scope !== 'object' && typeof scope !== 'function')) {
+                    return false;
+                }
+
+                if (!(key in scope)) {
+                    return false;
+                }
+
+                scope = scope[key];
+            }
+
+            const lastKey = path[path.length - 1];
+
+            if (!lastKey) {
+                return false;
+            }
+
+            if (scope === null || (typeof scope !== 'object' && typeof scope !== 'function')) {
+                return false;
+            }
+
+            if (!(lastKey in scope)) {
+                return false;
+            }
+
+            scope[lastKey] = value;
+
+            return true;
         },
 
         async handleError(response, options = {}) {
