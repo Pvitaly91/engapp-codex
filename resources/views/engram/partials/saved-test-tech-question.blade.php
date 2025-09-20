@@ -75,6 +75,8 @@
 
     $explanations = collect($explanationsByQuestionId[$question->id] ?? []);
     $levelLabel = $question->level ?: 'N/A';
+    $questionChanges = collect(($pendingChangesByQuestion ?? collect())->get($question->id) ?? []);
+    $questionChangeCount = $questionChanges->count();
 @endphp
 <article x-data="{ editingQuestion: false }" class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100">
     <header class="space-y-4">
@@ -155,6 +157,37 @@
             </div>
         </form>
     </header>
+
+    <section class="rounded-2xl border border-amber-200 bg-amber-50/60 p-4 space-y-3">
+        <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2 text-sm font-semibold text-amber-700">
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M4 4a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l3.414 3.414A1 1 0 0 1 16 6.414V16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4Z" opacity=".4" />
+                    <path d="M6 0a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V6.414a3 3 0 0 0-.879-2.121l-3.414-3.414A3 3 0 0 0 11.586 0H6Zm.75 9a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 4a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z" />
+                </svg>
+                <span>Черга змін</span>
+            </div>
+            <span class="inline-flex items-center gap-1 rounded-full bg-amber-600/10 px-2 py-1 text-xs font-semibold text-amber-700"
+                  data-question-change-count
+                  data-question-id="{{ $question->id }}"
+                  @class(['hidden' => $questionChangeCount === 0])>
+                <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425-.01L3.29 9.967A1 1 0 0 1 4.71 8.56l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd" />
+                </svg>
+                <span>{{ $questionChangeCount }}</span>
+            </span>
+        </div>
+        <div class="space-y-3"
+             data-question-change-list
+             data-question-id="{{ $question->id }}"
+             data-refresh-url="{{ route('saved-test.tech.changes.question', [$test->slug, $question->id]) }}">
+            @include('engram.partials.saved-test-tech-question-change-list', [
+                'test' => $test,
+                'questionId' => $question->id,
+                'changes' => $questionChanges,
+            ])
+        </div>
+    </section>
 
     <details class="group">
         <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">

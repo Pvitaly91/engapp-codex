@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Models\Test;
 use App\Services\PendingTestChangeRepository;
+use App\Services\QuestionSnapshotRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -13,19 +14,56 @@ use Illuminate\Validation\ValidationException;
 
 class SavedTestChangeController extends Controller
 {
-    public function __construct(private PendingTestChangeRepository $repository)
-    {
+    public function __construct(
+        private PendingTestChangeRepository $repository,
+        private QuestionSnapshotRepository $snapshotRepository
+    ) {
     }
 
     public function index(Request $request, string $slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
-        $changes = collect($this->repository->all($slug));
+        $grouped = collect($this->repository->groupedByQuestion($slug))
+            ->map(fn (array $changes) => collect($changes));
+        $globalChanges = collect($this->repository->allForQuestion($slug, null));
+        $changeCount = $this->repository->count($slug);
+
+        $questionSnapshots = collect();
+
+        if ($grouped->isNotEmpty()) {
+            $questionSnapshots = $grouped->keys()
+                ->filter(fn ($key) => $key !== null)
+                ->mapWithKeys(function ($questionId) {
+                    $snapshot = $this->snapshotRepository->getOrCreate((int) $questionId);
+
+                    return $snapshot ? [(int) $questionId => $snapshot] : [];
+                });
+        }
 
         $html = view('engram.partials.saved-test-tech-change-list', [
             'test' => $test,
+            'groupedChanges' => $grouped,
+            'globalChanges' => $globalChanges,
+            'questionSnapshots' => $questionSnapshots,
+        ])->render();
+
+        return response()->json([
+            'html' => $html,
+            'change_count' => $changeCount,
+        ]);
+    }
+
+    public function showForQuestion(Request $request, string $slug, int $questionId)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $changes = collect($this->repository->allForQuestion($slug, $questionId));
+        $snapshot = $this->snapshotRepository->getOrCreate($questionId);
+
+        $html = view('engram.partials.saved-test-tech-question-change-list', [
+            'test' => $test,
+            'questionId' => $questionId,
             'changes' => $changes,
-            'returnUrl' => route('saved-test.tech', $test->slug),
+            'questionSnapshot' => $snapshot,
         ])->render();
 
         return response()->json([
@@ -63,9 +101,14 @@ class SavedTestChangeController extends Controller
         ];
 
         if ($change['question_id']) {
-            $question = Question::find($change['question_id']);
-            if ($question) {
-                $change['question_preview'] = Str::limit(trim(strip_tags($question->question ?? '')), 200);
+            $snapshot = $this->snapshotRepository->getOrCreate((int) $change['question_id']);
+
+            if ($snapshot) {
+                $questionText = trim(strip_tags((string) Arr::get($snapshot, 'question', '')));
+
+                if ($questionText !== '') {
+                    $change['question_preview'] = Str::limit($questionText, 200);
+                }
             }
         }
 
@@ -74,7 +117,11 @@ class SavedTestChangeController extends Controller
         if ($request->expectsJson()) {
             return response()->json([
                 'change' => $stored,
-                'change_count' => collect($this->repository->all($slug))->count(),
+                'change_count' => $this->repository->count($slug),
+                'question_id' => $stored['question_id'],
+                'question_change_count' => $stored['question_id'] !== null
+                    ? $this->repository->countForQuestion($slug, $stored['question_id'])
+                    : null,
             ], 201);
         }
 
@@ -85,11 +132,14 @@ class SavedTestChangeController extends Controller
     {
         $test = Test::where('slug', $slug)->firstOrFail();
 
-        $change = $this->repository->find($slug, $changeId);
+        $found = $this->repository->find($slug, $changeId);
 
-        if (! $change) {
+        if (! $found) {
             abort(404, 'Change not found.');
         }
+
+        $change = $found['change'];
+        $questionId = $found['question_id'];
 
         try {
             $this->executeChange($change);
@@ -114,12 +164,27 @@ class SavedTestChangeController extends Controller
             throw $exception;
         }
 
-        $this->repository->remove($slug, $changeId);
+        if ($questionId !== null) {
+            $question = Question::find($questionId);
+
+            if ($question) {
+                $this->snapshotRepository->sync($question);
+            } else {
+                $this->snapshotRepository->delete($questionId);
+            }
+        }
+
+        $this->repository->remove($slug, $changeId, $questionId);
 
         if ($request->expectsJson()) {
             return response()->json([
                 'status' => 'applied',
                 'change_id' => $changeId,
+                'change_count' => $this->repository->count($slug),
+                'question_id' => $questionId,
+                'question_change_count' => $questionId !== null
+                    ? $this->repository->countForQuestion($slug, $questionId)
+                    : null,
             ]);
         }
 
@@ -130,18 +195,25 @@ class SavedTestChangeController extends Controller
     {
         $test = Test::where('slug', $slug)->firstOrFail();
 
-        $change = $this->repository->find($slug, $changeId);
+        $found = $this->repository->find($slug, $changeId);
 
-        if (! $change) {
+        if (! $found) {
             abort(404, 'Change not found.');
         }
 
-        $this->repository->remove($slug, $changeId);
+        $questionId = $found['question_id'];
+
+        $this->repository->remove($slug, $changeId, $questionId);
 
         if ($request->expectsJson()) {
             return response()->json([
                 'status' => 'deleted',
                 'change_id' => $changeId,
+                'change_count' => $this->repository->count($slug),
+                'question_id' => $questionId,
+                'question_change_count' => $questionId !== null
+                    ? $this->repository->countForQuestion($slug, $questionId)
+                    : null,
             ]);
         }
 

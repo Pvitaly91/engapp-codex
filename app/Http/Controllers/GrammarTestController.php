@@ -13,7 +13,9 @@ use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
 use App\Services\PendingTestChangeRepository;
+use App\Services\QuestionSnapshotRepository;
 use App\Services\QuestionVariantService;
+use App\Services\SavedTestQuestionHydrator;
 
 class GrammarTestController extends Controller
 {
@@ -30,7 +32,9 @@ class GrammarTestController extends Controller
 
     public function __construct(
         private QuestionVariantService $variantService,
-        private PendingTestChangeRepository $changeRepository
+        private PendingTestChangeRepository $changeRepository,
+        private QuestionSnapshotRepository $snapshotRepository,
+        private SavedTestQuestionHydrator $questionHydrator
     )
     {
     }
@@ -119,16 +123,22 @@ class GrammarTestController extends Controller
     {
         $test = Test::where('slug', $slug)->firstOrFail();
 
-        [$questions, $explanationsByQuestionId] = $this->prepareSavedTestTechData($test);
+        [$questions, $explanationsByQuestionId, $questionSnapshots] = $this->prepareSavedTestTechData($test);
 
-        $pendingChanges = collect($this->changeRepository->all($slug));
+        $pendingChangesByQuestion = collect($this->changeRepository->groupedByQuestion($slug))
+            ->map(fn (array $changes) => collect($changes));
+        $pendingGlobalChanges = collect($this->changeRepository->allForQuestion($slug, null));
+        $pendingChangeCount = $this->changeRepository->count($slug);
 
         return view('engram.saved-test-tech', [
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
             'returnUrl' => route('saved-test.tech', $test->slug),
-            'pendingChanges' => $pendingChanges,
+            'pendingChangesByQuestion' => $pendingChangesByQuestion,
+            'pendingGlobalChanges' => $pendingGlobalChanges,
+            'pendingChangeCount' => $pendingChangeCount,
+            'questionSnapshots' => $questionSnapshots,
         ]);
     }
 
@@ -137,12 +147,15 @@ class GrammarTestController extends Controller
         $test = Test::where('slug', $slug)->firstOrFail();
 
         [$questions, $explanationsByQuestionId] = $this->prepareSavedTestTechData($test);
+        $pendingChangesByQuestion = collect($this->changeRepository->groupedByQuestion($slug))
+            ->map(fn (array $changes) => collect($changes));
 
         $html = view('engram.partials.saved-test-tech-question-list', [
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
             'returnUrl' => route('saved-test.tech', $test->slug),
+            'pendingChangesByQuestion' => $pendingChangesByQuestion,
         ])->render();
 
         return response()->json([
@@ -161,21 +174,40 @@ class GrammarTestController extends Controller
             ->unique()
             ->values();
 
-        $relations = ['answers.option', 'options', 'verbHints.option', 'hints'];
-        if ($supportsVariants) {
-            $relations[] = 'variants';
-        }
-
         if ($questionIds->isEmpty()) {
-            return [collect(), []];
+            return [collect(), [], collect()];
         }
 
-        $orderBy = 'CASE id ' . $questionIds->values()->map(fn ($id, $index) => 'WHEN ' . $id . ' THEN ' . $index)->implode(' ') . ' ELSE ' . $questionIds->count() . ' END';
+        $snapshots = collect();
 
-        $questions = Question::with($relations)
-            ->whereIn('id', $questionIds)
-            ->orderByRaw($orderBy)
-            ->get();
+        foreach ($questionIds as $questionId) {
+            $snapshot = $this->snapshotRepository->get($questionId);
+
+            if (! $snapshot) {
+                $question = Question::with([
+                    'answers.option',
+                    'options',
+                    'variants',
+                    'verbHints.option',
+                    'hints',
+                    'tags',
+                ])->find($questionId);
+
+                if ($question) {
+                    $snapshot = $this->snapshotRepository->sync($question);
+                }
+            }
+
+            if ($snapshot) {
+                $snapshots->put($questionId, $snapshot);
+            }
+        }
+
+        $questions = $questionIds
+            ->map(fn ($questionId) => $snapshots->get($questionId))
+            ->filter()
+            ->map(fn (array $snapshot) => $this->questionHydrator->hydrate($snapshot))
+            ->values();
 
         $textToQuestionIds = [];
 
@@ -186,7 +218,7 @@ class GrammarTestController extends Controller
                 $question->renderQuestionText(),
             ]);
 
-            if ($supportsVariants) {
+            if ($supportsVariants && $question->relationLoaded('variants')) {
                 $texts = $texts->merge($question->variants->pluck('text'));
             }
 
@@ -219,7 +251,7 @@ class GrammarTestController extends Controller
             }
         }
 
-        return [$questions, $explanationsByQuestionId];
+        return [$questions, $explanationsByQuestionId, $snapshots];
     }
 
     public function storeSavedTestQuestion(Request $request, string $slug)

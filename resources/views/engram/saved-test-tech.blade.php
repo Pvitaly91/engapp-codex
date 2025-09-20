@@ -4,7 +4,7 @@
 
 @section('content')
 @php
-    $changeCount = $pendingChanges->count();
+    $changeCount = $pendingChangeCount ?? 0;
 @endphp
 
 <div id="saved-test-tech-root"
@@ -155,6 +155,7 @@
                     'test' => $test,
                     'explanationsByQuestionId' => $explanationsByQuestionId,
                     'returnUrl' => $returnUrl,
+                    'pendingChangesByQuestion' => $pendingChangesByQuestion ?? collect(),
                 ])
             </div>
         </div>
@@ -165,7 +166,9 @@
                  data-refresh-url="{{ route('saved-test.tech.changes.index', $test->slug) }}">
                 @include('engram.partials.saved-test-tech-change-list', [
                     'test' => $test,
-                    'changes' => $pendingChanges,
+                    'groupedChanges' => $pendingChangesByQuestion ?? collect(),
+                    'globalChanges' => $pendingGlobalChanges ?? collect(),
+                    'questionSnapshots' => $questionSnapshots ?? collect(),
                     'returnUrl' => $returnUrl,
                 ])
             </div>
@@ -195,6 +198,7 @@
         isRefreshingChanges: false,
         highlightAfterRefresh: false,
         changeCount: 0,
+        questionChangeLists: new Map(),
 
         init() {
             this.root = document.getElementById('saved-test-tech-root');
@@ -237,6 +241,35 @@
                     this.submitForm(form);
                 });
             }
+
+            this.initQuestionChangeLists();
+        },
+
+        initQuestionChangeLists() {
+            this.questionChangeLists = new Map();
+
+            const elements = document.querySelectorAll('[data-question-change-list]');
+
+            elements.forEach((element) => {
+                const questionIdAttr = element.dataset.questionId;
+                if (!questionIdAttr) {
+                    return;
+                }
+
+                const parsed = Number(questionIdAttr);
+                if (!Number.isFinite(parsed)) {
+                    return;
+                }
+
+                const countEl = document.querySelector(`[data-question-change-count][data-question-id="${parsed}"]`);
+
+                this.questionChangeLists.set(parsed, {
+                    element,
+                    refreshUrl: element.dataset.refreshUrl || null,
+                    countEl,
+                    isRefreshing: false,
+                });
+            });
         },
 
         async submitForm(form, options = {}) {
@@ -258,6 +291,7 @@
 
             const refreshQuestions = options.refresh !== false && form.dataset.refreshQuestions !== 'false';
             const refreshChanges = options.refreshChanges === true || form.dataset.refreshChanges === 'true';
+            const refreshQuestionChanges = form.dataset.refreshQuestionChanges === 'true';
 
             try {
                 const methodAttr = (form.getAttribute('method') || 'POST').toUpperCase();
@@ -310,6 +344,23 @@
 
                 if (refreshChanges) {
                     await this.refreshChanges();
+                }
+
+                const payloadQuestionId = payload && typeof payload === 'object' && Object.prototype.hasOwnProperty.call(payload, 'question_id')
+                    ? Number(payload.question_id)
+                    : null;
+
+                const formQuestionIdAttr = form.dataset.questionId;
+                const formQuestionId = formQuestionIdAttr !== undefined ? Number(formQuestionIdAttr) : null;
+
+                if (refreshQuestionChanges && Number.isFinite(formQuestionId)) {
+                    await this.refreshQuestionChanges(formQuestionId);
+                } else if (Number.isFinite(payloadQuestionId) && payload && typeof payload.question_change_count === 'number') {
+                    await this.refreshQuestionChanges(payloadQuestionId);
+                }
+
+                if (payload && typeof payload.change_count === 'number') {
+                    this.updateChangeCount(payload.change_count);
                 }
             } catch (error) {
                 const message = error && error.message ? error.message : 'Сталася неочікувана помилка.';
@@ -445,6 +496,10 @@
 
                 if (data && typeof data.change_count === 'number') {
                     this.updateChangeCount(data.change_count);
+                }
+
+                if (Number.isFinite(normalizedQuestionId)) {
+                    await this.refreshQuestionChanges(normalizedQuestionId);
                 }
 
                 await this.refreshChanges();
@@ -592,6 +647,8 @@
                     window.Alpine.initTree(this.questionList);
                 }
 
+                this.initQuestionChangeLists();
+
                 if (this.questionCountEl) {
                     this.questionCountEl.textContent = data.question_count;
                 }
@@ -645,6 +702,61 @@
                 this.showError(message);
             } finally {
                 this.isRefreshingChanges = false;
+            }
+        },
+
+        async refreshQuestionChanges(questionId) {
+            const parsedId = Number(questionId);
+            if (!Number.isFinite(parsedId)) {
+                return;
+            }
+
+            const entry = this.questionChangeLists.get(parsedId);
+
+            if (!entry || entry.isRefreshing || !entry.refreshUrl) {
+                return;
+            }
+
+            entry.isRefreshing = true;
+
+            try {
+                const response = await fetch(entry.refreshUrl, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Не вдалося оновити чергу змін для питання.');
+                }
+
+                const data = await response.json();
+
+                if (data.html) {
+                    entry.element.innerHTML = data.html;
+                    if (window.Alpine) {
+                        window.Alpine.initTree(entry.element);
+                    }
+                }
+
+                if (typeof data.change_count === 'number' && entry.countEl) {
+                    entry.countEl.textContent = data.change_count;
+                    if (data.change_count > 0) {
+                        entry.countEl.classList.remove('hidden');
+                    } else {
+                        entry.countEl.classList.add('hidden');
+                    }
+                }
+
+                window.highlightEditable(entry.element);
+            } catch (error) {
+                const message = error && error.message
+                    ? error.message
+                    : 'Не вдалося оновити чергу змін для питання.';
+                this.showError(message);
+            } finally {
+                entry.isRefreshing = false;
             }
         },
 

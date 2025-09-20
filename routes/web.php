@@ -82,6 +82,7 @@ Route::get('/test/{slug}/js/select', [GrammarTestController::class, 'showSavedTe
 Route::get('/test/{slug}/tech', [GrammarTestController::class, 'showSavedTestTech'])->name('saved-test.tech');
 Route::get('/test/{slug}/tech/questions', [GrammarTestController::class, 'fetchSavedTestTechQuestions'])->name('saved-test.tech.questions');
 Route::get('/test/{slug}/tech/changes', [SavedTestChangeController::class, 'index'])->name('saved-test.tech.changes.index');
+Route::get('/test/{slug}/tech/questions/{question}/changes', [SavedTestChangeController::class, 'showForQuestion'])->name('saved-test.tech.changes.question');
 Route::post('/test/{slug}/tech/changes', [SavedTestChangeController::class, 'store'])->name('saved-test.tech.changes.store');
 Route::post('/test/{slug}/tech/changes/{change}/apply', [SavedTestChangeController::class, 'apply'])->name('saved-test.tech.changes.apply');
 Route::delete('/test/{slug}/tech/changes/{change}', [SavedTestChangeController::class, 'destroy'])->name('saved-test.tech.changes.destroy');

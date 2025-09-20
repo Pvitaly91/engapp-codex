@@ -1,89 +1,69 @@
 @php
     use Illuminate\Support\Arr;
     use Illuminate\Support\Carbon;
+    use Illuminate\Support\Collection;
+    use Illuminate\Support\Str;
+
+    $grouped = ($groupedChanges ?? collect()) instanceof Collection
+        ? $groupedChanges
+        : collect($groupedChanges ?? []);
+    $grouped = $grouped->map(fn ($items) => ($items instanceof Collection) ? $items : collect($items));
+    $global = ($globalChanges ?? collect()) instanceof Collection
+        ? $globalChanges
+        : collect($globalChanges ?? []);
+    $questionSnapshots = collect($questionSnapshots ?? []);
+    $hasChanges = $global->isNotEmpty() || $grouped->filter(fn ($collection) => $collection->isNotEmpty())->isNotEmpty();
 @endphp
 
-@if($changes->isEmpty())
+@if(! $hasChanges)
     <div class="rounded-2xl border border-dashed border-stone-200 bg-white p-6 text-center text-sm text-stone-500">
         Змін наразі немає. Внесіть правки на вкладці «Питання», щоб додати їх до черги.
     </div>
 @else
-    @foreach($changes as $change)
-        @php
-            $changeId = Arr::get($change, 'id');
-            $summary = Arr::get($change, 'summary') ?: 'Зміна без опису';
-            $type = Arr::get($change, 'change_type', 'generic');
-            $questionId = Arr::get($change, 'question_id');
-            $questionPreview = Arr::get($change, 'question_preview');
-            $payload = Arr::get($change, 'payload', []);
-            $createdAt = Arr::get($change, 'created_at');
-            $createdForHumans = $createdAt ? Carbon::parse($createdAt)->diffForHumans(null, true) : null;
-        @endphp
-        <article class="space-y-4 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-            <header class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div class="space-y-1">
-                    <p class="text-sm font-semibold uppercase tracking-wide text-stone-500">{{ strtoupper($type) }}</p>
-                    <h3 class="text-lg font-bold text-stone-900">{{ $summary }}</h3>
-                    <dl class="flex flex-wrap gap-3 text-xs text-stone-500">
-                        @if($questionId)
-                            <div class="flex items-center gap-1">
-                                <dt class="font-semibold uppercase tracking-wide">Питання</dt>
-                                <dd class="rounded-full bg-stone-900 px-2 py-0.5 text-white">ID {{ $questionId }}</dd>
-                            </div>
-                        @endif
-                        @if($createdForHumans)
-                            <div class="flex items-center gap-1">
-                                <dt class="font-semibold uppercase tracking-wide">Додано</dt>
-                                <dd>{{ $createdForHumans }} тому</dd>
-                            </div>
-                        @endif
-                    </dl>
-                    @if($questionPreview)
-                        <p class="rounded-lg bg-stone-100 px-3 py-2 text-sm text-stone-700">
-                            <span class="font-semibold text-stone-600">Поточне питання:</span>
-                            <span class="ml-2">{{ $questionPreview }}</span>
-                        </p>
-                    @endif
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <form method="POST"
-                          action="{{ route('saved-test.tech.changes.apply', [$test->slug, $changeId]) }}"
-                          data-refresh-questions="true"
-                          data-refresh-changes="true">
-                        @csrf
-                        <button type="submit"
-                                class="inline-flex items-center gap-1 rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white shadow hover:bg-emerald-700">
-                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m7 10 2 2 4-4m4 2a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                            </svg>
-                            <span>Застосувати</span>
-                        </button>
-                    </form>
-                    <form method="POST"
-                          action="{{ route('saved-test.tech.changes.destroy', [$test->slug, $changeId]) }}"
-                          data-confirm="Видалити цю зміну з черги?"
-                          data-refresh-questions="false"
-                          data-refresh-changes="true">
-                        @csrf
-                        @method('delete')
-                        <button type="submit"
-                                class="inline-flex items-center gap-1 rounded-lg border border-stone-300 px-3 py-1.5 text-sm font-semibold text-stone-600 hover:bg-stone-100">
-                            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m6 6 8 8m0-8-8 8m9-3v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2" />
-                            </svg>
-                            <span>Скасувати</span>
-                        </button>
-                    </form>
-                </div>
+    @if($global->isNotEmpty())
+        <section class="space-y-3 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+            <header class="flex items-center justify-between gap-3">
+                <h3 class="text-lg font-bold text-stone-900">Загальні зміни тесту</h3>
+                <span class="text-xs font-semibold uppercase tracking-wide text-stone-500">{{ $global->count() }}</span>
             </header>
-            <details class="group rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-700">
-                <summary class="flex cursor-pointer items-center justify-between text-xs font-semibold uppercase tracking-wide text-stone-500">
-                    <span>Дані зміни</span>
-                    <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                    <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                </summary>
-                <pre class="mt-3 overflow-auto whitespace-pre-wrap rounded-lg bg-white px-4 py-3 text-[13px] text-stone-800">{{ json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) }}</pre>
-            </details>
-        </article>
+            @include('engram.partials.saved-test-tech-change-items', [
+                'changes' => $global,
+                'test' => $test,
+                'questionId' => null,
+                'refreshQuestions' => true,
+            ])
+        </section>
+    @endif
+
+    @foreach($grouped->filter(fn ($collection) => $collection->isNotEmpty()) as $questionId => $changes)
+        @php
+            $snapshot = $questionSnapshots->get($questionId);
+            $questionTitle = null;
+
+            if (is_array($snapshot)) {
+                $questionTitle = Arr::get($snapshot, 'question');
+            }
+
+            if ($questionTitle) {
+                $questionTitle = Str::limit(trim(strip_tags($questionTitle)), 160);
+            }
+        @endphp
+        <section class="space-y-3 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+            <header class="space-y-1">
+                <div class="flex items-center justify-between gap-3">
+                    <h3 class="text-lg font-bold text-stone-900">Питання ID {{ $questionId }}</h3>
+                    <span class="text-xs font-semibold uppercase tracking-wide text-stone-500">{{ $changes->count() }}</span>
+                </div>
+                @if($questionTitle)
+                    <p class="text-sm text-stone-600">{{ $questionTitle }}</p>
+                @endif
+            </header>
+            @include('engram.partials.saved-test-tech-change-items', [
+                'changes' => $changes,
+                'test' => $test,
+                'questionId' => $questionId,
+                'refreshQuestions' => true,
+            ])
+        </section>
     @endforeach
 @endif

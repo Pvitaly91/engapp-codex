@@ -44,6 +44,12 @@ return [
             'throw' => false,
         ],
 
+        'test_tech' => [
+            'driver' => 'local',
+            'root' => storage_path('test-tech'),
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
