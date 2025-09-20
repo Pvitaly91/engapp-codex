@@ -184,11 +184,33 @@ class GrammarTestController extends Controller
             'level' => 'nullable|string|max:10',
         ]);
 
+        $questionIds = $test->questions ?? [];
+        $questionIds = is_array($questionIds) ? array_filter($questionIds) : [];
+
+        $categoryId = null;
+
+        if (! empty($questionIds)) {
+            $categoryId = Question::query()
+                ->whereIn('id', $questionIds)
+                ->whereNotNull('category_id')
+                ->orderBy('id')
+                ->value('category_id');
+        }
+
+        if (! $categoryId) {
+            $categoryId = Category::query()->orderBy('id')->value('id');
+        }
+
+        if (! $categoryId) {
+            $categoryId = Category::query()->firstOrCreate(['name' => 'General'])->id;
+        }
+
         $question = Question::create([
             'uuid' => (string) Str::uuid(),
             'question' => $data['question'],
             'difficulty' => 1,
             'level' => $data['level'] !== '' ? $data['level'] : null,
+            'category_id' => $categoryId,
         ]);
 
         $questions = $test->questions ?? [];
