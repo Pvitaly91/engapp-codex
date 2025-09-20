@@ -66,7 +66,7 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
         ];
 
         $questions = [
-            [ 
+            [
                 'question'  => 'Jane {a1} in the house for hours. He {a2} three rooms so far.',
                 'verb_hint' => ['a1' => '(work)', 'a2' => '(clean)'],
                 'options'   => [
