@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Models\Test;
 use App\Services\PendingTestChangeRepository;
-use App\Services\QuestionSnapshotRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -17,8 +16,7 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 class SavedTestChangeController extends Controller
 {
     public function __construct(
-        private PendingTestChangeRepository $repository,
-        private QuestionSnapshotRepository $snapshotRepository
+        private PendingTestChangeRepository $repository
     ) {
     }
 
@@ -42,23 +40,10 @@ class SavedTestChangeController extends Controller
             ->values();
         $changeCount = $this->repository->count($slug);
 
-        $questionSnapshots = collect();
-
-        if ($grouped->isNotEmpty()) {
-            $questionSnapshots = $grouped->keys()
-                ->filter(fn ($key) => $key !== null)
-                ->mapWithKeys(function ($questionId) {
-                    $snapshot = $this->snapshotRepository->getOrCreate((int) $questionId);
-
-                    return $snapshot ? [(int) $questionId => $snapshot] : [];
-                });
-        }
-
         $html = view('engram.partials.saved-test-tech-change-list', [
             'test' => $test,
             'groupedChanges' => $grouped,
             'globalChanges' => $globalChanges,
-            'questionSnapshots' => $questionSnapshots,
         ])->render();
 
         return response()->json([
@@ -71,13 +56,11 @@ class SavedTestChangeController extends Controller
     {
         $test = Test::where('slug', $slug)->firstOrFail();
         $changes = collect($this->repository->allForQuestion($slug, $questionId));
-        $snapshot = $this->snapshotRepository->getOrCreate($questionId);
 
         $html = view('engram.partials.saved-test-tech-question-change-list', [
             'test' => $test,
             'questionId' => $questionId,
             'changes' => $changes,
-            'questionSnapshot' => $snapshot,
         ])->render();
 
         return response()->json([
@@ -220,16 +203,6 @@ class SavedTestChangeController extends Controller
             throw $exception;
         }
 
-        if ($questionId !== null) {
-            $question = Question::find($questionId);
-
-            if ($question) {
-                $this->snapshotRepository->sync($question);
-            } else {
-                $this->snapshotRepository->delete($questionId);
-            }
-        }
-
         $this->repository->remove($slug, $changeId, $questionId);
 
         if ($request->expectsJson()) {
@@ -303,7 +276,7 @@ class SavedTestChangeController extends Controller
             ])->find($questionId);
 
             if ($question) {
-                $beforeSnapshot = $this->snapshotRepository->makeSnapshot($question);
+                $beforeSnapshot = $this->makeQuestionSnapshot($question);
                 $questionUuid = $question->uuid;
             }
         }
@@ -332,7 +305,7 @@ class SavedTestChangeController extends Controller
                 ])->find($questionId);
 
                 if ($question) {
-                    $snapshot = $this->snapshotRepository->makeSnapshot($question);
+                    $snapshot = $this->makeQuestionSnapshot($question);
                     $questionUuid = $question->uuid;
                 }
             }
@@ -351,6 +324,86 @@ class SavedTestChangeController extends Controller
 
             throw $exception;
         }
+    }
+
+    private function makeQuestionSnapshot(Question $question): array
+    {
+        $question->loadMissing([
+            'answers.option',
+            'options',
+            'variants',
+            'verbHints.option',
+            'hints',
+            'tags',
+        ]);
+
+        return [
+            'id' => $question->id,
+            'uuid' => $question->uuid,
+            'question' => $question->question,
+            'difficulty' => $question->difficulty,
+            'level' => $question->level,
+            'category_id' => $question->category_id,
+            'source_id' => $question->source_id,
+            'flag' => $question->flag,
+            'synced_at' => now()->toIso8601String(),
+            'options' => $question->options->map(function ($option) {
+                return [
+                    'id' => $option->id,
+                    'option' => $option->option,
+                ];
+            })->values()->all(),
+            'answers' => $question->answers->map(function ($answer) {
+                $option = $answer->option;
+
+                return [
+                    'id' => $answer->id,
+                    'marker' => $answer->marker,
+                    'option_id' => $answer->option_id,
+                    'option' => $option ? [
+                        'id' => $option->id,
+                        'option' => $option->option,
+                    ] : null,
+                ];
+            })->values()->all(),
+            'variants' => $question->relationLoaded('variants')
+                ? $question->variants->map(function ($variant) {
+                    return [
+                        'id' => $variant->id,
+                        'text' => $variant->text,
+                    ];
+                })->values()->all()
+                : [],
+            'verb_hints' => $question->verbHints->map(function ($hint) {
+                $option = $hint->option;
+
+                return [
+                    'id' => $hint->id,
+                    'marker' => $hint->marker,
+                    'option_id' => $hint->option_id,
+                    'option' => $option ? [
+                        'id' => $option->id,
+                        'option' => $option->option,
+                    ] : null,
+                ];
+            })->values()->all(),
+            'hints' => $question->hints->map(function ($hint) {
+                return [
+                    'id' => $hint->id,
+                    'provider' => $hint->provider,
+                    'locale' => $hint->locale,
+                    'hint' => $hint->hint,
+                ];
+            })->values()->all(),
+            'tags' => $question->relationLoaded('tags')
+                ? $question->tags->map(function ($tag) {
+                    return [
+                        'id' => $tag->id,
+                        'name' => $tag->name,
+                    ];
+                })->values()->all()
+                : [],
+        ];
     }
 
     private function decodeResponsePayload($response): ?array

@@ -168,7 +168,6 @@
                     'test' => $test,
                     'groupedChanges' => $pendingChangesByQuestion ?? collect(),
                     'globalChanges' => $pendingGlobalChanges ?? collect(),
-                    'questionSnapshots' => $questionSnapshots ?? collect(),
                     'returnUrl' => $returnUrl,
                 ])
             </div>

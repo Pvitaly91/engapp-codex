@@ -13,9 +13,7 @@ use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
 use App\Services\PendingTestChangeRepository;
-use App\Services\QuestionSnapshotRepository;
 use App\Services\QuestionVariantService;
-use App\Services\SavedTestQuestionHydrator;
 
 class GrammarTestController extends Controller
 {
@@ -32,9 +30,7 @@ class GrammarTestController extends Controller
 
     public function __construct(
         private QuestionVariantService $variantService,
-        private PendingTestChangeRepository $changeRepository,
-        private QuestionSnapshotRepository $snapshotRepository,
-        private SavedTestQuestionHydrator $questionHydrator
+        private PendingTestChangeRepository $changeRepository
     )
     {
     }
@@ -123,7 +119,7 @@ class GrammarTestController extends Controller
     {
         $test = Test::where('slug', $slug)->firstOrFail();
 
-        [$questions, $explanationsByQuestionId, $questionSnapshots] = $this->prepareSavedTestTechData($test);
+        [$questions, $explanationsByQuestionId] = $this->prepareSavedTestTechData($test);
 
         $pendingChangesByQuestion = collect($this->changeRepository->groupedByQuestion($slug))
             ->map(fn (array $changes) => collect($changes));
@@ -138,7 +134,6 @@ class GrammarTestController extends Controller
             'pendingChangesByQuestion' => $pendingChangesByQuestion,
             'pendingGlobalChanges' => $pendingGlobalChanges,
             'pendingChangeCount' => $pendingChangeCount,
-            'questionSnapshots' => $questionSnapshots,
         ]);
     }
 
@@ -175,38 +170,29 @@ class GrammarTestController extends Controller
             ->values();
 
         if ($questionIds->isEmpty()) {
-            return [collect(), [], collect()];
+            return [collect(), []];
         }
 
-        $snapshots = collect();
+        $relations = [
+            'answers.option',
+            'options',
+            'verbHints.option',
+            'hints',
+            'tags',
+        ];
 
-        foreach ($questionIds as $questionId) {
-            $snapshot = $this->snapshotRepository->get($questionId);
-
-            if (! $snapshot) {
-                $question = Question::with([
-                    'answers.option',
-                    'options',
-                    'variants',
-                    'verbHints.option',
-                    'hints',
-                    'tags',
-                ])->find($questionId);
-
-                if ($question) {
-                    $snapshot = $this->snapshotRepository->sync($question);
-                }
-            }
-
-            if ($snapshot) {
-                $snapshots->put($questionId, $snapshot);
-            }
+        if ($supportsVariants) {
+            $relations[] = 'variants';
         }
+
+        $questionsById = Question::with($relations)
+            ->whereIn('id', $questionIds)
+            ->get()
+            ->keyBy('id');
 
         $questions = $questionIds
-            ->map(fn ($questionId) => $snapshots->get($questionId))
+            ->map(fn ($questionId) => $questionsById->get($questionId))
             ->filter()
-            ->map(fn (array $snapshot) => $this->questionHydrator->hydrate($snapshot))
             ->values();
 
         $textToQuestionIds = [];
@@ -251,7 +237,7 @@ class GrammarTestController extends Controller
             }
         }
 
-        return [$questions, $explanationsByQuestionId, $snapshots];
+        return [$questions, $explanationsByQuestionId];
     }
 
     public function storeSavedTestQuestion(Request $request, string $slug)

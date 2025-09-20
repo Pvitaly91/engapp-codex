@@ -11,7 +11,6 @@
     $global = ($globalChanges ?? collect()) instanceof Collection
         ? $globalChanges
         : collect($globalChanges ?? []);
-    $questionSnapshots = collect($questionSnapshots ?? []);
     $hasChanges = $global->isNotEmpty() || $grouped->filter(fn ($collection) => $collection->isNotEmpty())->isNotEmpty();
 @endphp
 
@@ -37,18 +36,13 @@
 
     @foreach($grouped->filter(fn ($collection) => $collection->isNotEmpty()) as $questionId => $changes)
         @php
-            $snapshot = $questionSnapshots->get($questionId);
+            $firstChange = $changes->first();
             $questionTitle = null;
 
-            if (is_array($snapshot)) {
-                $questionTitle = Arr::get($snapshot, 'question');
-            }
-
-            if (! $questionTitle) {
-                $firstChange = $changes->first();
-                if (is_array($firstChange)) {
-                    $questionTitle = Arr::get($firstChange, 'snapshot.question');
-                }
+            if (is_array($firstChange)) {
+                $questionTitle = Arr::get($firstChange, 'snapshot.question')
+                    ?? Arr::get($firstChange, 'previous_snapshot.question')
+                    ?? Arr::get($firstChange, 'question_preview');
             }
 
             if ($questionTitle) {
