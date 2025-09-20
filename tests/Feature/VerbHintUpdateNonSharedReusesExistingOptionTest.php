@@ -75,7 +75,8 @@ class VerbHintUpdateNonSharedReusesExistingOptionTest extends TestCase
             'hint' => 'go',
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.id', $q1->id);
 
         $this->assertEquals($optExisting->id, $verbHint->fresh()->option_id);
         $this->assertEquals(1, QuestionOption::where('option', 'go')->count());

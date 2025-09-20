@@ -43,7 +43,9 @@ class QuestionVariantUpdateTest extends TestCase
             'text' => 'We also {a1}.',
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.id', $question->id);
+        $response->assertJsonFragment(['text' => 'We also {a1}.']);
 
         $this->assertDatabaseHas('question_variants', [
             'id' => $variant->id,

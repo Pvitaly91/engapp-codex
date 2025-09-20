@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Concerns\ReturnsTechnicalQuestionResource;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\VerbHint;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Schema;
 
 class QuestionAnswerController extends Controller
 {
+    use ReturnsTechnicalQuestionResource;
+
     public function update(Request $request, QuestionAnswer $questionAnswer)
     {
         $data = $request->validate([
@@ -28,17 +31,17 @@ class QuestionAnswerController extends Controller
 
         if (! $supportsOptionReference) {
             if ($questionAnswer->answer === $value) {
-                return $this->response($request);
+                return $this->respondWithQuestion($request, $question);
             }
 
             $questionAnswer->answer = $value;
             $questionAnswer->save();
 
-            return $this->response($request);
+            return $this->respondWithQuestion($request, $question);
         }
 
         if ($currentOption && $currentOption->option === $value) {
-            return $this->response($request);
+            return $this->respondWithQuestion($request, $question);
         }
 
         DB::transaction(function () use ($questionAnswer, $question, $currentOption, $value) {
@@ -96,15 +99,6 @@ class QuestionAnswerController extends Controller
             }
         });
 
-        return $this->response($request);
-    }
-
-    private function response(Request $request)
-    {
-        if ($request->wantsJson()) {
-            return response()->noContent();
-        }
-
-        return redirect($request->input('from', url()->previous()));
+        return $this->respondWithQuestion($request, $question);
     }
 }

@@ -45,7 +45,9 @@ class QuestionHintUpdateTest extends TestCase
             'hint' => 'Використовуйте форму go.',
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.id', $question->id);
+        $response->assertJsonFragment(['hint' => 'Використовуйте форму go.']);
 
         $this->assertDatabaseHas('question_hints', [
             'id' => $hint->id,

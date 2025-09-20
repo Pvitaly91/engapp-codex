@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Concerns\ReturnsTechnicalQuestionResource;
 use App\Models\QuestionHint;
 use Illuminate\Http\Request;
 
 class QuestionHintController extends Controller
 {
+    use ReturnsTechnicalQuestionResource;
+
     public function update(Request $request, QuestionHint $questionHint)
     {
         $data = $request->validate([
@@ -16,10 +19,6 @@ class QuestionHintController extends Controller
         $questionHint->hint = $data['hint'];
         $questionHint->save();
 
-        if ($request->wantsJson()) {
-            return response()->noContent();
-        }
-
-        return redirect($request->input('from', url()->previous()));
+        return $this->respondWithQuestion($request, $questionHint->question);
     }
 }

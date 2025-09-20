@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Concerns\ReturnsTechnicalQuestionResource;
 use App\Models\{VerbHint, QuestionOption, Question};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class VerbHintController extends Controller
 {
+    use ReturnsTechnicalQuestionResource;
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -53,9 +56,7 @@ class VerbHintController extends Controller
         $newHint = $request->input('hint');
 
         if ($newHint === $option->option) {
-            return $request->expectsJson()
-                ? response()->noContent()
-                : redirect($request->input('from', url()->previous()));
+            return $this->respondWithQuestion($request, $question);
         }
 
         $isShared = $option->questions()
@@ -103,13 +104,7 @@ class VerbHintController extends Controller
             }
         }
 
-        if ($request->expectsJson()) {
-            return response()->noContent();
-        }
-
-        $redirectTo = $request->input('from', url()->previous());
-
-        return redirect($redirectTo);
+        return $this->respondWithQuestion($request, $question);
     }
 
     public function destroy(Request $request, VerbHint $verbHint)

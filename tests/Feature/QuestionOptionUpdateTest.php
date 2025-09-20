@@ -48,7 +48,10 @@ class QuestionOptionUpdateTest extends TestCase
             'value' => 'goes',
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.id', $question->id);
+        $response->assertJsonPath('data.answers_by_marker.a1', 'goes');
+        $response->assertJsonFragment(['label' => 'goes']);
 
         $newOption = QuestionOption::where('option', 'goes')->first();
         $this->assertNotNull($newOption);

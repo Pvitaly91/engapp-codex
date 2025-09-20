@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Concerns\ReturnsTechnicalQuestionResource;
 use App\Models\QuestionVariant;
 use Illuminate\Http\Request;
 
 class QuestionVariantController extends Controller
 {
+    use ReturnsTechnicalQuestionResource;
+
     public function update(Request $request, QuestionVariant $questionVariant)
     {
         $data = $request->validate([
@@ -16,10 +19,6 @@ class QuestionVariantController extends Controller
         $questionVariant->text = $data['text'];
         $questionVariant->save();
 
-        if ($request->wantsJson()) {
-            return response()->noContent();
-        }
-
-        return redirect($request->input('from', url()->previous()));
+        return $this->respondWithQuestion($request, $questionVariant->question);
     }
 }

@@ -89,7 +89,9 @@ class VerbHintUpdateCreatesNewOptionTest extends TestCase
             'hint' => 'go',
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.id', $q1->id);
+        $response->assertJsonPath('data.answers.0.verb_hint.value', 'go');
 
         $this->assertEquals('go', $verbHint1->fresh()->option->option);
         $this->assertEquals('do', $verbHint2->fresh()->option->option);

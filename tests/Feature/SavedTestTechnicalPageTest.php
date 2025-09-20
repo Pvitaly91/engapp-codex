@@ -176,13 +176,15 @@ class SavedTestTechnicalPageTest extends TestCase
         $response->assertSee('Редагувати питання');
         $response->assertSee('Змінити');
         $response->assertSee('Редагувати відповідь');
-        $response->assertSee("editAnswer({$answer->id}", false);
-        $response->assertSee("editOption({$question->id}, {$optionGo->id}", false);
-        $response->assertSee("editQuestionHint({$hint->id}", false);
-        $response->assertSee("editVerbHintValue({$verbHint->id}", false);
+        $response->assertSee("techEditor.editQuestion({$question->id})", false);
+        $response->assertSee("techEditor.editQuestionLevel({$question->id})", false);
+        $response->assertSee("techEditor.editAnswer({$question->id}, {$answer->id})", false);
+        $response->assertSee("techEditor.editOption({$question->id}, {$optionGo->id})", false);
+        $response->assertSee("techEditor.editQuestionHint({$question->id}, {$hint->id})", false);
+        $response->assertSee("techEditor.editVerbHint({$question->id}, {$verbHint->id})", false);
 
         if ($variant) {
-            $response->assertSee("editVariant({$variant->id}", false);
+            $response->assertSee("techEditor.editVariant({$question->id}, {$variant->id})", false);
         }
     }
 

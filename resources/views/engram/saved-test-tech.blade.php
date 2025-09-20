@@ -99,19 +99,75 @@
                 ->values();
             $explanations = collect($explanationsByQuestionId[$question->id] ?? []);
             $levelLabel = $question->level ?: 'N/A';
+
+            $answersData = $question->answers
+                ->map(function ($answer) use ($answersByMarker, $verbHintsByMarker) {
+                    $markerKey = strtolower($answer->marker);
+                    $option = $answer->relationLoaded('option') ? $answer->option : $answer->option()->first();
+                    $verbHint = $verbHintsByMarker->get($markerKey);
+
+                    return [
+                        'id' => $answer->id,
+                        'marker' => strtoupper($answer->marker),
+                        'marker_key' => $markerKey,
+                        'value' => $answersByMarker->get($markerKey, ''),
+                        'option' => $option ? [
+                            'id' => $option->id,
+                            'label' => $option->option,
+                        ] : null,
+                        'verb_hint' => $verbHint ? [
+                            'id' => $verbHint->id,
+                            'value' => optional($verbHint->option)->option,
+                        ] : null,
+                    ];
+                })
+                ->values();
+
+            $variantsData = $variants
+                ->map(function ($variant) {
+                    return [
+                        'id' => $variant->id,
+                        'text' => $variant->text,
+                    ];
+                })
+                ->values();
+
+            $questionHintsData = $questionHints
+                ->map(function ($hint) {
+                    return [
+                        'id' => $hint->id,
+                        'provider' => $hint->provider,
+                        'locale' => $hint->locale,
+                        'hint' => $hint->hint,
+                    ];
+                })
+                ->values();
+
+            $techQuestionData = [
+                'id' => $question->id,
+                'question' => $question->question,
+                'level' => $question->level,
+                'answers' => $answersData->toArray(),
+                'answers_by_marker' => $answersByMarker->toArray(),
+                'variants' => $variantsData->toArray(),
+                'options' => $options->toArray(),
+                'question_hints' => $questionHintsData->toArray(),
+            ];
         @endphp
-        <article class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100">
+        <article class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100"
+                 data-question-id="{{ $question->id }}"
+                 data-question='@json($techQuestionData)'>
             <header class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                     <div class="flex items-baseline gap-3 text-sm text-stone-500">
                         <span class="font-semibold uppercase tracking-wide">Питання {{ $loop->iteration }}</span>
                         <span>ID: {{ $question->id }}</span>
                     </div>
-                    <p class="mt-2 text-lg leading-relaxed text-stone-900">{!! $filledQuestion !!}</p>
+                    <p class="mt-2 text-lg leading-relaxed text-stone-900" data-question-text>{!! $filledQuestion !!}</p>
                     <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-blue-600">
                         <button type="button"
                                 class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-blue-700 hover:bg-blue-100"
-                                onclick="editQuestion({{ $question->id }}, @js($question->question))">
+                                onclick="techEditor.editQuestion({{ $question->id }})">
                             <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path d="M15.728 2.272a2.625 2.625 0 0 1 0 3.712l-8.1 8.1a3.5 3.5 0 0 1-1.563.888l-2.82.705a.625.625 0 0 1-.757-.757l.706-2.82a3.5 3.5 0 0 1 .888-1.564l8.1-8.1a2.625 2.625 0 0 1 3.712 0Zm-2.65 1.062-8.1 8.1a2.25 2.25 0 0 0-.57 1.006l-.46 1.838 1.838-.46a2.25 2.25 0 0 0 1.006-.57l8.1-8.1a1.375 1.375 0 1 0-1.94-1.94Z" />
                             </svg>
@@ -121,10 +177,10 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="text-xs uppercase tracking-wide text-stone-500">Level</span>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-stone-900 text-white text-sm font-semibold">{{ $levelLabel }}</span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-stone-900 text-white text-sm font-semibold" data-question-level>{{ $levelLabel }}</span>
                     <button type="button"
                             class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
-                            onclick="editQuestionLevel({{ $question->id }}, @js($question->level))">
+                            onclick="techEditor.editQuestionLevel({{ $question->id }})">
                         Змінити
                     </button>
                 </div>
@@ -139,12 +195,14 @@
                     </summary>
                     <ul class="mt-3 space-y-2 text-sm text-stone-800">
                         @foreach($variants as $variant)
-                            <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
+                            <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2"
+                                data-variant-id="{{ $variant->id }}">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
-                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800" onclick="editVariant({{ $variant->id }}, @js($variant->text))">Редагувати</button>
+                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                            onclick="techEditor.editVariant({{ $question->id }}, {{ $variant->id }})">Редагувати</button>
                                 </div>
-                                <span>{!! $highlightSegments($variant->text) !!}</span>
+                                <span data-variant-text>{!! $highlightSegments($variant->text) !!}</span>
                             </li>
                         @endforeach
                     </ul>
@@ -166,21 +224,25 @@
                             $verbHintModel = $verbHintsByMarker->get($markerKey);
                             $verbHintValue = $verbHintModel?->option?->option;
                         @endphp
-                        <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2">
+                        <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2"
+                            data-answer-id="{{ $answer->id }}">
                             <div class="flex flex-wrap items-center gap-2 text-sm">
                                 <span class="font-mono text-xs uppercase text-emerald-500">{{ $marker }}</span>
-                                <span class="font-semibold text-emerald-900">{{ $answerValue }}</span>
+                                <span class="font-semibold text-emerald-900" data-answer-value>{{ $answerValue }}</span>
                                 @if($verbHintValue)
-                                    <span class="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-emerald-700">
+                                    <span class="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-emerald-700"
+                                        data-verb-hint @if($verbHintModel) data-verb-hint-id="{{ $verbHintModel->id }}" @endif>
                                         <span class="font-semibold uppercase text-[10px] tracking-wide">Verb hint</span>
-                                        <span>{{ $verbHintValue }}</span>
+                                        <span data-verb-hint-value>{{ $verbHintValue }}</span>
                                         @if($verbHintModel)
-                                            <button type="button" class="text-[10px] font-semibold text-blue-600 underline hover:text-blue-800" onclick="editVerbHintValue({{ $verbHintModel->id }}, @js($verbHintValue))">Редагувати</button>
+                                            <button type="button" class="text-[10px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                                    onclick="techEditor.editVerbHint({{ $question->id }}, {{ $verbHintModel->id }})">Редагувати</button>
                                         @endif
                                     </span>
                                 @endif
                             </div>
-                            <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800" onclick="editAnswer({{ $answer->id }}, @js($marker), @js($answerValue))">Редагувати відповідь</button>
+                            <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
+                                    onclick="techEditor.editAnswer({{ $question->id }}, {{ $answer->id }})">Редагувати відповідь</button>
                         </li>
                     @endforeach
                 </ul>
@@ -193,14 +255,15 @@
                         <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
                         <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
                     </summary>
-                    <div class="mt-3 flex flex-wrap gap-2">
+                    <div class="mt-3 flex flex-wrap gap-2" data-options-container>
                         @foreach($options as $option)
                             @php $isCorrectOption = (bool) ($option['is_correct'] ?? false); @endphp
                             <div @class([
                                 'inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm',
                                 'border-emerald-200 bg-emerald-50 text-emerald-900 font-semibold shadow-sm' => $isCorrectOption,
                                 'border-stone-200 bg-stone-50 text-stone-800' => ! $isCorrectOption,
-                            ])>
+                            ])
+                            data-option-id="{{ $option['id'] ?? '' }}">
                                 @if($isCorrectOption)
                                     <svg class="h-3.5 w-3.5 text-emerald-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425.01L3.29 9.967a1 1 0 1 1 1.42-1.407l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd" />
@@ -208,7 +271,8 @@
                                 @endif
                                 <span>{{ $option['label'] }}</span>
                                 @if(! empty($option['id']))
-                                    <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800" onclick="editOption({{ $question->id }}, {{ $option['id'] }}, @js($option['label']))">Редагувати</button>
+                                    <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
+                                            onclick="techEditor.editOption({{ $question->id }}, {{ $option['id'] }})">Редагувати</button>
                                 @endif
                             </div>
                         @endforeach
@@ -225,12 +289,14 @@
                     </summary>
                     <ul class="mt-3 space-y-3 text-sm text-stone-800">
                         @foreach($questionHints as $hint)
-                            <li class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-2">
+                            <li class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-2"
+                                data-question-hint-id="{{ $hint->id }}">
                                 <div class="flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
                                     <span>{{ $hint->provider }} · {{ strtoupper($hint->locale) }}</span>
-                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800" onclick="editQuestionHint({{ $hint->id }}, @js($hint->hint))">Редагувати</button>
+                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                            onclick="techEditor.editQuestionHint({{ $question->id }}, {{ $hint->id }})">Редагувати</button>
                                 </div>
-                                <div class="mt-1 whitespace-pre-line text-stone-800">{{ $hint->hint }}</div>
+                                <div class="mt-1 whitespace-pre-line text-stone-800" data-question-hint-text>{{ $hint->hint }}</div>
                             </li>
                         @endforeach
                     </ul>
@@ -282,118 +348,615 @@
         </article>
     @endforeach
 </div>
+<div id="tech-editor-modal"
+     class="fixed inset-0 z-50 hidden items-center justify-center bg-stone-900/60 px-4 py-6">
+    <div class="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+        <div class="flex items-start justify-between gap-4">
+            <h2 class="text-lg font-semibold text-stone-900" data-modal-title></h2>
+            <button type="button"
+                    class="rounded-full p-2 text-stone-500 transition hover:bg-stone-100 hover:text-stone-800"
+                    data-modal-close>
+                <span class="sr-only">Закрити</span>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                          d="M4.293 4.293a1 1 0 0 1 1.414 0L10 8.586l4.293-4.293a1 1 0 1 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L8.586 10 4.293 5.707a1 1 0 0 1 0-1.414Z"
+                          clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+        <form class="mt-4 space-y-5" data-modal-form>
+            <div class="space-y-4" data-modal-fields></div>
+            <p class="text-sm text-red-600 hidden" data-modal-error></p>
+            <div class="flex justify-end gap-3">
+                <button type="button"
+                        class="rounded-lg border border-stone-200 px-4 py-2 text-sm font-semibold text-stone-700 transition hover:bg-stone-50"
+                        data-modal-cancel>Скасувати</button>
+                <button type="submit"
+                        class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        data-modal-submit>Зберегти</button>
+            </div>
+        </form>
+    </div>
+</div>
 <script>
-    const techCsrfToken = '{{ csrf_token() }}';
-    const questionUpdateUrl = '{{ url('/questions') }}';
-    const answerUpdateUrl = '{{ url('/question-answers') }}';
-    const variantUpdateUrl = '{{ url('/question-variants') }}';
-    const optionUpdateBaseUrl = '{{ url('/questions') }}';
-    const questionHintUpdateUrl = '{{ url('/question-hints') }}';
-    const verbHintUpdateUrl = '{{ url('/verb-hints') }}';
+    (() => {
+        const techCsrfToken = '{{ csrf_token() }}';
+        const routes = {
+            question: '{{ url('/questions') }}',
+            answer: '{{ url('/question-answers') }}',
+            variant: '{{ url('/question-variants') }}',
+            option: '{{ url('/questions') }}',
+            questionHint: '{{ url('/question-hints') }}',
+            verbHint: '{{ url('/verb-hints') }}',
+        };
 
-    function sendUpdate(url, payload) {
-        return fetch(url, {
-            method: 'PUT',
-            headers: {
-                'X-CSRF-TOKEN': techCsrfToken,
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        }).then(response => {
-            if (!response.ok) {
-                throw new Error('Request failed');
+        const state = new Map();
+
+        const modalElement = document.getElementById('tech-editor-modal');
+        const modal = {
+            element: modalElement,
+            form: modalElement ? modalElement.querySelector('[data-modal-form]') : null,
+            fields: modalElement ? modalElement.querySelector('[data-modal-fields]') : null,
+            title: modalElement ? modalElement.querySelector('[data-modal-title]') : null,
+            error: modalElement ? modalElement.querySelector('[data-modal-error]') : null,
+            submitButton: modalElement ? modalElement.querySelector('[data-modal-submit]') : null,
+            cancelButton: modalElement ? modalElement.querySelector('[data-modal-cancel]') : null,
+            closeButton: modalElement ? modalElement.querySelector('[data-modal-close]') : null,
+        };
+
+        let submitHandler = null;
+
+        function escapeHtml(value) {
+            if (value === null || value === undefined) {
+                return '';
             }
-        });
-    }
 
-    function handleSuccess() {
-        location.reload();
-    }
-
-    function handleError(error) {
-        console.error(error);
-        alert('Не вдалося зберегти зміни.');
-    }
-
-    function editQuestion(id, currentText) {
-        const updated = prompt('Оновіть текст питання', currentText ?? '');
-        if (updated === null) {
-            return;
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
         }
 
-        sendUpdate(`${questionUpdateUrl}/${id}`, { question: updated })
-            .then(handleSuccess)
-            .catch(handleError);
-    }
+        function highlightSegments(text, answers) {
+            if (!text) {
+                return '';
+            }
 
-    function editQuestionLevel(id, currentLevel) {
-        const updated = prompt('Вкажіть рівень питання', currentLevel ?? '');
-        if (updated === null) {
-            return;
+            const segments = text.split(/(\{a\d+\})/gi);
+
+            return segments
+                .map(segment => {
+                    const match = segment.match(/^\{(a\d+)\}$/i);
+                    if (match) {
+                        const key = match[1].toLowerCase();
+                        const value = answers[key];
+
+                        if (!value) {
+                            return escapeHtml(segment);
+                        }
+
+                        return `<mark class="rounded bg-emerald-100 px-1 py-0.5 font-semibold text-emerald-800">${escapeHtml(value)}</mark>`;
+                    }
+
+                    return escapeHtml(segment);
+                })
+                .join('');
         }
 
-        const payload = { level: updated === '' ? null : updated };
+        function renderOptionHtml(questionId, option) {
+            const classes = ['inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm'];
 
-        sendUpdate(`${questionUpdateUrl}/${id}`, payload)
-            .then(handleSuccess)
-            .catch(handleError);
-    }
+            if (option.is_correct) {
+                classes.push('border-emerald-200 bg-emerald-50 text-emerald-900 font-semibold shadow-sm');
+            } else {
+                classes.push('border-stone-200 bg-stone-50 text-stone-800');
+            }
 
-    function editVariant(id, currentText) {
-        const updated = prompt('Оновіть варіант питання', currentText ?? '');
-        if (updated === null) {
-            return;
+            const parts = [`<div class="${classes.join(' ')}" data-option-id="${option.id ?? ''}">`];
+
+            if (option.is_correct) {
+                parts.push('<svg class="h-3.5 w-3.5 text-emerald-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425-.01L3.29 9.967a1 1 0 1 1 1.42-1.407l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd"></path></svg>');
+            }
+
+            parts.push(`<span>${escapeHtml(option.label ?? '')}</span>`);
+
+            if (option.id) {
+                parts.push(`<button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800" onclick="techEditor.editOption(${questionId}, ${option.id})">Редагувати</button>`);
+            }
+
+            parts.push('</div>');
+
+            return parts.join('');
         }
 
-        sendUpdate(`${variantUpdateUrl}/${id}`, { text: updated })
-            .then(handleSuccess)
-            .catch(handleError);
-    }
+        function applyQuestionData(questionData) {
+            if (!questionData || typeof questionData.id === 'undefined') {
+                return;
+            }
 
-    function editAnswer(id, marker, currentValue) {
-        const label = marker ? `Оновіть відповідь для ${marker}` : 'Оновіть відповідь';
-        const updated = prompt(label, currentValue ?? '');
-        if (updated === null) {
-            return;
+            let entry = state.get(questionData.id);
+
+            if (!entry) {
+                const element = document.querySelector(`[data-question-id="${questionData.id}"]`);
+
+                if (!element) {
+                    return;
+                }
+
+                entry = { element, data: questionData };
+                state.set(questionData.id, entry);
+            } else {
+                entry.data = questionData;
+            }
+
+            entry.element.setAttribute('data-question', JSON.stringify(questionData));
+
+            const answersMap = questionData.answers_by_marker || {};
+            const questionTextEl = entry.element.querySelector('[data-question-text]');
+            if (questionTextEl) {
+                questionTextEl.innerHTML = highlightSegments(questionData.question, answersMap);
+            }
+
+            const levelEl = entry.element.querySelector('[data-question-level]');
+            if (levelEl) {
+                levelEl.textContent = questionData.level ?? 'N/A';
+            }
+
+            (questionData.variants || []).forEach(variant => {
+                const variantEl = entry.element.querySelector(`[data-variant-id="${variant.id}"] [data-variant-text]`);
+                if (variantEl) {
+                    variantEl.innerHTML = highlightSegments(variant.text, answersMap);
+                }
+            });
+
+            (questionData.answers || []).forEach(answer => {
+                const answerRow = entry.element.querySelector(`[data-answer-id="${answer.id}"]`);
+                if (!answerRow) {
+                    return;
+                }
+
+                const valueEl = answerRow.querySelector('[data-answer-value]');
+                if (valueEl) {
+                    valueEl.textContent = answer.value ?? '';
+                }
+
+                const verbHintEl = answerRow.querySelector('[data-verb-hint]');
+                if (verbHintEl && answer.verb_hint) {
+                    verbHintEl.setAttribute('data-verb-hint-id', answer.verb_hint.id);
+                    const value = verbHintEl.querySelector('[data-verb-hint-value]');
+                    if (value) {
+                        value.textContent = answer.verb_hint.value ?? '';
+                    }
+                }
+            });
+
+            const optionsContainer = entry.element.querySelector('[data-options-container]');
+            if (optionsContainer) {
+                const html = (questionData.options || [])
+                    .map(option => renderOptionHtml(questionData.id, option))
+                    .join('');
+
+                optionsContainer.innerHTML = html;
+            }
+
+            (questionData.question_hints || []).forEach(hint => {
+                const hintEl = entry.element.querySelector(`[data-question-hint-id="${hint.id}"] [data-question-hint-text]`);
+                if (hintEl) {
+                    hintEl.textContent = hint.hint ?? '';
+                }
+            });
         }
 
-        sendUpdate(`${answerUpdateUrl}/${id}`, { value: updated })
-            .then(handleSuccess)
-            .catch(handleError);
-    }
-
-    function editOption(questionId, optionId, currentValue) {
-        const updated = prompt('Оновіть варіант відповіді', currentValue ?? '');
-        if (updated === null) {
-            return;
+        function clearError() {
+            if (modal.error) {
+                modal.error.classList.add('hidden');
+                modal.error.textContent = '';
+            }
         }
 
-        sendUpdate(`${optionUpdateBaseUrl}/${questionId}/options/${optionId}`, { value: updated })
-            .then(handleSuccess)
-            .catch(handleError);
-    }
+        function showError(message) {
+            if (!modal.error) {
+                return;
+            }
 
-    function editQuestionHint(id, currentValue) {
-        const updated = prompt('Оновіть текст підказки', currentValue ?? '');
-        if (updated === null) {
-            return;
+            modal.error.textContent = message;
+            modal.error.classList.remove('hidden');
         }
 
-        sendUpdate(`${questionHintUpdateUrl}/${id}`, { hint: updated })
-            .then(handleSuccess)
-            .catch(handleError);
-    }
-
-    function editVerbHintValue(id, currentValue) {
-        const updated = prompt('Оновіть verb hint', currentValue ?? '');
-        if (updated === null) {
-            return;
+        function setLoading(isLoading) {
+            if (modal.submitButton) {
+                modal.submitButton.disabled = isLoading;
+                modal.submitButton.classList.toggle('opacity-60', isLoading);
+            }
         }
 
-        sendUpdate(`${verbHintUpdateUrl}/${id}`, { hint: updated })
-            .then(handleSuccess)
-            .catch(handleError);
-    }
+        function closeModal() {
+            submitHandler = null;
+
+            if (modal.form) {
+                modal.form.reset();
+            }
+
+            if (modal.fields) {
+                modal.fields.innerHTML = '';
+            }
+
+            clearError();
+
+            if (modal.element) {
+                modal.element.classList.add('hidden');
+                modal.element.classList.remove('flex');
+            }
+        }
+
+        function openModal(config) {
+            if (!modal.element) {
+                return;
+            }
+
+            clearError();
+
+            if (modal.title) {
+                modal.title.textContent = config.title || '';
+            }
+
+            if (modal.fields) {
+                modal.fields.innerHTML = '';
+
+                const focusables = [];
+
+                (config.fields || []).forEach(field => {
+                    const fieldId = `tech-field-${field.name}-${Math.random().toString(16).slice(2)}`;
+
+                    const wrapper = document.createElement('div');
+                    const label = document.createElement('label');
+
+                    label.setAttribute('for', fieldId);
+                    label.className = 'block text-sm font-semibold text-stone-700';
+                    label.textContent = field.label || '';
+
+                    wrapper.appendChild(label);
+
+                    let input;
+
+                    if (field.type === 'textarea') {
+                        input = document.createElement('textarea');
+                        input.rows = field.rows || 4;
+                    } else {
+                        input = document.createElement('input');
+                        input.type = field.type || 'text';
+                    }
+
+                    input.id = fieldId;
+                    input.name = field.name;
+                    input.required = !!field.required;
+                    input.placeholder = field.placeholder || '';
+                    input.value = field.value ?? '';
+                    input.className = 'mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm text-stone-900 shadow-sm focus:border-blue-500 focus:ring-blue-500';
+
+                    if (field.autocomplete) {
+                        input.autocomplete = field.autocomplete;
+                    }
+
+                    wrapper.appendChild(input);
+                    modal.fields.appendChild(wrapper);
+                    focusables.push(input);
+                });
+
+                if (focusables.length > 0) {
+                    window.requestAnimationFrame(() => focusables[0].focus());
+                }
+            }
+
+            submitHandler = config.onSubmit || null;
+
+            modal.element.classList.remove('hidden');
+            modal.element.classList.add('flex');
+        }
+
+        function sendUpdate(url, payload) {
+            return fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': techCsrfToken,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            }).then(async response => {
+                const contentType = response.headers.get('Content-Type') || '';
+
+                if (response.ok) {
+                    if (contentType.includes('application/json')) {
+                        const data = await response.json();
+                        return data.data ?? data;
+                    }
+
+                    throw new Error('Порожня відповідь сервера.');
+                }
+
+                let message = 'Не вдалося зберегти зміни.';
+
+                if (response.status === 422 && contentType.includes('application/json')) {
+                    const data = await response.json();
+                    const errors = data.errors ? Object.values(data.errors).flat() : [];
+                    if (errors.length) {
+                        message = errors.join(' ');
+                    }
+                }
+
+                throw new Error(message);
+            });
+        }
+
+        const techEditor = {
+            editQuestion(questionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Редагувати питання',
+                    fields: [
+                        {
+                            name: 'question',
+                            label: 'Текст питання',
+                            type: 'textarea',
+                            value: entry.data.question ?? '',
+                            required: true,
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendUpdate(`${routes.question}/${questionId}`, { question: values.question })
+                            .then(applyQuestionData);
+                    },
+                });
+            },
+            editQuestionLevel(questionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Змінити рівень питання',
+                    fields: [
+                        {
+                            name: 'level',
+                            label: 'Рівень',
+                            type: 'text',
+                            value: entry.data.level ?? '',
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendUpdate(`${routes.question}/${questionId}`, { level: values.level || null })
+                            .then(applyQuestionData);
+                    },
+                });
+            },
+            editVariant(questionId, variantId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const variant = (entry.data.variants || []).find(item => item.id === variantId);
+                if (!variant) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Редагувати варіант питання',
+                    fields: [
+                        {
+                            name: 'text',
+                            label: 'Текст варіанту',
+                            type: 'textarea',
+                            value: variant.text ?? '',
+                            required: true,
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendUpdate(`${routes.variant}/${variantId}`, { text: values.text })
+                            .then(applyQuestionData);
+                    },
+                });
+            },
+            editAnswer(questionId, answerId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const answer = (entry.data.answers || []).find(item => item.id === answerId);
+                if (!answer) {
+                    return;
+                }
+
+                openModal({
+                    title: `Редагувати відповідь (${answer.marker})`,
+                    fields: [
+                        {
+                            name: 'value',
+                            label: 'Відповідь',
+                            type: 'text',
+                            value: answer.value ?? '',
+                            required: true,
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendUpdate(`${routes.answer}/${answerId}`, { value: values.value })
+                            .then(applyQuestionData);
+                    },
+                });
+            },
+            editOption(questionId, optionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const option = (entry.data.options || []).find(item => item.id === optionId);
+                if (!option) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Редагувати варіант відповіді',
+                    fields: [
+                        {
+                            name: 'value',
+                            label: 'Варіант відповіді',
+                            type: 'text',
+                            value: option.label ?? '',
+                            required: true,
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendUpdate(`${routes.option}/${questionId}/options/${optionId}`, { value: values.value })
+                            .then(applyQuestionData);
+                    },
+                });
+            },
+            editQuestionHint(questionId, hintId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const hint = (entry.data.question_hints || []).find(item => item.id === hintId);
+                if (!hint) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Редагувати підказку',
+                    fields: [
+                        {
+                            name: 'hint',
+                            label: 'Текст підказки',
+                            type: 'textarea',
+                            value: hint.hint ?? '',
+                            required: true,
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendUpdate(`${routes.questionHint}/${hintId}`, { hint: values.hint })
+                            .then(applyQuestionData);
+                    },
+                });
+            },
+            editVerbHint(questionId, verbHintId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const answer = (entry.data.answers || []).find(item => item.verb_hint && item.verb_hint.id === verbHintId);
+                if (!answer || !answer.verb_hint) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Редагувати verb hint',
+                    fields: [
+                        {
+                            name: 'hint',
+                            label: 'Verb hint',
+                            type: 'text',
+                            value: answer.verb_hint.value ?? '',
+                            required: true,
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendUpdate(`${routes.verbHint}/${verbHintId}`, { hint: values.hint })
+                            .then(applyQuestionData);
+                    },
+                });
+            },
+            applyQuestionData,
+        };
+
+        function initialiseState() {
+            document.querySelectorAll('[data-question-id]').forEach(element => {
+                const raw = element.getAttribute('data-question');
+                if (!raw) {
+                    return;
+                }
+
+                try {
+                    const data = JSON.parse(raw);
+                    state.set(data.id, { element, data });
+                } catch (error) {
+                    console.error('Не вдалося розпізнати дані питання', error);
+                }
+            });
+        }
+
+        function setupModalHandlers() {
+            if (!modal.element || !modal.form) {
+                return;
+            }
+
+            modal.form.addEventListener('submit', event => {
+                event.preventDefault();
+
+                if (!submitHandler) {
+                    return;
+                }
+
+                const formData = new FormData(modal.form);
+                const values = Object.fromEntries(formData.entries());
+
+                clearError();
+                setLoading(true);
+
+                Promise.resolve()
+                    .then(() => submitHandler(values))
+                    .then(question => {
+                        if (question) {
+                            applyQuestionData(question);
+                        }
+                        closeModal();
+                    })
+                    .catch(error => {
+                        showError(error.message || 'Не вдалося зберегти зміни.');
+                    })
+                    .finally(() => setLoading(false));
+            });
+
+            if (modal.cancelButton) {
+                modal.cancelButton.addEventListener('click', closeModal);
+            }
+
+            if (modal.closeButton) {
+                modal.closeButton.addEventListener('click', closeModal);
+            }
+
+            modal.element.addEventListener('click', event => {
+                if (event.target === modal.element) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && !modal.element.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        }
+
+        initialiseState();
+        setupModalHandlers();
+
+        window.techEditor = techEditor;
+    })();
 </script>
 @endsection

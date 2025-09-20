@@ -35,7 +35,9 @@ class QuestionUpdateTest extends TestCase
             'question' => 'Updated {a1}',
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.id', $question->id);
+        $response->assertJsonPath('data.question', 'Updated {a1}');
         $this->assertDatabaseHas('questions', [
             'id' => $question->id,
             'question' => 'Updated {a1}',
@@ -69,7 +71,8 @@ class QuestionUpdateTest extends TestCase
             'level' => 'B1',
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.level', 'B1');
         $this->assertDatabaseHas('questions', [
             'id' => $question->id,
             'level' => 'B1',
@@ -79,7 +82,8 @@ class QuestionUpdateTest extends TestCase
             'level' => null,
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.level', null);
         $this->assertDatabaseHas('questions', [
             'id' => $question->id,
             'level' => null,

@@ -73,7 +73,9 @@ class VerbHintUpdateResponseTest extends TestCase
             'hint' => 'go',
         ]);
 
-        $response->assertNoContent();
+        $response->assertOk();
+        $response->assertJsonPath('data.id', $question->id);
+        $response->assertJsonPath('data.answers.0.verb_hint.value', 'go');
         $this->assertEquals('go', $verbHint->fresh()->option->option);
     }
 }

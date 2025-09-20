@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TechnicalQuestionResource;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class QuestionController extends Controller
         }
 
         if ($request->wantsJson()) {
-            return response()->noContent();
+            return TechnicalQuestionResource::make($question->refresh());
         }
 
         return redirect()->back();

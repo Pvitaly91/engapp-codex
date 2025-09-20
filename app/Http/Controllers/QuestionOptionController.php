@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Concerns\ReturnsTechnicalQuestionResource;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Schema;
 
 class QuestionOptionController extends Controller
 {
+    use ReturnsTechnicalQuestionResource;
+
     public function update(Request $request, Question $question, QuestionOption $option)
     {
         $data = $request->validate([
@@ -35,7 +38,7 @@ class QuestionOptionController extends Controller
         }
 
         if ($option->option === $value) {
-            return $this->response($request);
+            return $this->respondWithQuestion($request, $question);
         }
 
         DB::transaction(function () use ($question, $option, $value) {
@@ -83,15 +86,6 @@ class QuestionOptionController extends Controller
             }
         });
 
-        return $this->response($request);
-    }
-
-    private function response(Request $request)
-    {
-        if ($request->wantsJson()) {
-            return response()->noContent();
-        }
-
-        return redirect($request->input('from', url()->previous()));
+        return $this->respondWithQuestion($request, $question);
     }
 }
