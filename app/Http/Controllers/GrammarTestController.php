@@ -60,6 +60,24 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.show', $slug);
     }
 
+    public function update(Request $request, Test $test)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $test->name = $data['name'];
+        $test->save();
+
+        if ($request->expectsJson()) {
+            return response()->noContent();
+        }
+
+        $redirectTo = $request->input('from', route('saved-test.tech', $test->slug));
+
+        return redirect($redirectTo);
+    }
+
     public function showSavedTest($slug)
     {
         $test = \App\Models\Test::where('slug', $slug)->firstOrFail();
@@ -96,16 +114,60 @@ class GrammarTestController extends Controller
     public function showSavedTestTech(string $slug)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
+
+        [$questions, $explanationsByQuestionId] = $this->prepareSavedTestTechData($test);
+
+        return view('engram.saved-test-tech', [
+            'test' => $test,
+            'questions' => $questions,
+            'explanationsByQuestionId' => $explanationsByQuestionId,
+            'returnUrl' => route('saved-test.tech', $test->slug),
+        ]);
+    }
+
+    public function fetchSavedTestTechQuestions(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        [$questions, $explanationsByQuestionId] = $this->prepareSavedTestTechData($test);
+
+        $html = view('engram.partials.saved-test-tech-question-list', [
+            'test' => $test,
+            'questions' => $questions,
+            'explanationsByQuestionId' => $explanationsByQuestionId,
+            'returnUrl' => route('saved-test.tech', $test->slug),
+        ])->render();
+
+        return response()->json([
+            'html' => $html,
+            'question_count' => $questions->count(),
+        ]);
+    }
+
+    private function prepareSavedTestTechData(Test $test): array
+    {
         $supportsVariants = $this->variantService->supportsVariants();
+
+        $questionIds = collect($test->questions ?? [])
+            ->filter(fn ($id) => $id !== null && $id !== '')
+            ->map(fn ($id) => (int) $id)
+            ->unique()
+            ->values();
 
         $relations = ['answers.option', 'options', 'verbHints.option', 'hints'];
         if ($supportsVariants) {
             $relations[] = 'variants';
         }
 
+        if ($questionIds->isEmpty()) {
+            return [collect(), []];
+        }
+
+        $orderBy = 'CASE id ' . $questionIds->values()->map(fn ($id, $index) => 'WHEN ' . $id . ' THEN ' . $index)->implode(' ') . ' ELSE ' . $questionIds->count() . ' END';
+
         $questions = Question::with($relations)
-            ->whereIn('id', $test->questions)
-            ->orderBy('id')
+            ->whereIn('id', $questionIds)
+            ->orderByRaw($orderBy)
             ->get();
 
         $textToQuestionIds = [];
@@ -122,8 +184,8 @@ class GrammarTestController extends Controller
             }
 
             $texts
-                ->filter(fn($text) => is_string($text) && trim($text) !== '')
-                ->map(fn($text) => trim($text))
+                ->filter(fn ($text) => is_string($text) && trim($text) !== '')
+                ->map(fn ($text) => trim($text))
                 ->unique()
                 ->each(function (string $text) use ($question, &$textToQuestionIds) {
                     $textToQuestionIds[$text][] = $question->id;
@@ -142,19 +204,67 @@ class GrammarTestController extends Controller
 
             foreach ($explanations as $explanation) {
                 $key = trim((string) $explanation->question);
-                $questionIds = $textToQuestionIds[$key] ?? [];
+                $questionIdsForText = $textToQuestionIds[$key] ?? [];
 
-                foreach ($questionIds as $questionId) {
+                foreach ($questionIdsForText as $questionId) {
                     $explanationsByQuestionId[$questionId][] = $explanation;
                 }
             }
         }
 
-        return view('engram.saved-test-tech', [
-            'test' => $test,
-            'questions' => $questions,
-            'explanationsByQuestionId' => $explanationsByQuestionId,
+        return [$questions, $explanationsByQuestionId];
+    }
+
+    public function storeSavedTestQuestion(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        $data = $request->validate([
+            'question' => 'required|string',
+            'level' => 'nullable|string|max:10',
         ]);
+
+        $questionIds = $test->questions ?? [];
+        $questionIds = is_array($questionIds) ? array_filter($questionIds) : [];
+
+        $categoryId = null;
+
+        if (! empty($questionIds)) {
+            $categoryId = Question::query()
+                ->whereIn('id', $questionIds)
+                ->whereNotNull('category_id')
+                ->orderBy('id')
+                ->value('category_id');
+        }
+
+        if (! $categoryId) {
+            $categoryId = Category::query()->orderBy('id')->value('id');
+        }
+
+        if (! $categoryId) {
+            $categoryId = Category::query()->firstOrCreate(['name' => 'General'])->id;
+        }
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => $data['question'],
+            'difficulty' => 1,
+            'level' => $data['level'] !== '' ? $data['level'] : null,
+            'category_id' => $categoryId,
+        ]);
+
+        $questions = $test->questions ?? [];
+        array_unshift($questions, $question->id);
+        $questions = array_values(array_unique(array_map('intval', $questions)));
+
+        $test->questions = $questions;
+        $test->save();
+
+        if ($request->expectsJson()) {
+            return response()->json(['id' => $question->id], 201);
+        }
+
+        return redirect($request->input('from', route('saved-test.tech', $test->slug)));
     }
 
     public function showSavedTestRandom($slug)
@@ -697,7 +807,7 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.step', $slug);
     }
 
-    public function deleteQuestion($slug, Question $question)
+    public function deleteQuestion(Request $request, $slug, Question $question)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
         $test->questions = array_values(array_filter(
@@ -721,7 +831,7 @@ class GrammarTestController extends Controller
             session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
         }
 
-        return redirect()->back();
+        return redirect($request->input('from', url()->previous()));
     }
 
     public function show(Request $request)

@@ -7,6 +7,11 @@ use App\Http\Controllers\QuestionHelpController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\SiteSearchController;
+use App\Http\Controllers\QuestionAnswerController;
+use App\Http\Controllers\QuestionHintController;
+use App\Http\Controllers\QuestionOptionController;
+use App\Http\Controllers\QuestionVariantController;
+use App\Http\Controllers\ChatGPTExplanationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,6 +79,8 @@ Route::get('/test/{slug}/js/input', [GrammarTestController::class, 'showSavedTes
 Route::get('/test/{slug}/js/step/select', [GrammarTestController::class, 'showSavedTestJsStepSelect'])->name('saved-test.js.step-select');
 Route::get('/test/{slug}/js/select', [GrammarTestController::class, 'showSavedTestJsSelect'])->name('saved-test.js.select');
 Route::get('/test/{slug}/tech', [GrammarTestController::class, 'showSavedTestTech'])->name('saved-test.tech');
+Route::get('/test/{slug}/tech/questions', [GrammarTestController::class, 'fetchSavedTestTechQuestions'])->name('saved-test.tech.questions');
+Route::post('/test/{slug}/questions', [GrammarTestController::class, 'storeSavedTestQuestion'])->name('saved-test.questions.store');
 Route::get('/test/{slug}', [GrammarTestController::class, 'showSavedTest'])->name('saved-test.show');
 Route::get('/test/{slug}/random', [GrammarTestController::class, 'showSavedTestRandom'])->name('saved-test.random');
 Route::get('/test/{slug}/step', [GrammarTestController::class, 'showSavedTestStep'])->name('saved-test.step');
@@ -91,6 +98,7 @@ Route::delete('/test/{slug}/step/remove-tag', [GrammarTestController::class, 're
 Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
 Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
+Route::put('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'update'])->name('saved-tests.update');
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
 Route::get('/catalog-tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
 
@@ -132,6 +140,25 @@ Route::post('/verb-hints', [VerbHintController::class, 'store'])->name('verb-hin
 Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
 Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])->name('verb-hints.destroy');
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
+Route::post('/question-answers', [QuestionAnswerController::class, 'store'])->name('question-answers.store');
+Route::put('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'update'])->name('question-answers.update');
+Route::delete('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'destroy'])->name('question-answers.destroy');
+
+Route::post('/question-options', [QuestionOptionController::class, 'store'])->name('question-options.store');
+Route::put('/question-options/{questionOption}', [QuestionOptionController::class, 'update'])->name('question-options.update');
+Route::delete('/question-options/{questionOption}', [QuestionOptionController::class, 'destroy'])->name('question-options.destroy');
+
+Route::post('/question-variants', [QuestionVariantController::class, 'store'])->name('question-variants.store');
+Route::put('/question-variants/{questionVariant}', [QuestionVariantController::class, 'update'])->name('question-variants.update');
+Route::delete('/question-variants/{questionVariant}', [QuestionVariantController::class, 'destroy'])->name('question-variants.destroy');
+
+Route::post('/question-hints', [QuestionHintController::class, 'store'])->name('question-hints.store');
+Route::put('/question-hints/{questionHint}', [QuestionHintController::class, 'update'])->name('question-hints.update');
+Route::delete('/question-hints/{questionHint}', [QuestionHintController::class, 'destroy'])->name('question-hints.destroy');
+
+Route::post('/chatgpt-explanations', [ChatGPTExplanationController::class, 'store'])->name('chatgpt-explanations.store');
+Route::put('/chatgpt-explanations/{chatgptExplanation}', [ChatGPTExplanationController::class, 'update'])->name('chatgpt-explanations.update');
+Route::delete('/chatgpt-explanations/{chatgptExplanation}', [ChatGPTExplanationController::class, 'destroy'])->name('chatgpt-explanations.destroy');
 
 Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
 Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');

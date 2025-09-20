@@ -5,9 +5,51 @@
 @section('content')
 <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-            <h1 class="text-2xl font-bold text-stone-900">{{ $test->name }}</h1>
-            <p class="text-sm text-stone-600 mt-1">Технічна інформація про тест · Питань: {{ $questions->count() }}</p>
+        <div x-data="{ editing: false, name: @js($test->name), formName: @js($test->name) }" class="flex-1 space-y-3">
+            <div x-show="!editing" x-ref="display" class="space-y-2">
+                <div class="flex flex-wrap items-center gap-3">
+                    <h1 class="text-2xl font-bold text-stone-900" x-text="name"></h1>
+                    <button type="button"
+                            class="inline-flex items-center gap-1 rounded-lg border border-stone-300 px-3 py-1.5 text-sm font-semibold text-stone-600 hover:bg-stone-100"
+                            @click="
+                                window.highlightEditable($refs.display);
+                                formName = name;
+                                editing = true;
+                                $nextTick(() => window.highlightEditable($refs.form));
+                            ">
+                        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m13.5 6.5-8 8-3 3 .5-3.5 8-8 2.5 2.5Zm0 0 2-2a1.586 1.586 0 0 1 2.243 0 1.586 1.586 0 0 1 0 2.243l-2 2M10 4h-6a2 2 0 0 0-2 2v10c0 1.105.895 2 2 2h10a2 2 0 0 0 2-2v-6" />
+                        </svg>
+                        <span>Редагувати назву</span>
+                    </button>
+                </div>
+                <p class="text-sm text-stone-600">Технічна інформація про тест · Питань: <span data-question-count>{{ $questions->count() }}</span></p>
+            </div>
+            <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('saved-tests.update', $test) }}" class="rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-3"
+                  x-on:submit.prevent="
+                      const form = $event.target;
+                      window.SavedTestTech.submitForm(form, {
+                          refresh: false,
+                          onSuccess: () => {
+                              name = formName;
+                              editing = false;
+                              window.highlightEditable($refs.display);
+                          },
+                      });
+                  ">
+                @csrf
+                @method('put')
+                <input type="hidden" name="from" value="{{ $returnUrl }}">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Назва тесту</label>
+                    <input type="text" name="name" x-model="formName" required
+                           class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-stone-500">
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button type="submit" class="inline-flex items-center rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white shadow hover:bg-emerald-700">Зберегти</button>
+                    <button type="button" class="inline-flex items-center rounded-lg border border-stone-300 px-3 py-1.5 text-sm font-semibold text-stone-700 hover:bg-stone-100" @click="editing = false">Скасувати</button>
+                </div>
+            </form>
         </div>
         <div class="flex flex-wrap gap-2">
             <a href="{{ route('saved-test.show', $test->slug) }}"
@@ -21,207 +63,290 @@
         </div>
     </div>
 
-    @foreach($questions as $question)
-        @php
-            $answersByMarker = $question->answers
-                ->mapWithKeys(function ($answer) {
-                    $value = $answer->option->option ?? $answer->answer ?? '';
+    <div x-data="{ addingQuestion: false }" class="rounded-2xl border border-dashed border-emerald-200 bg-emerald-50/40 p-4">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h2 class="text-lg font-semibold text-stone-900">Додати нове питання</h2>
+                <p class="text-sm text-stone-600">Створіть нове питання й воно з'явиться на початку списку.</p>
+            </div>
+            <button type="button"
+                    class="inline-flex items-center gap-1 rounded-lg border border-emerald-300 bg-white px-3 py-1.5 text-sm font-semibold text-emerald-700 shadow-sm hover:bg-emerald-50"
+                    x-show="!addingQuestion"
+                    @click="addingQuestion = true; $nextTick(() => window.highlightEditable($refs.form))">
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 3a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H4a1 1 0 1 1 0-2h5V4a1 1 0 0 1 1-1Z" clip-rule="evenodd" />
+                </svg>
+                <span>Нове питання</span>
+            </button>
+        </div>
+        <form x-show="addingQuestion" x-cloak x-ref="form" method="POST" action="{{ route('saved-test.questions.store', $test->slug) }}" class="mt-4 space-y-3 rounded-2xl border border-emerald-200 bg-white p-4"
+              x-on:submit.prevent="
+                  const form = $event.target;
+                  window.SavedTestTech.submitForm(form, {
+                      onSuccess: () => {
+                          addingQuestion = false;
+                          form.reset();
+                          window.SavedTestTech.highlightFirstQuestion();
+                      },
+                  });
+              ">
+            @csrf
+            <input type="hidden" name="from" value="{{ $returnUrl }}">
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Текст питання</label>
+                <textarea name="question" rows="3" required class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Рівень</label>
+                    <select name="level" class="mt-1 w-40 rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <option value="">N/A</option>
+                        @foreach(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as $levelOption)
+                            <option value="{{ $levelOption }}">{{ $levelOption }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button type="submit" class="inline-flex items-center rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white shadow hover:bg-emerald-700">Створити</button>
+                    <button type="button" class="inline-flex items-center rounded-lg border border-stone-300 px-3 py-1.5 text-sm font-semibold text-stone-700 hover:bg-stone-100" @click="addingQuestion = false">Скасувати</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-                    return [strtolower($answer->marker) => $value];
-                });
-            $highlightSegments = function (string $text) use ($answersByMarker) {
-                $segments = preg_split('/(\{a\d+\})/i', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
+    <div id="saved-test-question-list" class="space-y-6" data-refresh-url="{{ route('saved-test.tech.questions', $test->slug) }}">
+        @include('engram.partials.saved-test-tech-question-list', [
+            'questions' => $questions,
+            'test' => $test,
+            'explanationsByQuestionId' => $explanationsByQuestionId,
+            'returnUrl' => $returnUrl,
+        ])
+    </div>
 
-                return collect($segments)->map(function ($segment) use ($answersByMarker) {
-                    if (preg_match('/^\{(a\d+)\}$/i', $segment, $matches)) {
-                        $markerKey = strtolower($matches[1]);
+</div>
 
-                        if (! $answersByMarker->has($markerKey)) {
-                            return e($segment);
-                        }
+<style>
+    .editable-highlight {
+        outline: 3px solid rgba(250, 204, 21, 0.85);
+        outline-offset: 4px;
+        transition: outline-color 0.2s ease, outline-width 0.2s ease;
+    }
+</style>
+<script>
+    window.SavedTestTech = {
+        questionList: null,
+        questionCountEl: null,
+        refreshUrl: null,
+        isRefreshing: false,
+        highlightAfterRefresh: false,
 
-                        $value = $answersByMarker->get($markerKey);
+        init() {
+            this.questionList = document.getElementById('saved-test-question-list');
+            this.questionCountEl = document.querySelector('[data-question-count]');
 
-                        return '<mark class="rounded bg-emerald-100 px-1 py-0.5 font-semibold text-emerald-800">' . e($value) . '</mark>';
+            if (this.questionList) {
+                this.refreshUrl = this.questionList.dataset.refreshUrl || null;
+
+                this.questionList.addEventListener('submit', (event) => {
+                    const form = event.target;
+                    if (!(form instanceof HTMLFormElement)) {
+                        return;
                     }
 
-                    return e($segment);
-                })->implode('');
-            };
-            $filledQuestion = $highlightSegments($question->question);
-            $options = $question->options->pluck('option')->filter()->unique()->values();
-            foreach ($answersByMarker as $value) {
-                if ($value !== '' && ! $options->contains($value)) {
-                    $options->push($value);
-                }
-            }
-            $variantTexts = $question->relationLoaded('variants')
-                ? $question->variants->pluck('text')->filter()->unique()->values()
-                : collect();
-            $verbHints = $question->verbHints
-                ->sortBy('marker')
-                ->mapWithKeys(function ($hint) {
-                    $value = $hint->option->option ?? '';
-
-                    return $value !== '' ? [strtolower($hint->marker) => $value] : [];
+                    event.preventDefault();
+                    this.submitForm(form);
                 });
-            $questionHints = $question->hints
-                ->sortBy(function ($hint) {
-                    return $hint->provider . '|' . $hint->locale;
-                })
-                ->values();
-            $explanations = collect($explanationsByQuestionId[$question->id] ?? []);
-            $levelLabel = $question->level ?: 'N/A';
-        @endphp
-        <article class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100">
-            <header class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-                <div>
-                    <div class="flex items-baseline gap-3 text-sm text-stone-500">
-                        <span class="font-semibold uppercase tracking-wide">Питання {{ $loop->iteration }}</span>
-                        <span>ID: {{ $question->id }}</span>
-                    </div>
-                    <p class="mt-2 text-lg leading-relaxed text-stone-900">{!! $filledQuestion !!}</p>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="text-xs uppercase tracking-wide text-stone-500">Level</span>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-stone-900 text-white text-sm font-semibold">{{ $levelLabel }}</span>
-                </div>
-            </header>
+            }
+        },
 
-            @if($variantTexts->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>Варіанти запитання</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <ul class="mt-3 space-y-2 text-sm text-stone-800">
-                        @foreach($variantTexts as $variant)
-                            <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2">
-                                <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
-                                <span>{!! $highlightSegments($variant) !!}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                </details>
-            @endif
+        async submitForm(form, options = {}) {
+            const confirmMessage = options.confirm ?? form.dataset.confirm;
+            if (confirmMessage && ! window.confirm(confirmMessage)) {
+                return;
+            }
 
-            <details class="group">
-                <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                    <span>Правильні відповіді</span>
-                    <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                    <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                </summary>
-                <ul class="mt-3 space-y-2 text-sm text-stone-800">
-                    @foreach($question->answers as $answer)
-                        @php
-                            $marker = strtoupper($answer->marker);
-                            $markerKey = strtolower($answer->marker);
-                            $answerValue = $answersByMarker->get($markerKey, '');
-                            $verbHint = $verbHints->get($markerKey);
-                        @endphp
-                        <li class="flex flex-wrap items-center gap-2 rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2">
-                            <span class="font-mono text-xs uppercase text-emerald-500">{{ $marker }}</span>
-                            <span class="font-semibold text-emerald-900">{{ $answerValue }}</span>
-                            @if($verbHint)
-                                <span class="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-emerald-700">
-                                    <span class="font-semibold uppercase text-[10px] tracking-wide">Verb hint</span>
-                                    <span>{{ $verbHint }}</span>
-                                </span>
-                            @endif
-                        </li>
-                    @endforeach
-                </ul>
-            </details>
+            const submitButtons = Array.from(form.querySelectorAll('[type="submit"]'));
+            submitButtons.forEach((button) => {
+                button.disabled = true;
+            });
 
-            @if($options->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>Варіанти відповіді</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <div class="mt-3 flex flex-wrap gap-2">
-                        @foreach($options as $option)
-                            @php $isCorrectOption = $answersByMarker->contains(function ($value) use ($option) { return $value === $option; }); @endphp
-                            <span @class([
-                                'inline-flex items-center gap-1 rounded-full border px-3 py-1 text-sm',
-                                'border-emerald-200 bg-emerald-50 text-emerald-900 font-semibold shadow-sm' => $isCorrectOption,
-                                'border-stone-200 bg-stone-50 text-stone-800' => ! $isCorrectOption,
-                            ])>
-                                @if($isCorrectOption)
-                                    <svg class="h-3.5 w-3.5 text-emerald-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425.01L3.29 9.967a1 1 0 1 1 1.42-1.407l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd" />
-                                    </svg>
-                                @endif
-                                <span>{{ $option }}</span>
-                            </span>
-                        @endforeach
-                    </div>
-                </details>
-            @endif
+            try {
+                const methodAttr = (form.getAttribute('method') || 'POST').toUpperCase();
+                const fetchMethod = methodAttr === 'GET' ? 'GET' : 'POST';
+                let url = form.action;
+                let body = null;
 
-            @if($questionHints->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>Question hints</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <ul class="mt-3 space-y-3 text-sm text-stone-800">
-                        @foreach($questionHints as $hint)
-                            <li class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-2">
-                                <div class="text-xs font-semibold uppercase tracking-wide text-blue-700">{{ $hint->provider }} · {{ strtoupper($hint->locale) }}</div>
-                                <div class="mt-1 whitespace-pre-line text-stone-800">{{ $hint->hint }}</div>
-                            </li>
-                        @endforeach
-                    </ul>
-                </details>
-            @endif
+                if (fetchMethod === 'GET') {
+                    const params = new URLSearchParams(new FormData(form));
+                    url += (url.includes('?') ? '&' : '?') + params.toString();
+                } else {
+                    body = new FormData(form);
+                }
 
-            @if($explanations->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>ChatGPT explanations</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <div class="mt-3 overflow-x-auto">
-                        <table class="min-w-full text-left text-sm text-stone-800">
-                            <thead class="text-xs uppercase tracking-wide text-stone-500">
-                                <tr>
-                                    <th class="py-2 pr-4">Мова</th>
-                                    <th class="py-2 pr-4">Неправильна відповідь</th>
-                                    <th class="py-2 pr-4">Правильна відповідь</th>
-                                    <th class="py-2">Пояснення</th>
-                                </tr>
-                            </thead>
-                            <tbody class="align-top">
-                                @foreach($explanations as $explanation)
-                                    @php
-                                        $isStoredCorrect = $answersByMarker->contains(function ($value) use ($explanation) {
-                                            return $value === $explanation->correct_answer;
-                                        });
-                                    @endphp
-                                    <tr class="border-t border-stone-200">
-                                        <td class="py-2 pr-4 font-semibold text-stone-600">{{ strtoupper($explanation->language) }}</td>
-                                        <td class="py-2 pr-4">{{ $explanation->wrong_answer ?: '—' }}</td>
-                                        <td @class([
-                                            'py-2 pr-4 font-semibold',
-                                            'text-emerald-700' => $isStoredCorrect,
-                                            'text-stone-800' => ! $isStoredCorrect,
-                                        ])>
-                                            {{ $explanation->correct_answer }}
-                                        </td>
-                                        <td class="py-2">{{ $explanation->explanation }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </details>
-            @endif
-        </article>
-    @endforeach
-</div>
+                const response = await fetch(url, {
+                    method: fetchMethod,
+                    body,
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                });
+
+                const clone = response.clone();
+
+                if (!response.ok) {
+                    await this.handleError(clone, options);
+                    return;
+                }
+
+                let payload = null;
+                if (response.status !== 204) {
+                    const text = await response.text();
+                    if (text) {
+                        try {
+                            payload = JSON.parse(text);
+                        } catch (error) {
+                            payload = text;
+                        }
+                    }
+                }
+
+                if (typeof options.onSuccess === 'function') {
+                    await options.onSuccess(payload);
+                }
+
+                if (options.refresh !== false) {
+                    await this.refreshQuestions();
+                }
+            } catch (error) {
+                const message = error && error.message ? error.message : 'Сталася неочікувана помилка.';
+                this.showError(message);
+            } finally {
+                submitButtons.forEach((button) => {
+                    button.disabled = false;
+                });
+            }
+        },
+
+        async handleError(response, options = {}) {
+            let message = 'Не вдалося зберегти зміни.';
+
+            try {
+                const text = await response.text();
+
+                if (text) {
+                    try {
+                        const data = JSON.parse(text);
+
+                        if (data && typeof data === 'object') {
+                            if (data.errors) {
+                                const firstError = Object.values(data.errors).flat()[0];
+                                if (firstError) {
+                                    message = firstError;
+                                }
+                            } else if (data.message) {
+                                message = data.message;
+                            }
+                        } else {
+                            message = text;
+                        }
+                    } catch {
+                        message = text;
+                    }
+                }
+            } catch {
+                // ignore parsing errors
+            }
+
+            if (typeof options.onError === 'function') {
+                options.onError(message);
+            }
+
+            this.showError(message);
+        },
+
+        async refreshQuestions() {
+            if (!this.questionList || !this.refreshUrl || this.isRefreshing) {
+                return;
+            }
+
+            this.isRefreshing = true;
+
+            try {
+                const response = await fetch(this.refreshUrl, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Не вдалося оновити список питань.');
+                }
+
+                const data = await response.json();
+                this.questionList.innerHTML = data.html;
+
+                if (window.Alpine) {
+                    window.Alpine.initTree(this.questionList);
+                }
+
+                if (this.questionCountEl) {
+                    this.questionCountEl.textContent = data.question_count;
+                }
+
+                if (this.highlightAfterRefresh) {
+                    const firstArticle = this.questionList.querySelector('article');
+                    if (firstArticle) {
+                        window.highlightEditable(firstArticle);
+                    }
+                    this.highlightAfterRefresh = false;
+                }
+            } catch (error) {
+                const message = error && error.message ? error.message : 'Не вдалося оновити список питань.';
+                this.showError(message);
+            } finally {
+                this.isRefreshing = false;
+            }
+        },
+
+        highlightFirstQuestion() {
+            this.highlightAfterRefresh = true;
+        },
+
+        showError(message) {
+            window.alert(message);
+        },
+    };
+
+    window.highlightEditable = function (element) {
+        if (! element) {
+            return;
+        }
+
+        const cleanup = () => {
+            element.classList.remove('editable-highlight');
+            delete element.dataset.highlightTimeoutId;
+        };
+
+        if (element.dataset.highlightTimeoutId) {
+            window.clearTimeout(Number(element.dataset.highlightTimeoutId));
+            cleanup();
+        }
+
+        element.classList.add('editable-highlight');
+
+        if (typeof element.scrollIntoView === 'function') {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        const timeoutId = window.setTimeout(cleanup, 1800);
+        element.dataset.highlightTimeoutId = String(timeoutId);
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        window.SavedTestTech.init();
+    });
+</script>
+
 @endsection
