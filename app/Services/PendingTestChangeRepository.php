@@ -23,11 +23,21 @@ class PendingTestChangeRepository
     {
         $result = [];
 
-        foreach ($this->listQuestionFiles($slug) as $questionId => $path) {
+        foreach ($this->listQuestionFiles($slug) as $questionUuid => $path) {
             $changes = $this->readFromPath($path);
 
-            if (! empty($changes)) {
-                $result[$questionId] = $changes;
+            if (empty($changes)) {
+                continue;
+            }
+
+            foreach ($changes as $change) {
+                $questionId = $this->normalizeQuestionId($change['question_id'] ?? null);
+
+                if (! array_key_exists($questionId, $result)) {
+                    $result[$questionId] = [];
+                }
+
+                $result[$questionId][] = $change;
             }
         }
 
@@ -38,12 +48,19 @@ class PendingTestChangeRepository
 
     public function allForQuestion(string $slug, ?int $questionId): array
     {
-        return $this->readBucket($slug, $questionId);
+        $grouped = $this->groupedByQuestion($slug);
+        $changes = $grouped[$questionId] ?? [];
+
+        if ($questionId === null) {
+            $changes = array_merge($this->readBucket($slug, null), $changes);
+        }
+
+        return $changes;
     }
 
     public function count(string $slug): int
     {
-        $total = count($this->allForQuestion($slug, null));
+        $total = count($this->readBucket($slug, null));
 
         foreach ($this->groupedByQuestion($slug) as $changes) {
             $total += count($changes);
@@ -60,36 +77,48 @@ class PendingTestChangeRepository
     public function add(string $slug, array $change): array
     {
         $questionId = $this->normalizeQuestionId($change['question_id'] ?? null);
-        $changes = $this->readBucket($slug, $questionId);
+        $questionUuid = $change['question_uuid'] ?? null;
+
+        if (! $questionUuid) {
+            $questionUuid = (string) Str::uuid();
+        }
 
         $change['question_id'] = $questionId;
+        $change['question_uuid'] = $questionUuid;
         $change['id'] = $change['id'] ?? (string) Str::uuid();
         $change['created_at'] = $change['created_at'] ?? now()->toIso8601String();
 
+        $changes = $this->readBucket($slug, $questionUuid);
         $changes[] = $change;
 
-        $this->writeBucket($slug, $questionId, $changes);
+        $this->writeBucket($slug, $questionUuid, $changes);
 
         return $change;
     }
 
     public function find(string $slug, string $changeId): ?array
     {
-        foreach ($this->groupedByQuestion($slug) as $questionId => $changes) {
+        foreach ($this->listQuestionFiles($slug) as $questionUuid => $path) {
+            $changes = $this->readFromPath($path);
+
             foreach ($changes as $change) {
                 if (($change['id'] ?? null) === $changeId) {
                     return [
-                        'question_id' => $questionId,
+                        'question_id' => $this->normalizeQuestionId($change['question_id'] ?? null),
+                        'question_uuid' => $questionUuid,
                         'change' => $change,
                     ];
                 }
             }
         }
 
-        foreach ($this->allForQuestion($slug, null) as $change) {
+        $global = $this->readBucket($slug, null);
+
+        foreach ($global as $change) {
             if (($change['id'] ?? null) === $changeId) {
                 return [
                     'question_id' => null,
+                    'question_uuid' => null,
                     'change' => $change,
                 ];
             }
@@ -101,7 +130,15 @@ class PendingTestChangeRepository
     public function remove(string $slug, string $changeId, ?int $questionId = null): void
     {
         $questionId = $this->normalizeQuestionId($questionId);
-        $changes = $this->readBucket($slug, $questionId);
+
+        $found = $this->find($slug, $changeId);
+
+        if (! $found) {
+            return;
+        }
+
+        $questionUuid = $found['question_uuid'] ?? null;
+        $changes = $this->readBucket($slug, $questionUuid);
 
         if (empty($changes)) {
             return;
@@ -113,38 +150,49 @@ class PendingTestChangeRepository
             ->all();
 
         if (empty($filtered)) {
-            $this->deleteBucketFile($slug, $questionId);
+            $this->deleteBucketFile($slug, $questionUuid);
         } else {
-            $this->writeBucket($slug, $questionId, $filtered);
+            $this->writeBucket($slug, $questionUuid, $filtered);
         }
     }
 
     public function clearForQuestion(string $slug, int $questionId): void
     {
-        $this->deleteBucketFile($slug, $questionId);
+        $questionId = $this->normalizeQuestionId($questionId);
+
+        foreach ($this->listQuestionFiles($slug) as $questionUuid => $path) {
+            $changes = $this->readFromPath($path);
+
+            $shouldDelete = collect($changes)
+                ->every(fn ($change) => $this->normalizeQuestionId($change['question_id'] ?? null) === $questionId);
+
+            if ($shouldDelete) {
+                $this->deleteBucketFile($slug, $questionUuid);
+            }
+        }
     }
 
-    private function readBucket(string $slug, ?int $questionId): array
+    private function readBucket(string $slug, ?string $questionUuid): array
     {
-        $path = $this->path($slug, $questionId);
+        $path = $this->path($slug, $questionUuid);
 
         return $this->readFromPath($path);
     }
 
-    private function writeBucket(string $slug, ?int $questionId, array $changes): void
+    private function writeBucket(string $slug, ?string $questionUuid, array $changes): void
     {
         $directory = $this->directory($slug);
 
         $this->disk()->makeDirectory($directory);
         $this->disk()->put(
-            $this->path($slug, $questionId),
+            $this->path($slug, $questionUuid),
             json_encode($changes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
         );
     }
 
-    private function deleteBucketFile(string $slug, ?int $questionId): void
+    private function deleteBucketFile(string $slug, ?string $questionUuid): void
     {
-        $path = $this->path($slug, $questionId);
+        $path = $this->path($slug, $questionUuid);
 
         if ($this->disk()->exists($path)) {
             $this->disk()->delete($path);
@@ -177,8 +225,12 @@ class PendingTestChangeRepository
         foreach ($files as $path) {
             $name = basename($path);
 
-            if (preg_match('/^question-(\d+)\.json$/', $name, $matches)) {
-                $result[(int) $matches[1]] = $path;
+            if ($name === self::GLOBAL_FILENAME) {
+                continue;
+            }
+
+            if (preg_match('/^question-([a-f0-9-]+)\.json$/i', $name, $matches)) {
+                $result[$matches[1]] = $path;
             }
         }
 
@@ -201,11 +253,11 @@ class PendingTestChangeRepository
         return self::DIRECTORY . '/' . $slug;
     }
 
-    private function path(string $slug, ?int $questionId): string
+    private function path(string $slug, ?string $questionUuid): string
     {
-        $filename = $questionId === null
+        $filename = $questionUuid === null
             ? self::GLOBAL_FILENAME
-            : 'question-' . $questionId . '.json';
+            : 'question-' . $questionUuid . '.json';
 
         return $this->directory($slug) . '/' . $filename;
     }

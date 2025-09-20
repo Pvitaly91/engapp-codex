@@ -103,11 +103,13 @@
                   data-change-type="question.delete"
                   data-change-summary="Видалити питання"
                   data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                   data-route-name="saved-test.question.destroy"
                   data-route-params="@js(['slug' => $test->slug, 'question' => $question->id])">
                 @csrf
                 @method('delete')
                 <input type="hidden" name="from" value="{{ $returnUrl }}">
+                <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                 <button type="submit" class="inline-flex items-center gap-1 rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700 hover:bg-red-100">
                     <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h8m-7 0V5a2 2 0 1 1 4 0v1m3 0v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6h10Z" />
@@ -131,11 +133,13 @@
               data-change-type="question.update"
               data-change-summary="Оновити питання"
               data-question-id="{{ $question->id }}"
+              data-question-uuid="{{ $question->uuid }}"
               data-route-name="questions.update"
               data-route-params="@js(['question' => $question->id])">
             @csrf
             @method('put')
             <input type="hidden" name="from" value="{{ $returnUrl }}">
+            <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
             <div>
                 <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Текст питання</label>
                 <textarea name="question" rows="4" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-stone-500">{{ $question->question }}</textarea>
@@ -170,6 +174,7 @@
             <span class="inline-flex items-center gap-1 rounded-full bg-amber-600/10 px-2 py-1 text-xs font-semibold text-amber-700"
                   data-question-change-count
                   data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                   @class(['hidden' => $questionChangeCount === 0])>
                 <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425-.01L3.29 9.967A1 1 0 0 1 4.71 8.56l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd" />
@@ -180,6 +185,7 @@
         <div class="space-y-3"
              data-question-change-list
              data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
              data-refresh-url="{{ route('saved-test.tech.changes.question', [$test->slug, $question->id]) }}">
             @include('engram.partials.saved-test-tech-question-change-list', [
                 'test' => $test,
@@ -209,6 +215,7 @@
                                       data-change-type="variant.delete"
                                       data-change-summary="Видалити варіант питання"
                                       data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                       data-route-name="question-variants.destroy"
                                       data-route-params="@js(['questionVariant' => $variant->id])">
                                     @csrf
@@ -234,6 +241,7 @@
                           data-change-type="variant.update"
                           data-change-summary="Оновити варіант питання"
                           data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                           data-route-name="question-variants.update"
                           data-route-params="@js(['questionVariant' => $variant->id])">
                         @csrf
@@ -264,11 +272,13 @@
                       data-change-type="variant.create"
                       data-change-summary="Додати варіант питання"
                       data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                       data-route-name="question-variants.store"
                       data-route-params="@js([])">
                     @csrf
                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Текст варіанту</label>
                         <textarea name="text" rows="3" required class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
@@ -309,6 +319,7 @@
                                   data-change-type="answer.delete"
                                   data-change-summary="Видалити правильну відповідь"
                                   data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                   data-route-name="question-answers.destroy"
                                   data-route-params="@js(['questionAnswer' => $answer->id])">
                                 @csrf
@@ -331,6 +342,7 @@
                               data-change-type="answer.update"
                               data-change-summary="Оновити правильну відповідь"
                               data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                               data-route-name="question-answers.update"
                               data-route-params="@js(['questionAnswer' => $answer->id])">
                             @csrf
@@ -367,6 +379,7 @@
                                       data-change-type="verb-hint.delete"
                                       data-change-summary="Видалити verb hint"
                                       data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                       data-route-name="verb-hints.destroy"
                                       data-route-params="@js(['verbHint' => $verbHintModel->id])">
                                     @csrf
@@ -387,6 +400,7 @@
                                   data-change-type="verb-hint.update"
                                   data-change-summary="Оновити verb hint"
                                   data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                   data-route-name="verb-hints.update"
                                   data-route-params="@js(['verbHint' => $verbHintModel->id])">
                                 @csrf
@@ -416,11 +430,13 @@
                                   data-change-type="verb-hint.create"
                                   data-change-summary="Додати verb hint"
                                   data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                   data-route-name="verb-hints.store"
                                   data-route-params="@js([])">
                                 @csrf
                                 <input type="hidden" name="from" value="{{ $returnUrl }}">
                                 <input type="hidden" name="question_id" value="{{ $question->id }}">
+                                <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                                 <input type="hidden" name="marker" value="{{ strtolower($marker) }}">
                                 <div>
                                     <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Підказка</label>
@@ -447,11 +463,13 @@
                       data-change-type="answer.create"
                       data-change-summary="Додати правильну відповідь"
                       data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                       data-route-name="question-answers.store"
                       data-route-params="@js([])">
                     @csrf
                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                     <div class="grid gap-3 sm:grid-cols-5">
                         <div class="sm:col-span-1">
                             <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Маркер</label>
@@ -509,12 +527,14 @@
                                       data-change-type="option.delete"
                                       data-change-summary="Видалити варіант відповіді"
                                       data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                       data-route-name="question-options.destroy"
                                       data-route-params="@js(['questionOption' => $optionItem->model->id])">
                                     @csrf
                                     @method('delete')
                                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                                     <button type="submit" class="inline-flex items-center gap-1 rounded border border-red-200 px-2 py-1 text-xs font-semibold text-red-600 hover:bg-red-50">Видалити</button>
                                 </form>
                             @endif
@@ -524,12 +544,14 @@
                               data-change-type="option.update"
                               data-change-summary="Оновити варіант відповіді"
                               data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                               data-route-name="question-options.update"
                               data-route-params="@js(['questionOption' => $optionItem->model->id])">
                             @csrf
                             @method('put')
                             <input type="hidden" name="from" value="{{ $returnUrl }}">
                             <input type="hidden" name="question_id" value="{{ $question->id }}">
+                            <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                             <div>
                                 <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Значення</label>
                                 <input type="text" name="option" value="{{ $optionItem->text }}" required
@@ -557,11 +579,13 @@
                       data-change-type="option.create"
                       data-change-summary="Додати варіант відповіді"
                       data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                       data-route-name="question-options.store"
                       data-route-params="@js([])">
                     @csrf
                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Значення</label>
                         <input type="text" name="option" required class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
@@ -596,6 +620,7 @@
                                   data-change-type="question-hint.delete"
                                   data-change-summary="Видалити question hint"
                                   data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                   data-route-name="question-hints.destroy"
                                   data-route-params="@js(['questionHint' => $hint->id])">
                                 @csrf
@@ -618,6 +643,7 @@
                           data-change-type="question-hint.update"
                           data-change-summary="Оновити question hint"
                           data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                           data-route-name="question-hints.update"
                           data-route-params="@js(['questionHint' => $hint->id])">
                         @csrf
@@ -660,11 +686,13 @@
                       data-change-type="question-hint.create"
                       data-change-summary="Додати question hint"
                       data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                       data-route-name="question-hints.store"
                       data-route-params="@js([])">
                     @csrf
                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                     <div class="grid gap-3 sm:grid-cols-2">
                         <div>
                             <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Провайдер</label>
@@ -732,6 +760,7 @@
                                               data-change-type="explanation.delete"
                                               data-change-summary="Видалити пояснення"
                                               data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                               data-route-name="chatgpt-explanations.destroy"
                                               data-route-params="@js(['chatgptExplanation' => $explanation->id])">
                                             @csrf
@@ -755,6 +784,7 @@
                                       data-change-type="explanation.update"
                                       data-change-summary="Оновити пояснення"
                                       data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                       data-route-name="chatgpt-explanations.update"
                                       data-route-params="@js(['chatgptExplanation' => $explanation->id])">
                                     @csrf
@@ -810,11 +840,13 @@
                                   data-change-type="explanation.create"
                                   data-change-summary="Додати пояснення"
                                   data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
                                   data-route-name="chatgpt-explanations.store"
                                   data-route-params="@js([])">
                                 @csrf
                                 <input type="hidden" name="from" value="{{ $returnUrl }}">
                                 <input type="hidden" name="question_id" value="{{ $question->id }}">
+                                <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                                 <div class="grid gap-3 sm:grid-cols-2">
                                     <div>
                                         <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Мова</label>

@@ -16,7 +16,9 @@
         $type = Arr::get($change, 'change_type', 'generic');
         $questionId = $questionIdContext ?? Arr::get($change, 'question_id');
         $questionPreview = Arr::get($change, 'question_preview');
-        $payload = Arr::get($change, 'payload', []);
+        $snapshot = Arr::get($change, 'snapshot');
+        $previousSnapshot = Arr::get($change, 'previous_snapshot');
+        $questionUuid = Arr::get($change, 'question_uuid');
         $createdAt = Arr::get($change, 'created_at');
         $createdForHumans = $createdAt ? Carbon::parse($createdAt)->diffForHumans(null, true) : null;
     @endphp
@@ -30,6 +32,12 @@
                         <div class="flex items-center gap-1">
                             <dt class="font-semibold uppercase tracking-wide">Питання</dt>
                             <dd class="rounded-full bg-stone-900 px-2 py-0.5 text-white">ID {{ $questionId }}</dd>
+                        </div>
+                    @endif
+                    @if($questionUuid)
+                        <div class="flex items-center gap-1">
+                            <dt class="font-semibold uppercase tracking-wide">UUID</dt>
+                            <dd class="rounded-full bg-stone-100 px-2 py-0.5 font-mono text-[11px] text-stone-600">{{ $questionUuid }}</dd>
                         </div>
                     @endif
                     @if($createdForHumans)
@@ -55,6 +63,9 @@
                       @if($questionId !== null)
                           data-question-id="{{ $questionId }}"
                       @endif
+                      @if($questionUuid)
+                          data-question-uuid="{{ $questionUuid }}"
+                      @endif
 >
                     @csrf
                     <button type="submit"
@@ -74,6 +85,9 @@
                       @if($questionId !== null)
                           data-question-id="{{ $questionId }}"
                       @endif
+                      @if($questionUuid)
+                          data-question-uuid="{{ $questionUuid }}"
+                      @endif
 >
                     @csrf
                     @method('delete')
@@ -87,13 +101,16 @@
                 </form>
             </div>
         </header>
-        <details class="group rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-700">
-            <summary class="flex cursor-pointer items-center justify-between text-xs font-semibold uppercase tracking-wide text-stone-500">
-                <span>Дані зміни</span>
-                <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-            </summary>
-            <pre class="mt-3 overflow-auto whitespace-pre-wrap rounded-lg bg-white px-4 py-3 text-[13px] text-stone-800">{{ json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) }}</pre>
-        </details>
+        <div class="rounded-xl border border-stone-200 bg-stone-50 px-4 py-4 text-sm text-stone-700">
+            <h4 class="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-stone-500">
+                <span>Попередній перегляд</span>
+            </h4>
+            <div class="mt-3 space-y-3">
+                @include('engram.partials.saved-test-tech-change-snapshot', [
+                    'snapshot' => $snapshot,
+                    'previousSnapshot' => $previousSnapshot,
+                ])
+            </div>
+        </div>
     </article>
 @endforeach

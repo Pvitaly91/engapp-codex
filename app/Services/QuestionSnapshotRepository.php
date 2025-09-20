@@ -15,6 +15,18 @@ class QuestionSnapshotRepository
      */
     public function sync(Question $question): array
     {
+        $payload = $this->makeSnapshot($question);
+
+        $this->write($question->id, $payload);
+
+        return $payload;
+    }
+
+    /**
+     * Build a snapshot payload for the provided question without persisting it.
+     */
+    public function makeSnapshot(Question $question): array
+    {
         $question->loadMissing([
             'answers.option',
             'options',
@@ -24,7 +36,7 @@ class QuestionSnapshotRepository
             'tags',
         ]);
 
-        $payload = [
+        return [
             'id' => $question->id,
             'uuid' => $question->uuid,
             'question' => $question->question,
@@ -91,10 +103,6 @@ class QuestionSnapshotRepository
                 })->values()->all()
                 : [],
         ];
-
-        $this->write($question->id, $payload);
-
-        return $payload;
     }
 
     /**

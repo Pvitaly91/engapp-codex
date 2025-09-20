@@ -44,14 +44,25 @@
                 $questionTitle = Arr::get($snapshot, 'question');
             }
 
+            if (! $questionTitle) {
+                $firstChange = $changes->first();
+                if (is_array($firstChange)) {
+                    $questionTitle = Arr::get($firstChange, 'snapshot.question');
+                }
+            }
+
             if ($questionTitle) {
                 $questionTitle = Str::limit(trim(strip_tags($questionTitle)), 160);
             }
+
+            $heading = $questionId !== null
+                ? 'Питання ID ' . $questionId
+                : 'Нове питання';
         @endphp
         <section class="space-y-3 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
             <header class="space-y-1">
                 <div class="flex items-center justify-between gap-3">
-                    <h3 class="text-lg font-bold text-stone-900">Питання ID {{ $questionId }}</h3>
+                    <h3 class="text-lg font-bold text-stone-900">{{ $heading }}</h3>
                     <span class="text-xs font-semibold uppercase tracking-wide text-stone-500">{{ $changes->count() }}</span>
                 </div>
                 @if($questionTitle)

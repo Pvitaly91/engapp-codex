@@ -449,6 +449,7 @@
                 const hasQuestionId = rawQuestionId !== null && rawQuestionId !== undefined && String(rawQuestionId).trim() !== '';
                 const numericQuestionId = hasQuestionId ? Number(rawQuestionId) : null;
                 const normalizedQuestionId = Number.isFinite(numericQuestionId) ? numericQuestionId : null;
+                const questionUuid = form.dataset.questionUuid || formData.get('question_uuid') || null;
                 const csrf = document.querySelector('meta[name="csrf-token"]')?.content;
 
                 const response = await fetch(this.queueUrl, {
@@ -467,6 +468,9 @@
                         change_type: form.dataset.changeType || null,
                         summary: form.dataset.changeSummary || null,
                         question_id: normalizedQuestionId,
+                        question_uuid: questionUuid && typeof questionUuid === 'string' && questionUuid.trim() !== ''
+                            ? questionUuid
+                            : null,
                     }),
                 });
 

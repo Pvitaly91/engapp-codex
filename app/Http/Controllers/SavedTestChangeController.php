@@ -8,9 +8,11 @@ use App\Services\PendingTestChangeRepository;
 use App\Services\QuestionSnapshotRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class SavedTestChangeController extends Controller
 {
@@ -24,8 +26,20 @@ class SavedTestChangeController extends Controller
     {
         $test = Test::where('slug', $slug)->firstOrFail();
         $grouped = collect($this->repository->groupedByQuestion($slug))
-            ->map(fn (array $changes) => collect($changes));
-        $globalChanges = collect($this->repository->allForQuestion($slug, null));
+            ->map(function (array $changes, $questionId) {
+                return collect($changes)
+                    ->filter(function ($change) use ($questionId) {
+                        if ($questionId === null) {
+                            return ! empty($change['question_uuid']);
+                        }
+
+                        return true;
+                    })
+                    ->values();
+            });
+        $globalChanges = collect($this->repository->allForQuestion($slug, null))
+            ->filter(fn ($change) => empty($change['question_uuid']))
+            ->values();
         $changeCount = $this->repository->count($slug);
 
         $questionSnapshots = collect();
@@ -113,15 +127,42 @@ class SavedTestChangeController extends Controller
             'question_id' => $data['question_id'] ?? null,
         ];
 
-        if ($change['question_id']) {
-            $snapshot = $this->snapshotRepository->getOrCreate((int) $change['question_id']);
+        try {
+            $simulation = $this->simulateChange($change);
+        } catch (ValidationException $exception) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'message' => $exception->getMessage(),
+                    'errors' => $exception->errors(),
+                ], 422);
+            }
 
-            if ($snapshot) {
-                $questionText = trim(strip_tags((string) Arr::get($snapshot, 'question', '')));
+            throw $exception;
+        } catch (\Throwable $exception) {
+            if ($request->expectsJson()) {
+                $message = $exception->getMessage() ?: 'Не вдалося підготувати зміну.';
 
-                if ($questionText !== '') {
-                    $change['question_preview'] = Str::limit($questionText, 200);
-                }
+                return response()->json([
+                    'message' => $message,
+                ], 500);
+            }
+
+            throw $exception;
+        }
+
+        $change['question_id'] = $simulation['question_id'];
+        $change['question_uuid'] = $simulation['question_uuid'];
+        $change['snapshot'] = $simulation['snapshot'];
+        $change['previous_snapshot'] = $simulation['previous_snapshot'];
+        $change['response_payload'] = $simulation['response_payload'];
+
+        $previewSource = $change['snapshot'] ?? $change['previous_snapshot'] ?? null;
+
+        if (is_array($previewSource)) {
+            $questionText = trim(strip_tags((string) Arr::get($previewSource, 'question', '')));
+
+            if ($questionText !== '') {
+                $change['question_preview'] = Str::limit($questionText, 200);
             }
         }
 
@@ -132,6 +173,7 @@ class SavedTestChangeController extends Controller
                 'change' => $stored,
                 'change_count' => $this->repository->count($slug),
                 'question_id' => $stored['question_id'],
+                'question_uuid' => $stored['question_uuid'] ?? null,
                 'question_change_count' => $stored['question_id'] !== null
                     ? $this->repository->countForQuestion($slug, $stored['question_id'])
                     : null,
@@ -153,6 +195,7 @@ class SavedTestChangeController extends Controller
 
         $change = $found['change'];
         $questionId = $found['question_id'];
+        $questionUuid = $found['question_uuid'] ?? null;
 
         try {
             $this->executeChange($change);
@@ -195,6 +238,7 @@ class SavedTestChangeController extends Controller
                 'change_id' => $changeId,
                 'change_count' => $this->repository->count($slug),
                 'question_id' => $questionId,
+                'question_uuid' => $questionUuid,
                 'question_change_count' => $questionId !== null
                     ? $this->repository->countForQuestion($slug, $questionId)
                     : null,
@@ -215,6 +259,7 @@ class SavedTestChangeController extends Controller
         }
 
         $questionId = $found['question_id'];
+        $questionUuid = $found['question_uuid'] ?? null;
 
         $this->repository->remove($slug, $changeId, $questionId);
 
@@ -224,6 +269,7 @@ class SavedTestChangeController extends Controller
                 'change_id' => $changeId,
                 'change_count' => $this->repository->count($slug),
                 'question_id' => $questionId,
+                'question_uuid' => $questionUuid,
                 'question_change_count' => $questionId !== null
                     ? $this->repository->countForQuestion($slug, $questionId)
                     : null,
@@ -238,6 +284,136 @@ class SavedTestChangeController extends Controller
         return collect($params)
             ->map(fn ($value) => is_numeric($value) ? (int) $value : $value)
             ->all();
+    }
+
+    private function simulateChange(array $change): array
+    {
+        $questionId = $this->normalizeQuestionIdValue($change['question_id'] ?? null);
+        $questionUuid = null;
+        $beforeSnapshot = null;
+
+        if ($questionId !== null) {
+            $question = Question::with([
+                'answers.option',
+                'options',
+                'variants',
+                'verbHints.option',
+                'hints',
+                'tags',
+            ])->find($questionId);
+
+            if ($question) {
+                $beforeSnapshot = $this->snapshotRepository->makeSnapshot($question);
+                $questionUuid = $question->uuid;
+            }
+        }
+
+        DB::beginTransaction();
+
+        try {
+            $response = $this->executeChange($change);
+            $responsePayload = $this->decodeResponsePayload($response);
+
+            if ($questionId === null) {
+                $questionId = $this->determineQuestionId($change, $responsePayload);
+            }
+
+            $questionId = $this->normalizeQuestionIdValue($questionId);
+            $snapshot = null;
+
+            if ($questionId !== null) {
+                $question = Question::with([
+                    'answers.option',
+                    'options',
+                    'variants',
+                    'verbHints.option',
+                    'hints',
+                    'tags',
+                ])->find($questionId);
+
+                if ($question) {
+                    $snapshot = $this->snapshotRepository->makeSnapshot($question);
+                    $questionUuid = $question->uuid;
+                }
+            }
+
+            DB::rollBack();
+
+            return [
+                'question_id' => $questionId,
+                'question_uuid' => $questionUuid ?? ($snapshot['uuid'] ?? null),
+                'snapshot' => $snapshot,
+                'previous_snapshot' => $beforeSnapshot,
+                'response_payload' => $responsePayload,
+            ];
+        } catch (\Throwable $exception) {
+            DB::rollBack();
+
+            throw $exception;
+        }
+    }
+
+    private function decodeResponsePayload($response): ?array
+    {
+        if ($response instanceof SymfonyResponse) {
+            $content = $response->getContent();
+
+            if ($content === null || $content === '') {
+                return null;
+            }
+
+            $decoded = json_decode($content, true);
+
+            return is_array($decoded) ? $decoded : null;
+        }
+
+        if (is_array($response)) {
+            return $response;
+        }
+
+        return null;
+    }
+
+    private function determineQuestionId(array $change, ?array $responsePayload): ?int
+    {
+        $candidate = $change['question_id'] ?? null;
+
+        if ($candidate !== null && $candidate !== '') {
+            return (int) $candidate;
+        }
+
+        $params = $change['route_params'] ?? [];
+
+        if (isset($params['question'])) {
+            return (int) $params['question'];
+        }
+
+        $payload = $change['payload'] ?? [];
+
+        if (isset($payload['question_id'])) {
+            return (int) $payload['question_id'];
+        }
+
+        if ($responsePayload) {
+            if (isset($responsePayload['question_id'])) {
+                return (int) $responsePayload['question_id'];
+            }
+
+            if (isset($responsePayload['id'])) {
+                return (int) $responsePayload['id'];
+            }
+        }
+
+        return null;
+    }
+
+    private function normalizeQuestionIdValue($value): ?int
+    {
+        if ($value === null || $value === '') {
+            return null;
+        }
+
+        return is_numeric($value) ? (int) $value : null;
     }
 
     private function executeChange(array $change)
