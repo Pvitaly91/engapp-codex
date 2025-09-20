@@ -75,6 +75,8 @@
 
     $explanations = collect($explanationsByQuestionId[$question->id] ?? []);
     $levelLabel = $question->level ?: 'N/A';
+    $questionChanges = collect(($pendingChangesByQuestion ?? collect())->get($question->id) ?? []);
+    $questionChangeCount = $questionChanges->count();
 @endphp
 <article x-data="{ editingQuestion: false }" class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100">
     <header class="space-y-4">
@@ -94,10 +96,20 @@
             </div>
         </div>
         <div x-show="!editingQuestion" class="flex flex-wrap justify-end gap-2">
-            <form method="POST" action="{{ route('saved-test.question.destroy', [$test->slug, $question]) }}" data-confirm="Видалити це питання з тесту?">
+            <form method="POST"
+                  action="{{ route('saved-test.question.destroy', [$test->slug, $question]) }}"
+                  data-confirm="Видалити це питання з тесту?"
+                  data-queue-change="true"
+                  data-change-type="question.delete"
+                  data-change-summary="Видалити питання"
+                  data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                  data-route-name="saved-test.question.destroy"
+                  data-route-params="@js(['slug' => $test->slug, 'question' => $question->id])">
                 @csrf
                 @method('delete')
                 <input type="hidden" name="from" value="{{ $returnUrl }}">
+                <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                 <button type="submit" class="inline-flex items-center gap-1 rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700 hover:bg-red-100">
                     <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h8m-7 0V5a2 2 0 1 1 4 0v1m3 0v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6h10Z" />
@@ -116,10 +128,18 @@
                 <span>Редагувати питання</span>
             </button>
         </div>
-        <form x-show="editingQuestion" x-cloak x-ref="form" method="POST" action="{{ route('questions.update', $question) }}" class="rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-4">
+        <form x-show="editingQuestion" x-cloak x-ref="form" method="POST" action="{{ route('questions.update', $question) }}" class="rounded-2xl border border-stone-200 bg-stone-50 p-4 space-y-4"
+              data-queue-change="true"
+              data-change-type="question.update"
+              data-change-summary="Оновити питання"
+              data-question-id="{{ $question->id }}"
+              data-question-uuid="{{ $question->uuid }}"
+              data-route-name="questions.update"
+              data-route-params="@js(['question' => $question->id])">
             @csrf
             @method('put')
             <input type="hidden" name="from" value="{{ $returnUrl }}">
+            <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
             <div>
                 <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Текст питання</label>
                 <textarea name="question" rows="4" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-stone-500">{{ $question->question }}</textarea>
@@ -142,6 +162,39 @@
         </form>
     </header>
 
+    <section class="rounded-2xl border border-amber-200 bg-amber-50/60 p-4 space-y-3">
+        <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2 text-sm font-semibold text-amber-700">
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M4 4a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l3.414 3.414A1 1 0 0 1 16 6.414V16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4Z" opacity=".4" />
+                    <path d="M6 0a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V6.414a3 3 0 0 0-.879-2.121l-3.414-3.414A3 3 0 0 0 11.586 0H6Zm.75 9a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 4a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z" />
+                </svg>
+                <span>Черга змін</span>
+            </div>
+            <span class="inline-flex items-center gap-1 rounded-full bg-amber-600/10 px-2 py-1 text-xs font-semibold text-amber-700"
+                  data-question-change-count
+                  data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                  @class(['hidden' => $questionChangeCount === 0])>
+                <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425-.01L3.29 9.967A1 1 0 0 1 4.71 8.56l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd" />
+                </svg>
+                <span>{{ $questionChangeCount }}</span>
+            </span>
+        </div>
+        <div class="space-y-3"
+             data-question-change-list
+             data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+             data-refresh-url="{{ route('saved-test.tech.changes.question', [$test->slug, $question->id]) }}">
+            @include('engram.partials.saved-test-tech-question-change-list', [
+                'test' => $test,
+                'questionId' => $question->id,
+                'changes' => $questionChanges,
+            ])
+        </div>
+    </section>
+
     <details class="group">
         <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
             <span>Варіанти запитання</span>
@@ -155,7 +208,16 @@
                         <div class="flex items-center justify-between gap-2">
                             <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
                             <div class="flex items-center gap-2">
-                                <form method="POST" action="{{ route('question-variants.destroy', $variant) }}" data-confirm="Видалити цей варіант?">
+                                <form method="POST"
+                                      action="{{ route('question-variants.destroy', $variant) }}"
+                                      data-confirm="Видалити цей варіант?"
+                                      data-queue-change="true"
+                                      data-change-type="variant.delete"
+                                      data-change-summary="Видалити варіант питання"
+                                      data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                      data-route-name="question-variants.destroy"
+                                      data-route-params="@js(['questionVariant' => $variant->id])">
                                     @csrf
                                     @method('delete')
                                     <input type="hidden" name="from" value="{{ $returnUrl }}">
@@ -174,7 +236,14 @@
                         </div>
                         <span>{!! $highlightSegments($variant->text) !!}</span>
                     </div>
-                    <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-variants.update', $variant) }}" class="space-y-2">
+                    <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-variants.update', $variant) }}" class="space-y-2"
+                          data-queue-change="true"
+                          data-change-type="variant.update"
+                          data-change-summary="Оновити варіант питання"
+                          data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                          data-route-name="question-variants.update"
+                          data-route-params="@js(['questionVariant' => $variant->id])">
                         @csrf
                         @method('put')
                         <input type="hidden" name="from" value="{{ $returnUrl }}">
@@ -198,10 +267,18 @@
                         <span>Створити</span>
                     </button>
                 </div>
-                <form x-show="adding" x-cloak x-ref="form" method="POST" action="{{ route('question-variants.store') }}" class="mt-3 space-y-2">
+                <form x-show="adding" x-cloak x-ref="form" method="POST" action="{{ route('question-variants.store') }}" class="mt-3 space-y-2"
+                      data-queue-change="true"
+                      data-change-type="variant.create"
+                      data-change-summary="Додати варіант питання"
+                      data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                      data-route-name="question-variants.store"
+                      data-route-params="@js([])">
                     @csrf
                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Текст варіанту</label>
                         <textarea name="text" rows="3" required class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
@@ -235,7 +312,16 @@
                         <div x-show="!editingAnswer" x-ref="display" class="flex flex-wrap items-center gap-2">
                             <span class="font-mono text-xs uppercase text-emerald-500">{{ $marker }}</span>
                             <span class="font-semibold text-emerald-900">{{ $answerValue }}</span>
-                            <form method="POST" action="{{ route('question-answers.destroy', $answer) }}" data-confirm="Видалити цю відповідь?">
+                            <form method="POST"
+                                  action="{{ route('question-answers.destroy', $answer) }}"
+                                  data-confirm="Видалити цю відповідь?"
+                                  data-queue-change="true"
+                                  data-change-type="answer.delete"
+                                  data-change-summary="Видалити правильну відповідь"
+                                  data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                  data-route-name="question-answers.destroy"
+                                  data-route-params="@js(['questionAnswer' => $answer->id])">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="from" value="{{ $returnUrl }}">
@@ -251,9 +337,17 @@
                                 <span>Редагувати відповідь</span>
                             </button>
                         </div>
-                        <form x-show="editingAnswer" x-cloak x-ref="form" method="POST" action="{{ route('question-answers.update', $answer) }}" class="space-y-2">
+                        <form x-show="editingAnswer" x-cloak x-ref="form" method="POST" action="{{ route('question-answers.update', $answer) }}" class="space-y-2"
+                              data-queue-change="true"
+                              data-change-type="answer.update"
+                              data-change-summary="Оновити правильну відповідь"
+                              data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                              data-route-name="question-answers.update"
+                              data-route-params="@js(['questionAnswer' => $answer->id])">
                             @csrf
                             @method('put')
+                            <input type="hidden" name="question_answer_id" value="{{ $answer->id }}">
                             <input type="hidden" name="from" value="{{ $returnUrl }}">
                             <div class="grid gap-3 sm:grid-cols-5">
                                 <div class="sm:col-span-1">
@@ -278,7 +372,16 @@
                             <div x-show="!editingHint" x-ref="display" class="flex flex-wrap items-center gap-2">
                                 <span class="font-semibold uppercase text-[10px] tracking-wide text-emerald-600">Verb hint</span>
                                 <span class="text-sm text-emerald-800">{{ $verbHintValue }}</span>
-                                <form method="POST" action="{{ route('verb-hints.destroy', $verbHintModel) }}" data-confirm="Видалити цю підказку?">
+                                <form method="POST"
+                                      action="{{ route('verb-hints.destroy', $verbHintModel) }}"
+                                      data-confirm="Видалити цю підказку?"
+                                      data-queue-change="true"
+                                      data-change-type="verb-hint.delete"
+                                      data-change-summary="Видалити verb hint"
+                                      data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                      data-route-name="verb-hints.destroy"
+                                      data-route-params="@js(['verbHint' => $verbHintModel->id])">
                                     @csrf
                                     @method('delete')
                                     <input type="hidden" name="from" value="{{ $returnUrl }}">
@@ -292,7 +395,14 @@
                                     <span>Редагувати підказку</span>
                                 </button>
                             </div>
-                            <form x-show="editingHint" x-cloak x-ref="form" method="POST" action="{{ route('verb-hints.update', $verbHintModel) }}" class="space-y-2">
+                            <form x-show="editingHint" x-cloak x-ref="form" method="POST" action="{{ route('verb-hints.update', $verbHintModel) }}" class="space-y-2"
+                                  data-queue-change="true"
+                                  data-change-type="verb-hint.update"
+                                  data-change-summary="Оновити verb hint"
+                                  data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                  data-route-name="verb-hints.update"
+                                  data-route-params="@js(['verbHint' => $verbHintModel->id])">
                                 @csrf
                                 @method('put')
                                 <input type="hidden" name="from" value="{{ $returnUrl }}">
@@ -315,10 +425,18 @@
                                     <span>Додати</span>
                                 </button>
                             </div>
-                            <form x-show="addingHint" x-cloak x-ref="form" method="POST" action="{{ route('verb-hints.store') }}" class="mt-2 space-y-2">
+                            <form x-show="addingHint" x-cloak x-ref="form" method="POST" action="{{ route('verb-hints.store') }}" class="mt-2 space-y-2"
+                                  data-queue-change="true"
+                                  data-change-type="verb-hint.create"
+                                  data-change-summary="Додати verb hint"
+                                  data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                  data-route-name="verb-hints.store"
+                                  data-route-params="@js([])">
                                 @csrf
                                 <input type="hidden" name="from" value="{{ $returnUrl }}">
                                 <input type="hidden" name="question_id" value="{{ $question->id }}">
+                                <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                                 <input type="hidden" name="marker" value="{{ strtolower($marker) }}">
                                 <div>
                                     <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Підказка</label>
@@ -340,10 +458,18 @@
                         <span>Створити</span>
                     </button>
                 </div>
-                <form x-show="addingAnswer" x-cloak x-ref="form" method="POST" action="{{ route('question-answers.store') }}" class="mt-3 space-y-2">
+                <form x-show="addingAnswer" x-cloak x-ref="form" method="POST" action="{{ route('question-answers.store') }}" class="mt-3 space-y-2"
+                      data-queue-change="true"
+                      data-change-type="answer.create"
+                      data-change-summary="Додати правильну відповідь"
+                      data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                      data-route-name="question-answers.store"
+                      data-route-params="@js([])">
                     @csrf
                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                     <div class="grid gap-3 sm:grid-cols-5">
                         <div class="sm:col-span-1">
                             <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Маркер</label>
@@ -394,20 +520,38 @@
                                 <span>Редагувати</span>
                             </button>
                             @if(! $optionItem->is_correct)
-                                <form method="POST" action="{{ route('question-options.destroy', $optionItem->model) }}" data-confirm="Видалити цей варіант відповіді?">
+                                <form method="POST"
+                                      action="{{ route('question-options.destroy', $optionItem->model) }}"
+                                      data-confirm="Видалити цей варіант відповіді?"
+                                      data-queue-change="true"
+                                      data-change-type="option.delete"
+                                      data-change-summary="Видалити варіант відповіді"
+                                      data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                      data-route-name="question-options.destroy"
+                                      data-route-params="@js(['questionOption' => $optionItem->model->id])">
                                     @csrf
                                     @method('delete')
                                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                                     <button type="submit" class="inline-flex items-center gap-1 rounded border border-red-200 px-2 py-1 text-xs font-semibold text-red-600 hover:bg-red-50">Видалити</button>
                                 </form>
                             @endif
                         </div>
-                        <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-options.update', $optionItem->model) }}" class="space-y-2 rounded-xl border border-stone-200 bg-white px-3 py-2">
+                        <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-options.update', $optionItem->model) }}" class="space-y-2 rounded-xl border border-stone-200 bg-white px-3 py-2"
+                              data-queue-change="true"
+                              data-change-type="option.update"
+                              data-change-summary="Оновити варіант відповіді"
+                              data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                              data-route-name="question-options.update"
+                              data-route-params="@js(['questionOption' => $optionItem->model->id])">
                             @csrf
                             @method('put')
                             <input type="hidden" name="from" value="{{ $returnUrl }}">
                             <input type="hidden" name="question_id" value="{{ $question->id }}">
+                            <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                             <div>
                                 <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Значення</label>
                                 <input type="text" name="option" value="{{ $optionItem->text }}" required
@@ -430,10 +574,18 @@
                         <span>Створити</span>
                     </button>
                 </div>
-                <form x-show="addingOption" x-cloak x-ref="form" method="POST" action="{{ route('question-options.store') }}" class="space-y-2">
+                <form x-show="addingOption" x-cloak x-ref="form" method="POST" action="{{ route('question-options.store') }}" class="space-y-2"
+                      data-queue-change="true"
+                      data-change-type="option.create"
+                      data-change-summary="Додати варіант відповіді"
+                      data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                      data-route-name="question-options.store"
+                      data-route-params="@js([])">
                     @csrf
                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                     <div>
                         <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Значення</label>
                         <input type="text" name="option" required class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
@@ -461,7 +613,16 @@
                             <span>{{ $hint->provider }}</span>
                             <span>·</span>
                             <span>{{ strtoupper($hint->locale) }}</span>
-                            <form method="POST" action="{{ route('question-hints.destroy', $hint) }}" data-confirm="Видалити цю підказку?">
+                            <form method="POST"
+                                  action="{{ route('question-hints.destroy', $hint) }}"
+                                  data-confirm="Видалити цю підказку?"
+                                  data-queue-change="true"
+                                  data-change-type="question-hint.delete"
+                                  data-change-summary="Видалити question hint"
+                                  data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                  data-route-name="question-hints.destroy"
+                                  data-route-params="@js(['questionHint' => $hint->id])">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="from" value="{{ $returnUrl }}">
@@ -477,9 +638,17 @@
                         </div>
                         <div class="whitespace-pre-line text-stone-800">{{ $hint->hint }}</div>
                     </div>
-                    <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-hints.update', $hint) }}" class="space-y-3 rounded-xl border border-blue-200 bg-white px-3 py-3">
+                    <form x-show="editing" x-cloak x-ref="form" method="POST" action="{{ route('question-hints.update', $hint) }}" class="space-y-3 rounded-xl border border-blue-200 bg-white px-3 py-3"
+                          data-queue-change="true"
+                          data-change-type="question-hint.update"
+                          data-change-summary="Оновити question hint"
+                          data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                          data-route-name="question-hints.update"
+                          data-route-params="@js(['questionHint' => $hint->id])">
                         @csrf
                         @method('put')
+                        <input type="hidden" name="question_hint_id" value="{{ $hint->id }}">
                         <input type="hidden" name="from" value="{{ $returnUrl }}">
                         <div class="grid gap-3 sm:grid-cols-2">
                             <div>
@@ -513,10 +682,18 @@
                         <span>Створити</span>
                     </button>
                 </div>
-                <form x-show="addingHint" x-cloak x-ref="form" method="POST" action="{{ route('question-hints.store') }}" class="mt-3 space-y-2">
+                <form x-show="addingHint" x-cloak x-ref="form" method="POST" action="{{ route('question-hints.store') }}" class="mt-3 space-y-2"
+                      data-queue-change="true"
+                      data-change-type="question-hint.create"
+                      data-change-summary="Додати question hint"
+                      data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                      data-route-name="question-hints.store"
+                      data-route-params="@js([])">
                     @csrf
                     <input type="hidden" name="from" value="{{ $returnUrl }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
+                    <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                     <div class="grid gap-3 sm:grid-cols-2">
                         <div>
                             <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Провайдер</label>
@@ -577,7 +754,16 @@
                             <div class="flex items-start justify-between gap-3">
                                     <span class="flex-1">{{ $explanation->explanation }}</span>
                                     <div class="flex items-center gap-2">
-                                        <form method="POST" action="{{ route('chatgpt-explanations.destroy', $explanation) }}" data-confirm="Видалити це пояснення?">
+                                        <form method="POST"
+                                              action="{{ route('chatgpt-explanations.destroy', $explanation) }}"
+                                              data-confirm="Видалити це пояснення?"
+                                              data-queue-change="true"
+                                              data-change-type="explanation.delete"
+                                              data-change-summary="Видалити пояснення"
+                                              data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                              data-route-name="chatgpt-explanations.destroy"
+                                              data-route-params="@js(['chatgptExplanation' => $explanation->id])">
                                             @csrf
                                             @method('delete')
                                             <input type="hidden" name="from" value="{{ $returnUrl }}">
@@ -594,7 +780,14 @@
                                 </div>
                             </td>
                             <td x-show="editing" x-cloak colspan="4" class="py-3">
-                                <form x-ref="form" method="POST" action="{{ route('chatgpt-explanations.update', $explanation) }}" class="space-y-3 rounded-2xl border border-stone-200 bg-white px-4 py-3">
+                                <form x-ref="form" method="POST" action="{{ route('chatgpt-explanations.update', $explanation) }}" class="space-y-3 rounded-2xl border border-stone-200 bg-white px-4 py-3"
+                                      data-queue-change="true"
+                                      data-change-type="explanation.update"
+                                      data-change-summary="Оновити пояснення"
+                                      data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                      data-route-name="chatgpt-explanations.update"
+                                      data-route-params="@js(['chatgptExplanation' => $explanation->id])">
                                     @csrf
                                     @method('put')
                                     <input type="hidden" name="from" value="{{ $returnUrl }}">
@@ -643,10 +836,18 @@
                                     <span>Створити</span>
                                 </button>
                             </div>
-                            <form x-show="addingExplanation" x-cloak x-ref="form" method="POST" action="{{ route('chatgpt-explanations.store') }}" class="mt-3 space-y-3 rounded-2xl border border-stone-200 bg-white px-4 py-3">
+                            <form x-show="addingExplanation" x-cloak x-ref="form" method="POST" action="{{ route('chatgpt-explanations.store') }}" class="mt-3 space-y-3 rounded-2xl border border-stone-200 bg-white px-4 py-3"
+                                  data-queue-change="true"
+                                  data-change-type="explanation.create"
+                                  data-change-summary="Додати пояснення"
+                                  data-question-id="{{ $question->id }}"
+                  data-question-uuid="{{ $question->uuid }}"
+                                  data-route-name="chatgpt-explanations.store"
+                                  data-route-params="@js([])">
                                 @csrf
                                 <input type="hidden" name="from" value="{{ $returnUrl }}">
                                 <input type="hidden" name="question_id" value="{{ $question->id }}">
+                                <input type="hidden" name="question_uuid" value="{{ $question->uuid }}">
                                 <div class="grid gap-3 sm:grid-cols-2">
                                     <div>
                                         <label class="block text-xs font-semibold uppercase tracking-wide text-stone-500">Мова</label>

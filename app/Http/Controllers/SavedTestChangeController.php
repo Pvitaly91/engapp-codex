@@ -1,0 +1,561 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Question;
+use App\Models\Test;
+use App\Services\PendingTestChangeRepository;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+
+class SavedTestChangeController extends Controller
+{
+    public function __construct(
+        private PendingTestChangeRepository $repository
+    ) {
+    }
+
+    public function index(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $grouped = collect($this->repository->groupedByQuestion($slug))
+            ->map(function (array $changes, $questionId) {
+                return collect($changes)
+                    ->filter(function ($change) use ($questionId) {
+                        if ($questionId === null) {
+                            return ! empty($change['question_uuid']);
+                        }
+
+                        return true;
+                    })
+                    ->values();
+            });
+        $globalChanges = collect($this->repository->allForQuestion($slug, null))
+            ->filter(fn ($change) => empty($change['question_uuid']))
+            ->values();
+        $changeCount = $this->repository->count($slug);
+
+        $html = view('engram.partials.saved-test-tech-change-list', [
+            'test' => $test,
+            'groupedChanges' => $grouped,
+            'globalChanges' => $globalChanges,
+        ])->render();
+
+        return response()->json([
+            'html' => $html,
+            'change_count' => $changeCount,
+        ]);
+    }
+
+    public function showForQuestion(Request $request, string $slug, int $questionId)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $changes = collect($this->repository->allForQuestion($slug, $questionId));
+
+        $html = view('engram.partials.saved-test-tech-question-change-list', [
+            'test' => $test,
+            'questionId' => $questionId,
+            'changes' => $changes,
+        ])->render();
+
+        return response()->json([
+            'html' => $html,
+            'change_count' => $changes->count(),
+        ]);
+    }
+
+    public function store(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        $data = $request->validate([
+            'route' => ['required', 'string'],
+            'route_params' => ['nullable', 'array'],
+            'method' => ['required', 'string', Rule::in(['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])],
+            'payload' => ['nullable', 'array'],
+            'change_type' => ['nullable', 'string', 'max:100'],
+            'summary' => ['nullable', 'string', 'max:255'],
+            'question_id' => ['nullable', 'integer'],
+        ]);
+
+        $payload = collect($data['payload'] ?? [])
+            ->reject(fn ($value, $key) => in_array($key, ['_token', '_method', 'from'], true))
+            ->all();
+
+        $routeName = $data['route'];
+        $routeParams = $this->normalizeRouteParams($data['route_params'] ?? []);
+
+        if ($routeName && Str::startsWith($routeName, 'question-answers.')) {
+            $payloadAnswerId = Arr::get($payload, 'question_answer_id');
+
+            if ($payloadAnswerId !== null && $payloadAnswerId !== '' && ! array_key_exists('questionAnswer', $routeParams)) {
+                $routeParams['questionAnswer'] = is_numeric($payloadAnswerId)
+                    ? (int) $payloadAnswerId
+                    : $payloadAnswerId;
+            }
+        }
+
+        if ($routeName && Str::startsWith($routeName, 'question-hints.')) {
+            $payloadHintId = Arr::get($payload, 'question_hint_id');
+
+            if ($payloadHintId !== null && $payloadHintId !== '' && ! array_key_exists('questionHint', $routeParams)) {
+                $routeParams['questionHint'] = is_numeric($payloadHintId)
+                    ? (int) $payloadHintId
+                    : $payloadHintId;
+            }
+        }
+
+        $change = [
+            'route' => $routeName,
+            'route_params' => $routeParams,
+            'method' => strtoupper($data['method']),
+            'payload' => $payload,
+            'change_type' => $data['change_type'] ?? 'generic',
+            'summary' => $data['summary'] ?? null,
+            'question_id' => $data['question_id'] ?? null,
+        ];
+
+        try {
+            $simulation = $this->simulateChange($change);
+        } catch (ValidationException $exception) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'message' => $exception->getMessage(),
+                    'errors' => $exception->errors(),
+                ], 422);
+            }
+
+            throw $exception;
+        } catch (\Throwable $exception) {
+            if ($request->expectsJson()) {
+                $message = $exception->getMessage() ?: 'Не вдалося підготувати зміну.';
+
+                return response()->json([
+                    'message' => $message,
+                ], 500);
+            }
+
+            throw $exception;
+        }
+
+        $change['question_id'] = $simulation['question_id'];
+        $change['question_uuid'] = $simulation['question_uuid'];
+        $change['snapshot'] = $simulation['snapshot'];
+        $change['previous_snapshot'] = $simulation['previous_snapshot'];
+        $change['response_payload'] = $simulation['response_payload'];
+
+        $previewSource = $change['snapshot'] ?? $change['previous_snapshot'] ?? null;
+
+        if (is_array($previewSource)) {
+            $questionText = trim(strip_tags((string) Arr::get($previewSource, 'question', '')));
+
+            if ($questionText !== '') {
+                $change['question_preview'] = Str::limit($questionText, 200);
+            }
+        }
+
+        $stored = $this->repository->add($slug, $change);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'change' => $stored,
+                'change_count' => $this->repository->count($slug),
+                'question_id' => $stored['question_id'],
+                'question_uuid' => $stored['question_uuid'] ?? null,
+                'question_change_count' => $stored['question_id'] !== null
+                    ? $this->repository->countForQuestion($slug, $stored['question_id'])
+                    : null,
+            ], 201);
+        }
+
+        return redirect()->route('saved-test.tech', [$test->slug]);
+    }
+
+    public function apply(Request $request, string $slug, string $changeId)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        $found = $this->repository->find($slug, $changeId);
+
+        if (! $found) {
+            abort(404, 'Change not found.');
+        }
+
+        $change = $found['change'];
+        $questionId = $found['question_id'];
+        $questionUuid = $found['question_uuid'] ?? null;
+
+        try {
+            $this->executeChange($change);
+        } catch (ValidationException $exception) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'message' => $exception->getMessage(),
+                    'errors' => $exception->errors(),
+                ], 422);
+            }
+
+            throw $exception;
+        } catch (\Throwable $exception) {
+            if ($request->expectsJson()) {
+                $message = $exception->getMessage() ?: 'Не вдалося застосувати зміну.';
+
+                return response()->json([
+                    'message' => $message,
+                ], 500);
+            }
+
+            throw $exception;
+        }
+
+        $this->repository->markApplied($slug, $changeId);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'status' => 'applied',
+                'change_id' => $changeId,
+                'change_count' => $this->repository->count($slug),
+                'question_id' => $questionId,
+                'question_uuid' => $questionUuid,
+                'question_change_count' => $questionId !== null
+                    ? $this->repository->countForQuestion($slug, $questionId)
+                    : null,
+            ]);
+        }
+
+        return redirect()->route('saved-test.tech', [$test->slug]);
+    }
+
+    public function destroy(Request $request, string $slug, string $changeId)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        $found = $this->repository->find($slug, $changeId);
+
+        if (! $found) {
+            abort(404, 'Change not found.');
+        }
+
+        $questionId = $found['question_id'];
+        $questionUuid = $found['question_uuid'] ?? null;
+
+        $this->repository->markDiscarded($slug, $changeId);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'status' => 'deleted',
+                'change_id' => $changeId,
+                'change_count' => $this->repository->count($slug),
+                'question_id' => $questionId,
+                'question_uuid' => $questionUuid,
+                'question_change_count' => $questionId !== null
+                    ? $this->repository->countForQuestion($slug, $questionId)
+                    : null,
+            ]);
+        }
+
+        return redirect()->route('saved-test.tech', [$test->slug]);
+    }
+
+    private function normalizeRouteParams(array $params): array
+    {
+        return collect($params)
+            ->map(fn ($value) => is_numeric($value) ? (int) $value : $value)
+            ->all();
+    }
+
+    private function simulateChange(array $change): array
+    {
+        $questionId = $this->normalizeQuestionIdValue($change['question_id'] ?? null);
+        $questionUuid = null;
+        $beforeSnapshot = null;
+
+        if ($questionId !== null) {
+            $question = Question::with([
+                'answers.option',
+                'options',
+                'variants',
+                'verbHints.option',
+                'hints',
+                'tags',
+            ])->find($questionId);
+
+            if ($question) {
+                $beforeSnapshot = $this->makeQuestionSnapshot($question);
+                $questionUuid = $question->uuid;
+            }
+        }
+
+        DB::beginTransaction();
+
+        try {
+            $response = $this->executeChange($change);
+            $responsePayload = $this->decodeResponsePayload($response);
+
+            if ($questionId === null) {
+                $questionId = $this->determineQuestionId($change, $responsePayload);
+            }
+
+            $questionId = $this->normalizeQuestionIdValue($questionId);
+            $snapshot = null;
+
+            if ($questionId !== null) {
+                $question = Question::with([
+                    'answers.option',
+                    'options',
+                    'variants',
+                    'verbHints.option',
+                    'hints',
+                    'tags',
+                ])->find($questionId);
+
+                if ($question) {
+                    $snapshot = $this->makeQuestionSnapshot($question);
+                    $questionUuid = $question->uuid;
+                }
+            }
+
+            DB::rollBack();
+
+            return [
+                'question_id' => $questionId,
+                'question_uuid' => $questionUuid ?? ($snapshot['uuid'] ?? null),
+                'snapshot' => $snapshot,
+                'previous_snapshot' => $beforeSnapshot,
+                'response_payload' => $responsePayload,
+            ];
+        } catch (\Throwable $exception) {
+            DB::rollBack();
+
+            throw $exception;
+        }
+    }
+
+    private function makeQuestionSnapshot(Question $question): array
+    {
+        $question->loadMissing([
+            'answers.option',
+            'options',
+            'variants',
+            'verbHints.option',
+            'hints',
+            'tags',
+        ]);
+
+        return [
+            'id' => $question->id,
+            'uuid' => $question->uuid,
+            'question' => $question->question,
+            'difficulty' => $question->difficulty,
+            'level' => $question->level,
+            'category_id' => $question->category_id,
+            'source_id' => $question->source_id,
+            'flag' => $question->flag,
+            'synced_at' => now()->toIso8601String(),
+            'options' => $question->options->map(function ($option) {
+                return [
+                    'id' => $option->id,
+                    'option' => $option->option,
+                ];
+            })->values()->all(),
+            'answers' => $question->answers->map(function ($answer) {
+                $option = $answer->option;
+
+                return [
+                    'id' => $answer->id,
+                    'marker' => $answer->marker,
+                    'option_id' => $answer->option_id,
+                    'option' => $option ? [
+                        'id' => $option->id,
+                        'option' => $option->option,
+                    ] : null,
+                ];
+            })->values()->all(),
+            'variants' => $question->relationLoaded('variants')
+                ? $question->variants->map(function ($variant) {
+                    return [
+                        'id' => $variant->id,
+                        'text' => $variant->text,
+                    ];
+                })->values()->all()
+                : [],
+            'verb_hints' => $question->verbHints->map(function ($hint) {
+                $option = $hint->option;
+
+                return [
+                    'id' => $hint->id,
+                    'marker' => $hint->marker,
+                    'option_id' => $hint->option_id,
+                    'option' => $option ? [
+                        'id' => $option->id,
+                        'option' => $option->option,
+                    ] : null,
+                ];
+            })->values()->all(),
+            'hints' => $question->hints->map(function ($hint) {
+                return [
+                    'id' => $hint->id,
+                    'provider' => $hint->provider,
+                    'locale' => $hint->locale,
+                    'hint' => $hint->hint,
+                ];
+            })->values()->all(),
+            'tags' => $question->relationLoaded('tags')
+                ? $question->tags->map(function ($tag) {
+                    return [
+                        'id' => $tag->id,
+                        'name' => $tag->name,
+                    ];
+                })->values()->all()
+                : [],
+        ];
+    }
+
+    private function decodeResponsePayload($response): ?array
+    {
+        if ($response instanceof SymfonyResponse) {
+            $content = $response->getContent();
+
+            if ($content === null || $content === '') {
+                return null;
+            }
+
+            $decoded = json_decode($content, true);
+
+            return is_array($decoded) ? $decoded : null;
+        }
+
+        if (is_array($response)) {
+            return $response;
+        }
+
+        return null;
+    }
+
+    private function determineQuestionId(array $change, ?array $responsePayload): ?int
+    {
+        $candidate = $change['question_id'] ?? null;
+
+        if ($candidate !== null && $candidate !== '') {
+            return (int) $candidate;
+        }
+
+        $params = $change['route_params'] ?? [];
+
+        if (isset($params['question'])) {
+            return (int) $params['question'];
+        }
+
+        $payload = $change['payload'] ?? [];
+
+        if (isset($payload['question_id'])) {
+            return (int) $payload['question_id'];
+        }
+
+        if ($responsePayload) {
+            if (isset($responsePayload['question_id'])) {
+                return (int) $responsePayload['question_id'];
+            }
+
+            if (isset($responsePayload['id'])) {
+                return (int) $responsePayload['id'];
+            }
+        }
+
+        return null;
+    }
+
+    private function normalizeQuestionIdValue($value): ?int
+    {
+        if ($value === null || $value === '') {
+            return null;
+        }
+
+        return is_numeric($value) ? (int) $value : null;
+    }
+
+    private function executeChange(array $change)
+    {
+        $routeName = Arr::get($change, 'route');
+        $routeParams = Arr::get($change, 'route_params', []);
+        $method = Arr::get($change, 'method', 'POST');
+        $payload = Arr::get($change, 'payload', []);
+
+        if (! $routeName) {
+            throw new \RuntimeException('Route name is missing for queued change.');
+        }
+
+        if (! is_array($routeParams)) {
+            $routeParams = [];
+        }
+
+        if (! is_array($payload)) {
+            $payload = [];
+        }
+
+        if ($routeName && Str::startsWith($routeName, 'question-answers.')
+            && ! array_key_exists('questionAnswer', $routeParams)
+        ) {
+            $payloadAnswerId = Arr::get($payload, 'question_answer_id');
+
+            if ($payloadAnswerId !== null && $payloadAnswerId !== '') {
+                $routeParams['questionAnswer'] = is_numeric($payloadAnswerId)
+                    ? (int) $payloadAnswerId
+                    : $payloadAnswerId;
+            }
+        }
+
+        if ($routeName && Str::startsWith($routeName, 'question-hints.')
+            && ! array_key_exists('questionHint', $routeParams)
+        ) {
+            $payloadHintId = Arr::get($payload, 'question_hint_id');
+
+            if ($payloadHintId !== null && $payloadHintId !== '') {
+                $routeParams['questionHint'] = is_numeric($payloadHintId)
+                    ? (int) $payloadHintId
+                    : $payloadHintId;
+            }
+        }
+
+        $questionId = Arr::get($change, 'question_id');
+
+        if (! array_key_exists('question', $routeParams) && $questionId !== null) {
+            $routeParams['question'] = $questionId;
+        }
+
+        $url = route($routeName, $routeParams);
+        $fakeRequest = Request::create($url, $method, $payload);
+        $fakeRequest->headers->set('Accept', 'application/json');
+        $fakeRequest->headers->set('X-Requested-With', 'XMLHttpRequest');
+
+        $router = app('router');
+        $route = $router->getRoutes()->match($fakeRequest);
+        $route->setContainer(app());
+        $route->bind($fakeRequest);
+        $router->substituteBindings($route);
+        $router->substituteImplicitBindings($route);
+
+        $action = $route->getAction();
+        $callable = $action['uses'] ?? ($action['controller'] ?? null);
+
+        if ($callable === null) {
+            throw new \RuntimeException('Route action is missing a callable handler.');
+        }
+
+        $currentRequest = request();
+        app()->instance('request', $fakeRequest);
+
+        try {
+            return app()->call($callable, array_merge($route->parameters(), [
+                'request' => $fakeRequest,
+            ]));
+        } finally {
+            app()->instance('request', $currentRequest);
+        }
+    }
+}

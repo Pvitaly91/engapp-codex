@@ -10,6 +10,7 @@
             'test' => $test,
             'explanationsByQuestionId' => $explanationsByQuestionId,
             'returnUrl' => $returnUrl,
+            'pendingChangesByQuestion' => $pendingChangesByQuestion ?? collect(),
         ])
     @endforeach
 @endif
