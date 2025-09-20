@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'English App')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -117,5 +118,6 @@
     <footer class="bg-white border-t mt-8 py-4 text-center text-sm text-gray-400">
         &copy; {{ date('Y') }} English Test Hub. All rights reserved.
     </footer>
+    @stack('scripts')
 </body>
 </html>

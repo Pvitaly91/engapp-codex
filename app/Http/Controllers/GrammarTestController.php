@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
+use App\Services\QuestionTechDraftService;
 use App\Services\QuestionVariantService;
 
 class GrammarTestController extends Controller
@@ -27,7 +28,10 @@ class GrammarTestController extends Controller
         'saved-test-js-select',
     ];
 
-    public function __construct(private QuestionVariantService $variantService)
+    public function __construct(
+        private QuestionVariantService $variantService,
+        private QuestionTechDraftService $draftService,
+    )
     {
     }
 
@@ -150,10 +154,15 @@ class GrammarTestController extends Controller
             }
         }
 
+        $drafts = $questions->mapWithKeys(function (Question $question) {
+            return [$question->id => $this->draftService->getDraft($question)];
+        });
+
         return view('engram.saved-test-tech', [
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
+            'drafts' => $drafts,
         ]);
     }
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\QuestionHelpController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\SiteSearchController;
+use App\Http\Controllers\TechQuestionDraftController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,6 +75,13 @@ Route::get('/test/{slug}/js/input', [GrammarTestController::class, 'showSavedTes
 Route::get('/test/{slug}/js/step/select', [GrammarTestController::class, 'showSavedTestJsStepSelect'])->name('saved-test.js.step-select');
 Route::get('/test/{slug}/js/select', [GrammarTestController::class, 'showSavedTestJsSelect'])->name('saved-test.js.select');
 Route::get('/test/{slug}/tech', [GrammarTestController::class, 'showSavedTestTech'])->name('saved-test.tech');
+Route::prefix('/test/{slug}/tech/question/{question}')
+    ->name('saved-test.tech.question.')
+    ->group(function () {
+        Route::get('/dump', [TechQuestionDraftController::class, 'show'])->name('dump');
+        Route::put('/draft', [TechQuestionDraftController::class, 'update'])->name('draft.update');
+        Route::post('/apply', [TechQuestionDraftController::class, 'apply'])->name('apply');
+    });
 Route::get('/test/{slug}', [GrammarTestController::class, 'showSavedTest'])->name('saved-test.show');
 Route::get('/test/{slug}/random', [GrammarTestController::class, 'showSavedTestRandom'])->name('saved-test.random');
 Route::get('/test/{slug}/step', [GrammarTestController::class, 'showSavedTestStep'])->name('saved-test.step');
