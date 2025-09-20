@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Models\QuestionReviewResult;
+use App\Services\QuestionDumpService;
 
 class QuestionReviewController extends Controller
 {
@@ -80,6 +81,8 @@ class QuestionReviewController extends Controller
             $question->level = $request->input('level') ?: null;
         }
         $question->save();
+
+        app(QuestionDumpService::class)->storeDump($question);
 
         QuestionReviewResult::create([
             'question_id' => $question->id,

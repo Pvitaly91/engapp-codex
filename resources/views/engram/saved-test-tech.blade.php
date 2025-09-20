@@ -21,6 +21,18 @@
         </div>
     </div>
 
+    @if(session('status'))
+        <div class="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+            {{ session('status') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {{ session('error') }}
+        </div>
+    @endif
+
     @foreach($questions as $question)
         @php
             $answersByMarker = $question->answers
@@ -72,6 +84,7 @@
                 ->values();
             $explanations = collect($explanationsByQuestionId[$question->id] ?? []);
             $levelLabel = $question->level ?: 'N/A';
+            $dump = $questionDumps[$question->id] ?? null;
         @endphp
         <article class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100">
             <header class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
@@ -221,6 +234,50 @@
                     </div>
                 </details>
             @endif
+
+            <section class="rounded-2xl border border-stone-200 bg-stone-50 p-4">
+                <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div>
+                        <h3 class="text-sm font-semibold text-stone-700">Дамп змін</h3>
+                        @if($dump)
+                            <p class="text-xs text-stone-500 mt-1">Файл: {{ $dump['relative_path'] }}</p>
+                            <p class="text-xs text-stone-500">UUID: {{ $dump['uuid'] }}</p>
+                            @if($dump['applied_at'])
+                                <p class="text-xs text-stone-500">Останнє застосування: {{ $dump['applied_at']->timezone(config('app.timezone') ?? 'UTC')->format('Y-m-d H:i') }}</p>
+                            @endif
+                            <span @class([
+                                'mt-2 inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold',
+                                'bg-amber-100 text-amber-700' => $dump['pending'],
+                                'bg-emerald-100 text-emerald-700' => ! $dump['pending'],
+                            ])>
+                                {{ $dump['pending'] ? 'Потрібно застосувати' : 'Застосовано' }}
+                            </span>
+                        @else
+                            <p class="text-xs text-stone-500 mt-1">Для цього питання ще не створено дамп змін.</p>
+                        @endif
+                    </div>
+                    <form method="POST" action="{{ route('questions.apply-dump', $question) }}" class="flex-shrink-0">
+                        @csrf
+                        <button type="submit" @class([
+                            'rounded-full px-4 py-2 text-sm font-semibold shadow-sm transition',
+                            'bg-stone-300 text-stone-600 cursor-not-allowed' => ! $dump || ! $dump['pending'],
+                            'bg-emerald-600 text-white hover:bg-emerald-700' => $dump && $dump['pending'],
+                        ]) {{ (! $dump || ! $dump['pending']) ? 'disabled' : '' }}>
+                            Застосувати
+                        </button>
+                    </form>
+                </div>
+                @if($dump)
+                    <details class="group mt-4">
+                        <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                            <span>Переглянути JSON</span>
+                            <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                            <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                        </summary>
+                        <pre class="mt-3 max-h-80 overflow-auto rounded-lg bg-stone-900/90 p-3 text-xs text-emerald-50"><code>{{ $dump['json'] }}</code></pre>
+                    </details>
+                @endif
+            </section>
         </article>
     @endforeach
 </div>

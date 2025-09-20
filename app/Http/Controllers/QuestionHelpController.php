@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{ChatGPTExplanation, Question, QuestionHint};
-use App\Services\{ChatGPTService, GeminiService, QuestionVariantService};
+use App\Services\{ChatGPTService, GeminiService, QuestionVariantService, QuestionDumpService};
 
 class QuestionHelpController extends Controller
 {
@@ -53,6 +53,8 @@ class QuestionHelpController extends Controller
                     ['hint' => $text]
                 );
             }
+
+            app(QuestionDumpService::class)->storeDump($question);
 
             return response()->json([
                 'chatgpt' => $chatgptHint->hint,
