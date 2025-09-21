@@ -12,7 +12,7 @@ class ChatGPTExplanationController extends Controller
     {
         $data = $request->validate([
             'question_id' => ['required', 'integer', 'exists:questions,id'],
-            'question_text' => ['required', 'string'],
+            'question_text' => ['nullable', 'string'],
             'wrong_answer' => ['nullable', 'string'],
             'correct_answer' => ['required', 'string'],
             'language' => ['required', 'string', 'max:10'],
@@ -20,8 +20,30 @@ class ChatGPTExplanationController extends Controller
         ]);
 
         $question = Question::findOrFail($data['question_id']);
+        $question->loadMissing('answers.option');
 
-        $questionText = trim($data['question_text']);
+        $questionText = trim((string) ($data['question_text'] ?? ''));
+
+        if ($questionText === '') {
+            $currentQuestion = $question->question;
+            if (is_string($currentQuestion)) {
+                $questionText = trim($currentQuestion);
+            }
+        }
+
+        if ($questionText === '') {
+            $originalQuestion = $question->getOriginal('question');
+            if (is_string($originalQuestion)) {
+                $questionText = trim($originalQuestion);
+            }
+        }
+
+        if ($questionText === '') {
+            $renderedQuestion = $question->renderQuestionText();
+            if (is_string($renderedQuestion)) {
+                $questionText = trim($renderedQuestion);
+            }
+        }
         $wrongAnswer = trim((string) ($data['wrong_answer'] ?? ''));
         $correctAnswer = trim($data['correct_answer']);
         $language = strtolower(trim($data['language']));

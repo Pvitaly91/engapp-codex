@@ -1043,69 +1043,127 @@
                     return;
                 }
 
-                const candidates = buildTextCandidates(entry.data);
-                const selectOptions = candidates.map(text => ({
-                    value: text,
-                    label: text.length > 80 ? `${text.slice(0, 77)}…` : text,
-                }));
+                const candidates = Array.isArray(entry.data.text_candidates)
+                    ? entry.data.text_candidates
+                    : buildTextCandidates(entry.data);
 
-                const hasCandidates = selectOptions.length > 0;
-                const answers = Array.isArray(entry.data.answers) ? entry.data.answers : [];
-                const defaultCorrect = answers.length ? (answers[0].value ?? '') : '';
+                let questionText = '';
 
-                const fields = [];
+                for (const candidate of candidates) {
+                    if (typeof candidate !== 'string') {
+                        continue;
+                    }
 
-                if (hasCandidates) {
-                    fields.push({
-                        name: 'question_text_choice',
-                        label: 'Оберіть текст питання',
-                        type: 'select',
-                        options: selectOptions,
-                        value: selectOptions[0].value,
-                    });
+                    const trimmed = candidate.trim();
+
+                    if (trimmed) {
+                        questionText = trimmed;
+                        break;
+                    }
                 }
 
-                fields.push({
-                    name: 'question_text',
-                    label: 'Текст питання',
-                    type: 'textarea',
-                    value: hasCandidates ? selectOptions[0].value : '',
-                    required: true,
-                    rows: 4,
+                if (!questionText) {
+                    const direct = typeof entry.data.question === 'string' ? entry.data.question.trim() : '';
+                    const original = typeof entry.data.original_question === 'string'
+                        ? entry.data.original_question.trim()
+                        : '';
+
+                    questionText = direct || original;
+                }
+
+                if (!questionText) {
+                    window.alert('Не вдалося визначити текст цього питання для пояснення.');
+                    return;
+                }
+
+                const answers = Array.isArray(entry.data.answers) ? entry.data.answers : [];
+                const optionsList = Array.isArray(entry.data.options) ? entry.data.options : [];
+
+                const addChoice = (target, seen, rawValue) => {
+                    if (rawValue === null || rawValue === undefined) {
+                        return;
+                    }
+
+                    const text = String(rawValue).trim();
+
+                    if (!text) {
+                        return;
+                    }
+
+                    const key = text.toLowerCase();
+
+                    if (seen.has(key)) {
+                        return;
+                    }
+
+                    seen.add(key);
+                    target.push({ value: text, label: text });
+                };
+
+                const correctChoices = [];
+                const correctSeen = new Set();
+
+                answers.forEach(answer => {
+                    const value = answer && typeof answer === 'object'
+                        ? (answer.value ?? (answer.option && answer.option.label))
+                        : null;
+
+                    addChoice(correctChoices, correctSeen, value);
                 });
 
-                fields.push({
-                    name: 'language',
-                    label: 'Мова',
-                    type: 'text',
-                    value: 'ua',
-                    required: true,
-                    autocomplete: 'off',
-                });
+                optionsList
+                    .filter(option => option && option.is_correct)
+                    .forEach(option => addChoice(correctChoices, correctSeen, option.label));
 
-                fields.push({
-                    name: 'correct_answer',
-                    label: 'Правильна відповідь',
-                    type: 'text',
-                    value: defaultCorrect,
-                    required: true,
-                    autocomplete: 'off',
-                });
+                if (!correctChoices.length) {
+                    window.alert('Для цього питання не знайдено правильних відповідей.');
+                    return;
+                }
 
-                fields.push({
-                    name: 'wrong_answer',
-                    label: 'Неправильна відповідь',
-                    type: 'text',
-                    autocomplete: 'off',
-                });
+                const wrongChoices = [];
+                const wrongSeen = new Set();
 
-                fields.push({
-                    name: 'explanation',
-                    label: 'Пояснення',
-                    type: 'textarea',
-                    required: true,
-                    rows: 5,
-                });
+                optionsList
+                    .filter(option => option && !option.is_correct)
+                    .forEach(option => addChoice(wrongChoices, wrongSeen, option.label));
+
+                const wrongSelectOptions = [
+                    { value: '', label: '— Не вказано —' },
+                    ...wrongChoices,
+                ];
+
+                const fields = [
+                    {
+                        name: 'language',
+                        label: 'Мова',
+                        type: 'text',
+                        value: 'ua',
+                        required: true,
+                        autocomplete: 'off',
+                    },
+                    {
+                        name: 'correct_answer',
+                        label: 'Правильна відповідь',
+                        type: 'select',
+                        required: true,
+                        options: correctChoices,
+                        value: correctChoices[0].value,
+                    },
+                    {
+                        name: 'wrong_answer',
+                        label: 'Неправильна відповідь',
+                        type: 'select',
+                        options: wrongSelectOptions,
+                        value: '',
+                    },
+                    {
+                        name: 'explanation',
+                        label: 'Пояснення',
+                        type: 'textarea',
+                        required: true,
+                        rows: 5,
+                    },
+                ];
 
                 openModal({
                     title: 'Додати ChatGPT explanation',
@@ -1113,7 +1171,7 @@
                     onSubmit(values) {
                         const payload = {
                             question_id: questionId,
-                            question_text: values.question_text,
+                            question_text: questionText,
                             language: values.language,
                             correct_answer: values.correct_answer,
                             wrong_answer: values.wrong_answer ?? '',
@@ -1127,19 +1185,6 @@
                             });
                     },
                 });
-
-                if (hasCandidates && modal.fields) {
-                    window.requestAnimationFrame(() => {
-                        const selectEl = modal.fields.querySelector('[name="question_text_choice"]');
-                        const textareaEl = modal.fields.querySelector('[name="question_text"]');
-
-                        if (selectEl && textareaEl) {
-                            selectEl.addEventListener('change', () => {
-                                textareaEl.value = selectEl.value;
-                            });
-                        }
-                    });
-                }
             },
             deleteQuestion(questionId) {
                 if (!window.confirm('Видалити це питання з тесту?')) {
