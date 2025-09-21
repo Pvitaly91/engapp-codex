@@ -57,6 +57,7 @@
                     return e($segment);
                 })->implode('');
             };
+            $renderedQuestion = $question->renderQuestionText();
             $filledQuestion = $highlightSegments($question->question);
             $correctOptionIds = $question->answers
                 ->pluck('option_id')
@@ -153,15 +154,29 @@
                 })
                 ->values();
 
+            $questionTextCandidates = collect([
+                $question->getOriginal('question'),
+                $question->question,
+                $renderedQuestion,
+            ])
+                ->merge($variants->pluck('text'))
+                ->filter(fn ($text) => is_string($text) && trim($text) !== '')
+                ->map(fn ($text) => trim($text))
+                ->unique()
+                ->values();
+
             $techQuestionData = [
                 'id' => $question->id,
                 'question' => $question->question,
+                'original_question' => $question->getOriginal('question'),
+                'rendered_question' => $renderedQuestion,
                 'level' => $questionLevel,
                 'answers' => $answersData->toArray(),
                 'answers_by_marker' => $answersByMarker->toArray(),
                 'variants' => $variantsData->toArray(),
                 'options' => $options->toArray(),
                 'question_hints' => $questionHintsData->toArray(),
+                'text_candidates' => $questionTextCandidates->toArray(),
             ];
         @endphp
         <article class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100"
@@ -383,48 +398,59 @@
                 </div>
             </details>
 
-            @if($explanations->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>ChatGPT explanations</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <div class="mt-3 overflow-x-auto">
-                        <table class="min-w-full text-left text-sm text-stone-800">
-                            <thead class="text-xs uppercase tracking-wide text-stone-500">
-                                <tr>
-                                    <th class="py-2 pr-4">Мова</th>
-                                    <th class="py-2 pr-4">Неправильна відповідь</th>
-                                    <th class="py-2 pr-4">Правильна відповідь</th>
-                                    <th class="py-2">Пояснення</th>
-                                </tr>
-                            </thead>
-                            <tbody class="align-top">
-                                @foreach($explanations as $explanation)
-                                    @php
-                                        $isStoredCorrect = $answersByMarker->contains(function ($value) use ($explanation) {
-                                            return $value === $explanation->correct_answer;
-                                        });
-                                    @endphp
-                                    <tr class="border-t border-stone-200">
-                                        <td class="py-2 pr-4 font-semibold text-stone-600">{{ strtoupper($explanation->language) }}</td>
-                                        <td class="py-2 pr-4">{{ $explanation->wrong_answer ?: '—' }}</td>
-                                        <td @class([
-                                            'py-2 pr-4 font-semibold',
-                                            'text-emerald-700' => $isStoredCorrect,
-                                            'text-stone-800' => ! $isStoredCorrect,
-                                        ])>
-                                            {{ $explanation->correct_answer }}
-                                        </td>
-                                        <td class="py-2">{{ $explanation->explanation }}</td>
+            <details class="group">
+                <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                    <span>ChatGPT explanations</span>
+                    <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                    <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                </summary>
+                <div class="mt-3 space-y-3" data-chatgpt-explanations>
+                    @if($explanations->isNotEmpty())
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full text-left text-sm text-stone-800">
+                                <thead class="text-xs uppercase tracking-wide text-stone-500">
+                                    <tr>
+                                        <th class="py-2 pr-4">Мова</th>
+                                        <th class="py-2 pr-4">Неправильна відповідь</th>
+                                        <th class="py-2 pr-4">Правильна відповідь</th>
+                                        <th class="py-2">Пояснення</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </details>
-            @endif
+                                </thead>
+                                <tbody class="align-top">
+                                    @foreach($explanations as $explanation)
+                                        @php
+                                            $isStoredCorrect = $answersByMarker->contains(function ($value) use ($explanation) {
+                                                return $value === $explanation->correct_answer;
+                                            });
+                                        @endphp
+                                        <tr class="border-t border-stone-200">
+                                            <td class="py-2 pr-4 font-semibold text-stone-600">{{ strtoupper($explanation->language) }}</td>
+                                            <td class="py-2 pr-4">{{ $explanation->wrong_answer ?: '—' }}</td>
+                                            <td @class([
+                                                'py-2 pr-4 font-semibold',
+                                                'text-emerald-700' => $isStoredCorrect,
+                                                'text-stone-800' => ! $isStoredCorrect,
+                                            ])>
+                                                {{ $explanation->correct_answer }}
+                                            </td>
+                                            <td class="py-2">{{ $explanation->explanation }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @else
+                        <p class="rounded-lg border border-dashed border-purple-200 px-3 py-2 text-sm text-purple-700" data-empty>
+                            Пояснення відсутні.
+                        </p>
+                    @endif
+                    <button type="button"
+                            class="inline-flex items-center gap-2 rounded-lg border border-dashed border-purple-300 px-3 py-1.5 text-xs font-semibold text-purple-700 transition hover:bg-purple-50"
+                            onclick="techEditor.addChatGptExplanation({{ $question->id }})">
+                        <span>+ Додати ChatGPT explanation</span>
+                    </button>
+                </div>
+            </details>
         </article>
     @endforeach
 </div>
@@ -469,7 +495,8 @@
             questionOption: '{{ url('/questions') }}',
             questionHint: '{{ url('/question-hints') }}',
             verbHint: '{{ url('/verb-hints') }}',
-        
+            chatgptExplanation: '{{ url('/chatgpt-explanations') }}',
+
             testQuestion: '{{ url('/test/' . $test->slug . '/question') }}',
         };
 
@@ -685,53 +712,67 @@
                 return;
             }
 
-            let entry = state.get(questionData.id);
+            const questionId = questionData.id;
+            let entry = state.get(questionId);
 
             if (!entry) {
-                const element = document.querySelector(`[data-question-id="${questionData.id}"]`);
+                const element = document.querySelector(`[data-question-id="${questionId}"]`);
 
                 if (!element) {
                     return;
                 }
 
-                entry = { element, data: questionData };
-                state.set(questionData.id, entry);
+                let existingData = {};
+                const raw = element.getAttribute('data-question');
+
+                if (raw) {
+                    try {
+                        existingData = JSON.parse(raw);
+                    } catch (error) {
+                        existingData = {};
+                    }
+                }
+
+                entry = { element, data: { ...existingData, ...questionData } };
+                state.set(questionId, entry);
             } else {
-                entry.data = questionData;
+                entry.data = { ...entry.data, ...questionData };
             }
 
-            entry.element.setAttribute('data-question', JSON.stringify(questionData));
+            entry.data.text_candidates = buildTextCandidates(entry.data);
+            entry.element.setAttribute('data-question', JSON.stringify(entry.data));
 
-            const answersMap = questionData.answers_by_marker || {};
+            const currentData = entry.data;
+            const answersMap = currentData.answers_by_marker || {};
             const questionTextEl = entry.element.querySelector('[data-question-text]');
             if (questionTextEl) {
-                questionTextEl.innerHTML = highlightSegments(questionData.question, answersMap);
+                questionTextEl.innerHTML = highlightSegments(currentData.question, answersMap);
             }
 
             const levelEl = entry.element.querySelector('[data-question-level]');
             if (levelEl) {
-                const levelValue = questionData.level;
+                const levelValue = currentData.level;
                 levelEl.textContent = levelValue ? levelValue : 'N/A';
             }
 
             const variantsContainer = entry.element.querySelector('[data-variants-container]');
             if (variantsContainer) {
-                variantsContainer.innerHTML = renderVariants(questionData);
+                variantsContainer.innerHTML = renderVariants(currentData);
             }
 
             const answersContainer = entry.element.querySelector('[data-answers-container]');
             if (answersContainer) {
-                answersContainer.innerHTML = renderAnswers(questionData);
+                answersContainer.innerHTML = renderAnswers(currentData);
             }
 
             const optionsContainer = entry.element.querySelector('[data-options-container]');
             if (optionsContainer) {
-                optionsContainer.innerHTML = renderOptions(questionData);
+                optionsContainer.innerHTML = renderOptions(currentData);
             }
 
             const hintsContainer = entry.element.querySelector('[data-question-hints-container]');
             if (hintsContainer) {
-                hintsContainer.innerHTML = renderQuestionHints(questionData);
+                hintsContainer.innerHTML = renderQuestionHints(currentData);
             }
         }
 
@@ -948,27 +989,167 @@
             });
         }
 
+        function buildTextCandidates(questionData) {
+            const candidates = [];
+
+            const addCandidate = value => {
+                if (typeof value !== 'string') {
+                    return;
+                }
+
+                const trimmed = value.trim();
+
+                if (!trimmed) {
+                    return;
+                }
+
+                if (!candidates.includes(trimmed)) {
+                    candidates.push(trimmed);
+                }
+            };
+
+            if (questionData && typeof questionData === 'object') {
+                addCandidate(questionData.original_question);
+                addCandidate(questionData.question);
+                addCandidate(questionData.rendered_question);
+
+                if (Array.isArray(questionData.variants)) {
+                    questionData.variants.forEach(variant => {
+                        if (variant && typeof variant.text === 'string') {
+                            addCandidate(variant.text);
+                        }
+                    });
+                }
+            }
+
+            return candidates;
+        }
+
         const techEditor = {
             addQuestion() {
                 openModal({
-                    title: 'Додати питання до тесту',
+                    title: 'Створити нове питання',
                     fields: [
                         {
-                            name: 'question_id',
-                            label: 'ID питання',
-                            type: 'number',
+                            name: 'question',
+                            label: 'Текст питання',
+                            type: 'textarea',
                             required: true,
-                            autocomplete: 'off',
+                            rows: 5,
                         },
                     ],
                     onSubmit(values) {
-                        return sendJson('POST', routes.testQuestion, { question_id: values.question_id })
+                        return sendJson('POST', routes.testQuestion, { question: values.question })
                             .then(() => {
                                 window.location.reload();
                                 return null;
                             });
                     },
                 });
+            },
+            addChatGptExplanation(questionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const candidates = buildTextCandidates(entry.data);
+                const selectOptions = candidates.map(text => ({
+                    value: text,
+                    label: text.length > 80 ? `${text.slice(0, 77)}…` : text,
+                }));
+
+                const hasCandidates = selectOptions.length > 0;
+                const answers = Array.isArray(entry.data.answers) ? entry.data.answers : [];
+                const defaultCorrect = answers.length ? (answers[0].value ?? '') : '';
+
+                const fields = [];
+
+                if (hasCandidates) {
+                    fields.push({
+                        name: 'question_text_choice',
+                        label: 'Оберіть текст питання',
+                        type: 'select',
+                        options: selectOptions,
+                        value: selectOptions[0].value,
+                    });
+                }
+
+                fields.push({
+                    name: 'question_text',
+                    label: 'Текст питання',
+                    type: 'textarea',
+                    value: hasCandidates ? selectOptions[0].value : '',
+                    required: true,
+                    rows: 4,
+                });
+
+                fields.push({
+                    name: 'language',
+                    label: 'Мова',
+                    type: 'text',
+                    value: 'ua',
+                    required: true,
+                    autocomplete: 'off',
+                });
+
+                fields.push({
+                    name: 'correct_answer',
+                    label: 'Правильна відповідь',
+                    type: 'text',
+                    value: defaultCorrect,
+                    required: true,
+                    autocomplete: 'off',
+                });
+
+                fields.push({
+                    name: 'wrong_answer',
+                    label: 'Неправильна відповідь',
+                    type: 'text',
+                    autocomplete: 'off',
+                });
+
+                fields.push({
+                    name: 'explanation',
+                    label: 'Пояснення',
+                    type: 'textarea',
+                    required: true,
+                    rows: 5,
+                });
+
+                openModal({
+                    title: 'Додати ChatGPT explanation',
+                    fields,
+                    onSubmit(values) {
+                        const payload = {
+                            question_id: questionId,
+                            question_text: values.question_text,
+                            language: values.language,
+                            correct_answer: values.correct_answer,
+                            wrong_answer: values.wrong_answer ?? '',
+                            explanation: values.explanation,
+                        };
+
+                        return sendJson('POST', routes.chatgptExplanation, payload)
+                            .then(() => {
+                                window.location.reload();
+                                return null;
+                            });
+                    },
+                });
+
+                if (hasCandidates && modal.fields) {
+                    window.requestAnimationFrame(() => {
+                        const selectEl = modal.fields.querySelector('[name="question_text_choice"]');
+                        const textareaEl = modal.fields.querySelector('[name="question_text"]');
+
+                        if (selectEl && textareaEl) {
+                            selectEl.addEventListener('change', () => {
+                                textareaEl.value = selectEl.value;
+                            });
+                        }
+                    });
+                }
             },
             deleteQuestion(questionId) {
                 if (!window.confirm('Видалити це питання з тесту?')) {
@@ -1350,6 +1531,8 @@
 
                 try {
                     const data = JSON.parse(raw);
+                    data.text_candidates = buildTextCandidates(data);
+                    element.setAttribute('data-question', JSON.stringify(data));
                     state.set(data.id, { element, data });
                 } catch (error) {
                     console.error('Не вдалося розпізнати дані питання', error);

@@ -130,12 +130,14 @@ Route::get('/question-review/{question}', [QuestionReviewController::class, 'edi
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionReviewResultController;
 use App\Http\Controllers\VerbHintController;
+use App\Http\Controllers\ChatGPTExplanationController;
 
 Route::get('/question-review-results', [QuestionReviewResultController::class, 'index'])->name('question-review-results.index');
 
 Route::post('/verb-hints', [VerbHintController::class, 'store'])->name('verb-hints.store');
 Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
 Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])->name('verb-hints.destroy');
+Route::post('/chatgpt-explanations', [ChatGPTExplanationController::class, 'store'])->name('chatgpt-explanations.store');
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
 Route::post('/questions/{question}/answers', [QuestionAnswerController::class, 'store'])->name('questions.answers.store');
 Route::put('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'update'])->name('question-answers.update');
