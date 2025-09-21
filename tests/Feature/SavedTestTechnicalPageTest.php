@@ -117,6 +117,77 @@ class SavedTestTechnicalPageTest extends TestCase
         }
     }
 
+    /** @test */
+    public function it_shows_edit_actions_for_question_elements(): void
+    {
+        $category = Category::create(['name' => 'Present Simple']);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'I {a1} to school every day.',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+        ]);
+
+        $optionGo = QuestionOption::create(['option' => 'go']);
+        $optionGoes = QuestionOption::create(['option' => 'goes']);
+        $optionWent = QuestionOption::create(['option' => 'went']);
+
+        $question->options()->attach([$optionGo->id, $optionGoes->id, $optionWent->id]);
+
+        $answer = QuestionAnswer::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $optionGo->id,
+        ]);
+
+        $verbHint = VerbHint::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $optionGo->id,
+        ]);
+
+        $hint = QuestionHint::create([
+            'question_id' => $question->id,
+            'provider' => 'chatgpt',
+            'locale' => 'uk',
+            'hint' => 'Використовуйте базову форму дієслова.',
+        ]);
+
+        $variant = null;
+        if (Schema::hasTable('question_variants')) {
+            $variant = QuestionVariant::create([
+                'question_id' => $question->id,
+                'text' => 'They {a1} to school together.',
+            ]);
+        }
+
+        $test = Test::create([
+            'name' => 'Simple test',
+            'slug' => 'simple-test',
+            'filters' => [],
+            'questions' => [$question->id],
+        ]);
+
+        $response = $this->get(route('saved-test.tech', $test->slug));
+
+        $response->assertOk();
+        $response->assertSee('Редагувати питання');
+        $response->assertSee('Змінити');
+        $response->assertSee('Редагувати відповідь');
+        $response->assertSee("techEditor.editQuestion({$question->id})", false);
+        $response->assertSee("techEditor.editQuestionLevel({$question->id})", false);
+        $response->assertSee("techEditor.editAnswer({$question->id}, {$answer->id})", false);
+        $response->assertSee("techEditor.editOption({$question->id}, {$optionGo->id})", false);
+        $response->assertSee("techEditor.editQuestionHint({$question->id}, {$hint->id})", false);
+        $response->assertSee("techEditor.editVerbHint({$question->id}, {$verbHint->id})", false);
+
+        if ($variant) {
+            $response->assertSee("techEditor.editVariant({$question->id}, {$variant->id})", false);
+        }
+    }
+
     private function ensureSchema(): void
     {
         if (! Schema::hasTable('categories')) {

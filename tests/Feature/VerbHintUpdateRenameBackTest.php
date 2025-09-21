@@ -81,12 +81,16 @@ class VerbHintUpdateRenameBackTest extends TestCase
         ]);
 
         $this->putJson(route('verb-hints.update', $verbHint1->id), ['hint' => 'jump'])
-            ->assertNoContent();
+            ->assertOk()
+            ->assertJsonPath('data.id', $q1->id)
+            ->assertJsonPath('data.answers.0.verb_hint.value', 'jump');
 
         $verbHint1 = $verbHint1->fresh();
 
         $this->putJson(route('verb-hints.update', $verbHint1->id), ['hint' => 'run'])
-            ->assertNoContent();
+            ->assertOk()
+            ->assertJsonPath('data.id', $q1->id)
+            ->assertJsonPath('data.answers.0.verb_hint.value', 'run');
 
         $this->assertDatabaseHas('verb_hints', [
             'id' => $verbHint1->id,
