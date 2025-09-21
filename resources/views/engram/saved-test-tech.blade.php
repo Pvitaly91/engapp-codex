@@ -501,6 +501,12 @@
         };
 
         const cefrLevels = @json($cefrLevels);
+        const hintProviders = [
+            { value: 'chatgpt', label: 'ChatGPT' },
+            { value: 'gemini', label: 'Gemini' },
+            { value: 'mixed', label: 'Mixed' },
+        ];
+        const defaultHintLocale = 'uk';
 
         const state = new Map();
 
@@ -780,22 +786,6 @@
             if (modal.error) {
                 modal.error.classList.add('hidden');
                 modal.error.textContent = '';
-            }
-        }
-
-        function showError(message) {
-            if (!modal.error) {
-                return;
-            }
-
-            modal.error.textContent = message;
-            modal.error.classList.remove('hidden');
-        }
-
-        function setLoading(isLoading) {
-            if (modal.submitButton) {
-                modal.submitButton.disabled = isLoading;
-                modal.submitButton.classList.toggle('opacity-60', isLoading);
             }
         }
 
@@ -1390,15 +1380,33 @@
                     .catch(error => window.alert(error.message || 'Не вдалося видалити варіант відповіді.'));
             },
             addQuestionHint(questionId) {
+                const entry = state.get(questionId);
+                const existingHints = entry && Array.isArray(entry.data.question_hints)
+                    ? entry.data.question_hints
+                    : [];
+
+                const usedProvidersForDefaultLocale = new Set(
+                    existingHints
+                        .filter(hint => hint && hint.locale === defaultHintLocale && typeof hint.provider === 'string')
+                        .map(hint => hint.provider)
+                );
+
+                const availableProvider = hintProviders.find(option => !usedProvidersForDefaultLocale.has(option.value))
+                    || hintProviders[0]
+                    || {
+                        value: '',
+                    };
+
                 openModal({
                     title: 'Додати підказку',
                     fields: [
                         {
                             name: 'provider',
                             label: 'Провайдер',
-                            type: 'text',
+                            type: 'select',
                             required: true,
-                            autocomplete: 'off',
+                            options: hintProviders,
+                            value: availableProvider.value,
                         },
                         {
                             name: 'locale',
@@ -1406,6 +1414,7 @@
                             type: 'text',
                             required: true,
                             autocomplete: 'off',
+                            value: defaultHintLocale,
                         },
                         {
                             name: 'hint',
@@ -1552,24 +1561,22 @@
                     return;
                 }
 
+                const handler = submitHandler;
                 const formData = new FormData(modal.form);
                 const values = Object.fromEntries(formData.entries());
 
-                clearError();
-                setLoading(true);
+                closeModal();
 
                 Promise.resolve()
-                    .then(() => submitHandler(values))
+                    .then(() => handler(values))
                     .then(question => {
                         if (question) {
                             applyQuestionData(question);
                         }
-                        closeModal();
                     })
                     .catch(error => {
-                        showError(error.message || 'Не вдалося зберегти зміни.');
-                    })
-                    .finally(() => setLoading(false));
+                        window.alert(error?.message || 'Не вдалося зберегти зміни.');
+                    });
             });
 
             if (modal.cancelButton) {
@@ -1581,9 +1588,17 @@
             }
 
             modal.element.addEventListener('click', event => {
-                if (event.target === modal.element) {
-                    closeModal();
+                const button = event.target instanceof HTMLElement ? event.target.closest('button') : null;
+
+                if (!button || !modal.element.contains(button)) {
+                    return;
                 }
+
+                if (button.type === 'submit' && button.closest('form') === modal.form) {
+                    return;
+                }
+
+                closeModal();
             });
 
             document.addEventListener('keydown', event => {
