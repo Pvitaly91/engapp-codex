@@ -12,7 +12,7 @@ class QuestionController extends Controller
     {
         $data = $request->validate([
             'question' => 'sometimes|required|string',
-            'level' => 'sometimes|nullable|string|max:10',
+            'level' => 'sometimes|nullable|string|in:A1,A2,B1,B2,C1,C2',
         ]);
 
         if (! empty($data)) {

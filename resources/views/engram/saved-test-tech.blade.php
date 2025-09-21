@@ -21,6 +21,10 @@
         </div>
     </div>
 
+    @php
+        $cefrLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    @endphp
+
     @foreach($questions as $question)
         @php
             $answersByMarker = $question->answers
@@ -98,7 +102,8 @@
                 })
                 ->values();
             $explanations = collect($explanationsByQuestionId[$question->id] ?? []);
-            $levelLabel = $question->level ?: 'N/A';
+            $questionLevel = in_array($question->level, $cefrLevels, true) ? $question->level : null;
+            $levelLabel = $questionLevel ?? 'N/A';
 
             $answersData = $question->answers
                 ->map(function ($answer) use ($answersByMarker, $verbHintsByMarker) {
@@ -146,7 +151,7 @@
             $techQuestionData = [
                 'id' => $question->id,
                 'question' => $question->question,
-                'level' => $question->level,
+                'level' => $questionLevel,
                 'answers' => $answersData->toArray(),
                 'answers_by_marker' => $answersByMarker->toArray(),
                 'variants' => $variantsData->toArray(),
@@ -390,6 +395,8 @@
             verbHint: '{{ url('/verb-hints') }}',
         };
 
+        const cefrLevels = @json($cefrLevels);
+
         const state = new Map();
 
         const modalElement = document.getElementById('tech-editor-modal');
@@ -501,7 +508,8 @@
 
             const levelEl = entry.element.querySelector('[data-question-level]');
             if (levelEl) {
-                levelEl.textContent = questionData.level ?? 'N/A';
+                const levelValue = questionData.level;
+                levelEl.textContent = levelValue ? levelValue : 'N/A';
             }
 
             (questionData.variants || []).forEach(variant => {
@@ -620,24 +628,72 @@
                     wrapper.appendChild(label);
 
                     let input;
+                    const fieldType = field.type || 'text';
 
-                    if (field.type === 'textarea') {
+                    if (fieldType === 'textarea') {
                         input = document.createElement('textarea');
                         input.rows = field.rows || 4;
+                    } else if (fieldType === 'select') {
+                        input = document.createElement('select');
+
+                        const options = Array.isArray(field.options) ? field.options : [];
+
+                        options.forEach(option => {
+                            const optionElement = document.createElement('option');
+
+                            if (option && typeof option === 'object') {
+                                optionElement.value = option.value ?? '';
+                                optionElement.textContent = option.label ?? option.value ?? '';
+
+                                if (option.disabled) {
+                                    optionElement.disabled = true;
+                                }
+
+                                if (option.hidden) {
+                                    optionElement.hidden = true;
+                                }
+                            } else {
+                                optionElement.value = option;
+                                optionElement.textContent = option;
+                            }
+
+                            input.appendChild(optionElement);
+                        });
+
+                        if (field.multiple) {
+                            input.multiple = true;
+                        }
                     } else {
                         input = document.createElement('input');
-                        input.type = field.type || 'text';
+                        input.type = fieldType;
                     }
 
                     input.id = fieldId;
                     input.name = field.name;
                     input.required = !!field.required;
-                    input.placeholder = field.placeholder || '';
-                    input.value = field.value ?? '';
+
+                    if (field.placeholder && 'placeholder' in input) {
+                        input.placeholder = field.placeholder;
+                    }
+
                     input.className = 'mt-1 w-full rounded-lg border border-stone-300 px-3 py-2 text-sm text-stone-900 shadow-sm focus:border-blue-500 focus:ring-blue-500';
 
-                    if (field.autocomplete) {
+                    if (field.autocomplete && 'autocomplete' in input) {
                         input.autocomplete = field.autocomplete;
+                    }
+
+                    if (fieldType === 'textarea') {
+                        input.value = field.value ?? '';
+                    } else if (fieldType === 'select') {
+                        let defaultValue = field.value;
+
+                        if (defaultValue === null || defaultValue === undefined) {
+                            defaultValue = '';
+                        }
+
+                        input.value = String(defaultValue);
+                    } else {
+                        input.value = field.value ?? '';
                     }
 
                     wrapper.appendChild(input);
@@ -721,15 +777,25 @@
                     return;
                 }
 
+                const options = [
+                    { value: '', label: 'Не вибрано' },
+                ];
+
+                if (Array.isArray(cefrLevels) && cefrLevels.length) {
+                    options.push(
+                        ...cefrLevels.map(level => ({ value: level, label: level }))
+                    );
+                }
+
                 openModal({
                     title: 'Змінити рівень питання',
                     fields: [
                         {
                             name: 'level',
                             label: 'Рівень',
-                            type: 'text',
+                            type: 'select',
                             value: entry.data.level ?? '',
-                            autocomplete: 'off',
+                            options,
                         },
                     ],
                     onSubmit(values) {
