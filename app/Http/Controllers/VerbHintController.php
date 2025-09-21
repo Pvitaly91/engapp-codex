@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Concerns\ReturnsTechnicalQuestionResource;
+use App\Http\Resources\TechnicalQuestionResource;
 use App\Models\{VerbHint, QuestionOption, Question};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,8 +38,11 @@ class VerbHintController extends Controller
             'option_id' => $option->id,
         ]);
 
-        if ($request->expectsJson()) {
-            return response()->json(['id' => $verbHint->id], 201);
+        if ($request->wantsJson()) {
+            return response()->json([
+                'id' => $verbHint->id,
+                'question' => TechnicalQuestionResource::make($question->refresh())->toArray($request),
+            ], 201);
         }
 
         $redirectTo = $request->input('from', url()->previous());
@@ -125,8 +129,10 @@ class VerbHintController extends Controller
             $option->delete();
         }
 
-        if ($request->expectsJson()) {
-            return response()->noContent();
+        if ($request->wantsJson()) {
+            return response()->json([
+                'question' => TechnicalQuestionResource::make($question->refresh())->toArray($request),
+            ]);
         }
 
         $redirectTo = $request->input('from', url()->previous());

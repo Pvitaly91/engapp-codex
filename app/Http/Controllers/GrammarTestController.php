@@ -13,6 +13,7 @@ use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
 use App\Services\QuestionVariantService;
+use App\Http\Resources\TechnicalQuestionResource;
 
 class GrammarTestController extends Controller
 {
@@ -719,6 +720,53 @@ class GrammarTestController extends Controller
         session([$key . '_queue' => $queue, $key . '_index' => $index]);
         if (session()->has($key . '_total')) {
             session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
+        }
+
+        return redirect()->back();
+    }
+
+    public function addQuestion(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        $data = $request->validate([
+            'question_id' => ['required', 'integer', 'exists:questions,id'],
+        ]);
+
+        $questionId = (int) $data['question_id'];
+        $questions = Arr::wrap($test->questions);
+
+        if (in_array($questionId, $questions, true)) {
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'message' => 'Питання вже додано до цього тесту.',
+                ], 422);
+            }
+
+            return redirect()->back()->withErrors([
+                'question_id' => 'Питання вже додано до цього тесту.',
+            ]);
+        }
+
+        $questions[] = $questionId;
+        $test->questions = array_values($questions);
+        $test->save();
+
+        $key = 'step_' . $test->slug;
+        $queue = Arr::wrap(session($key . '_queue', []));
+        if (! in_array($questionId, $queue, true)) {
+            $queue[] = $questionId;
+            session([$key . '_queue' => $queue]);
+        }
+
+        if (session()->has($key . '_total')) {
+            session([$key . '_total' => session($key . '_total', 0) + 1]);
+        }
+
+        $question = Question::findOrFail($questionId);
+
+        if ($request->wantsJson()) {
+            return TechnicalQuestionResource::make($question);
         }
 
         return redirect()->back();

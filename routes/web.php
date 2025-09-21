@@ -92,6 +92,7 @@ Route::post('/test/{slug}/step/determine-level-gemini', [GrammarTestController::
 Route::post('/test/{slug}/step/set-level', [GrammarTestController::class, 'setLevel'])->name('saved-test.step.set-level');
 Route::post('/test/{slug}/step/add-tag', [GrammarTestController::class, 'addTag'])->name('saved-test.step.add-tag');
 Route::delete('/test/{slug}/step/remove-tag', [GrammarTestController::class, 'removeTag'])->name('saved-test.step.remove-tag');
+Route::post('/test/{slug}/question', [GrammarTestController::class, 'addQuestion'])->name('saved-test.question.store');
 Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
 Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
@@ -136,10 +137,18 @@ Route::post('/verb-hints', [VerbHintController::class, 'store'])->name('verb-hin
 Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
 Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])->name('verb-hints.destroy');
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
+Route::post('/questions/{question}/answers', [QuestionAnswerController::class, 'store'])->name('questions.answers.store');
 Route::put('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'update'])->name('question-answers.update');
+Route::delete('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'destroy'])->name('question-answers.destroy');
+Route::post('/questions/{question}/options', [QuestionOptionController::class, 'store'])->name('questions.options.store');
 Route::put('/questions/{question}/options/{option}', [QuestionOptionController::class, 'update'])->name('questions.options.update');
+Route::delete('/questions/{question}/options/{option}', [QuestionOptionController::class, 'destroy'])->name('questions.options.destroy');
+Route::post('/questions/{question}/variants', [QuestionVariantController::class, 'store'])->name('questions.variants.store');
+Route::delete('/question-variants/{questionVariant}', [QuestionVariantController::class, 'destroy'])->name('question-variants.destroy');
+Route::post('/questions/{question}/hints', [QuestionHintController::class, 'store'])->name('questions.hints.store');
 Route::put('/question-variants/{questionVariant}', [QuestionVariantController::class, 'update'])->name('question-variants.update');
 Route::put('/question-hints/{questionHint}', [QuestionHintController::class, 'update'])->name('question-hints.update');
+Route::delete('/question-hints/{questionHint}', [QuestionHintController::class, 'destroy'])->name('question-hints.destroy');
 
 Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
 Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
