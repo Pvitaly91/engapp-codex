@@ -12,7 +12,13 @@ use Illuminate\Support\Str;
 use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
+use App\Models\QuestionAnswer;
+use App\Models\QuestionOption;
+use App\Models\VerbHint;
 use App\Services\QuestionVariantService;
+use App\Http\Resources\TechnicalQuestionResource;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class GrammarTestController extends Controller
 {
@@ -697,28 +703,188 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.step', $slug);
     }
 
-    public function deleteQuestion($slug, Question $question)
+    public function deleteQuestion(Request $request, string $slug, Question $question)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
-        $test->questions = array_values(array_filter(
-            $test->questions,
-            fn ($id) => (int) $id !== $question->id
-        ));
+        $questions = Arr::wrap($test->questions);
+        $questionId = $question->id;
+
+        if (! in_array($questionId, $questions, true)) {
+            abort(404);
+        }
+
+        $removedFromTest = false;
+
+        DB::transaction(function () use ($test, $question, &$removedFromTest) {
+            $questions = Arr::wrap($test->questions);
+            $questions = array_values(array_filter(
+                $questions,
+                fn ($id) => (int) $id !== $question->id
+            ));
+
+            $test->questions = $questions;
+            $test->save();
+
+            $relations = [];
+
+            if (Schema::hasTable('question_answers')) {
+                $relations[] = 'answers.option';
+            }
+
+            if (Schema::hasTable('question_options')) {
+                $relations[] = 'options';
+            }
+
+            if (Schema::hasTable('verb_hints')) {
+                $relations[] = 'verbHints';
+            }
+
+            if (! empty($relations)) {
+                $question->loadMissing($relations);
+            }
+
+            $optionIds = collect();
+
+            if (Schema::hasTable('question_answers')) {
+                $optionIds = $optionIds->merge($question->answers->pluck('option_id'));
+            }
+
+            if (Schema::hasTable('question_options')) {
+                $optionIds = $optionIds->merge($question->options->pluck('id'));
+            }
+
+            if (Schema::hasTable('verb_hints')) {
+                $optionIds = $optionIds->merge($question->verbHints->pluck('option_id'));
+            }
+
+            $optionIds = $optionIds->filter()->unique();
+
+            $question->delete();
+
+            $optionIds->each(function ($optionId) {
+                $stillUsed = QuestionAnswer::query()->where('option_id', $optionId)->exists()
+                    || VerbHint::query()->where('option_id', $optionId)->exists()
+                    || (Schema::hasTable('question_option_question')
+                        && DB::table('question_option_question')->where('option_id', $optionId)->exists());
+
+                if (! $stillUsed) {
+                    QuestionOption::query()->whereKey($optionId)->delete();
+                }
+            });
+
+            $removedFromTest = true;
+        });
+
+        if ($removedFromTest) {
+            $key = 'step_' . $test->slug;
+            $queue = session($key . '_queue', []);
+            $index = session($key . '_index', 0);
+            $removedIndex = array_search($questionId, $queue, true);
+            $queue = array_values(array_filter($queue, fn ($id) => (int) $id !== $questionId));
+
+            if ($removedIndex !== false && $removedIndex < $index) {
+                $index = max($index - 1, 0);
+            } elseif ($removedIndex !== false && $removedIndex === $index) {
+                $index = min($index, max(count($queue) - 1, 0));
+            }
+
+            session([$key . '_queue' => $queue, $key . '_index' => $index]);
+
+            if (session()->has($key . '_total')) {
+                session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
+            }
+        }
+
+        if ($request->wantsJson()) {
+            return response()->noContent();
+        }
+
+        return redirect()->back();
+    }
+
+    public function addQuestion(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        $data = $request->validate([
+            'question' => ['required', 'string'],
+        ]);
+
+        $questionText = trim($data['question']);
+
+        if ($questionText === '') {
+            $message = 'Текст питання не може бути порожнім.';
+
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $message], 422);
+            }
+
+            return redirect()->back()->withErrors(['question' => $message]);
+        }
+
+        $questions = Arr::wrap($test->questions);
+
+        $referenceQuestion = null;
+        foreach ($questions as $existingId) {
+            $referenceQuestion = Question::find($existingId);
+            if ($referenceQuestion) {
+                break;
+            }
+        }
+
+        $categoryId = $referenceQuestion?->category_id ?? Category::query()->value('id');
+
+        if (! $categoryId) {
+            $message = 'Неможливо визначити категорію для нового питання.';
+
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $message], 422);
+            }
+
+            return redirect()->back()->withErrors(['question' => $message]);
+        }
+
+        $attributes = [
+            'uuid' => (string) Str::uuid(),
+            'question' => $questionText,
+            'category_id' => $categoryId,
+        ];
+
+        if (Schema::hasColumn('questions', 'difficulty')) {
+            $attributes['difficulty'] = $referenceQuestion?->difficulty ?? 1;
+        }
+
+        if (Schema::hasColumn('questions', 'flag')) {
+            $attributes['flag'] = $referenceQuestion?->flag ?? 0;
+        }
+
+        if (Schema::hasColumn('questions', 'level')) {
+            $attributes['level'] = $referenceQuestion?->level;
+        }
+
+        if (Schema::hasColumn('questions', 'source_id')) {
+            $attributes['source_id'] = $referenceQuestion?->source_id;
+        }
+
+        $question = Question::create($attributes);
+
+        $questions[] = $question->id;
+        $test->questions = array_values($questions);
         $test->save();
 
         $key = 'step_' . $test->slug;
-        $queue = session($key . '_queue', []);
-        $index = session($key . '_index', 0);
-        $removedIndex = array_search($question->id, $queue, true);
-        $queue = array_values(array_filter($queue, fn ($id) => (int) $id !== $question->id));
-        if ($removedIndex !== false && $removedIndex < $index) {
-            $index = max($index - 1, 0);
-        } elseif ($removedIndex !== false && $removedIndex === $index) {
-            $index = min($index, max(count($queue) - 1, 0));
+        $queue = Arr::wrap(session($key . '_queue', []));
+        if (! in_array($question->id, $queue, true)) {
+            $queue[] = $question->id;
+            session([$key . '_queue' => $queue]);
         }
-        session([$key . '_queue' => $queue, $key . '_index' => $index]);
+
         if (session()->has($key . '_total')) {
-            session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
+            session([$key . '_total' => session($key . '_total', 0) + 1]);
+        }
+
+        if ($request->wantsJson()) {
+            return TechnicalQuestionResource::make($question);
         }
 
         return redirect()->back();
