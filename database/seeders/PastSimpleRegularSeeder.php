@@ -2,13 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
 use App\Models\Tag;
-use Illuminate\Support\Str;
 
-class PastSimpleRegularSeeder extends Seeder
+class PastSimpleRegularSeeder extends QuestionSeeder
 {
 
     public function run()
@@ -166,9 +164,7 @@ class PastSimpleRegularSeeder extends Seeder
         $items = [];
         foreach ($questions as $i => $data) {
             $index = $i + 1;
-            $slug  = Str::slug(class_basename(self::class));
-            $max   = 36 - strlen((string) $index) - 1;
-            $uuid  = substr($slug, 0, $max) . '-' . $index;
+            $uuid  = $this->generateQuestionUuid($index);
 
             $items[] = [
                 'uuid'        => $uuid,

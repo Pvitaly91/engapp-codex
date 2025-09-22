@@ -5,10 +5,8 @@ use App\Models\Category;
 use App\Models\Source;
 use App\Models\Tag;
 use App\Services\QuestionSeedingService;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
-class PresentContinuousStorySeeder extends Seeder
+class PresentContinuousStorySeeder extends QuestionSeeder
 {
     public function run()
     {
@@ -35,7 +33,7 @@ class PresentContinuousStorySeeder extends Seeder
             ['marker' => 'a10','answer' => 'are singing',  'verb_hint' => 'sing'],
         ];
 
-        $uuid = Str::slug(class_basename(self::class));
+        $uuid = $this->generateQuestionUuid();
 
         $service = new QuestionSeedingService();
         $service->seed([
