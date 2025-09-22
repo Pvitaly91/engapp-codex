@@ -612,7 +612,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                         'a1' => "⏳ Час: Past Perfect Continuous.  \nФормула: **had + been + V-ing**.  \nПриклад: *He was tired because he had been working all day.*  \nМаркер: «because».",
                     ],
                     'tense' => ['Past Perfect Continuous'],
-                    'level' => 'B1–B2',
+                    'level' => 'B2',
                     'detail_tags' => ['cause_duration_because'],
                 ],
                 [
@@ -629,7 +629,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                         'a1' => "⏳ Час: Past Perfect Continuous.  \nФормула: **had + been + V-ing**.  \nПриклад: *Her clothes were dirty because she had been playing outside.*  \nМаркер: «because».",
                     ],
                     'tense' => ['Past Perfect Continuous'],
-                    'level' => 'B1–B2',
+                    'level' => 'B2',
                     'detail_tags' => ['cause_duration_because'],
                 ],
                 [
@@ -646,7 +646,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                         'a1' => "⏳ Час: Past Perfect Continuous.  \nФормула: **had + been + V-ing**.  \nПриклад: *The ground was wet because it had been raining all night.*  \nМаркер: «all night», «because».",
                     ],
                     'tense' => ['Past Perfect Continuous'],
-                    'level' => 'B1–B2',
+                    'level' => 'B2',
                     'detail_tags' => ['cause_duration_because'],
                 ],
                 [
@@ -690,7 +690,6 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
             'A1' => 1,
             'A2' => 2,
             'B1' => 3,
-            'B1–B2' => 3,
             'B2' => 4,
             'C1' => 5,
             'C2' => 5,
