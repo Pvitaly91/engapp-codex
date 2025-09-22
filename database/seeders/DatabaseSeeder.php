@@ -100,7 +100,8 @@ class DatabaseSeeder extends Seeder
             NegativePresentPerfectHabitsTestSeeder::class,
             MixedTenseUsageAiSeeder::class,
             Ai\MixedPerfectTenseDetailedSeeder::class,
-        
+            Ai\PastPerfectComprehensiveAiSeeder::class,
+
         ]);
     }
 }
