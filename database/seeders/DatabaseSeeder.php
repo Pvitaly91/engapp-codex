@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
+use Database\Seeders\V2\PastPerfectMasteryV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -100,6 +101,7 @@ class DatabaseSeeder extends Seeder
             MixedTenseUsageAiSeeder::class,
             Ai\MixedPerfectTenseDetailedSeeder::class,
             Ai\PastPerfectComprehensiveAiSeeder::class,
+            PastPerfectMasteryV2Seeder::class,
 
         ]);
     }
