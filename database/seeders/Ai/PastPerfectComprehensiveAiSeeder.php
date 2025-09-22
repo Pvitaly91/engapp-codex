@@ -16,7 +16,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
 {
     public function run(): void
     {
-        $categoryId = Category::firstOrCreate(['name' => 'AI Past Perfect Comprehensive Test'])->id;
+        $categoryId = Category::firstOrCreate(['name' => 'AI Past Perfect Comprehensive Test'])->id; 
 
         $sectionSources = [
             'A' => Source::firstOrCreate(['name' => 'AI Past Perfect Comprehensive Test — Section A'])->id,
