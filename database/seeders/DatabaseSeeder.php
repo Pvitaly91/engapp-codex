@@ -92,7 +92,6 @@ class DatabaseSeeder extends Seeder
             TestContiniusesSeeder::class,
             QuestionLevelSeeder::class,
             PastPerfectVsPastSimpleTestSeeder::class,
-            PastPerfectSimpleVsContinuousCTestSeeder::class,
             PagesSeeder::class,
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
