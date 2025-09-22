@@ -10,7 +10,7 @@ use App\Models\Source;
 use App\Models\Tag;
 use App\Services\QuestionSeedingService;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
 
 class PastPerfectSimpleVsContinuousCTestSeeder extends Seeder
 {
@@ -322,8 +322,8 @@ class PastPerfectSimpleVsContinuousCTestSeeder extends Seeder
         $meta = [];
 
         foreach ($questionData as $sectionKey => $questions) {
-            foreach ($questions as $question) {
-                $uuid = (string) Str::uuid();
+            foreach ($questions as $index => $question) {
+                $uuid = (string) Uuid::uuid5(Uuid::NAMESPACE_URL, "past-perfect-simple-vs-continuous-c-test-{$sectionKey}-{$index}-{$question['question']}");
                 $answers = [];
                 $optionMarkerMap = [];
 

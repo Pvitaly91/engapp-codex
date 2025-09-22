@@ -10,7 +10,7 @@ use App\Models\Source;
 use App\Models\Tag;
 use App\Services\QuestionSeedingService;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
 
 class PastPerfectComprehensiveAiSeeder extends Seeder
 {
@@ -711,8 +711,8 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
         $meta = [];
 
         foreach ($questionData as $sectionKey => $questions) {
-            foreach ($questions as $question) {
-                $uuid = (string) Str::uuid();
+            foreach ($questions as $index => $question) {
+                $uuid = (string) Uuid::uuid5(Uuid::NAMESPACE_URL, "past-perfect-comprehensive-ai-{$sectionKey}-{$index}-{$question['question']}");
                 $answers = [];
                 $optionMarkerMap = [];
 
