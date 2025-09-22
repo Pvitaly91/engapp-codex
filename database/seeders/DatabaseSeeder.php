@@ -92,6 +92,7 @@ class DatabaseSeeder extends Seeder
             TestContiniusesSeeder::class,
             QuestionLevelSeeder::class,
             PastPerfectVsPastSimpleTestSeeder::class,
+            PastPerfectSimpleVsContinuousCTestSeeder::class,
             PagesSeeder::class,
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
@@ -99,7 +100,8 @@ class DatabaseSeeder extends Seeder
             NegativePresentPerfectHabitsTestSeeder::class,
             MixedTenseUsageAiSeeder::class,
             Ai\MixedPerfectTenseDetailedSeeder::class,
-        
+            Ai\PastPerfectComprehensiveAiSeeder::class,
+
         ]);
     }
 }
