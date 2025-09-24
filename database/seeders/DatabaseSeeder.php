@@ -103,6 +103,7 @@ class DatabaseSeeder extends Seeder
             MixedTenseUsageAiSeeder::class,
             Ai\MixedPerfectTenseDetailedSeeder::class,
             Ai\PastPerfectComprehensiveAiSeeder::class,
+            Ai\PastTenseFormsAiSeeder::class,
 
         ]);
     }
