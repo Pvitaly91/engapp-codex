@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
+use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -93,6 +94,7 @@ class DatabaseSeeder extends Seeder
             QuestionLevelSeeder::class,
             PastPerfectVsPastSimpleTestSeeder::class,
             PastPerfectSimpleVsContinuousCTestSeeder::class,
+            PastTimeClausesMixedTestSeeder::class,
             PagesSeeder::class,
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
