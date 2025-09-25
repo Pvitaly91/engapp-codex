@@ -20,6 +20,10 @@ class WordsWithTranslationsSeeder extends Seeder
         try {
             $popularTag = Tag::firstOrCreate(['name' => '1000_most_popular']);
             foreach ($rows as $row) {
+                if (count($row) < 2) {
+                    continue;
+                }
+
                 $en = trim($row[0]);
                 $uk = trim($row[1]);
                 if (empty($en) || empty($uk)) {
