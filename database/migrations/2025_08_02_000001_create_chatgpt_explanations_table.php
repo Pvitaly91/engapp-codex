@@ -14,7 +14,9 @@ return new class extends Migration {
             $table->string('language')->default('uk');
             $table->text('explanation');
             $table->timestamps();
-            $table->unique(['question', 'wrong_answer', 'correct_answer', 'language'], 'chatgpt_explanations_unique');
+            $table->string('unique_hash', 64)
+                ->storedAs("sha2(concat_ws(':', `question`, `wrong_answer`, `correct_answer`, `language`), 256)");
+            $table->unique('unique_hash', 'chatgpt_explanations_unique');
         });
     }
 

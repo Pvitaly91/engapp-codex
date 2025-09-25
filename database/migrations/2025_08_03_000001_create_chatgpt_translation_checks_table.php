@@ -15,7 +15,9 @@ return new class extends Migration {
             $table->boolean('is_correct');
             $table->text('explanation')->nullable();
             $table->timestamps();
-            $table->unique(['original', 'reference', 'user_text', 'language'], 'chatgpt_translation_checks_unique');
+            $table->string('unique_hash', 64)
+                ->storedAs("sha2(concat_ws(':', `original`, `reference`, `user_text`, `language`), 256)");
+            $table->unique('unique_hash', 'chatgpt_translation_checks_unique');
         });
     }
 
