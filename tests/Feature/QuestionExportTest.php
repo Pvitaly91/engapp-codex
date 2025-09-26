@@ -33,10 +33,7 @@ class QuestionExportTest extends TestCase
 
     public function test_question_update_exports_related_data_to_json(): void
     {
-        $directory = database_path('seeders/questions');
-        if (File::exists($directory)) {
-            File::cleanDirectory($directory);
-        }
+        $this->cleanExportDirectory();
 
         $category = Category::create(['name' => 'Grammar']);
         $source = Source::create(['name' => 'Manual']);
@@ -90,11 +87,7 @@ class QuestionExportTest extends TestCase
 
         $question->update(['question' => 'She {a1} after breakfast.']);
 
-        $jsonPath = $directory . DIRECTORY_SEPARATOR . $question->uuid . '.json';
-
-        $this->assertFileExists($jsonPath);
-
-        $payload = json_decode(File::get($jsonPath), true);
+        $payload = $this->readExport($question);
 
         $this->assertEquals($question->uuid, $payload['question']['uuid']);
         $this->assertSame('She {a1} after breakfast.', $payload['question']['question']);
@@ -106,7 +99,68 @@ class QuestionExportTest extends TestCase
         $this->assertCount(1, $payload['hints']);
         $this->assertCount(1, $payload['chatgpt_explanations']);
 
-        File::delete($jsonPath);
+        File::delete($this->exportPathFor($question));
+    }
+
+    public function test_updating_question_hint_exports_json_snapshot(): void
+    {
+        $this->cleanExportDirectory();
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Initial question text',
+            'difficulty' => 1,
+        ]);
+
+        $hint = QuestionHint::create([
+            'question_id' => $question->id,
+            'provider' => 'system',
+            'locale' => 'en',
+            'hint' => 'Old hint',
+        ]);
+
+        $this->putJson(route('question-hints.update', $hint), [
+            'hint' => 'Updated hint text',
+        ])->assertOk();
+
+        $payload = $this->readExport($question);
+
+        $this->assertSame('Updated hint text', $payload['hints'][0]['hint']);
+
+        File::delete($this->exportPathFor($question));
+    }
+
+    public function test_creating_and_deleting_verb_hint_refreshes_snapshot(): void
+    {
+        $this->cleanExportDirectory();
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Verb hint question',
+            'difficulty' => 1,
+        ]);
+
+        $createResponse = $this->postJson(route('verb-hints.store'), [
+            'question_id' => $question->id,
+            'marker' => 'A1',
+            'hint' => 'run',
+        ])->assertCreated();
+
+        $payloadAfterCreate = $this->readExport($question);
+
+        $this->assertCount(1, $payloadAfterCreate['verb_hints']);
+        $this->assertSame('run', $payloadAfterCreate['verb_hints'][0]['option']['option']);
+
+        $verbHintId = $createResponse->json('id');
+
+        $this->deleteJson(route('verb-hints.destroy', $verbHintId))
+            ->assertNoContent();
+
+        $payloadAfterDelete = $this->readExport($question);
+
+        $this->assertSame([], $payloadAfterDelete['verb_hints']);
+
+        File::delete($this->exportPathFor($question));
     }
 
     private function createTables(): void
@@ -205,6 +259,34 @@ class QuestionExportTest extends TestCase
             $table->text('explanation');
             $table->timestamps();
         });
+    }
+
+    private function exportDirectory(): string
+    {
+        return database_path('seeders/questions');
+    }
+
+    private function exportPathFor(Question $question): string
+    {
+        return $this->exportDirectory() . DIRECTORY_SEPARATOR . $question->uuid . '.json';
+    }
+
+    private function cleanExportDirectory(): void
+    {
+        $directory = $this->exportDirectory();
+
+        if (File::exists($directory)) {
+            File::cleanDirectory($directory);
+        }
+    }
+
+    private function readExport(Question $question): array
+    {
+        $path = $this->exportPathFor($question);
+
+        $this->assertFileExists($path);
+
+        return json_decode(File::get($path), true);
     }
 }
 

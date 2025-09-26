@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Concerns\ReturnsTechnicalQuestionResource;
 use App\Models\{VerbHint, QuestionOption, Question};
+use App\Services\QuestionExportService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,6 +37,8 @@ class VerbHintController extends Controller
             'marker' => $data['marker'],
             'option_id' => $option->id,
         ]);
+
+        app(QuestionExportService::class)->export($question->fresh() ?? $question);
 
         if ($request->expectsJson()) {
             return response()->json(['id' => $verbHint->id], 201);
@@ -124,6 +127,8 @@ class VerbHintController extends Controller
             && ! DB::table('question_option_question')->where('option_id', $option->id)->exists()) {
             $option->delete();
         }
+
+        app(QuestionExportService::class)->export($question->fresh() ?? $question);
 
         if ($request->expectsJson()) {
             return response()->noContent();
