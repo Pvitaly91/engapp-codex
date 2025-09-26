@@ -19,7 +19,7 @@ class QuestionController extends Controller
  
         // Store old question text for syncing related records
         $oldQuestion = $question->question;
-
+  
         if ($data) {
             $question->fill($data);
 
