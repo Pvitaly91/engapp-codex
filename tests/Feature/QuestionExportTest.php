@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Category;
+use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionHint;
@@ -79,6 +80,14 @@ class QuestionExportTest extends TestCase
             'hint' => 'Use the third person singular.',
         ]);
 
+        ChatGPTExplanation::create([
+            'question' => 'She {a1} after breakfast.',
+            'wrong_answer' => 'eat',
+            'correct_answer' => 'eats',
+            'language' => 'uk',
+            'explanation' => 'Use the third person singular form.',
+        ]);
+
         $question->update(['question' => 'She {a1} after breakfast.']);
 
         $jsonPath = $directory . DIRECTORY_SEPARATOR . $question->uuid . '.json';
@@ -95,6 +104,7 @@ class QuestionExportTest extends TestCase
         $this->assertCount(1, $payload['verb_hints']);
         $this->assertCount(1, $payload['variants']);
         $this->assertCount(1, $payload['hints']);
+        $this->assertCount(1, $payload['chatgpt_explanations']);
 
         File::delete($jsonPath);
     }
@@ -184,6 +194,16 @@ class QuestionExportTest extends TestCase
             $table->unsignedBigInteger('question_id');
             $table->timestamps();
             $table->unique(['tag_id', 'question_id']);
+        });
+
+        Schema::create('chatgpt_explanations', function (Blueprint $table) {
+            $table->id();
+            $table->text('question');
+            $table->text('wrong_answer');
+            $table->text('correct_answer');
+            $table->string('language');
+            $table->text('explanation');
+            $table->timestamps();
         });
     }
 }

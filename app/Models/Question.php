@@ -75,4 +75,9 @@ class Question extends Model
     {
         return $this->hasMany(QuestionVariant::class);
     }
+
+    public function chatgptExplanations()
+    {
+        return $this->hasMany(ChatGPTExplanation::class, 'question', 'question');
+    }
 }

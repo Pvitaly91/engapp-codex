@@ -26,6 +26,7 @@ class QuestionExportService
             'verbHints.option',
             'variants',
             'hints',
+            'chatgptExplanations',
         ]);
 
         $payload = [
@@ -38,6 +39,7 @@ class QuestionExportService
             'verb_hints' => $this->formatVerbHints($question),
             'variants' => $this->formatVariants($question),
             'hints' => $this->formatHints($question),
+            'chatgpt_explanations' => $this->formatChatGptExplanations($question),
         ];
 
         $this->writeJson($question->uuid, $payload);
@@ -187,6 +189,22 @@ class QuestionExportService
                 'hint' => $hint->hint,
                 'created_at' => $this->formatDate($hint->created_at),
                 'updated_at' => $this->formatDate($hint->updated_at),
+            ];
+        })->values()->all();
+    }
+
+    private function formatChatGptExplanations(Question $question): array
+    {
+        return $question->chatgptExplanations->map(function ($explanation) {
+            return [
+                'id' => $explanation->id,
+                'question' => $explanation->question,
+                'wrong_answer' => $explanation->wrong_answer,
+                'correct_answer' => $explanation->correct_answer,
+                'language' => $explanation->language,
+                'explanation' => $explanation->explanation,
+                'created_at' => $this->formatDate($explanation->created_at),
+                'updated_at' => $this->formatDate($explanation->updated_at),
             ];
         })->values()->all();
     }
