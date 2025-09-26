@@ -6,6 +6,7 @@ use App\Http\Resources\TechnicalQuestionResource;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\ChatGPTExplanation;
+use App\Services\QuestionExportService;
 
 class QuestionController extends Controller
 {
@@ -36,6 +37,12 @@ class QuestionController extends Controller
                 if (array_key_exists('level', $data)) {
                     ChatGPTExplanation::where('question', $data['question'] ?? $oldQuestion)
                         ->update(['level' => $data['level']]);
+                }
+
+                // Re-export question dump when the question text changes so related
+                // ChatGPT explanations are written with the updated question value
+                if ($question->wasChanged('question')) {
+                    app(QuestionExportService::class)->export($question->fresh());
                 }
             }
         }
