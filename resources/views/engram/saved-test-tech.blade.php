@@ -102,6 +102,30 @@
                 })
                 ->values();
             $explanations = collect($explanationsByQuestionId[$question->id] ?? []);
+
+            $answersData = $question->answers
+                ->map(function ($answer) use ($answersByMarker, $verbHintsByMarker) {
+                    $markerKey = strtolower($answer->marker);
+                    $option = $answer->relationLoaded('option') ? $answer->option : $answer->option()->first();
+                    $verbHint = $verbHintsByMarker->get($markerKey);
+
+                    return [
+                        'id' => $answer->id,
+                        'marker' => strtoupper($answer->marker),
+                        'marker_key' => $markerKey,
+                        'value' => $answersByMarker->get($markerKey, ''),
+                        'option' => $option ? [
+                            'id' => $option->id,
+                            'label' => $option->option,
+                        ] : null,
+                        'verb_hint' => $verbHint ? [
+                            'id' => $verbHint->id,
+                            'value' => optional($verbHint->option)->option,
+                        ] : null,
+                    ];
+                })
+                ->values();
+
             $markerMatches = [];
             $markers = collect();
 
@@ -138,29 +162,6 @@
                 ->values();
             $questionLevel = in_array($question->level, $cefrLevels, true) ? $question->level : null;
             $levelLabel = $questionLevel ?? 'N/A';
-
-            $answersData = $question->answers
-                ->map(function ($answer) use ($answersByMarker, $verbHintsByMarker) {
-                    $markerKey = strtolower($answer->marker);
-                    $option = $answer->relationLoaded('option') ? $answer->option : $answer->option()->first();
-                    $verbHint = $verbHintsByMarker->get($markerKey);
-
-                    return [
-                        'id' => $answer->id,
-                        'marker' => strtoupper($answer->marker),
-                        'marker_key' => $markerKey,
-                        'value' => $answersByMarker->get($markerKey, ''),
-                        'option' => $option ? [
-                            'id' => $option->id,
-                            'label' => $option->option,
-                        ] : null,
-                        'verb_hint' => $verbHint ? [
-                            'id' => $verbHint->id,
-                            'value' => optional($verbHint->option)->option,
-                        ] : null,
-                    ];
-                })
-                ->values();
 
             $variantsData = $variants
                 ->map(function ($variant) {
