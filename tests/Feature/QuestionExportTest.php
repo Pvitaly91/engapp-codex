@@ -239,6 +239,39 @@ class QuestionExportTest extends TestCase
         File::delete($this->exportPathFor($question));
     }
 
+    public function test_question_text_change_preserves_exact_text_when_relinking(): void
+    {
+        $this->cleanExportDirectory();
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Original prompt',
+            'difficulty' => 1,
+        ]);
+
+        $explanation = ChatGPTExplanation::create([
+            'question' => 'Original prompt',
+            'wrong_answer' => 'wrong',
+            'correct_answer' => 'right',
+            'language' => 'en',
+            'explanation' => 'Explain the rule.',
+        ]);
+
+        $question->update(['question' => 'Updated prompt ']); // trailing space is intentional
+
+        $this->assertDatabaseHas('chatgpt_explanations', [
+            'id' => $explanation->id,
+            'question' => 'Updated prompt ',
+        ]);
+
+        $this->assertSame(
+            'Updated prompt ',
+            $question->fresh()->chatgptExplanations->first()->question,
+        );
+
+        File::delete($this->exportPathFor($question));
+    }
+
     public function test_updating_question_hint_exports_json_snapshot(): void
     {
         $this->cleanExportDirectory();

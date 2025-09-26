@@ -8,17 +8,8 @@ use App\Services\QuestionExportService;
 
 class QuestionObserver
 {
-    private array $originalQuestions = [];
-
     public function __construct(private readonly QuestionExportService $exportService)
     {
-    }
-
-    public function saving(Question $question): void
-    {
-        if ($question->exists) {
-            $this->originalQuestions[$question->getKey()] = $question->getOriginal('question');
-        }
     }
 
     public function saved(Question $question): void
@@ -26,8 +17,6 @@ class QuestionObserver
         $this->syncChatGptExplanations($question);
 
         $this->exportService->export($question->fresh());
-
-        unset($this->originalQuestions[$question->getKey()]);
     }
 
     private function syncChatGptExplanations(Question $question): void
@@ -36,7 +25,7 @@ class QuestionObserver
             return;
         }
 
-        $previous = $this->originalQuestions[$question->getKey()] ?? null;
+        $previous = $question->getOriginal('question');
 
         if (! is_string($previous)) {
             return;
@@ -51,13 +40,23 @@ class QuestionObserver
         $trimmedPrevious = trim($previous);
         $trimmedCurrent = trim($current);
 
-        if ($trimmedPrevious === '' || $trimmedCurrent === '' || $trimmedPrevious === $trimmedCurrent) {
+        if ($trimmedPrevious === '' || $trimmedCurrent === '') {
+            return;
+        }
+
+        if ($previous === $current) {
             return;
         }
 
         $explanations = ChatGPTExplanation::query()
-            ->where('question', $trimmedPrevious)
+            ->where('question', $previous)
             ->get();
+
+        if ($explanations->isEmpty() && $previous !== $trimmedPrevious) {
+            $explanations = ChatGPTExplanation::query()
+                ->whereRaw('TRIM(question) = ?', [$trimmedPrevious])
+                ->get();
+        }
 
         if ($explanations->isEmpty()) {
             return;
@@ -65,7 +64,13 @@ class QuestionObserver
 
         $hasOtherOriginal = Question::query()
             ->where('id', '!=', $question->id)
-            ->where('question', $trimmedPrevious)
+            ->where(function ($query) use ($previous, $trimmedPrevious) {
+                $query->where('question', $previous);
+
+                if ($previous !== $trimmedPrevious) {
+                    $query->orWhereRaw('TRIM(question) = ?', [$trimmedPrevious]);
+                }
+            })
             ->exists();
 
         if ($hasOtherOriginal) {
@@ -74,7 +79,13 @@ class QuestionObserver
 
         $hasOtherCurrent = Question::query()
             ->where('id', '!=', $question->id)
-            ->where('question', $trimmedCurrent)
+            ->where(function ($query) use ($current, $trimmedCurrent) {
+                $query->where('question', $current);
+
+                if ($current !== $trimmedCurrent) {
+                    $query->orWhereRaw('TRIM(question) = ?', [$trimmedCurrent]);
+                }
+            })
             ->exists();
 
         if ($hasOtherCurrent) {
@@ -84,7 +95,13 @@ class QuestionObserver
         foreach ($explanations as $explanation) {
             $conflictExists = ChatGPTExplanation::query()
                 ->where('id', '!=', $explanation->id)
-                ->where('question', $trimmedCurrent)
+                ->where(function ($query) use ($current, $trimmedCurrent) {
+                    $query->where('question', $current);
+
+                    if ($current !== $trimmedCurrent) {
+                        $query->orWhereRaw('TRIM(question) = ?', [$trimmedCurrent]);
+                    }
+                })
                 ->where('wrong_answer', $explanation->wrong_answer)
                 ->where('correct_answer', $explanation->correct_answer)
                 ->where('language', $explanation->language)
@@ -94,7 +111,7 @@ class QuestionObserver
                 continue;
             }
 
-            $explanation->update(['question' => $trimmedCurrent]);
+            $explanation->update(['question' => $current]);
         }
     }
 }
