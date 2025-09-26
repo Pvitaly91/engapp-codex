@@ -13,6 +13,8 @@ use App\Models\Test;
 use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
 use App\Services\QuestionVariantService;
+use App\Models\QuestionHint;
+use Illuminate\Support\Facades\Schema;
 
 class GrammarTestController extends Controller
 {
@@ -150,10 +152,24 @@ class GrammarTestController extends Controller
             }
         }
 
+        $hintProviders = [];
+
+        if (Schema::hasTable('question_hints')) {
+            $hintProviders = QuestionHint::query()
+                ->select('provider')
+                ->distinct()
+                ->orderBy('provider')
+                ->pluck('provider')
+                ->filter(fn ($provider) => is_string($provider) && trim($provider) !== '')
+                ->values()
+                ->all();
+        }
+
         return view('engram.saved-test-tech', [
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
+            'hintProviders' => $hintProviders,
         ]);
     }
 

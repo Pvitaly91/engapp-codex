@@ -102,6 +102,107 @@ class QuestionExportTest extends TestCase
         File::delete($this->exportPathFor($question));
     }
 
+    public function test_question_text_change_relinks_chatgpt_explanations_when_unique(): void
+    {
+        $this->cleanExportDirectory();
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Original prompt',
+            'difficulty' => 1,
+        ]);
+
+        $explanation = ChatGPTExplanation::create([
+            'question' => 'Original prompt',
+            'wrong_answer' => 'wrong',
+            'correct_answer' => 'right',
+            'language' => 'en',
+            'explanation' => 'Explain the rule.',
+        ]);
+
+        $question->update(['question' => 'Updated prompt']);
+
+        $this->assertDatabaseHas('chatgpt_explanations', [
+            'id' => $explanation->id,
+            'question' => 'Updated prompt',
+        ]);
+
+        $payload = $this->readExport($question);
+
+        $this->assertCount(1, $payload['chatgpt_explanations']);
+        $this->assertSame('Updated prompt', $payload['chatgpt_explanations'][0]['question']);
+
+        File::delete($this->exportPathFor($question));
+    }
+
+    public function test_question_text_change_skips_relink_when_original_text_is_used_elsewhere(): void
+    {
+        $this->cleanExportDirectory();
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Shared prompt',
+            'difficulty' => 1,
+        ]);
+
+        Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Shared prompt',
+            'difficulty' => 1,
+        ]);
+
+        $explanation = ChatGPTExplanation::create([
+            'question' => 'Shared prompt',
+            'wrong_answer' => 'wrong',
+            'correct_answer' => 'right',
+            'language' => 'en',
+            'explanation' => 'Explain the rule.',
+        ]);
+
+        $question->update(['question' => 'Updated prompt']);
+
+        $this->assertDatabaseHas('chatgpt_explanations', [
+            'id' => $explanation->id,
+            'question' => 'Shared prompt',
+        ]);
+
+        File::delete($this->exportPathFor($question));
+    }
+
+    public function test_question_text_change_skips_relink_when_new_text_is_used_elsewhere(): void
+    {
+        $this->cleanExportDirectory();
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Original prompt',
+            'difficulty' => 1,
+        ]);
+
+        Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Updated prompt',
+            'difficulty' => 1,
+        ]);
+
+        $explanation = ChatGPTExplanation::create([
+            'question' => 'Original prompt',
+            'wrong_answer' => 'wrong',
+            'correct_answer' => 'right',
+            'language' => 'en',
+            'explanation' => 'Explain the rule.',
+        ]);
+
+        $question->update(['question' => 'Updated prompt']);
+
+        $this->assertDatabaseHas('chatgpt_explanations', [
+            'id' => $explanation->id,
+            'question' => 'Original prompt',
+        ]);
+
+        File::delete($this->exportPathFor($question));
+    }
+
     public function test_updating_question_hint_exports_json_snapshot(): void
     {
         $this->cleanExportDirectory();

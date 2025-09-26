@@ -23,6 +23,11 @@
 
     @php
         $cefrLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+        $availableHintProviders = collect($hintProviders ?? [])
+            ->filter(fn ($provider) => is_string($provider) && trim($provider) !== '')
+            ->unique()
+            ->sort()
+            ->values();
     @endphp
 
     @foreach($questions as $question)
@@ -483,6 +488,91 @@
         };
 
         const cefrLevels = @json($cefrLevels);
+        const initialHintProviders = @json($availableHintProviders->all());
+
+        const hintProviderSet = new Set(
+            Array.isArray(initialHintProviders)
+                ? initialHintProviders
+                    .filter(provider => typeof provider === 'string' && provider.trim() !== '')
+                    .map(provider => provider.trim())
+                : []
+        );
+
+        function normaliseProvider(value) {
+            if (typeof value !== 'string') {
+                return '';
+            }
+
+            return value.trim();
+        }
+
+        function getSortedHintProviders() {
+            return Array.from(hintProviderSet).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+        }
+
+        function getHintProviderOptions(selectedValue = '') {
+            const providers = getSortedHintProviders();
+            const normalisedSelected = normaliseProvider(selectedValue);
+
+            if (normalisedSelected && !providers.includes(normalisedSelected)) {
+                providers.push(normalisedSelected);
+                providers.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+            }
+
+            if (!providers.length) {
+                return [];
+            }
+
+            const options = [
+                { value: '', label: 'Оберіть постачальника' },
+            ];
+
+            providers.forEach(provider => {
+                options.push({ value: provider, label: provider });
+            });
+
+            return options;
+        }
+
+        function buildHintProviderField(defaultValue = '') {
+            const options = getHintProviderOptions(defaultValue);
+            const normalised = normaliseProvider(defaultValue);
+
+            if (options.length) {
+                return {
+                    name: 'provider',
+                    label: 'Постачальник',
+                    type: 'select',
+                    required: true,
+                    value: normalised,
+                    options,
+                };
+            }
+
+            return {
+                name: 'provider',
+                label: 'Постачальник',
+                type: 'text',
+                required: true,
+                value: normalised,
+            };
+        }
+
+        function syncHintProviders(questionData) {
+            if (!questionData) {
+                return;
+            }
+
+            const hints = Array.isArray(questionData.question_hints) ? questionData.question_hints : [];
+
+            hints.forEach(hint => {
+                const provider = normaliseProvider(hint.provider);
+
+                if (provider && !hintProviderSet.has(provider)) {
+                    hintProviderSet.add(provider);
+                }
+            });
+        }
 
         const state = new Map();
 
@@ -633,7 +723,7 @@
             }
 
             return hints.map(hint => {
-                const provider = escapeHtml(hint.provider ?? '');
+                const provider = escapeHtml(normaliseProvider(hint.provider) || '');
                 const locale = escapeHtml(String(hint.locale ?? '').toUpperCase());
                 const hintText = escapeHtml(hint.hint ?? '');
 
@@ -700,6 +790,8 @@
             if (!questionData || typeof questionData.id === 'undefined') {
                 return;
             }
+
+            syncHintProviders(questionData);
 
             let entry = state.get(questionData.id);
 
@@ -1107,9 +1199,19 @@
                     return;
                 }
 
+                const providerField = buildHintProviderField(hint.provider || '');
+
                 openModal({
                     title: 'Редагувати підказку',
                     fields: [
+                        providerField,
+                        {
+                            name: 'locale',
+                            label: 'Мова (locale)',
+                            type: 'text',
+                            value: hint.locale ?? 'uk',
+                            required: true,
+                        },
                         {
                             name: 'hint',
                             label: 'Текст підказки',
@@ -1119,7 +1221,11 @@
                         },
                     ],
                     onSubmit(values) {
-                        return sendMutation(`${routes.questionHint}/${hintId}`, { hint: values.hint })
+                        return sendMutation(`${routes.questionHint}/${hintId}`, {
+                            hint: values.hint,
+                            provider: values.provider,
+                            locale: values.locale,
+                        })
                             .then(applyQuestionData);
                     },
                 });
@@ -1290,15 +1396,12 @@
                     return;
                 }
 
+                const providerField = buildHintProviderField('');
+
                 openModal({
                     title: 'Додати підказку',
                     fields: [
-                        {
-                            name: 'provider',
-                            label: 'Постачальник',
-                            type: 'text',
-                            required: true,
-                        },
+                        providerField,
                         {
                             name: 'locale',
                             label: 'Мова (locale)',
@@ -1381,6 +1484,7 @@
                 try {
                     const data = JSON.parse(raw);
                     state.set(data.id, { element, data });
+                    syncHintProviders(data);
                 } catch (error) {
                     console.error('Не вдалося розпізнати дані питання', error);
                 }

@@ -23,8 +23,8 @@ class QuestionHintController extends Controller
         $question = Question::findOrFail($data['question_id']);
 
         $question->hints()->create([
-            'provider' => $data['provider'],
-            'locale' => strtolower($data['locale']),
+            'provider' => trim($data['provider']),
+            'locale' => strtolower(trim($data['locale'])),
             'hint' => $data['hint'],
         ]);
 
@@ -34,11 +34,26 @@ class QuestionHintController extends Controller
     public function update(Request $request, QuestionHint $questionHint)
     {
         $data = $request->validate([
-            'hint' => 'required|string',
+            'hint' => ['sometimes', 'required', 'string'],
+            'provider' => ['sometimes', 'required', 'string', 'max:255'],
+            'locale' => ['sometimes', 'required', 'string', 'max:5'],
         ]);
 
-        $questionHint->hint = $data['hint'];
-        $questionHint->save();
+        if (array_key_exists('hint', $data)) {
+            $questionHint->hint = $data['hint'];
+        }
+
+        if (array_key_exists('provider', $data)) {
+            $questionHint->provider = trim($data['provider']);
+        }
+
+        if (array_key_exists('locale', $data)) {
+            $questionHint->locale = strtolower(trim($data['locale']));
+        }
+
+        if ($questionHint->isDirty()) {
+            $questionHint->save();
+        }
 
         return $this->respondWithQuestion($request, $questionHint->question);
     }
