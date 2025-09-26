@@ -102,6 +102,40 @@
                 })
                 ->values();
             $explanations = collect($explanationsByQuestionId[$question->id] ?? []);
+            $markerMatches = [];
+            $markers = collect();
+
+            if (is_string($question->question) && preg_match_all('/\{(a\d+)\}/i', $question->question, $markerMatches)) {
+                $markers = collect($markerMatches[1])
+                    ->map(fn ($marker) => strtolower($marker))
+                    ->unique()
+                    ->values();
+            }
+
+            $markers = $markers
+                ->merge($answersData->pluck('marker_key'))
+                ->unique()
+                ->values();
+
+            $explanationsData = $explanations
+                ->sortBy(function ($explanation) {
+                    return sprintf(
+                        '%s|%s|%s',
+                        strtolower($explanation->language ?? ''),
+                        $explanation->wrong_answer ?? '',
+                        $explanation->correct_answer ?? ''
+                    );
+                })
+                ->map(function ($explanation) {
+                    return [
+                        'id' => $explanation->id,
+                        'language' => $explanation->language,
+                        'wrong_answer' => $explanation->wrong_answer,
+                        'correct_answer' => $explanation->correct_answer,
+                        'explanation' => $explanation->explanation,
+                    ];
+                })
+                ->values();
             $questionLevel = in_array($question->level, $cefrLevels, true) ? $question->level : null;
             $levelLabel = $questionLevel ?? 'N/A';
 
@@ -157,6 +191,8 @@
                 'variants' => $variantsData->toArray(),
                 'options' => $options->toArray(),
                 'question_hints' => $questionHintsData->toArray(),
+                'markers' => $markers->toArray(),
+                'chatgpt_explanations' => $explanationsData->toArray(),
             ];
         @endphp
         <article class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100"
@@ -212,7 +248,6 @@
                         @endforeach
                     </ul>
                 </details>
-            @endif
 
             <details class="group">
                 <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
@@ -220,8 +255,20 @@
                     <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
                     <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
                 </summary>
-                <ul class="mt-3 space-y-2 text-sm text-stone-800">
-                    @foreach($question->answers as $answer)
+                <div class="mt-3 flex flex-wrap gap-2">
+                    <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                            onclick="techEditor.addAnswer({{ $question->id }})">
+                        <span>Додати відповідь</span>
+                    </button>
+                    <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-sm transition hover:bg-emerald-100"
+                            onclick="techEditor.addVerbHint({{ $question->id }})">
+                        <span>Додати verb hint</span>
+                    </button>
+                </div>
+                <ul class="mt-3 space-y-2 text-sm text-stone-800" data-answers-container>
+                    @forelse($question->answers as $answer)
                         @php
                             $marker = strtoupper($answer->marker);
                             $markerKey = strtolower($answer->marker);
@@ -244,112 +291,149 @@
                                                     onclick="techEditor.editVerbHint({{ $question->id }}, {{ $verbHintModel->id }})">Редагувати</button>
                                         @endif
                                     </span>
+                                @else
+                                    <button type="button"
+                                            class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                            onclick="techEditor.addVerbHint({{ $question->id }}, '{{ $markerKey }}')">
+                                        Додати verb hint
+                                    </button>
                                 @endif
                             </div>
                             <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
                                     onclick="techEditor.editAnswer({{ $question->id }}, {{ $answer->id }})">Редагувати відповідь</button>
                         </li>
-                    @endforeach
+                    @empty
+                        <li class="rounded-lg border border-dashed border-stone-200 bg-stone-50 px-3 py-4 text-sm text-stone-500">
+                            Відповіді ще не додані.
+                        </li>
+                    @endforelse
                 </ul>
             </details>
 
-            @if($options->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>Варіанти відповіді</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <div class="mt-3 flex flex-wrap gap-2" data-options-container>
-                        @foreach($options as $option)
-                            @php $isCorrectOption = (bool) ($option['is_correct'] ?? false); @endphp
-                            <div @class([
-                                'inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm',
-                                'border-emerald-200 bg-emerald-50 text-emerald-900 font-semibold shadow-sm' => $isCorrectOption,
-                                'border-stone-200 bg-stone-50 text-stone-800' => ! $isCorrectOption,
-                            ])
-                            data-option-id="{{ $option['id'] ?? '' }}">
-                                @if($isCorrectOption)
-                                    <svg class="h-3.5 w-3.5 text-emerald-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425.01L3.29 9.967a1 1 0 1 1 1.42-1.407l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd" />
-                                    </svg>
-                                @endif
-                                <span>{{ $option['label'] }}</span>
-                                @if(! empty($option['id']))
-                                    <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
-                                            onclick="techEditor.editOption({{ $question->id }}, {{ $option['id'] }})">Редагувати</button>
-                                @endif
+            <details class="group">
+                <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                    <span>Варіанти відповіді</span>
+                    <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                    <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                </summary>
+                <div class="mt-3 flex flex-wrap gap-2">
+                    <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                            onclick="techEditor.addOption({{ $question->id }})">
+                        <span>Додати варіант</span>
+                    </button>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2" data-options-container>
+                    @forelse($options as $option)
+                        @php $isCorrectOption = (bool) ($option['is_correct'] ?? false); @endphp
+                        <div @class([
+                            'inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm',
+                            'border-emerald-200 bg-emerald-50 text-emerald-900 font-semibold shadow-sm' => $isCorrectOption,
+                            'border-stone-200 bg-stone-50 text-stone-800' => ! $isCorrectOption,
+                        ])
+                        data-option-id="{{ $option['id'] ?? '' }}">
+                            @if($isCorrectOption)
+                                <svg class="h-3.5 w-3.5 text-emerald-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.2 7.25a1 1 0 0 1-1.425-.01L3.29 9.967a1 1 0 1 1 1.42-1.407l3.162 3.19 6.49-6.538a1 1 0 0 1 1.342-.088Z" clip-rule="evenodd" />
+                                </svg>
+                            @endif
+                            <span>{{ $option['label'] }}</span>
+                            @if(! empty($option['id']))
+                                <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
+                                        onclick="techEditor.editOption({{ $question->id }}, {{ $option['id'] }})">Редагувати</button>
+                            @endif
+                        </div>
+                    @empty
+                        <p class="rounded-full border border-dashed border-stone-200 bg-stone-50 px-3 py-1 text-xs font-semibold text-stone-500">
+                            Варіанти ще не додані.
+                        </p>
+                    @endforelse
+                </div>
+            </details>
+
+            <details class="group">
+                <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                    <span>Question hints</span>
+                    <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                    <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                </summary>
+                <div class="mt-3 flex flex-wrap gap-2">
+                    <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                            onclick="techEditor.addQuestionHint({{ $question->id }})">
+                        <span>Додати підказку</span>
+                    </button>
+                </div>
+                <ul class="mt-3 space-y-3 text-sm text-stone-800" data-question-hints-container>
+                    @forelse($questionHints as $hint)
+                        <li class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-2"
+                            data-question-hint-id="{{ $hint->id }}">
+                            <div class="flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
+                                <span>{{ $hint->provider }} · {{ strtoupper($hint->locale) }}</span>
+                                <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                        onclick="techEditor.editQuestionHint({{ $question->id }}, {{ $hint->id }})">Редагувати</button>
                             </div>
-                        @endforeach
-                    </div>
-                </details>
-            @endif
+                            <div class="mt-1 whitespace-pre-line text-stone-800" data-question-hint-text>{{ $hint->hint }}</div>
+                        </li>
+                    @empty
+                        <li class="rounded-lg border border-dashed border-blue-200 bg-blue-50/60 px-3 py-4 text-sm text-blue-600">
+                            Підказок ще немає.
+                        </li>
+                    @endforelse
+                </ul>
+            </details>
 
-            @if($questionHints->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>Question hints</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <ul class="mt-3 space-y-3 text-sm text-stone-800">
-                        @foreach($questionHints as $hint)
-                            <li class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-2"
-                                data-question-hint-id="{{ $hint->id }}">
-                                <div class="flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
-                                    <span>{{ $hint->provider }} · {{ strtoupper($hint->locale) }}</span>
-                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
-                                            onclick="techEditor.editQuestionHint({{ $question->id }}, {{ $hint->id }})">Редагувати</button>
-                                </div>
-                                <div class="mt-1 whitespace-pre-line text-stone-800" data-question-hint-text>{{ $hint->hint }}</div>
-                            </li>
-                        @endforeach
-                    </ul>
-                </details>
-            @endif
-
-            @if($explanations->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>ChatGPT explanations</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <div class="mt-3 overflow-x-auto">
-                        <table class="min-w-full text-left text-sm text-stone-800">
-                            <thead class="text-xs uppercase tracking-wide text-stone-500">
-                                <tr>
-                                    <th class="py-2 pr-4">Мова</th>
-                                    <th class="py-2 pr-4">Неправильна відповідь</th>
-                                    <th class="py-2 pr-4">Правильна відповідь</th>
-                                    <th class="py-2">Пояснення</th>
+            <details class="group">
+                <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                    <span>ChatGPT explanations</span>
+                    <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                    <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                </summary>
+                <div class="mt-3 flex flex-wrap gap-2">
+                    <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                            onclick="techEditor.addChatGptExplanation({{ $question->id }})">
+                        <span>Додати пояснення</span>
+                    </button>
+                </div>
+                <div class="mt-3 overflow-x-auto">
+                    <table class="min-w-full text-left text-sm text-stone-800">
+                        <thead class="text-xs uppercase tracking-wide text-stone-500">
+                            <tr>
+                                <th class="py-2 pr-4">Мова</th>
+                                <th class="py-2 pr-4">Неправильна відповідь</th>
+                                <th class="py-2 pr-4">Правильна відповідь</th>
+                                <th class="py-2">Пояснення</th>
+                            </tr>
+                        </thead>
+                        <tbody class="align-top" data-explanations-container>
+                            @forelse($explanations as $explanation)
+                                @php
+                                    $isStoredCorrect = $answersByMarker->contains(function ($value) use ($explanation) {
+                                        return $value === $explanation->correct_answer;
+                                    });
+                                @endphp
+                                <tr class="border-t border-stone-200" data-explanation-id="{{ $explanation->id }}">
+                                    <td class="py-2 pr-4 font-semibold text-stone-600">{{ strtoupper($explanation->language) }}</td>
+                                    <td class="py-2 pr-4">{{ $explanation->wrong_answer ?: '—' }}</td>
+                                    <td @class([
+                                        'py-2 pr-4 font-semibold',
+                                        'text-emerald-700' => $isStoredCorrect,
+                                        'text-stone-800' => ! $isStoredCorrect,
+                                    ])>
+                                        {{ $explanation->correct_answer }}
+                                    </td>
+                                    <td class="py-2">{{ $explanation->explanation }}</td>
                                 </tr>
-                            </thead>
-                            <tbody class="align-top">
-                                @foreach($explanations as $explanation)
-                                    @php
-                                        $isStoredCorrect = $answersByMarker->contains(function ($value) use ($explanation) {
-                                            return $value === $explanation->correct_answer;
-                                        });
-                                    @endphp
-                                    <tr class="border-t border-stone-200">
-                                        <td class="py-2 pr-4 font-semibold text-stone-600">{{ strtoupper($explanation->language) }}</td>
-                                        <td class="py-2 pr-4">{{ $explanation->wrong_answer ?: '—' }}</td>
-                                        <td @class([
-                                            'py-2 pr-4 font-semibold',
-                                            'text-emerald-700' => $isStoredCorrect,
-                                            'text-stone-800' => ! $isStoredCorrect,
-                                        ])>
-                                            {{ $explanation->correct_answer }}
-                                        </td>
-                                        <td class="py-2">{{ $explanation->explanation }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </details>
-            @endif
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="py-3 text-center text-sm font-semibold text-stone-500">Пояснення ще не додані.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </details>
         </article>
     @endforeach
 </div>
@@ -393,6 +477,7 @@
             option: '{{ url('/questions') }}',
             questionHint: '{{ url('/question-hints') }}',
             verbHint: '{{ url('/verb-hints') }}',
+            chatgptExplanation: '{{ url('/chatgpt-explanations') }}',
         };
 
         const cefrLevels = @json($cefrLevels);
@@ -478,6 +563,137 @@
             return parts.join('');
         }
 
+        function renderAnswersHtml(question) {
+            const answers = Array.isArray(question.answers) ? question.answers : [];
+
+            if (!answers.length) {
+                return '<li class="rounded-lg border border-dashed border-stone-200 bg-stone-50 px-3 py-4 text-sm text-stone-500">Відповіді ще не додані.</li>';
+            }
+
+            return answers.map(answer => {
+                const marker = escapeHtml(answer.marker ?? '');
+                const value = escapeHtml(answer.value ?? '');
+                const markerKey = answer.marker_key ?? '';
+                const verbHint = answer.verb_hint || null;
+                let verbHintHtml = '';
+
+                if (verbHint && verbHint.id) {
+                    const hintValue = escapeHtml(verbHint.value ?? '');
+                    verbHintHtml = `
+                        <span class="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-emerald-700"
+                            data-verb-hint data-verb-hint-id="${verbHint.id}">
+                            <span class="font-semibold uppercase text-[10px] tracking-wide">Verb hint</span>
+                            <span data-verb-hint-value>${hintValue}</span>
+                            <button type="button" class="text-[10px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                onclick="techEditor.editVerbHint(${question.id}, ${verbHint.id})">Редагувати</button>
+                        </span>
+                    `;
+                } else {
+                    verbHintHtml = `
+                        <button type="button"
+                            class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                            onclick="techEditor.addVerbHint(${question.id}, '${markerKey}')">
+                            Додати verb hint
+                        </button>
+                    `;
+                }
+
+                return `
+                    <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2"
+                        data-answer-id="${answer.id}">
+                        <div class="flex flex-wrap items-center gap-2 text-sm">
+                            <span class="font-mono text-xs uppercase text-emerald-500">${marker}</span>
+                            <span class="font-semibold text-emerald-900" data-answer-value>${value}</span>
+                            ${verbHintHtml}
+                        </div>
+                        <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
+                            onclick="techEditor.editAnswer(${question.id}, ${answer.id})">Редагувати відповідь</button>
+                    </li>
+                `;
+            }).join('');
+        }
+
+        function renderOptionsHtml(question) {
+            const options = Array.isArray(question.options) ? question.options : [];
+
+            if (!options.length) {
+                return '<p class="rounded-full border border-dashed border-stone-200 bg-stone-50 px-3 py-1 text-xs font-semibold text-stone-500">Варіанти ще не додані.</p>';
+            }
+
+            return options.map(option => renderOptionHtml(question.id, option)).join('');
+        }
+
+        function renderQuestionHintsHtml(question) {
+            const hints = Array.isArray(question.question_hints) ? question.question_hints : [];
+
+            if (!hints.length) {
+                return '<li class="rounded-lg border border-dashed border-blue-200 bg-blue-50/60 px-3 py-4 text-sm text-blue-600">Підказок ще немає.</li>';
+            }
+
+            return hints.map(hint => {
+                const provider = escapeHtml(hint.provider ?? '');
+                const locale = escapeHtml(String(hint.locale ?? '').toUpperCase());
+                const hintText = escapeHtml(hint.hint ?? '');
+
+                return `
+                    <li class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-2" data-question-hint-id="${hint.id}">
+                        <div class="flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
+                            <span>${provider} · ${locale}</span>
+                            <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                onclick="techEditor.editQuestionHint(${question.id}, ${hint.id})">Редагувати</button>
+                        </div>
+                        <div class="mt-1 whitespace-pre-line text-stone-800" data-question-hint-text>${hintText}</div>
+                    </li>
+                `;
+            }).join('');
+        }
+
+        function renderChatgptExplanationsHtml(question) {
+            const explanations = Array.isArray(question.chatgpt_explanations) ? question.chatgpt_explanations : [];
+            const answersMap = question.answers_by_marker || {};
+
+            if (!explanations.length) {
+                return '<tr><td colspan="4" class="py-3 text-center text-sm font-semibold text-stone-500">Пояснення ще не додані.</td></tr>';
+            }
+
+            return explanations.map(explanation => {
+                const language = escapeHtml(String(explanation.language ?? '').toUpperCase());
+                const wrongAnswer = escapeHtml(explanation.wrong_answer ?? '—');
+                const correctAnswer = escapeHtml(explanation.correct_answer ?? '');
+                const explanationText = escapeHtml(explanation.explanation ?? '');
+                const isStoredCorrect = Object.values(answersMap).some(value => value === explanation.correct_answer);
+                const correctClass = isStoredCorrect ? 'text-emerald-700' : 'text-stone-800';
+
+                return `
+                    <tr class="border-t border-stone-200" data-explanation-id="${explanation.id}">
+                        <td class="py-2 pr-4 font-semibold text-stone-600">${language}</td>
+                        <td class="py-2 pr-4">${wrongAnswer || '—'}</td>
+                        <td class="py-2 pr-4 font-semibold ${correctClass}">${correctAnswer}</td>
+                        <td class="py-2">${explanationText}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function getMarkersFromEntry(entry) {
+            if (!entry || !entry.data) {
+                return [];
+            }
+
+            const markers = Array.isArray(entry.data.markers) ? entry.data.markers.filter(Boolean) : [];
+
+            if (markers.length) {
+                return markers.map(marker => marker.toLowerCase());
+            }
+
+            if (typeof entry.data.question === 'string') {
+                const matches = entry.data.question.match(/\{(a\d+)\}/gi) || [];
+                return matches.map(match => match.replace(/[{}]/g, '').toLowerCase());
+            }
+
+            return [];
+        }
+
         function applyQuestionData(questionData) {
             if (!questionData || typeof questionData.id === 'undefined') {
                 return;
@@ -519,42 +735,25 @@
                 }
             });
 
-            (questionData.answers || []).forEach(answer => {
-                const answerRow = entry.element.querySelector(`[data-answer-id="${answer.id}"]`);
-                if (!answerRow) {
-                    return;
-                }
-
-                const valueEl = answerRow.querySelector('[data-answer-value]');
-                if (valueEl) {
-                    valueEl.textContent = answer.value ?? '';
-                }
-
-                const verbHintEl = answerRow.querySelector('[data-verb-hint]');
-                if (verbHintEl && answer.verb_hint) {
-                    verbHintEl.setAttribute('data-verb-hint-id', answer.verb_hint.id);
-                    const value = verbHintEl.querySelector('[data-verb-hint-value]');
-                    if (value) {
-                        value.textContent = answer.verb_hint.value ?? '';
-                    }
-                }
-            });
-
             const optionsContainer = entry.element.querySelector('[data-options-container]');
             if (optionsContainer) {
-                const html = (questionData.options || [])
-                    .map(option => renderOptionHtml(questionData.id, option))
-                    .join('');
-
-                optionsContainer.innerHTML = html;
+                optionsContainer.innerHTML = renderOptionsHtml(questionData);
             }
 
-            (questionData.question_hints || []).forEach(hint => {
-                const hintEl = entry.element.querySelector(`[data-question-hint-id="${hint.id}"] [data-question-hint-text]`);
-                if (hintEl) {
-                    hintEl.textContent = hint.hint ?? '';
-                }
-            });
+            const answersContainer = entry.element.querySelector('[data-answers-container]');
+            if (answersContainer) {
+                answersContainer.innerHTML = renderAnswersHtml(questionData);
+            }
+
+            const hintsContainer = entry.element.querySelector('[data-question-hints-container]');
+            if (hintsContainer) {
+                hintsContainer.innerHTML = renderQuestionHintsHtml(questionData);
+            }
+
+            const explanationsContainer = entry.element.querySelector('[data-explanations-container]');
+            if (explanationsContainer) {
+                explanationsContainer.innerHTML = renderChatgptExplanationsHtml(questionData);
+            }
         }
 
         function clearError() {
@@ -712,16 +911,21 @@
             modal.element.classList.add('flex');
         }
 
-        function sendUpdate(url, payload) {
-            return fetch(url, {
-                method: 'PUT',
+        function sendMutation(url, payload, method = 'PUT') {
+            const options = {
+                method,
                 headers: {
                     'X-CSRF-TOKEN': techCsrfToken,
-                    'Content-Type': 'application/json',
                     'Accept': 'application/json',
                 },
-                body: JSON.stringify(payload),
-            }).then(async response => {
+            };
+
+            if (method !== 'GET') {
+                options.headers['Content-Type'] = 'application/json';
+                options.body = JSON.stringify(payload);
+            }
+
+            return fetch(url, options).then(async response => {
                 const contentType = response.headers.get('Content-Type') || '';
 
                 if (response.ok) {
@@ -766,7 +970,7 @@
                         },
                     ],
                     onSubmit(values) {
-                        return sendUpdate(`${routes.question}/${questionId}`, { question: values.question })
+                        return sendMutation(`${routes.question}/${questionId}`, { question: values.question })
                             .then(applyQuestionData);
                     },
                 });
@@ -799,7 +1003,7 @@
                         },
                     ],
                     onSubmit(values) {
-                        return sendUpdate(`${routes.question}/${questionId}`, { level: values.level || null })
+                        return sendMutation(`${routes.question}/${questionId}`, { level: values.level || null })
                             .then(applyQuestionData);
                     },
                 });
@@ -827,7 +1031,7 @@
                         },
                     ],
                     onSubmit(values) {
-                        return sendUpdate(`${routes.variant}/${variantId}`, { text: values.text })
+                        return sendMutation(`${routes.variant}/${variantId}`, { text: values.text })
                             .then(applyQuestionData);
                     },
                 });
@@ -856,7 +1060,7 @@
                         },
                     ],
                     onSubmit(values) {
-                        return sendUpdate(`${routes.answer}/${answerId}`, { value: values.value })
+                        return sendMutation(`${routes.answer}/${answerId}`, { value: values.value })
                             .then(applyQuestionData);
                     },
                 });
@@ -885,7 +1089,7 @@
                         },
                     ],
                     onSubmit(values) {
-                        return sendUpdate(`${routes.option}/${questionId}/options/${optionId}`, { value: values.value })
+                        return sendMutation(`${routes.option}/${questionId}/options/${optionId}`, { value: values.value })
                             .then(applyQuestionData);
                     },
                 });
@@ -913,7 +1117,7 @@
                         },
                     ],
                     onSubmit(values) {
-                        return sendUpdate(`${routes.questionHint}/${hintId}`, { hint: values.hint })
+                        return sendMutation(`${routes.questionHint}/${hintId}`, { hint: values.hint })
                             .then(applyQuestionData);
                     },
                 });
@@ -942,8 +1146,223 @@
                         },
                     ],
                     onSubmit(values) {
-                        return sendUpdate(`${routes.verbHint}/${verbHintId}`, { hint: values.hint })
+                        return sendMutation(`${routes.verbHint}/${verbHintId}`, { hint: values.hint })
                             .then(applyQuestionData);
+                    },
+                });
+            },
+            addAnswer(questionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const markers = getMarkersFromEntry(entry);
+                const usedMarkers = new Set((entry.data.answers || []).map(answer => answer.marker_key));
+                const availableMarkers = markers.filter(marker => !usedMarkers.has(marker));
+
+                if (!availableMarkers.length) {
+                    window.alert('Усі маркери вже мають відповіді.');
+                    return;
+                }
+
+                const markerOptions = availableMarkers.map(marker => ({ value: marker, label: marker.toUpperCase() }));
+
+                openModal({
+                    title: 'Додати відповідь',
+                    fields: [
+                        {
+                            name: 'marker',
+                            label: 'Позначка',
+                            type: 'select',
+                            value: markerOptions[0]?.value ?? '',
+                            options: markerOptions,
+                        },
+                        {
+                            name: 'value',
+                            label: 'Відповідь',
+                            type: 'text',
+                            required: true,
+                            autocomplete: 'off',
+                        },
+                        {
+                            name: 'verb_hint',
+                            label: 'Verb hint (необовʼязково)',
+                            type: 'text',
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        const payload = {
+                            question_id: questionId,
+                            marker: values.marker,
+                            value: values.value,
+                        };
+
+                        if (values.verb_hint && values.verb_hint.trim() !== '') {
+                            payload.verb_hint = values.verb_hint;
+                        }
+
+                        return sendMutation(routes.answer, payload, 'POST')
+                            .then(applyQuestionData);
+                    },
+                });
+            },
+            addVerbHint(questionId, markerKey = null) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const candidates = (entry.data.answers || []).filter(answer => !answer.verb_hint);
+
+                if (!candidates.length) {
+                    window.alert('Усі відповіді вже мають verb hint.');
+                    return;
+                }
+
+                const options = candidates.map(answer => ({
+                    value: answer.marker_key,
+                    label: answer.marker,
+                }));
+
+                let defaultValue = options[0]?.value ?? '';
+                if (markerKey && options.some(option => option.value === markerKey)) {
+                    defaultValue = markerKey;
+                }
+
+                openModal({
+                    title: 'Додати verb hint',
+                    fields: [
+                        {
+                            name: 'marker',
+                            label: 'Позначка',
+                            type: 'select',
+                            value: defaultValue,
+                            options,
+                        },
+                        {
+                            name: 'hint',
+                            label: 'Verb hint',
+                            type: 'text',
+                            required: true,
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendMutation(routes.verbHint, {
+                            question_id: questionId,
+                            marker: values.marker,
+                            hint: values.hint,
+                        }, 'POST').then(applyQuestionData);
+                    },
+                });
+            },
+            addOption(questionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Додати варіант відповіді',
+                    fields: [
+                        {
+                            name: 'value',
+                            label: 'Варіант відповіді',
+                            type: 'text',
+                            required: true,
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendMutation(`${routes.option}/${questionId}/options`, {
+                            value: values.value,
+                        }, 'POST').then(applyQuestionData);
+                    },
+                });
+            },
+            addQuestionHint(questionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Додати підказку',
+                    fields: [
+                        {
+                            name: 'provider',
+                            label: 'Постачальник',
+                            type: 'text',
+                            required: true,
+                        },
+                        {
+                            name: 'locale',
+                            label: 'Мова (locale)',
+                            type: 'text',
+                            required: true,
+                            value: 'uk',
+                        },
+                        {
+                            name: 'hint',
+                            label: 'Текст підказки',
+                            type: 'textarea',
+                            required: true,
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendMutation(routes.questionHint, {
+                            question_id: questionId,
+                            provider: values.provider,
+                            locale: values.locale,
+                            hint: values.hint,
+                        }, 'POST').then(applyQuestionData);
+                    },
+                });
+            },
+            addChatGptExplanation(questionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                openModal({
+                    title: 'Додати пояснення',
+                    fields: [
+                        {
+                            name: 'language',
+                            label: 'Мова',
+                            type: 'text',
+                            value: 'uk',
+                            required: true,
+                        },
+                        {
+                            name: 'correct_answer',
+                            label: 'Правильна відповідь',
+                            type: 'text',
+                            required: true,
+                        },
+                        {
+                            name: 'wrong_answer',
+                            label: 'Неправильна відповідь',
+                            type: 'text',
+                        },
+                        {
+                            name: 'explanation',
+                            label: 'Пояснення',
+                            type: 'textarea',
+                            required: true,
+                        },
+                    ],
+                    onSubmit(values) {
+                        return sendMutation(routes.chatgptExplanation, {
+                            question_id: questionId,
+                            language: values.language,
+                            correct_answer: values.correct_answer,
+                            wrong_answer: values.wrong_answer ?? '',
+                            explanation: values.explanation,
+                        }, 'POST').then(applyQuestionData);
                     },
                 });
             },

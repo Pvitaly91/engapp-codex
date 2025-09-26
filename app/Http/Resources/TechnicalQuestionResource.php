@@ -37,6 +37,10 @@ class TechnicalQuestionResource extends JsonResource
             $relations[] = 'hints';
         }
 
+        if (Schema::hasTable('chatgpt_explanations')) {
+            $relations[] = 'chatgptExplanations';
+        }
+
         if (! empty($relations)) {
             $question->loadMissing($relations);
         }
@@ -142,6 +146,39 @@ class TechnicalQuestionResource extends JsonResource
                 ->values()
             : new Collection();
 
+        $markers = new Collection();
+
+        if (is_string($question->question)) {
+            if (preg_match_all('/\{(a\d+)\}/i', $question->question, $matches)) {
+                $markers = collect($matches[1])
+                    ->map(fn ($marker) => strtolower($marker))
+                    ->unique()
+                    ->values();
+            }
+        }
+
+        $markers = $markers->merge($answersByMarker->keys())->unique()->values();
+
+        $chatGptExplanations = Schema::hasTable('chatgpt_explanations')
+            ? $question->chatgptExplanations
+                ->sortBy(function ($explanation) {
+                    return sprintf(
+                        '%s|%s|%s',
+                        strtolower($explanation->language ?? ''),
+                        $explanation->wrong_answer ?? '',
+                        $explanation->correct_answer ?? ''
+                    );
+                })
+                ->map(fn ($explanation) => [
+                    'id' => $explanation->id,
+                    'language' => $explanation->language,
+                    'wrong_answer' => $explanation->wrong_answer,
+                    'correct_answer' => $explanation->correct_answer,
+                    'explanation' => $explanation->explanation,
+                ])
+                ->values()
+            : new Collection();
+
         return [
             'id' => $question->id,
             'question' => $question->question,
@@ -151,6 +188,8 @@ class TechnicalQuestionResource extends JsonResource
             'variants' => $variants->all(),
             'options' => $options->all(),
             'question_hints' => $questionHints->all(),
+            'markers' => $markers->all(),
+            'chatgpt_explanations' => $chatGptExplanations->all(),
         ];
     }
 }

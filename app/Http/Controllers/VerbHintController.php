@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Concerns\ReturnsTechnicalQuestionResource;
 use App\Models\{VerbHint, QuestionOption, Question};
-use App\Services\QuestionExportService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\ValidationException;
 
 class VerbHintController extends Controller
 {
@@ -15,52 +16,81 @@ class VerbHintController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'question_id' => 'required|exists:questions,id',
-            'marker' => 'required|string|max:255',
-            'hint' => 'required|string|max:255',
+            'question_id' => ['required', 'exists:questions,id'],
+            'marker' => ['required', 'regex:/^a\d+$/i'],
+            'hint' => ['required', 'string', 'max:255'],
         ]);
-        $question = Question::findOrFail($data['question_id']);
-        $option = QuestionOption::firstOrCreate(['option' => $data['hint']]);
 
-        $pivot = DB::table('question_option_question')
+        $question = Question::findOrFail($data['question_id']);
+        $marker = strtolower($data['marker']);
+
+        $hasAnswerWithMarker = $question->answers()
+            ->whereRaw('LOWER(marker) = ?', [$marker])
+            ->exists();
+
+        if (! $hasAnswerWithMarker) {
+            throw ValidationException::withMessages([
+                'marker' => __('Для вибраного маркера немає відповіді.'),
+            ]);
+        }
+
+        $alreadyHasHint = $question->verbHints()
+            ->whereRaw('LOWER(marker) = ?', [$marker])
+            ->exists();
+
+        if ($alreadyHasHint) {
+            throw ValidationException::withMessages([
+                'marker' => __('Verb hint для цього маркера вже існує.'),
+            ]);
+        }
+
+        $hintValue = trim($data['hint']);
+
+        $option = QuestionOption::firstOrCreate(['option' => $hintValue]);
+
+        $pivotQuery = DB::table('question_option_question')
             ->where('question_id', $question->id)
             ->where('option_id', $option->id);
 
-        if ($pivot->exists()) {
-            $pivot->update(['flag' => 1]);
-        } else {
-            $question->options()->attach($option->id, ['flag' => 1]);
+        $pivotExists = $pivotQuery->exists();
+        $hasFlagColumn = Schema::hasColumn('question_option_question', 'flag');
+
+        if (! $pivotExists) {
+            $attributes = [];
+
+            if ($hasFlagColumn) {
+                $attributes['flag'] = 1;
+            }
+
+            $question->options()->attach($option->id, $attributes);
+        } elseif ($hasFlagColumn) {
+            $pivotQuery->update(['flag' => 1]);
         }
 
-        $verbHint = VerbHint::create([
+        VerbHint::query()->create([
             'question_id' => $question->id,
-            'marker' => $data['marker'],
+            'marker' => $marker,
             'option_id' => $option->id,
         ]);
 
-        app(QuestionExportService::class)->export($question->fresh() ?? $question);
-
-        if ($request->expectsJson()) {
-            return response()->json(['id' => $verbHint->id], 201);
-        }
-
-        $redirectTo = $request->input('from', url()->previous());
-
-        return redirect($redirectTo);
+        return $this->respondWithQuestion($request, $question);
     }
 
     public function update(Request $request, VerbHint $verbHint)
     {
-        $request->validate([
-            'hint' => 'required|string|max:255',
+        $data = $request->validate([
+            'hint' => ['required', 'string', 'max:255'],
         ]);
+
         $option = $verbHint->option;
         $question = $verbHint->question;
-        $newHint = $request->input('hint');
+        $newHint = trim($data['hint']);
 
         if ($newHint === $option->option) {
             return $this->respondWithQuestion($request, $question);
         }
+
+        $hasFlagColumn = Schema::hasColumn('question_option_question', 'flag');
 
         $isShared = $option->questions()
             ->where('questions.id', '!=', $question->id)
@@ -74,10 +104,19 @@ class VerbHintController extends Controller
             $pivot = DB::table('question_option_question')
                 ->where('question_id', $question->id)
                 ->where('option_id', $newOption->id);
+
             if ($pivot->exists()) {
-                $pivot->update(['flag' => 1]);
+                if ($hasFlagColumn) {
+                    $pivot->update(['flag' => 1]);
+                }
             } else {
-                $question->options()->attach($newOption->id, ['flag' => 1]);
+                $attributes = [];
+
+                if ($hasFlagColumn) {
+                    $attributes['flag'] = 1;
+                }
+
+                $question->options()->attach($newOption->id, $attributes);
             }
 
             $verbHint->option_id = $newOption->id;
@@ -91,10 +130,19 @@ class VerbHintController extends Controller
                 $pivot = DB::table('question_option_question')
                     ->where('question_id', $question->id)
                     ->where('option_id', $existingOption->id);
+
                 if ($pivot->exists()) {
-                    $pivot->update(['flag' => 1]);
+                    if ($hasFlagColumn) {
+                        $pivot->update(['flag' => 1]);
+                    }
                 } else {
-                    $question->options()->attach($existingOption->id, ['flag' => 1]);
+                    $attributes = [];
+
+                    if ($hasFlagColumn) {
+                        $attributes['flag'] = 1;
+                    }
+
+                    $question->options()->attach($existingOption->id, $attributes);
                 }
 
                 $verbHint->option_id = $existingOption->id;
@@ -117,25 +165,21 @@ class VerbHintController extends Controller
 
         $verbHint->delete();
 
-        DB::table('question_option_question')
+        $pivotQuery = DB::table('question_option_question')
             ->where('question_id', $question->id)
-            ->where('option_id', $option->id)
-            ->where('flag', 1)
-            ->delete();
+            ->where('option_id', $option->id);
+
+        if (Schema::hasColumn('question_option_question', 'flag')) {
+            $pivotQuery->where('flag', 1);
+        }
+
+        $pivotQuery->delete();
 
         if (! $option->verbHints()->exists()
             && ! DB::table('question_option_question')->where('option_id', $option->id)->exists()) {
             $option->delete();
         }
 
-        app(QuestionExportService::class)->export($question->fresh() ?? $question);
-
-        if ($request->expectsJson()) {
-            return response()->noContent();
-        }
-
-        $redirectTo = $request->input('from', url()->previous());
-
-        return redirect($redirectTo);
+        return $this->respondWithQuestion($request, $question);
     }
 }

@@ -66,7 +66,7 @@ class VerbHintDeleteTest extends TestCase
 
         $response = $this->deleteJson(route('verb-hints.destroy', $verbHint->id));
 
-        $response->assertNoContent();
+        $response->assertOk()->assertJsonPath('data.id', $question->id);
         $this->assertDatabaseMissing('verb_hints', ['id' => $verbHint->id]);
         $this->assertDatabaseMissing('question_option_question', [
             'question_id' => $question->id,
@@ -139,7 +139,7 @@ class VerbHintDeleteTest extends TestCase
 
         $response = $this->deleteJson(route('verb-hints.destroy', $verbHint1->id));
 
-        $response->assertNoContent();
+        $response->assertOk()->assertJsonPath('data.id', $q1->id);
         $this->assertDatabaseMissing('verb_hints', ['id' => $verbHint1->id]);
         $this->assertDatabaseHas('verb_hints', [
             'question_id' => $q2->id,

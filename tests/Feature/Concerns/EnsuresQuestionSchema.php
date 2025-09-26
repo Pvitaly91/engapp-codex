@@ -88,5 +88,17 @@ trait EnsuresQuestionSchema
                 $table->timestamps();
             });
         }
+
+        if (! Schema::hasTable('chatgpt_explanations')) {
+            Schema::create('chatgpt_explanations', function (Blueprint $table) {
+                $table->id();
+                $table->text('question');
+                $table->text('wrong_answer');
+                $table->text('correct_answer');
+                $table->string('language')->default('uk');
+                $table->text('explanation');
+                $table->timestamps();
+            });
+        }
     }
 }

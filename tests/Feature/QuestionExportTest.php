@@ -140,21 +140,22 @@ class QuestionExportTest extends TestCase
             'difficulty' => 1,
         ]);
 
-        $createResponse = $this->postJson(route('verb-hints.store'), [
+        $this->postJson(route('verb-hints.store'), [
             'question_id' => $question->id,
-            'marker' => 'A1',
+            'marker' => 'a1',
             'hint' => 'run',
-        ])->assertCreated();
+        ])->assertOk();
 
         $payloadAfterCreate = $this->readExport($question);
 
         $this->assertCount(1, $payloadAfterCreate['verb_hints']);
         $this->assertSame('run', $payloadAfterCreate['verb_hints'][0]['option']['option']);
 
-        $verbHintId = $createResponse->json('id');
+        $verbHintId = VerbHint::query()->where('question_id', $question->id)->value('id');
 
         $this->deleteJson(route('verb-hints.destroy', $verbHintId))
-            ->assertNoContent();
+            ->assertOk()
+            ->assertJsonPath('data.id', $question->id);
 
         $payloadAfterDelete = $this->readExport($question);
 

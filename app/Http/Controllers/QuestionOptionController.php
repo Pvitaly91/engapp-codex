@@ -15,6 +15,41 @@ class QuestionOptionController extends Controller
 {
     use ReturnsTechnicalQuestionResource;
 
+    public function store(Request $request, Question $question)
+    {
+        $data = $request->validate([
+            'value' => ['required', 'string', 'max:255'],
+        ]);
+
+        $value = trim($data['value']);
+
+        DB::transaction(function () use ($question, $value) {
+            $option = QuestionOption::firstOrCreate(['option' => $value]);
+
+            $pivot = DB::table('question_option_question')
+                ->where('question_id', $question->id)
+                ->where('option_id', $option->id);
+
+            if (Schema::hasColumn('question_option_question', 'flag')) {
+                $pivot->where(function ($query) {
+                    $query->whereNull('flag')->orWhere('flag', 0);
+                });
+            }
+
+            if (! $pivot->exists()) {
+                $attributes = [];
+
+                if (Schema::hasColumn('question_option_question', 'flag')) {
+                    $attributes['flag'] = 0;
+                }
+
+                $question->options()->attach($option->id, $attributes);
+            }
+        });
+
+        return $this->respondWithQuestion($request, $question);
+    }
+
     public function update(Request $request, Question $question, QuestionOption $option)
     {
         $data = $request->validate([
