@@ -246,8 +246,12 @@
                                 data-variant-id="{{ $variant->id }}">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
-                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
-                                            onclick="techEditor.editVariant({{ $question->id }}, {{ $variant->id }})">Редагувати</button>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                                onclick="techEditor.editVariant({{ $question->id }}, {{ $variant->id }})">Редагувати</button>
+                                        <button type="button" class="text-[11px] font-semibold text-red-600 underline hover:text-red-700"
+                                                onclick="techEditor.deleteVariant({{ $question->id }}, {{ $variant->id }})">Видалити</button>
+                                    </div>
                                 </div>
                                 <span data-variant-text>{!! $highlightSegments($variant->text) !!}</span>
                             </li>
@@ -296,6 +300,8 @@
                                         @if($verbHintModel)
                                             <button type="button" class="text-[10px] font-semibold text-blue-600 underline hover:text-blue-800"
                                                     onclick="techEditor.editVerbHint({{ $question->id }}, {{ $verbHintModel->id }})">Редагувати</button>
+                                            <button type="button" class="text-[10px] font-semibold text-red-600 underline hover:text-red-700"
+                                                    onclick="techEditor.deleteVerbHint({{ $question->id }}, {{ $verbHintModel->id }})">Видалити</button>
                                         @endif
                                     </span>
                                 @else
@@ -306,8 +312,12 @@
                                     </button>
                                 @endif
                             </div>
-                            <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
-                                    onclick="techEditor.editAnswer({{ $question->id }}, {{ $answer->id }})">Редагувати відповідь</button>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
+                                        onclick="techEditor.editAnswer({{ $question->id }}, {{ $answer->id }})">Редагувати відповідь</button>
+                                <button type="button" class="text-xs font-semibold text-red-600 underline hover:text-red-700"
+                                        onclick="techEditor.deleteAnswer({{ $question->id }}, {{ $answer->id }})">Видалити</button>
+                            </div>
                         </li>
                     @empty
                         <li class="rounded-lg border border-dashed border-stone-200 bg-stone-50 px-3 py-4 text-sm text-stone-500">
@@ -348,6 +358,8 @@
                             @if(! empty($option['id']))
                                 <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
                                         onclick="techEditor.editOption({{ $question->id }}, {{ $option['id'] }})">Редагувати</button>
+                                <button type="button" class="text-xs font-semibold text-red-600 underline hover:text-red-700"
+                                        onclick="techEditor.deleteOption({{ $question->id }}, {{ $option['id'] }})">Видалити</button>
                             @endif
                         </div>
                     @empty
@@ -377,8 +389,12 @@
                             data-question-hint-id="{{ $hint->id }}">
                             <div class="flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
                                 <span>{{ $hint->provider }} · {{ strtoupper($hint->locale) }}</span>
-                                <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
-                                        onclick="techEditor.editQuestionHint({{ $question->id }}, {{ $hint->id }})">Редагувати</button>
+                                <div class="flex items-center gap-2">
+                                    <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                            onclick="techEditor.editQuestionHint({{ $question->id }}, {{ $hint->id }})">Редагувати</button>
+                                    <button type="button" class="text-[11px] font-semibold text-red-600 underline hover:text-red-700"
+                                            onclick="techEditor.deleteQuestionHint({{ $question->id }}, {{ $hint->id }})">Видалити</button>
+                                </div>
                             </div>
                             <div class="mt-1 whitespace-pre-line text-stone-800" data-question-hint-text>{{ $hint->hint }}</div>
                         </li>
@@ -411,6 +427,7 @@
                                 <th class="py-2 pr-4">Неправильна відповідь</th>
                                 <th class="py-2 pr-4">Правильна відповідь</th>
                                 <th class="py-2">Пояснення</th>
+                                <th class="py-2 text-right">Дії</th>
                             </tr>
                         </thead>
                         <tbody class="align-top" data-explanations-container>
@@ -431,10 +448,14 @@
                                         {{ $explanation->correct_answer }}
                                     </td>
                                     <td class="py-2">{{ $explanation->explanation }}</td>
+                                    <td class="py-2 text-right">
+                                        <button type="button" class="text-xs font-semibold text-red-600 underline hover:text-red-700"
+                                                onclick="techEditor.deleteChatGptExplanation({{ $question->id }}, {{ $explanation->id }})">Видалити</button>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="py-3 text-center text-sm font-semibold text-stone-500">Пояснення ще не додані.</td>
+                                    <td colspan="5" class="py-3 text-center text-sm font-semibold text-stone-500">Пояснення ще не додані.</td>
                                 </tr>
                             @endforelse
                         </tbody>
@@ -648,6 +669,7 @@
 
             if (option.id) {
                 parts.push(`<button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800" onclick="techEditor.editOption(${questionId}, ${option.id})">Редагувати</button>`);
+                parts.push(`<button type="button" class="text-xs font-semibold text-red-600 underline hover:text-red-700" onclick="techEditor.deleteOption(${questionId}, ${option.id})">Видалити</button>`);
             }
 
             parts.push('</div>');
@@ -662,27 +684,29 @@
                 return '<li class="rounded-lg border border-dashed border-stone-200 bg-stone-50 px-3 py-4 text-sm text-stone-500">Відповіді ще не додані.</li>';
             }
 
-            return answers.map(answer => {
-                const marker = escapeHtml(answer.marker ?? '');
-                const value = escapeHtml(answer.value ?? '');
-                const markerKey = answer.marker_key ?? '';
-                const verbHint = answer.verb_hint || null;
-                let verbHintHtml = '';
+        return answers.map(answer => {
+            const marker = escapeHtml(answer.marker ?? '');
+            const value = escapeHtml(answer.value ?? '');
+            const markerKey = answer.marker_key ?? '';
+            const verbHint = answer.verb_hint || null;
+            let verbHintHtml = '';
 
-                if (verbHint && verbHint.id) {
-                    const hintValue = escapeHtml(verbHint.value ?? '');
-                    verbHintHtml = `
-                        <span class="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-emerald-700"
-                            data-verb-hint data-verb-hint-id="${verbHint.id}">
-                            <span class="font-semibold uppercase text-[10px] tracking-wide">Verb hint</span>
-                            <span data-verb-hint-value>${hintValue}</span>
-                            <button type="button" class="text-[10px] font-semibold text-blue-600 underline hover:text-blue-800"
-                                onclick="techEditor.editVerbHint(${question.id}, ${verbHint.id})">Редагувати</button>
-                        </span>
-                    `;
-                } else {
-                    verbHintHtml = `
-                        <button type="button"
+            if (verbHint && verbHint.id) {
+                const hintValue = escapeHtml(verbHint.value ?? '');
+                verbHintHtml = `
+                    <span class="inline-flex items-center gap-1 rounded-full bg-white px-2 py-0.5 text-[11px] font-medium text-emerald-700"
+                        data-verb-hint data-verb-hint-id="${verbHint.id}">
+                        <span class="font-semibold uppercase text-[10px] tracking-wide">Verb hint</span>
+                        <span data-verb-hint-value>${hintValue}</span>
+                        <button type="button" class="text-[10px] font-semibold text-blue-600 underline hover:text-blue-800"
+                            onclick="techEditor.editVerbHint(${question.id}, ${verbHint.id})">Редагувати</button>
+                        <button type="button" class="text-[10px] font-semibold text-red-600 underline hover:text-red-700"
+                            onclick="techEditor.deleteVerbHint(${question.id}, ${verbHint.id})">Видалити</button>
+                    </span>
+                `;
+            } else {
+                verbHintHtml = `
+                    <button type="button"
                             class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
                             onclick="techEditor.addVerbHint(${question.id}, '${markerKey}')">
                             Додати verb hint
@@ -698,8 +722,12 @@
                             <span class="font-semibold text-emerald-900" data-answer-value>${value}</span>
                             ${verbHintHtml}
                         </div>
-                        <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
-                            onclick="techEditor.editAnswer(${question.id}, ${answer.id})">Редагувати відповідь</button>
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
+                                onclick="techEditor.editAnswer(${question.id}, ${answer.id})">Редагувати відповідь</button>
+                            <button type="button" class="text-xs font-semibold text-red-600 underline hover:text-red-700"
+                                onclick="techEditor.deleteAnswer(${question.id}, ${answer.id})">Видалити</button>
+                        </div>
                     </li>
                 `;
             }).join('');
@@ -731,8 +759,12 @@
                     <li class="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-2" data-question-hint-id="${hint.id}">
                         <div class="flex items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-blue-700">
                             <span>${provider} · ${locale}</span>
-                            <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
-                                onclick="techEditor.editQuestionHint(${question.id}, ${hint.id})">Редагувати</button>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                    onclick="techEditor.editQuestionHint(${question.id}, ${hint.id})">Редагувати</button>
+                                <button type="button" class="text-[11px] font-semibold text-red-600 underline hover:text-red-700"
+                                    onclick="techEditor.deleteQuestionHint(${question.id}, ${hint.id})">Видалити</button>
+                            </div>
                         </div>
                         <div class="mt-1 whitespace-pre-line text-stone-800" data-question-hint-text>${hintText}</div>
                     </li>
@@ -745,7 +777,7 @@
             const answersMap = question.answers_by_marker || {};
 
             if (!explanations.length) {
-                return '<tr><td colspan="4" class="py-3 text-center text-sm font-semibold text-stone-500">Пояснення ще не додані.</td></tr>';
+                return '<tr><td colspan="5" class="py-3 text-center text-sm font-semibold text-stone-500">Пояснення ще не додані.</td></tr>';
             }
 
             return explanations.map(explanation => {
@@ -762,6 +794,10 @@
                         <td class="py-2 pr-4">${wrongAnswer || '—'}</td>
                         <td class="py-2 pr-4 font-semibold ${correctClass}">${correctAnswer}</td>
                         <td class="py-2">${explanationText}</td>
+                        <td class="py-2 text-right">
+                            <button type="button" class="text-xs font-semibold text-red-600 underline hover:text-red-700"
+                                onclick="techEditor.deleteChatGptExplanation(${question.id}, ${explanation.id})">Видалити</button>
+                        </td>
                     </tr>
                 `;
             }).join('');
@@ -1130,6 +1166,15 @@
                     },
                 });
             },
+            deleteVariant(questionId, variantId) {
+                if (!window.confirm('Видалити цей варіант запитання?')) {
+                    return;
+                }
+
+                return sendMutation(`${routes.variant}/${variantId}`, { question_id: questionId }, 'DELETE')
+                    .then(applyQuestionData)
+                    .catch(error => window.alert(error.message || 'Не вдалося видалити варіант.'));
+            },
             editAnswer(questionId, answerId) {
                 const entry = state.get(questionId);
                 if (!entry) {
@@ -1159,6 +1204,15 @@
                     },
                 });
             },
+            deleteAnswer(questionId, answerId) {
+                if (!window.confirm('Видалити цю відповідь?')) {
+                    return;
+                }
+
+                return sendMutation(`${routes.answer}/${answerId}`, {}, 'DELETE')
+                    .then(applyQuestionData)
+                    .catch(error => window.alert(error.message || 'Не вдалося видалити відповідь.'));
+            },
             editOption(questionId, optionId) {
                 const entry = state.get(questionId);
                 if (!entry) {
@@ -1187,6 +1241,15 @@
                             .then(applyQuestionData);
                     },
                 });
+            },
+            deleteOption(questionId, optionId) {
+                if (!window.confirm('Видалити цей варіант відповіді?')) {
+                    return;
+                }
+
+                return sendMutation(`${routes.option}/${questionId}/options/${optionId}`, {}, 'DELETE')
+                    .then(applyQuestionData)
+                    .catch(error => window.alert(error.message || 'Не вдалося видалити варіант.'));
             },
             editQuestionHint(questionId, hintId) {
                 const entry = state.get(questionId);
@@ -1230,6 +1293,15 @@
                     },
                 });
             },
+            deleteQuestionHint(questionId, hintId) {
+                if (!window.confirm('Видалити цю підказку?')) {
+                    return;
+                }
+
+                return sendMutation(`${routes.questionHint}/${hintId}`, {}, 'DELETE')
+                    .then(applyQuestionData)
+                    .catch(error => window.alert(error.message || 'Не вдалося видалити підказку.'));
+            },
             editVerbHint(questionId, verbHintId) {
                 const entry = state.get(questionId);
                 if (!entry) {
@@ -1258,6 +1330,15 @@
                             .then(applyQuestionData);
                     },
                 });
+            },
+            deleteVerbHint(questionId, verbHintId) {
+                if (!window.confirm('Видалити цей verb hint?')) {
+                    return;
+                }
+
+                return sendMutation(`${routes.verbHint}/${verbHintId}`, {}, 'DELETE')
+                    .then(applyQuestionData)
+                    .catch(error => window.alert(error.message || 'Не вдалося видалити verb hint.'));
             },
             addAnswer(questionId) {
                 const entry = state.get(questionId);
@@ -1470,6 +1551,15 @@
                         }, 'POST').then(applyQuestionData);
                     },
                 });
+            },
+            deleteChatGptExplanation(questionId, explanationId) {
+                if (!window.confirm('Видалити це пояснення?')) {
+                    return;
+                }
+
+                return sendMutation(`${routes.chatgptExplanation}/${explanationId}`, { question_id: questionId }, 'DELETE')
+                    .then(applyQuestionData)
+                    .catch(error => window.alert(error.message || 'Не вдалося видалити пояснення.'));
             },
             applyQuestionData,
         };

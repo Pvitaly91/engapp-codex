@@ -201,4 +201,55 @@ class QuestionAnswerController extends Controller
 
         return $this->respondWithQuestion($request, $question);
     }
+
+    public function destroy(Request $request, QuestionAnswer $questionAnswer)
+    {
+        $question = $questionAnswer->question;
+
+        DB::transaction(function () use ($questionAnswer, $question) {
+            $option = $questionAnswer->relationLoaded('option')
+                ? $questionAnswer->option
+                : $questionAnswer->option()->first();
+
+            $questionAnswer->delete();
+
+            if (! $option || ! Schema::hasColumn('question_answers', 'option_id')) {
+                return;
+            }
+
+            $otherAnswersExist = QuestionAnswer::query()
+                ->where('question_id', $question->id)
+                ->where('option_id', $option->id)
+                ->exists();
+
+            $verbHintsForOptionExist = VerbHint::query()
+                ->where('question_id', $question->id)
+                ->where('option_id', $option->id)
+                ->exists();
+
+            if (! $otherAnswersExist && ! $verbHintsForOptionExist) {
+                $pivotQuery = DB::table('question_option_question')
+                    ->where('question_id', $question->id)
+                    ->where('option_id', $option->id);
+
+                if (Schema::hasColumn('question_option_question', 'flag')) {
+                    $pivotQuery->where(function ($query) {
+                        $query->whereNull('flag')->orWhere('flag', 0);
+                    });
+                }
+
+                $pivotQuery->delete();
+            }
+
+            $stillUsed = QuestionAnswer::query()->where('option_id', $option->id)->exists()
+                || VerbHint::query()->where('option_id', $option->id)->exists()
+                || DB::table('question_option_question')->where('option_id', $option->id)->exists();
+
+            if (! $stillUsed) {
+                $option->delete();
+            }
+        });
+
+        return $this->respondWithQuestion($request, $question);
+    }
 }

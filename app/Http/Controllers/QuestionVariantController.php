@@ -21,4 +21,13 @@ class QuestionVariantController extends Controller
 
         return $this->respondWithQuestion($request, $questionVariant->question);
     }
+
+    public function destroy(Request $request, QuestionVariant $questionVariant)
+    {
+        $question = $questionVariant->question;
+
+        $questionVariant->delete();
+
+        return $this->respondWithQuestion($request, $question);
+    }
 }

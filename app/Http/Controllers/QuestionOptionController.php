@@ -10,6 +10,7 @@ use App\Models\VerbHint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\ValidationException;
 
 class QuestionOptionController extends Controller
 {
@@ -110,6 +111,61 @@ class QuestionOptionController extends Controller
                         $inner->whereNull('flag')->orWhere('flag', 0);
                     });
                 })
+                ->delete();
+
+            $stillUsed = QuestionAnswer::query()->where('option_id', $option->id)->exists()
+                || VerbHint::query()->where('option_id', $option->id)->exists()
+                || DB::table('question_option_question')->where('option_id', $option->id)->exists();
+
+            if (! $stillUsed) {
+                $option->delete();
+            }
+        });
+
+        return $this->respondWithQuestion($request, $question);
+    }
+
+    public function destroy(Request $request, Question $question, QuestionOption $option)
+    {
+        $applyOptionScope = function ($query) {
+            if (Schema::hasColumn('question_option_question', 'flag')) {
+                $query->where(function ($inner) {
+                    $inner->whereNull('flag')->orWhere('flag', 0);
+                });
+            }
+
+            return $query;
+        };
+
+        $pivotExists = $applyOptionScope(DB::table('question_option_question')
+            ->where('question_id', $question->id)
+            ->where('option_id', $option->id))->exists();
+
+        if (! $pivotExists) {
+            abort(404);
+        }
+
+        $hasAnswerDependency = Schema::hasColumn('question_answers', 'option_id')
+            && QuestionAnswer::query()
+                ->where('question_id', $question->id)
+                ->where('option_id', $option->id)
+                ->exists();
+
+        $hasVerbHintDependency = VerbHint::query()
+            ->where('question_id', $question->id)
+            ->where('option_id', $option->id)
+            ->exists();
+
+        if ($hasAnswerDependency || $hasVerbHintDependency) {
+            throw ValidationException::withMessages([
+                'option' => __('Неможливо видалити варіант, поки він використовується у відповідях або verb hint.'),
+            ]);
+        }
+
+        DB::transaction(function () use ($question, $option, $applyOptionScope) {
+            $applyOptionScope(DB::table('question_option_question')
+                ->where('question_id', $question->id)
+                ->where('option_id', $option->id))
                 ->delete();
 
             $stillUsed = QuestionAnswer::query()->where('option_id', $option->id)->exists()

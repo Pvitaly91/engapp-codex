@@ -41,4 +41,17 @@ class ChatGPTExplanationController extends Controller
 
         return $this->respondWithQuestion($request, $question);
     }
+
+    public function destroy(Request $request, ChatGPTExplanation $chatGPTExplanation)
+    {
+        $data = $request->validate([
+            'question_id' => ['required', 'exists:questions,id'],
+        ]);
+
+        $question = Question::findOrFail($data['question_id']);
+
+        $chatGPTExplanation->delete();
+
+        return $this->respondWithQuestion($request, $question);
+    }
 }

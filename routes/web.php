@@ -139,12 +139,17 @@ Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])-
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
 Route::post('/question-answers', [QuestionAnswerController::class, 'store'])->name('question-answers.store');
 Route::put('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'update'])->name('question-answers.update');
+Route::delete('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'destroy'])->name('question-answers.destroy');
 Route::post('/questions/{question}/options', [QuestionOptionController::class, 'store'])->name('questions.options.store');
 Route::put('/questions/{question}/options/{option}', [QuestionOptionController::class, 'update'])->name('questions.options.update');
+Route::delete('/questions/{question}/options/{option}', [QuestionOptionController::class, 'destroy'])->name('questions.options.destroy');
 Route::put('/question-variants/{questionVariant}', [QuestionVariantController::class, 'update'])->name('question-variants.update');
+Route::delete('/question-variants/{questionVariant}', [QuestionVariantController::class, 'destroy'])->name('question-variants.destroy');
 Route::post('/question-hints', [QuestionHintController::class, 'store'])->name('question-hints.store');
 Route::put('/question-hints/{questionHint}', [QuestionHintController::class, 'update'])->name('question-hints.update');
+Route::delete('/question-hints/{questionHint}', [QuestionHintController::class, 'destroy'])->name('question-hints.destroy');
 Route::post('/chatgpt-explanations', [ChatGPTExplanationController::class, 'store'])->name('chatgpt-explanations.store');
+Route::delete('/chatgpt-explanations/{chatGPTExplanation}', [ChatGPTExplanationController::class, 'destroy'])->name('chatgpt-explanations.destroy');
 
 Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
 Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');

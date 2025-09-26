@@ -57,4 +57,13 @@ class QuestionHintController extends Controller
 
         return $this->respondWithQuestion($request, $questionHint->question);
     }
+
+    public function destroy(Request $request, QuestionHint $questionHint)
+    {
+        $question = $questionHint->question;
+
+        $questionHint->delete();
+
+        return $this->respondWithQuestion($request, $question);
+    }
 }
