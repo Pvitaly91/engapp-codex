@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
+use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -95,6 +96,7 @@ class DatabaseSeeder extends Seeder
             PastPerfectVsPastSimpleTestSeeder::class,
             PastPerfectSimpleVsContinuousCTestSeeder::class,
             PastTimeClausesMixedTestSeeder::class,
+            FutureTensesPracticeV2Seeder::class,
             PagesSeeder::class,
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
@@ -104,6 +106,7 @@ class DatabaseSeeder extends Seeder
             Ai\MixedPerfectTenseDetailedSeeder::class,
             Ai\PastPerfectComprehensiveAiSeeder::class,
             Ai\PastTenseFormsAiSeeder::class,
+            Ai\FutureTensesComprehensiveAiSeeder::class,
 
         ]);
     }
