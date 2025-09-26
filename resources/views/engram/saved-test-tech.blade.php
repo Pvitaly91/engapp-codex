@@ -248,6 +248,7 @@
                         @endforeach
                     </ul>
                 </details>
+            @endif
 
             <details class="group">
                 <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
