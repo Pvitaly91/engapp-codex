@@ -7,7 +7,10 @@
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
             <h1 class="text-2xl font-bold text-stone-900">{{ $test->name }}</h1>
-            <p class="text-sm text-stone-600 mt-1">Технічна інформація про тест · Питань: {{ $questions->count() }}</p>
+            <p class="text-sm text-stone-600 mt-1">
+                Технічна інформація про тест · Питань:
+                <span class="font-semibold text-stone-700" data-questions-count>{{ $questions->count() }}</span>
+            </p>
         </div>
         <div class="flex flex-wrap gap-2">
             <a href="{{ route('saved-test.show', $test->slug) }}"
@@ -18,6 +21,11 @@
                class="px-3 py-1.5 rounded-2xl border border-stone-200 bg-white shadow-sm text-sm font-semibold text-stone-700 hover:bg-stone-50">
                 JS режим
             </a>
+            <button type="button"
+                    class="px-3 py-1.5 rounded-2xl border border-blue-600 bg-blue-600 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                    onclick="techEditor.createQuestion()">
+                + Нове питання
+            </button>
         </div>
     </div>
 
@@ -30,7 +38,8 @@
             ->values();
     @endphp
 
-    @foreach($questions as $question)
+    <div class="space-y-5" data-questions-container>
+        @forelse($questions as $question)
         @php
             $answersByMarker = $question->answers
                 ->mapWithKeys(function ($answer) {
@@ -207,7 +216,7 @@
             <header class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                     <div class="flex items-baseline gap-3 text-sm text-stone-500">
-                        <span class="font-semibold uppercase tracking-wide">Питання {{ $loop->iteration }}</span>
+                        <span class="font-semibold uppercase tracking-wide">Питання <span data-question-number>{{ $loop->iteration }}</span></span>
                         <span>ID: {{ $question->id }}</span>
                     </div>
                     <p class="mt-2 text-lg leading-relaxed text-stone-900" data-question-text>{!! $filledQuestion !!}</p>
@@ -233,32 +242,34 @@
                 </div>
             </header>
 
-            @if($variants->isNotEmpty())
-                <details class="group">
-                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
-                        <span>Варіанти запитання</span>
-                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
-                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
-                    </summary>
-                    <ul class="mt-3 space-y-2 text-sm text-stone-800">
-                        @foreach($variants as $variant)
-                            <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2"
-                                data-variant-id="{{ $variant->id }}">
-                                <div class="flex items-center justify-between gap-2">
-                                    <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
-                                    <div class="flex items-center gap-2">
-                                        <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
-                                                onclick="techEditor.editVariant({{ $question->id }}, {{ $variant->id }})">Редагувати</button>
-                                        <button type="button" class="text-[11px] font-semibold text-red-600 underline hover:text-red-700"
-                                                onclick="techEditor.deleteVariant({{ $question->id }}, {{ $variant->id }})">Видалити</button>
+            <div data-variants-section>
+                @if($variants->isNotEmpty())
+                    <details class="group">
+                        <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                            <span>Варіанти запитання</span>
+                            <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                            <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                        </summary>
+                        <ul class="mt-3 space-y-2 text-sm text-stone-800">
+                            @foreach($variants as $variant)
+                                <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2"
+                                    data-variant-id="{{ $variant->id }}">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="font-mono text-[11px] uppercase text-stone-500">Варіант {{ $loop->iteration }}</span>
+                                        <div class="flex items-center gap-2">
+                                            <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                                    onclick="techEditor.editVariant({{ $question->id }}, {{ $variant->id }})">Редагувати</button>
+                                            <button type="button" class="text-[11px] font-semibold text-red-600 underline hover:text-red-700"
+                                                    onclick="techEditor.deleteVariant({{ $question->id }}, {{ $variant->id }})">Видалити</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <span data-variant-text>{!! $highlightSegments($variant->text) !!}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                </details>
-            @endif
+                                    <span data-variant-text>{!! $highlightSegments($variant->text) !!}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </details>
+                @endif
+            </div>
 
             <details class="group">
                 <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
@@ -463,7 +474,12 @@
                 </div>
             </details>
         </article>
-    @endforeach
+        @empty
+            <div class="rounded-2xl border border-dashed border-stone-200 bg-white/60 p-6 text-center text-sm text-stone-500" data-empty-state>
+                Ще немає жодного питання у цьому тесті.
+            </div>
+        @endforelse
+    </div>
 </div>
 <div id="tech-editor-modal"
      class="fixed inset-0 z-50 hidden items-center justify-center bg-stone-900/60 px-4 py-6">
@@ -499,6 +515,7 @@
     (() => {
         const techCsrfToken = '{{ csrf_token() }}';
         const routes = {
+            createQuestion: '{{ route('saved-test.questions.store', $test->slug) }}',
             question: '{{ url('/questions') }}',
             answer: '{{ url('/question-answers') }}',
             variant: '{{ url('/question-variants') }}',
@@ -803,6 +820,250 @@
             }).join('');
         }
 
+        function renderVariantsSection(question) {
+            const variants = Array.isArray(question.variants)
+                ? question.variants.filter(variant => typeof variant.text === 'string' && variant.text.trim() !== '')
+                : [];
+
+            if (!variants.length) {
+                return '';
+            }
+
+            const answersMap = question.answers_by_marker || {};
+
+            const itemsHtml = variants.map((variant, index) => {
+                const variantText = highlightSegments(variant.text ?? '', answersMap);
+                const iteration = index + 1;
+
+                return `
+                    <li class="flex flex-col gap-1 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2"
+                        data-variant-id="${variant.id}">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="font-mono text-[11px] uppercase text-stone-500">Варіант ${iteration}</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="text-[11px] font-semibold text-blue-600 underline hover:text-blue-800"
+                                    onclick="techEditor.editVariant(${question.id}, ${variant.id})">Редагувати</button>
+                                <button type="button" class="text-[11px] font-semibold text-red-600 underline hover:text-red-700"
+                                    onclick="techEditor.deleteVariant(${question.id}, ${variant.id})">Видалити</button>
+                            </div>
+                        </div>
+                        <span data-variant-text>${variantText}</span>
+                    </li>
+                `;
+            }).join('');
+
+            return `
+                <details class="group">
+                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                        <span>Варіанти запитання</span>
+                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                    </summary>
+                    <ul class="mt-3 space-y-2 text-sm text-stone-800">
+                        ${itemsHtml}
+                    </ul>
+                </details>
+            `;
+        }
+
+        function getQuestionsContainer() {
+            return document.querySelector('[data-questions-container]');
+        }
+
+        function getQuestionCountElement() {
+            return document.querySelector('[data-questions-count]');
+        }
+
+        function removeEmptyState() {
+            const emptyState = document.querySelector('[data-empty-state]');
+            if (emptyState) {
+                emptyState.remove();
+            }
+        }
+
+        function updateQuestionCount() {
+            const countElement = getQuestionCountElement();
+            const container = getQuestionsContainer();
+
+            if (!countElement) {
+                return;
+            }
+
+            const questionCount = container
+                ? container.querySelectorAll('[data-question-id]').length
+                : 0;
+
+            countElement.textContent = questionCount;
+        }
+
+        function refreshQuestionNumbers() {
+            const container = getQuestionsContainer();
+
+            if (!container) {
+                return;
+            }
+
+            const items = container.querySelectorAll('[data-question-id]');
+
+            items.forEach((element, index) => {
+                const numberElement = element.querySelector('[data-question-number]');
+
+                if (numberElement) {
+                    numberElement.textContent = index + 1;
+                }
+            });
+        }
+
+        function createQuestionElement(question) {
+            const container = getQuestionsContainer();
+
+            if (!container) {
+                return null;
+            }
+
+            removeEmptyState();
+
+            const answersMap = question.answers_by_marker || {};
+            const questionText = highlightSegments(question.question ?? '', answersMap);
+            const levelValue = typeof question.level === 'string' && question.level.trim() !== '' ? question.level : null;
+            const levelLabel = levelValue || 'N/A';
+            const questionIndex = container.querySelectorAll('[data-question-id]').length + 1;
+            const variantsHtml = renderVariantsSection(question);
+            const answersHtml = renderAnswersHtml(question);
+            const optionsHtml = renderOptionsHtml(question);
+            const hintsHtml = renderQuestionHintsHtml(question);
+            const explanationsHtml = renderChatgptExplanationsHtml(question);
+
+            const article = document.createElement('article');
+            article.className = 'bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100';
+            article.setAttribute('data-question-id', question.id);
+            article.setAttribute('data-question', JSON.stringify(question));
+
+            article.innerHTML = `
+                <header class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+                    <div>
+                        <div class="flex items-baseline gap-3 text-sm text-stone-500">
+                            <span class="font-semibold uppercase tracking-wide">Питання <span data-question-number>${questionIndex}</span></span>
+                            <span>ID: ${question.id}</span>
+                        </div>
+                        <p class="mt-2 text-lg leading-relaxed text-stone-900" data-question-text>${questionText}</p>
+                        <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-blue-600">
+                            <button type="button"
+                                class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-blue-700 hover:bg-blue-100"
+                                onclick="techEditor.editQuestion(${question.id})">
+                                <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path d="M15.728 2.272a2.625 2.625 0 0 1 0 3.712l-8.1 8.1a3.5 3.5 0 0 1-1.563.888l-2.82.705a.625.625 0 0 1-.757-.757l.706-2.82a3.5 3.5 0 0 1 .888-1.564l8.1-8.1a2.625 2.625 0 0 1 3.712 0Zm-2.65 1.062-8.1 8.1a2.25 2.25 0 0 0-.57 1.006l-.46 1.838 1.838-.46a2.25 2.25 0 0 0 1.006-.57l8.1-8.1a1.375 1.375 0 1 0-1.94-1.94Z" />
+                                </svg>
+                                <span>Редагувати питання</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs uppercase tracking-wide text-stone-500">Level</span>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full bg-stone-900 text-white text-sm font-semibold" data-question-level>${escapeHtml(levelLabel)}</span>
+                        <button type="button"
+                            class="text-xs font-semibold text-blue-600 underline hover:text-blue-800"
+                            onclick="techEditor.editQuestionLevel(${question.id})">
+                            Змінити
+                        </button>
+                    </div>
+                </header>
+                <div data-variants-section>
+                    ${variantsHtml}
+                </div>
+                <details class="group">
+                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                        <span>Правильні відповіді</span>
+                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                    </summary>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                            onclick="techEditor.addAnswer(${question.id})">
+                            <span>Додати відповідь</span>
+                        </button>
+                        <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-sm transition hover:bg-emerald-100"
+                            onclick="techEditor.addVerbHint(${question.id})">
+                            <span>Додати verb hint</span>
+                        </button>
+                    </div>
+                    <ul class="mt-3 space-y-2 text-sm text-stone-800" data-answers-container>
+                        ${answersHtml}
+                    </ul>
+                </details>
+                <details class="group">
+                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                        <span>Варіанти відповіді</span>
+                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                    </summary>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                            onclick="techEditor.addOption(${question.id})">
+                            <span>Додати варіант</span>
+                        </button>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-2" data-options-container>
+                        ${optionsHtml}
+                    </div>
+                </details>
+                <details class="group">
+                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                        <span>Question hints</span>
+                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                    </summary>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                            onclick="techEditor.addQuestionHint(${question.id})">
+                            <span>Додати підказку</span>
+                        </button>
+                    </div>
+                    <ul class="mt-3 space-y-3 text-sm text-stone-800" data-question-hints-container>
+                        ${hintsHtml}
+                    </ul>
+                </details>
+                <details class="group">
+                    <summary class="flex cursor-pointer select-none items-center justify-between gap-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                        <span>ChatGPT explanations</span>
+                        <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
+                        <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
+                    </summary>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <button type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                            onclick="techEditor.addChatGptExplanation(${question.id})">
+                            <span>Додати пояснення</span>
+                        </button>
+                    </div>
+                    <div class="mt-3 overflow-x-auto">
+                        <table class="min-w-full text-left text-sm text-stone-800">
+                            <thead class="text-xs uppercase tracking-wide text-stone-500">
+                                <tr>
+                                    <th class="py-2 pr-4">Мова</th>
+                                    <th class="py-2 pr-4">Неправильна відповідь</th>
+                                    <th class="py-2 pr-4">Правильна відповідь</th>
+                                    <th class="py-2">Пояснення</th>
+                                    <th class="py-2 text-right">Дії</th>
+                                </tr>
+                            </thead>
+                            <tbody class="align-top" data-explanations-container>
+                                ${explanationsHtml}
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+            `;
+
+            container.appendChild(article);
+
+            return article;
+        }
+
         function getMarkersFromEntry(entry) {
             if (!entry || !entry.data) {
                 return [];
@@ -824,18 +1085,25 @@
 
         function applyQuestionData(questionData) {
             if (!questionData || typeof questionData.id === 'undefined') {
-                return;
+                return null;
             }
 
             syncHintProviders(questionData);
 
             let entry = state.get(questionData.id);
+            let isNewEntry = false;
 
             if (!entry) {
-                const element = document.querySelector(`[data-question-id="${questionData.id}"]`);
+                let element = document.querySelector(`[data-question-id="${questionData.id}"]`);
 
                 if (!element) {
-                    return;
+                    element = createQuestionElement(questionData);
+
+                    if (!element) {
+                        return null;
+                    }
+
+                    isNewEntry = true;
                 }
 
                 entry = { element, data: questionData };
@@ -854,16 +1122,17 @@
 
             const levelEl = entry.element.querySelector('[data-question-level]');
             if (levelEl) {
-                const levelValue = questionData.level;
-                levelEl.textContent = levelValue ? levelValue : 'N/A';
+                const levelValue = typeof questionData.level === 'string' && questionData.level.trim() !== ''
+                    ? questionData.level
+                    : null;
+
+                levelEl.textContent = levelValue || 'N/A';
             }
 
-            (questionData.variants || []).forEach(variant => {
-                const variantEl = entry.element.querySelector(`[data-variant-id="${variant.id}"] [data-variant-text]`);
-                if (variantEl) {
-                    variantEl.innerHTML = highlightSegments(variant.text, answersMap);
-                }
-            });
+            const variantsSection = entry.element.querySelector('[data-variants-section]');
+            if (variantsSection) {
+                variantsSection.innerHTML = renderVariantsSection(questionData);
+            }
 
             const optionsContainer = entry.element.querySelector('[data-options-container]');
             if (optionsContainer) {
@@ -884,6 +1153,14 @@
             if (explanationsContainer) {
                 explanationsContainer.innerHTML = renderChatgptExplanationsHtml(questionData);
             }
+
+            if (isNewEntry) {
+                refreshQuestionNumbers();
+            }
+
+            updateQuestionCount();
+
+            return { entry, isNew: isNewEntry };
         }
 
         function clearError() {
@@ -1082,6 +1359,35 @@
         }
 
         const techEditor = {
+            createQuestion() {
+                openModal({
+                    title: 'Створити нове питання',
+                    fields: [
+                        {
+                            name: 'question',
+                            label: 'Текст питання',
+                            type: 'textarea',
+                            required: true,
+                            placeholder: 'Введіть текст питання з маркерами {a1}, {a2}, …',
+                        },
+                    ],
+                    onSubmit(values) {
+                        const questionText = typeof values.question === 'string' ? values.question.trim() : '';
+
+                        if (!questionText) {
+                            return Promise.reject(new Error('Введіть текст питання.'));
+                        }
+
+                        const markerMatches = questionText.match(/\{a\d+\}/gi) || [];
+
+                        if (!markerMatches.length) {
+                            return Promise.reject(new Error('Додайте щонайменше одну позначку {a1} у тексті питання.'));
+                        }
+
+                        return sendMutation(routes.createQuestion, { question: questionText }, 'POST');
+                    },
+                });
+            },
             editQuestion(questionId) {
                 const entry = state.get(questionId);
                 if (!entry) {
@@ -1579,6 +1885,9 @@
                     console.error('Не вдалося розпізнати дані питання', error);
                 }
             });
+
+            refreshQuestionNumbers();
+            updateQuestionCount();
         }
 
         function setupModalHandlers() {
@@ -1603,7 +1912,13 @@
                     .then(() => submitHandler(values))
                     .then(question => {
                         if (question) {
-                            applyQuestionData(question);
+                            const result = applyQuestionData(question);
+
+                            if (result && result.isNew && result.entry && result.entry.element) {
+                                window.requestAnimationFrame(() => {
+                                    result.entry.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                });
+                            }
                         }
                         closeModal();
                     })

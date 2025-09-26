@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\TechnicalQuestionResource;
 use App\Models\Question;
 use App\Models\Category;
 use Illuminate\Support\Arr;
@@ -15,6 +16,7 @@ use App\Models\ChatGPTExplanation;
 use App\Services\QuestionVariantService;
 use App\Models\QuestionHint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\ValidationException;
 
 class GrammarTestController extends Controller
 {
@@ -171,6 +173,64 @@ class GrammarTestController extends Controller
             'explanationsByQuestionId' => $explanationsByQuestionId,
             'hintProviders' => $hintProviders,
         ]);
+    }
+
+    public function storeSavedTestQuestion(Request $request, string $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+
+        $data = $request->validate([
+            'question' => ['required', 'string'],
+            'category_id' => ['nullable', 'integer', 'exists:categories,id'],
+        ]);
+
+        if (! preg_match_all('/\{a\d+\}/i', $data['question'], $matches)) {
+            throw ValidationException::withMessages([
+                'question' => 'Питання повинно містити хоча б одну позначку {a1}.',
+            ]);
+        }
+
+        $categoryId = $data['category_id'] ?? null;
+
+        if (! $categoryId) {
+            $existingQuestionId = collect($test->questions ?? [])->first();
+
+            if ($existingQuestionId) {
+                $categoryId = Question::query()
+                    ->whereKey($existingQuestionId)
+                    ->value('category_id');
+            }
+        }
+
+        if (! $categoryId) {
+            $categoryId = Category::query()->value('id');
+        }
+
+        if (! $categoryId) {
+            throw ValidationException::withMessages([
+                'category_id' => 'Не вдалося визначити категорію для створення питання.',
+            ]);
+        }
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => $data['question'],
+            'difficulty' => 1,
+            'category_id' => $categoryId,
+            'flag' => 0,
+        ]);
+
+        $testQuestionIds = collect($test->questions ?? [])
+            ->filter(fn ($id) => filled($id))
+            ->map(fn ($id) => (int) $id)
+            ->push($question->id)
+            ->unique()
+            ->values()
+            ->all();
+
+        $test->update(['questions' => $testQuestionIds]);
+
+        return TechnicalQuestionResource::make($question)->response()->setStatusCode(201);
     }
 
     public function showSavedTestRandom($slug)
