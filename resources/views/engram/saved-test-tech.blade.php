@@ -102,6 +102,9 @@
                 ->filter(fn ($item) => filled($item['label']))
                 ->unique('id')
                 ->values();
+            $hasAnswerOptions = $options->isNotEmpty();
+            $hasCorrectAnswerOption = $options->contains(fn ($item) => $item['is_correct']);
+            $canAddChatGptExplanation = $hasAnswerOptions && $hasCorrectAnswerOption;
             $variants = $question->relationLoaded('variants')
                 ? $question->variants->filter(function ($variant) {
                     return is_string($variant->text) && trim($variant->text) !== '';
@@ -208,6 +211,7 @@
                 'question_hints' => $questionHintsData->toArray(),
                 'markers' => $markers->toArray(),
                 'chatgpt_explanations' => $explanationsData->toArray(),
+                'can_add_chatgpt_explanation' => $canAddChatGptExplanation,
             ];
         @endphp
         <article class="bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100"
@@ -423,13 +427,21 @@
                     <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
                     <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
                 </summary>
-                <div class="mt-3 flex flex-wrap gap-2">
-                    <button type="button"
-                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
-                            onclick="techEditor.addChatGptExplanation({{ $question->id }})">
-                        <span>Додати пояснення</span>
-                    </button>
-                </div>
+                    <div class="mt-3 flex flex-col gap-2">
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button"
+                                class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100 @unless($canAddChatGptExplanation) opacity-60 cursor-not-allowed @endunless"
+                                data-add-chatgpt-explanation
+                                data-question-id="{{ $question->id }}"
+                                @unless($canAddChatGptExplanation) disabled @endunless
+                                onclick="techEditor.addChatGptExplanation({{ $question->id }})">
+                                <span>Додати пояснення</span>
+                            </button>
+                        </div>
+                        <p class="text-xs text-stone-500 @if($canAddChatGptExplanation) hidden @endif" data-chatgpt-explanation-hint>
+                            Додайте варіанти відповіді та позначте правильні, щоб створити пояснення.
+                        </p>
+                    </div>
                 <div class="mt-3 overflow-x-auto">
                     <table class="min-w-full text-left text-sm text-stone-800">
                         <thead class="text-xs uppercase tracking-wide text-stone-500">
@@ -820,6 +832,78 @@
             }).join('');
         }
 
+        function getAnswerChoices(question) {
+            const options = Array.isArray(question.options) ? question.options : [];
+            const seen = new Set();
+
+            return options.reduce((accumulator, option) => {
+                if (!option || typeof option.label !== 'string') {
+                    return accumulator;
+                }
+
+                const label = option.label.trim();
+
+                if (!label) {
+                    return accumulator;
+                }
+
+                const key = option.id !== undefined && option.id !== null
+                    ? `id:${option.id}`
+                    : `label:${label.toLowerCase()}`;
+
+                if (seen.has(key)) {
+                    return accumulator;
+                }
+
+                seen.add(key);
+                accumulator.push({
+                    value: label,
+                    label,
+                    isCorrect: !!option.is_correct,
+                });
+
+                return accumulator;
+            }, []);
+        }
+
+        function getCorrectAnswerChoices(question) {
+            return getAnswerChoices(question).filter(choice => choice.isCorrect);
+        }
+
+        function getIncorrectAnswerChoices(question) {
+            return getAnswerChoices(question).filter(choice => !choice.isCorrect);
+        }
+
+        function canAddChatGptExplanation(question) {
+            const choices = getAnswerChoices(question);
+
+            if (!choices.length) {
+                return false;
+            }
+
+            return choices.some(choice => choice.isCorrect);
+        }
+
+        function updateChatgptExplanationAvailability(entry) {
+            if (!entry || !entry.element) {
+                return;
+            }
+
+            const button = entry.element.querySelector('[data-add-chatgpt-explanation]');
+            const hint = entry.element.querySelector('[data-chatgpt-explanation-hint]');
+            const canAdd = canAddChatGptExplanation(entry.data || {});
+
+            if (button) {
+                button.disabled = !canAdd;
+                button.classList.toggle('opacity-60', !canAdd);
+                button.classList.toggle('cursor-not-allowed', !canAdd);
+            }
+
+            if (hint) {
+                hint.classList.toggle('hidden', canAdd);
+            }
+        }
+
         function renderVariantsSection(question) {
             const variants = Array.isArray(question.variants)
                 ? question.variants.filter(variant => typeof variant.text === 'string' && variant.text.trim() !== '')
@@ -933,6 +1017,10 @@
             const optionsHtml = renderOptionsHtml(question);
             const hintsHtml = renderQuestionHintsHtml(question);
             const explanationsHtml = renderChatgptExplanationsHtml(question);
+            const canAddExplanation = canAddChatGptExplanation(question);
+            const addExplanationButtonDisabledAttr = canAddExplanation ? '' : ' disabled';
+            const addExplanationButtonExtraClasses = canAddExplanation ? '' : ' opacity-60 cursor-not-allowed';
+            const addExplanationHintClass = canAddExplanation ? 'hidden ' : '';
 
             const article = document.createElement('article');
             article.className = 'bg-white shadow rounded-2xl p-6 space-y-5 border border-stone-100';
@@ -1033,12 +1121,20 @@
                         <span class="text-[10px] font-normal text-stone-400 group-open:hidden">Показати ▼</span>
                         <span class="hidden text-[10px] font-normal text-stone-400 group-open:inline">Сховати ▲</span>
                     </summary>
-                    <div class="mt-3 flex flex-wrap gap-2">
-                        <button type="button"
-                            class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
-                            onclick="techEditor.addChatGptExplanation(${question.id})">
-                            <span>Додати пояснення</span>
-                        </button>
+                    <div class="mt-3 flex flex-col gap-2">
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button"
+                                class="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100${addExplanationButtonExtraClasses}"
+                                data-add-chatgpt-explanation
+                                data-question-id="${question.id}"
+                                ${addExplanationButtonDisabledAttr}
+                                onclick="techEditor.addChatGptExplanation(${question.id})">
+                                <span>Додати пояснення</span>
+                            </button>
+                        </div>
+                        <p class="${addExplanationHintClass}text-xs text-stone-500" data-chatgpt-explanation-hint>
+                            Додайте варіанти відповіді та позначте правильні, щоб створити пояснення.
+                        </p>
                     </div>
                     <div class="mt-3 overflow-x-auto">
                         <table class="min-w-full text-left text-sm text-stone-800">
@@ -1060,6 +1156,8 @@
             `;
 
             container.appendChild(article);
+
+            updateChatgptExplanationAvailability({ element: article, data: question });
 
             return article;
         }
@@ -1153,6 +1251,8 @@
             if (explanationsContainer) {
                 explanationsContainer.innerHTML = renderChatgptExplanationsHtml(questionData);
             }
+
+            updateChatgptExplanationAvailability(entry);
 
             if (isNewEntry) {
                 refreshQuestionNumbers();
@@ -1819,6 +1919,29 @@
                     return;
                 }
 
+                if (!canAddChatGptExplanation(entry.data || {})) {
+                    window.alert('Спочатку додайте варіанти відповіді та позначте правильні.');
+                    return;
+                }
+
+                const correctChoices = getCorrectAnswerChoices(entry.data || {});
+                const incorrectChoices = getIncorrectAnswerChoices(entry.data || {});
+
+                if (!correctChoices.length) {
+                    window.alert('Спочатку позначте хоча б одну правильну відповідь.');
+                    return;
+                }
+
+                const correctOptions = [
+                    { value: '', label: 'Оберіть правильну відповідь' },
+                    ...correctChoices.map(choice => ({ value: choice.value, label: choice.label })),
+                ];
+
+                const wrongOptions = [
+                    { value: '', label: '— Не обрано —' },
+                    ...incorrectChoices.map(choice => ({ value: choice.value, label: choice.label })),
+                ];
+
                 openModal({
                     title: 'Додати пояснення',
                     fields: [
@@ -1832,13 +1955,15 @@
                         {
                             name: 'correct_answer',
                             label: 'Правильна відповідь',
-                            type: 'text',
+                            type: 'select',
                             required: true,
+                            options: correctOptions,
                         },
                         {
                             name: 'wrong_answer',
                             label: 'Неправильна відповідь',
-                            type: 'text',
+                            type: 'select',
+                            options: wrongOptions,
                         },
                         {
                             name: 'explanation',
@@ -1852,7 +1977,7 @@
                             question_id: questionId,
                             language: values.language,
                             correct_answer: values.correct_answer,
-                            wrong_answer: values.wrong_answer ?? '',
+                            wrong_answer: values.wrong_answer || '',
                             explanation: values.explanation,
                         }, 'POST').then(applyQuestionData);
                     },
@@ -1881,6 +2006,7 @@
                     const data = JSON.parse(raw);
                     state.set(data.id, { element, data });
                     syncHintProviders(data);
+                    updateChatgptExplanationAvailability({ element, data });
                 } catch (error) {
                     console.error('Не вдалося розпізнати дані питання', error);
                 }
