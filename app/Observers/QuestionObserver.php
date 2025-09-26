@@ -55,13 +55,17 @@ class QuestionObserver
             return;
         }
 
-        if (! ChatGPTExplanation::query()->where('question', $previous)->exists()) {
+        $explanations = ChatGPTExplanation::query()
+            ->where('question', $trimmedPrevious)
+            ->get();
+
+        if ($explanations->isEmpty()) {
             return;
         }
 
         $hasOtherOriginal = Question::query()
             ->where('id', '!=', $question->id)
-            ->where('question', $previous)
+            ->where('question', $trimmedPrevious)
             ->exists();
 
         if ($hasOtherOriginal) {
@@ -70,16 +74,28 @@ class QuestionObserver
 
         $hasOtherCurrent = Question::query()
             ->where('id', '!=', $question->id)
-            ->where('question', $current)
+            ->where('question', $trimmedCurrent)
             ->exists();
 
         if ($hasOtherCurrent) {
             return;
         }
 
-        ChatGPTExplanation::query()
-            ->where('question', $previous)
-            ->update(['question' => $current]);
+        foreach ($explanations as $explanation) {
+            $conflictExists = ChatGPTExplanation::query()
+                ->where('id', '!=', $explanation->id)
+                ->where('question', $trimmedCurrent)
+                ->where('wrong_answer', $explanation->wrong_answer)
+                ->where('correct_answer', $explanation->correct_answer)
+                ->where('language', $explanation->language)
+                ->exists();
+
+            if ($conflictExists) {
+                continue;
+            }
+
+            $explanation->update(['question' => $trimmedCurrent]);
+        }
     }
 }
 

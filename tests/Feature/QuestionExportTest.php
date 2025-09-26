@@ -203,6 +203,42 @@ class QuestionExportTest extends TestCase
         File::delete($this->exportPathFor($question));
     }
 
+    public function test_question_text_change_skips_conflicting_chatgpt_explanations(): void
+    {
+        $this->cleanExportDirectory();
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Original question',
+            'difficulty' => 1,
+        ]);
+
+        $explanation = ChatGPTExplanation::create([
+            'question' => 'Original question',
+            'wrong_answer' => 'wrong',
+            'correct_answer' => 'right',
+            'language' => 'en',
+            'explanation' => 'Explain the rule.',
+        ]);
+
+        ChatGPTExplanation::create([
+            'question' => 'Updated question',
+            'wrong_answer' => 'wrong',
+            'correct_answer' => 'right',
+            'language' => 'en',
+            'explanation' => 'Existing explanation.',
+        ]);
+
+        $question->update(['question' => 'Updated question']);
+
+        $this->assertDatabaseHas('chatgpt_explanations', [
+            'id' => $explanation->id,
+            'question' => 'Original question',
+        ]);
+
+        File::delete($this->exportPathFor($question));
+    }
+
     public function test_updating_question_hint_exports_json_snapshot(): void
     {
         $this->cleanExportDirectory();
