@@ -174,9 +174,11 @@ class SavedTestTechnicalPageTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('Редагувати питання');
+        $response->assertSee('Видалити питання');
         $response->assertSee('Змінити');
         $response->assertSee('Редагувати відповідь');
         $response->assertSee("techEditor.editQuestion({$question->id})", false);
+        $response->assertSee("techEditor.deleteQuestion({$question->id})", false);
         $response->assertSee("techEditor.editQuestionLevel({$question->id})", false);
         $response->assertSee("techEditor.editAnswer({$question->id}, {$answer->id})", false);
         $response->assertSee("techEditor.editOption({$question->id}, {$optionGo->id})", false);
@@ -186,6 +188,166 @@ class SavedTestTechnicalPageTest extends TestCase
         if ($variant) {
             $response->assertSee("techEditor.editVariant({$question->id}, {$variant->id})", false);
         }
+    }
+
+    /** @test */
+    public function it_deletes_a_question_and_removes_unused_relations(): void
+    {
+        $category = Category::create(['name' => 'Present Simple']);
+
+        $sharedOption = QuestionOption::create(['option' => 'go']);
+        $uniqueOption = QuestionOption::create(['option' => 'goes']);
+
+        $questionToKeep = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'They {a1} to school every day.',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+        ]);
+
+        $questionToKeep->options()->attach([$sharedOption->id]);
+
+        QuestionAnswer::create([
+            'question_id' => $questionToKeep->id,
+            'marker' => 'a1',
+            'option_id' => $sharedOption->id,
+        ]);
+
+        $questionToDelete = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'I {a1} to school every day.',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+        ]);
+
+        $questionToDelete->options()->attach([$sharedOption->id, $uniqueOption->id]);
+
+        QuestionAnswer::create([
+            'question_id' => $questionToDelete->id,
+            'marker' => 'a1',
+            'option_id' => $uniqueOption->id,
+        ]);
+
+        VerbHint::create([
+            'question_id' => $questionToDelete->id,
+            'marker' => 'a1',
+            'option_id' => $uniqueOption->id,
+        ]);
+
+        QuestionHint::create([
+            'question_id' => $questionToDelete->id,
+            'provider' => 'chatgpt',
+            'locale' => 'uk',
+            'hint' => 'Використовуйте базову форму дієслова.',
+        ]);
+
+        if (Schema::hasTable('question_variants')) {
+            QuestionVariant::create([
+                'question_id' => $questionToDelete->id,
+                'text' => 'We {a1} to school every day.',
+            ]);
+        }
+
+        ChatGPTExplanation::create([
+            'question' => 'I {a1} to school every day.',
+            'wrong_answer' => 'goes',
+            'correct_answer' => 'go',
+            'language' => 'uk',
+            'explanation' => 'Форма go вживається з I.',
+        ]);
+
+        $test = Test::create([
+            'name' => 'Simple test',
+            'slug' => 'simple-test',
+            'filters' => [],
+            'questions' => [$questionToDelete->id, $questionToKeep->id],
+        ]);
+
+        $response = $this->deleteJson(route('saved-test.question.destroy', [$test->slug, $questionToDelete->id]));
+
+        $response->assertOk();
+        $this->assertDatabaseMissing('questions', ['id' => $questionToDelete->id]);
+        $this->assertDatabaseHas('questions', ['id' => $questionToKeep->id]);
+        $this->assertDatabaseMissing('question_answers', ['question_id' => $questionToDelete->id]);
+        $this->assertDatabaseMissing('verb_hints', ['question_id' => $questionToDelete->id]);
+        $this->assertDatabaseMissing('question_hints', ['question_id' => $questionToDelete->id]);
+
+        if (Schema::hasTable('question_variants')) {
+            $this->assertDatabaseMissing('question_variants', ['question_id' => $questionToDelete->id]);
+        }
+
+        $this->assertDatabaseMissing('chatgpt_explanations', ['question' => 'I {a1} to school every day.']);
+        $this->assertDatabaseMissing('question_option_question', [
+            'question_id' => $questionToDelete->id,
+            'option_id' => $sharedOption->id,
+        ]);
+        $this->assertDatabaseHas('question_option_question', [
+            'question_id' => $questionToKeep->id,
+            'option_id' => $sharedOption->id,
+        ]);
+        $this->assertDatabaseMissing('question_option_question', [
+            'question_id' => $questionToDelete->id,
+            'option_id' => $uniqueOption->id,
+        ]);
+        $this->assertDatabaseMissing('question_options', ['id' => $uniqueOption->id]);
+        $this->assertDatabaseHas('question_options', ['id' => $sharedOption->id]);
+
+        $updatedTest = $test->fresh();
+        $this->assertNotContains($questionToDelete->id, $updatedTest->questions);
+        $this->assertContains($questionToKeep->id, $updatedTest->questions);
+    }
+
+    /** @test */
+    public function it_keeps_shared_resources_when_duplicate_questions_exist(): void
+    {
+        $category = Category::create(['name' => 'Present Simple']);
+
+        $questionText = 'I {a1} to school every day.';
+
+        $firstQuestion = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => $questionText,
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+        ]);
+
+        $secondQuestion = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => $questionText,
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+        ]);
+
+        ChatGPTExplanation::create([
+            'question' => $questionText,
+            'wrong_answer' => 'goes',
+            'correct_answer' => 'go',
+            'language' => 'uk',
+            'explanation' => 'Форма go вживається з I.',
+        ]);
+
+        $test = Test::create([
+            'name' => 'Simple test',
+            'slug' => 'simple-test',
+            'filters' => [],
+            'questions' => [$firstQuestion->id, $secondQuestion->id],
+        ]);
+
+        $response = $this->deleteJson(route('saved-test.question.destroy', [$test->slug, $firstQuestion->id]));
+
+        $response->assertOk();
+
+        $this->assertDatabaseMissing('questions', ['id' => $firstQuestion->id]);
+        $this->assertDatabaseHas('questions', ['id' => $secondQuestion->id]);
+        $this->assertDatabaseHas('chatgpt_explanations', ['question' => $questionText]);
+
+        $updatedTest = $test->fresh();
+        $this->assertNotContains($firstQuestion->id, $updatedTest->questions);
+        $this->assertContains($secondQuestion->id, $updatedTest->questions);
     }
 
     private function ensureSchema(): void
@@ -207,6 +369,22 @@ class SavedTestTechnicalPageTest extends TestCase
                 $table->string('level', 2)->nullable();
                 $table->unsignedBigInteger('category_id')->nullable();
                 $table->timestamps();
+            });
+        }
+
+        if (! Schema::hasTable('tags')) {
+            Schema::create('tags', function (Blueprint $table) {
+                $table->id();
+                $table->string('name')->unique();
+                $table->string('category')->nullable();
+                $table->timestamps();
+            });
+        }
+
+        if (! Schema::hasTable('question_tag')) {
+            Schema::create('question_tag', function (Blueprint $table) {
+                $table->unsignedBigInteger('question_id');
+                $table->unsignedBigInteger('tag_id');
             });
         }
 
@@ -309,6 +487,8 @@ class SavedTestTechnicalPageTest extends TestCase
             'questions',
             'categories',
             'tests',
+            'question_tag',
+            'tags',
         ] as $table) {
             if (Schema::hasTable($table)) {
                 DB::table($table)->delete();

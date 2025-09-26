@@ -224,7 +224,7 @@
                         <span>ID: {{ $question->id }}</span>
                     </div>
                     <p class="mt-2 text-lg leading-relaxed text-stone-900" data-question-text>{!! $filledQuestion !!}</p>
-                    <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-blue-600">
+                    <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold">
                         <button type="button"
                                 class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-blue-700 hover:bg-blue-100"
                                 onclick="techEditor.editQuestion({{ $question->id }})">
@@ -232,6 +232,14 @@
                                 <path d="M15.728 2.272a2.625 2.625 0 0 1 0 3.712l-8.1 8.1a3.5 3.5 0 0 1-1.563.888l-2.82.705a.625.625 0 0 1-.757-.757l.706-2.82a3.5 3.5 0 0 1 .888-1.564l8.1-8.1a2.625 2.625 0 0 1 3.712 0Zm-2.65 1.062-8.1 8.1a2.25 2.25 0 0 0-.57 1.006l-.46 1.838 1.838-.46a2.25 2.25 0 0 0 1.006-.57l8.1-8.1a1.375 1.375 0 1 0-1.94-1.94Z" />
                             </svg>
                             <span>Редагувати питання</span>
+                        </button>
+                        <button type="button"
+                                class="inline-flex items-center gap-1 rounded-full bg-red-50 px-3 py-1 text-red-700 hover:bg-red-100"
+                                onclick="techEditor.deleteQuestion({{ $question->id }})">
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M7.5 3a1.5 1.5 0 0 1 1.5-1.5h2a1.5 1.5 0 0 1 1.5 1.5H15a.75.75 0 0 1 0 1.5h-.556l-.67 10.057A2.25 2.25 0 0 1 11.53 16.75H8.47a2.25 2.25 0 0 1-2.244-2.193L5.556 4.5H5a.75.75 0 0 1 0-1.5h2.5Zm3.75 3a.75.75 0 0 1 1.5 0l-.375 7.5a.75.75 0 0 1-1.5 0l.375-7.5Zm-3 0a.75.75 0 1 0-1.5 0l.375 7.5a.75.75 0 0 0 1.5 0l-.375-7.5Z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Видалити питання</span>
                         </button>
                     </div>
                 </div>
@@ -535,6 +543,7 @@
             questionHint: '{{ url('/question-hints') }}',
             verbHint: '{{ url('/verb-hints') }}',
             chatgptExplanation: '{{ url('/chatgpt-explanations') }}',
+            deleteQuestion: '{{ url('/test/' . $test->slug . '/question') }}',
         };
 
         const cefrLevels = @json($cefrLevels);
@@ -965,6 +974,24 @@
             }
         }
 
+        function showEmptyState() {
+            const container = getQuestionsContainer();
+
+            if (!container) {
+                return;
+            }
+
+            if (container.querySelector('[data-question-id]') || container.querySelector('[data-empty-state]')) {
+                return;
+            }
+
+            const placeholder = document.createElement('div');
+            placeholder.className = 'rounded-2xl border border-dashed border-stone-200 bg-white/60 p-6 text-center text-sm text-stone-500';
+            placeholder.setAttribute('data-empty-state', '');
+            placeholder.textContent = 'Ще немає жодного питання у цьому тесті.';
+            container.appendChild(placeholder);
+        }
+
         function updateQuestionCount() {
             const countElement = getQuestionCountElement();
             const container = getQuestionsContainer();
@@ -1035,7 +1062,7 @@
                             <span>ID: ${question.id}</span>
                         </div>
                         <p class="mt-2 text-lg leading-relaxed text-stone-900" data-question-text>${questionText}</p>
-                        <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold text-blue-600">
+                        <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold">
                             <button type="button"
                                 class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-blue-700 hover:bg-blue-100"
                                 onclick="techEditor.editQuestion(${question.id})">
@@ -1043,6 +1070,14 @@
                                     <path d="M15.728 2.272a2.625 2.625 0 0 1 0 3.712l-8.1 8.1a3.5 3.5 0 0 1-1.563.888l-2.82.705a.625.625 0 0 1-.757-.757l.706-2.82a3.5 3.5 0 0 1 .888-1.564l8.1-8.1a2.625 2.625 0 0 1 3.712 0Zm-2.65 1.062-8.1 8.1a2.25 2.25 0 0 0-.57 1.006l-.46 1.838 1.838-.46a2.25 2.25 0 0 0 1.006-.57l8.1-8.1a1.375 1.375 0 1 0-1.94-1.94Z" />
                                 </svg>
                                 <span>Редагувати питання</span>
+                            </button>
+                            <button type="button"
+                                class="inline-flex items-center gap-1 rounded-full bg-red-50 px-3 py-1 text-red-700 hover:bg-red-100"
+                                onclick="techEditor.deleteQuestion(${question.id})">
+                                <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M7.5 3a1.5 1.5 0 0 1 1.5-1.5h2a1.5 1.5 0 0 1 1.5 1.5H15a.75.75 0 0 1 0 1.5h-.556l-.67 10.057A2.25 2.25 0 0 1 11.53 16.75H8.47a2.25 2.25 0 0 1-2.244-2.193L5.556 4.5H5a.75.75 0 0 1 0-1.5h2.5Zm3.75 3a.75.75 0 0 1 1.5 0l-.375 7.5a.75.75 0 0 1-1.5 0l.375-7.5Zm-3 0a.75.75 0 1 0-1.5 0l.375 7.5a.75.75 0 0 0 1.5 0l-.375-7.5Z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Видалити питання</span>
                             </button>
                         </div>
                     </div>
@@ -1261,6 +1296,29 @@
             updateQuestionCount();
 
             return { entry, isNew: isNewEntry };
+        }
+
+        function removeQuestion(questionId) {
+            const entry = state.get(questionId);
+
+            if (entry && entry.element) {
+                entry.element.remove();
+            } else {
+                const element = document.querySelector(`[data-question-id="${questionId}"]`);
+                if (element) {
+                    element.remove();
+                }
+            }
+
+            state.delete(questionId);
+
+            const container = getQuestionsContainer();
+            if (!container || !container.querySelector('[data-question-id]')) {
+                showEmptyState();
+            }
+
+            refreshQuestionNumbers();
+            updateQuestionCount();
         }
 
         function clearError() {
@@ -1510,6 +1568,17 @@
                             .then(applyQuestionData);
                     },
                 });
+            },
+            deleteQuestion(questionId) {
+                if (!window.confirm('Видалити це питання?')) {
+                    return;
+                }
+
+                return sendMutation(`${routes.deleteQuestion}/${questionId}`, {}, 'DELETE')
+                    .then(() => {
+                        removeQuestion(questionId);
+                    })
+                    .catch(error => window.alert(error.message || 'Не вдалося видалити питання.'));
             },
             editQuestionLevel(questionId) {
                 const entry = state.get(questionId);
