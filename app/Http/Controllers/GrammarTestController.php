@@ -15,6 +15,11 @@ use App\Models\Tag;
 use App\Models\ChatGPTExplanation;
 use App\Services\QuestionVariantService;
 use App\Models\QuestionHint;
+use App\Models\QuestionAnswer;
+use App\Models\QuestionOption;
+use App\Models\QuestionVariant;
+use App\Models\VerbHint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\ValidationException;
 
@@ -773,14 +778,98 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-test.step', $slug);
     }
 
-    public function deleteQuestion($slug, Question $question)
+    public function deleteQuestion(Request $request, $slug, Question $question)
     {
         $test = Test::where('slug', $slug)->firstOrFail();
-        $test->questions = array_values(array_filter(
-            $test->questions,
-            fn ($id) => (int) $id !== $question->id
-        ));
-        $test->save();
+        if (! in_array($question->id, $test->questions, true)) {
+            abort(404);
+        }
+
+        DB::transaction(function () use ($test, $question) {
+            $test->questions = array_values(array_filter(
+                $test->questions,
+                fn ($id) => (int) $id !== $question->id
+            ));
+            $test->save();
+
+            $optionIds = collect();
+
+            if (Schema::hasTable('question_option_question')) {
+                $optionIds = $optionIds->merge(
+                    DB::table('question_option_question')
+                        ->where('question_id', $question->id)
+                        ->pluck('option_id')
+                );
+
+                DB::table('question_option_question')
+                    ->where('question_id', $question->id)
+                    ->delete();
+            }
+
+            if (Schema::hasTable('question_answers')) {
+                $optionIds = $optionIds->merge(
+                    QuestionAnswer::query()
+                        ->where('question_id', $question->id)
+                        ->pluck('option_id')
+                );
+
+                QuestionAnswer::query()
+                    ->where('question_id', $question->id)
+                    ->delete();
+            }
+
+            if (Schema::hasTable('verb_hints')) {
+                $optionIds = $optionIds->merge(
+                    VerbHint::query()
+                        ->where('question_id', $question->id)
+                        ->pluck('option_id')
+                );
+
+                VerbHint::query()
+                    ->where('question_id', $question->id)
+                    ->delete();
+            }
+
+            if (Schema::hasTable('question_hints')) {
+                QuestionHint::query()
+                    ->where('question_id', $question->id)
+                    ->delete();
+            }
+
+            if (Schema::hasTable('question_variants')) {
+                QuestionVariant::query()
+                    ->where('question_id', $question->id)
+                    ->delete();
+            }
+
+            $questionText = trim((string) $question->question);
+            $hasDuplicateText = $questionText !== '' && Question::query()
+                ->where('id', '!=', $question->id)
+                ->where('question', $questionText)
+                ->exists();
+
+            $question->tags()->detach();
+            $question->delete();
+
+            if ($questionText !== '' && Schema::hasTable('chatgpt_explanations') && ! $hasDuplicateText) {
+                ChatGPTExplanation::query()
+                    ->where('question', $questionText)
+                    ->delete();
+            }
+
+            $optionIds->filter()->unique()->each(function ($optionId) {
+                $stillUsed = (Schema::hasTable('question_answers')
+                        && QuestionAnswer::query()->where('option_id', $optionId)->exists())
+                    || (Schema::hasTable('verb_hints')
+                        && VerbHint::query()->where('option_id', $optionId)->exists())
+                    || (Schema::hasTable('question_option_question')
+                        && DB::table('question_option_question')->where('option_id', $optionId)->exists());
+
+                if (! $stillUsed) {
+                    QuestionOption::query()->where('id', $optionId)->delete();
+                }
+            });
+        });
 
         $key = 'step_' . $test->slug;
         $queue = session($key . '_queue', []);
@@ -795,6 +884,10 @@ class GrammarTestController extends Controller
         session([$key . '_queue' => $queue, $key . '_index' => $index]);
         if (session()->has($key . '_total')) {
             session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
+        }
+
+        if ($request->wantsJson()) {
+            return response()->json(['status' => 'ok']);
         }
 
         return redirect()->back();
