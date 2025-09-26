@@ -12,7 +12,8 @@ use App\Services\QuestionSeedingService;
 use Database\Seeders\QuestionSeeder;
 
 class FutureTensesComprehensiveAiSeeder extends QuestionSeeder
-{
+{ 
+    
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Future Tenses Comprehensive AI Test'])->id;
