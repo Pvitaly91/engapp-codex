@@ -234,6 +234,14 @@
                             <span>Редагувати питання</span>
                         </button>
                         <button type="button"
+                                class="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-amber-700 hover:bg-amber-100"
+                                onclick="techEditor.exportQuestion({{ $question->id }})">
+                            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M3 3.75A.75.75 0 0 1 3.75 3h12.5a.75.75 0 0 1 .75.75V8a.75.75 0 0 1-1.5 0V4.5h-10v3.5a.75.75 0 0 1-1.5 0V3.75Zm6.22 6.97a.75.75 0 0 1 1.06 0l2.5 2.5a.75.75 0 1 1-1.06 1.06l-1.22-1.22v3.69a.75.75 0 0 1-1.5 0v-3.69l-1.22 1.22a.75.75 0 0 1-1.06-1.06l2.5-2.5ZM3 17.25a.75.75 0 0 1 .75-.75h12.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Експорт JSON</span>
+                        </button>
+                        <button type="button"
                                 class="inline-flex items-center gap-1 rounded-full bg-red-50 px-3 py-1 text-red-700 hover:bg-red-100"
                                 onclick="techEditor.deleteQuestion({{ $question->id }})">
                             <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -1579,6 +1587,28 @@
                         removeQuestion(questionId);
                     })
                     .catch(error => window.alert(error.message || 'Не вдалося видалити питання.'));
+            },
+            exportQuestion(questionId) {
+                const entry = state.get(questionId);
+                if (!entry) {
+                    return;
+                }
+
+                const questionData = entry.data || {};
+                const json = JSON.stringify(questionData, null, 2);
+                const blob = new Blob([json], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                const fileName = `question-${questionId}.json`;
+
+                link.href = url;
+                link.download = fileName;
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                window.setTimeout(() => URL.revokeObjectURL(url), 0);
             },
             editQuestionLevel(questionId) {
                 const entry = state.get(questionId);
