@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Question;
+use App\Models\SavedGrammarTest;
 use App\Models\Test;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
@@ -36,7 +37,7 @@ class QuestionVariantService
         return $variants;
     }
 
-    public function applyRandomVariant(Test $test, Question $question, ?string $previousVariant = null): void
+    public function applyRandomVariant(Test|SavedGrammarTest $test, Question $question, ?string $previousVariant = null): void
     {
         if (! $this->supportsVariants()) {
             return;
@@ -78,7 +79,7 @@ class QuestionVariantService
         $question->setAttribute('question', $choice);
     }
 
-    public function applyRandomVariants(Test $test, Collection $questions, array $previousVariants = []): Collection
+    public function applyRandomVariants(Test|SavedGrammarTest $test, Collection $questions, array $previousVariants = []): Collection
     {
         if (! $this->supportsVariants()) {
             return $questions;

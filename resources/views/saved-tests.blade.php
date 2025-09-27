@@ -21,9 +21,16 @@
                     <a href="{{ route('saved-test.show', $test->slug) }}" class="text-lg text-blue-700 font-semibold hover:underline">
                         {{ $test->name }}
                     </a>
+                    @php
+                        $questionsAttribute = $test->questions;
+                        if (! is_array($questionsAttribute) && is_string($questionsAttribute)) {
+                            $questionsAttribute = json_decode($questionsAttribute, true) ?? [];
+                        }
+                        $questionCount = $test->question_count ?? (is_array($questionsAttribute) ? count($questionsAttribute) : 0);
+                    @endphp
                     <div class="text-xs text-gray-500 flex gap-3">
                         <span>Створено: {{ $test->created_at->format('d.m.Y H:i') }}</span>
-                        <span>Питань: {{ is_array($test->questions) ? count($test->questions) : (is_string($test->questions) ? count(json_decode($test->questions, true) ?? []) : 0) }}</span>
+                        <span>Питань: {{ $questionCount }}</span>
                     </div>
                     @if($test->description)
                         <div class="test-description text-sm text-gray-800 mt-1">{{ \Illuminate\Support\Str::limit($test->description, 120) }}</div>
@@ -32,7 +39,7 @@
                 <div class="flex gap-2">
                     <a href="{{ route('saved-test.show', $test->slug) }}"
                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded-2xl text-sm font-semibold">Пройти тест</a>
-                    <form action="{{ route('saved-tests.destroy', $test->id) }}" method="POST"
+                    <form action="{{ route('saved-tests.destroy', $test->slug) }}" method="POST"
                           onsubmit="return confirm('Видалити цей тест?');" class="inline">
                         @csrf
                         @method('DELETE')

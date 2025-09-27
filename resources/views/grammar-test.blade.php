@@ -5,10 +5,15 @@
 @section('content')
 <div class="max-w-3xl mx-auto p-4">
     @php
-        $autocompleteRoute = url('/api/search?lang=en');
-        $checkOneRoute = route('grammar-test.checkOne');
-        $sources = \App\Models\Source::orderBy('name')->get();
-    @endphp
+    $autocompleteRoute = url('/api/search?lang=en');
+    $checkOneRoute = route('grammar-test.checkOne');
+    $sources = \App\Models\Source::orderBy('name')->get();
+    $generateRoute = $generateRoute ?? route('grammar-test.generate');
+    $saveRoute = $saveRoute ?? route('grammar-test.save');
+    $savePayloadField = $savePayloadField ?? 'questions';
+    $savePayloadKey = $savePayloadKey ?? 'id';
+    $questions = collect($questions ?? []);
+@endphp
     
         <div class="flex items-center justify-between mb-6">
             <h1 class="text-2xl font-bold">Конструктор тесту</h1>
@@ -20,7 +25,7 @@
     
     
     {{-- Конструктор тесту --}}
-    <form action="{{ route('grammar-test.generate') }}" method="POST" class="mb-8 space-y-4 bg-white shadow rounded-2xl p-4">
+    <form action="{{ $generateRoute }}" method="POST" class="mb-8 space-y-4 bg-white shadow rounded-2xl p-4">
         @csrf
         <div>
             <label class="block font-bold mb-1">Часи (категорії):</label>
@@ -255,7 +260,7 @@
 
         @if(!empty($questions) && count($questions))
         <div class="mb-4 mt-6">
-            <form action="{{ route('grammar-test.save') }}" method="POST" class="flex items-center gap-3">
+            <form action="{{ $saveRoute }}" method="POST" class="flex items-center gap-3">
                 @csrf
                 <input type="hidden" name="filters" value="{{ htmlentities(json_encode([
                     'categories' => $selectedCategories,
@@ -270,7 +275,7 @@
                     'only_ai' => $onlyAi ?? false,
                     'levels' => $selectedLevels ?? []
                 ])) }}">
-                <input type="hidden" name="questions" value="{{ htmlentities(json_encode($questions->pluck('id'))) }}">
+                <input type="hidden" name="{{ $savePayloadField }}" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
                 <input type="text" name="name" value="{{$autoTestName}}" placeholder="Назва тесту" required autocomplete="off"
                     class="border rounded px-2 py-1 w-72">
                 <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-2xl shadow font-semibold">

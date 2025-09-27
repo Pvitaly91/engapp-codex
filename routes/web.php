@@ -63,11 +63,14 @@ Route::post('/translate/test2/reset', [SentenceTranslationTestController::class,
 
 Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
 Route::post('/grammar-test', [GrammarTestController::class, 'generate'])->name('grammar-test.generate');
+Route::get('/grammar-test/v2', [GrammarTestController::class, 'indexV2'])->name('grammar-test.v2');
+Route::post('/grammar-test/v2', [GrammarTestController::class, 'generateV2'])->name('grammar-test-v2.generate');
 Route::post('/grammar-test-check', [GrammarTestController::class, 'check'])->name('grammar-test.check');
 Route::get('/grammar-test-autocomplete', [GrammarTestController::class, 'autocomplete'])->name('grammar-test.autocomplete');
 Route::post('/grammar-test-check-answer', [GrammarTestController::class, 'checkOneAnswer'])->name('grammar-test.checkOne');
 
 Route::post('/grammar-test-save', [GrammarTestController::class, 'save'])->name('grammar-test.save');
+Route::post('/grammar-test-v2-save', [GrammarTestController::class, 'saveV2'])->name('grammar-test-v2.save');
 Route::post('/test/{slug}/js/state', [GrammarTestController::class, 'storeSavedTestJsState'])->name('saved-test.js.state');
 Route::get('/test/{slug}/js/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->name('saved-test.js.questions');
 Route::get('/test/{slug}/js', [GrammarTestController::class, 'showSavedTestJs'])->name('saved-test.js');
@@ -96,7 +99,7 @@ Route::post('/test/{slug}/step/add-tag', [GrammarTestController::class, 'addTag'
 Route::delete('/test/{slug}/step/remove-tag', [GrammarTestController::class, 'removeTag'])->name('saved-test.step.remove-tag');
 Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
 Route::get('/tests', [\App\Http\Controllers\GrammarTestController::class, 'list'])->name('saved-tests.list');
-Route::delete('/tests/{test}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
+Route::delete('/tests/{slug}', [\App\Http\Controllers\GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 Route::get('/tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
 Route::get('/catalog-tests/cards', [\App\Http\Controllers\GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
 
