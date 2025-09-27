@@ -20,6 +20,7 @@ use App\Models\QuestionOption;
 use App\Models\QuestionVariant;
 use App\Models\VerbHint;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\ValidationException;
 
@@ -785,6 +786,8 @@ class GrammarTestController extends Controller
             abort(404);
         }
 
+        $deletedQuestionUuid = (string) $question->uuid;
+
         DB::transaction(function () use ($test, $question) {
             $test->questions = array_values(array_filter(
                 $test->questions,
@@ -871,6 +874,10 @@ class GrammarTestController extends Controller
             });
         });
 
+        if ($deletedQuestionUuid !== '') {
+            $this->appendDeletedQuestionUuid($deletedQuestionUuid);
+        }
+
         $key = 'step_' . $test->slug;
         $queue = session($key . '_queue', []);
         $index = session($key . '_index', 0);
@@ -891,6 +898,32 @@ class GrammarTestController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    private function appendDeletedQuestionUuid(string $uuid): void
+    {
+        $path = database_path('seeders/questions/deleted-questions.json');
+
+        File::ensureDirectoryExists(dirname($path));
+
+        $existing = [];
+        if (File::exists($path)) {
+            $decoded = json_decode(File::get($path), true);
+            if (is_array($decoded)) {
+                $existing = array_values(array_filter($decoded, fn ($value) => is_string($value) && $value !== ''));
+            }
+        }
+
+        if (in_array($uuid, $existing, true)) {
+            return;
+        }
+
+        $existing[] = $uuid;
+
+        File::put(
+            $path,
+            json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL
+        );
     }
 
     public function show(Request $request)
