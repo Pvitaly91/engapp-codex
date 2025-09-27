@@ -27,6 +27,21 @@
                 + Нове питання
             </button>
             <button type="button"
+                    class="px-3 py-1.5 rounded-2xl border border-emerald-500 bg-emerald-500 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"
+                    onclick="techEditor.restoreAllQuestions()">
+                Відновити всі питання
+            </button>
+            <label class="flex items-center gap-2 rounded-2xl border border-stone-200 bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 shadow-sm">
+                <input type="checkbox" class="h-4 w-4 rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
+                       data-restore-include-deleted>
+                <span>Ігнорувати deleted-questions.json</span>
+            </label>
+            <button type="button"
+                    class="px-3 py-1.5 rounded-2xl border border-emerald-600 bg-emerald-600 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700"
+                    onclick="techEditor.restoreQuestionByUuid()">
+                Відновити за UUID
+            </button>
+            <button type="button"
                     class="px-3 py-1.5 rounded-2xl border border-amber-500 bg-amber-500 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-600"
                     onclick="techEditor.exportQuestionByUuid()">
                 Експорт за UUID
@@ -558,6 +573,8 @@
             chatgptExplanation: '{{ url('/chatgpt-explanations') }}',
             deleteQuestion: '{{ url('/test/' . $test->slug . '/question') }}',
             exportQuestionByUuid: '{{ route('questions.export-by-uuid') }}',
+            restoreQuestionsFromDumps: '{{ route('questions.restore-from-dumps') }}',
+            restoreQuestionByUuid: '{{ route('questions.restore-by-uuid') }}',
         };
 
         const cefrLevels = @json($cefrLevels);
@@ -1606,6 +1623,67 @@
                         removeQuestion(questionId);
                     })
                     .catch(error => window.alert(error.message || 'Не вдалося видалити питання.'));
+            },
+            restoreAllQuestions() {
+                const checkbox = document.querySelector('[data-restore-include-deleted]');
+                const includeDeleted = checkbox ? Boolean(checkbox.checked) : false;
+
+                return sendMutation(routes.restoreQuestionsFromDumps, { include_deleted: includeDeleted }, 'POST')
+                    .then(response => {
+                        let message = 'Відновлення завершено.';
+
+                        if (response && typeof response.message === 'string') {
+                            const trimmed = response.message.trim();
+
+                            if (trimmed !== '') {
+                                message = trimmed;
+                            }
+                        }
+
+                        window.alert(message);
+
+                        return null;
+                    })
+                    .catch(error => window.alert(error.message || 'Не вдалося відновити питання з дампів.'));
+            },
+            restoreQuestionByUuid() {
+                openModal({
+                    title: 'Відновити питання за UUID',
+                    fields: [
+                        {
+                            name: 'uuid',
+                            label: 'UUID питання',
+                            type: 'text',
+                            required: true,
+                            placeholder: 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        const uuid = typeof values.uuid === 'string' ? values.uuid.trim() : '';
+
+                        if (!uuid) {
+                            return Promise.reject(new Error('Введіть UUID питання.'));
+                        }
+
+                        return sendMutation(routes.restoreQuestionByUuid, { uuid }, 'POST')
+                            .then(response => {
+                                let message = 'Питання відновлено.';
+
+                                if (response && typeof response.message === 'string') {
+                                    const trimmed = response.message.trim();
+
+                                    if (trimmed !== '') {
+                                        message = trimmed;
+                                    }
+                                }
+
+                                window.alert(message);
+
+                                return null;
+                            });
+                    },
+                });
             },
             exportQuestionByUuid() {
                 openModal({

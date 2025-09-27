@@ -140,6 +140,8 @@ Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])-
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
 Route::post('/questions/{question}/export', [QuestionController::class, 'export'])->name('questions.export');
 Route::post('/questions/export/by-uuid', [QuestionController::class, 'exportByUuid'])->name('questions.export-by-uuid');
+Route::post('/questions/restore/from-dumps', [QuestionController::class, 'restoreFromDumps'])->name('questions.restore-from-dumps');
+Route::post('/questions/restore/by-uuid', [QuestionController::class, 'restoreByUuid'])->name('questions.restore-by-uuid');
 Route::post('/question-answers', [QuestionAnswerController::class, 'store'])->name('question-answers.store');
 Route::put('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'update'])->name('question-answers.update');
 Route::delete('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'destroy'])->name('question-answers.destroy');

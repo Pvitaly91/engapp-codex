@@ -6,8 +6,11 @@ use App\Http\Resources\TechnicalQuestionResource;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Services\QuestionExportService;
+use App\Services\QuestionImportService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use RuntimeException;
+use Throwable;
 
 class QuestionController extends Controller
 {
@@ -87,4 +90,84 @@ class QuestionController extends Controller
         ]);
     }
 
+    public function restoreFromDumps(Request $request): JsonResponse
+    {
+        $data = $request->validate([
+            'include_deleted' => ['sometimes', 'boolean'],
+        ]);
+
+        $includeDeleted = (bool) ($data['include_deleted'] ?? false);
+
+        try {
+            $result = app(QuestionImportService::class)->restoreAll($includeDeleted);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (Throwable $exception) {
+            report($exception);
+
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Сталася неочікувана помилка під час відновлення питань.',
+            ], 500);
+        }
+
+        $restoredCount = count($result['restored'] ?? []);
+        $skippedCount = count($result['skipped'] ?? []);
+        $errorCount = count($result['errors'] ?? []);
+
+        if ($restoredCount === 0 && $skippedCount === 0 && $errorCount === 0) {
+            $message = 'Доступні дампи не знайдено.';
+        } else {
+            $parts = [];
+            $parts[] = 'Відновлено: ' . $restoredCount;
+            $parts[] = ($includeDeleted ? 'Пропущено' : 'Пропущено (у списку видалених)') . ': ' . $skippedCount;
+
+            if ($errorCount > 0) {
+                $parts[] = 'З помилками: ' . $errorCount;
+            }
+
+            $message = implode('; ', $parts) . '.';
+        }
+
+        return response()->json([
+            'status' => $errorCount > 0 ? 'partial' : 'ok',
+            'message' => $message,
+            'details' => $result,
+        ]);
+    }
+
+    public function restoreByUuid(Request $request): JsonResponse
+    {
+        $data = $request->validate([
+            'uuid' => ['required', 'string'],
+        ]);
+
+        try {
+            $question = app(QuestionImportService::class)->restoreByUuid($data['uuid']);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (Throwable $exception) {
+            report($exception);
+
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Сталася неочікувана помилка під час відновлення питання.',
+            ], 500);
+        }
+
+        return response()->json([
+            'status' => 'ok',
+            'message' => 'Питання відновлено.',
+            'question' => [
+                'id' => $question->id,
+                'uuid' => $question->uuid,
+            ],
+        ]);
+    }
 }
