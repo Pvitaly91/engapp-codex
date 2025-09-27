@@ -27,8 +27,8 @@
 
     <form action="{{ $generateRoute }}" method="POST" class="bg-white shadow rounded-2xl p-4 sm:p-6">
         @csrf
-        <div class="grid gap-6 lg:grid-cols-[minmax(0,320px)_1fr]">
-            <div class="space-y-6">
+        <div class="grid gap-6 lg:grid-cols-[minmax(0,360px)_1fr]">
+            <div class="space-y-6 lg:w-[360px]">
                 <div>
                     <h2 class="text-sm font-semibold text-gray-700 mb-3">Часи (категорії)</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
