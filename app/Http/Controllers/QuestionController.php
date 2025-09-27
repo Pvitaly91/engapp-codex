@@ -64,4 +64,27 @@ class QuestionController extends Controller
         ]);
     }
 
+    public function exportByUuid(Request $request): JsonResponse
+    {
+        $data = $request->validate([
+            'uuid' => ['required', 'string'],
+        ]);
+
+        $question = Question::where('uuid', $data['uuid'])->first();
+
+        if (! $question) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Питання з таким UUID не знайдено.',
+            ], 404);
+        }
+
+        app(QuestionExportService::class)->export($question->fresh());
+
+        return response()->json([
+            'status' => 'ok',
+            'message' => 'Дамп питання оновлено.',
+        ]);
+    }
+
 }

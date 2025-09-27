@@ -26,6 +26,11 @@
                     onclick="techEditor.createQuestion()">
                 + Нове питання
             </button>
+            <button type="button"
+                    class="px-3 py-1.5 rounded-2xl border border-amber-500 bg-amber-500 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-600"
+                    onclick="techEditor.exportQuestionByUuid()">
+                Експорт за UUID
+            </button>
         </div>
     </div>
 
@@ -552,6 +557,7 @@
             verbHint: '{{ url('/verb-hints') }}',
             chatgptExplanation: '{{ url('/chatgpt-explanations') }}',
             deleteQuestion: '{{ url('/test/' . $test->slug . '/question') }}',
+            exportQuestionByUuid: '{{ route('questions.export-by-uuid') }}',
         };
 
         const cefrLevels = @json($cefrLevels);
@@ -1511,12 +1517,25 @@
                 }
 
                 let message = 'Не вдалося зберегти зміни.';
+                let data = null;
 
-                if (response.status === 422 && contentType.includes('application/json')) {
-                    const data = await response.json();
+                if (contentType.includes('application/json')) {
+                    try {
+                        data = await response.json();
+                    } catch (error) {
+                        data = null;
+                    }
+                }
+
+                if (response.status === 422 && data && typeof data === 'object') {
                     const errors = data.errors ? Object.values(data.errors).flat() : [];
                     if (errors.length) {
                         message = errors.join(' ');
+                    }
+                } else if (data && typeof data === 'object' && typeof data.message === 'string') {
+                    const trimmed = data.message.trim();
+                    if (trimmed !== '') {
+                        message = trimmed;
                     }
                 }
 
@@ -1587,6 +1606,45 @@
                         removeQuestion(questionId);
                     })
                     .catch(error => window.alert(error.message || 'Не вдалося видалити питання.'));
+            },
+            exportQuestionByUuid() {
+                openModal({
+                    title: 'Експорт питання за UUID',
+                    fields: [
+                        {
+                            name: 'uuid',
+                            label: 'UUID питання',
+                            type: 'text',
+                            required: true,
+                            placeholder: 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+                            autocomplete: 'off',
+                        },
+                    ],
+                    onSubmit(values) {
+                        const uuid = typeof values.uuid === 'string' ? values.uuid.trim() : '';
+
+                        if (!uuid) {
+                            return Promise.reject(new Error('Введіть UUID питання.'));
+                        }
+
+                        return sendMutation(routes.exportQuestionByUuid, { uuid }, 'POST')
+                            .then(response => {
+                                let message = 'Дамп питання оновлено.';
+
+                                if (response && typeof response.message === 'string') {
+                                    const trimmed = response.message.trim();
+
+                                    if (trimmed !== '') {
+                                        message = trimmed;
+                                    }
+                                }
+
+                                window.alert(message);
+
+                                return null;
+                            });
+                    },
+                });
             },
             exportQuestion(questionId) {
                 if (!state.has(questionId)) {
