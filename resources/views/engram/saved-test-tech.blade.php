@@ -222,6 +222,7 @@
 
             $techQuestionData = [
                 'id' => $question->id,
+                'uuid' => $question->uuid,
                 'question' => $question->question,
                 'level' => $questionLevel,
                 'answers' => $answersData->toArray(),
@@ -238,12 +239,16 @@
                  data-question-id="{{ $question->id }}"
                  data-question='@json($techQuestionData)'>
             <header class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-                <div>
-                    <div class="flex items-baseline gap-3 text-sm text-stone-500">
-                        <span class="font-semibold uppercase tracking-wide">Питання <span data-question-number>{{ $loop->iteration }}</span></span>
-                        <span>ID: {{ $question->id }}</span>
-                    </div>
-                    <p class="mt-2 text-lg leading-relaxed text-stone-900" data-question-text>{!! $filledQuestion !!}</p>
+                    <div>
+                        <div class="flex items-baseline gap-3 text-sm text-stone-500">
+                            <span class="font-semibold uppercase tracking-wide">Питання <span data-question-number>{{ $loop->iteration }}</span></span>
+                            <span>ID: {{ $question->id }}</span>
+                            <span class="flex items-center gap-1 font-mono text-[11px] uppercase tracking-wide text-stone-400 break-all">
+                                <span>UUID:</span>
+                                <span data-question-uuid>{{ $question->uuid ?? '—' }}</span>
+                            </span>
+                        </div>
+                        <p class="mt-2 text-lg leading-relaxed text-stone-900" data-question-text>{!! $filledQuestion !!}</p>
                     <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold">
                         <button type="button"
                                 class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-blue-700 hover:bg-blue-100"
@@ -1069,6 +1074,9 @@
             const questionText = highlightSegments(question.question ?? '', answersMap);
             const levelValue = typeof question.level === 'string' && question.level.trim() !== '' ? question.level : null;
             const levelLabel = levelValue || 'N/A';
+            const questionUuid = typeof question.uuid === 'string' && question.uuid.trim() !== ''
+                ? escapeHtml(question.uuid)
+                : '—';
             const questionIndex = container.querySelectorAll('[data-question-id]').length + 1;
             const variantsHtml = renderVariantsSection(question);
             const answersHtml = renderAnswersHtml(question);
@@ -1091,6 +1099,10 @@
                         <div class="flex items-baseline gap-3 text-sm text-stone-500">
                             <span class="font-semibold uppercase tracking-wide">Питання <span data-question-number>${questionIndex}</span></span>
                             <span>ID: ${question.id}</span>
+                            <span class="flex items-center gap-1 font-mono text-[11px] uppercase tracking-wide text-stone-400 break-all">
+                                <span>UUID:</span>
+                                <span data-question-uuid>${questionUuid}</span>
+                            </span>
                         </div>
                         <p class="mt-2 text-lg leading-relaxed text-stone-900" data-question-text>${questionText}</p>
                         <div class="mt-2 flex flex-wrap gap-2 text-xs font-semibold">
@@ -1291,6 +1303,14 @@
                     : null;
 
                 levelEl.textContent = levelValue || 'N/A';
+            }
+
+            const uuidEl = entry.element.querySelector('[data-question-uuid]');
+            if (uuidEl) {
+                const uuidValue = typeof questionData.uuid === 'string' && questionData.uuid.trim() !== ''
+                    ? questionData.uuid.trim()
+                    : '—';
+                uuidEl.textContent = uuidValue;
             }
 
             const variantsSection = entry.element.querySelector('[data-variants-section]');

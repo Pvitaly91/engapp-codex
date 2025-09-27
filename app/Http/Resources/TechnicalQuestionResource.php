@@ -181,6 +181,7 @@ class TechnicalQuestionResource extends JsonResource
 
         return [
             'id' => $question->id,
+            'uuid' => $question->uuid,
             'question' => $question->question,
             'level' => $question->level,
             'answers' => $answers->all(),

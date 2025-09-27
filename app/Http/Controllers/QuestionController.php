@@ -9,6 +9,7 @@ use App\Services\QuestionExportService;
 use App\Services\QuestionImportService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use RuntimeException;
 use Throwable;
 
@@ -38,7 +39,11 @@ class QuestionController extends Controller
                 }
 
                 // Sync "level" field in ChatGPTExplanation if it was updated
-                if (array_key_exists('level', $data)) {
+                if (
+                    array_key_exists('level', $data)
+                    && Schema::hasTable('chatgpt_explanations')
+                    && Schema::hasColumn('chatgpt_explanations', 'level')
+                ) {
                     ChatGPTExplanation::where('question', $data['question'] ?? $oldQuestion)
                         ->update(['level' => $data['level']]);
                 }
