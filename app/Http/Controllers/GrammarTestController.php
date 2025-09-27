@@ -1057,7 +1057,11 @@ class GrammarTestController extends Controller
     {
         $data = $this->prepareGenerateData($request);
 
-        return view('grammar-test', array_merge($data, $this->uuidBuilderConfig()));
+        return view('grammar-test-v2', array_merge(
+            $data,
+            $this->uuidBuilderConfig(),
+            $this->uuidFormExtras()
+        ));
     }
     
     public function destroy(string $slug)
@@ -1125,7 +1129,11 @@ class GrammarTestController extends Controller
 
     public function indexV2()
     {
-        return view('grammar-test', array_merge($this->defaultFormState(), $this->uuidBuilderConfig()));
+        return view('grammar-test-v2', array_merge(
+            $this->defaultFormState(),
+            $this->uuidBuilderConfig(),
+            $this->uuidFormExtras()
+        ));
     }
 
     public function check(Request $request)
@@ -1315,6 +1323,76 @@ class GrammarTestController extends Controller
             'savePayloadField' => 'question_uuids',
             'savePayloadKey' => 'uuid',
             'builderVersion' => 'uuid',
+        ];
+    }
+
+    private function uuidFormExtras(): array
+    {
+        $tagModels = Tag::whereHas('questions')->orderBy('name')->get();
+        $otherLabel = __('Other');
+        $tagsByCategory = $tagModels
+            ->groupBy(fn ($tag) => $tag->category ?: $otherLabel)
+            ->map(fn ($group) => $group->sortBy('name')->values());
+
+        $tagsByCategory = $tagsByCategory->sortKeys();
+        if ($tagsByCategory->has('Tenses')) {
+            $tenses = $tagsByCategory->pull('Tenses');
+            $tagsByCategory = $tagsByCategory->prepend($tenses, 'Tenses');
+        }
+        if ($tagsByCategory->has($otherLabel)) {
+            $other = $tagsByCategory->pull($otherLabel);
+            $tagsByCategory->put($otherLabel, $other);
+        }
+
+        $categoriesDesc = Category::orderByDesc('id')->get();
+
+        $sourceCategoryPairs = Question::query()
+            ->select('source_id', 'category_id')
+            ->whereNotNull('source_id')
+            ->groupBy('source_id', 'category_id')
+            ->get();
+
+        $sourceIds = $sourceCategoryPairs
+            ->pluck('source_id')
+            ->filter()
+            ->unique()
+            ->values();
+
+        $sources = $sourceIds->isEmpty()
+            ? collect()
+            : Source::whereIn('id', $sourceIds)
+                ->orderByDesc('id')
+                ->get()
+                ->keyBy('id');
+
+        $sourcesByCategory = $categoriesDesc
+            ->mapWithKeys(function ($category) use ($sourceCategoryPairs, $sources) {
+                $sourcesForCategory = $sourceCategoryPairs
+                    ->where('category_id', $category->id)
+                    ->pluck('source_id')
+                    ->filter()
+                    ->unique()
+                    ->sortDesc()
+                    ->map(fn ($id) => $sources->get($id))
+                    ->filter()
+                    ->values();
+
+                if ($sourcesForCategory->isEmpty()) {
+                    return [];
+                }
+
+                return [$category->id => [
+                    'category' => $category,
+                    'sources' => $sourcesForCategory,
+                ]];
+            })
+            ->filter()
+            ->sortKeysDesc();
+
+        return [
+            'tagsByCategory' => $tagsByCategory,
+            'categoriesDesc' => $categoriesDesc,
+            'sourcesByCategory' => $sourcesByCategory,
         ];
     }
 
