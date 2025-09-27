@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\TechnicalQuestionResource;
-use App\Models\Question;
-use Illuminate\Http\Request;
 use App\Models\ChatGPTExplanation;
+use App\Models\Question;
 use App\Services\QuestionExportService;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
@@ -51,6 +52,16 @@ class QuestionController extends Controller
         return $request->wantsJson()
             ? TechnicalQuestionResource::make($question->fresh())
             : redirect()->back();
+    }
+
+    public function export(Question $question): JsonResponse
+    {
+        app(QuestionExportService::class)->export($question->fresh());
+
+        return response()->json([
+            'status' => 'ok',
+            'message' => 'Дамп питання оновлено.',
+        ]);
     }
 
 }

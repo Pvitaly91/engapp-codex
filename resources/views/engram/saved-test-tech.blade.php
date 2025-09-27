@@ -1589,26 +1589,25 @@
                     .catch(error => window.alert(error.message || 'Не вдалося видалити питання.'));
             },
             exportQuestion(questionId) {
-                const entry = state.get(questionId);
-                if (!entry) {
+                if (!state.has(questionId)) {
                     return;
                 }
 
-                const questionData = entry.data || {};
-                const json = JSON.stringify(questionData, null, 2);
-                const blob = new Blob([json], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                const fileName = `question-${questionId}.json`;
+                return sendMutation(`${routes.question}/${questionId}/export`, {}, 'POST')
+                    .then(response => {
+                        let message = 'Дамп питання оновлено.';
 
-                link.href = url;
-                link.download = fileName;
+                        if (response && typeof response.message === 'string') {
+                            const trimmed = response.message.trim();
 
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+                            if (trimmed !== '') {
+                                message = trimmed;
+                            }
+                        }
 
-                window.setTimeout(() => URL.revokeObjectURL(url), 0);
+                        window.alert(message);
+                    })
+                    .catch(error => window.alert(error.message || 'Не вдалося оновити дамп питання.'));
             },
             editQuestionLevel(questionId) {
                 const entry = state.get(questionId);

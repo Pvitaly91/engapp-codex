@@ -138,6 +138,7 @@ Route::post('/verb-hints', [VerbHintController::class, 'store'])->name('verb-hin
 Route::put('/verb-hints/{verbHint}', [VerbHintController::class, 'update'])->name('verb-hints.update');
 Route::delete('/verb-hints/{verbHint}', [VerbHintController::class, 'destroy'])->name('verb-hints.destroy');
 Route::put('/questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
+Route::post('/questions/{question}/export', [QuestionController::class, 'export'])->name('questions.export');
 Route::post('/question-answers', [QuestionAnswerController::class, 'store'])->name('question-answers.store');
 Route::put('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'update'])->name('question-answers.update');
 Route::delete('/question-answers/{questionAnswer}', [QuestionAnswerController::class, 'destroy'])->name('question-answers.destroy');
