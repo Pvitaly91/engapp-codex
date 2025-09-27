@@ -15,6 +15,14 @@
         $categoryCollection = $categoriesDesc ?? $categories ?? collect();
         $tagGroups = $tagsByCategory ?? collect();
         $sourceGroups = $sourcesByCategory ?? collect();
+
+        $selectedCategories = collect($selectedCategories ?? [])->all();
+        $selectedSources = collect($selectedSources ?? [])->all();
+        $selectedTags = collect($selectedTags ?? [])->all();
+
+        $hasSelectedCategories = !empty($selectedCategories);
+        $hasSelectedSources = !empty($selectedSources);
+        $hasSelectedTags = !empty($selectedTags);
     @endphp
 
     <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -29,7 +37,12 @@
         @csrf
         
             <div class="space-y-6 ">
-                <div x-data="{ openCategoryTimes: {{ (!empty($selectedCategories) || $errors->has('categories')) ? 'true' : 'false' }} }" class="space-y-3">
+                <div x-data="{ openCategoryTimes: {{ ($hasSelectedCategories || $errors->has('categories')) ? 'true' : 'false' }} }"
+                     @class([
+                        'space-y-3 border border-transparent rounded-2xl p-3',
+                        'border-blue-300 bg-blue-50' => $hasSelectedCategories,
+                     ])
+                >
                     <div class="flex items-center justify-between gap-3">
                         <h2 class="text-sm font-semibold text-gray-700">Часи (категорії)</h2>
                         <button type="button"
@@ -44,9 +57,16 @@
                     <div class="space-y-3" x-show="openCategoryTimes" x-transition style="display: none;">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                             @foreach($categoryCollection as $cat)
-                                <label class="flex items-center gap-2 text-sm bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 hover:border-blue-300 transition">
+                                @php
+                                    $categoryIsSelected = in_array($cat->id, $selectedCategories);
+                                @endphp
+                                <label @class([
+                                    'flex items-center gap-2 text-sm rounded-xl px-3 py-2 transition border',
+                                    'bg-gray-50 border-gray-200 hover:border-blue-300' => ! $categoryIsSelected,
+                                    'bg-blue-50 border-blue-400 shadow-sm' => $categoryIsSelected,
+                                ])>
                                     <input type="checkbox" name="categories[]" value="{{ $cat->id }}"
-                                        {{ isset($selectedCategories) && in_array($cat->id, $selectedCategories) ? 'checked' : '' }}
+                                        {{ in_array($cat->id, $selectedCategories) ? 'checked' : '' }}
                                         class="h-5 w-5 text-blue-600 border-gray-300 rounded">
                                     <span class="truncate">{{ ucfirst($cat->name) }}</span>
                                 </label>
@@ -59,7 +79,12 @@
                 </div>
 
                 @if($sourceGroups->isNotEmpty())
-                    <div x-data="{ openSources: false }" class="space-y-3">
+                    <div x-data="{ openSources: {{ $hasSelectedSources ? 'true' : 'false' }} }"
+                         @class([
+                            'space-y-3 border border-transparent rounded-2xl p-3',
+                            'border-blue-300 bg-blue-50' => $hasSelectedSources,
+                         ])
+                    >
                         <div class="flex items-center justify-between gap-3">
                             <h2 class="text-sm font-semibold text-gray-700">Джерела по категоріях</h2>
                             <button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
@@ -73,7 +98,17 @@
                         <div x-show="openSources" x-transition style="display: none;">
                             <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
                                 @foreach($sourceGroups as $group)
-                                    <div x-data="{ open: false }" class="border border-gray-200 rounded-2xl overflow-hidden">
+                                    @php
+                                        $groupSourceIds = collect($group['sources'])->pluck('id');
+                                        $groupHasSelected = $groupSourceIds->intersect($selectedSources)->isNotEmpty();
+                                    @endphp
+                                    <div x-data="{ open: {{ $groupHasSelected ? 'true' : 'false' }} }"
+                                         @class([
+                                            'border rounded-2xl overflow-hidden transition',
+                                            'border-gray-200' => ! $groupHasSelected,
+                                            'border-blue-400 shadow-sm bg-blue-50' => $groupHasSelected,
+                                         ])
+                                    >
                                         <button type="button" class="w-full flex items-center justify-between px-4 py-2 bg-gray-50 text-left font-semibold text-gray-800"
                                             @click="open = !open">
                                             <span class="truncate">{{ ucfirst($group['category']->name) }} (ID: {{ $group['category']->id }})</span>
@@ -84,9 +119,16 @@
                                         <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
                                             <div class="flex flex-wrap gap-2">
                                                 @foreach($group['sources'] as $source)
-                                                    <label class="flex items-start gap-2 px-3 py-1 rounded-full border border-gray-200 text-sm bg-white hover:border-blue-300 transition text-left">
+                                                    @php
+                                                        $sourceIsSelected = in_array($source->id, $selectedSources);
+                                                    @endphp
+                                                    <label @class([
+                                                        'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
+                                                        'border-gray-200 bg-white hover:border-blue-300' => ! $sourceIsSelected,
+                                                        'border-blue-400 bg-blue-50 shadow-sm' => $sourceIsSelected,
+                                                    ])>
                                                         <input type="checkbox" name="sources[]" value="{{ $source->id }}"
-                                                            {{ isset($selectedSources) && in_array($source->id, $selectedSources) ? 'checked' : '' }}
+                                                            {{ $sourceIsSelected ? 'checked' : '' }}
                                                             class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                                         <span class="whitespace-normal break-words">{{ $source->name }} (ID: {{ $source->id }})</span>
                                                     </label>
@@ -120,7 +162,12 @@
                 @endif
 
                 @if($tagGroups->isNotEmpty())
-                    <div x-data="{ openTags: true }" class="space-y-3">
+                    <div x-data="{ openTags: {{ $hasSelectedTags ? 'true' : 'false' }} }"
+                         @class([
+                            'space-y-3 border border-transparent rounded-2xl p-3',
+                            'border-blue-300 bg-blue-50' => $hasSelectedTags,
+                         ])
+                    >
                         <div class="flex items-center justify-between gap-3">
                             <h2 class="text-sm font-semibold text-gray-700">Tags</h2>
                             <button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
@@ -133,7 +180,17 @@
                         </div>
                         <div class="space-y-3" x-show="openTags" x-transition style="display: none;">
                             @foreach($tagGroups as $tagCategory => $tags)
-                                <div x-data="{ open: {{ $loop->index < 1 ? 'true' : 'false' }} }" class="border border-gray-200 rounded-2xl overflow-hidden">
+                                @php
+                                    $categoryTagNames = collect($tags)->pluck('name');
+                                    $tagCategoryHasSelected = $categoryTagNames->intersect($selectedTags)->isNotEmpty();
+                                @endphp
+                                <div x-data="{ open: {{ ($tagCategoryHasSelected || $loop->first) ? 'true' : 'false' }} }"
+                                     @class([
+                                        'border rounded-2xl overflow-hidden transition',
+                                        'border-gray-200' => ! $tagCategoryHasSelected,
+                                        'border-blue-400 shadow-sm bg-blue-50' => $tagCategoryHasSelected,
+                                     ])
+                                >
                                     <button type="button" class="w-full flex items-center justify-between px-4 py-2 bg-gray-50 text-left font-semibold text-gray-800"
                                             @click="open = !open">
                                         <span>{{ $tagCategory }}</span>
@@ -147,7 +204,7 @@
                                                 @php $tagId = 'tag-' . md5($tag->id . '-' . $tag->name); @endphp
                                                 <div>
                                                     <input type="checkbox" name="tags[]" value="{{ $tag->name }}" id="{{ $tagId }}" class="hidden peer"
-                                                           {{ in_array($tag->name, $selectedTags ?? []) ? 'checked' : '' }}>
+                                                           {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}>
                                                     <label for="{{ $tagId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white">
                                                         {{ $tag->name }}
                                                     </label>
@@ -373,8 +430,8 @@
                     'include_ai_v2' => $includeAiV2 ?? false,
                     'only_ai_v2' => $onlyAiV2 ?? false,
                     'levels' => $selectedLevels ?? [],
-                    'tags' => $selectedTags ?? [],
-                    'sources' => $selectedSources ?? [],
+                    'tags' => $selectedTags,
+                    'sources' => $selectedSources,
                 ])) }}">
                 <input type="hidden" name="{{ $savePayloadField }}" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
                 <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"
