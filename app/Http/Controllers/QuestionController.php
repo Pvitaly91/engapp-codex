@@ -14,7 +14,7 @@ use RuntimeException;
 use Throwable;
 
 class QuestionController extends Controller
-{
+{ 
     public function update(Request $request, Question $question)
     {
         $data = $request->validate([
