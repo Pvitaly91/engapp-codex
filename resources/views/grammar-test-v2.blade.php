@@ -29,21 +29,33 @@
         @csrf
         
             <div class="space-y-6 ">
-                <div>
-                    <h2 class="text-sm font-semibold text-gray-700 mb-3">Часи (категорії)</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        @foreach($categoryCollection as $cat)
-                            <label class="flex items-center gap-2 text-sm bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 hover:border-blue-300 transition">
-                                <input type="checkbox" name="categories[]" value="{{ $cat->id }}"
-                                    {{ isset($selectedCategories) && in_array($cat->id, $selectedCategories) ? 'checked' : '' }}
-                                    class="h-5 w-5 text-blue-600 border-gray-300 rounded">
-                                <span class="truncate">{{ ucfirst($cat->name) }}</span>
-                            </label>
-                        @endforeach
+                <div x-data="{ openCategoryTimes: {{ (!empty($selectedCategories) || $errors->has('categories')) ? 'true' : 'false' }} }" class="space-y-3">
+                    <div class="flex items-center justify-between gap-3">
+                        <h2 class="text-sm font-semibold text-gray-700">Часи (категорії)</h2>
+                        <button type="button"
+                                class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                @click="openCategoryTimes = !openCategoryTimes">
+                            <span x-text="openCategoryTimes ? 'Згорнути' : 'Розгорнути'"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openCategoryTimes }" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
                     </div>
-                    @error('categories')
-                        <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
-                    @enderror
+                    <div class="space-y-3" x-show="openCategoryTimes" x-transition style="display: none;">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                            @foreach($categoryCollection as $cat)
+                                <label class="flex items-center gap-2 text-sm bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 hover:border-blue-300 transition">
+                                    <input type="checkbox" name="categories[]" value="{{ $cat->id }}"
+                                        {{ isset($selectedCategories) && in_array($cat->id, $selectedCategories) ? 'checked' : '' }}
+                                        class="h-5 w-5 text-blue-600 border-gray-300 rounded">
+                                    <span class="truncate">{{ ucfirst($cat->name) }}</span>
+                                </label>
+                            @endforeach
+                        </div>
+                        @error('categories')
+                            <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
 
                 @if($sourceGroups->isNotEmpty())
@@ -59,9 +71,9 @@
                             </button>
                         </div>
                         <div x-show="openSources" x-transition style="display: none;">
-                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
                                 @foreach($sourceGroups as $group)
-                                    <div x-data="{ open: false }" class="border border-gray-200 rounded-2xl overflow-hidden h-full">
+                                    <div x-data="{ open: false }" class="border border-gray-200 rounded-2xl overflow-hidden">
                                         <button type="button" class="w-full flex items-center justify-between px-4 py-2 bg-gray-50 text-left font-semibold text-gray-800"
                                             @click="open = !open">
                                             <span class="truncate">{{ ucfirst($group['category']->name) }} (ID: {{ $group['category']->id }})</span>
