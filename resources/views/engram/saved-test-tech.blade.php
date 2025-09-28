@@ -6,21 +6,28 @@
 <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-            <h1 class="text-2xl font-bold text-stone-900">{{ $test->name }}</h1>
+            <h1 class="text-2xl font-bold text-stone-900">{{ $test->name }} 
+                <a href="{{ route('saved-test.show', $test->slug) }}"
+                class="px-3 py-1.5 rounded-2xl border border-stone-200 bg-white shadow-sm text-sm font-semibold text-stone-700 hover:bg-stone-50">
+                    ← Основна сторінка
+                </a>
+                <a href="{{ route('saved-test.js', $test->slug) }}"
+                class="px-3 py-1.5 rounded-2xl border border-stone-200 bg-white shadow-sm text-sm font-semibold text-stone-700 hover:bg-stone-50">
+                    JS режим
+                </a>
+            </h1>
+           
             <p class="text-sm text-stone-600 mt-1">
                 Технічна інформація про тест · Питань:
                 <span class="font-semibold text-stone-700" data-questions-count>{{ $questions->count() }}</span>
             </p>
+           
         </div>
-        <div class="flex flex-wrap gap-2">
-            <a href="{{ route('saved-test.show', $test->slug) }}"
-               class="px-3 py-1.5 rounded-2xl border border-stone-200 bg-white shadow-sm text-sm font-semibold text-stone-700 hover:bg-stone-50">
-                ← Основна сторінка
-            </a>
-            <a href="{{ route('saved-test.js', $test->slug) }}"
-               class="px-3 py-1.5 rounded-2xl border border-stone-200 bg-white shadow-sm text-sm font-semibold text-stone-700 hover:bg-stone-50">
-                JS режим
-            </a>
+       
+    </div>
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+         <div class="flex flex-wrap ">
+            
             <button type="button"
                     class="px-3 py-1.5 rounded-2xl border border-blue-600 bg-blue-600 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
                     onclick="techEditor.createQuestion()">
@@ -36,6 +43,10 @@
                     onclick="techEditor.restoreAllQuestions()">
                 Відновити всі питання
             </button>
+        </div>    
+    </div>     
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">    
+        <div class="flex flex-wrap ">    
             <label class="flex items-center gap-2 rounded-2xl border border-stone-200 bg-white px-3 py-1.5 text-xs font-semibold text-stone-700 shadow-sm">
                 <input type="checkbox" class="h-4 w-4 rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
                        data-restore-include-deleted>
@@ -53,7 +64,6 @@
             </button>
         </div>
     </div>
-
     @php
         $cefrLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
         $availableHintProviders = collect($hintProviders ?? [])
