@@ -83,6 +83,7 @@ Route::get('/test/{slug}/js/step/select', [GrammarTestController::class, 'showSa
 Route::get('/test/{slug}/js/select', [GrammarTestController::class, 'showSavedTestJsSelect'])->name('saved-test.js.select');
 Route::get('/test/{slug}/tech', [GrammarTestController::class, 'showSavedTestTech'])->name('saved-test.tech');
 Route::post('/test/{slug}/questions', [GrammarTestController::class, 'storeSavedTestQuestion'])->name('saved-test.questions.store');
+Route::delete('/test/{slug}/questions', [GrammarTestController::class, 'deleteAllQuestions'])->name('saved-test.questions.destroy-all');
 Route::get('/test/{slug}', [GrammarTestController::class, 'showSavedTest'])->name('saved-test.show');
 Route::get('/test/{slug}/random', [GrammarTestController::class, 'showSavedTestRandom'])->name('saved-test.random');
 Route::get('/test/{slug}/step', [GrammarTestController::class, 'showSavedTestStep'])->name('saved-test.step');

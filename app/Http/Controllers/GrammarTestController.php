@@ -22,6 +22,7 @@ use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\QuestionVariant;
 use App\Models\VerbHint;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
@@ -857,12 +858,60 @@ class GrammarTestController extends Controller
     public function deleteQuestion(Request $request, $slug, Question $question)
     {
         $resolved = $this->savedTestResolver->resolve($slug);
-        $test = $resolved->model;
 
         if (! $resolved->questionIds->contains($question->id)) {
             abort(404);
         }
 
+        $this->performQuestionDeletion($resolved, $question);
+        $this->removeQuestionFromSessionQueue($resolved->model, $question->id);
+
+        if ($request->wantsJson()) {
+            return response()->json(['status' => 'ok']);
+        }
+
+        return redirect()->back();
+    }
+
+    public function deleteAllQuestions(Request $request, $slug)
+    {
+        $resolved = $this->savedTestResolver->resolve($slug);
+
+        if ($resolved->questionIds->isEmpty()) {
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'status' => 'ok',
+                    'deleted_ids' => [],
+                    'message' => 'Немає питань для видалення.',
+                ]);
+            }
+
+            return redirect()->back();
+        }
+
+        $questions = Question::whereIn('id', $resolved->questionIds)->get();
+        $deletedIds = [];
+
+        foreach ($questions as $question) {
+            $this->performQuestionDeletion($resolved, $question);
+            $this->removeQuestionFromSessionQueue($resolved->model, $question->id);
+            $deletedIds[] = $question->id;
+        }
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'status' => 'ok',
+                'deleted_ids' => $deletedIds,
+                'message' => 'Усі питання видалено.',
+            ]);
+        }
+
+        return redirect()->back();
+    }
+
+    private function performQuestionDeletion(ResolvedSavedTest $resolved, Question $question): void
+    {
+        $test = $resolved->model;
         $deletedQuestionUuid = (string) $question->uuid;
 
         DB::transaction(function () use ($test, $question, $resolved) {
@@ -966,28 +1015,37 @@ class GrammarTestController extends Controller
 
         if ($deletedQuestionUuid !== '') {
             $this->appendDeletedQuestionUuid($deletedQuestionUuid);
+
+            $resolved->questionUuids = $resolved->questionUuids
+                ->filter(fn ($uuid) => $uuid !== $deletedQuestionUuid)
+                ->values();
         }
 
+        $resolved->questionIds = $resolved->questionIds
+            ->filter(fn ($id) => (int) $id !== $question->id)
+            ->values();
+    }
+
+    private function removeQuestionFromSessionQueue(Model $test, int $questionId): void
+    {
         $key = 'step_' . $test->slug;
         $queue = session($key . '_queue', []);
         $index = session($key . '_index', 0);
-        $removedIndex = array_search($question->id, $queue, true);
-        $queue = array_values(array_filter($queue, fn ($id) => (int) $id !== $question->id));
+        $removedIndex = array_search($questionId, $queue, true);
+        $queue = array_values(array_filter($queue, fn ($id) => (int) $id !== $questionId));
+
         if ($removedIndex !== false && $removedIndex < $index) {
             $index = max($index - 1, 0);
         } elseif ($removedIndex !== false && $removedIndex === $index) {
             $index = min($index, max(count($queue) - 1, 0));
         }
+
         session([$key . '_queue' => $queue, $key . '_index' => $index]);
+
         if (session()->has($key . '_total')) {
-            session([$key . '_total' => max(session($key . '_total') - 1, 0)]);
+            $currentTotal = (int) session($key . '_total');
+            session([$key . '_total' => max($currentTotal - 1, 0)]);
         }
-
-        if ($request->wantsJson()) {
-            return response()->json(['status' => 'ok']);
-        }
-
-        return redirect()->back();
     }
 
     private function appendDeletedQuestionUuid(string $uuid): void

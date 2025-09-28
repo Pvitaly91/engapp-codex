@@ -300,6 +300,121 @@ class SavedTestTechnicalPageTest extends TestCase
     }
 
     /** @test */
+    public function it_deletes_all_questions_from_saved_test(): void
+    {
+        $category = Category::create(['name' => 'Present Simple']);
+
+        $optionGo = QuestionOption::create(['option' => 'go']);
+        $optionGoes = QuestionOption::create(['option' => 'goes']);
+
+        $firstQuestion = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'I {a1} to school every day.',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+        ]);
+
+        $secondQuestion = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'They {a1} to school together.',
+            'difficulty' => 2,
+            'level' => 'A2',
+            'category_id' => $category->id,
+        ]);
+
+        $firstQuestion->options()->attach([$optionGo->id, $optionGoes->id]);
+        $secondQuestion->options()->attach([$optionGo->id]);
+
+        QuestionAnswer::create([
+            'question_id' => $firstQuestion->id,
+            'marker' => 'a1',
+            'option_id' => $optionGo->id,
+        ]);
+
+        QuestionAnswer::create([
+            'question_id' => $secondQuestion->id,
+            'marker' => 'a1',
+            'option_id' => $optionGo->id,
+        ]);
+
+        VerbHint::create([
+            'question_id' => $firstQuestion->id,
+            'marker' => 'a1',
+            'option_id' => $optionGo->id,
+        ]);
+
+        VerbHint::create([
+            'question_id' => $secondQuestion->id,
+            'marker' => 'a1',
+            'option_id' => $optionGo->id,
+        ]);
+
+        QuestionHint::create([
+            'question_id' => $firstQuestion->id,
+            'provider' => 'chatgpt',
+            'locale' => 'uk',
+            'hint' => 'Використовуйте базову форму дієслова.',
+        ]);
+
+        QuestionHint::create([
+            'question_id' => $secondQuestion->id,
+            'provider' => 'chatgpt',
+            'locale' => 'uk',
+            'hint' => 'Порада для другого питання.',
+        ]);
+
+        ChatGPTExplanation::create([
+            'question' => 'I {a1} to school every day.',
+            'wrong_answer' => 'goes',
+            'correct_answer' => 'go',
+            'language' => 'uk',
+            'explanation' => 'Форма go вживається з I.',
+        ]);
+
+        ChatGPTExplanation::create([
+            'question' => 'They {a1} to school together.',
+            'wrong_answer' => 'goes',
+            'correct_answer' => 'go',
+            'language' => 'uk',
+            'explanation' => 'Для they використовуємо go.',
+        ]);
+
+        $test = Test::create([
+            'name' => 'Simple test',
+            'slug' => 'simple-test',
+            'filters' => [],
+            'questions' => [$firstQuestion->id, $secondQuestion->id],
+        ]);
+
+        $response = $this->deleteJson(route('saved-test.questions.destroy-all', $test->slug));
+
+        $response->assertOk();
+        $this->assertEqualsCanonicalizing(
+            [$firstQuestion->id, $secondQuestion->id],
+            $response->json('deleted_ids') ?? []
+        );
+
+        $this->assertDatabaseMissing('questions', ['id' => $firstQuestion->id]);
+        $this->assertDatabaseMissing('questions', ['id' => $secondQuestion->id]);
+        $this->assertDatabaseMissing('question_answers', ['question_id' => $firstQuestion->id]);
+        $this->assertDatabaseMissing('question_answers', ['question_id' => $secondQuestion->id]);
+        $this->assertDatabaseMissing('verb_hints', ['question_id' => $firstQuestion->id]);
+        $this->assertDatabaseMissing('verb_hints', ['question_id' => $secondQuestion->id]);
+        $this->assertDatabaseMissing('question_hints', ['question_id' => $firstQuestion->id]);
+        $this->assertDatabaseMissing('question_hints', ['question_id' => $secondQuestion->id]);
+        $this->assertDatabaseMissing('chatgpt_explanations', ['question' => 'I {a1} to school every day.']);
+        $this->assertDatabaseMissing('chatgpt_explanations', ['question' => 'They {a1} to school together.']);
+
+        $this->assertDatabaseMissing('question_option_question', ['question_id' => $firstQuestion->id]);
+        $this->assertDatabaseMissing('question_option_question', ['question_id' => $secondQuestion->id]);
+        $this->assertDatabaseMissing('question_options', ['id' => $optionGo->id]);
+        $this->assertDatabaseMissing('question_options', ['id' => $optionGoes->id]);
+
+        $this->assertSame([], $test->fresh()->questions);
+    }
+
+    /** @test */
     public function it_keeps_shared_resources_when_duplicate_questions_exist(): void
     {
         $category = Category::create(['name' => 'Present Simple']);
