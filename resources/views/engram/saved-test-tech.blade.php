@@ -27,6 +27,11 @@
                 + Нове питання
             </button>
             <button type="button"
+                    class="px-3 py-1.5 rounded-2xl border border-red-600 bg-red-600 text-sm font-semibold text-white shadow-sm transition hover:bg-red-700"
+                    onclick="techEditor.deleteAllQuestions()">
+                Видалити всі питання
+            </button>
+            <button type="button"
                     class="px-3 py-1.5 rounded-2xl border border-emerald-500 bg-emerald-500 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"
                     onclick="techEditor.restoreAllQuestions()">
                 Відновити всі питання
@@ -578,6 +583,7 @@
             chatgptExplanation: '{{ url('/chatgpt-explanations') }}',
             deleteQuestion: '{{ url('/test/' . $test->slug . '/question') }}',
             exportQuestionByUuid: '{{ route('questions.export-by-uuid') }}',
+            deleteAllQuestions: '{{ route('saved-test.questions.destroy-all', $test->slug) }}',
             restoreQuestionsFromDumps: '{{ route('questions.restore-from-dumps') }}',
             restoreQuestionByUuid: '{{ route('questions.restore-by-uuid') }}',
         };
@@ -1641,6 +1647,51 @@
                 return sendMutation(`${routes.deleteQuestion}/${questionId}`, {}, 'DELETE')
                     .then(() => {
                         removeQuestion(questionId);
+                    })
+                    .catch(error => window.alert(error.message || 'Не вдалося видалити питання.'));
+            },
+            deleteAllQuestions() {
+                if (!window.confirm('Видалити всі питання цього тесту?')) {
+                    return;
+                }
+
+                return sendMutation(routes.deleteAllQuestions, {}, 'DELETE')
+                    .then(response => {
+                        const defaultMessage = 'Усі питання видалено.';
+                        const message = response && typeof response.message === 'string'
+                            ? response.message.trim() || defaultMessage
+                            : defaultMessage;
+
+                        let ids = Array.isArray(response?.deleted_ids) ? response.deleted_ids : [];
+
+                        if (!ids.length) {
+                            ids = Array.from(state.keys());
+                        }
+
+                        if (ids.length) {
+                            Array.from(new Set(ids)).forEach(id => {
+                                const numericId = Number(id);
+
+                                if (!Number.isNaN(numericId)) {
+                                    removeQuestion(numericId);
+                                } else {
+                                    removeQuestion(id);
+                                }
+                            });
+                        } else {
+                            const container = getQuestionsContainer();
+
+                            if (container) {
+                                container.querySelectorAll('[data-question-id]').forEach(element => element.remove());
+                            }
+
+                            state.clear();
+                            showEmptyState();
+                            refreshQuestionNumbers();
+                            updateQuestionCount();
+                        }
+
+                        window.alert(message);
                     })
                     .catch(error => window.alert(error.message || 'Не вдалося видалити питання.'));
             },
