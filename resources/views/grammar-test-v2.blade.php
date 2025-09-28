@@ -219,18 +219,7 @@
                 @endif
             
                 <div class="grid gap-4 sm:grid-cols-2">
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Діапазон складності</label>
-                        <div class="flex items-center gap-2">
-                            <input type="number" min="{{ $minDifficulty }}" max="{{ $maxDifficulty }}" name="difficulty_from"
-                                   value="{{ $difficultyFrom ?? $minDifficulty }}"
-                                   class="border rounded-lg px-3 py-2 w-full">
-                            <span class="text-gray-400">—</span>
-                            <input type="number" min="{{ $minDifficulty }}" max="{{ $maxDifficulty }}" name="difficulty_to"
-                                   value="{{ $difficultyTo ?? $maxDifficulty }}"
-                                   class="border rounded-lg px-3 py-2 w-full">
-                        </div>
-                    </div>
+                  
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Кількість питань</label>
                         <input type="number" min="1" max="{{ $maxQuestions ?? $maxQuestions }}" name="num_questions"
