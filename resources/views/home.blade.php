@@ -39,7 +39,7 @@
       .gw-grid { grid-template-columns: 1.2fr 1fr; }
     }
   </style>
-
+ 
   <header>
     <h2 class="gw-title">Past Perfect — Минулий доконаний час</h2>
     <p class="gw-sub">Використовуємо, щоб показати дію, яка сталася <strong>раніше іншої минулої події</strong>.</p>
