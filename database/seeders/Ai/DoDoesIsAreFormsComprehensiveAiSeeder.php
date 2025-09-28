@@ -836,8 +836,18 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
         }
 
         $parts = [];
-        foreach ($hints as $marker => $text) {
-            $parts[] = '{' . $marker . '} ' . trim($text);
+        foreach ($hints as $text) {
+            $clean = trim($text);
+
+            if ($clean === '') {
+                continue;
+            }
+
+            $parts[] = $clean;
+        }
+
+        if (empty($parts)) {
+            return null;
         }
 
         return implode("\n", $parts);
