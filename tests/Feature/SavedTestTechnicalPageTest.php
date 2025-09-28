@@ -9,6 +9,7 @@ use App\Models\QuestionAnswer;
 use App\Models\QuestionHint;
 use App\Models\QuestionOption;
 use App\Models\QuestionVariant;
+use App\Models\Source;
 use App\Models\Test;
 use App\Models\VerbHint;
 use Illuminate\Database\Schema\Blueprint;
@@ -300,9 +301,41 @@ class SavedTestTechnicalPageTest extends TestCase
     }
 
     /** @test */
+    public function it_prunes_unused_category_and_source_when_question_is_deleted(): void
+    {
+        $category = Category::create(['name' => 'Present Simple']);
+        $source = Source::create(['name' => 'Grammar Book']);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'I {a1} to school every day.',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+            'source_id' => $source->id,
+        ]);
+
+        $test = Test::create([
+            'name' => 'Simple test',
+            'slug' => 'simple-test',
+            'filters' => [],
+            'questions' => [$question->id],
+        ]);
+
+        $response = $this->deleteJson(route('saved-test.question.destroy', [$test->slug, $question->id]));
+
+        $response->assertOk();
+
+        $this->assertDatabaseMissing('questions', ['id' => $question->id]);
+        $this->assertDatabaseMissing('categories', ['id' => $category->id]);
+        $this->assertDatabaseMissing('sources', ['id' => $source->id]);
+    }
+
+    /** @test */
     public function it_deletes_all_questions_from_saved_test(): void
     {
         $category = Category::create(['name' => 'Present Simple']);
+        $source = Source::create(['name' => 'Grammar Book']);
 
         $optionGo = QuestionOption::create(['option' => 'go']);
         $optionGoes = QuestionOption::create(['option' => 'goes']);
@@ -313,6 +346,7 @@ class SavedTestTechnicalPageTest extends TestCase
             'difficulty' => 1,
             'level' => 'A1',
             'category_id' => $category->id,
+            'source_id' => $source->id,
         ]);
 
         $secondQuestion = Question::create([
@@ -321,6 +355,7 @@ class SavedTestTechnicalPageTest extends TestCase
             'difficulty' => 2,
             'level' => 'A2',
             'category_id' => $category->id,
+            'source_id' => $source->id,
         ]);
 
         $firstQuestion->options()->attach([$optionGo->id, $optionGoes->id]);
@@ -412,6 +447,8 @@ class SavedTestTechnicalPageTest extends TestCase
         $this->assertDatabaseMissing('question_options', ['id' => $optionGoes->id]);
 
         $this->assertSame([], $test->fresh()->questions);
+        $this->assertDatabaseMissing('categories', ['id' => $category->id]);
+        $this->assertDatabaseMissing('sources', ['id' => $source->id]);
     }
 
     /** @test */
@@ -475,6 +512,14 @@ class SavedTestTechnicalPageTest extends TestCase
             });
         }
 
+        if (! Schema::hasTable('sources')) {
+            Schema::create('sources', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->timestamps();
+            });
+        }
+
         if (! Schema::hasTable('questions')) {
             Schema::create('questions', function (Blueprint $table) {
                 $table->id();
@@ -483,7 +528,14 @@ class SavedTestTechnicalPageTest extends TestCase
                 $table->unsignedTinyInteger('difficulty')->default(1);
                 $table->string('level', 2)->nullable();
                 $table->unsignedBigInteger('category_id')->nullable();
+                $table->unsignedBigInteger('source_id')->nullable();
                 $table->timestamps();
+            });
+        }
+
+        if (! Schema::hasColumn('questions', 'source_id')) {
+            Schema::table('questions', function (Blueprint $table) {
+                $table->unsignedBigInteger('source_id')->nullable()->after('category_id');
             });
         }
 
@@ -601,6 +653,7 @@ class SavedTestTechnicalPageTest extends TestCase
             'question_options',
             'questions',
             'categories',
+            'sources',
             'tests',
             'question_tag',
             'tags',
