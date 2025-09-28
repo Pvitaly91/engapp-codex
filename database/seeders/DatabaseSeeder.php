@@ -107,6 +107,7 @@ class DatabaseSeeder extends Seeder
             Ai\PastPerfectComprehensiveAiSeeder::class,
             Ai\PastTenseFormsAiSeeder::class,
             Ai\FutureTensesComprehensiveAiSeeder::class,
+            Ai\DoDoesIsAreFormsComprehensiveAiSeeder::class,
 
         ]);
     }
