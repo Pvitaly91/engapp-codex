@@ -913,6 +913,8 @@ class GrammarTestController extends Controller
     {
         $test = $resolved->model;
         $deletedQuestionUuid = (string) $question->uuid;
+        $categoryId = $question->category_id;
+        $sourceId = $question->source_id;
 
         DB::transaction(function () use ($test, $question, $resolved) {
             if ($resolved->usesUuidLinks) {
@@ -1013,6 +1015,8 @@ class GrammarTestController extends Controller
             });
         });
 
+        $this->pruneUnusedCategoryAndSource($categoryId, $sourceId);
+
         if ($deletedQuestionUuid !== '') {
             $this->appendDeletedQuestionUuid($deletedQuestionUuid);
 
@@ -1050,6 +1054,10 @@ class GrammarTestController extends Controller
 
     private function appendDeletedQuestionUuid(string $uuid): void
     {
+        if ($uuid === '' || app()->runningInConsole()) {
+            return;
+        }
+
         $path = database_path('seeders/questions/deleted-questions.json');
 
         File::ensureDirectoryExists(dirname($path));
@@ -1072,6 +1080,25 @@ class GrammarTestController extends Controller
             $path,
             json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL
         );
+    }
+
+    private function pruneUnusedCategoryAndSource(?int $categoryId, ?int $sourceId): void
+    {
+        if ($categoryId && Schema::hasTable('categories')) {
+            $hasQuestions = Question::query()->where('category_id', $categoryId)->exists();
+
+            if (! $hasQuestions) {
+                Category::query()->whereKey($categoryId)->delete();
+            }
+        }
+
+        if ($sourceId && Schema::hasTable('sources')) {
+            $hasQuestions = Question::query()->where('source_id', $sourceId)->exists();
+
+            if (! $hasQuestions) {
+                Source::query()->whereKey($sourceId)->delete();
+            }
+        }
     }
 
     public function show(Request $request)
