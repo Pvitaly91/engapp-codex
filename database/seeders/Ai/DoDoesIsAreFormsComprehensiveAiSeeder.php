@@ -514,6 +514,38 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
         };
     }
 
+    private function buildStructureNote(string $pattern, array $entry, string $answer, string $example): string
+    {
+        $subject = $entry['subject'];
+        $subjectDescription = $this->describeSubject($subject, $entry['subject_category']);
+
+        return match ($pattern) {
+            'present_do_question', 'past_do_question', 'future_do_question' => "ℹ️ Побудова: Розпочніть питання з допоміжного «{$answer}» (в українському перекладі — з частки «Чи»), після нього подайте {$subjectDescription}, далі основне дієслово у базовій формі та завершіть решту змісту, як у прикладі *{$example}*.",
+            'present_do_negative', 'past_do_negative', 'future_do_negative' => "ℹ️ Побудова: Почніть із {$subjectDescription}, додайте заперечну форму «{$answer}», потім вжийте основне дієслово у базовій формі та завершіть речення додатковою інформацією. Орієнтуйтеся на приклад *{$example}*.",
+            'present_be_question', 'past_be_question', 'future_be_question' => "ℹ️ Побудова: Розпочніть запитання з частки «Чи», далі подайте {$subjectDescription} та поставте правильну форму to be «{$answer}», після чого додайте прикметник або обставину, як показано в *{$example}*.",
+            'present_be_negative', 'past_be_negative', 'future_be_negative' => "ℹ️ Побудова: Розташуйте {$subjectDescription}, після нього — відповідну заперечну форму to be «{$answer}», а далі подайте прикметник чи іменник, що описує стан, як у прикладі *{$example}*.",
+            default => '',
+        };
+    }
+
+    private function describeSubject(string $subject, string $category): string
+    {
+        $normalized = mb_strtolower($subject, 'UTF-8');
+
+        $questionWords = ['who', 'what', 'where', 'when', 'why', 'how'];
+        if (in_array($normalized, $questionWords, true)) {
+            return "запитального слова «{$subject}»";
+        }
+
+        return match ($category) {
+            'i' => 'займенника «I»',
+            'you' => 'займенника «you»',
+            'plural' => "множинного підмета «{$subject}»",
+            'third_singular' => "словосполучення підмета «{$subject}»",
+            default => "підмета «{$subject}»",
+        };
+    }
+
     private function buildExplanations(string $pattern, array $entry, array $options, string $answer, string $example, string $tenseLabel): array
     {
         $subjectPhrase = $this->subjectPhrase($entry['subject_category'], $entry['subject']);
@@ -521,10 +553,13 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
         $explanations = [];
         foreach ($options as $option) {
             if ($option === $answer) {
-                $explanations[$option] = $this->buildCorrectExplanation($pattern, $subjectPhrase, $answer, $example, $tenseLabel);
+                $base = $this->buildCorrectExplanation($pattern, $subjectPhrase, $answer, $example, $tenseLabel);
             } else {
-                $explanations[$option] = $this->buildWrongExplanation($pattern, $subjectPhrase, $option, $answer, $tenseLabel);
+                $base = $this->buildWrongExplanation($pattern, $subjectPhrase, $option, $answer, $tenseLabel);
             }
+
+            $structure = $this->buildStructureNote($pattern, $entry, $answer, $example);
+            $explanations[$option] = $structure === '' ? $base : $base . "\n\n" . $structure;
         }
 
         return $explanations;
