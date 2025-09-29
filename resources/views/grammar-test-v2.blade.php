@@ -19,6 +19,7 @@
         $selectedCategories = collect($selectedCategories ?? [])->all();
         $selectedSources = collect($selectedSources ?? [])->all();
         $selectedTags = collect($selectedTags ?? [])->all();
+        $normalizedFilters = $normalizedFilters ?? null;
 
         $hasSelectedCategories = !empty($selectedCategories);
         $hasSelectedSources = !empty($selectedSources);
@@ -428,30 +429,38 @@
         <div class="bg-white shadow rounded-2xl p-4 sm:p-6">
             <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
                 @csrf
-                <input type="hidden" name="filters" value="{{ htmlentities(json_encode([
-                    'categories' => $selectedCategories,
-                    'difficulty_from' => $difficultyFrom,
-                    'difficulty_to' => $difficultyTo,
-                    'num_questions' => $numQuestions,
-                    'manual_input' => $manualInput,
-                    'autocomplete_input' => $autocompleteInput,
-                    'check_one_input' => $checkOneInput,
-                    'builder_input' => $builderInput,
-                    'include_ai' => $includeAi ?? false,
-                    'only_ai' => $onlyAi ?? false,
-                    'include_ai_v2' => $includeAiV2 ?? false,
-                    'only_ai_v2' => $onlyAiV2 ?? false,
-                    'levels' => $selectedLevels ?? [],
-                    'tags' => $selectedTags,
-                    'sources' => $selectedSources,
-                    'randomize_filtered' => !empty($randomizeFiltered),
-                ])) }}">
+                @php
+                    $filtersForSave = $normalizedFilters ?? [
+                        'categories' => $selectedCategories,
+                        'difficulty_from' => $difficultyFrom,
+                        'difficulty_to' => $difficultyTo,
+                        'num_questions' => $numQuestions,
+                        'manual_input' => (bool) $manualInput,
+                        'autocomplete_input' => (bool) $autocompleteInput,
+                        'check_one_input' => (bool) $checkOneInput,
+                        'builder_input' => (bool) $builderInput,
+                        'include_ai' => (bool) ($includeAi ?? false),
+                        'only_ai' => (bool) ($onlyAi ?? false),
+                        'include_ai_v2' => (bool) ($includeAiV2 ?? false),
+                        'only_ai_v2' => (bool) ($onlyAiV2 ?? false),
+                        'levels' => $selectedLevels ?? [],
+                        'tags' => $selectedTags,
+                        'sources' => $selectedSources,
+                        'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
+                    ];
+                @endphp
+                <input type="hidden" name="filters" value="{{ htmlentities(json_encode($filtersForSave)) }}">
                 <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
                 <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"
                        class="border rounded-lg px-3 py-2 w-full sm:w-80">
-                <button type="submit" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
-                    Зберегти тест
-                </button>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <button type="submit" name="save_mode" value="questions" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
+                        Зберегти тест
+                    </button>
+                    <button type="submit" name="save_mode" value="filters" class="inline-flex justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-6 py-2 rounded-2xl shadow font-semibold transition">
+                        Зберегти фільтр
+                    </button>
+                </div>
             </form>
         </div>
     @elseif(isset($questions))

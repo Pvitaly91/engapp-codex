@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\QuestionVariant;
+use App\Models\SavedGrammarTest;
 use App\Models\Test;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Http\Request;
@@ -28,6 +29,10 @@ class SavedTestJsStateTest extends TestCase
             Artisan::call('migrate', ['--path' => 'database/migrations/2025_08_04_000002_add_description_to_tests_table.php']);
         }
 
+        if (! Schema::hasTable('saved_grammar_tests')) {
+            Artisan::call('migrate', ['--path' => 'database/migrations/2025_08_15_000000_create_saved_grammar_tests_tables.php']);
+        }
+
         $this->ensureQuestionSchema();
         $this->resetQuestionData();
 
@@ -35,6 +40,9 @@ class SavedTestJsStateTest extends TestCase
         session()->flush();
 
         Test::query()->delete();
+        if (Schema::hasTable('saved_grammar_tests')) {
+            SavedGrammarTest::query()->delete();
+        }
     }
 
     private function createSavedTest(array $questionIds = []): Test
@@ -172,6 +180,8 @@ class SavedTestJsStateTest extends TestCase
     private function resetQuestionData(): void
     {
         foreach ([
+            'saved_grammar_test_questions',
+            'saved_grammar_tests',
             'question_option_question',
             'question_answers',
             'question_variants',
@@ -212,6 +222,47 @@ class SavedTestJsStateTest extends TestCase
 
         $key = sprintf('saved_test_js_state:%s:%s', $test->slug, 'saved-test-js');
         $this->assertSame($payload['state'], session($key));
+    }
+
+    public function test_it_fetches_questions_for_filter_based_saved_test(): void
+    {
+        [$question] = $this->createQuestionWithVariants();
+
+        $filters = [
+            'categories' => [$question->category_id],
+            'difficulty_from' => 1,
+            'difficulty_to' => 10,
+            'num_questions' => 1,
+            'manual_input' => false,
+            'autocomplete_input' => false,
+            'check_one_input' => false,
+            'builder_input' => false,
+            'include_ai' => false,
+            'only_ai' => false,
+            'include_ai_v2' => true,
+            'only_ai_v2' => false,
+            'levels' => [],
+            'tags' => [],
+            'sources' => [],
+            'randomize_filtered' => false,
+            '__meta' => ['mode' => 'filters'],
+        ];
+
+        $savedTest = SavedGrammarTest::create([
+            'uuid' => (string) Str::uuid(),
+            'name' => 'Filter Saved Test',
+            'slug' => uniqid('filter-test-', true),
+            'filters' => $filters,
+        ]);
+
+        $response = $this->getJson(route('saved-test.js.questions', $savedTest->slug));
+
+        $response->assertOk();
+        $data = $response->json('questions');
+
+        $this->assertIsArray($data);
+        $this->assertCount(1, $data);
+        $this->assertSame($question->id, $data[0]['id']);
     }
 
     public function test_it_clears_state_when_null(): void
