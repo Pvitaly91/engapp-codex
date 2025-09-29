@@ -142,7 +142,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'future_be_question' => [
                 'section' => 'future',
                 'tense' => ['Future Simple'],
-                'options' => ['will', 'is', 'are', 'was'],
+                'options' => ['will be', 'is', 'are', 'was'],
                 'detail' => 'future_be_usage',
                 'hint_short' => 'To be question (future)',
                 'verb_hint' => 'to be',
@@ -194,8 +194,8 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             $this->entry('A1', 'future_do_question', '{a1} they join the meeting next week?', 'will', 'they', 'plural'),
             $this->entry('A1', 'future_do_negative', 'She {a1} forget about the test tomorrow.', "won't", 'She', 'third_singular'),
             $this->entry('A1', 'future_do_negative', 'We {a1} leave before sunset.', "won't", 'We', 'plural'),
-            $this->entry('A1', 'future_be_question', 'Who {a1} be in charge of snacks tomorrow?', 'will', 'Who', 'third_singular'),
-            $this->entry('A1', 'future_be_question', 'Where {a1} the party be on Saturday?', 'will', 'the party', 'third_singular'),
+            $this->entry('A1', 'future_be_question', 'Who {a1} in charge of snacks tomorrow?', 'will be', 'Who', 'third_singular'),
+            $this->entry('A1', 'future_be_question', 'What {a1} the party venue on Saturday?', 'will be', 'the party venue', 'third_singular'),
             $this->entry('A1', 'future_be_negative', 'The classroom {a1} empty tomorrow morning.', "won't be", 'The classroom', 'third_singular'),
             $this->entry('A1', 'future_be_negative', 'Our plans {a1} final until we agree together.', "won't be", 'Our plans', 'plural'),
 
@@ -220,8 +220,8 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             $this->entry('A2', 'future_do_question', '{a1} they support the charity event?', 'will', 'they', 'plural'),
             $this->entry('A2', 'future_do_negative', 'She {a1} ignore the manager’s advice.', "won't", 'She', 'third_singular'),
             $this->entry('A2', 'future_do_negative', 'We {a1} cancel the reservation without notice.', "won't", 'We', 'plural'),
-            $this->entry('A2', 'future_be_question', 'Who {a1} be the speaker at tomorrow’s workshop?', 'will', 'Who', 'third_singular'),
-            $this->entry('A2', 'future_be_question', 'Where {a1} the team be for training next week?', 'will', 'the team', 'third_singular'),
+            $this->entry('A2', 'future_be_question', 'Who {a1} the speaker at tomorrow’s workshop?', 'will be', 'Who', 'third_singular'),
+            $this->entry('A2', 'future_be_question', 'What {a1} the team’s training location next week?', 'will be', 'the team’s training location', 'third_singular'),
             $this->entry('A2', 'future_be_negative', 'The town square {a1} quiet during the festival.', "won't be", 'The town square', 'third_singular'),
             $this->entry('A2', 'future_be_negative', 'Our schedule {a1} flexible after the deadline.', "won't be", 'Our schedule', 'third_singular'),
 
@@ -246,8 +246,8 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             $this->entry('B1', 'future_do_question', '{a1} they contribute to the community project?', 'will', 'they', 'plural'),
             $this->entry('B1', 'future_do_negative', 'She {a1} postpone the announcement again.', "won't", 'She', 'third_singular'),
             $this->entry('B1', 'future_do_negative', 'We {a1} compromise on safety standards.', "won't", 'We', 'plural'),
-            $this->entry('B1', 'future_be_question', 'Who {a1} be responsible for coordinating the volunteers?', 'will', 'Who', 'third_singular'),
-            $this->entry('B1', 'future_be_question', 'When {a1} the report be ready for review?', 'will', 'the report', 'third_singular'),
+            $this->entry('B1', 'future_be_question', 'Who {a1} responsible for coordinating the volunteers?', 'will be', 'Who', 'third_singular'),
+            $this->entry('B1', 'future_be_question', 'What {a1} the report’s readiness date for review?', 'will be', 'the report’s readiness date', 'third_singular'),
             $this->entry('B1', 'future_be_negative', 'The lab {a1} open during the maintenance weekend.', "won't be", 'The lab', 'third_singular'),
             $this->entry('B1', 'future_be_negative', 'Our budget {a1} unlimited for this initiative.', "won't be", 'Our budget', 'third_singular'),
 
@@ -272,8 +272,8 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             $this->entry('B2', 'future_do_question', '{a1} they implement the contingency plan if needed?', 'will', 'they', 'plural'),
             $this->entry('B2', 'future_do_negative', 'She {a1} disregard the auditor’s recommendations.', "won't", 'She', 'third_singular'),
             $this->entry('B2', 'future_do_negative', 'We {a1} finalize the deal without legal advice.', "won't", 'We', 'plural'),
-            $this->entry('B2', 'future_be_question', 'Who {a1} be accountable for monitoring compliance next month?', 'will', 'Who', 'third_singular'),
-            $this->entry('B2', 'future_be_question', 'How {a1} the market be affected by the new policy?', 'will', 'the market', 'third_singular'),
+            $this->entry('B2', 'future_be_question', 'Who {a1} accountable for monitoring compliance next month?', 'will be', 'Who', 'third_singular'),
+            $this->entry('B2', 'future_be_question', 'What {a1} the market response to the new policy?', 'will be', 'the market response', 'third_singular'),
             $this->entry('B2', 'future_be_negative', 'The proposal {a1} viable without additional resources.', "won't be", 'The proposal', 'third_singular'),
             $this->entry('B2', 'future_be_negative', 'Our timeline {a1} flexible once production begins.', "won't be", 'Our timeline', 'third_singular'),
 
@@ -298,8 +298,8 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             $this->entry('C1', 'future_do_question', '{a1} they pursue litigation if negotiations fail?', 'will', 'they', 'plural'),
             $this->entry('C1', 'future_do_negative', 'She {a1} authorize expenditures without transparency.', "won't", 'She', 'third_singular'),
             $this->entry('C1', 'future_do_negative', 'We {a1} concede core principles during the talks.', "won't", 'We', 'plural'),
-            $this->entry('C1', 'future_be_question', 'Who {a1} be responsible for framing the policy response?', 'will', 'Who', 'third_singular'),
-            $this->entry('C1', 'future_be_question', 'Where {a1} the decisive meeting be convened?', 'will', 'the decisive meeting', 'third_singular'),
+            $this->entry('C1', 'future_be_question', 'Who {a1} responsible for framing the policy response?', 'will be', 'Who', 'third_singular'),
+            $this->entry('C1', 'future_be_question', 'What {a1} the venue for the decisive meeting?', 'will be', 'the decisive meeting venue', 'third_singular'),
             $this->entry('C1', 'future_be_negative', 'The framework {a1} sustainable without regulatory reform.', "won't be", 'The framework', 'third_singular'),
             $this->entry('C1', 'future_be_negative', 'Our leverage {a1} limitless once the contract expires.', "won't be", 'Our leverage', 'third_singular'),
 
@@ -324,8 +324,8 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             $this->entry('C2', 'future_do_question', '{a1} they invoke emergency powers if dissent escalates?', 'will', 'they', 'plural'),
             $this->entry('C2', 'future_do_negative', 'She {a1} compromise the evidentiary chain again.', "won't", 'She', 'third_singular'),
             $this->entry('C2', 'future_do_negative', 'We {a1} relinquish oversight despite political pressure.', "won't", 'We', 'plural'),
-            $this->entry('C2', 'future_be_question', 'Who {a1} be entrusted with drafting the supranational charter?', 'will', 'Who', 'third_singular'),
-            $this->entry('C2', 'future_be_question', 'How {a1} the precedent be interpreted after the ruling?', 'will', 'the precedent', 'third_singular'),
+            $this->entry('C2', 'future_be_question', 'Who {a1} entrusted with drafting the supranational charter?', 'will be', 'Who', 'third_singular'),
+            $this->entry('C2', 'future_be_question', 'What {a1} the interpretation of the precedent after the ruling?', 'will be', 'the interpretation', 'third_singular'),
             $this->entry('C2', 'future_be_negative', 'The mandate {a1} enforceable without multilateral consent.', "won't be", 'The mandate', 'third_singular'),
             $this->entry('C2', 'future_be_negative', 'Our position {a1} indefensible once the clause sunsets.', "won't be", 'Our position', 'third_singular'),
         ];
@@ -569,8 +569,8 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             "wasn't" => "*He wasn't late.*",
             "weren't" => "*They weren't late.*",
             'will' => '*Will you join us tomorrow?*',
+            'will be' => '*Will you be ready tomorrow?*',
             "won't" => "*She won't come tomorrow.*",
-            'will be' => '*Will the meeting be online?*',
             "won't be" => "*The room won't be ready tomorrow.*",
         ];
 
