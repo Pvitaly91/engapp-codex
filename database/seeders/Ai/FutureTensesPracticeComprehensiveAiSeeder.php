@@ -12,7 +12,12 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Future Tenses Comprehensive AI Practice'])->id;
-        $sourceId = Source::firstOrCreate(['name' => 'Custom: Future Tenses Comprehensive AI'])->id;
+        $sourceIds = [
+            'future_simple' => Source::firstOrCreate(['name' => 'Custom: Future Simple Comprehensive AI'])->id,
+            'future_continuous' => Source::firstOrCreate(['name' => 'Custom: Future Continuous Comprehensive AI'])->id,
+            'future_perfect' => Source::firstOrCreate(['name' => 'Custom: Future Perfect Comprehensive AI'])->id,
+            'future_perfect_continuous' => Source::firstOrCreate(['name' => 'Custom: Future Perfect Continuous Comprehensive AI'])->id,
+        ];
 
         $themeTagId = Tag::firstOrCreate(
             ['name' => 'Future Tenses Comprehensive Practice'],
@@ -327,7 +332,7 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
                 'question' => $question['question'],
                 'category_id' => $categoryId,
                 'difficulty' => $levelDifficulty[$question['level']] ?? 3,
-                'source_id' => $sourceId,
+                'source_id' => $sourceIds[$question['detail']],
                 'flag' => 2,
                 'level' => $question['level'],
                 'tag_ids' => array_values(array_unique($tagIds)),
