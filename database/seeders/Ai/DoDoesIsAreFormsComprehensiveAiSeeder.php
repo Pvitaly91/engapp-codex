@@ -498,18 +498,18 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
         $answerTitle = $this->titleCase($answer);
 
         return match ($pattern) {
-            'present_do_question' => "Час: {$config['tense_label']}.  \nФормула: **{$answerTitle} + {$subject} + V1...?**  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'present_do_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + {$answer} + V1**.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'present_be_question' => "Час: {$config['tense_label']}.  \nФормула: **{$answerTitle} + {$subject} + прикметник/місце?**  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'present_be_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + {$answer} + прикметник/місце**.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'past_do_question' => "Час: {$config['tense_label']}.  \nФормула: **Did + {$subject} + V1...?**  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'past_do_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + didn't + V1**.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'past_be_question' => "Час: {$config['tense_label']}.  \nФормула: **Was/Were + {$subject} + прикметник/місце?**  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'past_be_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + wasn't/weren't + прикметник/місце**.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'future_do_question' => "Час: {$config['tense_label']}.  \nФормула: **Will + {$subject} + V1...?**  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'future_do_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + won't + V1**.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'future_be_question' => "Час: {$config['tense_label']}.  \nФормула: **Will + {$subject} + be + прикметник/місце?**  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
-            'future_be_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + won't be + прикметник/місце**.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'present_do_question' => "Час: {$config['tense_label']}.  \nФормула: **{$answerTitle} + {$subject} + V1...?**  \nПояснення: У запитанні Present Simple допоміжне do або does ставимо перед підметом, а смислове дієслово залишаємо у базовій формі.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'present_do_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + {$answer} + V1**.  \nПояснення: Заперечення Present Simple будуємо як підмет + do або does з not, після чого головне дієслово стоїть у формі V1.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'present_be_question' => "Час: {$config['tense_label']}.  \nФормула: **{$answerTitle} + {$subject} + прикметник/місце?**  \nПояснення: Питання з to be починаються з відповідної форми am/is/are, далі йде підмет і продовження думки.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'present_be_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + {$answer} + прикметник/місце**.  \nПояснення: У запереченні з to be ставимо підмет, правильну форму am/is/are з not, а потім опис чи місце.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'past_do_question' => "Час: {$config['tense_label']}.  \nФормула: **Did + {$subject} + V1...?**  \nПояснення: У Past Simple запитання формуємо через did перед підметом, а основне дієслово залишаємо у базовій формі.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'past_do_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + didn't + V1**.  \nПояснення: Заперечення Past Simple складається з підмета, did not та головного дієслова без закінчень.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'past_be_question' => "Час: {$config['tense_label']}.  \nФормула: **Was/Were + {$subject} + прикметник/місце?**  \nПояснення: Питання з to be в минулому починаємо з was чи were, після чого ставимо підмет і інформацію про стан або місце.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'past_be_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + wasn't/weren't + прикметник/місце**.  \nПояснення: Заперечення з to be в Past Simple будуємо як підмет + was/were + not і подальший опис.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'future_do_question' => "Час: {$config['tense_label']}.  \nФормула: **Will + {$subject} + V1...?**  \nПояснення: Питання про майбутні дії формуємо через will перед підметом, а смислове дієслово залишаємо у базовій формі.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'future_do_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + won't + V1**.  \nПояснення: Заперечення Future Simple має структуру підмет + will not та дієслово в інфінітиві без to.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'future_be_question' => "Час: {$config['tense_label']}.  \nФормула: **Will + {$subject} + be + прикметник/місце?**  \nПояснення: Щоб запитати про стан у майбутньому, ставимо will, потім підмет і be, а далі додаємо характеристику чи місце.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
+            'future_be_negative' => "Час: {$config['tense_label']}.  \nФормула: **{$subject} + won't be + прикметник/місце**.  \nПояснення: Заперечення майбутнього стану будуємо як підмет + will not be і додаємо опис ситуації чи місця.  \nПриклад: *{$example}*  \nМаркери: {$markers}.",
             default => '',
         };
     }
