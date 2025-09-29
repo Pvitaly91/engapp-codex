@@ -13,6 +13,7 @@
 
     @include('components.word-search')
     @include('components.saved-test-progress', ['progress' => '1 / 0'])
+    @include('components.saved-test-js-restart-button')
 
     <div id="question-wrap">
         <div id="question-card"></div>
@@ -387,7 +388,10 @@ function showSummary() {
   const summary = document.getElementById('summary');
   summary.classList.remove('hidden');
   document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
-  document.getElementById('retry').onclick = () => init(true);
+  const retryButton = document.getElementById('retry');
+  if (retryButton) {
+    retryButton.onclick = () => restartJsTest(init, { showLoaderFn: showLoader, button: retryButton });
+  }
 }
 
 function fetchHints(q, refresh = false) {
@@ -442,6 +446,11 @@ function hookGlobalEvents() {
     const opt = q.options[n - 1];
     if (opt) onChoose(opt);
   });
+}
+
+const restartButton = document.getElementById('restart-test');
+if (restartButton) {
+  restartButton.addEventListener('click', () => restartJsTest(init, { showLoaderFn: showLoader, button: restartButton }));
 }
 
 init();

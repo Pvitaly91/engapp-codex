@@ -13,6 +13,7 @@
 
     @include('components.word-search')
     @include('components.saved-test-progress')
+    @include('components.saved-test-js-restart-button')
 
     <div id="questions" class="space-y-4"></div>
 
@@ -134,7 +135,10 @@ function renderQuestions(showOnlyWrong = false) {
   document.getElementById('final-check').classList.toggle('hidden', allDone);
   if (allDone) {
     document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
-    document.getElementById('retry').onclick = () => init(true);
+    const retryButton = document.getElementById('retry');
+    if (retryButton) {
+      retryButton.onclick = () => restartJsTest(init, { button: retryButton });
+    }
     document.getElementById('show-wrong').onclick = () => renderQuestions(true);
   }
 }
@@ -217,6 +221,11 @@ function updateProgress() {
   score.textContent = `Точність: ${percent}%`;
   const bar = document.getElementById('progress-bar');
   bar.style.width = `${(state.answered / state.items.length) * 100}%`;
+}
+
+const restartButton = document.getElementById('restart-test');
+if (restartButton) {
+  restartButton.addEventListener('click', () => restartJsTest(init, { button: restartButton }));
 }
 
 init();
