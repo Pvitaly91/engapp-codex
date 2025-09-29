@@ -15,6 +15,7 @@ use App\Models\Tag;
 use App\Models\SavedGrammarTest;
 use App\Models\ChatGPTExplanation;
 use App\Services\QuestionVariantService;
+use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
 use App\Services\SavedTestResolver;
 use App\Models\QuestionHint;
@@ -46,6 +47,7 @@ class GrammarTestController extends Controller
     public function __construct(
         private QuestionVariantService $variantService,
         private SavedTestResolver $savedTestResolver,
+        private GrammarTestFilterService $filterService,
     )
     {
     }
@@ -84,11 +86,19 @@ class GrammarTestController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'filters' => 'required|string',
-            'question_uuids' => 'required|string',
+            'question_uuids' => ['required_if:save_mode,questions', 'nullable', 'string'],
+            'save_mode' => 'nullable|string|in:questions,filters',
         ]);
 
         $filters = json_decode(html_entity_decode($request->input('filters')), true);
-        $questionUuids = json_decode(html_entity_decode($request->input('question_uuids')), true);
+        $questionUuids = json_decode(html_entity_decode($request->input('question_uuids', '[]')), true);
+
+        $mode = $request->input('save_mode', 'questions');
+
+        $normalizedFilters = $this->filterService->normalize(is_array($filters) ? $filters : []);
+        if ($mode === 'filters') {
+            $normalizedFilters['__meta'] = ['mode' => 'filters'];
+        }
 
         if (! is_array($questionUuids)) {
             $questionUuids = [];
@@ -110,15 +120,17 @@ class GrammarTestController extends Controller
             'uuid' => (string) Str::uuid(),
             'name' => $request->name,
             'slug' => $slug,
-            'filters' => is_array($filters) ? $filters : [],
+            'filters' => $normalizedFilters,
         ]);
 
-        $questionUuids->each(function ($uuid, $index) use ($test) {
-            $test->questionLinks()->create([
-                'question_uuid' => $uuid,
-                'position' => $index,
-            ]);
-        });
+        if ($mode !== 'filters') {
+            $questionUuids->each(function ($uuid, $index) use ($test) {
+                $test->questionLinks()->create([
+                    'question_uuid' => $uuid,
+                    'position' => $index,
+                ]);
+            });
+        }
 
         return redirect()->route('saved-test.show', $slug);
     }
@@ -1485,175 +1497,7 @@ class GrammarTestController extends Controller
 
     private function prepareGenerateData(Request $request): array
     {
-        $categories = Category::all();
-        $minDifficulty = 1;
-        $maxDifficulty = 10;
-        $maxQuestions = 999999;
-
-        $selectedCategories = $request->input('categories', []);
-        $difficultyFrom = $request->input('difficulty_from', $minDifficulty);
-        $difficultyTo = $request->input('difficulty_to', $maxDifficulty);
-        $numQuestions = max(1, min($request->input('num_questions', 10), $maxQuestions));
-
-        $manualInput = $request->boolean('manual_input');
-        $autocompleteInput = $request->boolean('autocomplete_input');
-        $checkOneInput = $request->boolean('check_one_input');
-        $builderInput = $request->boolean('builder_input');
-        $includeAi = $request->boolean('include_ai');
-        $onlyAi = $request->boolean('only_ai');
-        $includeAiV2 = $request->boolean('include_ai_v2');
-        $onlyAiV2 = $request->boolean('only_ai_v2');
-        $selectedTags = $request->input('tags', []);
-        $selectedLevels = (array) $request->input('levels', []);
-        $randomizeFiltered = $request->boolean('randomize_filtered');
-
-        $selectedSources = $request->input('sources', []);
-        $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
-        $groups = ! empty($selectedCategories) ? $selectedCategories : $categories->pluck('id')->toArray();
-        if ($groupBy === 'source_id') {
-            $groups = $selectedSources;
-        }
-        $groups = array_values($groups);
-        if (empty($groups)) {
-            $groups = [null];
-        }
-
-        $groupCount = max(count($groups), 1);
-        $questionsPerGroup = floor($numQuestions / $groupCount);
-        $remaining = $numQuestions % $groupCount;
-
-        $questions = collect();
-        $canRandomizeFiltered = false;
-
-        foreach ($groups as $group) {
-            $take = $questionsPerGroup + ($remaining > 0 ? 1 : 0);
-            if ($remaining > 0) {
-                $remaining--;
-            }
-
-            $query = Question::with(['category', 'answers.option', 'options', 'verbHints.option', 'source'])
-                ->whereBetween('difficulty', [$difficultyFrom, $difficultyTo]);
-
-            if (! empty($selectedLevels)) {
-                $query->whereIn('level', $selectedLevels);
-            }
-
-            if ($groupBy === 'source_id') {
-                if ($group !== null) {
-                    $query->where('source_id', $group);
-                }
-            } else {
-                if ($group !== null) {
-                    $query->where('category_id', $group);
-                }
-            }
-
-            if (! empty($selectedSources) && $groupBy !== 'source_id') {
-                $query->whereIn('source_id', $selectedSources);
-            }
-
-            if (! empty($selectedCategories) && $groupBy !== 'category_id') {
-                $query->whereIn('category_id', $selectedCategories);
-            }
-
-            if (! empty($selectedTags)) {
-                $query->whereHas('tags', fn ($q) => $q->whereIn('name', $selectedTags));
-            }
-
-            $onlyFlags = [];
-            if ($onlyAi) {
-                $onlyFlags[] = 1;
-            }
-            if ($onlyAiV2) {
-                $onlyFlags[] = 2;
-            }
-
-            if (! empty($onlyFlags)) {
-                if (count($onlyFlags) === 1) {
-                    $query->where('flag', $onlyFlags[0]);
-                } else {
-                    $query->whereIn('flag', $onlyFlags);
-                }
-            } else {
-                $allowedFlags = [0];
-                if ($includeAi) {
-                    $allowedFlags[] = 1;
-                }
-                if ($includeAiV2) {
-                    $allowedFlags[] = 2;
-                }
-
-                $allowedFlags = array_values(array_unique($allowedFlags));
-
-                if (count($allowedFlags) === 1) {
-                    $query->where('flag', $allowedFlags[0]);
-                } elseif (count($allowedFlags) < 3) {
-                    $query->whereIn('flag', $allowedFlags);
-                }
-            }
-
-            $availableCount = (clone $query)->count();
-
-            if ($availableCount > $take && $take > 0) {
-                $canRandomizeFiltered = true;
-            }
-
-            if ($take > 0) {
-                $selectionQuery = clone $query;
-
-                if ($randomizeFiltered && $availableCount > $take) {
-                    $selectionQuery->inRandomOrder();
-                } else {
-                    $selectionQuery->orderBy('id');
-                }
-
-                $questions = $questions->merge($selectionQuery->limit($take)->get());
-            }
-        }
-
-        $questions = $randomizeFiltered
-            ? $questions->values()
-            : $questions->sortBy('id')->values();
-
-        $categoryNames = $questions->pluck('category.name')->filter()->unique()->values();
-        $autoTestName = ucwords($categoryNames->join(' - '));
-
-        $sources = Source::orderBy('name')->get();
-        $allTags = Tag::whereHas('questions')->get();
-        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
-        $levels = Question::select('level')->distinct()->pluck('level')
-            ->filter()
-            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
-            ->values();
-
-        return [
-            'categories' => $categories,
-            'minDifficulty' => $minDifficulty,
-            'maxDifficulty' => $maxDifficulty,
-            'maxQuestions' => $maxQuestions,
-            'selectedCategories' => $selectedCategories,
-            'difficultyFrom' => $difficultyFrom,
-            'difficultyTo' => $difficultyTo,
-            'numQuestions' => $numQuestions,
-            'manualInput' => $manualInput,
-            'autocompleteInput' => $autocompleteInput,
-            'checkOneInput' => $checkOneInput,
-            'builderInput' => $builderInput,
-            'includeAi' => $includeAi,
-            'onlyAi' => $onlyAi,
-            'includeAiV2' => $includeAiV2,
-            'onlyAiV2' => $onlyAiV2,
-            'questions' => $questions,
-            'sources' => $sources,
-            'selectedSources' => $selectedSources,
-            'autoTestName' => $autoTestName,
-            'allTags' => $allTags,
-            'selectedTags' => $selectedTags,
-            'levels' => $levels,
-            'selectedLevels' => $selectedLevels,
-            'randomizeFiltered' => $randomizeFiltered,
-            'canRandomizeFiltered' => $canRandomizeFiltered,
-        ];
+        return $this->filterService->prepare($request->all());
     }
 
     private function filtersFromTest($test): array
@@ -1662,11 +1506,12 @@ class GrammarTestController extends Controller
 
         if (is_string($filters)) {
             $decoded = json_decode($filters, true);
-
-            return is_array($decoded) ? $decoded : [];
+            $filters = is_array($decoded) ? $decoded : [];
         }
 
-        return is_array($filters) ? $filters : [];
+        $filters = is_array($filters) ? $filters : [];
+
+        return $this->filterService->normalize($filters);
     }
 
     private function slugExists(string $slug): bool
@@ -1715,6 +1560,39 @@ class GrammarTestController extends Controller
             : Question::whereIn('uuid', $allUuids)->pluck('id', 'uuid');
 
         $uuidTests->each(function (SavedGrammarTest $test) use ($idMap) {
+            $filters = $test->filters ?? [];
+            if (is_string($filters)) {
+                $decoded = json_decode($filters, true);
+                $filters = is_array($decoded) ? $decoded : [];
+            }
+
+            $isFilterBased = is_array($filters)
+                && Arr::get($filters, '__meta.mode') === 'filters';
+
+            if ($isFilterBased) {
+                $normalized = $this->filterService->normalize($filters);
+                $questions = $this->filterService->questionsFromFilters($normalized);
+
+                $ids = $questions->pluck('id')
+                    ->filter(fn ($id) => filled($id))
+                    ->map(fn ($id) => (int) $id)
+                    ->values()
+                    ->all();
+
+                $uuids = $questions->pluck('uuid')
+                    ->filter(fn ($uuid) => filled($uuid))
+                    ->values();
+
+                $test->setAttribute('questions', $ids);
+                $test->setAttribute('question_ids', $ids);
+                $test->setAttribute('question_uuids', $uuids->toArray());
+                $test->setAttribute('question_count', $questions->count() ?: ($normalized['num_questions'] ?? 0));
+                $test->setAttribute('test_type', 'filter');
+                $test->setAttribute('usesUuidLinks', true);
+
+                return;
+            }
+
             $uuids = $test->questionLinks->sortBy('position')->pluck('question_uuid')->filter()->values();
             $ids = $uuids->map(fn ($uuid) => isset($idMap[$uuid]) ? (int) $idMap[$uuid] : null)
                 ->filter(fn ($id) => $id !== null)

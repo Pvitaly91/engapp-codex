@@ -11,7 +11,9 @@ class ResolvedSavedTest
         public Model $model,
         public Collection $questionIds,
         public Collection $questionUuids,
-        public bool $usesUuidLinks
+        public bool $usesUuidLinks,
+        public ?Collection $preloadedQuestions = null,
+        public bool $isFilterBased = false,
     ) {
     }
 }
