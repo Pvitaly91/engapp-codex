@@ -348,7 +348,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'markers' => 'tomorrow, next year, later',
             ],
         ];
-
+ 
         $structureTags = [];
         foreach ($patternConfig as $config) {
             $label = $config['hint_short'];
