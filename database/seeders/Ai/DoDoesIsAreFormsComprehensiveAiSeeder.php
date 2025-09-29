@@ -13,6 +13,194 @@ use Database\Seeders\QuestionSeeder;
 
 class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 {
+    private array $optionVariantMap = [
+        'do' => [
+            ['value' => 'do not', 'type' => 'full'],
+            ['value' => "don't", 'type' => 'contracted'],
+            ['value' => 'does', 'type' => 'related'],
+            ['value' => 'does not', 'type' => 'full'],
+            ['value' => "doesn't", 'type' => 'contracted'],
+        ],
+        'do not' => [
+            ['value' => 'do', 'type' => 'related'],
+            ['value' => "don't", 'type' => 'contracted'],
+            ['value' => 'does not', 'type' => 'full'],
+            ['value' => "doesn't", 'type' => 'contracted'],
+        ],
+        "don't" => [
+            ['value' => 'do', 'type' => 'related'],
+            ['value' => 'do not', 'type' => 'full'],
+            ['value' => 'does', 'type' => 'related'],
+            ['value' => 'does not', 'type' => 'full'],
+            ['value' => "doesn't", 'type' => 'contracted'],
+        ],
+        'does' => [
+            ['value' => 'do', 'type' => 'related'],
+            ['value' => 'do not', 'type' => 'full'],
+            ['value' => "don't", 'type' => 'contracted'],
+            ['value' => 'does not', 'type' => 'full'],
+            ['value' => "doesn't", 'type' => 'contracted'],
+        ],
+        'does not' => [
+            ['value' => 'does', 'type' => 'related'],
+            ['value' => "doesn't", 'type' => 'contracted'],
+            ['value' => 'do', 'type' => 'related'],
+            ['value' => "don't", 'type' => 'contracted'],
+        ],
+        "doesn't" => [
+            ['value' => 'does', 'type' => 'related'],
+            ['value' => 'does not', 'type' => 'full'],
+            ['value' => 'do', 'type' => 'related'],
+            ['value' => 'do not', 'type' => 'full'],
+        ],
+        'did' => [
+            ['value' => 'did not', 'type' => 'full'],
+            ['value' => "didn't", 'type' => 'contracted'],
+            ['value' => 'do', 'type' => 'related'],
+            ['value' => 'does', 'type' => 'related'],
+        ],
+        'did not' => [
+            ['value' => 'did', 'type' => 'related'],
+            ['value' => "didn't", 'type' => 'contracted'],
+            ['value' => 'do', 'type' => 'related'],
+            ['value' => "don't", 'type' => 'contracted'],
+        ],
+        "didn't" => [
+            ['value' => 'did', 'type' => 'related'],
+            ['value' => 'did not', 'type' => 'full'],
+            ['value' => 'do', 'type' => 'related'],
+            ['value' => 'do not', 'type' => 'full'],
+        ],
+        'am' => [
+            ['value' => 'am not', 'type' => 'full'],
+            ['value' => "I'm", 'type' => 'contracted'],
+            ['value' => "I'm not", 'type' => 'contracted'],
+            ['value' => 'are', 'type' => 'related'],
+            ['value' => "aren't", 'type' => 'contracted'],
+        ],
+        'am not' => [
+            ['value' => "I'm not", 'type' => 'contracted'],
+            ['value' => "I'm", 'type' => 'contracted'],
+            ['value' => 'are', 'type' => 'related'],
+            ['value' => "aren't", 'type' => 'contracted'],
+        ],
+        "I'm" => [
+            ['value' => 'am', 'type' => 'related'],
+            ['value' => 'am not', 'type' => 'full'],
+            ['value' => "I'm not", 'type' => 'contracted'],
+        ],
+        "I'm not" => [
+            ['value' => 'am not', 'type' => 'full'],
+            ['value' => 'am', 'type' => 'related'],
+        ],
+        'is' => [
+            ['value' => 'is not', 'type' => 'full'],
+            ['value' => "isn't", 'type' => 'contracted'],
+            ['value' => 'are', 'type' => 'related'],
+            ['value' => "aren't", 'type' => 'contracted'],
+        ],
+        'is not' => [
+            ['value' => 'is', 'type' => 'related'],
+            ['value' => "isn't", 'type' => 'contracted'],
+        ],
+        "isn't" => [
+            ['value' => 'is', 'type' => 'related'],
+            ['value' => 'is not', 'type' => 'full'],
+            ['value' => 'are', 'type' => 'related'],
+            ['value' => "aren't", 'type' => 'contracted'],
+        ],
+        'are' => [
+            ['value' => 'are not', 'type' => 'full'],
+            ['value' => "aren't", 'type' => 'contracted'],
+            ['value' => 'am', 'type' => 'related'],
+            ['value' => 'am not', 'type' => 'full'],
+        ],
+        'are not' => [
+            ['value' => 'are', 'type' => 'related'],
+            ['value' => "aren't", 'type' => 'contracted'],
+        ],
+        "aren't" => [
+            ['value' => 'are', 'type' => 'related'],
+            ['value' => 'are not', 'type' => 'full'],
+            ['value' => 'am', 'type' => 'related'],
+            ['value' => 'am not', 'type' => 'full'],
+        ],
+        'was' => [
+            ['value' => 'was not', 'type' => 'full'],
+            ['value' => "wasn't", 'type' => 'contracted'],
+            ['value' => 'were', 'type' => 'related'],
+            ['value' => "weren't", 'type' => 'contracted'],
+        ],
+        'was not' => [
+            ['value' => 'was', 'type' => 'related'],
+            ['value' => "wasn't", 'type' => 'contracted'],
+        ],
+        "wasn't" => [
+            ['value' => 'was', 'type' => 'related'],
+            ['value' => 'was not', 'type' => 'full'],
+            ['value' => 'were', 'type' => 'related'],
+            ['value' => "weren't", 'type' => 'contracted'],
+        ],
+        'were' => [
+            ['value' => 'were not', 'type' => 'full'],
+            ['value' => "weren't", 'type' => 'contracted'],
+            ['value' => 'was', 'type' => 'related'],
+            ['value' => "wasn't", 'type' => 'contracted'],
+        ],
+        'were not' => [
+            ['value' => 'were', 'type' => 'related'],
+            ['value' => "weren't", 'type' => 'contracted'],
+        ],
+        "weren't" => [
+            ['value' => 'were', 'type' => 'related'],
+            ['value' => 'were not', 'type' => 'full'],
+            ['value' => 'was', 'type' => 'related'],
+            ['value' => 'was not', 'type' => 'full'],
+        ],
+        'will' => [
+            ['value' => 'will be', 'type' => 'related'],
+            ['value' => 'will not', 'type' => 'full'],
+            ['value' => 'will not be', 'type' => 'full'],
+            ['value' => "won't", 'type' => 'contracted'],
+            ['value' => "won't be", 'type' => 'contracted'],
+        ],
+        'will not' => [
+            ['value' => 'will', 'type' => 'related'],
+            ['value' => 'will be', 'type' => 'related'],
+            ['value' => 'will not be', 'type' => 'full'],
+            ['value' => "won't", 'type' => 'contracted'],
+            ['value' => "won't be", 'type' => 'contracted'],
+        ],
+        "won't" => [
+            ['value' => 'will', 'type' => 'related'],
+            ['value' => 'will not', 'type' => 'full'],
+            ['value' => 'will be', 'type' => 'related'],
+            ['value' => 'will not be', 'type' => 'full'],
+            ['value' => "won't be", 'type' => 'contracted'],
+        ],
+        'will be' => [
+            ['value' => 'will', 'type' => 'related'],
+            ['value' => 'will not', 'type' => 'full'],
+            ['value' => 'will not be', 'type' => 'full'],
+            ['value' => "won't", 'type' => 'contracted'],
+            ['value' => "won't be", 'type' => 'contracted'],
+        ],
+        'will not be' => [
+            ['value' => 'will be', 'type' => 'related'],
+            ['value' => 'will', 'type' => 'related'],
+            ['value' => 'will not', 'type' => 'full'],
+            ['value' => "won't", 'type' => 'contracted'],
+            ['value' => "won't be", 'type' => 'contracted'],
+        ],
+        "won't be" => [
+            ['value' => 'will be', 'type' => 'related'],
+            ['value' => 'will', 'type' => 'related'],
+            ['value' => 'will not', 'type' => 'full'],
+            ['value' => 'will not be', 'type' => 'full'],
+            ['value' => "won't", 'type' => 'contracted'],
+        ],
+    ];
+
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Do Does Am Is Are Advanced AI Test'])->id;
@@ -42,7 +230,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'present_do_question' => [
                 'section' => 'present',
                 'tense' => ['Present Simple'],
-                'options' => ['do', 'does', 'am', 'is'],
+                'option_pool' => ['do', 'does', 'am', 'is', 'are'],
                 'detail' => 'present_do_usage',
                 'hint_short' => 'Present Simple question',
                 'verb_hint' => 'to be',
@@ -52,7 +240,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'present_do_negative' => [
                 'section' => 'present',
                 'tense' => ['Present Simple'],
-                'options' => ["don't", "doesn't", 'am not', "isn't"],
+                'option_pool' => ["don't", "doesn't", 'am not', "isn't", 'are not'],
                 'detail' => 'present_do_usage',
                 'hint_short' => 'Present Simple negative',
                 'verb_hint' => 'to be',
@@ -62,7 +250,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'present_be_question' => [
                 'section' => 'present',
                 'tense' => ['Present Simple'],
-                'options' => ['am', 'is', 'are', 'do'],
+                'option_pool' => ['am', 'is', 'are', 'do'],
                 'detail' => 'present_be_usage',
                 'hint_short' => 'To be question (present)',
                 'verb_hint' => 'to be',
@@ -72,7 +260,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'present_be_negative' => [
                 'section' => 'present',
                 'tense' => ['Present Simple'],
-                'options' => ['am not', "isn't", "aren't", "don't"],
+                'option_pool' => ['am not', "isn't", "aren't", "don't"],
                 'detail' => 'present_be_usage',
                 'hint_short' => 'To be negative (present)',
                 'verb_hint' => 'to be',
@@ -82,7 +270,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'past_do_question' => [
                 'section' => 'past',
                 'tense' => ['Past Simple'],
-                'options' => ['did', 'do', 'does', 'was'],
+                'option_pool' => ['did', 'do', 'does', 'was'],
                 'detail' => 'past_do_usage',
                 'hint_short' => 'Past Simple question',
                 'verb_hint' => 'to be',
@@ -92,7 +280,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'past_do_negative' => [
                 'section' => 'past',
                 'tense' => ['Past Simple'],
-                'options' => ["didn't", "don't", "doesn't", "wasn't"],
+                'option_pool' => ["didn't", "don't", "doesn't", "wasn't"],
                 'detail' => 'past_do_usage',
                 'hint_short' => 'Past Simple negative',
                 'verb_hint' => 'to be',
@@ -102,7 +290,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'past_be_question' => [
                 'section' => 'past',
                 'tense' => ['Past Simple'],
-                'options' => ['was', 'were', 'is', 'are'],
+                'option_pool' => ['was', 'were', 'is', 'are'],
                 'detail' => 'past_be_usage',
                 'hint_short' => 'To be question (past)',
                 'verb_hint' => 'to be',
@@ -112,7 +300,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'past_be_negative' => [
                 'section' => 'past',
                 'tense' => ['Past Simple'],
-                'options' => ["wasn't", "weren't", "isn't", "aren't"],
+                'option_pool' => ["wasn't", "weren't", "isn't", "aren't"],
                 'detail' => 'past_be_usage',
                 'hint_short' => 'To be negative (past)',
                 'verb_hint' => 'to be',
@@ -122,7 +310,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'future_do_question' => [
                 'section' => 'future',
                 'tense' => ['Future Simple'],
-                'options' => ['will', 'do', 'does', 'did'],
+                'option_pool' => ['will', 'will be', 'will not', "won't", 'do', 'does', 'did'],
                 'detail' => 'future_do_usage',
                 'hint_short' => 'Future Simple question',
                 'verb_hint' => 'to be',
@@ -132,7 +320,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'future_do_negative' => [
                 'section' => 'future',
                 'tense' => ['Future Simple'],
-                'options' => ["won't", "don't", "doesn't", "didn't"],
+                'option_pool' => ["won't", 'will not', 'will', "won't be", 'do', 'does', 'did'],
                 'detail' => 'future_do_usage',
                 'hint_short' => 'Future Simple negative',
                 'verb_hint' => 'to be',
@@ -142,7 +330,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'future_be_question' => [
                 'section' => 'future',
                 'tense' => ['Future Simple'],
-                'options' => ['will be', 'is', 'are', 'was'],
+                'option_pool' => ['will be', 'will', 'will not', "won't", 'is', 'are', 'was'],
                 'detail' => 'future_be_usage',
                 'hint_short' => 'To be question (future)',
                 'verb_hint' => 'to be',
@@ -152,7 +340,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'future_be_negative' => [
                 'section' => 'future',
                 'tense' => ['Future Simple'],
-                'options' => ["won't be", "isn't", "aren't", "wasn't"],
+                'option_pool' => ["won't be", 'will not be', 'will be', "won't", 'is', 'are', 'was'],
                 'detail' => 'future_be_usage',
                 'hint_short' => 'To be negative (future)',
                 'verb_hint' => 'to be',
@@ -336,14 +524,16 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             $answer = $entry['answer'];
             $example = $this->formatExample($entry['question'], $answer);
 
+            $options = $this->buildOptions($config['option_pool'], $answer);
+
             $rawQuestions[] = [
                 'section' => $config['section'],
                 'detail' => $config['detail'],
                 'question' => $entry['question'],
                 'verb_hint' => ['a1' => '(' . $config['verb_hint'] . ')'],
-                'options' => $config['options'],
+                'options' => $options,
                 'answers' => ['a1' => $answer],
-                'explanations' => $this->buildExplanations($entry['pattern'], $entry, $config['options'], $answer, $example, $config['tense_label']),
+                'explanations' => $this->buildExplanations($entry['pattern'], $entry, $options, $answer, $example, $config['tense_label']),
                 'hints' => ['a1' => $this->buildHint($entry['pattern'], $entry, $answer, $example, $config)],
                 'tense' => $config['tense'],
                 'level' => $entry['level'],
@@ -491,6 +681,155 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
         ];
     }
 
+    private function buildOptions(array $baseOptions, string $answer): array
+    {
+        $pool = [];
+        $types = [];
+
+        $addOption = function (string $value, string $type = 'base') use (&$pool, &$types): bool {
+            $value = trim($value);
+
+            if ($value === '') {
+                return false;
+            }
+
+            if (! isset($types[$value])) {
+                $types[$value] = [$type];
+                $pool[] = $value;
+
+                return true;
+            }
+
+            if (! in_array($type, $types[$value], true)) {
+                $types[$value][] = $type;
+            }
+
+            return false;
+        };
+
+        foreach ($baseOptions as $baseOption) {
+            $addOption($baseOption);
+        }
+
+        $addOption($answer, 'answer');
+
+        $queue = $pool;
+        $index = 0;
+
+        while ($index < count($queue)) {
+            $current = $queue[$index++];
+
+            foreach ($this->optionVariantMap[$current] ?? [] as $variant) {
+                $value = is_array($variant) ? ($variant['value'] ?? '') : $variant;
+                $type = is_array($variant) ? ($variant['type'] ?? 'variant') : 'variant';
+
+                if ($addOption($value, $type)) {
+                    $queue[] = $value;
+                }
+            }
+        }
+
+        $answerVariants = $this->optionVariantMap[$answer] ?? [];
+        $fullVariants = [];
+        $contractedVariants = [];
+        $relatedVariants = [];
+
+        foreach ($answerVariants as $variant) {
+            $value = is_array($variant) ? ($variant['value'] ?? '') : $variant;
+            $type = is_array($variant) ? ($variant['type'] ?? 'related') : 'related';
+
+            if ($value === '' || $value === $answer) {
+                continue;
+            }
+
+            if (! isset($types[$value])) {
+                continue;
+            }
+
+            if ($type === 'full') {
+                $fullVariants[] = $value;
+            } elseif ($type === 'contracted') {
+                $contractedVariants[] = $value;
+            } else {
+                $relatedVariants[] = $value;
+            }
+        }
+
+        $targetCount = 4;
+        $selected = [$answer];
+        $used = [$answer => true];
+
+        if ($fullChoice = $this->pickRandom($fullVariants)) {
+            $selected[] = $fullChoice;
+            $used[$fullChoice] = true;
+        }
+
+        if ($contractedChoice = $this->pickRandom($contractedVariants)) {
+            if (! isset($used[$contractedChoice])) {
+                $selected[] = $contractedChoice;
+                $used[$contractedChoice] = true;
+            }
+        }
+
+        if (count($selected) < $targetCount && ! empty($relatedVariants)) {
+            $relatedChoice = $this->pickRandom(array_values(array_filter($relatedVariants, fn ($value) => ! isset($used[$value]))));
+
+            if ($relatedChoice !== null) {
+                $selected[] = $relatedChoice;
+                $used[$relatedChoice] = true;
+            }
+        }
+
+        $remaining = array_values(array_filter($pool, fn ($value) => ! isset($used[$value])));
+        shuffle($remaining);
+
+        while (count($selected) < $targetCount && ! empty($remaining)) {
+            $value = array_shift($remaining);
+
+            if (! isset($used[$value])) {
+                $selected[] = $value;
+                $used[$value] = true;
+            }
+        }
+
+        if (count($selected) < $targetCount) {
+            foreach ($pool as $value) {
+                if (isset($used[$value])) {
+                    continue;
+                }
+
+                $selected[] = $value;
+                $used[$value] = true;
+
+                if (count($selected) >= $targetCount) {
+                    break;
+                }
+            }
+        }
+
+        $selected = array_values(array_unique($selected));
+        shuffle($selected);
+
+        return $selected;
+    }
+
+    private function pickRandom(array $values): ?string
+    {
+        $values = array_values(array_unique(array_filter($values, fn ($value) => $value !== '')));
+
+        if (empty($values)) {
+            return null;
+        }
+
+        if (count($values) === 1) {
+            return $values[0];
+        }
+
+        $index = random_int(0, count($values) - 1);
+
+        return $values[$index];
+    }
+
     private function buildHint(string $pattern, array $entry, string $answer, string $example, array $config): string
     {
         $subject = $entry['subject'];
@@ -553,23 +892,34 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
     {
         $examples = [
             'do' => '*Do they study English?*',
+            'do not' => '*They do not eat meat.*',
             'does' => '*Does she study English?*',
+            'does not' => '*She does not eat meat.*',
             'am' => '*Am I late?*',
             'is' => '*Is he ready?*',
             'are' => '*Are they ready?*',
             "don't" => "*They don't eat meat.*",
             "doesn't" => "*She doesn't eat meat.*",
+            "I'm" => "*I'm ready.*",
+            "I'm not" => "*I'm not ready.*",
             'am not' => '*I am not tired.*',
+            'is not' => '*He is not ready.*',
             "isn't" => "*He isn't ready.*",
+            'are not' => '*They are not ready.*',
             "aren't" => "*They aren't ready.*",
             'did' => '*Did you call her?*',
+            'did not' => '*They did not call her.*',
             "didn't" => "*She didn't call yesterday.*",
             'was' => '*Was he at home?*',
+            'was not' => '*He was not late.*',
             'were' => '*Were they at home?*',
+            'were not' => '*They were not late.*',
             "wasn't" => "*He wasn't late.*",
             "weren't" => "*They weren't late.*",
             'will' => '*Will you join us tomorrow?*',
+            'will not' => '*She will not join us tomorrow.*',
             'will be' => '*Will you be ready tomorrow?*',
+            'will not be' => '*She will not be ready tomorrow.*',
             "won't" => "*She won't come tomorrow.*",
             "won't be" => "*The room won't be ready tomorrow.*",
         ];
@@ -595,6 +945,10 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainPresentDoQuestion(string $subjectPhrase, string $option, string $example, string $answer): string
     {
+        if (str_contains($option, 'not') || str_contains($option, "n't")) {
+            return "❌ Запитання у Present Simple не містить «not», тому слід вибрати допоміжне дієслово без заперечення.  \nПриклад: {$example}";
+        }
+
         if ($option === 'does') {
             return "❌ «does» вживається з третьою особою однини, а {$subjectPhrase} належить до іншої групи.  \nПриклад: {$example}";
         }
@@ -616,6 +970,26 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainPresentDoNegative(string $subjectPhrase, string $option, string $example, string $answer): string
     {
+        if ($option === 'do not' && $answer === "don't") {
+            return "❌ «do not» — повна форма, але у вправі ми відпрацьовуємо скорочене «don't».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'does not' && $answer === "doesn't") {
+            return "❌ «does not» — повна форма, проте речення потребує скорочення «doesn't».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'is not' || $option === 'are not') {
+            return "❌ Форми з to be («{$option}») не використовуються з основними дієсловами; потрібне «do/does» з not.  \nПриклад: {$example}";
+        }
+
+        if ($option === "don't" && $answer === 'do not') {
+            return "❌ «don't» — скорочення, а підказка просить повну форму «do not».  \nПриклад: {$example}";
+        }
+
+        if ($option === "doesn't" && $answer === 'does not') {
+            return "❌ «doesn't» — скорочення, тоді як очікується повна форма «does not».  \nПриклад: {$example}";
+        }
+
         if ($option === "doesn't" && $answer === "don't") {
             return "❌ «doesn't» підходить лише для третьої особи однини, а {$subjectPhrase} належить до іншої групи.  \nПриклад: {$example}";
         }
@@ -637,6 +1011,14 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainPresentBeQuestion(string $subjectPhrase, string $option, string $example, string $answer): string
     {
+        if (str_contains($option, 'not') || str_contains($option, "n't")) {
+            return "❌ Питальні речення з to be не містять заперечення, тому потрібно обрати форму без «not».  \nПриклад: {$example}";
+        }
+
+        if ($option === "I'm") {
+            return "❌ «I'm» використовується у ствердженні, а в питанні форма скорочується до «am» перед підметом.  \nПриклад: {$example}";
+        }
+
         if ($option === 'do') {
             return "❌ «do» використовується з основними дієсловами, а тут потрібна форма to be.  \nПриклад: {$example}";
         }
@@ -660,6 +1042,22 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
     {
         if ($option === "don't") {
             return "❌ «don't» використовується з основними дієсловами, а не з to be.  \nПриклад: {$example}";
+        }
+
+        if ($option === 'is not' && $answer === "isn't") {
+            return "❌ «is not» — повна форма, але вправа просить скорочення «isn't».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'are not' && $answer === "aren't") {
+            return "❌ «are not» — повна форма, проте потрібно скорочення «aren't».  \nПриклад: {$example}";
+        }
+
+        if ($option === "I'm not" && $answer === 'am not') {
+            return "❌ «I'm not» — скорочена форма, а в пропуск вписуємо повну «am not».  \nПриклад: {$example}";
+        }
+
+        if ($option === "I'm" && $answer === 'am not') {
+            return "❌ «I'm» — ствердження, тоді як речення потребує заперечення «am not».  \nПриклад: {$example}";
         }
 
         if ($option === 'am not' && $answer !== 'am not') {
@@ -687,6 +1085,10 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainPastDoQuestion(string $option, string $example): string
     {
+        if (str_contains($option, 'not') || str_contains($option, "n't")) {
+            return "❌ Питання у Past Simple не містить «not», потрібно використати допоміжне «did» без заперечення.  \nПриклад: {$example}";
+        }
+
         if ($option === 'do' || $option === 'does') {
             return "❌ «{$option}» виражає теперішній час, а питання в минулому потребує «did».  \nПриклад: {$example}";
         }
@@ -700,6 +1102,14 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainPastDoNegative(string $option, string $example): string
     {
+        if ($option === 'did not' && $example !== '') {
+            return "❌ «did not» — повна форма, а ми тренуємо скорочення «didn't» у Past Simple.  \nПриклад: {$example}";
+        }
+
+        if ($option === 'do not' || $option === 'does not') {
+            return "❌ «{$option}» передає теперішній час, а Past Simple заперечення будуємо з «didn't».  \nПриклад: {$example}";
+        }
+
         if ($option === "don't" || $option === "doesn't") {
             return "❌ «{$option}» — це теперішній час, а в минулому потрібно «didn't».  \nПриклад: {$example}";
         }
@@ -734,6 +1144,14 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             return "❌ «{$option}» — теперішній час, а нам потрібне минуле «{$answer}».  \nПриклад: {$example}";
         }
 
+        if ($option === 'was not' && $answer === "wasn't") {
+            return "❌ «was not» — повна форма, але речення очікує скорочення «wasn't».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'were not' && $answer === "weren't") {
+            return "❌ «were not» — повна форма, проте вправа тренує скорочене «weren't».  \nПриклад: {$example}";
+        }
+
         if ($option === "wasn't" && $answer === "weren't") {
             return "❌ «wasn't» підходить для однини, а {$subjectPhrase} потребує «weren't».  \nПриклад: {$example}";
         }
@@ -747,6 +1165,14 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainFutureDoQuestion(string $option, string $example): string
     {
+        if (in_array($option, ['will not', 'will not be', "won't", "won't be"], true)) {
+            return "❌ Це заперечна форма, а питальне речення майбутнього часу потребує просто «will».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'will be') {
+            return "❌ «will be» містить зайве «be»: у питанні спочатку використовуємо «will», а далі головне дієслово.  \nПриклад: {$example}";
+        }
+
         if ($option === 'do' || $option === 'does') {
             return "❌ «{$option}» передає теперішній час, а майбутнє питання потребує «will».  \nПриклад: {$example}";
         }
@@ -760,6 +1186,18 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainFutureDoNegative(string $option, string $example): string
     {
+        if ($option === 'will not') {
+            return "❌ «will not» — повна форма; вправа тренує скорочене майбутнє заперечення «won't».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'will') {
+            return "❌ «will» без not не створює заперечення, тому необхідно використати «won't».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'will be' || $option === 'will not be' || $option === "won't be") {
+            return "❌ Ця відповідь належить до конструкцій з «be», а вправа перевіряє просту форму «won't».  \nПриклад: {$example}";
+        }
+
         if ($option === "don't" || $option === "doesn't" || $option === "didn't") {
             return "❌ «{$option}» описує інший час, а для майбутнього заперечення потрібне «won't».  \nПриклад: {$example}";
         }
@@ -769,6 +1207,14 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainFutureBeQuestion(string $option, string $example): string
     {
+        if (in_array($option, ['will not', 'will not be', "won't", "won't be"], true)) {
+            return "❌ Це заперечна форма, а в питанні про стан потрібне ствердження «will be».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'will') {
+            return "❌ Після «will» у питанні про стан обов'язково додаємо «be».  \nПриклад: {$example}";
+        }
+
         if ($option === 'is' || $option === 'are') {
             return "❌ «{$option}» — теперішній час, а майбутній стан вимагає допоміжного «will» перед «be».  \nПриклад: {$example}";
         }
@@ -782,6 +1228,26 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
     private function explainFutureBeNegative(string $option, string $example): string
     {
+        if ($option === 'will not be') {
+            return "❌ «will not be» — повна форма; у вправі закріплюємо скорочення «won't be».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'will be') {
+            return "❌ «will be» не містить заперечення, тож потрібне «won't be».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'will not') {
+            return "❌ «will not» без «be» не описує стан, а завдання тренує конструкцію «won't be».  \nПриклад: {$example}";
+        }
+
+        if ($option === 'will') {
+            return "❌ «will» без not і be не формує заперечення стану.  \nПриклад: {$example}";
+        }
+
+        if ($option === "won't") {
+            return "❌ «won't» без «be» не описує майбутній стан; потрібне повне «won't be».  \nПриклад: {$example}";
+        }
+
         if ($option === "isn't" || $option === "aren't" || $option === "wasn't") {
             return "❌ «{$option}» показує теперішній або минулий час, тоді як нам потрібно майбутнє «won't be».  \nПриклад: {$example}";
         }
