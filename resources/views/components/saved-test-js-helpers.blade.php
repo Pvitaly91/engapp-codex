@@ -146,4 +146,70 @@ async function loadQuestions(forceFresh = false) {
 
     return current;
 }
+
+async function resetJsTestState() {
+    if (!JS_TEST_PERSISTENCE) {
+        return;
+    }
+
+    JS_TEST_PERSISTENCE.saved = null;
+
+    if (!JS_TEST_PERSISTENCE.endpoint) {
+        return;
+    }
+
+    try {
+        await fetch(JS_TEST_PERSISTENCE.endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': JS_TEST_PERSISTENCE.token,
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify({
+                mode: JS_TEST_PERSISTENCE.mode,
+                state: null,
+            }),
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function restartJsTest(initFn, options = {}) {
+    if (typeof initFn !== 'function') {
+        return;
+    }
+
+    const { showLoaderFn, button } = options;
+    const toggleLoader = (value) => {
+        if (typeof showLoaderFn === 'function') {
+            try {
+                showLoaderFn(Boolean(value));
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    };
+
+    if (button) {
+        button.disabled = true;
+        button.classList.add('opacity-50');
+    }
+
+    try {
+        toggleLoader(true);
+        await resetJsTestState();
+        await initFn(true);
+    } catch (error) {
+        console.error(error);
+    } finally {
+        toggleLoader(false);
+        if (button) {
+            button.disabled = false;
+            button.classList.remove('opacity-50');
+        }
+    }
+}
 </script>
