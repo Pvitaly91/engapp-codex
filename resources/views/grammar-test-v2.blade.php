@@ -219,7 +219,7 @@
                 @endif
             
                 <div class="grid gap-4 sm:grid-cols-2">
-                  
+
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Кількість питань</label>
                         <input type="number" min="1" max="{{ $maxQuestions ?? $maxQuestions }}" name="num_questions"
@@ -228,6 +228,19 @@
                             <p class="text-xs text-gray-500 mt-1">Доступно: {{ $maxQuestions }}</p>
                         @endif
                     </div>
+
+                    @if(($canRandomizeFiltered ?? false) || !empty($randomizeFiltered))
+                        <label class="flex items-start gap-3 p-3 border border-blue-200 rounded-2xl bg-blue-50">
+                            <input type="checkbox" name="randomize_filtered" value="1"
+                                   class="mt-1 h-5 w-5 text-blue-600 border-gray-300 rounded"
+                                   {{ !empty($randomizeFiltered) ? 'checked' : '' }}>
+                            <span>
+                                <span class="block font-semibold">Рандомні питання по фільтру</span>
+                                <span class="block text-xs text-gray-600">При генерації підбиратимуться випадкові питання,
+                                    якщо їх більше за вказану кількість.</span>
+                            </span>
+                        </label>
+                    @endif
                 </div>
 
                 <div class="grid gap-3 sm:grid-cols-2"
@@ -431,6 +444,7 @@
                     'levels' => $selectedLevels ?? [],
                     'tags' => $selectedTags,
                     'sources' => $selectedSources,
+                    'randomize_filtered' => !empty($randomizeFiltered),
                 ])) }}">
                 <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
                 <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"

@@ -1363,6 +1363,8 @@ class GrammarTestController extends Controller
             'selectedSources' => [],
             'sources' => Source::orderBy('name')->get(),
             'autoTestName' => '',
+            'randomizeFiltered' => false,
+            'canRandomizeFiltered' => false,
         ]);
     }
 
@@ -1503,6 +1505,7 @@ class GrammarTestController extends Controller
         $onlyAiV2 = $request->boolean('only_ai_v2');
         $selectedTags = $request->input('tags', []);
         $selectedLevels = (array) $request->input('levels', []);
+        $randomizeFiltered = $request->boolean('randomize_filtered');
 
         $selectedSources = $request->input('sources', []);
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
@@ -1520,6 +1523,7 @@ class GrammarTestController extends Controller
         $remaining = $numQuestions % $groupCount;
 
         $questions = collect();
+        $canRandomizeFiltered = false;
 
         foreach ($groups as $group) {
             $take = $questionsPerGroup + ($remaining > 0 ? 1 : 0);
@@ -1588,12 +1592,28 @@ class GrammarTestController extends Controller
                 }
             }
 
+            $availableCount = (clone $query)->count();
+
+            if ($availableCount > $take && $take > 0) {
+                $canRandomizeFiltered = true;
+            }
+
             if ($take > 0) {
-                $questions = $questions->merge($query->orderBy('id')->limit($take)->get());
+                $selectionQuery = clone $query;
+
+                if ($randomizeFiltered && $availableCount > $take) {
+                    $selectionQuery->inRandomOrder();
+                } else {
+                    $selectionQuery->orderBy('id');
+                }
+
+                $questions = $questions->merge($selectionQuery->limit($take)->get());
             }
         }
 
-        $questions = $questions->sortBy('id')->values();
+        $questions = $randomizeFiltered
+            ? $questions->values()
+            : $questions->sortBy('id')->values();
 
         $categoryNames = $questions->pluck('category.name')->filter()->unique()->values();
         $autoTestName = ucwords($categoryNames->join(' - '));
@@ -1631,6 +1651,8 @@ class GrammarTestController extends Controller
             'selectedTags' => $selectedTags,
             'levels' => $levels,
             'selectedLevels' => $selectedLevels,
+            'randomizeFiltered' => $randomizeFiltered,
+            'canRandomizeFiltered' => $canRandomizeFiltered,
         ];
     }
 
