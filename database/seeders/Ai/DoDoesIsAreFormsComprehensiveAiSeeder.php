@@ -3,12 +3,8 @@
 namespace Database\Seeders\Ai;
 
 use App\Models\Category;
-use App\Models\ChatGPTExplanation;
-use App\Models\Question;
-use App\Models\QuestionHint;
 use App\Models\Source;
 use App\Models\Tag;
-use App\Services\QuestionSeedingService;
 use Database\Seeders\QuestionSeeder;
 
 class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
@@ -571,7 +567,6 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             }
         }
 
-        $service = new QuestionSeedingService();
         $items = [];
         $meta = [];
 
@@ -636,37 +631,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             }
         }
 
-        $service->seed($items);
-
-        foreach ($meta as $data) {
-            $question = Question::where('uuid', $data['uuid'])->first();
-            if (! $question) {
-                continue;
-            }
-
-            $hintText = $this->formatHints($data['hints']);
-            if ($hintText !== null) {
-                QuestionHint::updateOrCreate(
-                    ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => 'uk'],
-                    ['hint' => $hintText]
-                );
-            }
-
-            foreach ($data['explanations'] as $option => $text) {
-                $marker = $data['option_markers'][$option] ?? array_key_first($data['answers']);
-                $correct = $data['answers'][$marker] ?? reset($data['answers']);
-
-                ChatGPTExplanation::updateOrCreate(
-                    [
-                        'question' => $question->question,
-                        'wrong_answer' => $option,
-                        'correct_answer' => $correct,
-                        'language' => 'ua',
-                    ],
-                    ['explanation' => $text]
-                );
-            }
-        }
+        $this->seedQuestionData($items, $meta);
     }
 
     private function entry(string $level, string $pattern, string $question, string $answer, string $subject, string $subjectCategory): array
@@ -1266,56 +1231,4 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
         };
     }
 
-    private function titleCase(string $value): string
-    {
-        if ($value === '') {
-            return $value;
-        }
-
-        $first = mb_substr($value, 0, 1, 'UTF-8');
-        $rest = mb_substr($value, 1, null, 'UTF-8');
-
-        return mb_strtoupper($first, 'UTF-8') . $rest;
-    }
-
-    private function formatExample(string $question, string $answer): string
-    {
-        $sentence = str_replace('{a1}', $answer, $question);
-        $sentence = preg_replace_callback('/^[a-zа-яёіїєґ]/iu', fn ($m) => mb_strtoupper($m[0], 'UTF-8'), $sentence);
-
-        return $sentence;
-    }
-
-    private function normalizeHint(?string $value): ?string
-    {
-        if ($value === null) {
-            return null;
-        }
-
-        return trim($value, "() \t\n\r");
-    }
-
-    private function formatHints(array $hints): ?string
-    {
-        if (empty($hints)) {
-            return null;
-        }
-
-        $parts = [];
-        foreach ($hints as $text) {
-            $clean = trim($text);
-
-            if ($clean === '') {
-                continue;
-            }
-
-            $parts[] = $clean;
-        }
-
-        if (empty($parts)) {
-            return null;
-        }
-
-        return implode("\n", $parts);
-    }
 }
