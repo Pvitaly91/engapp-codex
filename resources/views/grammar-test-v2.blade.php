@@ -332,68 +332,78 @@
        
     </form>
 
-    @if(!empty($questions))
-        <div class="text-sm text-gray-500">Кількість питань: {{ count($questions) }}</div>
-    @endif
-
     @if(!empty($questions) && count($questions))
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div class="text-sm text-gray-500">Кількість питань: {{ count($questions) }}</div>
+            @if(count($questions) > 1)
+                <button type="button" id="shuffle-questions"
+                        class="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
+                    Перемішати питання
+                </button>
+            @endif
+        </div>
+
         <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
             @csrf
-            @foreach($questions as $q)
-                <input type="hidden" name="questions[{{ $q->id }}]" value="1">
-                <div class="bg-white shadow rounded-2xl p-4 sm:p-6 space-y-3">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                        <div class="text-sm font-semibold text-gray-700 flex flex-wrap items-center gap-2">
-                            <span class="uppercase px-2 py-1 rounded text-xs {{ $q->category->name === 'past' ? 'bg-red-100 text-red-700' : ($q->category->name === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700') }}">
-                                {{ ucfirst($q->category->name) }}
-                            </span>
-                            @if($q->source)
-                                <span class="text-xs text-gray-500">Source: {{ $q->source->name }}</span>
+            <div id="questions-list" class="space-y-6">
+                @foreach($questions as $q)
+                    <div class="question-item" data-question-id="{{ $q->id }}" data-question-save="{{ $q->{$savePayloadKey} }}">
+                        <input type="hidden" name="questions[{{ $q->id }}]" value="1">
+                        <div class="bg-white shadow rounded-2xl p-4 sm:p-6 space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                <div class="text-sm font-semibold text-gray-700 flex flex-wrap items-center gap-2">
+                                    <span class="uppercase px-2 py-1 rounded text-xs {{ $q->category->name === 'past' ? 'bg-red-100 text-red-700' : ($q->category->name === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700') }}">
+                                        {{ ucfirst($q->category->name) }}
+                                    </span>
+                                    @if($q->source)
+                                        <span class="text-xs text-gray-500">Source: {{ $q->source->name }}</span>
+                                    @endif
+                                    @if($q->flag)
+                                        <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
+                                    @endif
+                                    <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
+                                    <span class="text-xs text-gray-400">Level: {{ $q->level ?? 'N/A' }}</span>
+                                </div>
+                                <span class="text-xs text-gray-400">ID: {{ $q->id }} | UUID: {{ $q->uuid ?? '—' }}</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 items-baseline">
+                                <span class="question-number font-bold mr-2">{{ $loop->iteration }}.</span>
+                                @php preg_match_all('/\{a(\d+)\}/', $q->question, $matches); @endphp
+                                @include('components.question-input', [
+                                    'question' => $q,
+                                    'inputNamePrefix' => "question_{$q->id}_",
+                                    'manualInput' => $manualInput,
+                                    'autocompleteInput' => $autocompleteInput,
+                                    'builderInput' => $builderInput,
+                                    'autocompleteRoute' => $autocompleteRoute,
+                                ])
+                            </div>
+                            @if($q->tags->count())
+                                <div class="flex flex-wrap gap-1">
+                                    @php
+                                        $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
+                                    @endphp
+                                    @foreach($q->tags as $tag)
+                                        <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-flex px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
+                                    @endforeach
+                                </div>
                             @endif
-                            @if($q->flag)
-                                <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
+                            @if(!empty($checkOneInput))
+                                <div class="flex items-center gap-2">
+                                    <button
+                                        type="button"
+                                        class="mt-1 bg-purple-600 text-white text-xs rounded px-3 py-1 hover:bg-purple-700"
+                                        onclick="checkFullQuestionAjax(this, '{{ $q->id }}', '{{ implode(',', array_map(function($n){return 'a'.$n;}, $matches[1])) }}')"
+                                    >
+                                        Check answer
+                                    </button>
+                                    <span class="text-xs font-bold" id="result-question-{{ $q->id }}"></span>
+                                </div>
                             @endif
-                            <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
-                            <span class="text-xs text-gray-400">Level: {{ $q->level ?? 'N/A' }}</span>
                         </div>
-                        <span class="text-xs text-gray-400">ID: {{ $q->id }} | UUID: {{ $q->uuid ?? '—' }}</span>
                     </div>
-                    <div class="flex flex-wrap gap-2 items-baseline">
-                        <span class="font-bold mr-2">{{ $loop->iteration }}.</span>
-                        @php preg_match_all('/\{a(\d+)\}/', $q->question, $matches); @endphp
-                        @include('components.question-input', [
-                            'question' => $q,
-                            'inputNamePrefix' => "question_{$q->id}_",
-                            'manualInput' => $manualInput,
-                            'autocompleteInput' => $autocompleteInput,
-                            'builderInput' => $builderInput,
-                            'autocompleteRoute' => $autocompleteRoute,
-                        ])
-                    </div>
-                    @if($q->tags->count())
-                        <div class="flex flex-wrap gap-1">
-                            @php
-                                $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
-                            @endphp
-                            @foreach($q->tags as $tag)
-                                <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-flex px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
-                            @endforeach
-                        </div>
-                    @endif
-                    @if(!empty($checkOneInput))
-                        <div class="flex items-center gap-2">
-                            <button
-                                type="button"
-                                class="mt-1 bg-purple-600 text-white text-xs rounded px-3 py-1 hover:bg-purple-700"
-                                onclick="checkFullQuestionAjax(this, '{{ $q->id }}', '{{ implode(',', array_map(function($n){return 'a'.$n;}, $matches[1])) }}')"
-                            >
-                                Check answer
-                            </button>
-                            <span class="text-xs font-bold" id="result-question-{{ $q->id }}"></span>
-                        </div>
-                    @endif
-                </div>
-            @endforeach
+                @endforeach
+            </div>
 
             <div>
                 <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
@@ -403,7 +413,7 @@
         </form>
 
         <div class="bg-white shadow rounded-2xl p-4 sm:p-6">
-            <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3">
+            <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
                 @csrf
                 <input type="hidden" name="filters" value="{{ htmlentities(json_encode([
                     'categories' => $selectedCategories,
@@ -422,7 +432,7 @@
                     'tags' => $selectedTags,
                     'sources' => $selectedSources,
                 ])) }}">
-                <input type="hidden" name="{{ $savePayloadField }}" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
+                <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
                 <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"
                        class="border rounded-lg px-3 py-2 w-full sm:w-80">
                 <button type="submit" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
@@ -475,6 +485,63 @@ function checkFullQuestionAjax(btn, questionId, markerList) {
         }
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('questions-list');
+    const shuffleButton = document.getElementById('shuffle-questions');
+    const orderInput = document.getElementById('questions-order-input');
+    const saveForm = document.getElementById('save-test-form');
+
+    if (!container) {
+        return;
+    }
+
+    const getItems = () => Array.from(container.querySelectorAll('[data-question-id]'));
+
+    const updateNumbers = () => {
+        getItems().forEach((item, index) => {
+            const numberEl = item.querySelector('.question-number');
+            if (numberEl) {
+                numberEl.textContent = `${index + 1}.`;
+            }
+        });
+    };
+
+    const updateOrderInput = () => {
+        if (!orderInput) {
+            return;
+        }
+
+        const order = getItems().map(item => item.dataset.questionSave);
+        orderInput.value = JSON.stringify(order);
+    };
+
+    if (shuffleButton) {
+        shuffleButton.addEventListener('click', () => {
+            const items = getItems();
+
+            if (items.length <= 1) {
+                return;
+            }
+
+            for (let i = items.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [items[i], items[j]] = [items[j], items[i]];
+            }
+
+            items.forEach(item => container.appendChild(item));
+            updateNumbers();
+            updateOrderInput();
+        });
+    }
+
+    if (saveForm) {
+        saveForm.addEventListener('submit', updateOrderInput);
+    }
+
+    updateNumbers();
+    updateOrderInput();
+});
 
 function builder(route, prefix) {
     const stored = [];
