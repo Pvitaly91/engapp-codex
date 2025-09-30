@@ -49,7 +49,7 @@
                 @enderror
             </div>
 
-            <div class="flex items-center justify-between">
+            <div class="flex items-center">
                 <label for="remember" class="flex items-center text-sm text-gray-600">
                     <input
                         id="remember"
@@ -61,7 +61,6 @@
                     >
                     Запам'ятати мене
                 </label>
-                <a href="{{ url('/') }}" class="text-sm text-blue-600 hover:text-blue-700">На головну</a>
             </div>
 
             <button
