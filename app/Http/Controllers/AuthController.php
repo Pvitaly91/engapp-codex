@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
@@ -12,6 +13,12 @@ class AuthController extends Controller
     public function showLoginForm(Request $request)
     {
         if ($request->session()->get('admin_authenticated', false)) {
+            return Redirect::route('home');
+        }
+
+        if ($request->hasCookie('admin_remember_token') && $request->cookie('admin_remember_token') === $this->rememberToken()) {
+            $request->session()->put('admin_authenticated', true);
+
             return Redirect::route('home');
         }
 
@@ -45,6 +52,24 @@ class AuthController extends Controller
         $request->session()->regenerate();
         $request->session()->put('admin_authenticated', true);
 
+        if ($request->boolean('remember')) {
+            Cookie::queue(
+                Cookie::make(
+                    'admin_remember_token',
+                    $this->rememberToken(),
+                    60 * 24 * 30,
+                    null,
+                    null,
+                    false,
+                    true,
+                    false,
+                    'lax'
+                )
+            );
+        } else {
+            Cookie::queue(Cookie::forget('admin_remember_token'));
+        }
+
         return Redirect::intended(route('home'));
     }
 
@@ -54,6 +79,13 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        Cookie::queue(Cookie::forget('admin_remember_token'));
+
         return Redirect::route('login.show');
+    }
+
+    private function rememberToken(): string
+    {
+        return hash('sha256', config('admin.username') . '|' . config('admin.password_hash'));
     }
 }
