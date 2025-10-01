@@ -118,24 +118,22 @@
   <!-- HEADER / NAV -->
   <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/80">
     <div class="container mx-auto px-4">
-      <div class="flex h-16 items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-16 md:flex-nowrap">
+        <div class="flex items-center gap-3 flex-shrink-0">
           <div class="h-9 w-9 rounded-2xl bg-primary text-primary-foreground grid place-items-center font-bold">E</div>
           <span class="text-lg font-semibold tracking-tight">Engram</span>
           <span class="ml-2 inline-flex items-center rounded-lg bg-accent text-accent-foreground px-2 py-0.5 text-xs font-medium">beta</span>
         </div>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
+        <nav class="order-3 w-full flex flex-wrap items-center gap-4 text-sm md:order-none md:w-auto md:flex-nowrap md:gap-6">
           <a class="text-muted-foreground hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Тести</a>
           <a class="text-muted-foreground hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
         </nav>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 order-2 ml-auto md:order-none md:ml-0">
           <form action="{{ route('site.search') }}" method="GET" class="hidden md:block relative">
             <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
             <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
           </form>
           <button id="mobile-search-btn" class="md:hidden rounded-xl border border-border p-2 text-sm">🔍</button>
-          <button id="theme-toggle" class="hidden sm:inline-flex rounded-xl border border-border px-3 py-2 text-sm">🌙 Тема</button>
-          <button class="rounded-2xl bg-primary px-4 py-2 text-primary-foreground text-sm">Реєстрація</button>
         </div>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
