@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redirect;
@@ -12,6 +13,10 @@ class AuthController extends Controller
 {
     public function showLoginForm(Request $request)
     {
+        if (class_exists(Debugbar::class)) {
+            Debugbar::disable();
+        }
+
         if ($request->session()->get('admin_authenticated', false)) {
             return Redirect::route('home');
         }
