@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Page;
 
 class TheoryPageSeeder extends Seeder
-{
+{  
     public function run(): void
     {
         Page::firstOrCreate(
