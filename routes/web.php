@@ -53,8 +53,8 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
-    Route::get('/theory', [PageController::class, 'index'])->name('pages.index');
-    Route::get('/theory/{slug}', [PageController::class, 'show'])->name('pages.show');
+    Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
+    Route::get('/pages/{slug}', [PageController::class, 'show'])->name('pages.show');
     
     Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
     Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');

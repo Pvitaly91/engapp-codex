@@ -10,8 +10,6 @@ use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
-use Database\Seeders\Pages\PagesSeeder;
-use Database\Seeders\Pages\TheoryPageSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -103,8 +101,6 @@ class DatabaseSeeder extends Seeder
             FutureTensesPracticeV2Seeder::class,
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalAiFormsV2Seeder::class,
-            PagesSeeder::class,
-            TheoryPageSeeder::class,
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
             FutureSimpleOrFutureContinuousSeeder::class,

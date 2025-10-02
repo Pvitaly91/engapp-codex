@@ -1,19 +1,3 @@
-<?php
-
-namespace Database\Seeders\Pages;
-
-use Illuminate\Database\Seeder;
-use App\Models\Page;
-
-class TheoryPageSeeder extends Seeder
-{  
-    public function run(): void
-    {
-        Page::firstOrCreate(
-            ['slug' => 'theory'],
-            [
-                'title' => 'Conditionals — Умовні речення (If-clauses)',
-                'text' => <<<'HTML'
 <section class="grammar-card" lang="uk">
   <style>
     /* СТИЛІ ЛИШЕ ДЛЯ ЦЬОГО БЛОКУ */
@@ -242,8 +226,3 @@ If I <span style="color:#86efac">had studied</span> medicine, I <span style="col
     </div>
   </div>
 </section>
-HTML,
-            ]
-        );
-    }
-}

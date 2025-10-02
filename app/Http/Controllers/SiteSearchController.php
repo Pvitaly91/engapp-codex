@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
 use App\Models\Test;
+use App\Support\EngramPages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SiteSearchController extends Controller
 {
@@ -16,15 +17,16 @@ class SiteSearchController extends Controller
         $tests = collect();
 
         if (strlen($query) >= 2) {
-            $pages = Page::query()
-                ->where('title', 'like', "%{$query}%")
-                ->orWhere('slug', 'like', "%{$query}%")
-                ->limit(10)
-                ->get()
-                ->map(fn($p) => [
-                    'title' => $p->title,
+            $needle = Str::lower($query);
+
+            $pages = EngramPages::all()
+                ->filter(fn ($page) => Str::contains(Str::lower($page->title), $needle)
+                    || Str::contains(Str::lower($page->slug), $needle))
+                ->take(10)
+                ->map(fn ($page) => [
+                    'title' => $page->title,
                     'type' => 'page',
-                    'url' => route('pages.show', $p->slug),
+                    'url' => route('pages.show', $page->slug),
                 ]);
 
             $tests = Test::query()
@@ -32,7 +34,7 @@ class SiteSearchController extends Controller
                 ->orWhere('slug', 'like', "%{$query}%")
                 ->limit(10)
                 ->get()
-                ->map(fn($t) => [
+                ->map(fn ($t) => [
                     'title' => $t->name,
                     'type' => 'test',
                     'url' => route('saved-test.js', $t->slug),
@@ -51,4 +53,3 @@ class SiteSearchController extends Controller
         ]);
     }
 }
-
