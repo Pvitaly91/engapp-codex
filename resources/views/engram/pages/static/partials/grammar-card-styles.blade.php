@@ -54,6 +54,11 @@
             background: #fff;
         }
 
+        .gw-box--scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .gw-box h3 {
             margin: 0 0 8px;
             font-size: 18px;
@@ -124,6 +129,10 @@
             font-size: 14px;
         }
 
+        .gw-box--scroll .gw-table {
+            min-width: 560px;
+        }
+
         .gw-table th,
         .gw-table td {
             border: 1px solid #e5e7eb;
@@ -171,6 +180,28 @@
             overflow-x: auto;
             white-space: pre-wrap;
             word-break: break-word;
+        }
+
+        @media (max-width: 640px) {
+            .grammar-card {
+                padding: 16px;
+            }
+
+            .gw-title {
+                font-size: 24px;
+            }
+
+            .gw-sub {
+                font-size: 15px;
+            }
+
+            .gw-box {
+                padding: 12px;
+            }
+
+            .gw-table {
+                font-size: 13px;
+            }
         }
 
         @media (min-width: 720px) {

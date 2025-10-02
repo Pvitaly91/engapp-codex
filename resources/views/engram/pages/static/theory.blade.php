@@ -136,7 +136,7 @@ If I <span style="color:#86efac">had studied</span> medicine, I <span style="col
         </div>
       </div>
 
-      <div class="gw-box">
+      <div class="gw-box gw-box--scroll">
         <h3>Порівняння типів</h3>
         <table class="gw-table" aria-label="Порівняння типів умовних речень">
           <thead>

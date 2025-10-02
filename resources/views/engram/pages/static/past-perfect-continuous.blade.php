@@ -76,7 +76,7 @@ She <span style="color:#93c5fd">hadn’t been</span> <span style="color:#86efac"
         </div>
       </div>
 
-      <div class="gw-box">
+      <div class="gw-box gw-box--scroll">
         <h3>Порівняння</h3>
         <table class="gw-table" aria-label="Порівняння Past Continuous та Past Perfect Continuous">
           <thead>

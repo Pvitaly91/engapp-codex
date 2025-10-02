@@ -72,7 +72,7 @@ She <span style="color:#93c5fd">won’t have</span> <span style="color:#86efac">
         </div>
       </div>
 
-      <div class="gw-box">
+      <div class="gw-box gw-box--scroll">
         <h3>Порівняння</h3>
         <table class="gw-table" aria-label="Порівняння Future Simple та Future Perfect">
           <thead>

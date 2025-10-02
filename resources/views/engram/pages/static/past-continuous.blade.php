@@ -76,7 +76,7 @@ She <span style="color:#93c5fd">wasn’t</span> <span style="color:#86efac">slee
         </div>
       </div>
 
-      <div class="gw-box">
+      <div class="gw-box gw-box--scroll">
         <h3>Порівняння</h3>
         <table class="gw-table" aria-label="Порівняння Past Simple та Past Continuous">
           <thead>

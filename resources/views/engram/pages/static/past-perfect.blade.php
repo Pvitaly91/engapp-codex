@@ -75,7 +75,7 @@ Had you <span style="color:#86efac">studied</span> before the test?</pre>
         </div>
       </div>
 
-      <div class="gw-box">
+      <div class="gw-box gw-box--scroll">
         <h3>Порівняння</h3>
         <table class="gw-table" aria-label="Порівняння Past Simple та Past Perfect">
           <thead>

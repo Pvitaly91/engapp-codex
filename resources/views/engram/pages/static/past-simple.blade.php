@@ -69,7 +69,7 @@ He <span style="color:#93c5fd">didn’t</span> <span style="color:#86efac">call<
         </div>
       </div>
 
-      <div class="gw-box">
+      <div class="gw-box gw-box--scroll">
         <h3>Порівняння</h3>
         <table class="gw-table" aria-label="Порівняння Past Simple та Present Perfect">
           <thead>

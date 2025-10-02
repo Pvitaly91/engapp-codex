@@ -78,7 +78,7 @@ He <span style="color:#93c5fd">isn’t</span> <span style="color:#86efac">sleepi
         </div>
       </div>
 
-      <div class="gw-box">
+      <div class="gw-box gw-box--scroll">
         <h3>Порівняння</h3>
         <table class="gw-table" aria-label="Порівняння Present Simple та Present Continuous">
           <thead>

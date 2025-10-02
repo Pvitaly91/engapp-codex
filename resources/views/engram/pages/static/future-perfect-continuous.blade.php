@@ -75,7 +75,7 @@ They <span style="color:#93c5fd">won’t have been</span> <span style="color:#86
         </div>
       </div>
 
-      <div class="gw-box">
+      <div class="gw-box gw-box--scroll">
         <h3>Порівняння</h3>
         <table class="gw-table" aria-label="Порівняння Future Perfect та Future Perfect Continuous">
           <thead>
