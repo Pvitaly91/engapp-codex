@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\V2;
+namespace Database\Seeders\Ai;
 
 use App\Models\Category;
 use App\Models\Source;

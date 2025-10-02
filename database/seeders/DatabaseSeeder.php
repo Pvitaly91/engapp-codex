@@ -6,10 +6,10 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
+use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
-use Database\Seeders\V2\FirstConditionalAiFormsV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
