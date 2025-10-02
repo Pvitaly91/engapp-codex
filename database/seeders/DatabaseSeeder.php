@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
+use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -97,6 +98,7 @@ class DatabaseSeeder extends Seeder
             PastPerfectSimpleVsContinuousCTestSeeder::class,
             PastTimeClausesMixedTestSeeder::class,
             FutureTensesPracticeV2Seeder::class,
+            FirstConditionalPracticeV2Seeder::class,
             PagesSeeder::class,
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
@@ -109,6 +111,7 @@ class DatabaseSeeder extends Seeder
             Ai\FutureTensesComprehensiveAiSeeder::class,
             Ai\FutureTensesPracticeComprehensiveAiSeeder::class,
             Ai\DoDoesIsAreFormsComprehensiveAiSeeder::class,
+            Ai\FirstConditionalFutureFormsAiSeeder::class,
 
         ]);
     }

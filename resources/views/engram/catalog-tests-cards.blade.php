@@ -4,7 +4,21 @@
 
 @section('content')
 <div class="flex flex-col md:flex-row gap-6">
-    <aside class="md:w-48 w-full md:shrink-0">
+    <div class="md:hidden">
+        <button type="button" id="filter-toggle" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-sm font-medium">
+            <span>Фільтр</span>
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M3.5 5a.75.75 0 01.75-.75h11.5a.75.75 0 01.53 1.28L12 10.06v4.19a.75.75 0 01-1.13.65l-2.5-1.5a.75.75 0 01-.37-.65v-2.69L3.97 5.53A.75.75 0 013.5 5z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    </div>
+    <aside id="filters" class="md:w-48 w-full md:shrink-0 hidden md:block md:sticky md:top-20 md:self-start bg-card md:bg-transparent md:p-0 p-4 rounded-2xl shadow-soft md:shadow-none">
+        <div class="flex justify-between items-center md:hidden mb-4">
+            <h2 class="text-base font-semibold">Фільтр</h2>
+            <button type="button" id="filter-close" class="text-sm text-primary underline">
+                Закрити
+            </button>
+        </div>
         <form id="tag-filter" action="{{ route('catalog-tests.cards') }}" method="GET">
             @if(isset($availableLevels) && $availableLevels->count())
                 <div class="mb-4">
@@ -103,6 +117,19 @@
             const hidden = tags.style.display === 'none';
             tags.style.display = hidden ? '' : 'none';
             toggleBtn.textContent = hidden ? 'Hide' : 'Show';
+        });
+    }
+    const filterToggle = document.getElementById('filter-toggle');
+    const filterClose = document.getElementById('filter-close');
+    const filters = document.getElementById('filters');
+    if (filterToggle && filters) {
+        filterToggle.addEventListener('click', () => {
+            filters.classList.toggle('hidden');
+        });
+    }
+    if (filterClose && filters) {
+        filterClose.addEventListener('click', () => {
+            filters.classList.add('hidden');
         });
     }
 </script>

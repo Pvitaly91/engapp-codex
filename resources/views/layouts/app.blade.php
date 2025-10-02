@@ -45,6 +45,14 @@
                     <a href="{{ url('/grammar-test/v2') }}" class="hover:text-blue-500 transition">Граматика v2</a>
                     <a href="{{ url('/tests') }}" class="hover:text-blue-500 transition">Збережені тести</a>
                     <a href="{{ url('/') }}" class="hover:text-blue-500 transition">До публічної частини</a>
+                    @if(session('admin_authenticated'))
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="text-red-500 hover:text-red-600 transition">Вийти</button>
+                        </form>
+                    @else
+                        <a href="{{ route('login.show') }}" class="hover:text-blue-500 transition">Увійти</a>
+                    @endif
                 </div>
             </div>
             <div
@@ -56,6 +64,14 @@
                 <a href="{{ url('/grammar-test/v2') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Граматика v2</a>
                 <a href="{{ url('/tests') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Збережені тести</a>
                 <a href="{{ url('/') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">До публічної частини</a>
+                @if(session('admin_authenticated'))
+                    <form method="POST" action="{{ route('logout') }}" class="px-2 py-2">
+                        @csrf
+                        <button type="submit" class="w-full text-left text-red-500 hover:text-red-600">Вийти</button>
+                    </form>
+                @else
+                    <a href="{{ route('login.show') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Увійти</a>
+                @endif
             </div>
         </div>
     </nav>
