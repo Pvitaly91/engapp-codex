@@ -10,7 +10,7 @@ use Database\Seeders\QuestionSeeder;
 class FirstConditionalPracticeV2Seeder extends QuestionSeeder
 {
     public function run(): void
-    {
+    { 
         $categoryId = Category::firstOrCreate(['name' => 'Conditionals'])->id;
         $sourceId = Source::firstOrCreate(['name' => 'Custom: First Conditional Practice V2'])->id;
 
