@@ -50,7 +50,7 @@ class FirstConditionalChooseABCV2Seeder extends QuestionSeeder
                 'structure' => 'First Conditional Sentences',
                 'hint_short' => 'Result clause with will not',
                 'markers' => 'If + Present Simple, will not + V1',
-                'verb_hint' => "won't + base verb",
+                'verb_hint' => 'not',
             ],
             'result_imperative' => [
                 'section' => 'result_imperative',
@@ -77,7 +77,7 @@ class FirstConditionalChooseABCV2Seeder extends QuestionSeeder
                 'structure' => 'First Conditional Sentences',
                 'hint_short' => 'If-clause with do/does not',
                 'markers' => 'If + do/does not + V1, will + V1',
-                'verb_hint' => "don't/doesn't + base verb",
+                'verb_hint' => 'negative present simple — use not',
             ],
         ];
 

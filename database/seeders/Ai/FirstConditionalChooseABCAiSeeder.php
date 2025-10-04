@@ -545,7 +545,7 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                 $answers[] = [
                     'marker' => $marker,
                     'answer' => $answer,
-                    'verb_hint' => $this->normalizeHint($question['verb_hint'][$marker] ?? null),
+                    'verb_hint' => $this->sanitizeVerbHint($question, $marker),
                 ];
                 $optionMarkerMap[$answer] = $marker;
             }
@@ -796,5 +796,55 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
     private function isAssoc(array $array): bool
     {
         return $array !== [] && array_keys($array) !== range(0, count($array) - 1);
+    }
+
+    private function sanitizeVerbHint(array $question, string $marker): ?string
+    {
+        $rawHint = $question['verb_hint'][$marker] ?? null;
+        if (! is_string($rawHint)) {
+            return null;
+        }
+
+        $clean = $this->normalizeHint($rawHint);
+        if ($clean === null || $clean === '') {
+            return null;
+        }
+
+        $subject = $question['subject_hint'][$marker] ?? null;
+
+        if (is_string($subject) && $subject !== '' && $this->subjectVisibleInQuestion($question['question'], $marker, $subject)) {
+            $pattern = sprintf('/\s*[—-]\s*%s\b.*$/iu', preg_quote($subject, '/'));
+            $clean = preg_replace($pattern, '', $clean);
+        }
+
+        $clean = trim(preg_replace('/\s+/', ' ', (string) $clean));
+
+        if ($clean === '') {
+            return null;
+        }
+
+        if (stripos($clean, 'will not') !== false || stripos($clean, "won't") !== false) {
+            return 'not';
+        }
+
+        if (preg_match('/\bdo(?:es)? not\b/i', $clean)) {
+            return 'not (present simple)';
+        }
+
+        return $clean;
+    }
+
+    private function subjectVisibleInQuestion(string $question, string $marker, string $subject): bool
+    {
+        $placeholder = '{' . $marker . '}';
+        $position = mb_strpos($question, $placeholder, 0, 'UTF-8');
+
+        if ($position === false) {
+            return false;
+        }
+
+        $before = mb_substr($question, 0, $position, 'UTF-8');
+
+        return preg_match('/\b' . preg_quote($subject, '/') . '\b/iu', $before) === 1;
     }
 }
