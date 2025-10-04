@@ -41,7 +41,7 @@ class FirstConditionalChooseABCV2Seeder extends QuestionSeeder
                 'structure' => 'First Conditional Sentences',
                 'hint_short' => 'Result clause with will',
                 'markers' => 'If + Present Simple, will + V1',
-                'verb_hint' => 'will + base verb',
+                'verb_hint' => 'future auxiliary (result clause)',
             ],
             'result_future_negative' => [
                 'section' => 'result_future',

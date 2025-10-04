@@ -831,6 +831,10 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
             return 'not (present simple)';
         }
 
+        if (preg_match('/\bwill\b/i', $clean)) {
+            return 'future auxiliary';
+        }
+
         return $clean;
     }
 
