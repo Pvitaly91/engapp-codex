@@ -128,9 +128,16 @@ abstract class QuestionSeeder extends Seeder
         return implode("\n", $parts);
     }
 
-    protected function formatExample(string $question, string $answer): string
+    protected function formatExample(string $question, array|string $answer): string
     {
-        $sentence = str_replace('{a1}', $answer, $question);
+        $replacements = is_array($answer) ? $answer : ['a1' => $answer];
+
+        foreach ($replacements as $marker => $value) {
+            $placeholder = '{' . $marker . '}';
+            $question = str_replace($placeholder, (string) $value, $question);
+        }
+
+        $sentence = $question;
         $sentence = preg_replace_callback('/^[a-zа-яёіїєґ]/iu', fn ($m) => mb_strtoupper($m[0], 'UTF-8'), $sentence);
 
         return $sentence;

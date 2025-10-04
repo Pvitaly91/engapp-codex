@@ -155,17 +155,56 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
             $this->entry('A2', 'negative_present', 'If Daniel {a1} follow the instructions, the device won\'t start properly.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — he', 'follow', 'he'),
             $this->entry('A2', 'negative_present', 'If we {a1} water the garden regularly, the plants won\'t thrive.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'water', 'we'),
             $this->entry('A2', 'negative_present', 'If the train is delayed again, we {a1} catch the opening ceremony.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'catch', 'we'),
-            $this->entry('A2', 'negative_present', 'If the café closes early tonight, they {a1} serve the late customers.', "won't", ["won't", 'will', 'can'], 'result', 'will not + base verb — they', 'serve', 'they'),
+            $this->entry(
+                'A2',
+                'negative_present',
+                'If the café closes early tonight, they {a1} serve the late customers and the staff {a2} earn extra tips.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (staff)'],
+                ['a1' => 'serve', 'a2' => 'earn'],
+                ['a1' => 'they', 'a2' => 'they (the staff)']
+            ),
 
             $this->entry('A2', 'negative_past', 'If Emma {a1} review last week\'s grammar, she won\'t feel confident.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'review', 'she'),
             $this->entry('A2', 'negative_past', 'If the players {a1} learn from yesterday\'s loss, they won\'t improve.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'learn', 'they'),
             $this->entry('A2', 'negative_past', 'If you ignore yesterday\'s warning, the manager {a1} trust your judgement.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'trust', 'they'),
-            $this->entry('A2', 'negative_past', 'If the reporter repeats last year\'s rumour, the audience {a1} believe the news.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'believe', 'they'),
+            $this->entry(
+                'A2',
+                'negative_past',
+                'If the reporter repeats last year\'s rumour, the audience {a1} believe the news and sponsors {a2} renew their support.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (sponsors)'],
+                ['a1' => 'believe', 'a2' => 'renew'],
+                ['a1' => 'they', 'a2' => 'they (the sponsors)']
+            ),
 
             $this->entry('A2', 'negative_future', 'If you {a1} confirm the booking tonight, the venue won\'t hold the date.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'confirm', 'you'),
             $this->entry('A2', 'negative_future', 'If the interns {a1} submit their forms tomorrow, they won\'t join the trip.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
             $this->entry('A2', 'negative_future', 'If the weather turns stormy next weekend, we {a1} set up the stage outside.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'set', 'we'),
-            $this->entry('A2', 'negative_future', 'If Nora forgets to charge the cameras tonight, they {a1} record the ceremony.', "won't", ["won't", 'will', 'shall'], 'result', 'will not + base verb — they', 'record', 'they'),
+            $this->entry(
+                'A2',
+                'negative_future',
+                'If Nora forgets to charge the cameras tonight, they {a1} record the ceremony and the crew {a2} capture the speeches.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — the crew'],
+                ['a1' => 'record', 'a2' => 'capture'],
+                ['a1' => 'they', 'a2' => 'they (the crew)']
+            ),
 
             // B1
             $this->entry('B1', 'question_present', 'If the marketing team finalises the budget today, {a1} they launch the campaign?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'launch', 'they'),
@@ -186,17 +225,56 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
             $this->entry('B1', 'negative_present', 'If the engineer {a1} test the update, the app won\'t run smoothly.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — he', 'test', 'he'),
             $this->entry('B1', 'negative_present', 'If we {a1} follow the brief precisely, the client won\'t approve it.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'follow', 'we'),
             $this->entry('B1', 'negative_present', 'If the courier arrives late again, we {a1} deliver on schedule.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'deliver', 'we'),
-            $this->entry('B1', 'negative_present', 'If the venue raises the price, they {a1} attract many bookings.', "won't", ["won't", 'will', 'can'], 'result', 'will not + base verb — they', 'attract', 'they'),
+            $this->entry(
+                'B1',
+                'negative_present',
+                'If the venue raises the price, they {a1} attract many bookings and local organisers {a2} book weekend slots.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (organisers)'],
+                ['a1' => 'attract', 'a2' => 'book'],
+                ['a1' => 'they', 'a2' => 'they (organisers)']
+            ),
 
             $this->entry('B1', 'negative_past', 'If Morgan {a1} review last week\'s draft, she won\'t spot the typo.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'review', 'she'),
             $this->entry('B1', 'negative_past', 'If the trainees {a1} practise after yesterday\'s feedback, they won\'t improve.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'practise', 'they'),
             $this->entry('B1', 'negative_past', 'If you ignore last year\'s audit, the board {a1} trust your forecast.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'trust', 'they'),
-            $this->entry('B1', 'negative_past', 'If the editor repeats last season\'s rumour, readers {a1} believe the article.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'believe', 'they'),
+            $this->entry(
+                'B1',
+                'negative_past',
+                'If the editor repeats last season\'s rumour, readers {a1} believe the article and advertisers {a2} renew their contracts.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (advertisers)'],
+                ['a1' => 'believe', 'a2' => 'renew'],
+                ['a1' => 'they', 'a2' => 'they (advertisers)']
+            ),
 
             $this->entry('B1', 'negative_future', 'If you {a1} secure the sponsorship by Friday, the festival won\'t cover costs.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'secure', 'you'),
             $this->entry('B1', 'negative_future', 'If the designers {a1} submit concepts tomorrow, they won\'t join the shortlist.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
             $this->entry('B1', 'negative_future', 'If the forecast predicts storms next week, we {a1} schedule outdoor sessions.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'schedule', 'we'),
-            $this->entry('B1', 'negative_future', 'If Nadia forgets to lock the lab tonight, they {a1} keep sensitive data safe.', "won't", ["won't", 'will', 'shall'], 'result', 'will not + base verb — they', 'keep', 'they'),
+            $this->entry(
+                'B1',
+                'negative_future',
+                'If Nadia forgets to lock the lab tonight, they {a1} keep sensitive data safe and the team {a2} trust the storage.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — the team'],
+                ['a1' => 'keep', 'a2' => 'trust'],
+                ['a1' => 'they', 'a2' => 'they (the team)']
+            ),
 
             // B2
             $this->entry('B2', 'question_present', 'If the board approves the revised timeline today, {a1} they announce the merger?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'announce', 'they'),
@@ -217,17 +295,56 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
             $this->entry('B2', 'negative_present', 'If the architect {a1} check the structural report, the council won\'t issue permits.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — he', 'check', 'he'),
             $this->entry('B2', 'negative_present', 'If we {a1} monitor compliance closely, regulators won\'t trust our audit.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'monitor', 'we'),
             $this->entry('B2', 'negative_present', 'If the supplier misses today\'s cut-off, we {a1} meet the production target.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'meet', 'we'),
-            $this->entry('B2', 'negative_present', 'If the director delays the approval, the team {a1} launch the beta.', "won't", ["won't", 'will', 'can'], 'result', 'will not + base verb — they', 'launch', 'they'),
+            $this->entry(
+                'B2',
+                'negative_present',
+                'If the director delays the approval, the team {a1} launch the beta and investors {a2} increase their confidence.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (investors)'],
+                ['a1' => 'launch', 'a2' => 'increase'],
+                ['a1' => 'they', 'a2' => 'they (investors)']
+            ),
 
             $this->entry('B2', 'negative_past', 'If Marisa {a1} document last week\'s incident, she won\'t defend her decision.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'document', 'she'),
             $this->entry('B2', 'negative_past', 'If the analysts {a1} study yesterday\'s anomaly, they won\'t solve the pattern.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'study', 'they'),
             $this->entry('B2', 'negative_past', 'If you dismiss last year\'s forecast, shareholders {a1} support your strategy.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'support', 'they'),
-            $this->entry('B2', 'negative_past', 'If the spokesperson repeats last season\'s rumour, journalists {a1} trust the briefing.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'trust', 'they'),
+            $this->entry(
+                'B2',
+                'negative_past',
+                'If the spokesperson repeats last season\'s rumour, journalists {a1} trust the briefing and donors {a2} renew their backing.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (donors)'],
+                ['a1' => 'trust', 'a2' => 'renew'],
+                ['a1' => 'they', 'a2' => 'they (donors)']
+            ),
 
             $this->entry('B2', 'negative_future', 'If you {a1} secure the regulatory sign-off this week, the release won\'t happen.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'secure', 'you'),
             $this->entry('B2', 'negative_future', 'If the developers {a1} submit patches tomorrow, they won\'t join the deployment.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
             $this->entry('B2', 'negative_future', 'If the forecast warns of outages next month, we {a1} schedule the launch.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'schedule', 'we'),
-            $this->entry('B2', 'negative_future', 'If Helena forgets to brief the press tonight, they {a1} cover the announcement.', "won't", ["won't", 'will', 'shall'], 'result', 'will not + base verb — they', 'cover', 'they'),
+            $this->entry(
+                'B2',
+                'negative_future',
+                'If Helena forgets to brief the press tonight, they {a1} cover the announcement and the audience {a2} tune in live.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — the audience'],
+                ['a1' => 'cover', 'a2' => 'tune'],
+                ['a1' => 'they', 'a2' => 'they (the audience)']
+            ),
 
             // C1
             $this->entry('C1', 'question_present', 'If the negotiations conclude this morning, {a1} they unveil the joint statement?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'unveil', 'they'),
@@ -248,17 +365,56 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
             $this->entry('C1', 'negative_present', 'If the chairperson {a1} enforce the guidelines, the forum won\'t maintain order.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — she', 'enforce', 'she'),
             $this->entry('C1', 'negative_present', 'If we {a1} scrutinise the data carefully, regulators won\'t accept the audit.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'scrutinise', 'we'),
             $this->entry('C1', 'negative_present', 'If the syndicate misses today\'s deadline, we {a1} secure investor confidence.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'secure', 'we'),
-            $this->entry('C1', 'negative_present', 'If the curator delays the catalogue, the gallery {a1} draw international visitors.', "won't", ["won't", 'will', 'can'], 'result', 'will not + base verb — they', 'draw', 'they'),
+            $this->entry(
+                'C1',
+                'negative_present',
+                'If the curator delays the catalogue, the gallery {a1} draw international visitors and patrons {a2} pledge new donations.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (patrons)'],
+                ['a1' => 'draw', 'a2' => 'pledge'],
+                ['a1' => 'they', 'a2' => 'they (patrons)']
+            ),
 
             $this->entry('C1', 'negative_past', 'If Martina {a1} archive last week\'s testimony, she won\'t defend the committee\'s stance.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'archive', 'she'),
             $this->entry('C1', 'negative_past', 'If the negotiators {a1} process yesterday\'s feedback, they won\'t adjust concessions.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'process', 'they'),
             $this->entry('C1', 'negative_past', 'If you dismiss last year\'s audit, the ministry {a1} renew the license.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'renew', 'they'),
-            $this->entry('C1', 'negative_past', 'If the columnist repeats prior allegations, readers {a1} accept the clarification.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'accept', 'they'),
+            $this->entry(
+                'C1',
+                'negative_past',
+                'If the columnist repeats prior allegations, readers {a1} accept the clarification and sponsors {a2} renew their commitment.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (sponsors)'],
+                ['a1' => 'accept', 'a2' => 'renew'],
+                ['a1' => 'they', 'a2' => 'they (sponsors)']
+            ),
 
             $this->entry('C1', 'negative_future', 'If you {a1} finalise the compliance file tomorrow, the regulator won\'t sign off.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'finalise', 'you'),
             $this->entry('C1', 'negative_future', 'If the delegates {a1} submit amendments next week, they won\'t influence the resolution.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
             $this->entry('C1', 'negative_future', 'If the forecast signals disruptions next quarter, we {a1} deploy the new platform.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'deploy', 'we'),
-            $this->entry('C1', 'negative_future', 'If Lila forgets to brief the ambassadors tonight, they {a1} endorse the proposal.', "won't", ["won't", 'will', 'shall'], 'result', 'will not + base verb — they', 'endorse', 'they'),
+            $this->entry(
+                'C1',
+                'negative_future',
+                'If Lila forgets to brief the ambassadors tonight, they {a1} endorse the proposal and regional partners {a2} align with the plan.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (partners)'],
+                ['a1' => 'endorse', 'a2' => 'align'],
+                ['a1' => 'they', 'a2' => 'they (partners)']
+            ),
 
             // C2
             $this->entry('C2', 'question_present', 'If the commission aligns the draft this morning, {a1} they ratify the emergency protocol?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'ratify', 'they'),
@@ -279,43 +435,89 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
             $this->entry('C2', 'negative_present', 'If the chair {a1} enforce procedural decorum, the chamber won\'t retain credibility.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — she', 'enforce', 'she'),
             $this->entry('C2', 'negative_present', 'If we {a1} interrogate the anomalies thoroughly, auditors won\'t accept the ledger.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'interrogate', 'we'),
             $this->entry('C2', 'negative_present', 'If the syndicate misses today\'s compliance filing, we {a1} regain regulatory trust.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'regain', 'we'),
-            $this->entry('C2', 'negative_present', 'If the curator withholds the catalogue, the museum {a1} attract international scholars.', "won't", ["won't", 'will', 'can'], 'result', 'will not + base verb — they', 'attract', 'they'),
+            $this->entry(
+                'C2',
+                'negative_present',
+                'If the curator withholds the catalogue, the museum {a1} attract international scholars and benefactors {a2} pledge endowments.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (benefactors)'],
+                ['a1' => 'attract', 'a2' => 'pledge'],
+                ['a1' => 'they', 'a2' => 'they (benefactors)']
+            ),
 
             $this->entry('C2', 'negative_past', 'If Mirella {a1} archive last week\'s testimony transcripts, she won\'t justify the verdict.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'archive', 'she'),
             $this->entry('C2', 'negative_past', 'If the mediators {a1} digest yesterday\'s concessions, they won\'t alter their mandate.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'digest', 'they'),
             $this->entry('C2', 'negative_past', 'If you disregard last year\'s injunction, the court {a1} approve your appeal.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'approve', 'they'),
-            $this->entry('C2', 'negative_past', 'If the commentator recycles prior accusations, viewers {a1} trust the analysis.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'trust', 'they'),
+            $this->entry(
+                'C2',
+                'negative_past',
+                'If the commentator recycles prior accusations, viewers {a1} trust the analysis and sponsors {a2} renew their grants.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (sponsors)'],
+                ['a1' => 'trust', 'a2' => 'renew'],
+                ['a1' => 'they', 'a2' => 'they (sponsors)']
+            ),
 
             $this->entry('C2', 'negative_future', 'If you {a1} finalise the compliance annex tomorrow, the regulator won\'t clear the case.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'finalise', 'you'),
             $this->entry('C2', 'negative_future', 'If the delegates {a1} submit revisions next session, they won\'t influence the treaty.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
             $this->entry('C2', 'negative_future', 'If the forecast signals supply shocks next quarter, we {a1} authorise the rollout.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'authorise', 'we'),
-            $this->entry('C2', 'negative_future', 'If Amara forgets to brief the coalition tonight, they {a1} endorse the motion.', "won't", ["won't", 'will', 'shall'], 'result', 'will not + base verb — they', 'endorse', 'they'),
+            $this->entry(
+                'C2',
+                'negative_future',
+                'If Amara forgets to brief the coalition tonight, they {a1} endorse the motion and regional allies {a2} align with the proposal.',
+                ['a1' => "won't", 'a2' => 'will not'],
+                [
+                    'a1' => ["won't", 'shall', 'could'],
+                    'a2' => ['will not', 'might', 'would'],
+                ],
+                ['a1' => 'result', 'a2' => 'result'],
+                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (allies)'],
+                ['a1' => 'endorse', 'a2' => 'align'],
+                ['a1' => 'they', 'a2' => 'they (allies)']
+            ),
         ];
 
         $rawQuestions = [];
         foreach ($entries as $entry) {
             $config = $patternConfig[$entry['pattern']];
-            $answer = $entry['answer'];
-            $example = $this->formatExample($entry['question'], $answer);
+            $answers = $entry['answers'];
+            $optionSets = $this->normalizeOptionSets($entry['options'], $answers);
 
             $detailKey = $config['detail_key'] ?? null;
             if ($config['form'] === 'negative') {
-                $detailKey = match ($entry['clause']) {
+                $primaryClause = $entry['clauses']['a1'] ?? reset($entry['clauses']);
+                $detailKey = match ($primaryClause) {
                     'condition' => ($config['context'] === 'present' ? 'negative_present_condition' : ($config['context'] === 'past' ? 'negative_past_condition' : 'negative_future_condition')),
                     'result' => ($config['context'] === 'present' ? 'negative_present_result' : ($config['context'] === 'past' ? 'negative_past_result' : 'negative_future_result')),
                     default => $detailKey,
                 };
             }
 
+            $wrappedVerbHints = [];
+            foreach ($entry['verb_hint'] as $marker => $hint) {
+                $wrappedVerbHints[$marker] = '(' . $hint . ')';
+            }
+
             $rawQuestions[] = [
                 'section' => $config['section'],
                 'detail_key' => $detailKey,
                 'question' => $entry['question'],
-                'verb_hint' => ['a1' => '(' . $entry['verb_hint'] . ')'],
-                'options' => $entry['options'],
-                'answers' => ['a1' => $answer],
-                'explanations' => $this->buildExplanations($entry, $config, $example),
-                'hints' => ['a1' => $this->buildHint($entry, $config, $example)],
+                'verb_hint' => $wrappedVerbHints,
+                'option_sets' => $optionSets,
+                'answers' => $answers,
+                'clauses' => $entry['clauses'],
+                'verb_base' => $entry['verb_base'],
+                'subject_hint' => $entry['subject_hint'],
                 'level' => $entry['level'],
             ];
         }
@@ -331,11 +533,11 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
 
             $answers = [];
             $optionMarkerMap = [];
-            $firstMarker = array_key_first($question['answers']);
-
-            if ($firstMarker !== null) {
-                foreach ($question['options'] as $option) {
-                    $optionMarkerMap[$option] = $firstMarker;
+            foreach ($question['option_sets'] as $marker => $options) {
+                foreach ($options as $option) {
+                    if (! isset($optionMarkerMap[$option])) {
+                        $optionMarkerMap[$option] = $marker;
+                    }
                 }
             }
 
@@ -347,6 +549,15 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                 ];
                 $optionMarkerMap[$answer] = $marker;
             }
+
+            $example = $this->formatExample($question['question'], $question['answers']);
+
+            $hints = [];
+            foreach ($question['answers'] as $marker => $answer) {
+                $hints[$marker] = $this->buildHintForMarker($question, $config, $example, $marker);
+            }
+
+            $explanations = $this->buildExplanationsForQuestion($question, $config, $example);
 
             $tagIds = [$firstConditionalTag];
 
@@ -372,7 +583,7 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                 'level' => $question['level'],
                 'tag_ids' => array_values(array_unique(array_filter($tagIds))),
                 'answers' => $answers,
-                'options' => $question['options'],
+                'options' => $this->flattenOptions($question['option_sets']),
                 'variants' => [],
             ];
 
@@ -380,21 +591,21 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                 'uuid' => $uuid,
                 'answers' => $question['answers'],
                 'option_markers' => $optionMarkerMap,
-                'hints' => $question['hints'],
-                'explanations' => $question['explanations'],
+                'hints' => $hints,
+                'explanations' => $explanations,
             ];
         }
 
         $this->seedQuestionData($items, $meta);
     }
 
-    private function buildHint(array $entry, array $config, string $example): string
+    private function buildHintForMarker(array $question, array $config, string $example, string $marker): string
     {
         $context = $this->contextLabel($config['context']);
         $markers = $config['markers'];
-        $subject = $entry['subject_hint'];
-        $base = $entry['verb_base'];
-        $answer = $entry['answer'];
+        $subject = $question['subject_hint'][$marker] ?? '';
+        $base = $question['verb_base'][$marker] ?? '';
+        $answer = $question['answers'][$marker] ?? '';
 
         if ($config['form'] === 'question') {
             return "Контекст: {$context}.  \nФормула: **will + {$subject} + V1 ({$base})?**  \nПояснення: питання у першому умовному ставить `will` перед підметом, а смислове дієслово залишається у базовій формі.  \nПриклад: *{$example}*  \nМаркери: {$markers}.";
@@ -409,28 +620,33 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
         return "Контекст: {$context}.  \nФормула: **{$subject} + {$helper} + V1 ({$base})**.  \nПояснення: if-клауза в першому умовному стоїть у Present Simple, тому використовуємо {$helper} + базове дієслово.  \nПриклад: *{$example}*  \nМаркери: {$markers}.";
     }
 
-    private function buildExplanations(array $entry, array $config, string $example): array
+    private function buildExplanationsForQuestion(array $question, array $config, string $example): array
     {
-        $options = $entry['options'];
-        $answer = $entry['answer'];
-
         $explanations = [];
-        foreach ($options as $option) {
-            if ($option === $answer) {
-                $explanations[$option] = $this->buildCorrectExplanation($entry, $config, $example);
-            } else {
-                $explanations[$option] = $this->buildWrongExplanation($entry, $config, $option);
+        foreach ($question['option_sets'] as $marker => $options) {
+            $answer = $question['answers'][$marker] ?? '';
+
+            foreach ($options as $option) {
+                if (isset($explanations[$option])) {
+                    continue;
+                }
+
+                if ($option === $answer) {
+                    $explanations[$option] = $this->buildCorrectExplanationForMarker($question, $config, $example, $marker);
+                } else {
+                    $explanations[$option] = $this->buildWrongExplanationForMarker($question, $config, $option, $marker);
+                }
             }
         }
 
         return $explanations;
     }
 
-    private function buildCorrectExplanation(array $entry, array $config, string $example): string
+    private function buildCorrectExplanationForMarker(array $question, array $config, string $example, string $marker): string
     {
-        $subject = $entry['subject_hint'];
-        $base = $entry['verb_base'];
-        $answer = $entry['answer'];
+        $subject = $question['subject_hint'][$marker] ?? '';
+        $base = $question['verb_base'][$marker] ?? '';
+        $answer = $question['answers'][$marker] ?? '';
 
         if ($config['form'] === 'question') {
             return "✅ «{$answer}» правильно, бо питання про результат ставить `will` перед підметом {$subject}, а дієслово залишається у формі V1 ({$base}).  \nПриклад: *{$example}*.";
@@ -445,10 +661,10 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
         return "✅ «{$answer}» правильно, бо заперечення в if-клаузі у Present Simple має структуру {$helper} + V1 ({$base}) для {$subject}.  \nПриклад: *{$example}*.";
     }
 
-    private function buildWrongExplanation(array $entry, array $config, string $option): string
+    private function buildWrongExplanationForMarker(array $question, array $config, string $option, string $marker): string
     {
-        $subject = $entry['subject_hint'];
-        $base = $entry['verb_base'];
+        $subject = $question['subject_hint'][$marker] ?? '';
+        $base = $question['verb_base'][$marker] ?? '';
 
         $messages = [
             'do' => "❌ «do» лише допоміжне для ствердження/запитання у Present Simple, але в першому умовному результаті потрібен `will`.",
@@ -514,23 +730,71 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
         string $level,
         string $pattern,
         string $question,
-        string $answer,
+        array|string $answers,
         array $options,
-        string $clause,
-        string $verbHint,
-        string $verbBase,
-        string $subjectHint
+        array|string $clauses,
+        array|string $verbHints,
+        array|string $verbBases,
+        array|string $subjectHints
     ): array {
+        $answerMap = is_array($answers) ? $answers : ['a1' => $answers];
+
         return [
             'level' => $level,
             'pattern' => $pattern,
             'question' => $question,
-            'answer' => $answer,
+            'answers' => $answerMap,
             'options' => $options,
-            'clause' => $clause,
-            'verb_hint' => $verbHint,
-            'verb_base' => $verbBase,
-            'subject_hint' => $subjectHint,
+            'clauses' => $this->normalizeAttribute($answerMap, $clauses),
+            'verb_hint' => $this->normalizeAttribute($answerMap, $verbHints),
+            'verb_base' => $this->normalizeAttribute($answerMap, $verbBases),
+            'subject_hint' => $this->normalizeAttribute($answerMap, $subjectHints),
         ];
+    }
+
+    private function normalizeAttribute(array $answers, array|string $value): array
+    {
+        if (is_array($value)) {
+            return $value;
+        }
+
+        $marker = array_key_first($answers) ?? 'a1';
+
+        return [$marker => $value];
+    }
+
+    private function normalizeOptionSets(array $options, array $answers): array
+    {
+        if ($this->isAssoc($options)) {
+            $result = [];
+            foreach ($options as $marker => $choices) {
+                $result[$marker] = array_map(fn ($value) => (string) $value, (array) $choices);
+            }
+
+            return $result;
+        }
+
+        $marker = array_key_first($answers) ?? 'a1';
+
+        return [
+            $marker => array_map(fn ($value) => (string) $value, $options),
+        ];
+    }
+
+    private function flattenOptions(array $optionSets): array
+    {
+        $all = [];
+        foreach ($optionSets as $options) {
+            foreach ($options as $option) {
+                $all[] = $option;
+            }
+        }
+
+        return array_values(array_unique($all));
+    }
+
+    private function isAssoc(array $array): bool
+    {
+        return $array !== [] && array_keys($array) !== range(0, count($array) - 1);
     }
 }
