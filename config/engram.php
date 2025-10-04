@@ -62,10 +62,30 @@ return [
             'title' => 'Present Continuous — Теперішній тривалий час',
             'view' => 'engram.pages.static.present-continuous',
         ],
-        'theory' => [
-            'slug' => 'theory',
-            'title' => 'Conditionals — Умовні речення (If-clauses)',
-            'view' => 'engram.pages.static.theory',
+        'zero-conditional' => [
+            'slug' => 'zero-conditional',
+            'title' => 'Zero Conditional — Загальні факти та рутини',
+            'view' => 'engram.pages.static.conditionals.zero',
+        ],
+        'first-conditional' => [
+            'slug' => 'first-conditional',
+            'title' => 'First Conditional — Реальні майбутні наслідки',
+            'view' => 'engram.pages.static.conditionals.first',
+        ],
+        'second-conditional' => [
+            'slug' => 'second-conditional',
+            'title' => 'Second Conditional — Уявні або малоймовірні ситуації',
+            'view' => 'engram.pages.static.conditionals.second',
+        ],
+        'third-conditional' => [
+            'slug' => 'third-conditional',
+            'title' => 'Third Conditional — Нереальне минуле',
+            'view' => 'engram.pages.static.conditionals.third',
+        ],
+        'mixed-conditional' => [
+            'slug' => 'mixed-conditional',
+            'title' => 'Mixed Conditionals — Змішані часові комбінації',
+            'view' => 'engram.pages.static.conditionals.mixed',
         ],
     ],
 ];
