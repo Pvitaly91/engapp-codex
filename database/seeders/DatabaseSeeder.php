@@ -5,8 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
-use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
+use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
+use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
@@ -103,6 +104,7 @@ class DatabaseSeeder extends Seeder
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
             FirstConditionalAiFormsV2Seeder::class,
+            FirstConditionalChooseABCAiSeeder::class,
             IrregularVerbsSeeder::class,
             FutureSimpleFutureContinuousFuturePerfectTestSeeder::class,
             FutureSimpleOrFutureContinuousSeeder::class,
