@@ -14,15 +14,12 @@ use App\Models\Test;
 use App\Models\Tag;
 use App\Models\SavedGrammarTest;
 use App\Models\ChatGPTExplanation;
+use App\Services\QuestionDeletionService;
 use App\Services\QuestionVariantService;
 use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
 use App\Services\SavedTestResolver;
 use App\Models\QuestionHint;
-use App\Models\QuestionAnswer;
-use App\Models\QuestionOption;
-use App\Models\QuestionVariant;
-use App\Models\VerbHint;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -48,6 +45,7 @@ class GrammarTestController extends Controller
         private QuestionVariantService $variantService,
         private SavedTestResolver $savedTestResolver,
         private GrammarTestFilterService $filterService,
+        private QuestionDeletionService $questionDeletionService,
     )
     {
     }
@@ -924,11 +922,9 @@ class GrammarTestController extends Controller
     private function performQuestionDeletion(ResolvedSavedTest $resolved, Question $question): void
     {
         $test = $resolved->model;
-        $deletedQuestionUuid = (string) $question->uuid;
-        $categoryId = $question->category_id;
-        $sourceId = $question->source_id;
+        $deletionResult = null;
 
-        DB::transaction(function () use ($test, $question, $resolved) {
+        DB::transaction(function () use ($test, $question, $resolved, &$deletionResult) {
             if ($resolved->usesUuidLinks) {
                 $test->questionLinks()
                     ->where('question_uuid', $question->uuid)
@@ -948,92 +944,14 @@ class GrammarTestController extends Controller
                 $test->save();
             }
 
-            $optionIds = collect();
-
-            if (Schema::hasTable('question_option_question')) {
-                $optionIds = $optionIds->merge(
-                    DB::table('question_option_question')
-                        ->where('question_id', $question->id)
-                        ->pluck('option_id')
-                );
-
-                DB::table('question_option_question')
-                    ->where('question_id', $question->id)
-                    ->delete();
-            }
-
-            if (Schema::hasTable('question_answers')) {
-                $optionIds = $optionIds->merge(
-                    QuestionAnswer::query()
-                        ->where('question_id', $question->id)
-                        ->pluck('option_id')
-                );
-
-                QuestionAnswer::query()
-                    ->where('question_id', $question->id)
-                    ->delete();
-            }
-
-            if (Schema::hasTable('verb_hints')) {
-                $optionIds = $optionIds->merge(
-                    VerbHint::query()
-                        ->where('question_id', $question->id)
-                        ->pluck('option_id')
-                );
-
-                VerbHint::query()
-                    ->where('question_id', $question->id)
-                    ->delete();
-            }
-
-            if (Schema::hasTable('question_hints')) {
-                QuestionHint::query()
-                    ->where('question_id', $question->id)
-                    ->delete();
-            }
-
-            if (Schema::hasTable('question_variants')) {
-                QuestionVariant::query()
-                    ->where('question_id', $question->id)
-                    ->delete();
-            }
-
-            $questionText = trim((string) $question->question);
-            $hasDuplicateText = $questionText !== '' && Question::query()
-                ->where('id', '!=', $question->id)
-                ->where('question', $questionText)
-                ->exists();
-
-            $question->tags()->detach();
-            $question->delete();
-
-            if ($questionText !== '' && Schema::hasTable('chatgpt_explanations') && ! $hasDuplicateText) {
-                ChatGPTExplanation::query()
-                    ->where('question', $questionText)
-                    ->delete();
-            }
-
-            $optionIds->filter()->unique()->each(function ($optionId) {
-                $stillUsed = (Schema::hasTable('question_answers')
-                        && QuestionAnswer::query()->where('option_id', $optionId)->exists())
-                    || (Schema::hasTable('verb_hints')
-                        && VerbHint::query()->where('option_id', $optionId)->exists())
-                    || (Schema::hasTable('question_option_question')
-                        && DB::table('question_option_question')->where('option_id', $optionId)->exists());
-
-                if (! $stillUsed) {
-                    QuestionOption::query()->where('id', $optionId)->delete();
-                }
-            });
+            $deletionResult = $this->questionDeletionService->deleteQuestion($question);
         });
 
-        $this->pruneUnusedCategoryAndSource($categoryId, $sourceId);
-
-        if ($deletedQuestionUuid !== '') {
-            $this->appendDeletedQuestionUuid($deletedQuestionUuid);
+        if ($deletionResult && $deletionResult->deletedQuestionUuid) {
+            $this->appendDeletedQuestionUuid($deletionResult->deletedQuestionUuid);
 
             $resolved->questionUuids = $resolved->questionUuids
-                ->filter(fn ($uuid) => $uuid !== $deletedQuestionUuid)
+                ->filter(fn ($uuid) => $uuid !== $deletionResult->deletedQuestionUuid)
                 ->values();
         }
 
@@ -1092,25 +1010,6 @@ class GrammarTestController extends Controller
             $path,
             json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL
         );
-    }
-
-    private function pruneUnusedCategoryAndSource(?int $categoryId, ?int $sourceId): void
-    {
-        if ($categoryId && Schema::hasTable('categories')) {
-            $hasQuestions = Question::query()->where('category_id', $categoryId)->exists();
-
-            if (! $hasQuestions) {
-                Category::query()->whereKey($categoryId)->delete();
-            }
-        }
-
-        if ($sourceId && Schema::hasTable('sources')) {
-            $hasQuestions = Question::query()->where('source_id', $sourceId)->exists();
-
-            if (! $hasQuestions) {
-                Source::query()->whereKey($sourceId)->delete();
-            }
-        }
     }
 
     public function show(Request $request)

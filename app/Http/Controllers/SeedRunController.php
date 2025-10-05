@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Services\QuestionDeletionService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -16,6 +17,10 @@ use Symfony\Component\Finder\SplFileInfo;
 
 class SeedRunController extends Controller
 {
+    public function __construct(private QuestionDeletionService $questionDeletionService)
+    {
+    }
+
     public function index(): View
     {
         $executedSeeders = collect();
@@ -167,8 +172,19 @@ class SeedRunController extends Controller
         $deletedQuestions = 0;
 
         DB::transaction(function () use ($seedRun, &$deletedQuestions) {
-            if (Schema::hasColumn('questions', 'seeder')) {
-                $deletedQuestions = Question::where('seeder', $seedRun->class_name)->delete();
+            if (! Schema::hasColumn('questions', 'seeder')) {
+                DB::table('seed_runs')->where('id', $seedRun->id)->delete();
+
+                return;
+            }
+
+            $questions = Question::query()
+                ->where('seeder', $seedRun->class_name)
+                ->get();
+
+            foreach ($questions as $question) {
+                $this->questionDeletionService->deleteQuestion($question);
+                $deletedQuestions++;
             }
 
             DB::table('seed_runs')->where('id', $seedRun->id)->delete();
