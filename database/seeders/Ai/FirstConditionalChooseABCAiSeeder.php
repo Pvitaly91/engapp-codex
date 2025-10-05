@@ -10,7 +10,7 @@ use Database\Seeders\QuestionSeeder;
 class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
 {
     public function run(): void
-    {  
+    {   
         $categoryId = Category::firstOrCreate(['name' => 'First Conditional Comprehensive AI Test'])->id;
 
         $sectionSources = [
