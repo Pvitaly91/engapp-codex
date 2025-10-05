@@ -693,7 +693,7 @@ class FutureTensesPracticeV2Seeder extends QuestionSeeder
         return trim($hint, "() \t\n\r");
     }
 
-    private function formatHints(array $hints): ?string
+    protected function formatHints(array $hints): ?string
     {
         if (empty($hints)) {
             return null;
