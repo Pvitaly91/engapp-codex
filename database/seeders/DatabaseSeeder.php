@@ -8,10 +8,12 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
+use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalChooseABCV2Seeder;
+use Database\Seeders\V2\SecondConditionalTestV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -103,6 +105,7 @@ class DatabaseSeeder extends Seeder
             FutureTensesPracticeV2Seeder::class,
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
+            SecondConditionalTestV2Seeder::class,
             FirstConditionalAiFormsV2Seeder::class,
             FirstConditionalChooseABCAiSeeder::class,
             IrregularVerbsSeeder::class,
@@ -116,6 +119,7 @@ class DatabaseSeeder extends Seeder
             Ai\FutureTensesComprehensiveAiSeeder::class,
             Ai\FutureTensesPracticeComprehensiveAiSeeder::class,
             Ai\DoDoesIsAreFormsComprehensiveAiSeeder::class,
+            SecondConditionalComprehensiveAiSeeder::class,
 
         ]);
     }
