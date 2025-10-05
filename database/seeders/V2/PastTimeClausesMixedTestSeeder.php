@@ -304,7 +304,7 @@ class PastTimeClausesMixedTestSeeder extends QuestionSeeder
         return $tense;
     }
 
-    private function formatHints(array $hints): ?string
+    protected function formatHints(array $hints): ?string
     {
         if (empty($hints)) {
             return null;
