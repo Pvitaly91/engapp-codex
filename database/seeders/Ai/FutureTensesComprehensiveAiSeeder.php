@@ -742,7 +742,7 @@ class FutureTensesComprehensiveAiSeeder extends QuestionSeeder
         }
     }
 
-    private function normalizeHint(?string $value): ?string
+    protected function normalizeHint(?string $value): ?string
     {
         if ($value === null) {
             return null;
@@ -751,7 +751,7 @@ class FutureTensesComprehensiveAiSeeder extends QuestionSeeder
         return trim($value, "() \t\n\r");
     }
 
-    private function formatHints(array $hints): ?string
+    protected function formatHints(array $hints): ?string
     {
         if (empty($hints)) {
             return null;
