@@ -170,4 +170,6 @@ Route::middleware('auth.admin')->group(function () {
     Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
     Route::post('/seed-runs/run-missing', [SeedRunController::class, 'runMissing'])->name('seed-runs.run-missing');
     Route::delete('/seed-runs/{seedRun}', [SeedRunController::class, 'destroy'])->name('seed-runs.destroy');
+    Route::delete('/seed-runs/{seedRun}/with-questions', [SeedRunController::class, 'destroyWithQuestions'])
+        ->name('seed-runs.destroy-with-questions');
 });

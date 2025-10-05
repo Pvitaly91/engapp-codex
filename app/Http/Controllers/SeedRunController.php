@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -145,6 +146,40 @@ class SeedRunController extends Controller
         return redirect()
             ->route('seed-runs.index')
             ->with('status', __('Seed run entry removed.'));
+    }
+
+    public function destroyWithQuestions(int $seedRunId): RedirectResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => __('The seed_runs table does not exist.')]);
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => __('Seed run record was not found.')]);
+        }
+
+        $deletedQuestions = 0;
+
+        DB::transaction(function () use ($seedRun, &$deletedQuestions) {
+            if (Schema::hasColumn('questions', 'seeder')) {
+                $deletedQuestions = Question::where('seeder', $seedRun->class_name)->delete();
+            }
+
+            DB::table('seed_runs')->where('id', $seedRun->id)->delete();
+        });
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', __('Removed seeder :class and deleted :count related question(s).', [
+                'class' => $seedRun->class_name,
+                'count' => $deletedQuestions,
+            ]));
     }
 
     /**

@@ -11,7 +11,7 @@
                     <p class="text-sm text-gray-500">Керуйте виконаними та невиконаними сидарами.</p>
                 </div>
                 @if($tableExists)
-                    <form method="POST" action="{{ route('seed-runs.run-missing') }}">
+                    <form method="POST" action="{{ route('seed-runs.run-missing') }}" data-preloader>
                         @csrf
                         <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-500 transition disabled:opacity-50" @if($pendingSeeders->isEmpty()) disabled @endif>
                             <i class="fa-solid fa-play"></i>
@@ -55,7 +55,7 @@
                             @foreach($pendingSeeders as $className)
                                 <li class="flex items-center justify-between gap-4">
                                     <span class="text-sm font-mono text-gray-700 break-all">{{ $className }}</span>
-                                    <form method="POST" action="{{ route('seed-runs.run') }}">
+                                    <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader>
                                         @csrf
                                         <input type="hidden" name="class_name" value="{{ $className }}">
                                         <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition">
@@ -89,14 +89,24 @@
                                             <td class="px-4 py-2 font-mono text-xs text-gray-700 break-all">{{ $seedRun->class_name }}</td>
                                             <td class="px-4 py-2 text-gray-600">{{ optional($seedRun->ran_at)->format('Y-m-d H:i:s') }}</td>
                                             <td class="px-4 py-2 text-right">
-                                                <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" onsubmit="return confirm('Видалити запис і дозволити повторний запуск сидера?');">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
-                                                        <i class="fa-solid fa-trash"></i>
-                                                        Видалити запис
-                                                    </button>
-                                                </form>
+                                                <div class="flex items-center justify-end gap-2">
+                                                    <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="Видалити лог та пов’язані питання?">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
+                                                            <i class="fa-solid fa-broom"></i>
+                                                            Видалити з питаннями
+                                                        </button>
+                                                    </form>
+                                                    <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" data-preloader data-confirm="Видалити лише запис про виконання?">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                            Видалити запис
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -108,4 +118,35 @@
             </div>
         @endif
     </div>
+
+    <div id="seed-run-preloader" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg px-6 py-4 flex items-center gap-3 text-sm text-gray-700">
+            <span class="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></span>
+            <span>Виконується операція…</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const preloader = document.getElementById('seed-run-preloader');
+
+            if (!preloader) {
+                return;
+            }
+
+            document.querySelectorAll('form[data-preloader]').forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    const confirmMessage = form.dataset.confirm;
+
+                    if (confirmMessage && !window.confirm(confirmMessage)) {
+                        event.preventDefault();
+
+                        return;
+                    }
+
+                    preloader.classList.remove('hidden');
+                });
+            });
+        });
+    </script>
 @endsection

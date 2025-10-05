@@ -38,7 +38,17 @@ class QuestionSeedingService
     public function seed(array $items): void
     {
         foreach ($items as $data) {
-            if (Question::where('uuid', $data['uuid'])->exists()) {
+            $existingQuestion = Question::where('uuid', $data['uuid'])->first();
+
+            if ($existingQuestion) {
+                if (
+                    Schema::hasColumn('questions', 'seeder') &&
+                    isset($data['seeder']) &&
+                    empty($existingQuestion->seeder)
+                ) {
+                    $existingQuestion->forceFill(['seeder' => $data['seeder']])->save();
+                }
+
                 continue;
             }
 
@@ -53,6 +63,10 @@ class QuestionSeedingService
 
             if (Schema::hasColumn('questions', 'level')) {
                 $attributes['level'] = $data['level'] ?? null;
+            }
+
+            if (Schema::hasColumn('questions', 'seeder')) {
+                $attributes['seeder'] = $data['seeder'] ?? null;
             }
 
             $q = Question::create($attributes);

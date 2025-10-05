@@ -7,6 +7,7 @@ use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Services\QuestionSeedingService;
 use App\Support\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 abstract class QuestionSeeder extends Seeder
@@ -53,6 +54,12 @@ abstract class QuestionSeeder extends Seeder
             return;
         }
 
+        $items = array_map(function (array $item) {
+            $item['seeder'] = static::class;
+
+            return $item;
+        }, $items);
+
         $service = new QuestionSeedingService();
         $service->seed($items);
 
@@ -61,6 +68,10 @@ abstract class QuestionSeeder extends Seeder
 
             if (! $question) {
                 continue;
+            }
+
+            if (Schema::hasColumn('questions', 'seeder') && empty($question->seeder)) {
+                $question->forceFill(['seeder' => static::class])->save();
             }
 
             $hintText = $this->formatHints($data['hints'] ?? []);
