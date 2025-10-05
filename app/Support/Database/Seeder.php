@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Schema;
 
 abstract class Seeder extends BaseSeeder
 {
-    public function __invoke()
+    public function __invoke(array $parameters = [])
     {
+        $result = parent::__invoke($parameters);
+
         $this->logRun();
 
-        return parent::__invoke();
+        return $result;
     }
 
     protected function logRun(): void
