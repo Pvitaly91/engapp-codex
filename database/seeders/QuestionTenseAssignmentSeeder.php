@@ -1,7 +1,7 @@
 <?php
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use App\Models\Question;
 use App\Models\Tag;
 

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\{Category, Source, Tag, Test};
 use App\Services\QuestionSeedingService;
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use Illuminate\Support\Str;
 
 class PcImageTestSeeder extends Seeder

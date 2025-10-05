@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use App\Models\Sentence;
 use Illuminate\Support\Str;
 

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Translate;
 use App\Models\Word;
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class IrregularVerbsSeeder extends Seeder

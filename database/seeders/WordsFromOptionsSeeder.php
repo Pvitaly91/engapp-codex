@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use App\Models\{QuestionOption, Word};
 
 class WordsFromOptionsSeeder extends Seeder

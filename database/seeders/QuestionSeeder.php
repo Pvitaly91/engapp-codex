@@ -6,7 +6,7 @@ use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Services\QuestionSeedingService;
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use Illuminate\Support\Str;
 
 abstract class QuestionSeeder extends Seeder

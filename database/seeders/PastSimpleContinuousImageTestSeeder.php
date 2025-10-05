@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Models\{Category, Source, Tag, Test};
 use App\Services\QuestionSeedingService;

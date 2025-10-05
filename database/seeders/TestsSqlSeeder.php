@@ -1,7 +1,7 @@
 <?php
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class TestsSqlSeeder extends Seeder

@@ -9,7 +9,7 @@ use App\Models\QuestionHint;
 use App\Models\Source;
 use App\Models\Tag;
 use App\Services\QuestionSeedingService;
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 

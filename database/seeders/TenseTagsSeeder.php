@@ -1,7 +1,7 @@
 <?php
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use App\Models\Tag;
 
 class TenseTagsSeeder extends Seeder

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;

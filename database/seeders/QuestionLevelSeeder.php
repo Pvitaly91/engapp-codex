@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Question;
-use Illuminate\Database\Seeder;
+use App\Support\Database\Seeder;
 use Illuminate\Support\Str;
 
 class QuestionLevelSeeder extends Seeder
