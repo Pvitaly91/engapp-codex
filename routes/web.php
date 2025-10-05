@@ -14,6 +14,7 @@ use App\Http\Controllers\QuestionOptionController;
 use App\Http\Controllers\QuestionReviewController;
 use App\Http\Controllers\QuestionReviewResultController;
 use App\Http\Controllers\QuestionVariantController;
+use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TrainController;
@@ -161,7 +162,12 @@ Route::middleware('auth.admin')->group(function () {
     Route::delete('/question-hints/{questionHint}', [QuestionHintController::class, 'destroy'])->name('question-hints.destroy');
     Route::post('/chatgpt-explanations', [ChatGPTExplanationController::class, 'store'])->name('chatgpt-explanations.store');
     Route::delete('/chatgpt-explanations/{chatGPTExplanation}', [ChatGPTExplanationController::class, 'destroy'])->name('chatgpt-explanations.destroy');
-    
+
     Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
     Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
+
+    Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
+    Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
+    Route::post('/seed-runs/run-missing', [SeedRunController::class, 'runMissing'])->name('seed-runs.run-missing');
+    Route::delete('/seed-runs/{seedRun}', [SeedRunController::class, 'destroy'])->name('seed-runs.destroy');
 });
