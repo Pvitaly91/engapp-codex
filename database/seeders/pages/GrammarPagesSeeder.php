@@ -25,6 +25,11 @@ class GrammarPagesSeeder extends Seeder
                 $query = PageBlock::query()->where('page_slug', $slug);
 
                 if ($hasSeederColumn) {
+                    PageBlock::query()
+                        ->where('page_slug', $slug)
+                        ->whereNull('seeder')
+                        ->update(['seeder' => static::class]);
+
                     $query->where('seeder', static::class);
                 }
 
