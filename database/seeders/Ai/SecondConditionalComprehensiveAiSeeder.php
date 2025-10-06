@@ -16,7 +16,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
         'B2' => 4,
         'C1' => 5,
         'C2' => 5,
-    ];
+    ]; 
 
     private array $hintTemplates = [
         'if_past_simple' => "Час: Second Conditional.\nФормула: **if + Past Simple**.\nПояснення: Умовна частина описує нереальну ситуацію, тому дієслово ставимо у Past Simple (наприклад, від «%verb%» беремо минулу форму).\nПриклад: *%example%*",
