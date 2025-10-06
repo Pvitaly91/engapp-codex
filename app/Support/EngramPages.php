@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use App\Models\PageBlock;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Fluent;
 
@@ -13,7 +14,11 @@ class EngramPages
     public static function all(): Collection
     {
         return collect(config('engram.pages', []))
-            ->map(fn (array $page) => new Fluent($page))
+            ->map(function (array $page) {
+                return new Fluent($page + [
+                    'template' => $page['template'] ?? 'grammar-card',
+                ]);
+            })
             ->values();
     }
 
@@ -24,6 +29,19 @@ class EngramPages
     {
         $page = config("engram.pages.$slug");
 
-        return $page ? new Fluent($page) : null;
+        if (! $page) {
+            return null;
+        }
+
+        $blocks = PageBlock::forPage($slug)->get();
+
+        if ($blocks->isEmpty() && ($fallback = config('app.fallback_locale'))) {
+            $blocks = PageBlock::forPage($slug, $fallback)->get();
+        }
+
+        return new Fluent($page + [
+            'template' => $page['template'] ?? 'grammar-card',
+            'blocks' => $blocks,
+        ]);
     }
 }

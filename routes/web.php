@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AiTestController;
+use App\Http\Controllers\AppLayoutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\GrammarTestController;
@@ -56,6 +57,14 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
     Route::get('/pages/{slug}', [PageController::class, 'show'])->name('pages.show');
+
+    Route::prefix('/app-layout')->name('app-layout.')->group(function () {
+        Route::get('/', [AppLayoutController::class, 'index'])->name('index');
+        Route::get('/pages/{slug}', [AppLayoutController::class, 'edit'])->name('pages.edit');
+        Route::post('/pages/{slug}/blocks', [AppLayoutController::class, 'store'])->name('pages.blocks.store');
+        Route::put('/pages/{slug}/blocks/{block}', [AppLayoutController::class, 'update'])->name('pages.blocks.update');
+        Route::delete('/pages/{slug}/blocks/{block}', [AppLayoutController::class, 'destroy'])->name('pages.blocks.destroy');
+    });
     
     Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
     Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
