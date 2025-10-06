@@ -6,6 +6,7 @@ use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PageV2Controller;
 use App\Http\Controllers\QuestionAnswerController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionHelpController;
@@ -56,8 +57,8 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
     Route::get('/pages/{slug}', [PageController::class, 'show'])->name('pages.show');
-    Route::get('/pages-v2', [PageController::class, 'index'])->name('pages-v2.index');
-    Route::get('/pages-v2/{slug}', [PageController::class, 'show'])->name('pages-v2.show');
+    Route::get('/pages-v2', [PageV2Controller::class, 'index'])->name('pages-v2.index');
+    Route::get('/pages-v2/{slug}', [PageV2Controller::class, 'show'])->name('pages-v2.show');
     
     Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
     Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
