@@ -34,6 +34,23 @@ class PageController extends Controller
     }
 
     /**
+     * Display the database-driven version of the static page.
+     */
+    public function showV2(string $slug)
+    {
+        $page = $this->page($slug);
+        $page->legacy_view = null;
+
+        $breadcrumbs = [
+            ['label' => 'Home', 'url' => route('home')],
+            ['label' => 'Pages v2'],
+            ['label' => $page->title],
+        ];
+
+        return view('engram.pages.show', compact('page', 'breadcrumbs'));
+    }
+
+    /**
      * Retrieve a single configured static page by slug.
      */
     protected function page(string $slug): Fluent

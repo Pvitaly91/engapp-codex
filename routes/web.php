@@ -57,6 +57,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
     Route::get('/pages/{slug}', [PageController::class, 'show'])->name('pages.show');
+    Route::get('/pages-v2/{slug}', [PageController::class, 'showV2'])->name('pages-v2.show');
 
     Route::prefix('/app-layout')->name('app-layout.')->group(function () {
         Route::get('/', [AppLayoutController::class, 'index'])->name('index');

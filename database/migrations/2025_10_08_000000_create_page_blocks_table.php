@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('label')->nullable();
             $table->json('content')->nullable();
             $table->unsignedInteger('position')->default(0);
+            $table->string('seeder')->nullable();
             $table->timestamps();
 
             $table->index(['page_slug', 'locale']);
+            $table->index('seeder');
         });
     }
 

@@ -13,6 +13,7 @@ use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalChooseABCV2Seeder;
+use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\SecondConditionalTestV2Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -120,6 +121,7 @@ class DatabaseSeeder extends Seeder
             Ai\FutureTensesPracticeComprehensiveAiSeeder::class,
             Ai\DoDoesIsAreFormsComprehensiveAiSeeder::class,
             SecondConditionalComprehensiveAiSeeder::class,
+            GrammarPagesSeeder::class,
 
         ]);
     }

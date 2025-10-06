@@ -15,6 +15,7 @@ class PageBlock extends Model
         'label',
         'content',
         'position',
+        'seeder',
     ];
 
     protected $casts = [
