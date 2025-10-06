@@ -1,4 +1,4 @@
-@extends('layouts.engram')
+@extends('layouts.app')
 
 @section('title', 'Сторінки v2 — керування')
 
