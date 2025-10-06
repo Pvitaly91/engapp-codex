@@ -8,7 +8,7 @@ use App\Models\Tag;
 use Database\Seeders\QuestionSeeder;
 
 class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
-{
+{ 
     private array $levelDifficulty = [
         'A1' => 1,
         'A2' => 2,
