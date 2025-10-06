@@ -67,6 +67,11 @@ Route::middleware('auth.admin')->group(function () {
         Route::get('/{page}/edit', [PageV2ManageController::class, 'edit'])->name('edit');
         Route::put('/{page}', [PageV2ManageController::class, 'update'])->name('update');
         Route::delete('/{page}', [PageV2ManageController::class, 'destroy'])->name('destroy');
+        Route::get('/{page}/blocks/create', [PageV2ManageController::class, 'createBlock'])->name('blocks.create');
+        Route::post('/{page}/blocks', [PageV2ManageController::class, 'storeBlock'])->name('blocks.store');
+        Route::get('/{page}/blocks/{block}/edit', [PageV2ManageController::class, 'editBlock'])->name('blocks.edit');
+        Route::put('/{page}/blocks/{block}', [PageV2ManageController::class, 'updateBlock'])->name('blocks.update');
+        Route::delete('/{page}/blocks/{block}', [PageV2ManageController::class, 'destroyBlock'])->name('blocks.destroy');
     });
 
     Route::get('/pages-v2/{slug}', [PageV2Controller::class, 'show'])->name('pages-v2.show');

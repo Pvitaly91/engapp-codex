@@ -10,7 +10,5 @@
         'formMethod' => 'POST',
         'submitLabel' => 'Створити сторінку',
         'page' => $page,
-        'initialBlocks' => $blockPayloads,
-        'defaultLocale' => data_get(collect($blockPayloads)->first(), 'locale', app()->getLocale()),
     ])
 @endsection
