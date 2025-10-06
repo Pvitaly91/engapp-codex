@@ -1,7 +1,11 @@
+@php
+    $initialBlocksJson = json_encode($initialBlocks, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
+    $initialBlocksEncoded = $initialBlocksJson === false ? '' : base64_encode($initialBlocksJson);
+@endphp
+
 <div class="max-w-6xl mx-auto space-y-6" x-data="pageEditor({
-    initialBlocks: @json($initialBlocks, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP),
     defaultLocale: '{{ $defaultLocale }}',
-})">
+})" x-init="bootstrap('{{ $initialBlocksEncoded }}')">
     <div class="flex items-center justify-between">
         <div>
             <h1 class="text-2xl font-semibold">{{ $heading }}</h1>
@@ -143,33 +147,88 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('pageEditor', (config) => ({
                 defaultLocale: config.defaultLocale || 'uk',
-                blocks: (config.initialBlocks || []).map((block, index) => ({
-                    ...block,
-                    uid: block.uid || `block-${block.id || index}-${Date.now()}`,
-                })),
+                blocks: [],
                 nextUid: Date.now(),
-                addBlock(type = 'box') {
-                    this.blocks.push({
-                        id: null,
-                        uid: `new-${this.nextUid++}`,
-                        locale: this.defaultLocale,
+                bootstrap(encoded) {
+                    let parsed = [];
+
+                    if (encoded) {
+                        try {
+                            parsed = JSON.parse(atob(encoded));
+                        } catch (error) {
+                            console.warn('Не вдалося завантажити блоки сторінки.', error);
+                        }
+                    }
+
+                    if (! Array.isArray(parsed)) {
+                        parsed = [];
+                    }
+
+                    this.blocks = parsed.map((block, index) => this.makeBlock(block, index));
+                },
+                makeBlock(block, index) {
+                    if (typeof block !== 'object' || block === null) {
+                        block = {};
+                    }
+
+                    const type = block.type ? block.type : 'box';
+                    const orderIndex = typeof index === 'number' ? index : this.blocks.length;
+                    const hasOwn = (key) => Object.prototype.hasOwnProperty.call(block, key);
+
+                    const blockId = hasOwn('id') && block.id !== undefined ? block.id : null;
+                    const locale = block.locale ? block.locale : this.defaultLocale;
+                    const column = hasOwn('column') ? block.column : (type === 'subtitle' ? 'header' : 'left');
+                    const heading = hasOwn('heading') ? block.heading : '';
+                    const cssClass = hasOwn('css_class') ? block.css_class : (type === 'subtitle' ? 'gw-subtitle' : '');
+                    const sortOrder = hasOwn('sort_order') && Number.isFinite(Number(block.sort_order))
+                        ? Number(block.sort_order)
+                        : (orderIndex + 1) * 10;
+                    const body = hasOwn('body') ? block.body : '';
+                    const uid = hasOwn('uid') && block.uid
+                        ? block.uid
+                        : `block-${blockId !== null ? blockId : orderIndex}-${Date.now()}-${this.nextUid++}`;
+
+                    return {
+                        id: blockId,
+                        uid: uid,
+                        locale: locale,
                         type: type,
-                        column: type === 'subtitle' ? '' : 'left',
-                        heading: '',
-                        css_class: type === 'subtitle' ? 'gw-subtitle' : '',
-                        sort_order: (this.blocks.length + 1) * 10,
-                        body: '',
-                    });
+                        column: column,
+                        heading: heading,
+                        css_class: cssClass,
+                        sort_order: sortOrder,
+                        body: body,
+                    };
+                },
+                addBlock(type = 'box') {
+                    this.blocks.push(
+                        this.makeBlock(
+                            {
+                                id: null,
+                                uid: null,
+                                type: type,
+                                column: type === 'subtitle' ? 'header' : undefined,
+                                css_class: type === 'subtitle' ? 'gw-subtitle' : undefined,
+                                sort_order: (this.blocks.length + 1) * 10,
+                                body: '',
+                            },
+                            this.blocks.length,
+                        ),
+                    );
                 },
                 removeBlock(index) {
                     this.blocks.splice(index, 1);
                 },
                 duplicateBlock(index) {
                     const original = this.blocks[index];
-                    const clone = JSON.parse(JSON.stringify(original));
-                    clone.id = null;
-                    clone.uid = `copy-${this.nextUid++}`;
-                    clone.sort_order = (this.blocks.length + 1) * 10;
+                    const clone = this.makeBlock(
+                        Object.assign({}, original, {
+                            id: null,
+                            uid: null,
+                            sort_order: (this.blocks.length + 1) * 10,
+                        }),
+                        index + 1,
+                    );
                     this.blocks.splice(index + 1, 0, clone);
                 },
             }));
