@@ -7,7 +7,7 @@
     <h2 class="gw-title">Present Continuous — Теперішній тривалий час</h2>
     <p class="gw-sub">Показує, що дія <strong>відбувається зараз</strong>, навколо теперішнього моменту або є <strong>тимчасовою</strong>. Також — про <strong>узгоджені майбутні плани</strong>.</p>
   </header>
-
+ 
   <div class="gw-grid">
     <!-- ЛІВА КОЛОНКА -->
     <div class="gw-col">
