@@ -21,9 +21,13 @@ class PageV2ManageController extends Controller
 
     public function create()
     {
+        $page = new Page();
+
+        $blockPayloads = $this->prepareBlockPayloads(old('blocks', []));
+
         return view('engram.pages.v2.manage.create', [
-            'page' => new Page(),
-            'blockPayloads' => old('blocks', []),
+            'page' => $page,
+            'blockPayloads' => $blockPayloads,
         ]);
     }
 
@@ -49,22 +53,19 @@ class PageV2ManageController extends Controller
         $blocks = $page->textBlocks()->orderBy('sort_order')->get();
         $page->setRelation('textBlocks', $blocks);
 
-        $payloads = $blocks->map(function (TextBlock $block) {
-            return [
-                'id' => $block->id,
-                'locale' => $block->locale,
-                'type' => $block->type,
-                'column' => $block->column,
-                'heading' => $block->heading,
-                'css_class' => $block->css_class,
-                'sort_order' => $block->sort_order,
-                'body' => $block->body,
-            ];
-        })->values()->toArray();
+        $initialBlocks = old('blocks');
+
+        if (! is_array($initialBlocks)) {
+            $initialBlocks = $blocks->map(function (TextBlock $block) {
+                return $block->toArray();
+            })->all();
+        }
+
+        $payloads = $this->prepareBlockPayloads($initialBlocks);
 
         return view('engram.pages.v2.manage.edit', [
             'page' => $page,
-            'blockPayloads' => old('blocks', $payloads),
+            'blockPayloads' => $payloads,
         ]);
     }
 
@@ -109,7 +110,7 @@ class PageV2ManageController extends Controller
             'blocks.*.id' => ['nullable', 'integer', 'exists:text_blocks,id'],
             'blocks.*.locale' => ['nullable', 'string', 'max:8'],
             'blocks.*.type' => ['nullable', 'string', 'max:32'],
-            'blocks.*.column' => ['nullable', 'string', Rule::in(['left', 'right', ''])],
+            'blocks.*.column' => ['nullable', 'string', Rule::in(['left', 'right', 'header', ''])],
             'blocks.*.heading' => ['nullable', 'string', 'max:255'],
             'blocks.*.css_class' => ['nullable', 'string', 'max:255'],
             'blocks.*.sort_order' => ['nullable', 'integer', 'min:0'],
@@ -158,5 +159,28 @@ class PageV2ManageController extends Controller
         } else {
             $page->textBlocks()->delete();
         }
+    }
+
+    protected function prepareBlockPayloads($blocks): array
+    {
+        return collect($blocks ?? [])->values()->map(function ($block, $index) {
+            $type = data_get($block, 'type', 'box') ?: 'box';
+
+            $column = data_get($block, 'column');
+            if ($column === null) {
+                $column = $type === 'subtitle' ? 'header' : 'left';
+            }
+
+            return [
+                'id' => data_get($block, 'id'),
+                'locale' => data_get($block, 'locale', 'uk'),
+                'type' => $type,
+                'column' => $column,
+                'heading' => data_get($block, 'heading', ''),
+                'css_class' => data_get($block, 'css_class') ?? '',
+                'sort_order' => (int) data_get($block, 'sort_order', ($index + 1) * 10),
+                'body' => (string) data_get($block, 'body', ''),
+            ];
+        })->all();
     }
 }

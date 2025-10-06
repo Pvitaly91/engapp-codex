@@ -1,5 +1,5 @@
 <div class="max-w-6xl mx-auto space-y-6" x-data="pageEditor({
-    initialBlocks: @json($initialBlocks),
+    initialBlocks: @json($initialBlocks, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE),
     defaultLocale: '{{ $defaultLocale }}',
 })">
     <div class="flex items-center justify-between">
@@ -102,6 +102,7 @@
                                 <span class="font-medium">Колонка</span>
                                 <select :name="`blocks[${index}][column]`" class="w-full rounded-xl border border-input bg-background px-3 py-2" x-model="block.column">
                                     <option value="">—</option>
+                                    <option value="header">Шапка</option>
                                     <option value="left">Ліва</option>
                                     <option value="right">Права</option>
                                 </select>
