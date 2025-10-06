@@ -7,20 +7,20 @@
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h1 class="text-2xl font-semibold">Сторінки v2</h1>
-                <p class="text-muted-foreground">Керуйте сторінками, редагуйте та оновлюйте блоки контенту.</p>
+                <p class="text-sm text-gray-500">Керуйте сторінками, редагуйте та оновлюйте блоки контенту.</p>
             </div>
-            <a href="{{ route('pages-v2.manage.create') }}" class="inline-flex items-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft">+ Нова сторінка</a>
+            <a href="{{ route('pages-v2.manage.create') }}" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">+ Нова сторінка</a>
         </div>
 
         @if (session('status'))
-            <div class="rounded-xl border border-success/30 bg-success/10 p-4 text-sm text-success">
+            <div class="rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-600">
                 {{ session('status') }}
             </div>
         @endif
 
-        <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
-            <table class="min-w-full divide-y divide-border/70 text-sm">
-                <thead class="bg-muted/50 text-muted-foreground">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow">
+            <table class="min-w-full divide-y divide-gray-200 text-sm">
+                <thead class="bg-gray-50 text-gray-600">
                     <tr>
                         <th class="px-4 py-3 text-left font-medium">Назва</th>
                         <th class="px-4 py-3 text-left font-medium">Slug</th>
@@ -28,28 +28,28 @@
                         <th class="px-4 py-3 text-right font-medium">Дії</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-border/60">
+                <tbody class="divide-y divide-gray-200">
                     @forelse ($pages as $page)
-                        <tr class="hover:bg-muted/40">
+                        <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 font-medium">
                                 <a href="{{ route('pages-v2.show', $page->slug) }}" class="hover:underline" target="_blank" rel="noopener">{{ $page->title }}</a>
                             </td>
-                            <td class="px-4 py-3 text-muted-foreground">{{ $page->slug }}</td>
-                            <td class="px-4 py-3 text-muted-foreground">{{ $page->updated_at?->diffForHumans() }}</td>
+                            <td class="px-4 py-3 text-gray-500">{{ $page->slug }}</td>
+                            <td class="px-4 py-3 text-gray-500">{{ $page->updated_at?->diffForHumans() }}</td>
                             <td class="px-4 py-3">
                                 <div class="flex justify-end gap-2">
-                                    <a href="{{ route('pages-v2.manage.edit', $page) }}" class="rounded-lg border border-border px-3 py-1 text-sm">Редагувати</a>
+                                    <a href="{{ route('pages-v2.manage.edit', $page) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
                                     <form action="{{ route('pages-v2.manage.destroy', $page) }}" method="POST" onsubmit="return confirm('Видалити сторінку?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="rounded-lg border border-destructive/40 bg-destructive/10 px-3 py-1 text-sm text-destructive">Видалити</button>
+                                        <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1 text-sm text-red-600 hover:bg-red-100">Видалити</button>
                                     </form>
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="px-4 py-6 text-center text-muted-foreground">Ще немає сторінок. Створіть першу сторінку.</td>
+                            <td colspan="4" class="px-4 py-6 text-center text-gray-500">Ще немає сторінок. Створіть першу сторінку.</td>
                         </tr>
                     @endforelse
                 </tbody>
