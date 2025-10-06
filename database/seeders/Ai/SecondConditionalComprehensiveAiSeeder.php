@@ -89,8 +89,8 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
 
     public function run(): void
     {
-        $categoryId = Category::firstOrCreate(['name' => 'Conditionals'])->id;
-
+        $categoryId = Category::firstOrCreate(['name' => 'AI Second Conditional'])->id;
+ 
         $sourceMap = [
             'negative_past' => Source::firstOrCreate(['name' => 'AI Second Conditional Negative Past'])->id,
             'negative_present' => Source::firstOrCreate(['name' => 'AI Second Conditional Negative Present'])->id,
