@@ -1,5 +1,5 @@
 <div class="max-w-6xl mx-auto space-y-6" x-data="pageEditor({
-    initialBlocks: @json($initialBlocks, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE),
+    initialBlocks: @json($initialBlocks, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP),
     defaultLocale: '{{ $defaultLocale }}',
 })">
     <div class="flex items-center justify-between">
