@@ -9,6 +9,7 @@ use DOMElement;
 use DOMNode;
 use DOMXPath;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 class GrammarPagesSeeder extends Seeder
@@ -17,12 +18,17 @@ class GrammarPagesSeeder extends Seeder
     {
         $pages = $this->pages();
 
-        DB::transaction(function () use ($pages) {
+        $hasSeederColumn = Schema::hasColumn('page_blocks', 'seeder');
+
+        DB::transaction(function () use ($pages, $hasSeederColumn) {
             foreach ($pages as $slug => $blocks) {
-                PageBlock::query()
-                    ->where('page_slug', $slug)
-                    ->where('seeder', static::class)
-                    ->delete();
+                $query = PageBlock::query()->where('page_slug', $slug);
+
+                if ($hasSeederColumn) {
+                    $query->where('seeder', static::class);
+                }
+
+                $query->delete();
 
                 foreach (array_values($blocks) as $index => $data) {
                     PageBlock::create([
@@ -33,7 +39,7 @@ class GrammarPagesSeeder extends Seeder
                         'label' => $data['label'] ?? null,
                         'content' => $data['content'] ?? null,
                         'position' => $data['position'] ?? $index + 1,
-                        'seeder' => static::class,
+                        'seeder' => $hasSeederColumn ? static::class : null,
                     ]);
                 }
             }
