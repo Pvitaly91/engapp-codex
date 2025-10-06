@@ -31,7 +31,7 @@ class GrammarPagesSeeder extends Seeder
                 $query->delete();
 
                 foreach (array_values($blocks) as $index => $data) {
-                    PageBlock::create([
+                    $attributes = [
                         'page_slug' => $slug,
                         'locale' => $data['locale'] ?? 'uk',
                         'area' => $data['area'],
@@ -39,8 +39,13 @@ class GrammarPagesSeeder extends Seeder
                         'label' => $data['label'] ?? null,
                         'content' => $data['content'] ?? null,
                         'position' => $data['position'] ?? $index + 1,
-                        'seeder' => $hasSeederColumn ? static::class : null,
-                    ]);
+                    ];
+
+                    if ($hasSeederColumn) {
+                        $attributes['seeder'] = static::class;
+                    }
+
+                    PageBlock::create($attributes);
                 }
             }
         });
