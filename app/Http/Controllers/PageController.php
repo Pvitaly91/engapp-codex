@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\EngramPages;
-use Illuminate\Support\Fluent;
+use App\Models\Page;
 
 class PageController extends Controller
 {
@@ -12,9 +11,17 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = EngramPages::all();
+        $pages = Page::query()->orderBy('title')->get();
 
-        return view('engram.pages.index', compact('pages'));
+        $view = request()->routeIs('pages-v2.*')
+            ? 'engram.pages.v2.index'
+            : 'engram.pages.index';
+
+        $targetRoute = request()->routeIs('pages-v2.*')
+            ? 'pages-v2.show'
+            : 'pages.show';
+
+        return view($view, compact('pages', 'targetRoute'));
     }
 
     /**
@@ -24,24 +31,46 @@ class PageController extends Controller
     {
         $page = $this->page($slug);
 
+        $blocks = $page->textBlocks;
+
+        $subtitleBlock = $blocks->firstWhere(fn ($block) => $block->type === 'subtitle');
+
+        $columns = [
+            'left' => $blocks->filter(fn ($block) => $block->column === 'left'),
+            'right' => $blocks->filter(fn ($block) => $block->column === 'right'),
+        ];
+
+        $locale = $subtitleBlock->locale
+            ?? $blocks->first()->locale
+            ?? 'uk';
+
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],
-            ['label' => 'Pages', 'url' => route('pages.index')],
+            ['label' => 'Pages', 'url' => route(request()->routeIs('pages-v2.*') ? 'pages-v2.index' : 'pages.index')],
             ['label' => $page->title],
         ];
 
-        return view('engram.pages.show', compact('page', 'breadcrumbs'));
+        $view = request()->routeIs('pages-v2.*')
+            ? 'engram.pages.v2.show'
+            : 'engram.pages.show';
+
+        return view($view, [
+            'page' => $page,
+            'breadcrumbs' => $breadcrumbs,
+            'subtitleBlock' => $subtitleBlock,
+            'columns' => $columns,
+            'locale' => $locale,
+        ]);
     }
 
     /**
      * Retrieve a single configured static page by slug.
      */
-    protected function page(string $slug): Fluent
+    protected function page(string $slug): Page
     {
-        $page = EngramPages::find($slug);
-
-        abort_unless($page, 404);
-
-        return $page;
+        return Page::query()
+            ->with(['textBlocks'])
+            ->where('slug', $slug)
+            ->firstOrFail();
     }
 }

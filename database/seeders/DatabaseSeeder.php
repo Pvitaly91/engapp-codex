@@ -9,6 +9,7 @@ use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
+use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
@@ -106,6 +107,7 @@ class DatabaseSeeder extends Seeder
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
             SecondConditionalTestV2Seeder::class,
+            GrammarPagesSeeder::class,
             FirstConditionalAiFormsV2Seeder::class,
             FirstConditionalChooseABCAiSeeder::class,
             IrregularVerbsSeeder::class,
