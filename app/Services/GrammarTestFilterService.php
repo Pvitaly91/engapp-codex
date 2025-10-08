@@ -37,6 +37,7 @@ class GrammarTestFilterService
         $selectedTags = $filters['tags'];
         $selectedLevels = $filters['levels'];
         $selectedSources = $filters['sources'];
+        $selectedSeederClasses = $filters['seeder_classes'];
         $randomizeFiltered = $filters['randomize_filtered'];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
@@ -77,6 +78,10 @@ class GrammarTestFilterService
                 if ($group !== null) {
                     $query->where('category_id', $group);
                 }
+            }
+
+            if (! empty($selectedSeederClasses)) {
+                $query->whereIn('seeder', $selectedSeederClasses);
             }
 
             if (! empty($selectedSources) && $groupBy !== 'source_id') {
@@ -165,6 +170,16 @@ class GrammarTestFilterService
             ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
             ->values();
 
+        $seederClasses = Schema::hasColumn('questions', 'seeder')
+            ? Question::query()
+                ->select('seeder')
+                ->whereNotNull('seeder')
+                ->distinct()
+                ->orderBy('seeder')
+                ->pluck('seeder')
+                ->values()
+            : collect();
+
         return [
             'categories' => $categories,
             'minDifficulty' => $minDifficulty,
@@ -185,6 +200,7 @@ class GrammarTestFilterService
             'questions' => $questions,
             'sources' => $sources,
             'selectedSources' => $selectedSources,
+            'selectedSeederClasses' => $selectedSeederClasses,
             'autoTestName' => $autoTestName,
             'allTags' => $allTags,
             'selectedTags' => $selectedTags,
@@ -192,6 +208,7 @@ class GrammarTestFilterService
             'selectedLevels' => $selectedLevels,
             'randomizeFiltered' => $randomizeFiltered,
             'canRandomizeFiltered' => $canRandomizeFiltered,
+            'seederClasses' => $seederClasses,
             'normalizedFilters' => $filters,
         ];
     }
@@ -202,6 +219,7 @@ class GrammarTestFilterService
         $levels = $this->stringArray(Arr::get($input, 'levels', []));
         $tags = $this->stringArray(Arr::get($input, 'tags', []));
         $sources = $this->intArray(Arr::get($input, 'sources', []));
+        $seeders = $this->stringArray(Arr::get($input, 'seeder_classes', []));
 
         return [
             'categories' => $categories,
@@ -219,6 +237,7 @@ class GrammarTestFilterService
             'levels' => $levels,
             'tags' => $tags,
             'sources' => $sources,
+            'seeder_classes' => $seeders,
             'randomize_filtered' => $this->toBool(Arr::get($input, 'randomize_filtered', false)),
         ];
     }

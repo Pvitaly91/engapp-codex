@@ -1257,6 +1257,7 @@ class GrammarTestController extends Controller
 
         return array_merge($base, [
             'selectedCategories' => [],
+            'selectedSeederClasses' => [],
             'difficultyFrom' => $base['minDifficulty'],
             'difficultyTo' => $base['maxDifficulty'],
             'numQuestions' => 10,
@@ -1291,6 +1292,15 @@ class GrammarTestController extends Controller
             ->filter()
             ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
             ->values();
+        $seederClasses = Schema::hasColumn('questions', 'seeder')
+            ? Question::query()
+                ->select('seeder')
+                ->whereNotNull('seeder')
+                ->distinct()
+                ->orderBy('seeder')
+                ->pluck('seeder')
+                ->values()
+            : collect();
 
         return [
             'categories' => $categories,
@@ -1299,6 +1309,7 @@ class GrammarTestController extends Controller
             'maxQuestions' => $maxQuestions,
             'allTags' => $allTags,
             'levels' => $levels,
+            'seederClasses' => $seederClasses,
         ];
     }
 
