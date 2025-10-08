@@ -41,13 +41,23 @@ class GrammarTestFilterService
         $randomizeFiltered = $filters['randomize_filtered'];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
-        $groups = ! empty($selectedCategories) ? $selectedCategories : $categories->pluck('id')->toArray();
-        if ($groupBy === 'source_id') {
-            $groups = $selectedSources;
-        }
-        $groups = array_values($groups);
-        if (empty($groups)) {
+        if (! empty($selectedSeederClasses)) {
+            $groupBy = null;
             $groups = [null];
+        } else {
+            $groups = ! empty($selectedCategories)
+                ? $selectedCategories
+                : $categories->pluck('id')->toArray();
+
+            if ($groupBy === 'source_id') {
+                $groups = $selectedSources;
+            }
+
+            $groups = array_values($groups);
+
+            if (empty($groups)) {
+                $groups = [null];
+            }
         }
 
         $groupCount = max(count($groups), 1);
@@ -70,14 +80,10 @@ class GrammarTestFilterService
                 $query->whereIn('level', $selectedLevels);
             }
 
-            if ($groupBy === 'source_id') {
-                if ($group !== null) {
-                    $query->where('source_id', $group);
-                }
-            } else {
-                if ($group !== null) {
-                    $query->where('category_id', $group);
-                }
+            if ($groupBy === 'source_id' && $group !== null) {
+                $query->where('source_id', $group);
+            } elseif ($groupBy === 'category_id' && $group !== null) {
+                $query->where('category_id', $group);
             }
 
             if (! empty($selectedSeederClasses)) {
