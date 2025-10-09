@@ -185,6 +185,7 @@ class GrammarTestFilterService
                 ->pluck('seeder')
                 ->values()
             : collect();
+        $seederSourceGroups = $this->seederSourceGroups();
 
         return [
             'categories' => $categories,
@@ -215,8 +216,58 @@ class GrammarTestFilterService
             'randomizeFiltered' => $randomizeFiltered,
             'canRandomizeFiltered' => $canRandomizeFiltered,
             'seederClasses' => $seederClasses,
+            'seederSourceGroups' => $seederSourceGroups,
             'normalizedFilters' => $filters,
         ];
+    }
+
+    public function seederSourceGroups(): Collection
+    {
+        if (! Schema::hasColumn('questions', 'seeder')) {
+            return collect();
+        }
+
+        $pairs = Question::query()
+            ->select('seeder', 'source_id')
+            ->whereNotNull('seeder')
+            ->groupBy('seeder', 'source_id')
+            ->get();
+
+        if ($pairs->isEmpty()) {
+            return collect();
+        }
+
+        $sourceIds = $pairs->pluck('source_id')
+            ->filter()
+            ->unique()
+            ->values();
+
+        $sources = $sourceIds->isEmpty()
+            ? collect()
+            : Source::whereIn('id', $sourceIds)
+                ->orderByDesc('id')
+                ->get()
+                ->keyBy('id');
+
+        return $pairs
+            ->groupBy('seeder')
+            ->filter(fn ($group, $seeder) => filled($seeder))
+            ->map(function (Collection $group, string $seeder) use ($sources) {
+                $seederSources = $group->pluck('source_id')
+                    ->filter()
+                    ->unique()
+                    ->sortDesc()
+                    ->map(fn ($id) => $sources->get($id))
+                    ->filter()
+                    ->values();
+
+                return [
+                    'seeder' => $seeder,
+                    'sources' => $seederSources,
+                ];
+            })
+            ->sortBy('seeder')
+            ->values();
     }
 
     public function normalize(array $input): array

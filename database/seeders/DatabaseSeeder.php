@@ -17,6 +17,7 @@ use Database\Seeders\V2\FirstConditionalChooseABCV2Seeder;
 use Database\Seeders\V2\SecondConditionalTestV2Seeder;
 use Database\Seeders\V2\ConditionalsType1And2WorksheetV2Seeder;
 use Database\Seeders\V2\ConditionalsZeroToSecondWorksheetV2Seeder;
+use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -107,6 +108,7 @@ class DatabaseSeeder extends Seeder
             PastTimeClausesMixedTestSeeder::class,
             ConditionalsType1And2WorksheetV2Seeder::class,
             ConditionalsZeroToSecondWorksheetV2Seeder::class,
+            IfClausesType012WorksheetV2Seeder::class,
             FutureTensesPracticeV2Seeder::class,
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,

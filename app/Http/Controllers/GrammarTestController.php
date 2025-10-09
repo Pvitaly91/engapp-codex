@@ -1355,6 +1355,9 @@ class GrammarTestController extends Controller
 
         $categoriesDesc = Category::orderByDesc('id')->get();
 
+        $filterService = app(\App\Services\GrammarTestFilterService::class);
+        $seederSourceGroups = $filterService->seederSourceGroups();
+
         $sourceCategoryPairs = Question::query()
             ->select('source_id', 'category_id')
             ->whereNotNull('source_id')
@@ -1364,12 +1367,21 @@ class GrammarTestController extends Controller
         $sourceIds = $sourceCategoryPairs
             ->pluck('source_id')
             ->filter()
+            ->unique();
+
+        $seederSourceIds = $seederSourceGroups
+            ->flatMap(fn ($group) => collect($group['sources'] ?? [])->pluck('id'))
+            ->filter()
+            ->unique();
+
+        $allSourceIds = $sourceIds->merge($seederSourceIds)
+            ->filter()
             ->unique()
             ->values();
 
-        $sources = $sourceIds->isEmpty()
+        $sources = $allSourceIds->isEmpty()
             ? collect()
-            : Source::whereIn('id', $sourceIds)
+            : Source::whereIn('id', $allSourceIds)
                 ->orderByDesc('id')
                 ->get()
                 ->keyBy('id');
@@ -1398,10 +1410,28 @@ class GrammarTestController extends Controller
             ->filter()
             ->sortKeysDesc();
 
+        $seederSourceGroups = $seederSourceGroups
+            ->map(function ($group) use ($sources) {
+                $seeder = $group['seeder'] ?? null;
+                $sourceItems = collect($group['sources'] ?? [])
+                    ->pluck('id')
+                    ->map(fn ($id) => $sources->get($id))
+                    ->filter()
+                    ->values();
+
+                return [
+                    'seeder' => $seeder,
+                    'sources' => $sourceItems,
+                ];
+            })
+            ->filter(fn ($group) => filled($group['seeder']))
+            ->values();
+
         return [
             'tagsByCategory' => $tagsByCategory,
             'categoriesDesc' => $categoriesDesc,
             'sourcesByCategory' => $sourcesByCategory,
+            'seederSourceGroups' => $seederSourceGroups,
         ];
     }
 
