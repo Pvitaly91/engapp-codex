@@ -15,6 +15,21 @@
         $tagGroups = $tagsByCategory ?? collect();
         $sourceGroups = $sourcesByCategory ?? collect();
         $seederClasses = collect($seederClasses ?? [])->filter(fn ($value) => filled($value))->values();
+        $rawSeederGroups = collect($seederSourceGroups ?? [])->filter(fn ($group) => filled($group['seeder'] ?? null));
+        $seederSourceMap = $rawSeederGroups->mapWithKeys(fn ($group) => [
+            $group['seeder'] => collect($group['sources'] ?? [])->filter()->values(),
+        ]);
+        $seederGroups = $seederClasses
+            ->map(function ($className) use ($seederSourceMap) {
+                $sources = $seederSourceMap->get($className, collect());
+
+                return [
+                    'seeder' => $className,
+                    'sources' => $sources,
+                ];
+            })
+            ->filter(fn ($group) => filled($group['seeder']))
+            ->values();
 
         $selectedCategories = collect($selectedCategories ?? [])->all();
         $selectedSources = collect($selectedSources ?? [])->all();
@@ -58,26 +73,71 @@
                         </button>
                     </div>
                     <div class="space-y-3" x-show="openSeederFilter" x-transition style="display: none;">
-                        @if($seederClasses->isEmpty())
+                        @if($seederGroups->isEmpty())
                             <p class="text-sm text-gray-500">Немає доступних класів сидера.</p>
                         @else
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                                @foreach($seederClasses as $className)
+                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
+                                @foreach($seederGroups as $group)
                                     @php
+                                        $className = $group['seeder'];
+                                        $seederSources = collect($group['sources'] ?? []);
                                         $seederIsSelected = in_array($className, $selectedSeederClasses, true);
+                                        $seederSourceIds = $seederSources->pluck('id');
+                                        $seederHasSelectedSources = $seederSourceIds->intersect($selectedSources)->isNotEmpty();
+                                        $groupIsActive = $seederIsSelected || $seederHasSelectedSources;
                                         $seederInputId = 'seeder-' . md5($className);
                                     @endphp
-                                    <label for="{{ $seederInputId }}"
-                                           @class([
-                                                'flex items-center gap-2 text-sm rounded-xl px-3 py-2 transition border cursor-pointer',
-                                                'bg-gray-50 border-gray-200 hover:border-blue-300' => ! $seederIsSelected,
-                                                'bg-blue-50 border-blue-400 shadow-sm' => $seederIsSelected,
-                                           ])>
-                                        <input type="checkbox" name="seeder_classes[]" value="{{ $className }}" id="{{ $seederInputId }}"
-                                               {{ $seederIsSelected ? 'checked' : '' }}
-                                               class="h-5 w-5 text-blue-600 border-gray-300 rounded">
-                                        <span class="truncate" title="{{ $className }}">{{ $className }}</span>
-                                    </label>
+                                    <div x-data="{ open: {{ $groupIsActive ? 'true' : 'false' }} }"
+                                         @class([
+                                            'border rounded-2xl overflow-hidden transition',
+                                            'border-gray-200' => ! $groupIsActive,
+                                            'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
+                                         ])
+                                    >
+                                        <div class="flex items-center justify-between gap-3 px-4 py-2 bg-gray-50">
+                                            <label for="{{ $seederInputId }}"
+                                                   @class([
+                                                        'flex items-center gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
+                                                        'text-blue-800' => $seederIsSelected,
+                                                   ])>
+                                                <input type="checkbox" name="seeder_classes[]" value="{{ $className }}" id="{{ $seederInputId }}"
+                                                       {{ $seederIsSelected ? 'checked' : '' }}
+                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded">
+                                                <span class="truncate" title="{{ $className }}">{{ $className }}</span>
+                                            </label>
+                                            <button type="button"
+                                                    class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
+                                                    @click="open = !open"
+                                                    aria-label="Перемкнути список джерел">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
+                                            @if($seederSources->isEmpty())
+                                                <p class="text-xs text-gray-500">Для цього сидера немає пов'язаних джерел.</p>
+                                            @else
+                                                <div class="flex flex-wrap gap-2">
+                                                    @foreach($seederSources as $source)
+                                                        @php
+                                                            $sourceIsSelected = in_array($source->id, $selectedSources);
+                                                        @endphp
+                                                        <label @class([
+                                                            'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
+                                                            'border-gray-200 bg-white hover:border-blue-300' => ! $sourceIsSelected,
+                                                            'border-blue-400 bg-blue-50 shadow-sm' => $sourceIsSelected,
+                                                        ])>
+                                                            <input type="checkbox" name="sources[]" value="{{ $source->id }}"
+                                                                   {{ $sourceIsSelected ? 'checked' : '' }}
+                                                                   class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                                            <span class="whitespace-normal break-words">{{ $source->name }} (ID: {{ $source->id }})</span>
+                                                        </label>
+                                                    @endforeach
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
                                 @endforeach
                             </div>
                         @endif
