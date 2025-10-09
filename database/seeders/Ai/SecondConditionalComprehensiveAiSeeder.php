@@ -17,7 +17,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
         'C1' => 5,
         'C2' => 5,
     ]; 
-  
+   
     private array $hintTemplates = [
         'if_past_simple' => "Час: Second Conditional.\nФормула: **if + Past Simple**.\nПояснення: Умовна частина описує нереальну ситуацію, тому дієслово ставимо у Past Simple (наприклад, від «%verb%» беремо минулу форму).\nПриклад: *%example%*",
         'if_were' => "Час: Second Conditional.\nФормула: **if + were** для всіх осіб.\nПояснення: З дієсловом to be у другому умовному використовуємо «were», навіть із «I» або «she».\nПриклад: *%example%*",
