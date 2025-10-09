@@ -19,6 +19,10 @@
         $seederSourceMap = $rawSeederGroups->mapWithKeys(fn ($group) => [
             $group['seeder'] => collect($group['sources'] ?? [])->filter()->values(),
         ]);
+
+        $selectedSourceCollection = collect($selectedSources ?? [])->filter();
+        $selectedSources = $selectedSourceCollection->values()->all();
+
         $seederGroups = $seederClasses
             ->map(function ($className) use ($seederSourceMap) {
                 $sources = $seederSourceMap->get($className, collect());
@@ -31,8 +35,14 @@
             ->filter(fn ($group) => filled($group['seeder']))
             ->values();
 
+        $hasSelectedSeederSources = $seederGroups->contains(function ($group) use ($selectedSourceCollection) {
+            return collect($group['sources'] ?? [])
+                ->pluck('id')
+                ->intersect($selectedSourceCollection)
+                ->isNotEmpty();
+        });
+
         $selectedCategories = collect($selectedCategories ?? [])->all();
-        $selectedSources = collect($selectedSources ?? [])->all();
         $selectedTags = collect($selectedTags ?? [])->all();
         $selectedSeederClasses = collect($selectedSeederClasses ?? [])->filter(fn ($value) => filled($value))->values()->all();
         $normalizedFilters = $normalizedFilters ?? null;
@@ -55,22 +65,34 @@
         @csrf
         
             <div class="space-y-6 ">
-                <div x-data="{ openSeederFilter: {{ $hasSelectedSeederClasses ? 'true' : 'false' }} }"
+                <div x-data="{ openSeederFilter: {{ ($hasSelectedSeederClasses || $hasSelectedSeederSources) ? 'true' : 'false' }}, toggleSeederSources(open) { this.$dispatch('toggle-all-seeder-sources', { open }); } }"
                      @class([
                         'space-y-3 border border-transparent rounded-2xl p-3',
-                        'border-blue-300 bg-blue-50' => $hasSelectedSeederClasses,
+                        'border-blue-300 bg-blue-50' => ($hasSelectedSeederClasses || $hasSelectedSeederSources),
                      ])
                 >
                     <div class="flex items-center justify-between gap-3">
                         <h2 class="text-sm font-semibold text-gray-700">Клас сидера питання</h2>
-                        <button type="button"
-                                class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
-                                @click="openSeederFilter = !openSeederFilter">
-                            <span x-text="openSeederFilter ? 'Згорнути' : 'Розгорнути'"></span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openSeederFilter }" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <button type="button"
+                                    class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="openSeederFilter = !openSeederFilter">
+                                <span x-text="openSeederFilter ? 'Згорнути' : 'Розгорнути'"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openSeederFilter }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <button type="button"
+                                    class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="toggleSeederSources(true)">
+                                <span>Розгорнути всі</span>
+                            </button>
+                            <button type="button"
+                                    class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="toggleSeederSources(false)">
+                                <span>Згорнути всі</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="space-y-3" x-show="openSeederFilter" x-transition style="display: none;">
                         @if($seederGroups->isEmpty())
@@ -83,11 +105,12 @@
                                         $seederSources = collect($group['sources'] ?? []);
                                         $seederIsSelected = in_array($className, $selectedSeederClasses, true);
                                         $seederSourceIds = $seederSources->pluck('id');
-                                        $seederHasSelectedSources = $seederSourceIds->intersect($selectedSources)->isNotEmpty();
+                                        $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
                                         $groupIsActive = $seederIsSelected || $seederHasSelectedSources;
                                         $seederInputId = 'seeder-' . md5($className);
                                     @endphp
                                     <div x-data="{ open: {{ $groupIsActive ? 'true' : 'false' }} }"
+                                         @toggle-all-seeder-sources.window="open = $event.detail.open"
                                          @class([
                                             'border rounded-2xl overflow-hidden transition',
                                             'border-gray-200' => ! $groupIsActive,
@@ -121,7 +144,7 @@
                                                 <div class="flex flex-wrap gap-2">
                                                     @foreach($seederSources as $source)
                                                         @php
-                                                            $sourceIsSelected = in_array($source->id, $selectedSources);
+                                                            $sourceIsSelected = $selectedSourceCollection->contains($source->id);
                                                         @endphp
                                                         <label @class([
                                                             'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
@@ -204,7 +227,7 @@
                                             <div class="flex flex-wrap gap-2">
                                                 @foreach($group['sources'] as $source)
                                                     @php
-                                                        $sourceIsSelected = in_array($source->id, $selectedSources);
+                                                        $sourceIsSelected = $selectedSourceCollection->contains($source->id);
                                                     @endphp
                                                     <label @class([
                                                         'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
