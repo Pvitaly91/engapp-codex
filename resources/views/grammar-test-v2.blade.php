@@ -108,29 +108,48 @@
                                         $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
                                         $groupIsActive = $seederIsSelected || $seederHasSelectedSources;
                                         $seederInputId = 'seeder-' . md5($className);
+                                        $displaySeederName = \Illuminate\Support\Str::after($className, 'Database\\Seeders\\');
+                                        if ($displaySeederName === $className) {
+                                            $displaySeederName = $className;
+                                        }
                                     @endphp
-                                    <div x-data="{ open: {{ $groupIsActive ? 'true' : 'false' }} }"
-                                         @toggle-all-seeder-sources.window="open = $event.detail.open"
+                                    <div x-data="{
+                                            open: {{ $groupIsActive ? 'true' : 'false' }},
+                                            toggle(openState = undefined) {
+                                                if (openState === undefined) {
+                                                    this.open = !this.open;
+                                                    return;
+                                                }
+
+                                                this.open = !!openState;
+                                            }
+                                        }"
+                                         @toggle-all-seeder-sources.window="toggle($event.detail.open)"
                                          @class([
                                             'border rounded-2xl overflow-hidden transition',
                                             'border-gray-200' => ! $groupIsActive,
                                             'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
                                          ])
                                     >
-                                        <div class="flex items-center justify-between gap-3 px-4 py-2 bg-gray-50">
+                                        <div class="flex items-center justify-between gap-3 px-4 py-2 bg-gray-50 cursor-pointer"
+                                             @click="toggle()"
+                                        >
                                             <label for="{{ $seederInputId }}"
                                                    @class([
                                                         'flex items-center gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
                                                         'text-blue-800' => $seederIsSelected,
-                                                   ])>
+                                                   ])
+                                                   @click.stop
+                                            >
                                                 <input type="checkbox" name="seeder_classes[]" value="{{ $className }}" id="{{ $seederInputId }}"
                                                        {{ $seederIsSelected ? 'checked' : '' }}
                                                        class="h-4 w-4 text-blue-600 border-gray-300 rounded">
-                                                <span class="truncate" title="{{ $className }}">{{ $className }}</span>
+                                                <span class="truncate" title="{{ $className }}">{{ $displaySeederName }}</span>
                                             </label>
                                             <button type="button"
                                                     class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
-                                                    @click="open = !open"
+                                                    @click.stop="toggle()"
+                                                    :aria-expanded="open.toString()"
                                                     aria-label="Перемкнути список джерел">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
