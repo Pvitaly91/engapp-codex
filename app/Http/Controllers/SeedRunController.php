@@ -52,26 +52,64 @@ class SeedRunController extends Controller
                 ->values();
 
             if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
+                $executedClasses = $executedSeeders->pluck('class_name');
+
                 $questionsBySeeder = Question::query()
-                    ->with(['answers.option'])
-                    ->whereIn('seeder', $executedSeeders->pluck('class_name'))
+                    ->with(['answers.option', 'category', 'source'])
+                    ->whereIn('seeder', $executedClasses)
                     ->orderBy('id')
                     ->get()
                     ->groupBy('seeder')
                     ->map(function ($questions) {
-                        return $questions->map(function (Question $question) {
-                            return [
-                                'id' => $question->id,
-                                'highlighted_text' => $this->renderQuestionWithHighlightedAnswers($question),
-                            ];
-                        });
+                        return $questions
+                            ->groupBy(function (Question $question) {
+                                return optional($question->category)->name ?? __('Без категорії');
+                            })
+                            ->map(function ($categoryQuestions, $categoryName) {
+                                $category = optional($categoryQuestions->first()->category);
+
+                                $sources = $categoryQuestions
+                                    ->groupBy(function (Question $question) {
+                                        return optional($question->source)->name ?? __('Без джерела');
+                                    })
+                                    ->map(function ($sourceQuestions, $sourceName) {
+                                        $source = optional($sourceQuestions->first()->source);
+
+                                        return [
+                                            'source' => $source ? [
+                                                'id' => $source->id,
+                                                'name' => $source->name,
+                                            ] : null,
+                                            'display_name' => $sourceName,
+                                            'questions' => $sourceQuestions->map(function (Question $question) {
+                                                return [
+                                                    'id' => $question->id,
+                                                    'uuid' => $question->uuid,
+                                                    'highlighted_text' => $this->renderQuestionWithHighlightedAnswers($question),
+                                                ];
+                                            })->values(),
+                                        ];
+                                    })
+                                    ->values();
+
+                                return [
+                                    'category' => $category ? [
+                                        'id' => $category->id,
+                                        'name' => $category->name,
+                                    ] : null,
+                                    'display_name' => $categoryName,
+                                    'sources' => $sources,
+                                    'question_count' => $sources->sum(fn ($sourceGroup) => $sourceGroup['questions']->count()),
+                                ];
+                            })
+                            ->values();
                     });
             }
 
             $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionsBySeeder) {
-                $questions = $questionsBySeeder->get($seedRun->class_name, collect());
-                $seedRun->questions = $questions;
-                $seedRun->question_count = $questions->count();
+                $questionGroups = $questionsBySeeder->get($seedRun->class_name, collect());
+                $seedRun->question_groups = $questionGroups;
+                $seedRun->question_count = $questionGroups->sum(fn ($categoryGroup) => $categoryGroup['question_count'] ?? 0);
 
                 return $seedRun;
             });
@@ -255,6 +293,23 @@ class SeedRunController extends Controller
             ->with('status', __('Removed seeder :class and deleted :count related question(s).', [
                 'class' => $seedRun->class_name,
                 'count' => $deletedQuestions,
+            ]));
+    }
+
+    public function destroyQuestion(Question $question): RedirectResponse
+    {
+        $questionId = $question->id;
+        $seederName = $question->seeder;
+
+        DB::transaction(function () use ($question) {
+            $this->questionDeletionService->deleteQuestion($question);
+        });
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', __('Питання №:id з сидера :seeder успішно видалено.', [
+                'id' => $questionId,
+                'seeder' => $seederName ?? __('невідомий сидер'),
             ]));
     }
 

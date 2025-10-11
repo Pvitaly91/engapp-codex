@@ -191,4 +191,6 @@ Route::middleware('auth.admin')->group(function () {
     Route::delete('/seed-runs/{seedRun}', [SeedRunController::class, 'destroy'])->name('seed-runs.destroy');
     Route::delete('/seed-runs/{seedRun}/with-questions', [SeedRunController::class, 'destroyWithQuestions'])
         ->name('seed-runs.destroy-with-questions');
+    Route::delete('/seed-runs/questions/{question}', [SeedRunController::class, 'destroyQuestion'])
+        ->name('seed-runs.questions.destroy');
 });
