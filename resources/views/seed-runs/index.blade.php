@@ -80,7 +80,7 @@
                             @foreach($executedSeeders as $seedRun)
                                 <div class="border border-gray-200 rounded-xl shadow-sm">
                                     <div class="p-4 md:p-6">
-                                        <div class="md:grid md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-6">
+                                        <div class="md:grid md:grid-cols-[minmax(0,3fr)_minmax(0,1fr)] md:items-start md:gap-6">
                                             <div class="text-xs text-gray-700 break-words">
                                                 <div class="font-mono text-sm text-gray-800">{{ $seedRun->display_class_name }}</div>
 
@@ -196,12 +196,7 @@
                                                 @endif
                                             </div>
 
-                                            <div class="mt-4 md:mt-0 text-sm text-gray-600 md:text-right">
-                                                <span class="font-semibold text-gray-700 block md:hidden">Виконано:</span>
-                                                <span>{{ optional($seedRun->ran_at)->format('Y-m-d H:i:s') }}</span>
-                                            </div>
-
-                                            <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2">
+                                            <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
                                                 <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="Видалити лог та пов’язані питання?" class="flex-1 sm:flex-none md:flex-1 md:w-full">
                                                     @csrf
                                                     @method('DELETE')
@@ -218,6 +213,10 @@
                                                         Видалити запис
                                                     </button>
                                                 </form>
+                                                <div class="text-xs text-gray-500 text-center sm:text-left md:text-right">
+                                                    <span class="font-semibold text-gray-700 block md:hidden">Виконано:</span>
+                                                    <span>{{ optional($seedRun->ran_at)->format('Y-m-d H:i:s') }}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
