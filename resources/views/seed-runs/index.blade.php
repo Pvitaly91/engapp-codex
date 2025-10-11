@@ -52,12 +52,12 @@
                         <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
                     @else
                         <ul class="space-y-3">
-                            @foreach($pendingSeeders as $className)
+                            @foreach($pendingSeeders as $pendingSeeder)
                                 <li class="flex items-center justify-between gap-4">
-                                    <span class="text-sm font-mono text-gray-700 break-all">{{ $className }}</span>
+                                    <span class="text-sm font-mono text-gray-700 break-all">{{ $pendingSeeder->display_class_name }}</span>
                                     <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader>
                                         @csrf
-                                        <input type="hidden" name="class_name" value="{{ $className }}">
+                                        <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
                                         <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition">
                                             <i class="fa-solid fa-play"></i>
                                             Виконати
@@ -86,7 +86,31 @@
                                 <tbody class="divide-y divide-gray-100">
                                     @foreach($executedSeeders as $seedRun)
                                         <tr>
-                                            <td class="px-4 py-2 font-mono text-xs text-gray-700 break-all">{{ $seedRun->class_name }}</td>
+                                            <td class="px-4 py-2 text-xs text-gray-700 break-all">
+                                                <div class="font-mono text-sm text-gray-800">{{ $seedRun->display_class_name }}</div>
+
+                                                @if($seedRun->question_count > 0)
+                                                    <div x-data="{ open: false }" class="mt-2 space-y-2">
+                                                        <button type="button"
+                                                                class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                                                @click="open = !open">
+                                                            <span x-show="!open" x-cloak>Показати питання ({{ $seedRun->question_count }})</span>
+                                                            <span x-show="open" x-cloak>Сховати питання ({{ $seedRun->question_count }})</span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                                            </svg>
+                                                        </button>
+
+                                                        <div x-show="open" x-transition style="display: none;" class="space-y-2">
+                                                            @foreach($seedRun->questions as $question)
+                                                                <div class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-left text-sm leading-relaxed">
+                                                                    {!! $question['highlighted_text'] !!}
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </td>
                                             <td class="px-4 py-2 text-gray-600">{{ optional($seedRun->ran_at)->format('Y-m-d H:i:s') }}</td>
                                             <td class="px-4 py-2 text-right">
                                                 <div class="flex items-center justify-end gap-2">

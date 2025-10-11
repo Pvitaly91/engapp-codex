@@ -25,6 +25,7 @@ class SeedRunController extends Controller
     {
         $executedSeeders = collect();
         $pendingSeeders = collect();
+        $questionsBySeeder = collect();
         $tableExists = Schema::hasTable('seed_runs');
 
         if ($tableExists) {
@@ -33,6 +34,7 @@ class SeedRunController extends Controller
                 ->get()
                 ->map(function ($seedRun) {
                     $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
+                    $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
 
                     return $seedRun;
                 });
@@ -43,7 +45,36 @@ class SeedRunController extends Controller
 
             $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
                 ->reject(fn (string $class) => in_array($class, $executedClasses, true))
+                ->map(fn (string $class) => (object) [
+                    'class_name' => $class,
+                    'display_class_name' => $this->formatSeederClassName($class),
+                ])
                 ->values();
+
+            if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
+                $questionsBySeeder = Question::query()
+                    ->with(['answers.option'])
+                    ->whereIn('seeder', $executedSeeders->pluck('class_name'))
+                    ->orderBy('id')
+                    ->get()
+                    ->groupBy('seeder')
+                    ->map(function ($questions) {
+                        return $questions->map(function (Question $question) {
+                            return [
+                                'id' => $question->id,
+                                'highlighted_text' => $this->renderQuestionWithHighlightedAnswers($question),
+                            ];
+                        });
+                    });
+            }
+
+            $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionsBySeeder) {
+                $questions = $questionsBySeeder->get($seedRun->class_name, collect());
+                $seedRun->questions = $questions;
+                $seedRun->question_count = $questions->count();
+
+                return $seedRun;
+            });
         }
 
         return view('seed-runs.index', [
@@ -51,6 +82,35 @@ class SeedRunController extends Controller
             'executedSeeders' => $executedSeeders,
             'pendingSeeders' => $pendingSeeders,
         ]);
+    }
+
+    protected function formatSeederClassName(string $className): string
+    {
+        $shortName = Str::after($className, 'Database\\Seeders\\');
+
+        return $shortName !== '' ? $shortName : $className;
+    }
+
+    protected function renderQuestionWithHighlightedAnswers(Question $question): string
+    {
+        $questionText = e($question->question ?? '');
+
+        foreach ($question->answers as $answer) {
+            $answerText = optional($answer->option)->option ?? $answer->answer;
+
+            if (! filled($answerText)) {
+                continue;
+            }
+
+            $replacement = sprintf(
+                '<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">%s</span>',
+                e($answerText)
+            );
+
+            $questionText = str_replace('{' . $answer->marker . '}', $replacement, $questionText);
+        }
+
+        return nl2br($questionText);
     }
 
     public function run(Request $request): RedirectResponse
