@@ -76,19 +76,12 @@
                     @if($executedSeeders->isEmpty())
                         <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
                     @else
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200 text-sm">
-                                <thead class="bg-gray-50">
-                                    <tr>
-                                        <th class="px-4 py-2 text-left font-medium text-gray-600">Class</th>
-                                        <th class="px-4 py-2 text-left font-medium text-gray-600">Виконано</th>
-                                        <th class="px-4 py-2 text-right font-medium text-gray-600">Дії</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-100">
-                                    @foreach($executedSeeders as $seedRun)
-                                        <tr>
-                                            <td class="px-4 py-2 text-xs text-gray-700 break-all">
+                        <div class="space-y-4">
+                            @foreach($executedSeeders as $seedRun)
+                                <div class="border border-gray-200 rounded-xl shadow-sm">
+                                    <div class="p-4 md:p-6">
+                                        <div class="md:grid md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)] md:items-start md:gap-6">
+                                            <div class="text-xs text-gray-700 break-words">
                                                 <div class="font-mono text-sm text-gray-800">{{ $seedRun->display_class_name }}</div>
 
                                                 <p class="text-xs text-gray-500 mt-2 {{ $seedRun->question_count > 0 ? 'hidden' : '' }}" data-no-questions-message data-seed-run-id="{{ $seedRun->id }}">
@@ -96,9 +89,9 @@
                                                 </p>
 
                                                 @if($seedRun->question_count > 0)
-                                                    <div x-data="{ open: false }" class="mt-2 space-y-3" data-seed-run-question-wrapper data-seed-run-id="{{ $seedRun->id }}">
+                                                    <div x-data="{ open: false }" class="mt-3 space-y-3" data-seed-run-question-wrapper data-seed-run-id="{{ $seedRun->id }}">
                                                         <button type="button"
-                                                                class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                                                class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
                                                                 @click="open = !open">
                                                             <span x-show="!open" x-cloak>
                                                                 Показати питання (
@@ -115,11 +108,11 @@
                                                             </svg>
                                                         </button>
 
-                                                        <div x-show="open" x-transition style="display: none;" class="space-y-3">
+                                                        <div x-show="open" x-transition style="display: none;" class="space-y-4">
                                                             @foreach($seedRun->question_groups as $categoryIndex => $categoryGroup)
                                                                 <div x-data="{ openCategory: true }" class="border border-slate-200 rounded-xl overflow-hidden" data-category-wrapper data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}">
-                                                                    <div class="flex items-center justify-between gap-3 px-4 py-2 bg-slate-100">
-                                                                        <div>
+                                                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 py-3 bg-slate-100">
+                                                                        <div class="space-y-1">
                                                                             <h3 class="text-sm font-semibold text-gray-800">{{ $categoryGroup['display_name'] }}</h3>
                                                                             <p class="text-xs text-gray-500">
                                                                                 @if($categoryGroup['category'])
@@ -134,7 +127,7 @@
                                                                             </p>
                                                                         </div>
                                                                         <button type="button"
-                                                                                class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-100 hover:bg-blue-200 transition"
+                                                                                class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-100 hover:bg-blue-200 transition w-full sm:w-auto"
                                                                                 @click="openCategory = !openCategory">
                                                                             <span x-text="openCategory ? 'Згорнути' : 'Розгорнути'"></span>
                                                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openCategory }" viewBox="0 0 20 20" fill="currentColor">
@@ -145,8 +138,8 @@
                                                                     <div x-show="openCategory" x-transition style="display: none;" class="space-y-3 px-4 pb-4 pt-3 bg-white">
                                                                         @foreach($categoryGroup['sources'] as $sourceIndex => $sourceGroup)
                                                                             <div x-data="{ openSource: true }" class="border border-slate-200 rounded-lg overflow-hidden" data-source-wrapper data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}" data-source-index="{{ $sourceIndex }}">
-                                                                                <div class="flex items-center justify-between gap-3 px-3 py-2 bg-slate-50">
-                                                                                    <div>
+                                                                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-3 py-2 bg-slate-50">
+                                                                                    <div class="space-y-1">
                                                                                         <h4 class="text-sm font-semibold text-slate-700">{{ $sourceGroup['display_name'] }}</h4>
                                                                                         <p class="text-xs text-slate-500">
                                                                                             @if($sourceGroup['source'])
@@ -161,7 +154,7 @@
                                                                                         </p>
                                                                                     </div>
                                                                                     <button type="button"
-                                                                                            class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                                                                            class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
                                                                                             @click="openSource = !openSource">
                                                                                         <span x-text="openSource ? 'Сховати' : 'Показати'"></span>
                                                                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openSource }" viewBox="0 0 20 20" fill="currentColor">
@@ -172,7 +165,7 @@
                                                                                 <div x-show="openSource" x-transition style="display: none;" class="space-y-2 px-3 pb-3 pt-2 bg-white">
                                                                                     @foreach($sourceGroup['questions'] as $question)
                                                                                         <div class="border border-slate-200 rounded-lg bg-slate-50 px-3 py-2 text-left text-sm leading-relaxed" data-question-container data-question-id="{{ $question['id'] }}" data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}" data-source-index="{{ $sourceIndex }}">
-                                                                                            <div class="flex items-start justify-between gap-3">
+                                                                                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                                                                                                 <div class="text-gray-800 space-y-1">{!! $question['highlighted_text'] !!}</div>
                                                                                                 <form method="POST"
                                                                                                       action="{{ route('seed-runs.questions.destroy', $question['id']) }}"
@@ -184,7 +177,7 @@
                                                                                                       data-source-index="{{ $sourceIndex }}">
                                                                                                     @csrf
                                                                                                     @method('DELETE')
-                                                                                                    <button type="submit" class="inline-flex items-center gap-1 text-xs font-semibold text-red-700 px-2.5 py-1 rounded-full bg-red-50 hover:bg-red-100 transition">
+                                                                                                    <button type="submit" class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-red-700 px-2.5 py-1 rounded-full bg-red-50 hover:bg-red-100 transition w-full sm:w-auto">
                                                                                                         <i class="fa-solid fa-trash-can"></i>
                                                                                                         Видалити
                                                                                                     </button>
@@ -201,32 +194,35 @@
                                                         </div>
                                                     </div>
                                                 @endif
-                                            </td>
-                                            <td class="px-4 py-2 text-gray-600">{{ optional($seedRun->ran_at)->format('Y-m-d H:i:s') }}</td>
-                                            <td class="px-4 py-2 text-right">
-                                                <div class="flex items-center justify-end gap-2">
-                                                    <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="Видалити лог та пов’язані питання?">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
-                                                            <i class="fa-solid fa-broom"></i>
-                                                            Видалити з питаннями
-                                                        </button>
-                                                    </form>
-                                                    <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" data-preloader data-confirm="Видалити лише запис про виконання?">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                            Видалити запис
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                            </div>
+
+                                            <div class="mt-4 md:mt-0 text-sm text-gray-600 md:text-right">
+                                                <span class="font-semibold text-gray-700 block md:hidden">Виконано:</span>
+                                                <span>{{ optional($seedRun->ran_at)->format('Y-m-d H:i:s') }}</span>
+                                            </div>
+
+                                            <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2">
+                                                <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="Видалити лог та пов’язані питання?" class="flex-1 sm:flex-none md:flex-1 md:w-full">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
+                                                        <i class="fa-solid fa-broom"></i>
+                                                        Видалити з питаннями
+                                                    </button>
+                                                </form>
+                                                <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" data-preloader data-confirm="Видалити лише запис про виконання?" class="flex-1 sm:flex-none md:flex-1 md:w-full">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                        Видалити запис
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     @endif
                 </div>
