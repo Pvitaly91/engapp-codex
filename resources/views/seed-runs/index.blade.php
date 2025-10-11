@@ -45,8 +45,8 @@
         </div>
 
         @if($tableExists)
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="bg-white shadow rounded-lg p-6">
+            <div >
+                <div class="bg-white shadow rounded-lg p-6 my-4">
                     <h2 class="text-xl font-semibold text-gray-800 mb-4">Невиконані сидери</h2>
                     @if($pendingSeeders->isEmpty())
                         <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
