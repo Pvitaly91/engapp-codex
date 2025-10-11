@@ -37,6 +37,8 @@
                 </div>
             @endif
 
+            <div id="seed-run-ajax-feedback" class="hidden mb-4 rounded-md border px-4 py-3 text-sm"></div>
+
             @unless($tableExists)
                 <div class="rounded-md bg-yellow-50 border border-yellow-200 px-4 py-3 text-yellow-800">
                     Таблиця <code class="font-mono">seed_runs</code> ще не створена. Запустіть міграції, щоб продовжити.
@@ -89,21 +91,33 @@
                                             <td class="px-4 py-2 text-xs text-gray-700 break-all">
                                                 <div class="font-mono text-sm text-gray-800">{{ $seedRun->display_class_name }}</div>
 
+                                                <p class="text-xs text-gray-500 mt-2 {{ $seedRun->question_count > 0 ? 'hidden' : '' }}" data-no-questions-message data-seed-run-id="{{ $seedRun->id }}">
+                                                    Питання відсутні.
+                                                </p>
+
                                                 @if($seedRun->question_count > 0)
-                                                    <div x-data="{ open: false }" class="mt-2 space-y-3">
+                                                    <div x-data="{ open: false }" class="mt-2 space-y-3" data-seed-run-question-wrapper data-seed-run-id="{{ $seedRun->id }}">
                                                         <button type="button"
                                                                 class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
                                                                 @click="open = !open">
-                                                            <span x-show="!open" x-cloak>Показати питання ({{ $seedRun->question_count }})</span>
-                                                            <span x-show="open" x-cloak>Сховати питання ({{ $seedRun->question_count }})</span>
+                                                            <span x-show="!open" x-cloak>
+                                                                Показати питання (
+                                                                <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $seedRun->question_count }}</span>
+                                                                )
+                                                            </span>
+                                                            <span x-show="open" x-cloak>
+                                                                Сховати питання (
+                                                                <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $seedRun->question_count }}</span>
+                                                                )
+                                                            </span>
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
                                                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                                             </svg>
                                                         </button>
 
                                                         <div x-show="open" x-transition style="display: none;" class="space-y-3">
-                                                            @foreach($seedRun->question_groups as $categoryGroup)
-                                                                <div x-data="{ openCategory: true }" class="border border-slate-200 rounded-xl overflow-hidden">
+                                                            @foreach($seedRun->question_groups as $categoryIndex => $categoryGroup)
+                                                                <div x-data="{ openCategory: true }" class="border border-slate-200 rounded-xl overflow-hidden" data-category-wrapper data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}">
                                                                     <div class="flex items-center justify-between gap-3 px-4 py-2 bg-slate-100">
                                                                         <div>
                                                                             <h3 class="text-sm font-semibold text-gray-800">{{ $categoryGroup['display_name'] }}</h3>
@@ -113,7 +127,10 @@
                                                                                 @else
                                                                                     Категорія не вказана
                                                                                 @endif
-                                                                                · Питань: {{ $categoryGroup['question_count'] }}
+                                                                                · Питань:
+                                                                                <span class="font-semibold" data-category-question-count data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}">
+                                                                                    {{ $categoryGroup['question_count'] }}
+                                                                                </span>
                                                                             </p>
                                                                         </div>
                                                                         <button type="button"
@@ -126,8 +143,8 @@
                                                                         </button>
                                                                     </div>
                                                                     <div x-show="openCategory" x-transition style="display: none;" class="space-y-3 px-4 pb-4 pt-3 bg-white">
-                                                                        @foreach($categoryGroup['sources'] as $sourceGroup)
-                                                                            <div x-data="{ openSource: true }" class="border border-slate-200 rounded-lg overflow-hidden">
+                                                                        @foreach($categoryGroup['sources'] as $sourceIndex => $sourceGroup)
+                                                                            <div x-data="{ openSource: true }" class="border border-slate-200 rounded-lg overflow-hidden" data-source-wrapper data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}" data-source-index="{{ $sourceIndex }}">
                                                                                 <div class="flex items-center justify-between gap-3 px-3 py-2 bg-slate-50">
                                                                                     <div>
                                                                                         <h4 class="text-sm font-semibold text-slate-700">{{ $sourceGroup['display_name'] }}</h4>
@@ -137,7 +154,10 @@
                                                                                             @else
                                                                                                 Джерело не вказане
                                                                                             @endif
-                                                                                            · Питань: {{ $sourceGroup['questions']->count() }}
+                                                                                            · Питань:
+                                                                                            <span class="font-semibold" data-source-question-count data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}" data-source-index="{{ $sourceIndex }}">
+                                                                                                {{ $sourceGroup['questions']->count() }}
+                                                                                            </span>
                                                                                         </p>
                                                                                     </div>
                                                                                     <button type="button"
@@ -151,10 +171,17 @@
                                                                                 </div>
                                                                                 <div x-show="openSource" x-transition style="display: none;" class="space-y-2 px-3 pb-3 pt-2 bg-white">
                                                                                     @foreach($sourceGroup['questions'] as $question)
-                                                                                        <div class="border border-slate-200 rounded-lg bg-slate-50 px-3 py-2 text-left text-sm leading-relaxed">
+                                                                                        <div class="border border-slate-200 rounded-lg bg-slate-50 px-3 py-2 text-left text-sm leading-relaxed" data-question-container data-question-id="{{ $question['id'] }}" data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}" data-source-index="{{ $sourceIndex }}">
                                                                                             <div class="flex items-start justify-between gap-3">
                                                                                                 <div class="text-gray-800 space-y-1">{!! $question['highlighted_text'] !!}</div>
-                                                                                                <form method="POST" action="{{ route('seed-runs.questions.destroy', $question['id']) }}" data-preloader data-confirm="Видалити це питання?">
+                                                                                                <form method="POST"
+                                                                                                      action="{{ route('seed-runs.questions.destroy', $question['id']) }}"
+                                                                                                      data-question-delete-form
+                                                                                                      data-confirm="Видалити це питання?"
+                                                                                                      data-question-id="{{ $question['id'] }}"
+                                                                                                      data-seed-run-id="{{ $seedRun->id }}"
+                                                                                                      data-category-index="{{ $categoryIndex }}"
+                                                                                                      data-source-index="{{ $sourceIndex }}">
                                                                                                     @csrf
                                                                                                     @method('DELETE')
                                                                                                     <button type="submit" class="inline-flex items-center gap-1 text-xs font-semibold text-red-700 px-2.5 py-1 rounded-full bg-red-50 hover:bg-red-100 transition">
@@ -217,10 +244,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const preloader = document.getElementById('seed-run-preloader');
-
-            if (!preloader) {
-                return;
-            }
+            const feedback = document.getElementById('seed-run-ajax-feedback');
+            const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            const csrfToken = csrfTokenMeta ? csrfTokenMeta.getAttribute('content') : '';
+            const successClasses = ['bg-emerald-50', 'border-emerald-200', 'text-emerald-700'];
+            const errorClasses = ['bg-red-50', 'border-red-200', 'text-red-700'];
+            let feedbackTimeout;
 
             document.querySelectorAll('form[data-preloader]').forEach(function (form) {
                 form.addEventListener('submit', function (event) {
@@ -232,7 +261,142 @@
                         return;
                     }
 
-                    preloader.classList.remove('hidden');
+                    if (preloader) {
+                        preloader.classList.remove('hidden');
+                    }
+                });
+            });
+
+            const decrementNumericContent = function (elements) {
+                elements.forEach(function (element) {
+                    const current = parseInt(element.textContent.trim(), 10);
+
+                    if (Number.isNaN(current)) {
+                        return;
+                    }
+
+                    const nextValue = Math.max(0, current - 1);
+                    element.textContent = nextValue;
+                });
+            };
+
+            const cleanupEmptyGroups = function (seedRunId, categoryIndex, sourceIndex) {
+                const sourceWrappers = document.querySelectorAll('[data-source-wrapper][data-seed-run-id="' + seedRunId + '"][data-category-index="' + categoryIndex + '"][data-source-index="' + sourceIndex + '"]');
+                sourceWrappers.forEach(function (wrapper) {
+                    if (!wrapper.querySelector('[data-question-container]')) {
+                        wrapper.remove();
+                    }
+                });
+
+                const categoryWrappers = document.querySelectorAll('[data-category-wrapper][data-seed-run-id="' + seedRunId + '"][data-category-index="' + categoryIndex + '"]');
+                categoryWrappers.forEach(function (wrapper) {
+                    if (!wrapper.querySelector('[data-question-container]')) {
+                        wrapper.remove();
+                    }
+                });
+
+                const seedRunWrapper = document.querySelector('[data-seed-run-question-wrapper][data-seed-run-id="' + seedRunId + '"]');
+                const noQuestionsMessage = document.querySelector('[data-no-questions-message][data-seed-run-id="' + seedRunId + '"]');
+
+                if (seedRunWrapper && !seedRunWrapper.querySelector('[data-question-container]')) {
+                    seedRunWrapper.remove();
+
+                    if (noQuestionsMessage) {
+                        noQuestionsMessage.classList.remove('hidden');
+                    }
+                }
+            };
+
+            const showFeedback = function (message, type = 'success') {
+                if (!feedback) {
+                    return;
+                }
+
+                feedback.textContent = message;
+                feedback.classList.remove('hidden');
+                feedback.classList.remove(...successClasses, ...errorClasses);
+
+                const classes = type === 'error' ? errorClasses : successClasses;
+                classes.forEach(function (className) {
+                    feedback.classList.add(className);
+                });
+
+                window.clearTimeout(feedbackTimeout);
+                feedbackTimeout = window.setTimeout(function () {
+                    feedback.classList.add('hidden');
+                }, 5000);
+            };
+
+            document.querySelectorAll('form[data-question-delete-form]').forEach(function (form) {
+                form.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    const confirmMessage = form.dataset.confirm;
+
+                    if (confirmMessage && !window.confirm(confirmMessage)) {
+                        return;
+                    }
+
+                    const questionId = form.dataset.questionId;
+                    const seedRunId = form.dataset.seedRunId;
+                    const categoryIndex = form.dataset.categoryIndex;
+                    const sourceIndex = form.dataset.sourceIndex;
+                    const submitButton = form.querySelector('button[type="submit"]');
+
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+                    }
+
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': csrfToken,
+                                'Accept': 'application/json',
+                            },
+                        });
+
+                        const payload = await response.json().catch(function () {
+                            return null;
+                        });
+
+                        if (!response.ok) {
+                            const errorMessage = payload && typeof payload.message === 'string'
+                                ? payload.message
+                                : 'Не вдалося видалити питання.';
+                            throw new Error(errorMessage);
+                        }
+
+                        const questionContainer = document.querySelector('[data-question-container][data-question-id="' + questionId + '"]');
+
+                        if (questionContainer) {
+                            questionContainer.remove();
+                        }
+
+                        decrementNumericContent(document.querySelectorAll('[data-seed-run-question-count][data-seed-run-id="' + seedRunId + '"]'));
+                        decrementNumericContent(document.querySelectorAll('[data-category-question-count][data-seed-run-id="' + seedRunId + '"][data-category-index="' + categoryIndex + '"]'));
+                        decrementNumericContent(document.querySelectorAll('[data-source-question-count][data-seed-run-id="' + seedRunId + '"][data-category-index="' + categoryIndex + '"][data-source-index="' + sourceIndex + '"]'));
+
+                        cleanupEmptyGroups(seedRunId, categoryIndex, sourceIndex);
+
+                        const successMessage = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Питання успішно видалено.';
+
+                        showFeedback(successMessage);
+                    } catch (error) {
+                        const fallbackErrorMessage = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : 'Не вдалося видалити питання.';
+
+                        showFeedback(fallbackErrorMessage, 'error');
+
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
+                        }
+                    }
                 });
             });
         });

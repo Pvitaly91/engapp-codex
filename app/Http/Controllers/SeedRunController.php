@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Services\QuestionDeletionService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -296,21 +297,46 @@ class SeedRunController extends Controller
             ]));
     }
 
-    public function destroyQuestion(Question $question): RedirectResponse
+    public function destroyQuestion(Request $request, Question $question): JsonResponse|RedirectResponse
     {
         $questionId = $question->id;
         $seederName = $question->seeder;
+        $successMessage = __('Питання №:id з сидера :seeder успішно видалено.', [
+            'id' => $questionId,
+            'seeder' => $seederName ?? __('невідомий сидер'),
+        ]);
 
-        DB::transaction(function () use ($question) {
-            $this->questionDeletionService->deleteQuestion($question);
-        });
+        try {
+            DB::transaction(function () use ($question) {
+                $this->questionDeletionService->deleteQuestion($question);
+            });
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            $errorMessage = __('Не вдалося видалити питання. Спробуйте пізніше.');
+
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'message' => $errorMessage,
+                ], 500);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => $errorMessage]);
+        }
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'message' => $successMessage,
+                'question_id' => $questionId,
+                'seeder' => $seederName,
+            ]);
+        }
 
         return redirect()
             ->route('seed-runs.index')
-            ->with('status', __('Питання №:id з сидера :seeder успішно видалено.', [
-                'id' => $questionId,
-                'seeder' => $seederName ?? __('невідомий сидер'),
-            ]));
+            ->with('status', $successMessage);
     }
 
     /**
