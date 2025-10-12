@@ -212,10 +212,13 @@ class SeedRunController extends Controller
         $folders = collect($node['folders'] ?? [])
             ->sortBy(fn ($folder) => $folder['name'])
             ->map(function ($folder) {
+                $children = $this->normalizeSeederHierarchy($folder);
+
                 return [
                     'type' => 'folder',
                     'name' => $folder['name'],
-                    'children' => $this->normalizeSeederHierarchy($folder),
+                    'children' => $children,
+                    'seeder_count' => $children->sum(fn ($child) => $child['seeder_count'] ?? 0),
                 ];
             });
 
@@ -226,6 +229,7 @@ class SeedRunController extends Controller
                     'type' => 'seeder',
                     'name' => $seeder['name'],
                     'seed_run' => $seeder['seed_run'],
+                    'seeder_count' => 1,
                 ];
             });
 

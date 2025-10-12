@@ -3,12 +3,22 @@
 @endphp
 
 @if(($node['type'] ?? null) === 'folder')
-    <div class="space-y-3" style="margin-left: {{ $indent }}rem;">
-        <div class="flex items-center gap-2 text-sm font-semibold text-slate-700">
+    <div x-data="{ open: true }" class="space-y-3" style="margin-left: {{ $indent }}rem;">
+        <button type="button"
+                class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
+                @click="open = !open">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                 class="h-4 w-4 text-slate-500 transition-transform" :class="open ? 'rotate-0' : '-rotate-90'">
+                <path fill-rule="evenodd"
+                      d="M6.22 4.47a.75.75 0 011.06 0l5 5a.75.75 0 010 1.06l-5 5a.75.75 0 01-1.06-1.06L10.69 10 6.22 5.53a.75.75 0 010-1.06z"
+                      clip-rule="evenodd" />
+            </svg>
             <i class="fa-solid fa-folder-tree text-slate-500"></i>
             <span>{{ $node['name'] }}</span>
-        </div>
-        <div class="space-y-3">
+            <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
+        </button>
+
+        <div x-show="open" x-transition style="display: none;" class="space-y-3">
             @foreach($node['children'] as $child)
                 @include('seed-runs.partials.executed-node', ['node' => $child, 'depth' => $depth + 1])
             @endforeach
