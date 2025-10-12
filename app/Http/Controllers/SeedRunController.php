@@ -246,6 +246,12 @@ class SeedRunController extends Controller
                 ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
         }
 
+        if (! $this->isInstantiableSeeder($className)) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('Seeder :class cannot be executed.', ['class' => $className])]);
+        }
+
         try {
             Artisan::call('db:seed', ['--class' => $className]);
         } catch (\Throwable $exception) {
@@ -283,6 +289,11 @@ class SeedRunController extends Controller
         foreach ($pendingSeeders as $className) {
             if (! class_exists($className)) {
                 $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
+                continue;
+            }
+
+            if (! $this->isInstantiableSeeder($className)) {
+                $errors->push(__('Seeder :class cannot be executed.', ['class' => $className]));
                 continue;
             }
 
@@ -431,7 +442,7 @@ class SeedRunController extends Controller
         return collect(File::allFiles($directory))
             ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'php')
             ->map(fn (SplFileInfo $file) => $this->classFromFile($file, $directory))
-            ->filter(fn (?string $class) => $class && class_exists($class))
+            ->filter(fn (?string $class) => $class && $this->isInstantiableSeeder($class))
             ->unique()
             ->sort()
             ->values()
@@ -449,5 +460,20 @@ class SeedRunController extends Controller
         $classPath = str_replace(['/', '\\'], '\\', Str::beforeLast($relativePath, '.php'));
 
         return 'Database\\Seeders\\' . $classPath;
+    }
+
+    private function isInstantiableSeeder(string $class): bool
+    {
+        try {
+            $reflection = new \ReflectionClass($class);
+
+            if (! $reflection->isInstantiable()) {
+                return false;
+            }
+
+            return $reflection->isSubclassOf(\Illuminate\Database\Seeder::class);
+        } catch (\ReflectionException) {
+            return false;
+        }
     }
 }
