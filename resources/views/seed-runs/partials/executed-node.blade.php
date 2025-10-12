@@ -71,8 +71,8 @@
         </div>
     </div>
 @elseif(($node['type'] ?? null) === 'seeder')
-    @php($seedRun = $node['seed_run'])
     @php
+        $seedRun = $node['seed_run'];
         $dataProfile = $node['data_profile'] ?? ($seedRun->data_profile ?? []);
         $seederDeleteButton = $dataProfile['delete_button'] ?? __('Видалити з даними');
         $seederDeleteConfirm = $dataProfile['delete_confirm'] ?? __('Видалити лог та пов’язані дані?');
