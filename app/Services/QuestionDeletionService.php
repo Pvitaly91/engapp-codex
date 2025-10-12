@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class QuestionDeletionService
-{
+{ 
     public function deleteQuestion(Question $question): QuestionDeletionResult
     {
         $questionUuid = (string) $question->uuid;
