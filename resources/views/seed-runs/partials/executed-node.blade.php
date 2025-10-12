@@ -6,6 +6,9 @@
     @php
         $folderLabel = $node['path'] ?? $node['name'];
         $folderSeedRunIds = $node['seed_run_ids'] ?? [];
+        $folderProfile = $node['folder_profile'] ?? [];
+        $folderDeleteButton = $folderProfile['delete_button'] ?? __('Видалити з даними');
+        $folderDeleteConfirm = $folderProfile['delete_confirm'] ?? __('Видалити всі сидери в папці «:folder» та пов’язані дані?');
     @endphp
     <div x-data="{ open: false }" class="space-y-3" style="margin-left: {{ $indent }}rem;">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -28,7 +31,7 @@
                     <form method="POST"
                           action="{{ route('seed-runs.folders.destroy-with-questions') }}"
                           data-preloader
-                          data-confirm="Видалити всі сидери в папці «{{ e($folderLabel) }}» разом із питаннями?"
+                          data-confirm="{{ __($folderDeleteConfirm, ['folder' => $folderLabel]) }}"
                           class="w-full sm:w-auto">
                         @csrf
                         @method('DELETE')
@@ -38,7 +41,7 @@
                         @endforeach
                         <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
                             <i class="fa-solid fa-broom"></i>
-                            Видалити з питаннями
+                            {{ $folderDeleteButton }}
                         </button>
                     </form>
                     <form method="POST"
@@ -69,6 +72,11 @@
     </div>
 @elseif(($node['type'] ?? null) === 'seeder')
     @php($seedRun = $node['seed_run'])
+    @php
+        $dataProfile = $node['data_profile'] ?? ($seedRun->data_profile ?? []);
+        $seederDeleteButton = $dataProfile['delete_button'] ?? __('Видалити з даними');
+        $seederDeleteConfirm = $dataProfile['delete_confirm'] ?? __('Видалити лог та пов’язані дані?');
+    @endphp
     <div style="margin-left: {{ $indent }}rem;">
         <div class="border border-gray-200 rounded-xl shadow-sm">
             <div class="p-4 md:p-6">
@@ -192,12 +200,12 @@
                     </div>
 
                     <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
-                        <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="Видалити лог та пов’язані питання?" class="flex-1 sm:flex-none md:flex-1 md:w-full">
+                        <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="{{ __($seederDeleteConfirm) }}" class="flex-1 sm:flex-none md:flex-1 md:w-full">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
                                 <i class="fa-solid fa-broom"></i>
-                                Видалити з питаннями
+                                {{ $seederDeleteButton }}
                             </button>
                         </form>
                         <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" data-preloader data-confirm="Видалити лише запис про виконання?" class="flex-1 sm:flex-none md:flex-1 md:w-full">

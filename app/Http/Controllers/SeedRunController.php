@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Question;
+use App\Models\TextBlock;
 use App\Services\QuestionDeletionService;
+use Database\Seeders\Pages\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
+use Database\Seeders\QuestionSeeder as QuestionSeederBase;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -113,6 +117,7 @@ class SeedRunController extends Controller
                 $questionGroups = $questionsBySeeder->get($seedRun->class_name, collect());
                 $seedRun->question_groups = $questionGroups;
                 $seedRun->question_count = $questionGroups->sum(fn ($categoryGroup) => $categoryGroup['question_count'] ?? 0);
+                $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
 
                 return $seedRun;
             });
@@ -220,6 +225,7 @@ class SeedRunController extends Controller
                 $classNames = $children->flatMap(function ($child) {
                     return collect($child['class_names'] ?? []);
                 })->unique()->values();
+                $folderProfile = $this->describeFolderData($classNames);
 
                 return [
                     'type' => 'folder',
@@ -229,6 +235,7 @@ class SeedRunController extends Controller
                     'seed_run_ids' => $seedRunIds->all(),
                     'class_names' => $classNames->all(),
                     'path' => $folderPath,
+                    'folder_profile' => $folderProfile,
                 ];
             });
 
@@ -248,6 +255,7 @@ class SeedRunController extends Controller
                     'seed_run_ids' => $seedRunIds,
                     'class_names' => $classNames,
                     'path' => $fullPath,
+                    'data_profile' => $this->describeSeederData($seedRun->class_name),
                 ];
             });
 
@@ -382,32 +390,48 @@ class SeedRunController extends Controller
         }
 
         $deletedQuestions = 0;
+        $deletedBlocks = 0;
+        $clearedPages = 0;
+        $profile = $this->describeSeederData($seedRun->class_name);
 
-        DB::transaction(function () use ($seedRun, &$deletedQuestions) {
-            if (! Schema::hasColumn('questions', 'seeder')) {
-                DB::table('seed_runs')->where('id', $seedRun->id)->delete();
+        DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$clearedPages, $profile) {
+            $classNames = collect([$seedRun->class_name]);
 
-                return;
-            }
-
-            $questions = Question::query()
-                ->where('seeder', $seedRun->class_name)
-                ->get();
-
-            foreach ($questions as $question) {
-                $this->questionDeletionService->deleteQuestion($question);
-                $deletedQuestions++;
+            if ($profile['type'] === 'questions') {
+                $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
+            } elseif ($profile['type'] === 'pages') {
+                $pageResult = $this->deletePageContentForSeeders($classNames);
+                $deletedBlocks = $pageResult['blocks'];
+                $clearedPages = $pageResult['pages_cleared'];
+            } else {
+                $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
+                $pageResult = $this->deletePageContentForSeeders($classNames);
+                $deletedBlocks = $pageResult['blocks'];
+                $clearedPages = $pageResult['pages_cleared'];
             }
 
             DB::table('seed_runs')->where('id', $seedRun->id)->delete();
         });
 
-        return redirect()
-            ->route('seed-runs.index')
-            ->with('status', __('Removed seeder :class and deleted :count related question(s).', [
+        $status = match ($profile['type']) {
+            'pages' => __('Removed seeder :class and deleted :blocks related text block(s).', [
+                'class' => $seedRun->class_name,
+                'blocks' => $deletedBlocks,
+            ]) . ($clearedPages > 0
+                ? ' ' . __('Cleared subtitle text on :count page(s).', ['count' => $clearedPages])
+                : ''),
+            'questions' => __('Removed seeder :class and deleted :count related question(s).', [
                 'class' => $seedRun->class_name,
                 'count' => $deletedQuestions,
-            ]));
+            ]),
+            default => __('Removed seeder :class entry and cleaned related data.', [
+                'class' => $seedRun->class_name,
+            ]),
+        };
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', $status);
     }
 
     public function destroyFolder(Request $request): RedirectResponse
@@ -488,23 +512,47 @@ class SeedRunController extends Controller
                 ->withErrors(['delete' => __('Seed run records were not found.')]);
         }
 
-        $hasSeederColumn = Schema::hasColumn('questions', 'seeder');
-        $deletedQuestions = 0;
         $folderLabel = $this->resolveFolderLabel($validated['folder_label'] ?? null);
         $classNames = $seedRuns->pluck('class_name')->filter()->unique()->values();
         $seedRunIdsToDelete = $seedRuns->pluck('id');
+        $typeMap = $classNames->mapWithKeys(function ($className) {
+            $profile = $this->describeSeederData($className);
 
-        DB::transaction(function () use ($classNames, $seedRunIdsToDelete, $hasSeederColumn, &$deletedQuestions) {
-            if ($hasSeederColumn && $classNames->isNotEmpty()) {
-                Question::query()
-                    ->whereIn('seeder', $classNames)
-                    ->orderBy('id')
-                    ->chunkById(100, function ($questions) use (&$deletedQuestions) {
-                        foreach ($questions as $question) {
-                            $this->questionDeletionService->deleteQuestion($question);
-                            $deletedQuestions++;
-                        }
-                    });
+            return [$className => $profile['type']];
+        });
+
+        $questionClasses = $typeMap->filter(fn ($type) => $type === 'questions')->keys()->values();
+        $pageClasses = $typeMap->filter(fn ($type) => $type === 'pages')->keys()->values();
+        $unknownClasses = $typeMap->filter(fn ($type) => ! in_array($type, ['questions', 'pages'], true))->keys()->values();
+
+        $deletedQuestions = 0;
+        $deletedBlocks = 0;
+        $clearedPages = 0;
+
+        DB::transaction(function () use (
+            $seedRunIdsToDelete,
+            $questionClasses,
+            $pageClasses,
+            $unknownClasses,
+            &$deletedQuestions,
+            &$deletedBlocks,
+            &$clearedPages
+        ) {
+            if ($questionClasses->isNotEmpty()) {
+                $deletedQuestions += $this->deleteQuestionsForSeeders($questionClasses);
+            }
+
+            if ($pageClasses->isNotEmpty()) {
+                $pageResult = $this->deletePageContentForSeeders($pageClasses);
+                $deletedBlocks += $pageResult['blocks'];
+                $clearedPages += $pageResult['pages_cleared'];
+            }
+
+            if ($unknownClasses->isNotEmpty()) {
+                $deletedQuestions += $this->deleteQuestionsForSeeders($unknownClasses);
+                $pageResult = $this->deletePageContentForSeeders($unknownClasses);
+                $deletedBlocks += $pageResult['blocks'];
+                $clearedPages += $pageResult['pages_cleared'];
             }
 
             DB::table('seed_runs')
@@ -512,13 +560,26 @@ class SeedRunController extends Controller
                 ->delete();
         });
 
+        $statusMessage = __('Removed :count seed run entries from folder :folder.', [
+            'count' => $seedRuns->count(),
+            'folder' => $folderLabel,
+        ]);
+
+        if ($deletedQuestions > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related question(s).', ['count' => $deletedQuestions]);
+        }
+
+        if ($deletedBlocks > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related text block(s).', ['count' => $deletedBlocks]);
+        }
+
+        if ($clearedPages > 0) {
+            $statusMessage .= ' ' . __('Cleared subtitle text on :count page(s).', ['count' => $clearedPages]);
+        }
+
         return redirect()
             ->route('seed-runs.index')
-            ->with('status', __('Removed :count seed run entries from folder :folder and deleted :questions related question(s).', [
-                'count' => $seedRuns->count(),
-                'folder' => $folderLabel,
-                'questions' => $deletedQuestions,
-            ]));
+            ->with('status', $statusMessage);
     }
 
     public function destroyQuestion(Request $request, Question $question): JsonResponse|RedirectResponse
@@ -561,6 +622,182 @@ class SeedRunController extends Controller
         return redirect()
             ->route('seed-runs.index')
             ->with('status', $successMessage);
+    }
+
+    protected function describeSeederData(string $className): array
+    {
+        $default = [
+            'type' => 'unknown',
+            'delete_button' => __('Видалити з даними'),
+            'delete_confirm' => __('Видалити лог та пов’язані дані?'),
+            'folder_delete_button' => __('Видалити з даними'),
+            'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» та пов’язані дані?'),
+        ];
+
+        if (! class_exists($className)) {
+            return $default;
+        }
+
+        if (is_subclass_of($className, QuestionSeederBase::class)) {
+            return [
+                'type' => 'questions',
+                'delete_button' => __('Видалити з питаннями'),
+                'delete_confirm' => __('Видалити лог та пов’язані питання?'),
+                'folder_delete_button' => __('Видалити з питаннями'),
+                'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» разом із питаннями?'),
+            ];
+        }
+
+        if (is_subclass_of($className, GrammarPageSeederBase::class)) {
+            return [
+                'type' => 'pages',
+                'delete_button' => __('Видалити зі сторінками'),
+                'delete_confirm' => __('Видалити лог та пов’язані текстові блоки?'),
+                'folder_delete_button' => __('Видалити зі сторінками'),
+                'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» разом із сторінками?'),
+            ];
+        }
+
+        return $default;
+    }
+
+    protected function describeFolderData(Collection $classNames): array
+    {
+        $default = [
+            'type' => 'unknown',
+            'delete_button' => __('Видалити з даними'),
+            'delete_confirm' => __('Видалити всі сидери в папці «:folder» та пов’язані дані?'),
+        ];
+
+        if ($classNames->isEmpty()) {
+            return $default;
+        }
+
+        $profiles = $classNames->map(fn ($class) => $this->describeSeederData($class));
+        $types = $profiles->pluck('type')->filter()->unique();
+
+        if ($types->count() === 1) {
+            $type = $types->first();
+            $profile = $profiles->firstWhere('type', $type);
+
+            if ($profile) {
+                return [
+                    'type' => $type,
+                    'delete_button' => $profile['folder_delete_button'],
+                    'delete_confirm' => $profile['folder_delete_confirm'],
+                ];
+            }
+        }
+
+        return $default;
+    }
+
+    protected function deleteQuestionsForSeeders(Collection $classNames): int
+    {
+        if ($classNames->isEmpty() || ! Schema::hasColumn('questions', 'seeder')) {
+            return 0;
+        }
+
+        $deleted = 0;
+
+        Question::query()
+            ->whereIn('seeder', $classNames)
+            ->orderBy('id')
+            ->chunkById(100, function ($questions) use (&$deleted) {
+                foreach ($questions as $question) {
+                    $this->questionDeletionService->deleteQuestion($question);
+                    $deleted++;
+                }
+            });
+
+        return $deleted;
+    }
+
+    protected function deletePageContentForSeeders(Collection $classNames): array
+    {
+        if ($classNames->isEmpty() || ! Schema::hasTable('text_blocks')) {
+            return ['blocks' => 0, 'pages_cleared' => 0];
+        }
+
+        $deletedBlocks = 0;
+        $clearedPages = 0;
+        $processedPageIds = collect();
+        $hasPagesTable = Schema::hasTable('pages');
+
+        foreach ($classNames as $className) {
+            TextBlock::query()
+                ->where('seeder', $className)
+                ->orderBy('id')
+                ->chunkById(100, function ($blocks) use (&$deletedBlocks) {
+                    foreach ($blocks as $block) {
+                        $block->delete();
+                        $deletedBlocks++;
+                    }
+                });
+
+            if (! $hasPagesTable) {
+                continue;
+            }
+
+            $slug = $this->resolvePageSlugForSeeder($className);
+
+            if ($slug === null) {
+                continue;
+            }
+
+            $page = Page::query()->where('slug', $slug)->first();
+
+            if (! $page || $processedPageIds->contains($page->id)) {
+                continue;
+            }
+
+            $processedPageIds->push($page->id);
+
+            $hasBlocks = TextBlock::query()
+                ->where('page_id', $page->id)
+                ->exists();
+
+            if (! $hasBlocks && $page->text !== null) {
+                $page->forceFill(['text' => null])->save();
+                $clearedPages++;
+            }
+        }
+
+        return [
+            'blocks' => $deletedBlocks,
+            'pages_cleared' => $clearedPages,
+        ];
+    }
+
+    protected function resolvePageSlugForSeeder(string $className): ?string
+    {
+        if (! class_exists($className)) {
+            return null;
+        }
+
+        try {
+            $reflection = new \ReflectionClass($className);
+
+            if ($reflection->isAbstract()) {
+                return null;
+            }
+
+            if (! $reflection->isSubclassOf(GrammarPageSeederBase::class)) {
+                return null;
+            }
+
+            $instance = app()->make($className);
+
+            if (! method_exists($instance, 'slug')) {
+                return null;
+            }
+
+            $slug = $instance->slug();
+
+            return is_string($slug) ? $slug : null;
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     /**
