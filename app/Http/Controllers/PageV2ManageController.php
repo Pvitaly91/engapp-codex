@@ -18,7 +18,7 @@ class PageV2ManageController extends Controller
             'pages' => $pages,
         ]);
     }
-
+ 
     public function create()
     {
         $page = new Page();
