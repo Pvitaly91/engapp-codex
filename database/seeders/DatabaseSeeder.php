@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Support\Database\Seeder;
 use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
+use Database\Seeders\Ai\ConditionalsComprehensiveAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
@@ -131,6 +132,7 @@ class DatabaseSeeder extends Seeder
             Ai\FutureTensesComprehensiveAiSeeder::class,
             Ai\FutureTensesPracticeComprehensiveAiSeeder::class,
             Ai\DoDoesIsAreFormsComprehensiveAiSeeder::class,
+            ConditionalsComprehensiveAiSeeder::class,
             SecondConditionalComprehensiveAiSeeder::class,
 
         ]);
