@@ -30,7 +30,7 @@ abstract class GrammarPageSeeder extends Seeder
                 'text' => $config['subtitle_text'] ?? null,
                 'seeder' => static::class,
             ]
-        );
+        ); 
 
         TextBlock::where('page_id', $page->id)
             ->whereIn('seeder', $this->cleanupSeederClasses())
