@@ -28,6 +28,7 @@ abstract class GrammarPageSeeder extends Seeder
             [
                 'title' => $config['title'],
                 'text' => $config['subtitle_text'] ?? null,
+                'seeder' => static::class,
             ]
         );
 
