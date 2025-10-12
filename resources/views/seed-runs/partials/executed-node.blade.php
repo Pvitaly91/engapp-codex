@@ -7,7 +7,7 @@
         $folderLabel = $node['path'] ?? $node['name'];
         $folderSeedRunIds = $node['seed_run_ids'] ?? [];
     @endphp
-    <div x-data="{ open: true }" class="space-y-3" style="margin-left: {{ $indent }}rem;">
+    <div x-data="{ open: false }" class="space-y-3" style="margin-left: {{ $indent }}rem;">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <button type="button"
                     class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
@@ -61,7 +61,7 @@
             @endif
         </div>
 
-        <div x-show="open" x-transition style="display: none;" class="space-y-3">
+        <div x-show="open" x-transition style="display: none;" x-cloak class="space-y-3">
             @foreach($node['children'] as $child)
                 @include('seed-runs.partials.executed-node', ['node' => $child, 'depth' => $depth + 1])
             @endforeach
