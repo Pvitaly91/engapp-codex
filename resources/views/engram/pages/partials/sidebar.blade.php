@@ -1,6 +1,7 @@
 @php($categoryPages = $categoryPages ?? collect())
 @php($showCategoryPagesNav = $showCategoryPagesNav ?? false)
-<aside class="space-y-8">
+@php($class = trim('space-y-8 ' . ($class ?? '')))
+<aside class="{{ $class }}">
     <div>
         <h2 class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Категорії</h2>
         <nav class="mt-3 space-y-1">
