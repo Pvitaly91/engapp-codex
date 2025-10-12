@@ -391,10 +391,10 @@ class SeedRunController extends Controller
 
         $deletedQuestions = 0;
         $deletedBlocks = 0;
-        $clearedPages = 0;
+        $deletedPages = 0;
         $profile = $this->describeSeederData($seedRun->class_name);
 
-        DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$clearedPages, $profile) {
+        DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
             $classNames = collect([$seedRun->class_name]);
 
             if ($profile['type'] === 'questions') {
@@ -402,12 +402,12 @@ class SeedRunController extends Controller
             } elseif ($profile['type'] === 'pages') {
                 $pageResult = $this->deletePageContentForSeeders($classNames);
                 $deletedBlocks = $pageResult['blocks'];
-                $clearedPages = $pageResult['pages_cleared'];
+                $deletedPages = $pageResult['pages_deleted'];
             } else {
                 $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
                 $pageResult = $this->deletePageContentForSeeders($classNames);
                 $deletedBlocks = $pageResult['blocks'];
-                $clearedPages = $pageResult['pages_cleared'];
+                $deletedPages = $pageResult['pages_deleted'];
             }
 
             DB::table('seed_runs')->where('id', $seedRun->id)->delete();
@@ -417,8 +417,8 @@ class SeedRunController extends Controller
             'pages' => __('Removed seeder :class and deleted :blocks related text block(s).', [
                 'class' => $seedRun->class_name,
                 'blocks' => $deletedBlocks,
-            ]) . ($clearedPages > 0
-                ? ' ' . __('Cleared subtitle text on :count page(s).', ['count' => $clearedPages])
+            ]) . ($deletedPages > 0
+                ? ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages])
                 : ''),
             'questions' => __('Removed seeder :class and deleted :count related question(s).', [
                 'class' => $seedRun->class_name,
@@ -527,7 +527,7 @@ class SeedRunController extends Controller
 
         $deletedQuestions = 0;
         $deletedBlocks = 0;
-        $clearedPages = 0;
+        $deletedPages = 0;
 
         DB::transaction(function () use (
             $seedRunIdsToDelete,
@@ -536,7 +536,7 @@ class SeedRunController extends Controller
             $unknownClasses,
             &$deletedQuestions,
             &$deletedBlocks,
-            &$clearedPages
+            &$deletedPages
         ) {
             if ($questionClasses->isNotEmpty()) {
                 $deletedQuestions += $this->deleteQuestionsForSeeders($questionClasses);
@@ -545,14 +545,14 @@ class SeedRunController extends Controller
             if ($pageClasses->isNotEmpty()) {
                 $pageResult = $this->deletePageContentForSeeders($pageClasses);
                 $deletedBlocks += $pageResult['blocks'];
-                $clearedPages += $pageResult['pages_cleared'];
+                $deletedPages += $pageResult['pages_deleted'];
             }
 
             if ($unknownClasses->isNotEmpty()) {
                 $deletedQuestions += $this->deleteQuestionsForSeeders($unknownClasses);
                 $pageResult = $this->deletePageContentForSeeders($unknownClasses);
                 $deletedBlocks += $pageResult['blocks'];
-                $clearedPages += $pageResult['pages_cleared'];
+                $deletedPages += $pageResult['pages_deleted'];
             }
 
             DB::table('seed_runs')
@@ -573,8 +573,8 @@ class SeedRunController extends Controller
             $statusMessage .= ' ' . __('Deleted :count related text block(s).', ['count' => $deletedBlocks]);
         }
 
-        if ($clearedPages > 0) {
-            $statusMessage .= ' ' . __('Cleared subtitle text on :count page(s).', ['count' => $clearedPages]);
+        if ($deletedPages > 0) {
+            $statusMessage .= ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages]);
         }
 
         return redirect()
@@ -652,9 +652,9 @@ class SeedRunController extends Controller
             return [
                 'type' => 'pages',
                 'delete_button' => __('Видалити зі сторінками'),
-                'delete_confirm' => __('Видалити лог та пов’язані текстові блоки?'),
+                'delete_confirm' => __('Видалити лог та пов’язані сторінки й блоки?'),
                 'folder_delete_button' => __('Видалити зі сторінками'),
-                'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» разом із сторінками?'),
+                'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» разом із сторінками та блоками?'),
             ];
         }
 
@@ -715,59 +715,73 @@ class SeedRunController extends Controller
 
     protected function deletePageContentForSeeders(Collection $classNames): array
     {
-        if ($classNames->isEmpty() || ! Schema::hasTable('text_blocks')) {
-            return ['blocks' => 0, 'pages_cleared' => 0];
+        $hasTextBlockTable = Schema::hasTable('text_blocks');
+        $hasPagesTable = Schema::hasTable('pages');
+
+        if ($classNames->isEmpty() || (! $hasTextBlockTable && ! $hasPagesTable)) {
+            return ['blocks' => 0, 'pages_deleted' => 0];
         }
 
         $classNames = $this->expandGrammarPageSeederClasses($classNames);
 
         $deletedBlocks = 0;
-        $clearedPages = 0;
+        $deletedPages = 0;
         $processedPageIds = collect();
-        $hasPagesTable = Schema::hasTable('pages');
 
         foreach ($classNames as $className) {
-            TextBlock::query()
-                ->where('seeder', $className)
-                ->orderBy('id')
-                ->chunkById(100, function ($blocks) use (&$deletedBlocks) {
-                    foreach ($blocks as $block) {
-                        $block->delete();
-                        $deletedBlocks++;
-                    }
-                });
+            if ($hasTextBlockTable) {
+                TextBlock::query()
+                    ->where('seeder', $className)
+                    ->orderBy('id')
+                    ->chunkById(100, function ($blocks) use (&$deletedBlocks) {
+                        foreach ($blocks as $block) {
+                            $block->delete();
+                            $deletedBlocks++;
+                        }
+                    });
+            }
 
             if (! $hasPagesTable) {
                 continue;
             }
 
-            $slug = $this->resolvePageSlugForSeeder($className);
+            $pages = Page::query()
+                ->where('seeder', $className)
+                ->get();
 
-            if ($slug === null) {
-                continue;
+            if ($pages->isEmpty()) {
+                $slug = $this->resolvePageSlugForSeeder($className);
+
+                if ($slug !== null) {
+                    $page = Page::query()->where('slug', $slug)->first();
+
+                    if ($page) {
+                        $pages = collect([$page]);
+                    }
+                }
             }
 
-            $page = Page::query()->where('slug', $slug)->first();
+            foreach ($pages as $page) {
+                if ($processedPageIds->contains($page->id)) {
+                    continue;
+                }
 
-            if (! $page || $processedPageIds->contains($page->id)) {
-                continue;
-            }
+                $processedPageIds->push($page->id);
 
-            $processedPageIds->push($page->id);
+                if ($hasTextBlockTable) {
+                    $deletedBlocks += TextBlock::query()
+                        ->where('page_id', $page->id)
+                        ->delete();
+                }
 
-            $hasBlocks = TextBlock::query()
-                ->where('page_id', $page->id)
-                ->exists();
-
-            if (! $hasBlocks && $page->text !== null) {
-                $page->forceFill(['text' => null])->save();
-                $clearedPages++;
+                $page->delete();
+                $deletedPages++;
             }
         }
 
         return [
             'blocks' => $deletedBlocks,
-            'pages_cleared' => $clearedPages,
+            'pages_deleted' => $deletedPages,
         ];
     }
 
