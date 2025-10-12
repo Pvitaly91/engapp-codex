@@ -10,6 +10,7 @@
             'categories' => $categories,
             'selectedCategory' => $selectedCategory,
             'categoryPages' => $categoryPages,
+            'showCategoryPagesNav' => false,
         ])
 
         <section class="space-y-6">

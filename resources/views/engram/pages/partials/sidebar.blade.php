@@ -1,4 +1,5 @@
 @php($categoryPages = $categoryPages ?? collect())
+@php($showCategoryPagesNav = $showCategoryPagesNav ?? false)
 <aside class="space-y-8">
     <div>
         <h2 class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Категорії</h2>
@@ -7,12 +8,9 @@
                 @php($isActive = $selectedCategory && $selectedCategory->is($category))
                 <a
                     href="{{ route('pages.category', $category->slug) }}"
-                    class="flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-muted/80 {{ $isActive ? 'bg-primary/10 text-primary' : 'text-muted-foreground' }}"
+                    class="block rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-muted/80 {{ $isActive ? 'bg-primary/10 text-primary' : 'text-muted-foreground' }}"
                 >
                     <span>{{ $category->title }}</span>
-                    <span class="text-xs uppercase tracking-wide {{ $isActive ? 'text-primary' : 'text-muted-foreground/70' }}">
-                        {{ strtoupper($category->language) }}
-                    </span>
                 </a>
             @empty
                 <p class="text-sm text-muted-foreground">Немає категорій.</p>
@@ -20,7 +18,7 @@
         </nav>
     </div>
 
-    @if ($selectedCategory && $categoryPages->isNotEmpty())
+    @if ($showCategoryPagesNav && $selectedCategory && $categoryPages->isNotEmpty())
         <div>
             <h3 class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Сторінки розділу</h3>
             <nav class="mt-3 space-y-1">

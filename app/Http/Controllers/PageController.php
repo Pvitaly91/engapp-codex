@@ -64,8 +64,18 @@ class PageController extends Controller
             ?? ($blocks->first()?->locale)
             ?? 'uk';
 
-        $category->load(['pages' => fn ($query) => $query->orderBy('title')]);
         $categories = $this->categoryList();
+
+        $categoryPages = Page::query()
+            ->where('page_category_id', $category->getKey())
+            ->where('id', '!=', $page->getKey())
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+
+        if ($categoryPages->isEmpty()) {
+            $categoryPages = collect([$page]);
+        }
 
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],
@@ -82,7 +92,7 @@ class PageController extends Controller
             'locale' => $locale,
             'categories' => $categories,
             'selectedCategory' => $category,
-            'categoryPages' => $category->pages,
+            'categoryPages' => $categoryPages,
         ]);
     }
 

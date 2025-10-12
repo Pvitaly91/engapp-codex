@@ -9,6 +9,7 @@
             'selectedCategory' => $selectedCategory ?? null,
             'categoryPages' => $categoryPages ?? collect(),
             'currentPage' => $page,
+            'showCategoryPagesNav' => true,
         ])
 
         <article class="max-w-none space-y-4">
