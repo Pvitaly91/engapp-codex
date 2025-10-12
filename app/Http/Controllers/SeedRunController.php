@@ -648,7 +648,7 @@ class SeedRunController extends Controller
             ];
         }
 
-        if (is_subclass_of($className, GrammarPageSeederBase::class)) {
+        if ($this->classProvidesGrammarPages($className)) {
             return [
                 'type' => 'pages',
                 'delete_button' => __('Видалити зі сторінками'),
@@ -719,6 +719,8 @@ class SeedRunController extends Controller
             return ['blocks' => 0, 'pages_cleared' => 0];
         }
 
+        $classNames = $this->expandGrammarPageSeederClasses($classNames);
+
         $deletedBlocks = 0;
         $clearedPages = 0;
         $processedPageIds = collect();
@@ -769,6 +771,33 @@ class SeedRunController extends Controller
         ];
     }
 
+    protected function expandGrammarPageSeederClasses(Collection $classNames): Collection
+    {
+        return $classNames
+            ->flatMap(function ($className) {
+                $classes = collect([$className]);
+
+                if (! class_exists($className)) {
+                    return $classes;
+                }
+
+                if (is_subclass_of($className, GrammarPageSeederBase::class)) {
+                    return $classes;
+                }
+
+                $aggregateClasses = $this->resolveAggregateSeederClasses($className);
+
+                if ($aggregateClasses->isEmpty()) {
+                    return $classes;
+                }
+
+                return $classes->merge($aggregateClasses);
+            })
+            ->filter(fn ($class) => is_string($class) && $class !== '')
+            ->unique()
+            ->values();
+    }
+
     protected function resolvePageSlugForSeeder(string $className): ?string
     {
         if (! class_exists($className)) {
@@ -798,6 +827,49 @@ class SeedRunController extends Controller
         } catch (\Throwable) {
             return null;
         }
+    }
+
+    protected function resolveAggregateSeederClasses(string $className): Collection
+    {
+        if (! class_exists($className)) {
+            return collect();
+        }
+
+        try {
+            $reflection = new \ReflectionClass($className);
+
+            $constant = collect($reflection->getReflectionConstants())
+                ->firstWhere(fn (\ReflectionClassConstant $constant) => $constant->getName() === 'SEEDERS');
+
+            if (! $constant) {
+                return collect();
+            }
+
+            $value = $constant->getValue();
+
+            if (! is_array($value)) {
+                return collect();
+            }
+
+            return collect($value)
+                ->filter(fn ($class) => is_string($class) && $class !== '');
+        } catch (\Throwable) {
+            return collect();
+        }
+    }
+
+    protected function classProvidesGrammarPages(string $className): bool
+    {
+        if (! class_exists($className)) {
+            return false;
+        }
+
+        if (is_subclass_of($className, GrammarPageSeederBase::class)) {
+            return true;
+        }
+
+        return $this->resolveAggregateSeederClasses($className)
+            ->contains(fn ($class) => is_string($class) && class_exists($class) && is_subclass_of($class, GrammarPageSeederBase::class));
     }
 
     /**
