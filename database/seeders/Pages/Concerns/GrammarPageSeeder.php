@@ -1,10 +1,11 @@
 <?php
 
-namespace Database\Seeders\Pages;
+namespace Database\Seeders\Pages\Concerns;
 
 use App\Models\Page;
 use App\Models\TextBlock;
 use App\Support\Database\Seeder;
+use Database\Seeders\Pages\GrammarPagesSeeder;
 
 abstract class GrammarPageSeeder extends Seeder
 {

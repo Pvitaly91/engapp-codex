@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Pages\Conditions;
 
-use Database\Seeders\Pages\GrammarPageSeeder;
+use Database\Seeders\Pages\Concerns\GrammarPageSeeder;
 
 class ThirdConditionalPageSeeder extends GrammarPageSeeder
 {

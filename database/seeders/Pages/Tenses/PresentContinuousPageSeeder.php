@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Pages\Tenses;
 
-use Database\Seeders\Pages\GrammarPageSeeder;
+use Database\Seeders\Pages\Concerns\GrammarPageSeeder;
 
 class PresentContinuousPageSeeder extends GrammarPageSeeder
 {
