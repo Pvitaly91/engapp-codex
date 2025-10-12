@@ -9,6 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -28,6 +29,7 @@ class SeedRunController extends Controller
         $pendingSeeders = collect();
         $questionsBySeeder = collect();
         $tableExists = Schema::hasTable('seed_runs');
+        $executedSeederHierarchy = collect();
 
         if ($tableExists) {
             $executedSeeders = DB::table('seed_runs')
@@ -114,12 +116,15 @@ class SeedRunController extends Controller
 
                 return $seedRun;
             });
+
+            $executedSeederHierarchy = $this->buildSeederHierarchy($executedSeeders);
         }
 
         return view('seed-runs.index', [
             'tableExists' => $tableExists,
             'executedSeeders' => $executedSeeders,
             'pendingSeeders' => $pendingSeeders,
+            'executedSeederHierarchy' => $executedSeederHierarchy,
         ]);
     }
 
@@ -150,6 +155,81 @@ class SeedRunController extends Controller
         }
 
         return nl2br($questionText);
+    }
+
+    protected function buildSeederHierarchy(Collection $seedRuns): Collection
+    {
+        $root = [
+            'folders' => [],
+            'seeders' => [],
+        ];
+
+        foreach ($seedRuns as $seedRun) {
+            $segments = array_values(array_filter(explode('\\', $seedRun->display_class_name), 'strlen'));
+
+            if (empty($segments)) {
+                $root['seeders'][] = [
+                    'name' => $seedRun->display_class_name,
+                    'seed_run' => $seedRun,
+                ];
+
+                continue;
+            }
+
+            $current =& $root;
+
+            foreach ($segments as $index => $segment) {
+                $isLast = $index === count($segments) - 1;
+
+                if ($isLast) {
+                    $current['seeders'][] = [
+                        'name' => $segment,
+                        'seed_run' => $seedRun,
+                    ];
+
+                    continue;
+                }
+
+                if (! isset($current['folders'][$segment])) {
+                    $current['folders'][$segment] = [
+                        'name' => $segment,
+                        'folders' => [],
+                        'seeders' => [],
+                    ];
+                }
+
+                $current =& $current['folders'][$segment];
+            }
+
+            unset($current);
+        }
+
+        return $this->normalizeSeederHierarchy($root);
+    }
+
+    protected function normalizeSeederHierarchy(array $node): Collection
+    {
+        $folders = collect($node['folders'] ?? [])
+            ->sortBy(fn ($folder) => $folder['name'])
+            ->map(function ($folder) {
+                return [
+                    'type' => 'folder',
+                    'name' => $folder['name'],
+                    'children' => $this->normalizeSeederHierarchy($folder),
+                ];
+            });
+
+        $seeders = collect($node['seeders'] ?? [])
+            ->sortBy(fn ($seeder) => $seeder['name'])
+            ->map(function ($seeder) {
+                return [
+                    'type' => 'seeder',
+                    'name' => $seeder['name'],
+                    'seed_run' => $seeder['seed_run'],
+                ];
+            });
+
+        return $folders->values()->merge($seeders->values())->values();
     }
 
     public function run(Request $request): RedirectResponse
