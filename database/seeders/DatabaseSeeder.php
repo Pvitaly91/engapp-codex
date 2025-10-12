@@ -18,6 +18,7 @@ use Database\Seeders\V2\SecondConditionalTestV2Seeder;
 use Database\Seeders\V2\ConditionalsType1And2WorksheetV2Seeder;
 use Database\Seeders\V2\ConditionalsZeroToSecondWorksheetV2Seeder;
 use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
+use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -113,6 +114,7 @@ class DatabaseSeeder extends Seeder
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
             SecondConditionalTestV2Seeder::class,
+            ThirdConditionalPracticeV2Seeder::class,
             GrammarPagesSeeder::class,
             FirstConditionalAiFormsV2Seeder::class,
             FirstConditionalChooseABCAiSeeder::class,
