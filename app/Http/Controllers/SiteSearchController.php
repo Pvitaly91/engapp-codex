@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Test;
-use App\Support\EngramPages;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class SiteSearchController extends Controller
 {
@@ -17,21 +16,24 @@ class SiteSearchController extends Controller
         $tests = collect();
 
         if (strlen($query) >= 2) {
-            $needle = Str::lower($query);
+            $searchTerm = "%{$query}%";
 
-            $pages = EngramPages::all()
-                ->filter(fn ($page) => Str::contains(Str::lower($page->title), $needle)
-                    || Str::contains(Str::lower($page->slug), $needle))
-                ->take(10)
+            $pages = Page::query()
+                ->where(fn ($builder) => $builder
+                    ->where('title', 'like', $searchTerm)
+                    ->orWhere('slug', 'like', $searchTerm))
+                ->orderBy('title')
+                ->limit(10)
+                ->get()
                 ->map(fn ($page) => [
                     'title' => $page->title,
                     'type' => 'page',
-                    'url' => route('pages.show', $page->slug),
+                    'url' => route('pages-v2.show', $page->slug),
                 ]);
 
             $tests = Test::query()
-                ->where('name', 'like', "%{$query}%")
-                ->orWhere('slug', 'like', "%{$query}%")
+                ->where('name', 'like', $searchTerm)
+                ->orWhere('slug', 'like', $searchTerm)
                 ->limit(10)
                 ->get()
                 ->map(fn ($t) => [

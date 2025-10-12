@@ -126,7 +126,7 @@
         </div>
         <nav class="order-3 w-full flex flex-wrap items-center gap-4 text-sm md:order-none md:w-auto md:flex-nowrap md:gap-6">
           <a class="text-muted-foreground hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Тести</a>
-          <a class="text-muted-foreground hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+          <a class="text-muted-foreground hover:text-foreground" href="{{ route('pages-v2.index') }}">Теорія</a>
         </nav>
         <div class="flex items-center gap-2 order-2 ml-auto md:order-none md:ml-0">
           <form action="{{ route('site.search') }}" method="GET" class="hidden md:block relative">

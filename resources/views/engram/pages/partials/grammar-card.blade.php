@@ -1,4 +1,4 @@
-@include('engram.pages.static.partials.grammar-card-styles')
+@include('engram.pages.partials.grammar-card-styles')
 
 <section class="grammar-card" lang="{{ $locale }}">
     <header>

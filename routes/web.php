@@ -5,7 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\PageV2Controller;
 use App\Http\Controllers\PageV2ManageController;
 use App\Http\Controllers\QuestionAnswerController;
@@ -56,8 +55,6 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
-    Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
-    Route::get('/pages/{slug}', [PageController::class, 'show'])->name('pages.show');
     Route::get('/pages-v2', [PageV2Controller::class, 'index'])->name('pages-v2.index');
 
     Route::prefix('/pages-v2/manage')->name('pages-v2.manage.')->group(function () {
