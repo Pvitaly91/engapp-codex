@@ -35,7 +35,7 @@ abstract class GrammarPageSeeder extends Seeder
         TextBlock::where('page_id', $page->id)
             ->whereIn('seeder', $this->cleanupSeederClasses())
             ->delete();
-
+ 
         if (!empty($config['subtitle_html'])) {
             TextBlock::create([
                 'page_id' => $page->id,
