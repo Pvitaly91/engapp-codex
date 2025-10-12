@@ -2,9 +2,7 @@
 
 namespace Database\Seeders\Pages\Tenses;
 
-use Database\Seeders\Pages\Concerns\GrammarPageSeeder;
-
-class PastPerfectPageSeeder extends GrammarPageSeeder
+class PastPerfectPageSeeder extends TensePageSeeder
 {
     protected function slug(): string
     {

@@ -11,6 +11,7 @@
             'formMethod' => 'PUT',
             'submitLabel' => 'Зберегти сторінку',
             'page' => $page,
+            'categories' => $categories,
         ])
 
         <section class="rounded-2xl border border-gray-200 bg-white p-6 shadow">

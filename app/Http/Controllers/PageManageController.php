@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\TextBlock;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,7 +13,10 @@ class PageManageController extends Controller
 {
     public function index()
     {
-        $pages = Page::query()->orderBy('title')->get();
+        $pages = Page::query()
+            ->with('category')
+            ->orderBy('title')
+            ->get();
 
         return view('engram.pages.manage.index', [
             'pages' => $pages,
@@ -22,9 +26,11 @@ class PageManageController extends Controller
     public function create()
     {
         $page = new Page();
+        $categories = $this->categories();
 
         return view('engram.pages.manage.create', [
             'page' => $page,
+            'categories' => $categories,
         ]);
     }
 
@@ -36,6 +42,7 @@ class PageManageController extends Controller
             'title' => $validated['title'],
             'slug' => $validated['slug'],
             'text' => $validated['text'] ?? '',
+            'page_category_id' => $validated['page_category_id'],
         ]);
 
         return redirect()
@@ -49,10 +56,12 @@ class PageManageController extends Controller
             ->orderBy('sort_order')
             ->orderBy('id')
             ->get();
+        $categories = $this->categories();
 
         return view('engram.pages.manage.edit', [
             'page' => $page,
             'blocks' => $blocks,
+            'categories' => $categories,
         ]);
     }
 
@@ -64,6 +73,7 @@ class PageManageController extends Controller
             'title' => $validated['title'],
             'slug' => $validated['slug'],
             'text' => $validated['text'] ?? '',
+            'page_category_id' => $validated['page_category_id'],
         ])->save();
 
         return back()->with('status', 'Зміни збережено.');
@@ -91,6 +101,7 @@ class PageManageController extends Controller
                 Rule::unique('pages', 'slug')->ignore($pageId),
             ],
             'text' => ['nullable', 'string'],
+            'page_category_id' => ['required', 'integer', Rule::exists('page_categories', 'id')],
         ]);
     }
 
@@ -222,5 +233,10 @@ class PageManageController extends Controller
         $currentMax = (int) $page->textBlocks()->max('sort_order');
 
         return $currentMax + 10 ?: 10;
+    }
+
+    protected function categories()
+    {
+        return PageCategory::query()->orderBy('title')->get();
     }
 }

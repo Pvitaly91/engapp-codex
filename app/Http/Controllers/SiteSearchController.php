@@ -19,16 +19,18 @@ class SiteSearchController extends Controller
             $searchTerm = "%{$query}%";
 
             $pages = Page::query()
+                ->with('category')
                 ->where(fn ($builder) => $builder
                     ->where('title', 'like', $searchTerm)
                     ->orWhere('slug', 'like', $searchTerm))
                 ->orderBy('title')
                 ->limit(10)
                 ->get()
+                ->filter(fn ($page) => $page->category)
                 ->map(fn ($page) => [
                     'title' => $page->title,
                     'type' => 'page',
-                    'url' => route('pages.show', $page->slug),
+                    'url' => route('pages.show', [$page->category->slug, $page->slug]),
                 ]);
 
             $tests = Test::query()

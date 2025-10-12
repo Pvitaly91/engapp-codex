@@ -10,5 +10,6 @@
         'formMethod' => 'POST',
         'submitLabel' => 'Створити сторінку',
         'page' => $page,
+        'categories' => $categories,
     ])
 @endsection

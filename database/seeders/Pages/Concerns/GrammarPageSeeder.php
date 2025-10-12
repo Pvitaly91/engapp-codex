@@ -3,6 +3,7 @@
 namespace Database\Seeders\Pages\Concerns;
 
 use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\TextBlock;
 use App\Support\Database\Seeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
@@ -12,6 +13,11 @@ abstract class GrammarPageSeeder extends Seeder
     abstract protected function slug(): string;
 
     abstract protected function page(): array;
+
+    protected function category(): ?array
+    {
+        return null;
+    }
 
     protected function cleanupSeederClasses(): array
     {
@@ -23,12 +29,32 @@ abstract class GrammarPageSeeder extends Seeder
         $slug = $this->slug();
         $config = $this->page();
 
+        $categoryConfig = $config['category'] ?? $this->category();
+        $categoryId = null;
+
+        if ($categoryConfig && ! empty($categoryConfig['slug'])) {
+            $language = $categoryConfig['language']
+                ?? $categoryConfig['locale']
+                ?? ($config['locale'] ?? 'uk');
+
+            $category = PageCategory::updateOrCreate(
+                ['slug' => $categoryConfig['slug']],
+                [
+                    'title' => $categoryConfig['title'] ?? $categoryConfig['slug'],
+                    'language' => $language,
+                ]
+            );
+
+            $categoryId = $category->id;
+        }
+
         $page = Page::updateOrCreate(
             ['slug' => $slug],
             [
                 'title' => $config['title'],
                 'text' => $config['subtitle_text'] ?? null,
                 'seeder' => static::class,
+                'page_category_id' => $categoryId,
             ]
         );
 

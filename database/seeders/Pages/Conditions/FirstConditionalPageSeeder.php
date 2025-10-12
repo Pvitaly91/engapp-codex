@@ -2,9 +2,7 @@
 
 namespace Database\Seeders\Pages\Conditions;
 
-use Database\Seeders\Pages\Concerns\GrammarPageSeeder;
-
-class FirstConditionalPageSeeder extends GrammarPageSeeder
+class FirstConditionalPageSeeder extends ConditionPageSeeder
 {
     protected function slug(): string
     {

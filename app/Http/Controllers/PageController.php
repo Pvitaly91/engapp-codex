@@ -3,28 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\PageCategory;
+use Illuminate\Support\Collection;
 
 class PageController extends Controller
 {
     /**
-     * Display a listing of the available theory pages sourced from the database.
+     * Display the available categories with the first category's pages.
      */
     public function index()
     {
-        $pages = Page::query()->orderBy('title')->get();
+        $categories = $this->categoryList();
+        $selectedCategory = $categories->first();
+
+        $selectedCategory?->load(['pages' => fn ($query) => $query->orderBy('title')]);
 
         return view('engram.pages.index', [
-            'pages' => $pages,
-            'targetRoute' => 'pages.show',
+            'categories' => $categories,
+            'selectedCategory' => $selectedCategory,
+            'categoryPages' => $selectedCategory?->pages ?? collect(),
+        ]);
+    }
+
+    /**
+     * Display a specific category with its related theory pages.
+     */
+    public function category(PageCategory $category)
+    {
+        $categories = $this->categoryList();
+        $category->load(['pages' => fn ($query) => $query->orderBy('title')]);
+
+        return view('engram.pages.index', [
+            'categories' => $categories,
+            'selectedCategory' => $category,
+            'categoryPages' => $category->pages,
         ]);
     }
 
     /**
      * Display the specified theory page using structured text blocks.
      */
-    public function show(string $slug)
+    public function show(PageCategory $category, string $pageSlug)
     {
-        $page = $this->page($slug);
+        $page = Page::query()
+            ->with('textBlocks')
+            ->where('slug', $pageSlug)
+            ->where('page_category_id', $category->getKey())
+            ->firstOrFail();
 
         $blocks = $page->textBlocks;
 
@@ -39,9 +64,13 @@ class PageController extends Controller
             ?? ($blocks->first()?->locale)
             ?? 'uk';
 
+        $category->load(['pages' => fn ($query) => $query->orderBy('title')]);
+        $categories = $this->categoryList();
+
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],
             ['label' => 'Теорія', 'url' => route('pages.index')],
+            ['label' => $category->title, 'url' => route('pages.category', $category->slug)],
             ['label' => $page->title],
         ];
 
@@ -51,17 +80,17 @@ class PageController extends Controller
             'subtitleBlock' => $subtitleBlock,
             'columns' => $columns,
             'locale' => $locale,
+            'categories' => $categories,
+            'selectedCategory' => $category,
+            'categoryPages' => $category->pages,
         ]);
     }
 
-    /**
-     * Retrieve a single structured static page by slug.
-     */
-    protected function page(string $slug): Page
+    protected function categoryList(): Collection
     {
-        return Page::query()
-            ->with(['textBlocks'])
-            ->where('slug', $slug)
-            ->firstOrFail();
+        return PageCategory::query()
+            ->withCount('pages')
+            ->orderBy('title')
+            ->get();
     }
 }

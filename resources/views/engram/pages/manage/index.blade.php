@@ -23,6 +23,7 @@
                 <thead class="bg-gray-50 text-gray-600">
                     <tr>
                         <th class="px-4 py-3 text-left font-medium">Назва</th>
+                        <th class="px-4 py-3 text-left font-medium">Категорія</th>
                         <th class="px-4 py-3 text-left font-medium">Slug</th>
                         <th class="px-4 py-3 text-left font-medium">Оновлено</th>
                         <th class="px-4 py-3 text-right font-medium">Дії</th>
@@ -32,8 +33,13 @@
                     @forelse ($pages as $page)
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 font-medium">
-                                <a href="{{ route('pages.show', $page->slug) }}" class="hover:underline" target="_blank" rel="noopener">{{ $page->title }}</a>
+                                @if ($page->category)
+                                    <a href="{{ route('pages.show', [$page->category->slug, $page->slug]) }}" class="hover:underline" target="_blank" rel="noopener">{{ $page->title }}</a>
+                                @else
+                                    {{ $page->title }}
+                                @endif
                             </td>
+                            <td class="px-4 py-3 text-gray-500">{{ $page->category?->title ?? '—' }}</td>
                             <td class="px-4 py-3 text-gray-500">{{ $page->slug }}</td>
                             <td class="px-4 py-3 text-gray-500">{{ $page->updated_at?->diffForHumans() }}</td>
                             <td class="px-4 py-3">
@@ -49,7 +55,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="px-4 py-6 text-center text-gray-500">Ще немає сторінок. Створіть першу сторінку.</td>
+                            <td colspan="5" class="px-4 py-6 text-center text-gray-500">Ще немає сторінок. Створіть першу сторінку.</td>
                         </tr>
                     @endforelse
                 </tbody>

@@ -45,6 +45,18 @@
                     <span class="text-sm font-medium">Slug</span>
                     <input type="text" name="slug" value="{{ old('slug', $page->slug) }}" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200" />
                 </label>
+                <label class="space-y-2 md:col-span-2">
+                    <span class="text-sm font-medium">Категорія</span>
+                    <select name="page_category_id" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200">
+                        <option value="">Оберіть категорію</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" @selected(old('page_category_id', $page->page_category_id) == $category->id)>
+                                {{ $category->title }} — {{ strtoupper($category->language) }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <p class="text-xs text-gray-500">Визначає, у якому розділі теорії буде відображатися сторінка.</p>
+                </label>
             </div>
 
             <label class="block space-y-2">
