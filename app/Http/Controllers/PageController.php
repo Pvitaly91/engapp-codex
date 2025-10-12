@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 
-class PageV2Controller extends Controller
+class PageController extends Controller
 {
     /**
      * Display a listing of the available theory pages sourced from the database.
@@ -13,9 +13,9 @@ class PageV2Controller extends Controller
     {
         $pages = Page::query()->orderBy('title')->get();
 
-        return view('engram.pages.v2.index', [
+        return view('engram.pages.index', [
             'pages' => $pages,
-            'targetRoute' => 'pages-v2.show',
+            'targetRoute' => 'pages.show',
         ]);
     }
 
@@ -41,11 +41,11 @@ class PageV2Controller extends Controller
 
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],
-            ['label' => 'Pages', 'url' => route('pages-v2.index')],
+            ['label' => 'Теорія', 'url' => route('pages.index')],
             ['label' => $page->title],
         ];
 
-        return view('engram.pages.v2.show', [
+        return view('engram.pages.show', [
             'page' => $page,
             'breadcrumbs' => $breadcrumbs,
             'subtitleBlock' => $subtitleBlock,

@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Сторінки v2 — керування')
+@section('title', 'Сторінки — керування')
 
 @section('content')
     <div class="max-w-6xl mx-auto space-y-6">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-                <h1 class="text-2xl font-semibold">Сторінки v2</h1>
+                <h1 class="text-2xl font-semibold">Сторінки</h1>
                 <p class="text-sm text-gray-500">Керуйте сторінками, редагуйте та оновлюйте блоки контенту.</p>
             </div>
-            <a href="{{ route('pages-v2.manage.create') }}" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">+ Нова сторінка</a>
+            <a href="{{ route('pages.manage.create') }}" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">+ Нова сторінка</a>
         </div>
 
         @if (session('status'))
@@ -32,14 +32,14 @@
                     @forelse ($pages as $page)
                         <tr class="hover:bg-gray-50">
                             <td class="px-4 py-3 font-medium">
-                                <a href="{{ route('pages-v2.show', $page->slug) }}" class="hover:underline" target="_blank" rel="noopener">{{ $page->title }}</a>
+                                <a href="{{ route('pages.show', $page->slug) }}" class="hover:underline" target="_blank" rel="noopener">{{ $page->title }}</a>
                             </td>
                             <td class="px-4 py-3 text-gray-500">{{ $page->slug }}</td>
                             <td class="px-4 py-3 text-gray-500">{{ $page->updated_at?->diffForHumans() }}</td>
                             <td class="px-4 py-3">
                                 <div class="flex justify-end gap-2">
-                                    <a href="{{ route('pages-v2.manage.edit', $page) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
-                                    <form action="{{ route('pages-v2.manage.destroy', $page) }}" method="POST" onsubmit="return confirm('Видалити сторінку?');">
+                                    <a href="{{ route('pages.manage.edit', $page) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
+                                    <form action="{{ route('pages.manage.destroy', $page) }}" method="POST" onsubmit="return confirm('Видалити сторінку?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1 text-sm text-red-600 hover:bg-red-100">Видалити</button>

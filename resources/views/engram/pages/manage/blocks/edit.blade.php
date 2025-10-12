@@ -3,10 +3,10 @@
 @section('title', 'Редагувати блок — ' . $page->title)
 
 @section('content')
-    @include('engram.pages.v2.manage.blocks.partials.form', [
+    @include('engram.pages.manage.blocks.partials.form', [
         'heading' => 'Редагування блока',
         'description' => 'Оновіть дані блока сторінки «' . $page->title . '».',
-        'formAction' => route('pages-v2.manage.blocks.update', [$page, $block]),
+        'formAction' => route('pages.manage.blocks.update', [$page, $block]),
         'formMethod' => 'PUT',
         'submitLabel' => 'Зберегти блок',
         'page' => $page,

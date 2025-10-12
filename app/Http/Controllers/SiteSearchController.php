@@ -28,7 +28,7 @@ class SiteSearchController extends Controller
                 ->map(fn ($page) => [
                     'title' => $page->title,
                     'type' => 'page',
-                    'url' => route('pages-v2.show', $page->slug),
+                    'url' => route('pages.show', $page->slug),
                 ]);
 
             $tests = Test::query()

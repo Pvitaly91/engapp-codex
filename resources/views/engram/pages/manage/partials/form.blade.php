@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-semibold">{{ $heading }}</h1>
             <p class="text-sm text-gray-500">{{ $description }}</p>
         </div>
-        <a href="{{ route('pages-v2.manage.index') }}" class="inline-flex items-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">← До списку</a>
+        <a href="{{ route('pages.manage.index') }}" class="inline-flex items-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">← До списку</a>
     </div>
 
     @if ($errors->any())
@@ -55,7 +55,7 @@
         </section>
 
         <div class="flex items-center justify-end gap-3">
-            <a href="{{ route('pages-v2.manage.index') }}" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">Скасувати</a>
+            <a href="{{ route('pages.manage.index') }}" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">Скасувати</a>
             <button type="submit" class="rounded-xl bg-blue-600 px-6 py-2 text-sm font-semibold text-white hover:bg-blue-700">
                 {{ $submitLabel }}
             </button>

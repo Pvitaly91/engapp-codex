@@ -8,13 +8,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class PageV2ManageController extends Controller
+class PageManageController extends Controller
 {
     public function index()
     {
         $pages = Page::query()->orderBy('title')->get();
 
-        return view('engram.pages.v2.manage.index', [
+        return view('engram.pages.manage.index', [
             'pages' => $pages,
         ]);
     }
@@ -23,7 +23,7 @@ class PageV2ManageController extends Controller
     {
         $page = new Page();
 
-        return view('engram.pages.v2.manage.create', [
+        return view('engram.pages.manage.create', [
             'page' => $page,
         ]);
     }
@@ -39,7 +39,7 @@ class PageV2ManageController extends Controller
         ]);
 
         return redirect()
-            ->route('pages-v2.manage.edit', $page)
+            ->route('pages.manage.edit', $page)
             ->with('status', 'Сторінку створено. Додайте або оновіть її блоки нижче.');
     }
 
@@ -50,7 +50,7 @@ class PageV2ManageController extends Controller
             ->orderBy('id')
             ->get();
 
-        return view('engram.pages.v2.manage.edit', [
+        return view('engram.pages.manage.edit', [
             'page' => $page,
             'blocks' => $blocks,
         ]);
@@ -74,7 +74,7 @@ class PageV2ManageController extends Controller
         $page->delete();
 
         return redirect()
-            ->route('pages-v2.manage.index')
+            ->route('pages.manage.index')
             ->with('status', 'Сторінку видалено.');
     }
 
@@ -105,7 +105,7 @@ class PageV2ManageController extends Controller
 
         $block = new TextBlock($defaults);
 
-        return view('engram.pages.v2.manage.blocks.create', [
+        return view('engram.pages.manage.blocks.create', [
             'page' => $page,
             'block' => $block,
         ]);
@@ -118,7 +118,7 @@ class PageV2ManageController extends Controller
         $page->textBlocks()->create($data);
 
         return redirect()
-            ->route('pages-v2.manage.edit', $page)
+            ->route('pages.manage.edit', $page)
             ->with('status', 'Блок додано.');
     }
 
@@ -128,7 +128,7 @@ class PageV2ManageController extends Controller
             abort(404);
         }
 
-        return view('engram.pages.v2.manage.blocks.edit', [
+        return view('engram.pages.manage.blocks.edit', [
             'page' => $page,
             'block' => $block,
         ]);
@@ -145,7 +145,7 @@ class PageV2ManageController extends Controller
         $block->update($data);
 
         return redirect()
-            ->route('pages-v2.manage.edit', $page)
+            ->route('pages.manage.edit', $page)
             ->with('status', 'Блок оновлено.');
     }
 
@@ -158,7 +158,7 @@ class PageV2ManageController extends Controller
         $block->delete();
 
         return redirect()
-            ->route('pages-v2.manage.edit', $page)
+            ->route('pages.manage.edit', $page)
             ->with('status', 'Блок видалено.');
     }
 

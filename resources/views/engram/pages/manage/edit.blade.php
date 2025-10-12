@@ -4,10 +4,10 @@
 
 @section('content')
     <div class="mx-auto max-w-6xl space-y-8">
-        @include('engram.pages.v2.manage.partials.form', [
+        @include('engram.pages.manage.partials.form', [
             'heading' => 'Редагування: ' . $page->title,
             'description' => 'Оновіть основні дані сторінки. Нижче ви можете керувати блоками контенту.',
-            'formAction' => route('pages-v2.manage.update', $page),
+            'formAction' => route('pages.manage.update', $page),
             'formMethod' => 'PUT',
             'submitLabel' => 'Зберегти сторінку',
             'page' => $page,
@@ -19,7 +19,7 @@
                     <h2 class="text-xl font-semibold">Блоки контенту</h2>
                     <p class="text-sm text-gray-500">Редагуйте, видаляйте або додавайте блоки для цієї сторінки.</p>
                 </div>
-                <a href="{{ route('pages-v2.manage.blocks.create', $page) }}" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">+ Новий блок</a>
+                <a href="{{ route('pages.manage.blocks.create', $page) }}" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">+ Новий блок</a>
             </header>
 
             @if ($blocks->isEmpty())
@@ -67,8 +67,8 @@
                                     <td class="px-4 py-3 text-gray-600">{{ $block->sort_order }}</td>
                                     <td class="px-4 py-3">
                                         <div class="flex justify-end gap-2">
-                                            <a href="{{ route('pages-v2.manage.blocks.edit', [$page, $block]) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
-                                            <form action="{{ route('pages-v2.manage.blocks.destroy', [$page, $block]) }}" method="POST" onsubmit="return confirm('Видалити цей блок?');">
+                                            <a href="{{ route('pages.manage.blocks.edit', [$page, $block]) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
+                                            <form action="{{ route('pages.manage.blocks.destroy', [$page, $block]) }}" method="POST" onsubmit="return confirm('Видалити цей блок?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1 text-sm text-red-600 hover:bg-red-100">Видалити</button>

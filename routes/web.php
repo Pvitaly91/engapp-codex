@@ -5,8 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PageV2Controller;
-use App\Http\Controllers\PageV2ManageController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PageManageController;
 use App\Http\Controllers\QuestionAnswerController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionHelpController;
@@ -55,23 +55,23 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
-    Route::get('/pages-v2', [PageV2Controller::class, 'index'])->name('pages-v2.index');
+    Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 
-    Route::prefix('/pages-v2/manage')->name('pages-v2.manage.')->group(function () {
-        Route::get('/', [PageV2ManageController::class, 'index'])->name('index');
-        Route::get('/create', [PageV2ManageController::class, 'create'])->name('create');
-        Route::post('/', [PageV2ManageController::class, 'store'])->name('store');
-        Route::get('/{page}/edit', [PageV2ManageController::class, 'edit'])->name('edit');
-        Route::put('/{page}', [PageV2ManageController::class, 'update'])->name('update');
-        Route::delete('/{page}', [PageV2ManageController::class, 'destroy'])->name('destroy');
-        Route::get('/{page}/blocks/create', [PageV2ManageController::class, 'createBlock'])->name('blocks.create');
-        Route::post('/{page}/blocks', [PageV2ManageController::class, 'storeBlock'])->name('blocks.store');
-        Route::get('/{page}/blocks/{block}/edit', [PageV2ManageController::class, 'editBlock'])->name('blocks.edit');
-        Route::put('/{page}/blocks/{block}', [PageV2ManageController::class, 'updateBlock'])->name('blocks.update');
-        Route::delete('/{page}/blocks/{block}', [PageV2ManageController::class, 'destroyBlock'])->name('blocks.destroy');
+    Route::prefix('/pages/manage')->name('pages.manage.')->group(function () {
+        Route::get('/', [PageManageController::class, 'index'])->name('index');
+        Route::get('/create', [PageManageController::class, 'create'])->name('create');
+        Route::post('/', [PageManageController::class, 'store'])->name('store');
+        Route::get('/{page}/edit', [PageManageController::class, 'edit'])->name('edit');
+        Route::put('/{page}', [PageManageController::class, 'update'])->name('update');
+        Route::delete('/{page}', [PageManageController::class, 'destroy'])->name('destroy');
+        Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])->name('blocks.create');
+        Route::post('/{page}/blocks', [PageManageController::class, 'storeBlock'])->name('blocks.store');
+        Route::get('/{page}/blocks/{block}/edit', [PageManageController::class, 'editBlock'])->name('blocks.edit');
+        Route::put('/{page}/blocks/{block}', [PageManageController::class, 'updateBlock'])->name('blocks.update');
+        Route::delete('/{page}/blocks/{block}', [PageManageController::class, 'destroyBlock'])->name('blocks.destroy');
     });
 
-    Route::get('/pages-v2/{slug}', [PageV2Controller::class, 'show'])->name('pages-v2.show');
+    Route::get('/pages/{slug}', [PageController::class, 'show'])->name('pages.show');
     
     Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
     Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
