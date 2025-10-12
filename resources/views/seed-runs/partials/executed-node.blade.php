@@ -3,20 +3,63 @@
 @endphp
 
 @if(($node['type'] ?? null) === 'folder')
+    @php
+        $folderLabel = $node['path'] ?? $node['name'];
+        $folderSeedRunIds = $node['seed_run_ids'] ?? [];
+    @endphp
     <div x-data="{ open: true }" class="space-y-3" style="margin-left: {{ $indent }}rem;">
-        <button type="button"
-                class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
-                @click="open = !open">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                 class="h-4 w-4 text-slate-500 transition-transform" :class="open ? 'rotate-0' : '-rotate-90'">
-                <path fill-rule="evenodd"
-                      d="M6.22 4.47a.75.75 0 011.06 0l5 5a.75.75 0 010 1.06l-5 5a.75.75 0 01-1.06-1.06L10.69 10 6.22 5.53a.75.75 0 010-1.06z"
-                      clip-rule="evenodd" />
-            </svg>
-            <i class="fa-solid fa-folder-tree text-slate-500"></i>
-            <span>{{ $node['name'] }}</span>
-            <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
-        </button>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <button type="button"
+                    class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
+                    @click="open = !open">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                     class="h-4 w-4 text-slate-500 transition-transform" :class="open ? 'rotate-0' : '-rotate-90'">
+                    <path fill-rule="evenodd"
+                          d="M6.22 4.47a.75.75 0 011.06 0l5 5a.75.75 0 010 1.06l-5 5a.75.75 0 01-1.06-1.06L10.69 10 6.22 5.53a.75.75 0 010-1.06z"
+                          clip-rule="evenodd" />
+                </svg>
+                <i class="fa-solid fa-folder-tree text-slate-500"></i>
+                <span>{{ $node['name'] }}</span>
+                <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
+            </button>
+
+            @if(!empty($folderSeedRunIds))
+                <div class="flex flex-col sm:flex-row gap-2 sm:items-center">
+                    <form method="POST"
+                          action="{{ route('seed-runs.folders.destroy-with-questions') }}"
+                          data-preloader
+                          data-confirm="Видалити всі сидери в папці «{{ e($folderLabel) }}» разом із питаннями?"
+                          class="w-full sm:w-auto">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="folder_label" value="{{ $folderLabel }}">
+                        @foreach($folderSeedRunIds as $seedRunId)
+                            <input type="hidden" name="seed_run_ids[]" value="{{ $seedRunId }}">
+                        @endforeach
+                        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
+                            <i class="fa-solid fa-broom"></i>
+                            Видалити з питаннями
+                        </button>
+                    </form>
+                    <form method="POST"
+                          action="{{ route('seed-runs.folders.destroy') }}"
+                          data-preloader
+                          data-confirm="Видалити записи про виконання для папки «{{ e($folderLabel) }}»?"
+                          class="w-full sm:w-auto">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="folder_label" value="{{ $folderLabel }}">
+                        @foreach($folderSeedRunIds as $seedRunId)
+                            <input type="hidden" name="seed_run_ids[]" value="{{ $seedRunId }}">
+                        @endforeach
+                        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                            <i class="fa-solid fa-trash"></i>
+                            Видалити записи
+                        </button>
+                    </form>
+                </div>
+            @endif
+        </div>
 
         <div x-show="open" x-transition style="display: none;" class="space-y-3">
             @foreach($node['children'] as $child)

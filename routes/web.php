@@ -188,6 +188,10 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
     Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
     Route::post('/seed-runs/run-missing', [SeedRunController::class, 'runMissing'])->name('seed-runs.run-missing');
+    Route::delete('/seed-runs/folders/delete-records', [SeedRunController::class, 'destroyFolder'])
+        ->name('seed-runs.folders.destroy');
+    Route::delete('/seed-runs/folders/delete-with-questions', [SeedRunController::class, 'destroyFolderWithQuestions'])
+        ->name('seed-runs.folders.destroy-with-questions');
     Route::delete('/seed-runs/{seedRun}', [SeedRunController::class, 'destroy'])->name('seed-runs.destroy');
     Route::delete('/seed-runs/{seedRun}/with-questions', [SeedRunController::class, 'destroyWithQuestions'])
         ->name('seed-runs.destroy-with-questions');

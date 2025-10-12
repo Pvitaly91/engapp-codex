@@ -207,29 +207,47 @@ class SeedRunController extends Controller
         return $this->normalizeSeederHierarchy($root);
     }
 
-    protected function normalizeSeederHierarchy(array $node): Collection
+    protected function normalizeSeederHierarchy(array $node, string $path = ''): Collection
     {
         $folders = collect($node['folders'] ?? [])
             ->sortBy(fn ($folder) => $folder['name'])
-            ->map(function ($folder) {
-                $children = $this->normalizeSeederHierarchy($folder);
+            ->map(function ($folder) use ($path) {
+                $folderPath = ltrim(($path !== '' ? $path . '/' : '') . $folder['name'], '/');
+                $children = $this->normalizeSeederHierarchy($folder, $folderPath);
+                $seedRunIds = $children->flatMap(function ($child) {
+                    return collect($child['seed_run_ids'] ?? []);
+                })->unique()->values();
+                $classNames = $children->flatMap(function ($child) {
+                    return collect($child['class_names'] ?? []);
+                })->unique()->values();
 
                 return [
                     'type' => 'folder',
                     'name' => $folder['name'],
                     'children' => $children,
-                    'seeder_count' => $children->sum(fn ($child) => $child['seeder_count'] ?? 0),
+                    'seeder_count' => $seedRunIds->count(),
+                    'seed_run_ids' => $seedRunIds->all(),
+                    'class_names' => $classNames->all(),
+                    'path' => $folderPath,
                 ];
             });
 
         $seeders = collect($node['seeders'] ?? [])
             ->sortBy(fn ($seeder) => $seeder['name'])
-            ->map(function ($seeder) {
+            ->map(function ($seeder) use ($path) {
+                $seedRun = $seeder['seed_run'];
+                $seedRunIds = [$seedRun->id];
+                $classNames = [$seedRun->class_name];
+                $fullPath = ltrim(($path !== '' ? $path . '/' : '') . $seeder['name'], '/');
+
                 return [
                     'type' => 'seeder',
                     'name' => $seeder['name'],
-                    'seed_run' => $seeder['seed_run'],
+                    'seed_run' => $seedRun,
                     'seeder_count' => 1,
+                    'seed_run_ids' => $seedRunIds,
+                    'class_names' => $classNames,
+                    'path' => $fullPath,
                 ];
             });
 
@@ -392,6 +410,117 @@ class SeedRunController extends Controller
             ]));
     }
 
+    public function destroyFolder(Request $request): RedirectResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => __('The seed_runs table does not exist.')]);
+        }
+
+        $validated = $request->validate([
+            'seed_run_ids' => ['required', 'array', 'min:1'],
+            'seed_run_ids.*' => ['integer', 'distinct'],
+            'folder_label' => ['nullable', 'string'],
+        ]);
+
+        $seedRunIds = collect($validated['seed_run_ids'])->filter()->unique()->values();
+
+        if ($seedRunIds->isEmpty()) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => __('No seed runs were selected.')]);
+        }
+
+        $seedRuns = DB::table('seed_runs')
+            ->whereIn('id', $seedRunIds)
+            ->get();
+
+        if ($seedRuns->isEmpty()) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => __('Seed run records were not found.')]);
+        }
+
+        DB::table('seed_runs')
+            ->whereIn('id', $seedRuns->pluck('id'))
+            ->delete();
+
+        $folderLabel = $this->resolveFolderLabel($validated['folder_label'] ?? null);
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', __('Removed :count seed run entries from folder :folder.', [
+                'count' => $seedRuns->count(),
+                'folder' => $folderLabel,
+            ]));
+    }
+
+    public function destroyFolderWithQuestions(Request $request): RedirectResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => __('The seed_runs table does not exist.')]);
+        }
+
+        $validated = $request->validate([
+            'seed_run_ids' => ['required', 'array', 'min:1'],
+            'seed_run_ids.*' => ['integer', 'distinct'],
+            'folder_label' => ['nullable', 'string'],
+        ]);
+
+        $seedRunIds = collect($validated['seed_run_ids'])->filter()->unique()->values();
+
+        if ($seedRunIds->isEmpty()) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => __('No seed runs were selected.')]);
+        }
+
+        $seedRuns = DB::table('seed_runs')
+            ->whereIn('id', $seedRunIds)
+            ->get();
+
+        if ($seedRuns->isEmpty()) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => __('Seed run records were not found.')]);
+        }
+
+        $hasSeederColumn = Schema::hasColumn('questions', 'seeder');
+        $deletedQuestions = 0;
+        $folderLabel = $this->resolveFolderLabel($validated['folder_label'] ?? null);
+        $classNames = $seedRuns->pluck('class_name')->filter()->unique()->values();
+        $seedRunIdsToDelete = $seedRuns->pluck('id');
+
+        DB::transaction(function () use ($classNames, $seedRunIdsToDelete, $hasSeederColumn, &$deletedQuestions) {
+            if ($hasSeederColumn && $classNames->isNotEmpty()) {
+                Question::query()
+                    ->whereIn('seeder', $classNames)
+                    ->orderBy('id')
+                    ->chunkById(100, function ($questions) use (&$deletedQuestions) {
+                        foreach ($questions as $question) {
+                            $this->questionDeletionService->deleteQuestion($question);
+                            $deletedQuestions++;
+                        }
+                    });
+            }
+
+            DB::table('seed_runs')
+                ->whereIn('id', $seedRunIdsToDelete)
+                ->delete();
+        });
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', __('Removed :count seed run entries from folder :folder and deleted :questions related question(s).', [
+                'count' => $seedRuns->count(),
+                'folder' => $folderLabel,
+                'questions' => $deletedQuestions,
+            ]));
+    }
+
     public function destroyQuestion(Request $request, Question $question): JsonResponse|RedirectResponse
     {
         $questionId = $question->id;
@@ -479,5 +608,12 @@ class SeedRunController extends Controller
         } catch (\ReflectionException) {
             return false;
         }
+    }
+
+    private function resolveFolderLabel(?string $label): string
+    {
+        $label = trim((string) $label);
+
+        return $label !== '' ? $label : __('selected folder');
     }
 }
