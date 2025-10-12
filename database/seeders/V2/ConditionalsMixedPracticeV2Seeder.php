@@ -227,7 +227,7 @@ class ConditionalsMixedPracticeV2Seeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'tense_tags' => ['First Conditional'],
-                'question' => 'If you {a1} to my birthday party tonight, I {a2} very upset.',
+                'question' => 'If you {a1} to my birthday party tonight, I {a2} very upset. I want you to come!',
                 'markers' => [
                     'a1' => [
                         'type' => 'if_present_simple',
@@ -258,21 +258,21 @@ class ConditionalsMixedPracticeV2Seeder extends QuestionSeeder
                 ],
             ],
             [
-                'level' => 'B2',
+                'level' => 'B1',
                 'tense_tags' => ['Third Conditional'],
-                'question' => 'I {a1} Emma’s age if you {a2} me. She looks much older!',
+                'question' => 'I {a1} Emma’s 29 years old if you {a2} me. She looks much older! Thank God you told me!',
                 'markers' => [
                     'a1' => [
-                        'type' => 'result_would_not_have',
+                        'type' => 'result_would',
                         'subject' => 'I',
-                        'verb' => 'know',
-                        'verb_hint' => 'not know',
-                        'answer' => "wouldn't have known",
+                        'verb' => 'say',
+                        'verb_hint' => 'not say',
+                        'answer' => "wouldn't say",
                         'options' => [
-                            ['value' => "wouldn't have known", 'reason' => 'correct'],
-                            ['value' => "won't know", 'reason' => 'first_conditional'],
-                            ['value' => "didn't know", 'reason' => 'past_simple'],
-                            ['value' => "wouldn't know", 'reason' => 'missing_have'],
+                            ['value' => "wouldn't say", 'reason' => 'correct'],
+                            ['value' => "won't say", 'reason' => 'first_conditional'],
+                            ['value' => "wouldn't have said", 'reason' => 'third_conditional'],
+                            ['value' => "don't say", 'reason' => 'present_simple'],
                         ],
                     ],
                     'a2' => [
@@ -293,7 +293,7 @@ class ConditionalsMixedPracticeV2Seeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'tense_tags' => ['First Conditional'],
-                'question' => 'I don’t think he’ll phone you, but if he {a1}, {a2} to him?',
+                'question' => 'I don’t think he’ll phone you but if he {a1}, {a2} to him?',
                 'markers' => [
                     'a1' => [
                         'type' => 'if_present_simple',
@@ -326,7 +326,7 @@ class ConditionalsMixedPracticeV2Seeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'tense_tags' => ['First Conditional'],
-                'question' => 'You {a1} weight if you {a2} to the diet the doctor gave you.',
+                'question' => 'You {a1} weight if you {a2} to the diet the doctor has told you to follow.',
                 'markers' => [
                     'a1' => [
                         'type' => 'result_will',
@@ -357,9 +357,9 @@ class ConditionalsMixedPracticeV2Seeder extends QuestionSeeder
                 ],
             ],
             [
-                'level' => 'B2',
+                'level' => 'B1',
                 'tense_tags' => ['Third Conditional'],
-                'question' => 'If I {a1} more, I {a2} the exam. Now it’s too late!',
+                'question' => 'If I {a1} more, I {a2} the exam. Now it’s too late! I got a D!',
                 'markers' => [
                     'a1' => [
                         'type' => 'if_past_perfect',
@@ -423,7 +423,7 @@ class ConditionalsMixedPracticeV2Seeder extends QuestionSeeder
                 ],
             ],
             [
-                'level' => 'B2',
+                'level' => 'B1',
                 'tense_tags' => ['Third Conditional'],
                 'question' => 'We’ve been married for 10 years. If I {a1} to that party, I {a2} him.',
                 'markers' => [
@@ -489,9 +489,9 @@ class ConditionalsMixedPracticeV2Seeder extends QuestionSeeder
                 ],
             ],
             [
-                'level' => 'B2',
+                'level' => 'B1',
                 'tense_tags' => ['Third Conditional'],
-                'question' => 'If I {a1} about this, I {a2} you, but I didn’t know Robert was coming.',
+                'question' => 'If I {a1} about this, I {a2} you, but I promise I didn’t know Robert was coming to the party.',
                 'markers' => [
                     'a1' => [
                         'type' => 'if_past_perfect',
@@ -524,7 +524,7 @@ class ConditionalsMixedPracticeV2Seeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'tense_tags' => ['First Conditional'],
-                'question' => 'Richard {a1} these sneakers if they {a2} on sale.',
+                'question' => 'Richard {a1} these sneakers if they {a2} on sale. He will only get them for an affordable price.',
                 'markers' => [
                     'a1' => [
                         'type' => 'result_will_negative',
