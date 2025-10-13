@@ -3,6 +3,7 @@
 use App\Http\Controllers\AiTestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatGPTExplanationController;
+use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -56,6 +57,10 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
     Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
+
+    Route::get('/deployment', [DeploymentController::class, 'index'])->name('deployment.index');
+    Route::post('/deployment/deploy', [DeploymentController::class, 'deploy'])->name('deployment.deploy');
+    Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
 
     Route::prefix('/pages/manage')->name('pages.manage.')->group(function () {
         Route::get('/', [PageManageController::class, 'index'])->name('index');
