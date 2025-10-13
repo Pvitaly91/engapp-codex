@@ -80,9 +80,9 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
         ];
 
         $tenseTagIds = [
-            'First Conditional' => Tag::firstOrCreate(['name' => 'First Conditional'], ['category' => 'Tenses'])->id,
-            'Second Conditional' => Tag::firstOrCreate(['name' => 'Second Conditional'], ['category' => 'Tenses'])->id,
-            'Third Conditional' => Tag::firstOrCreate(['name' => 'Third Conditional'], ['category' => 'Tenses'])->id,
+            'First Conditional' => Tag::firstOrCreate(['name' => 'First Conditional'], ['category' => 'Conditional'])->id,
+            'Second Conditional' => Tag::firstOrCreate(['name' => 'Second Conditional'], ['category' => 'Conditional'])->id,
+            'Third Conditional' => Tag::firstOrCreate(['name' => 'Third Conditional'], ['category' => 'Conditional'])->id,
         ];
 
         $questions = $this->buildQuestionBank();
