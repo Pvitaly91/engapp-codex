@@ -72,7 +72,7 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
         $detailTagId = Tag::firstOrCreate(
             ['name' => 'Conditional Sentence Completion'],
             ['category' => 'English Grammar Detail']
-        )->id;
+        )->id; 
  
         $typeTagIds = [
             'question' => Tag::firstOrCreate(['name' => 'Conditional Question Form'], ['category' => 'English Grammar Structure'])->id,
