@@ -120,7 +120,7 @@ class MixedConditionalsBridgePracticeV2Seeder extends QuestionSeeder
 
         $items = [];
         $meta = [];
-
+ 
         foreach ($this->questionEntries() as $index => $entry) {
             $answersMap = [];
             $verbHints = [];
