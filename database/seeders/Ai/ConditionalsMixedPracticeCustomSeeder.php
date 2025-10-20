@@ -18,6 +18,81 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         'C2' => 5,
     ];
 
+    private array $hintTemplates = [
+        'if_present_simple' => "Час: First Conditional.\nФормула: **if + Present Simple** (для заперечення використовуємо do/does + not).\nПояснення: умовна частина описує можливу ситуацію, тому дієслово «%verb%» ставимо в Present Simple для %subject%.\nПриклад: *%example%*",
+        'result_will' => "Час: First Conditional.\nФормула: **will + base verb**.\nПояснення: результат у First Conditional виражаємо через will + початкову форму дієслова «%verb%».\nПриклад: *%example%*",
+        'result_will_negative' => "Час: First Conditional.\nФормула: **will not / won't + base verb**.\nПояснення: заперечення у головній частині First Conditional утворюємо через will not (won't) + базову форму «%verb%».\nПриклад: *%example%*",
+        'result_will_question' => "Час: First Conditional.\nФормула: **will + subject + base verb** у питальному реченні.\nПояснення: у запитанні результату потрібно використати will перед підметом та базову форму «%verb%».\nПриклад: *%example%*",
+        'result_would' => "Час: Second Conditional.\nФормула: **would + base verb**.\nПояснення: у другому умовному результат виражаємо через would + початкову форму дієслова «%verb%».\nПриклад: *%example%*",
+        'if_past_simple_subjunctive' => "Час: Second Conditional.\nФормула: **if + Past Simple** (для to be використовуємо were з усіма особами).\nПояснення: умовна частина описує нереальну теперішню ситуацію, тож дієслово «%verb%» ставимо в Past Simple / were.\nПриклад: *%example%*",
+        'if_past_perfect' => "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «%verb%».\nПриклад: *%example%*",
+        'result_would_have' => "Час: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «%verb%».\nПриклад: *%example%*",
+        'result_would_not_have' => "Час: Third Conditional.\nФормула: **would not have + V3** (wouldn't have + V3).\nПояснення: заперечний результат утворюємо через would not have + третю форму дієслова «%verb%».\nПриклад: *%example%*",
+    ];
+
+    private array $explanationTemplates = [
+        'if_present_simple' => [
+            'correct' => "✅ «%option%» правильно, бо в if-клаузі First Conditional для %subject% використовуємо Present Simple дієслова «%verb%».\nПриклад: *%example%*",
+            'past_simple' => "❌ «%option%» — Past Simple. У First Conditional в if-клаузі потрібен Present Simple.\nПриклад: *%example%*",
+            'past_perfect' => "❌ «%option%» — Past Perfect. Для можливої умови в теперішньому вживаємо Present Simple.\nПриклад: *%example%*",
+            'modal_future' => "❌ «%option%» містить will, але will уживаємо лише в головній частині, не після if.\nПриклад: *%example%*",
+            'present_continuous' => "❌ «%option%» — форма Continuous, а First Conditional потребує простого Present Simple.\nПриклад: *%example%*",
+            'present_perfect' => "❌ «%option%» — Present Perfect. Умовна частина First Conditional вимагає простого Present Simple.\nПриклад: *%example%*",
+        ],
+        'result_will' => [
+            'correct' => "✅ «%option%» правильно, бо результат First Conditional утворюємо як will + базова форма дієслова «%verb%».\nПриклад: *%example%*",
+            'second_conditional' => "❌ «%option%» — модель Second Conditional з would. Нам потрібне will для реальної майбутньої ситуації.\nПриклад: *%example%*",
+            'third_conditional' => "❌ «%option%» належить до Third Conditional (would have). У First Conditional використовуємо will + V1.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Результат First Conditional має містити will.\nПриклад: *%example%*",
+        ],
+        'result_will_negative' => [
+            'correct' => "✅ «%option%» правильно, бо заперечення у головній частині First Conditional будується як will not / won't + базова форма «%verb%».\nПриклад: *%example%*",
+            'second_conditional' => "❌ «%option%» — Second Conditional з would. Для реальної майбутньої ситуації потрібне will not / won't.\nПриклад: *%example%*",
+            'third_conditional' => "❌ «%option%» — Third Conditional (would not have). У First Conditional використовуємо просту форму will not + V1.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Результат First Conditional має містити will (not).\nПриклад: *%example%*",
+        ],
+        'result_will_question' => [
+            'correct' => "✅ «%option%» правильно, бо у питальній формі First Conditional ставимо will перед підметом «%subject%» та вживаємо базову форму «%verb%».\nПриклад: *%example%*",
+            'second_conditional' => "❌ «%option%» — Second Conditional з would. Для ймовірного майбутнього запитання потрібне will.\nПриклад: *%example%*",
+            'third_conditional' => "❌ «%option%» — Third Conditional (would have). У First Conditional питання будуємо з will.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Питання результату First Conditional потребує will + підмет.\nПриклад: *%example%*",
+        ],
+        'result_would' => [
+            'correct' => "✅ «%option%» правильно, бо у Second Conditional результат виражаємо через would + базову форму «%verb%».\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» використовує will, що характерно для First Conditional. Тут потрібне would.\nПриклад: *%example%*",
+            'third_conditional' => "❌ «%option%» — Third Conditional (would have). У Second Conditional беремо would + V1.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Результат Second Conditional формується за допомогою would.\nПриклад: *%example%*",
+        ],
+        'if_past_simple_subjunctive' => [
+            'correct' => "✅ «%option%» правильно, бо в Second Conditional для дієслова to be після if використовуємо were з усіма особами.\nПриклад: *%example%*",
+            'singular_agreement' => "❌ «%option%» виглядає граматично, але в гіпотетичному if-реченні потрібно were навіть із I/he/she/it.\nПриклад: *%example%*",
+            'past_perfect' => "❌ «%option%» — Past Perfect. Для теперішньої нереальної умови потрібен Past Simple (were).\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Другий умовний вимагає Past Simple (were).\nПриклад: *%example%*",
+        ],
+        'if_past_perfect' => [
+            'correct' => "✅ «%option%» правильно, бо в if-клаузі Third Conditional для %subject% потрібна форма **had + V3** (або had not + V3).\nПриклад: *%example%*",
+            'past_simple' => "❌ «%option%» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *%example%*",
+            'present_perfect' => "❌ «%option%» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *%example%*",
+            'result_clause' => "❌ «%option%» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *%example%*",
+            'continuous' => "❌ «%option%» — форма Continuous. Для умовної частини Third Conditional необхідний простий Past Perfect.\nПриклад: *%example%*",
+        ],
+        'result_would_have' => [
+            'correct' => "✅ «%option%» правильно, бо результат Third Conditional будуємо як would have + V3.\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» — форма will, що характерна для First Conditional. Тут потрібне would have + V3.\nПриклад: *%example%*",
+            'second_conditional' => "❌ «%option%» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *%example%*",
+            'present_perfect' => "❌ «%option%» — Present Perfect. Для умовного результату в минулому треба would have + V3.\nПриклад: *%example%*",
+            'continuous' => "❌ «%option%» — форма Continuous. Стандартний результат третього умовного – would have + V3.\nПриклад: *%example%*",
+        ],
+        'result_would_not_have' => [
+            'correct' => "✅ «%option%» правильно, бо заперечення третього умовного утворюємо як would not have + V3.\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» — це Future/First Conditional із will not. Для минулого результату потрібне would not have + V3.\nПриклад: *%example%*",
+            'past_simple' => "❌ «%option%» — Past Simple. Третій умовний вимагає would not have + V3.\nПриклад: *%example%*",
+            'missing_have' => "❌ «%option%» пропускає have після would not, тож не утворює Third Conditional.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Результат третього умовного описує минуле через would not have + V3.\nПриклад: *%example%*",
+        ],
+    ];
+
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Conditionals'])->id;
@@ -150,6 +225,65 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         }
 
         $this->seedQuestionData($items, $meta);
+    }
+
+    private function buildHint(string $type, array $context, string $example): string
+    {
+        $template = $this->hintTemplates[$type] ?? "Час: Conditionals.\nПояснення: оберіть форму, що відповідає правилу для цього типу умовного.\nПриклад: *%example%*";
+
+        return $this->renderTemplate($template, [
+            'subject' => $context['subject'] ?? '',
+            'verb' => $context['verb'] ?? '',
+            'example' => $example,
+            'option' => '',
+        ]);
+    }
+
+    private function buildExplanation(string $type, string $reason, string $option, array $context, string $example): string
+    {
+        $templates = $this->explanationTemplates[$type] ?? [];
+        $template = $templates[$reason] ?? ($templates['default'] ?? "❌ Неправильна форма.\nПриклад: *%example%*");
+
+        return $this->renderTemplate($template, [
+            'option' => $option,
+            'subject' => $context['subject'] ?? '',
+            'verb' => $context['verb'] ?? '',
+            'example' => $example,
+        ]);
+    }
+
+    private function renderTemplate(string $template, array $context): string
+    {
+        $replacements = [
+            '%option%' => $context['option'] ?? '',
+            '%verb%' => $context['verb'] ?? '',
+            '%example%' => $context['example'] ?? '',
+            '%subject%' => $this->subjectPhrase($context['subject'] ?? ''),
+        ];
+
+        return trim(strtr($template, $replacements));
+    }
+
+    private function subjectPhrase(?string $subject): string
+    {
+        $subject = trim((string) $subject);
+
+        if ($subject === '') {
+            return 'цього підмета';
+        }
+
+        $normalized = mb_strtolower($subject, 'UTF-8');
+
+        return match ($normalized) {
+            'i' => 'займенника «I»',
+            'you' => 'займенника «you»',
+            'he' => 'займенника «he»',
+            'she' => 'займенника «she»',
+            'it' => 'займенника «it»',
+            'we' => 'займенника «we»',
+            'they' => 'займенника «they»',
+            default => 'підмета «' . $subject . '»',
+        };
     }
 
     private function questionEntries(): array
