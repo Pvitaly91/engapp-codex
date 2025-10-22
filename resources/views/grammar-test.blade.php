@@ -27,6 +27,10 @@
         $recentCategoryIds = collect($recentCategoryIds ?? [])->filter()->values();
         $recentSourceIds = collect($recentSourceIds ?? [])->filter()->values();
         $recentSeederClasses = collect($recentSeederClasses ?? [])->filter()->values();
+        $recentTagOrdinals = collect($recentTagOrdinals ?? []);
+        $recentCategoryOrdinals = collect($recentCategoryOrdinals ?? []);
+        $recentSourceOrdinals = collect($recentSourceOrdinals ?? []);
+        $recentSeederOrdinals = collect($recentSeederOrdinals ?? []);
 
         $seederGroups = $seederClasses
             ->map(function ($className) use ($seederSourceMap) {
@@ -118,6 +122,7 @@
                                             $displaySeederName = $className;
                                         }
                                         $seederIsNew = $recentSeederClasses->contains($className);
+                                        $seederOrdinal = $recentSeederOrdinals->get($className);
                                     @endphp
                                     <div x-data="{
                                             open: {{ $groupIsActive ? 'true' : 'false' }},
@@ -153,7 +158,9 @@
                                                 <span class="truncate flex items-center gap-2" title="{{ $className }}">
                                                     <span class="truncate">{{ $displaySeederName }}</span>
                                                     @if($seederIsNew)
-                                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                                            Новий{{ !is_null($seederOrdinal) ? ' #' . $seederOrdinal : '' }}
+                                                        </span>
                                                     @endif
                                                 </span>
                                             </label>
@@ -176,6 +183,7 @@
                                                         @php
                                                             $sourceIsSelected = $selectedSourceCollection->contains($source->id);
                                                             $sourceIsNew = $recentSourceIds->contains($source->id);
+                                                            $sourceOrdinal = $recentSourceOrdinals->get($source->id);
                                                         @endphp
                                                         <label @class([
                                                             'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
@@ -188,7 +196,9 @@
                                                             <span class="whitespace-normal break-words flex items-center gap-2 flex-wrap">
                                                                 <span>{{ $source->name }} (ID: {{ $source->id }})</span>
                                                                 @if($sourceIsNew)
-                                                                    <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                                    <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                                                        Новий{{ !is_null($sourceOrdinal) ? ' #' . $sourceOrdinal : '' }}
+                                                                    </span>
                                                                 @endif
                                                             </span>
                                                         </label>
@@ -232,6 +242,7 @@
                                         $groupIsActive = $groupHasSelectedSources || $categoryIsSelected;
                                         $categoryInputId = 'category-' . $categoryId;
                                         $categoryIsNew = $recentCategoryIds->contains($categoryId);
+                                        $categoryOrdinal = $recentCategoryOrdinals->get($categoryId);
                                     @endphp
                                     <div x-data="{ open: {{ $groupIsActive ? 'true' : 'false' }} }"
                                          @class([
@@ -252,7 +263,9 @@
                                                 <span class="truncate flex items-center gap-2">
                                                     <span class="truncate">{{ ucfirst($category->name) }} (ID: {{ $categoryId }})</span>
                                                     @if($categoryIsNew)
-                                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                                            Новий{{ !is_null($categoryOrdinal) ? ' #' . $categoryOrdinal : '' }}
+                                                        </span>
                                                     @endif
                                                 </span>
                                             </label>
@@ -271,6 +284,7 @@
                                                     @php
                                                         $sourceIsSelected = $selectedSourceCollection->contains($source->id);
                                                         $sourceIsNew = $recentSourceIds->contains($source->id);
+                                                        $sourceOrdinal = $recentSourceOrdinals->get($source->id);
                                                     @endphp
                                                     <label @class([
                                                         'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
@@ -283,7 +297,9 @@
                                                         <span class="whitespace-normal break-words flex items-center gap-2 flex-wrap">
                                                             <span>{{ $source->name }} (ID: {{ $source->id }})</span>
                                                             @if($sourceIsNew)
-                                                                <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                                <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                                                    Новий{{ !is_null($sourceOrdinal) ? ' #' . $sourceOrdinal : '' }}
+                                                                </span>
                                                             @endif
                                                         </span>
                                                     </label>
@@ -361,13 +377,16 @@
                                             @foreach($tags as $tag)
                                                 @php $tagId = 'tag-' . md5($tag->id . '-' . $tag->name); @endphp
                                                 @php $tagIsNew = $recentTagIds->contains($tag->id); @endphp
+                                                @php $tagOrdinal = $recentTagOrdinals->get($tag->id); @endphp
                                                 <div>
                                                     <input type="checkbox" name="tags[]" value="{{ $tag->name }}" id="{{ $tagId }}" class="hidden peer"
                                                            {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}>
                                                     <label for="{{ $tagId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white flex items-center gap-2">
                                                         <span>{{ $tag->name }}</span>
                                                         @if($tagIsNew)
-                                                            <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                            <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                                                Новий{{ !is_null($tagOrdinal) ? ' #' . $tagOrdinal : '' }}
+                                                            </span>
                                                         @endif
                                                     </label>
                                                 </div>

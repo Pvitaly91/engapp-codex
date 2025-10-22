@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
@@ -1345,12 +1346,22 @@ class GrammarTestController extends Controller
 
         $recentThreshold = now()->subDay();
 
-        $recentTagIds = Schema::hasColumn('tags', 'created_at')
-            ? $tagModels
+        $recentTagIds = collect();
+        $recentTagOrdinals = collect();
+
+        if (Schema::hasColumn('tags', 'created_at')) {
+            $recentTagModels = $tagModels
                 ->filter(fn ($tag) => optional($tag->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->sortByDesc(fn ($tag) => optional($tag->created_at)->timestamp ?? 0)
+                ->values();
+
+            $recentTagIds = $recentTagModels
                 ->pluck('id')
-                ->values()
-            : collect();
+                ->values();
+
+            $recentTagOrdinals = $recentTagModels
+                ->mapWithKeys(fn ($tag, $index) => [$tag->id => $index + 1]);
+        }
 
         $filterService = app(\App\Services\GrammarTestFilterService::class);
         $seederSourceGroups = $filterService->seederSourceGroups();
@@ -1383,19 +1394,39 @@ class GrammarTestController extends Controller
                 ->get()
                 ->keyBy('id');
 
-        $recentSourceIds = Schema::hasColumn('sources', 'created_at')
-            ? $sources
-                ->filter(fn ($source) => optional($source->created_at)->greaterThanOrEqualTo($recentThreshold))
-                ->keys()
-                ->values()
-            : collect();
+        $recentSourceIds = collect();
+        $recentSourceOrdinals = collect();
 
-        $recentCategoryIds = Schema::hasColumn('categories', 'created_at')
-            ? $categoriesDesc
-                ->filter(fn ($category) => optional($category->created_at)->greaterThanOrEqualTo($recentThreshold))
+        if (Schema::hasColumn('sources', 'created_at')) {
+            $recentSourceModels = $sources
+                ->filter(fn ($source) => optional($source->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->sortByDesc(fn ($source) => optional($source->created_at)->timestamp ?? 0)
+                ->values();
+
+            $recentSourceIds = $recentSourceModels
                 ->pluck('id')
-                ->values()
-            : collect();
+                ->values();
+
+            $recentSourceOrdinals = $recentSourceModels
+                ->mapWithKeys(fn ($source, $index) => [$source->id => $index + 1]);
+        }
+
+        $recentCategoryIds = collect();
+        $recentCategoryOrdinals = collect();
+
+        if (Schema::hasColumn('categories', 'created_at')) {
+            $recentCategoryModels = $categoriesDesc
+                ->filter(fn ($category) => optional($category->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->sortByDesc(fn ($category) => optional($category->created_at)->timestamp ?? 0)
+                ->values();
+
+            $recentCategoryIds = $recentCategoryModels
+                ->pluck('id')
+                ->values();
+
+            $recentCategoryOrdinals = $recentCategoryModels
+                ->mapWithKeys(fn ($category, $index) => [$category->id => $index + 1]);
+        }
 
         $sourcesByCategory = $categoriesDesc
             ->mapWithKeys(function ($category) use ($sourceCategoryPairs, $sources) {
@@ -1438,15 +1469,33 @@ class GrammarTestController extends Controller
             ->filter(fn ($group) => filled($group['seeder']))
             ->values();
 
-        $recentSeederClasses = (Schema::hasColumn('questions', 'seeder') && Schema::hasColumn('questions', 'created_at'))
-            ? Question::query()
-                ->select('seeder')
+        $recentSeederClasses = collect();
+        $recentSeederOrdinals = collect();
+
+        if (Schema::hasColumn('questions', 'seeder') && Schema::hasColumn('questions', 'created_at')) {
+            $recentSeederRows = Question::query()
+                ->select('seeder', DB::raw('MAX(created_at) as latest_created_at'))
                 ->whereNotNull('seeder')
                 ->where('created_at', '>=', $recentThreshold)
-                ->distinct()
+                ->groupBy('seeder')
+                ->get()
+                ->map(function ($row) {
+                    $row->latest_created_at = $row->latest_created_at
+                        ? Carbon::parse($row->latest_created_at)
+                        : null;
+
+                    return $row;
+                })
+                ->sortByDesc(fn ($row) => optional($row->latest_created_at)->timestamp ?? 0)
+                ->values();
+
+            $recentSeederClasses = $recentSeederRows
                 ->pluck('seeder')
-                ->values()
-            : collect();
+                ->values();
+
+            $recentSeederOrdinals = $recentSeederRows
+                ->mapWithKeys(fn ($row, $index) => [$row->seeder => $index + 1]);
+        }
 
         return [
             'tagsByCategory' => $tagsByCategory,
@@ -1454,9 +1503,13 @@ class GrammarTestController extends Controller
             'sourcesByCategory' => $sourcesByCategory,
             'seederSourceGroups' => $seederSourceGroups,
             'recentTagIds' => $recentTagIds,
+            'recentTagOrdinals' => $recentTagOrdinals,
             'recentCategoryIds' => $recentCategoryIds,
+            'recentCategoryOrdinals' => $recentCategoryOrdinals,
             'recentSourceIds' => $recentSourceIds,
+            'recentSourceOrdinals' => $recentSourceOrdinals,
             'recentSeederClasses' => $recentSeederClasses,
+            'recentSeederOrdinals' => $recentSeederOrdinals,
         ];
     }
 

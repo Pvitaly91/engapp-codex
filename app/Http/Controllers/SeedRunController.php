@@ -34,6 +34,8 @@ class SeedRunController extends Controller
         $questionsBySeeder = collect();
         $tableExists = Schema::hasTable('seed_runs');
         $executedSeederHierarchy = collect();
+        $recentSeedRunOrdinals = collect();
+        $recentThreshold = now()->subDay();
 
         if ($tableExists) {
             $executedSeeders = DB::table('seed_runs')
@@ -45,6 +47,14 @@ class SeedRunController extends Controller
 
                     return $seedRun;
                 });
+
+            $recentSeedRuns = $executedSeeders
+                ->filter(fn ($seedRun) => optional($seedRun->ran_at)->greaterThanOrEqualTo($recentThreshold))
+                ->sortByDesc(fn ($seedRun) => optional($seedRun->ran_at)->timestamp ?? 0)
+                ->values();
+
+            $recentSeedRunOrdinals = $recentSeedRuns
+                ->mapWithKeys(fn ($seedRun, $index) => [$seedRun->id => $index + 1]);
 
             $executedClasses = $executedSeeders
                 ->pluck('class_name')
@@ -130,6 +140,7 @@ class SeedRunController extends Controller
             'executedSeeders' => $executedSeeders,
             'pendingSeeders' => $pendingSeeders,
             'executedSeederHierarchy' => $executedSeederHierarchy,
+            'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
         ]);
     }
 
