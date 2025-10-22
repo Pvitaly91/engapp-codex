@@ -19,77 +19,73 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
     ];
 
     private array $hintTemplates = [
-        'if_present_simple' => "Час: First Conditional.\nФормула: **if + Present Simple** (для заперечення використовуємо do/does + not).\nПояснення: умовна частина описує можливу ситуацію, тому дієслово «%verb%» ставимо в Present Simple для %subject%.\nПриклад: *%example%*",
-        'result_will' => "Час: First Conditional.\nФормула: **will + base verb**.\nПояснення: результат у First Conditional виражаємо через will + початкову форму дієслова «%verb%».\nПриклад: *%example%*",
-        'result_will_negative' => "Час: First Conditional.\nФормула: **will not / won't + base verb**.\nПояснення: заперечення у головній частині First Conditional утворюємо через will not (won't) + базову форму «%verb%».\nПриклад: *%example%*",
-        'result_will_question' => "Час: First Conditional.\nФормула: **will + subject + base verb** у питальному реченні.\nПояснення: у запитанні результату потрібно використати will перед підметом та базову форму «%verb%».\nПриклад: *%example%*",
-        'result_would' => "Час: Second Conditional.\nФормула: **would + base verb**.\nПояснення: у другому умовному результат виражаємо через would + початкову форму дієслова «%verb%».\nПриклад: *%example%*",
-        'if_past_simple_subjunctive' => "Час: Second Conditional.\nФормула: **if + Past Simple** (для to be використовуємо were з усіма особами).\nПояснення: умовна частина описує нереальну теперішню ситуацію, тож дієслово «%verb%» ставимо в Past Simple / were.\nПриклад: *%example%*",
-        'if_past_perfect' => "Час: Third Conditional.\nФормула: **if + had + V3** (або **had not + V3** для заперечення).\nПояснення: умовна частина описує нереальний минулий результат, тому потрібен Past Perfect від «%verb%».\nПриклад: *%example%*",
-        'result_would_have' => "Час: Third Conditional.\nФормула: **would have + V3**.\nПояснення: головна частина показує результат у минулому, тому використовуємо would have + третю форму дієслова «%verb%».\nПриклад: *%example%*",
-        'result_would_not_have' => "Час: Third Conditional.\nФормула: **would not have + V3** (wouldn't have + V3).\nПояснення: заперечний результат утворюємо через would not have + третю форму дієслова «%verb%».\nПриклад: *%example%*",
+        'if_past_perfect_mixed' => "Час: Mixed Conditional (past condition → present result).\nФормула: **if + had + V3** (для заперечення had not + V3).\nПояснення: умовна частина описує минулу нереальну дію, тому дієслово «%verb%» ставимо у Past Perfect.\nПриклад: *%example%*",
+        'if_past_simple_mixed' => "Час: Mixed Conditional (present condition → past result).\nФормула: **if + Past Simple**.\nПояснення: умовна частина показує нереальний теперішній стан, тому дієслово «%verb%» вживаємо у Past Simple.\nПриклад: *%example%*",
+        'if_past_simple_were' => "Час: Mixed Conditional (present condition → past result).\nФормула: **if + were** з усіма особами.\nПояснення: для умовного were використовуємо форму were навіть із I/he/she/it.\nПриклад: *%example%*",
+        'result_would_present' => "Час: Mixed Conditional (past condition → present result).\nФормула: **would + base verb**.\nПояснення: головна частина описує теперішній наслідок, тому беремо would + початкову форму «%verb%».\nПриклад: *%example%*",
+        'result_would_present_negative' => "Час: Mixed Conditional (past condition → present результат).\nФормула: **would not + base verb**.\nПояснення: заперечення утворюємо через would not (wouldn't) + базову форму «%verb%».\nПриклад: *%example%*",
+        'result_would_present_question' => "Час: Mixed Conditional (past condition → present result).\nФормула: **would + subject + base verb**.\nПояснення: у запитанні ставимо would перед підметом і використовуємо базову форму «%verb%».\nПриклад: *%example%*",
+        'result_would_have_past' => "Час: Mixed Conditional (present condition → past result).\nФормула: **would have + V3**.\nПояснення: результат у минулому передаємо через would have + третю форму дієслова «%verb%».\nПриклад: *%example%*",
+        'result_would_have_negative' => "Час: Mixed Conditional (present condition → past result).\nФормула: **would not have + V3**.\nПояснення: для заперечення додаємо would not (wouldn't) перед have + V3 дієслова «%verb%».\nПриклад: *%example%*",
+        'result_would_have_question' => "Час: Mixed Conditional (present condition → past result).\nФормула: **would + subject + have + V3**.\nПояснення: у питальній формі ставимо would перед підметом і додаємо have + V3 «%verb%».\nПриклад: *%example%*",
     ];
 
     private array $explanationTemplates = [
-        'if_present_simple' => [
-            'correct' => "✅ «%option%» правильно, бо в if-клаузі First Conditional для %subject% використовуємо Present Simple дієслова «%verb%».\nПриклад: *%example%*",
-            'past_simple' => "❌ «%option%» — Past Simple. У First Conditional в if-клаузі потрібен Present Simple.\nПриклад: *%example%*",
-            'past_perfect' => "❌ «%option%» — Past Perfect. Для можливої умови в теперішньому вживаємо Present Simple.\nПриклад: *%example%*",
-            'modal_future' => "❌ «%option%» містить will, але will уживаємо лише в головній частині, не після if.\nПриклад: *%example%*",
-            'present_continuous' => "❌ «%option%» — форма Continuous, а First Conditional потребує простого Present Simple.\nПриклад: *%example%*",
-            'present_perfect' => "❌ «%option%» — Present Perfect. Умовна частина First Conditional вимагає простого Present Simple.\nПриклад: *%example%*",
+        'if_past_perfect_mixed' => [
+            'correct' => "✅ «%option%» правильно: Past Perfect потрібен в умові, що описує минулий факт.\nПриклад: *%example%*",
+            'past_simple' => "❌ «%option%» — це Past Simple. Для змішаного умовного потрібен Past Perfect.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Умова має показувати завершену минулу дію.\nПриклад: *%example%*",
+            'modal_result' => "❌ «%option%» належить до головної частини (would have), а не до if-клауза.\nПриклад: *%example%*",
+            'did_not' => "❌ «%option%» — конструкція з did not, тобто Past Simple. Нам потрібен had not + V3.\nПриклад: *%example%*",
         ],
-        'result_will' => [
-            'correct' => "✅ «%option%» правильно, бо результат First Conditional утворюємо як will + базова форма дієслова «%verb%».\nПриклад: *%example%*",
-            'second_conditional' => "❌ «%option%» — модель Second Conditional з would. Нам потрібне will для реальної майбутньої ситуації.\nПриклад: *%example%*",
-            'third_conditional' => "❌ «%option%» належить до Third Conditional (would have). У First Conditional використовуємо will + V1.\nПриклад: *%example%*",
-            'present_simple' => "❌ «%option%» — Present Simple. Результат First Conditional має містити will.\nПриклад: *%example%*",
+        'if_past_simple_mixed' => [
+            'correct' => "✅ «%option%» правильно: умовна частина описує теперішню нереальність, тож потрібен Past Simple.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Для змішаного умовного використовуємо Past Simple.\nПриклад: *%example%*",
+            'past_perfect' => "❌ «%option%» — Past Perfect. Тут треба простий Past Simple.\nПриклад: *%example%*",
+            'modal_result' => "❌ «%option%» — форма результату з would. В if-клаузі її не використовуємо.\nПриклад: *%example%*",
+            'did_not' => "❌ «%option%» — форма з did not. Для ствердження потрібна проста минула форма.\nПриклад: *%example%*",
         ],
-        'result_will_negative' => [
-            'correct' => "✅ «%option%» правильно, бо заперечення у головній частині First Conditional будується як will not / won't + базова форма «%verb%».\nПриклад: *%example%*",
-            'second_conditional' => "❌ «%option%» — Second Conditional з would. Для реальної майбутньої ситуації потрібне will not / won't.\nПриклад: *%example%*",
-            'third_conditional' => "❌ «%option%» — Third Conditional (would not have). У First Conditional використовуємо просту форму will not + V1.\nПриклад: *%example%*",
-            'present_simple' => "❌ «%option%» — Present Simple. Результат First Conditional має містити will (not).\nПриклад: *%example%*",
+        'if_past_simple_were' => [
+            'correct' => "✅ «%option%» правильно: у нереальних умовах використовуємо were з усіма особами.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Потрібно were для нереальної умови.\nПриклад: *%example%*",
+            'past_perfect' => "❌ «%option%» — Past Perfect. У цьому типі потрібне лише were.\nПриклад: *%example%*",
+            'modal_result' => "❌ «%option%» — частина головного речення з would. В if-клаузі вживаємо were.\nПриклад: *%example%*",
         ],
-        'result_will_question' => [
-            'correct' => "✅ «%option%» правильно, бо у питальній формі First Conditional ставимо will перед підметом «%subject%» та вживаємо базову форму «%verb%».\nПриклад: *%example%*",
-            'second_conditional' => "❌ «%option%» — Second Conditional з would. Для ймовірного майбутнього запитання потрібне will.\nПриклад: *%example%*",
-            'third_conditional' => "❌ «%option%» — Third Conditional (would have). У First Conditional питання будуємо з will.\nПриклад: *%example%*",
-            'present_simple' => "❌ «%option%» — Present Simple. Питання результату First Conditional потребує will + підмет.\nПриклад: *%example%*",
+        'result_would_present' => [
+            'correct' => "✅ «%option%» правильно: теперішній наслідок змішаного умовного передаємо через would + V1.\nПриклад: *%example%*",
+            'past_result' => "❌ «%option%» — форма з would have, яка показує минулий результат. Тут ідеться про теперішній наслідок.\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» — конструкція з will, типова для First Conditional. Нам потрібен would.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple. Змішане умовне потребує would + V1.\nПриклад: *%example%*",
         ],
-        'result_would' => [
-            'correct' => "✅ «%option%» правильно, бо у Second Conditional результат виражаємо через would + базову форму «%verb%».\nПриклад: *%example%*",
-            'first_conditional' => "❌ «%option%» використовує will, що характерно для First Conditional. Тут потрібне would.\nПриклад: *%example%*",
-            'third_conditional' => "❌ «%option%» — Third Conditional (would have). У Second Conditional беремо would + V1.\nПриклад: *%example%*",
-            'present_simple' => "❌ «%option%» — Present Simple. Результат Second Conditional формується за допомогою would.\nПриклад: *%example%*",
+        'result_would_present_negative' => [
+            'correct' => "✅ «%option%» правильно: заперечний теперішній наслідок подаємо як would not + V1.\nПриклад: *%example%*",
+            'past_result' => "❌ «%option%» — форма would not have, яка описує минулий результат.\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» — конструкція will not, характерна для First Conditional.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple, а нам потрібне would not + V1.\nПриклад: *%example%*",
         ],
-        'if_past_simple_subjunctive' => [
-            'correct' => "✅ «%option%» правильно, бо в Second Conditional для дієслова to be після if використовуємо were з усіма особами.\nПриклад: *%example%*",
-            'singular_agreement' => "❌ «%option%» виглядає граматично, але в гіпотетичному if-реченні потрібно were навіть із I/he/she/it.\nПриклад: *%example%*",
-            'past_perfect' => "❌ «%option%» — Past Perfect. Для теперішньої нереальної умови потрібен Past Simple (were).\nПриклад: *%example%*",
-            'present_simple' => "❌ «%option%» — Present Simple. Другий умовний вимагає Past Simple (were).\nПриклад: *%example%*",
+        'result_would_present_question' => [
+            'correct' => "✅ «%option%» правильно: у запитанні ставимо would перед підметом і вживаємо базову форму.\nПриклад: *%example%*",
+            'past_result' => "❌ «%option%» — форма would have, яка стосується минулого результату.\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» — конструкція will, характерна для First Conditional.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple без допоміжного would.\nПриклад: *%example%*",
         ],
-        'if_past_perfect' => [
-            'correct' => "✅ «%option%» правильно, бо в if-клаузі Third Conditional для %subject% потрібна форма **had + V3** (або had not + V3).\nПриклад: *%example%*",
-            'past_simple' => "❌ «%option%» — Past Simple. Умовна частина Third Conditional вимагає **had + V3**, щоб показати попередню дію.\nПриклад: *%example%*",
-            'present_perfect' => "❌ «%option%» — Present Perfect. Потрібен Past Perfect із had + V3 для минулої умови.\nПриклад: *%example%*",
-            'result_clause' => "❌ «%option%» містить would, а це форма для головної частини. В if-клаузі слід ужити **had + V3**.\nПриклад: *%example%*",
-            'present_simple' => "❌ «%option%» — Present Simple. Третій умовний описує минуле й потребує **had + V3**.\nПриклад: *%example%*",
-            'continuous' => "❌ «%option%» — форма Continuous. Для умовної частини Third Conditional необхідний простий Past Perfect.\nПриклад: *%example%*",
+        'result_would_have_past' => [
+            'correct' => "✅ «%option%» правильно: минулий наслідок виражаємо як would have + V3.\nПриклад: *%example%*",
+            'present_result' => "❌ «%option%» — форма would + V1 показує теперішній результат.\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» — will + V1 належить до First Conditional.\nПриклад: *%example%*",
+            'past_simple' => "❌ «%option%» — Past Simple. Для результату потрібне would have + V3.\nПриклад: *%example%*",
         ],
-        'result_would_have' => [
-            'correct' => "✅ «%option%» правильно, бо результат Third Conditional будуємо як would have + V3.\nПриклад: *%example%*",
-            'first_conditional' => "❌ «%option%» — форма will, що характерна для First Conditional. Тут потрібне would have + V3.\nПриклад: *%example%*",
-            'second_conditional' => "❌ «%option%» — Second Conditional (would + V1) для теперішніх/майбутніх гіпотез. Тут потрібне would have + V3.\nПриклад: *%example%*",
-            'present_perfect' => "❌ «%option%» — Present Perfect. Для умовного результату в минулому треба would have + V3.\nПриклад: *%example%*",
-            'continuous' => "❌ «%option%» — форма Continuous. Стандартний результат третього умовного – would have + V3.\nПриклад: *%example%*",
+        'result_would_have_negative' => [
+            'correct' => "✅ «%option%» правильно: заперечний минулий результат утворюємо як would not have + V3.\nПриклад: *%example%*",
+            'present_result' => "❌ «%option%» — форма would not + V1 описує теперішній наслідок.\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» — will not + V1, характерна для First Conditional.\nПриклад: *%example%*",
+            'missing_have' => "❌ «%option%» — пропущено have, тому конструкція не формує минулий результат.\nПриклад: *%example%*",
         ],
-        'result_would_not_have' => [
-            'correct' => "✅ «%option%» правильно, бо заперечення третього умовного утворюємо як would not have + V3.\nПриклад: *%example%*",
-            'first_conditional' => "❌ «%option%» — це Future/First Conditional із will not. Для минулого результату потрібне would not have + V3.\nПриклад: *%example%*",
-            'past_simple' => "❌ «%option%» — Past Simple. Третій умовний вимагає would not have + V3.\nПриклад: *%example%*",
-            'missing_have' => "❌ «%option%» пропускає have після would not, тож не утворює Third Conditional.\nПриклад: *%example%*",
-            'present_simple' => "❌ «%option%» — Present Simple. Результат третього умовного описує минуле через would not have + V3.\nПриклад: *%example%*",
+        'result_would_have_question' => [
+            'correct' => "✅ «%option%» правильно: у запитанні до минулого результату ставимо would перед підметом і додаємо have + V3.\nПриклад: *%example%*",
+            'present_result' => "❌ «%option%» — форма would + V1 описує теперішній наслідок.\nПриклад: *%example%*",
+            'first_conditional' => "❌ «%option%» — конструкція will, характерна для First Conditional.\nПриклад: *%example%*",
+            'present_simple' => "❌ «%option%» — Present Simple без допоміжного would.\nПриклад: *%example%*",
         ],
     ];
 
@@ -116,14 +112,13 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         )->id;
 
         $structureTagId = Tag::firstOrCreate(
-            ['name' => 'Conditional Sentences Type 1-3'],
+            ['name' => 'Mixed Conditional Type 4'],
             ['category' => 'English Grammar Structure']
         )->id;
 
         $tenseTagIds = [
-            'First Conditional' => Tag::firstOrCreate(['name' => 'First Conditional'], ['category' => 'Tenses'])->id,
-            'Second Conditional' => Tag::firstOrCreate(['name' => 'Second Conditional'], ['category' => 'Tenses'])->id,
-            'Third Conditional' => Tag::firstOrCreate(['name' => 'Third Conditional'], ['category' => 'Tenses'])->id,
+            'Mixed Conditional (Past→Present)' => Tag::firstOrCreate(['name' => 'Mixed Conditional (Past→Present)'], ['category' => 'Tenses'])->id,
+            'Mixed Conditional (Present→Past)' => Tag::firstOrCreate(['name' => 'Mixed Conditional (Present→Past)'], ['category' => 'Tenses'])->id,
         ];
 
         $items = [];
@@ -229,7 +224,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
 
     private function buildHint(string $type, array $context, string $example): string
     {
-        $template = $this->hintTemplates[$type] ?? "Час: Conditionals.\nПояснення: оберіть форму, що відповідає правилу для цього типу умовного.\nПриклад: *%example%*";
+        $template = $this->hintTemplates[$type] ?? "Час: Mixed Conditional.\nПояснення: доберіть форму, що відповідає правилу цього типу умовного.\nПриклад: *%example%*";
 
         return $this->renderTemplate($template, [
             'subject' => $context['subject'] ?? '',
@@ -302,268 +297,271 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
     {
         $entries = [];
 
-        // Negative tasks (6)
+        // Negative focus (6)
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['First Conditional'],
-            'If it {a1} tonight, we {a2} outside.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} my umbrella yesterday, I {a2} wet now.',
             [
-                'a1' => $this->ifPresentSimple('it', $this->forms('rain', 'rained', 'rained')),
-                'a2' => $this->resultWillNegative('we', $this->forms('play', 'played', 'played')),
-            ]
-        );
-
-        $entries[] = $this->makeEntry(
-            'A1',
-            'negative',
-            ['First Conditional'],
-            'If you {a1} your lunch, you {a2} hungry later.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('forget', 'forgot', 'forgotten')),
-                'a2' => $this->resultWillNegative('you', $this->forms('feel', 'felt', 'felt')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('take', 'took', 'taken')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Second Conditional'],
-            'If I {a1} rich, I {a2} in this tiny flat.',
+            ['Mixed Conditional (Past→Present)'],
+            'If he {a1} breakfast, he {a2} hungry now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('live', 'lived', 'lived'), true),
+                'a1' => $this->ifPastPerfectMixed('he', $this->forms('eat', 'ate', 'eaten')),
+                'a2' => $this->resultWouldPresent('he', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Second Conditional'],
-            'If she {a1} more patient, she {a2} upset so often.',
+            ['Mixed Conditional (Past→Present)'],
+            'If we {a1} the door last night, we {a2} worried now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('get', 'got', 'gotten'), true),
+                'a1' => $this->ifPastPerfectMixed('we', $this->forms('lock', 'locked', 'locked')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('be', 'were', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Third Conditional'],
-            'If they {a1} earlier, they {a2} the first train.',
+            ['Mixed Conditional (Past→Present)'],
+            'If they {a1} the lights off last night, they {a2} a big bill now.',
             [
-                'a1' => $this->ifPastPerfect('they', $this->forms('leave', 'left', 'left')),
-                'a2' => $this->resultWouldHave('they', $this->forms('miss', 'missed', 'missed'), true),
+                'a1' => $this->ifPastPerfectMixed('they', $this->forms('turn', 'turned', 'turned')),
+                'a2' => $this->resultWouldPresent('they', $this->forms('owe', 'owed', 'owed'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Third Conditional'],
-            'If we {a1} the alarm, we {a2} late for school.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Sara {a1} the note, she {a2} confused now.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('set', 'set', 'set')),
-                'a2' => $this->resultWouldHave('we', $this->forms('be', 'were', 'been'), true),
-            ]
-        );
-
-        // Question tasks (6)
-        $entries[] = $this->makeEntry(
-            'A1',
-            'question',
-            ['First Conditional'],
-            'If he {a1} the meeting, {a2} the online call?',
-            [
-                'a1' => $this->ifPresentSimple('he', $this->forms('cancel', 'canceled', 'canceled')),
-                'a2' => $this->resultWillQuestion('you', $this->forms('join', 'joined', 'joined')),
+                'a1' => $this->ifPastPerfectMixed('Sara', $this->forms('read', 'read', 'read')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
-            'question',
-            ['First Conditional'],
-            'If you {a1} the answer, {a2} me right away?',
+            'negative',
+            ['Mixed Conditional (Past→Present)'],
+            'If the bus driver {a1} attention yesterday, the passengers {a2} nervous now.',
             [
-                'a1' => $this->ifPresentSimple('you', $this->forms('find', 'found', 'found')),
-                'a2' => $this->resultWillQuestion('you', $this->forms('call', 'called', 'called')),
+                'a1' => $this->ifPastPerfectMixed('the bus driver', $this->forms('pay', 'paid', 'paid')),
+                'a2' => $this->resultWouldPresent('the passengers', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
+        // Question focus (6)
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Second Conditional'],
-            'If he {a1} taller, would you ask him to reach the shelf?',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} earlier, {a2} enough time now?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('leave', 'left', 'left')),
+                'a2' => $this->resultWouldPresentQuestion('you', $this->forms('have', 'had', 'had')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Second Conditional'],
-            'If I {a1} free this weekend, would you study with me?',
+            ['Mixed Conditional (Present→Past)'],
+            'If he {a1} more careful, {a2} his keys yesterday?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
+                'a1' => $this->ifPastSimpleWere('he'),
+                'a2' => $this->resultWouldHaveQuestion('he', $this->forms('lose', 'lost', 'lost')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Third Conditional'],
-            'If they {a1} earlier, would you have opened the shop?',
+            ['Mixed Conditional (Present→Past)'],
+            'If the weather {a1} warmer, {a2} the picnic last weekend?',
             [
-                'a1' => $this->ifPastPerfect('they', $this->forms('arrive', 'arrived', 'arrived')),
+                'a1' => $this->ifPastSimpleWere('it'),
+                'a2' => $this->resultWouldHaveQuestion('we', $this->forms('cancel', 'cancelled', 'cancelled')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Third Conditional'],
-            'If she {a1} the warning, would you have felt safer?',
+            ['Mixed Conditional (Past→Present)'],
+            'If Lisa {a1} her lessons, {a2} confident now?',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('hear', 'heard', 'heard')),
-            ]
-        );
-
-        // Future-focused affirmatives (4)
-        $entries[] = $this->makeEntry(
-            'A1',
-            'future',
-            ['First Conditional'],
-            'If you {a1} your ticket now, you {a2} a seat near the stage.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('buy', 'bought', 'bought')),
-                'a2' => $this->resultWill('you', $this->forms('get', 'got', 'gotten')),
+                'a1' => $this->ifPastPerfectMixed('Lisa', $this->forms('finish', 'finished', 'finished')),
+                'a2' => $this->resultWouldPresentQuestion('Lisa', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
-            'future',
-            ['First Conditional'],
-            'If we {a1} the map, we {a2} to the museum easily.',
+            'question',
+            ['Mixed Conditional (Past→Present)'],
+            'If they {a1} the map, {a2} lost now?',
             [
-                'a1' => $this->ifPresentSimple('we', $this->forms('follow', 'followed', 'followed')),
-                'a2' => $this->resultWill('we', $this->forms('walk', 'walked', 'walked')),
+                'a1' => $this->ifPastPerfectMixed('they', $this->forms('check', 'checked', 'checked')),
+                'a2' => $this->resultWouldPresentQuestion('they', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
-            'future',
-            ['First Conditional'],
-            'If he {a1} help, I {a2} a spare pencil.',
+            'question',
+            ['Mixed Conditional (Present→Past)'],
+            'If we {a1} more polite, {a2} an apology yesterday?',
             [
-                'a1' => $this->ifPresentSimple('he', $this->forms('need', 'needed', 'needed')),
-                'a2' => $this->resultWill('I', $this->forms('lend', 'lent', 'lent')),
+                'a1' => $this->ifPastSimpleWere('we'),
+                'a2' => $this->resultWouldHaveQuestion('we', $this->forms('receive', 'received', 'received')),
             ]
         );
 
-        $entries[] = $this->makeEntry(
-            'A1',
-            'future',
-            ['First Conditional'],
-            'If they {a1} early, they {a2} breakfast together.',
-            [
-                'a1' => $this->ifPresentSimple('they', $this->forms('arrive', 'arrived', 'arrived')),
-                'a2' => $this->resultWill('they', $this->forms('have', 'had', 'had')),
-            ]
-        );
-
-        // Present-focused hypotheticals (4)
+        // Present-result focus (6)
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Second Conditional'],
-            'If I {a1} free this afternoon, I {a2} a guitar lesson online.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} earlier, I {a2} ready now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('take', 'took', 'taken')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('wake', 'woke', 'woken')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('be', 'was', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Second Conditional'],
-            'If he {a1} the boss, he {a2} shorter meetings.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the bus on time, you {a2} at home now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
-                'a2' => $this->resultWould('he', $this->forms('schedule', 'scheduled', 'scheduled')),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('catch', 'caught', 'caught')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Second Conditional'],
-            'If they {a1} closer to us, we {a2} tea every week.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Mia {a1} the words, she {a2} happy now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
-                'a2' => $this->resultWould('we', $this->forms('share', 'shared', 'shared')),
+                'a1' => $this->ifPastPerfectMixed('Mia', $this->forms('learn', 'learned', 'learned')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Second Conditional'],
-            'If she {a1} more confident, she {a2} her ideas clearly.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the team {a1} earlier, they {a2} calm now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('explain', 'explained', 'explained')),
-            ]
-        );
-
-        // Past-focused conditionals (4)
-        $entries[] = $this->makeEntry(
-            'A1',
-            'past',
-            ['Third Conditional'],
-            'If they {a1} the sign, they {a2} the wrong turn.',
-            [
-                'a1' => $this->ifPastPerfect('they', $this->forms('notice', 'noticed', 'noticed')),
-                'a2' => $this->resultWouldHave('they', $this->forms('avoid', 'avoided', 'avoided')),
+                'a1' => $this->ifPastPerfectMixed('the team', $this->forms('arrive', 'arrived', 'arrived')),
+                'a2' => $this->resultWouldPresent('the team', $this->forms('be', 'was', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
-            'past',
-            ['Third Conditional'],
-            'If I {a1} earlier, I {a2} breakfast with you.',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If Tom {a1} his bike last week, he {a2} to school now.',
             [
-                'a1' => $this->ifPastPerfect('I', $this->forms('wake', 'woke', 'woken')),
-                'a2' => $this->resultWouldHave('I', $this->forms('eat', 'ate', 'eaten')),
+                'a1' => $this->ifPastPerfectMixed('Tom', $this->forms('fix', 'fixed', 'fixed')),
+                'a2' => $this->resultWouldPresent('he', $this->forms('ride', 'rode', 'ridden')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'A1',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If the shop {a1} more bread, it {a2} customers now.',
+            [
+                'a1' => $this->ifPastPerfectMixed('the shop', $this->forms('order', 'ordered', 'ordered')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('have', 'had', 'had')),
+            ]
+        );
+
+        // Past-result focus (6)
+        $entries[] = $this->makeEntry(
+            'A1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If she {a1} kinder, she {a2} that argument yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('she'),
+                'a2' => $this->resultWouldHave('she', $this->forms('avoid', 'avoided', 'avoided')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'past',
-            ['Third Conditional'],
-            'If she {a1} the number, she {a2} you back.',
+            ['Mixed Conditional (Present→Past)'],
+            'If they {a1} more careful, they {a2} the crack yesterday.',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('save', 'saved', 'saved')),
-                'a2' => $this->resultWouldHave('she', $this->forms('call', 'called', 'called')),
+                'a1' => $this->ifPastSimpleMixed('they', $this->forms('listen', 'listened', 'listened')),
+                'a2' => $this->resultWouldHave('they', $this->forms('notice', 'noticed', 'noticed')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A1',
             'past',
-            ['Third Conditional'],
-            'If we {a1} the tickets, we {a2} the concert.',
+            ['Mixed Conditional (Present→Past)'],
+            'If we {a1} taller, we {a2} the shelf yesterday.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('buy', 'bought', 'bought')),
-                'a2' => $this->resultWouldHave('we', $this->forms('enjoy', 'enjoyed', 'enjoyed')),
+                'a1' => $this->ifPastSimpleWere('we'),
+                'a2' => $this->resultWouldHave('we', $this->forms('reach', 'reached', 'reached')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'A1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If I {a1} more confident, I {a2} the question yesterday.',
+            [
+                'a1' => $this->ifPastSimpleMixed('I', $this->forms('feel', 'felt', 'felt')),
+                'a2' => $this->resultWouldHave('I', $this->forms('ask', 'asked', 'asked')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'A1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If the teacher {a1} patient, the class {a2} the test yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('the teacher'),
+                'a2' => $this->resultWouldHave('the class', $this->forms('finish', 'finished', 'finished')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'A1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If your brother {a1} polite, he {a2} the door for grandma yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('your brother'),
+                'a2' => $this->resultWouldHave('he', $this->forms('open', 'opened', 'opened')),
             ]
         );
 
@@ -574,268 +572,271 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
     {
         $entries = [];
 
-        // Negative tasks (6)
+        // Negative focus (6)
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['First Conditional'],
-            'If the team members {a1} the strategy today, they {a2} the match tomorrow.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} two alarms, I {a2} late now.',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('review', 'reviewed', 'reviewed'), true),
-                'a2' => $this->resultWillNegative('they', $this->forms('win', 'won', 'won')),
-            ]
-        );
-
-        $entries[] = $this->makeEntry(
-            'A2',
-            'negative',
-            ['First Conditional'],
-            'If you {a1} the blinds before bed, the plants {a2} enough warmth.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('close', 'closed', 'closed')),
-                'a2' => $this->resultWillNegative('they', $this->forms('receive', 'received', 'received')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('set', 'set', 'set')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Second Conditional'],
-            'If I {a1} more patient, I {a2} the project timeline.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} your phone, it {a2} silent now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('rush', 'rushed', 'rushed'), true),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('charge', 'charged', 'charged')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Second Conditional'],
-            'If she {a1} calmer during feedback, she {a2} every rumour.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Nina {a1} the address, she {a2} lost now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('repeat', 'repeated', 'repeated'), true),
+                'a1' => $this->ifPastPerfectMixed('Nina', $this->forms('save', 'saved', 'saved')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Third Conditional'],
-            'If they {a1} the contract carefully, they {a2} the hidden fee.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the children {a1} the table, they {a2} stressed now.',
             [
-                'a1' => $this->ifPastPerfect('they', $this->forms('read', 'read', 'read')),
-                'a2' => $this->resultWouldHave('they', $this->forms('miss', 'missed', 'missed'), true),
+                'a1' => $this->ifPastPerfectMixed('the children', $this->forms('clear', 'cleared', 'cleared')),
+                'a2' => $this->resultWouldPresent('they', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Third Conditional'],
-            'If we {a1} the alarms last week, we {a2} so confused.',
+            ['Mixed Conditional (Past→Present)'],
+            'If our coach {a1} the tactic, we {a2} confused now.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('test', 'tested', 'tested')),
-                'a2' => $this->resultWouldHave('we', $this->forms('feel', 'felt', 'felt'), true),
-            ]
-        );
-
-        // Question tasks (6)
-        $entries[] = $this->makeEntry(
-            'A2',
-            'question',
-            ['First Conditional'],
-            'If your mentor {a1} you tomorrow, {a2} the presentation?',
-            [
-                'a1' => $this->ifPresentSimple('he', $this->forms('call', 'called', 'called')),
-                'a2' => $this->resultWillQuestion('you', $this->forms('finish', 'finished', 'finished')),
+                'a1' => $this->ifPastPerfectMixed('our coach', $this->forms('explain', 'explained', 'explained')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('be', 'were', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
-            'question',
-            ['First Conditional'],
-            'If the forecast {a1} snow, {a2} classes move online?',
+            'negative',
+            ['Mixed Conditional (Past→Present)'],
+            'If the train operator {a1} the brakes, the passengers {a2} afraid now.',
             [
-                'a1' => $this->ifPresentSimple('it', $this->forms('show', 'showed', 'shown')),
-                'a2' => $this->resultWillQuestion('they', $this->forms('move', 'moved', 'moved')),
+                'a1' => $this->ifPastPerfectMixed('the train operator', $this->forms('check', 'checked', 'checked')),
+                'a2' => $this->resultWouldPresent('the passengers', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
+        // Question focus (6)
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Second Conditional'],
-            'If she {a1} less shy, would you invite her to speak?',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the invitation, {a2} ready now?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('read', 'read', 'read')),
+                'a2' => $this->resultWouldPresentQuestion('you', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Second Conditional'],
-            'If we {a1} closer, would you visit more often?',
+            ['Mixed Conditional (Present→Past)'],
+            'If Martin {a1} more polite, {a2} an apology yesterday?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('we'),
+                'a1' => $this->ifPastSimpleWere('Martin'),
+                'a2' => $this->resultWouldHaveQuestion('Martin', $this->forms('send', 'sent', 'sent')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Third Conditional'],
-            'If they {a1} the alarm, would you have stayed longer?',
+            ['Mixed Conditional (Present→Past)'],
+            'If the roads {a1} clear, {a2} the delivery yesterday?',
             [
-                'a1' => $this->ifPastPerfect('they', $this->forms('hear', 'heard', 'heard')),
+                'a1' => $this->ifPastSimpleWere('the roads'),
+                'a2' => $this->resultWouldHaveQuestion('the driver', $this->forms('make', 'made', 'made')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Third Conditional'],
-            'If I {a1} your message earlier, would you have joined the call?',
+            ['Mixed Conditional (Past→Present)'],
+            'If we {a1} earlier, {a2} inside the museum now?',
             [
-                'a1' => $this->ifPastPerfect('I', $this->forms('see', 'saw', 'seen')),
-            ]
-        );
-
-        // Future-focused affirmatives (4)
-        $entries[] = $this->makeEntry(
-            'A2',
-            'future',
-            ['First Conditional'],
-            'If you {a1} the rehearsal schedule, you {a2} time for a break.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('organize', 'organized', 'organized')),
-                'a2' => $this->resultWill('you', $this->forms('have', 'had', 'had')),
+                'a1' => $this->ifPastPerfectMixed('we', $this->forms('arrive', 'arrived', 'arrived')),
+                'a2' => $this->resultWouldPresentQuestion('we', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
-            'future',
-            ['First Conditional'],
-            'If they {a1} the donations today, they {a2} supplies to the shelter.',
+            'question',
+            ['Mixed Conditional (Past→Present)'],
+            'If Ana {a1} her notes, {a2} the answer now?',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('collect', 'collected', 'collected')),
-                'a2' => $this->resultWill('they', $this->forms('deliver', 'delivered', 'delivered')),
+                'a1' => $this->ifPastPerfectMixed('Ana', $this->forms('organize', 'organized', 'organized')),
+                'a2' => $this->resultWouldPresentQuestion('she', $this->forms('remember', 'remembered', 'remembered')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
-            'future',
-            ['First Conditional'],
-            'If he {a1} the invitation, he {a2} the seminar on time.',
+            'question',
+            ['Mixed Conditional (Present→Past)'],
+            'If the manager {a1} helpful, {a2} a refund yesterday?',
             [
-                'a1' => $this->ifPresentSimple('he', $this->forms('accept', 'accepted', 'accepted')),
-                'a2' => $this->resultWill('he', $this->forms('attend', 'attended', 'attended')),
+                'a1' => $this->ifPastSimpleWere('the manager'),
+                'a2' => $this->resultWouldHaveQuestion('you', $this->forms('receive', 'received', 'received')),
             ]
         );
 
-        $entries[] = $this->makeEntry(
-            'A2',
-            'future',
-            ['First Conditional'],
-            'If we {a1} the cooking tonight, we {a2} early.',
-            [
-                'a1' => $this->ifPresentSimple('we', $this->forms('finish', 'finished', 'finished')),
-                'a2' => $this->resultWill('we', $this->forms('leave', 'left', 'left')),
-            ]
-        );
-
-        // Present-focused hypotheticals (4)
+        // Present-result focus (6)
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Second Conditional'],
-            'If I {a1} fluent in Spanish, I {a2} clients from Madrid.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the bus earlier, I {a2} relaxed now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('support', 'supported', 'supported')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('catch', 'caught', 'caught')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Second Conditional'],
-            'If she {a1} less stressed, she {a2} more creatively.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} your tasks yesterday, you {a2} free now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('think', 'thought', 'thought')),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('complete', 'completed', 'completed')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Second Conditional'],
-            'If they {a1} more reliable, we {a2} bigger projects.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Elena {a1} extra practice, she {a2} confident now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
-                'a2' => $this->resultWould('we', $this->forms('accept', 'accepted', 'accepted')),
+                'a1' => $this->ifPastPerfectMixed('Elena', $this->forms('do', 'did', 'done')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Second Conditional'],
-            'If he {a1} in the office, he {a2} lunch with us.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the shop {a1} early, it {a2} quiet now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
-                'a2' => $this->resultWould('he', $this->forms('share', 'shared', 'shared')),
-            ]
-        );
-
-        // Past-focused conditionals (4)
-        $entries[] = $this->makeEntry(
-            'A2',
-            'past',
-            ['Third Conditional'],
-            'If they {a1} the deadline, they {a2} the bonus.',
-            [
-                'a1' => $this->ifPastPerfect('they', $this->forms('meet', 'met', 'met')),
-                'a2' => $this->resultWouldHave('they', $this->forms('receive', 'received', 'received')),
+                'a1' => $this->ifPastPerfectMixed('the shop', $this->forms('open', 'opened', 'opened')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('be', 'was', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
-            'past',
-            ['Third Conditional'],
-            'If she {a1} the ingredients, she {a2} the cake.',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If the twins {a1} the clue, they {a2} sure now.',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('measure', 'measured', 'measured')),
-                'a2' => $this->resultWouldHave('she', $this->forms('bake', 'baked', 'baked')),
+                'a1' => $this->ifPastPerfectMixed('the twins', $this->forms('spot', 'spotted', 'spotted')),
+                'a2' => $this->resultWouldPresent('they', $this->forms('be', 'were', 'been')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'A2',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If our dog {a1} the gate closed, it {a2} inside now.',
+            [
+                'a1' => $this->ifPastPerfectMixed('our dog', $this->forms('notice', 'noticed', 'noticed')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('stay', 'stayed', 'stayed')),
+            ]
+        );
+
+        // Past-result focus (6)
+        $entries[] = $this->makeEntry(
+            'A2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If she {a1} more patient, she {a2} the promise yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('she'),
+                'a2' => $this->resultWouldHave('she', $this->forms('keep', 'kept', 'kept')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'past',
-            ['Third Conditional'],
-            'If we {a1} the detour, we {a2} the view.',
+            ['Mixed Conditional (Present→Past)'],
+            'If the guards {a1} more alert, they {a2} the alarm last night.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('take', 'took', 'taken')),
-                'a2' => $this->resultWouldHave('we', $this->forms('enjoy', 'enjoyed', 'enjoyed')),
+                'a1' => $this->ifPastSimpleMixed('the guards', $this->forms('stay', 'stayed', 'stayed')),
+                'a2' => $this->resultWouldHave('they', $this->forms('hear', 'heard', 'heard')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'A2',
             'past',
-            ['Third Conditional'],
-            'If I {a1} his advice, I {a2} the mistake.',
+            ['Mixed Conditional (Present→Past)'],
+            'If we {a1} less shy, we {a2} the host yesterday.',
             [
-                'a1' => $this->ifPastPerfect('I', $this->forms('follow', 'followed', 'followed')),
-                'a2' => $this->resultWouldHave('I', $this->forms('avoid', 'avoided', 'avoided')),
+                'a1' => $this->ifPastSimpleWere('we'),
+                'a2' => $this->resultWouldHave('we', $this->forms('thank', 'thanked', 'thanked')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'A2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If I {a1} better records, I {a2} the bill yesterday.',
+            [
+                'a1' => $this->ifPastSimpleMixed('I', $this->forms('keep', 'kept', 'kept')),
+                'a2' => $this->resultWouldHave('I', $this->forms('pay', 'paid', 'paid')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'A2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If the team {a1} united, they {a2} the match yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('the team'),
+                'a2' => $this->resultWouldHave('they', $this->forms('win', 'won', 'won')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'A2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If your cousin {a1} honest, he {a2} the mistake yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('your cousin'),
+                'a2' => $this->resultWouldHave('he', $this->forms('admit', 'admitted', 'admitted')),
             ]
         );
 
@@ -846,268 +847,271 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
     {
         $entries = [];
 
-        // Negative tasks (6)
+        // Negative focus (6)
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['First Conditional'],
-            'If the marketing crew {a1} the newsletter today, subscribers {a2} the launch tomorrow.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the lecture, I {a2} lost now.',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('send', 'sent', 'sent'), true),
-                'a2' => $this->resultWillNegative('they', $this->forms('hear', 'heard', 'heard')),
-            ]
-        );
-
-        $entries[] = $this->makeEntry(
-            'B1',
-            'negative',
-            ['First Conditional'],
-            'If you {a1} the security code, the system {a2} your access.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('enter', 'entered', 'entered')),
-                'a2' => $this->resultWillNegative('it', $this->forms('allow', 'allowed', 'allowed')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('record', 'recorded', 'recorded')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Second Conditional'],
-            'If I {a1} overly cautious, I {a2} bold proposals.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the taxi, you {a2} stranded now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('reject', 'rejected', 'rejected'), true),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('schedule', 'scheduled', 'scheduled')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('be', 'were', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Second Conditional'],
-            'If she {a1} more trusting, she {a2} every colleague.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the chef {a1} the jars, we {a2} unsure now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('question', 'questioned', 'questioned'), true),
+                'a1' => $this->ifPastPerfectMixed('the chef', $this->forms('label', 'labeled', 'labeled')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Third Conditional'],
-            'If they {a1} the storm warning, they {a2} on the ferry.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Mira {a1} the calendar, she {a2} double-booked now.',
             [
-                'a1' => $this->ifPastPerfect('they', $this->forms('check', 'checked', 'checked')),
-                'a2' => $this->resultWouldHave('they', $this->forms('stay', 'stayed', 'stayed'), true),
+                'a1' => $this->ifPastPerfectMixed('Mira', $this->forms('update', 'updated', 'updated')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Third Conditional'],
-            'If we {a1} the server backups, we {a2} desperate at midnight.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the volunteers {a1} the kits, they {a2} rushing now.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('prepare', 'prepared', 'prepared')),
-                'a2' => $this->resultWouldHave('we', $this->forms('feel', 'felt', 'felt'), true),
-            ]
-        );
-
-        // Question tasks (6)
-        $entries[] = $this->makeEntry(
-            'B1',
-            'question',
-            ['First Conditional'],
-            'If the director {a1} the budget, {a2} the project begin next week?',
-            [
-                'a1' => $this->ifPresentSimple('he', $this->forms('approve', 'approved', 'approved')),
-                'a2' => $this->resultWillQuestion('it', $this->forms('start', 'started', 'started')),
+                'a1' => $this->ifPastPerfectMixed('the volunteers', $this->forms('pack', 'packed', 'packed')),
+                'a2' => $this->resultWouldPresent('they', $this->forms('be', 'were', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
-            'question',
-            ['First Conditional'],
-            'If you {a1} a delay, {a2} the clients immediately?',
+            'negative',
+            ['Mixed Conditional (Past→Present)'],
+            'If our neighbors {a1} the gate, their dog {a2} loose now.',
             [
-                'a1' => $this->ifPresentSimple('you', $this->forms('anticipate', 'anticipated', 'anticipated')),
-                'a2' => $this->resultWillQuestion('you', $this->forms('inform', 'informed', 'informed')),
+                'a1' => $this->ifPastPerfectMixed('our neighbors', $this->forms('close', 'closed', 'closed')),
+                'a2' => $this->resultWouldPresent('their dog', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
+        // Question focus (6)
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Second Conditional'],
-            'If he {a1} on site, would you brief the interns yourself?',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the policy, {a2} secure now?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('check', 'checked', 'checked')),
+                'a2' => $this->resultWouldPresentQuestion('you', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Second Conditional'],
-            'If they {a1} less confident, would you still trust their plan?',
+            ['Mixed Conditional (Present→Past)'],
+            'If Daniel {a1} more attentive, {a2} the cue yesterday?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
+                'a1' => $this->ifPastSimpleWere('Daniel'),
+                'a2' => $this->resultWouldHaveQuestion('he', $this->forms('notice', 'noticed', 'noticed')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Third Conditional'],
-            'If she {a1} the map, would you have reached the valley?',
+            ['Mixed Conditional (Present→Past)'],
+            'If the lights {a1} brighter, {a2} the report yesterday?',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('study', 'studied', 'studied')),
+                'a1' => $this->ifPastSimpleWere('the lights'),
+                'a2' => $this->resultWouldHaveQuestion('we', $this->forms('finish', 'finished', 'finished')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Third Conditional'],
-            'If we {a1} the keynote earlier, would you have reserved more seats?',
+            ['Mixed Conditional (Past→Present)'],
+            'If Carla {a1} the form, {a2} ready now?',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('announce', 'announced', 'announced')),
-            ]
-        );
-
-        // Future-focused affirmatives (4)
-        $entries[] = $this->makeEntry(
-            'B1',
-            'future',
-            ['First Conditional'],
-            'If you {a1} the slides this afternoon, you {a2} the panel tomorrow.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('finalize', 'finalized', 'finalized')),
-                'a2' => $this->resultWill('you', $this->forms('impress', 'impressed', 'impressed')),
+                'a1' => $this->ifPastPerfectMixed('Carla', $this->forms('submit', 'submitted', 'submitted')),
+                'a2' => $this->resultWouldPresentQuestion('she', $this->forms('be', 'was', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
-            'future',
-            ['First Conditional'],
-            'If they {a1} the campsite early, they {a2} the sunrise.',
+            'question',
+            ['Mixed Conditional (Past→Present)'],
+            'If the ferry {a1} on time, {a2} there now?',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('reach', 'reached', 'reached')),
-                'a2' => $this->resultWill('they', $this->forms('watch', 'watched', 'watched')),
+                'a1' => $this->ifPastPerfectMixed('the ferry', $this->forms('depart', 'departed', 'departed')),
+                'a2' => $this->resultWouldPresentQuestion('we', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
-            'future',
-            ['First Conditional'],
-            'If he {a1} the budget sheet, he {a2} the expense trend.',
+            'question',
+            ['Mixed Conditional (Present→Past)'],
+            'If they {a1} more cautious, {a2} the warning yesterday?',
             [
-                'a1' => $this->ifPresentSimple('he', $this->forms('study', 'studied', 'studied')),
-                'a2' => $this->resultWill('he', $this->forms('notice', 'noticed', 'noticed')),
+                'a1' => $this->ifPastSimpleWere('they'),
+                'a2' => $this->resultWouldHaveQuestion('they', $this->forms('ignore', 'ignored', 'ignored')),
             ]
         );
 
-        $entries[] = $this->makeEntry(
-            'B1',
-            'future',
-            ['First Conditional'],
-            'If we {a1} the guest list tonight, we {a2} personalized notes.',
-            [
-                'a1' => $this->ifPresentSimple('we', $this->forms('update', 'updated', 'updated')),
-                'a2' => $this->resultWill('we', $this->forms('write', 'wrote', 'written')),
-            ]
-        );
-
-        // Present-focused hypotheticals (4)
+        // Present-result focus (6)
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Second Conditional'],
-            'If I {a1} in charge, I {a2} flexible deadlines.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the blueprint, I {a2} calm now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('set', 'set', 'set')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('review', 'reviewed', 'reviewed')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Second Conditional'],
-            'If she {a1} less busy, she {a2} a mentoring circle.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} your budget, you {a2} ready now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('organize', 'organized', 'organized')),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('plan', 'planned', 'planned')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Second Conditional'],
-            'If they {a1} closer partners, we {a2} shared dashboards.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the analysts {a1} the data, they {a2} sure now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
-                'a2' => $this->resultWould('we', $this->forms('build', 'built', 'built')),
+                'a1' => $this->ifPastPerfectMixed('the analysts', $this->forms('analyze', 'analyzed', 'analyzed')),
+                'a2' => $this->resultWouldPresent('they', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Second Conditional'],
-            'If he {a1} more confident, he {a2} bold pitches.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Leila {a1} the shortcut, she {a2} home now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
-                'a2' => $this->resultWould('he', $this->forms('deliver', 'delivered', 'delivered')),
-            ]
-        );
-
-        // Past-focused conditionals (4)
-        $entries[] = $this->makeEntry(
-            'B1',
-            'past',
-            ['Third Conditional'],
-            'If they {a1} the legal clause, they {a2} trouble.',
-            [
-                'a1' => $this->ifPastPerfect('they', $this->forms('notice', 'noticed', 'noticed')),
-                'a2' => $this->resultWouldHave('they', $this->forms('avoid', 'avoided', 'avoided')),
+                'a1' => $this->ifPastPerfectMixed('Leila', $this->forms('find', 'found', 'found')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('be', 'was', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
-            'past',
-            ['Third Conditional'],
-            'If she {a1} the violin daily, she {a2} the audition.',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If the museum {a1} the display, it {a2} full now.',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('practice', 'practiced', 'practiced')),
-                'a2' => $this->resultWouldHave('she', $this->forms('ace', 'aced', 'aced')),
+                'a1' => $this->ifPastPerfectMixed('the museum', $this->forms('promote', 'promoted', 'promoted')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('be', 'was', 'been')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'B1',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If our team {a1} weekly drills, we {a2} confident now.',
+            [
+                'a1' => $this->ifPastPerfectMixed('our team', $this->forms('complete', 'completed', 'completed')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('feel', 'felt', 'felt')),
+            ]
+        );
+
+        // Past-result focus (6)
+        $entries[] = $this->makeEntry(
+            'B1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If she {a1} more decisive, she {a2} the contract yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('she'),
+                'a2' => $this->resultWouldHave('she', $this->forms('sign', 'signed', 'signed')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'past',
-            ['Third Conditional'],
-            'If we {a1} the contract earlier, we {a2} a better vendor.',
+            ['Mixed Conditional (Present→Past)'],
+            'If the auditors {a1} stricter, they {a2} the error last quarter.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('review', 'reviewed', 'reviewed')),
-                'a2' => $this->resultWouldHave('we', $this->forms('secure', 'secured', 'secured')),
+                'a1' => $this->ifPastSimpleMixed('the auditors', $this->forms('act', 'acted', 'acted')),
+                'a2' => $this->resultWouldHave('they', $this->forms('catch', 'caught', 'caught')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B1',
             'past',
-            ['Third Conditional'],
-            'If I {a1} the warning, I {a2} that path.',
+            ['Mixed Conditional (Present→Past)'],
+            'If we {a1} more generous, we {a2} the donation yesterday.',
             [
-                'a1' => $this->ifPastPerfect('I', $this->forms('heed', 'heeded', 'heeded')),
-                'a2' => $this->resultWouldHave('I', $this->forms('avoid', 'avoided', 'avoided')),
+                'a1' => $this->ifPastSimpleWere('we'),
+                'a2' => $this->resultWouldHave('we', $this->forms('double', 'doubled', 'doubled')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'B1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If I {a1} braver, I {a2} the presentation yesterday.',
+            [
+                'a1' => $this->ifPastSimpleMixed('I', $this->forms('feel', 'felt', 'felt')),
+                'a2' => $this->resultWouldHave('I', $this->forms('deliver', 'delivered', 'delivered')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'B1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If the committee {a1} balanced, it {a2} the decision yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('the committee'),
+                'a2' => $this->resultWouldHave('it', $this->forms('approve', 'approved', 'approved')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'B1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If your mentor {a1} strict, you {a2} the errors yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('your mentor'),
+                'a2' => $this->resultWouldHave('you', $this->forms('spot', 'spotted', 'spotted')),
             ]
         );
 
@@ -1118,268 +1122,271 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
     {
         $entries = [];
 
-        // Negative tasks (6)
+        // Negative focus (6)
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['First Conditional'],
-            'If the research unit {a1} the raw data today, investors {a2} tomorrow\'s briefing.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the invoices, I {a2} unsure now.',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('upload', 'uploaded', 'uploaded'), true),
-                'a2' => $this->resultWillNegative('they', $this->forms('trust', 'trusted', 'trusted')),
-            ]
-        );
-
-        $entries[] = $this->makeEntry(
-            'B2',
-            'negative',
-            ['First Conditional'],
-            'If you {a1} the travel request, HR {a2} your tickets.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('submit', 'submitted', 'submitted')),
-                'a2' => $this->resultWillNegative('they', $this->forms('approve', 'approved', 'approved')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('archive', 'archived', 'archived')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Second Conditional'],
-            'If I {a1} so skeptical, I {a2} new partnerships.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the files, you {a2} exposed now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('dismiss', 'dismissed', 'dismissed'), true),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('encrypt', 'encrypted', 'encrypted')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('be', 'were', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Second Conditional'],
-            'If she {a1} less defensive, she {a2} every suggestion.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the curator {a1} the pieces, we {a2} uncertain now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('block', 'blocked', 'blocked'), true),
+                'a1' => $this->ifPastPerfectMixed('the curator', $this->forms('catalog', 'cataloged', 'cataloged')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Third Conditional'],
-            'If they {a1} the compliance memo, they {a2} those penalties.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Helena {a1} the briefing, she {a2} hesitant now.',
             [
-                'a1' => $this->ifPastPerfect('they', $this->forms('read', 'read', 'read')),
-                'a2' => $this->resultWouldHave('they', $this->forms('pay', 'paid', 'paid'), true),
+                'a1' => $this->ifPastPerfectMixed('Helena', $this->forms('rehearse', 'rehearsed', 'rehearsed')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Third Conditional'],
-            'If we {a1} the evacuation drill, we {a2} in the stairwell.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the engineers {a1} the valves, they {a2} anxious now.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('rehearse', 'rehearsed', 'rehearsed')),
-                'a2' => $this->resultWouldHave('we', $this->forms('freeze', 'froze', 'frozen'), true),
-            ]
-        );
-
-        // Question tasks (6)
-        $entries[] = $this->makeEntry(
-            'B2',
-            'question',
-            ['First Conditional'],
-            'If the board {a1} the merger, {a2} the press conference happen on Friday?',
-            [
-                'a1' => $this->ifPresentSimple('they', $this->forms('confirm', 'confirmed', 'confirmed')),
-                'a2' => $this->resultWillQuestion('it', $this->forms('occur', 'occurred', 'occurred')),
+                'a1' => $this->ifPastPerfectMixed('the engineers', $this->forms('inspect', 'inspected', 'inspected')),
+                'a2' => $this->resultWouldPresent('they', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
-            'question',
-            ['First Conditional'],
-            'If you {a1} an outage, {a2} the regional managers?',
+            'negative',
+            ['Mixed Conditional (Past→Present)'],
+            'If our partners {a1} the venue, the team {a2} restless now.',
             [
-                'a1' => $this->ifPresentSimple('you', $this->forms('detect', 'detected', 'detected')),
-                'a2' => $this->resultWillQuestion('you', $this->forms('alert', 'alerted', 'alerted')),
+                'a1' => $this->ifPastPerfectMixed('our partners', $this->forms('confirm', 'confirmed', 'confirmed')),
+                'a2' => $this->resultWouldPresent('the team', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
+        // Question focus (6)
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Second Conditional'],
-            'If he {a1} more transparent, would you endorse his proposal?',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the deadline chart, {a2} confident now?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('audit', 'audited', 'audited')),
+                'a2' => $this->resultWouldPresentQuestion('you', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Second Conditional'],
-            'If they {a1} less motivated, would you extend the deadline?',
+            ['Mixed Conditional (Present→Past)'],
+            'If Marcus {a1} more flexible, {a2} the client yesterday?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
+                'a1' => $this->ifPastSimpleWere('Marcus'),
+                'a2' => $this->resultWouldHaveQuestion('he', $this->forms('reassure', 'reassured', 'reassured')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Third Conditional'],
-            'If she {a1} the satellite images, would you have diverted the flight?',
+            ['Mixed Conditional (Present→Past)'],
+            'If the routers {a1} stable, {a2} the outage yesterday?',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('compare', 'compared', 'compared')),
+                'a1' => $this->ifPastSimpleWere('the routers'),
+                'a2' => $this->resultWouldHaveQuestion('the team', $this->forms('prevent', 'prevented', 'prevented')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Third Conditional'],
-            'If we {a1} the donor list, would you have doubled the order?',
+            ['Mixed Conditional (Past→Present)'],
+            'If Lila {a1} the dossier, {a2} calm now?',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('update', 'updated', 'updated')),
-            ]
-        );
-
-        // Future-focused affirmatives (4)
-        $entries[] = $this->makeEntry(
-            'B2',
-            'future',
-            ['First Conditional'],
-            'If you {a1} the compliance checklist, you {a2} delays at customs.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('complete', 'completed', 'completed')),
-                'a2' => $this->resultWill('you', $this->forms('avoid', 'avoided', 'avoided')),
+                'a1' => $this->ifPastPerfectMixed('Lila', $this->forms('review', 'reviewed', 'reviewed')),
+                'a2' => $this->resultWouldPresentQuestion('she', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
-            'future',
-            ['First Conditional'],
-            'If they {a1} the prototype tonight, they {a2} it at dawn.',
+            'question',
+            ['Mixed Conditional (Past→Present)'],
+            'If the delegation {a1} earlier, {a2} in the hall now?',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('assemble', 'assembled', 'assembled')),
-                'a2' => $this->resultWill('they', $this->forms('launch', 'launched', 'launched')),
+                'a1' => $this->ifPastPerfectMixed('the delegation', $this->forms('arrive', 'arrived', 'arrived')),
+                'a2' => $this->resultWouldPresentQuestion('they', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
-            'future',
-            ['First Conditional'],
-            'If he {a1} the legal brief, he {a2} the loophole.',
+            'question',
+            ['Mixed Conditional (Present→Past)'],
+            'If the board {a1} united, {a2} the vote yesterday?',
             [
-                'a1' => $this->ifPresentSimple('he', $this->forms('review', 'reviewed', 'reviewed')),
-                'a2' => $this->resultWill('he', $this->forms('identify', 'identified', 'identified')),
+                'a1' => $this->ifPastSimpleWere('the board'),
+                'a2' => $this->resultWouldHaveQuestion('they', $this->forms('delay', 'delayed', 'delayed')),
             ]
         );
 
-        $entries[] = $this->makeEntry(
-            'B2',
-            'future',
-            ['First Conditional'],
-            'If we {a1} the survey links, we {a2} feedback by noon.',
-            [
-                'a1' => $this->ifPresentSimple('we', $this->forms('send', 'sent', 'sent')),
-                'a2' => $this->resultWill('we', $this->forms('collect', 'collected', 'collected')),
-            ]
-        );
-
-        // Present-focused hypotheticals (4)
+        // Present-result focus (6)
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Second Conditional'],
-            'If I {a1} head of design, I {a2} a modular approach.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the metrics, I {a2} decisive now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('adopt', 'adopted', 'adopted')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('analyze', 'analyzed', 'analyzed')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Second Conditional'],
-            'If she {a1} in Lisbon, she {a2} our remote hub.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the backup plan, you {a2} composed now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('lead', 'led', 'led')),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('draft', 'drafted', 'drafted')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Second Conditional'],
-            'If they {a1} more data, we {a2} the forecast.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the analysts {a1} the forecast, they {a2} aligned now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
-                'a2' => $this->resultWould('we', $this->forms('refine', 'refined', 'refined')),
+                'a1' => $this->ifPastPerfectMixed('the analysts', $this->forms('refine', 'refined', 'refined')),
+                'a2' => $this->resultWouldPresent('they', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Second Conditional'],
-            'If he {a1} less cautious, he {a2} the pilot program.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Sofia {a1} the itinerary, she {a2} composed now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
-                'a2' => $this->resultWould('he', $this->forms('launch', 'launched', 'launched')),
-            ]
-        );
-
-        // Past-focused conditionals (4)
-        $entries[] = $this->makeEntry(
-            'B2',
-            'past',
-            ['Third Conditional'],
-            'If they {a1} the supply chain earlier, they {a2} shortages.',
-            [
-                'a1' => $this->ifPastPerfect('they', $this->forms('map', 'mapped', 'mapped')),
-                'a2' => $this->resultWouldHave('they', $this->forms('prevent', 'prevented', 'prevented')),
+                'a1' => $this->ifPastPerfectMixed('Sofia', $this->forms('finalize', 'finalized', 'finalized')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
-            'past',
-            ['Third Conditional'],
-            'If she {a1} the patent office, she {a2} the filing window.',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If the bureau {a1} the permits, it {a2} confident now.',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('visit', 'visited', 'visited')),
-                'a2' => $this->resultWouldHave('she', $this->forms('meet', 'met', 'met')),
+                'a1' => $this->ifPastPerfectMixed('the bureau', $this->forms('process', 'processed', 'processed')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('be', 'was', 'been')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'B2',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If our mentors {a1} weekly feedback, we {a2} steady now.',
+            [
+                'a1' => $this->ifPastPerfectMixed('our mentors', $this->forms('provide', 'provided', 'provided')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('feel', 'felt', 'felt')),
+            ]
+        );
+
+        // Past-result focus (6)
+        $entries[] = $this->makeEntry(
+            'B2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If she {a1} more diplomatic, she {a2} the partnership yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('she'),
+                'a2' => $this->resultWouldHave('she', $this->forms('secure', 'secured', 'secured')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'past',
-            ['Third Conditional'],
-            'If we {a1} the customer survey, we {a2} the warning signs.',
+            ['Mixed Conditional (Present→Past)'],
+            'If the auditors {a1} vigilant, they {a2} the fraud last quarter.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('conduct', 'conducted', 'conducted')),
-                'a2' => $this->resultWouldHave('we', $this->forms('spot', 'spotted', 'spotted')),
+                'a1' => $this->ifPastSimpleMixed('the auditors', $this->forms('remain', 'remained', 'remained')),
+                'a2' => $this->resultWouldHave('they', $this->forms('detect', 'detected', 'detected')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'B2',
             'past',
-            ['Third Conditional'],
-            'If I {a1} the figures twice, I {a2} the typo.',
+            ['Mixed Conditional (Present→Past)'],
+            'If we {a1} less rigid, we {a2} the compromise yesterday.',
             [
-                'a1' => $this->ifPastPerfect('I', $this->forms('check', 'checked', 'checked')),
-                'a2' => $this->resultWouldHave('I', $this->forms('catch', 'caught', 'caught')),
+                'a1' => $this->ifPastSimpleWere('we'),
+                'a2' => $this->resultWouldHave('we', $this->forms('reach', 'reached', 'reached')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'B2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If I {a1} more assertive, I {a2} the proposal yesterday.',
+            [
+                'a1' => $this->ifPastSimpleMixed('I', $this->forms('feel', 'felt', 'felt')),
+                'a2' => $this->resultWouldHave('I', $this->forms('present', 'presented', 'presented')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'B2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If the network {a1} resilient, it {a2} the crash yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('the network'),
+                'a2' => $this->resultWouldHave('it', $this->forms('avoid', 'avoided', 'avoided')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'B2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If your advisor {a1} candid, you {a2} the risk yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('your advisor'),
+                'a2' => $this->resultWouldHave('you', $this->forms('spot', 'spotted', 'spotted')),
             ]
         );
 
@@ -1390,268 +1397,271 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
     {
         $entries = [];
 
-        // Negative tasks (6)
+        // Negative focus (6)
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['First Conditional'],
-            'If the innovation team {a1} the prototype dossier today, stakeholders {a2} tomorrow\'s demo.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the statutes, I {a2} uncertain now.',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('circulate', 'circulated', 'circulated'), true),
-                'a2' => $this->resultWillNegative('they', $this->forms('endorse', 'endorsed', 'endorsed')),
-            ]
-        );
-
-        $entries[] = $this->makeEntry(
-            'C1',
-            'negative',
-            ['First Conditional'],
-            'If you {a1} the compliance clause, the regulator {a2} the licence renewal.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('omit', 'omitted', 'omitted')),
-                'a2' => $this->resultWillNegative('it', $this->forms('grant', 'granted', 'granted')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('consult', 'consulted', 'consulted')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Second Conditional'],
-            'If I {a1} so risk-averse, I {a2} pilot projects.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the compliance memo, you {a2} exposed now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('cancel', 'cancelled', 'cancelled'), true),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('circulate', 'circulated', 'circulated')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('be', 'were', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Second Conditional'],
-            'If she {a1} less defensive in meetings, she {a2} every dissenting voice.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Dr. Rao {a1} the sensors, we {a2} anxious now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('silence', 'silenced', 'silenced'), true),
+                'a1' => $this->ifPastPerfectMixed('Dr. Rao', $this->forms('calibrate', 'calibrated', 'calibrated')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Third Conditional'],
-            'If they {a1} the contingency plan, they {a2} all night.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the editorial board {a1} the sources, the newsroom {a2} skeptical now.',
             [
-                'a1' => $this->ifPastPerfect('they', $this->forms('rehearse', 'rehearsed', 'rehearsed')),
-                'a2' => $this->resultWouldHave('they', $this->forms('scramble', 'scrambled', 'scrambled'), true),
+                'a1' => $this->ifPastPerfectMixed('the editorial board', $this->forms('vet', 'vetted', 'vetted')),
+                'a2' => $this->resultWouldPresent('the newsroom', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Third Conditional'],
-            'If we {a1} the legal update, we {a2} the injunction.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Lina {a1} the deposition, she {a2} hesitant now.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('review', 'reviewed', 'reviewed')),
-                'a2' => $this->resultWouldHave('we', $this->forms('face', 'faced', 'faced'), true),
-            ]
-        );
-
-        // Question tasks (6)
-        $entries[] = $this->makeEntry(
-            'C1',
-            'question',
-            ['First Conditional'],
-            'If the ethics board {a1} the report, {a2} postponed for another quarter?',
-            [
-                'a1' => $this->ifPresentSimple('they', $this->forms('endorse', 'endorsed', 'endorsed')),
-                'a2' => $this->resultWillQuestion('it', $this->forms('be', 'was', 'been')),
+                'a1' => $this->ifPastPerfectMixed('Lina', $this->forms('rehearse', 'rehearsed', 'rehearsed')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
-            'question',
-            ['First Conditional'],
-            'If you {a1} dissent in the chat, {a2} a follow-up forum?',
+            'negative',
+            ['Mixed Conditional (Past→Present)'],
+            'If the orchestra {a1} the strings, the conductor {a2} uneasy now.',
             [
-                'a1' => $this->ifPresentSimple('you', $this->forms('detect', 'detected', 'detected')),
-                'a2' => $this->resultWillQuestion('you', $this->forms('schedule', 'scheduled', 'scheduled')),
+                'a1' => $this->ifPastPerfectMixed('the orchestra', $this->forms('tune', 'tuned', 'tuned')),
+                'a2' => $this->resultWouldPresent('the conductor', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
+        // Question focus (6)
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Second Conditional'],
-            'If he {a1} more candid, would you delegate strategic calls to him?',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the fiscal models, {a2} decisive now?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('simulate', 'simulated', 'simulated')),
+                'a2' => $this->resultWouldPresentQuestion('you', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Second Conditional'],
-            'If they {a1} less aligned, would you still ratify their roadmap?',
+            ['Mixed Conditional (Present→Past)'],
+            'If Marcus {a1} more transparent, {a2} the investors yesterday?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
+                'a1' => $this->ifPastSimpleWere('Marcus'),
+                'a2' => $this->resultWouldHaveQuestion('he', $this->forms('reassure', 'reassured', 'reassured')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Third Conditional'],
-            'If she {a1} the audit trail, would you have flagged the anomaly?',
+            ['Mixed Conditional (Present→Past)'],
+            'If the archive {a1} accessible, {a2} the brief yesterday?',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('trace', 'traced', 'traced')),
+                'a1' => $this->ifPastSimpleWere('the archive'),
+                'a2' => $this->resultWouldHaveQuestion('we', $this->forms('complete', 'completed', 'completed')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Third Conditional'],
-            'If we {a1} the charter earlier, would you have challenged the clause?',
+            ['Mixed Conditional (Past→Present)'],
+            'If the auditors {a1} earlier, {a2} in the chamber now?',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('draft', 'drafted', 'drafted')),
-            ]
-        );
-
-        // Future-focused affirmatives (4)
-        $entries[] = $this->makeEntry(
-            'C1',
-            'future',
-            ['First Conditional'],
-            'If you {a1} the migration scripts tonight, you {a2} downtime at dawn.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('validate', 'validated', 'validated')),
-                'a2' => $this->resultWill('you', $this->forms('prevent', 'prevented', 'prevented')),
+                'a1' => $this->ifPastPerfectMixed('the auditors', $this->forms('arrive', 'arrived', 'arrived')),
+                'a2' => $this->resultWouldPresentQuestion('they', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
-            'future',
-            ['First Conditional'],
-            'If they {a1} the investor memo, they {a2} reassurance quickly.',
+            'question',
+            ['Mixed Conditional (Past→Present)'],
+            'If Daria {a1} her testimony, {a2} confident now?',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('publish', 'published', 'published')),
-                'a2' => $this->resultWill('they', $this->forms('gain', 'gained', 'gained')),
+                'a1' => $this->ifPastPerfectMixed('Daria', $this->forms('revise', 'revised', 'revised')),
+                'a2' => $this->resultWouldPresentQuestion('she', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
-            'future',
-            ['First Conditional'],
-            'If he {a1} the analytics dashboard, he {a2} emerging trends.',
+            'question',
+            ['Mixed Conditional (Present→Past)'],
+            'If the envoy {a1} more flexible, {a2} the treaty yesterday?',
             [
-                'a1' => $this->ifPresentSimple('he', $this->forms('monitor', 'monitored', 'monitored')),
-                'a2' => $this->resultWill('he', $this->forms('capture', 'captured', 'captured')),
+                'a1' => $this->ifPastSimpleWere('the envoy'),
+                'a2' => $this->resultWouldHaveQuestion('they', $this->forms('sign', 'signed', 'signed')),
             ]
         );
 
-        $entries[] = $this->makeEntry(
-            'C1',
-            'future',
-            ['First Conditional'],
-            'If we {a1} contingency funds, we {a2} supply shocks.',
-            [
-                'a1' => $this->ifPresentSimple('we', $this->forms('allocate', 'allocated', 'allocated')),
-                'a2' => $this->resultWill('we', $this->forms('absorb', 'absorbed', 'absorbed')),
-            ]
-        );
-
-        // Present-focused hypotheticals (4)
+        // Present-result focus (6)
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Second Conditional'],
-            'If I {a1} chief curator, I {a2} radical installations.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the litigation timeline, I {a2} calm now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('commission', 'commissioned', 'commissioned')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('map', 'mapped', 'mapped')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Second Conditional'],
-            'If she {a1} stationed in Nairobi, she {a2} the field office.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the stakeholder survey, you {a2} persuasive now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('direct', 'directed', 'directed')),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('synthesize', 'synthesized', 'synthesized')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('sound', 'sounded', 'sounded')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Second Conditional'],
-            'If they {a1} more multilingual staff, we {a2} global support instantly.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the research team {a1} the anomalies, they {a2} confident now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
-                'a2' => $this->resultWould('we', $this->forms('scale', 'scaled', 'scaled')),
+                'a1' => $this->ifPastPerfectMixed('the research team', $this->forms('flag', 'flagged', 'flagged')),
+                'a2' => $this->resultWouldPresent('they', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Second Conditional'],
-            'If he {a1} less entrenched, he {a2} outsider perspectives.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Mira {a1} the panel brief, she {a2} composed now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
-                'a2' => $this->resultWould('he', $this->forms('embrace', 'embraced', 'embraced')),
-            ]
-        );
-
-        // Past-focused conditionals (4)
-        $entries[] = $this->makeEntry(
-            'C1',
-            'past',
-            ['Third Conditional'],
-            'If they {a1} the whistleblower memo, they {a2} that lawsuit.',
-            [
-                'a1' => $this->ifPastPerfect('they', $this->forms('honor', 'honored', 'honored')),
-                'a2' => $this->resultWouldHave('they', $this->forms('avoid', 'avoided', 'avoided')),
+                'a1' => $this->ifPastPerfectMixed('Mira', $this->forms('draft', 'drafted', 'drafted')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
-            'past',
-            ['Third Conditional'],
-            'If she {a1} the carbon data, she {a2} the policy draft.',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If the consortium {a1} the funding, it {a2} stable now.',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('model', 'modeled', 'modeled')),
-                'a2' => $this->resultWouldHave('she', $this->forms('rewrite', 'rewrote', 'rewritten')),
+                'a1' => $this->ifPastPerfectMixed('the consortium', $this->forms('secure', 'secured', 'secured')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('be', 'was', 'been')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'C1',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If our analysts {a1} the pilot data, we {a2} decisive now.',
+            [
+                'a1' => $this->ifPastPerfectMixed('our analysts', $this->forms('interpret', 'interpreted', 'interpreted')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('be', 'were', 'been')),
+            ]
+        );
+
+        // Past-result focus (6)
+        $entries[] = $this->makeEntry(
+            'C1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If she {a1} more meticulous, she {a2} the anomaly yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('she'),
+                'a2' => $this->resultWouldHave('she', $this->forms('catch', 'caught', 'caught')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'past',
-            ['Third Conditional'],
-            'If we {a1} the tender criteria, we {a2} a stronger consortium.',
+            ['Mixed Conditional (Present→Past)'],
+            'If the board {a1} less divided, it {a2} the merger yesterday.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('clarify', 'clarified', 'clarified')),
-                'a2' => $this->resultWouldHave('we', $this->forms('attract', 'attracted', 'attracted')),
+                'a1' => $this->ifPastSimpleWere('the board'),
+                'a2' => $this->resultWouldHave('it', $this->forms('approve', 'approved', 'approved')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C1',
             'past',
-            ['Third Conditional'],
-            'If I {a1} the procurement chain, I {a2} the recall.',
+            ['Mixed Conditional (Present→Past)'],
+            'If we {a1} more courageous, we {a2} the reform yesterday.',
             [
-                'a1' => $this->ifPastPerfect('I', $this->forms('audit', 'audited', 'audited')),
-                'a2' => $this->resultWouldHave('I', $this->forms('prevent', 'prevented', 'prevented')),
+                'a1' => $this->ifPastSimpleWere('we'),
+                'a2' => $this->resultWouldHave('we', $this->forms('enact', 'enacted', 'enacted')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'C1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If I {a1} more strategic, I {a2} the negotiation yesterday.',
+            [
+                'a1' => $this->ifPastSimpleMixed('I', $this->forms('think', 'thought', 'thought')),
+                'a2' => $this->resultWouldHave('I', $this->forms('secure', 'secured', 'secured')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'C1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If the regulator {a1} proactive, it {a2} the breach last month.',
+            [
+                'a1' => $this->ifPastSimpleWere('the regulator'),
+                'a2' => $this->resultWouldHave('it', $this->forms('prevent', 'prevented', 'prevented')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'C1',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If your counsel {a1} candid, you {a2} the clause yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('your counsel'),
+                'a2' => $this->resultWouldHave('you', $this->forms('revise', 'revised', 'revised')),
             ]
         );
 
@@ -1662,268 +1672,271 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
     {
         $entries = [];
 
-        // Negative tasks (6)
+        // Negative focus (6)
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['First Conditional'],
-            'If the oversight committee {a1} the whistleblower summary today, regulators {a2} the midnight briefing.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the testimonies, I {a2} uncertain now.',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('release', 'released', 'released'), true),
-                'a2' => $this->resultWillNegative('they', $this->forms('authorize', 'authorized', 'authorized')),
-            ]
-        );
-
-        $entries[] = $this->makeEntry(
-            'C2',
-            'negative',
-            ['First Conditional'],
-            'If you {a1} the arbitration clause, the consortium {a2} the partnership extension.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('ignore', 'ignored', 'ignored')),
-                'a2' => $this->resultWillNegative('they', $this->forms('endorse', 'endorsed', 'endorsed')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('triangulate', 'triangulated', 'triangulated')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Second Conditional'],
-            'If I {a1} so doctrinaire, I {a2} experimental pilots.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the dossier, you {a2} exposed now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('stifle', 'stifled', 'stifled'), true),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('redact', 'redacted', 'redacted')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('be', 'were', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Second Conditional'],
-            'If she {a1} less territorial, she {a2} colleagues\' initiatives.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Professor Lin {a1} the algorithm, we {a2} anxious now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('undermine', 'undermined', 'undermined'), true),
+                'a1' => $this->ifPastPerfectMixed('Professor Lin', $this->forms('validate', 'validated', 'validated')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Third Conditional'],
-            'If they {a1} the due-diligence file, they {a2} those sanctions.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the ethics panel {a1} the witnesses, the committee {a2} skeptical now.',
             [
-                'a1' => $this->ifPastPerfect('they', $this->forms('scrutinize', 'scrutinized', 'scrutinized')),
-                'a2' => $this->resultWouldHave('they', $this->forms('incur', 'incurred', 'incurred'), true),
+                'a1' => $this->ifPastPerfectMixed('the ethics panel', $this->forms('interrogate', 'interrogated', 'interrogated')),
+                'a2' => $this->resultWouldPresent('the committee', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Third Conditional'],
-            'If we {a1} the encrypted backups, we {a2} ransom negotiations.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Serena {a1} the delegation, she {a2} hesitant now.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('rotate', 'rotated', 'rotated')),
-                'a2' => $this->resultWouldHave('we', $this->forms('enter', 'entered', 'entered'), true),
-            ]
-        );
-
-        // Question tasks (6)
-        $entries[] = $this->makeEntry(
-            'C2',
-            'question',
-            ['First Conditional'],
-            'If the tribunal {a1} the compliance roadmap, {a2} deferred again?',
-            [
-                'a1' => $this->ifPresentSimple('they', $this->forms('ratify', 'ratified', 'ratified')),
-                'a2' => $this->resultWillQuestion('it', $this->forms('be', 'was', 'been')),
+                'a1' => $this->ifPastPerfectMixed('Serena', $this->forms('brief', 'briefed', 'briefed')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('be', 'was', 'been'), true),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
-            'question',
-            ['First Conditional'],
-            'If you {a1} a whistleblower ping, {a2} an emergency caucus?',
+            'negative',
+            ['Mixed Conditional (Past→Present)'],
+            'If the symphony {a1} the acoustics, the maestro {a2} uneasy now.',
             [
-                'a1' => $this->ifPresentSimple('you', $this->forms('register', 'registered', 'registered')),
-                'a2' => $this->resultWillQuestion('you', $this->forms('convene', 'convened', 'convened')),
+                'a1' => $this->ifPastPerfectMixed('the symphony', $this->forms('adjust', 'adjusted', 'adjusted')),
+                'a2' => $this->resultWouldPresent('the maestro', $this->forms('feel', 'felt', 'felt'), true),
             ]
         );
 
+        // Question focus (6)
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Second Conditional'],
-            'If he {a1} more forthright, would you entrust him with plenary voting rights?',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the contingency matrices, {a2} decisive now?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('construct', 'constructed', 'constructed')),
+                'a2' => $this->resultWouldPresentQuestion('you', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Second Conditional'],
-            'If they {a1} less cohesive, would you reopen the risk model?',
+            ['Mixed Conditional (Present→Past)'],
+            'If Chancellor Mehta {a1} more conciliatory, {a2} the accord yesterday?',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
+                'a1' => $this->ifPastSimpleWere('Chancellor Mehta'),
+                'a2' => $this->resultWouldHaveQuestion('she', $this->forms('salvage', 'salvaged', 'salvaged')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Third Conditional'],
-            'If she {a1} the discovery trove, would you have refiled the case?',
+            ['Mixed Conditional (Present→Past)'],
+            'If the archive servers {a1} stable, {a2} the audit yesterday?',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('parse', 'parsed', 'parsed')),
+                'a1' => $this->ifPastSimpleWere('the archive servers'),
+                'a2' => $this->resultWouldHaveQuestion('we', $this->forms('finalize', 'finalized', 'finalized')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Third Conditional'],
-            'If we {a1} the concession draft, would you have renegotiated the clause?',
+            ['Mixed Conditional (Past→Present)'],
+            'If the arbitration team {a1} earlier, {a2} in chambers now?',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('circulate', 'circulated', 'circulated')),
-            ]
-        );
-
-        // Future-focused affirmatives (4)
-        $entries[] = $this->makeEntry(
-            'C2',
-            'future',
-            ['First Conditional'],
-            'If you {a1} the interoperability patch tonight, you {a2} a cascading outage.',
-            [
-                'a1' => $this->ifPresentSimple('you', $this->forms('deploy', 'deployed', 'deployed')),
-                'a2' => $this->resultWill('you', $this->forms('avert', 'averted', 'averted')),
+                'a1' => $this->ifPastPerfectMixed('the arbitration team', $this->forms('arrive', 'arrived', 'arrived')),
+                'a2' => $this->resultWouldPresentQuestion('they', $this->forms('be', 'were', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
-            'future',
-            ['First Conditional'],
-            'If they {a1} the humanitarian brief, they {a2} donor confidence.',
+            'question',
+            ['Mixed Conditional (Past→Present)'],
+            'If Director Cho {a1} her notes, {a2} composed now?',
             [
-                'a1' => $this->ifPresentSimple('they', $this->forms('issue', 'issued', 'issued')),
-                'a2' => $this->resultWill('they', $this->forms('reinforce', 'reinforced', 'reinforced')),
+                'a1' => $this->ifPastPerfectMixed('Director Cho', $this->forms('distill', 'distilled', 'distilled')),
+                'a2' => $this->resultWouldPresentQuestion('she', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
-            'future',
-            ['First Conditional'],
-            'If he {a1} the predictive ledger, he {a2} anomalies early.',
+            'question',
+            ['Mixed Conditional (Present→Past)'],
+            'If the envoy corps {a1} more adaptable, {a2} the sanctions yesterday?',
             [
-                'a1' => $this->ifPresentSimple('he', $this->forms('audit', 'audited', 'audited')),
-                'a2' => $this->resultWill('he', $this->forms('detect', 'detected', 'detected')),
+                'a1' => $this->ifPastSimpleWere('the envoy corps'),
+                'a2' => $this->resultWouldHaveQuestion('they', $this->forms('lift', 'lifted', 'lifted')),
             ]
         );
 
-        $entries[] = $this->makeEntry(
-            'C2',
-            'future',
-            ['First Conditional'],
-            'If we {a1} discretionary reserves, we {a2} geopolitical shocks.',
-            [
-                'a1' => $this->ifPresentSimple('we', $this->forms('hedge', 'hedged', 'hedged')),
-                'a2' => $this->resultWill('we', $this->forms('withstand', 'withstood', 'withstood')),
-            ]
-        );
-
-        // Present-focused hypotheticals (4)
+        // Present-result focus (6)
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Second Conditional'],
-            'If I {a1} secretary-general, I {a2} sweeping institutional reforms.',
+            ['Mixed Conditional (Past→Present)'],
+            'If I {a1} the precedents, I {a2} resolute now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('I'),
-                'a2' => $this->resultWould('I', $this->forms('champion', 'championed', 'championed')),
+                'a1' => $this->ifPastPerfectMixed('I', $this->forms('sift', 'sifted', 'sifted')),
+                'a2' => $this->resultWouldPresent('I', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Second Conditional'],
-            'If she {a1} stationed in Geneva, she {a2} multilateral negotiations.',
+            ['Mixed Conditional (Past→Present)'],
+            'If you {a1} the donor analytics, you {a2} persuasive now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('she'),
-                'a2' => $this->resultWould('she', $this->forms('broker', 'brokered', 'brokered')),
+                'a1' => $this->ifPastPerfectMixed('you', $this->forms('parse', 'parsed', 'parsed')),
+                'a2' => $this->resultWouldPresent('you', $this->forms('sound', 'sounded', 'sounded')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Second Conditional'],
-            'If they {a1} broader data sovereignty, we {a2} policy frameworks faster.',
+            ['Mixed Conditional (Past→Present)'],
+            'If the think tank {a1} the simulations, it {a2} credible now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('they'),
-                'a2' => $this->resultWould('we', $this->forms('codify', 'codified', 'codified')),
+                'a1' => $this->ifPastPerfectMixed('the think tank', $this->forms('model', 'modeled', 'modeled')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('be', 'was', 'been')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Second Conditional'],
-            'If he {a1} less beholden to legacy systems, he {a2} open protocols.',
+            ['Mixed Conditional (Past→Present)'],
+            'If Amina {a1} the summit brief, she {a2} composed now.',
             [
-                'a1' => $this->ifPastSimpleSubjunctive('he'),
-                'a2' => $this->resultWould('he', $this->forms('adopt', 'adopted', 'adopted')),
-            ]
-        );
-
-        // Past-focused conditionals (4)
-        $entries[] = $this->makeEntry(
-            'C2',
-            'past',
-            ['Third Conditional'],
-            'If they {a1} the amicus brief, they {a2} the precedent.',
-            [
-                'a1' => $this->ifPastPerfect('they', $this->forms('file', 'filed', 'filed')),
-                'a2' => $this->resultWouldHave('they', $this->forms('shape', 'shaped', 'shaped')),
+                'a1' => $this->ifPastPerfectMixed('Amina', $this->forms('synthesize', 'synthesized', 'synthesized')),
+                'a2' => $this->resultWouldPresent('she', $this->forms('feel', 'felt', 'felt')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
-            'past',
-            ['Third Conditional'],
-            'If she {a1} the climate model, she {a2} the mitigation slate.',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If the law firm {a1} the precedent bank, it {a2} agile now.',
             [
-                'a1' => $this->ifPastPerfect('she', $this->forms('stress-test', 'stress-tested', 'stress-tested')),
-                'a2' => $this->resultWouldHave('she', $this->forms('adjust', 'adjusted', 'adjusted')),
+                'a1' => $this->ifPastPerfectMixed('the law firm', $this->forms('curate', 'curated', 'curated')),
+                'a2' => $this->resultWouldPresent('it', $this->forms('be', 'was', 'been')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'C2',
+            'present',
+            ['Mixed Conditional (Past→Present)'],
+            'If our negotiators {a1} the counterarguments, we {a2} confident now.',
+            [
+                'a1' => $this->ifPastPerfectMixed('our negotiators', $this->forms('anticipate', 'anticipated', 'anticipated')),
+                'a2' => $this->resultWouldPresent('we', $this->forms('feel', 'felt', 'felt')),
+            ]
+        );
+
+        // Past-result focus (6)
+        $entries[] = $this->makeEntry(
+            'C2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If she {a1} more dispassionate, she {a2} the tribunal yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('she'),
+                'a2' => $this->resultWouldHave('she', $this->forms('persuade', 'persuaded', 'persuaded')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'past',
-            ['Third Conditional'],
-            'If we {a1} the arbitration panel earlier, we {a2} a fairer mandate.',
+            ['Mixed Conditional (Present→Past)'],
+            'If the council {a1} less partisan, it {a2} the budget yesterday.',
             [
-                'a1' => $this->ifPastPerfect('we', $this->forms('convene', 'convened', 'convened')),
-                'a2' => $this->resultWouldHave('we', $this->forms('secure', 'secured', 'secured')),
+                'a1' => $this->ifPastSimpleWere('the council'),
+                'a2' => $this->resultWouldHave('it', $this->forms('ratify', 'ratified', 'ratified')),
             ]
         );
 
         $entries[] = $this->makeEntry(
             'C2',
             'past',
-            ['Third Conditional'],
-            'If I {a1} the procurement ledger, I {a2} the bribery trail.',
+            ['Mixed Conditional (Present→Past)'],
+            'If we {a1} more audacious, we {a2} the amendment yesterday.',
             [
-                'a1' => $this->ifPastPerfect('I', $this->forms('reconcile', 'reconciled', 'reconciled')),
-                'a2' => $this->resultWouldHave('I', $this->forms('expose', 'exposed', 'exposed')),
+                'a1' => $this->ifPastSimpleWere('we'),
+                'a2' => $this->resultWouldHave('we', $this->forms('advance', 'advanced', 'advanced')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'C2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If I {a1} more analytical, I {a2} the loophole yesterday.',
+            [
+                'a1' => $this->ifPastSimpleMixed('I', $this->forms('probe', 'probed', 'probed')),
+                'a2' => $this->resultWouldHave('I', $this->forms('spot', 'spotted', 'spotted')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'C2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If the regulator {a1} less cautious, it {a2} the embargo yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('the regulator'),
+                'a2' => $this->resultWouldHave('it', $this->forms('lift', 'lifted', 'lifted')),
+            ]
+        );
+
+        $entries[] = $this->makeEntry(
+            'C2',
+            'past',
+            ['Mixed Conditional (Present→Past)'],
+            'If your advisor {a1} more direct, you {a2} the clause yesterday.',
+            [
+                'a1' => $this->ifPastSimpleWere('your advisor'),
+                'a2' => $this->resultWouldHave('you', $this->forms('amend', 'amended', 'amended')),
             ]
         );
 
@@ -1942,191 +1955,143 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         ];
     }
 
-    private function presentSimplePositive(string $subject, string $base): string
+    private function hintVerb(string $subject, string $verb, bool $negative = false): string
     {
-        $subjectLower = strtolower($subject);
-        if (in_array($subjectLower, ['he', 'she', 'it'])) {
-            return $base . 's';
-        }
+        $subject = trim($subject) === '' ? '' : ' (' . $subject . ')';
+        $prefix = $negative ? 'not ' : '';
 
-        return $base;
+        return trim($prefix . $verb . $subject);
     }
 
-    private function presentSimpleNegative(string $subject, string $base): string
-    {
-        $subjectLower = strtolower($subject);
-        $auxiliary = in_array($subjectLower, ['he', 'she', 'it']) ? "doesn't" : "don't";
-
-        return $auxiliary . ' ' . $base;
-    }
-
-    private function ifPresentSimple(string $subject, array $forms, bool $negative = false, ?string $verbHint = null): array
-    {
-        $answer = $negative
-            ? $this->presentSimpleNegative($subject, $forms['base'])
-            : $this->presentSimplePositive($subject, $forms['base']);
-
-        $options = $negative
-            ? [
-                ['value' => $answer, 'reason' => 'correct'],
-                ['value' => "didn't " . $forms['base'], 'reason' => 'past_simple'],
-                ['value' => "hadn't " . $forms['participle'], 'reason' => 'past_perfect'],
-                ['value' => "won't " . $forms['base'], 'reason' => 'modal_future'],
-            ]
-            : [
-                ['value' => $answer, 'reason' => 'correct'],
-                ['value' => $forms['past'], 'reason' => 'past_simple'],
-                ['value' => 'had ' . $forms['participle'], 'reason' => 'past_perfect'],
-                ['value' => 'will ' . $forms['base'], 'reason' => 'modal_future'],
-            ];
-
-        return [
-            'type' => 'if_present_simple',
-            'subject' => $subject,
-            'verb' => $forms['base'],
-            'verb_hint' => $verbHint ?? ($negative ? 'not ' . $forms['base'] : $forms['base']),
-            'answer' => $answer,
-            'options' => $options,
-        ];
-    }
-
-    private function ifPastPerfect(string $subject, array $forms, bool $negative = false, ?string $verbHint = null): array
+    private function ifPastPerfectMixed(string $subject, array $forms, bool $negative = false): array
     {
         $answer = $negative ? "hadn't " . $forms['participle'] : 'had ' . $forms['participle'];
 
         $options = $negative
             ? [
                 ['value' => $answer, 'reason' => 'correct'],
-                ['value' => "didn't " . $forms['base'], 'reason' => 'past_simple'],
+                ['value' => "didn't " . $forms['base'], 'reason' => 'did_not'],
                 ['value' => $forms['base'], 'reason' => 'present_simple'],
-                ['value' => 'would ' . $forms['base'], 'reason' => 'result_clause'],
+                ['value' => 'would have ' . $forms['participle'], 'reason' => 'modal_result'],
             ]
             : [
                 ['value' => $answer, 'reason' => 'correct'],
                 ['value' => $forms['past'], 'reason' => 'past_simple'],
                 ['value' => $forms['base'], 'reason' => 'present_simple'],
-                ['value' => 'would ' . $forms['base'], 'reason' => 'result_clause'],
+                ['value' => 'would have ' . $forms['participle'], 'reason' => 'modal_result'],
             ];
 
         return [
-            'type' => 'if_past_perfect',
+            'type' => 'if_past_perfect_mixed',
             'subject' => $subject,
             'verb' => $forms['base'],
-            'verb_hint' => $verbHint ?? ($negative ? 'not ' . $forms['base'] : $forms['base']),
+            'verb_hint' => $this->hintVerb($subject, $forms['base'], $negative),
             'answer' => $answer,
             'options' => $options,
         ];
     }
 
-    private function ifPastSimpleSubjunctive(string $subject, bool $negative = false, ?string $verbHint = null): array
+    private function ifPastSimpleMixed(string $subject, array $forms, bool $negative = false): array
+    {
+        $answer = $negative ? "didn't " . $forms['base'] : $forms['past'];
+
+        $options = $negative
+            ? [
+                ['value' => $answer, 'reason' => 'correct'],
+                ['value' => "don't " . $forms['base'], 'reason' => 'present_simple'],
+                ['value' => 'had ' . $forms['participle'], 'reason' => 'past_perfect'],
+                ['value' => 'would ' . $forms['base'], 'reason' => 'modal_result'],
+            ]
+            : [
+                ['value' => $answer, 'reason' => 'correct'],
+                ['value' => $forms['base'], 'reason' => 'present_simple'],
+                ['value' => 'had ' . $forms['participle'], 'reason' => 'past_perfect'],
+                ['value' => 'would ' . $forms['base'], 'reason' => 'modal_result'],
+            ];
+
+        return [
+            'type' => 'if_past_simple_mixed',
+            'subject' => $subject,
+            'verb' => $forms['base'],
+            'verb_hint' => $this->hintVerb($subject, $forms['base'], $negative),
+            'answer' => $answer,
+            'options' => $options,
+        ];
+    }
+
+    private function ifPastSimpleWere(string $subject, bool $negative = false): array
     {
         $answer = $negative ? "weren't" : 'were';
 
         $options = $negative
             ? [
                 ['value' => $answer, 'reason' => 'correct'],
-                ['value' => "wasn't", 'reason' => 'singular_agreement'],
+                ['value' => "aren't", 'reason' => 'present_simple'],
                 ['value' => 'had been', 'reason' => 'past_perfect'],
-                ['value' => 'are', 'reason' => 'present_simple'],
+                ['value' => 'would be', 'reason' => 'modal_result'],
             ]
             : [
                 ['value' => $answer, 'reason' => 'correct'],
-                ['value' => 'was', 'reason' => 'singular_agreement'],
+                ['value' => 'was', 'reason' => 'present_simple'],
                 ['value' => 'had been', 'reason' => 'past_perfect'],
-                ['value' => 'are', 'reason' => 'present_simple'],
+                ['value' => 'would be', 'reason' => 'modal_result'],
             ];
 
         return [
-            'type' => 'if_past_simple_subjunctive',
+            'type' => 'if_past_simple_were',
             'subject' => $subject,
             'verb' => 'be',
-            'verb_hint' => $verbHint ?? ($negative ? 'not be' : 'be'),
+            'verb_hint' => $this->hintVerb($subject, 'be', $negative),
             'answer' => $answer,
             'options' => $options,
         ];
     }
 
-    private function resultWill(string $subject, array $forms): array
-    {
-        $answer = 'will ' . $forms['base'];
-
-        return [
-            'type' => 'result_will',
-            'subject' => $subject,
-            'verb' => $forms['base'],
-            'verb_hint' => $forms['base'],
-            'answer' => $answer,
-            'options' => [
-                ['value' => $answer, 'reason' => 'correct'],
-                ['value' => 'would ' . $forms['base'], 'reason' => 'second_conditional'],
-                ['value' => 'would have ' . $forms['participle'], 'reason' => 'third_conditional'],
-                ['value' => $this->presentSimplePositive($subject, $forms['base']), 'reason' => 'present_simple'],
-            ],
-        ];
-    }
-
-    private function resultWillNegative(string $subject, array $forms): array
-    {
-        $answer = "won't " . $forms['base'];
-
-        return [
-            'type' => 'result_will_negative',
-            'subject' => $subject,
-            'verb' => $forms['base'],
-            'verb_hint' => 'not ' . $forms['base'],
-            'answer' => $answer,
-            'options' => [
-                ['value' => $answer, 'reason' => 'correct'],
-                ['value' => 'would not ' . $forms['base'], 'reason' => 'second_conditional'],
-                ['value' => 'would not have ' . $forms['participle'], 'reason' => 'third_conditional'],
-                ['value' => $this->presentSimpleNegative($subject, $forms['base']), 'reason' => 'present_simple'],
-            ],
-        ];
-    }
-
-    private function resultWillQuestion(string $subject, array $forms): array
-    {
-        $subjectLower = strtolower($subject);
-        $answer = 'will ' . $subjectLower . ' ' . $forms['base'];
-
-        return [
-            'type' => 'result_will_question',
-            'subject' => $subject,
-            'verb' => $forms['base'],
-            'verb_hint' => $forms['base'],
-            'answer' => $answer,
-            'options' => [
-                ['value' => $answer, 'reason' => 'correct'],
-                ['value' => 'would ' . $subjectLower . ' ' . $forms['base'], 'reason' => 'second_conditional'],
-                ['value' => 'would ' . $subjectLower . ' have ' . $forms['participle'], 'reason' => 'third_conditional'],
-                ['value' => $subjectLower . ' ' . $forms['base'], 'reason' => 'present_simple'],
-            ],
-        ];
-    }
-
-    private function resultWould(string $subject, array $forms, bool $negative = false): array
+    private function resultWouldPresent(string $subject, array $forms, bool $negative = false): array
     {
         $answer = $negative ? 'would not ' . $forms['base'] : 'would ' . $forms['base'];
 
+        $options = $negative
+            ? [
+                ['value' => $answer, 'reason' => 'correct'],
+                ['value' => 'would not have ' . $forms['participle'], 'reason' => 'past_result'],
+                ['value' => 'will not ' . $forms['base'], 'reason' => 'first_conditional'],
+                ['value' => $forms['base'], 'reason' => 'present_simple'],
+            ]
+            : [
+                ['value' => $answer, 'reason' => 'correct'],
+                ['value' => 'would have ' . $forms['participle'], 'reason' => 'past_result'],
+                ['value' => 'will ' . $forms['base'], 'reason' => 'first_conditional'],
+                ['value' => $forms['base'], 'reason' => 'present_simple'],
+            ];
+
         return [
-            'type' => 'result_would',
+            'type' => $negative ? 'result_would_present_negative' : 'result_would_present',
             'subject' => $subject,
             'verb' => $forms['base'],
-            'verb_hint' => $negative ? 'not ' . $forms['base'] : $forms['base'],
+            'verb_hint' => $this->hintVerb($subject, $forms['base'], $negative),
             'answer' => $answer,
-            'options' => $negative
-                ? [
-                    ['value' => $answer, 'reason' => 'correct'],
-                    ['value' => 'will not ' . $forms['base'], 'reason' => 'first_conditional'],
-                    ['value' => 'would not have ' . $forms['participle'], 'reason' => 'third_conditional'],
-                    ['value' => $this->presentSimpleNegative($subject, $forms['base']), 'reason' => 'present_simple'],
-                ]
-                : [
-                    ['value' => $answer, 'reason' => 'correct'],
-                    ['value' => 'will ' . $forms['base'], 'reason' => 'first_conditional'],
-                    ['value' => 'would have ' . $forms['participle'], 'reason' => 'third_conditional'],
-                    ['value' => $this->presentSimplePositive($subject, $forms['base']), 'reason' => 'present_simple'],
-                ],
+            'options' => $options,
+        ];
+    }
+
+    private function resultWouldPresentQuestion(string $subject, array $forms): array
+    {
+        $subjectLower = strtolower($subject);
+        $answer = 'would ' . $subjectLower . ' ' . $forms['base'];
+
+        return [
+            'type' => 'result_would_present_question',
+            'subject' => $subject,
+            'verb' => $forms['base'],
+            'verb_hint' => $this->hintVerb($subject, $forms['base'], false),
+            'answer' => $answer,
+            'options' => [
+                ['value' => $answer, 'reason' => 'correct'],
+                ['value' => 'would ' . $subjectLower . ' have ' . $forms['participle'], 'reason' => 'past_result'],
+                ['value' => 'will ' . $subjectLower . ' ' . $forms['base'], 'reason' => 'first_conditional'],
+                ['value' => $subjectLower . ' ' . $forms['base'], 'reason' => 'present_simple'],
+            ],
         ];
     }
 
@@ -2137,24 +2102,44 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $options = $negative
             ? [
                 ['value' => $answer, 'reason' => 'correct'],
+                ['value' => 'would not ' . $forms['base'], 'reason' => 'present_result'],
                 ['value' => 'will not ' . $forms['base'], 'reason' => 'first_conditional'],
-                ['value' => $forms['past'], 'reason' => 'past_simple'],
                 ['value' => 'would not ' . $forms['participle'], 'reason' => 'missing_have'],
             ]
             : [
                 ['value' => $answer, 'reason' => 'correct'],
-                ['value' => 'would ' . $forms['base'], 'reason' => 'second_conditional'],
+                ['value' => 'would ' . $forms['base'], 'reason' => 'present_result'],
                 ['value' => 'will ' . $forms['base'], 'reason' => 'first_conditional'],
                 ['value' => $forms['past'], 'reason' => 'past_simple'],
             ];
 
         return [
-            'type' => $negative ? 'result_would_not_have' : 'result_would_have',
+            'type' => $negative ? 'result_would_have_negative' : 'result_would_have_past',
             'subject' => $subject,
             'verb' => $forms['base'],
-            'verb_hint' => $negative ? 'not ' . $forms['base'] : $forms['base'],
+            'verb_hint' => $this->hintVerb($subject, $forms['base'], $negative),
             'answer' => $answer,
             'options' => $options,
+        ];
+    }
+
+    private function resultWouldHaveQuestion(string $subject, array $forms): array
+    {
+        $subjectLower = strtolower($subject);
+        $answer = 'would ' . $subjectLower . ' have ' . $forms['participle'];
+
+        return [
+            'type' => 'result_would_have_question',
+            'subject' => $subject,
+            'verb' => $forms['base'],
+            'verb_hint' => $this->hintVerb($subject, $forms['base'], false),
+            'answer' => $answer,
+            'options' => [
+                ['value' => $answer, 'reason' => 'correct'],
+                ['value' => 'would ' . $subjectLower . ' ' . $forms['base'], 'reason' => 'present_result'],
+                ['value' => 'will ' . $subjectLower . ' ' . $forms['base'], 'reason' => 'first_conditional'],
+                ['value' => $subjectLower . ' ' . $forms['base'], 'reason' => 'present_simple'],
+            ],
         ];
     }
 
@@ -2169,3 +2154,4 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         ];
     }
 }
+
