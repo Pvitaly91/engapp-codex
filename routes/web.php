@@ -75,7 +75,7 @@ Route::middleware('auth.admin')->group(function () {
         Route::put('/{page}/blocks/{block}', [PageManageController::class, 'updateBlock'])->name('blocks.update');
         Route::delete('/{page}/blocks/{block}', [PageManageController::class, 'destroyBlock'])->name('blocks.destroy');
     });
-
+ 
     Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
     Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
     
