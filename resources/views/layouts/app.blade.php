@@ -44,7 +44,7 @@
                 </button>
                 <div class="hidden md:flex md:items-center md:gap-6 text-gray-600 font-medium">
                     <a href="{{ route('pages.manage.index') }}" class="hover:text-blue-500 transition">Сторінки</a>
-                    <a href="{{ url('/grammar-test') }}" class="hover:text-blue-500 transition">Граматика v2</a>
+                    <a href="{{ url('/grammar-test') }}" class="hover:text-blue-500 transition">Граматика</a>
                     <a href="{{ url('/tests') }}" class="hover:text-blue-500 transition">Збережені тести</a>
                     <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
                     <a href="{{ route('migrations.index') }}" class="hover:text-blue-500 transition">Міграції</a>
@@ -67,7 +67,7 @@
                 x-transition
             >
                 <a href="{{ route('pages.manage.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Сторінки</a>
-                <a href="{{ url('/grammar-test') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Граматика v2</a>
+                <a href="{{ url('/grammar-test') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Граматика</a>
                 <a href="{{ url('/tests') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Збережені тести</a>
                 <a href="{{ route('seed-runs.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs</a>
                 <a href="{{ route('migrations.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Міграції</a>
