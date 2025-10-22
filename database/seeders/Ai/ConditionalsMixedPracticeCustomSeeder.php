@@ -117,8 +117,8 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         )->id;
 
         $tenseTagIds = [
-            'Mixed Conditional (Past→Present)' => Tag::firstOrCreate(['name' => 'Mixed Conditional (Past→Present)'], ['category' => 'Tenses'])->id,
-            'Mixed Conditional (Present→Past)' => Tag::firstOrCreate(['name' => 'Mixed Conditional (Present→Past)'], ['category' => 'Tenses'])->id,
+            'Mixed Conditional (Third→Second)' => Tag::firstOrCreate(['name' => 'Mixed Conditional (Third→Second)'], ['category' => 'Tenses'])->id,
+            'Mixed Conditional (Second→Third)' => Tag::firstOrCreate(['name' => 'Mixed Conditional (Second→Third)'], ['category' => 'Tenses'])->id,
         ];
 
         $items = [];
@@ -301,7 +301,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} my umbrella yesterday, I {a2} wet now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('take', 'took', 'taken')),
@@ -312,7 +312,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If he {a1} breakfast, he {a2} hungry now.',
             [
                 'a1' => $this->ifPastPerfectMixed('he', $this->forms('eat', 'ate', 'eaten')),
@@ -323,7 +323,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If we {a1} the door last night, we {a2} worried now.',
             [
                 'a1' => $this->ifPastPerfectMixed('we', $this->forms('lock', 'locked', 'locked')),
@@ -334,7 +334,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If they {a1} the lights off last night, they {a2} a big bill now.',
             [
                 'a1' => $this->ifPastPerfectMixed('they', $this->forms('turn', 'turned', 'turned')),
@@ -345,7 +345,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Sara {a1} the note, she {a2} confused now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Sara', $this->forms('read', 'read', 'read')),
@@ -356,7 +356,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the bus driver {a1} attention yesterday, the passengers {a2} nervous now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the bus driver', $this->forms('pay', 'paid', 'paid')),
@@ -368,7 +368,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} earlier, {a2} enough time now?',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('leave', 'left', 'left')),
@@ -379,7 +379,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If he {a1} more careful, {a2} his keys yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('he'),
@@ -390,7 +390,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the weather {a1} warmer, {a2} the picnic last weekend?',
             [
                 'a1' => $this->ifPastSimpleWere('it'),
@@ -401,7 +401,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Lisa {a1} her lessons, {a2} confident now?',
             [
                 'a1' => $this->ifPastPerfectMixed('Lisa', $this->forms('finish', 'finished', 'finished')),
@@ -412,7 +412,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If they {a1} the map, {a2} lost now?',
             [
                 'a1' => $this->ifPastPerfectMixed('they', $this->forms('check', 'checked', 'checked')),
@@ -423,7 +423,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If we {a1} more polite, {a2} an apology yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('we'),
@@ -435,7 +435,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} earlier, I {a2} ready now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('wake', 'woke', 'woken')),
@@ -446,7 +446,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the bus on time, you {a2} at home now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('catch', 'caught', 'caught')),
@@ -457,7 +457,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Mia {a1} the words, she {a2} happy now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Mia', $this->forms('learn', 'learned', 'learned')),
@@ -468,7 +468,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the team {a1} earlier, they {a2} calm now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the team', $this->forms('arrive', 'arrived', 'arrived')),
@@ -479,7 +479,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Tom {a1} his bike last week, he {a2} to school now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Tom', $this->forms('fix', 'fixed', 'fixed')),
@@ -490,7 +490,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the shop {a1} more bread, it {a2} customers now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the shop', $this->forms('order', 'ordered', 'ordered')),
@@ -502,7 +502,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If she {a1} kinder, she {a2} that argument yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('she'),
@@ -513,7 +513,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If they {a1} more careful, they {a2} the crack yesterday.',
             [
                 'a1' => $this->ifPastSimpleMixed('they', $this->forms('listen', 'listened', 'listened')),
@@ -524,7 +524,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If we {a1} taller, we {a2} the shelf yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('we'),
@@ -535,7 +535,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If I {a1} more confident, I {a2} the question yesterday.',
             [
                 'a1' => $this->ifPastSimpleMixed('I', $this->forms('feel', 'felt', 'felt')),
@@ -546,7 +546,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the teacher {a1} patient, the class {a2} the test yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('the teacher'),
@@ -557,7 +557,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If your brother {a1} polite, he {a2} the door for grandma yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('your brother'),
@@ -576,7 +576,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} two alarms, I {a2} late now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('set', 'set', 'set')),
@@ -587,7 +587,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} your phone, it {a2} silent now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('charge', 'charged', 'charged')),
@@ -598,7 +598,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Nina {a1} the address, she {a2} lost now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Nina', $this->forms('save', 'saved', 'saved')),
@@ -609,7 +609,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the children {a1} the table, they {a2} stressed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the children', $this->forms('clear', 'cleared', 'cleared')),
@@ -620,7 +620,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If our coach {a1} the tactic, we {a2} confused now.',
             [
                 'a1' => $this->ifPastPerfectMixed('our coach', $this->forms('explain', 'explained', 'explained')),
@@ -631,7 +631,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the train operator {a1} the brakes, the passengers {a2} afraid now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the train operator', $this->forms('check', 'checked', 'checked')),
@@ -643,7 +643,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the invitation, {a2} ready now?',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('read', 'read', 'read')),
@@ -654,7 +654,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If Martin {a1} more polite, {a2} an apology yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('Martin'),
@@ -665,7 +665,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the roads {a1} clear, {a2} the delivery yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the roads'),
@@ -676,7 +676,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If we {a1} earlier, {a2} inside the museum now?',
             [
                 'a1' => $this->ifPastPerfectMixed('we', $this->forms('arrive', 'arrived', 'arrived')),
@@ -687,7 +687,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Ana {a1} her notes, {a2} the answer now?',
             [
                 'a1' => $this->ifPastPerfectMixed('Ana', $this->forms('organize', 'organized', 'organized')),
@@ -698,7 +698,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the manager {a1} helpful, {a2} a refund yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the manager'),
@@ -710,7 +710,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the bus earlier, I {a2} relaxed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('catch', 'caught', 'caught')),
@@ -721,7 +721,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} your tasks yesterday, you {a2} free now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('complete', 'completed', 'completed')),
@@ -732,7 +732,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Elena {a1} extra practice, she {a2} confident now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Elena', $this->forms('do', 'did', 'done')),
@@ -743,7 +743,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the shop {a1} early, it {a2} quiet now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the shop', $this->forms('open', 'opened', 'opened')),
@@ -754,7 +754,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the twins {a1} the clue, they {a2} sure now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the twins', $this->forms('spot', 'spotted', 'spotted')),
@@ -765,7 +765,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If our dog {a1} the gate closed, it {a2} inside now.',
             [
                 'a1' => $this->ifPastPerfectMixed('our dog', $this->forms('notice', 'noticed', 'noticed')),
@@ -777,7 +777,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If she {a1} more patient, she {a2} the promise yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('she'),
@@ -788,7 +788,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the guards {a1} more alert, they {a2} the alarm last night.',
             [
                 'a1' => $this->ifPastSimpleMixed('the guards', $this->forms('stay', 'stayed', 'stayed')),
@@ -799,7 +799,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If we {a1} less shy, we {a2} the host yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('we'),
@@ -810,7 +810,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If I {a1} better records, I {a2} the bill yesterday.',
             [
                 'a1' => $this->ifPastSimpleMixed('I', $this->forms('keep', 'kept', 'kept')),
@@ -821,7 +821,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the team {a1} united, they {a2} the match yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('the team'),
@@ -832,7 +832,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'A2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If your cousin {a1} honest, he {a2} the mistake yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('your cousin'),
@@ -851,7 +851,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the lecture, I {a2} lost now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('record', 'recorded', 'recorded')),
@@ -862,7 +862,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the taxi, you {a2} stranded now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('schedule', 'scheduled', 'scheduled')),
@@ -873,7 +873,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the chef {a1} the jars, we {a2} unsure now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the chef', $this->forms('label', 'labeled', 'labeled')),
@@ -884,7 +884,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Mira {a1} the calendar, she {a2} double-booked now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Mira', $this->forms('update', 'updated', 'updated')),
@@ -895,7 +895,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the volunteers {a1} the kits, they {a2} rushing now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the volunteers', $this->forms('pack', 'packed', 'packed')),
@@ -906,7 +906,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If our neighbors {a1} the gate, their dog {a2} loose now.',
             [
                 'a1' => $this->ifPastPerfectMixed('our neighbors', $this->forms('close', 'closed', 'closed')),
@@ -918,7 +918,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the policy, {a2} secure now?',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('check', 'checked', 'checked')),
@@ -929,7 +929,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If Daniel {a1} more attentive, {a2} the cue yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('Daniel'),
@@ -940,7 +940,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the lights {a1} brighter, {a2} the report yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the lights'),
@@ -951,7 +951,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Carla {a1} the form, {a2} ready now?',
             [
                 'a1' => $this->ifPastPerfectMixed('Carla', $this->forms('submit', 'submitted', 'submitted')),
@@ -962,7 +962,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the ferry {a1} on time, {a2} there now?',
             [
                 'a1' => $this->ifPastPerfectMixed('the ferry', $this->forms('depart', 'departed', 'departed')),
@@ -973,7 +973,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If they {a1} more cautious, {a2} the warning yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('they'),
@@ -985,7 +985,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the blueprint, I {a2} calm now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('review', 'reviewed', 'reviewed')),
@@ -996,7 +996,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} your budget, you {a2} ready now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('plan', 'planned', 'planned')),
@@ -1007,7 +1007,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the analysts {a1} the data, they {a2} sure now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the analysts', $this->forms('analyze', 'analyzed', 'analyzed')),
@@ -1018,7 +1018,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Leila {a1} the shortcut, she {a2} home now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Leila', $this->forms('find', 'found', 'found')),
@@ -1029,7 +1029,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the museum {a1} the display, it {a2} full now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the museum', $this->forms('promote', 'promoted', 'promoted')),
@@ -1040,7 +1040,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If our team {a1} weekly drills, we {a2} confident now.',
             [
                 'a1' => $this->ifPastPerfectMixed('our team', $this->forms('complete', 'completed', 'completed')),
@@ -1052,7 +1052,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If she {a1} more decisive, she {a2} the contract yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('she'),
@@ -1063,7 +1063,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the auditors {a1} stricter, they {a2} the error last quarter.',
             [
                 'a1' => $this->ifPastSimpleMixed('the auditors', $this->forms('act', 'acted', 'acted')),
@@ -1074,7 +1074,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If we {a1} more generous, we {a2} the donation yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('we'),
@@ -1085,7 +1085,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If I {a1} braver, I {a2} the presentation yesterday.',
             [
                 'a1' => $this->ifPastSimpleMixed('I', $this->forms('feel', 'felt', 'felt')),
@@ -1096,7 +1096,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the committee {a1} balanced, it {a2} the decision yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('the committee'),
@@ -1107,7 +1107,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If your mentor {a1} strict, you {a2} the errors yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('your mentor'),
@@ -1126,7 +1126,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the invoices, I {a2} unsure now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('archive', 'archived', 'archived')),
@@ -1137,7 +1137,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the files, you {a2} exposed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('encrypt', 'encrypted', 'encrypted')),
@@ -1148,7 +1148,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the curator {a1} the pieces, we {a2} uncertain now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the curator', $this->forms('catalog', 'cataloged', 'cataloged')),
@@ -1159,7 +1159,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Helena {a1} the briefing, she {a2} hesitant now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Helena', $this->forms('rehearse', 'rehearsed', 'rehearsed')),
@@ -1170,7 +1170,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the engineers {a1} the valves, they {a2} anxious now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the engineers', $this->forms('inspect', 'inspected', 'inspected')),
@@ -1181,7 +1181,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If our partners {a1} the venue, the team {a2} restless now.',
             [
                 'a1' => $this->ifPastPerfectMixed('our partners', $this->forms('confirm', 'confirmed', 'confirmed')),
@@ -1193,7 +1193,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the deadline chart, {a2} confident now?',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('audit', 'audited', 'audited')),
@@ -1204,7 +1204,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If Marcus {a1} more flexible, {a2} the client yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('Marcus'),
@@ -1215,7 +1215,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the routers {a1} stable, {a2} the outage yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the routers'),
@@ -1226,7 +1226,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Lila {a1} the dossier, {a2} calm now?',
             [
                 'a1' => $this->ifPastPerfectMixed('Lila', $this->forms('review', 'reviewed', 'reviewed')),
@@ -1237,7 +1237,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the delegation {a1} earlier, {a2} in the hall now?',
             [
                 'a1' => $this->ifPastPerfectMixed('the delegation', $this->forms('arrive', 'arrived', 'arrived')),
@@ -1248,7 +1248,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the board {a1} united, {a2} the vote yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the board'),
@@ -1260,7 +1260,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the metrics, I {a2} decisive now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('analyze', 'analyzed', 'analyzed')),
@@ -1271,7 +1271,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the backup plan, you {a2} composed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('draft', 'drafted', 'drafted')),
@@ -1282,7 +1282,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the analysts {a1} the forecast, they {a2} aligned now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the analysts', $this->forms('refine', 'refined', 'refined')),
@@ -1293,7 +1293,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Sofia {a1} the itinerary, she {a2} composed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Sofia', $this->forms('finalize', 'finalized', 'finalized')),
@@ -1304,7 +1304,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the bureau {a1} the permits, it {a2} confident now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the bureau', $this->forms('process', 'processed', 'processed')),
@@ -1315,7 +1315,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If our mentors {a1} weekly feedback, we {a2} steady now.',
             [
                 'a1' => $this->ifPastPerfectMixed('our mentors', $this->forms('provide', 'provided', 'provided')),
@@ -1327,7 +1327,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If she {a1} more diplomatic, she {a2} the partnership yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('she'),
@@ -1338,7 +1338,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the auditors {a1} vigilant, they {a2} the fraud last quarter.',
             [
                 'a1' => $this->ifPastSimpleMixed('the auditors', $this->forms('remain', 'remained', 'remained')),
@@ -1349,7 +1349,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If we {a1} less rigid, we {a2} the compromise yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('we'),
@@ -1360,7 +1360,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If I {a1} more assertive, I {a2} the proposal yesterday.',
             [
                 'a1' => $this->ifPastSimpleMixed('I', $this->forms('feel', 'felt', 'felt')),
@@ -1371,7 +1371,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the network {a1} resilient, it {a2} the crash yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('the network'),
@@ -1382,7 +1382,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'B2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If your advisor {a1} candid, you {a2} the risk yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('your advisor'),
@@ -1401,7 +1401,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the statutes, I {a2} uncertain now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('consult', 'consulted', 'consulted')),
@@ -1412,7 +1412,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the compliance memo, you {a2} exposed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('circulate', 'circulated', 'circulated')),
@@ -1423,7 +1423,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Dr. Rao {a1} the sensors, we {a2} anxious now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Dr. Rao', $this->forms('calibrate', 'calibrated', 'calibrated')),
@@ -1434,7 +1434,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the editorial board {a1} the sources, the newsroom {a2} skeptical now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the editorial board', $this->forms('vet', 'vetted', 'vetted')),
@@ -1445,7 +1445,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Lina {a1} the deposition, she {a2} hesitant now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Lina', $this->forms('rehearse', 'rehearsed', 'rehearsed')),
@@ -1456,7 +1456,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the orchestra {a1} the strings, the conductor {a2} uneasy now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the orchestra', $this->forms('tune', 'tuned', 'tuned')),
@@ -1468,7 +1468,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the fiscal models, {a2} decisive now?',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('simulate', 'simulated', 'simulated')),
@@ -1479,7 +1479,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If Marcus {a1} more transparent, {a2} the investors yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('Marcus'),
@@ -1490,7 +1490,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the archive {a1} accessible, {a2} the brief yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the archive'),
@@ -1501,7 +1501,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the auditors {a1} earlier, {a2} in the chamber now?',
             [
                 'a1' => $this->ifPastPerfectMixed('the auditors', $this->forms('arrive', 'arrived', 'arrived')),
@@ -1512,7 +1512,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Daria {a1} her testimony, {a2} confident now?',
             [
                 'a1' => $this->ifPastPerfectMixed('Daria', $this->forms('revise', 'revised', 'revised')),
@@ -1523,7 +1523,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the envoy {a1} more flexible, {a2} the treaty yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the envoy'),
@@ -1535,7 +1535,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the litigation timeline, I {a2} calm now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('map', 'mapped', 'mapped')),
@@ -1546,7 +1546,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the stakeholder survey, you {a2} persuasive now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('synthesize', 'synthesized', 'synthesized')),
@@ -1557,7 +1557,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the research team {a1} the anomalies, they {a2} confident now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the research team', $this->forms('flag', 'flagged', 'flagged')),
@@ -1568,7 +1568,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Mira {a1} the panel brief, she {a2} composed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Mira', $this->forms('draft', 'drafted', 'drafted')),
@@ -1579,7 +1579,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the consortium {a1} the funding, it {a2} stable now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the consortium', $this->forms('secure', 'secured', 'secured')),
@@ -1590,7 +1590,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If our analysts {a1} the pilot data, we {a2} decisive now.',
             [
                 'a1' => $this->ifPastPerfectMixed('our analysts', $this->forms('interpret', 'interpreted', 'interpreted')),
@@ -1602,7 +1602,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If she {a1} more meticulous, she {a2} the anomaly yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('she'),
@@ -1613,7 +1613,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the board {a1} less divided, it {a2} the merger yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('the board'),
@@ -1624,7 +1624,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If we {a1} more courageous, we {a2} the reform yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('we'),
@@ -1635,7 +1635,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If I {a1} more strategic, I {a2} the negotiation yesterday.',
             [
                 'a1' => $this->ifPastSimpleMixed('I', $this->forms('think', 'thought', 'thought')),
@@ -1646,7 +1646,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the regulator {a1} proactive, it {a2} the breach last month.',
             [
                 'a1' => $this->ifPastSimpleWere('the regulator'),
@@ -1657,7 +1657,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C1',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If your counsel {a1} candid, you {a2} the clause yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('your counsel'),
@@ -1676,7 +1676,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the testimonies, I {a2} uncertain now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('triangulate', 'triangulated', 'triangulated')),
@@ -1687,7 +1687,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the dossier, you {a2} exposed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('redact', 'redacted', 'redacted')),
@@ -1698,7 +1698,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Professor Lin {a1} the algorithm, we {a2} anxious now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Professor Lin', $this->forms('validate', 'validated', 'validated')),
@@ -1709,7 +1709,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the ethics panel {a1} the witnesses, the committee {a2} skeptical now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the ethics panel', $this->forms('interrogate', 'interrogated', 'interrogated')),
@@ -1720,7 +1720,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Serena {a1} the delegation, she {a2} hesitant now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Serena', $this->forms('brief', 'briefed', 'briefed')),
@@ -1731,7 +1731,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'negative',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the symphony {a1} the acoustics, the maestro {a2} uneasy now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the symphony', $this->forms('adjust', 'adjusted', 'adjusted')),
@@ -1743,7 +1743,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the contingency matrices, {a2} decisive now?',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('construct', 'constructed', 'constructed')),
@@ -1754,7 +1754,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If Chancellor Mehta {a1} more conciliatory, {a2} the accord yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('Chancellor Mehta'),
@@ -1765,7 +1765,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the archive servers {a1} stable, {a2} the audit yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the archive servers'),
@@ -1776,7 +1776,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the arbitration team {a1} earlier, {a2} in chambers now?',
             [
                 'a1' => $this->ifPastPerfectMixed('the arbitration team', $this->forms('arrive', 'arrived', 'arrived')),
@@ -1787,7 +1787,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Director Cho {a1} her notes, {a2} composed now?',
             [
                 'a1' => $this->ifPastPerfectMixed('Director Cho', $this->forms('distill', 'distilled', 'distilled')),
@@ -1798,7 +1798,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'question',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the envoy corps {a1} more adaptable, {a2} the sanctions yesterday?',
             [
                 'a1' => $this->ifPastSimpleWere('the envoy corps'),
@@ -1810,7 +1810,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If I {a1} the precedents, I {a2} resolute now.',
             [
                 'a1' => $this->ifPastPerfectMixed('I', $this->forms('sift', 'sifted', 'sifted')),
@@ -1821,7 +1821,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If you {a1} the donor analytics, you {a2} persuasive now.',
             [
                 'a1' => $this->ifPastPerfectMixed('you', $this->forms('parse', 'parsed', 'parsed')),
@@ -1832,7 +1832,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the think tank {a1} the simulations, it {a2} credible now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the think tank', $this->forms('model', 'modeled', 'modeled')),
@@ -1843,7 +1843,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If Amina {a1} the summit brief, she {a2} composed now.',
             [
                 'a1' => $this->ifPastPerfectMixed('Amina', $this->forms('synthesize', 'synthesized', 'synthesized')),
@@ -1854,7 +1854,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If the law firm {a1} the precedent bank, it {a2} agile now.',
             [
                 'a1' => $this->ifPastPerfectMixed('the law firm', $this->forms('curate', 'curated', 'curated')),
@@ -1865,7 +1865,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'present',
-            ['Mixed Conditional (Past→Present)'],
+            ['Mixed Conditional (Third→Second)'],
             'If our negotiators {a1} the counterarguments, we {a2} confident now.',
             [
                 'a1' => $this->ifPastPerfectMixed('our negotiators', $this->forms('anticipate', 'anticipated', 'anticipated')),
@@ -1877,7 +1877,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If she {a1} more dispassionate, she {a2} the tribunal yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('she'),
@@ -1888,7 +1888,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the council {a1} less partisan, it {a2} the budget yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('the council'),
@@ -1899,7 +1899,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If we {a1} more audacious, we {a2} the amendment yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('we'),
@@ -1910,7 +1910,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If I {a1} more analytical, I {a2} the loophole yesterday.',
             [
                 'a1' => $this->ifPastSimpleMixed('I', $this->forms('probe', 'probed', 'probed')),
@@ -1921,7 +1921,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If the regulator {a1} less cautious, it {a2} the embargo yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('the regulator'),
@@ -1932,7 +1932,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         $entries[] = $this->makeEntry(
             'C2',
             'past',
-            ['Mixed Conditional (Present→Past)'],
+            ['Mixed Conditional (Second→Third)'],
             'If your advisor {a1} more direct, you {a2} the clause yesterday.',
             [
                 'a1' => $this->ifPastSimpleWere('your advisor'),
