@@ -7,6 +7,7 @@ use Database\Seeders\Pages\Conditions\MixedConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\SecondConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\ThirdConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\ZeroConditionalPageSeeder;
+use Database\Seeders\Pages\ModalVerbs\ModalVerbsPageSeeder;
 use Database\Seeders\Pages\Tenses\FutureContinuousPageSeeder;
 use Database\Seeders\Pages\Tenses\FuturePerfectContinuousPageSeeder;
 use Database\Seeders\Pages\Tenses\FuturePerfectPageSeeder;
@@ -41,6 +42,7 @@ class GrammarPagesSeeder extends Seeder
         SecondConditionalPageSeeder::class,
         ThirdConditionalPageSeeder::class,
         MixedConditionalPageSeeder::class,
+        ModalVerbsPageSeeder::class,
     ];
 
     public function run(): void
