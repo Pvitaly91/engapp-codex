@@ -198,6 +198,64 @@ class DeploymentController extends Controller
         return $this->redirectWithFeedback('success', 'Резервну гілку успішно запушено на віддалений репозиторій.', $commandsOutput);
     }
 
+    public function restoreBackupBranch(BackupBranch $backupBranch): RedirectResponse
+    {
+        $repoPath = base_path();
+        $commandsOutput = [];
+
+        $headProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
+        $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $headProcess);
+
+        if (! $headProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося визначити поточний коміт перед відновленням.', $commandsOutput);
+        }
+
+        $currentCommit = trim($headProcess->getOutput());
+
+        $branchNameProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], $repoPath);
+        $commandsOutput[] = $this->formatProcess('git rev-parse --abbrev-ref HEAD', $branchNameProcess);
+
+        $currentBranch = $branchNameProcess->isSuccessful() ? trim($branchNameProcess->getOutput()) : '';
+
+        if ($currentCommit !== '') {
+            $this->storeBackup([
+                'timestamp' => now()->toIso8601String(),
+                'commit' => $currentCommit,
+                'branch' => $currentBranch !== '' ? $currentBranch : 'невідомо',
+            ]);
+        }
+
+        $catFileProcess = $this->runCommand(['git', 'cat-file', '-e', $backupBranch->commit_hash], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git cat-file -e {$backupBranch->commit_hash}", $catFileProcess);
+
+        if (! $catFileProcess->isSuccessful()) {
+            $fetchProcess = $this->runCommand(['git', 'fetch', 'origin', sprintf('%s:%s', $backupBranch->name, $backupBranch->name)], $repoPath);
+            $commandsOutput[] = $this->formatProcess("git fetch origin {$backupBranch->name}:{$backupBranch->name}", $fetchProcess);
+
+            if (! $fetchProcess->isSuccessful()) {
+                return $this->redirectWithFeedback('error', 'Не вдалося отримати резервну гілку з віддаленого репозиторію.', $commandsOutput);
+            }
+
+            $catFileProcess = $this->runCommand(['git', 'cat-file', '-e', $backupBranch->commit_hash], $repoPath);
+            $commandsOutput[] = $this->formatProcess("git cat-file -e {$backupBranch->commit_hash}", $catFileProcess);
+
+            if (! $catFileProcess->isSuccessful()) {
+                return $this->redirectWithFeedback('error', 'Коміт резервної гілки не знайдено навіть після оновлення.', $commandsOutput);
+            }
+        }
+
+        $resetProcess = $this->runCommand(['git', 'reset', '--hard', $backupBranch->commit_hash], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git reset --hard {$backupBranch->commit_hash}", $resetProcess);
+
+        if (! $resetProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося відновити стан із резервної гілки.', $commandsOutput);
+        }
+
+        $message = "Код відновлено до стану резервної гілки \"{$backupBranch->name}\" (коміт {$backupBranch->commit_hash}).";
+
+        return $this->redirectWithFeedback('success', $message, $commandsOutput);
+    }
+
     private function runCommand(array $command, string $workingDirectory): Process
     {
         $process = new Process($command, $workingDirectory);

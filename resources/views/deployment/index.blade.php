@@ -87,7 +87,7 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">3. Керування резервними гілками</h2>
-          <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub, щоб зберегти віддалену копію.</p>
+          <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub та миттєво відновити код із вибраного бекапу.</p>
         </div>
         @if($backupBranches->isEmpty())
           <p class="text-sm text-muted-foreground">Поки що немає створених резервних гілок. Створіть першу гілку у попередньому блоці.</p>
@@ -121,17 +121,27 @@
                       @endif
                     </td>
                     <td class="px-4 py-3 text-right">
-                      @if(! $branch->pushed_at)
-                        <form method="POST" action="{{ route('deployment.backup-branch.push', $branch) }}" class="inline">
+                      <div class="flex items-center justify-end gap-2">
+                        <form method="POST" action="{{ route('deployment.backup-branch.restore', $branch) }}">
                           @csrf
-                          <button type="submit" class="inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
-                            Запушити
+                          <button type="submit" class="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-4 py-2 text-xs font-semibold text-white shadow-soft hover:bg-emerald-600/90">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Відновити
                           </button>
                         </form>
-                      @else
-                        <span class="text-xs text-muted-foreground">Віддалена копія актуальна</span>
-                      @endif
+
+                        @if(! $branch->pushed_at)
+                          <form method="POST" action="{{ route('deployment.backup-branch.push', $branch) }}" class="inline">
+                            @csrf
+                            <button type="submit" class="inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
+                              <i class="fa-solid fa-cloud-arrow-up"></i>
+                              Запушити
+                            </button>
+                          </form>
+                        @else
+                          <span class="text-xs text-muted-foreground">Віддалена копія актуальна</span>
+                        @endif
+                      </div>
                     </td>
                   </tr>
                 @endforeach

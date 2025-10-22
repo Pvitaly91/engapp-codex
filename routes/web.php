@@ -63,6 +63,7 @@ Route::middleware('auth.admin')->group(function () {
     Route::post('/deployment/deploy', [DeploymentController::class, 'deploy'])->name('deployment.deploy');
     Route::post('/deployment/backup-branch', [DeploymentController::class, 'createBackupBranch'])->name('deployment.backup-branch');
     Route::post('/deployment/backup-branches/{backupBranch}/push', [DeploymentController::class, 'pushBackupBranch'])->name('deployment.backup-branch.push');
+    Route::post('/deployment/backup-branches/{backupBranch}/restore', [DeploymentController::class, 'restoreBackupBranch'])->name('deployment.backup-branch.restore');
     Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
 
     Route::get('/migrations', [MigrationController::class, 'index'])->name('migrations.index');
