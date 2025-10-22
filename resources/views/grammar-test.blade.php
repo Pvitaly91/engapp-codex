@@ -23,6 +23,11 @@
         $selectedSourceCollection = collect($selectedSources ?? [])->filter();
         $selectedSources = $selectedSourceCollection->values()->all();
 
+        $recentTagIds = collect($recentTagIds ?? [])->filter()->values();
+        $recentCategoryIds = collect($recentCategoryIds ?? [])->filter()->values();
+        $recentSourceIds = collect($recentSourceIds ?? [])->filter()->values();
+        $recentSeederClasses = collect($recentSeederClasses ?? [])->filter()->values();
+
         $seederGroups = $seederClasses
             ->map(function ($className) use ($seederSourceMap) {
                 $sources = $seederSourceMap->get($className, collect());
@@ -112,6 +117,7 @@
                                         if ($displaySeederName === $className) {
                                             $displaySeederName = $className;
                                         }
+                                        $seederIsNew = $recentSeederClasses->contains($className);
                                     @endphp
                                     <div x-data="{
                                             open: {{ $groupIsActive ? 'true' : 'false' }},
@@ -144,7 +150,12 @@
                                                 <input type="checkbox" name="seeder_classes[]" value="{{ $className }}" id="{{ $seederInputId }}"
                                                        {{ $seederIsSelected ? 'checked' : '' }}
                                                        class="h-4 w-4 text-blue-600 border-gray-300 rounded">
-                                                <span class="truncate" title="{{ $className }}">{{ $displaySeederName }}</span>
+                                                <span class="truncate flex items-center gap-2" title="{{ $className }}">
+                                                    <span class="truncate">{{ $displaySeederName }}</span>
+                                                    @if($seederIsNew)
+                                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                    @endif
+                                                </span>
                                             </label>
                                             <button type="button"
                                                     class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
@@ -164,6 +175,7 @@
                                                     @foreach($seederSources as $source)
                                                         @php
                                                             $sourceIsSelected = $selectedSourceCollection->contains($source->id);
+                                                            $sourceIsNew = $recentSourceIds->contains($source->id);
                                                         @endphp
                                                         <label @class([
                                                             'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
@@ -173,7 +185,12 @@
                                                             <input type="checkbox" name="sources[]" value="{{ $source->id }}"
                                                                    {{ $sourceIsSelected ? 'checked' : '' }}
                                                                    class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                                            <span class="whitespace-normal break-words">{{ $source->name }} (ID: {{ $source->id }})</span>
+                                                            <span class="whitespace-normal break-words flex items-center gap-2 flex-wrap">
+                                                                <span>{{ $source->name }} (ID: {{ $source->id }})</span>
+                                                                @if($sourceIsNew)
+                                                                    <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                                @endif
+                                                            </span>
                                                         </label>
                                                     @endforeach
                                                 </div>
@@ -214,6 +231,7 @@
                                         $categoryIsSelected = in_array($categoryId, $selectedCategories);
                                         $groupIsActive = $groupHasSelectedSources || $categoryIsSelected;
                                         $categoryInputId = 'category-' . $categoryId;
+                                        $categoryIsNew = $recentCategoryIds->contains($categoryId);
                                     @endphp
                                     <div x-data="{ open: {{ $groupIsActive ? 'true' : 'false' }} }"
                                          @class([
@@ -231,7 +249,12 @@
                                                 <input type="checkbox" name="categories[]" value="{{ $categoryId }}" id="{{ $categoryInputId }}"
                                                        {{ $categoryIsSelected ? 'checked' : '' }}
                                                        class="h-4 w-4 text-blue-600 border-gray-300 rounded">
-                                                <span class="truncate">{{ ucfirst($category->name) }} (ID: {{ $categoryId }})</span>
+                                                <span class="truncate flex items-center gap-2">
+                                                    <span class="truncate">{{ ucfirst($category->name) }} (ID: {{ $categoryId }})</span>
+                                                    @if($categoryIsNew)
+                                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                    @endif
+                                                </span>
                                             </label>
                                             <button type="button"
                                                     class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
@@ -247,6 +270,7 @@
                                                 @foreach($group['sources'] as $source)
                                                     @php
                                                         $sourceIsSelected = $selectedSourceCollection->contains($source->id);
+                                                        $sourceIsNew = $recentSourceIds->contains($source->id);
                                                     @endphp
                                                     <label @class([
                                                         'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
@@ -254,9 +278,14 @@
                                                         'border-blue-400 bg-blue-50 shadow-sm' => $sourceIsSelected,
                                                     ])>
                                                         <input type="checkbox" name="sources[]" value="{{ $source->id }}"
-                                                            {{ $sourceIsSelected ? 'checked' : '' }}
-                                                            class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                                        <span class="whitespace-normal break-words">{{ $source->name }} (ID: {{ $source->id }})</span>
+                                                               {{ $sourceIsSelected ? 'checked' : '' }}
+                                                               class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                                        <span class="whitespace-normal break-words flex items-center gap-2 flex-wrap">
+                                                            <span>{{ $source->name }} (ID: {{ $source->id }})</span>
+                                                            @if($sourceIsNew)
+                                                                <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                            @endif
+                                                        </span>
                                                     </label>
                                                 @endforeach
                                             </div>
@@ -331,11 +360,15 @@
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($tags as $tag)
                                                 @php $tagId = 'tag-' . md5($tag->id . '-' . $tag->name); @endphp
+                                                @php $tagIsNew = $recentTagIds->contains($tag->id); @endphp
                                                 <div>
                                                     <input type="checkbox" name="tags[]" value="{{ $tag->name }}" id="{{ $tagId }}" class="hidden peer"
                                                            {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}>
-                                                    <label for="{{ $tagId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white">
-                                                        {{ $tag->name }}
+                                                    <label for="{{ $tagId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white flex items-center gap-2">
+                                                        <span>{{ $tag->name }}</span>
+                                                        @if($tagIsNew)
+                                                            <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Новий</span>
+                                                        @endif
                                                     </label>
                                                 </div>
                                             @endforeach

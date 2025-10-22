@@ -1343,6 +1343,15 @@ class GrammarTestController extends Controller
 
         $categoriesDesc = Category::orderByDesc('id')->get();
 
+        $recentThreshold = now()->subDay();
+
+        $recentTagIds = Schema::hasColumn('tags', 'created_at')
+            ? $tagModels
+                ->filter(fn ($tag) => optional($tag->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->pluck('id')
+                ->values()
+            : collect();
+
         $filterService = app(\App\Services\GrammarTestFilterService::class);
         $seederSourceGroups = $filterService->seederSourceGroups();
 
@@ -1373,6 +1382,20 @@ class GrammarTestController extends Controller
                 ->orderByDesc('id')
                 ->get()
                 ->keyBy('id');
+
+        $recentSourceIds = Schema::hasColumn('sources', 'created_at')
+            ? $sources
+                ->filter(fn ($source) => optional($source->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->keys()
+                ->values()
+            : collect();
+
+        $recentCategoryIds = Schema::hasColumn('categories', 'created_at')
+            ? $categoriesDesc
+                ->filter(fn ($category) => optional($category->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->pluck('id')
+                ->values()
+            : collect();
 
         $sourcesByCategory = $categoriesDesc
             ->mapWithKeys(function ($category) use ($sourceCategoryPairs, $sources) {
@@ -1415,11 +1438,25 @@ class GrammarTestController extends Controller
             ->filter(fn ($group) => filled($group['seeder']))
             ->values();
 
+        $recentSeederClasses = (Schema::hasColumn('questions', 'seeder') && Schema::hasColumn('questions', 'created_at'))
+            ? Question::query()
+                ->select('seeder')
+                ->whereNotNull('seeder')
+                ->where('created_at', '>=', $recentThreshold)
+                ->distinct()
+                ->pluck('seeder')
+                ->values()
+            : collect();
+
         return [
             'tagsByCategory' => $tagsByCategory,
             'categoriesDesc' => $categoriesDesc,
             'sourcesByCategory' => $sourcesByCategory,
             'seederSourceGroups' => $seederSourceGroups,
+            'recentTagIds' => $recentTagIds,
+            'recentCategoryIds' => $recentCategoryIds,
+            'recentSourceIds' => $recentSourceIds,
+            'recentSeederClasses' => $recentSeederClasses,
         ];
     }
 
