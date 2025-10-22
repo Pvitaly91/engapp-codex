@@ -1,289 +1,597 @@
 @extends('layouts.app')
 
-@section('title', 'Grammar Test Constructor')
+@section('title', 'Grammar Test Constructor V2')
 
 @section('content')
-<div class="max-w-3xl mx-auto p-4">
+<div class="max-w-7xl mx-auto p-4 space-y-6">
     @php
-    $autocompleteRoute = url('/api/search?lang=en');
-    $checkOneRoute = route('grammar-test.checkOne');
-    $sources = \App\Models\Source::orderBy('name')->get();
-    $generateRoute = $generateRoute ?? route('grammar-test.generate');
-    $saveRoute = $saveRoute ?? route('grammar-test.save');
-    $savePayloadField = $savePayloadField ?? 'questions';
-    $savePayloadKey = $savePayloadKey ?? 'id';
-    $questions = collect($questions ?? []);
-@endphp
-    
-        <div class="flex items-center justify-between mb-6">
-            <h1 class="text-2xl font-bold">Конструктор тесту</h1>
-            <a href="{{ route('saved-tests.list') }}"
-               class="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2 rounded-2xl font-semibold hover:bg-blue-100">
-                Збережені тести
-            </a>
-        </div>
-    
-    
-    {{-- Конструктор тесту --}}
-    <form action="{{ $generateRoute }}" method="POST" class="mb-8 space-y-4 bg-white shadow rounded-2xl p-4">
+        $autocompleteRoute = url('/api/search?lang=en');
+        $checkOneRoute = route('grammar-test.checkOne');
+        $generateRoute = $generateRoute ?? route('grammar-test.generate');
+        $saveRoute = $saveRoute ?? route('grammar-test.save-v2');
+        $savePayloadField = $savePayloadField ?? 'question_uuids';
+        $savePayloadKey = $savePayloadKey ?? 'uuid';
+        $questions = collect($questions ?? []);
+        $tagGroups = $tagsByCategory ?? collect();
+        $sourceGroups = $sourcesByCategory ?? collect();
+        $seederClasses = collect($seederClasses ?? [])->filter(fn ($value) => filled($value))->values();
+        $rawSeederGroups = collect($seederSourceGroups ?? [])->filter(fn ($group) => filled($group['seeder'] ?? null));
+        $seederSourceMap = $rawSeederGroups->mapWithKeys(fn ($group) => [
+            $group['seeder'] => collect($group['sources'] ?? [])->filter()->values(),
+        ]);
+
+        $selectedSourceCollection = collect($selectedSources ?? [])->filter();
+        $selectedSources = $selectedSourceCollection->values()->all();
+
+        $seederGroups = $seederClasses
+            ->map(function ($className) use ($seederSourceMap) {
+                $sources = $seederSourceMap->get($className, collect());
+
+                return [
+                    'seeder' => $className,
+                    'sources' => $sources,
+                ];
+            })
+            ->filter(fn ($group) => filled($group['seeder']))
+            ->values();
+
+        $hasSelectedSeederSources = $seederGroups->contains(function ($group) use ($selectedSourceCollection) {
+            return collect($group['sources'] ?? [])
+                ->pluck('id')
+                ->intersect($selectedSourceCollection)
+                ->isNotEmpty();
+        });
+
+        $selectedCategories = collect($selectedCategories ?? [])->all();
+        $selectedTags = collect($selectedTags ?? [])->all();
+        $selectedSeederClasses = collect($selectedSeederClasses ?? [])->filter(fn ($value) => filled($value))->values()->all();
+        $normalizedFilters = $normalizedFilters ?? null;
+
+        $hasSelectedCategories = !empty($selectedCategories);
+        $hasSelectedSources = !empty($selectedSources);
+        $hasSelectedTags = !empty($selectedTags);
+        $hasSelectedSeederClasses = !empty($selectedSeederClasses);
+    @endphp
+
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <h1 class="text-2xl font-bold">Конструктор тесту (v2)</h1>
+        <a href="{{ route('saved-tests.list') }}"
+           class="inline-flex items-center justify-center bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2 rounded-2xl font-semibold hover:bg-blue-100 transition">
+            Збережені тести
+        </a>
+    </div>
+
+    <form action="{{ $generateRoute }}" method="POST" class="bg-white shadow rounded-2xl p-4 sm:p-6">
         @csrf
-        <div>
-            <label class="block font-bold mb-1">Часи (категорії):</label>
-            <div class="flex gap-4">
-                @foreach($categories as $cat)
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="categories[]" value="{{ $cat->id }}"
-                            {{ isset($selectedCategories) && in_array($cat->id, $selectedCategories) ? 'checked' : '' }}
-                            class="form-checkbox h-5 w-5 text-blue-600"
-                        >
-                        <span class="ml-2">{{ ucfirst($cat->name) }}</span>
-                    </label>
-                @endforeach
-            </div>
-            @error('categories')
-                <div class="text-red-500 text-sm">{{ $message }}</div>
-            @enderror
-        </div>
-        <div>
-            <label class="block font-bold mb-1">Tags:</label>
-            <div class="flex flex-wrap gap-2">
-                @foreach($allTags as $tag)
-                    <div>
-                        <input
-                            type="checkbox"
-                            name="tags[]"
-                            value="{{ $tag->name }}"
-                            id="tag-{{ $tag->id }}"
-                            class="hidden peer"
-                            {{ in_array($tag->name, $selectedTags ?? []) ? 'checked' : '' }}
-                        >
-                        <label for="tag-{{ $tag->id }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">
-                            {{ $tag->name }}
-                        </label>
+        
+            <div class="space-y-6 ">
+                <div x-data="{ openSeederFilter: {{ ($hasSelectedSeederClasses || $hasSelectedSeederSources) ? 'true' : 'false' }}, toggleSeederSources(open) { this.$dispatch('toggle-all-seeder-sources', { open }); } }"
+                     @class([
+                        'space-y-3 border border-transparent rounded-2xl p-3',
+                        'border-blue-300 bg-blue-50' => ($hasSelectedSeederClasses || $hasSelectedSeederSources),
+                     ])
+                >
+                    <div class="flex items-center justify-between gap-3">
+                        <h2 class="text-sm font-semibold text-gray-700">Клас сидера питання</h2>
+                        <div class="flex items-center gap-2">
+                            <button type="button"
+                                    class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="openSeederFilter = !openSeederFilter">
+                                <span x-text="openSeederFilter ? 'Згорнути' : 'Розгорнути'"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openSeederFilter }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <button type="button"
+                                    class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="toggleSeederSources(true)">
+                                <span>Розгорнути всі</span>
+                            </button>
+                            <button type="button"
+                                    class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="toggleSeederSources(false)">
+                                <span>Згорнути всі</span>
+                            </button>
+                        </div>
                     </div>
-                @endforeach
-            </div>
-        </div>
-        @if(isset($levels) && count($levels))
-        <div>
-            <label class="block font-bold mb-1">Level:</label>
-            <div class="flex flex-wrap gap-2">
-                @foreach($levels as $lvl)
-                    <div>
-                        <input type="checkbox" name="levels[]" value="{{ $lvl }}" id="level-{{ $lvl }}" class="hidden peer" {{ in_array($lvl, $selectedLevels ?? []) ? 'checked' : '' }}>
-                        <label for="level-{{ $lvl }}" class="px-3 py-1 rounded border cursor-pointer text-sm bg-gray-200 peer-checked:bg-blue-600 peer-checked:text-white">{{ $lvl }}</label>
+                    <div class="space-y-3" x-show="openSeederFilter" x-transition style="display: none;">
+                        @if($seederGroups->isEmpty())
+                            <p class="text-sm text-gray-500">Немає доступних класів сидера.</p>
+                        @else
+                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
+                                @foreach($seederGroups as $group)
+                                    @php
+                                        $className = $group['seeder'];
+                                        $seederSources = collect($group['sources'] ?? []);
+                                        $seederIsSelected = in_array($className, $selectedSeederClasses, true);
+                                        $seederSourceIds = $seederSources->pluck('id');
+                                        $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
+                                        $groupIsActive = $seederIsSelected || $seederHasSelectedSources;
+                                        $seederInputId = 'seeder-' . md5($className);
+                                        $displaySeederName = \Illuminate\Support\Str::after($className, 'Database\\Seeders\\');
+                                        if ($displaySeederName === $className) {
+                                            $displaySeederName = $className;
+                                        }
+                                    @endphp
+                                    <div x-data="{
+                                            open: {{ $groupIsActive ? 'true' : 'false' }},
+                                            toggle(openState = undefined) {
+                                                if (openState === undefined) {
+                                                    this.open = !this.open;
+                                                    return;
+                                                }
+
+                                                this.open = !!openState;
+                                            }
+                                        }"
+                                         @toggle-all-seeder-sources.window="toggle($event.detail.open)"
+                                         @class([
+                                            'border rounded-2xl overflow-hidden transition',
+                                            'border-gray-200' => ! $groupIsActive,
+                                            'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
+                                         ])
+                                    >
+                                        <div class="flex items-center justify-between gap-3 px-4 py-2 bg-gray-50 cursor-pointer"
+                                             @click="toggle()"
+                                        >
+                                            <label for="{{ $seederInputId }}"
+                                                   @class([
+                                                        'flex items-center gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
+                                                        'text-blue-800' => $seederIsSelected,
+                                                   ])
+                                                   @click.stop
+                                            >
+                                                <input type="checkbox" name="seeder_classes[]" value="{{ $className }}" id="{{ $seederInputId }}"
+                                                       {{ $seederIsSelected ? 'checked' : '' }}
+                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded">
+                                                <span class="truncate" title="{{ $className }}">{{ $displaySeederName }}</span>
+                                            </label>
+                                            <button type="button"
+                                                    class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
+                                                    @click.stop="toggle()"
+                                                    :aria-expanded="open.toString()"
+                                                    aria-label="Перемкнути список джерел">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
+                                            @if($seederSources->isEmpty())
+                                                <p class="text-xs text-gray-500">Для цього сидера немає пов'язаних джерел.</p>
+                                            @else
+                                                <div class="flex flex-wrap gap-2">
+                                                    @foreach($seederSources as $source)
+                                                        @php
+                                                            $sourceIsSelected = $selectedSourceCollection->contains($source->id);
+                                                        @endphp
+                                                        <label @class([
+                                                            'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
+                                                            'border-gray-200 bg-white hover:border-blue-300' => ! $sourceIsSelected,
+                                                            'border-blue-400 bg-blue-50 shadow-sm' => $sourceIsSelected,
+                                                        ])>
+                                                            <input type="checkbox" name="sources[]" value="{{ $source->id }}"
+                                                                   {{ $sourceIsSelected ? 'checked' : '' }}
+                                                                   class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                                            <span class="whitespace-normal break-words">{{ $source->name }} (ID: {{ $source->id }})</span>
+                                                        </label>
+                                                    @endforeach
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
-                @endforeach
-            </div>
-        </div>
-        @endif
-        @if($sources->count())
-            <div>
-                <label class="block font-bold mb-1">Source:</label>
-                <div class="flex flex-wrap gap-4">
-                    @foreach($sources as $source)
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" name="sources[]" value="{{ $source->id }}"
-                                {{ isset($selectedSources) && in_array($source->id, $selectedSources) ? 'checked' : '' }}
-                                class="form-checkbox h-5 w-5 text-indigo-600"
-                            >
-                            <span class="ml-2">{{ $source->name }}</span>
-                        </label>
-                    @endforeach
                 </div>
-            </div>
-        @endif
-    
-        <div>
-            <label class="block font-bold mb-1">Діапазон складності:</label>
-            <div class="flex gap-2 items-center">
-                <input type="number" min="{{ $minDifficulty }}" max="{{ $maxDifficulty }}" name="difficulty_from"
-                    value="{{ $difficultyFrom ?? $minDifficulty }}" class="border rounded p-1 w-20">
-                <span class="mx-2">—</span>
-                <input type="number" min="{{ $minDifficulty }}" max="{{ $maxDifficulty }}" name="difficulty_to"
-                    value="{{ $difficultyTo ?? $maxDifficulty }}" class="border rounded p-1 w-20">
-            </div>
-           
-        </div>
-        <div>
-            <label class="block font-bold mb-1">Кількість питань у тесті:</label>
-            <input type="number" min="1" max="{{ $maxQuestions ?? $maxQuestions }}" name="num_questions"
-                value="{{ $numQuestions ?? $maxQuestions }}" class="border rounded p-1 w-20">
-            @if(isset($maxQuestions))
-                <span class="text-xs text-gray-500">(доступно: {{ $maxQuestions }})</span>
-            @endif
-        </div>
-        <div class="flex gap-8 items-center"
-            x-data="{
-                manual: {{ !empty($manualInput) ? 'true' : 'false' }},
-                auto: {{ !empty($autocompleteInput) ? 'true' : 'false' }},
-                checkOne: {{ !empty($checkOneInput) ? 'true' : 'false' }},
-                builder: {{ !empty($builderInput) ? 'true' : 'false' }}
-             }"
-        >
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="manual_input" value="1"
-                    x-model="manual"
-                    class="form-checkbox h-5 w-5 text-blue-600"
-                    @change="if (!manual) auto = false"
-                >
-                <span class="ml-2">Ввести відповідь вручну</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="autocomplete_input" value="1"
-                    x-model="auto"
-                    :disabled="!manual"
-                    class="form-checkbox h-5 w-5 text-green-600"
-                >
-                <span class="ml-2 text-gray-500">Автозаповнення всіх правильних відповідей</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="check_one_input" value="1"
-                    x-model="checkOne"
-                    class="form-checkbox h-5 w-5 text-purple-600"
-                >
-                <span class="ml-2 text-purple-700">Перевіряти окремо</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="builder_input" value="1"
-                    x-model="builder"
-                    :disabled="!manual"
-                    class="form-checkbox h-5 w-5 text-emerald-600"
-                >
-                <span class="ml-2 text-emerald-700">Вводити по словах</span>
-            </label>
-        </div>
 
-        <div class="flex gap-8 items-center">
-            {{-- ...інші чекбокси... --}}
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="include_ai" value="1"
-                    {{ !empty($includeAi) ? 'checked' : '' }}
-                    class="form-checkbox h-5 w-5 text-yellow-600"
-                >
-                <span class="ml-2 text-yellow-700">Додати AI-згенеровані питання</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="only_ai" value="1"
-                    {{ !empty($onlyAi) ? 'checked' : '' }}
-                    class="form-checkbox h-5 w-5 text-orange-600"
-                >
-                <span class="ml-2 text-orange-700">Тільки AI-згенеровані питання</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="include_ai_v2" value="1"
-                    {{ !empty($includeAiV2) ? 'checked' : '' }}
-                    class="form-checkbox h-5 w-5 text-sky-600"
-                >
-                <span class="ml-2 text-sky-700">Додати AI (flag = 2)</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="only_ai_v2" value="1"
-                    {{ !empty($onlyAiV2) ? 'checked' : '' }}
-                    class="form-checkbox h-5 w-5 text-cyan-600"
-                >
-                <span class="ml-2 text-cyan-700">Тільки AI (flag = 2)</span>
-            </label>
-        </div>
+                @if($sourceGroups->isNotEmpty())
+                    <div x-data="{ openSources: {{ ($hasSelectedSources || $hasSelectedCategories || $errors->has('categories')) ? 'true' : 'false' }} }"
+                         @class([
+                            'space-y-3 border border-transparent rounded-2xl p-3',
+                            'border-blue-300 bg-blue-50' => ($hasSelectedSources || $hasSelectedCategories),
+                         ])
+                    >
+                        <div class="flex items-center justify-between gap-3">
+                            <h2 class="text-sm font-semibold text-gray-700">Джерела по категоріях</h2>
+                            <button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="openSources = !openSources">
+                                <span x-text="openSources ? 'Згорнути' : 'Розгорнути'"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openSources }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div x-show="openSources" x-transition style="display: none;">
+                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
+                                @foreach($sourceGroups as $group)
+                                    @php
+                                        $category = $group['category'];
+                                        $categoryId = $category->id;
+                                        $groupSourceIds = collect($group['sources'])->pluck('id');
+                                        $groupHasSelectedSources = $groupSourceIds->intersect($selectedSources)->isNotEmpty();
+                                        $categoryIsSelected = in_array($categoryId, $selectedCategories);
+                                        $groupIsActive = $groupHasSelectedSources || $categoryIsSelected;
+                                        $categoryInputId = 'category-' . $categoryId;
+                                    @endphp
+                                    <div x-data="{ open: {{ $groupIsActive ? 'true' : 'false' }} }"
+                                         @class([
+                                            'border rounded-2xl overflow-hidden transition',
+                                            'border-gray-200' => ! $groupIsActive,
+                                            'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
+                                         ])
+                                    >
+                                        <div class="flex items-center justify-between gap-3 px-4 py-2 bg-gray-50">
+                                            <label for="{{ $categoryInputId }}"
+                                                   @class([
+                                                        'flex items-center gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
+                                                        'text-blue-800' => $categoryIsSelected,
+                                                   ])>
+                                                <input type="checkbox" name="categories[]" value="{{ $categoryId }}" id="{{ $categoryInputId }}"
+                                                       {{ $categoryIsSelected ? 'checked' : '' }}
+                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded">
+                                                <span class="truncate">{{ ucfirst($category->name) }} (ID: {{ $categoryId }})</span>
+                                            </label>
+                                            <button type="button"
+                                                    class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
+                                                    @click="open = !open"
+                                                    aria-label="Перемкнути список джерел">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
+                                            <div class="flex flex-wrap gap-2">
+                                                @foreach($group['sources'] as $source)
+                                                    @php
+                                                        $sourceIsSelected = $selectedSourceCollection->contains($source->id);
+                                                    @endphp
+                                                    <label @class([
+                                                        'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
+                                                        'border-gray-200 bg-white hover:border-blue-300' => ! $sourceIsSelected,
+                                                        'border-blue-400 bg-blue-50 shadow-sm' => $sourceIsSelected,
+                                                    ])>
+                                                        <input type="checkbox" name="sources[]" value="{{ $source->id }}"
+                                                            {{ $sourceIsSelected ? 'checked' : '' }}
+                                                            class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                                        <span class="whitespace-normal break-words">{{ $source->name }} (ID: {{ $source->id }})</span>
+                                                    </label>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            @error('categories')
+                                <div class="text-red-500 text-sm mt-3">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                @endif
 
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg">
-            Згенерувати тест
-        </button>
-    </form>
-    @if(!empty($questions))
-        <div class="text-sm text-gray-500 mb-6">
-            Кількість питань: {{ count($questions) }}
-        </div>
-    @endif
-    {{-- Сам тест --}}
-    @if(!empty($questions) && count($questions))
-        <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
-            @csrf
-            @foreach($questions as $q)
-                <input type="hidden" name="questions[{{ $q->id }}]" value="1">
-                <div class="bg-white shadow rounded-2xl p-4 mb-4">
-                    <div class="mb-2 flex items-center justify-between">
-                        <span class="text-base font-bold">
-                            Категорія:
-                            <span class="uppercase px-2 py-1 rounded text-xs
-                                {{ $q->category->name === 'past' ? 'bg-red-100 text-red-700' : ($q->category->name === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700') }}">
-                                {{ ucfirst($q->category->name) }}
-                            </span>
-                            @if($q->source)
-                                <span class="ml-2 text-xs text-gray-500">Source: {{ $q->source->name }}</span>
-                            @endif
-                            @if($q->flag)
-                                <span class="inline-block ml-2 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
-                            @endif
-                            <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
-                            <span class="text-xs text-gray-400 ml-2">Level: {{ $q->level ?? 'N/A' }}</span>
-                        </span>
-                    </div>
-                    <div class="flex flex-wrap gap-2 items-baseline">
-                        <span class="font-bold mr-2">{{ $loop->iteration }}.</span>
-                        @php preg_match_all('/\{a(\d+)\}/', $q->question, $matches); @endphp
-                        @include('components.question-input', [
-                            'question' => $q,
-                            'inputNamePrefix' => "question_{$q->id}_",
-                            'manualInput' => $manualInput,
-                            'autocompleteInput' => $autocompleteInput,
-                            'builderInput' => $builderInput,
-                            'autocompleteRoute' => $autocompleteRoute,
-                        ])
-                    </div>
-                    @if($q->tags->count())
-                        <div class="mt-1 space-x-1">
-                            @php
-                                $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
-                            @endphp
-                            @foreach($q->tags as $tag)
-                                <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-block px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
+                @if(isset($levels) && count($levels))
+                    <div>
+                        <h2 class="text-sm font-semibold text-gray-700 mb-3">Level</h2>
+                        <div class="flex flex-wrap gap-2">
+                            @foreach($levels as $lvl)
+                                @php $levelId = 'level-' . md5($lvl); @endphp
+                                <div>
+                                    <input type="checkbox" name="levels[]" value="{{ $lvl }}" id="{{ $levelId }}"
+                                           class="hidden peer"
+                                           {{ in_array($lvl, $selectedLevels ?? []) ? 'checked' : '' }}>
+                                    <label for="{{ $levelId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white">
+                                        {{ $lvl }}
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
-                    @endif
-                    @if(!empty($checkOneInput))
-                        <button
-                            type="button"
-                            class="mt-4 bg-purple-600 text-white text-xs rounded px-2 py-1 hover:bg-purple-700"
-                            onclick="checkFullQuestionAjax(this, '{{ $q->id }}', '{{ implode(',', array_map(function($n){return 'a'.$n;}, $matches[1])) }}')"
-                        >Check answer</button>
-                        <span class="ml-2 text-xs font-bold" id="result-question-{{ $q->id }}"></span>
+                    </div>
+                @endif
+
+                @if($tagGroups->isNotEmpty())
+                    <div x-data="{ openTags: {{ $hasSelectedTags ? 'true' : 'false' }} }"
+                         @class([
+                            'space-y-3 border border-transparent rounded-2xl p-3',
+                            'border-blue-300 bg-blue-50' => $hasSelectedTags,
+                         ])
+                    >
+                        <div class="flex items-center justify-between gap-3">
+                            <h2 class="text-sm font-semibold text-gray-700">Tags</h2>
+                            <button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="openTags = !openTags">
+                                <span x-text="openTags ? 'Згорнути' : 'Розгорнути'"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openTags }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="space-y-3" x-show="openTags" x-transition style="display: none;">
+                            @foreach($tagGroups as $tagCategory => $tags)
+                                @php
+                                    $categoryTagNames = collect($tags)->pluck('name');
+                                    $tagCategoryHasSelected = $categoryTagNames->intersect($selectedTags)->isNotEmpty();
+                                @endphp
+                                <div x-data="{ open: {{ ($tagCategoryHasSelected || $loop->first) ? 'true' : 'false' }} }"
+                                     @class([
+                                        'border rounded-2xl overflow-hidden transition',
+                                        'border-gray-200' => ! $tagCategoryHasSelected,
+                                        'border-blue-400 shadow-sm bg-blue-50' => $tagCategoryHasSelected,
+                                     ])
+                                >
+                                    <button type="button" class="w-full flex items-center justify-between px-4 py-2 bg-gray-50 text-left font-semibold text-gray-800"
+                                            @click="open = !open">
+                                        <span>{{ $tagCategory }}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
+                                        <div class="flex flex-wrap gap-2">
+                                            @foreach($tags as $tag)
+                                                @php $tagId = 'tag-' . md5($tag->id . '-' . $tag->name); @endphp
+                                                <div>
+                                                    <input type="checkbox" name="tags[]" value="{{ $tag->name }}" id="{{ $tagId }}" class="hidden peer"
+                                                           {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}>
+                                                    <label for="{{ $tagId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white">
+                                                        {{ $tag->name }}
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            
+                <div class="grid gap-4 sm:grid-cols-2">
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Кількість питань</label>
+                        <input type="number" min="1" max="{{ $maxQuestions ?? $maxQuestions }}" name="num_questions"
+                               value="{{ $numQuestions ?? $maxQuestions }}" class="border rounded-lg px-3 py-2 w-full">
+                        @if(isset($maxQuestions))
+                            <p class="text-xs text-gray-500 mt-1">Доступно: {{ $maxQuestions }}</p>
+                        @endif
+                    </div>
+
+                    @if(($canRandomizeFiltered ?? false) || !empty($randomizeFiltered))
+                        <label class="flex items-start gap-3 p-3 border border-blue-200 rounded-2xl bg-blue-50">
+                            <input type="checkbox" name="randomize_filtered" value="1"
+                                   class="mt-1 h-5 w-5 text-blue-600 border-gray-300 rounded"
+                                   {{ !empty($randomizeFiltered) ? 'checked' : '' }}>
+                            <span>
+                                <span class="block font-semibold">Рандомні питання по фільтру</span>
+                                <span class="block text-xs text-gray-600">При генерації підбиратимуться випадкові питання,
+                                    якщо їх більше за вказану кількість.</span>
+                            </span>
+                        </label>
                     @endif
                 </div>
-            @endforeach
 
-               
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg">
-                Перевірити
-            </button>
+                <div class="grid gap-3 sm:grid-cols-2"
+                     x-data="{
+                        manual: {{ !empty($manualInput) ? 'true' : 'false' }},
+                        auto: {{ !empty($autocompleteInput) ? 'true' : 'false' }},
+                        checkOne: {{ !empty($checkOneInput) ? 'true' : 'false' }},
+                        builder: {{ !empty($builderInput) ? 'true' : 'false' }}
+                     }"
+                     x-init="if (!manual) { auto = false; builder = false; }"
+                >
+                    <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-2xl bg-gray-50">
+                        <input type="checkbox" name="manual_input" value="1"
+                               class="mt-1 h-5 w-5 text-blue-600 border-gray-300 rounded"
+                               x-model="manual"
+                               @change="if (!manual) { auto = false; builder = false; }"
+                               {{ !empty($manualInput) ? 'checked' : '' }}>
+                        <span>
+                            <span class="block font-semibold">Ввести відповідь вручну</span>
+                            <span class="block text-xs text-gray-500">Дає можливість вводити відповіді самостійно</span>
+                        </span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-2xl bg-gray-50">
+                        <input type="checkbox" name="autocomplete_input" value="1"
+                               class="mt-1 h-5 w-5 text-green-600 border-gray-300 rounded"
+                               x-model="auto"
+                               :disabled="!manual"
+                               {{ !empty($autocompleteInput) ? 'checked' : '' }}>
+                        <span>
+                            <span class="block font-semibold">Автозаповнення відповідей</span>
+                            <span class="block text-xs text-gray-500">Підставляє правильні відповіді при ручному вводі</span>
+                        </span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-2xl bg-gray-50">
+                        <input type="checkbox" name="check_one_input" value="1"
+                               class="mt-1 h-5 w-5 text-purple-600 border-gray-300 rounded"
+                               x-model="checkOne"
+                               {{ !empty($checkOneInput) ? 'checked' : '' }}>
+                        <span>
+                            <span class="block font-semibold">Перевіряти окремо</span>
+                            <span class="block text-xs text-gray-500">Дозволяє перевіряти питання одне за одним</span>
+                        </span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-2xl bg-gray-50">
+                        <input type="checkbox" name="builder_input" value="1"
+                               class="mt-1 h-5 w-5 text-emerald-600 border-gray-300 rounded"
+                               x-model="builder"
+                               :disabled="!manual"
+                               {{ !empty($builderInput) ? 'checked' : '' }}>
+                        <span>
+                            <span class="block font-semibold">Вводити по словах</span>
+                            <span class="block text-xs text-gray-500">Розбиває відповідь на окремі слова</span>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="grid gap-3 sm:grid-cols-2">
+                    <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-2xl">
+                        <input type="checkbox" name="include_ai" value="1"
+                               class="mt-1 h-5 w-5 text-yellow-600 border-gray-300 rounded"
+                               {{ !empty($includeAi) ? 'checked' : '' }}>
+                        <span>
+                            <span class="block font-semibold">Додати AI-згенеровані питання</span>
+                            <span class="block text-xs text-gray-500">Включає питання з прапорцем AI</span>
+                        </span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-2xl">
+                        <input type="checkbox" name="only_ai" value="1"
+                               class="mt-1 h-5 w-5 text-orange-600 border-gray-300 rounded"
+                               {{ !empty($onlyAi) ? 'checked' : '' }}>
+                        <span>
+                            <span class="block font-semibold">Тільки AI-згенеровані питання</span>
+                            <span class="block text-xs text-gray-500">Обмежує вибір лише AI питаннями</span>
+                        </span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-2xl">
+                        <input type="checkbox" name="include_ai_v2" value="1"
+                               class="mt-1 h-5 w-5 text-sky-600 border-gray-300 rounded"
+                               {{ !empty($includeAiV2) ? 'checked' : '' }}>
+                        <span>
+                            <span class="block font-semibold">Додати AI (flag = 2)</span>
+                            <span class="block text-xs text-gray-500">Додає питання з новим AI прапорцем</span>
+                        </span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-2xl">
+                        <input type="checkbox" name="only_ai_v2" value="1"
+                               class="mt-1 h-5 w-5 text-cyan-600 border-gray-300 rounded"
+                               {{ !empty($onlyAiV2) ? 'checked' : '' }}>
+                        <span>
+                            <span class="block font-semibold">Тільки AI (flag = 2)</span>
+                            <span class="block text-xs text-gray-500">Залишає лише питання з прапорцем 2</span>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3">
+                    <button type="submit" class="inline-flex justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
+                        Згенерувати тест
+                    </button>
+                </div>
+            </div>
+       
+    </form>
+
+    @if(!empty($questions) && count($questions))
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div class="text-sm text-gray-500">Кількість питань: {{ count($questions) }}</div>
+            @if(count($questions) > 1)
+                <button type="button" id="shuffle-questions"
+                        class="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
+                    Перемішати питання
+                </button>
+            @endif
+        </div>
+
+        <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
+            @csrf
+            <div id="questions-list" class="space-y-6">
+                @foreach($questions as $q)
+                    <div class="question-item" data-question-id="{{ $q->id }}" data-question-save="{{ $q->{$savePayloadKey} }}">
+                        <input type="hidden" name="questions[{{ $q->id }}]" value="1">
+                        <div class="bg-white shadow rounded-2xl p-4 sm:p-6 space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                <div class="text-sm font-semibold text-gray-700 flex flex-wrap items-center gap-2">
+                                    <span class="uppercase px-2 py-1 rounded text-xs {{ $q->category->name === 'past' ? 'bg-red-100 text-red-700' : ($q->category->name === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700') }}">
+                                        {{ ucfirst($q->category->name) }}
+                                    </span>
+                                    @if($q->source)
+                                        <span class="text-xs text-gray-500">Source: {{ $q->source->name }}</span>
+                                    @endif
+                                    @if($q->flag)
+                                        <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
+                                    @endif
+                                    <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
+                                    <span class="text-xs text-gray-400">Level: {{ $q->level ?? 'N/A' }}</span>
+                                </div>
+                                <span class="text-xs text-gray-400">ID: {{ $q->id }} | UUID: {{ $q->uuid ?? '—' }}</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 items-baseline">
+                                <span class="question-number font-bold mr-2">{{ $loop->iteration }}.</span>
+                                @php preg_match_all('/\{a(\d+)\}/', $q->question, $matches); @endphp
+                                @include('components.question-input', [
+                                    'question' => $q,
+                                    'inputNamePrefix' => "question_{$q->id}_",
+                                    'manualInput' => $manualInput,
+                                    'autocompleteInput' => $autocompleteInput,
+                                    'builderInput' => $builderInput,
+                                    'autocompleteRoute' => $autocompleteRoute,
+                                ])
+                            </div>
+                            @if($q->tags->count())
+                                <div class="flex flex-wrap gap-1">
+                                    @php
+                                        $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
+                                    @endphp
+                                    @foreach($q->tags as $tag)
+                                        <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-flex px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
+                                    @endforeach
+                                </div>
+                            @endif
+                            @if(!empty($checkOneInput))
+                                <div class="flex items-center gap-2">
+                                    <button
+                                        type="button"
+                                        class="mt-1 bg-purple-600 text-white text-xs rounded px-3 py-1 hover:bg-purple-700"
+                                        onclick="checkFullQuestionAjax(this, '{{ $q->id }}', '{{ implode(',', array_map(function($n){return 'a'.$n;}, $matches[1])) }}')"
+                                    >
+                                        Check answer
+                                    </button>
+                                    <span class="text-xs font-bold" id="result-question-{{ $q->id }}"></span>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <div>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
+                    Перевірити
+                </button>
+            </div>
         </form>
 
-        @if(!empty($questions) && count($questions))
-        <div class="mb-4 mt-6">
-            <form action="{{ $saveRoute }}" method="POST" class="flex items-center gap-3">
+        <div class="bg-white shadow rounded-2xl p-4 sm:p-6">
+            <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
                 @csrf
-                <input type="hidden" name="filters" value="{{ htmlentities(json_encode([
-                    'categories' => $selectedCategories,
-                    'difficulty_from' => $difficultyFrom,
-                    'difficulty_to' => $difficultyTo,
-                    'num_questions' => $numQuestions,
-                    'manual_input' => $manualInput,
-                    'autocomplete_input' => $autocompleteInput,
-                    'check_one_input' => $checkOneInput,
-                    'builder_input' => $builderInput,
-                    'include_ai' => $includeAi ?? false,
-                    'only_ai' => $onlyAi ?? false,
-                    'levels' => $selectedLevels ?? []
-                ])) }}">
-                <input type="hidden" name="{{ $savePayloadField }}" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
-                <input type="text" name="name" value="{{$autoTestName}}" placeholder="Назва тесту" required autocomplete="off"
-                    class="border rounded px-2 py-1 w-72">
-                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-2xl shadow font-semibold">
-                    Зберегти тест
-                </button>
+                @php
+                    $filtersForSave = $normalizedFilters ?? [
+                        'categories' => $selectedCategories,
+                        'difficulty_from' => $difficultyFrom,
+                        'difficulty_to' => $difficultyTo,
+                        'num_questions' => $numQuestions,
+                        'manual_input' => (bool) $manualInput,
+                        'autocomplete_input' => (bool) $autocompleteInput,
+                        'check_one_input' => (bool) $checkOneInput,
+                        'builder_input' => (bool) $builderInput,
+                        'include_ai' => (bool) ($includeAi ?? false),
+                        'only_ai' => (bool) ($onlyAi ?? false),
+                        'include_ai_v2' => (bool) ($includeAiV2 ?? false),
+                        'only_ai_v2' => (bool) ($onlyAiV2 ?? false),
+                        'levels' => $selectedLevels ?? [],
+                        'tags' => $selectedTags,
+                        'sources' => $selectedSources,
+                        'seeder_classes' => $selectedSeederClasses,
+                        'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
+                    ];
+                @endphp
+                <input type="hidden" name="filters" value="{{ htmlentities(json_encode($filtersForSave)) }}">
+                <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
+                <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"
+                       class="border rounded-lg px-3 py-2 w-full sm:w-80">
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <button type="submit" name="save_mode" value="questions" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
+                        Зберегти тест
+                    </button>
+                    <button type="submit" name="save_mode" value="filters" class="inline-flex justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-6 py-2 rounded-2xl shadow font-semibold transition">
+                        Зберегти фільтр
+                    </button>
+                </div>
             </form>
         </div>
-    @endif    
     @elseif(isset($questions))
         <div class="text-red-600 font-bold text-lg">Питань по вибраних параметрах не знайдено!</div>
     @endif
@@ -301,11 +609,11 @@ function checkFullQuestionAjax(btn, questionId, markerList) {
     let empty = Object.values(answers).some(val => !val);
     if(empty) {
         resultSpan.textContent = 'Введіть всі відповіді';
-        resultSpan.className = 'ml-2 text-xs font-bold text-gray-500';
+        resultSpan.className = 'text-xs font-bold text-gray-500';
         return;
     }
     resultSpan.textContent = '...';
-    resultSpan.className = 'ml-2 text-xs font-bold text-gray-500';
+    resultSpan.className = 'text-xs font-bold text-gray-500';
     fetch("{{ $checkOneRoute }}", {
         method: "POST",
         headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}', 'Accept': 'application/json'},
@@ -318,17 +626,74 @@ function checkFullQuestionAjax(btn, questionId, markerList) {
     .then(data => {
         if(data.result === 'correct') {
             resultSpan.textContent = '✔ Вірно';
-            resultSpan.className = 'ml-2 text-xs font-bold text-green-700';
+            resultSpan.className = 'text-xs font-bold text-green-700';
         } else if(data.result === 'incorrect') {
             let corrects = Object.values(data.correct).join(', ');
             resultSpan.textContent = '✘ Невірно (правильно: ' + corrects + ')';
-            resultSpan.className = 'ml-2 text-xs font-bold text-red-700';
+            resultSpan.className = 'text-xs font-bold text-red-700';
         } else {
             resultSpan.textContent = '—';
-            resultSpan.className = 'ml-2 text-xs font-bold text-gray-500';
+            resultSpan.className = 'text-xs font-bold text-gray-500';
         }
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('questions-list');
+    const shuffleButton = document.getElementById('shuffle-questions');
+    const orderInput = document.getElementById('questions-order-input');
+    const saveForm = document.getElementById('save-test-form');
+
+    if (!container) {
+        return;
+    }
+
+    const getItems = () => Array.from(container.querySelectorAll('[data-question-id]'));
+
+    const updateNumbers = () => {
+        getItems().forEach((item, index) => {
+            const numberEl = item.querySelector('.question-number');
+            if (numberEl) {
+                numberEl.textContent = `${index + 1}.`;
+            }
+        });
+    };
+
+    const updateOrderInput = () => {
+        if (!orderInput) {
+            return;
+        }
+
+        const order = getItems().map(item => item.dataset.questionSave);
+        orderInput.value = JSON.stringify(order);
+    };
+
+    if (shuffleButton) {
+        shuffleButton.addEventListener('click', () => {
+            const items = getItems();
+
+            if (items.length <= 1) {
+                return;
+            }
+
+            for (let i = items.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [items[i], items[j]] = [items[j], items[i]];
+            }
+
+            items.forEach(item => container.appendChild(item));
+            updateNumbers();
+            updateOrderInput();
+        });
+    }
+
+    if (saveForm) {
+        saveForm.addEventListener('submit', updateOrderInput);
+    }
+
+    updateNumbers();
+    updateOrderInput();
+});
 
 function builder(route, prefix) {
     const stored = [];
@@ -390,4 +755,3 @@ function builder(route, prefix) {
 }
 </script>
 @endsection
-

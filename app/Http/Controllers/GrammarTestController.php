@@ -1046,14 +1046,17 @@ class GrammarTestController extends Controller
     {
         $data = $this->prepareGenerateData($request);
 
-        return view('grammar-test', array_merge($data, $this->legacyBuilderConfig()));
+        return $this->renderUuidBuilder($data);
     }
 
     public function generateV2(Request $request)
     {
-        $data = $this->prepareGenerateData($request);
+        return $this->generate($request);
+    }
 
-        return view('grammar-test-v2', array_merge(
+    private function renderUuidBuilder(array $data)
+    {
+        return view('grammar-test', array_merge(
             $data,
             $this->uuidBuilderConfig(),
             $this->uuidFormExtras()
@@ -1120,16 +1123,12 @@ class GrammarTestController extends Controller
 
     public function index()
     {
-        return view('grammar-test', array_merge($this->defaultFormState(), $this->legacyBuilderConfig()));
+        return $this->renderUuidBuilder($this->defaultFormState());
     }
 
     public function indexV2()
     {
-        return view('grammar-test-v2', array_merge(
-            $this->defaultFormState(),
-            $this->uuidBuilderConfig(),
-            $this->uuidFormExtras()
-        ));
+        return $this->index();
     }
 
     public function check(Request $request)
@@ -1313,22 +1312,11 @@ class GrammarTestController extends Controller
         ];
     }
 
-    private function legacyBuilderConfig(): array
-    {
-        return [
-            'generateRoute' => route('grammar-test.generate'),
-            'saveRoute' => route('grammar-test.save'),
-            'savePayloadField' => 'questions',
-            'savePayloadKey' => 'id',
-            'builderVersion' => 'legacy',
-        ];
-    }
-
     private function uuidBuilderConfig(): array
     {
         return [
-            'generateRoute' => route('grammar-test-v2.generate'),
-            'saveRoute' => route('grammar-test-v2.save'),
+            'generateRoute' => route('grammar-test.generate'),
+            'saveRoute' => route('grammar-test.save-v2'),
             'savePayloadField' => 'question_uuids',
             'savePayloadKey' => 'uuid',
             'builderVersion' => 'uuid',
