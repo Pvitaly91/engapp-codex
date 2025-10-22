@@ -6,6 +6,7 @@ use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MigrationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PageManageController;
 use App\Http\Controllers\QuestionAnswerController;
@@ -61,7 +62,12 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('/deployment', [DeploymentController::class, 'index'])->name('deployment.index');
     Route::post('/deployment/deploy', [DeploymentController::class, 'deploy'])->name('deployment.deploy');
     Route::post('/deployment/backup-branch', [DeploymentController::class, 'createBackupBranch'])->name('deployment.backup-branch');
+    Route::post('/deployment/backup-branches/{backupBranch}/push', [DeploymentController::class, 'pushBackupBranch'])->name('deployment.backup-branch.push');
     Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
+
+    Route::get('/migrations', [MigrationController::class, 'index'])->name('migrations.index');
+    Route::post('/migrations/run', [MigrationController::class, 'run'])->name('migrations.run');
+    Route::post('/migrations/rollback', [MigrationController::class, 'rollback'])->name('migrations.rollback');
 
     Route::prefix('/pages/manage')->name('pages.manage.')->group(function () {
         Route::get('/', [PageManageController::class, 'index'])->name('index');

@@ -78,7 +78,6 @@
               </select>
             </div>
           </div>
-          <p class="text-xs text-muted-foreground">Гілка створюється лише локально. За потреби виконайте <code>git push origin &lt;назва-гілки&gt;</code>, щоб зберегти її на GitHub.</p>
           <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-blue-600/90">Створити гілку</button>
         </form>
       </div>
@@ -87,7 +86,66 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">3. Відкотити зміни</h2>
+          <h2 class="text-2xl font-semibold">3. Керування резервними гілками</h2>
+          <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub, щоб зберегти віддалену копію.</p>
+        </div>
+        @if($backupBranches->isEmpty())
+          <p class="text-sm text-muted-foreground">Поки що немає створених резервних гілок. Створіть першу гілку у попередньому блоці.</p>
+        @else
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-border/70 text-sm">
+              <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
+                <tr>
+                  <th class="px-4 py-3">Назва</th>
+                  <th class="px-4 py-3">Коміт</th>
+                  <th class="px-4 py-3">Створено</th>
+                  <th class="px-4 py-3">Статус</th>
+                  <th class="px-4 py-3 text-right">Дії</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60 bg-background/60">
+                @foreach($backupBranches as $branch)
+                  <tr>
+                    <td class="px-4 py-3 font-medium">{{ $branch->name }}</td>
+                    <td class="px-4 py-3 font-mono text-xs">{{ $branch->commit_hash }}</td>
+                    <td class="px-4 py-3">{{ $branch->created_at->format('d.m.Y H:i') }}</td>
+                    <td class="px-4 py-3">
+                      @if($branch->pushed_at)
+                        <span class="inline-flex items-center gap-1 rounded-full bg-success/15 px-3 py-1 text-xs font-semibold text-success">
+                          <i class="fa-solid fa-check"></i> Запушено {{ $branch->pushed_at->format('d.m.Y H:i') }}
+                        </span>
+                      @else
+                        <span class="inline-flex items-center gap-1 rounded-full bg-warning/15 px-3 py-1 text-xs font-semibold text-amber-700">
+                          <i class="fa-solid fa-cloud-arrow-up"></i> Лише локально
+                        </span>
+                      @endif
+                    </td>
+                    <td class="px-4 py-3 text-right">
+                      @if(! $branch->pushed_at)
+                        <form method="POST" action="{{ route('deployment.backup-branch.push', $branch) }}" class="inline">
+                          @csrf
+                          <button type="submit" class="inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            Запушити
+                          </button>
+                        </form>
+                      @else
+                        <span class="text-xs text-muted-foreground">Віддалена копія актуальна</span>
+                      @endif
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        @endif
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">4. Відкотити зміни</h2>
           <p class="text-sm text-muted-foreground">Якщо після оновлення з’явилися проблеми, можна повернути сайт до збереженого стану. Виберіть потрібний коміт зі списку нижче.</p>
         </div>
         @if(count($backups) === 0)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BackupBranch;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -17,9 +18,14 @@ class DeploymentController extends Controller
         $backups = array_reverse($this->loadBackups());
         $feedback = session('deployment');
 
+        $backupBranches = BackupBranch::query()
+            ->orderByDesc('created_at')
+            ->get();
+
         return view('deployment.index', [
             'backups' => $backups,
             'feedback' => $feedback,
+            'backupBranches' => $backupBranches,
         ]);
     }
 
@@ -145,10 +151,46 @@ class DeploymentController extends Controller
             return $this->redirectWithFeedback('error', 'Не вдалося створити резервну гілку.', $commandsOutput);
         }
 
+        BackupBranch::updateOrCreate(
+            ['name' => $branchName],
+            [
+                'commit_hash' => $resolvedCommit,
+                'pushed_at' => null,
+            ]
+        );
+
         $message = "Резервну гілку \"{$branchName}\" створено на коміті {$resolvedCommit}.";
-        $message .= ' Не забудьте за потреби запушити її на GitHub.';
+        $message .= ' Ви можете запушити її на GitHub із цього інтерфейсу.';
 
         return $this->redirectWithFeedback('success', $message, $commandsOutput);
+    }
+
+    public function pushBackupBranch(BackupBranch $backupBranch): RedirectResponse
+    {
+        $repoPath = base_path();
+        $commandsOutput = [];
+
+        $branchCheck = $this->runCommand(['git', 'branch', '--list', $backupBranch->name], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git branch --list {$backupBranch->name}", $branchCheck);
+
+        if (! $branchCheck->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося перевірити наявність гілки.', $commandsOutput);
+        }
+
+        if (trim($branchCheck->getOutput()) === '') {
+            return $this->redirectWithFeedback('error', 'Резервної гілки не знайдено у локальному репозиторії.', $commandsOutput);
+        }
+
+        $pushProcess = $this->runCommand(['git', 'push', 'origin', $backupBranch->name], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git push origin {$backupBranch->name}", $pushProcess);
+
+        if (! $pushProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося запушити резервну гілку на GitHub.', $commandsOutput);
+        }
+
+        $backupBranch->forceFill(['pushed_at' => now()])->save();
+
+        return $this->redirectWithFeedback('success', 'Резервну гілку успішно запушено на віддалений репозиторій.', $commandsOutput);
     }
 
     private function runCommand(array $command, string $workingDirectory): Process
