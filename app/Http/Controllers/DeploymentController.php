@@ -6,6 +6,7 @@ use App\Models\BackupBranch;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Symfony\Component\Process\Process;
 
@@ -18,9 +19,9 @@ class DeploymentController extends Controller
         $backups = array_reverse($this->loadBackups());
         $feedback = session('deployment');
 
-        $backupBranches = BackupBranch::query()
-            ->orderByDesc('created_at')
-            ->get();
+        $backupBranches = Schema::hasTable('backup_branches')
+            ? BackupBranch::query()->orderByDesc('created_at')->get()
+            : collect();
 
         return view('deployment.index', [
             'backups' => $backups,
@@ -149,6 +150,10 @@ class DeploymentController extends Controller
 
         if (! $createProcess->isSuccessful()) {
             return $this->redirectWithFeedback('error', 'Не вдалося створити резервну гілку.', $commandsOutput);
+        }
+
+        if (! Schema::hasTable('backup_branches')) {
+            return $this->redirectWithFeedback('error', 'Базу даних не оновлено: виконайте міграції для таблиці резервних гілок.', $commandsOutput);
         }
 
         BackupBranch::updateOrCreate(
