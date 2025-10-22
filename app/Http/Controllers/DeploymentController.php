@@ -95,6 +95,62 @@ class DeploymentController extends Controller
         return $this->redirectWithFeedback('success', 'Виконано відкат до вибраного робочого стану.', $commandsOutput);
     }
 
+    public function createBackupBranch(Request $request): RedirectResponse
+    {
+        $branchName = Str::of($request->input('branch_name', ''))->trim()->value();
+        $branchName = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branchName);
+
+        if ($branchName === '') {
+            return $this->redirectWithFeedback('error', 'Вкажіть коректну назву гілки для резервного бекапу.', []);
+        }
+
+        $commitInput = Str::of($request->input('commit', 'current'))->trim()->value();
+        $useCurrentHead = $commitInput === '' || $commitInput === 'current';
+
+        if (! $useCurrentHead && ! preg_match('/^[0-9a-f]{7,40}$/i', $commitInput)) {
+            return $this->redirectWithFeedback('error', 'Невірний формат коміту для створення гілки.', []);
+        }
+
+        $repoPath = base_path();
+        $commandsOutput = [];
+
+        if ($useCurrentHead) {
+            $revParseProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
+            $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $revParseProcess);
+
+            if (! $revParseProcess->isSuccessful()) {
+                return $this->redirectWithFeedback('error', 'Не вдалося визначити поточний коміт.', $commandsOutput);
+            }
+
+            $resolvedCommit = trim($revParseProcess->getOutput());
+        } else {
+            $resolvedCommit = $commitInput;
+        }
+
+        $branchListProcess = $this->runCommand(['git', 'branch', '--list', $branchName], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git branch --list {$branchName}", $branchListProcess);
+
+        if (! $branchListProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося перевірити наявні гілки.', $commandsOutput);
+        }
+
+        if (trim($branchListProcess->getOutput()) !== '') {
+            return $this->redirectWithFeedback('error', 'Гілка з такою назвою вже існує.', $commandsOutput);
+        }
+
+        $createProcess = $this->runCommand(['git', 'branch', $branchName, $resolvedCommit], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git branch {$branchName} {$resolvedCommit}", $createProcess);
+
+        if (! $createProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося створити резервну гілку.', $commandsOutput);
+        }
+
+        $message = "Резервну гілку \"{$branchName}\" створено на коміті {$resolvedCommit}.";
+        $message .= ' Не забудьте за потреби запушити її на GitHub.';
+
+        return $this->redirectWithFeedback('success', $message, $commandsOutput);
+    }
+
     private function runCommand(array $command, string $workingDirectory): Process
     {
         $process = new Process($command, $workingDirectory);

@@ -60,6 +60,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/deployment', [DeploymentController::class, 'index'])->name('deployment.index');
     Route::post('/deployment/deploy', [DeploymentController::class, 'deploy'])->name('deployment.deploy');
+    Route::post('/deployment/backup-branch', [DeploymentController::class, 'createBackupBranch'])->name('deployment.backup-branch');
     Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
 
     Route::prefix('/pages/manage')->name('pages.manage.')->group(function () {

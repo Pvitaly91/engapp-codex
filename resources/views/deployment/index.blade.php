@@ -56,7 +56,38 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">2. Відкотити зміни</h2>
+          <h2 class="text-2xl font-semibold">2. Створити резервну гілку</h2>
+          <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
+        </div>
+        <form method="POST" action="{{ route('deployment.backup-branch') }}" class="space-y-4">
+          @csrf
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium" for="backup-branch-name">Назва резервної гілки</label>
+              <input id="backup-branch-name" type="text" name="branch_name" placeholder="backup/{{ now()->format('Y-m-d') }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" required />
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium" for="backup-branch-commit">Коміт для копії</label>
+              <select id="backup-branch-commit" name="commit" class="w-full rounded-2xl border border-input bg-background px-4 py-2">
+                <option value="current">Поточний HEAD (визначити автоматично)</option>
+                @foreach($backups as $backup)
+                  <option value="{{ $backup['commit'] }}">
+                    {{ \Illuminate\Support\Carbon::parse($backup['timestamp'])->format('d.m.Y H:i') }} — {{ $backup['commit'] }}
+                  </option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+          <p class="text-xs text-muted-foreground">Гілка створюється лише локально. За потреби виконайте <code>git push origin &lt;назва-гілки&gt;</code>, щоб зберегти її на GitHub.</p>
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-blue-600/90">Створити гілку</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">3. Відкотити зміни</h2>
           <p class="text-sm text-muted-foreground">Якщо після оновлення з’явилися проблеми, можна повернути сайт до збереженого стану. Виберіть потрібний коміт зі списку нижче.</p>
         </div>
         @if(count($backups) === 0)

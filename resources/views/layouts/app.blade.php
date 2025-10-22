@@ -47,6 +47,7 @@
                     <a href="{{ url('/grammar-test/v2') }}" class="hover:text-blue-500 transition">Граматика v2</a>
                     <a href="{{ url('/tests') }}" class="hover:text-blue-500 transition">Збережені тести</a>
                     <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
+                    <a href="{{ route('deployment.index') }}" class="hover:text-blue-500 transition">Деплой</a>
                     <a href="{{ url('/') }}" class="hover:text-blue-500 transition">До публічної частини</a>
                     @if(session('admin_authenticated'))
                         <form method="POST" action="{{ route('logout') }}">
@@ -68,6 +69,7 @@
                 <a href="{{ url('/grammar-test/v2') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Граматика v2</a>
                 <a href="{{ url('/tests') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Збережені тести</a>
                 <a href="{{ route('seed-runs.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs</a>
+                <a href="{{ route('deployment.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Деплой</a>
                 <a href="{{ url('/') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">До публічної частини</a>
                 @if(session('admin_authenticated'))
                     <form method="POST" action="{{ route('logout') }}" class="px-2 py-2">
