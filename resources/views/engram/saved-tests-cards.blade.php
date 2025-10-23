@@ -83,7 +83,13 @@
                         @if($test->description)
                             <div class="test-description text-sm mb-3">{{ \Illuminate\Support\Str::limit(strip_tags($test->description, 120)) }}</div>
                         @endif
-                        <a href="{{ route('saved-test.js', $test->slug) }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>
+                        @php
+                            $preferredView = data_get($test->filters, 'preferred_view');
+                            $testRoute = $preferredView === 'drag-drop'
+                                ? route('saved-test.js.drag-drop', $test->slug)
+                                : route('saved-test.js', $test->slug);
+                        @endphp
+                        <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>
                     </div>
                 @endforeach
             </div>

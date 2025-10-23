@@ -40,6 +40,7 @@ class GrammarTestController extends Controller
         'saved-test-js-input',
         'saved-test-js-step-select',
         'saved-test-js-select',
+        'saved-test-js-drag-drop',
     ];
 
     public function __construct(
@@ -138,6 +139,11 @@ class GrammarTestController extends Controller
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
+
+        $preferredView = data_get($test->filters, 'preferred_view');
+        if ($preferredView === 'drag-drop') {
+            return redirect()->route('saved-test.js.drag-drop', $test->slug);
+        }
 
         $supportsVariants = $this->variantService->supportsVariants();
         $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags'];
@@ -374,6 +380,11 @@ class GrammarTestController extends Controller
     public function showSavedTestJsSelect($slug)
     {
         return $this->renderSavedTestJsView($slug, 'saved-test-js-select');
+    }
+
+    public function showSavedTestJsDragDrop($slug)
+    {
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-drag-drop');
     }
 
     private function renderSavedTestJsView(string $slug, string $view)
