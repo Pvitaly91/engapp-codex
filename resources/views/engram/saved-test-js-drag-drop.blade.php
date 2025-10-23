@@ -53,6 +53,13 @@
 </div>
 
 <style>
+@media (max-width: 900px) {
+    body.drag-quiz-no-sticky-header > header {
+        position: static !important;
+        top: auto !important;
+    }
+}
+
 .drag-quiz {
     --quiz-bg: #f8fafc;
     --quiz-card: #ffffff;
@@ -393,6 +400,13 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 
     const quizRootEl = document.getElementById('drag-quiz');
     const headerEl = typeof document !== 'undefined' ? document.querySelector('body > header') : null;
+
+    if (typeof document !== 'undefined' && document.body) {
+        document.body.classList.add('drag-quiz-no-sticky-header');
+        window.addEventListener('beforeunload', () => {
+            document.body.classList.remove('drag-quiz-no-sticky-header');
+        });
+    }
 
     function setupStickyOffsetWatcher() {
         if (!quizRootEl || !headerEl || typeof window === 'undefined') {
