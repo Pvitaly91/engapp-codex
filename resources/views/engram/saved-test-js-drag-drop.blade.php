@@ -4,7 +4,26 @@
 
 @section('content')
 @php
-    $questionTotal = count($questionData ?? []);
+    $questionCollection = collect($questionData ?? []);
+    $questionTotal = $questionCollection->count();
+    $blankTotal = $questionCollection->sum(function ($question) {
+        $answerMap = data_get($question, 'answer_map');
+        if (is_array($answerMap) && ! empty($answerMap)) {
+            return collect($answerMap)
+                ->filter(fn ($value) => ($value ?? '') !== '')
+                ->count();
+        }
+
+        $answers = data_get($question, 'answers');
+        if (is_array($answers)) {
+            return collect($answers)
+                ->filter(fn ($value) => ($value ?? '') !== '')
+                ->count();
+        }
+
+        return 0;
+    });
+    $scoreTotal = $blankTotal ?: $questionTotal;
 @endphp
 <div class="drag-quiz mx-auto w-full max-w-[1100px]" id="drag-quiz">
     <header class="drag-quiz__header">
@@ -24,7 +43,7 @@
                 <button id="drag-quiz-check" class="drag-quiz__btn">Перевірити</button>
                 <button id="drag-quiz-retry" class="drag-quiz__btn drag-quiz__btn--secondary">Спробувати ще</button>
                 <button id="drag-quiz-show" class="drag-quiz__btn drag-quiz__btn--ghost">Показати відповіді</button>
-                <div class="drag-quiz__score" id="drag-quiz-score">0 / {{ $questionTotal }}</div>
+                <div class="drag-quiz__score" id="drag-quiz-score">0 / {{ $scoreTotal }}</div>
             </div>
             <p class="drag-quiz__hint">Підсвічення: <span class="drag-quiz__hint--correct">зелений</span> — вірно, <span class="drag-quiz__hint--wrong">червоний</span> — помилка.</p>
         </aside>
@@ -241,25 +260,111 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
             .toLowerCase();
     }
 
-    const questions = rawQuestions.map((item, index) => {
+    function escapeSelector(value) {
+        if (typeof CSS !== 'undefined' && typeof CSS.escape === 'function') {
+            return CSS.escape(value);
+        }
+
+        return value.replace(/"/g, '\\"');
+    }
+
+    function buildAnswerMap(item, answersArray) {
+        const map = {};
+
+        if (item && typeof item.answer_map === 'object' && item.answer_map !== null) {
+            Object.entries(item.answer_map).forEach(([marker, value]) => {
+                map[String(marker)] = String(value ?? '');
+            });
+        }
+
+        answersArray.forEach((value, idx) => {
+            const marker = `a${idx + 1}`;
+            if (!(marker in map)) {
+                map[marker] = String(value ?? '');
+            }
+        });
+
+        if (!('a1' in map) && typeof item.answer === 'string') {
+            map.a1 = String(item.answer);
+        }
+
+        return map;
+    }
+
+    function buildQuestion(item, index) {
         const rawText = typeof item.question === 'string' ? item.question : '';
         const [line, tail = ''] = rawText.split(/\r?\n/, 2);
         const sentence = line || '';
-        const parts = sentence.includes('_____') ? sentence.split('_____') : ['', sentence];
-        const before = parts.shift() ?? '';
-        const after = parts.length ? parts.join('_____') : '';
-        const answers = Array.isArray(item.answers) ? item.answers : [];
-        const answer = answers.length ? String(answers[0]) : String(item.answer || '');
+        const answersArray = Array.isArray(item.answers) ? item.answers : [];
+        const answerMap = buildAnswerMap(item, answersArray);
+
+        const placeholderRegex = /\{a(\d+)\}/g;
+        const segments = [];
+        const blanks = [];
+        let match;
+        let lastIndex = 0;
+
+        while ((match = placeholderRegex.exec(sentence)) !== null) {
+            const preceding = sentence.slice(lastIndex, match.index);
+            if (preceding) {
+                segments.push({ type: 'text', value: preceding });
+            }
+
+            const number = parseInt(match[1], 10);
+            const marker = Number.isFinite(number) ? `a${number}` : `a${blanks.length + 1}`;
+            const fallbackIndex = Number.isFinite(number) ? number - 1 : blanks.length;
+            const answer = answerMap[marker] ?? answersArray[fallbackIndex] ?? '';
+
+            const blankIndex = blanks.length;
+            blanks.push({
+                marker,
+                answer,
+                normalized: normalize(answer),
+            });
+            segments.push({ type: 'blank', blankIndex });
+
+            lastIndex = match.index + match[0].length;
+        }
+
+        const trailing = sentence.slice(lastIndex);
+        if (trailing) {
+            segments.push({ type: 'text', value: trailing });
+        }
+
+        if (!blanks.length) {
+            const parts = sentence.split('_____');
+            if (parts.length > 1) {
+                parts.forEach((part, partIndex) => {
+                    if (part) {
+                        segments.push({ type: 'text', value: part });
+                    }
+
+                    if (partIndex < parts.length - 1) {
+                        const blankIndex = blanks.length;
+                        const marker = `a${blankIndex + 1}`;
+                        const answer = answerMap[marker] ?? answersArray[blankIndex] ?? '';
+                        blanks.push({
+                            marker,
+                            answer,
+                            normalized: normalize(answer),
+                        });
+                        segments.push({ type: 'blank', blankIndex });
+                    }
+                });
+            } else if (sentence) {
+                segments.push({ type: 'text', value: sentence });
+            }
+        }
 
         return {
             index,
-            before,
-            after,
+            segments,
+            blanks,
             tail,
-            answer,
-            normalized: normalize(answer),
         };
-    });
+    }
+
+    const questions = rawQuestions.map((item, index) => buildQuestion(item, index));
 
     const tasksEl = document.getElementById('drag-quiz-tasks');
     const bankEl = document.getElementById('drag-quiz-bank');
@@ -268,81 +373,28 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     const retryBtn = document.getElementById('drag-quiz-retry');
     const showBtn = document.getElementById('drag-quiz-show');
 
-    const tokenCounters = {};
-    const baseTokens = questions.flatMap((question, idx) => {
-        const word = (question.answer || '').trim();
-        if (!word) {
-            return [];
-        }
-        tokenCounters[word] = (tokenCounters[word] || 0) + 1;
-        return [{ word, id: `token-${idx}-${tokenCounters[word]}` }];
+    let tokenSerial = 0;
+    const baseTokens = [];
+    questions.forEach((question) => {
+        question.blanks.forEach((blank) => {
+            const word = String(blank.answer ?? '').trim();
+            if (!word) {
+                return;
+            }
+            tokenSerial += 1;
+            baseTokens.push({ id: `token-${tokenSerial}`, word });
+        });
     });
 
+    const totalTargets = baseTokens.length;
+    const scoreTotal = totalTargets > 0 ? totalTargets : questions.length;
     let selectedTokenId = null;
 
-    function renderTasks() {
-        tasksEl.innerHTML = '';
-
-        questions.forEach((question, idx) => {
-            const row = document.createElement('div');
-            row.className = 'drag-quiz__row';
-
-            const num = document.createElement('div');
-            num.className = 'drag-quiz__num';
-            num.textContent = `${idx + 1}.`;
-            row.appendChild(num);
-
-            const sentence = document.createElement('div');
-            sentence.className = 'drag-quiz__sentence';
-
-            if (question.before) {
-                const beforeSpan = document.createElement('span');
-                beforeSpan.textContent = question.before;
-                sentence.appendChild(beforeSpan);
-            }
-
-            const drop = document.createElement('span');
-            drop.className = 'drag-quiz__drop';
-            drop.dataset.index = String(idx);
-            drop.textContent = '_____';
-            drop.tabIndex = 0;
-            drop.setAttribute('aria-label', `Drop zone ${idx + 1}`);
-            drop.addEventListener('dragover', (event) => {
-                event.preventDefault();
-                drop.classList.add('is-hover');
-            });
-            drop.addEventListener('dragleave', () => {
-                drop.classList.remove('is-hover');
-            });
-            drop.addEventListener('drop', (event) => {
-                event.preventDefault();
-                drop.classList.remove('is-hover');
-                const id = event.dataTransfer.getData('text/plain');
-                placeTokenInDrop(id, drop);
-            });
-            drop.addEventListener('click', () => {
-                if (selectedTokenId) {
-                    placeTokenInDrop(selectedTokenId, drop);
-                }
-            });
-            sentence.appendChild(drop);
-
-            if (question.after) {
-                const afterSpan = document.createElement('span');
-                afterSpan.textContent = question.after;
-                sentence.appendChild(afterSpan);
-            }
-
-            if (question.tail) {
-                const tailSpan = document.createElement('span');
-                tailSpan.className = 'drag-quiz__tail';
-                tailSpan.textContent = question.tail;
-                sentence.appendChild(tailSpan);
-            }
-
-            row.appendChild(sentence);
-            tasksEl.appendChild(row);
-        });
+    function updateScoreLabel(correctCount) {
+        if (!scoreEl) {
+            return;
+        }
+        scoreEl.textContent = `${correctCount} / ${scoreTotal}`;
     }
 
     function addTokenToBank(tokenData) {
@@ -380,8 +432,83 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     function renderBank(useShuffle = true) {
         bankEl.innerHTML = '';
         const tokens = useShuffle ? shuffled(baseTokens) : baseTokens.slice();
-        tokens.forEach(addTokenToBank);
+        tokens.forEach((token) => addTokenToBank({ id: token.id, word: token.word }));
         selectedTokenId = null;
+    }
+
+    function createDropElement(questionIndex, blankIndex, totalBlanks) {
+        const drop = document.createElement('span');
+        drop.className = 'drag-quiz__drop';
+        drop.dataset.questionIndex = String(questionIndex);
+        drop.dataset.blankIndex = String(blankIndex);
+        drop.textContent = '_____';
+        drop.tabIndex = 0;
+        const suffix = totalBlanks > 1 ? ` (${blankIndex + 1})` : '';
+        drop.setAttribute('aria-label', `Drop zone ${questionIndex + 1}${suffix}`);
+        drop.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            drop.classList.add('is-hover');
+        });
+        drop.addEventListener('dragleave', () => {
+            drop.classList.remove('is-hover');
+        });
+        drop.addEventListener('drop', (event) => {
+            event.preventDefault();
+            drop.classList.remove('is-hover');
+            const id = event.dataTransfer.getData('text/plain');
+            placeTokenInDrop(id, drop);
+        });
+        drop.addEventListener('click', () => {
+            if (selectedTokenId) {
+                placeTokenInDrop(selectedTokenId, drop);
+            }
+        });
+
+        return drop;
+    }
+
+    function renderTasks() {
+        tasksEl.innerHTML = '';
+
+        questions.forEach((question, idx) => {
+            const row = document.createElement('div');
+            row.className = 'drag-quiz__row';
+
+            const num = document.createElement('div');
+            num.className = 'drag-quiz__num';
+            num.textContent = `${idx + 1}.`;
+            row.appendChild(num);
+
+            const sentence = document.createElement('div');
+            sentence.className = 'drag-quiz__sentence';
+
+            question.segments.forEach((segment) => {
+                if (segment.type === 'text') {
+                    if (!segment.value) {
+                        return;
+                    }
+                    const span = document.createElement('span');
+                    span.textContent = segment.value;
+                    sentence.appendChild(span);
+                    return;
+                }
+
+                if (segment.type === 'blank') {
+                    const drop = createDropElement(idx, segment.blankIndex, question.blanks.length);
+                    sentence.appendChild(drop);
+                }
+            });
+
+            if (question.tail) {
+                const tailSpan = document.createElement('span');
+                tailSpan.className = 'drag-quiz__tail';
+                tailSpan.textContent = question.tail;
+                sentence.appendChild(tailSpan);
+            }
+
+            row.appendChild(sentence);
+            tasksEl.appendChild(row);
+        });
     }
 
     function returnTokenToBank(tokenEl) {
@@ -389,14 +516,18 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         if (!drop) {
             return;
         }
+
         const id = tokenEl.dataset.id || tokenEl.getAttribute('data-id');
         const word = tokenEl.dataset.word || tokenEl.textContent.trim();
-        if (id && word) {
-            addTokenToBank({ id, word });
-        }
+
         drop.textContent = '_____';
         drop.classList.remove('is-filled', 'is-correct', 'is-wrong');
         drop.removeAttribute('data-token-id');
+
+        if (id && word) {
+            addTokenToBank({ id, word });
+        }
+
         selectedTokenId = null;
     }
 
@@ -404,7 +535,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         if (!tokenId || !drop) {
             return;
         }
-        const token = bankEl.querySelector(`.drag-quiz__token[data-id="${tokenId}"]`);
+
+        const selector = `.drag-quiz__token[data-id="${escapeSelector(tokenId)}"]`;
+        const token = bankEl.querySelector(selector);
         if (!token) {
             return;
         }
@@ -452,49 +585,66 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     function checkAnswers() {
         let score = 0;
         const drops = tasksEl.querySelectorAll('.drag-quiz__drop');
+
         drops.forEach((drop) => {
             drop.classList.remove('is-correct', 'is-wrong');
-            const idx = Number.parseInt(drop.dataset.index ?? '-1', 10);
-            const question = Number.isInteger(idx) ? questions[idx] : null;
+
+            const questionIndex = Number.parseInt(drop.dataset.questionIndex ?? '-1', 10);
+            const blankIndex = Number.parseInt(drop.dataset.blankIndex ?? '-1', 10);
+            const question = Number.isInteger(questionIndex) ? questions[questionIndex] : null;
+            const blank = question && Number.isInteger(blankIndex) ? question.blanks[blankIndex] : null;
             const token = drop.querySelector('.drag-quiz__token');
-            if (!question || !token) {
+
+            if (!question || !blank || !token) {
                 return;
             }
+
             const value = normalize(token.dataset.word || token.textContent);
-            if (value && value === question.normalized) {
+            if (value && value === blank.normalized) {
                 drop.classList.add('is-correct');
                 score += 1;
             } else {
                 drop.classList.add('is-wrong');
             }
         });
-        if (scoreEl) {
-            scoreEl.textContent = `${score} / ${questions.length}`;
-        }
+
+        updateScoreLabel(score);
     }
 
     function showAnswers() {
-        tasksEl.querySelectorAll('.drag-quiz__drop .drag-quiz__token').forEach((token) => returnTokenToBank(token));
+        tasksEl
+            .querySelectorAll('.drag-quiz__drop .drag-quiz__token')
+            .forEach((token) => returnTokenToBank(token));
 
-        const drops = tasksEl.querySelectorAll('.drag-quiz__drop');
-        drops.forEach((drop) => {
+        tasksEl.querySelectorAll('.drag-quiz__drop').forEach((drop) => {
             drop.classList.remove('is-correct', 'is-wrong');
         });
 
-        questions.forEach((question, idx) => {
-            const drop = drops[idx];
-            if (!drop) {
-                return;
-            }
-            const token = Array.from(bankEl.querySelectorAll('.drag-quiz__token')).find((node) => {
-                const value = node.dataset.word || node.textContent.trim();
-                return value === question.answer;
+        questions.forEach((question, questionIndex) => {
+            question.blanks.forEach((blank, blankIndex) => {
+                const dropSelector = `.drag-quiz__drop[data-question-index="${questionIndex}"][data-blank-index="${blankIndex}"]`;
+                const drop = tasksEl.querySelector(dropSelector);
+                if (!drop) {
+                    return;
+                }
+
+                let token = Array.from(bankEl.querySelectorAll('.drag-quiz__token')).find((node) => {
+                    const value = normalize(node.dataset.word || node.textContent);
+                    return value === blank.normalized;
+                });
+
+                if (!token) {
+                    const fallbackId = `auto-${questionIndex}-${blankIndex}`;
+                    addTokenToBank({ id: fallbackId, word: blank.answer });
+                    token = bankEl.querySelector(`.drag-quiz__token[data-id="${escapeSelector(fallbackId)}"]`);
+                }
+
+                if (token) {
+                    placeTokenInDrop(token.dataset.id, drop);
+                }
             });
-            if (token) {
-                placeTokenInDrop(token.dataset.id, drop);
-                drop.classList.add('is-correct');
-            }
         });
+
         checkAnswers();
     }
 
@@ -504,17 +654,14 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
             drop.classList.remove('is-filled', 'is-correct', 'is-wrong');
             drop.removeAttribute('data-token-id');
         });
+
         renderBank(true);
-        if (scoreEl) {
-            scoreEl.textContent = `0 / ${questions.length}`;
-        }
+        updateScoreLabel(0);
     }
 
     renderTasks();
     renderBank(true);
-    if (scoreEl) {
-        scoreEl.textContent = `0 / ${questions.length}`;
-    }
+    updateScoreLabel(0);
 
     checkBtn?.addEventListener('click', checkAnswers);
     retryBtn?.addEventListener('click', retry);

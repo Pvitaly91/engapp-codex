@@ -478,10 +478,17 @@ class GrammarTestController extends Controller
 
         return $questions->map(function ($q) {
             $answers = $q->answers->map(function ($a) {
-                return $a->option->option ?? $a->answer ?? '';
+                return [
+                    'marker' => $a->marker,
+                    'value' => $a->option->option ?? $a->answer ?? '',
+                ];
             });
 
-            $answerList = $answers->values()->toArray();
+            $answerList = $answers->pluck('value')->values()->toArray();
+            $answerMap = $answers
+                ->filter(fn ($ans) => ! empty($ans['marker']))
+                ->mapWithKeys(fn ($ans) => [$ans['marker'] => $ans['value']])
+                ->toArray();
             $options = $q->options->pluck('option')->toArray();
             foreach ($answerList as $ans) {
                 if ($ans && ! in_array($ans, $options)) {
@@ -498,6 +505,7 @@ class GrammarTestController extends Controller
                 'question' => $q->question,
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
+                'answer_map' => $answerMap,
                 'verb_hint' => $verbHints['a1'] ?? '',
                 'verb_hints' => $verbHints,
                 'options' => $options,
