@@ -391,6 +391,47 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         };
     }
 
+    const quizRootEl = document.getElementById('drag-quiz');
+    const headerEl = typeof document !== 'undefined' ? document.querySelector('body > header') : null;
+
+    function setupStickyOffsetWatcher() {
+        if (!quizRootEl || !headerEl || typeof window === 'undefined') {
+            return;
+        }
+
+        let rafId = null;
+
+        const applyOffset = () => {
+            rafId = null;
+            const rect = headerEl.getBoundingClientRect();
+            const headerBottom = rect ? rect.bottom : 0;
+            const headerHeight = rect ? rect.height : 0;
+            const visibleHeader = Math.max(0, Math.min(headerBottom, headerHeight));
+            const offset = Math.max(8, Math.round(visibleHeader + 8));
+            quizRootEl.style.setProperty('--drag-quiz-sticky-offset', `${offset}px`);
+        };
+
+        const requestOffsetUpdate = () => {
+            if (rafId !== null) {
+                return;
+            }
+
+            rafId = window.requestAnimationFrame(applyOffset);
+        };
+
+        applyOffset();
+
+        window.addEventListener('scroll', requestOffsetUpdate, { passive: true });
+        window.addEventListener('resize', requestOffsetUpdate);
+
+        if (typeof ResizeObserver === 'function') {
+            const observer = new ResizeObserver(requestOffsetUpdate);
+            observer.observe(headerEl);
+        }
+    }
+
+    setupStickyOffsetWatcher();
+
     const questions = rawQuestions.map((item, index) => buildQuestion(item, index));
 
     const tasksEl = document.getElementById('drag-quiz-tasks');
