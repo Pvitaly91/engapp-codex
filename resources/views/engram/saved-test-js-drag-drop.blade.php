@@ -93,6 +93,14 @@
         z-index: 20;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
         margin-bottom: 12px;
+        max-height: calc(100vh - 16px);
+        overflow: hidden;
+    }
+    .drag-quiz__bank {
+        max-height: min(240px, 33vh);
+        overflow-y: auto;
+        padding-right: 12px;
+        align-content: flex-start;
     }
 }
 .drag-quiz__card {
@@ -109,6 +117,8 @@
     position: sticky;
     top: 16px;
     align-self: start;
+    display: flex;
+    flex-direction: column;
 }
 .drag-quiz__bank {
     display: flex;
@@ -119,6 +129,8 @@
     border: 1px dashed #d1d5db;
     border-radius: 10px;
     background: #fafafa;
+    align-content: flex-start;
+    -webkit-overflow-scrolling: touch;
 }
 .drag-quiz__token {
     user-select: none;
@@ -129,6 +141,7 @@
     background: var(--quiz-chip);
     border: 1px solid var(--quiz-chip-border);
     transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+    touch-action: manipulation;
 }
 .drag-quiz__token[draggable="true"]:active {
     cursor: grabbing;
@@ -397,6 +410,141 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     const totalTargets = baseTokens.length;
     const scoreTotal = totalTargets > 0 ? totalTargets : questions.length;
     let selectedTokenId = null;
+    const nav = typeof navigator !== 'undefined' ? navigator : null;
+    const supportsTouch =
+        typeof window !== 'undefined' &&
+        (('ontouchstart' in window) || (nav && ((nav.maxTouchPoints || 0) > 0 || (nav.msMaxTouchPoints || 0) > 0)));
+    let activeTouchId = null;
+    let activeTouchTokenId = null;
+    let touchHoverDrop = null;
+    let touchStartPoint = null;
+
+    function clearTouchSelection() {
+        if (touchHoverDrop) {
+            touchHoverDrop.classList.remove('is-hover');
+            touchHoverDrop = null;
+        }
+
+        if (supportsTouch && bankEl && activeTouchTokenId) {
+            const selector = `.drag-quiz__token[data-id="${escapeSelector(activeTouchTokenId)}"]`;
+            const activeToken = bankEl.querySelector(selector);
+            if (activeToken) {
+                activeToken.classList.remove('is-selected');
+            }
+        }
+
+        activeTouchId = null;
+        activeTouchTokenId = null;
+        touchStartPoint = null;
+        selectedTokenId = null;
+    }
+
+    function findTouchById(touchList, identifier) {
+        if (!touchList || typeof touchList.length !== 'number') {
+            return null;
+        }
+
+        for (let i = 0; i < touchList.length; i += 1) {
+            const touch = touchList.item ? touchList.item(i) : touchList[i];
+            if (touch && touch.identifier === identifier) {
+                return touch;
+            }
+        }
+
+        return null;
+    }
+
+    function handleTokenTouchStart(event, tokenEl) {
+        if (!supportsTouch || !tokenEl) {
+            return;
+        }
+
+        const touch = (event.changedTouches && event.changedTouches[0]) || (event.touches && event.touches[0]);
+        const tokenId = tokenEl.dataset.id;
+
+        if (!touch || !tokenId) {
+            return;
+        }
+
+        activeTouchId = touch.identifier;
+        activeTouchTokenId = tokenId;
+        touchStartPoint = { x: touch.clientX, y: touch.clientY };
+
+        bankEl?.querySelectorAll('.drag-quiz__token').forEach((node) => node.classList.remove('is-selected'));
+        tokenEl.classList.add('is-selected');
+        selectedTokenId = tokenId;
+
+        if (touchHoverDrop) {
+            touchHoverDrop.classList.remove('is-hover');
+            touchHoverDrop = null;
+        }
+    }
+
+    function handleTouchMove(event) {
+        if (!supportsTouch || activeTouchId === null) {
+            return;
+        }
+
+        const touch =
+            findTouchById(event.changedTouches, activeTouchId) ||
+            findTouchById(event.touches, activeTouchId);
+
+        if (!touch) {
+            return;
+        }
+
+        const element = document.elementFromPoint(touch.clientX, touch.clientY);
+        const drop = element ? element.closest('.drag-quiz__drop') : null;
+
+        const hasMovedEnough =
+            touchStartPoint &&
+            (Math.abs(touch.clientX - touchStartPoint.x) > 6 || Math.abs(touch.clientY - touchStartPoint.y) > 6);
+
+        if (drop !== touchHoverDrop) {
+            if (touchHoverDrop) {
+                touchHoverDrop.classList.remove('is-hover');
+            }
+            if (drop) {
+                drop.classList.add('is-hover');
+            }
+            touchHoverDrop = drop || null;
+        }
+
+        if (drop || hasMovedEnough) {
+            event.preventDefault();
+        }
+    }
+
+    function handleTouchEnd(event) {
+        if (!supportsTouch || activeTouchId === null) {
+            return;
+        }
+
+        const touch =
+            findTouchById(event.changedTouches, activeTouchId) ||
+            findTouchById(event.touches, activeTouchId);
+
+        if (!touch) {
+            clearTouchSelection();
+            return;
+        }
+
+        const element = document.elementFromPoint(touch.clientX, touch.clientY);
+        const drop = element ? element.closest('.drag-quiz__drop') : null;
+
+        if (drop && activeTouchTokenId) {
+            placeTokenInDrop(activeTouchTokenId, drop);
+            event.preventDefault();
+        }
+
+        clearTouchSelection();
+    }
+
+    if (supportsTouch) {
+        document.addEventListener('touchmove', handleTouchMove, { passive: false });
+        document.addEventListener('touchend', handleTouchEnd, { passive: false });
+        document.addEventListener('touchcancel', handleTouchEnd, { passive: false });
+    }
 
     function updateScoreLabel(correctCount) {
         if (!scoreEl) {
@@ -425,6 +573,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
                 selectedTokenId = tokenData.id;
             }
         });
+        if (supportsTouch) {
+            token.addEventListener('touchstart', (event) => handleTokenTouchStart(event, token), { passive: true });
+        }
         bankEl.appendChild(token);
     }
 
@@ -541,13 +692,13 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 
     function placeTokenInDrop(tokenId, drop) {
         if (!tokenId || !drop) {
-            return;
+            return false;
         }
 
         const selector = `.drag-quiz__token[data-id="${escapeSelector(tokenId)}"]`;
         const token = bankEl.querySelector(selector);
         if (!token) {
-            return;
+            return false;
         }
 
         const existing = drop.querySelector('.drag-quiz__token');
@@ -557,6 +708,12 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 
         bankEl.querySelectorAll('.drag-quiz__token').forEach((node) => node.classList.remove('is-selected'));
         selectedTokenId = null;
+
+        if (supportsTouch && touchHoverDrop) {
+            touchHoverDrop.classList.remove('is-hover');
+            touchHoverDrop = null;
+            touchStartPoint = null;
+        }
 
         const clone = token.cloneNode(true);
         clone.classList.remove('is-selected');
@@ -588,6 +745,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         drop.dataset.tokenId = tokenId;
 
         token.remove();
+        return true;
     }
 
     function checkAnswers() {
