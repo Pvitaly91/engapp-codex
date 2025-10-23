@@ -26,13 +26,15 @@
     $scoreTotal = $blankTotal ?: $questionTotal;
 @endphp
 <div class="drag-quiz mx-auto w-full max-w-[1100px]" id="drag-quiz">
-    <header class="drag-quiz__header">
-        <h1 class="drag-quiz__title">{{ $test->name }}</h1>
-        <p class="drag-quiz__subtitle">Перетягни правильне <strong>question word</strong> у пропуск. Можна також натиснути на слово, а потім на пропуск — це зручно на мобільних пристроях.</p>
-    </header>
-
     <div class="drag-quiz__grid">
-        <div class="drag-quiz__card drag-quiz__left" id="drag-quiz-tasks"></div>
+        <div class="drag-quiz__card drag-quiz__left">
+            <header class="drag-quiz__header">
+                <h1 class="drag-quiz__title">{{ $test->name }}</h1>
+                <p class="drag-quiz__subtitle">Перетягни правильне <strong>question word</strong> у пропуск. Можна також натиснути на слово, а потім на пропуск — це зручно на мобільних пристроях.</p>
+            </header>
+
+            <div id="drag-quiz-tasks"></div>
+        </div>
 
         <aside class="drag-quiz__card drag-quiz__right">
             <h3 class="drag-quiz__heading">Банк слів</h3>
@@ -61,10 +63,11 @@
     --quiz-bad: #dc2626;
     --quiz-chip: #eef2ff;
     --quiz-chip-border: #c7d2fe;
+    --drag-quiz-sticky-offset: 16px;
     color: var(--quiz-text);
 }
 .drag-quiz__header {
-    margin-bottom: 1.25rem;
+    margin: 0;
 }
 .drag-quiz__title {
     font-size: clamp(1.375rem, 3vw, 2rem);
@@ -83,17 +86,14 @@
     .drag-quiz__grid {
         grid-template-columns: 1fr;
     }
-    .drag-quiz__left {
-        order: 2;
-    }
     .drag-quiz__right {
-        order: 1;
+        order: -1;
         position: sticky;
-        top: 8px;
+        top: var(--drag-quiz-sticky-offset);
         z-index: 20;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
         margin-bottom: 12px;
-        max-height: calc(100vh - 16px);
+        max-height: calc(100vh - var(--drag-quiz-sticky-offset) - 8px);
         overflow: hidden;
     }
     .drag-quiz__bank {
@@ -101,6 +101,9 @@
         overflow-y: auto;
         padding-right: 12px;
         align-content: flex-start;
+    }
+    .drag-quiz {
+        --drag-quiz-sticky-offset: calc(var(--engram-header-height, 64px) + 8px);
     }
 }
 .drag-quiz__card {
@@ -111,11 +114,14 @@
 }
 .drag-quiz__left {
     padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 .drag-quiz__right {
     padding: 14px;
     position: sticky;
-    top: 16px;
+    top: var(--drag-quiz-sticky-offset);
     align-self: start;
     display: flex;
     flex-direction: column;
