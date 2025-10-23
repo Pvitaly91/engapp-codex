@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
@@ -1046,14 +1047,17 @@ class GrammarTestController extends Controller
     {
         $data = $this->prepareGenerateData($request);
 
-        return view('grammar-test', array_merge($data, $this->legacyBuilderConfig()));
+        return $this->renderUuidBuilder($data);
     }
 
     public function generateV2(Request $request)
     {
-        $data = $this->prepareGenerateData($request);
+        return $this->generate($request);
+    }
 
-        return view('grammar-test-v2', array_merge(
+    private function renderUuidBuilder(array $data)
+    {
+        return view('grammar-test', array_merge(
             $data,
             $this->uuidBuilderConfig(),
             $this->uuidFormExtras()
@@ -1120,16 +1124,12 @@ class GrammarTestController extends Controller
 
     public function index()
     {
-        return view('grammar-test', array_merge($this->defaultFormState(), $this->legacyBuilderConfig()));
+        return $this->renderUuidBuilder($this->defaultFormState());
     }
 
     public function indexV2()
     {
-        return view('grammar-test-v2', array_merge(
-            $this->defaultFormState(),
-            $this->uuidBuilderConfig(),
-            $this->uuidFormExtras()
-        ));
+        return $this->index();
     }
 
     public function check(Request $request)
@@ -1313,22 +1313,11 @@ class GrammarTestController extends Controller
         ];
     }
 
-    private function legacyBuilderConfig(): array
-    {
-        return [
-            'generateRoute' => route('grammar-test.generate'),
-            'saveRoute' => route('grammar-test.save'),
-            'savePayloadField' => 'questions',
-            'savePayloadKey' => 'id',
-            'builderVersion' => 'legacy',
-        ];
-    }
-
     private function uuidBuilderConfig(): array
     {
         return [
-            'generateRoute' => route('grammar-test-v2.generate'),
-            'saveRoute' => route('grammar-test-v2.save'),
+            'generateRoute' => route('grammar-test.generate'),
+            'saveRoute' => route('grammar-test.save-v2'),
             'savePayloadField' => 'question_uuids',
             'savePayloadKey' => 'uuid',
             'builderVersion' => 'uuid',
@@ -1354,6 +1343,25 @@ class GrammarTestController extends Controller
         }
 
         $categoriesDesc = Category::orderByDesc('id')->get();
+
+        $recentThreshold = now()->subDay();
+
+        $recentTagIds = collect();
+        $recentTagOrdinals = collect();
+
+        if (Schema::hasColumn('tags', 'created_at')) {
+            $recentTagModels = $tagModels
+                ->filter(fn ($tag) => optional($tag->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->sortByDesc(fn ($tag) => optional($tag->created_at)->timestamp ?? 0)
+                ->values();
+
+            $recentTagIds = $recentTagModels
+                ->pluck('id')
+                ->values();
+
+            $recentTagOrdinals = $recentTagModels
+                ->mapWithKeys(fn ($tag, $index) => [$tag->id => $index + 1]);
+        }
 
         $filterService = app(\App\Services\GrammarTestFilterService::class);
         $seederSourceGroups = $filterService->seederSourceGroups();
@@ -1385,6 +1393,40 @@ class GrammarTestController extends Controller
                 ->orderByDesc('id')
                 ->get()
                 ->keyBy('id');
+
+        $recentSourceIds = collect();
+        $recentSourceOrdinals = collect();
+
+        if (Schema::hasColumn('sources', 'created_at')) {
+            $recentSourceModels = $sources
+                ->filter(fn ($source) => optional($source->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->sortByDesc(fn ($source) => optional($source->created_at)->timestamp ?? 0)
+                ->values();
+
+            $recentSourceIds = $recentSourceModels
+                ->pluck('id')
+                ->values();
+
+            $recentSourceOrdinals = $recentSourceModels
+                ->mapWithKeys(fn ($source, $index) => [$source->id => $index + 1]);
+        }
+
+        $recentCategoryIds = collect();
+        $recentCategoryOrdinals = collect();
+
+        if (Schema::hasColumn('categories', 'created_at')) {
+            $recentCategoryModels = $categoriesDesc
+                ->filter(fn ($category) => optional($category->created_at)->greaterThanOrEqualTo($recentThreshold))
+                ->sortByDesc(fn ($category) => optional($category->created_at)->timestamp ?? 0)
+                ->values();
+
+            $recentCategoryIds = $recentCategoryModels
+                ->pluck('id')
+                ->values();
+
+            $recentCategoryOrdinals = $recentCategoryModels
+                ->mapWithKeys(fn ($category, $index) => [$category->id => $index + 1]);
+        }
 
         $sourcesByCategory = $categoriesDesc
             ->mapWithKeys(function ($category) use ($sourceCategoryPairs, $sources) {
@@ -1427,11 +1469,47 @@ class GrammarTestController extends Controller
             ->filter(fn ($group) => filled($group['seeder']))
             ->values();
 
+        $recentSeederClasses = collect();
+        $recentSeederOrdinals = collect();
+
+        if (Schema::hasColumn('questions', 'seeder') && Schema::hasColumn('questions', 'created_at')) {
+            $recentSeederRows = Question::query()
+                ->select('seeder', DB::raw('MAX(created_at) as latest_created_at'))
+                ->whereNotNull('seeder')
+                ->where('created_at', '>=', $recentThreshold)
+                ->groupBy('seeder')
+                ->get()
+                ->map(function ($row) {
+                    $row->latest_created_at = $row->latest_created_at
+                        ? Carbon::parse($row->latest_created_at)
+                        : null;
+
+                    return $row;
+                })
+                ->sortByDesc(fn ($row) => optional($row->latest_created_at)->timestamp ?? 0)
+                ->values();
+
+            $recentSeederClasses = $recentSeederRows
+                ->pluck('seeder')
+                ->values();
+
+            $recentSeederOrdinals = $recentSeederRows
+                ->mapWithKeys(fn ($row, $index) => [$row->seeder => $index + 1]);
+        }
+
         return [
             'tagsByCategory' => $tagsByCategory,
             'categoriesDesc' => $categoriesDesc,
             'sourcesByCategory' => $sourcesByCategory,
             'seederSourceGroups' => $seederSourceGroups,
+            'recentTagIds' => $recentTagIds,
+            'recentTagOrdinals' => $recentTagOrdinals,
+            'recentCategoryIds' => $recentCategoryIds,
+            'recentCategoryOrdinals' => $recentCategoryOrdinals,
+            'recentSourceIds' => $recentSourceIds,
+            'recentSourceOrdinals' => $recentSourceOrdinals,
+            'recentSeederClasses' => $recentSeederClasses,
+            'recentSeederOrdinals' => $recentSeederOrdinals,
         ];
     }
 

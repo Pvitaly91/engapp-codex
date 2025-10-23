@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="max-w-6xl mx-auto space-y-6">
+        @php $recentSeedRunOrdinals = collect($recentSeedRunOrdinals ?? []); @endphp
         <div class="bg-white shadow rounded-lg p-6">
             <div class="flex items-center justify-between mb-4">
                 <div>
@@ -78,7 +79,11 @@
                     @else
                         <div class="space-y-4">
                             @foreach($executedSeederHierarchy as $node)
-                                @include('seed-runs.partials.executed-node', ['node' => $node, 'depth' => 0])
+                                @include('seed-runs.partials.executed-node', [
+                                    'node' => $node,
+                                    'depth' => 0,
+                                    'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+                                ])
                             @endforeach
                         </div>
                     @endif

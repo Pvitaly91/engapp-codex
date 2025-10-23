@@ -103,13 +103,14 @@ Route::middleware('auth.admin')->group(function () {
     
     Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
     Route::post('/grammar-test', [GrammarTestController::class, 'generate'])->name('grammar-test.generate');
-    Route::get('/grammar-test/v2', [GrammarTestController::class, 'indexV2'])->name('grammar-test.v2');
-    Route::post('/grammar-test/v2', [GrammarTestController::class, 'generateV2'])->name('grammar-test-v2.generate');
+    Route::get('/grammar-test/v2', fn () => redirect()->route('grammar-test'))->name('grammar-test.v2');
+    Route::post('/grammar-test/v2', [GrammarTestController::class, 'generate'])->name('grammar-test-v2.generate');
     Route::post('/grammar-test-check', [GrammarTestController::class, 'check'])->name('grammar-test.check');
     Route::get('/grammar-test-autocomplete', [GrammarTestController::class, 'autocomplete'])->name('grammar-test.autocomplete');
     Route::post('/grammar-test-check-answer', [GrammarTestController::class, 'checkOneAnswer'])->name('grammar-test.checkOne');
     
     Route::post('/grammar-test-save', [GrammarTestController::class, 'save'])->name('grammar-test.save');
+    Route::post('/grammar-test-save-v2', [GrammarTestController::class, 'saveV2'])->name('grammar-test.save-v2');
     Route::post('/grammar-test-v2-save', [GrammarTestController::class, 'saveV2'])->name('grammar-test-v2.save');
     Route::post('/test/{slug}/js/state', [GrammarTestController::class, 'storeSavedTestJsState'])->name('saved-test.js.state');
     Route::get('/test/{slug}/js/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->name('saved-test.js.questions');

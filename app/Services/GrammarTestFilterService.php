@@ -41,7 +41,7 @@ class GrammarTestFilterService
         $randomizeFiltered = $filters['randomize_filtered'];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
-        if (! empty($selectedSeederClasses)) {
+        if (! empty($selectedSeederClasses) || ! empty($selectedTags)) {
             $groupBy = null;
             $groups = [null];
         } else {

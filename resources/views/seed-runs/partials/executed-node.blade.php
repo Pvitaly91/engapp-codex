@@ -1,5 +1,6 @@
 @php
     $indent = max(0, $depth) * 1.5;
+    $recentSeedRunOrdinals = collect($recentSeedRunOrdinals ?? []);
 @endphp
 
 @if(($node['type'] ?? null) === 'folder')
@@ -66,7 +67,11 @@
 
         <div x-show="open" x-transition style="display: none;" x-cloak class="space-y-3">
             @foreach($node['children'] as $child)
-                @include('seed-runs.partials.executed-node', ['node' => $child, 'depth' => $depth + 1])
+                @include('seed-runs.partials.executed-node', [
+                    'node' => $child,
+                    'depth' => $depth + 1,
+                    'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+                ])
             @endforeach
         </div>
     </div>
@@ -76,13 +81,29 @@
         $dataProfile = $node['data_profile'] ?? ($seedRun->data_profile ?? []);
         $seederDeleteButton = $dataProfile['delete_button'] ?? __('Видалити з даними');
         $seederDeleteConfirm = $dataProfile['delete_confirm'] ?? __('Видалити лог та пов’язані дані?');
+        $seedRunOrdinal = $recentSeedRunOrdinals->get($seedRun->id);
+        $seedRunIsRecent = !is_null($seedRunOrdinal);
     @endphp
     <div style="margin-left: {{ $indent }}rem;">
-        <div class="border border-gray-200 rounded-xl shadow-sm">
-            <div class="p-4 md:p-6">
+        <div @class([
+            'border rounded-xl shadow-sm',
+            'border-gray-200' => ! $seedRunIsRecent,
+            'border-amber-300' => $seedRunIsRecent,
+        ])>
+            <div @class([
+                'p-4 md:p-6',
+                'bg-white' => ! $seedRunIsRecent,
+                'bg-amber-50' => $seedRunIsRecent,
+            ])>
                 <div class="md:grid md:grid-cols-[minmax(0,3fr)_minmax(0,1fr)] md:items-start md:gap-6">
                     <div class="text-xs text-gray-700 break-words">
-                        <div class="font-mono text-sm text-gray-800">{{ $node['name'] }}</div>
+                        <div class="font-mono text-sm text-gray-800 flex flex-wrap items-center gap-2">{{ $node['name'] }}
+                            @if($seedRunIsRecent)
+                                <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                    Новий{{ ' #' . $seedRunOrdinal }}
+                                </span>
+                            @endif
+                        </div>
                         @if(\Illuminate\Support\Str::contains($seedRun->display_class_name, '\\'))
                             <p class="text-xs text-gray-500 mt-1">{{ $seedRun->display_class_name }}</p>
                         @endif
