@@ -83,8 +83,16 @@
     .drag-quiz__grid {
         grid-template-columns: 1fr;
     }
+    .drag-quiz__left {
+        order: 2;
+    }
     .drag-quiz__right {
-        position: static;
+        order: 1;
+        position: sticky;
+        top: 8px;
+        z-index: 20;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+        margin-bottom: 12px;
     }
 }
 .drag-quiz__card {
