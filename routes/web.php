@@ -6,6 +6,7 @@ use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InteractiveTestController;
 use App\Http\Controllers\MigrationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PageManageController;
@@ -100,6 +101,9 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('/translate/test2', [SentenceTranslationTestController::class, 'indexV2'])->name('translate.test2');
     Route::post('/translate/test2/check', [SentenceTranslationTestController::class, 'checkV2'])->name('translate.test2.check');
     Route::post('/translate/test2/reset', [SentenceTranslationTestController::class, 'resetV2'])->name('translate.test2.reset');
+
+    Route::get('/interactive-tests/{interactiveTest:slug}', [InteractiveTestController::class, 'show'])
+        ->name('interactive-tests.show');
     
     Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
     Route::post('/grammar-test', [GrammarTestController::class, 'generate'])->name('grammar-test.generate');
