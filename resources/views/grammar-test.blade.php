@@ -32,6 +32,11 @@
         $recentSourceOrdinals = collect($recentSourceOrdinals ?? []);
         $recentSeederOrdinals = collect($recentSeederOrdinals ?? []);
 
+        $selectedSeederClassList = collect($selectedSeederClasses ?? [])
+            ->filter(fn ($value) => filled($value))
+            ->values()
+            ->all();
+
         $seederGroups = $seederClasses
             ->map(function ($className) use ($seederSourceMap) {
                 $sources = $seederSourceMap->get($className, collect());
@@ -44,6 +49,136 @@
             ->filter(fn ($group) => filled($group['seeder']))
             ->values();
 
+        $seederTree = [
+            'type' => 'root',
+            'name' => null,
+            'full_path' => '',
+            'children' => [],
+            'has_active_child' => false,
+            'seeder_count' => 0,
+        ];
+
+        $addSeederToTree = function (&$node, $segments, $payload) use (&$addSeederToTree) {
+            if (empty($segments)) {
+                return;
+            }
+
+            $segment = array_shift($segments);
+            $node['children'] = $node['children'] ?? [];
+            $node['seeder_count'] = $node['seeder_count'] ?? 0;
+
+            if (empty($segments)) {
+                $fullPath = ($node['full_path'] ?? '') !== ''
+                    ? ($node['full_path'] . '/' . $segment)
+                    : $segment;
+
+                $node['children'][$segment] = array_merge([
+                    'type' => 'seeder',
+                    'name' => $segment,
+                    'full_path' => $fullPath,
+                ], $payload);
+
+                $node['seeder_count'] += 1;
+                if ($payload['is_active'] ?? false) {
+                    $node['has_active_child'] = true;
+                }
+
+                return;
+            }
+
+            $parentPath = $node['full_path'] ?? '';
+            $fullPath = $parentPath !== '' ? ($parentPath . '/' . $segment) : $segment;
+
+            if (!isset($node['children'][$segment])) {
+                $node['children'][$segment] = [
+                    'type' => 'folder',
+                    'name' => $segment,
+                    'full_path' => $fullPath,
+                    'children' => [],
+                    'has_active_child' => false,
+                    'seeder_count' => 0,
+                ];
+            }
+
+            $addSeederToTree($node['children'][$segment], $segments, $payload);
+
+            $node['seeder_count'] += 1;
+
+            if (($node['children'][$segment]['has_active_child'] ?? false) || ($node['children'][$segment]['is_active'] ?? false)) {
+                $node['has_active_child'] = true;
+            }
+        };
+
+        foreach ($seederGroups as $group) {
+            $className = $group['seeder'];
+            $seederSources = collect($group['sources'] ?? []);
+            $seederIsSelected = in_array($className, $selectedSeederClassList, true);
+            $seederSourceIds = $seederSources->pluck('id');
+            $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
+            $groupIsActive = $seederIsSelected || $seederHasSelectedSources;
+            $displaySeederName = \Illuminate\Support\Str::after($className, 'Database\\Seeders\\');
+
+            if ($displaySeederName === $className) {
+                $displaySeederName = $className;
+            }
+
+            $segments = collect(explode('\\\\', $displaySeederName))->filter()->values();
+
+            if ($segments->isEmpty()) {
+                $segments = collect(explode('\\\\', $className))->filter()->values();
+            }
+
+            if ($segments->isEmpty()) {
+                $segments = collect([$displaySeederName]);
+            }
+
+            $displayLabel = $segments->last() ?? $displaySeederName;
+
+            $seederPayload = [
+                'display_name' => $displayLabel,
+                'full_display_name' => $displaySeederName,
+                'full_class' => $className,
+                'sources' => $seederSources,
+                'seeder_input_id' => 'seeder-' . md5($className),
+                'is_selected' => $seederIsSelected,
+                'has_selected_sources' => $seederHasSelectedSources,
+                'is_active' => $groupIsActive,
+                'is_new' => $recentSeederClasses->contains($className),
+                'recent_ordinal' => $recentSeederOrdinals->get($className),
+            ];
+
+            $addSeederToTree($seederTree, $segments->all(), $seederPayload);
+        }
+
+        $sortSeederTree = function (&$node) use (&$sortSeederTree) {
+            if (empty($node['children'] ?? [])) {
+                return;
+            }
+
+            uasort($node['children'], function ($a, $b) {
+                $orderA = ($a['type'] ?? 'folder') === 'folder' ? 0 : 1;
+                $orderB = ($b['type'] ?? 'folder') === 'folder' ? 0 : 1;
+
+                if ($orderA === $orderB) {
+                    return strcasecmp($a['name'] ?? '', $b['name'] ?? '');
+                }
+
+                return $orderA <=> $orderB;
+            });
+
+            foreach ($node['children'] as &$child) {
+                $sortSeederTree($child);
+            }
+
+            unset($child);
+
+            $node['children'] = array_values($node['children']);
+        };
+
+        $sortSeederTree($seederTree);
+
+        $seederTreeChildren = collect($seederTree['children'] ?? []);
+
         $hasSelectedSeederSources = $seederGroups->contains(function ($group) use ($selectedSourceCollection) {
             return collect($group['sources'] ?? [])
                 ->pluck('id')
@@ -53,7 +188,7 @@
 
         $selectedCategories = collect($selectedCategories ?? [])->all();
         $selectedTags = collect($selectedTags ?? [])->all();
-        $selectedSeederClasses = collect($selectedSeederClasses ?? [])->filter(fn ($value) => filled($value))->values()->all();
+        $selectedSeederClasses = $selectedSeederClassList;
         $normalizedFilters = $normalizedFilters ?? null;
 
         $hasSelectedCategories = !empty($selectedCategories);
@@ -104,109 +239,18 @@
                         </div>
                     </div>
                     <div class="space-y-3" x-show="openSeederFilter" x-transition style="display: none;">
-                        @if($seederGroups->isEmpty())
+                        @if($seederTreeChildren->isEmpty())
                             <p class="text-sm text-gray-500">Немає доступних класів сидера.</p>
                         @else
-                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
-                                @foreach($seederGroups as $group)
-                                    @php
-                                        $className = $group['seeder'];
-                                        $seederSources = collect($group['sources'] ?? []);
-                                        $seederIsSelected = in_array($className, $selectedSeederClasses, true);
-                                        $seederSourceIds = $seederSources->pluck('id');
-                                        $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
-                                        $groupIsActive = $seederIsSelected || $seederHasSelectedSources;
-                                        $seederInputId = 'seeder-' . md5($className);
-                                        $displaySeederName = \Illuminate\Support\Str::after($className, 'Database\\Seeders\\');
-                                        if ($displaySeederName === $className) {
-                                            $displaySeederName = $className;
-                                        }
-                                        $seederIsNew = $recentSeederClasses->contains($className);
-                                        $seederOrdinal = $recentSeederOrdinals->get($className);
-                                    @endphp
-                                    <div x-data="{
-                                            open: {{ $groupIsActive ? 'true' : 'false' }},
-                                            toggle(openState = undefined) {
-                                                if (openState === undefined) {
-                                                    this.open = !this.open;
-                                                    return;
-                                                }
-
-                                                this.open = !!openState;
-                                            }
-                                        }"
-                                         @toggle-all-seeder-sources.window="toggle($event.detail.open)"
-                                         @class([
-                                            'border rounded-2xl overflow-hidden transition',
-                                            'border-gray-200' => ! $groupIsActive,
-                                            'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
-                                         ])
-                                    >
-                                        <div class="flex items-center justify-between gap-3 px-4 py-2 bg-gray-50 cursor-pointer"
-                                             @click="toggle()"
-                                        >
-                                            <label for="{{ $seederInputId }}"
-                                                   @class([
-                                                        'flex items-center gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
-                                                        'text-blue-800' => $seederIsSelected,
-                                                   ])
-                                                   @click.stop
-                                            >
-                                                <input type="checkbox" name="seeder_classes[]" value="{{ $className }}" id="{{ $seederInputId }}"
-                                                       {{ $seederIsSelected ? 'checked' : '' }}
-                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded">
-                                                <span class="truncate flex items-center gap-2" title="{{ $className }}">
-                                                    <span class="truncate">{{ $displaySeederName }}</span>
-                                                    @if($seederIsNew)
-                                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
-                                                            Новий{{ !is_null($seederOrdinal) ? ' #' . $seederOrdinal : '' }}
-                                                        </span>
-                                                    @endif
-                                                </span>
-                                            </label>
-                                            <button type="button"
-                                                    class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
-                                                    @click.stop="toggle()"
-                                                    :aria-expanded="open.toString()"
-                                                    aria-label="Перемкнути список джерел">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
-                                            @if($seederSources->isEmpty())
-                                                <p class="text-xs text-gray-500">Для цього сидера немає пов'язаних джерел.</p>
-                                            @else
-                                                <div class="flex flex-wrap gap-2">
-                                                    @foreach($seederSources as $source)
-                                                        @php
-                                                            $sourceIsSelected = $selectedSourceCollection->contains($source->id);
-                                                            $sourceIsNew = $recentSourceIds->contains($source->id);
-                                                            $sourceOrdinal = $recentSourceOrdinals->get($source->id);
-                                                        @endphp
-                                                        <label @class([
-                                                            'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
-                                                            'border-gray-200 bg-white hover:border-blue-300' => ! $sourceIsSelected,
-                                                            'border-blue-400 bg-blue-50 shadow-sm' => $sourceIsSelected,
-                                                        ])>
-                                                            <input type="checkbox" name="sources[]" value="{{ $source->id }}"
-                                                                   {{ $sourceIsSelected ? 'checked' : '' }}
-                                                                   class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                                            <span class="whitespace-normal break-words flex items-center gap-2 flex-wrap">
-                                                                <span>{{ $source->name }} (ID: {{ $source->id }})</span>
-                                                                @if($sourceIsNew)
-                                                                    <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
-                                                                        Новий{{ !is_null($sourceOrdinal) ? ' #' . $sourceOrdinal : '' }}
-                                                                    </span>
-                                                                @endif
-                                                            </span>
-                                                        </label>
-                                                    @endforeach
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </div>
+                            <div class="space-y-2">
+                                @foreach($seederTreeChildren as $seederNode)
+                                    @include('grammar-test.partials.seeder-tree-node', [
+                                        'node' => $seederNode,
+                                        'depth' => 0,
+                                        'selectedSourceCollection' => $selectedSourceCollection,
+                                        'recentSourceIds' => $recentSourceIds,
+                                        'recentSourceOrdinals' => $recentSourceOrdinals,
+                                    ])
                                 @endforeach
                             </div>
                         @endif
