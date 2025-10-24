@@ -37,8 +37,8 @@
 
             <div class="drag-quiz__footer">
                 <div class="drag-quiz__controls">
+                    <button id="drag-quiz-check" class="drag-quiz__btn">Перевірити</button>
                     <button id="drag-quiz-retry" class="drag-quiz__btn drag-quiz__btn--secondary">Спробувати ще</button>
-                    <button id="drag-quiz-show" class="drag-quiz__btn drag-quiz__btn--ghost">Показати відповіді</button>
                     <div class="drag-quiz__score" id="drag-quiz-score">0 / {{ $scoreTotal }}</div>
                 </div>
                 <p class="drag-quiz__hint">Підсвічення: <span class="drag-quiz__hint--correct">зелений</span> — вірно, <span class="drag-quiz__hint--wrong">червоний</span> — помилка.</p>
@@ -51,7 +51,7 @@
             <div id="drag-quiz-bank" class="drag-quiz__bank" aria-label="Word bank"></div>
 
             <div class="drag-quiz__bank-controls">
-                <button id="drag-quiz-check" class="drag-quiz__btn">Перевірити</button>
+                <button id="drag-quiz-show" class="drag-quiz__btn drag-quiz__btn--ghost">Показати відповіді</button>
             </div>
         </aside>
     </div>
