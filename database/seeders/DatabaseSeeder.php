@@ -24,6 +24,7 @@ use Database\Seeders\V2\ConditionalsType1And2WorksheetV2Seeder;
 use Database\Seeders\V2\ConditionalsZeroToSecondWorksheetV2Seeder;
 use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
 use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
+use Database\Seeders\V2\Modals\ModalObligationNecessityV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -119,6 +120,7 @@ class DatabaseSeeder extends Seeder
             ConditionalsMixedPracticeCustomSeeder::class,
             MixedConditionalsBridgePracticeV2Seeder::class,
             FutureTensesPracticeV2Seeder::class,
+            ModalObligationNecessityV2Seeder::class,
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
             SecondConditionalTestV2Seeder::class,

@@ -456,7 +456,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     const showBtn = document.getElementById('drag-quiz-show');
 
     let tokenSerial = 0;
-    const baseTokens = [];
+    const allTokens = new Map();
+    const baseTokenBuckets = new Map();
+
     questions.forEach((question) => {
         question.blanks.forEach((blank) => {
             const word = String(blank.answer ?? '').trim();
@@ -464,19 +466,26 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
                 return;
             }
             tokenSerial += 1;
-            baseTokens.push({ id: `token-${tokenSerial}`, word });
+            const tokenId = `token-${tokenSerial}`;
+            allTokens.set(tokenId, { id: tokenId, word });
+            if (!baseTokenBuckets.has(word)) {
+                baseTokenBuckets.set(word, []);
+            }
+            baseTokenBuckets.get(word)?.push(tokenId);
         });
     });
 
-    const totalTargets = baseTokens.length;
+    const totalTargets = Array.from(baseTokenBuckets.values()).reduce((sum, ids) => sum + ids.length, 0);
     const scoreTotal = totalTargets > 0 ? totalTargets : questions.length;
-    let selectedTokenId = null;
+    let bankInventory = new Map();
+    const bankTokenElements = new Map();
+    let selectedTokenWord = null;
     const nav = typeof navigator !== 'undefined' ? navigator : null;
     const supportsTouch =
         typeof window !== 'undefined' &&
         (('ontouchstart' in window) || (nav && ((nav.maxTouchPoints || 0) > 0 || (nav.msMaxTouchPoints || 0) > 0)));
     let activeTouchId = null;
-    let activeTouchTokenId = null;
+    let activeTouchWord = null;
     let touchHoverDrop = null;
     let touchStartPoint = null;
 
@@ -486,18 +495,161 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
             touchHoverDrop = null;
         }
 
-        if (supportsTouch && bankEl && activeTouchTokenId) {
-            const selector = `.drag-quiz__token[data-id="${escapeSelector(activeTouchTokenId)}"]`;
-            const activeToken = bankEl.querySelector(selector);
-            if (activeToken) {
-                activeToken.classList.remove('is-selected');
-            }
+        if (supportsTouch && bankEl && activeTouchWord) {
+            const activeToken = bankTokenElements.get(activeTouchWord);
+            activeToken?.classList.remove('is-selected');
         }
 
         activeTouchId = null;
-        activeTouchTokenId = null;
+        activeTouchWord = null;
         touchStartPoint = null;
-        selectedTokenId = null;
+        selectedTokenWord = null;
+    }
+
+    function resetBankInventory() {
+        bankInventory = new Map();
+        baseTokenBuckets.forEach((ids, word) => {
+            bankInventory.set(word, Array.isArray(ids) ? ids.slice() : []);
+        });
+    }
+
+    function getAvailableCount(word) {
+        const bucket = word ? bankInventory.get(word) : null;
+        return bucket ? bucket.length : 0;
+    }
+
+    function clearBankSelection() {
+        if (!bankEl) {
+            selectedTokenWord = null;
+            return;
+        }
+        bankEl.querySelectorAll('.drag-quiz__token').forEach((node) => node.classList.remove('is-selected'));
+        selectedTokenWord = null;
+    }
+
+    function ensureBankTokenElement(word) {
+        if (!bankEl || !word) {
+            return null;
+        }
+
+        let token = bankTokenElements.get(word);
+        if (token) {
+            if (!bankEl.contains(token)) {
+                bankEl.appendChild(token);
+            }
+            return token;
+        }
+
+        token = document.createElement('div');
+        token.className = 'drag-quiz__token';
+        token.dataset.word = word;
+        token.setAttribute('draggable', 'true');
+        token.addEventListener('dragstart', (event) => {
+            if (getAvailableCount(word) === 0) {
+                event.preventDefault();
+                return;
+            }
+            event.dataTransfer.setData('text/plain', word);
+        });
+        token.addEventListener('click', () => {
+            if (getAvailableCount(word) === 0) {
+                return;
+            }
+            const alreadySelected = token.classList.contains('is-selected');
+            clearBankSelection();
+            if (!alreadySelected) {
+                token.classList.add('is-selected');
+                selectedTokenWord = word;
+            }
+        });
+        if (supportsTouch) {
+            token.addEventListener('touchstart', (event) => handleTokenTouchStart(event, token), { passive: true });
+        }
+        bankTokenElements.set(word, token);
+        bankEl.appendChild(token);
+        return token;
+    }
+
+    function updateBankToken(word) {
+        if (!word) {
+            return;
+        }
+
+        const count = getAvailableCount(word);
+        let token = bankTokenElements.get(word);
+        if (!token && count > 0) {
+            token = ensureBankTokenElement(word);
+        }
+
+        if (!token) {
+            return;
+        }
+
+        if (count > 0) {
+            token.style.display = '';
+            token.setAttribute('draggable', 'true');
+            token.dataset.count = String(count);
+            token.textContent = count > 1 ? `${word} ×${count}` : word;
+        } else {
+            token.dataset.count = '0';
+            token.textContent = word;
+            token.style.display = 'none';
+            token.setAttribute('draggable', 'false');
+            token.classList.remove('is-selected');
+            if (selectedTokenWord === word) {
+                selectedTokenWord = null;
+            }
+        }
+    }
+
+    function takeTokenId(word) {
+        const bucket = word ? bankInventory.get(word) : null;
+        if (!bucket || bucket.length === 0) {
+            return null;
+        }
+        return bucket.shift();
+    }
+
+    function addTokenIdToInventory(word, tokenId) {
+        if (!word || !tokenId) {
+            return;
+        }
+
+        if (!bankInventory.has(word)) {
+            bankInventory.set(word, []);
+        }
+
+        const bucket = bankInventory.get(word);
+        bucket?.push(tokenId);
+        updateBankToken(word);
+    }
+
+    function injectTokenToBank(tokenData, { includeInBase = false } = {}) {
+        const id = tokenData?.id;
+        const rawWord = tokenData?.word;
+        const word = String(rawWord ?? '').trim();
+
+        if (!id || !word) {
+            return;
+        }
+
+        if (!allTokens.has(id)) {
+            allTokens.set(id, { id, word });
+        }
+
+        if (includeInBase) {
+            if (!baseTokenBuckets.has(word)) {
+                baseTokenBuckets.set(word, []);
+            }
+            baseTokenBuckets.get(word)?.push(id);
+        }
+
+        if (!bankInventory.has(word)) {
+            bankInventory.set(word, []);
+        }
+
+        bankInventory.get(word)?.push(id);
+        updateBankToken(word);
     }
 
     function findTouchById(touchList, identifier) {
@@ -521,19 +673,19 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         }
 
         const touch = (event.changedTouches && event.changedTouches[0]) || (event.touches && event.touches[0]);
-        const tokenId = tokenEl.dataset.id;
+        const word = tokenEl.dataset.word;
 
-        if (!touch || !tokenId) {
+        if (!touch || !word || getAvailableCount(word) === 0) {
             return;
         }
 
         activeTouchId = touch.identifier;
-        activeTouchTokenId = tokenId;
+        activeTouchWord = word;
         touchStartPoint = { x: touch.clientX, y: touch.clientY };
 
-        bankEl?.querySelectorAll('.drag-quiz__token').forEach((node) => node.classList.remove('is-selected'));
+        clearBankSelection();
         tokenEl.classList.add('is-selected');
-        selectedTokenId = tokenId;
+        selectedTokenWord = word;
 
         if (touchHoverDrop) {
             touchHoverDrop.classList.remove('is-hover');
@@ -593,8 +745,8 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const element = document.elementFromPoint(touch.clientX, touch.clientY);
         const drop = element ? element.closest('.drag-quiz__drop') : null;
 
-        if (drop && activeTouchTokenId) {
-            placeTokenInDrop(activeTouchTokenId, drop);
+        if (drop && activeTouchWord) {
+            placeWordInDrop(activeTouchWord, drop);
             event.preventDefault();
         }
 
@@ -614,32 +766,6 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         scoreEl.textContent = `${correctCount} / ${scoreTotal}`;
     }
 
-    function addTokenToBank(tokenData) {
-        const token = document.createElement('div');
-        token.className = 'drag-quiz__token';
-        token.textContent = tokenData.word;
-        token.dataset.id = tokenData.id;
-        token.dataset.word = tokenData.word;
-        token.setAttribute('draggable', 'true');
-        token.addEventListener('dragstart', (event) => {
-            event.dataTransfer.setData('text/plain', tokenData.id);
-        });
-        token.addEventListener('click', () => {
-            const alreadySelected = token.classList.contains('is-selected');
-            bankEl.querySelectorAll('.drag-quiz__token').forEach((node) => node.classList.remove('is-selected'));
-            if (alreadySelected) {
-                selectedTokenId = null;
-            } else {
-                token.classList.add('is-selected');
-                selectedTokenId = tokenData.id;
-            }
-        });
-        if (supportsTouch) {
-            token.addEventListener('touchstart', (event) => handleTokenTouchStart(event, token), { passive: true });
-        }
-        bankEl.appendChild(token);
-    }
-
     function shuffled(list) {
         const arr = list.slice();
         for (let i = arr.length - 1; i > 0; i--) {
@@ -650,10 +776,25 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     }
 
     function renderBank(useShuffle = true) {
+        if (!bankEl) {
+            return;
+        }
+
         bankEl.innerHTML = '';
-        const tokens = useShuffle ? shuffled(baseTokens) : baseTokens.slice();
-        tokens.forEach((token) => addTokenToBank({ id: token.id, word: token.word }));
-        selectedTokenId = null;
+        bankTokenElements.clear();
+
+        const words = Array.from(bankInventory.entries())
+            .filter(([, ids]) => Array.isArray(ids) && ids.length > 0)
+            .map(([word]) => word);
+
+        const ordered = useShuffle ? shuffled(words) : words;
+
+        ordered.forEach((word) => {
+            ensureBankTokenElement(word);
+            updateBankToken(word);
+        });
+
+        selectedTokenWord = null;
     }
 
     function createDropElement(questionIndex, blankIndex, totalBlanks) {
@@ -675,12 +816,12 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         drop.addEventListener('drop', (event) => {
             event.preventDefault();
             drop.classList.remove('is-hover');
-            const id = event.dataTransfer.getData('text/plain');
-            placeTokenInDrop(id, drop);
+            const word = event.dataTransfer.getData('text/plain');
+            placeWordInDrop(word, drop);
         });
         drop.addEventListener('click', () => {
-            if (selectedTokenId) {
-                placeTokenInDrop(selectedTokenId, drop);
+            if (selectedTokenWord) {
+                placeWordInDrop(selectedTokenWord, drop);
             }
         });
 
@@ -745,43 +886,60 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         drop.removeAttribute('data-token-id');
 
         if (id && word) {
-            addTokenToBank({ id, word });
+            addTokenIdToInventory(word, id);
+            const bankToken = bankTokenElements.get(word);
+            bankToken?.classList.remove('is-selected');
         }
 
-        selectedTokenId = null;
+        selectedTokenWord = null;
     }
 
-    function placeTokenInDrop(tokenId, drop) {
-        if (!tokenId || !drop) {
+    function placeWordInDrop(word, drop) {
+        if (!drop) {
             return false;
         }
 
-        const selector = `.drag-quiz__token[data-id="${escapeSelector(tokenId)}"]`;
-        const token = bankEl.querySelector(selector);
-        if (!token) {
+        const normalizedWord = String(word ?? '').trim();
+        if (!normalizedWord) {
             return false;
         }
 
         const existing = drop.querySelector('.drag-quiz__token');
+        const existingWord = existing ? String(existing.dataset.word || existing.textContent || '').trim() : '';
+        if (existing && existingWord === normalizedWord) {
+            clearBankSelection();
+            if (touchHoverDrop) {
+                touchHoverDrop.classList.remove('is-hover');
+                touchHoverDrop = null;
+                touchStartPoint = null;
+            }
+            return true;
+        }
+
+        const tokenId = takeTokenId(normalizedWord);
+        if (!tokenId) {
+            return false;
+        }
+
         if (existing) {
             returnTokenToBank(existing);
         }
 
-        bankEl.querySelectorAll('.drag-quiz__token').forEach((node) => node.classList.remove('is-selected'));
-        selectedTokenId = null;
-
-        if (supportsTouch && touchHoverDrop) {
+        clearBankSelection();
+        if (touchHoverDrop) {
             touchHoverDrop.classList.remove('is-hover');
             touchHoverDrop = null;
             touchStartPoint = null;
         }
 
-        const clone = token.cloneNode(true);
-        clone.classList.remove('is-selected');
+        const tokenData = allTokens.get(tokenId) || { id: tokenId, word: normalizedWord };
+        const clone = document.createElement('div');
+        clone.className = 'drag-quiz__token';
+        clone.textContent = tokenData.word;
+        clone.dataset.word = tokenData.word;
+        clone.dataset.id = tokenData.id;
         clone.classList.add('is-fixed');
-        clone.removeAttribute('draggable');
-        clone.dataset.word = token.dataset.word;
-        clone.dataset.id = token.dataset.id;
+        clone.setAttribute('draggable', 'false');
 
         const remove = document.createElement('span');
         remove.className = 'drag-quiz__remove';
@@ -805,7 +963,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         drop.classList.remove('is-correct', 'is-wrong');
         drop.dataset.tokenId = tokenId;
 
-        token.remove();
+        updateBankToken(normalizedWord);
         return true;
     }
 
@@ -855,19 +1013,16 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
                     return;
                 }
 
-                let token = Array.from(bankEl.querySelectorAll('.drag-quiz__token')).find((node) => {
-                    const value = normalize(node.dataset.word || node.textContent);
-                    return value === blank.normalized;
-                });
-
-                if (!token) {
-                    const fallbackId = `auto-${questionIndex}-${blankIndex}`;
-                    addTokenToBank({ id: fallbackId, word: blank.answer });
-                    token = bankEl.querySelector(`.drag-quiz__token[data-id="${escapeSelector(fallbackId)}"]`);
+                const answerWord = String(blank.answer ?? '').trim();
+                if (!answerWord) {
+                    return;
                 }
 
-                if (token) {
-                    placeTokenInDrop(token.dataset.id, drop);
+                let placed = placeWordInDrop(answerWord, drop);
+                if (!placed) {
+                    const fallbackId = `auto-${questionIndex}-${blankIndex}`;
+                    injectTokenToBank({ id: fallbackId, word: answerWord });
+                    placed = placeWordInDrop(answerWord, drop);
                 }
             });
         });
@@ -882,11 +1037,13 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
             drop.removeAttribute('data-token-id');
         });
 
+        resetBankInventory();
         renderBank(true);
         updateScoreLabel(0);
     }
 
     renderTasks();
+    resetBankInventory();
     renderBank(true);
     updateScoreLabel(0);
 
@@ -897,9 +1054,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     tasksEl.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             const drop = event.target.closest('.drag-quiz__drop');
-            if (drop && selectedTokenId) {
+            if (drop && selectedTokenWord) {
                 event.preventDefault();
-                placeTokenInDrop(selectedTokenId, drop);
+                placeWordInDrop(selectedTokenWord, drop);
             }
         }
     });
