@@ -34,6 +34,15 @@
             </header>
 
             <div id="drag-quiz-tasks"></div>
+
+            <div class="drag-quiz__footer">
+                <div class="drag-quiz__controls">
+                    <button id="drag-quiz-retry" class="drag-quiz__btn drag-quiz__btn--secondary">Спробувати ще</button>
+                    <button id="drag-quiz-show" class="drag-quiz__btn drag-quiz__btn--ghost">Показати відповіді</button>
+                    <div class="drag-quiz__score" id="drag-quiz-score">0 / {{ $scoreTotal }}</div>
+                </div>
+                <p class="drag-quiz__hint">Підсвічення: <span class="drag-quiz__hint--correct">зелений</span> — вірно, <span class="drag-quiz__hint--wrong">червоний</span> — помилка.</p>
+            </div>
         </div>
 
         <aside class="drag-quiz__card drag-quiz__right">
@@ -41,13 +50,9 @@
             <div class="drag-quiz__legend">Перетягуй або натискай, щоб обрати слово.</div>
             <div id="drag-quiz-bank" class="drag-quiz__bank" aria-label="Word bank"></div>
 
-            <div class="drag-quiz__controls">
+            <div class="drag-quiz__bank-controls">
                 <button id="drag-quiz-check" class="drag-quiz__btn">Перевірити</button>
-                <button id="drag-quiz-retry" class="drag-quiz__btn drag-quiz__btn--secondary">Спробувати ще</button>
-                <button id="drag-quiz-show" class="drag-quiz__btn drag-quiz__btn--ghost">Показати відповіді</button>
-                <div class="drag-quiz__score" id="drag-quiz-score">0 / {{ $scoreTotal }}</div>
             </div>
-            <p class="drag-quiz__hint">Підсвічення: <span class="drag-quiz__hint--correct">зелений</span> — вірно, <span class="drag-quiz__hint--wrong">червоний</span> — помилка.</p>
         </aside>
     </div>
 </div>
@@ -173,6 +178,22 @@
     flex-wrap: wrap;
     margin-top: 12px;
     align-items: center;
+}
+.drag-quiz__bank-controls {
+    margin-top: 12px;
+}
+.drag-quiz__bank-controls .drag-quiz__btn {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.drag-quiz__footer {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px dashed #e5e7eb;
+}
+.drag-quiz__footer .drag-quiz__hint {
+    margin-top: 12px;
 }
 .drag-quiz__btn {
     appearance: none;
