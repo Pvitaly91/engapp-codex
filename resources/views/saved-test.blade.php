@@ -12,7 +12,7 @@
 <div class="max-w-3xl mx-auto p-4">
     <div class="flex items-center justify-between mb-6">
         <h1 class="text-2xl font-bold mb-2">{{ $test->name }}</h1>
-        <a href="/tests/cards"
+        <a href="{{ route('saved-tests.cards') }}"
            class="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2 rounded-2xl font-semibold hover:bg-blue-100">
             ← До списку тестів
         </a>

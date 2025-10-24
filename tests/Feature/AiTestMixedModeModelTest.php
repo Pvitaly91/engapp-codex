@@ -69,15 +69,15 @@ class AiTestMixedModeModelTest extends TestCase
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
 
-        $this->post('/ai-test/start', [
+        $this->post('/admin/ai-test/start', [
             'tags' => [$tag->id],
             'answers_min' => 1,
             'answers_max' => 1,
             'provider' => 'mixed',
-        ])->assertRedirect('/ai-test/step');
+        ])->assertRedirect('/admin/ai-test/step');
 
-        $this->get('/ai-test/next')->assertJson(['status' => 'ok']);
-        $this->get('/ai-test/next')->assertJson(['status' => 'ok']);
+        $this->get('/admin/ai-test/next')->assertJson(['status' => 'ok']);
+        $this->get('/admin/ai-test/next')->assertJson(['status' => 'ok']);
     }
 }
 

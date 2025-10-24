@@ -61,8 +61,8 @@ class SavedTestVersionsTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $this->get('/test/' . $testModel->slug . '/random')->assertStatus(200);
-        $this->get('/test/' . $testModel->slug . '/step')->assertStatus(200);
+        $this->get('/admin/test/' . $testModel->slug . '/random')->assertStatus(200);
+        $this->get('/admin/test/' . $testModel->slug . '/step')->assertStatus(200);
     }
 
 }

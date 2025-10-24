@@ -73,19 +73,19 @@ class SavedTestStepUniqueCountTest extends TestCase
             'questions' => [$q1->id, $q2->id],
         ]);
 
-        $this->post('/test/'.$testModel->slug.'/step/check', [
+        $this->post('/admin/test/'.$testModel->slug.'/step/check', [
             'question_id' => $q1->id,
             'answers' => ['a1' => 'yes'],
         ]);
 
-        $this->get('/test/'.$testModel->slug.'/step?nav=prev');
+        $this->get('/admin/test/'.$testModel->slug.'/step?nav=prev');
 
-        $this->post('/test/'.$testModel->slug.'/step/check', [
+        $this->post('/admin/test/'.$testModel->slug.'/step/check', [
             'question_id' => $q1->id,
             'answers' => ['a1' => 'yes'],
         ]);
 
-        $response = $this->get('/test/'.$testModel->slug.'/step');
+        $response = $this->get('/admin/test/'.$testModel->slug.'/step');
         $response->assertSee('Total: <b>1 / 2</b>', false);
     }
 }

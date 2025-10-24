@@ -29,7 +29,7 @@
     <nav class="bg-white shadow mb-6" x-data="{ open: false }">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between py-4">
-                <a href="{{ url('/tests') }}" class="text-2xl font-bold text-blue-700">
+                <a href="{{ route('admin.dashboard') }}" class="text-2xl font-bold text-blue-700">
                     Admin Hub
                 </a>
                 <button
@@ -44,12 +44,12 @@
                 </button>
                 <div class="hidden md:flex md:items-center md:gap-6 text-gray-600 font-medium">
                     <a href="{{ route('pages.manage.index') }}" class="hover:text-blue-500 transition">Сторінки</a>
-                    <a href="{{ url('/grammar-test') }}" class="hover:text-blue-500 transition">Граматика</a>
-                    <a href="{{ url('/tests') }}" class="hover:text-blue-500 transition">Збережені тести</a>
+                    <a href="{{ route('grammar-test') }}" class="hover:text-blue-500 transition">Граматика</a>
+                    <a href="{{ route('saved-tests.list') }}" class="hover:text-blue-500 transition">Збережені тести</a>
                     <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
                     <a href="{{ route('migrations.index') }}" class="hover:text-blue-500 transition">Міграції</a>
                     <a href="{{ route('deployment.index') }}" class="hover:text-blue-500 transition">Деплой</a>
-                    <a href="{{ url('/') }}" class="hover:text-blue-500 transition">До публічної частини</a>
+                    <a href="{{ route('home') }}" class="hover:text-blue-500 transition">До публічної частини</a>
                     @if(session('admin_authenticated'))
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -67,12 +67,12 @@
                 x-transition
             >
                 <a href="{{ route('pages.manage.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Сторінки</a>
-                <a href="{{ url('/grammar-test') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Граматика</a>
-                <a href="{{ url('/tests') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Збережені тести</a>
+                <a href="{{ route('grammar-test') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Граматика</a>
+                <a href="{{ route('saved-tests.list') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Збережені тести</a>
                 <a href="{{ route('seed-runs.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs</a>
                 <a href="{{ route('migrations.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Міграції</a>
                 <a href="{{ route('deployment.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Деплой</a>
-                <a href="{{ url('/') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">До публічної частини</a>
+                <a href="{{ route('home') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">До публічної частини</a>
                 @if(session('admin_authenticated'))
                     <form method="POST" action="{{ route('logout') }}" class="px-2 py-2">
                         @csrf
@@ -92,9 +92,9 @@
         @php $pageTitle = trim($__env->yieldContent('title')); @endphp
         @if(isset($breadcrumbs))
             @include('components.breadcrumbs', ['items' => $breadcrumbs])
-        @elseif(request()->path() !== '/' && !empty($pageTitle))
+        @elseif(!request()->is('admin') && !empty($pageTitle))
             @include('components.breadcrumbs', ['items' => [
-                ['label' => 'Home', 'url' => route('home')],
+                ['label' => 'Home', 'url' => route('admin.dashboard')],
                 ['label' => $pageTitle]
             ]])
         @endif

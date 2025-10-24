@@ -69,7 +69,7 @@ class SavedTestStepActionsTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $response = $this->get('/test/' . $testModel->slug . '/step');
+        $response = $this->get('/admin/test/' . $testModel->slug . '/step');
         $response->assertStatus(200);
         $response->assertSee(route('question-review.edit', $question->id));
         $response->assertSee('form="delete-question-' . $question->id . '"', false);

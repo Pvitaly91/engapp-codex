@@ -22,7 +22,7 @@ class AiTestAddTagTest extends TestCase
         $tag = Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
 
         $response = $this->withSession(['ai_step.tags' => []])
-            ->postJson('/ai-test/step/add-tag', ['tag' => $tag->name]);
+            ->postJson('/admin/ai-test/step/add-tag', ['tag' => $tag->name]);
 
         $response->assertStatus(200);
         $response->assertJson(['tags' => [$tag->name]]);

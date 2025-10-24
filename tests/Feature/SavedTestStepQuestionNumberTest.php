@@ -73,10 +73,10 @@ class SavedTestStepQuestionNumberTest extends TestCase
             'questions' => [$q1->id, $q2->id],
         ]);
 
-        $response = $this->get('/test/'.$testModel->slug.'/step');
+        $response = $this->get('/admin/test/'.$testModel->slug.'/step');
         $response->assertSee('Question: <b>1 / 2</b>', false);
 
-        $response = $this->get('/test/'.$testModel->slug.'/step?nav=next');
+        $response = $this->get('/admin/test/'.$testModel->slug.'/step?nav=next');
         $response->assertSee('Question: <b>2 / 2</b>', false);
     }
 }

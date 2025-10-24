@@ -155,8 +155,8 @@ HTML;
 
 @once
     <script>
-        const verbHintBaseUrl = '{{ url('/verb-hints') }}';
-        const questionBaseUrl = '{{ url('/questions') }}';
+        const verbHintBaseUrl = '{{ url('/admin/verb-hints') }}';
+        const questionBaseUrl = '{{ url('/admin/questions') }}';
         const verbHintCsrf = '{{ csrf_token() }}';
         function editVerbHint(id, btn) {
             const span = btn.closest('.verb-hint');

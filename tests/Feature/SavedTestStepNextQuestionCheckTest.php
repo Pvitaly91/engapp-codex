@@ -73,25 +73,25 @@ class SavedTestStepNextQuestionCheckTest extends TestCase
             'questions' => [$q1->id, $q2->id],
         ]);
 
-        $this->post('/test/'.$testModel->slug.'/step/check', [
+        $this->post('/admin/test/'.$testModel->slug.'/step/check', [
             'question_id' => $q1->id,
             'answers' => ['a1' => 'yes'],
         ]);
 
-        $this->get('/test/'.$testModel->slug.'/step')
+        $this->get('/admin/test/'.$testModel->slug.'/step')
             ->assertSee('Q1', false)
             ->assertSee('Correct!', false);
 
-        $this->get('/test/'.$testModel->slug.'/step?nav=next')
+        $this->get('/admin/test/'.$testModel->slug.'/step?nav=next')
             ->assertSee('Q2', false)
             ->assertSee('Check');
 
-        $this->post('/test/'.$testModel->slug.'/step/check', [
+        $this->post('/admin/test/'.$testModel->slug.'/step/check', [
             'question_id' => $q2->id,
             'answers' => ['a1' => 'no'],
         ]);
 
-        $this->get('/test/'.$testModel->slug.'/step')
+        $this->get('/admin/test/'.$testModel->slug.'/step')
             ->assertSee('Q2', false)
             ->assertSee('Wrong', false);
     }

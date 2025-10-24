@@ -41,7 +41,11 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.show
 Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware('auth.admin')->group(function () {
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth.admin')->prefix('admin')->group(function () {
+    Route::get('/', [DeploymentController::class, 'index'])->name('admin.dashboard');
+
     Route::get('set-locale', function (\Illuminate\Http\Request $request) {
         $lang = $request->input('lang', 'en');
         if (! in_array($lang, ['en', 'uk', 'pl'])) {
@@ -52,8 +56,6 @@ Route::middleware('auth.admin')->group(function () {
 
         return redirect()->back();
     })->name('setlocale');
-
-    Route::get('/', [HomeController::class, 'index'])->name('home');
 
     Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
 
@@ -69,7 +71,7 @@ Route::middleware('auth.admin')->group(function () {
     Route::post('/migrations/run', [MigrationController::class, 'run'])->name('migrations.run');
     Route::post('/migrations/rollback', [MigrationController::class, 'rollback'])->name('migrations.rollback');
 
-    Route::prefix('/pages/manage')->name('pages.manage.')->group(function () {
+    Route::prefix('pages/manage')->name('pages.manage.')->group(function () {
         Route::get('/', [PageManageController::class, 'index'])->name('index');
         Route::get('/create', [PageManageController::class, 'create'])->name('create');
         Route::post('/', [PageManageController::class, 'store'])->name('store');

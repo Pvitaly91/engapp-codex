@@ -87,7 +87,7 @@ class DetermineTenseTagsTest extends TestCase
                 ->andReturn(['Past Simple', 'Present Simple']);
         });
 
-        $response = $this->postJson('/test/' . $testModel->slug . '/step/determine-tense', [
+        $response = $this->postJson('/admin/test/' . $testModel->slug . '/step/determine-tense', [
             'question_id' => $question->id,
         ]);
 
@@ -109,7 +109,7 @@ class DetermineTenseTagsTest extends TestCase
                 ->andReturn(['Past Simple', 'Present Simple']);
         });
 
-        $response = $this->postJson('/test/' . $testModel->slug . '/step/determine-tense-gemini', [
+        $response = $this->postJson('/admin/test/' . $testModel->slug . '/step/determine-tense-gemini', [
             'question_id' => $question->id,
         ]);
 

@@ -66,7 +66,7 @@ class AddTagToQuestionTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $response = $this->postJson('/test/' . $testModel->slug . '/step/add-tag', [
+        $response = $this->postJson('/admin/test/' . $testModel->slug . '/step/add-tag', [
             'question_id' => $question->id,
             'tag' => $tag->name,
         ]);

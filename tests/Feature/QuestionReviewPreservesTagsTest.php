@@ -67,14 +67,14 @@ class QuestionReviewPreservesTagsTest extends TestCase
 
         $question->tags()->attach([$aiTag->id, $otherTag->id]);
 
-        $response = $this->post('/question-review', [
+        $response = $this->post('/admin/question-review', [
             'question_id' => $question->id,
             'answers' => ['a1' => 'yes'],
             'tags' => [$newTag->id],
             'level' => 'A1',
         ]);
 
-        $response->assertRedirect('/question-review');
+        $response->assertRedirect('/admin/question-review');
 
         $question->refresh();
 

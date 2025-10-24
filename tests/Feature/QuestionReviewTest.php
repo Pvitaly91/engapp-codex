@@ -65,10 +65,10 @@ class QuestionReviewTest extends TestCase
         $tag2 = Tag::create(['name' => 'tag2']);
         $question->tags()->attach($tag1->id);
 
-        $response = $this->get('/question-review');
+        $response = $this->get('/admin/question-review');
         $response->assertStatus(200);
 
-        $edit = $this->get('/question-review/'.$question->id);
+        $edit = $this->get('/admin/question-review/'.$question->id);
         $edit->assertStatus(200);
 
         $testModel = \App\Models\Test::create([
@@ -78,17 +78,17 @@ class QuestionReviewTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $testPage = $this->get('/test/'.$testModel->slug);
+        $testPage = $this->get('/admin/test/'.$testModel->slug);
         $testPage->assertStatus(200);
-        $testPage->assertSee('/question-review/' . $question->id);
+        $testPage->assertSee('/admin/question-review/' . $question->id);
 
-        $response = $this->post('/question-review', [
+        $response = $this->post('/admin/question-review', [
             'question_id' => $question->id,
             'answers' => ['a1' => 'no'],
             'tags' => [$tag2->id],
             'comment' => 'ok',
         ]);
-        $response->assertRedirect('/question-review');
+        $response->assertRedirect('/admin/question-review');
 
         $this->assertDatabaseHas('question_review_results', [
             'question_id' => $question->id,
@@ -97,7 +97,7 @@ class QuestionReviewTest extends TestCase
             'tags' => json_encode([$tag2->id]),
         ]);
 
-        $page = $this->get('/question-review-results');
+        $page = $this->get('/admin/question-review-results');
         $page->assertStatus(200);
         $page->assertSee('Choose <strong>yes</strong>', false);
         $page->assertSee('Choose <strong>no</strong>', false);
