@@ -10,6 +10,7 @@ use App\Models\Source;
 use App\Models\Tag;
 use App\Services\QuestionSeedingService;
 use Database\Seeders\QuestionSeeder;
+use Illuminate\Support\Facades\Schema;
 
 class ModalObligationNecessityV2Seeder extends QuestionSeeder
 {
@@ -806,6 +807,7 @@ class ModalObligationNecessityV2Seeder extends QuestionSeeder
                 'answers' => $answerEntries,
                 'options' => $options,
                 'variants' => [$questionText],
+                'seeder' => static::class,
             ];
 
             $meta[] = [
@@ -824,6 +826,10 @@ class ModalObligationNecessityV2Seeder extends QuestionSeeder
             $question = Question::where('uuid', $data['uuid'])->first();
             if (! $question) {
                 continue;
+            }
+
+            if (Schema::hasColumn('questions', 'seeder') && empty($question->seeder)) {
+                $question->forceFill(['seeder' => static::class])->save();
             }
 
             $hintText = $this->formatHintBlocks($data['hints']);
