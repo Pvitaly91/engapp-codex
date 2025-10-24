@@ -125,46 +125,6 @@
                 });
             });
 
-            const decrementNumericContent = function (elements) {
-                elements.forEach(function (element) {
-                    const current = parseInt(element.textContent.trim(), 10);
-
-                    if (Number.isNaN(current)) {
-                        return;
-                    }
-
-                    const nextValue = Math.max(0, current - 1);
-                    element.textContent = nextValue;
-                });
-            };
-
-            const cleanupEmptyGroups = function (seedRunId, categoryIndex, sourceIndex) {
-                const sourceWrappers = document.querySelectorAll('[data-source-wrapper][data-seed-run-id="' + seedRunId + '"][data-category-index="' + categoryIndex + '"][data-source-index="' + sourceIndex + '"]');
-                sourceWrappers.forEach(function (wrapper) {
-                    if (!wrapper.querySelector('[data-question-container]')) {
-                        wrapper.remove();
-                    }
-                });
-
-                const categoryWrappers = document.querySelectorAll('[data-category-wrapper][data-seed-run-id="' + seedRunId + '"][data-category-index="' + categoryIndex + '"]');
-                categoryWrappers.forEach(function (wrapper) {
-                    if (!wrapper.querySelector('[data-question-container]')) {
-                        wrapper.remove();
-                    }
-                });
-
-                const seedRunWrapper = document.querySelector('[data-seed-run-question-wrapper][data-seed-run-id="' + seedRunId + '"]');
-                const noQuestionsMessage = document.querySelector('[data-no-questions-message][data-seed-run-id="' + seedRunId + '"]');
-
-                if (seedRunWrapper && !seedRunWrapper.querySelector('[data-question-container]')) {
-                    seedRunWrapper.remove();
-
-                    if (noQuestionsMessage) {
-                        noQuestionsMessage.classList.remove('hidden');
-                    }
-                }
-            };
-
             const showFeedback = function (message, type = 'success') {
                 if (!feedback) {
                     return;
@@ -185,77 +145,472 @@
                 }, 5000);
             };
 
-            document.querySelectorAll('form[data-question-delete-form]').forEach(function (form) {
-                form.addEventListener('submit', async function (event) {
-                    event.preventDefault();
+            const updateToggleLabels = function (button, expanded) {
+                const collapsedLabel = button.querySelector('[data-toggle-label-collapsed]');
+                const expandedLabel = button.querySelector('[data-toggle-label-expanded]');
 
-                    const confirmMessage = form.dataset.confirm;
+                if (collapsedLabel) {
+                    collapsedLabel.classList.toggle('hidden', expanded);
+                }
 
-                    if (confirmMessage && !window.confirm(confirmMessage)) {
+                if (expandedLabel) {
+                    expandedLabel.classList.toggle('hidden', !expanded);
+                }
+            };
+
+            const decrementNumericContent = function (elements) {
+                elements.forEach(function (element) {
+                    const current = parseInt(element.textContent.trim(), 10);
+
+                    if (Number.isNaN(current)) {
                         return;
                     }
 
-                    const questionId = form.dataset.questionId;
-                    const seedRunId = form.dataset.seedRunId;
-                    const categoryIndex = form.dataset.categoryIndex;
-                    const sourceIndex = form.dataset.sourceIndex;
-                    const submitButton = form.querySelector('button[type="submit"]');
+                    const nextValue = Math.max(0, current - 1);
+                    element.textContent = nextValue;
+                });
+            };
+
+            const hasPositiveCount = function (elements) {
+                return Array.from(elements).some(function (element) {
+                    const value = parseInt(element.textContent.trim(), 10);
+
+                    return Number.isFinite(value) && value > 0;
+                });
+            };
+
+            const cleanupEmptyGroups = function (seedRunId, categoryKey, sourceKey) {
+                const sourceWrappers = document.querySelectorAll('[data-source-wrapper][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"][data-source-key="' + sourceKey + '"]');
+                sourceWrappers.forEach(function (wrapper) {
+                    const questionList = wrapper.querySelector('[data-source-questions]');
+
+                    if (!questionList || questionList.querySelector('[data-question-container]')) {
+                        return;
+                    }
+
+                    wrapper.remove();
+                });
+
+                const categoryWrappers = document.querySelectorAll('[data-category-wrapper][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"]');
+                categoryWrappers.forEach(function (wrapper) {
+                    if (wrapper.querySelector('[data-question-container]')) {
+                        return;
+                    }
+
+                    if (wrapper.querySelector('[data-source-wrapper]')) {
+                        return;
+                    }
+
+                    wrapper.remove();
+                });
+
+                const seederContent = document.querySelector('[data-seeder-content][data-seed-run-id="' + seedRunId + '"]');
+                const seederSection = document.querySelector('[data-seeder-section][data-seed-run-id="' + seedRunId + '"]');
+                const toggleButton = document.querySelector('[data-seeder-toggle][data-seed-run-id="' + seedRunId + '"]');
+                const noQuestionsMessage = document.querySelector('[data-no-questions-message][data-seed-run-id="' + seedRunId + '"]');
+                const seederCounts = document.querySelectorAll('[data-seed-run-question-count][data-seed-run-id="' + seedRunId + '"]');
+                const remainingQuestions = hasPositiveCount(seederCounts);
+
+                if (!remainingQuestions) {
+                    if (seederContent) {
+                        seederContent.innerHTML = '';
+                        seederContent.classList.add('hidden');
+                    }
+
+                    if (seederSection) {
+                        seederSection.classList.add('hidden');
+                    }
+
+                    if (toggleButton) {
+                        toggleButton.dataset.loaded = 'false';
+                        toggleButton.classList.add('hidden');
+                        toggleButton.setAttribute('aria-expanded', 'false');
+                        updateToggleLabels(toggleButton, false);
+
+                        const icon = toggleButton.querySelector('[data-seeder-toggle-icon]');
+
+                        if (icon) {
+                            icon.classList.remove('rotate-180');
+                        }
+                    }
+
+                    if (noQuestionsMessage) {
+                        noQuestionsMessage.classList.remove('hidden');
+                    }
+                }
+            };
+
+            const handleFolderToggle = async function (button) {
+                const folderNode = button.closest('[data-folder-node]');
+
+                if (!folderNode) {
+                    return;
+                }
+
+                const children = folderNode.querySelector('[data-folder-children]');
+
+                if (!children) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-folder-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+
+                    if (icon) {
+                        icon.classList.add('-rotate-90');
+                    }
+
+                    children.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+
+                if (icon) {
+                    icon.classList.remove('-rotate-90');
+                }
+
+                children.classList.remove('hidden');
+
+                if (folderNode.dataset.loaded === 'true') {
+                    return;
+                }
+
+                const baseUrl = button.dataset.loadUrl;
+
+                if (!baseUrl) {
+                    return;
+                }
+
+                folderNode.dataset.loaded = 'loading';
+                const depth = children.dataset.depth || '0';
+                const path = button.dataset.folderPath || '';
+                const params = new URLSearchParams({
+                    path: path,
+                    depth: depth,
+                });
+
+                children.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(baseUrl + '?' + params.toString(), {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити вміст папки.';
+                        throw new Error(message);
+                    }
+
+                    children.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    folderNode.dataset.loaded = 'true';
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити вміст папки.';
+
+                    children.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    folderNode.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            const handleSeederToggle = async function (button) {
+                const seedRunId = button.dataset.seedRunId;
+                const seederNode = button.closest('[data-seeder-node]');
+
+                if (!seedRunId || !seederNode) {
+                    return;
+                }
+
+                const content = seederNode.querySelector('[data-seeder-content][data-seed-run-id="' + seedRunId + '"]');
+
+                if (!content) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-seeder-toggle-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    updateToggleLabels(button, false);
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+
+                    content.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+                updateToggleLabels(button, true);
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+
+                content.classList.remove('hidden');
+
+                if (button.dataset.loaded === 'true') {
+                    return;
+                }
+
+                const url = button.dataset.loadUrl;
+
+                if (!url) {
+                    return;
+                }
+
+                button.dataset.loaded = 'loading';
+                content.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити питання.';
+                        throw new Error(message);
+                    }
+
+                    content.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    button.dataset.loaded = 'true';
+
+                    if (!content.innerHTML.trim()) {
+                        content.innerHTML = '<p class="text-xs text-gray-500">Питання для цього сидера не знайдені.</p>';
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити питання.';
+
+                    content.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    button.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            const handleSourceToggle = async function (button) {
+                const seedRunId = button.dataset.seedRunId;
+                const categoryKey = button.dataset.categoryKey;
+                const sourceKey = button.dataset.sourceKey;
+                const sourceWrapper = button.closest('[data-source-wrapper]');
+
+                if (!seedRunId || !categoryKey || !sourceKey || !sourceWrapper) {
+                    return;
+                }
+
+                const questionsContainer = sourceWrapper.querySelector('[data-source-questions][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"][data-source-key="' + sourceKey + '"]');
+
+                if (!questionsContainer) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-source-toggle-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    updateToggleLabels(button, false);
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+
+                    questionsContainer.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+                updateToggleLabels(button, true);
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+
+                questionsContainer.classList.remove('hidden');
+
+                if (button.dataset.loaded === 'true') {
+                    return;
+                }
+
+                const url = button.dataset.loadUrl;
+
+                if (!url) {
+                    return;
+                }
+
+                button.dataset.loaded = 'loading';
+                questionsContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити питання.';
+                        throw new Error(message);
+                    }
+
+                    questionsContainer.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    button.dataset.loaded = 'true';
+
+                    if (!questionsContainer.innerHTML.trim()) {
+                        questionsContainer.innerHTML = '<p class="text-xs text-gray-500">Питань не знайдено.</p>';
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити питання.';
+
+                    questionsContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    button.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            document.addEventListener('click', function (event) {
+                const folderButton = event.target.closest('[data-folder-toggle]');
+
+                if (folderButton) {
+                    event.preventDefault();
+                    handleFolderToggle(folderButton);
+
+                    return;
+                }
+
+                const seederButton = event.target.closest('[data-seeder-toggle]');
+
+                if (seederButton) {
+                    event.preventDefault();
+                    handleSeederToggle(seederButton);
+
+                    return;
+                }
+
+                const sourceButton = event.target.closest('[data-source-toggle]');
+
+                if (sourceButton) {
+                    event.preventDefault();
+                    handleSourceToggle(sourceButton);
+                }
+            });
+
+            document.addEventListener('submit', async function (event) {
+                const form = event.target.closest('form[data-question-delete-form]');
+
+                if (!form) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const confirmMessage = form.dataset.confirm;
+
+                if (confirmMessage && !window.confirm(confirmMessage)) {
+                    return;
+                }
+
+                const questionId = form.dataset.questionId;
+                const seedRunId = form.dataset.seedRunId;
+                const categoryKey = form.dataset.categoryKey;
+                const sourceKey = form.dataset.sourceKey;
+                const submitButton = form.querySelector('button[type="submit"]');
+
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+                }
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const errorMessage = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося видалити питання.';
+                        throw new Error(errorMessage);
+                    }
+
+                    const questionContainer = document.querySelector('[data-question-container][data-question-id="' + questionId + '"]');
+
+                    if (questionContainer) {
+                        questionContainer.remove();
+                    }
+
+                    decrementNumericContent(document.querySelectorAll('[data-seed-run-question-count][data-seed-run-id="' + seedRunId + '"]'));
+                    decrementNumericContent(document.querySelectorAll('[data-category-question-count][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"]'));
+                    decrementNumericContent(document.querySelectorAll('[data-source-question-count][data-seed-run-id="' + seedRunId + '"][data-category-key="' + categoryKey + '"][data-source-key="' + sourceKey + '"]'));
+
+                    cleanupEmptyGroups(seedRunId, categoryKey, sourceKey);
+
+                    const successMessage = payload && typeof payload.message === 'string'
+                        ? payload.message
+                        : 'Питання успішно видалено.';
+
+                    showFeedback(successMessage);
+                } catch (error) {
+                    const fallbackErrorMessage = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося видалити питання.';
+
+                    showFeedback(fallbackErrorMessage, 'error');
 
                     if (submitButton) {
-                        submitButton.disabled = true;
-                        submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+                        submitButton.disabled = false;
+                        submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
                     }
-
-                    try {
-                        const response = await fetch(form.action, {
-                            method: 'DELETE',
-                            headers: {
-                                'X-CSRF-TOKEN': csrfToken,
-                                'Accept': 'application/json',
-                            },
-                        });
-
-                        const payload = await response.json().catch(function () {
-                            return null;
-                        });
-
-                        if (!response.ok) {
-                            const errorMessage = payload && typeof payload.message === 'string'
-                                ? payload.message
-                                : 'Не вдалося видалити питання.';
-                            throw new Error(errorMessage);
-                        }
-
-                        const questionContainer = document.querySelector('[data-question-container][data-question-id="' + questionId + '"]');
-
-                        if (questionContainer) {
-                            questionContainer.remove();
-                        }
-
-                        decrementNumericContent(document.querySelectorAll('[data-seed-run-question-count][data-seed-run-id="' + seedRunId + '"]'));
-                        decrementNumericContent(document.querySelectorAll('[data-category-question-count][data-seed-run-id="' + seedRunId + '"][data-category-index="' + categoryIndex + '"]'));
-                        decrementNumericContent(document.querySelectorAll('[data-source-question-count][data-seed-run-id="' + seedRunId + '"][data-category-index="' + categoryIndex + '"][data-source-index="' + sourceIndex + '"]'));
-
-                        cleanupEmptyGroups(seedRunId, categoryIndex, sourceIndex);
-
-                        const successMessage = payload && typeof payload.message === 'string'
-                            ? payload.message
-                            : 'Питання успішно видалено.';
-
-                        showFeedback(successMessage);
-                    } catch (error) {
-                        const fallbackErrorMessage = error && typeof error.message === 'string' && error.message
-                            ? error.message
-                            : 'Не вдалося видалити питання.';
-
-                        showFeedback(fallbackErrorMessage, 'error');
-
-                        if (submitButton) {
-                            submitButton.disabled = false;
-                            submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
-                        }
-                    }
-                });
+                }
             });
         });
     </script>

@@ -29,119 +29,92 @@ class SeedRunController extends Controller
 
     public function index(): View
     {
+        $overview = $this->assembleSeedRunOverview();
+
+        return view('seed-runs.index', [
+            'tableExists' => $overview['tableExists'],
+            'executedSeeders' => $overview['executedSeeders'],
+            'pendingSeeders' => $overview['pendingSeeders'],
+            'executedSeederHierarchy' => $overview['executedSeederHierarchy'],
+            'recentSeedRunOrdinals' => $overview['recentSeedRunOrdinals'],
+        ]);
+    }
+
+    protected function assembleSeedRunOverview(): array
+    {
+        $tableExists = Schema::hasTable('seed_runs');
         $executedSeeders = collect();
         $pendingSeeders = collect();
-        $questionsBySeeder = collect();
-        $tableExists = Schema::hasTable('seed_runs');
         $executedSeederHierarchy = collect();
         $recentSeedRunOrdinals = collect();
         $recentThreshold = now()->subDay();
 
-        if ($tableExists) {
-            $executedSeeders = DB::table('seed_runs')
-                ->orderByDesc('ran_at')
-                ->get()
-                ->map(function ($seedRun) {
-                    $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
-                    $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
+        if (! $tableExists) {
+            return [
+                'tableExists' => false,
+                'executedSeeders' => $executedSeeders,
+                'pendingSeeders' => $pendingSeeders,
+                'executedSeederHierarchy' => $executedSeederHierarchy,
+                'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
+            ];
+        }
 
-                    return $seedRun;
-                });
-
-            $recentSeedRuns = $executedSeeders
-                ->filter(fn ($seedRun) => optional($seedRun->ran_at)->greaterThanOrEqualTo($recentThreshold))
-                ->sortByDesc(fn ($seedRun) => optional($seedRun->ran_at)->timestamp ?? 0)
-                ->values();
-
-            $recentSeedRunOrdinals = $recentSeedRuns
-                ->mapWithKeys(fn ($seedRun, $index) => [$seedRun->id => $index + 1]);
-
-            $executedClasses = $executedSeeders
-                ->pluck('class_name')
-                ->all();
-
-            $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
-                ->reject(fn (string $class) => in_array($class, $executedClasses, true))
-                ->map(fn (string $class) => (object) [
-                    'class_name' => $class,
-                    'display_class_name' => $this->formatSeederClassName($class),
-                ])
-                ->values();
-
-            if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
-                $executedClasses = $executedSeeders->pluck('class_name');
-
-                $questionsBySeeder = Question::query()
-                    ->with(['answers.option', 'category', 'source'])
-                    ->whereIn('seeder', $executedClasses)
-                    ->orderBy('id')
-                    ->get()
-                    ->groupBy('seeder')
-                    ->map(function ($questions) {
-                        return $questions
-                            ->groupBy(function (Question $question) {
-                                return optional($question->category)->name ?? __('Без категорії');
-                            })
-                            ->map(function ($categoryQuestions, $categoryName) {
-                                $category = optional($categoryQuestions->first()->category);
-
-                                $sources = $categoryQuestions
-                                    ->groupBy(function (Question $question) {
-                                        return optional($question->source)->name ?? __('Без джерела');
-                                    })
-                                    ->map(function ($sourceQuestions, $sourceName) {
-                                        $source = optional($sourceQuestions->first()->source);
-
-                                        return [
-                                            'source' => $source ? [
-                                                'id' => $source->id,
-                                                'name' => $source->name,
-                                            ] : null,
-                                            'display_name' => $sourceName,
-                                            'questions' => $sourceQuestions->map(function (Question $question) {
-                                                return [
-                                                    'id' => $question->id,
-                                                    'uuid' => $question->uuid,
-                                                    'highlighted_text' => $this->renderQuestionWithHighlightedAnswers($question),
-                                                ];
-                                            })->values(),
-                                        ];
-                                    })
-                                    ->values();
-
-                                return [
-                                    'category' => $category ? [
-                                        'id' => $category->id,
-                                        'name' => $category->name,
-                                    ] : null,
-                                    'display_name' => $categoryName,
-                                    'sources' => $sources,
-                                    'question_count' => $sources->sum(fn ($sourceGroup) => $sourceGroup['questions']->count()),
-                                ];
-                            })
-                            ->values();
-                    });
-            }
-
-            $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionsBySeeder) {
-                $questionGroups = $questionsBySeeder->get($seedRun->class_name, collect());
-                $seedRun->question_groups = $questionGroups;
-                $seedRun->question_count = $questionGroups->sum(fn ($categoryGroup) => $categoryGroup['question_count'] ?? 0);
-                $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+        $executedSeeders = DB::table('seed_runs')
+            ->orderByDesc('ran_at')
+            ->get()
+            ->map(function ($seedRun) {
+                $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
+                $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
 
                 return $seedRun;
             });
 
-            $executedSeederHierarchy = $this->buildSeederHierarchy($executedSeeders);
+        $recentSeedRuns = $executedSeeders
+            ->filter(fn ($seedRun) => optional($seedRun->ran_at)->greaterThanOrEqualTo($recentThreshold))
+            ->sortByDesc(fn ($seedRun) => optional($seedRun->ran_at)->timestamp ?? 0)
+            ->values();
+
+        $recentSeedRunOrdinals = $recentSeedRuns
+            ->mapWithKeys(fn ($seedRun, $index) => [$seedRun->id => $index + 1]);
+
+        $executedClasses = $executedSeeders
+            ->pluck('class_name')
+            ->all();
+
+        $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
+            ->reject(fn (string $class) => in_array($class, $executedClasses, true))
+            ->map(fn (string $class) => (object) [
+                'class_name' => $class,
+                'display_class_name' => $this->formatSeederClassName($class),
+            ])
+            ->values();
+
+        $questionCounts = collect();
+
+        if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
+            $questionCounts = Question::query()
+                ->select('seeder', DB::raw('COUNT(*) as aggregate'))
+                ->whereIn('seeder', $executedClasses)
+                ->groupBy('seeder')
+                ->pluck('aggregate', 'seeder');
         }
 
-        return view('seed-runs.index', [
-            'tableExists' => $tableExists,
+        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
+            $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
+            $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+
+            return $seedRun;
+        });
+
+        $executedSeederHierarchy = $this->buildSeederHierarchy($executedSeeders);
+
+        return [
+            'tableExists' => true,
             'executedSeeders' => $executedSeeders,
             'pendingSeeders' => $pendingSeeders,
             'executedSeederHierarchy' => $executedSeederHierarchy,
             'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
-        ]);
+        ];
     }
 
     protected function formatSeederClassName(string $className): string
@@ -271,6 +244,243 @@ class SeedRunController extends Controller
             });
 
         return $folders->values()->merge($seeders->values())->values();
+    }
+
+    public function loadFolderChildren(Request $request): JsonResponse
+    {
+        $overview = $this->assembleSeedRunOverview();
+        $path = trim((string) $request->query('path', ''), '/');
+        $depth = max(0, (int) $request->query('depth', 0));
+
+        if (! $overview['tableExists']) {
+            return response()->json(['html' => '']);
+        }
+
+        $nodes = $overview['executedSeederHierarchy'];
+        $targetDepth = $depth > 0 ? $depth : ($path === '' ? 0 : substr_count($path, '/') + 1);
+
+        if ($path === '') {
+            $children = $nodes;
+        } else {
+            $node = $this->findNodeByPath($nodes, $path);
+
+            if (! $node || ($node['type'] ?? null) !== 'folder') {
+                return response()->json([
+                    'html' => '',
+                    'message' => __('Не вдалося знайти вказану папку.'),
+                ], 404);
+            }
+
+            $children = collect($node['children'] ?? []);
+        }
+
+        $html = view('seed-runs.partials.node-collection', [
+            'nodes' => $children,
+            'depth' => $targetDepth,
+            'recentSeedRunOrdinals' => $overview['recentSeedRunOrdinals'],
+        ])->render();
+
+        return response()->json(['html' => $html]);
+    }
+
+    public function loadSeederCategories(int $seedRunId): JsonResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Таблиця seed_runs недоступна.'),
+            ], 404);
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Запис сидера не знайдено.'),
+            ], 404);
+        }
+
+        $categories = $this->buildCategorySummaries($seedRun->class_name);
+        $seedRun->question_count = (int) $categories->sum(fn ($category) => $category['question_count'] ?? 0);
+
+        $html = view('seed-runs.partials.seeder-categories', [
+            'seedRun' => $seedRun,
+            'categories' => $categories,
+        ])->render();
+
+        return response()->json(['html' => $html]);
+    }
+
+    public function loadSourceQuestions(int $seedRunId, string $categoryKey, string $sourceKey): JsonResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Таблиця seed_runs недоступна.'),
+            ], 404);
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Запис сидера не знайдено.'),
+            ], 404);
+        }
+
+        try {
+            $categoryId = $this->parseCategoryKey($categoryKey);
+            $sourceId = $this->parseSourceKey($sourceKey);
+        } catch (\InvalidArgumentException $exception) {
+            return response()->json([
+                'html' => '',
+                'message' => $exception->getMessage(),
+            ], 422);
+        }
+
+        $questionsQuery = Question::query()
+            ->with(['answers.option'])
+            ->where('seeder', $seedRun->class_name)
+            ->orderBy('id');
+
+        if (is_null($categoryId)) {
+            $questionsQuery->whereNull('category_id');
+        } else {
+            $questionsQuery->where('category_id', $categoryId);
+        }
+
+        if (is_null($sourceId)) {
+            $questionsQuery->whereNull('source_id');
+        } else {
+            $questionsQuery->where('source_id', $sourceId);
+        }
+
+        $questions = $questionsQuery
+            ->get()
+            ->map(function (Question $question) {
+                return [
+                    'id' => $question->id,
+                    'highlighted_text' => $this->renderQuestionWithHighlightedAnswers($question),
+                ];
+            });
+
+        $html = view('seed-runs.partials.source-questions', [
+            'seedRunId' => $seedRunId,
+            'categoryKey' => $categoryKey,
+            'sourceKey' => $sourceKey,
+            'questions' => $questions,
+        ])->render();
+
+        return response()->json(['html' => $html]);
+    }
+
+    protected function findNodeByPath(Collection $nodes, string $path): ?array
+    {
+        foreach ($nodes as $node) {
+            if (($node['path'] ?? null) === $path) {
+                return $node;
+            }
+
+            if (($node['type'] ?? null) === 'folder') {
+                $children = collect($node['children'] ?? []);
+                $match = $this->findNodeByPath($children, $path);
+
+                if ($match) {
+                    return $match;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    protected function buildCategorySummaries(string $className): Collection
+    {
+        $questions = Question::query()
+            ->with(['category:id,name', 'source:id,name'])
+            ->where('seeder', $className)
+            ->orderBy('id')
+            ->get(['id', 'category_id', 'source_id']);
+
+        return $questions
+            ->groupBy(function (Question $question) {
+                return optional($question->category)->name ?? __('Без категорії');
+            })
+            ->map(function (Collection $categoryQuestions, string $categoryName) {
+                $categoryModel = optional($categoryQuestions->first()->category);
+                $categoryId = $categoryModel?->id;
+                $categoryKey = $this->makeCategoryKey($categoryId);
+
+                $sources = $categoryQuestions
+                    ->groupBy(function (Question $question) {
+                        return optional($question->source)->name ?? __('Без джерела');
+                    })
+                    ->map(function (Collection $sourceQuestions, string $sourceName) {
+                        $sourceModel = optional($sourceQuestions->first()->source);
+                        $sourceId = $sourceModel?->id;
+
+                        return [
+                            'key' => $this->makeSourceKey($sourceId),
+                            'source' => $sourceModel ? [
+                                'id' => $sourceModel->id,
+                                'name' => $sourceModel->name,
+                            ] : null,
+                            'display_name' => $sourceName,
+                            'question_count' => $sourceQuestions->count(),
+                        ];
+                    })
+                    ->values();
+
+                return [
+                    'key' => $categoryKey,
+                    'category' => $categoryModel ? [
+                        'id' => $categoryModel->id,
+                        'name' => $categoryModel->name,
+                    ] : null,
+                    'display_name' => $categoryName,
+                    'question_count' => $categoryQuestions->count(),
+                    'sources' => $sources,
+                ];
+            })
+            ->values();
+    }
+
+    protected function makeCategoryKey(?int $categoryId): string
+    {
+        return $categoryId ? 'id-' . $categoryId : 'null';
+    }
+
+    protected function makeSourceKey(?int $sourceId): string
+    {
+        return $sourceId ? 'id-' . $sourceId : 'null';
+    }
+
+    protected function parseCategoryKey(string $categoryKey): ?int
+    {
+        if ($categoryKey === 'null') {
+            return null;
+        }
+
+        if (Str::startsWith($categoryKey, 'id-')) {
+            return (int) Str::after($categoryKey, 'id-');
+        }
+
+        throw new \InvalidArgumentException('Invalid category key provided.');
+    }
+
+    protected function parseSourceKey(string $sourceKey): ?int
+    {
+        if ($sourceKey === 'null') {
+            return null;
+        }
+
+        if (Str::startsWith($sourceKey, 'id-')) {
+            return (int) Str::after($sourceKey, 'id-');
+        }
+
+        throw new \InvalidArgumentException('Invalid source key provided.');
     }
 
     public function run(Request $request): RedirectResponse

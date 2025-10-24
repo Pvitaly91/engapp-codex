@@ -11,13 +11,16 @@
         $folderDeleteButton = $folderProfile['delete_button'] ?? __('Видалити з даними');
         $folderDeleteConfirm = $folderProfile['delete_confirm'] ?? __('Видалити всі сидери в папці «:folder» та пов’язані дані?');
     @endphp
-    <div x-data="{ open: false }" class="space-y-3" style="margin-left: {{ $indent }}rem;">
+    <div class="space-y-3" style="margin-left: {{ $indent }}rem;" data-folder-node data-folder-path="{{ $node['path'] }}" data-depth="{{ $depth }}">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <button type="button"
                     class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
-                    @click="open = !open">
+                    data-folder-toggle
+                    data-folder-path="{{ $node['path'] }}"
+                    data-load-url="{{ route('seed-runs.folders.children') }}"
+                    aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                     class="h-4 w-4 text-slate-500 transition-transform" :class="open ? 'rotate-0' : '-rotate-90'">
+                     class="h-4 w-4 text-slate-500 transition-transform -rotate-90" data-folder-icon>
                     <path fill-rule="evenodd"
                           d="M6.22 4.47a.75.75 0 011.06 0l5 5a.75.75 0 010 1.06l-5 5a.75.75 0 01-1.06-1.06L10.69 10 6.22 5.53a.75.75 0 010-1.06z"
                           clip-rule="evenodd" />
@@ -65,15 +68,7 @@
             @endif
         </div>
 
-        <div x-show="open" x-transition style="display: none;" x-cloak class="space-y-3">
-            @foreach($node['children'] as $child)
-                @include('seed-runs.partials.executed-node', [
-                    'node' => $child,
-                    'depth' => $depth + 1,
-                    'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
-                ])
-            @endforeach
-        </div>
+        <div class="space-y-3 hidden" data-folder-children data-depth="{{ $depth + 1 }}"></div>
     </div>
 @elseif(($node['type'] ?? null) === 'seeder')
     @php
@@ -83,8 +78,9 @@
         $seederDeleteConfirm = $dataProfile['delete_confirm'] ?? __('Видалити лог та пов’язані дані?');
         $seedRunOrdinal = $recentSeedRunOrdinals->get($seedRun->id);
         $seedRunIsRecent = !is_null($seedRunOrdinal);
+        $questionCount = (int) ($seedRun->question_count ?? 0);
     @endphp
-    <div style="margin-left: {{ $indent }}rem;">
+    <div style="margin-left: {{ $indent }}rem;" data-seeder-node data-seed-run-id="{{ $seedRun->id }}" data-depth="{{ $depth }}">
         <div @class([
             'border rounded-xl shadow-sm',
             'border-gray-200' => ! $seedRunIsRecent,
@@ -97,7 +93,8 @@
             ])>
                 <div class="md:grid md:grid-cols-[minmax(0,3fr)_minmax(0,1fr)] md:items-start md:gap-6">
                     <div class="text-xs text-gray-700 break-words">
-                        <div class="font-mono text-sm text-gray-800 flex flex-wrap items-center gap-2">{{ $node['name'] }}
+                        <div class="font-mono text-sm text-gray-800 flex flex-wrap items-center gap-2">
+                            {{ $node['name'] }}
                             @if($seedRunIsRecent)
                                 <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
                                     Новий{{ ' #' . $seedRunOrdinal }}
@@ -108,114 +105,35 @@
                             <p class="text-xs text-gray-500 mt-1">{{ $seedRun->display_class_name }}</p>
                         @endif
 
-                        <p class="text-xs text-gray-500 mt-2 {{ $seedRun->question_count > 0 ? 'hidden' : '' }}" data-no-questions-message data-seed-run-id="{{ $seedRun->id }}">
+                        <p class="text-xs text-gray-500 mt-2 {{ $questionCount > 0 ? 'hidden' : '' }}" data-no-questions-message data-seed-run-id="{{ $seedRun->id }}">
                             Питання відсутні.
                         </p>
 
-                        @if($seedRun->question_count > 0)
-                            <div x-data="{ open: false }" class="mt-3 space-y-3" data-seed-run-question-wrapper data-seed-run-id="{{ $seedRun->id }}">
+                        @if($questionCount > 0)
+                            <div class="mt-3 space-y-3" data-seeder-section data-seed-run-id="{{ $seedRun->id }}">
                                 <button type="button"
                                         class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
-                                        @click="open = !open">
-                                    <span x-show="!open" x-cloak>
+                                        data-seeder-toggle
+                                        data-seed-run-id="{{ $seedRun->id }}"
+                                        data-load-url="{{ route('seed-runs.seeders.categories', $seedRun->id) }}"
+                                        data-loaded="false"
+                                        aria-expanded="false">
+                                    <span data-toggle-label-collapsed>
                                         Показати питання (
-                                        <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $seedRun->question_count }}</span>
+                                        <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $questionCount }}</span>
                                         )
                                     </span>
-                                    <span x-show="open" x-cloak>
+                                    <span class="hidden" data-toggle-label-expanded>
                                         Сховати питання (
-                                        <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $seedRun->question_count }}</span>
+                                        <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $questionCount }}</span>
                                         )
                                     </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" data-seeder-toggle-icon viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
 
-                                <div x-show="open" x-transition style="display: none;" class="space-y-4">
-                                    @foreach($seedRun->question_groups as $categoryIndex => $categoryGroup)
-                                        <div x-data="{ openCategory: true }" class="border border-slate-200 rounded-xl overflow-hidden" data-category-wrapper data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}">
-                                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 py-3 bg-slate-100">
-                                                <div class="space-y-1">
-                                                    <h3 class="text-sm font-semibold text-gray-800">{{ $categoryGroup['display_name'] }}</h3>
-                                                    <p class="text-xs text-gray-500">
-                                                        @if($categoryGroup['category'])
-                                                            Категорія ID: {{ $categoryGroup['category']['id'] }}
-                                                        @else
-                                                            Категорія не вказана
-                                                        @endif
-                                                        · Питань:
-                                                        <span class="font-semibold" data-category-question-count data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}">
-                                                            {{ $categoryGroup['question_count'] }}
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                                <button type="button"
-                                                        class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
-                                                        @click="openCategory = !openCategory">
-                                                    <span x-text="openCategory ? 'Сховати' : 'Показати'"></span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openCategory }" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div x-show="openCategory" x-transition style="display: none;" class="space-y-3 px-4 pb-4 pt-3 bg-white">
-                                                @foreach($categoryGroup['sources'] as $sourceIndex => $sourceGroup)
-                                                    <div x-data="{ openSource: true }" class="border border-slate-200 rounded-lg overflow-hidden" data-source-wrapper data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}" data-source-index="{{ $sourceIndex }}">
-                                                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-3 py-2 bg-slate-50">
-                                                            <div class="space-y-1">
-                                                                <h4 class="text-sm font-semibold text-slate-700">{{ $sourceGroup['display_name'] }}</h4>
-                                                                <p class="text-xs text-slate-500">
-                                                                    @if($sourceGroup['source'])
-                                                                        Джерело ID: {{ $sourceGroup['source']['id'] }}
-                                                                    @else
-                                                                        Джерело не вказане
-                                                                    @endif
-                                                                    · Питань:
-                                                                    <span class="font-semibold" data-source-question-count data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}" data-source-index="{{ $sourceIndex }}">
-                                                                        {{ $sourceGroup['questions']->count() }}
-                                                                    </span>
-                                                                </p>
-                                                            </div>
-                                                            <button type="button"
-                                                                    class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
-                                                                    @click="openSource = !openSource">
-                                                                <span x-text="openSource ? 'Сховати' : 'Показати'"></span>
-                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openSource }" viewBox="0 0 20 20" fill="currentColor">
-                                                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                                                                </svg>
-                                                            </button>
-                                                        </div>
-                                                        <div x-show="openSource" x-transition style="display: none;" class="space-y-2 px-3 pb-3 pt-2 bg-white">
-                                                            @foreach($sourceGroup['questions'] as $question)
-                                                                <div class="border border-slate-200 rounded-lg bg-slate-50 px-3 py-2 text-left text-sm leading-relaxed" data-question-container data-question-id="{{ $question['id'] }}" data-seed-run-id="{{ $seedRun->id }}" data-category-index="{{ $categoryIndex }}" data-source-index="{{ $sourceIndex }}">
-                                                                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-                                                                        <div class="text-gray-800 space-y-1">{!! $question['highlighted_text'] !!}</div>
-                                                                        <form method="POST"
-                                                                              action="{{ route('seed-runs.questions.destroy', $question['id']) }}"
-                                                                              data-question-delete-form
-                                                                              data-confirm="Видалити це питання?"
-                                                                              data-question-id="{{ $question['id'] }}"
-                                                                              data-seed-run-id="{{ $seedRun->id }}"
-                                                                              data-category-index="{{ $categoryIndex }}"
-                                                                              data-source-index="{{ $sourceIndex }}">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button type="submit" class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-red-700 px-2.5 py-1 rounded-full bg-red-50 hover:bg-red-100 transition w-full sm:w-auto">
-                                                                                <i class="fa-solid fa-trash-can"></i>
-                                                                                Видалити
-                                                                            </button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
+                                <div class="hidden space-y-4" data-seeder-content data-seed-run-id="{{ $seedRun->id }}"></div>
                             </div>
                         @endif
                     </div>
