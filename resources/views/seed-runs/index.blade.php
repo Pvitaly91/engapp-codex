@@ -509,6 +509,97 @@
                 }
             };
 
+            const handleQuestionToggle = async function (button) {
+                const container = button.closest('[data-question-container]');
+
+                if (!container) {
+                    return;
+                }
+
+                const answersContainer = container.querySelector('[data-question-answers]');
+
+                if (!answersContainer) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-question-toggle-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    updateToggleLabels(button, false);
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+
+                    answersContainer.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+                updateToggleLabels(button, true);
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+
+                answersContainer.classList.remove('hidden');
+
+                if (button.dataset.loaded === 'true') {
+                    return;
+                }
+
+                const url = button.dataset.loadUrl;
+
+                if (!url) {
+                    answersContainer.innerHTML = '<p class="text-xs text-red-600">Посилання для завантаження не вказане.</p>';
+                    button.dataset.loaded = 'error';
+
+                    return;
+                }
+
+                button.dataset.loaded = 'loading';
+                answersContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити варіанти.';
+                        throw new Error(message);
+                    }
+
+                    answersContainer.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    button.dataset.loaded = 'true';
+
+                    if (!answersContainer.innerHTML.trim()) {
+                        answersContainer.innerHTML = '<p class="text-xs text-gray-500">Варіанти відповіді не знайдені.</p>';
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити варіанти.';
+
+                    answersContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    button.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
             document.addEventListener('click', function (event) {
                 const folderButton = event.target.closest('[data-folder-toggle]');
 
@@ -524,6 +615,15 @@
                 if (seederButton) {
                     event.preventDefault();
                     handleSeederToggle(seederButton);
+
+                    return;
+                }
+
+                const questionButton = event.target.closest('[data-question-toggle]');
+
+                if (questionButton) {
+                    event.preventDefault();
+                    handleQuestionToggle(questionButton);
 
                     return;
                 }

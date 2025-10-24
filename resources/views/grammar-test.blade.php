@@ -142,30 +142,30 @@
                                             'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
                                          ])
                                     >
-                                        <div class="flex items-center justify-between gap-3 px-4 py-2 bg-gray-50 cursor-pointer"
+                                        <div class="flex items-start justify-between gap-3 px-4 py-2 bg-gray-50 cursor-pointer"
                                              @click="toggle()"
                                         >
                                             <label for="{{ $seederInputId }}"
                                                    @class([
-                                                        'flex items-center gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
+                                                        'flex flex-1 min-w-0 items-start gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
                                                         'text-blue-800' => $seederIsSelected,
                                                    ])
                                                    @click.stop
                                             >
                                                 <input type="checkbox" name="seeder_classes[]" value="{{ $className }}" id="{{ $seederInputId }}"
                                                        {{ $seederIsSelected ? 'checked' : '' }}
-                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded">
-                                                <span class="truncate flex items-center gap-2" title="{{ $className }}">
+                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded flex-shrink-0">
+                                                <span class="flex min-w-0 flex-col text-left" title="{{ $displaySeederName }}">
                                                     <span class="truncate">{{ $displaySeederName }}</span>
                                                     @if($seederIsNew)
-                                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                                        <span class="mt-1 inline-flex text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
                                                             Новий{{ !is_null($seederOrdinal) ? ' #' . $seederOrdinal : '' }}
                                                         </span>
                                                     @endif
                                                 </span>
                                             </label>
                                             <button type="button"
-                                                    class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
+                                                    class="inline-flex flex-shrink-0 items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
                                                     @click.stop="toggle()"
                                                     :aria-expanded="open.toString()"
                                                     aria-label="Перемкнути список джерел">
@@ -251,16 +251,16 @@
                                             'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
                                          ])
                                     >
-                                        <div class="flex items-center justify-between gap-3 px-4 py-2 bg-gray-50">
+                                        <div class="flex items-start justify-between gap-3 px-4 py-2 bg-gray-50">
                                             <label for="{{ $categoryInputId }}"
                                                    @class([
-                                                        'flex items-center gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
+                                                        'flex flex-1 min-w-0 items-start gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
                                                         'text-blue-800' => $categoryIsSelected,
                                                    ])>
                                                 <input type="checkbox" name="categories[]" value="{{ $categoryId }}" id="{{ $categoryInputId }}"
                                                        {{ $categoryIsSelected ? 'checked' : '' }}
-                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded">
-                                                <span class="truncate flex items-center gap-2">
+                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded flex-shrink-0">
+                                                <span class="flex min-w-0 items-start gap-2" title="{{ ucfirst($category->name) }} (ID: {{ $categoryId }})">
                                                     <span class="truncate">{{ ucfirst($category->name) }} (ID: {{ $categoryId }})</span>
                                                     @if($categoryIsNew)
                                                         <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
@@ -270,7 +270,7 @@
                                                 </span>
                                             </label>
                                             <button type="button"
-                                                    class="inline-flex items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
+                                                    class="inline-flex flex-shrink-0 items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
                                                     @click="open = !open"
                                                     aria-label="Перемкнути список джерел">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">

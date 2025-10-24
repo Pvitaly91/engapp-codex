@@ -376,6 +376,80 @@ class SeedRunController extends Controller
         return response()->json(['html' => $html]);
     }
 
+    public function loadQuestionAnswers(int $seedRunId, Question $question): JsonResponse
+    {
+        if (! Schema::hasTable('seed_runs') || ! Schema::hasTable('questions')) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Потрібні таблиці бази даних недоступні.'),
+            ], 404);
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Запис сидера не знайдено.'),
+            ], 404);
+        }
+
+        if ($question->seeder !== $seedRun->class_name) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Питання не належить до вибраного сидера.'),
+            ], 404);
+        }
+
+        $question->loadMissing(['answers.option', 'options']);
+
+        $answers = $question->answers->map(function ($answer) {
+            $label = optional($answer->option)->option ?? $answer->answer;
+
+            return [
+                'marker' => $answer->marker,
+                'label' => $label,
+                'option_id' => $answer->option_id,
+            ];
+        });
+
+        $correctOptionIds = $answers
+            ->pluck('option_id')
+            ->filter()
+            ->unique()
+            ->all();
+
+        $options = $question->options
+            ->map(function ($option) use ($correctOptionIds) {
+                return [
+                    'id' => $option->id,
+                    'label' => $option->option,
+                    'is_correct' => in_array($option->id, $correctOptionIds, true),
+                ];
+            })
+            ->sortBy('label', SORT_NATURAL | SORT_FLAG_CASE)
+            ->values();
+
+        $textAnswers = $answers
+            ->filter(function ($answer) {
+                return empty($answer['option_id']) && filled($answer['label']);
+            })
+            ->map(function ($answer) {
+                return [
+                    'marker' => $answer['marker'],
+                    'label' => $answer['label'],
+                ];
+            })
+            ->values();
+
+        $html = view('seed-runs.partials.question-answers', [
+            'options' => $options,
+            'textAnswers' => $textAnswers,
+        ])->render();
+
+        return response()->json(['html' => $html]);
+    }
+
     protected function findNodeByPath(Collection $nodes, string $path): ?array
     {
         foreach ($nodes as $node) {
