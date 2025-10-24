@@ -10,6 +10,7 @@
                 $folderIsOpen = $node['has_active_descendant'] ?? false;
                 $folderChildren = $node['children'] ?? [];
                 $folderSeederCount = $node['seeder_count'] ?? 0;
+                $folderDisplayName = $node['name'] ?? $node['display_name'] ?? '';
             @endphp
             <div x-data="{ open: {{ $folderIsOpen ? 'true' : 'false' }} }" class="space-y-2">
                 <div class="flex items-center gap-2" style="margin-left: {{ $indent }}rem;">
@@ -29,7 +30,7 @@
                         </span>
                         <span class="flex items-center gap-2 min-w-0">
                             <i class="fa-solid fa-folder-tree text-slate-500 flex-shrink-0"></i>
-                            <span class="truncate" title="{{ $node['name'] }}">{{ $node['name'] }}</span>
+                            <span class="truncate" title="{{ $folderDisplayName }}">{{ $folderDisplayName }}</span>
                         </span>
                         <span class="text-xs font-normal text-slate-500 flex-shrink-0">({{ $folderSeederCount }})</span>
                     </button>
@@ -56,7 +57,7 @@
                 $seederInputId = $node['input_id'] ?? ('seeder-' . md5($node['class_name'] ?? (string) \Illuminate\Support\Str::uuid()));
                 $seederIsNew = (bool) ($node['is_new'] ?? false);
                 $seederOrdinal = $node['ordinal'] ?? null;
-                $seederDisplayName = $node['display_name'] ?? $node['name'];
+                $seederDisplayName = $node['display_name'] ?? $node['name'] ?? $node['class_name'] ?? '';
                 $groupIsHighlighted = $seederIsSelected || $seederHasSelectedSources;
             @endphp
             <div x-data="{
@@ -93,7 +94,7 @@
                                {{ $seederIsSelected ? 'checked' : '' }}
                                class="h-4 w-4 text-blue-600 border-gray-300 rounded flex-shrink-0">
                         <span class="min-w-0">
-                            <span class="truncate block" title="{{ $node['full_class_name'] ?? $seederDisplayName }}">{{ $node['name'] }}</span>
+                            <span class="truncate block" title="{{ $node['full_class_name'] ?? $seederDisplayName }}">{{ $seederDisplayName }}</span>
                             @if($seederIsNew)
                                 <span class="block text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full mt-1 w-fit">
                                     Новий{{ !is_null($seederOrdinal) ? ' #' . $seederOrdinal : '' }}
