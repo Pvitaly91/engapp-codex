@@ -25,7 +25,12 @@
     });
     $scoreTotal = $blankTotal ?: $questionTotal;
 @endphp
-<div class="drag-quiz mx-auto w-full max-w-[1100px]" id="drag-quiz">
+<div
+    class="drag-quiz mx-auto w-full max-w-[1100px]"
+    id="drag-quiz"
+    data-test-id="{{ $test->id ?? '' }}"
+    data-test-slug="{{ $test->slug ?? '' }}"
+>
     <div class="drag-quiz__grid">
         <div class="drag-quiz__card drag-quiz__left">
             <header class="drag-quiz__header">
@@ -477,6 +482,14 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     const showBtn = document.getElementById('drag-quiz-show');
     const showBtnDefaultText = showBtn ? showBtn.textContent.trim() : 'Показати відповіді';
     const showBtnReturnText = 'Повернутися до тесту';
+    const storage =
+        typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined'
+            ? window.sessionStorage
+            : null;
+    const storageKeyBase =
+        (quizRootEl && (quizRootEl.dataset.testId || quizRootEl.dataset.testSlug)) ||
+        (typeof window !== 'undefined' ? window.location.pathname : 'drag-quiz');
+    const storageKey = storageKeyBase ? `drag-quiz:${storageKeyBase}` : null;
 
     let tokenSerial = 0;
     const allTokens = new Map();
@@ -504,6 +517,10 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     const bankTokenElements = new Map();
     let selectedTokenWord = null;
     let answersVisible = false;
+    let suppressStorageSync = false;
+    let saveTimeoutId = null;
+    let currentScore = 0;
+    let savedUserProgress = null;
     const nav = typeof navigator !== 'undefined' ? navigator : null;
     const supportsTouch =
         typeof window !== 'undefined' &&
@@ -528,6 +545,201 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         activeTouchWord = null;
         touchStartPoint = null;
         selectedTokenWord = null;
+    }
+
+    function withSuppressedStorage(callback) {
+        const previous = suppressStorageSync;
+        suppressStorageSync = true;
+        try {
+            callback();
+        } finally {
+            suppressStorageSync = previous;
+        }
+    }
+
+    function captureProgressSnapshot() {
+        const placements = [];
+
+        if (tasksEl) {
+            tasksEl.querySelectorAll('.drag-quiz__drop').forEach((drop) => {
+                const token = drop.querySelector('.drag-quiz__token');
+                if (!token) {
+                    return;
+                }
+
+                const rawWord = token.dataset.word || token.textContent || '';
+                const word = String(rawWord).trim();
+                if (!word) {
+                    return;
+                }
+
+                const questionIndex = Number.parseInt(drop.dataset.questionIndex ?? '-1', 10);
+                const blankIndex = Number.parseInt(drop.dataset.blankIndex ?? '-1', 10);
+                if (!Number.isInteger(questionIndex) || questionIndex < 0 || !Number.isInteger(blankIndex) || blankIndex < 0) {
+                    return;
+                }
+
+                const tokenId = drop.dataset.tokenId || token.dataset.id || token.getAttribute('data-id') || null;
+                let status = null;
+                if (drop.classList.contains('is-correct')) {
+                    status = 'correct';
+                } else if (drop.classList.contains('is-wrong')) {
+                    status = 'wrong';
+                }
+
+                placements.push({
+                    questionIndex,
+                    blankIndex,
+                    tokenId,
+                    word,
+                    status,
+                });
+            });
+        }
+
+        return {
+            placements,
+            score: currentScore,
+        };
+    }
+
+    function persistProgress() {
+        if (answersVisible) {
+            return;
+        }
+
+        const state = captureProgressSnapshot();
+        savedUserProgress = state;
+
+        if (!storage || !storageKey) {
+            return;
+        }
+
+        try {
+            storage.setItem(storageKey, JSON.stringify(state));
+        } catch (error) {
+            // Ignore storage quota errors.
+        }
+    }
+
+    function scheduleSaveProgress() {
+        if (suppressStorageSync || answersVisible) {
+            return;
+        }
+
+        if (typeof window === 'undefined') {
+            persistProgress();
+            return;
+        }
+
+        if (saveTimeoutId !== null) {
+            window.clearTimeout(saveTimeoutId);
+        }
+
+        saveTimeoutId = window.setTimeout(() => {
+            saveTimeoutId = null;
+            persistProgress();
+        }, 120);
+    }
+
+    function flushSaveProgress() {
+        if (typeof window !== 'undefined' && saveTimeoutId !== null) {
+            window.clearTimeout(saveTimeoutId);
+            saveTimeoutId = null;
+        }
+
+        if (suppressStorageSync || answersVisible) {
+            return;
+        }
+
+        persistProgress();
+    }
+
+    function loadStoredProgress() {
+        if (!storage || !storageKey) {
+            return null;
+        }
+
+        try {
+            const raw = storage.getItem(storageKey);
+            if (!raw) {
+                return null;
+            }
+
+            const parsed = JSON.parse(raw);
+            if (!parsed || typeof parsed !== 'object') {
+                return null;
+            }
+
+            const placements = Array.isArray(parsed.placements) ? parsed.placements : [];
+            const scoreValue = Number(parsed.score);
+
+            return {
+                placements,
+                score: Number.isFinite(scoreValue) ? scoreValue : 0,
+            };
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function restoreProgress(state) {
+        const placements = Array.isArray(state?.placements) ? state.placements : [];
+        const restoredScore = Number.isFinite(state?.score) ? state.score : 0;
+
+        withSuppressedStorage(() => {
+            resetQuiz({ useShuffle: false });
+
+            placements.forEach((placement) => {
+                const questionIndex = Number.parseInt(placement?.questionIndex ?? '-1', 10);
+                const blankIndex = Number.parseInt(placement?.blankIndex ?? '-1', 10);
+
+                if (!Number.isInteger(questionIndex) || questionIndex < 0 || !Number.isInteger(blankIndex) || blankIndex < 0) {
+                    return;
+                }
+
+                const selector = `.drag-quiz__drop[data-question-index="${questionIndex}"][data-blank-index="${blankIndex}"]`;
+                const drop = tasksEl ? tasksEl.querySelector(selector) : null;
+                if (!drop) {
+                    return;
+                }
+
+                const word = String(placement?.word ?? '').trim();
+                if (!word) {
+                    return;
+                }
+
+                const preferredTokenId = placement?.tokenId ? String(placement.tokenId) : null;
+                let placed = placeWordInDrop(word, drop, { preferredTokenId, skipSave: true });
+                if (!placed) {
+                    const fallbackId = preferredTokenId || `restore-${questionIndex}-${blankIndex}`;
+                    injectTokenToBank({ id: fallbackId, word }, { includeInBase: !preferredTokenId });
+                    placed = placeWordInDrop(word, drop, { preferredTokenId: fallbackId, skipSave: true });
+                }
+                if (!placed) {
+                    return;
+                }
+
+                drop.classList.remove('is-correct', 'is-wrong');
+                if (placement?.status === 'correct') {
+                    drop.classList.add('is-correct');
+                } else if (placement?.status === 'wrong') {
+                    drop.classList.add('is-wrong');
+                }
+            });
+
+            updateScoreLabel(restoredScore, { skipSave: true });
+        });
+
+        const snapshot = captureProgressSnapshot();
+        savedUserProgress = {
+            placements: snapshot.placements,
+            score: snapshot.score,
+        };
+
+        if (!answersVisible) {
+            scheduleSaveProgress();
+        }
     }
 
     function resetBankInventory() {
@@ -626,10 +838,16 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         }
     }
 
-    function takeTokenId(word) {
+    function takeTokenId(word, preferredTokenId = null) {
         const bucket = word ? bankInventory.get(word) : null;
         if (!bucket || bucket.length === 0) {
             return null;
+        }
+        if (preferredTokenId) {
+            const index = bucket.indexOf(preferredTokenId);
+            if (index !== -1) {
+                return bucket.splice(index, 1)[0];
+            }
         }
         return bucket.shift();
     }
@@ -783,11 +1001,17 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         document.addEventListener('touchcancel', handleTouchEnd, { passive: false });
     }
 
-    function updateScoreLabel(correctCount) {
-        if (!scoreEl) {
-            return;
+    function updateScoreLabel(correctCount, { skipSave = false } = {}) {
+        const value = Number.isFinite(correctCount) ? correctCount : 0;
+        currentScore = value;
+
+        if (scoreEl) {
+            scoreEl.textContent = `${value} / ${scoreTotal}`;
         }
-        scoreEl.textContent = `${correctCount} / ${scoreTotal}`;
+
+        if (!skipSave) {
+            scheduleSaveProgress();
+        }
     }
 
     function setAnswersVisible(value) {
@@ -910,7 +1134,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         });
     }
 
-    function returnTokenToBank(tokenEl) {
+    function returnTokenToBank(tokenEl, { skipSave = false } = {}) {
         const drop = tokenEl.closest('.drag-quiz__drop');
         if (!drop) {
             return;
@@ -930,9 +1154,13 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         }
 
         selectedTokenWord = null;
+        if (!skipSave) {
+            scheduleSaveProgress();
+        }
     }
 
-    function placeWordInDrop(word, drop) {
+    function placeWordInDrop(word, drop, options = {}) {
+        const { preferredTokenId = null, skipSave = false } = options || {};
         if (!drop) {
             return false;
         }
@@ -954,13 +1182,13 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
             return true;
         }
 
-        const tokenId = takeTokenId(normalizedWord);
+        const tokenId = takeTokenId(normalizedWord, preferredTokenId);
         if (!tokenId) {
             return false;
         }
 
         if (existing) {
-            returnTokenToBank(existing);
+            returnTokenToBank(existing, { skipSave: true });
         }
 
         clearBankSelection();
@@ -1002,6 +1230,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         drop.dataset.tokenId = tokenId;
 
         updateBankToken(normalizedWord);
+        if (!skipSave) {
+            scheduleSaveProgress();
+        }
         return true;
     }
 
@@ -1054,42 +1285,52 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         }
 
         if (answersVisible) {
-            resetQuiz({ useShuffle: false });
+            const progress = savedUserProgress || loadStoredProgress();
+            restoreProgress(progress);
+            flushSaveProgress();
             return;
         }
 
-        tasksEl
-            .querySelectorAll('.drag-quiz__drop .drag-quiz__token')
-            .forEach((token) => returnTokenToBank(token));
+        flushSaveProgress();
 
-        tasksEl.querySelectorAll('.drag-quiz__drop').forEach((drop) => {
-            drop.classList.remove('is-correct', 'is-wrong');
-        });
+        if (!savedUserProgress) {
+            savedUserProgress = captureProgressSnapshot();
+        }
 
-        questions.forEach((question, questionIndex) => {
-            question.blanks.forEach((blank, blankIndex) => {
-                const dropSelector = `.drag-quiz__drop[data-question-index="${questionIndex}"][data-blank-index="${blankIndex}"]`;
-                const drop = tasksEl.querySelector(dropSelector);
-                if (!drop) {
-                    return;
-                }
+        withSuppressedStorage(() => {
+            tasksEl
+                .querySelectorAll('.drag-quiz__drop .drag-quiz__token')
+                .forEach((token) => returnTokenToBank(token, { skipSave: true }));
 
-                const answerWord = String(blank.answer ?? '').trim();
-                if (!answerWord) {
-                    return;
-                }
-
-                let placed = placeWordInDrop(answerWord, drop);
-                if (!placed) {
-                    const fallbackId = `auto-${questionIndex}-${blankIndex}`;
-                    injectTokenToBank({ id: fallbackId, word: answerWord });
-                    placed = placeWordInDrop(answerWord, drop);
-                }
+            tasksEl.querySelectorAll('.drag-quiz__drop').forEach((drop) => {
+                drop.classList.remove('is-correct', 'is-wrong');
             });
-        });
 
-        checkAnswers();
-        setAnswersVisible(true);
+            questions.forEach((question, questionIndex) => {
+                question.blanks.forEach((blank, blankIndex) => {
+                    const dropSelector = `.drag-quiz__drop[data-question-index="${questionIndex}"][data-blank-index="${blankIndex}"]`;
+                    const drop = tasksEl ? tasksEl.querySelector(dropSelector) : null;
+                    if (!drop) {
+                        return;
+                    }
+
+                    const answerWord = String(blank.answer ?? '').trim();
+                    if (!answerWord) {
+                        return;
+                    }
+
+                    let placed = placeWordInDrop(answerWord, drop, { skipSave: true });
+                    if (!placed) {
+                        const fallbackId = `auto-${questionIndex}-${blankIndex}`;
+                        injectTokenToBank({ id: fallbackId, word: answerWord });
+                        placed = placeWordInDrop(answerWord, drop, { preferredTokenId: fallbackId, skipSave: true });
+                    }
+                });
+            });
+
+            checkAnswers();
+            setAnswersVisible(true);
+        });
     }
 
     function retry(event) {
@@ -1103,7 +1344,24 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     renderTasks();
     resetBankInventory();
     renderBank(true);
-    updateScoreLabel(0);
+    updateScoreLabel(0, { skipSave: true });
+
+    const storedProgress = loadStoredProgress();
+    if (storedProgress && Array.isArray(storedProgress.placements) && storedProgress.placements.length > 0) {
+        restoreProgress(storedProgress);
+        flushSaveProgress();
+    } else if (storedProgress) {
+        const initialScore = Number.isFinite(storedProgress.score) ? storedProgress.score : 0;
+        updateScoreLabel(initialScore, { skipSave: true });
+        savedUserProgress = {
+            placements: [],
+            score: initialScore,
+        };
+        flushSaveProgress();
+    } else {
+        savedUserProgress = captureProgressSnapshot();
+        flushSaveProgress();
+    }
 
     checkBtn?.addEventListener('click', checkAnswers);
     retryBtn?.addEventListener('click', retry);
