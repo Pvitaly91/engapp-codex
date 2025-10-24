@@ -338,7 +338,7 @@ class SavedTestJsStateTest extends TestCase
         session()->start();
 
         $requestOne = Request::create(
-            "/admin/test/{$test->slug}/js/questions",
+            "/test/{$test->slug}/js/questions",
             'GET',
             ['mode' => 'saved-test-js']
         );
@@ -347,7 +347,7 @@ class SavedTestJsStateTest extends TestCase
         $firstQuestion = $firstPayload['questions'][0]['question'] ?? null;
 
         $requestTwo = Request::create(
-            "/admin/test/{$test->slug}/js/questions",
+            "/test/{$test->slug}/js/questions",
             'GET',
             ['mode' => 'saved-test-js']
         );
