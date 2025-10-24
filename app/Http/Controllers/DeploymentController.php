@@ -22,10 +22,16 @@ class DeploymentController extends Controller
             ->orderByDesc('created_at')
             ->get();
 
+        $branchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], base_path());
+        $currentBranch = $branchProcess->isSuccessful()
+            ? trim($branchProcess->getOutput())
+            : null;
+
         return view('deployment.index', [
             'backups' => $backups,
             'feedback' => $feedback,
             'backupBranches' => $backupBranches,
+            'currentBranch' => $currentBranch,
         ]);
     }
 

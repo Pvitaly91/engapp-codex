@@ -9,6 +9,17 @@
       <p class="text-muted-foreground">Ця сторінка дозволяє підтягнути останні зміни з GitHub та за потреби повернутися до попереднього робочого стану.</p>
     </header>
 
+    <div class="flex justify-center">
+      <div class="inline-flex items-center gap-3 rounded-full border border-border/60 bg-muted/40 px-5 py-2 text-sm font-medium">
+        <span class="text-muted-foreground">Поточна активна гілка:</span>
+        @if($currentBranch)
+          <span class="font-semibold text-foreground">{{ $currentBranch }}</span>
+        @else
+          <span class="text-destructive-foreground">невідомо</span>
+        @endif
+      </div>
+    </div>
+
     @if($feedback)
       <div @class([
         'rounded-2xl border p-4 shadow-soft',
