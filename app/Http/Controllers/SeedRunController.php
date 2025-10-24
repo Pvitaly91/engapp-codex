@@ -908,7 +908,7 @@ class SeedRunController extends Controller
 
         return collect(File::allFiles($directory))
             ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'php')
-            ->map(fn (SplFileInfo $file) => $this->classFromFile($file, $directory))
+            ->map(fn (SplFileInfo $file) => $this->classFromFile($file))
             ->filter(fn (?string $class) => $class && $this->isInstantiableSeeder($class))
             ->unique()
             ->sort()
@@ -916,17 +916,30 @@ class SeedRunController extends Controller
             ->all();
     }
 
-    private function classFromFile(SplFileInfo $file, string $baseDirectory): ?string
+    private function classFromFile(SplFileInfo $file): ?string
     {
-        $relativePath = Str::after($file->getPathname(), rtrim($baseDirectory, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
+        $contents = File::get($file->getPathname());
 
-        if ($relativePath === $file->getPathname()) {
+        if ($contents === false) {
             return null;
         }
 
-        $classPath = str_replace(['/', '\\'], '\\', Str::beforeLast($relativePath, '.php'));
+        if (! preg_match('/^namespace\s+([^;]+);/m', $contents, $namespaceMatch)) {
+            return null;
+        }
 
-        return 'Database\\Seeders\\' . $classPath;
+        if (! preg_match('/^\s*(?:final\s+)?(?:abstract\s+)?class\s+(\w+)/mi', $contents, $classMatch)) {
+            return null;
+        }
+
+        $namespace = trim($namespaceMatch[1]);
+        $className = trim($classMatch[1]);
+
+        if ($namespace === '' || $className === '') {
+            return null;
+        }
+
+        return $namespace . '\\' . $className;
     }
 
     private function isInstantiableSeeder(string $class): bool
