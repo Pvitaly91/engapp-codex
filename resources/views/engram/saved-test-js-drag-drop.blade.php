@@ -475,6 +475,8 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     const checkBtn = document.getElementById('drag-quiz-check');
     const retryBtn = document.getElementById('drag-quiz-retry');
     const showBtn = document.getElementById('drag-quiz-show');
+    const showBtnDefaultText = showBtn ? showBtn.textContent.trim() : 'Показати відповіді';
+    const showBtnReturnText = 'Повернутися до тесту';
 
     let tokenSerial = 0;
     const allTokens = new Map();
@@ -501,6 +503,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
     let bankInventory = new Map();
     const bankTokenElements = new Map();
     let selectedTokenWord = null;
+    let answersVisible = false;
     const nav = typeof navigator !== 'undefined' ? navigator : null;
     const supportsTouch =
         typeof window !== 'undefined' &&
@@ -787,6 +790,20 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         scoreEl.textContent = `${correctCount} / ${scoreTotal}`;
     }
 
+    function setAnswersVisible(value) {
+        answersVisible = Boolean(value);
+        if (!showBtn) {
+            return;
+        }
+
+        showBtn.textContent = answersVisible ? showBtnReturnText : showBtnDefaultText;
+        showBtn.setAttribute('aria-pressed', answersVisible ? 'true' : 'false');
+    }
+
+    if (showBtn) {
+        showBtn.setAttribute('aria-pressed', 'false');
+    }
+
     function shuffled(list) {
         const arr = list.slice();
         for (let i = arr.length - 1; i > 0; i--) {
@@ -1017,7 +1034,30 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         updateScoreLabel(score);
     }
 
-    function showAnswers() {
+    function resetQuiz({ useShuffle = true } = {}) {
+        tasksEl.querySelectorAll('.drag-quiz__drop').forEach((drop) => {
+            drop.textContent = '_____';
+            drop.classList.remove('is-filled', 'is-correct', 'is-wrong');
+            drop.removeAttribute('data-token-id');
+        });
+
+        setAnswersVisible(false);
+        clearTouchSelection();
+        resetBankInventory();
+        renderBank(useShuffle);
+        updateScoreLabel(0);
+    }
+
+    function toggleAnswers(event) {
+        if (event && typeof event.preventDefault === 'function') {
+            event.preventDefault();
+        }
+
+        if (answersVisible) {
+            resetQuiz({ useShuffle: false });
+            return;
+        }
+
         tasksEl
             .querySelectorAll('.drag-quiz__drop .drag-quiz__token')
             .forEach((token) => returnTokenToBank(token));
@@ -1049,18 +1089,15 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         });
 
         checkAnswers();
+        setAnswersVisible(true);
     }
 
-    function retry() {
-        tasksEl.querySelectorAll('.drag-quiz__drop').forEach((drop) => {
-            drop.textContent = '_____';
-            drop.classList.remove('is-filled', 'is-correct', 'is-wrong');
-            drop.removeAttribute('data-token-id');
-        });
+    function retry(event) {
+        if (event && typeof event.preventDefault === 'function') {
+            event.preventDefault();
+        }
 
-        resetBankInventory();
-        renderBank(true);
-        updateScoreLabel(0);
+        resetQuiz();
     }
 
     renderTasks();
@@ -1070,7 +1107,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 
     checkBtn?.addEventListener('click', checkAnswers);
     retryBtn?.addEventListener('click', retry);
-    showBtn?.addEventListener('click', showAnswers);
+    showBtn?.addEventListener('click', toggleAnswers);
 
     tasksEl.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
