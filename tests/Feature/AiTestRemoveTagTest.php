@@ -22,7 +22,7 @@ class AiTestRemoveTagTest extends TestCase
         $tag = Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
 
         $response = $this->withSession(['ai_step.tags' => [$tag->id]])
-            ->deleteJson('/ai-test/step/remove-tag', ['tag' => $tag->name]);
+            ->deleteJson('/admin/ai-test/step/remove-tag', ['tag' => $tag->name]);
 
         $response->assertStatus(200);
         $response->assertJson(['tags' => []]);

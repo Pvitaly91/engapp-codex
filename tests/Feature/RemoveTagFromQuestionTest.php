@@ -67,7 +67,7 @@ class RemoveTagFromQuestionTest extends TestCase
             'questions' => [$question->id],
         ]);
 
-        $response = $this->deleteJson('/test/' . $testModel->slug . '/step/remove-tag', [
+        $response = $this->deleteJson('/admin/test/' . $testModel->slug . '/step/remove-tag', [
             'question_id' => $question->id,
             'tag' => $tag->name,
         ]);

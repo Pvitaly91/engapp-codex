@@ -18,13 +18,13 @@ class AuthController extends Controller
         }
 
         if ($request->session()->get('admin_authenticated', false)) {
-            return Redirect::route('home');
+            return Redirect::route('admin.dashboard');
         }
 
         if ($request->hasCookie('admin_remember_token') && $request->cookie('admin_remember_token') === $this->rememberToken()) {
             $request->session()->put('admin_authenticated', true);
 
-            return Redirect::route('home');
+            return Redirect::route('admin.dashboard');
         }
 
         return View::make('auth.login');
@@ -75,7 +75,7 @@ class AuthController extends Controller
             Cookie::queue(Cookie::forget('admin_remember_token'));
         }
 
-        return Redirect::intended(route('home'));
+        return Redirect::intended(route('admin.dashboard'));
     }
 
     public function logout(Request $request)

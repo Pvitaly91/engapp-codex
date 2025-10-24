@@ -75,15 +75,15 @@ class SavedTestStepOrderTest extends TestCase
             'questions' => [$q2->id, $q1->id],
         ]);
 
-        $response = $this->get('/test/' . $testModel->slug);
+        $response = $this->get('/admin/test/' . $testModel->slug);
         $response->assertStatus(200);
         $response->assertSeeInOrder(['Q1', 'Q2']);
 
-        $response = $this->get('/test/' . $testModel->slug . '/step');
+        $response = $this->get('/admin/test/' . $testModel->slug . '/step');
         $response->assertStatus(200);
         $response->assertSee('Q1');
 
-        $response = $this->get('/test/' . $testModel->slug . '/step?order=random');
+        $response = $this->get('/admin/test/' . $testModel->slug . '/step?order=random');
         $response->assertStatus(200);
         $this->assertEquals('random', session('step_' . $testModel->slug . '_order'));
     }

@@ -81,7 +81,7 @@ class DetermineDifficultyLevelTest extends TestCase
                 ->andReturn('A1');
         });
 
-        $response = $this->postJson('/test/' . $test->slug . '/step/determine-level', [
+        $response = $this->postJson('/admin/test/' . $test->slug . '/step/determine-level', [
             'question_id' => $question->id,
         ]);
 
@@ -101,7 +101,7 @@ class DetermineDifficultyLevelTest extends TestCase
                 ->andReturn('B1');
         });
 
-        $response = $this->postJson('/test/' . $test->slug . '/step/determine-level-gemini', [
+        $response = $this->postJson('/admin/test/' . $test->slug . '/step/determine-level-gemini', [
             'question_id' => $question->id,
         ]);
 

@@ -40,7 +40,7 @@ class AiStepDetermineTenseLevelTest extends TestCase
                 ->andReturn(['Past Simple', 'Present Simple']);
         });
 
-        $response = $this->postJson('/ai-test/step/determine-tense');
+        $response = $this->postJson('/admin/ai-test/step/determine-tense');
 
         $response->assertStatus(200);
         $response->assertJson(['tags' => ['Past Simple', 'Present Simple']]);
@@ -62,7 +62,7 @@ class AiStepDetermineTenseLevelTest extends TestCase
                 ->andReturn(['Past Simple', 'Present Simple']);
         });
 
-        $response = $this->postJson('/ai-test/step/determine-tense-gemini');
+        $response = $this->postJson('/admin/ai-test/step/determine-tense-gemini');
 
         $response->assertStatus(200);
         $response->assertJson(['tags' => ['Past Simple', 'Present Simple']]);
@@ -82,7 +82,7 @@ class AiStepDetermineTenseLevelTest extends TestCase
                 ->andReturn('A1');
         });
 
-        $response = $this->postJson('/ai-test/step/determine-level');
+        $response = $this->postJson('/admin/ai-test/step/determine-level');
 
         $response->assertStatus(200);
         $response->assertJson(['level' => 'A1']);
@@ -102,7 +102,7 @@ class AiStepDetermineTenseLevelTest extends TestCase
                 ->andReturn('B1');
         });
 
-        $response = $this->postJson('/ai-test/step/determine-level-gemini');
+        $response = $this->postJson('/admin/ai-test/step/determine-level-gemini');
 
         $response->assertStatus(200);
         $response->assertJson(['level' => 'B1']);

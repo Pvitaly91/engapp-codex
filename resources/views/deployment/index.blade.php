@@ -9,6 +9,17 @@
       <p class="text-muted-foreground">Ця сторінка дозволяє підтягнути останні зміни з GitHub та за потреби повернутися до попереднього робочого стану.</p>
     </header>
 
+    <div class="flex justify-center">
+      <div class="inline-flex items-center gap-3 rounded-full border border-border/60 bg-muted/40 px-5 py-2 text-sm font-medium">
+        <span class="text-muted-foreground">Поточна активна гілка:</span>
+        @if($currentBranch)
+          <span class="font-semibold text-foreground">{{ $currentBranch }}</span>
+        @else
+          <span class="text-destructive-foreground">невідомо</span>
+        @endif
+      </div>
+    </div>
+
     @if($feedback)
       <div @class([
         'rounded-2xl border p-4 shadow-soft',
@@ -56,7 +67,22 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">2. Створити резервну гілку</h2>
+          <h2 class="text-2xl font-semibold">2. Запушити поточний стан</h2>
+          <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
+        </div>
+        <form method="POST" action="{{ route('deployment.push-current') }}" class="space-y-4">
+          @csrf
+          <label class="block text-sm font-medium" for="push-current-branch">Віддалена гілка</label>
+          <input id="push-current-branch" type="text" name="branch" value="master" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-emerald-600/90">Запушити поточний коміт</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
         </div>
         <form method="POST" action="{{ route('deployment.backup-branch') }}" class="space-y-4">
@@ -86,7 +112,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">3. Керування резервними гілками</h2>
+          <h2 class="text-2xl font-semibold">4. Керування резервними гілками</h2>
           <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub, щоб зберегти віддалену копію.</p>
         </div>
         @if($backupBranches->isEmpty())
@@ -145,7 +171,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">4. Відкотити зміни</h2>
+          <h2 class="text-2xl font-semibold">5. Відкотити зміни</h2>
           <p class="text-sm text-muted-foreground">Якщо після оновлення з’явилися проблеми, можна повернути сайт до збереженого стану. Виберіть потрібний коміт зі списку нижче.</p>
         </div>
         @if(count($backups) === 0)

@@ -72,8 +72,8 @@ class DeleteQuestionTest extends TestCase
             'questions' => [$q1->id, $q2->id],
         ]);
 
-        $response = $this->delete('/test/'.$test->slug.'/question/'.$q1->id, [], ['HTTP_REFERER' => '/test/'.$test->slug]);
-        $response->assertRedirect('/test/'.$test->slug);
+        $response = $this->delete('/admin/test/'.$test->slug.'/question/'.$q1->id, [], ['HTTP_REFERER' => '/admin/test/'.$test->slug]);
+        $response->assertRedirect('/admin/test/'.$test->slug);
 
         $test->refresh();
         $this->assertEquals([$q2->id], $test->questions);

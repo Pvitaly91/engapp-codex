@@ -13,7 +13,7 @@ class TranslateTestV2PageTest extends TestCase
         Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_29_093218_create_sentences_table.php']);
         $this->seed(\Database\Seeders\SentenceTranslationSeeder::class);
 
-        $response = $this->get('/translate/test2');
+        $response = $this->get('/admin/translate/test2');
         $response->assertStatus(200);
     }
 
@@ -25,7 +25,7 @@ class TranslateTestV2PageTest extends TestCase
 
         $sentence = \App\Models\Sentence::first();
 
-        $response = $this->post('/translate/test2/check', [
+        $response = $this->post('/admin/translate/test2/check', [
             'sentence_id' => $sentence->id,
             'words' => ['two words'],
         ]);

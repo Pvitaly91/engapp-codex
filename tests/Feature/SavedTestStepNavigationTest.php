@@ -66,17 +66,17 @@ class SavedTestStepNavigationTest extends TestCase
             'questions' => $questions,
         ]);
 
-        $response = $this->get('/test/' . $testModel->slug . '/step');
+        $response = $this->get('/admin/test/' . $testModel->slug . '/step');
         $response->assertStatus(200);
         $response->assertSee('Q1');
         $response->assertSee('?nav=next');
 
-        $response = $this->get('/test/' . $testModel->slug . '/step?nav=next');
+        $response = $this->get('/admin/test/' . $testModel->slug . '/step?nav=next');
         $response->assertStatus(200);
         $response->assertSee('Q2');
         $response->assertSee('?nav=prev');
 
-        $response = $this->get('/test/' . $testModel->slug . '/step?nav=prev');
+        $response = $this->get('/admin/test/' . $testModel->slug . '/step?nav=prev');
         $response->assertStatus(200);
         $response->assertSee('Q1');
     }

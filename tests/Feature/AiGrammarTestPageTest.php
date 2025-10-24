@@ -86,15 +86,15 @@ class AiGrammarTestPageTest extends TestCase
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
 
-        $this->post('/ai-test/start', [
+        $this->post('/admin/ai-test/start', [
             'tags' => [$tag->id],
             'answers_min' => 10,
             'answers_max' => 10,
             'provider' => 'chatgpt',
             'model' => 'random',
-        ])->assertRedirect('/ai-test/step');
+        ])->assertRedirect('/admin/ai-test/step');
 
-        $this->get('/ai-test/step')->assertStatus(200);
+        $this->get('/admin/ai-test/step')->assertStatus(200);
 
         $this->assertDatabaseHas('words', ['word' => 'he']);
         $this->assertDatabaseHas('words', ['word' => 'here']);
@@ -103,7 +103,7 @@ class AiGrammarTestPageTest extends TestCase
 
         $this->assertDatabaseMissing('questions', ['question' => $questionText]);
 
-        $this->post('/ai-test/check', [
+        $this->post('/admin/ai-test/check', [
             'answers' => [
                 'a1' => 'one',
                 'a2' => 'two',
@@ -116,7 +116,7 @@ class AiGrammarTestPageTest extends TestCase
                 'a9' => 'nine',
                 'a10' => 'ten',
             ],
-        ])->assertRedirect('/ai-test/step');
+        ])->assertRedirect('/admin/ai-test/step');
 
         $this->assertDatabaseHas('questions', ['question' => $questionText, 'flag' => 1]);
         $this->assertDatabaseHas('verb_hints', ['marker' => 'a1']);

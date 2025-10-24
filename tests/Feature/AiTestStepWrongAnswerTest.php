@@ -70,24 +70,24 @@ class AiTestStepWrongAnswerTest extends TestCase
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
 
-        $this->post('/ai-test/start', [
+        $this->post('/admin/ai-test/start', [
             'tags' => [$tag->id],
             'answers_min' => 2,
             'answers_max' => 2,
             'provider' => 'chatgpt',
             'model' => 'random',
-        ])->assertRedirect('/ai-test/step');
+        ])->assertRedirect('/admin/ai-test/step');
 
-        $this->get('/ai-test/step')->assertStatus(200);
+        $this->get('/admin/ai-test/step')->assertStatus(200);
 
-        $this->post('/ai-test/check', [
+        $this->post('/admin/ai-test/check', [
             'answers' => [
                 'a1' => 'yes',
                 'a2' => 'no',
             ],
-        ])->assertRedirect('/ai-test/step');
+        ])->assertRedirect('/admin/ai-test/step');
 
-        $response = $this->get('/ai-test/step');
+        $response = $this->get('/admin/ai-test/step');
         $response->assertStatus(200);
         $response->assertSee('Wrong');
         $response->assertSee('Your answer: Q1', false);

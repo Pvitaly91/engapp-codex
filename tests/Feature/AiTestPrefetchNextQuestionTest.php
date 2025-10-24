@@ -66,20 +66,20 @@ class AiTestPrefetchNextQuestionTest extends TestCase
             $mock->shouldReceive('explainWrongAnswer')->andReturn('x');
         });
 
-        $this->post('/ai-test/start', [
+        $this->post('/admin/ai-test/start', [
             'tags' => [$tag->id],
             'answers_min' => 1,
             'answers_max' => 1,
             'provider' => 'chatgpt',
             'model' => 'random',
-        ])->assertRedirect('/ai-test/step');
+        ])->assertRedirect('/admin/ai-test/step');
 
-        $this->get('/ai-test/step')->assertStatus(200)->assertSee('First');
+        $this->get('/admin/ai-test/step')->assertStatus(200)->assertSee('First');
 
-        $this->get('/ai-test/next')->assertJson(['status' => 'ok'])->assertSessionHas('ai_step.next_question');
+        $this->get('/admin/ai-test/next')->assertJson(['status' => 'ok'])->assertSessionHas('ai_step.next_question');
 
-        $this->post('/ai-test/skip')->assertRedirect('/ai-test/step');
+        $this->post('/admin/ai-test/skip')->assertRedirect('/admin/ai-test/step');
 
-        $this->get('/ai-test/step')->assertSee('Second');
+        $this->get('/admin/ai-test/step')->assertSee('Second');
     }
 }

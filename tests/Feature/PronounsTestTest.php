@@ -18,7 +18,7 @@ class PronounsTestTest extends TestCase
 
         $this->seed(\Database\Seeders\PronounWordsSeeder::class);
 
-        $response = $this->get('/words/test?tags[]=pronouns');
+        $response = $this->get('/admin/words/test?tags[]=pronouns');
         $response->assertStatus(200);
     }
 }
