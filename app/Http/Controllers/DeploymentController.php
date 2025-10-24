@@ -78,6 +78,38 @@ class DeploymentController extends Controller
         return $this->redirectWithFeedback('success', $message, $commandsOutput);
     }
 
+    public function pushCurrent(Request $request): RedirectResponse
+    {
+        $branch = $request->input('branch', 'master');
+        $branch = Str::of($branch)->trim()->value() ?: 'master';
+        $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'master';
+
+        $repoPath = base_path();
+        $commandsOutput = [];
+
+        $currentBranchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], $repoPath);
+        $commandsOutput[] = $this->formatProcess('git rev-parse --abbrev-ref HEAD', $currentBranchProcess);
+
+        if (! $currentBranchProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося визначити поточну гілку.', $commandsOutput);
+        }
+
+        $pushProcess = $this->runCommand(['git', 'push', 'origin', "HEAD:{$branch}"], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git push origin HEAD:{$branch}", $pushProcess);
+
+        if (! $pushProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося запушити поточний стан на віддалену гілку.', $commandsOutput);
+        }
+
+        $currentBranch = trim($currentBranchProcess->getOutput());
+
+        return $this->redirectWithFeedback(
+            'success',
+            "Поточний стан гілки {$currentBranch} запушено на origin/{$branch}.",
+            $commandsOutput
+        );
+    }
+
     public function rollback(Request $request): RedirectResponse
     {
         $commit = $request->input('commit');
