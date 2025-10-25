@@ -13,12 +13,14 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Database\Seeder as LaravelSeeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -51,16 +53,10 @@ class SeedRunController extends Controller
                 ->withErrors(['preview' => __('Не вказано клас сидера для перегляду.')]);
         }
 
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['preview' => __('Сидер :class не знайдено.', ['class' => $className])]);
-        }
-
-        if (! is_subclass_of($className, QuestionSeederBase::class)) {
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['preview' => __('Попередній перегляд доступний лише для сидерів запитань.')]);
         }
 
         try {
@@ -78,6 +74,42 @@ class SeedRunController extends Controller
             'displayClassName' => $this->formatSeederClassName($className),
             'questions' => $preview['questions'],
             'existingQuestionCount' => $preview['existingQuestionCount'],
+        ]);
+    }
+
+    public function previewSource(Request $request)
+    {
+        $className = (string) $request->query('class_name', '');
+
+        if ($className === '') {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Не вказано клас сидера для перегляду.')]);
+        }
+
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $filePath) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Файл для сидера :class не знайдено.', ['class' => $className])]);
+        }
+
+        try {
+            $fileContents = File::get($filePath);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Не вдалося прочитати файл сидера :class.', ['class' => $className])]);
+        }
+
+        return view('seed-runs.source', [
+            'className' => $className,
+            'displayClassName' => $this->formatSeederClassName($className),
+            'filePath' => $this->makeRelativePath($filePath),
+            'fileContents' => $fileContents,
         ]);
     }
 
@@ -128,7 +160,8 @@ class SeedRunController extends Controller
                 return (object) [
                     'class_name' => $class,
                     'display_class_name' => $this->formatSeederClassName($class),
-                    'is_question_seeder' => is_subclass_of($class, QuestionSeederBase::class),
+                    'supports_preview' => $this->seederSupportsPreview($class),
+                    'has_file' => $this->resolveSeederFilePath($class) !== null,
                 ];
             })
             ->values();
@@ -146,6 +179,7 @@ class SeedRunController extends Controller
         $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
             $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
             $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+            $seedRun->has_file = $this->resolveSeederFilePath($seedRun->class_name) !== null;
 
             return $seedRun;
         });
@@ -188,6 +222,56 @@ class SeedRunController extends Controller
         }
 
         return nl2br($questionText);
+    }
+
+    protected function seederSupportsPreview(string $className): bool
+    {
+        if (! $this->classExistsSafely($className)) {
+            return false;
+        }
+
+        if (! is_subclass_of($className, LaravelSeeder::class)) {
+            return false;
+        }
+
+        return method_exists($className, 'run');
+    }
+
+    protected function resolveSeederFilePath(string $className): ?string
+    {
+        $candidatePaths = collect();
+
+        if (Str::startsWith($className, 'Database\\Seeders\\')) {
+            $relative = Str::after($className, 'Database\\Seeders\\');
+            $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
+            $candidatePaths->push(database_path('seeders/' . $relativePath));
+        }
+
+        if ($this->classExistsSafely($className)) {
+            try {
+                $reflection = new \ReflectionClass($className);
+                $fileName = $reflection->getFileName();
+
+                if ($fileName) {
+                    $candidatePaths->push($fileName);
+                }
+            } catch (\ReflectionException $exception) {
+                report($exception);
+            }
+        }
+
+        $candidatePaths = $candidatePaths
+            ->filter(fn ($path) => filled($path))
+            ->unique()
+            ->values();
+
+        foreach ($candidatePaths as $path) {
+            if (File::exists($path)) {
+                return $path;
+            }
+        }
+
+        return null;
     }
 
     protected function buildSeederHierarchy(Collection $seedRuns): Collection
@@ -293,23 +377,36 @@ class SeedRunController extends Controller
     protected function buildSeederPreview(string $className): array
     {
         $hasSeederColumn = Schema::hasColumn('questions', 'seeder');
+        $keyColumn = Schema::hasColumn('questions', 'uuid') ? 'uuid' : 'id';
 
-        if ($hasSeederColumn) {
-            $existingQuestionKeys = Question::query()
-                ->where('seeder', $className)
-                ->pluck('uuid')
-                ->all();
+        $existingQuestionKeys = Question::query()
+            ->pluck($keyColumn)
+            ->filter(fn ($value) => $value !== null)
+            ->values()
+            ->all();
 
-            $existingQuestionCount = count($existingQuestionKeys);
-        } else {
-            $existingQuestionKeys = Question::query()
-                ->pluck('id')
-                ->all();
-
-            $existingQuestionCount = null;
+        if (empty($existingQuestionKeys) && $keyColumn === 'uuid') {
+            $keyColumn = 'id';
+            $existingQuestionKeys = Question::query()->pluck($keyColumn)->all();
         }
 
+        $existingQuestionCount = $hasSeederColumn
+            ? Question::query()->where('seeder', $className)->count()
+            : null;
+
         $previewQuestions = collect();
+
+        $relations = [
+            'answers.option',
+            'options',
+            'tags',
+            'category',
+            'source',
+            'verbHints.option',
+            'variants',
+            'hints',
+            'chatgptExplanations',
+        ];
 
         DB::beginTransaction();
 
@@ -322,33 +419,27 @@ class SeedRunController extends Controller
 
             $seeder->run();
 
-            $questionsQuery = Question::query()
-                ->with([
-                    'answers.option',
-                    'options',
-                    'tags',
-                    'category',
-                    'source',
-                    'verbHints.option',
-                    'variants',
-                    'hints',
-                    'chatgptExplanations',
-                ]);
+            $questions = Question::query()
+                ->with($relations)
+                ->when(! empty($existingQuestionKeys), function ($query) use ($keyColumn, $existingQuestionKeys) {
+                    $query->whereNotIn($keyColumn, $existingQuestionKeys);
+                })
+                ->orderBy('id')
+                ->get();
 
-            if ($hasSeederColumn) {
-                $questionsQuery->where('seeder', $className);
-            } elseif (! empty($existingQuestionKeys)) {
-                $questionsQuery->whereNotIn('id', $existingQuestionKeys);
+            if ($questions->isEmpty() && $hasSeederColumn) {
+                $questions = Question::query()
+                    ->with($relations)
+                    ->where('seeder', $className)
+                    ->orderBy('id')
+                    ->get();
             }
 
-            $questions = $questionsQuery->get();
+            if ($questions->isEmpty()) {
+                throw new \RuntimeException(__('Сидер не створює нові питання для попереднього перегляду.'));
+            }
 
             $previewQuestions = $questions
-                ->when($hasSeederColumn, function (Collection $collection) use ($existingQuestionKeys) {
-                    return $collection->reject(function (Question $question) use ($existingQuestionKeys) {
-                        return in_array($question->uuid, $existingQuestionKeys, true);
-                    });
-                })
                 ->map(function (Question $question) {
                     $question->answers = $question->answers->sortBy('marker')->values();
 
@@ -785,7 +876,7 @@ class SeedRunController extends Controller
 
         $className = $validated['class_name'];
 
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
@@ -812,6 +903,269 @@ class SeedRunController extends Controller
             ->with('status', __('Seeder :class executed successfully.', ['class' => $className]));
     }
 
+    public function destroySeederFile(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'class_name' => ['required', 'string'],
+            'delete_with_questions' => ['nullable', 'boolean'],
+        ]);
+
+        $className = $validated['class_name'];
+        $deleteQuestions = $request->boolean('delete_with_questions');
+        $result = $this->removeSeederFileAndAssociatedRuns($className, null, $deleteQuestions);
+
+        if (($result['status'] ?? null) === 'success') {
+            return redirect()
+                ->route('seed-runs.index')
+                ->with('status', $result['message']);
+        }
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->withErrors(['run' => $result['message'] ?? __('Не вдалося видалити файл сидера.')]);
+    }
+
+    public function destroySeederFiles(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'class_names' => ['required', 'array', 'min:1'],
+            'class_names.*' => ['string'],
+            'delete_with_questions' => ['nullable', 'array'],
+            'delete_with_questions.*' => ['string'],
+        ]);
+
+        $classNames = collect($validated['class_names'] ?? [])
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        $deleteWithQuestions = collect($validated['delete_with_questions'] ?? [])
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($classNames->isEmpty()) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('Будь ласка, оберіть принаймні один сидер для видалення.')]);
+        }
+
+        $seedRunsTableExists = Schema::hasTable('seed_runs');
+        $successCount = 0;
+        $totalRunsDeleted = 0;
+        $totalQuestionsDeleted = 0;
+        $errorMessages = [];
+
+        foreach ($classNames as $className) {
+            $shouldDeleteQuestions = $deleteWithQuestions->contains($className);
+            $result = $this->removeSeederFileAndAssociatedRuns($className, $seedRunsTableExists, $shouldDeleteQuestions);
+            $status = $result['status'] ?? null;
+
+            if ($status === 'success') {
+                $successCount++;
+                $totalRunsDeleted += (int) ($result['runs_deleted'] ?? 0);
+                $totalQuestionsDeleted += (int) ($result['questions_deleted'] ?? 0);
+
+                continue;
+            }
+
+            if ($status === 'partial') {
+                $successCount++;
+                $totalRunsDeleted += (int) ($result['runs_deleted'] ?? 0);
+                $totalQuestionsDeleted += (int) ($result['questions_deleted'] ?? 0);
+                $errorMessages[] = $result['message'];
+
+                continue;
+            }
+
+            if (! empty($result['message'])) {
+                $errorMessages[] = $result['message'];
+            }
+        }
+
+        $statusMessages = [];
+
+        if ($successCount > 0) {
+            $statusMessages[] = trans_choice(
+                '{1}Успішно видалено :count файл сидера.|[2,4]Успішно видалено :count файли сидерів.|[5,*]Успішно видалено :count файлів сидерів.',
+                $successCount,
+                ['count' => $successCount]
+            );
+
+            if ($totalRunsDeleted > 0) {
+                $statusMessages[] = trans_choice(
+                    '{1}Також видалено :count пов’язаний запис seed_runs.|[2,4]Також видалено :count пов’язані записи seed_runs.|[5,*]Також видалено :count пов’язаних записів seed_runs.',
+                    $totalRunsDeleted,
+                    ['count' => $totalRunsDeleted]
+                );
+            }
+
+            if ($totalQuestionsDeleted > 0) {
+                $statusMessages[] = trans_choice(
+                    '{1}Видалено :count пов’язане питання.|[2,4]Видалено :count пов’язані питання.|[5,*]Видалено :count пов’язаних питань.',
+                    $totalQuestionsDeleted,
+                    ['count' => $totalQuestionsDeleted]
+                );
+            }
+        }
+
+        $redirect = redirect()->route('seed-runs.index');
+
+        if (! empty($statusMessages)) {
+            $redirect = $redirect->with('status', implode(' ', $statusMessages));
+        }
+
+        if (! empty($errorMessages)) {
+            $redirect = $redirect->withErrors(new MessageBag(['run' => $errorMessages]));
+        }
+
+        return $redirect;
+    }
+
+    protected function removeSeederFileAndAssociatedRuns(string $className, ?bool $seedRunsTableExists = null, bool $deleteQuestions = false): array
+    {
+        if (! is_bool($seedRunsTableExists)) {
+            $seedRunsTableExists = Schema::hasTable('seed_runs');
+        }
+
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $filePath) {
+            return [
+                'status' => 'missing',
+                'class' => $className,
+                'message' => __('Файл для сидера :class не знайдено.', ['class' => $className]),
+                'runs_deleted' => 0,
+                'questions_deleted' => 0,
+            ];
+        }
+
+        try {
+            if (! File::delete($filePath)) {
+                return [
+                    'status' => 'error',
+                    'class' => $className,
+                    'message' => __('Не вдалося видалити файл сидера :class.', ['class' => $className]),
+                    'runs_deleted' => 0,
+                    'questions_deleted' => 0,
+                ];
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return [
+                'status' => 'error',
+                'class' => $className,
+                'message' => __('Не вдалося видалити файл сидера :class.', ['class' => $className]),
+                'runs_deleted' => 0,
+                'questions_deleted' => 0,
+            ];
+        }
+
+        $runsDeleted = 0;
+        $questionsDeleted = 0;
+        $questionDeletionFailed = false;
+
+        if ($deleteQuestions) {
+            try {
+                $questionsDeleted = $this->deleteQuestionsForSeeders(collect([$className]));
+            } catch (\Throwable $exception) {
+                report($exception);
+                $questionDeletionFailed = true;
+            }
+        }
+
+        if ($seedRunsTableExists) {
+            try {
+                $runsDeleted = DB::table('seed_runs')
+                    ->where('class_name', $className)
+                    ->delete();
+            } catch (\Throwable $exception) {
+                report($exception);
+
+                return [
+                    'status' => 'partial',
+                    'class' => $className,
+                    'message' => __('Файл сидера :class видалено, але не вдалося оновити seed_runs. Будь ласка, перевірте журнал.', ['class' => $className]),
+                    'runs_deleted' => 0,
+                    'questions_deleted' => $questionsDeleted,
+                ];
+            }
+        }
+
+        if ($questionDeletionFailed) {
+            return [
+                'status' => 'partial',
+                'class' => $className,
+                'message' => __('Файл сидера :class видалено, але не вдалося видалити пов’язані питання.', ['class' => $className]),
+                'runs_deleted' => $runsDeleted,
+                'questions_deleted' => $questionsDeleted,
+            ];
+        }
+
+        $message = __('Файл сидера :class успішно видалено.', ['class' => $className]);
+
+        if ($runsDeleted > 0) {
+            $message .= ' ' . __('Пов’язаний запис seed_runs видалено.');
+        }
+
+        if ($questionsDeleted > 0) {
+            $message .= ' ' . trans_choice(
+                '{1}Видалено :count пов’язане питання.|[2,4]Видалено :count пов’язані питання.|[5,*]Видалено :count пов’язаних питань.',
+                $questionsDeleted,
+                ['count' => $questionsDeleted]
+            );
+        }
+
+        return [
+            'status' => 'success',
+            'class' => $className,
+            'message' => $message,
+            'runs_deleted' => $runsDeleted,
+            'questions_deleted' => $questionsDeleted,
+        ];
+    }
+
+    public function markAsExecuted(Request $request): RedirectResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('The seed_runs table does not exist.')]);
+        }
+
+        $validated = $request->validate([
+            'class_name' => ['required', 'string'],
+        ]);
+
+        $className = $validated['class_name'];
+
+        if (! $this->classExistsSafely($className)) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
+        }
+
+        try {
+            DB::table('seed_runs')->updateOrInsert(
+                ['class_name' => $className],
+                ['ran_at' => now()]
+            );
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => $exception->getMessage()]);
+        }
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', __('Seeder :class marked as executed.', ['class' => $className]));
+    }
+
     public function runMissing(): RedirectResponse
     {
         if (! Schema::hasTable('seed_runs')) {
@@ -832,7 +1186,7 @@ class SeedRunController extends Controller
         $errors = collect();
 
         foreach ($pendingSeeders as $className) {
-            if (! class_exists($className)) {
+            if (! $this->classExistsSafely($className)) {
                 $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
                 continue;
             }
@@ -1149,7 +1503,7 @@ class SeedRunController extends Controller
             'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» та пов’язані дані?'),
         ];
 
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return $default;
         }
 
@@ -1174,6 +1528,17 @@ class SeedRunController extends Controller
         }
 
         return $default;
+    }
+
+    protected function makeRelativePath(string $absolutePath): string
+    {
+        $basePath = base_path();
+
+        if (Str::startsWith($absolutePath, $basePath)) {
+            return ltrim(Str::after($absolutePath, $basePath), DIRECTORY_SEPARATOR);
+        }
+
+        return $absolutePath;
     }
 
     protected function describeFolderData(Collection $classNames): array
@@ -1306,7 +1671,7 @@ class SeedRunController extends Controller
             ->flatMap(function ($className) {
                 $classes = collect([$className]);
 
-                if (! class_exists($className)) {
+                if (! $this->classExistsSafely($className)) {
                     return $classes;
                 }
 
@@ -1329,7 +1694,7 @@ class SeedRunController extends Controller
 
     protected function resolvePageSlugForSeeder(string $className): ?string
     {
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return null;
         }
 
@@ -1360,7 +1725,7 @@ class SeedRunController extends Controller
 
     protected function resolveAggregateSeederClasses(string $className): Collection
     {
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return collect();
         }
 
@@ -1389,7 +1754,7 @@ class SeedRunController extends Controller
 
     protected function classProvidesGrammarPages(string $className): bool
     {
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return false;
         }
 
@@ -1398,7 +1763,7 @@ class SeedRunController extends Controller
         }
 
         return $this->resolveAggregateSeederClasses($className)
-            ->contains(fn ($class) => is_string($class) && class_exists($class) && is_subclass_of($class, GrammarPageSeederBase::class));
+            ->contains(fn ($class) => is_string($class) && $this->classExistsSafely($class) && is_subclass_of($class, GrammarPageSeederBase::class));
     }
 
     /**
@@ -1466,5 +1831,14 @@ class SeedRunController extends Controller
         $label = trim((string) $label);
 
         return $label !== '' ? $label : __('selected folder');
+    }
+
+    protected function classExistsSafely(string $className): bool
+    {
+        if (class_exists($className, false)) {
+            return true;
+        }
+
+        return @class_exists($className);
     }
 }

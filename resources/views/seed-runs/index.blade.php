@@ -48,23 +48,96 @@
         </div>
 
         @if($tableExists)
+            <form id="pending-bulk-delete-form"
+                  method="POST"
+                  action="{{ route('seed-runs.destroy-seeder-files') }}"
+                  data-preloader
+                  data-bulk-delete-form
+                  data-bulk-scope="pending"
+                  data-confirm="Видалити файли вибраних сидерів?"
+                  class="hidden">
+                @csrf
+                @method('DELETE')
+            </form>
+
+            <form id="executed-bulk-delete-form"
+                  method="POST"
+                  action="{{ route('seed-runs.destroy-seeder-files') }}"
+                  data-preloader
+                  data-bulk-delete-form
+                  data-bulk-scope="executed"
+                  data-confirm="Видалити файли вибраних сидерів?"
+                  class="hidden">
+                @csrf
+                @method('DELETE')
+            </form>
+
             <div >
                 <div class="bg-white shadow rounded-lg p-6 my-4">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Невиконані сидери</h2>
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Невиконані сидери</h2>
+                        @if($pendingSeeders->isNotEmpty())
+                            <button type="submit"
+                                    form="pending-bulk-delete-form"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                    data-bulk-delete-button
+                                    data-bulk-scope="pending"
+                                    disabled>
+                                <i class="fa-solid fa-trash-can"></i>
+                                Видалити вибрані файли
+                            </button>
+                        @endif
+                    </div>
                     @if($pendingSeeders->isEmpty())
                         <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
                     @else
                         <ul class="space-y-3">
                             @foreach($pendingSeeders as $pendingSeeder)
+                                @php($pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name))
                                 <li class="flex items-center justify-between gap-4">
-                                    <span class="text-sm font-mono text-gray-700 break-all">{{ $pendingSeeder->display_class_name }}</span>
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox"
+                                               id="{{ $pendingCheckboxId }}"
+                                               name="class_names[]"
+                                               value="{{ $pendingSeeder->class_name }}"
+                                               form="pending-bulk-delete-form"
+                                               class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
+                                               data-bulk-delete-checkbox
+                                               data-bulk-scope="pending">
+                                        <label for="{{ $pendingCheckboxId }}" class="text-sm font-mono text-gray-700 break-all cursor-pointer">
+                                            {{ $pendingSeeder->display_class_name }}
+                                        </label>
+                                    </div>
                                     <div class="flex items-center gap-2">
-                                        @if($pendingSeeder->is_question_seeder)
+                                        @if($pendingSeeder->supports_preview)
                                             <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
                                                 <i class="fa-solid fa-eye"></i>
                                                 Переглянути
                                             </a>
                                         @endif
+                                        @if($pendingSeeder->has_file)
+                                            <a href="{{ route('seed-runs.preview-source', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition">
+                                                <i class="fa-solid fa-file-code"></i>
+                                                Код
+                                            </a>
+                                        @endif
+                                        <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
+                                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                                <i class="fa-solid fa-file-circle-xmark"></i>
+                                                Видалити файл
+                                            </button>
+                                        </form>
+                                        <form method="POST" action="{{ route('seed-runs.mark-executed') }}" data-preloader>
+                                            @csrf
+                                            <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
+                                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition">
+                                                <i class="fa-solid fa-check"></i>
+                                                Позначити виконаним
+                                            </button>
+                                        </form>
                                         <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader>
                                             @csrf
                                             <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
@@ -81,7 +154,20 @@
                 </div>
 
                 <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Виконані сидери</h2>
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Виконані сидери</h2>
+                        @if($executedSeederHierarchy->isNotEmpty())
+                            <button type="submit"
+                                    form="executed-bulk-delete-form"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                    data-bulk-delete-button
+                                    data-bulk-scope="executed"
+                                    disabled>
+                                <i class="fa-solid fa-trash-can"></i>
+                                Видалити вибрані файли
+                            </button>
+                        @endif
+                    </div>
                     @if($executedSeederHierarchy->isEmpty())
                         <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
                     @else
@@ -100,7 +186,21 @@
         @endif
     </div>
 
-    <div id="seed-run-preloader" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+    <div id="seed-run-confirmation-modal" class="hidden fixed inset-0 z-50 items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="seed-run-confirmation-title">
+        <div class="absolute inset-0 bg-slate-900/50" data-confirm-overlay></div>
+        <div class="relative bg-white rounded-lg shadow-xl max-w-sm w-full mx-4 p-6 space-y-4">
+            <div class="space-y-1">
+                <h2 id="seed-run-confirmation-title" class="text-lg font-semibold text-gray-800">{{ __('Підтвердження') }}</h2>
+                <p class="text-sm text-gray-600" data-confirm-message></p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition" data-confirm-cancel>{{ __('Скасувати') }}</button>
+                <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-500 transition" data-confirm-accept>{{ __('Підтвердити') }}</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="seed-run-preloader" class="hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm flex items-center justify-center">
         <div class="bg-white rounded-lg shadow-lg px-6 py-4 flex items-center gap-3 text-sm text-gray-700">
             <span class="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></span>
             <span>Виконується операція…</span>
@@ -117,12 +217,231 @@
             const errorClasses = ['bg-red-50', 'border-red-200', 'text-red-700'];
             let feedbackTimeout;
 
+            const updateBulkButtonState = function (scope) {
+                if (!scope) {
+                    return;
+                }
+
+                const button = document.querySelector('[data-bulk-delete-button][data-bulk-scope="' + scope + '"]');
+
+                if (!button) {
+                    return;
+                }
+
+                const checkboxes = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]');
+                const hasChecked = Array.from(checkboxes).some(function (checkbox) {
+                    return checkbox.checked;
+                });
+
+                button.disabled = !hasChecked;
+            };
+
+            const updateAllBulkButtonStates = function () {
+                const scopes = new Set();
+
+                document.querySelectorAll('[data-bulk-delete-checkbox]').forEach(function (checkbox) {
+                    const scope = checkbox.dataset.bulkScope;
+
+                    if (scope) {
+                        scopes.add(scope);
+                    }
+                });
+
+                scopes.forEach(function (scope) {
+                    updateBulkButtonState(scope);
+                });
+            };
+
+            const syncDeleteWithQuestionsInputs = function (className, checked) {
+                if (!className) {
+                    return;
+                }
+
+                const inputs = document.querySelectorAll('[data-delete-with-questions-input][data-class-name="' + className + '"]');
+
+                inputs.forEach(function (input) {
+                    input.value = checked ? '1' : '0';
+                });
+
+                const forms = document.querySelectorAll('[data-delete-with-questions-form][data-class-name="' + className + '"]');
+
+                forms.forEach(function (form) {
+                    const confirmWithQuestions = form.dataset.confirmWithQuestions || '';
+                    const confirmRegular = form.dataset.confirmRegular || form.dataset.confirm || '';
+
+                    if (checked && confirmWithQuestions) {
+                        form.dataset.confirm = confirmWithQuestions;
+                    } else if (confirmRegular) {
+                        form.dataset.confirm = confirmRegular;
+                    }
+                });
+            };
+
+            const findBulkCheckboxForClass = function (scope, className) {
+                if (!scope || !className) {
+                    return null;
+                }
+
+                const candidates = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]');
+
+                for (const candidate of candidates) {
+                    if (candidate.value === className) {
+                        return candidate;
+                    }
+                }
+
+                return null;
+            };
+
+            const prepareBulkConfirmMessage = function (scope) {
+                if (!scope) {
+                    return;
+                }
+
+                const form = document.querySelector('form[data-bulk-delete-form][data-bulk-scope="' + scope + '"]');
+
+                if (!form) {
+                    return;
+                }
+
+                const checkboxes = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]:checked');
+                const count = checkboxes.length;
+
+                if (count <= 0) {
+                    return;
+                }
+
+                const selectedClasses = Array.from(checkboxes).map(function (checkbox) {
+                    return checkbox.value || '';
+                });
+
+                const deleteQuestionsCount = selectedClasses.reduce(function (total, className) {
+                    const toggle = document.querySelector('[data-delete-with-questions-toggle][data-class-name="' + className + '"]');
+
+                    if (toggle && toggle.checked) {
+                        return total + 1;
+                    }
+
+                    return total;
+                }, 0);
+
+                if (count === 1) {
+                    form.dataset.confirm = deleteQuestionsCount > 0
+                        ? 'Видалити файл вибраного сидера та пов’язані питання?'
+                        : 'Видалити файл вибраного сидера?';
+                } else {
+                    form.dataset.confirm = deleteQuestionsCount > 0
+                        ? 'Видалити файли ' + count + ' вибраних сидерів та пов’язані питання?'
+                        : 'Видалити файли ' + count + ' вибраних сидерів?';
+                }
+            };
+
+            updateAllBulkButtonStates();
+
+            const confirmationModal = document.getElementById('seed-run-confirmation-modal');
+            const confirmationMessage = confirmationModal ? confirmationModal.querySelector('[data-confirm-message]') : null;
+            const confirmationAccept = confirmationModal ? confirmationModal.querySelector('[data-confirm-accept]') : null;
+            const confirmationCancel = confirmationModal ? confirmationModal.querySelector('[data-confirm-cancel]') : null;
+            const confirmationOverlay = confirmationModal ? confirmationModal.querySelector('[data-confirm-overlay]') : null;
+            let pendingConfirmationForm = null;
+
+            const closeConfirmationModal = function () {
+                if (!confirmationModal) {
+                    return;
+                }
+
+                confirmationModal.classList.add('hidden');
+                confirmationModal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                pendingConfirmationForm = null;
+            };
+
+            const openConfirmationModal = function (form, message) {
+                if (!confirmationModal || !confirmationMessage || !confirmationAccept || !confirmationCancel) {
+                    return false;
+                }
+
+                pendingConfirmationForm = form;
+                confirmationMessage.textContent = message;
+                confirmationModal.classList.remove('hidden');
+                confirmationModal.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+
+                window.setTimeout(function () {
+                    confirmationAccept.focus();
+                }, 0);
+
+                return true;
+            };
+
+            if (confirmationAccept) {
+                confirmationAccept.addEventListener('click', function () {
+                    if (!pendingConfirmationForm) {
+                        closeConfirmationModal();
+
+                        return;
+                    }
+
+                    const formToSubmit = pendingConfirmationForm;
+                    formToSubmit.dataset.confirmed = 'true';
+                    closeConfirmationModal();
+                    formToSubmit.requestSubmit();
+                });
+            }
+
+            const cancelConfirmation = function () {
+                if (pendingConfirmationForm) {
+                    pendingConfirmationForm = null;
+                }
+
+                closeConfirmationModal();
+            };
+
+            if (confirmationCancel) {
+                confirmationCancel.addEventListener('click', cancelConfirmation);
+            }
+
+            if (confirmationOverlay) {
+                confirmationOverlay.addEventListener('click', cancelConfirmation);
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && confirmationModal && !confirmationModal.classList.contains('hidden')) {
+                    event.preventDefault();
+                    cancelConfirmation();
+                }
+            });
+
             document.querySelectorAll('form[data-preloader]').forEach(function (form) {
                 form.addEventListener('submit', function (event) {
+                    if (form.dataset.confirmed === 'true') {
+                        delete form.dataset.confirmed;
+
+                        if (preloader) {
+                            preloader.classList.remove('hidden');
+                        }
+
+                        return;
+                    }
+
                     const confirmMessage = form.dataset.confirm;
 
-                    if (confirmMessage && !window.confirm(confirmMessage)) {
+                    if (confirmMessage) {
                         event.preventDefault();
+
+                        const modalOpened = openConfirmationModal(form, confirmMessage);
+
+                        if (!modalOpened && !window.confirm(confirmMessage)) {
+                            return;
+                        }
+
+                        if (!modalOpened) {
+                            if (preloader) {
+                                preloader.classList.remove('hidden');
+                            }
+
+                            form.submit();
+                        }
 
                         return;
                     }
@@ -131,6 +450,66 @@
                         preloader.classList.remove('hidden');
                     }
                 });
+            });
+
+            document.querySelectorAll('[data-bulk-delete-button]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const scope = button.dataset.bulkScope || '';
+
+                    prepareBulkConfirmMessage(scope);
+                });
+            });
+
+            document.addEventListener('change', function (event) {
+                const deleteToggle = event.target.closest('[data-delete-with-questions-toggle]');
+
+                if (deleteToggle) {
+                    const className = deleteToggle.dataset.className || '';
+                    const scope = deleteToggle.dataset.bulkScope || '';
+                    const checked = deleteToggle.checked;
+
+                    syncDeleteWithQuestionsInputs(className, checked);
+
+                    if (checked) {
+                        const relatedCheckbox = findBulkCheckboxForClass(scope, className);
+
+                        if (relatedCheckbox && !relatedCheckbox.checked) {
+                            relatedCheckbox.checked = true;
+                            updateBulkButtonState(scope);
+                        }
+                    } else {
+                        updateBulkButtonState(scope);
+                    }
+
+                    return;
+                }
+
+                const checkbox = event.target.closest('[data-bulk-delete-checkbox]');
+
+                if (!checkbox) {
+                    return;
+                }
+
+                const scope = checkbox.dataset.bulkScope || '';
+
+                if (!checkbox.checked) {
+                    const className = checkbox.value || '';
+                    const toggles = document.querySelectorAll('[data-delete-with-questions-toggle][data-class-name="' + className + '"]');
+
+                    toggles.forEach(function (toggle) {
+                        if (toggle.checked) {
+                            toggle.checked = false;
+                        }
+                    });
+
+                    syncDeleteWithQuestionsInputs(className, false);
+                }
+
+                updateBulkButtonState(scope);
+            });
+
+            document.querySelectorAll('[data-delete-with-questions-toggle]').forEach(function (toggle) {
+                syncDeleteWithQuestionsInputs(toggle.dataset.className || '', toggle.checked);
             });
 
             const showFeedback = function (message, type = 'success') {
@@ -326,6 +705,10 @@
                         ? payload.html
                         : '';
                     folderNode.dataset.loaded = 'true';
+                    updateAllBulkButtonStates();
+                    children.querySelectorAll('[data-delete-with-questions-toggle]').forEach(function (toggle) {
+                        syncDeleteWithQuestionsInputs(toggle.dataset.className || '', toggle.checked);
+                    });
                 } catch (error) {
                     const message = error && typeof error.message === 'string' && error.message
                         ? error.message
