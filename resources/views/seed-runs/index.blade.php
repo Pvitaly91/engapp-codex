@@ -58,14 +58,22 @@
                             @foreach($pendingSeeders as $pendingSeeder)
                                 <li class="flex items-center justify-between gap-4">
                                     <span class="text-sm font-mono text-gray-700 break-all">{{ $pendingSeeder->display_class_name }}</span>
-                                    <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader>
-                                        @csrf
-                                        <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                        <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition">
-                                            <i class="fa-solid fa-play"></i>
-                                            Виконати
-                                        </button>
-                                    </form>
+                                    <div class="flex items-center gap-2">
+                                        @if($pendingSeeder->is_question_seeder)
+                                            <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
+                                                <i class="fa-solid fa-eye"></i>
+                                                Переглянути
+                                            </a>
+                                        @endif
+                                        <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader>
+                                            @csrf
+                                            <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
+                                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition">
+                                                <i class="fa-solid fa-play"></i>
+                                                Виконати
+                                            </button>
+                                        </form>
+                                    </div>
                                 </li>
                             @endforeach
                         </ul>
@@ -516,7 +524,14 @@
                     return;
                 }
 
-                const answersContainer = container.querySelector('[data-question-answers]');
+                const detailsContainer = container.querySelector('[data-question-details]');
+
+                if (!detailsContainer) {
+                    return;
+                }
+
+                const answersContainer = detailsContainer.querySelector('[data-question-answers]');
+                const tagsContainer = detailsContainer.querySelector('[data-question-tags]');
 
                 if (!answersContainer) {
                     return;
@@ -533,7 +548,7 @@
                         icon.classList.remove('rotate-180');
                     }
 
-                    answersContainer.classList.add('hidden');
+                    detailsContainer.classList.add('hidden');
 
                     return;
                 }
@@ -545,9 +560,13 @@
                     icon.classList.add('rotate-180');
                 }
 
-                answersContainer.classList.remove('hidden');
+                detailsContainer.classList.remove('hidden');
 
                 if (button.dataset.loaded === 'true') {
+                    if (tagsContainer && tagsContainer.dataset.loaded !== 'true' && tagsContainer.dataset.loaded !== 'loading') {
+                        loadQuestionTags(tagsContainer);
+                    }
+
                     return;
                 }
 
@@ -589,6 +608,10 @@
                     if (!answersContainer.innerHTML.trim()) {
                         answersContainer.innerHTML = '<p class="text-xs text-gray-500">Варіанти відповіді не знайдені.</p>';
                     }
+
+                    if (tagsContainer && tagsContainer.dataset.loaded !== 'true' && tagsContainer.dataset.loaded !== 'loading') {
+                        loadQuestionTags(tagsContainer);
+                    }
                 } catch (error) {
                     const message = error && typeof error.message === 'string' && error.message
                         ? error.message
@@ -596,6 +619,60 @@
 
                     answersContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
                     button.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            const loadQuestionTags = async function (tagsContainer) {
+                if (!tagsContainer) {
+                    return;
+                }
+
+                const url = tagsContainer.dataset.loadUrl;
+
+                if (!url) {
+                    tagsContainer.innerHTML = '<p class="text-xs text-red-600">Посилання для завантаження тегів не вказане.</p>';
+                    tagsContainer.dataset.loaded = 'error';
+
+                    return;
+                }
+
+                tagsContainer.dataset.loaded = 'loading';
+                tagsContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити теги.';
+                        throw new Error(message);
+                    }
+
+                    tagsContainer.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    tagsContainer.dataset.loaded = 'true';
+
+                    if (!tagsContainer.innerHTML.trim()) {
+                        tagsContainer.innerHTML = '<p class="text-xs text-gray-500">Теги не знайдені.</p>';
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити теги.';
+
+                    tagsContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    tagsContainer.dataset.loaded = 'error';
                     showFeedback(message, 'error');
                 }
             };

@@ -38,7 +38,12 @@
                     </button>
                 </form>
             </div>
-            <div class="hidden border-t border-slate-200 pt-3 mt-3 text-sm text-slate-700" data-question-answers></div>
+            <div class="hidden border-t border-slate-200 pt-3 mt-3 space-y-3 text-sm text-slate-700" data-question-details>
+                <div data-question-tags
+                     data-load-url="{{ route('seed-runs.questions.tags', [$seedRunId, $question['id']]) }}"
+                     class="text-sm text-slate-700"></div>
+                <div data-question-answers class="text-sm text-slate-700"></div>
+            </div>
         </div>
     @endforeach
 @endif

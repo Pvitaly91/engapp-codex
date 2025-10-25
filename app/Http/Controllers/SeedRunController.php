@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\Question;
+use App\Models\QuestionHint;
 use App\Models\TextBlock;
 use App\Services\QuestionDeletionService;
 use Database\Seeders\Pages\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
@@ -37,6 +38,46 @@ class SeedRunController extends Controller
             'pendingSeeders' => $overview['pendingSeeders'],
             'executedSeederHierarchy' => $overview['executedSeederHierarchy'],
             'recentSeedRunOrdinals' => $overview['recentSeedRunOrdinals'],
+        ]);
+    }
+
+    public function preview(Request $request)
+    {
+        $className = (string) $request->query('class_name', '');
+
+        if ($className === '') {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Не вказано клас сидера для перегляду.')]);
+        }
+
+        if (! class_exists($className)) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Сидер :class не знайдено.', ['class' => $className])]);
+        }
+
+        if (! is_subclass_of($className, QuestionSeederBase::class)) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Попередній перегляд доступний лише для сидерів запитань.')]);
+        }
+
+        try {
+            $preview = $this->buildSeederPreview($className);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Не вдалося підготувати попередній перегляд: :message', ['message' => $exception->getMessage()])]);
+        }
+
+        return view('seed-runs.preview', [
+            'className' => $className,
+            'displayClassName' => $this->formatSeederClassName($className),
+            'questions' => $preview['questions'],
+            'existingQuestionCount' => $preview['existingQuestionCount'],
         ]);
     }
 
@@ -83,10 +124,13 @@ class SeedRunController extends Controller
 
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
             ->reject(fn (string $class) => in_array($class, $executedClasses, true))
-            ->map(fn (string $class) => (object) [
-                'class_name' => $class,
-                'display_class_name' => $this->formatSeederClassName($class),
-            ])
+            ->map(function (string $class) {
+                return (object) [
+                    'class_name' => $class,
+                    'display_class_name' => $this->formatSeederClassName($class),
+                    'is_question_seeder' => is_subclass_of($class, QuestionSeederBase::class),
+                ];
+            })
             ->values();
 
         $questionCounts = collect();
@@ -244,6 +288,130 @@ class SeedRunController extends Controller
             });
 
         return $folders->values()->merge($seeders->values())->values();
+    }
+
+    protected function buildSeederPreview(string $className): array
+    {
+        $hasSeederColumn = Schema::hasColumn('questions', 'seeder');
+
+        if ($hasSeederColumn) {
+            $existingQuestionKeys = Question::query()
+                ->where('seeder', $className)
+                ->pluck('uuid')
+                ->all();
+
+            $existingQuestionCount = count($existingQuestionKeys);
+        } else {
+            $existingQuestionKeys = Question::query()
+                ->pluck('id')
+                ->all();
+
+            $existingQuestionCount = null;
+        }
+
+        $previewQuestions = collect();
+
+        DB::beginTransaction();
+
+        try {
+            $seeder = app($className);
+
+            if (! method_exists($seeder, 'run')) {
+                throw new \RuntimeException(__('Сидер :class не підтримує попередній перегляд.', ['class' => $className]));
+            }
+
+            $seeder->run();
+
+            $questionsQuery = Question::query()
+                ->with([
+                    'answers.option',
+                    'options',
+                    'tags',
+                    'category',
+                    'source',
+                    'verbHints.option',
+                    'variants',
+                    'hints',
+                    'chatgptExplanations',
+                ]);
+
+            if ($hasSeederColumn) {
+                $questionsQuery->where('seeder', $className);
+            } elseif (! empty($existingQuestionKeys)) {
+                $questionsQuery->whereNotIn('id', $existingQuestionKeys);
+            }
+
+            $questions = $questionsQuery->get();
+
+            $previewQuestions = $questions
+                ->when($hasSeederColumn, function (Collection $collection) use ($existingQuestionKeys) {
+                    return $collection->reject(function (Question $question) use ($existingQuestionKeys) {
+                        return in_array($question->uuid, $existingQuestionKeys, true);
+                    });
+                })
+                ->map(function (Question $question) {
+                    $question->answers = $question->answers->sortBy('marker')->values();
+
+                    return [
+                        'uuid' => $question->uuid,
+                        'highlighted_text' => $this->renderQuestionWithHighlightedAnswers($question),
+                        'raw_text' => $question->question,
+                        'category' => optional($question->category)->name,
+                        'source' => optional($question->source)->name,
+                        'difficulty' => $question->difficulty,
+                        'level' => $question->level,
+                        'flag' => $question->flag,
+                        'tags' => $question->tags
+                            ->map(fn ($tag) => [
+                                'id' => $tag->id,
+                                'name' => $tag->name,
+                                'category' => $tag->category,
+                            ])
+                            ->values(),
+                        'answers' => $question->answers
+                            ->map(fn ($answer) => [
+                                'marker' => $answer->marker,
+                                'label' => optional($answer->option)->option ?? $answer->answer,
+                            ])
+                            ->values(),
+                        'options' => $question->options
+                            ->map(fn ($option) => $option->option)
+                            ->values(),
+                        'verb_hints' => $question->verbHints
+                            ->map(fn ($hint) => [
+                                'marker' => $hint->marker,
+                                'label' => optional($hint->option)->option,
+                            ])
+                            ->filter(fn ($hint) => filled($hint['label']))
+                            ->values(),
+                        'variants' => $question->variants
+                            ->pluck('text')
+                            ->filter()
+                            ->values(),
+                        'hints' => $question->hints
+                            ->map(fn (QuestionHint $hint) => [
+                                'provider' => $hint->provider,
+                                'locale' => $hint->locale,
+                                'text' => $hint->hint,
+                            ])
+                            ->values(),
+                        'explanations' => $question->chatgptExplanations
+                            ->map(fn ($explanation) => [
+                                'wrong_answer' => $explanation->wrong_answer,
+                                'text' => $explanation->explanation,
+                            ])
+                            ->values(),
+                    ];
+                })
+                ->values();
+        } finally {
+            DB::rollBack();
+        }
+
+        return [
+            'questions' => $previewQuestions,
+            'existingQuestionCount' => $existingQuestionCount,
+        ];
     }
 
     public function loadFolderChildren(Request $request): JsonResponse
@@ -445,6 +613,58 @@ class SeedRunController extends Controller
         $html = view('seed-runs.partials.question-answers', [
             'options' => $options,
             'textAnswers' => $textAnswers,
+        ])->render();
+
+        return response()->json(['html' => $html]);
+    }
+
+    public function loadQuestionTags(int $seedRunId, Question $question): JsonResponse
+    {
+        if (! Schema::hasTable('seed_runs') || ! Schema::hasTable('questions') || ! Schema::hasTable('tags')) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Потрібні таблиці бази даних недоступні.'),
+            ], 404);
+        }
+
+        if (! Schema::hasTable('question_tag')) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Потрібні таблиці бази даних недоступні.'),
+            ], 404);
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Запис сидера не знайдено.'),
+            ], 404);
+        }
+
+        if ($question->seeder !== $seedRun->class_name) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Питання не належить до вибраного сидера.'),
+            ], 404);
+        }
+
+        $question->loadMissing(['tags']);
+
+        $tags = $question->tags
+            ->map(function ($tag) {
+                return [
+                    'id' => $tag->id,
+                    'name' => $tag->name,
+                    'category' => $tag->category,
+                ];
+            })
+            ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)
+            ->values();
+
+        $html = view('seed-runs.partials.question-tags', [
+            'tags' => $tags,
         ])->render();
 
         return response()->json(['html' => $html]);
