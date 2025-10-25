@@ -18,6 +18,11 @@ try {
 
     $env = loadEnv($envPath);
 
+    enforceBasicAuth(
+        getEnvValue($env, 'RESTORE_AUTH_USERNAME'),
+        getEnvValue($env, 'RESTORE_AUTH_PASSWORD')
+    );
+
     $branch = getEnvValue($env, 'DEPLOYMENT_RESTORE_BRANCH');
     $owner = getEnvValue($env, 'DEPLOYMENT_GITHUB_OWNER');
     $repo = getEnvValue($env, 'DEPLOYMENT_GITHUB_REPO');
@@ -132,6 +137,36 @@ function getEnvValue(array $env, string $key, ?string $default = null): ?string
     }
 
     return $value;
+}
+
+function enforceBasicAuth(?string $expectedUser, ?string $expectedPassword): void
+{
+    if ($expectedUser === null || $expectedUser === '' || $expectedPassword === null) {
+        throw new RuntimeException('RESTORE_AUTH_USERNAME or RESTORE_AUTH_PASSWORD is not configured in .env.');
+    }
+
+    $providedUser = $_SERVER['PHP_AUTH_USER'] ?? null;
+    $providedPassword = $_SERVER['PHP_AUTH_PW'] ?? null;
+
+    if (($providedUser === null || $providedPassword === null)) {
+        $header = $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] ?? null;
+        if (is_string($header) && stripos($header, 'basic ') === 0) {
+            $decoded = base64_decode(substr($header, 6), true);
+            if ($decoded !== false) {
+                [$providedUser, $providedPassword] = array_pad(explode(':', $decoded, 2), 2, null);
+            }
+        }
+    }
+
+    $userMatches = is_string($providedUser) && timingSafeEquals($expectedUser, $providedUser);
+    $passwordMatches = is_string($providedPassword) && timingSafeEquals($expectedPassword, $providedPassword);
+
+    if (! ($userMatches && $passwordMatches)) {
+        header('WWW-Authenticate: Basic realm="Restore"');
+        http_response_code(401);
+        echo 'Authentication required.' . PHP_EOL;
+        exit;
+    }
 }
 
 function githubApiRequest(string $url, ?string $token, string $userAgent): array
@@ -417,6 +452,26 @@ function updateHeadCommit(string $repositoryPath, string $commitSha): void
     } else {
         file_put_contents($headFile, $commitSha . PHP_EOL);
     }
+}
+
+function timingSafeEquals(string $knownString, string $userString): bool
+{
+    if (function_exists('hash_equals')) {
+        return hash_equals($knownString, $userString);
+    }
+
+    if (strlen($knownString) !== strlen($userString)) {
+        return false;
+    }
+
+    $result = 0;
+    $length = strlen($knownString);
+
+    for ($i = 0; $i < $length; $i++) {
+        $result |= ord($knownString[$i]) ^ ord($userString[$i]);
+    }
+
+    return $result === 0;
 }
 
 if (! function_exists('str_contains')) {
