@@ -65,6 +65,15 @@
                                                 Переглянути
                                             </a>
                                         @endif
+                                        <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
+                                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                                <i class="fa-solid fa-file-circle-xmark"></i>
+                                                Видалити файл
+                                            </button>
+                                        </form>
                                         <form method="POST" action="{{ route('seed-runs.mark-executed') }}" data-preloader>
                                             @csrf
                                             <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">

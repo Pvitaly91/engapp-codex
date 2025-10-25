@@ -827,6 +827,67 @@ class SeedRunController extends Controller
             ->with('status', __('Seeder :class executed successfully.', ['class' => $className]));
     }
 
+    public function destroySeederFile(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'class_name' => ['required', 'string'],
+        ]);
+
+        $className = $validated['class_name'];
+
+        $candidatePaths = collect();
+
+        if (Str::startsWith($className, 'Database\\Seeders\\')) {
+            $relative = Str::after($className, 'Database\\Seeders\\');
+            $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
+            $candidatePaths->push(database_path('seeders/' . $relativePath));
+        }
+
+        if (class_exists($className)) {
+            try {
+                $reflection = new \ReflectionClass($className);
+                $fileName = $reflection->getFileName();
+
+                if ($fileName) {
+                    $candidatePaths->push($fileName);
+                }
+            } catch (\ReflectionException $exception) {
+                report($exception);
+            }
+        }
+
+        $candidatePaths = $candidatePaths
+            ->filter(fn ($path) => filled($path))
+            ->unique()
+            ->values();
+
+        $filePath = $candidatePaths->first(fn ($path) => File::exists($path));
+
+        if (! $filePath) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('Файл для сидера :class не знайдено.', ['class' => $className])]);
+        }
+
+        try {
+            if (! File::delete($filePath)) {
+                return redirect()
+                    ->route('seed-runs.index')
+                    ->withErrors(['run' => __('Не вдалося видалити файл сидера :class.', ['class' => $className])]);
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('Не вдалося видалити файл сидера :class.', ['class' => $className])]);
+        }
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', __('Файл сидера :class успішно видалено.', ['class' => $className]));
+    }
+
     public function markAsExecuted(Request $request): RedirectResponse
     {
         if (! Schema::hasTable('seed_runs')) {

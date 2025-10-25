@@ -139,6 +139,15 @@
                     </div>
 
                     <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
+                        <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($seedRun->display_class_name) }}»?" class="flex-1 sm:flex-none md:flex-1 md:w-full">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="class_name" value="{{ $seedRun->class_name }}">
+                            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                <i class="fa-solid fa-file-circle-xmark"></i>
+                                Видалити файл
+                            </button>
+                        </form>
                         <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="{{ __($seederDeleteConfirm) }}" class="flex-1 sm:flex-none md:flex-1 md:w-full">
                             @csrf
                             @method('DELETE')
