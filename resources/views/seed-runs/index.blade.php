@@ -65,6 +65,14 @@
                                                 Переглянути
                                             </a>
                                         @endif
+                                        <form method="POST" action="{{ route('seed-runs.mark-executed') }}" data-preloader>
+                                            @csrf
+                                            <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
+                                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition">
+                                                <i class="fa-solid fa-check"></i>
+                                                Позначити виконаним
+                                            </button>
+                                        </form>
                                         <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader>
                                             @csrf
                                             <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">

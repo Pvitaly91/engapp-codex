@@ -827,6 +827,44 @@ class SeedRunController extends Controller
             ->with('status', __('Seeder :class executed successfully.', ['class' => $className]));
     }
 
+    public function markAsExecuted(Request $request): RedirectResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('The seed_runs table does not exist.')]);
+        }
+
+        $validated = $request->validate([
+            'class_name' => ['required', 'string'],
+        ]);
+
+        $className = $validated['class_name'];
+
+        if (! class_exists($className)) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
+        }
+
+        try {
+            DB::table('seed_runs')->updateOrInsert(
+                ['class_name' => $className],
+                ['ran_at' => now()]
+            );
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => $exception->getMessage()]);
+        }
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', __('Seeder :class marked as executed.', ['class' => $className]));
+    }
+
     public function runMissing(): RedirectResponse
     {
         if (! Schema::hasTable('seed_runs')) {
