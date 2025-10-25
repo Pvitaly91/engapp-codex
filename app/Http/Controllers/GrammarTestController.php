@@ -148,7 +148,7 @@ class GrammarTestController extends Controller
             session([$key . '_queue' => $queue, $key . '_current' => $currentId]);
         }
 
-        $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option'])
+        $question = \App\Models\Question::with(['options', 'answers.option', 'verbHints.option', 'tags'])
             ->findOrFail($currentId);
         $feedback = session($key . '_feedback');
         session()->forget($key . '_feedback');
@@ -237,6 +237,49 @@ class GrammarTestController extends Controller
         ]);
 
         return redirect()->route('saved-test.step', $slug);
+    }
+
+    public function determineTense(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $tags = Tag::where('category', 'Tenses')->pluck('name')->toArray();
+        $gpt = app(\App\Services\ChatGPTService::class);
+        $suggested = $gpt->determineTenseTags($question->question, $tags);
+
+        return response()->json(['tags' => $suggested]);
+    }
+
+    public function addTag(Request $request, $slug)
+    {
+        $test = Test::where('slug', $slug)->firstOrFail();
+        $request->validate([
+            'question_id' => 'required|integer',
+            'tag' => 'required|string',
+        ]);
+
+        $question = Question::findOrFail($request->input('question_id'));
+        if (! in_array($question->id, $test->questions)) {
+            abort(404);
+        }
+
+        $tag = Tag::where('name', $request->input('tag'))->first();
+        if (! $tag) {
+            return response()->json(['message' => 'Tag not found'], 404);
+        }
+
+        $question->tags()->syncWithoutDetaching([$tag->id]);
+        $question->load('tags');
+
+        return response()->json(['tags' => $question->tags->pluck('name')]);
     }
 
     public function resetSavedTestStep($slug)
