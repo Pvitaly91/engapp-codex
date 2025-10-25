@@ -4,6 +4,7 @@ use App\Http\Controllers\AiTestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\DeploymentController;
+use App\Http\Controllers\DeploymentGitHubController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MigrationController;
@@ -85,6 +86,15 @@ Route::middleware('auth.admin')->group(function () {
         Route::post('/deployment/backup-branch', [DeploymentController::class, 'createBackupBranch'])->name('deployment.backup-branch');
         Route::post('/deployment/backup-branches/{backupBranch}/push', [DeploymentController::class, 'pushBackupBranch'])->name('deployment.backup-branch.push');
         Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
+
+        Route::prefix('/deployment/github')->name('deployment.github.')->group(function () {
+            Route::get('/', [DeploymentGitHubController::class, 'index'])->name('index');
+            Route::post('/deploy', [DeploymentGitHubController::class, 'deploy'])->name('deploy');
+            Route::post('/push-current', [DeploymentGitHubController::class, 'pushCurrent'])->name('push-current');
+            Route::post('/backup-branch', [DeploymentGitHubController::class, 'createBackupBranch'])->name('backup-branch');
+            Route::post('/backup-branches/{backupBranch}/push', [DeploymentGitHubController::class, 'pushBackupBranch'])->name('backup-branch.push');
+            Route::post('/rollback', [DeploymentGitHubController::class, 'rollback'])->name('rollback');
+        });
 
         Route::get('/migrations', [MigrationController::class, 'index'])->name('migrations.index');
         Route::post('/migrations/run', [MigrationController::class, 'run'])->name('migrations.run');

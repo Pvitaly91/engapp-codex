@@ -1,14 +1,20 @@
 @extends('layouts.app')
 
-@section('title', 'Оновлення сайту')
+@section('title', 'Оновлення сайту через GitHub API')
 
 @section('content')
   <div class="max-w-4xl mx-auto space-y-8">
     @include('deployment.partials.switcher')
 
     <header class="space-y-2 text-center">
-      <h1 class="text-3xl font-semibold">Оновлення сайту з репозиторію</h1>
-      <p class="text-muted-foreground">Ця сторінка дозволяє підтягнути останні зміни з GitHub та за потреби повернутися до попереднього робочого стану.</p>
+      <h1 class="text-3xl font-semibold">Git-операції без shell</h1>
+      <p class="text-muted-foreground">Ця версія інтерфейсу використовує виключно GitHub API та роботу з файлами PHP, жодних викликів shell-функцій.</p>
+      @if($repositoryInfo)
+        <p class="text-sm text-muted-foreground">Підключений репозиторій: <span class="font-semibold">{{ $repositoryInfo['owner'] }}/{{ $repositoryInfo['repo'] }}</span></p>
+      @else
+        <p class="text-sm text-destructive-foreground">Не вдалося визначити посилання на origin GitHub. Перевірте файл <code>.git/config</code>.</p>
+      @endif
+      <p class="text-xs text-muted-foreground">Для змін, що потребують запису в GitHub (push / створення гілок), додайте токен у <code>GITHUB_TOKEN</code>.</p>
     </header>
 
     <div class="flex justify-center">
@@ -43,7 +49,7 @@
                     {{ $command['successful'] ? 'OK' : 'Помилка' }}
                   </span>
                 </div>
-                <pre class="mt-2 overflow-x-auto whitespace-pre-wrap text-xs leading-relaxed">{{ $command['output'] }}</pre>
+                <pre class="mt-2 overflow-x-auto whitespace-pre-wrap text-xs leading-relaxed">{{ $command['output'] ?? 'Без виводу' }}</pre>
               </li>
             @endforeach
           </ul>
@@ -54,10 +60,10 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">1. Оновити з Git</h2>
-          <p class="text-sm text-muted-foreground">Натисніть кнопку нижче, щоб виконати послідовність команд: <code>git fetch origin</code> та <code>git reset --hard origin/&lt;гілка&gt;</code>. Перед скиданням автоматично збережеться резервний коміт.</p>
+          <h2 class="text-2xl font-semibold">1. Синхронізувати з GitHub</h2>
+          <p class="text-sm text-muted-foreground">Завантажує zip-архів гілки з GitHub, розпаковує його та оновлює файлову систему проєкту без команд shell.</p>
         </div>
-        <form method="POST" action="{{ route('deployment.deploy') }}" class="space-y-4">
+        <form method="POST" action="{{ route('deployment.github.deploy') }}" class="space-y-4">
           @csrf
           <label class="block text-sm font-medium">Гілка для оновлення</label>
           <input type="text" name="branch" value="main" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
@@ -69,14 +75,14 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">2. Запушити поточний стан</h2>
-          <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
+          <h2 class="text-2xl font-semibold">2. Записати поточний стан на GitHub</h2>
+          <p class="text-sm text-muted-foreground">Створює новий коміт і оновлює вказану гілку через REST API GitHub. Потрібен токен з правами <code>repo</code>.</p>
         </div>
-        <form method="POST" action="{{ route('deployment.push-current') }}" class="space-y-4">
+        <form method="POST" action="{{ route('deployment.github.push-current') }}" class="space-y-4">
           @csrf
-          <label class="block text-sm font-medium" for="push-current-branch">Віддалена гілка</label>
-          <input id="push-current-branch" type="text" name="branch" value="master" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
-          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-emerald-600/90">Запушити поточний коміт</button>
+          <label class="block text-sm font-medium" for="push-current-branch-api">Віддалена гілка</label>
+          <input id="push-current-branch-api" type="text" name="branch" value="master" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-emerald-600/90">Запушити через API</button>
         </form>
       </div>
     </section>
@@ -84,19 +90,19 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
-          <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
+          <h2 class="text-2xl font-semibold">3. Створити резервну гілку на GitHub</h2>
+          <p class="text-sm text-muted-foreground">Оформлює нову гілку у віддаленому репозиторії, використовуючи поточний коміт або обраний з резервної історії.</p>
         </div>
-        <form method="POST" action="{{ route('deployment.backup-branch') }}" class="space-y-4">
+        <form method="POST" action="{{ route('deployment.github.backup-branch') }}" class="space-y-4">
           @csrf
           <div class="grid gap-4 md:grid-cols-2">
             <div class="space-y-2">
-              <label class="block text-sm font-medium" for="backup-branch-name">Назва резервної гілки</label>
-              <input id="backup-branch-name" type="text" name="branch_name" placeholder="backup/{{ now()->format('Y-m-d') }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" required />
+              <label class="block text-sm font-medium" for="backup-branch-name-api">Назва резервної гілки</label>
+              <input id="backup-branch-name-api" type="text" name="branch_name" placeholder="backup/{{ now()->format('Y-m-d') }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" required />
             </div>
             <div class="space-y-2">
-              <label class="block text-sm font-medium" for="backup-branch-commit">Коміт для копії</label>
-              <select id="backup-branch-commit" name="commit" class="w-full rounded-2xl border border-input bg-background px-4 py-2">
+              <label class="block text-sm font-medium" for="backup-branch-commit-api">Коміт для копії</label>
+              <select id="backup-branch-commit-api" name="commit" class="w-full rounded-2xl border border-input bg-background px-4 py-2">
                 <option value="current">Поточний HEAD (визначити автоматично)</option>
                 @foreach($backups as $backup)
                   <option value="{{ $backup['commit'] }}">
@@ -115,10 +121,10 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">4. Керування резервними гілками</h2>
-          <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub, щоб зберегти віддалену копію.</p>
+          <p class="text-sm text-muted-foreground">Гілки створюються безпосередньо у GitHub, але їх статус відображається у базі. За потреби можна повторно оновити віддалену гілку.</p>
         </div>
         @if($backupBranches->isEmpty())
-          <p class="text-sm text-muted-foreground">Поки що немає створених резервних гілок. Створіть першу гілку у попередньому блоці.</p>
+          <p class="text-sm text-muted-foreground">Поки що немає створених резервних гілок.</p>
         @else
           <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-border/70 text-sm">
@@ -140,26 +146,22 @@
                     <td class="px-4 py-3">
                       @if($branch->pushed_at)
                         <span class="inline-flex items-center gap-1 rounded-full bg-success/15 px-3 py-1 text-xs font-semibold text-success">
-                          <i class="fa-solid fa-check"></i> Запушено {{ $branch->pushed_at->format('d.m.Y H:i') }}
+                          <i class="fa-solid fa-check"></i> Оновлено {{ $branch->pushed_at->format('d.m.Y H:i') }}
                         </span>
                       @else
                         <span class="inline-flex items-center gap-1 rounded-full bg-warning/15 px-3 py-1 text-xs font-semibold text-amber-700">
-                          <i class="fa-solid fa-cloud-arrow-up"></i> Лише локально
+                          <i class="fa-solid fa-cloud-arrow-up"></i> Очікує публікації
                         </span>
                       @endif
                     </td>
                     <td class="px-4 py-3 text-right">
-                      @if(! $branch->pushed_at)
-                        <form method="POST" action="{{ route('deployment.backup-branch.push', $branch) }}" class="inline">
-                          @csrf
-                          <button type="submit" class="inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
-                            Запушити
-                          </button>
-                        </form>
-                      @else
-                        <span class="text-xs text-muted-foreground">Віддалена копія актуальна</span>
-                      @endif
+                      <form method="POST" action="{{ route('deployment.github.backup-branch.push', $branch) }}" class="inline">
+                        @csrf
+                        <button type="submit" class="inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
+                          <i class="fa-solid fa-cloud-arrow-up"></i>
+                          Синхронізувати
+                        </button>
+                      </form>
                     </td>
                   </tr>
                 @endforeach
@@ -173,16 +175,16 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">5. Відкотити зміни</h2>
-          <p class="text-sm text-muted-foreground">Якщо після оновлення з’явилися проблеми, можна повернути сайт до збереженого стану. Виберіть потрібний коміт зі списку нижче.</p>
+          <h2 class="text-2xl font-semibold">5. Відкат до резервного коміту</h2>
+          <p class="text-sm text-muted-foreground">Архів вибраного коміту завантажується з GitHub і застосовується до робочої директорії без жодних shell-команд.</p>
         </div>
         @if(count($backups) === 0)
-          <p class="text-sm text-muted-foreground">Резервних копій ще немає. Після першого оновлення вони з’являться автоматично.</p>
+          <p class="text-sm text-muted-foreground">Резервних копій ще немає. Після першого синхронізування вони з’являться автоматично.</p>
         @else
-          <form method="POST" action="{{ route('deployment.rollback') }}" class="space-y-4">
+          <form method="POST" action="{{ route('deployment.github.rollback') }}" class="space-y-4">
             @csrf
-            <label class="block text-sm font-medium" for="rollback-commit">Оберіть резервний коміт</label>
-            <select id="rollback-commit" name="commit" class="w-full rounded-2xl border border-input bg-background px-4 py-2">
+            <label class="block text-sm font-medium" for="rollback-commit-api">Оберіть резервний коміт</label>
+            <select id="rollback-commit-api" name="commit" class="w-full rounded-2xl border border-input bg-background px-4 py-2">
               @foreach($backups as $backup)
                 <option value="{{ $backup['commit'] }}">
                   {{ \Illuminate\Support\Carbon::parse($backup['timestamp'])->format('d.m.Y H:i') }} — {{ $backup['commit'] }}
@@ -197,14 +199,13 @@
 
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-4 p-6">
-        <h2 class="text-2xl font-semibold">Як працює автоматизація</h2>
+        <h2 class="text-2xl font-semibold">Як працює режим без shell</h2>
         <ol class="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
-          <li>Зберігаємо поточний коміт у файлі <code>storage/app/deployment_backups.json</code>.</li>
-          <li>Виконуємо <code>git fetch origin</code>, щоб підтягнути останні зміни з віддаленого репозиторію.</li>
-          <li>Перемикаємо робочу копію на обрану гілку командою <code>git reset --hard origin/&lt;гілка&gt;</code>, що ігнорує конфлікти.</li>
-          <li>Для повернення стану використовуємо <code>git reset --hard &lt;коміт&gt;</code> з історії резервних копій.</li>
+          <li>Дані про поточний коміт зберігаються у <code>storage/app/deployment_backups.json</code>.</li>
+          <li>Архіви гілок та комітів завантажуються напряму з GitHub через HTTPS, після чого файли копіюються у проєкт.</li>
+          <li>Для пушу формується дерево файлів, створюються блоби та коміт за допомогою REST API GitHub.</li>
+          <li>Жодна з операцій не використовує <code>proc_open</code>, <code>exec</code>, <code>shell_exec</code>, <code>system</code>, чи <code>passthru</code>.</li>
         </ol>
-        <p class="text-sm text-muted-foreground">Усі команди виконуються від кореня застосунку, тому структура проєкту та залежності залишаються в актуальному стані.</p>
       </div>
     </section>
   </div>

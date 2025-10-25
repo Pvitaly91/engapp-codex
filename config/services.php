@@ -41,4 +41,8 @@ return [
         'model' => env('GEMINI_MODEL', 'gemini-2.5-flash'),
     ],
 
+    'github' => [
+        'token' => env('GITHUB_TOKEN'),
+    ],
+
 ];
