@@ -15,6 +15,10 @@ class DeploymentController extends Controller
 
     public function index()
     {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
         $backups = array_reverse($this->loadBackups());
         $feedback = session('deployment');
 
@@ -32,6 +36,7 @@ class DeploymentController extends Controller
             'feedback' => $feedback,
             'backupBranches' => $backupBranches,
             'currentBranch' => $currentBranch,
+            'supportsShell' => $this->supportsShellCommands(),
         ]);
     }
 
@@ -40,6 +45,10 @@ class DeploymentController extends Controller
         $branch = $request->input('branch', 'main');
         $branch = Str::of($branch)->trim()->value() ?: 'main';
         $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'main';
+
+        if ($redirect = $this->redirectIfShellUnavailable($branch)) {
+            return $redirect;
+        }
 
         $repoPath = base_path();
         $commandsOutput = [];
@@ -90,6 +99,10 @@ class DeploymentController extends Controller
         $branch = Str::of($branch)->trim()->value() ?: 'master';
         $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'master';
 
+        if ($redirect = $this->redirectIfShellUnavailable($branch)) {
+            return $redirect;
+        }
+
         $repoPath = base_path();
         $commandsOutput = [];
 
@@ -118,6 +131,10 @@ class DeploymentController extends Controller
 
     public function rollback(Request $request): RedirectResponse
     {
+        if ($redirect = $this->redirectIfShellUnavailable()) {
+            return $redirect;
+        }
+
         $commit = $request->input('commit');
         $repoPath = base_path();
 
@@ -143,6 +160,10 @@ class DeploymentController extends Controller
     {
         $branchName = Str::of($request->input('branch_name', ''))->trim()->value();
         $branchName = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branchName);
+
+        if ($redirect = $this->redirectIfShellUnavailable($branchName ?: null)) {
+            return $redirect;
+        }
 
         if ($branchName === '') {
             return $this->redirectWithFeedback('error', 'Вкажіть коректну назву гілки для резервного бекапу.', []);
@@ -205,6 +226,10 @@ class DeploymentController extends Controller
 
     public function pushBackupBranch(BackupBranch $backupBranch): RedirectResponse
     {
+        if ($redirect = $this->redirectIfShellUnavailable($backupBranch->name)) {
+            return $redirect;
+        }
+
         $repoPath = base_path();
         $commandsOutput = [];
 
@@ -291,6 +316,27 @@ class DeploymentController extends Controller
                 'status' => $status,
                 'message' => $message,
                 'commands' => $commands,
+            ]);
+    }
+
+    private function supportsShellCommands(): bool
+    {
+        return function_exists('proc_open');
+    }
+
+    private function redirectIfShellUnavailable(?string $branch = null): ?RedirectResponse
+    {
+        if ($this->supportsShellCommands()) {
+            return null;
+        }
+
+        return redirect()
+            ->route('deployment.native.index')
+            ->with('deployment_native', [
+                'status' => 'error',
+                'message' => 'Режим через shell недоступний на цьому сервері. Скористайтеся сторінкою без shell.',
+                'logs' => [],
+                'branch' => $branch,
             ]);
     }
 }
