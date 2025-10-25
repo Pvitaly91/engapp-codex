@@ -883,9 +883,29 @@ class SeedRunController extends Controller
                 ->withErrors(['run' => __('Не вдалося видалити файл сидера :class.', ['class' => $className])]);
         }
 
+        $statusMessage = __('Файл сидера :class успішно видалено.', ['class' => $className]);
+
+        if (Schema::hasTable('seed_runs')) {
+            try {
+                $deletedRuns = DB::table('seed_runs')
+                    ->where('class_name', $className)
+                    ->delete();
+
+                if ($deletedRuns > 0) {
+                    $statusMessage .= ' ' . __('Пов’язаний запис seed_runs видалено.');
+                }
+            } catch (\Throwable $exception) {
+                report($exception);
+
+                return redirect()
+                    ->route('seed-runs.index')
+                    ->withErrors(['run' => __('Файл сидера видалено, але не вдалося оновити seed_runs. Будь ласка, перевірте журнал.')]);
+            }
+        }
+
         return redirect()
             ->route('seed-runs.index')
-            ->with('status', __('Файл сидера :class успішно видалено.', ['class' => $className]));
+            ->with('status', $statusMessage);
     }
 
     public function markAsExecuted(Request $request): RedirectResponse

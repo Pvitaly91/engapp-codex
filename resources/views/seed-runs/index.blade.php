@@ -117,7 +117,21 @@
         @endif
     </div>
 
-    <div id="seed-run-preloader" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center">
+    <div id="seed-run-confirmation-modal" class="hidden fixed inset-0 z-50 items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="seed-run-confirmation-title">
+        <div class="absolute inset-0 bg-slate-900/50" data-confirm-overlay></div>
+        <div class="relative bg-white rounded-lg shadow-xl max-w-sm w-full mx-4 p-6 space-y-4">
+            <div class="space-y-1">
+                <h2 id="seed-run-confirmation-title" class="text-lg font-semibold text-gray-800">{{ __('Підтвердження') }}</h2>
+                <p class="text-sm text-gray-600" data-confirm-message></p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition" data-confirm-cancel>{{ __('Скасувати') }}</button>
+                <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-500 transition" data-confirm-accept>{{ __('Підтвердити') }}</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="seed-run-preloader" class="hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm flex items-center justify-center">
         <div class="bg-white rounded-lg shadow-lg px-6 py-4 flex items-center gap-3 text-sm text-gray-700">
             <span class="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></span>
             <span>Виконується операція…</span>
@@ -134,12 +148,110 @@
             const errorClasses = ['bg-red-50', 'border-red-200', 'text-red-700'];
             let feedbackTimeout;
 
+            const confirmationModal = document.getElementById('seed-run-confirmation-modal');
+            const confirmationMessage = confirmationModal ? confirmationModal.querySelector('[data-confirm-message]') : null;
+            const confirmationAccept = confirmationModal ? confirmationModal.querySelector('[data-confirm-accept]') : null;
+            const confirmationCancel = confirmationModal ? confirmationModal.querySelector('[data-confirm-cancel]') : null;
+            const confirmationOverlay = confirmationModal ? confirmationModal.querySelector('[data-confirm-overlay]') : null;
+            let pendingConfirmationForm = null;
+
+            const closeConfirmationModal = function () {
+                if (!confirmationModal) {
+                    return;
+                }
+
+                confirmationModal.classList.add('hidden');
+                confirmationModal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                pendingConfirmationForm = null;
+            };
+
+            const openConfirmationModal = function (form, message) {
+                if (!confirmationModal || !confirmationMessage || !confirmationAccept || !confirmationCancel) {
+                    return false;
+                }
+
+                pendingConfirmationForm = form;
+                confirmationMessage.textContent = message;
+                confirmationModal.classList.remove('hidden');
+                confirmationModal.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+
+                window.setTimeout(function () {
+                    confirmationAccept.focus();
+                }, 0);
+
+                return true;
+            };
+
+            if (confirmationAccept) {
+                confirmationAccept.addEventListener('click', function () {
+                    if (!pendingConfirmationForm) {
+                        closeConfirmationModal();
+
+                        return;
+                    }
+
+                    const formToSubmit = pendingConfirmationForm;
+                    formToSubmit.dataset.confirmed = 'true';
+                    closeConfirmationModal();
+                    formToSubmit.requestSubmit();
+                });
+            }
+
+            const cancelConfirmation = function () {
+                if (pendingConfirmationForm) {
+                    pendingConfirmationForm = null;
+                }
+
+                closeConfirmationModal();
+            };
+
+            if (confirmationCancel) {
+                confirmationCancel.addEventListener('click', cancelConfirmation);
+            }
+
+            if (confirmationOverlay) {
+                confirmationOverlay.addEventListener('click', cancelConfirmation);
+            }
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && confirmationModal && !confirmationModal.classList.contains('hidden')) {
+                    event.preventDefault();
+                    cancelConfirmation();
+                }
+            });
+
             document.querySelectorAll('form[data-preloader]').forEach(function (form) {
                 form.addEventListener('submit', function (event) {
+                    if (form.dataset.confirmed === 'true') {
+                        delete form.dataset.confirmed;
+
+                        if (preloader) {
+                            preloader.classList.remove('hidden');
+                        }
+
+                        return;
+                    }
+
                     const confirmMessage = form.dataset.confirm;
 
-                    if (confirmMessage && !window.confirm(confirmMessage)) {
+                    if (confirmMessage) {
                         event.preventDefault();
+
+                        const modalOpened = openConfirmationModal(form, confirmMessage);
+
+                        if (!modalOpened && !window.confirm(confirmMessage)) {
+                            return;
+                        }
+
+                        if (!modalOpened) {
+                            if (preloader) {
+                                preloader.classList.remove('hidden');
+                            }
+
+                            form.submit();
+                        }
 
                         return;
                     }
