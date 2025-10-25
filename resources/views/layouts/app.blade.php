@@ -42,7 +42,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                @php($supportsShell = function_exists('proc_open'))
+                @php $supportsShell = function_exists('proc_open'); @endphp
 
                 <div class="hidden md:flex md:items-center md:gap-6 text-gray-600 font-medium">
                     <a href="{{ route('pages.manage.index') }}" class="hover:text-blue-500 transition">Сторінки</a>
