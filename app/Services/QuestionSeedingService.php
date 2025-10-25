@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Category;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
@@ -12,6 +13,26 @@ use Illuminate\Support\Facades\Schema;
 
 class QuestionSeedingService
 {
+    /**
+     * Mapping of legacy category identifiers to human readable names.
+     *
+     * Older seeders – especially those living under the Database\Seeders\V1
+     * namespace – reference hard coded category IDs without creating the
+     * underlying records. When we run those seeders in isolation (for example
+     * while preparing the preview in /admin/seed-runs) the insert fails because
+     * of the missing categories. By keeping the mapping here we can ensure the
+     * necessary categories exist on the fly while still allowing newer seeders
+     * to provide their own category metadata.
+     */
+    private const LEGACY_CATEGORY_NAMES = [
+        1 => 'Past',
+        2 => 'Present',
+        3 => 'Present Continuous',
+        4 => 'Future',
+        5 => 'Present Perfect',
+        6 => 'Conditionals',
+    ];
+
     private function attachOption(Question $question, string $value, ?int $flag = null): QuestionOption
     {
         $option = QuestionOption::firstOrCreate(['option' => $value]);
@@ -50,6 +71,10 @@ class QuestionSeedingService
                 }
 
                 continue;
+            }
+
+            if (! empty($data['category_id'])) {
+                $this->ensureCategoryExists((int) $data['category_id']);
             }
 
             $attributes = [
@@ -111,5 +136,12 @@ class QuestionSeedingService
                 $q->tags()->syncWithoutDetaching($data['tag_ids']);
             }
         }
+    }
+
+    private function ensureCategoryExists(int $categoryId): void
+    {
+        $name = self::LEGACY_CATEGORY_NAMES[$categoryId] ?? ('Legacy Category ' . $categoryId);
+
+        Category::firstOrCreate(['id' => $categoryId], ['name' => $name]);
     }
 }
