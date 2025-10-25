@@ -62,85 +62,106 @@ class QuestionSeedingService
         $defaultSeederClass = $this->detectSeederClassName();
 
         foreach ($items as $data) {
-            $existingQuestion = Question::where('uuid', $data['uuid'])->first();
-
-            if ($existingQuestion) {
+            DB::transaction(function () use ($data, $defaultSeederClass) {
                 $seederClass = $data['seeder'] ?? $defaultSeederClass;
 
-                if (
-                    Schema::hasColumn('questions', 'seeder') &&
-                    $seederClass &&
-                    $existingQuestion->seeder !== $seederClass
-                ) {
-                    $existingQuestion->forceFill(['seeder' => $seederClass])->save();
+                $question = $this->locateExistingQuestion($data);
+
+                if (! empty($data['category_id'])) {
+                    $this->ensureCategoryExists((int) $data['category_id']);
                 }
 
+                $attributes = $this->buildQuestionAttributes($data, $seederClass);
+
+                if ($question) {
+                    $question->forceFill($attributes)->save();
+                    $this->recreateQuestionRelations($question, $data);
+
+                    return;
+                }
+
+                $question = Question::create($attributes);
+                $this->recreateQuestionRelations($question, $data);
+            });
+        }
+    }
+
+    private function locateExistingQuestion(array $data): ?Question
+    {
+        $question = Question::where('uuid', $data['uuid'])->first();
+
+        if ($question) {
+            return $question;
+        }
+
+        return Question::where('question', $data['question'])->first();
+    }
+
+    private function buildQuestionAttributes(array $data, ?string $seederClass): array
+    {
+        $attributes = [
+            'uuid'        => $data['uuid'],
+            'question'    => $data['question'],
+            'category_id' => $data['category_id'] ?? null,
+            'difficulty'  => $data['difficulty'] ?? 1,
+            'source_id'   => $data['source_id'] ?? null,
+            'flag'        => $data['flag'] ?? 0,
+        ];
+
+        if (Schema::hasColumn('questions', 'level')) {
+            $attributes['level'] = $data['level'] ?? null;
+        }
+
+        if (Schema::hasColumn('questions', 'seeder')) {
+            $attributes['seeder'] = $seederClass;
+        }
+
+        return $attributes;
+    }
+
+    private function recreateQuestionRelations(Question $question, array $data): void
+    {
+        QuestionAnswer::where('question_id', $question->id)->delete();
+        VerbHint::where('question_id', $question->id)->delete();
+        QuestionVariant::where('question_id', $question->id)->delete();
+        DB::table('question_option_question')->where('question_id', $question->id)->delete();
+
+        foreach ($data['answers'] as $ans) {
+            $option = $this->attachOption($question, $ans['answer']);
+
+            QuestionAnswer::create([
+                'question_id' => $question->id,
+                'marker'      => $ans['marker'],
+                'option_id'   => $option->id,
+            ]);
+
+            if (! empty($ans['verb_hint'])) {
+                $hintOption = $this->attachOption($question, $ans['verb_hint'], 1);
+
+                VerbHint::create([
+                    'question_id' => $question->id,
+                    'marker'      => $ans['marker'],
+                    'option_id'   => $hintOption->id,
+                ]);
+            }
+        }
+
+        foreach ($data['options'] ?? [] as $opt) {
+            $this->attachOption($question, $opt);
+        }
+
+        foreach ($data['variants'] ?? [] as $variantText) {
+            if (! $variantText) {
                 continue;
             }
 
-            if (! empty($data['category_id'])) {
-                $this->ensureCategoryExists((int) $data['category_id']);
-            }
-
-            $attributes = [
-                'uuid'        => $data['uuid'],
-                'question'    => $data['question'],
-                'category_id' => $data['category_id'] ?? null,
-                'difficulty'  => $data['difficulty'] ?? 1,
-                'source_id'   => $data['source_id'] ?? null,
-                'flag'        => $data['flag'] ?? 0,
-            ];
-
-            if (Schema::hasColumn('questions', 'level')) {
-                $attributes['level'] = $data['level'] ?? null;
-            }
-
-            if (Schema::hasColumn('questions', 'seeder')) {
-                $attributes['seeder'] = $data['seeder'] ?? $defaultSeederClass;
-            }
-
-            $q = Question::create($attributes);
-
-            foreach ($data['answers'] as $ans) {
-                $option = $this->attachOption($q, $ans['answer']);
-                QuestionAnswer::firstOrCreate([
-                    'question_id' => $q->id,
-                    'marker'      => $ans['marker'],
-                    'option_id'   => $option->id,
-                ]);
-                if (!empty($ans['verb_hint'])) {
-                    $hintOption = $this->attachOption($q, $ans['verb_hint'], 1);
-                    VerbHint::firstOrCreate([
-                        'question_id' => $q->id,
-                        'marker'      => $ans['marker'],
-                        'option_id'   => $hintOption->id,
-                    ]);
-                }
-            }
-
-            if (! empty($data['options'] ?? [])) {
-                foreach ($data['options'] as $opt) {
-                    $this->attachOption($q, $opt);
-                }
-            }
-
-            if (! empty($data['variants'] ?? [])) {
-                foreach ($data['variants'] as $variantText) {
-                    if (! $variantText) {
-                        continue;
-                    }
-
-                    QuestionVariant::firstOrCreate([
-                        'question_id' => $q->id,
-                        'text' => $variantText,
-                    ]);
-                }
-            }
-
-            if (! empty($data['tag_ids'] ?? [])) {
-                $q->tags()->syncWithoutDetaching($data['tag_ids']);
-            }
+            QuestionVariant::create([
+                'question_id' => $question->id,
+                'text' => $variantText,
+            ]);
         }
+
+        $question->tags()->sync($data['tag_ids'] ?? []);
     }
 
     private function ensureCategoryExists(int $categoryId): void
