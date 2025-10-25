@@ -42,6 +42,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
+                @php($supportsShell = function_exists('proc_open'))
+
                 <div class="hidden md:flex md:items-center md:gap-6 text-gray-600 font-medium">
                     <a href="{{ route('pages.manage.index') }}" class="hover:text-blue-500 transition">Сторінки</a>
                     <a href="{{ route('grammar-test') }}" class="hover:text-blue-500 transition">Граматика</a>
@@ -59,7 +61,7 @@
                             type="button"
                             class="inline-flex items-center gap-1 hover:text-blue-500 transition"
                         >
-                            Деплой
+                            {{ $supportsShell ? 'Деплой' : 'Git' }}
                             <i class="fa-solid fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': open }"></i>
                         </button>
                         <div
@@ -70,8 +72,12 @@
                             @mouseleave="open = false"
                             class="absolute right-0 mt-2 w-48 rounded-lg border border-gray-100 bg-white py-2 text-sm shadow-lg"
                         >
-                            <a href="{{ route('deployment.index') }}" class="block px-4 py-2 hover:bg-blue-50">Shell версія</a>
-                            <a href="{{ route('deployment.native.index') }}" class="block px-4 py-2 hover:bg-blue-50">Без shell</a>
+                            @if($supportsShell)
+                                <a href="{{ route('deployment.index') }}" class="block px-4 py-2 hover:bg-blue-50">Shell версія</a>
+                                <a href="{{ route('deployment.native.index') }}" class="block px-4 py-2 hover:bg-blue-50">Без shell</a>
+                            @else
+                                <a href="{{ route('deployment.native.index') }}" class="block px-4 py-2 hover:bg-blue-50">Git</a>
+                            @endif
                             <a href="{{ route('migrations.index') }}" class="block px-4 py-2 hover:bg-blue-50">Міграції</a>
                         </div>
                     </div>
@@ -102,12 +108,16 @@
                         class="flex w-full items-center justify-between rounded-lg px-2 py-2 hover:bg-blue-50"
                         @click="openDeployment = !openDeployment"
                     >
-                        <span>Деплой</span>
+                        <span>{{ $supportsShell ? 'Деплой' : 'Git' }}</span>
                         <i class="fa-solid fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openDeployment }"></i>
                     </button>
                     <div x-show="openDeployment" x-transition x-cloak class="ml-4 space-y-1 text-sm">
-                        <a href="{{ route('deployment.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Shell версія</a>
-                        <a href="{{ route('deployment.native.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Без shell</a>
+                        @if($supportsShell)
+                            <a href="{{ route('deployment.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Shell версія</a>
+                            <a href="{{ route('deployment.native.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Без shell</a>
+                        @else
+                            <a href="{{ route('deployment.native.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Git</a>
+                        @endif
                         <a href="{{ route('migrations.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Міграції</a>
                     </div>
                 </div>
