@@ -10,6 +10,7 @@ use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
 use Database\Seeders\Ai\ConditionalsComprehensiveAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
+use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
@@ -138,6 +139,7 @@ class DatabaseSeeder extends Seeder
             Ai\DoDoesIsAreFormsComprehensiveAiSeeder::class,
             ConditionalsComprehensiveAiSeeder::class,
             SecondConditionalComprehensiveAiSeeder::class,
+            QuestionWordsDragDropSeeder::class,
 
         ]);
     }

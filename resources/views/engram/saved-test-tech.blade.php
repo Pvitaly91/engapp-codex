@@ -3,15 +3,21 @@
 @section('title', $test->name . ' — Технічна сторінка')
 
 @section('content')
+@php
+    $preferredView = data_get($test->filters, 'preferred_view');
+    $primaryJsRoute = $preferredView === 'drag-drop'
+        ? route('saved-test.js.drag-drop', $test->slug)
+        : route('saved-test.js', $test->slug);
+@endphp
 <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-            <h1 class="text-2xl font-bold text-stone-900">{{ $test->name }} 
+            <h1 class="text-2xl font-bold text-stone-900">{{ $test->name }}
                 <a href="{{ route('saved-test.show', $test->slug) }}"
                 class="px-3 py-1.5 rounded-2xl border border-stone-200 bg-white shadow-sm text-sm font-semibold text-stone-700 hover:bg-stone-50">
                     ← Основна сторінка
                 </a>
-                <a href="{{ route('saved-test.js', $test->slug) }}"
+                <a href="{{ $primaryJsRoute }}"
                 class="px-3 py-1.5 rounded-2xl border border-stone-200 bg-white shadow-sm text-sm font-semibold text-stone-700 hover:bg-stone-50">
                     JS режим
                 </a>

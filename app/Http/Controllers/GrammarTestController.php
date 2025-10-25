@@ -40,6 +40,7 @@ class GrammarTestController extends Controller
         'saved-test-js-input',
         'saved-test-js-step-select',
         'saved-test-js-select',
+        'saved-test-js-drag-drop',
     ];
 
     public function __construct(
@@ -138,6 +139,11 @@ class GrammarTestController extends Controller
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
+
+        $preferredView = data_get($test->filters, 'preferred_view');
+        if ($preferredView === 'drag-drop') {
+            return redirect()->route('saved-test.js.drag-drop', $test->slug);
+        }
 
         $supportsVariants = $this->variantService->supportsVariants();
         $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags'];
@@ -376,6 +382,11 @@ class GrammarTestController extends Controller
         return $this->renderSavedTestJsView($slug, 'saved-test-js-select');
     }
 
+    public function showSavedTestJsDragDrop($slug)
+    {
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-drag-drop');
+    }
+
     private function renderSavedTestJsView(string $slug, string $view)
     {
         $resolved = $this->savedTestResolver->resolve($slug);
@@ -467,10 +478,17 @@ class GrammarTestController extends Controller
 
         return $questions->map(function ($q) {
             $answers = $q->answers->map(function ($a) {
-                return $a->option->option ?? $a->answer ?? '';
+                return [
+                    'marker' => $a->marker,
+                    'value' => $a->option->option ?? $a->answer ?? '',
+                ];
             });
 
-            $answerList = $answers->values()->toArray();
+            $answerList = $answers->pluck('value')->values()->toArray();
+            $answerMap = $answers
+                ->filter(fn ($ans) => ! empty($ans['marker']))
+                ->mapWithKeys(fn ($ans) => [$ans['marker'] => $ans['value']])
+                ->toArray();
             $options = $q->options->pluck('option')->toArray();
             foreach ($answerList as $ans) {
                 if ($ans && ! in_array($ans, $options)) {
@@ -487,6 +505,7 @@ class GrammarTestController extends Controller
                 'question' => $q->question,
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
+                'answer_map' => $answerMap,
                 'verb_hint' => $verbHints['a1'] ?? '',
                 'verb_hints' => $verbHints,
                 'options' => $options,
