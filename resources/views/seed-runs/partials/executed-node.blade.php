@@ -174,6 +174,14 @@
                     </div>
 
                     <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
+                        <button type="button"
+                                class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
+                                data-seeder-file-open
+                                data-class-name="{{ $seedRun->class_name }}"
+                                data-display-name="{{ $seedRun->display_class_name }}">
+                            <i class="fa-solid fa-file-code"></i>
+                            Код
+                        </button>
                         <form method="POST"
                               action="{{ route('seed-runs.destroy-seeder-file') }}"
                               data-preloader
