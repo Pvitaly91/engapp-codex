@@ -516,7 +516,14 @@
                     return;
                 }
 
-                const answersContainer = container.querySelector('[data-question-answers]');
+                const detailsContainer = container.querySelector('[data-question-details]');
+
+                if (!detailsContainer) {
+                    return;
+                }
+
+                const answersContainer = detailsContainer.querySelector('[data-question-answers]');
+                const tagsContainer = detailsContainer.querySelector('[data-question-tags]');
 
                 if (!answersContainer) {
                     return;
@@ -533,7 +540,7 @@
                         icon.classList.remove('rotate-180');
                     }
 
-                    answersContainer.classList.add('hidden');
+                    detailsContainer.classList.add('hidden');
 
                     return;
                 }
@@ -545,9 +552,13 @@
                     icon.classList.add('rotate-180');
                 }
 
-                answersContainer.classList.remove('hidden');
+                detailsContainer.classList.remove('hidden');
 
                 if (button.dataset.loaded === 'true') {
+                    if (tagsContainer && tagsContainer.dataset.loaded !== 'true' && tagsContainer.dataset.loaded !== 'loading') {
+                        loadQuestionTags(tagsContainer);
+                    }
+
                     return;
                 }
 
@@ -589,6 +600,10 @@
                     if (!answersContainer.innerHTML.trim()) {
                         answersContainer.innerHTML = '<p class="text-xs text-gray-500">Варіанти відповіді не знайдені.</p>';
                     }
+
+                    if (tagsContainer && tagsContainer.dataset.loaded !== 'true' && tagsContainer.dataset.loaded !== 'loading') {
+                        loadQuestionTags(tagsContainer);
+                    }
                 } catch (error) {
                     const message = error && typeof error.message === 'string' && error.message
                         ? error.message
@@ -596,6 +611,60 @@
 
                     answersContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
                     button.dataset.loaded = 'error';
+                    showFeedback(message, 'error');
+                }
+            };
+
+            const loadQuestionTags = async function (tagsContainer) {
+                if (!tagsContainer) {
+                    return;
+                }
+
+                const url = tagsContainer.dataset.loadUrl;
+
+                if (!url) {
+                    tagsContainer.innerHTML = '<p class="text-xs text-red-600">Посилання для завантаження тегів не вказане.</p>';
+                    tagsContainer.dataset.loaded = 'error';
+
+                    return;
+                }
+
+                tagsContainer.dataset.loaded = 'loading';
+                tagsContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = payload && typeof payload.message === 'string'
+                            ? payload.message
+                            : 'Не вдалося завантажити теги.';
+                        throw new Error(message);
+                    }
+
+                    tagsContainer.innerHTML = payload && typeof payload.html === 'string'
+                        ? payload.html
+                        : '';
+                    tagsContainer.dataset.loaded = 'true';
+
+                    if (!tagsContainer.innerHTML.trim()) {
+                        tagsContainer.innerHTML = '<p class="text-xs text-gray-500">Теги не знайдені.</p>';
+                    }
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося завантажити теги.';
+
+                    tagsContainer.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    tagsContainer.dataset.loaded = 'error';
                     showFeedback(message, 'error');
                 }
             };
