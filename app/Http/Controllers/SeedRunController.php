@@ -69,12 +69,101 @@ class SeedRunController extends Controller
                 ->withErrors(['preview' => __('Не вдалося підготувати попередній перегляд: :message', ['message' => $exception->getMessage()])]);
         }
 
+        $filePath = $this->resolveSeederFilePath($className);
+        $fileContents = null;
+        $fileHash = null;
+        $fileError = null;
+        $fileLastModified = null;
+        $fileIsWritable = false;
+
+        if (! $filePath) {
+            $fileError = __('Файл сидера не знайдено.');
+        } else {
+            try {
+                if (! File::exists($filePath)) {
+                    $fileError = __('Файл сидера не знайдено.');
+                } else {
+                    $fileContents = File::get($filePath);
+                    $fileHash = sha1($fileContents);
+                    $fileLastModified = Carbon::createFromTimestamp(File::lastModified($filePath));
+                    $fileIsWritable = is_writable($filePath);
+                }
+            } catch (\Throwable $exception) {
+                report($exception);
+                $fileError = __('Не вдалося зчитати файл сидера. Перевірте журнали.');
+            }
+        }
+
         return view('seed-runs.preview', [
             'className' => $className,
             'displayClassName' => $this->formatSeederClassName($className),
             'questions' => $preview['questions'],
             'existingQuestionCount' => $preview['existingQuestionCount'],
+            'filePath' => $filePath,
+            'fileContents' => $fileContents,
+            'fileHash' => $fileHash,
+            'fileError' => $fileError,
+            'fileLastModified' => $fileLastModified,
+            'fileIsWritable' => $fileIsWritable,
         ]);
+    }
+
+    public function updateSeederFile(Request $request): RedirectResponse
+    {
+        $data = $request->validate([
+            'class_name' => ['required', 'string'],
+            'contents' => ['required', 'string'],
+            'original_hash' => ['nullable', 'string'],
+        ]);
+
+        $className = $data['class_name'];
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $filePath || ! File::exists($filePath)) {
+            return redirect()
+                ->route('seed-runs.preview', ['class_name' => $className])
+                ->withErrors(['file' => __('Файл сидера :class не знайдено.', ['class' => $className])]);
+        }
+
+        if (! is_writable($filePath)) {
+            return back()
+                ->withInput()
+                ->withErrors(['contents' => __('Файл сидера недоступний для редагування.')]);
+        }
+
+        try {
+            $currentHash = sha1_file($filePath);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return back()
+                ->withInput()
+                ->withErrors(['contents' => __('Не вдалося перевірити стан файлу сидера.')]);
+        }
+
+        if (! empty($data['original_hash']) && $currentHash !== $data['original_hash']) {
+            return back()
+                ->withInput()
+                ->withErrors(['contents' => __('Файл сидера було змінено іншим процесом. Оновіть попередній перегляд перед збереженням.')]);
+        }
+
+        try {
+            if (File::put($filePath, $data['contents']) === false) {
+                return back()
+                    ->withInput()
+                    ->withErrors(['contents' => __('Не вдалося зберегти файл сидера.')]);
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return back()
+                ->withInput()
+                ->withErrors(['contents' => __('Не вдалося зберегти файл сидера.')]);
+        }
+
+        return redirect()
+            ->route('seed-runs.preview', ['class_name' => $className])
+            ->with('status', __('Файл сидера успішно оновлено.'));
     }
 
     protected function assembleSeedRunOverview(): array
@@ -142,6 +231,7 @@ class SeedRunController extends Controller
         $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
             $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
             $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+            $seedRun->supports_preview = $this->seederSupportsPreview($seedRun->class_name);
 
             return $seedRun;
         });
@@ -955,33 +1045,7 @@ class SeedRunController extends Controller
             $seedRunsTableExists = Schema::hasTable('seed_runs');
         }
 
-        $candidatePaths = collect();
-
-        if (Str::startsWith($className, 'Database\\Seeders\\')) {
-            $relative = Str::after($className, 'Database\\Seeders\\');
-            $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
-            $candidatePaths->push(database_path('seeders/' . $relativePath));
-        }
-
-        if ($this->classExistsSafely($className)) {
-            try {
-                $reflection = new \ReflectionClass($className);
-                $fileName = $reflection->getFileName();
-
-                if ($fileName) {
-                    $candidatePaths->push($fileName);
-                }
-            } catch (\ReflectionException $exception) {
-                report($exception);
-            }
-        }
-
-        $candidatePaths = $candidatePaths
-            ->filter(fn ($path) => filled($path))
-            ->unique()
-            ->values();
-
-        $filePath = $candidatePaths->first(fn ($path) => File::exists($path));
+        $filePath = $this->resolveSeederFilePath($className);
 
         if (! $filePath) {
             return [
@@ -1077,6 +1141,35 @@ class SeedRunController extends Controller
             'runs_deleted' => $runsDeleted,
             'questions_deleted' => $questionsDeleted,
         ];
+    }
+
+    protected function resolveSeederFilePath(string $className): ?string
+    {
+        $candidatePaths = collect();
+
+        if (Str::startsWith($className, 'Database\\Seeders\\')) {
+            $relative = Str::after($className, 'Database\\Seeders\\');
+            $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
+            $candidatePaths->push(database_path('seeders/' . $relativePath));
+        }
+
+        if ($this->classExistsSafely($className)) {
+            try {
+                $reflection = new \ReflectionClass($className);
+                $fileName = $reflection->getFileName();
+
+                if ($fileName) {
+                    $candidatePaths->push($fileName);
+                }
+            } catch (\ReflectionException $exception) {
+                report($exception);
+            }
+        }
+
+        return $candidatePaths
+            ->filter(fn ($path) => filled($path))
+            ->unique()
+            ->first(fn ($path) => File::exists($path));
     }
 
     public function markAsExecuted(Request $request): RedirectResponse

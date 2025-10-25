@@ -4,6 +4,22 @@
 
 @section('content')
     <div class="max-w-5xl mx-auto space-y-6">
+        @if(session('status'))
+            <div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md text-sm">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        @if($errors->any())
+            <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm">
+                <ul class="list-disc list-inside space-y-1">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="bg-white shadow rounded-lg p-6">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                 <div>
@@ -50,6 +66,73 @@
             @if(!is_null($existingQuestionCount) && $existingQuestionCount > 0)
                 <div class="mt-4 rounded-md bg-yellow-50 border border-yellow-200 px-4 py-3 text-sm text-yellow-800">
                     {{ __('Деякі питання вже існують у базі даних для цього сидера. Попередній перегляд показує лише нові записи, які будуть створені.') }}
+                </div>
+            @endif
+        </div>
+
+        <div id="seeder-file-section" class="bg-white shadow rounded-lg p-6 space-y-4">
+            <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800">{{ __('Файл сидера') }}</h2>
+                    <p class="text-sm text-gray-500">{{ __('Перегляньте та за потреби відредагуйте PHP-файл сидера безпосередньо зі сторінки попереднього перегляду.') }}</p>
+                </div>
+                <div class="text-xs text-gray-500 space-y-1 md:text-right">
+                    <div class="font-semibold uppercase tracking-wide">{{ __('Шлях до файлу') }}</div>
+                    <div class="font-mono break-all text-gray-600">{{ $filePath ?? '—' }}</div>
+                    @if($fileLastModified)
+                        <div>{{ __('Остання зміна: :date', ['date' => $fileLastModified->format('d.m.Y H:i:s')]) }}</div>
+                    @endif
+                </div>
+            </div>
+
+            @if($fileError)
+                <div class="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    {{ $fileError }}
+                </div>
+            @elseif(is_null($fileContents))
+                <div class="rounded-md border border-yellow-200 bg-yellow-50 px-4 py-3 text-sm text-yellow-800">
+                    {{ __('Не вдалося отримати вміст файлу сидера.') }}
+                </div>
+            @else
+                <div class="grid gap-6 lg:grid-cols-2">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">{{ __('Попередній перегляд файлу') }}</h3>
+                        <pre class="text-xs leading-relaxed font-mono bg-slate-900 text-slate-100 rounded-lg p-4 overflow-auto max-h-[32rem] border border-slate-800 shadow-inner">{{ $fileContents }}</pre>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">{{ __('Редагування файлу') }}</h3>
+                        @if(! $fileIsWritable)
+                            <div class="rounded-md border border-yellow-200 bg-yellow-50 px-4 py-3 text-sm text-yellow-800 mb-3">
+                                {{ __('Файл доступний лише для читання. Змініть дозволи файлу, щоб редагувати його зі сторінки.') }}
+                            </div>
+                        @endif
+                        <form method="POST" action="{{ route('seed-runs.update-file') }}" class="space-y-3" data-preloader>
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="class_name" value="{{ $className }}">
+                            <input type="hidden" name="original_hash" value="{{ $fileHash }}">
+                            <textarea name="contents"
+                                      rows="18"
+                                      class="w-full font-mono text-xs leading-relaxed border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('contents') border-red-300 ring-red-200 @enderror"
+                                      @if(! $fileIsWritable) readonly @endif>{{ old('contents', $fileContents) }}</textarea>
+                            @error('contents')
+                                <p class="text-xs text-red-600">{{ $message }}</p>
+                            @enderror
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-500">
+                                <span>{{ __('Внесені зміни буде збережено безпосередньо у файлі сидера.') }}</span>
+                                <div class="flex items-center gap-2">
+                                    <a href="{{ route('seed-runs.preview', ['class_name' => $className]) }}#seeder-file-section" class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition">
+                                        <i class="fa-solid fa-rotate"></i>
+                                        {{ __('Скинути зміни') }}
+                                    </a>
+                                    <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 text-white rounded-md shadow @if($fileIsWritable) bg-blue-600 hover:bg-blue-500 @else bg-blue-300 cursor-not-allowed @endif" @if(! $fileIsWritable) disabled @endif>
+                                        <i class="fa-solid fa-floppy-disk"></i>
+                                        {{ __('Зберегти файл') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             @endif
         </div>
