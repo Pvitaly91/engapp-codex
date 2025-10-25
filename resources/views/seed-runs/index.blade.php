@@ -108,13 +108,19 @@
                                             {{ $pendingSeeder->display_class_name }}
                                         </label>
                                     </div>
-                                    <div class="flex items-center gap-2">
+                                    <div class="flex items-center gap-2 flex-wrap justify-end">
                                         @if($pendingSeeder->supports_preview)
-                                            <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
+                                            <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}"
+                                               class="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
                                                 <i class="fa-solid fa-eye"></i>
-                                                Переглянути
+                                                Попередній перегляд
                                             </a>
                                         @endif
+                                        <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}#seeder-file-section"
+                                           class="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition">
+                                            <i class="fa-solid fa-file-code"></i>
+                                            Файл сидера
+                                        </a>
                                         <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?">
                                             @csrf
                                             @method('DELETE')

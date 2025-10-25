@@ -174,6 +174,20 @@
                     </div>
 
                     <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
+                        <div class="flex flex-col sm:flex-row md:flex-col gap-2 md:w-full">
+                            @if($seedRun->supports_preview ?? false)
+                                <a href="{{ route('seed-runs.preview', ['class_name' => $seedRun->class_name]) }}"
+                                   class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
+                                    <i class="fa-solid fa-eye"></i>
+                                    Попередній перегляд
+                                </a>
+                            @endif
+                            <a href="{{ route('seed-runs.preview', ['class_name' => $seedRun->class_name]) }}#seeder-file-section"
+                               class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition">
+                                <i class="fa-solid fa-file-code"></i>
+                                Файл сидера
+                            </a>
+                        </div>
                         <form method="POST"
                               action="{{ route('seed-runs.destroy-seeder-file') }}"
                               data-preloader
