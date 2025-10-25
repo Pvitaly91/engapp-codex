@@ -109,6 +109,14 @@
                                         </label>
                                     </div>
                                     <div class="flex items-center gap-2">
+                                        <button type="button"
+                                                class="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
+                                                data-seeder-file-open
+                                                data-class-name="{{ $pendingSeeder->class_name }}"
+                                                data-display-name="{{ $pendingSeeder->display_class_name }}">
+                                            <i class="fa-solid fa-file-code"></i>
+                                            Код
+                                        </button>
                                         @if($pendingSeeder->supports_preview)
                                             <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
                                                 <i class="fa-solid fa-eye"></i>
@@ -201,6 +209,41 @@
         </div>
     </div>
 
+    <div id="seeder-file-modal" class="hidden fixed inset-0 z-[60] items-center justify-center" data-load-url="{{ route('seed-runs.file.show') }}">
+        <div class="absolute inset-0 bg-slate-900/60" data-file-overlay></div>
+        <div class="relative bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 flex flex-col overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-start justify-between gap-4">
+                <div>
+                    <h2 class="text-lg font-semibold text-slate-800" data-file-title data-default-title="{{ __('Редагування файлу сидера') }}">{{ __('Редагування файлу сидера') }}</h2>
+                    <p class="text-xs text-slate-500 mt-1 break-words" data-file-path></p>
+                    <p class="text-[11px] text-slate-400 mt-1" data-file-updated-at></p>
+                </div>
+                <button type="button" class="text-slate-400 hover:text-slate-600 transition" data-file-close>
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form method="POST" action="{{ route('seed-runs.file.update') }}" class="flex-1 flex flex-col" data-seeder-file-form>
+                @csrf
+                @method('PUT')
+                <input type="hidden" name="class_name" value="" data-file-class-input>
+                <div class="p-6">
+                    <textarea name="contents"
+                              data-file-editor
+                              class="w-full h-96 font-mono text-sm text-slate-800 border border-slate-200 rounded-lg p-4 focus:border-blue-500 focus:ring-blue-500 resize-y disabled:bg-slate-100 disabled:text-slate-400"
+                              spellcheck="false"
+                              disabled></textarea>
+                </div>
+                <div class="px-6 py-4 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <p class="text-xs text-slate-500" data-file-status></p>
+                    <div class="flex items-center justify-end gap-3">
+                        <button type="button" class="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-md hover:bg-slate-100 transition" data-file-close>{{ __('Скасувати') }}</button>
+                        <button type="submit" class="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-500 transition disabled:opacity-60 disabled:cursor-not-allowed" data-file-save-button>{{ __('Зберегти файл') }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const preloader = document.getElementById('seed-run-preloader');
@@ -209,7 +252,342 @@
             const csrfToken = csrfTokenMeta ? csrfTokenMeta.getAttribute('content') : '';
             const successClasses = ['bg-emerald-50', 'border-emerald-200', 'text-emerald-700'];
             const errorClasses = ['bg-red-50', 'border-red-200', 'text-red-700'];
+            const fileModal = document.getElementById('seeder-file-modal');
+            const fileModalLoadUrl = fileModal ? fileModal.dataset.loadUrl || '' : '';
+            const fileModalOverlay = fileModal ? fileModal.querySelector('[data-file-overlay]') : null;
+            const fileModalForm = fileModal ? fileModal.querySelector('[data-seeder-file-form]') : null;
+            const fileModalEditor = fileModal ? fileModal.querySelector('[data-file-editor]') : null;
+            const fileModalClassInput = fileModal ? fileModal.querySelector('[data-file-class-input]') : null;
+            const fileModalTitle = fileModal ? fileModal.querySelector('[data-file-title]') : null;
+            const fileModalDefaultTitle = fileModalTitle ? (fileModalTitle.dataset.defaultTitle || fileModalTitle.textContent || '') : '';
+            const fileModalPath = fileModal ? fileModal.querySelector('[data-file-path]') : null;
+            const fileModalUpdatedAt = fileModal ? fileModal.querySelector('[data-file-updated-at]') : null;
+            const fileModalStatus = fileModal ? fileModal.querySelector('[data-file-status]') : null;
+            const fileModalSaveButton = fileModal ? fileModal.querySelector('[data-file-save-button]') : null;
+            const fileModalCloseButtons = fileModal ? fileModal.querySelectorAll('[data-file-close]') : [];
+            const fileModalSavingMessage = @json(__('Збереження файлу…'));
+            const fileModalSavedMessage = @json(__('Файл сидера успішно збережено.'));
+            const fileModalLoadedMessage = @json(__('Файл завантажено. Можна редагувати.'));
+            const fileModalLoadErrorMessage = @json(__('Не вдалося завантажити файл сидера.'));
+            const fileModalSaveErrorMessage = @json(__('Не вдалося зберегти файл сидера.'));
+            const fileModalMissingClassMessage = @json(__('Не вказано клас сидера.'));
+            const fileModalUpdatedAtTemplate = @json(__('Останнє оновлення файлу: :timestamp'));
+            const fileModalLoadingMessage = @json(__('Завантаження файлу…'));
             let feedbackTimeout;
+
+            const updateFileModalStatus = function (message, type = 'info') {
+                if (!fileModalStatus) {
+                    return;
+                }
+
+                fileModalStatus.textContent = message || '';
+                fileModalStatus.classList.remove('text-emerald-600', 'text-red-600', 'text-slate-500');
+
+                if (!message) {
+                    fileModalStatus.classList.add('text-slate-500');
+
+                    return;
+                }
+
+                if (type === 'success') {
+                    fileModalStatus.classList.add('text-emerald-600');
+                } else if (type === 'error') {
+                    fileModalStatus.classList.add('text-red-600');
+                } else {
+                    fileModalStatus.classList.add('text-slate-500');
+                }
+            };
+
+            const resetFileModal = function () {
+                if (!fileModal) {
+                    return;
+                }
+
+                if (fileModalTitle) {
+                    fileModalTitle.textContent = fileModalDefaultTitle;
+                }
+
+                if (fileModalPath) {
+                    fileModalPath.textContent = '';
+                }
+
+                if (fileModalUpdatedAt) {
+                    fileModalUpdatedAt.textContent = '';
+                }
+
+                updateFileModalStatus('');
+
+                if (fileModalClassInput) {
+                    fileModalClassInput.value = '';
+                }
+
+                if (fileModalEditor) {
+                    fileModalEditor.value = '';
+                    fileModalEditor.setAttribute('disabled', 'disabled');
+                }
+
+                if (fileModalSaveButton) {
+                    fileModalSaveButton.disabled = true;
+                }
+
+                fileModal.dataset.className = '';
+            };
+
+            const collectPayloadErrors = function (payload) {
+                const messages = [];
+
+                if (!payload || typeof payload !== 'object') {
+                    return messages;
+                }
+
+                if (Array.isArray(payload)) {
+                    payload.forEach(function (value) {
+                        if (typeof value === 'string' && value) {
+                            messages.push(value);
+                        }
+                    });
+                }
+
+                if (payload.errors && typeof payload.errors === 'object') {
+                    Object.values(payload.errors).forEach(function (value) {
+                        if (Array.isArray(value)) {
+                            value.forEach(function (message) {
+                                if (typeof message === 'string' && message) {
+                                    messages.push(message);
+                                }
+                            });
+                        } else if (typeof value === 'string' && value) {
+                            messages.push(value);
+                        }
+                    });
+                }
+
+                if (typeof payload.message === 'string' && payload.message) {
+                    messages.push(payload.message);
+                }
+
+                return messages;
+            };
+
+            const parseErrorMessage = function (payload, fallbackMessage) {
+                const messages = collectPayloadErrors(payload);
+
+                if (messages.length > 0) {
+                    return messages.join(' ');
+                }
+
+                return fallbackMessage;
+            };
+
+            const formatFileUpdatedAt = function (timestamp) {
+                if (!timestamp) {
+                    return '';
+                }
+
+                return (fileModalUpdatedAtTemplate || '').replace(':timestamp', timestamp);
+            };
+
+            const closeFileModal = function () {
+                if (!fileModal) {
+                    return;
+                }
+
+                fileModal.classList.add('hidden');
+                fileModal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                resetFileModal();
+            };
+
+            const loadSeederFile = async function (className, displayName) {
+                if (!fileModal || !fileModalLoadUrl || !className) {
+                    return;
+                }
+
+                resetFileModal();
+                updateFileModalStatus(fileModalLoadingMessage, 'info');
+
+                if (preloader) {
+                    preloader.classList.remove('hidden');
+                }
+
+                try {
+                    const params = new URLSearchParams({ class_name: className });
+                    const response = await fetch(fileModalLoadUrl + '?' + params.toString(), {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = parseErrorMessage(payload, fileModalLoadErrorMessage);
+                        throw new Error(message);
+                    }
+
+                    const displayLabel = payload && typeof payload.display_class_name === 'string' && payload.display_class_name
+                        ? payload.display_class_name
+                        : (displayName || className);
+
+                    if (fileModalTitle) {
+                        fileModalTitle.textContent = fileModalDefaultTitle + (displayLabel ? ' — ' + displayLabel : '');
+                    }
+
+                    if (fileModalPath) {
+                        fileModalPath.textContent = payload && typeof payload.path === 'string' ? payload.path : '';
+                    }
+
+                    if (fileModalUpdatedAt) {
+                        fileModalUpdatedAt.textContent = formatFileUpdatedAt(payload && typeof payload.last_modified === 'string' ? payload.last_modified : '');
+                    }
+
+                    if (fileModalClassInput) {
+                        fileModalClassInput.value = className;
+                    }
+
+                    if (fileModalEditor) {
+                        fileModalEditor.removeAttribute('disabled');
+                        fileModalEditor.value = payload && typeof payload.contents === 'string' ? payload.contents : '';
+                    }
+
+                    if (fileModalSaveButton) {
+                        fileModalSaveButton.disabled = false;
+                    }
+
+                    fileModal.dataset.className = className;
+                    updateFileModalStatus(fileModalLoadedMessage, 'info');
+                    document.body.classList.add('overflow-hidden');
+                    fileModal.classList.remove('hidden');
+                    fileModal.classList.add('flex');
+
+                    window.setTimeout(function () {
+                        if (fileModalEditor) {
+                            const length = fileModalEditor.value.length;
+                            fileModalEditor.focus({ preventScroll: true });
+                            fileModalEditor.setSelectionRange(length, length);
+                        }
+                    }, 0);
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : fileModalLoadErrorMessage;
+
+                    updateFileModalStatus(message, 'error');
+                    showFeedback(message, 'error');
+                    closeFileModal();
+                } finally {
+                    if (preloader) {
+                        preloader.classList.add('hidden');
+                    }
+                }
+            };
+
+            if (fileModalCloseButtons && fileModalCloseButtons.length > 0) {
+                fileModalCloseButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        closeFileModal();
+                    });
+                });
+            }
+
+            if (fileModalOverlay) {
+                fileModalOverlay.addEventListener('click', function () {
+                    closeFileModal();
+                });
+            }
+
+            resetFileModal();
+
+            if (fileModalForm && fileModalEditor) {
+                fileModalForm.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    const className = fileModalClassInput
+                        ? (fileModalClassInput.value || fileModal.dataset.className || '')
+                        : (fileModal ? fileModal.dataset.className || '' : '');
+                    const contents = fileModalEditor.value || '';
+
+                    if (!className) {
+                        updateFileModalStatus(fileModalMissingClassMessage, 'error');
+                        showFeedback(fileModalMissingClassMessage, 'error');
+
+                        return;
+                    }
+
+                    if (preloader) {
+                        preloader.classList.remove('hidden');
+                    }
+
+                    updateFileModalStatus(fileModalSavingMessage, 'info');
+
+                    if (fileModalSaveButton) {
+                        fileModalSaveButton.disabled = true;
+                    }
+
+                    try {
+                        const formData = new FormData(fileModalForm);
+                        formData.set('class_name', className);
+                        formData.set('contents', contents);
+
+                        const response = await fetch(fileModalForm.action, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': csrfToken,
+                                'Accept': 'application/json',
+                            },
+                            body: formData,
+                        });
+
+                        const payload = await response.json().catch(function () {
+                            return null;
+                        });
+
+                        if (!response.ok) {
+                            const message = parseErrorMessage(payload, fileModalSaveErrorMessage);
+                            throw new Error(message);
+                        }
+
+                        if (payload && typeof payload.contents === 'string') {
+                            fileModalEditor.value = payload.contents;
+                        }
+
+                        if (fileModalPath && payload && typeof payload.path === 'string') {
+                            fileModalPath.textContent = payload.path;
+                        }
+
+                        if (fileModalUpdatedAt) {
+                            const timestamp = payload && typeof payload.last_modified === 'string'
+                                ? payload.last_modified
+                                : '';
+                            fileModalUpdatedAt.textContent = formatFileUpdatedAt(timestamp);
+                        }
+
+                        const successMessage = payload && typeof payload.message === 'string' && payload.message
+                            ? payload.message
+                            : fileModalSavedMessage;
+
+                        updateFileModalStatus(successMessage, 'success');
+                        showFeedback(successMessage, 'success');
+                    } catch (error) {
+                        const message = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : fileModalSaveErrorMessage;
+
+                        updateFileModalStatus(message, 'error');
+                        showFeedback(message, 'error');
+                    } finally {
+                        if (fileModalSaveButton) {
+                            fileModalSaveButton.disabled = false;
+                        }
+
+                        if (preloader) {
+                            preloader.classList.add('hidden');
+                        }
+                    }
+                });
+            }
 
             const updateBulkButtonState = function (scope) {
                 if (!scope) {
@@ -400,9 +778,24 @@
             }
 
             document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape' && confirmationModal && !confirmationModal.classList.contains('hidden')) {
-                    event.preventDefault();
+                if (event.key !== 'Escape') {
+                    return;
+                }
+
+                let handled = false;
+
+                if (fileModal && !fileModal.classList.contains('hidden')) {
+                    closeFileModal();
+                    handled = true;
+                }
+
+                if (confirmationModal && !confirmationModal.classList.contains('hidden')) {
                     cancelConfirmation();
+                    handled = true;
+                }
+
+                if (handled) {
+                    event.preventDefault();
                 }
             });
 
@@ -1055,6 +1448,19 @@
             };
 
             document.addEventListener('click', function (event) {
+                const fileButton = event.target.closest('[data-seeder-file-open]');
+
+                if (fileButton) {
+                    event.preventDefault();
+
+                    const className = fileButton.dataset.className || '';
+                    const displayName = fileButton.dataset.displayName || '';
+
+                    loadSeederFile(className, displayName);
+
+                    return;
+                }
+
                 const folderButton = event.target.closest('[data-folder-toggle]');
 
                 if (folderButton) {
