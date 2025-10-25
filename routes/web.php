@@ -7,6 +7,7 @@ use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MigrationController;
+use App\Http\Controllers\NativeDeploymentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PageManageController;
 use App\Http\Controllers\QuestionAnswerController;
@@ -85,6 +86,15 @@ Route::middleware('auth.admin')->group(function () {
         Route::post('/deployment/backup-branch', [DeploymentController::class, 'createBackupBranch'])->name('deployment.backup-branch');
         Route::post('/deployment/backup-branches/{backupBranch}/push', [DeploymentController::class, 'pushBackupBranch'])->name('deployment.backup-branch.push');
         Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
+
+        Route::prefix('deployment/native')->name('deployment.native.')->group(function () {
+            Route::get('/', [NativeDeploymentController::class, 'index'])->name('index');
+            Route::post('/deploy', [NativeDeploymentController::class, 'deploy'])->name('deploy');
+            Route::post('/push-current', [NativeDeploymentController::class, 'pushCurrent'])->name('push-current');
+            Route::post('/rollback', [NativeDeploymentController::class, 'rollback'])->name('rollback');
+            Route::post('/backup-branch', [NativeDeploymentController::class, 'createBackupBranch'])->name('backup-branch');
+            Route::post('/backup-branches/{backupBranch}/push', [NativeDeploymentController::class, 'pushBackupBranch'])->name('backup-branch.push');
+        });
 
         Route::get('/migrations', [MigrationController::class, 'index'])->name('migrations.index');
         Route::post('/migrations/run', [MigrationController::class, 'run'])->name('migrations.run');
