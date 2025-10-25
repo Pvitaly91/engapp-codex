@@ -450,6 +450,58 @@ class SeedRunController extends Controller
         return response()->json(['html' => $html]);
     }
 
+    public function loadQuestionTags(int $seedRunId, Question $question): JsonResponse
+    {
+        if (! Schema::hasTable('seed_runs') || ! Schema::hasTable('questions') || ! Schema::hasTable('tags')) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Потрібні таблиці бази даних недоступні.'),
+            ], 404);
+        }
+
+        if (! Schema::hasTable('question_tag')) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Потрібні таблиці бази даних недоступні.'),
+            ], 404);
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Запис сидера не знайдено.'),
+            ], 404);
+        }
+
+        if ($question->seeder !== $seedRun->class_name) {
+            return response()->json([
+                'html' => '',
+                'message' => __('Питання не належить до вибраного сидера.'),
+            ], 404);
+        }
+
+        $question->loadMissing(['tags']);
+
+        $tags = $question->tags
+            ->map(function ($tag) {
+                return [
+                    'id' => $tag->id,
+                    'name' => $tag->name,
+                    'category' => $tag->category,
+                ];
+            })
+            ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)
+            ->values();
+
+        $html = view('seed-runs.partials.question-tags', [
+            'tags' => $tags,
+        ])->render();
+
+        return response()->json(['html' => $html]);
+    }
+
     protected function findNodeByPath(Collection $nodes, string $path): ?array
     {
         foreach ($nodes as $node) {
