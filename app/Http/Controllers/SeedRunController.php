@@ -52,7 +52,7 @@ class SeedRunController extends Controller
                 ->withErrors(['preview' => __('Не вказано клас сидера для перегляду.')]);
         }
 
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['preview' => __('Сидер :class не знайдено.', ['class' => $className])]);
@@ -187,7 +187,7 @@ class SeedRunController extends Controller
 
     protected function seederSupportsPreview(string $className): bool
     {
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return false;
         }
 
@@ -800,7 +800,7 @@ class SeedRunController extends Controller
 
         $className = $validated['class_name'];
 
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
@@ -843,7 +843,7 @@ class SeedRunController extends Controller
             $candidatePaths->push(database_path('seeders/' . $relativePath));
         }
 
-        if (class_exists($className)) {
+        if ($this->classExistsSafely($className)) {
             try {
                 $reflection = new \ReflectionClass($className);
                 $fileName = $reflection->getFileName();
@@ -902,7 +902,7 @@ class SeedRunController extends Controller
 
         $className = $validated['class_name'];
 
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
@@ -946,7 +946,7 @@ class SeedRunController extends Controller
         $errors = collect();
 
         foreach ($pendingSeeders as $className) {
-            if (! class_exists($className)) {
+            if (! $this->classExistsSafely($className)) {
                 $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
                 continue;
             }
@@ -1263,7 +1263,7 @@ class SeedRunController extends Controller
             'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» та пов’язані дані?'),
         ];
 
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return $default;
         }
 
@@ -1420,7 +1420,7 @@ class SeedRunController extends Controller
             ->flatMap(function ($className) {
                 $classes = collect([$className]);
 
-                if (! class_exists($className)) {
+                if (! $this->classExistsSafely($className)) {
                     return $classes;
                 }
 
@@ -1443,7 +1443,7 @@ class SeedRunController extends Controller
 
     protected function resolvePageSlugForSeeder(string $className): ?string
     {
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return null;
         }
 
@@ -1474,7 +1474,7 @@ class SeedRunController extends Controller
 
     protected function resolveAggregateSeederClasses(string $className): Collection
     {
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return collect();
         }
 
@@ -1503,7 +1503,7 @@ class SeedRunController extends Controller
 
     protected function classProvidesGrammarPages(string $className): bool
     {
-        if (! class_exists($className)) {
+        if (! $this->classExistsSafely($className)) {
             return false;
         }
 
@@ -1512,7 +1512,7 @@ class SeedRunController extends Controller
         }
 
         return $this->resolveAggregateSeederClasses($className)
-            ->contains(fn ($class) => is_string($class) && class_exists($class) && is_subclass_of($class, GrammarPageSeederBase::class));
+            ->contains(fn ($class) => is_string($class) && $this->classExistsSafely($class) && is_subclass_of($class, GrammarPageSeederBase::class));
     }
 
     /**
@@ -1580,5 +1580,14 @@ class SeedRunController extends Controller
         $label = trim((string) $label);
 
         return $label !== '' ? $label : __('selected folder');
+    }
+
+    protected function classExistsSafely(string $className): bool
+    {
+        if (class_exists($className, false)) {
+            return true;
+        }
+
+        return @class_exists($className);
     }
 }
