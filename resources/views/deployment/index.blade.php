@@ -43,12 +43,25 @@
     </div>
 
     @if($feedback)
+      @php
+        $highlightSuccessfulUpdate = $feedback['status'] === 'success'
+          && \Illuminate\Support\Str::contains($feedback['message'], 'Сайт успішно оновлено до останнього стану гілки.');
+      @endphp
       <div @class([
         'rounded-2xl border p-4 shadow-soft',
         'border-success/40 bg-success/10 text-success' => $feedback['status'] === 'success',
         'border-destructive/40 bg-destructive/10 text-destructive-foreground' => $feedback['status'] === 'error',
       ])>
-        <div class="font-medium">{{ $feedback['message'] }}</div>
+        <div class="font-medium">
+          @if($highlightSuccessfulUpdate)
+            <span class="inline-flex items-center gap-2 rounded-xl bg-success/20 px-3 py-2 text-success">
+              <span class="inline-flex h-2.5 w-2.5 rounded-full bg-success"></span>
+              {{ $feedback['message'] }}
+            </span>
+          @else
+            {{ $feedback['message'] }}
+          @endif
+        </div>
         @if(! empty($feedback['commands']))
           <ul class="mt-4 space-y-3 text-sm">
             @foreach($feedback['commands'] as $command)
