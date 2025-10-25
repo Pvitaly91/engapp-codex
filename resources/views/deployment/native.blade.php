@@ -55,9 +55,16 @@
       ])>
         <div class="font-medium">{{ $feedback['message'] }}</div>
         @if(! empty($feedback['logs']))
-          <ul class="mt-4 space-y-3 text-sm text-foreground/80">
+          <ul @class([
+            'mt-4 space-y-3 text-sm text-foreground/80',
+            'text-destructive-foreground' => $feedback['status'] === 'error',
+          ])>
             @foreach($feedback['logs'] as $log)
-              <li class="rounded-xl border border-border/80 bg-background/80 p-3 text-left">
+              <li @class([
+                'rounded-xl border p-3 text-left shadow-soft/20',
+                'border-border/80 bg-background/80' => $feedback['status'] !== 'error',
+                'border-destructive/60 bg-destructive/10 text-destructive-foreground' => $feedback['status'] === 'error',
+              ])>
                 {{ $log }}
               </li>
             @endforeach

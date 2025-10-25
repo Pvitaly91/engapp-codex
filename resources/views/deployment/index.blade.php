@@ -52,9 +52,16 @@
         @if(! empty($feedback['commands']))
           <ul class="mt-4 space-y-3 text-sm">
             @foreach($feedback['commands'] as $command)
-              <li class="rounded-xl border border-border/80 bg-background/80 p-3 text-left">
+              <li @class([
+                'rounded-xl border p-3 text-left shadow-soft/20',
+                'border-border/80 bg-background/80' => $command['successful'],
+                'border-destructive/60 bg-destructive/10 text-destructive-foreground' => ! $command['successful'],
+              ])>
                 <div class="flex items-center justify-between gap-4">
-                  <span class="font-semibold">{{ $command['command'] }}</span>
+                  <span @class([
+                    'font-semibold',
+                    'text-destructive-foreground' => ! $command['successful'],
+                  ])>{{ $command['command'] }}</span>
                   <span @class([
                     'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold',
                     'bg-success/15 text-success' => $command['successful'],
@@ -63,7 +70,10 @@
                     {{ $command['successful'] ? 'OK' : 'Помилка' }}
                   </span>
                 </div>
-                <pre class="mt-2 overflow-x-auto whitespace-pre-wrap text-xs leading-relaxed">{{ $command['output'] }}</pre>
+                <pre @class([
+                  'mt-2 overflow-x-auto whitespace-pre-wrap text-xs leading-relaxed',
+                  'text-destructive-foreground' => ! $command['successful'],
+                ])>{{ $command['output'] }}</pre>
               </li>
             @endforeach
           </ul>
