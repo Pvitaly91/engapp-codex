@@ -28,7 +28,9 @@
         </a>
       </div>
       @unless($supportsShell)
-        <p class="text-sm text-muted-foreground">Shell режим недоступний на цьому сервері, тому доступна лише робота через API.</p>
+        <p class="text-sm font-medium text-destructive-foreground">
+          Shell режим недоступний на цьому сервері, тому доступна лише робота через API.
+        </p>
       @endunless
       <div class="space-y-2">
         <h1 class="text-3xl font-semibold">Оновлення сайту без використання shell</h1>
@@ -52,6 +54,10 @@
         $highlightSuccessfulUpdate = $feedback['status'] === 'success'
           && \Illuminate\Support\Str::contains($feedback['message'], 'Сайт успішно оновлено до останнього стану гілки без використання shell.');
       @endphp
+      @php
+        $highlightShellUnavailable = $feedback['status'] === 'error'
+          && \Illuminate\Support\Str::contains($feedback['message'], 'Режим через shell недоступний на цьому сервері.');
+      @endphp
       <div @class([
         'rounded-2xl border p-4 shadow-soft',
         'border-success/40 bg-success/10 text-success' => $feedback['status'] === 'success',
@@ -61,6 +67,11 @@
           @if($highlightSuccessfulUpdate)
             <span class="inline-flex items-center gap-2 rounded-xl bg-success/20 px-3 py-2 text-success">
               <span class="inline-flex h-2.5 w-2.5 rounded-full bg-success"></span>
+              {{ $feedback['message'] }}
+            </span>
+          @elseif($highlightShellUnavailable)
+            <span class="inline-flex items-center gap-2 rounded-xl bg-destructive/15 px-3 py-2 text-destructive-foreground">
+              <span class="inline-flex h-2.5 w-2.5 rounded-full bg-destructive"></span>
               {{ $feedback['message'] }}
             </span>
           @else
