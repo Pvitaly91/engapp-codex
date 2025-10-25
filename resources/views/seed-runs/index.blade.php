@@ -59,7 +59,7 @@
                                 <li class="flex items-center justify-between gap-4">
                                     <span class="text-sm font-mono text-gray-700 break-all">{{ $pendingSeeder->display_class_name }}</span>
                                     <div class="flex items-center gap-2">
-                                        @if($pendingSeeder->is_question_seeder)
+                                        @if($pendingSeeder->supports_preview)
                                             <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
                                                 <i class="fa-solid fa-eye"></i>
                                                 Переглянути
