@@ -6,8 +6,6 @@ ini_set('display_errors', '1');
 error_reporting(E_ALL);
 set_time_limit(0);
 
-header('Content-Type: text/plain; charset=utf-8');
-
 try {
     $basePath = dirname(__DIR__);
     $envPath = $basePath . '/.env';
@@ -18,10 +16,12 @@ try {
 
     $env = loadEnv($envPath);
 
-    enforceBasicAuth(
+    enforceFormAuth(
         getEnvValue($env, 'RESTORE_AUTH_USERNAME'),
         getEnvValue($env, 'RESTORE_AUTH_PASSWORD')
     );
+
+    header('Content-Type: text/plain; charset=utf-8');
 
     $branch = getEnvValue($env, 'DEPLOYMENT_RESTORE_BRANCH');
     $owner = getEnvValue($env, 'DEPLOYMENT_GITHUB_OWNER');
@@ -139,34 +139,96 @@ function getEnvValue(array $env, string $key, ?string $default = null): ?string
     return $value;
 }
 
-function enforceBasicAuth(?string $expectedUser, ?string $expectedPassword): void
+function enforceFormAuth(?string $expectedUser, ?string $expectedPassword): void
 {
     if ($expectedUser === null || $expectedUser === '' || $expectedPassword === null) {
         throw new RuntimeException('RESTORE_AUTH_USERNAME or RESTORE_AUTH_PASSWORD is not configured in .env.');
     }
 
-    $providedUser = $_SERVER['PHP_AUTH_USER'] ?? null;
-    $providedPassword = $_SERVER['PHP_AUTH_PW'] ?? null;
+    ensureSession();
 
-    if (($providedUser === null || $providedPassword === null)) {
-        $header = $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] ?? null;
-        if (is_string($header) && stripos($header, 'basic ') === 0) {
-            $decoded = base64_decode(substr($header, 6), true);
-            if ($decoded !== false) {
-                [$providedUser, $providedPassword] = array_pad(explode(':', $decoded, 2), 2, null);
-            }
+    if (! empty($_SESSION['restore_authenticated'])) {
+        return;
+    }
+
+    $error = null;
+    $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
+
+    if ($method === 'POST') {
+        $providedUser = (string) ($_POST['username'] ?? '');
+        $providedPassword = (string) ($_POST['password'] ?? '');
+
+        $userMatches = timingSafeEquals($expectedUser, $providedUser);
+        $passwordMatches = timingSafeEquals($expectedPassword, $providedPassword);
+
+        if ($userMatches && $passwordMatches) {
+            session_regenerate_id(true);
+            $_SESSION['restore_authenticated'] = true;
+            return;
         }
+
+        $error = 'Invalid username or password.';
     }
 
-    $userMatches = is_string($providedUser) && timingSafeEquals($expectedUser, $providedUser);
-    $passwordMatches = is_string($providedPassword) && timingSafeEquals($expectedPassword, $providedPassword);
+    renderLoginForm($error);
+}
 
-    if (! ($userMatches && $passwordMatches)) {
-        header('WWW-Authenticate: Basic realm="Restore"');
-        http_response_code(401);
-        echo 'Authentication required.' . PHP_EOL;
-        exit;
+function ensureSession(): void
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
     }
+}
+
+function renderLoginForm(?string $error = null): void
+{
+    header('Content-Type: text/html; charset=utf-8');
+    http_response_code(401);
+
+    $errorMarkup = '';
+    if ($error !== null) {
+        $errorMarkup = '<p class="error">' . escapeHtml($error) . '</p>';
+    }
+
+    echo '<!DOCTYPE html>';
+    echo '<html lang="en">';
+    echo '<head>';
+    echo '    <meta charset="utf-8">';
+    echo '    <meta name="viewport" content="width=device-width, initial-scale=1">';
+    echo '    <title>Restore Authentication</title>';
+    echo '    <style>';
+    echo '        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f2f2f2; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }';
+    echo '        .container { background: #fff; padding: 32px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 360px; }';
+    echo '        h1 { font-size: 1.5rem; margin-bottom: 1rem; text-align: center; }';
+    echo '        label { display: block; font-weight: 600; margin-bottom: 0.5rem; }';
+    echo '        input[type="text"], input[type="password"] { width: 100%; padding: 10px 12px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem; box-sizing: border-box; }';
+    echo '        input[type="text"]:focus, input[type="password"]:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }';
+    echo '        button { width: 100%; padding: 10px 12px; border: none; border-radius: 6px; background-color: #2563eb; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; }';
+    echo '        button:hover { background-color: #1d4ed8; }';
+    echo '        .error { background: #fee2e2; color: #b91c1c; padding: 12px; border-radius: 6px; margin-bottom: 1rem; text-align: center; }';
+    echo '    </style>';
+    echo '</head>';
+    echo '<body>';
+    echo '    <div class="container">';
+    echo '        <h1>Restore Access</h1>';
+    echo              $errorMarkup;
+    echo '        <form method="post" action="">';
+    echo '            <label for="username">Username</label>';
+    echo '            <input type="text" id="username" name="username" autocomplete="username" required>';
+    echo '            <label for="password">Password</label>';
+    echo '            <input type="password" id="password" name="password" autocomplete="current-password" required>';
+    echo '            <button type="submit">Sign in</button>';
+    echo '        </form>';
+    echo '    </div>';
+    echo '</body>';
+    echo '</html>';
+
+    exit;
+}
+
+function escapeHtml(string $value): string
+{
+    return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
 function githubApiRequest(string $url, ?string $token, string $userAgent): array
