@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -834,6 +835,102 @@ class SeedRunController extends Controller
         ]);
 
         $className = $validated['class_name'];
+        $result = $this->removeSeederFileAndAssociatedRuns($className);
+
+        if (($result['status'] ?? null) === 'success') {
+            return redirect()
+                ->route('seed-runs.index')
+                ->with('status', $result['message']);
+        }
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->withErrors(['run' => $result['message'] ?? __('Не вдалося видалити файл сидера.')]);
+    }
+
+    public function destroySeederFiles(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'class_names' => ['required', 'array', 'min:1'],
+            'class_names.*' => ['string'],
+        ]);
+
+        $classNames = collect($validated['class_names'] ?? [])
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($classNames->isEmpty()) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['run' => __('Будь ласка, оберіть принаймні один сидер для видалення.')]);
+        }
+
+        $seedRunsTableExists = Schema::hasTable('seed_runs');
+        $successCount = 0;
+        $totalRunsDeleted = 0;
+        $errorMessages = [];
+
+        foreach ($classNames as $className) {
+            $result = $this->removeSeederFileAndAssociatedRuns($className, $seedRunsTableExists);
+            $status = $result['status'] ?? null;
+
+            if ($status === 'success') {
+                $successCount++;
+                $totalRunsDeleted += (int) ($result['runs_deleted'] ?? 0);
+
+                continue;
+            }
+
+            if ($status === 'partial') {
+                $successCount++;
+                $errorMessages[] = $result['message'];
+
+                continue;
+            }
+
+            if (! empty($result['message'])) {
+                $errorMessages[] = $result['message'];
+            }
+        }
+
+        $statusMessages = [];
+
+        if ($successCount > 0) {
+            $statusMessages[] = trans_choice(
+                '{1}Успішно видалено :count файл сидера.|[2,4]Успішно видалено :count файли сидерів.|[5,*]Успішно видалено :count файлів сидерів.',
+                $successCount,
+                ['count' => $successCount]
+            );
+
+            if ($totalRunsDeleted > 0) {
+                $statusMessages[] = trans_choice(
+                    '{1}Також видалено :count пов’язаний запис seed_runs.|[2,4]Також видалено :count пов’язані записи seed_runs.|[5,*]Також видалено :count пов’язаних записів seed_runs.',
+                    $totalRunsDeleted,
+                    ['count' => $totalRunsDeleted]
+                );
+            }
+        }
+
+        $redirect = redirect()->route('seed-runs.index');
+
+        if (! empty($statusMessages)) {
+            $redirect = $redirect->with('status', implode(' ', $statusMessages));
+        }
+
+        if (! empty($errorMessages)) {
+            $redirect = $redirect->withErrors(new MessageBag(['run' => $errorMessages]));
+        }
+
+        return $redirect;
+    }
+
+    protected function removeSeederFileAndAssociatedRuns(string $className, ?bool $seedRunsTableExists = null): array
+    {
+        if (! is_bool($seedRunsTableExists)) {
+            $seedRunsTableExists = Schema::hasTable('seed_runs');
+        }
 
         $candidatePaths = collect();
 
@@ -864,48 +961,65 @@ class SeedRunController extends Controller
         $filePath = $candidatePaths->first(fn ($path) => File::exists($path));
 
         if (! $filePath) {
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['run' => __('Файл для сидера :class не знайдено.', ['class' => $className])]);
+            return [
+                'status' => 'missing',
+                'class' => $className,
+                'message' => __('Файл для сидера :class не знайдено.', ['class' => $className]),
+                'runs_deleted' => 0,
+            ];
         }
 
         try {
             if (! File::delete($filePath)) {
-                return redirect()
-                    ->route('seed-runs.index')
-                    ->withErrors(['run' => __('Не вдалося видалити файл сидера :class.', ['class' => $className])]);
+                return [
+                    'status' => 'error',
+                    'class' => $className,
+                    'message' => __('Не вдалося видалити файл сидера :class.', ['class' => $className]),
+                    'runs_deleted' => 0,
+                ];
             }
         } catch (\Throwable $exception) {
             report($exception);
 
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['run' => __('Не вдалося видалити файл сидера :class.', ['class' => $className])]);
+            return [
+                'status' => 'error',
+                'class' => $className,
+                'message' => __('Не вдалося видалити файл сидера :class.', ['class' => $className]),
+                'runs_deleted' => 0,
+            ];
         }
 
-        $statusMessage = __('Файл сидера :class успішно видалено.', ['class' => $className]);
+        $runsDeleted = 0;
 
-        if (Schema::hasTable('seed_runs')) {
+        if ($seedRunsTableExists) {
             try {
-                $deletedRuns = DB::table('seed_runs')
+                $runsDeleted = DB::table('seed_runs')
                     ->where('class_name', $className)
                     ->delete();
-
-                if ($deletedRuns > 0) {
-                    $statusMessage .= ' ' . __('Пов’язаний запис seed_runs видалено.');
-                }
             } catch (\Throwable $exception) {
                 report($exception);
 
-                return redirect()
-                    ->route('seed-runs.index')
-                    ->withErrors(['run' => __('Файл сидера видалено, але не вдалося оновити seed_runs. Будь ласка, перевірте журнал.')]);
+                return [
+                    'status' => 'partial',
+                    'class' => $className,
+                    'message' => __('Файл сидера :class видалено, але не вдалося оновити seed_runs. Будь ласка, перевірте журнал.', ['class' => $className]),
+                    'runs_deleted' => 0,
+                ];
             }
         }
 
-        return redirect()
-            ->route('seed-runs.index')
-            ->with('status', $statusMessage);
+        $message = __('Файл сидера :class успішно видалено.', ['class' => $className]);
+
+        if ($runsDeleted > 0) {
+            $message .= ' ' . __('Пов’язаний запис seed_runs видалено.');
+        }
+
+        return [
+            'status' => 'success',
+            'class' => $className,
+            'message' => $message,
+            'runs_deleted' => $runsDeleted,
+        ];
     }
 
     public function markAsExecuted(Request $request): RedirectResponse

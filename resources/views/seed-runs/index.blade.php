@@ -48,16 +48,66 @@
         </div>
 
         @if($tableExists)
+            <form id="pending-bulk-delete-form"
+                  method="POST"
+                  action="{{ route('seed-runs.destroy-seeder-files') }}"
+                  data-preloader
+                  data-bulk-delete-form
+                  data-bulk-scope="pending"
+                  data-confirm="Видалити файли вибраних сидерів?"
+                  class="hidden">
+                @csrf
+                @method('DELETE')
+            </form>
+
+            <form id="executed-bulk-delete-form"
+                  method="POST"
+                  action="{{ route('seed-runs.destroy-seeder-files') }}"
+                  data-preloader
+                  data-bulk-delete-form
+                  data-bulk-scope="executed"
+                  data-confirm="Видалити файли вибраних сидерів?"
+                  class="hidden">
+                @csrf
+                @method('DELETE')
+            </form>
+
             <div >
                 <div class="bg-white shadow rounded-lg p-6 my-4">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Невиконані сидери</h2>
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Невиконані сидери</h2>
+                        @if($pendingSeeders->isNotEmpty())
+                            <button type="submit"
+                                    form="pending-bulk-delete-form"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                    data-bulk-delete-button
+                                    data-bulk-scope="pending"
+                                    disabled>
+                                <i class="fa-solid fa-trash-can"></i>
+                                Видалити вибрані файли
+                            </button>
+                        @endif
+                    </div>
                     @if($pendingSeeders->isEmpty())
                         <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
                     @else
                         <ul class="space-y-3">
                             @foreach($pendingSeeders as $pendingSeeder)
+                                @php($pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name))
                                 <li class="flex items-center justify-between gap-4">
-                                    <span class="text-sm font-mono text-gray-700 break-all">{{ $pendingSeeder->display_class_name }}</span>
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox"
+                                               id="{{ $pendingCheckboxId }}"
+                                               name="class_names[]"
+                                               value="{{ $pendingSeeder->class_name }}"
+                                               form="pending-bulk-delete-form"
+                                               class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
+                                               data-bulk-delete-checkbox
+                                               data-bulk-scope="pending">
+                                        <label for="{{ $pendingCheckboxId }}" class="text-sm font-mono text-gray-700 break-all cursor-pointer">
+                                            {{ $pendingSeeder->display_class_name }}
+                                        </label>
+                                    </div>
                                     <div class="flex items-center gap-2">
                                         @if($pendingSeeder->supports_preview)
                                             <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
@@ -98,7 +148,20 @@
                 </div>
 
                 <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Виконані сидери</h2>
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Виконані сидери</h2>
+                        @if($executedSeederHierarchy->isNotEmpty())
+                            <button type="submit"
+                                    form="executed-bulk-delete-form"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                    data-bulk-delete-button
+                                    data-bulk-scope="executed"
+                                    disabled>
+                                <i class="fa-solid fa-trash-can"></i>
+                                Видалити вибрані файли
+                            </button>
+                        @endif
+                    </div>
                     @if($executedSeederHierarchy->isEmpty())
                         <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
                     @else
@@ -147,6 +210,68 @@
             const successClasses = ['bg-emerald-50', 'border-emerald-200', 'text-emerald-700'];
             const errorClasses = ['bg-red-50', 'border-red-200', 'text-red-700'];
             let feedbackTimeout;
+
+            const updateBulkButtonState = function (scope) {
+                if (!scope) {
+                    return;
+                }
+
+                const button = document.querySelector('[data-bulk-delete-button][data-bulk-scope="' + scope + '"]');
+
+                if (!button) {
+                    return;
+                }
+
+                const checkboxes = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]');
+                const hasChecked = Array.from(checkboxes).some(function (checkbox) {
+                    return checkbox.checked;
+                });
+
+                button.disabled = !hasChecked;
+            };
+
+            const updateAllBulkButtonStates = function () {
+                const scopes = new Set();
+
+                document.querySelectorAll('[data-bulk-delete-checkbox]').forEach(function (checkbox) {
+                    const scope = checkbox.dataset.bulkScope;
+
+                    if (scope) {
+                        scopes.add(scope);
+                    }
+                });
+
+                scopes.forEach(function (scope) {
+                    updateBulkButtonState(scope);
+                });
+            };
+
+            const prepareBulkConfirmMessage = function (scope) {
+                if (!scope) {
+                    return;
+                }
+
+                const form = document.querySelector('form[data-bulk-delete-form][data-bulk-scope="' + scope + '"]');
+
+                if (!form) {
+                    return;
+                }
+
+                const checkboxes = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]:checked');
+                const count = checkboxes.length;
+
+                if (count <= 0) {
+                    return;
+                }
+
+                if (count === 1) {
+                    form.dataset.confirm = 'Видалити файл вибраного сидера?';
+                } else {
+                    form.dataset.confirm = 'Видалити файли ' + count + ' вибраних сидерів?';
+                }
+            };
+
+            updateAllBulkButtonStates();
 
             const confirmationModal = document.getElementById('seed-run-confirmation-modal');
             const confirmationMessage = confirmationModal ? confirmationModal.querySelector('[data-confirm-message]') : null;
@@ -260,6 +385,24 @@
                         preloader.classList.remove('hidden');
                     }
                 });
+            });
+
+            document.querySelectorAll('[data-bulk-delete-button]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const scope = button.dataset.bulkScope || '';
+
+                    prepareBulkConfirmMessage(scope);
+                });
+            });
+
+            document.addEventListener('change', function (event) {
+                const checkbox = event.target.closest('[data-bulk-delete-checkbox]');
+
+                if (!checkbox) {
+                    return;
+                }
+
+                updateBulkButtonState(checkbox.dataset.bulkScope || '');
             });
 
             const showFeedback = function (message, type = 'success') {
@@ -455,6 +598,7 @@
                         ? payload.html
                         : '';
                     folderNode.dataset.loaded = 'true';
+                    updateAllBulkButtonStates();
                 } catch (error) {
                     const message = error && typeof error.message === 'string' && error.message
                         ? error.message

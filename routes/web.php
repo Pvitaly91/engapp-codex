@@ -217,6 +217,8 @@ Route::middleware('auth.admin')->group(function () {
         Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
         Route::delete('/seed-runs/delete-file', [SeedRunController::class, 'destroySeederFile'])
             ->name('seed-runs.destroy-seeder-file');
+        Route::delete('/seed-runs/delete-files/bulk', [SeedRunController::class, 'destroySeederFiles'])
+            ->name('seed-runs.destroy-seeder-files');
         Route::post('/seed-runs/mark-executed', [SeedRunController::class, 'markAsExecuted'])->name('seed-runs.mark-executed');
         Route::post('/seed-runs/run-missing', [SeedRunController::class, 'runMissing'])->name('seed-runs.run-missing');
         Route::get('/seed-runs/folders/children', [SeedRunController::class, 'loadFolderChildren'])->name('seed-runs.folders.children');

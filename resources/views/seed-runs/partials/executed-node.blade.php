@@ -79,6 +79,7 @@
         $seedRunOrdinal = $recentSeedRunOrdinals->get($seedRun->id);
         $seedRunIsRecent = !is_null($seedRunOrdinal);
         $questionCount = (int) ($seedRun->question_count ?? 0);
+        $executedCheckboxId = 'executed-seeder-' . $seedRun->id;
     @endphp
     <div style="margin-left: {{ $indent }}rem;" data-seeder-node data-seed-run-id="{{ $seedRun->id }}" data-depth="{{ $depth }}">
         <div @class([
@@ -93,49 +94,65 @@
             ])>
                 <div class="md:grid md:grid-cols-[minmax(0,3fr)_minmax(0,1fr)] md:items-start md:gap-6">
                     <div class="text-xs text-gray-700 break-words">
-                        <div class="font-mono text-sm text-gray-800 flex flex-wrap items-center gap-2">
-                            {{ $node['name'] }}
-                            @if($seedRunIsRecent)
-                                <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
-                                    Новий{{ ' #' . $seedRunOrdinal }}
-                                </span>
-                            @endif
-                        </div>
-                        @if(\Illuminate\Support\Str::contains($seedRun->display_class_name, '\\'))
-                            <p class="text-xs text-gray-500 mt-1">{{ $seedRun->display_class_name }}</p>
-                        @endif
-
-                        <p class="text-xs text-gray-500 mt-2 {{ $questionCount > 0 ? 'hidden' : '' }}" data-no-questions-message data-seed-run-id="{{ $seedRun->id }}">
-                            Питання відсутні.
-                        </p>
-
-                        @if($questionCount > 0)
-                            <div class="mt-3 space-y-3" data-seeder-section data-seed-run-id="{{ $seedRun->id }}">
-                                <button type="button"
-                                        class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
-                                        data-seeder-toggle
-                                        data-seed-run-id="{{ $seedRun->id }}"
-                                        data-load-url="{{ route('seed-runs.seeders.categories', $seedRun->id) }}"
-                                        data-loaded="false"
-                                        aria-expanded="false">
-                                    <span data-toggle-label-collapsed>
-                                        Показати питання (
-                                        <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $questionCount }}</span>
-                                        )
-                                    </span>
-                                    <span class="hidden" data-toggle-label-expanded>
-                                        Сховати питання (
-                                        <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $questionCount }}</span>
-                                        )
-                                    </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" data-seeder-toggle-icon viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-
-                                <div class="hidden space-y-4" data-seeder-content data-seed-run-id="{{ $seedRun->id }}"></div>
+                        <div class="flex items-start gap-3">
+                            <div class="pt-1 shrink-0">
+                                <input type="checkbox"
+                                       id="{{ $executedCheckboxId }}"
+                                       name="class_names[]"
+                                       value="{{ $seedRun->class_name }}"
+                                       form="executed-bulk-delete-form"
+                                       class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
+                                       data-bulk-delete-checkbox
+                                       data-bulk-scope="executed">
                             </div>
-                        @endif
+                            <div class="flex-1">
+                                <div class="font-mono text-sm text-gray-800 flex flex-wrap items-center gap-2">
+                                    <label for="{{ $executedCheckboxId }}" class="cursor-pointer">
+                                        {{ $node['name'] }}
+                                    </label>
+                                    @if($seedRunIsRecent)
+                                        <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                            Новий{{ ' #' . $seedRunOrdinal }}
+                                        </span>
+                                    @endif
+                                </div>
+                                @if(\Illuminate\Support\Str::contains($seedRun->display_class_name, '\\'))
+                                    <p class="text-xs text-gray-500 mt-1">{{ $seedRun->display_class_name }}</p>
+                                @endif
+
+                                <p class="text-xs text-gray-500 mt-2 {{ $questionCount > 0 ? 'hidden' : '' }}" data-no-questions-message data-seed-run-id="{{ $seedRun->id }}">
+                                    Питання відсутні.
+                                </p>
+
+                                @if($questionCount > 0)
+                                    <div class="mt-3 space-y-3" data-seeder-section data-seed-run-id="{{ $seedRun->id }}">
+                                        <button type="button"
+                                                class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
+                                                data-seeder-toggle
+                                                data-seed-run-id="{{ $seedRun->id }}"
+                                                data-load-url="{{ route('seed-runs.seeders.categories', $seedRun->id) }}"
+                                                data-loaded="false"
+                                                aria-expanded="false">
+                                            <span data-toggle-label-collapsed>
+                                                Показати питання (
+                                                <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $questionCount }}</span>
+                                                )
+                                            </span>
+                                            <span class="hidden" data-toggle-label-expanded>
+                                                Сховати питання (
+                                                <span class="font-semibold" data-seed-run-question-count data-seed-run-id="{{ $seedRun->id }}">{{ $questionCount }}</span>
+                                                )
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" data-seeder-toggle-icon viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+
+                                        <div class="hidden space-y-4" data-seeder-content data-seed-run-id="{{ $seedRun->id }}"></div>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
                     </div>
 
                     <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
