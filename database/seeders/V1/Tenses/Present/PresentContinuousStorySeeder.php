@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Source;
 use App\Models\Tag;
 use App\Services\QuestionSeedingService;
+use Database\Seeders\V1\Questions\QuestionSeeder;
 
 class PresentContinuousStorySeeder extends QuestionSeeder
 {

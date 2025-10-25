@@ -5,6 +5,7 @@ namespace Database\Seeders\V1\Tenses\Past;
 use App\Services\QuestionSeedingService;
 use App\Models\Source;
 use App\Models\Tag;
+use Database\Seeders\V1\Questions\QuestionSeeder;
 
 class PastSimpleRegularSeeder extends QuestionSeeder
 {
