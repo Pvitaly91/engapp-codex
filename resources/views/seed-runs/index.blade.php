@@ -246,6 +246,47 @@
                 });
             };
 
+            const syncDeleteWithQuestionsInputs = function (className, checked) {
+                if (!className) {
+                    return;
+                }
+
+                const inputs = document.querySelectorAll('[data-delete-with-questions-input][data-class-name="' + className + '"]');
+
+                inputs.forEach(function (input) {
+                    input.value = checked ? '1' : '0';
+                });
+
+                const forms = document.querySelectorAll('[data-delete-with-questions-form][data-class-name="' + className + '"]');
+
+                forms.forEach(function (form) {
+                    const confirmWithQuestions = form.dataset.confirmWithQuestions || '';
+                    const confirmRegular = form.dataset.confirmRegular || form.dataset.confirm || '';
+
+                    if (checked && confirmWithQuestions) {
+                        form.dataset.confirm = confirmWithQuestions;
+                    } else if (confirmRegular) {
+                        form.dataset.confirm = confirmRegular;
+                    }
+                });
+            };
+
+            const findBulkCheckboxForClass = function (scope, className) {
+                if (!scope || !className) {
+                    return null;
+                }
+
+                const candidates = document.querySelectorAll('[data-bulk-delete-checkbox][data-bulk-scope="' + scope + '"]');
+
+                for (const candidate of candidates) {
+                    if (candidate.value === className) {
+                        return candidate;
+                    }
+                }
+
+                return null;
+            };
+
             const prepareBulkConfirmMessage = function (scope) {
                 if (!scope) {
                     return;
@@ -264,10 +305,28 @@
                     return;
                 }
 
+                const selectedClasses = Array.from(checkboxes).map(function (checkbox) {
+                    return checkbox.value || '';
+                });
+
+                const deleteQuestionsCount = selectedClasses.reduce(function (total, className) {
+                    const toggle = document.querySelector('[data-delete-with-questions-toggle][data-class-name="' + className + '"]');
+
+                    if (toggle && toggle.checked) {
+                        return total + 1;
+                    }
+
+                    return total;
+                }, 0);
+
                 if (count === 1) {
-                    form.dataset.confirm = 'Видалити файл вибраного сидера?';
+                    form.dataset.confirm = deleteQuestionsCount > 0
+                        ? 'Видалити файл вибраного сидера та пов’язані питання?'
+                        : 'Видалити файл вибраного сидера?';
                 } else {
-                    form.dataset.confirm = 'Видалити файли ' + count + ' вибраних сидерів?';
+                    form.dataset.confirm = deleteQuestionsCount > 0
+                        ? 'Видалити файли ' + count + ' вибраних сидерів та пов’язані питання?'
+                        : 'Видалити файли ' + count + ' вибраних сидерів?';
                 }
             };
 
@@ -396,13 +455,55 @@
             });
 
             document.addEventListener('change', function (event) {
+                const deleteToggle = event.target.closest('[data-delete-with-questions-toggle]');
+
+                if (deleteToggle) {
+                    const className = deleteToggle.dataset.className || '';
+                    const scope = deleteToggle.dataset.bulkScope || '';
+                    const checked = deleteToggle.checked;
+
+                    syncDeleteWithQuestionsInputs(className, checked);
+
+                    if (checked) {
+                        const relatedCheckbox = findBulkCheckboxForClass(scope, className);
+
+                        if (relatedCheckbox && !relatedCheckbox.checked) {
+                            relatedCheckbox.checked = true;
+                            updateBulkButtonState(scope);
+                        }
+                    } else {
+                        updateBulkButtonState(scope);
+                    }
+
+                    return;
+                }
+
                 const checkbox = event.target.closest('[data-bulk-delete-checkbox]');
 
                 if (!checkbox) {
                     return;
                 }
 
-                updateBulkButtonState(checkbox.dataset.bulkScope || '');
+                const scope = checkbox.dataset.bulkScope || '';
+
+                if (!checkbox.checked) {
+                    const className = checkbox.value || '';
+                    const toggles = document.querySelectorAll('[data-delete-with-questions-toggle][data-class-name="' + className + '"]');
+
+                    toggles.forEach(function (toggle) {
+                        if (toggle.checked) {
+                            toggle.checked = false;
+                        }
+                    });
+
+                    syncDeleteWithQuestionsInputs(className, false);
+                }
+
+                updateBulkButtonState(scope);
+            });
+
+            document.querySelectorAll('[data-delete-with-questions-toggle]').forEach(function (toggle) {
+                syncDeleteWithQuestionsInputs(toggle.dataset.className || '', toggle.checked);
             });
 
             const showFeedback = function (message, type = 'success') {
@@ -599,6 +700,9 @@
                         : '';
                     folderNode.dataset.loaded = 'true';
                     updateAllBulkButtonStates();
+                    children.querySelectorAll('[data-delete-with-questions-toggle]').forEach(function (toggle) {
+                        syncDeleteWithQuestionsInputs(toggle.dataset.className || '', toggle.checked);
+                    });
                 } catch (error) {
                     const message = error && typeof error.message === 'string' && error.message
                         ? error.message

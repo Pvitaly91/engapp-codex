@@ -832,10 +832,12 @@ class SeedRunController extends Controller
     {
         $validated = $request->validate([
             'class_name' => ['required', 'string'],
+            'delete_with_questions' => ['nullable', 'boolean'],
         ]);
 
         $className = $validated['class_name'];
-        $result = $this->removeSeederFileAndAssociatedRuns($className);
+        $deleteQuestions = $request->boolean('delete_with_questions');
+        $result = $this->removeSeederFileAndAssociatedRuns($className, null, $deleteQuestions);
 
         if (($result['status'] ?? null) === 'success') {
             return redirect()
@@ -853,9 +855,17 @@ class SeedRunController extends Controller
         $validated = $request->validate([
             'class_names' => ['required', 'array', 'min:1'],
             'class_names.*' => ['string'],
+            'delete_with_questions' => ['nullable', 'array'],
+            'delete_with_questions.*' => ['string'],
         ]);
 
         $classNames = collect($validated['class_names'] ?? [])
+            ->map(fn ($value) => trim((string) $value))
+            ->filter()
+            ->unique()
+            ->values();
+
+        $deleteWithQuestions = collect($validated['delete_with_questions'] ?? [])
             ->map(fn ($value) => trim((string) $value))
             ->filter()
             ->unique()
@@ -870,21 +880,26 @@ class SeedRunController extends Controller
         $seedRunsTableExists = Schema::hasTable('seed_runs');
         $successCount = 0;
         $totalRunsDeleted = 0;
+        $totalQuestionsDeleted = 0;
         $errorMessages = [];
 
         foreach ($classNames as $className) {
-            $result = $this->removeSeederFileAndAssociatedRuns($className, $seedRunsTableExists);
+            $shouldDeleteQuestions = $deleteWithQuestions->contains($className);
+            $result = $this->removeSeederFileAndAssociatedRuns($className, $seedRunsTableExists, $shouldDeleteQuestions);
             $status = $result['status'] ?? null;
 
             if ($status === 'success') {
                 $successCount++;
                 $totalRunsDeleted += (int) ($result['runs_deleted'] ?? 0);
+                $totalQuestionsDeleted += (int) ($result['questions_deleted'] ?? 0);
 
                 continue;
             }
 
             if ($status === 'partial') {
                 $successCount++;
+                $totalRunsDeleted += (int) ($result['runs_deleted'] ?? 0);
+                $totalQuestionsDeleted += (int) ($result['questions_deleted'] ?? 0);
                 $errorMessages[] = $result['message'];
 
                 continue;
@@ -911,6 +926,14 @@ class SeedRunController extends Controller
                     ['count' => $totalRunsDeleted]
                 );
             }
+
+            if ($totalQuestionsDeleted > 0) {
+                $statusMessages[] = trans_choice(
+                    '{1}Видалено :count пов’язане питання.|[2,4]Видалено :count пов’язані питання.|[5,*]Видалено :count пов’язаних питань.',
+                    $totalQuestionsDeleted,
+                    ['count' => $totalQuestionsDeleted]
+                );
+            }
         }
 
         $redirect = redirect()->route('seed-runs.index');
@@ -926,7 +949,7 @@ class SeedRunController extends Controller
         return $redirect;
     }
 
-    protected function removeSeederFileAndAssociatedRuns(string $className, ?bool $seedRunsTableExists = null): array
+    protected function removeSeederFileAndAssociatedRuns(string $className, ?bool $seedRunsTableExists = null, bool $deleteQuestions = false): array
     {
         if (! is_bool($seedRunsTableExists)) {
             $seedRunsTableExists = Schema::hasTable('seed_runs');
@@ -966,6 +989,7 @@ class SeedRunController extends Controller
                 'class' => $className,
                 'message' => __('Файл для сидера :class не знайдено.', ['class' => $className]),
                 'runs_deleted' => 0,
+                'questions_deleted' => 0,
             ];
         }
 
@@ -976,6 +1000,7 @@ class SeedRunController extends Controller
                     'class' => $className,
                     'message' => __('Не вдалося видалити файл сидера :class.', ['class' => $className]),
                     'runs_deleted' => 0,
+                    'questions_deleted' => 0,
                 ];
             }
         } catch (\Throwable $exception) {
@@ -986,10 +1011,22 @@ class SeedRunController extends Controller
                 'class' => $className,
                 'message' => __('Не вдалося видалити файл сидера :class.', ['class' => $className]),
                 'runs_deleted' => 0,
+                'questions_deleted' => 0,
             ];
         }
 
         $runsDeleted = 0;
+        $questionsDeleted = 0;
+        $questionDeletionFailed = false;
+
+        if ($deleteQuestions) {
+            try {
+                $questionsDeleted = $this->deleteQuestionsForSeeders(collect([$className]));
+            } catch (\Throwable $exception) {
+                report($exception);
+                $questionDeletionFailed = true;
+            }
+        }
 
         if ($seedRunsTableExists) {
             try {
@@ -1004,8 +1041,19 @@ class SeedRunController extends Controller
                     'class' => $className,
                     'message' => __('Файл сидера :class видалено, але не вдалося оновити seed_runs. Будь ласка, перевірте журнал.', ['class' => $className]),
                     'runs_deleted' => 0,
+                    'questions_deleted' => $questionsDeleted,
                 ];
             }
+        }
+
+        if ($questionDeletionFailed) {
+            return [
+                'status' => 'partial',
+                'class' => $className,
+                'message' => __('Файл сидера :class видалено, але не вдалося видалити пов’язані питання.', ['class' => $className]),
+                'runs_deleted' => $runsDeleted,
+                'questions_deleted' => $questionsDeleted,
+            ];
         }
 
         $message = __('Файл сидера :class успішно видалено.', ['class' => $className]);
@@ -1014,11 +1062,20 @@ class SeedRunController extends Controller
             $message .= ' ' . __('Пов’язаний запис seed_runs видалено.');
         }
 
+        if ($questionsDeleted > 0) {
+            $message .= ' ' . trans_choice(
+                '{1}Видалено :count пов’язане питання.|[2,4]Видалено :count пов’язані питання.|[5,*]Видалено :count пов’язаних питань.',
+                $questionsDeleted,
+                ['count' => $questionsDeleted]
+            );
+        }
+
         return [
             'status' => 'success',
             'class' => $className,
             'message' => $message,
             'runs_deleted' => $runsDeleted,
+            'questions_deleted' => $questionsDeleted,
         ];
     }
 

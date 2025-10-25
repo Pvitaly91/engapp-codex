@@ -80,6 +80,9 @@
         $seedRunIsRecent = !is_null($seedRunOrdinal);
         $questionCount = (int) ($seedRun->question_count ?? 0);
         $executedCheckboxId = 'executed-seeder-' . $seedRun->id;
+        $deleteQuestionsCheckboxId = 'executed-delete-questions-' . $seedRun->id;
+        $deleteFileConfirm = __('Видалити файл сидера «:class»?', ['class' => $seedRun->display_class_name]);
+        $deleteFileConfirmWithQuestions = __('Видалити файл сидера «:class» та пов’язані питання?', ['class' => $seedRun->display_class_name]);
     @endphp
     <div style="margin-left: {{ $indent }}rem;" data-seeder-node data-seed-run-id="{{ $seedRun->id }}" data-depth="{{ $depth }}">
         <div @class([
@@ -124,6 +127,21 @@
                                     Питання відсутні.
                                 </p>
 
+                                <div class="mt-2 flex items-center gap-2 text-[11px] text-red-700">
+                                    <input type="checkbox"
+                                           id="{{ $deleteQuestionsCheckboxId }}"
+                                           name="delete_with_questions[]"
+                                           value="{{ $seedRun->class_name }}"
+                                           form="executed-bulk-delete-form"
+                                           class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
+                                           data-delete-with-questions-toggle
+                                           data-class-name="{{ $seedRun->class_name }}"
+                                           data-bulk-scope="executed">
+                                    <label for="{{ $deleteQuestionsCheckboxId }}" class="cursor-pointer select-none">
+                                        Видаляти також питання цього сидера
+                                    </label>
+                                </div>
+
                                 @if($questionCount > 0)
                                     <div class="mt-3 space-y-3" data-seeder-section data-seed-run-id="{{ $seedRun->id }}">
                                         <button type="button"
@@ -156,10 +174,20 @@
                     </div>
 
                     <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
-                        <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($seedRun->display_class_name) }}»?" class="flex-1 sm:flex-none md:flex-1 md:w-full">
+                        <form method="POST"
+                              action="{{ route('seed-runs.destroy-seeder-file') }}"
+                              data-preloader
+                              data-confirm="{{ $deleteFileConfirm }}"
+                              data-confirm-regular="{{ $deleteFileConfirm }}"
+                              data-confirm-with-questions="{{ $deleteFileConfirmWithQuestions }}"
+                              data-delete-with-questions-form
+                              data-class-name="{{ $seedRun->class_name }}"
+                              class="flex-1 sm:flex-none md:flex-1 md:w-full"
+                              id="executed-delete-file-form-{{ $seedRun->id }}">
                             @csrf
                             @method('DELETE')
                             <input type="hidden" name="class_name" value="{{ $seedRun->class_name }}">
+                            <input type="hidden" name="delete_with_questions" value="0" data-delete-with-questions-input data-class-name="{{ $seedRun->class_name }}">
                             <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
                                 <i class="fa-solid fa-file-circle-xmark"></i>
                                 Видалити файл
