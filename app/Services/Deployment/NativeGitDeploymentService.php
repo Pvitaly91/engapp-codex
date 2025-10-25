@@ -6,8 +6,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use PharData;
 use RuntimeException;
+use ZipArchive;
 
 class NativeGitDeploymentService
 {
@@ -61,7 +61,7 @@ class NativeGitDeploymentService
         $archive = $this->github()->downloadTarball($branch);
 
         $logs[] = 'Розпаковуємо архів і оновлюємо робоче дерево без використання shell.';
-        $extracted = $this->extractTarball($archive);
+        $extracted = $this->extractArchive($archive);
         $this->filesystem->replaceWorkingTree($extracted);
         File::deleteDirectory(dirname($extracted));
 
@@ -208,7 +208,7 @@ class NativeGitDeploymentService
         $archive = $this->github()->downloadTarball($commit);
 
         $logs[] = 'Розпаковуємо архів і відновлюємо файли.';
-        $extracted = $this->extractTarball($archive);
+        $extracted = $this->extractArchive($archive);
         $this->filesystem->replaceWorkingTree($extracted);
         File::deleteDirectory(dirname($extracted));
 
@@ -315,23 +315,32 @@ class NativeGitDeploymentService
         File::put($path, json_encode($items, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 
-    private function extractTarball(string $tarGzPath): string
+    private function extractArchive(string $archivePath): string
     {
         $tmpDir = storage_path('app/native_deploy_' . Str::random(8));
         File::ensureDirectoryExists($tmpDir);
 
-        $tarPath = $tarGzPath . '.tar';
+        $zip = new ZipArchive();
+        $opened = false;
 
         try {
-            $phar = new PharData($tarGzPath);
-            $phar->decompress();
-            $tar = new PharData($tarPath);
-            $tar->extractTo($tmpDir, null, true);
-        } finally {
-            @unlink($tarGzPath);
-            if (File::exists($tarPath)) {
-                @unlink($tarPath);
+            $openResult = $zip->open($archivePath);
+
+            if ($openResult !== true) {
+                throw new RuntimeException('Не вдалося відкрити архів GitHub (код ' . $openResult . ').');
             }
+
+            $opened = true;
+
+            if (! $zip->extractTo($tmpDir)) {
+                throw new RuntimeException('Не вдалося розпакувати архів GitHub.');
+            }
+        } finally {
+            if ($opened) {
+                $zip->close();
+            }
+
+            @unlink($archivePath);
         }
 
         $directories = File::directories($tmpDir);

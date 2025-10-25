@@ -75,24 +75,34 @@ class GitHubApiClient
      */
     public function downloadTarball(string $ref): string
     {
-        $tempFile = tempnam(sys_get_temp_dir(), 'gh_tar_');
+        $tempFile = tempnam(sys_get_temp_dir(), 'gh_zip_');
+
+        if ($tempFile === false) {
+            throw new RuntimeException('Не вдалося створити тимчасовий файл для архіву GitHub.');
+        }
+
+        $zipPath = $tempFile . '.zip';
+
+        if (! @rename($tempFile, $zipPath)) {
+            $zipPath = $tempFile;
+        }
 
         try {
-            $response = $this->client->request('GET', $this->repoUri("tarball/{$ref}"), [
-                'sink' => $tempFile,
+            $response = $this->client->request('GET', $this->repoUri("zipball/{$ref}"), [
+                'sink' => $zipPath,
                 'headers' => ['Accept' => 'application/vnd.github+json'],
             ]);
         } catch (GuzzleException $exception) {
-            @unlink($tempFile);
+            @unlink($zipPath);
             throw new RuntimeException('Не вдалося отримати архів із GitHub: ' . $exception->getMessage(), 0, $exception);
         }
 
         if ($response->getStatusCode() >= 300) {
-            @unlink($tempFile);
+            @unlink($zipPath);
             throw new RuntimeException('GitHub повернув помилку під час завантаження архіву.');
         }
 
-        return $tempFile;
+        return $zipPath;
     }
 
     /**
