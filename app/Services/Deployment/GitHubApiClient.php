@@ -73,36 +73,41 @@ class GitHubApiClient
     /**
      * @throws RuntimeException
      */
-    public function downloadTarball(string $ref): string
+    public function downloadArchive(string $ref, string $format = 'zip'): string
     {
-        $tempFile = tempnam(sys_get_temp_dir(), 'gh_zip_');
+        $format = $format === 'tar' ? 'tar' : 'zip';
+        $prefix = $format === 'tar' ? 'gh_tar_' : 'gh_zip_';
+        $tempFile = tempnam(sys_get_temp_dir(), $prefix);
 
         if ($tempFile === false) {
             throw new RuntimeException('Не вдалося створити тимчасовий файл для архіву GitHub.');
         }
 
-        $zipPath = $tempFile . '.zip';
+        $extension = $format === 'tar' ? '.tar.gz' : '.zip';
+        $archivePath = $tempFile . $extension;
 
-        if (! @rename($tempFile, $zipPath)) {
-            $zipPath = $tempFile;
+        if (! @rename($tempFile, $archivePath)) {
+            $archivePath = $tempFile;
         }
 
+        $endpoint = $format === 'tar' ? "tarball/{$ref}" : "zipball/{$ref}";
+
         try {
-            $response = $this->client->request('GET', $this->repoUri("zipball/{$ref}"), [
-                'sink' => $zipPath,
+            $response = $this->client->request('GET', $this->repoUri($endpoint), [
+                'sink' => $archivePath,
                 'headers' => ['Accept' => 'application/vnd.github+json'],
             ]);
         } catch (GuzzleException $exception) {
-            @unlink($zipPath);
+            @unlink($archivePath);
             throw new RuntimeException('Не вдалося отримати архів із GitHub: ' . $exception->getMessage(), 0, $exception);
         }
 
         if ($response->getStatusCode() >= 300) {
-            @unlink($zipPath);
+            @unlink($archivePath);
             throw new RuntimeException('GitHub повернув помилку під час завантаження архіву.');
         }
 
-        return $zipPath;
+        return $archivePath;
     }
 
     /**

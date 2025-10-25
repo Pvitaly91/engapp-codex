@@ -57,11 +57,7 @@ class NativeGitDeploymentService
             throw new RuntimeException('GitHub не повернув останній коміт гілки.');
         }
 
-        $logs[] = 'Завантажуємо архів віддаленої гілки.';
-        $archive = $this->github()->downloadTarball($branch);
-
-        $logs[] = 'Розпаковуємо архів і оновлюємо робоче дерево без використання shell.';
-        $extracted = $this->extractArchive($archive);
+        $extracted = $this->fetchAndExtract($branch, $logs, "гілки {$branch}");
         $this->filesystem->replaceWorkingTree($extracted);
         File::deleteDirectory(dirname($extracted));
 
@@ -204,11 +200,7 @@ class NativeGitDeploymentService
             throw new RuntimeException('Вкажіть коміт для відкату.');
         }
 
-        $logs[] = "Завантажуємо архів коміту {$commit} з GitHub.";
-        $archive = $this->github()->downloadTarball($commit);
-
-        $logs[] = 'Розпаковуємо архів і відновлюємо файли.';
-        $extracted = $this->extractArchive($archive);
+        $extracted = $this->fetchAndExtract($commit, $logs, "коміту {$commit}");
         $this->filesystem->replaceWorkingTree($extracted);
         File::deleteDirectory(dirname($extracted));
 
@@ -315,10 +307,87 @@ class NativeGitDeploymentService
         File::put($path, json_encode($items, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 
-    private function extractArchive(string $archivePath): string
+    private function fetchAndExtract(string $ref, array &$logs, string $context): string
+    {
+        $formats = $this->archiveFormatCandidates();
+        $lastException = null;
+
+        foreach ($formats as $index => $format) {
+            $label = strtoupper($format);
+            $logs[] = "Завантажуємо архів {$context} у форматі {$label}.";
+
+            try {
+                $archivePath = $this->github()->downloadArchive($ref, $format);
+                $logs[] = "Розпаковуємо архів (формат {$label}) без використання shell.";
+
+                return $this->extractArchive($archivePath, $format);
+            } catch (RuntimeException $exception) {
+                $lastException = $exception;
+                $logs[] = 'Помилка: ' . $exception->getMessage();
+
+                if ($index !== array_key_last($formats)) {
+                    $logs[] = 'Пробуємо альтернативний формат архіву.';
+                }
+            }
+        }
+
+        throw $lastException ?? new RuntimeException('Не вдалося опрацювати архів GitHub.');
+    }
+
+    private function extractArchive(string $archivePath, string $format): string
     {
         $tmpDir = storage_path('app/native_deploy_' . Str::random(8));
         File::ensureDirectoryExists($tmpDir);
+
+        if ($format === 'zip') {
+            $this->extractZipArchive($archivePath, $tmpDir);
+        } elseif ($format === 'tar') {
+            $this->extractTarArchive($archivePath, $tmpDir);
+        } else {
+            @unlink($archivePath);
+            throw new RuntimeException('Непідтримуваний формат архіву GitHub.');
+        }
+
+        $directories = File::directories($tmpDir);
+        if ($directories === []) {
+            throw new RuntimeException('Не вдалося розпакувати архів GitHub.');
+        }
+
+        return $directories[0];
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function archiveFormatCandidates(): array
+    {
+        $formats = [];
+
+        if (class_exists(ZipArchive::class)) {
+            $formats[] = 'zip';
+        }
+
+        if (class_exists(\PharData::class) && function_exists('gzopen')) {
+            $formats[] = 'tar';
+        }
+
+        if ($formats === []) {
+            throw new RuntimeException('Сервер не підтримує розпакування ZIP або TAR архівів без shell.');
+        }
+
+        if (PHP_OS_FAMILY === 'Windows' && in_array('zip', $formats, true)) {
+            $formats = array_values(array_unique(array_merge(['zip'], $formats)));
+        }
+
+        return array_values(array_unique($formats));
+    }
+
+    private function extractZipArchive(string $archivePath, string $destination): void
+    {
+        if (! class_exists(ZipArchive::class)) {
+            @unlink($archivePath);
+            throw new RuntimeException('Розширення ZipArchive недоступне на сервері.');
+        }
 
         $zip = new ZipArchive();
         $opened = false;
@@ -332,7 +401,7 @@ class NativeGitDeploymentService
 
             $opened = true;
 
-            if (! $zip->extractTo($tmpDir)) {
+            if (! $zip->extractTo($destination)) {
                 throw new RuntimeException('Не вдалося розпакувати архів GitHub.');
             }
         } finally {
@@ -342,13 +411,63 @@ class NativeGitDeploymentService
 
             @unlink($archivePath);
         }
+    }
 
-        $directories = File::directories($tmpDir);
-        if ($directories === []) {
-            throw new RuntimeException('Не вдалося розпакувати архів GitHub.');
+    private function extractTarArchive(string $archivePath, string $destination): void
+    {
+        if (! class_exists(\PharData::class)) {
+            @unlink($archivePath);
+            throw new RuntimeException('Розширення Phar недоступне на сервері.');
         }
 
-        return $directories[0];
+        if (! function_exists('gzopen')) {
+            @unlink($archivePath);
+            throw new RuntimeException('Розпакування TAR-архіву потребує розширення zlib.');
+        }
+
+        $tarPath = $archivePath . '.tar';
+        $gzip = @gzopen($archivePath, 'rb');
+
+        if ($gzip === false) {
+            @unlink($archivePath);
+            throw new RuntimeException('Не вдалося відкрити gzip-архів GitHub.');
+        }
+
+        $tarHandle = @fopen($tarPath, 'wb');
+
+        if ($tarHandle === false) {
+            gzclose($gzip);
+            @unlink($archivePath);
+            throw new RuntimeException('Не вдалося підготувати тимчасовий TAR-файл.');
+        }
+
+        try {
+            while (! gzeof($gzip)) {
+                $chunk = gzread($gzip, 8192);
+
+                if ($chunk === false) {
+                    throw new RuntimeException('Помилка читання gzip-архіву GitHub.');
+                }
+
+                if (fwrite($tarHandle, $chunk) === false) {
+                    throw new RuntimeException('Не вдалося записати тимчасовий TAR-файл.');
+                }
+            }
+        } finally {
+            gzclose($gzip);
+            fclose($tarHandle);
+            @unlink($archivePath);
+        }
+
+        try {
+            $phar = new \PharData($tarPath);
+            $phar->extractTo($destination, null, true);
+        } catch (\Exception $exception) {
+            @unlink($tarPath);
+            throw new RuntimeException('Не вдалося розпакувати архів GitHub: ' . $exception->getMessage(), 0, $exception);
+        }
+
+        @unlink($tarPath);
     }
 
     private function github(): GitHubApiClient
