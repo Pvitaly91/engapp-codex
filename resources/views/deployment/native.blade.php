@@ -5,11 +5,27 @@
 @section('content')
   <div class="max-w-4xl mx-auto space-y-8">
     <header class="space-y-4 text-center">
+      @php
+        $shellActive = request()->routeIs('deployment.index');
+        $nativeActive = request()->routeIs('deployment.native.*');
+      @endphp
       <div class="inline-flex items-center rounded-full border border-border/70 bg-muted/40 p-1 text-sm">
         @if($supportsShell)
-          <a href="{{ route('deployment.index') }}" class="rounded-full px-4 py-1.5 font-medium {{ request()->routeIs('deployment.index') ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground' }}">Shell версія</a>
+          <a
+            href="{{ route('deployment.index') }}"
+            class="rounded-full px-4 py-1.5 font-medium transition {{ $shellActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
+            @if($shellActive) aria-current="page" @endif
+          >
+            Shell версія
+          </a>
         @endif
-        <a href="{{ route('deployment.native.index') }}" class="rounded-full px-4 py-1.5 font-medium {{ request()->routeIs('deployment.native.*') ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground' }}">Без shell</a>
+        <a
+          href="{{ route('deployment.native.index') }}"
+          class="rounded-full px-4 py-1.5 font-medium transition {{ $nativeActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
+          @if($nativeActive) aria-current="page" @endif
+        >
+          Без shell
+        </a>
       </div>
       @unless($supportsShell)
         <p class="text-sm text-muted-foreground">Shell режим недоступний на цьому сервері, тому доступна лише робота через API.</p>
