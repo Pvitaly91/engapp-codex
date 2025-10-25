@@ -13,6 +13,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Database\Seeder as LaravelSeeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
@@ -55,12 +56,6 @@ class SeedRunController extends Controller
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['preview' => __('Сидер :class не знайдено.', ['class' => $className])]);
-        }
-
-        if (! is_subclass_of($className, QuestionSeederBase::class)) {
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['preview' => __('Попередній перегляд доступний лише для сидерів запитань.')]);
         }
 
         try {
@@ -128,7 +123,7 @@ class SeedRunController extends Controller
                 return (object) [
                     'class_name' => $class,
                     'display_class_name' => $this->formatSeederClassName($class),
-                    'is_question_seeder' => is_subclass_of($class, QuestionSeederBase::class),
+                    'supports_preview' => $this->seederSupportsPreview($class),
                 ];
             })
             ->values();
@@ -188,6 +183,19 @@ class SeedRunController extends Controller
         }
 
         return nl2br($questionText);
+    }
+
+    protected function seederSupportsPreview(string $className): bool
+    {
+        if (! class_exists($className)) {
+            return false;
+        }
+
+        if (! is_subclass_of($className, LaravelSeeder::class)) {
+            return false;
+        }
+
+        return method_exists($className, 'run');
     }
 
     protected function buildSeederHierarchy(Collection $seedRuns): Collection
@@ -293,23 +301,36 @@ class SeedRunController extends Controller
     protected function buildSeederPreview(string $className): array
     {
         $hasSeederColumn = Schema::hasColumn('questions', 'seeder');
+        $keyColumn = Schema::hasColumn('questions', 'uuid') ? 'uuid' : 'id';
 
-        if ($hasSeederColumn) {
-            $existingQuestionKeys = Question::query()
-                ->where('seeder', $className)
-                ->pluck('uuid')
-                ->all();
+        $existingQuestionKeys = Question::query()
+            ->pluck($keyColumn)
+            ->filter(fn ($value) => $value !== null)
+            ->values()
+            ->all();
 
-            $existingQuestionCount = count($existingQuestionKeys);
-        } else {
-            $existingQuestionKeys = Question::query()
-                ->pluck('id')
-                ->all();
-
-            $existingQuestionCount = null;
+        if (empty($existingQuestionKeys) && $keyColumn === 'uuid') {
+            $keyColumn = 'id';
+            $existingQuestionKeys = Question::query()->pluck($keyColumn)->all();
         }
 
+        $existingQuestionCount = $hasSeederColumn
+            ? Question::query()->where('seeder', $className)->count()
+            : null;
+
         $previewQuestions = collect();
+
+        $relations = [
+            'answers.option',
+            'options',
+            'tags',
+            'category',
+            'source',
+            'verbHints.option',
+            'variants',
+            'hints',
+            'chatgptExplanations',
+        ];
 
         DB::beginTransaction();
 
@@ -322,33 +343,27 @@ class SeedRunController extends Controller
 
             $seeder->run();
 
-            $questionsQuery = Question::query()
-                ->with([
-                    'answers.option',
-                    'options',
-                    'tags',
-                    'category',
-                    'source',
-                    'verbHints.option',
-                    'variants',
-                    'hints',
-                    'chatgptExplanations',
-                ]);
+            $questions = Question::query()
+                ->with($relations)
+                ->when(! empty($existingQuestionKeys), function ($query) use ($keyColumn, $existingQuestionKeys) {
+                    $query->whereNotIn($keyColumn, $existingQuestionKeys);
+                })
+                ->orderBy('id')
+                ->get();
 
-            if ($hasSeederColumn) {
-                $questionsQuery->where('seeder', $className);
-            } elseif (! empty($existingQuestionKeys)) {
-                $questionsQuery->whereNotIn('id', $existingQuestionKeys);
+            if ($questions->isEmpty() && $hasSeederColumn) {
+                $questions = Question::query()
+                    ->with($relations)
+                    ->where('seeder', $className)
+                    ->orderBy('id')
+                    ->get();
             }
 
-            $questions = $questionsQuery->get();
+            if ($questions->isEmpty()) {
+                throw new \RuntimeException(__('Сидер не створює нові питання для попереднього перегляду.'));
+            }
 
             $previewQuestions = $questions
-                ->when($hasSeederColumn, function (Collection $collection) use ($existingQuestionKeys) {
-                    return $collection->reject(function (Question $question) use ($existingQuestionKeys) {
-                        return in_array($question->uuid, $existingQuestionKeys, true);
-                    });
-                })
                 ->map(function (Question $question) {
                     $question->answers = $question->answers->sortBy('marker')->values();
 
