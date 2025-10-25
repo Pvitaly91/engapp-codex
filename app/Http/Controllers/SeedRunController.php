@@ -77,6 +77,42 @@ class SeedRunController extends Controller
         ]);
     }
 
+    public function previewSource(Request $request)
+    {
+        $className = (string) $request->query('class_name', '');
+
+        if ($className === '') {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Не вказано клас сидера для перегляду.')]);
+        }
+
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $filePath) {
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Файл для сидера :class не знайдено.', ['class' => $className])]);
+        }
+
+        try {
+            $fileContents = File::get($filePath);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['preview' => __('Не вдалося прочитати файл сидера :class.', ['class' => $className])]);
+        }
+
+        return view('seed-runs.source', [
+            'className' => $className,
+            'displayClassName' => $this->formatSeederClassName($className),
+            'filePath' => $this->makeRelativePath($filePath),
+            'fileContents' => $fileContents,
+        ]);
+    }
+
     protected function assembleSeedRunOverview(): array
     {
         $tableExists = Schema::hasTable('seed_runs');
@@ -125,6 +161,7 @@ class SeedRunController extends Controller
                     'class_name' => $class,
                     'display_class_name' => $this->formatSeederClassName($class),
                     'supports_preview' => $this->seederSupportsPreview($class),
+                    'has_file' => $this->resolveSeederFilePath($class) !== null,
                 ];
             })
             ->values();
@@ -142,6 +179,7 @@ class SeedRunController extends Controller
         $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
             $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
             $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+            $seedRun->has_file = $this->resolveSeederFilePath($seedRun->class_name) !== null;
 
             return $seedRun;
         });
@@ -197,6 +235,43 @@ class SeedRunController extends Controller
         }
 
         return method_exists($className, 'run');
+    }
+
+    protected function resolveSeederFilePath(string $className): ?string
+    {
+        $candidatePaths = collect();
+
+        if (Str::startsWith($className, 'Database\\Seeders\\')) {
+            $relative = Str::after($className, 'Database\\Seeders\\');
+            $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
+            $candidatePaths->push(database_path('seeders/' . $relativePath));
+        }
+
+        if ($this->classExistsSafely($className)) {
+            try {
+                $reflection = new \ReflectionClass($className);
+                $fileName = $reflection->getFileName();
+
+                if ($fileName) {
+                    $candidatePaths->push($fileName);
+                }
+            } catch (\ReflectionException $exception) {
+                report($exception);
+            }
+        }
+
+        $candidatePaths = $candidatePaths
+            ->filter(fn ($path) => filled($path))
+            ->unique()
+            ->values();
+
+        foreach ($candidatePaths as $path) {
+            if (File::exists($path)) {
+                return $path;
+            }
+        }
+
+        return null;
     }
 
     protected function buildSeederHierarchy(Collection $seedRuns): Collection
@@ -955,33 +1030,7 @@ class SeedRunController extends Controller
             $seedRunsTableExists = Schema::hasTable('seed_runs');
         }
 
-        $candidatePaths = collect();
-
-        if (Str::startsWith($className, 'Database\\Seeders\\')) {
-            $relative = Str::after($className, 'Database\\Seeders\\');
-            $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
-            $candidatePaths->push(database_path('seeders/' . $relativePath));
-        }
-
-        if ($this->classExistsSafely($className)) {
-            try {
-                $reflection = new \ReflectionClass($className);
-                $fileName = $reflection->getFileName();
-
-                if ($fileName) {
-                    $candidatePaths->push($fileName);
-                }
-            } catch (\ReflectionException $exception) {
-                report($exception);
-            }
-        }
-
-        $candidatePaths = $candidatePaths
-            ->filter(fn ($path) => filled($path))
-            ->unique()
-            ->values();
-
-        $filePath = $candidatePaths->first(fn ($path) => File::exists($path));
+        $filePath = $this->resolveSeederFilePath($className);
 
         if (! $filePath) {
             return [
@@ -1479,6 +1528,17 @@ class SeedRunController extends Controller
         }
 
         return $default;
+    }
+
+    protected function makeRelativePath(string $absolutePath): string
+    {
+        $basePath = base_path();
+
+        if (Str::startsWith($absolutePath, $basePath)) {
+            return ltrim(Str::after($absolutePath, $basePath), DIRECTORY_SEPARATOR);
+        }
+
+        return $absolutePath;
     }
 
     protected function describeFolderData(Collection $classNames): array

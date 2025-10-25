@@ -174,6 +174,12 @@
                     </div>
 
                     <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
+                        @if($seedRun->has_file ?? false)
+                            <a href="{{ route('seed-runs.preview-source', ['class_name' => $seedRun->class_name]) }}" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition sm:flex-none md:flex-1 md:w-full">
+                                <i class="fa-solid fa-file-code"></i>
+                                Код сидера
+                            </a>
+                        @endif
                         <form method="POST"
                               action="{{ route('seed-runs.destroy-seeder-file') }}"
                               data-preloader

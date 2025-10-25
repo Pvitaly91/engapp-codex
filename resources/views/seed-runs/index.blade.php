@@ -115,6 +115,12 @@
                                                 Переглянути
                                             </a>
                                         @endif
+                                        @if($pendingSeeder->has_file)
+                                            <a href="{{ route('seed-runs.preview-source', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition">
+                                                <i class="fa-solid fa-file-code"></i>
+                                                Код
+                                            </a>
+                                        @endif
                                         <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?">
                                             @csrf
                                             @method('DELETE')
