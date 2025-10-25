@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="uk" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engram — Вивчення англійської: тести + теорія</title>
+  <meta name="description" content="Короткі тести з англійської, проста теорія, прогрес та рекомендації. Tailwind CSS односторінковий макет." />
+
+  <!-- Google Font: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN + runtime config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+          colors: {
+            border: 'hsl(var(--border))',
+            input: 'hsl(var(--input))',
+            ring: 'hsl(var(--ring))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+            secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
+            muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
+            accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
+            popover: { DEFAULT: 'hsl(var(--popover))', foreground: 'hsl(var(--popover-foreground))' },
+            card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' },
+            success: 'hsl(var(--success))',
+            warning: 'hsl(var(--warning))',
+            destructive: { DEFAULT: 'hsl(var(--destructive))', foreground: 'hsl(var(--destructive-foreground))' },
+            info: 'hsl(var(--info))',
+          },
+          borderRadius: { xl: '0.75rem', '2xl': '1rem', '3xl': '1.5rem' },
+          boxShadow: { soft: '0 10px 30px -12px rgba(0,0,0,0.15)' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Design tokens (light/dark) -->
+  <style>
+    :root {
+      /* Vibrant Surfaces */
+      --background: 0 0% 100%;
+      --foreground: 15 7% 11%;
+      --card: 0 0% 100%;
+      --card-foreground: 15 7% 11%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 15 7% 11%;
+
+      /* Vivid Brand / Semantic */
+      --primary: 262 83% 58%;            /* violet-600 */
+      --primary-foreground: 0 0% 100%;
+
+      --secondary: 188 85% 45%;          /* teal-cyan */
+      --secondary-foreground: 0 0% 100%;
+
+      --muted: 0 0% 96%;
+      --muted-foreground: 15 7% 35%;
+
+      --accent: 24 94% 50%;              /* orange-500 */
+      --accent-foreground: 0 0% 100%;
+
+      --destructive: 0 84% 60%;
+      --destructive-foreground: 0 0% 100%;
+
+      --success: 142 76% 36%;
+      --warning: 38 92% 50%;
+      --info: 217 91% 60%;
+
+      --border: 0 0% 88%;
+      --input: 0 0% 88%;
+      --ring: 262 83% 58%;
+    }
+    .dark {
+      --background: 222 15% 10%;
+      --foreground: 0 0% 98%;
+      --card: 222 15% 13%;
+      --card-foreground: 0 0% 98%;
+      --popover: 222 15% 13%;
+      --popover-foreground: 0 0% 98%;
+
+      --primary: 262 91% 70%;
+      --primary-foreground: 0 0% 10%;
+
+      --secondary: 188 85% 52%;
+      --secondary-foreground: 0 0% 10%;
+
+      --muted: 222 15% 16%;
+      --muted-foreground: 0 0% 80%;
+
+      --accent: 24 94% 55%;
+      --accent-foreground: 0 0% 10%;
+
+      --destructive: 0 72% 55%;
+      --destructive-foreground: 0 0% 100%;
+
+      --success: 142 55% 45%;
+      --warning: 38 90% 55%;
+      --info: 217 80% 65%;
+
+      --border: 222 15% 22%;
+      --input: 222 15% 22%;
+      --ring: 262 83% 60%;
+    }
+    html, body { height: 100%; }
+    body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
+    .container { max-width: 72rem; }
+  </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-primary/15 selection:text-primary">
+  <!-- HEADER / NAV -->
+  <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/80">
+    <div class="container mx-auto px-4">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-2xl bg-primary text-primary-foreground grid place-items-center font-bold">E</div>
+          <span class="text-lg font-semibold tracking-tight">Engram</span>
+          <span class="ml-2 inline-flex items-center rounded-lg bg-accent$1text-accent-foreground">beta</span>
+        </div>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="text-muted-foreground hover:text-foreground" href="#tests">Тести</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#theory">Теорія</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#quiz">Швидкий тест</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#faq">FAQ</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="hidden sm:inline-flex rounded-xl border border-border px-3 py-2 text-sm">
+            🌙 Тема
+          </button>
+          <button class="rounded-2xl bg-primary px-4 py-2 text-primary-foreground text-sm">Реєстрація</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="container mx-auto px-4 py-12 sm:py-16 lg:py-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-flex items-center rounded-xl bg-accent$1text-accent-foreground">Нове • швидкий старт</span>
+          <h1 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Вчи англійську без шуму: тести + проста теорія</h1>
+          <p class="mt-4 text-muted-foreground max-w-prose">Чіткі пояснення, живі приклади, короткі тести. Відстежуй прогрес і проходь теми у власному темпі.</p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="#quiz" class="rounded-2xl bg-primary px-5 py-3 text-primary-foreground text-center">Почати тест зараз</a>
+            <a href="#theory" class="rounded-2xl border border-border px-5 py-3 text-center">Перейти до теорії</a>
+          </div>
+          <div class="mt-6 flex items-center gap-6 text-sm text-muted-foreground">
+            <div class="flex items-center gap-2">✅ Безкоштовні базові теми</div>
+            <div class="flex items-center gap-2">⏱️ Тести по 7–15 хв</div>
+          </div>
+        </div>
+        <div class="lg:pl-6">
+          <div class="relative">
+            <div class="absolute inset-0 -z-10 blur-3xl opacity-60 bg-gradient-to-tr from-fuchsia-300 via-rose-300 to-amber-300 rounded-[36px]"></div>
+            <div class="rounded-3xl border border-border bg-card shadow-soft p-6">
+              <h3 class="text-lg font-semibold">Категорії</h3>
+              <p class="text-sm text-muted-foreground">Обери тему — система підкаже з чого почати.</p>
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <button class="group rounded-2xl border border-border px-4 py-3 text-left bg-card hover:shadow-soft transition">
+                  <div class="text-sm font-medium">Present Simple</div>
+                  <div class="text-xs text-muted-foreground mt-1">18 тестів</div>
+                </button>
+                <button class="group rounded-2xl border border-border px-4 py-3 text-left bg-card hover:shadow-soft transition">
+                  <div class="text-sm font-medium">Present Continuous</div>
+                  <div class="text-xs text-muted-foreground mt-1">14 тестів</div>
+                </button>
+                <button class="group rounded-2xl border border-border px-4 py-3 text-left bg-card hover:shadow-soft transition">
+                  <div class="text-sm font-medium">Present Perfect</div>
+                  <div class="text-xs text-muted-foreground mt-1">22 тести</div>
+                </button>
+                <button class="group rounded-2xl border border-border px-4 py-3 text-left bg-card hover:shadow-soft transition">
+                  <div class="text-sm font-medium">Past Simple</div>
+                  <div class="text-xs text-muted-foreground mt-1">20 тестів</div>
+                </button>
+                <button class="group rounded-2xl border border-border px-4 py-3 text-left bg-card hover:shadow-soft transition">
+                  <div class="text-sm font-medium">Past Perfect</div>
+                  <div class="text-xs text-muted-foreground mt-1">16 тестів</div>
+                </button>
+                <button class="group rounded-2xl border border-border px-4 py-3 text-left bg-card hover:shadow-soft transition">
+                  <div class="text-sm font-medium">Future Forms</div>
+                  <div class="text-xs text-muted-foreground mt-1">12 тестів</div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTS SECTION -->
+  <section id="tests" class="py-10 sm:py-12 lg:py-16">
+    <div class="container mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Популярні тести</h2>
+          <p class="text-muted-foreground mt-1">Швидкі перевірки знань з підказками та поясненнями.</p>
+        </div>
+        <a href="#quiz" class="hidden sm:inline-flex rounded-2xl border border-border px-4 py-2">Швидкий тест</a>
+      </div>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <!-- Card 1 -->
+        <article class="rounded-3xl border border-border bg-card hover:shadow-soft transition">
+          <div class="p-5">
+            <h3 class="text-base font-semibold">Present Perfect — базовий тест</h3>
+            <p class="text-xs text-muted-foreground mt-1">A2 • 12 питань • ~8 хв</p>
+            <div class="mt-3 flex flex-wrap gap-1.5 text-xs">
+              <span class="rounded-xl border border-border px-2 py-1">Граматика</span>
+              <span class="rounded-xl border border-border px-2 py-1">Дієслова</span>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="text-xs text-muted-foreground">⭐ 4.8</span>
+              <a href="#quiz" class="rounded-xl bg-primary px-3 py-1.5 text-primary-foreground text-sm">Почати</a>
+            </div>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="rounded-3xl border border-border bg-card hover:shadow-soft transition">
+          <div class="p-5">
+            <h3 class="text-base font-semibold">Past Tenses — мікс</h3>
+            <p class="text-xs text-muted-foreground mt-1">B1 • 15 питань • ~10 хв</p>
+            <div class="mt-3 flex flex-wrap gap-1.5 text-xs">
+              <span class="rounded-xl border border-border px-2 py-1">Mixed</span>
+              <span class="rounded-xl border border-border px-2 py-1">Минулий час</span>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="text-xs text-muted-foreground">⭐ 4.6</span>
+              <a href="#quiz" class="rounded-xl bg-primary px-3 py-1.5 text-primary-foreground text-sm">Почати</a>
+            </div>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="rounded-3xl border border-border bg-card hover:shadow-soft transition">
+          <div class="p-5">
+            <h3 class="text-base font-semibold">Articles a/an/the</h3>
+            <p class="text-xs text-muted-foreground mt-1">A2 • 10 питань • ~7 хв</p>
+            <div class="mt-3 flex flex-wrap gap-1.5 text-xs">
+              <span class="rounded-xl border border-border px-2 py-1">Артиклі</span>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="text-xs text-muted-foreground">⭐ 4.7</span>
+              <a href="#quiz" class="rounded-xl bg-primary px-3 py-1.5 text-primary-foreground text-sm">Почати</a>
+            </div>
+          </div>
+        </article>
+        <!-- Card 4 -->
+        <article class="rounded-3xl border border-border bg-card hover:shadow-soft transition">
+          <div class="p-5">
+            <h3 class="text-base font-semibold">Conditionals — тренажер</h3>
+            <p class="text-xs text-muted-foreground mt-1">B1 • 20 питань • ~14 хв</p>
+            <div class="mt-3 flex flex-wrap gap-1.5 text-xs">
+              <span class="rounded-xl border border-border px-2 py-1">Умовні речення</span>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="text-xs text-muted-foreground">⭐ 4.9</span>
+              <a href="#quiz" class="rounded-xl bg-primary px-3 py-1.5 text-primary-foreground text-sm">Почати</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEORY SECTION -->
+  <section id="theory" class="py-10 sm:py-12 lg:py-16 bg-muted">
+    <div class="container mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Теорія без води</h2>
+          <p class="text-muted-foreground mt-1">Короткі конспекти, маркери часу, типові помилки та вправи.</p>
+        </div>
+        <a href="#" class="rounded-2xl border border-border px-4 py-2">Вся теорія</a>
+      </div>
+      <div class="mt-6 grid lg:grid-cols-3 gap-5">
+        <article class="rounded-3xl border border-border bg-card p-5">
+          <h3 class="text-lg font-semibold">Present Perfect — простий гайд</h3>
+          <p class="text-sm text-muted-foreground mt-1">Коли вживати already, yet, just. Маркери часу та типові помилки.</p>
+          <div class="mt-3 text-xs text-muted-foreground">Час читання: 7 хв</div>
+        </article>
+        <article class="rounded-3xl border border-border bg-card p-5">
+          <h3 class="text-lg font-semibold">Past Simple vs Past Continuous</h3>
+          <p class="text-sm text-muted-foreground mt-1">Як правильно описувати події в минулому: фон і точні дії.</p>
+          <div class="mt-3 text-xs text-muted-foreground">Час читання: 9 хв</div>
+        </article>
+        <article class="rounded-3xl border border-border bg-card p-5">
+          <h3 class="text-lg font-semibold">Conditionals 0/1/2 — коротко і ясно</h3>
+          <p class="text-sm text-muted-foreground mt-1">Форми, вживання, корисні схеми + міні-тест наприкінці.</p>
+          <div class="mt-3 text-xs text-muted-foreground">Час читання: 11 хв</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ SECTION (Interactive) -->
+  <section id="quiz" class="py-10 sm:py-12 lg:py-16">
+    <div class="container mx-auto px-4">
+      <div class="mb-6">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Future Simple — короткий тест</h2>
+        <p class="text-sm text-muted-foreground mt-1">Клікай варіант або використовуй клавіші <b>1–4</b>.</p>
+      </div>
+
+      <!-- Прогрес -->
+      <div class="mb-6">
+        <div class="flex items-center justify-between text-sm">
+          <span id="progress-label" class="text-muted-foreground">0 / 0</span>
+          <span id="score-label" class="text-muted-foreground">Точність: 0%</span>
+        </div>
+        <div class="w-full h-2 bg-muted rounded-full mt-2">
+          <div id="progress-bar" class="h-2 bg-primary rounded-full" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div id="questions" class="space-y-4"></div>
+
+      <div id="summary" class="mt-8 hidden">
+        <div class="rounded-2xl border border-border bg-card p-4">
+          <div class="text-lg font-semibold">Підсумок</div>
+          <p class="text-sm text-muted-foreground mt-1" id="summary-text"></p>
+          <div class="mt-3 flex gap-3">
+            <button id="retry" class="px-4 py-2 rounded-xl bg-primary text-primary-foreground">Пройти ще раз</button>
+            <button id="show-wrong" class="px-4 py-2 rounded-xl border border-border">Показати тільки помилки</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-10 sm:py-12 lg:py-16 bg-gradient-to-br from-fuchsia-500/15 via-rose-500/15 to-amber-400/25 dark:from-[hsl(262,40%,20%)] dark:via-[hsl(330,40%,18%)] dark:to-[hsl(28,45%,18%)]">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">Готовий(а) зробити крок далі?</h2>
+          <p class="mt-2 text-muted-foreground">Створи акаунт і відкрий доступ до повних треків, пояснень і перевірки помилок.</p>
+        </div>
+        <div class="flex lg:justify-end gap-3">
+          <a href="#" class="rounded-2xl bg-secondary px-5 py-3 text-secondary-foreground">Спробувати безкоштовно</a>
+          <a href="#" class="rounded-2xl bg-primary px-5 py-3 text-primary-foreground">Почати навчання</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border bg-background">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-2xl bg-primary text-primary-foreground grid place-items-center font-bold">E</div>
+          <span class="font-semibold tracking-tight">Engram</span>
+        </div>
+        <div class="text-center text-sm text-muted-foreground">© <span id="year"></span> Engram. Усі права захищено.</div>
+        <div class="flex md:justify-end gap-4 text-sm">
+          <a class="text-muted-foreground hover:text-foreground" href="#">Політика</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#">Умови</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#faq">Підтримка</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== INTERACTIVE JS ====== -->
+  <script>
+    // Dark mode toggle with persistence
+    (function themeInit(){
+      const saved = localStorage.getItem('theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && systemDark)) document.documentElement.classList.add('dark');
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Quiz data (можна підміняти з бекенду) =====
+    const QUESTIONS = [
+      { question: 'I suppose the concert {a1} about 6.', answer: 'will finish', verb: 'finish', options: ['will finish','will be finishing','will have finished','finishes'], tense: 'Future Simple', level: 'A2' },
+      { question: 'I {a2} very sad if you do that.',   answer: 'will be',      verb: 'be',     options: ['will be','am going to be','will have been','will be being'], tense: 'Future Simple', level: 'A2' },
+      { question: 'I {a3} you everything when I go back.', answer: 'will tell', verb: 'tell', options: ['will tell','will be telling','will have told','am telling'], tense: 'Future Simple', level: 'A2' },
+    ];
+
+    const state = { items: [], correct: 0, answered: 0, activeCardIdx: 0 };
+
+    function initQuiz(){
+      state.items = QUESTIONS.map(q => ({...q, options: shuffle([...q.options]), chosen: null, isCorrect: null }));
+      state.correct = 0; state.answered = 0; renderQuestions(); updateProgress(); hookHotkeys();
+    }
+
+    function renderQuestions(showOnlyWrong=false){
+      const wrap = document.getElementById('questions');
+      wrap.innerHTML = '';
+      state.items.forEach((q, idx) => {
+        if (showOnlyWrong && q.isCorrect !== false) return;
+        const card = document.createElement('article');
+        card.className = 'rounded-2xl border border-border bg-card p-4 outline-none focus-within:ring-2 ring-primary/30';
+        card.tabIndex = 0; card.dataset.idx = idx;
+
+        const slotText = q.chosen ?? '____';
+        const sentence = q.question.replace(/\{a\d+\}/, `<mark class="px-1 py-0.5 rounded bg-accent/20">${slotText}</mark>`);
+
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <div class="text-sm text-muted-foreground">${q.level} • ${q.tense}</div>
+              <div class="mt-1 text-base leading-relaxed">${sentence}</div>
+            </div>
+            <div class="text-xs text-muted-foreground shrink-0">[${idx+1}/${state.items.length}]</div>
+          </div>
+          <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2" role="group" aria-label="Варіанти відповіді">
+            ${q.options.map((opt,i)=>optionBtn(q, idx, opt, i)).join('')}
+          </div>
+          <div class="mt-2 h-5" id="feedback-${idx}">${feedback(q)}</div>
+        `;
+
+        card.addEventListener('click', (e)=>{
+          const btn = e.target.closest('button[data-opt]'); if(!btn) return; onChoose(idx, btn.dataset.opt);
+        });
+        card.addEventListener('focusin', ()=>{ state.activeCardIdx = idx; });
+        wrap.appendChild(card);
+      });
+
+      const allDone = state.items.every(it => it.isCorrect !== null);
+      document.getElementById('summary').classList.toggle('hidden', !allDone);
+      if (allDone){
+        document.getElementById('summary-text').textContent = `Правильних відповідей: ${state.correct} із ${state.items.length} (${pct(state.correct, state.items.length)}%).`;
+        document.getElementById('retry').onclick = initQuiz;
+        document.getElementById('show-wrong').onclick = () => renderQuestions(true);
+      }
+    }
+
+    function optionBtn(q, idx, opt, i){
+      const chosen = q.chosen === opt; const answered = q.isCorrect !== null;
+      const base = 'w-full text-left px-3 py-2 rounded-xl border transition';
+      let cls = 'border-border bg-card hover:border-foreground/50';
+      if (answered){
+        if (opt === q.answer) cls = 'border-success bg-success/10';
+        if (chosen && opt !== q.answer) cls = 'border-destructive bg-destructive/10';
+      } else if (chosen){ cls = 'border-foreground'; }
+      const hotkey = i+1;
+      return `<button type="button" class="${base} ${cls}" data-opt="${esc(opt)}" title="Натисни ${hotkey}"><span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-md border text-xs">${hotkey}</span>${opt}</button>`;
+    }
+
+    function feedback(q){
+      if (q.isCorrect === true) return `<span class="text-sm text-success">✅ Вірно!</span>`;
+      if (q.isCorrect === false) return `<span class="text-sm text-destructive">❌ Невірно. Правильна відповідь: <b>${esc(q.answer)}</b></span>`;
+      return '';
+    }
+
+    function onChoose(idx, opt){
+      const item = state.items[idx]; if (item.isCorrect !== null) return;
+      item.chosen = opt; item.isCorrect = (opt === item.answer);
+      state.answered++; if (item.isCorrect) state.correct++;
+
+      const card = document.querySelector(`article[data-idx="${idx}"]`);
+      if (card){
+        const sentenceHtml = item.question.replace(/\{a\d+\}/, `<mark class=\"px-1 py-0.5 rounded bg-accent/20\">${esc(item.chosen)}</mark>`);
+        card.querySelector('.leading-relaxed').innerHTML = sentenceHtml;
+        const group = card.querySelector('[role="group"]');
+        group.innerHTML = item.options.map((optText,i)=>optionBtn(item, idx, optText, i)).join('');
+        card.querySelector(`#feedback-${idx}`).innerHTML = feedback(item);
+      }
+
+      updateProgress();
+      if (state.items.every(it => it.isCorrect !== null)) renderQuestions();
+    }
+
+    function updateProgress(){
+      const label = document.getElementById('progress-label');
+      label.textContent = `${state.answered} / ${state.items.length}`;
+      const percent = state.answered ? pct(state.correct, state.items.length) : 0;
+      document.getElementById('score-label').textContent = `Точність: ${percent}%`;
+      document.getElementById('progress-bar').style.width = `${(state.answered/state.items.length)*100}%`;
+    }
+
+    function hookHotkeys(){
+      document.addEventListener('keydown', (e)=>{
+        const n = Number(e.key); if (!Number.isInteger(n) || n < 1 || n > 4) return;
+        const idx = state.activeCardIdx ?? 0; const item = state.items[idx];
+        if (!item || item.isCorrect !== null) return; const opt = item.options[n-1]; if (!opt) return; onChoose(idx, opt);
+      });
+    }
+
+    // utils
+    function shuffle(arr){ for (let i=arr.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+    function pct(a,b){ return Math.round((a/(b||1))*100); }
+    function esc(s){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;'); }
+
+    // start
+    initQuiz();
+  </script>
+</body>
+</html>
