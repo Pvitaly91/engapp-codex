@@ -3,6 +3,25 @@
 @section('title', 'Seed Runs')
 
 @section('content')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/clike/clike.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/php/php.min.js"></script>
+    <style>
+        .CodeMirror {
+            height: 24rem;
+            font-size: 0.875rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+        }
+
+        .CodeMirror pre {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+
     <div class="max-w-6xl mx-auto space-y-6">
         @php $recentSeedRunOrdinals = collect($recentSeedRunOrdinals ?? []); @endphp
         <div class="bg-white shadow rounded-lg p-6">
@@ -256,7 +275,7 @@
             const fileModalLoadUrl = fileModal ? fileModal.dataset.loadUrl || '' : '';
             const fileModalOverlay = fileModal ? fileModal.querySelector('[data-file-overlay]') : null;
             const fileModalForm = fileModal ? fileModal.querySelector('[data-seeder-file-form]') : null;
-            const fileModalEditor = fileModal ? fileModal.querySelector('[data-file-editor]') : null;
+            const fileModalEditorTextarea = fileModal ? fileModal.querySelector('[data-file-editor]') : null;
             const fileModalClassInput = fileModal ? fileModal.querySelector('[data-file-class-input]') : null;
             const fileModalTitle = fileModal ? fileModal.querySelector('[data-file-title]') : null;
             const fileModalDefaultTitle = fileModalTitle ? (fileModalTitle.dataset.defaultTitle || fileModalTitle.textContent || '') : '';
@@ -274,6 +293,94 @@
             const fileModalUpdatedAtTemplate = @json(__('Останнє оновлення файлу: :timestamp'));
             const fileModalLoadingMessage = @json(__('Завантаження файлу…'));
             let feedbackTimeout;
+            let fileModalEditorInstance = null;
+
+            const getFileModalEditorInstance = function () {
+                if (fileModalEditorInstance) {
+                    return fileModalEditorInstance;
+                }
+
+                if (window.CodeMirror && fileModalEditorTextarea) {
+                    fileModalEditorInstance = window.CodeMirror.fromTextArea(fileModalEditorTextarea, {
+                        mode: 'application/x-httpd-php',
+                        lineNumbers: true,
+                        indentUnit: 4,
+                        tabSize: 4,
+                        indentWithTabs: false,
+                        lineWrapping: false,
+                        matchBrackets: true,
+                        autoCloseBrackets: true,
+                    });
+                    fileModalEditorInstance.setSize('100%', '24rem');
+                    fileModalEditorInstance.setOption('readOnly', 'nocursor');
+                }
+
+                return fileModalEditorInstance;
+            };
+
+            const setFileModalEditorValue = function (value) {
+                const instance = getFileModalEditorInstance();
+
+                if (instance) {
+                    instance.setValue(value || '');
+                    instance.refresh();
+
+                    return;
+                }
+
+                if (fileModalEditorTextarea) {
+                    fileModalEditorTextarea.value = value || '';
+                }
+            };
+
+            const getFileModalEditorValue = function () {
+                const instance = getFileModalEditorInstance();
+
+                if (instance) {
+                    return instance.getValue();
+                }
+
+                if (fileModalEditorTextarea) {
+                    return fileModalEditorTextarea.value || '';
+                }
+
+                return '';
+            };
+
+            const setFileModalEditorDisabled = function (disabled) {
+                const instance = getFileModalEditorInstance();
+
+                if (instance) {
+                    instance.setOption('readOnly', disabled ? 'nocursor' : false);
+                    instance.refresh();
+                } else if (fileModalEditorTextarea) {
+                    if (disabled) {
+                        fileModalEditorTextarea.setAttribute('disabled', 'disabled');
+                    } else {
+                        fileModalEditorTextarea.removeAttribute('disabled');
+                    }
+                }
+            };
+
+            const focusFileModalEditor = function () {
+                const instance = getFileModalEditorInstance();
+
+                if (instance) {
+                    instance.focus();
+                    const doc = instance.getDoc();
+                    const lastLineIndex = Math.max(doc.lineCount() - 1, 0);
+                    const lastLine = doc.getLine(lastLineIndex) || '';
+                    doc.setCursor({ line: lastLineIndex, ch: lastLine.length });
+
+                    return;
+                }
+
+                if (fileModalEditorTextarea) {
+                    const length = fileModalEditorTextarea.value.length;
+                    fileModalEditorTextarea.focus({ preventScroll: true });
+                    fileModalEditorTextarea.setSelectionRange(length, length);
+                }
+            };
 
             const updateFileModalStatus = function (message, type = 'info') {
                 if (!fileModalStatus) {
@@ -321,10 +428,8 @@
                     fileModalClassInput.value = '';
                 }
 
-                if (fileModalEditor) {
-                    fileModalEditor.value = '';
-                    fileModalEditor.setAttribute('disabled', 'disabled');
-                }
+                setFileModalEditorValue('');
+                setFileModalEditorDisabled(true);
 
                 if (fileModalSaveButton) {
                     fileModalSaveButton.disabled = true;
@@ -447,10 +552,9 @@
                         fileModalClassInput.value = className;
                     }
 
-                    if (fileModalEditor) {
-                        fileModalEditor.removeAttribute('disabled');
-                        fileModalEditor.value = payload && typeof payload.contents === 'string' ? payload.contents : '';
-                    }
+                    const contents = payload && typeof payload.contents === 'string' ? payload.contents : '';
+                    setFileModalEditorDisabled(false);
+                    setFileModalEditorValue(contents);
 
                     if (fileModalSaveButton) {
                         fileModalSaveButton.disabled = false;
@@ -463,10 +567,11 @@
                     fileModal.classList.add('flex');
 
                     window.setTimeout(function () {
-                        if (fileModalEditor) {
-                            const length = fileModalEditor.value.length;
-                            fileModalEditor.focus({ preventScroll: true });
-                            fileModalEditor.setSelectionRange(length, length);
+                        focusFileModalEditor();
+                        const instance = getFileModalEditorInstance();
+
+                        if (instance) {
+                            instance.refresh();
                         }
                     }, 0);
                 } catch (error) {
@@ -500,14 +605,14 @@
 
             resetFileModal();
 
-            if (fileModalForm && fileModalEditor) {
+            if (fileModalForm && fileModalEditorTextarea) {
                 fileModalForm.addEventListener('submit', async function (event) {
                     event.preventDefault();
 
                     const className = fileModalClassInput
                         ? (fileModalClassInput.value || fileModal.dataset.className || '')
                         : (fileModal ? fileModal.dataset.className || '' : '');
-                    const contents = fileModalEditor.value || '';
+                    const contents = getFileModalEditorValue();
 
                     if (!className) {
                         updateFileModalStatus(fileModalMissingClassMessage, 'error');
@@ -550,7 +655,8 @@
                         }
 
                         if (payload && typeof payload.contents === 'string') {
-                            fileModalEditor.value = payload.contents;
+                            setFileModalEditorValue(payload.contents);
+                            setFileModalEditorDisabled(false);
                         }
 
                         if (fileModalPath && payload && typeof payload.path === 'string') {
