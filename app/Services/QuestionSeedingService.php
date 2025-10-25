@@ -8,6 +8,7 @@ use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
 use App\Models\VerbHint;
 use App\Models\QuestionVariant;
+use Illuminate\Database\Seeder as LaravelSeeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
@@ -58,16 +59,20 @@ class QuestionSeedingService
 
     public function seed(array $items): void
     {
+        $defaultSeederClass = $this->detectSeederClassName();
+
         foreach ($items as $data) {
             $existingQuestion = Question::where('uuid', $data['uuid'])->first();
 
             if ($existingQuestion) {
+                $seederClass = $data['seeder'] ?? $defaultSeederClass;
+
                 if (
                     Schema::hasColumn('questions', 'seeder') &&
-                    isset($data['seeder']) &&
-                    empty($existingQuestion->seeder)
+                    $seederClass &&
+                    $existingQuestion->seeder !== $seederClass
                 ) {
-                    $existingQuestion->forceFill(['seeder' => $data['seeder']])->save();
+                    $existingQuestion->forceFill(['seeder' => $seederClass])->save();
                 }
 
                 continue;
@@ -91,7 +96,7 @@ class QuestionSeedingService
             }
 
             if (Schema::hasColumn('questions', 'seeder')) {
-                $attributes['seeder'] = $data['seeder'] ?? null;
+                $attributes['seeder'] = $data['seeder'] ?? $defaultSeederClass;
             }
 
             $q = Question::create($attributes);
@@ -143,5 +148,20 @@ class QuestionSeedingService
         $name = self::LEGACY_CATEGORY_NAMES[$categoryId] ?? ('Legacy Category ' . $categoryId);
 
         Category::firstOrCreate(['id' => $categoryId], ['name' => $name]);
+    }
+
+    private function detectSeederClassName(): ?string
+    {
+        $trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 25);
+
+        foreach ($trace as $frame) {
+            $object = $frame['object'] ?? null;
+
+            if ($object instanceof LaravelSeeder) {
+                return get_class($object);
+            }
+        }
+
+        return null;
     }
 }
