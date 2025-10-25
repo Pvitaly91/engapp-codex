@@ -19,6 +19,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
@@ -74,6 +75,136 @@ class SeedRunController extends Controller
             'displayClassName' => $this->formatSeederClassName($className),
             'questions' => $preview['questions'],
             'existingQuestionCount' => $preview['existingQuestionCount'],
+        ]);
+    }
+
+    public function showSeederFile(Request $request): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'class_name' => ['required', 'string'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => __('Надано некоректні дані для завантаження файлу сидера.'),
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $className = (string) $validator->validated()['class_name'];
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $filePath || ! File::exists($filePath)) {
+            return response()->json([
+                'message' => __('Файл для сидера :class не знайдено.', ['class' => $className]),
+            ], 404);
+        }
+
+        if (! is_readable($filePath)) {
+            return response()->json([
+                'message' => __('Файл сидера :class недоступний для читання.', ['class' => $className]),
+            ], 403);
+        }
+
+        try {
+            $contents = File::get($filePath);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return response()->json([
+                'message' => __('Не вдалося прочитати файл сидера :class.', ['class' => $className]),
+            ], 500);
+        }
+
+        $lastModified = null;
+
+        try {
+            $timestamp = File::lastModified($filePath);
+
+            if ($timestamp) {
+                $lastModified = Carbon::createFromTimestamp($timestamp)->toDateTimeString();
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        return response()->json([
+            'class_name' => $className,
+            'display_class_name' => $this->formatSeederClassName($className),
+            'path' => $this->makeSeederFileDisplayPath($filePath),
+            'contents' => $contents,
+            'last_modified' => $lastModified,
+        ]);
+    }
+
+    public function updateSeederFile(Request $request): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'class_name' => ['required', 'string'],
+            'contents' => ['required', 'string'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => __('Неможливо зберегти файл сидера через помилки валідації.'),
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $validated = $validator->validated();
+        $className = (string) $validated['class_name'];
+        $contents = (string) $validated['contents'];
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $filePath || ! File::exists($filePath)) {
+            return response()->json([
+                'message' => __('Файл для сидера :class не знайдено.', ['class' => $className]),
+            ], 404);
+        }
+
+        if (! File::isWritable($filePath)) {
+            return response()->json([
+                'message' => __('Файл сидера :class доступний лише для читання.', ['class' => $className]),
+            ], 403);
+        }
+
+        try {
+            File::put($filePath, $contents, true);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return response()->json([
+                'message' => __('Не вдалося зберегти файл сидера :class.', ['class' => $className]),
+            ], 500);
+        }
+
+        clearstatcache(true, $filePath);
+
+        $lastModified = null;
+
+        try {
+            $timestamp = File::lastModified($filePath);
+
+            if ($timestamp) {
+                $lastModified = Carbon::createFromTimestamp($timestamp)->toDateTimeString();
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        $freshContents = $contents;
+
+        try {
+            $freshContents = File::get($filePath);
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        return response()->json([
+            'message' => __('Файл сидера успішно збережено.'),
+            'path' => $this->makeSeederFileDisplayPath($filePath),
+            'last_modified' => $lastModified,
+            'contents' => $freshContents,
         ]);
     }
 
@@ -955,35 +1086,9 @@ class SeedRunController extends Controller
             $seedRunsTableExists = Schema::hasTable('seed_runs');
         }
 
-        $candidatePaths = collect();
+        $filePath = $this->resolveSeederFilePath($className);
 
-        if (Str::startsWith($className, 'Database\\Seeders\\')) {
-            $relative = Str::after($className, 'Database\\Seeders\\');
-            $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
-            $candidatePaths->push(database_path('seeders/' . $relativePath));
-        }
-
-        if ($this->classExistsSafely($className)) {
-            try {
-                $reflection = new \ReflectionClass($className);
-                $fileName = $reflection->getFileName();
-
-                if ($fileName) {
-                    $candidatePaths->push($fileName);
-                }
-            } catch (\ReflectionException $exception) {
-                report($exception);
-            }
-        }
-
-        $candidatePaths = $candidatePaths
-            ->filter(fn ($path) => filled($path))
-            ->unique()
-            ->values();
-
-        $filePath = $candidatePaths->first(fn ($path) => File::exists($path));
-
-        if (! $filePath) {
+        if (! $filePath || ! File::exists($filePath)) {
             return [
                 'status' => 'missing',
                 'class' => $className,
@@ -1077,6 +1182,96 @@ class SeedRunController extends Controller
             'runs_deleted' => $runsDeleted,
             'questions_deleted' => $questionsDeleted,
         ];
+    }
+
+    protected function resolveSeederFilePath(string $className): ?string
+    {
+        $candidatePaths = collect();
+
+        if (Str::startsWith($className, 'Database\\Seeders\\')) {
+            $relative = Str::after($className, 'Database\\Seeders\\');
+            $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
+            $candidatePaths->push(database_path('seeders/' . $relativePath));
+        }
+
+        if ($this->classExistsSafely($className)) {
+            try {
+                $reflection = new \ReflectionClass($className);
+                $fileName = $reflection->getFileName();
+
+                if ($fileName) {
+                    $candidatePaths->push($fileName);
+                }
+            } catch (\ReflectionException $exception) {
+                report($exception);
+            }
+        }
+
+        return $candidatePaths
+            ->filter(fn ($path) => filled($path))
+            ->map(fn ($path) => realpath($path) ?: $path)
+            ->unique()
+            ->first(function ($path) {
+                return File::exists($path) && $this->isSeederFilePathAllowed($path);
+            });
+    }
+
+    protected function isSeederFilePathAllowed(string $path): bool
+    {
+        $realPath = realpath($path);
+
+        if ($realPath === false) {
+            return false;
+        }
+
+        $basePath = realpath(base_path());
+
+        if (! $basePath) {
+            return false;
+        }
+
+        $normalizedBase = rtrim($basePath, DIRECTORY_SEPARATOR);
+
+        if ($realPath === $normalizedBase) {
+            return true;
+        }
+
+        return Str::startsWith($realPath, $normalizedBase . DIRECTORY_SEPARATOR);
+    }
+
+    protected function makeSeederFileDisplayPath(string $filePath): string
+    {
+        $realPath = realpath($filePath) ?: $filePath;
+        $realPath = str_replace('\\', DIRECTORY_SEPARATOR, $realPath);
+        $databaseSeedersPath = realpath(database_path('seeders'));
+
+        if ($databaseSeedersPath) {
+            $normalizedSeeders = rtrim(str_replace('\\', DIRECTORY_SEPARATOR, $databaseSeedersPath), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+
+            if (Str::startsWith($realPath, $normalizedSeeders)) {
+                $relative = Str::after($realPath, $normalizedSeeders);
+
+                if ($relative !== $realPath) {
+                    return 'database/seeders/' . str_replace(['\\', DIRECTORY_SEPARATOR], '/', $relative);
+                }
+            }
+        }
+
+        $basePath = realpath(base_path());
+
+        if ($basePath) {
+            $normalizedBase = rtrim(str_replace('\\', DIRECTORY_SEPARATOR, $basePath), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+
+            if (Str::startsWith($realPath, $normalizedBase)) {
+                $relative = Str::after($realPath, $normalizedBase);
+
+                if ($relative !== $realPath) {
+                    return ltrim(str_replace(['\\', DIRECTORY_SEPARATOR], '/', $relative), '/');
+                }
+            }
+        }
+
+        return basename($realPath);
     }
 
     public function markAsExecuted(Request $request): RedirectResponse
