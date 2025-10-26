@@ -102,7 +102,7 @@
             ])
         </div>
 
-        <article class="max-w-none space-y-4 lg:col-start-2">
+        <article class="w-full max-w-3xl space-y-4 lg:col-start-2 lg:max-w-none">
             @include('engram.pages.partials.grammar-card', [
                 'page' => $page,
                 'subtitleBlock' => $subtitleBlock ?? null,
