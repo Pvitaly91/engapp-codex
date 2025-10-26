@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
@@ -73,8 +74,7 @@ class SeedRunController extends Controller
         return view('seed-runs.preview', [
             'className' => $className,
             'displayClassName' => $this->formatSeederClassName($className),
-            'questions' => $preview['questions'],
-            'existingQuestionCount' => $preview['existingQuestionCount'],
+            'preview' => $preview,
         ]);
     }
 
@@ -432,6 +432,19 @@ class SeedRunController extends Controller
 
     protected function buildSeederPreview(string $className): array
     {
+        if (is_subclass_of($className, QuestionSeederBase::class)) {
+            return $this->buildQuestionSeederPreview($className);
+        }
+
+        if (is_subclass_of($className, GrammarPageSeederBase::class)) {
+            return $this->buildPageSeederPreview($className);
+        }
+
+        throw new \RuntimeException(__('Сидер :class не підтримує попередній перегляд.', ['class' => $className]));
+    }
+
+    protected function buildQuestionSeederPreview(string $className): array
+    {
         $hasSeederColumn = Schema::hasColumn('questions', 'seeder');
         $keyColumn = Schema::hasColumn('questions', 'uuid') ? 'uuid' : 'id';
 
@@ -556,8 +569,113 @@ class SeedRunController extends Controller
         }
 
         return [
+            'type' => 'questions',
             'questions' => $previewQuestions,
             'existingQuestionCount' => $existingQuestionCount,
+        ];
+    }
+
+    protected function buildPageSeederPreview(string $className): array
+    {
+        DB::beginTransaction();
+
+        try {
+            $seeder = app($className);
+
+            if (! method_exists($seeder, 'run')) {
+                throw new \RuntimeException(__('Сидер :class не підтримує попередній перегляд.', ['class' => $className]));
+            }
+
+            $seeder->run();
+
+            $page = Page::query()
+                ->with(['textBlocks', 'category'])
+                ->where('seeder', $className)
+                ->first();
+
+            if (! $page) {
+                throw new \RuntimeException(__('Сидер не створює сторінку для попереднього перегляду.'));
+            }
+
+            $textBlocks = $page->textBlocks;
+            $subtitleBlock = $textBlocks->firstWhere(fn (TextBlock $block) => $block->type === 'subtitle');
+
+            $columns = [
+                'left' => $textBlocks->filter(fn (TextBlock $block) => $block->column === 'left'),
+                'right' => $textBlocks->filter(fn (TextBlock $block) => $block->column === 'right'),
+            ];
+
+            $locale = $subtitleBlock->locale
+                ?? ($textBlocks->first()?->locale)
+                ?? 'uk';
+
+            $categories = PageCategory::query()
+                ->withCount('pages')
+                ->orderBy('title')
+                ->get();
+
+            $selectedCategory = $page->category;
+
+            $categoryPages = collect();
+
+            if ($selectedCategory) {
+                $categoryPages = Page::query()
+                    ->where('page_category_id', $selectedCategory->getKey())
+                    ->where('id', '!=', $page->getKey())
+                    ->inRandomOrder()
+                    ->limit(3)
+                    ->get();
+            }
+
+            if ($categoryPages->isEmpty()) {
+                $categoryPages = collect([$page]);
+            }
+
+            $breadcrumbs = [
+                ['label' => 'Home', 'url' => route('home')],
+                ['label' => 'Теорія', 'url' => route('pages.index')],
+            ];
+
+            if ($selectedCategory) {
+                $breadcrumbs[] = [
+                    'label' => $selectedCategory->title,
+                    'url' => route('pages.category', $selectedCategory->slug),
+                ];
+            }
+
+            $breadcrumbs[] = ['label' => $page->title];
+
+            $pageView = view('engram.pages.show', [
+                'page' => $page,
+                'breadcrumbs' => $breadcrumbs,
+                'subtitleBlock' => $subtitleBlock,
+                'columns' => $columns,
+                'locale' => $locale,
+                'categories' => $categories,
+                'selectedCategory' => $selectedCategory,
+                'categoryPages' => $categoryPages,
+            ]);
+
+            $pageHtml = $pageView->render();
+
+            $pageMeta = [
+                'title' => $page->title,
+                'slug' => $page->slug,
+                'category_title' => optional($selectedCategory)->title,
+                'category_slug' => optional($selectedCategory)->slug,
+                'locale' => $locale,
+                'text_block_count' => $textBlocks->count(),
+                'html' => $pageHtml,
+            ];
+        } finally {
+            DB::rollBack();
+        }
+
+        return [
+            'type' => 'page',
+            'questions' => collect(),
+            'existingQuestionCount' => null,
+            'page' => $pageMeta,
         ];
     }
 
