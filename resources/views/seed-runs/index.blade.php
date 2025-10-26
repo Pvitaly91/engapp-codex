@@ -94,6 +94,7 @@
                         <ul class="space-y-3">
                             @foreach($pendingSeeders as $pendingSeeder)
                                 @php($pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name))
+                                @php($pendingActionsId = $pendingCheckboxId . '-actions')
                                 <li class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                                     <div class="flex items-center gap-3 sm:flex-1">
                                         <input type="checkbox"
@@ -108,46 +109,62 @@
                                             {{ $pendingSeeder->display_class_name }}
                                         </label>
                                     </div>
-                                    <div class="flex flex-col gap-2 w-full sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
+                                    <div class="sm:hidden">
                                         <button type="button"
-                                                class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto"
-                                                data-seeder-file-open
-                                                data-class-name="{{ $pendingSeeder->class_name }}"
-                                                data-display-name="{{ $pendingSeeder->display_class_name }}">
-                                            <i class="fa-solid fa-file-code"></i>
-                                            Код
+                                                class="inline-flex items-center justify-between gap-2 w-full px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition"
+                                                data-pending-actions-toggle
+                                                data-target="{{ $pendingActionsId }}"
+                                                aria-expanded="false"
+                                                aria-controls="{{ $pendingActionsId }}">
+                                            <span data-toggle-label-collapsed>Показати дії</span>
+                                            <span data-toggle-label-expanded class="hidden">Сховати дії</span>
+                                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform" data-pending-actions-icon></i>
                                         </button>
-                                        @if($pendingSeeder->supports_preview)
-                                            <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto">
-                                                <i class="fa-solid fa-eye"></i>
-                                                Переглянути
-                                            </a>
-                                        @endif
-                                        <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?" class="flex w-full sm:w-auto">
-                                            @csrf
-                                            @method('DELETE')
-                                            <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                            <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
-                                                <i class="fa-solid fa-file-circle-xmark"></i>
-                                                Видалити файл
+                                    </div>
+                                    <div id="{{ $pendingActionsId }}"
+                                         class="hidden w-full sm:w-auto sm:block"
+                                         data-pending-actions>
+                                        <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap sm:items-center">
+                                            <button type="button"
+                                                    class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto"
+                                                    data-seeder-file-open
+                                                    data-class-name="{{ $pendingSeeder->class_name }}"
+                                                    data-display-name="{{ $pendingSeeder->display_class_name }}">
+                                                <i class="fa-solid fa-file-code"></i>
+                                                Код
                                             </button>
-                                        </form>
-                                        <form method="POST" action="{{ route('seed-runs.mark-executed') }}" data-preloader class="flex w-full sm:w-auto">
-                                            @csrf
-                                            <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                            <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
-                                                <i class="fa-solid fa-check"></i>
-                                                Позначити виконаним
-                                            </button>
-                                        </form>
-                                        <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader class="flex w-full sm:w-auto">
-                                            @csrf
-                                            <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                            <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
-                                                <i class="fa-solid fa-play"></i>
-                                                Виконати
-                                            </button>
-                                        </form>
+                                            @if($pendingSeeder->supports_preview)
+                                                <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                    Переглянути
+                                                </a>
+                                            @endif
+                                            <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?" class="flex w-full sm:w-auto">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
+                                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
+                                                    <i class="fa-solid fa-file-circle-xmark"></i>
+                                                    Видалити файл
+                                                </button>
+                                            </form>
+                                            <form method="POST" action="{{ route('seed-runs.mark-executed') }}" data-preloader class="flex w-full sm:w-auto">
+                                                @csrf
+                                                <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
+                                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    Позначити виконаним
+                                                </button>
+                                            </form>
+                                            <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader class="flex w-full sm:w-auto">
+                                                @csrf
+                                                <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
+                                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
+                                                    <i class="fa-solid fa-play"></i>
+                                                    Виконати
+                                                </button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </li>
                             @endforeach
@@ -1040,6 +1057,45 @@
                 }
             };
 
+            const handlePendingActionsToggle = function (button) {
+                const targetId = button.dataset.target || button.getAttribute('aria-controls');
+
+                if (!targetId) {
+                    return;
+                }
+
+                const actionsContainer = document.getElementById(targetId);
+
+                if (!actionsContainer) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-pending-actions-icon]');
+
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    updateToggleLabels(button, false);
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+
+                    actionsContainer.classList.add('hidden');
+
+                    return;
+                }
+
+                button.setAttribute('aria-expanded', 'true');
+                updateToggleLabels(button, true);
+
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+
+                actionsContainer.classList.remove('hidden');
+            };
+
             const decrementNumericContent = function (elements) {
                 elements.forEach(function (element) {
                     const current = parseInt(element.textContent.trim(), 10);
@@ -1556,6 +1612,15 @@
             };
 
             document.addEventListener('click', function (event) {
+                const pendingActionsButton = event.target.closest('[data-pending-actions-toggle]');
+
+                if (pendingActionsButton) {
+                    event.preventDefault();
+                    handlePendingActionsToggle(pendingActionsButton);
+
+                    return;
+                }
+
                 const fileButton = event.target.closest('[data-seeder-file-open]');
 
                 if (fileButton) {
