@@ -2,20 +2,24 @@
 
 namespace Database\Seeders\Pages;
 
+use Database\Seeders\Pages\Articles\AAnThePageSeeder;
+use Database\Seeders\Pages\Articles\QuantifiersPageSeeder;
+use Database\Seeders\Pages\Articles\SomeAnyPageSeeder;
 use Database\Seeders\Pages\Conditions\FirstConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\MixedConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\SecondConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\ThirdConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\ZeroConditionalPageSeeder;
-use Database\Seeders\Pages\ArticlesAndQuantifiersPageSeeder;
-use Database\Seeders\Pages\DemonstrativesPageSeeder;
-use Database\Seeders\Pages\HaveGotPageSeeder;
-use Database\Seeders\Pages\IrregularVerbsPageSeeder;
+use Database\Seeders\Pages\Demonstratives\ThisThatTheseThosePageSeeder;
+use Database\Seeders\Pages\HaveGot\HaveGotPageSeeder;
+use Database\Seeders\Pages\IrregularVerbs\IrregularVerbsPageSeeder;
 use Database\Seeders\Pages\ModalVerbsPageSeeder;
-use Database\Seeders\Pages\PronounsPageSeeder;
-use Database\Seeders\Pages\QuestionsPageSeeder;
-use Database\Seeders\Pages\ThereIsThereArePageSeeder;
-use Database\Seeders\Pages\ToBeVerbPageSeeder;
+use Database\Seeders\Pages\Pronouns\PronounsPageSeeder;
+use Database\Seeders\Pages\Questions\QuestionFormsPageSeeder;
+use Database\Seeders\Pages\Questions\ShortAnswersPageSeeder;
+use Database\Seeders\Pages\Structures\DoDoesIsArePageSeeder;
+use Database\Seeders\Pages\Structures\ThereIsThereArePageSeeder;
+use Database\Seeders\Pages\Structures\VerbToBePageSeeder;
 use Database\Seeders\Pages\Tenses\FutureContinuousPageSeeder;
 use Database\Seeders\Pages\Tenses\FuturePerfectContinuousPageSeeder;
 use Database\Seeders\Pages\Tenses\FuturePerfectPageSeeder;
@@ -28,6 +32,8 @@ use Database\Seeders\Pages\Tenses\PresentContinuousPageSeeder;
 use Database\Seeders\Pages\Tenses\PresentPerfectContinuousPageSeeder;
 use Database\Seeders\Pages\Tenses\PresentPerfectPageSeeder;
 use Database\Seeders\Pages\Tenses\PresentSimplePageSeeder;
+use Database\Seeders\Pages\Translation\TranslationTechniquesPageSeeder;
+use Database\Seeders\Pages\Vocabulary\VocabularyStrategiesPageSeeder;
 use App\Support\Database\Seeder;
 
 class GrammarPagesSeeder extends Seeder
@@ -45,20 +51,26 @@ class GrammarPagesSeeder extends Seeder
         FuturePerfectContinuousPageSeeder::class,
         PastContinuousPageSeeder::class,
         PresentContinuousPageSeeder::class,
+        AAnThePageSeeder::class,
+        SomeAnyPageSeeder::class,
+        QuantifiersPageSeeder::class,
         ZeroConditionalPageSeeder::class,
         FirstConditionalPageSeeder::class,
         SecondConditionalPageSeeder::class,
         ThirdConditionalPageSeeder::class,
         MixedConditionalPageSeeder::class,
         ModalVerbsPageSeeder::class,
-        ArticlesAndQuantifiersPageSeeder::class,
-        DemonstrativesPageSeeder::class,
+        PronounsPageSeeder::class,
+        ThisThatTheseThosePageSeeder::class,
         HaveGotPageSeeder::class,
         IrregularVerbsPageSeeder::class,
-        PronounsPageSeeder::class,
-        QuestionsPageSeeder::class,
+        QuestionFormsPageSeeder::class,
+        ShortAnswersPageSeeder::class,
+        VerbToBePageSeeder::class,
+        DoDoesIsArePageSeeder::class,
         ThereIsThereArePageSeeder::class,
-        ToBeVerbPageSeeder::class,
+        VocabularyStrategiesPageSeeder::class,
+        TranslationTechniquesPageSeeder::class,
     ];
 
     public function run(): void
