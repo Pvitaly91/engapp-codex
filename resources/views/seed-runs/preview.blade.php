@@ -360,9 +360,17 @@
 
             if (encodedHtml) {
                 try {
-                    frame.srcdoc = atob(encodedHtml);
+                    const binary = atob(encodedHtml);
+                    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+                    const decoder = new TextDecoder('utf-8');
+
+                    frame.srcdoc = decoder.decode(bytes);
                 } catch (error) {
-                    // ignore decoding errors
+                    try {
+                        frame.srcdoc = decodeURIComponent(escape(atob(encodedHtml)));
+                    } catch (fallbackError) {
+                        // ignore decoding errors
+                    }
                 }
             }
 
