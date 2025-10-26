@@ -94,8 +94,8 @@
                         <ul class="space-y-3">
                             @foreach($pendingSeeders as $pendingSeeder)
                                 @php($pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name))
-                                <li class="flex items-center justify-between gap-4">
-                                    <div class="flex items-center gap-3">
+                                <li class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                    <div class="flex items-center gap-3 sm:flex-1">
                                         <input type="checkbox"
                                                id="{{ $pendingCheckboxId }}"
                                                name="class_names[]"
@@ -108,9 +108,9 @@
                                             {{ $pendingSeeder->display_class_name }}
                                         </label>
                                     </div>
-                                    <div class="flex items-center gap-2">
+                                    <div class="flex flex-col gap-2 w-full sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
                                         <button type="button"
-                                                class="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
+                                                class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto"
                                                 data-seeder-file-open
                                                 data-class-name="{{ $pendingSeeder->class_name }}"
                                                 data-display-name="{{ $pendingSeeder->display_class_name }}">
@@ -118,32 +118,32 @@
                                             Код
                                         </button>
                                         @if($pendingSeeder->supports_preview)
-                                            <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition">
+                                            <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto">
                                                 <i class="fa-solid fa-eye"></i>
                                                 Переглянути
                                             </a>
                                         @endif
-                                        <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?">
+                                        <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?" class="flex w-full sm:w-auto">
                                             @csrf
                                             @method('DELETE')
                                             <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                            <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
                                                 <i class="fa-solid fa-file-circle-xmark"></i>
                                                 Видалити файл
                                             </button>
                                         </form>
-                                        <form method="POST" action="{{ route('seed-runs.mark-executed') }}" data-preloader>
+                                        <form method="POST" action="{{ route('seed-runs.mark-executed') }}" data-preloader class="flex w-full sm:w-auto">
                                             @csrf
                                             <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition">
+                                            <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
                                                 <i class="fa-solid fa-check"></i>
                                                 Позначити виконаним
                                             </button>
                                         </form>
-                                        <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader>
+                                        <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader class="flex w-full sm:w-auto">
                                             @csrf
                                             <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                            <button type="submit" class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition">
+                                            <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
                                                 <i class="fa-solid fa-play"></i>
                                                 Виконати
                                             </button>
