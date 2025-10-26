@@ -7,7 +7,15 @@ use Database\Seeders\Pages\Conditions\MixedConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\SecondConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\ThirdConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\ZeroConditionalPageSeeder;
+use Database\Seeders\Pages\ArticlesAndQuantifiersPageSeeder;
+use Database\Seeders\Pages\DemonstrativesPageSeeder;
+use Database\Seeders\Pages\HaveGotPageSeeder;
+use Database\Seeders\Pages\IrregularVerbsPageSeeder;
 use Database\Seeders\Pages\ModalVerbsPageSeeder;
+use Database\Seeders\Pages\PronounsPageSeeder;
+use Database\Seeders\Pages\QuestionsPageSeeder;
+use Database\Seeders\Pages\ThereIsThereArePageSeeder;
+use Database\Seeders\Pages\ToBeVerbPageSeeder;
 use Database\Seeders\Pages\Tenses\FutureContinuousPageSeeder;
 use Database\Seeders\Pages\Tenses\FuturePerfectContinuousPageSeeder;
 use Database\Seeders\Pages\Tenses\FuturePerfectPageSeeder;
@@ -43,6 +51,14 @@ class GrammarPagesSeeder extends Seeder
         ThirdConditionalPageSeeder::class,
         MixedConditionalPageSeeder::class,
         ModalVerbsPageSeeder::class,
+        ArticlesAndQuantifiersPageSeeder::class,
+        DemonstrativesPageSeeder::class,
+        HaveGotPageSeeder::class,
+        IrregularVerbsPageSeeder::class,
+        PronounsPageSeeder::class,
+        QuestionsPageSeeder::class,
+        ThereIsThereArePageSeeder::class,
+        ToBeVerbPageSeeder::class,
     ];
 
     public function run(): void
