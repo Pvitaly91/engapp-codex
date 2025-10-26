@@ -290,9 +290,12 @@
                 </p>
 
                 @if($pagePreview && ! empty($pagePreview['html']))
-                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <div
+                        class="border border-gray-200 rounded-lg overflow-hidden"
+                        data-page-preview
+                        data-page-preview-html="{{ base64_encode($pagePreview['html']) }}"
+                    >
                         <iframe
-                            srcdoc="{{ e($pagePreview['html']) }}"
                             class="w-full"
                             style="min-height: 900px;"
                             data-page-preview-frame
@@ -352,6 +355,17 @@
         });
 
         document.querySelectorAll('[data-page-preview-frame]').forEach((frame) => {
+            const container = frame.closest('[data-page-preview]');
+            const encodedHtml = container?.getAttribute('data-page-preview-html');
+
+            if (encodedHtml) {
+                try {
+                    frame.srcdoc = atob(encodedHtml);
+                } catch (error) {
+                    // ignore decoding errors
+                }
+            }
+
             frame.addEventListener('load', () => {
                 try {
                     const doc = frame.contentDocument || frame.contentWindow.document;
