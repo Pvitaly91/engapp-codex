@@ -149,6 +149,20 @@
           <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
         </div>
+        <div class="rounded-2xl border border-border/70 bg-muted/40 p-4 text-sm text-muted-foreground">
+          <p class="font-medium text-foreground">Під час створення виконується еквівалент таких команд git:</p>
+          <ul class="mt-3 list-disc space-y-2 pl-5">
+            <li>
+              <code>git rev-parse HEAD</code>
+              — визначає хеш поточного коміту, якщо обрано «Поточний HEAD».
+            </li>
+            <li>
+              <code>git update-ref refs/heads/&lt;назва_гілки&gt; &lt;коміт&gt;</code>
+              — записує ref нової гілки на зазначений коміт.
+            </li>
+          </ul>
+          <p class="mt-3">Операції виконуються через GitHub API та прямий запис refs без запуску shell-команд.</p>
+        </div>
         <form method="POST" action="{{ route('deployment.backup-branch') }}" class="space-y-4">
           @csrf
           <div class="grid gap-4 md:grid-cols-2">

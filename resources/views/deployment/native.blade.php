@@ -133,6 +133,20 @@
           <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">Створює локальний ref у <code>.git/refs/heads</code> без запуску git-команд.</p>
         </div>
+        <div class="rounded-2xl border border-border/70 bg-muted/40 p-4 text-sm text-muted-foreground">
+          <p class="font-medium text-foreground">Еквівалент наступних команд git:</p>
+          <ul class="mt-3 list-disc space-y-2 pl-5">
+            <li>
+              <code>git rev-parse HEAD</code>
+              — визначає поточний коміт, якщо обрано «Поточний HEAD».
+            </li>
+            <li>
+              <code>git update-ref refs/heads/&lt;назва_гілки&gt; &lt;коміт&gt;</code>
+              — записує нове посилання гілки на вибраний коміт.
+            </li>
+          </ul>
+          <p class="mt-3">Усі дії виконуються через GitHub API та прямий запис refs без запуску shell-команд.</p>
+        </div>
         <form method="POST" action="{{ route('deployment.native.backup-branch') }}" class="space-y-4">
           @csrf
           <div class="grid gap-4 md:grid-cols-2">
