@@ -1149,6 +1149,9 @@
                 });
 
                 const seederContent = document.querySelector('[data-seeder-content][data-seed-run-id="' + seedRunId + '"]');
+                const seederQuestions = seederContent
+                    ? seederContent.querySelector('[data-seeder-questions-container][data-seed-run-id="' + seedRunId + '"]')
+                    : null;
                 const seederSection = document.querySelector('[data-seeder-section][data-seed-run-id="' + seedRunId + '"]');
                 const toggleButton = document.querySelector('[data-seeder-toggle][data-seed-run-id="' + seedRunId + '"]');
                 const noQuestionsMessage = document.querySelector('[data-no-questions-message][data-seed-run-id="' + seedRunId + '"]');
@@ -1157,12 +1160,17 @@
 
                 if (!remainingQuestions) {
                     if (seederContent) {
-                        seederContent.innerHTML = '';
-                        seederContent.classList.add('hidden');
+                        if (seederQuestions) {
+                            seederQuestions.innerHTML = '';
+                        } else {
+                            seederContent.innerHTML = '';
+                        }
+
+                        seederContent.classList.remove('hidden');
                     }
 
                     if (seederSection) {
-                        seederSection.classList.add('hidden');
+                        seederSection.classList.remove('hidden');
                     }
 
                     if (toggleButton) {
@@ -1192,8 +1200,11 @@
                 }
 
                 const children = folderNode.querySelector('[data-folder-children]');
+                const contentTarget = children
+                    ? children.querySelector('[data-folder-children-content]') || children
+                    : null;
 
-                if (!children) {
+                if (!children || !contentTarget) {
                     return;
                 }
 
@@ -1238,7 +1249,7 @@
                     depth: depth,
                 });
 
-                children.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+                contentTarget.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
 
                 try {
                     const response = await fetch(baseUrl + '?' + params.toString(), {
@@ -1258,7 +1269,7 @@
                         throw new Error(message);
                     }
 
-                    children.innerHTML = payload && typeof payload.html === 'string'
+                    contentTarget.innerHTML = payload && typeof payload.html === 'string'
                         ? payload.html
                         : '';
                     folderNode.dataset.loaded = 'true';
@@ -1271,7 +1282,7 @@
                         ? error.message
                         : 'Не вдалося завантажити вміст папки.';
 
-                    children.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    contentTarget.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
                     folderNode.dataset.loaded = 'error';
                     showFeedback(message, 'error');
                 }
@@ -1286,8 +1297,12 @@
                 }
 
                 const content = seederNode.querySelector('[data-seeder-content][data-seed-run-id="' + seedRunId + '"]');
+                const questionsContainer = content
+                    ? content.querySelector('[data-seeder-questions-container][data-seed-run-id="' + seedRunId + '"]')
+                    : null;
+                const target = questionsContainer || content;
 
-                if (!content) {
+                if (!target) {
                     return;
                 }
 
@@ -1327,7 +1342,7 @@
                 }
 
                 button.dataset.loaded = 'loading';
-                content.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+                target.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
 
                 try {
                     const response = await fetch(url, {
@@ -1347,20 +1362,20 @@
                         throw new Error(message);
                     }
 
-                    content.innerHTML = payload && typeof payload.html === 'string'
+                    target.innerHTML = payload && typeof payload.html === 'string'
                         ? payload.html
                         : '';
                     button.dataset.loaded = 'true';
 
-                    if (!content.innerHTML.trim()) {
-                        content.innerHTML = '<p class="text-xs text-gray-500">Питання для цього сидера не знайдені.</p>';
+                    if (!target.innerHTML.trim()) {
+                        target.innerHTML = '<p class="text-xs text-gray-500">Питання для цього сидера не знайдені.</p>';
                     }
                 } catch (error) {
                     const message = error && typeof error.message === 'string' && error.message
                         ? error.message
                         : 'Не вдалося завантажити питання.';
 
-                    content.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    target.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
                     button.dataset.loaded = 'error';
                     showFeedback(message, 'error');
                 }
