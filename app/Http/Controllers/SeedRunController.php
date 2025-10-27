@@ -681,22 +681,7 @@ class SeedRunController extends Controller
                 'categoryPages' => $categoryPages,
             ];
 
-            $pageView = view('engram.pages.show', $pageViewData);
-            $pageSections = $pageView->renderSections();
-
-            $pageContent = trim((string) ($pageSections['content'] ?? ''));
-
-            if ($pageContent === '') {
-                $pageContent = trim((string) (view('engram.pages.show', $pageViewData)->renderSections()['content'] ?? ''));
-            }
-
-            $pageTitleSection = trim(strip_tags((string) ($pageSections['title'] ?? '')));
-            $pageTitle = $pageTitleSection !== '' ? $pageTitleSection : $page->title;
-
-            $pageHtml = view('seed-runs.partials.page-preview-layout', [
-                'title' => $pageTitle,
-                'content' => $pageContent,
-            ])->render();
+            $pageHtml = view('engram.pages.show', $pageViewData)->render();
 
             $pageMeta = [
                 'title' => $page->title,
