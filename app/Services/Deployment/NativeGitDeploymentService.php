@@ -70,7 +70,7 @@ class NativeGitDeploymentService
 
         return [
             'logs' => $logs,
-            'message' => 'Сайт успішно оновлено до останнього стану гілки без використання shell.',
+            'message' => 'Сайт успішно оновлено до останнього стану гілки через GitHub API.',
         ];
     }
 
@@ -184,7 +184,7 @@ class NativeGitDeploymentService
 
         return [
             'logs' => $logs,
-            'message' => "Поточний стан успішно відправлено на GitHub гілку {$targetBranch} без використання shell.",
+            'message' => "Поточний стан успішно відправлено на GitHub гілку {$targetBranch} через GitHub API.",
         ];
     }
 
@@ -213,7 +213,7 @@ class NativeGitDeploymentService
 
         return [
             'logs' => $logs,
-            'message' => 'Робочий стан успішно відновлено з резервного коміту без shell-команд.',
+            'message' => 'Робочий стан успішно відновлено з резервного коміту через GitHub API без shell-команд.',
         ];
     }
 
@@ -246,7 +246,7 @@ class NativeGitDeploymentService
 
         return [
             'logs' => $logs,
-            'message' => "Гілку {$branch} успішно створено без використання shell.",
+            'message' => "Гілку {$branch} успішно створено через GitHub API.",
         ];
     }
 

@@ -334,7 +334,7 @@ class DeploymentController extends Controller
             ->route('deployment.native.index')
             ->with('deployment_native', [
                 'status' => 'error',
-                'message' => 'Режим через shell недоступний на цьому сервері. Скористайтеся сторінкою без shell.',
+                'message' => 'Режим через SSH недоступний на цьому сервері. Скористайтеся сторінкою через API.',
                 'logs' => [],
                 'branch' => $branch,
             ]);

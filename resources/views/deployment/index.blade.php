@@ -15,19 +15,19 @@
           class="rounded-full px-4 py-1.5 font-medium transition {{ $shellActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
           @if($shellActive) aria-current="page" @endif
         >
-          Shell версія
+          SSH режим
         </a>
         <a
           href="{{ route('deployment.native.index') }}"
           class="rounded-full px-4 py-1.5 font-medium transition {{ $nativeActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
           @if($nativeActive) aria-current="page" @endif
         >
-          Без shell
+          API режим
         </a>
       </div>
       <div class="space-y-2">
         <h1 class="text-3xl font-semibold">Оновлення сайту з репозиторію</h1>
-        <p class="text-muted-foreground">Ця сторінка виконує git-команди через shell. Ви також можете скористатися альтернативною сторінкою без викликів shell.</p>
+        <p class="text-muted-foreground">Ця сторінка виконує git-команди безпосередньо через SSH. Ви також можете скористатися альтернативною сторінкою, що працює через GitHub API.</p>
       </div>
     </header>
 
@@ -49,7 +49,7 @@
       @endphp
       @php
         $highlightShellUnavailable = $feedback['status'] === 'error'
-          && \Illuminate\Support\Str::contains($feedback['message'], 'Режим через shell недоступний на цьому сервері.');
+          && \Illuminate\Support\Str::contains($feedback['message'], 'Режим через SSH недоступний на цьому сервері.');
       @endphp
       <div @class([
         'rounded-2xl border p-4 shadow-soft',
@@ -123,6 +123,16 @@
         <div>
           <h2 class="text-2xl font-semibold">2. Запушити поточний стан</h2>
           <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
+          <div class="mt-3 rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs text-muted-foreground">
+            <p class="font-semibold text-foreground">Команди, які буде виконано:</p>
+            <ul class="mt-2 list-disc space-y-1 pl-5">
+              <li><code>git rev-parse --abbrev-ref HEAD</code> — визначає поточну гілку.</li>
+              <li>
+                <code>git push origin HEAD:&lt;обрана_гілка&gt;</code>
+                — надсилає ваш локальний HEAD у віддалену гілку.
+              </li>
+            </ul>
+          </div>
         </div>
         <form method="POST" action="{{ route('deployment.push-current') }}" class="space-y-4">
           @csrf
