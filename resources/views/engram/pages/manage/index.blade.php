@@ -52,6 +52,7 @@
                 @if ($activeTab === 'categories')
                     @php
                         $editFormHasErrors = old('_method') === 'PUT';
+                        $emptyCategoryCount = $categories->where('pages_count', 0)->count();
                     @endphp
 
                     <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
@@ -129,10 +130,28 @@
 
                         <div class="space-y-4">
                             <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                                <h2 class="text-lg font-semibold text-gray-900">Категорії сторінок</h2>
-                                <span class="inline-flex w-fit items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
-                                    {{ $categories->count() }} всього
-                                </span>
+                                <div class="flex items-center gap-3">
+                                    <h2 class="text-lg font-semibold text-gray-900">Категорії сторінок</h2>
+                                    <span class="inline-flex w-fit items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                                        {{ $categories->count() }} всього
+                                    </span>
+                                </div>
+                                <form
+                                    action="{{ route('pages.manage.categories.destroy-empty') }}"
+                                    method="POST"
+                                    class="inline-flex"
+                                    onsubmit="return {{ $emptyCategoryCount > 0 ? 'confirm(\'Видалити всі порожні категорії?\')' : 'false' }};"
+                                >
+                                    @csrf
+                                    @method('DELETE')
+                                    <button
+                                        type="submit"
+                                        @if ($emptyCategoryCount === 0) disabled @endif
+                                        class="inline-flex items-center rounded-xl border border-red-200 bg-red-50 px-3 py-1 text-sm font-medium text-red-600 transition hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400"
+                                    >
+                                        Видалити порожні ({{ $emptyCategoryCount }})
+                                    </button>
+                                </form>
                             </div>
 
                             <div class="space-y-3 md:hidden">
