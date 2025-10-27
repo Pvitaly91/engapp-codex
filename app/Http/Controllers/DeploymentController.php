@@ -113,8 +113,8 @@ class DeploymentController extends Controller
             return $this->redirectWithFeedback('error', 'Не вдалося визначити поточну гілку.', $commandsOutput);
         }
 
-        $pushProcess = $this->runCommand(['git', 'push', 'origin', "HEAD:{$branch}"], $repoPath);
-        $commandsOutput[] = $this->formatProcess("git push origin HEAD:{$branch}", $pushProcess);
+        $pushProcess = $this->runCommand(['git', 'push', '--force', 'origin', "HEAD:{$branch}"], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git push --force origin HEAD:{$branch}", $pushProcess);
 
         if (! $pushProcess->isSuccessful()) {
             return $this->redirectWithFeedback('error', 'Не вдалося запушити поточний стан на віддалену гілку.', $commandsOutput);

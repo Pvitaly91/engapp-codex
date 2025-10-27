@@ -128,8 +128,8 @@
             <ul class="mt-2 list-disc space-y-1 pl-5">
               <li><code>git rev-parse --abbrev-ref HEAD</code> — визначає поточну гілку.</li>
               <li>
-                <code>git push origin HEAD:&lt;обрана_гілка&gt;</code>
-                — надсилає ваш локальний HEAD у віддалену гілку.
+                <code>git push --force origin HEAD:&lt;обрана_гілка&gt;</code>
+                — примусово оновлює віддалену гілку станом вашого локального HEAD.
               </li>
             </ul>
           </div>
