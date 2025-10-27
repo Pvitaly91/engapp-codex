@@ -104,18 +104,41 @@ Route::middleware('auth.admin')->group(function () {
             Route::get('/', [PageManageController::class, 'index'])->name('index');
             Route::get('/create', [PageManageController::class, 'create'])->name('create');
             Route::post('/', [PageManageController::class, 'store'])->name('store');
-            Route::get('/{page}/edit', [PageManageController::class, 'edit'])->name('edit');
-            Route::put('/{page}', [PageManageController::class, 'update'])->name('update');
-            Route::delete('/{page}', [PageManageController::class, 'destroy'])->name('destroy');
+            Route::get('/{page}/edit', [PageManageController::class, 'edit'])
+                ->whereNumber('page')
+                ->name('edit');
+            Route::put('/{page}', [PageManageController::class, 'update'])
+                ->whereNumber('page')
+                ->name('update');
+            Route::delete('/{page}', [PageManageController::class, 'destroy'])
+                ->whereNumber('page')
+                ->name('destroy');
             Route::post('/categories', [PageManageController::class, 'storeCategory'])->name('categories.store');
-            Route::put('/categories/{category}', [PageManageController::class, 'updateCategory'])->name('categories.update');
-            Route::delete('/categories/{category}', [PageManageController::class, 'destroyCategory'])->name('categories.destroy');
+            Route::put('/categories/{category}', [PageManageController::class, 'updateCategory'])
+                ->whereNumber('category')
+                ->name('categories.update');
+            Route::delete('/categories/{category}', [PageManageController::class, 'destroyCategory'])
+                ->whereNumber('category')
+                ->name('categories.destroy');
             Route::delete('/categories-empty', [PageManageController::class, 'destroyEmptyCategories'])->name('categories.destroy-empty');
-            Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])->name('blocks.create');
-            Route::post('/{page}/blocks', [PageManageController::class, 'storeBlock'])->name('blocks.store');
-            Route::get('/{page}/blocks/{block}/edit', [PageManageController::class, 'editBlock'])->name('blocks.edit');
-            Route::put('/{page}/blocks/{block}', [PageManageController::class, 'updateBlock'])->name('blocks.update');
-            Route::delete('/{page}/blocks/{block}', [PageManageController::class, 'destroyBlock'])->name('blocks.destroy');
+            Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])
+                ->whereNumber('page')
+                ->name('blocks.create');
+            Route::post('/{page}/blocks', [PageManageController::class, 'storeBlock'])
+                ->whereNumber('page')
+                ->name('blocks.store');
+            Route::get('/{page}/blocks/{block}/edit', [PageManageController::class, 'editBlock'])
+                ->whereNumber('page')
+                ->whereNumber('block')
+                ->name('blocks.edit');
+            Route::put('/{page}/blocks/{block}', [PageManageController::class, 'updateBlock'])
+                ->whereNumber('page')
+                ->whereNumber('block')
+                ->name('blocks.update');
+            Route::delete('/{page}/blocks/{block}', [PageManageController::class, 'destroyBlock'])
+                ->whereNumber('page')
+                ->whereNumber('block')
+                ->name('blocks.destroy');
         });
 
         Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
