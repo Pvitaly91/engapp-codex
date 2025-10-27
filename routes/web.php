@@ -241,6 +241,8 @@ Route::middleware('auth.admin')->group(function () {
 
         Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
         Route::get('/seed-runs/preview', [SeedRunController::class, 'preview'])->name('seed-runs.preview');
+        Route::get('/seed-runs/preview/page-content', [SeedRunController::class, 'previewPageContent'])
+            ->name('seed-runs.preview.page-content');
         Route::get('/seed-runs/file', [SeedRunController::class, 'showSeederFile'])->name('seed-runs.file.show');
         Route::put('/seed-runs/file', [SeedRunController::class, 'updateSeederFile'])->name('seed-runs.file.update');
         Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');

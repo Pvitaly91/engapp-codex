@@ -14,6 +14,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Database\Seeder as LaravelSeeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -76,11 +77,50 @@ class SeedRunController extends Controller
                 ->withErrors(['preview' => __('Не вдалося підготувати попередній перегляд: :message', ['message' => $exception->getMessage()])]);
         }
 
+        $pagePreviewUrl = null;
+
+        if (($preview['type'] ?? null) === 'page') {
+            $pagePreviewUrl = route('seed-runs.preview.page-content', [
+                'class_name' => $className,
+            ]);
+        }
+
         return view('seed-runs.preview', [
             'className' => $className,
             'displayClassName' => $this->formatSeederClassName($className),
             'preview' => $preview,
+            'pagePreviewUrl' => $pagePreviewUrl,
         ]);
+    }
+
+    public function previewPageContent(Request $request): Response
+    {
+        $className = (string) $request->query('class_name', '');
+
+        if ($className === '') {
+            abort(404);
+        }
+
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            abort(404);
+        }
+
+        if (! is_subclass_of($className, GrammarPageSeederBase::class)) {
+            abort(404);
+        }
+
+        try {
+            $preview = $this->buildPageSeederPreview($className);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            abort(500, __('Не вдалося підготувати попередній перегляд сторінки.'));
+        }
+
+        $html = $preview['page']['html'] ?? '';
+
+        return response($html)
+            ->header('Content-Type', 'text/html; charset=UTF-8');
     }
 
     public function showSeederFile(Request $request): JsonResponse
