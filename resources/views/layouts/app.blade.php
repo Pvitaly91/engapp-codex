@@ -46,8 +46,33 @@
 
                 <div class="hidden md:flex md:items-center md:gap-6 text-gray-600 font-medium">
                     <a href="{{ route('pages.manage.index') }}" class="hover:text-blue-500 transition">Сторінки</a>
-                    <a href="{{ route('grammar-test') }}" class="hover:text-blue-500 transition">Граматика</a>
-                    <a href="{{ route('saved-tests.list') }}" class="hover:text-blue-500 transition">Збережені тести</a>
+                    <div
+                        x-data="{ open: false }"
+                        class="relative"
+                        @mouseenter="open = true"
+                        @mouseleave="open = false"
+                        @focusin="open = true"
+                        @focusout="open = false"
+                    >
+                        <button
+                            type="button"
+                            class="inline-flex items-center gap-1 hover:text-blue-500 transition"
+                        >
+                            Граматика
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': open }"></i>
+                        </button>
+                        <div
+                            x-show="open"
+                            x-transition
+                            x-cloak
+                            @mouseenter="open = true"
+                            @mouseleave="open = false"
+                            class="absolute left-0 mt-2 w-48 rounded-lg border border-gray-100 bg-white py-2 text-sm shadow-lg"
+                        >
+                            <a href="{{ route('grammar-test') }}" class="block px-4 py-2 hover:bg-blue-50">Конструктор тестів</a>
+                            <a href="{{ route('saved-tests.list') }}" class="block px-4 py-2 hover:bg-blue-50">Збережені тести</a>
+                        </div>
+                    </div>
                     <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
                     <div
                         x-data="{ open: false }"
@@ -98,8 +123,20 @@
                 x-transition
             >
                 <a href="{{ route('pages.manage.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Сторінки</a>
-                <a href="{{ route('grammar-test') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Граматика</a>
-                <a href="{{ route('saved-tests.list') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Збережені тести</a>
+                <div x-data="{ openGrammar: false }" class="space-y-1">
+                    <button
+                        type="button"
+                        class="flex w-full items-center justify-between rounded-lg px-2 py-2 hover:bg-blue-50"
+                        @click="openGrammar = !openGrammar"
+                    >
+                        <span>Граматика</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openGrammar }"></i>
+                    </button>
+                    <div x-show="openGrammar" x-transition x-cloak class="ml-4 space-y-1 text-sm">
+                        <a href="{{ route('grammar-test') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Конструктор тестів</a>
+                        <a href="{{ route('saved-tests.list') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Збережені тести</a>
+                    </div>
+                </div>
                 <a href="{{ route('seed-runs.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs</a>
                 <div x-data="{ openDeployment: false }" class="space-y-1">
                     <button
