@@ -2030,8 +2030,13 @@ class SeedRunController extends Controller
 
         return collect(File::allFiles($directory))
             ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'php')
-            ->map(fn (SplFileInfo $file) => $this->classFromFile($file))
-            ->filter(fn (?string $class) => $class && $this->isInstantiableSeeder($class))
+            ->mapWithKeys(function (SplFileInfo $file) {
+                $class = $this->classFromFile($file);
+
+                return $class ? [$class => $file->getPathname()] : [];
+            })
+            ->filter(fn (string $path, string $class) => $this->isInstantiableSeeder($class, $path))
+            ->keys()
             ->unique()
             ->sort()
             ->values()
@@ -2064,9 +2069,25 @@ class SeedRunController extends Controller
         return $namespace . '\\' . $className;
     }
 
-    private function isInstantiableSeeder(string $class): bool
+    private function isInstantiableSeeder(string $class, ?string $filePath = null): bool
     {
         try {
+            if (! $this->classExistsSafely($class)) {
+                if (! $filePath || ! is_file($filePath)) {
+                    return false;
+                }
+
+                try {
+                    require_once $filePath;
+                } catch (\Throwable) {
+                    return false;
+                }
+
+                if (! class_exists($class, false)) {
+                    return false;
+                }
+            }
+
             $reflection = new \ReflectionClass($class);
 
             if (! $reflection->isInstantiable()) {
