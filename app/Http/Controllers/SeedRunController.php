@@ -670,7 +670,7 @@ class SeedRunController extends Controller
 
             $breadcrumbs[] = ['label' => $page->title];
 
-            $pageView = view('engram.pages.show', [
+            $pageViewData = [
                 'page' => $page,
                 'breadcrumbs' => $breadcrumbs,
                 'subtitleBlock' => $subtitleBlock,
@@ -679,9 +679,9 @@ class SeedRunController extends Controller
                 'categories' => $categories,
                 'selectedCategory' => $selectedCategory,
                 'categoryPages' => $categoryPages,
-            ]);
+            ];
 
-            $pageHtml = $pageView->render();
+            $pageHtml = view('engram.pages.show', $pageViewData)->render();
 
             $pageMeta = [
                 'title' => $page->title,
