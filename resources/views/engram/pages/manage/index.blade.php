@@ -140,14 +140,15 @@
                                     action="{{ route('pages.manage.categories.destroy-empty') }}"
                                     method="POST"
                                     class="inline-flex"
-                                    onsubmit="return {{ $emptyCategoryCount > 0 ? 'confirm(\'Видалити всі порожні категорії?\')' : 'false' }};"
+                                    data-empty-categories-form
                                 >
                                     @csrf
                                     @method('DELETE')
                                     <button
-                                        type="submit"
+                                        type="button"
                                         @if ($emptyCategoryCount === 0) disabled @endif
                                         class="inline-flex items-center rounded-xl border border-red-200 bg-red-50 px-3 py-1 text-sm font-medium text-red-600 transition hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400"
+                                        data-empty-modal-trigger
                                     >
                                         Видалити порожні ({{ $emptyCategoryCount }})
                                     </button>
@@ -280,4 +281,118 @@
             </div>
         </div>
     </div>
+
+    @if ($activeTab === 'categories')
+        <div
+            id="delete-empty-categories-modal"
+            class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="delete-empty-categories-title"
+        >
+            <div class="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl">
+                <div class="flex items-center justify-between border-b border-gray-100 px-6 py-4">
+                    <h2 id="delete-empty-categories-title" class="text-lg font-semibold text-gray-900">Видалити порожні категорії</h2>
+                    <button type="button" class="rounded-full p-1 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600" data-empty-modal-close aria-label="Закрити">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="space-y-4 px-6 py-5 text-sm text-gray-600">
+                    <p>Ця дія видалить усі категорії, у яких немає сторінок. Відновити їх буде неможливо.</p>
+                    <p>Ви впевнені, що хочете продовжити?</p>
+                </div>
+                <div class="flex flex-col gap-3 border-t border-gray-100 bg-gray-50 px-6 py-4 sm:flex-row sm:justify-end">
+                    <button type="button" class="inline-flex items-center justify-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100" data-empty-modal-close>
+                        Скасувати
+                    </button>
+                    <button type="button" class="inline-flex items-center justify-center rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-1" data-empty-modal-confirm>
+                        Видалити
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('delete-empty-categories-modal');
+            const form = document.querySelector('[data-empty-categories-form]');
+
+            if (!modal || !form) {
+                return;
+            }
+
+            const openButton = form.querySelector('[data-empty-modal-trigger]');
+            const cancelButtons = modal.querySelectorAll('[data-empty-modal-close]');
+            const confirmButton = modal.querySelector('[data-empty-modal-confirm]');
+
+            const openModal = () => {
+                if (modal.classList.contains('hidden') === false) {
+                    return;
+                }
+
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+
+                const focusTarget = modal.querySelector('[data-empty-modal-confirm]');
+                if (focusTarget) {
+                    focusTarget.focus();
+                }
+            };
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+
+                if (openButton) {
+                    openButton.focus();
+                }
+            };
+
+            if (openButton) {
+                openButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    if (openButton.disabled) {
+                        return;
+                    }
+
+                    openModal();
+                });
+            }
+
+            cancelButtons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    closeModal();
+                });
+            });
+
+            if (confirmButton) {
+                confirmButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    closeModal();
+                    form.requestSubmit();
+                });
+            }
+
+            modal.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+@endpush
