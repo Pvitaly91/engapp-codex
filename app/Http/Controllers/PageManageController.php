@@ -135,9 +135,7 @@ class PageManageController extends Controller
 
     public function editBlock(Page $page, TextBlock $block)
     {
-        if ($block->page_id !== $page->id) {
-            abort(404);
-        }
+        $this->ensureBlockBelongsToPage($page, $block);
 
         return view('engram.pages.manage.blocks.edit', [
             'page' => $page,
@@ -147,9 +145,7 @@ class PageManageController extends Controller
 
     public function updateBlock(Request $request, Page $page, TextBlock $block): RedirectResponse
     {
-        if ($block->page_id !== $page->id) {
-            abort(404);
-        }
+        $this->ensureBlockBelongsToPage($page, $block);
 
         $data = $this->validatedBlockData($request, $page, $block);
 
@@ -162,9 +158,7 @@ class PageManageController extends Controller
 
     public function destroyBlock(Page $page, TextBlock $block): RedirectResponse
     {
-        if ($block->page_id !== $page->id) {
-            abort(404);
-        }
+        $this->ensureBlockBelongsToPage($page, $block);
 
         $block->delete();
 
@@ -238,5 +232,12 @@ class PageManageController extends Controller
     protected function categories()
     {
         return PageCategory::query()->orderBy('title')->get();
+    }
+
+    protected function ensureBlockBelongsToPage(Page $page, TextBlock $block): void
+    {
+        if ((int) $block->page_id !== (int) $page->getKey()) {
+            abort(404);
+        }
     }
 }
