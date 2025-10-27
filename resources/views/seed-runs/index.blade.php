@@ -1200,8 +1200,11 @@
                 }
 
                 const children = folderNode.querySelector('[data-folder-children]');
+                const contentTarget = children
+                    ? children.querySelector('[data-folder-children-content]') || children
+                    : null;
 
-                if (!children) {
+                if (!children || !contentTarget) {
                     return;
                 }
 
@@ -1246,7 +1249,7 @@
                     depth: depth,
                 });
 
-                children.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+                contentTarget.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
 
                 try {
                     const response = await fetch(baseUrl + '?' + params.toString(), {
@@ -1266,7 +1269,7 @@
                         throw new Error(message);
                     }
 
-                    children.innerHTML = payload && typeof payload.html === 'string'
+                    contentTarget.innerHTML = payload && typeof payload.html === 'string'
                         ? payload.html
                         : '';
                     folderNode.dataset.loaded = 'true';
@@ -1279,7 +1282,7 @@
                         ? error.message
                         : 'Не вдалося завантажити вміст папки.';
 
-                    children.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                    contentTarget.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
                     folderNode.dataset.loaded = 'error';
                     showFeedback(message, 'error');
                 }

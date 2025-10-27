@@ -29,9 +29,11 @@
                 <span>{{ $node['name'] }}</span>
                 <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
             </button>
+        </div>
 
+        <div class="space-y-3 hidden" data-folder-children data-depth="{{ $depth + 1 }}">
             @if(!empty($folderSeedRunIds))
-                <div class="flex flex-col sm:flex-row gap-2 sm:items-center">
+                <div class="flex flex-col sm:flex-row sm:justify-end gap-2 sm:items-center" data-folder-actions>
                     <form method="POST"
                           action="{{ route('seed-runs.folders.destroy-with-questions') }}"
                           data-preloader
@@ -66,9 +68,9 @@
                     </form>
                 </div>
             @endif
-        </div>
 
-        <div class="space-y-3 hidden" data-folder-children data-depth="{{ $depth + 1 }}"></div>
+            <div class="space-y-3" data-folder-children-content></div>
+        </div>
     </div>
 @elseif(($node['type'] ?? null) === 'seeder')
     @php
