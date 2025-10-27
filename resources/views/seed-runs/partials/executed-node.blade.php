@@ -95,8 +95,7 @@
                 'bg-white' => ! $seedRunIsRecent,
                 'bg-amber-50' => $seedRunIsRecent,
             ])>
-                <div class="md:grid md:grid-cols-[minmax(0,3fr)_minmax(0,1fr)] md:items-start md:gap-6">
-                    <div class="text-xs text-gray-700 break-words">
+                <div class="text-xs text-gray-700 break-words">
                         <div class="flex items-start gap-3">
                             <div class="pt-1 shrink-0">
                                 <input type="checkbox"
@@ -142,8 +141,8 @@
                                     </label>
                                 </div>
 
-                                @if($questionCount > 0)
-                                    <div class="mt-3 space-y-3" data-seeder-section data-seed-run-id="{{ $seedRun->id }}">
+                                <div class="mt-3 space-y-3" data-seeder-section data-seed-run-id="{{ $seedRun->id }}">
+                                    @if($questionCount > 0)
                                         <button type="button"
                                                 class="inline-flex items-center justify-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 transition w-full sm:w-auto"
                                                 data-seeder-toggle
@@ -165,61 +164,70 @@
                                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                             </svg>
                                         </button>
+                                    @endif
 
-                                        <div class="hidden space-y-4" data-seeder-content data-seed-run-id="{{ $seedRun->id }}"></div>
+                                    <div class="{{ $questionCount > 0 ? 'hidden ' : '' }}space-y-4"
+                                         data-seeder-content
+                                         data-seed-run-id="{{ $seedRun->id }}">
+                                        <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap md:flex-col md:items-end" data-seeder-actions>
+                                            <div class="flex flex-col sm:flex-row sm:flex-wrap md:flex-col md:items-end gap-2 w-full">
+                                                <button type="button"
+                                                        class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
+                                                        data-seeder-file-open
+                                                        data-class-name="{{ $seedRun->class_name }}"
+                                                        data-display-name="{{ $seedRun->display_class_name }}">
+                                                    <i class="fa-solid fa-file-code"></i>
+                                                    Код
+                                                </button>
+                                                <form method="POST"
+                                                      action="{{ route('seed-runs.destroy-seeder-file') }}"
+                                                      data-preloader
+                                                      data-confirm="{{ $deleteFileConfirm }}"
+                                                      data-confirm-regular="{{ $deleteFileConfirm }}"
+                                                      data-confirm-with-questions="{{ $deleteFileConfirmWithQuestions }}"
+                                                      data-delete-with-questions-form
+                                                      data-class-name="{{ $seedRun->class_name }}"
+                                                      class="flex-1 sm:flex-none md:flex-1 md:w-full"
+                                                      id="executed-delete-file-form-{{ $seedRun->id }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <input type="hidden" name="class_name" value="{{ $seedRun->class_name }}">
+                                                    <input type="hidden" name="delete_with_questions" value="0" data-delete-with-questions-input data-class-name="{{ $seedRun->class_name }}">
+                                                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                                        <i class="fa-solid fa-file-circle-xmark"></i>
+                                                        Видалити файл
+                                                    </button>
+                                                </form>
+                                                <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="{{ __($seederDeleteConfirm) }}" class="flex-1 sm:flex-none md:flex-1 md:w-full">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
+                                                        <i class="fa-solid fa-broom"></i>
+                                                        {{ $seederDeleteButton }}
+                                                    </button>
+                                                </form>
+                                                <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" data-preloader data-confirm="Видалити лише запис про виконання?" class="flex-1 sm:flex-none md:flex-1 md:w-full">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                        Видалити запис
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div class="text-xs text-gray-500 text-center sm:text-left md:text-right w-full md:w-auto">
+                                                <span class="font-semibold text-gray-700 block md:hidden">Виконано:</span>
+                                                <span>{{ optional($seedRun->ran_at)->format('Y-m-d H:i:s') }}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="space-y-4"
+                                             data-seeder-questions-container
+                                             data-seed-run-id="{{ $seedRun->id }}">
+                                        </div>
                                     </div>
-                                @endif
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col md:items-end gap-2 text-sm text-gray-600">
-                        <button type="button"
-                                class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
-                                data-seeder-file-open
-                                data-class-name="{{ $seedRun->class_name }}"
-                                data-display-name="{{ $seedRun->display_class_name }}">
-                            <i class="fa-solid fa-file-code"></i>
-                            Код
-                        </button>
-                        <form method="POST"
-                              action="{{ route('seed-runs.destroy-seeder-file') }}"
-                              data-preloader
-                              data-confirm="{{ $deleteFileConfirm }}"
-                              data-confirm-regular="{{ $deleteFileConfirm }}"
-                              data-confirm-with-questions="{{ $deleteFileConfirmWithQuestions }}"
-                              data-delete-with-questions-form
-                              data-class-name="{{ $seedRun->class_name }}"
-                              class="flex-1 sm:flex-none md:flex-1 md:w-full"
-                              id="executed-delete-file-form-{{ $seedRun->id }}">
-                            @csrf
-                            @method('DELETE')
-                            <input type="hidden" name="class_name" value="{{ $seedRun->class_name }}">
-                            <input type="hidden" name="delete_with_questions" value="0" data-delete-with-questions-input data-class-name="{{ $seedRun->class_name }}">
-                            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
-                                <i class="fa-solid fa-file-circle-xmark"></i>
-                                Видалити файл
-                            </button>
-                        </form>
-                        <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="{{ __($seederDeleteConfirm) }}" class="flex-1 sm:flex-none md:flex-1 md:w-full">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
-                                <i class="fa-solid fa-broom"></i>
-                                {{ $seederDeleteButton }}
-                            </button>
-                        </form>
-                        <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" data-preloader data-confirm="Видалити лише запис про виконання?" class="flex-1 sm:flex-none md:flex-1 md:w-full">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
-                                <i class="fa-solid fa-trash"></i>
-                                Видалити запис
-                            </button>
-                        </form>
-                        <div class="text-xs text-gray-500 text-center sm:text-left md:text-right">
-                            <span class="font-semibold text-gray-700 block md:hidden">Виконано:</span>
-                            <span>{{ optional($seedRun->ran_at)->format('Y-m-d H:i:s') }}</span>
                         </div>
                     </div>
                 </div>
