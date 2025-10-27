@@ -14,6 +14,7 @@
 
         $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
+        $pagePreviewUrl = $pagePreviewUrl ?? null;
     @endphp
 
     <div class="max-w-5xl mx-auto space-y-6">
@@ -289,13 +290,10 @@
                     {{ __('Нижче показано рендер сторінки за допомогою публічного шаблону Engram. Перевірте, що всі блоки виглядають як очікується.') }}
                 </p>
 
-                @if($pagePreview && ! empty($pagePreview['html']))
-                    <div
-                        class="border border-gray-200 rounded-lg overflow-hidden"
-                        data-page-preview
-                        data-page-preview-html="{{ base64_encode($pagePreview['html']) }}"
-                    >
+                @if($pagePreview && ! empty($pagePreview['html']) && $pagePreviewUrl)
+                    <div class="border border-gray-200 rounded-lg overflow-hidden" data-page-preview>
                         <iframe
+                            src="{{ $pagePreviewUrl }}"
                             class="w-full"
                             style="min-height: 900px;"
                             data-page-preview-frame
@@ -355,25 +353,6 @@
         });
 
         document.querySelectorAll('[data-page-preview-frame]').forEach((frame) => {
-            const container = frame.closest('[data-page-preview]');
-            const encodedHtml = container?.getAttribute('data-page-preview-html');
-
-            if (encodedHtml) {
-                try {
-                    const binary = atob(encodedHtml);
-                    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
-                    const decoder = new TextDecoder('utf-8');
-
-                    frame.srcdoc = decoder.decode(bytes);
-                } catch (error) {
-                    try {
-                        frame.srcdoc = decodeURIComponent(escape(atob(encodedHtml)));
-                    } catch (fallbackError) {
-                        // ignore decoding errors
-                    }
-                }
-            }
-
             frame.addEventListener('load', () => {
                 try {
                     const doc = frame.contentDocument || frame.contentWindow.document;
