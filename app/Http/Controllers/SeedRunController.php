@@ -681,7 +681,26 @@ class SeedRunController extends Controller
                 'categoryPages' => $categoryPages,
             ];
 
-            $pageHtml = view('engram.pages.show', $pageViewData)->render();
+            $pageView = view('engram.pages.show', $pageViewData);
+            $sections = $pageView->renderSections();
+
+            $pageContent = trim($sections['content'] ?? '');
+
+            if ($pageContent === '') {
+                $pageContent = $this->extractPreviewContent(
+                    view('engram.pages.show', $pageViewData)->render()
+                );
+            }
+
+            $pageTitle = trim($sections['title'] ?? ($page->title ?? ''));
+
+            $pageHtml = view('seed-runs.previews.page', [
+                'title' => $pageTitle !== '' ? $pageTitle : $page->title,
+                'content' => $pageContent,
+                'scripts' => $sections['scripts'] ?? '',
+                'stacks' => collect($sections)
+                    ->filter(fn ($_, $key) => str_starts_with($key, 'stack:')),
+            ])->render();
 
             $pageMeta = [
                 'title' => $page->title,
@@ -702,6 +721,17 @@ class SeedRunController extends Controller
             'existingQuestionCount' => null,
             'page' => $pageMeta,
         ];
+    }
+
+    protected function extractPreviewContent(string $html): string
+    {
+        foreach (['/<main[^>]*>(.*?)<\/main>/is', '/<body[^>]*>(.*?)<\/body>/is'] as $pattern) {
+            if (preg_match($pattern, $html, $matches)) {
+                return trim($matches[1]);
+            }
+        }
+
+        return trim($html);
     }
 
     public function loadFolderChildren(Request $request): JsonResponse
