@@ -73,9 +73,10 @@
                             class="absolute right-0 mt-2 w-48 rounded-lg border border-gray-100 bg-white py-2 text-sm shadow-lg"
                         >
                             @if($supportsShell)
-                                <a href="{{ route('deployment.index') }}" class="block px-4 py-2 hover:bg-blue-50">Shell версія</a>
+                                <a href="{{ route('deployment.index') }}" class="block px-4 py-2 hover:bg-blue-50">SSH режим</a>
+                            @else
+                                <a href="{{ route('deployment.native.index') }}" class="block px-4 py-2 hover:bg-blue-50">API режим</a>
                             @endif
-                            <a href="{{ route('deployment.native.index') }}" class="block px-4 py-2 hover:bg-blue-50">Git</a>
                             <a href="{{ route('migrations.index') }}" class="block px-4 py-2 hover:bg-blue-50">Міграції</a>
                         </div>
                     </div>
@@ -111,9 +112,10 @@
                     </button>
                     <div x-show="openDeployment" x-transition x-cloak class="ml-4 space-y-1 text-sm">
                         @if($supportsShell)
-                            <a href="{{ route('deployment.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Shell версія</a>
+                            <a href="{{ route('deployment.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">SSH режим</a>
+                        @else
+                            <a href="{{ route('deployment.native.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">API режим</a>
                         @endif
-                        <a href="{{ route('deployment.native.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Git</a>
                         <a href="{{ route('migrations.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Міграції</a>
                     </div>
                 </div>

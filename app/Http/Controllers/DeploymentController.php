@@ -113,8 +113,8 @@ class DeploymentController extends Controller
             return $this->redirectWithFeedback('error', 'Не вдалося визначити поточну гілку.', $commandsOutput);
         }
 
-        $pushProcess = $this->runCommand(['git', 'push', 'origin', "HEAD:{$branch}"], $repoPath);
-        $commandsOutput[] = $this->formatProcess("git push origin HEAD:{$branch}", $pushProcess);
+        $pushProcess = $this->runCommand(['git', 'push', '--force', 'origin', "HEAD:{$branch}"], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git push --force origin HEAD:{$branch}", $pushProcess);
 
         if (! $pushProcess->isSuccessful()) {
             return $this->redirectWithFeedback('error', 'Не вдалося запушити поточний стан на віддалену гілку.', $commandsOutput);
@@ -334,7 +334,7 @@ class DeploymentController extends Controller
             ->route('deployment.native.index')
             ->with('deployment_native', [
                 'status' => 'error',
-                'message' => 'Режим через shell недоступний на цьому сервері. Скористайтеся сторінкою без shell.',
+                'message' => 'Режим через SSH недоступний на цьому сервері. Скористайтеся сторінкою через API.',
                 'logs' => [],
                 'branch' => $branch,
             ]);
