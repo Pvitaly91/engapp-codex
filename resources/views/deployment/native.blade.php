@@ -194,7 +194,17 @@
               <tbody class="divide-y divide-border/60 bg-background/60">
                 @foreach($backupBranches as $branch)
                   <tr>
-                    <td class="px-4 py-3 font-medium">{{ $branch->name }}</td>
+                    <td class="px-4 py-3 font-medium">
+                      <button
+                        type="button"
+                        class="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-left font-medium text-foreground transition hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        data-copy-branch="{{ $branch->name }}"
+                      >
+                        <span data-copy-branch-text>{{ $branch->name }}</span>
+                        <span class="hidden text-xs font-semibold text-success" data-copy-branch-success>Скопійовано!</span>
+                        <span class="hidden text-xs font-semibold text-destructive-foreground" data-copy-branch-error>Не вдалося скопіювати</span>
+                      </button>
+                    </td>
                     <td class="px-4 py-3 font-mono text-xs">{{ $branch->commit_hash }}</td>
                     <td class="px-4 py-3">{{ $branch->created_at->format('d.m.Y H:i') }}</td>
                     <td class="px-4 py-3">
@@ -268,4 +278,6 @@
       </div>
     </section>
   </div>
+
+  @include('deployment.partials.backup-branch-copy-script')
 @endsection
