@@ -28,6 +28,11 @@ use Symfony\Component\Finder\SplFileInfo;
 
 class SeedRunController extends Controller
 {
+    /**
+     * @var array<string, string>|null
+     */
+    private ?array $seederClassMap = null;
+
     public function __construct(private QuestionDeletionService $questionDeletionService)
     {
     }
@@ -55,7 +60,7 @@ class SeedRunController extends Controller
                 ->withErrors(['preview' => __('Не вказано клас сидера для перегляду.')]);
         }
 
-        if (! $this->classExistsSafely($className)) {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['preview' => __('Сидер :class не знайдено.', ['class' => $className])]);
@@ -252,9 +257,14 @@ class SeedRunController extends Controller
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
             ->reject(fn (string $class) => in_array($class, $executedClasses, true))
             ->map(function (string $class) {
+                $displayName = $this->formatSeederClassName($class);
+                [$namespace, $baseName] = $this->splitSeederDisplayName($displayName);
+
                 return (object) [
                     'class_name' => $class,
-                    'display_class_name' => $this->formatSeederClassName($class),
+                    'display_class_name' => $displayName,
+                    'display_class_namespace' => $namespace,
+                    'display_class_basename' => $baseName,
                     'supports_preview' => $this->seederSupportsPreview($class),
                 ];
             })
@@ -295,6 +305,21 @@ class SeedRunController extends Controller
         return $shortName !== '' ? $shortName : $className;
     }
 
+    /**
+     * @return array{0: string|null, 1: string}
+     */
+    protected function splitSeederDisplayName(string $displayName): array
+    {
+        if (! Str::contains($displayName, '\\')) {
+            return [null, $displayName];
+        }
+
+        return [
+            Str::beforeLast($displayName, '\\'),
+            Str::afterLast($displayName, '\\'),
+        ];
+    }
+
     protected function renderQuestionWithHighlightedAnswers(Question $question): string
     {
         $questionText = e($question->question ?? '');
@@ -319,7 +344,7 @@ class SeedRunController extends Controller
 
     protected function seederSupportsPreview(string $className): bool
     {
-        if (! $this->classExistsSafely($className)) {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
             return false;
         }
 
@@ -1050,13 +1075,15 @@ class SeedRunController extends Controller
 
         $className = $validated['class_name'];
 
-        if (! $this->classExistsSafely($className)) {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
         }
 
-        if (! $this->isInstantiableSeeder($className)) {
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $this->isInstantiableSeeder($className, $filePath)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['run' => __('Seeder :class cannot be executed.', ['class' => $className])]);
@@ -1306,13 +1333,19 @@ class SeedRunController extends Controller
     {
         $candidatePaths = collect();
 
+        $map = $this->getSeederClassMap();
+
+        if ($map->has($className)) {
+            $candidatePaths->push($map->get($className));
+        }
+
         if (Str::startsWith($className, 'Database\\Seeders\\')) {
             $relative = Str::after($className, 'Database\\Seeders\\');
             $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
             $candidatePaths->push(database_path('seeders/' . $relativePath));
         }
 
-        if ($this->classExistsSafely($className)) {
+        if (class_exists($className, false) || $this->classExistsSafely($className)) {
             try {
                 $reflection = new \ReflectionClass($className);
                 $fileName = $reflection->getFileName();
@@ -1406,7 +1439,7 @@ class SeedRunController extends Controller
 
         $className = $validated['class_name'];
 
-        if (! $this->classExistsSafely($className)) {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
@@ -1450,12 +1483,14 @@ class SeedRunController extends Controller
         $errors = collect();
 
         foreach ($pendingSeeders as $className) {
-            if (! $this->classExistsSafely($className)) {
+            if (! $this->ensureSeederClassIsLoaded($className)) {
                 $errors->push(__('Seeder :class is not autoloadable.', ['class' => $className]));
                 continue;
             }
 
-            if (! $this->isInstantiableSeeder($className)) {
+            $filePath = $this->resolveSeederFilePath($className);
+
+            if (! $this->isInstantiableSeeder($className, $filePath)) {
                 $errors->push(__('Seeder :class cannot be executed.', ['class' => $className]));
                 continue;
             }
@@ -1767,7 +1802,7 @@ class SeedRunController extends Controller
             'folder_delete_confirm' => __('Видалити всі сидери в папці «:folder» та пов’язані дані?'),
         ];
 
-        if (! $this->classExistsSafely($className)) {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
             return $default;
         }
 
@@ -1924,7 +1959,7 @@ class SeedRunController extends Controller
             ->flatMap(function ($className) {
                 $classes = collect([$className]);
 
-                if (! $this->classExistsSafely($className)) {
+                if (! $this->ensureSeederClassIsLoaded($className)) {
                     return $classes;
                 }
 
@@ -1947,7 +1982,7 @@ class SeedRunController extends Controller
 
     protected function resolvePageSlugForSeeder(string $className): ?string
     {
-        if (! $this->classExistsSafely($className)) {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
             return null;
         }
 
@@ -1978,7 +2013,7 @@ class SeedRunController extends Controller
 
     protected function resolveAggregateSeederClasses(string $className): Collection
     {
-        if (! $this->classExistsSafely($className)) {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
             return collect();
         }
 
@@ -2007,7 +2042,7 @@ class SeedRunController extends Controller
 
     protected function classProvidesGrammarPages(string $className): bool
     {
-        if (! $this->classExistsSafely($className)) {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
             return false;
         }
 
@@ -2016,7 +2051,7 @@ class SeedRunController extends Controller
         }
 
         return $this->resolveAggregateSeederClasses($className)
-            ->contains(fn ($class) => is_string($class) && $this->classExistsSafely($class) && is_subclass_of($class, GrammarPageSeederBase::class));
+            ->contains(fn ($class) => is_string($class) && $this->ensureSeederClassIsLoaded($class) && class_exists($class, false) && is_subclass_of($class, GrammarPageSeederBase::class));
     }
 
     /**
@@ -2028,10 +2063,9 @@ class SeedRunController extends Controller
             return [];
         }
 
-        return collect(File::allFiles($directory))
-            ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'php')
-            ->map(fn (SplFileInfo $file) => $this->classFromFile($file))
-            ->filter(fn (?string $class) => $class && $this->isInstantiableSeeder($class))
+        return $this->getSeederClassMap()
+            ->filter(fn (string $path, string $class) => $this->isInstantiableSeeder($class, $path))
+            ->keys()
             ->unique()
             ->sort()
             ->values()
@@ -2064,9 +2098,29 @@ class SeedRunController extends Controller
         return $namespace . '\\' . $className;
     }
 
-    private function isInstantiableSeeder(string $class): bool
+    private function isInstantiableSeeder(string $class, ?string $filePath = null): bool
     {
         try {
+            if (! $this->ensureSeederClassIsLoaded($class)) {
+                if (! $filePath) {
+                    $filePath = $this->getSeederClassMap()->get($class);
+                }
+
+                if (! $filePath || ! is_file($filePath)) {
+                    return false;
+                }
+
+                try {
+                    require_once $filePath;
+                } catch (\Throwable) {
+                    return false;
+                }
+
+                if (! class_exists($class, false)) {
+                    return false;
+                }
+            }
+
             $reflection = new \ReflectionClass($class);
 
             if (! $reflection->isInstantiable()) {
@@ -2093,5 +2147,61 @@ class SeedRunController extends Controller
         }
 
         return @class_exists($className);
+    }
+
+    /**
+     * @return Collection<string, string>
+     */
+    private function getSeederClassMap(): Collection
+    {
+        if (is_array($this->seederClassMap)) {
+            return collect($this->seederClassMap);
+        }
+
+        $directory = database_path('seeders');
+
+        if (! is_dir($directory)) {
+            $this->seederClassMap = [];
+
+            return collect();
+        }
+
+        $map = collect(File::allFiles($directory))
+            ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'php')
+            ->mapWithKeys(function (SplFileInfo $file) {
+                $class = $this->classFromFile($file);
+
+                return $class ? [$class => $file->getPathname()] : [];
+            })
+            ->all();
+
+        $this->seederClassMap = $map;
+
+        return collect($map);
+    }
+
+    private function ensureSeederClassIsLoaded(string $className): bool
+    {
+        if ($this->classExistsSafely($className)) {
+            return true;
+        }
+
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $filePath) {
+            $filePath = $this->getSeederClassMap()->get($className);
+        }
+
+        if (! $filePath || ! is_file($filePath)) {
+            return false;
+        }
+
+        try {
+            require_once $filePath;
+        } catch (\Throwable) {
+            return false;
+        }
+
+        return $this->classExistsSafely($className);
     }
 }

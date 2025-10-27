@@ -1,6 +1,19 @@
 @php
     $columnValue = old('column', $block->column);
+    $bodyFieldId = 'block-body-editor';
 @endphp
+
+@once
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js" referrerpolicy="no-referrer"></script>
+@endonce
 
 <div class="mx-auto max-w-4xl space-y-6">
     <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -66,7 +79,7 @@
                 </label>
                 <label class="space-y-2 md:col-span-2">
                     <span class="text-sm font-medium">Контент</span>
-                    <textarea name="body" rows="8" class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200">{{ old('body', $block->body) }}</textarea>
+                    <textarea id="{{ $bodyFieldId }}" name="body" rows="12" class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200">{{ old('body', $block->body) }}</textarea>
                 </label>
             </div>
         </section>
@@ -79,3 +92,32 @@
         </div>
     </form>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof window.CodeMirror === 'undefined') {
+            return;
+        }
+
+        var textarea = document.getElementById(@json($bodyFieldId));
+
+        if (!textarea || textarea.dataset.codemirrorInitialized === '1') {
+            return;
+        }
+
+        textarea.dataset.codemirrorInitialized = '1';
+
+        var editor = window.CodeMirror.fromTextArea(textarea, {
+            mode: 'htmlmixed',
+            lineNumbers: true,
+            lineWrapping: true,
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            autoCloseTags: true,
+            tabSize: 4,
+            indentUnit: 4,
+        });
+
+        editor.setSize('100%', '24rem');
+    });
+</script>

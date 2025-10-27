@@ -15,19 +15,19 @@
           class="rounded-full px-4 py-1.5 font-medium transition {{ $shellActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
           @if($shellActive) aria-current="page" @endif
         >
-          Shell версія
+          SSH режим
         </a>
         <a
           href="{{ route('deployment.native.index') }}"
           class="rounded-full px-4 py-1.5 font-medium transition {{ $nativeActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
           @if($nativeActive) aria-current="page" @endif
         >
-          Без shell
+          API режим
         </a>
       </div>
       <div class="space-y-2">
         <h1 class="text-3xl font-semibold">Оновлення сайту з репозиторію</h1>
-        <p class="text-muted-foreground">Ця сторінка виконує git-команди через shell. Ви також можете скористатися альтернативною сторінкою без викликів shell.</p>
+        <p class="text-muted-foreground">Ця сторінка виконує git-команди безпосередньо через SSH. Ви також можете скористатися альтернативною сторінкою, що працює через GitHub API.</p>
       </div>
     </header>
 
@@ -49,7 +49,7 @@
       @endphp
       @php
         $highlightShellUnavailable = $feedback['status'] === 'error'
-          && \Illuminate\Support\Str::contains($feedback['message'], 'Режим через shell недоступний на цьому сервері.');
+          && \Illuminate\Support\Str::contains($feedback['message'], 'Режим через SSH недоступний на цьому сервері.');
       @endphp
       <div @class([
         'rounded-2xl border p-4 shadow-soft',
@@ -107,7 +107,7 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">1. Оновити з Git</h2>
-          <p class="text-sm text-muted-foreground">Натисніть кнопку нижче, щоб виконати послідовність команд: <code>git fetch origin</code> та <code>git reset --hard origin/&lt;гілка&gt;</code>. Перед скиданням автоматично збережеться резервний коміт.</p>
+          <p class="text-sm text-muted-foreground">Натисніть кнопку нижче, щоб виконати послідовність команд: <code>git fetch origin</code>, <code>git reset --hard origin/&lt;гілка&gt;</code> та <code>git clean -fd</code>. Перед скиданням автоматично збережеться резервний коміт, а після — будуть видалені локальні файли, яких немає в репозиторії.</p>
         </div>
         <form method="POST" action="{{ route('deployment.deploy') }}" class="space-y-4">
           @csrf
@@ -123,6 +123,16 @@
         <div>
           <h2 class="text-2xl font-semibold">2. Запушити поточний стан</h2>
           <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
+          <div class="mt-3 rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs text-muted-foreground">
+            <p class="font-semibold text-foreground">Команди, які буде виконано:</p>
+            <ul class="mt-2 list-disc space-y-1 pl-5">
+              <li><code>git rev-parse --abbrev-ref HEAD</code> — визначає поточну гілку.</li>
+              <li>
+                <code>git push --force origin HEAD:&lt;обрана_гілка&gt;</code>
+                — примусово оновлює віддалену гілку станом вашого локального HEAD.
+              </li>
+            </ul>
+          </div>
         </div>
         <form method="POST" action="{{ route('deployment.push-current') }}" class="space-y-4">
           @csrf
@@ -138,6 +148,20 @@
         <div>
           <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
+        </div>
+        <div class="rounded-2xl border border-border/70 bg-muted/40 p-4 text-sm text-muted-foreground">
+          <p class="font-medium text-foreground">Під час створення виконується еквівалент таких команд git:</p>
+          <ul class="mt-3 list-disc space-y-2 pl-5">
+            <li>
+              <code>git rev-parse HEAD</code>
+              — визначає хеш поточного коміту, якщо обрано «Поточний HEAD».
+            </li>
+            <li>
+              <code>git update-ref refs/heads/&lt;назва_гілки&gt; &lt;коміт&gt;</code>
+              — записує ref нової гілки на зазначений коміт.
+            </li>
+          </ul>
+          <p class="mt-3">Операції виконуються через GitHub API та прямий запис refs без запуску shell-команд.</p>
         </div>
         <form method="POST" action="{{ route('deployment.backup-branch') }}" class="space-y-4">
           @csrf
