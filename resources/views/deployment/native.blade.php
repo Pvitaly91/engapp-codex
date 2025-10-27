@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Оновлення сайту без shell')
+@section('title', 'Оновлення сайту через API')
 
 @section('content')
   <div class="max-w-4xl mx-auto space-y-8">
@@ -16,7 +16,7 @@
             class="rounded-full px-4 py-1.5 font-medium transition {{ $shellActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
             @if($shellActive) aria-current="page" @endif
           >
-            Shell версія
+            SSH режим
           </a>
         @endif
         <a
@@ -24,16 +24,16 @@
           class="rounded-full px-4 py-1.5 font-medium transition {{ $nativeActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
           @if($nativeActive) aria-current="page" @endif
         >
-          Без shell
+          API режим
         </a>
       </div>
       @unless($supportsShell)
         <p class="text-sm font-medium text-destructive-foreground">
-          Shell режим недоступний на цьому сервері, тому доступна лише робота через API.
+          SSH режим недоступний на цьому сервері, тому доступна лише робота через API.
         </p>
       @endunless
       <div class="space-y-2">
-        <h1 class="text-3xl font-semibold">Оновлення сайту без використання shell</h1>
+        <h1 class="text-3xl font-semibold">Оновлення сайту через GitHub API</h1>
         <p class="text-muted-foreground">Усі операції виконуються через GitHub API та файлову систему Laravel без виклику <code>proc_open</code>, <code>exec</code> чи подібних функцій.</p>
       </div>
     </header>
@@ -52,11 +52,11 @@
     @if($feedback)
       @php
         $highlightSuccessfulUpdate = $feedback['status'] === 'success'
-          && \Illuminate\Support\Str::contains($feedback['message'], 'Сайт успішно оновлено до останнього стану гілки без використання shell.');
+          && \Illuminate\Support\Str::contains($feedback['message'], 'Сайт успішно оновлено до останнього стану гілки через GitHub API.');
       @endphp
       @php
         $highlightShellUnavailable = $feedback['status'] === 'error'
-          && \Illuminate\Support\Str::contains($feedback['message'], 'Режим через shell недоступний на цьому сервері.');
+          && \Illuminate\Support\Str::contains($feedback['message'], 'Режим через SSH недоступний на цьому сервері.');
       @endphp
       <div @class([
         'rounded-2xl border p-4 shadow-soft',
@@ -101,7 +101,7 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">1. Оновити з GitHub API</h2>
-          <p class="text-sm text-muted-foreground">Завантажує архів гілки з GitHub API та оновлює файли напряму, не виконуючи shell-команд.</p>
+          <p class="text-sm text-muted-foreground">Завантажує архів гілки з GitHub API, оновлює файли напряму та видаляє локальні елементи, яких немає в репозиторії — усе без виконання SSH-команд.</p>
         </div>
         <form method="POST" action="{{ route('deployment.native.deploy') }}" class="space-y-4">
           @csrf
@@ -116,7 +116,7 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">2. Запушити поточний стан</h2>
-          <p class="text-sm text-muted-foreground">Формує новий коміт за допомогою GitHub API та оновлює вказану гілку без виклику shell.</p>
+          <p class="text-sm text-muted-foreground">Формує новий коміт за допомогою GitHub API та оновлює вказану гілку без SSH-команд.</p>
         </div>
         <form method="POST" action="{{ route('deployment.native.push-current') }}" class="space-y-4">
           @csrf
@@ -132,6 +132,20 @@
         <div>
           <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">Створює локальний ref у <code>.git/refs/heads</code> без запуску git-команд.</p>
+        </div>
+        <div class="rounded-2xl border border-border/70 bg-muted/40 p-4 text-sm text-muted-foreground">
+          <p class="font-medium text-foreground">Еквівалент наступних команд git:</p>
+          <ul class="mt-3 list-disc space-y-2 pl-5">
+            <li>
+              <code>git rev-parse HEAD</code>
+              — визначає поточний коміт, якщо обрано «Поточний HEAD».
+            </li>
+            <li>
+              <code>git update-ref refs/heads/&lt;назва_гілки&gt; &lt;коміт&gt;</code>
+              — записує нове посилання гілки на вибраний коміт.
+            </li>
+          </ul>
+          <p class="mt-3">Усі дії виконуються через GitHub API та прямий запис refs без запуску shell-команд.</p>
         </div>
         <form method="POST" action="{{ route('deployment.native.backup-branch') }}" class="space-y-4">
           @csrf
@@ -161,7 +175,7 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">4. Керування резервними гілками</h2>
-          <p class="text-sm text-muted-foreground">Публікуйте створені гілки на GitHub через REST API без використання shell.</p>
+          <p class="text-sm text-muted-foreground">Публікуйте створені гілки на GitHub через REST API без SSH-команд.</p>
         </div>
         @if($backupBranches->isEmpty())
           <p class="text-sm text-muted-foreground">Поки що немає створених резервних гілок. Створіть першу гілку у попередньому блоці.</p>
@@ -220,7 +234,7 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">5. Відкотити зміни</h2>
-          <p class="text-sm text-muted-foreground">Скачайте архів вибраного коміту та відновіть файли без shell.</p>
+          <p class="text-sm text-muted-foreground">Скачайте архів вибраного коміту та відновіть файли без SSH-команд.</p>
         </div>
         @if(count($backups) === 0)
           <p class="text-sm text-muted-foreground">Резервних копій ще немає. Після першого оновлення вони з’являться автоматично.</p>
@@ -243,7 +257,7 @@
 
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-4 p-6">
-        <h2 class="text-2xl font-semibold">Як працює безshell-оновлення</h2>
+        <h2 class="text-2xl font-semibold">Як працює API-оновлення</h2>
         <ol class="list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
           <li>Поточний коміт записується у <code>storage/app/deployment_backups.json</code>.</li>
           <li>Архів потрібної гілки або коміту завантажується через GitHub REST API.</li>

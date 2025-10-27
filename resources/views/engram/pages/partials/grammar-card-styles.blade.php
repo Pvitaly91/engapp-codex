@@ -129,7 +129,7 @@
         }
 
         .gw-box--scroll .gw-table {
-            min-width: 560px;
+           /* min-width: 560px;*/
         }
 
         .gw-table th,
