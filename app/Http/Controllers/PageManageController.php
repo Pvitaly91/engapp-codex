@@ -137,6 +137,25 @@ class PageManageController extends Controller
             ->with('status', 'Категорію видалено.');
     }
 
+    public function destroyEmptyCategories(): RedirectResponse
+    {
+        $deletedCount = PageCategory::query()
+            ->whereDoesntHave('pages')
+            ->delete();
+
+        if ($deletedCount === 0) {
+            $message = 'Порожніх категорій не знайдено.';
+        } elseif ($deletedCount === 1) {
+            $message = 'Видалено 1 порожню категорію.';
+        } else {
+            $message = 'Видалено ' . $deletedCount . ' порожніх категорій.';
+        }
+
+        return redirect()
+            ->route('pages.manage.index', ['tab' => 'categories'])
+            ->with('status', $message);
+    }
+
     protected function validatedData(Request $request, ?Page $page = null): array
     {
         $pageId = $page?->getKey();

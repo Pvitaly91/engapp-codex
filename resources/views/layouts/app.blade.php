@@ -152,5 +152,7 @@
     <footer class="bg-white border-t mt-8 py-4 text-center text-sm text-gray-400">
         &copy; {{ date('Y') }} English Test Hub. All rights reserved.
     </footer>
+
+    @stack('scripts')
 </body>
 </html>

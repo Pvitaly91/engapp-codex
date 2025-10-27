@@ -168,6 +168,43 @@ class PageCategoryManagementTest extends TestCase
         });
     }
 
+    public function test_admin_can_delete_all_empty_categories(): void
+    {
+        $filled = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'uk',
+        ]);
+
+        $emptyOne = PageCategory::create([
+            'title' => 'Vocabulary',
+            'slug' => 'vocabulary',
+            'language' => 'uk',
+        ]);
+
+        $emptyTwo = PageCategory::create([
+            'title' => 'Listening',
+            'slug' => 'listening',
+            'language' => 'uk',
+        ]);
+
+        Page::create([
+            'slug' => 'verbs',
+            'title' => 'Verbs',
+            'text' => '',
+            'page_category_id' => $filled->id,
+        ]);
+
+        $response = $this->withSession($this->adminSession())
+            ->delete(route('pages.manage.categories.destroy-empty'));
+
+        $response->assertRedirect(route('pages.manage.index', ['tab' => 'categories']));
+
+        $this->assertDatabaseHas('page_categories', ['id' => $filled->id]);
+        $this->assertDatabaseMissing('page_categories', ['id' => $emptyOne->id]);
+        $this->assertDatabaseMissing('page_categories', ['id' => $emptyTwo->id]);
+    }
+
     private function adminSession(): array
     {
         return ['admin_authenticated' => true];
