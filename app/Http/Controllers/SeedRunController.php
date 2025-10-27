@@ -257,9 +257,14 @@ class SeedRunController extends Controller
         $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
             ->reject(fn (string $class) => in_array($class, $executedClasses, true))
             ->map(function (string $class) {
+                $displayName = $this->formatSeederClassName($class);
+                [$namespace, $baseName] = $this->splitSeederDisplayName($displayName);
+
                 return (object) [
                     'class_name' => $class,
-                    'display_class_name' => $this->formatSeederClassName($class),
+                    'display_class_name' => $displayName,
+                    'display_class_namespace' => $namespace,
+                    'display_class_basename' => $baseName,
                     'supports_preview' => $this->seederSupportsPreview($class),
                 ];
             })
@@ -298,6 +303,21 @@ class SeedRunController extends Controller
         $shortName = Str::after($className, 'Database\\Seeders\\');
 
         return $shortName !== '' ? $shortName : $className;
+    }
+
+    /**
+     * @return array{0: string|null, 1: string}
+     */
+    protected function splitSeederDisplayName(string $displayName): array
+    {
+        if (! Str::contains($displayName, '\\')) {
+            return [null, $displayName];
+        }
+
+        return [
+            Str::beforeLast($displayName, '\\'),
+            Str::afterLast($displayName, '\\'),
+        ];
     }
 
     protected function renderQuestionWithHighlightedAnswers(Question $question): string

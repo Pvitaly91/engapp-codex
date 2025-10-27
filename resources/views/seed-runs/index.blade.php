@@ -106,7 +106,13 @@
                                                data-bulk-delete-checkbox
                                                data-bulk-scope="pending">
                                         <label for="{{ $pendingCheckboxId }}" class="text-sm font-mono text-gray-700 break-all cursor-pointer">
-                                            {{ $pendingSeeder->display_class_name }}
+                                            @if(!empty($pendingSeeder->display_class_namespace))
+                                                <span class="text-gray-500">{{ $pendingSeeder->display_class_namespace }}</span>
+                                                <span class="text-gray-400">\</span>
+                                            @endif
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">
+                                                {{ $pendingSeeder->display_class_basename }}
+                                            </span>
                                         </label>
                                     </div>
                                     <div class="sm:hidden">
