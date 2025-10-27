@@ -126,6 +126,9 @@ class QuestionSeedingService
         QuestionVariant::where('question_id', $question->id)->delete();
         DB::table('question_option_question')->where('question_id', $question->id)->delete();
 
+        $hintOptions = [];
+        $queuedVerbHints = [];
+
         foreach ($data['answers'] as $ans) {
             $option = $this->attachOption($question, $ans['answer']);
 
@@ -135,15 +138,30 @@ class QuestionSeedingService
                 'option_id'   => $option->id,
             ]);
 
-            if (! empty($ans['verb_hint'])) {
-                $hintOption = $this->attachOption($question, $ans['verb_hint'], 1);
+            $hint = $ans['verb_hint'] ?? null;
 
-                VerbHint::create([
+            if (empty($hint)) {
+                continue;
+            }
+
+            if (! array_key_exists($hint, $hintOptions)) {
+                $hintOptions[$hint] = $this->attachOption($question, $hint, 1);
+            }
+
+            $hintOption = $hintOptions[$hint];
+            $hintKey = $ans['marker'] . '|' . $hintOption->id;
+
+            if (! array_key_exists($hintKey, $queuedVerbHints)) {
+                $queuedVerbHints[$hintKey] = [
                     'question_id' => $question->id,
                     'marker'      => $ans['marker'],
                     'option_id'   => $hintOption->id,
-                ]);
+                ];
             }
+        }
+
+        foreach ($queuedVerbHints as $payload) {
+            VerbHint::create($payload);
         }
 
         foreach ($data['options'] ?? [] as $opt) {
