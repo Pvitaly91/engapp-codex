@@ -670,7 +670,7 @@ class SeedRunController extends Controller
 
             $breadcrumbs[] = ['label' => $page->title];
 
-            $pageView = view('engram.pages.show', [
+            $pageViewData = [
                 'page' => $page,
                 'breadcrumbs' => $breadcrumbs,
                 'subtitleBlock' => $subtitleBlock,
@@ -679,9 +679,24 @@ class SeedRunController extends Controller
                 'categories' => $categories,
                 'selectedCategory' => $selectedCategory,
                 'categoryPages' => $categoryPages,
-            ]);
+            ];
 
-            $pageHtml = $pageView->render();
+            $pageView = view('engram.pages.show', $pageViewData);
+            $pageSections = $pageView->renderSections();
+
+            $pageContent = trim((string) ($pageSections['content'] ?? ''));
+
+            if ($pageContent === '') {
+                $pageContent = trim((string) (view('engram.pages.show', $pageViewData)->renderSections()['content'] ?? ''));
+            }
+
+            $pageTitleSection = trim(strip_tags((string) ($pageSections['title'] ?? '')));
+            $pageTitle = $pageTitleSection !== '' ? $pageTitleSection : $page->title;
+
+            $pageHtml = view('seed-runs.partials.page-preview-layout', [
+                'title' => $pageTitle,
+                'content' => $pageContent,
+            ])->render();
 
             $pageMeta = [
                 'title' => $page->title,
