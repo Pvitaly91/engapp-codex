@@ -107,7 +107,7 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">1. Оновити з Git</h2>
-          <p class="text-sm text-muted-foreground">Натисніть кнопку нижче, щоб виконати послідовність команд: <code>git fetch origin</code> та <code>git reset --hard origin/&lt;гілка&gt;</code>. Перед скиданням автоматично збережеться резервний коміт.</p>
+          <p class="text-sm text-muted-foreground">Натисніть кнопку нижче, щоб виконати послідовність команд: <code>git fetch origin</code>, <code>git reset --hard origin/&lt;гілка&gt;</code> та <code>git clean -fd</code>. Перед скиданням автоматично збережеться резервний коміт, а після — будуть видалені локальні файли, яких немає в репозиторії.</p>
         </div>
         <form method="POST" action="{{ route('deployment.deploy') }}" class="space-y-4">
           @csrf

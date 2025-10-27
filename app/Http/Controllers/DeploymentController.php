@@ -85,6 +85,13 @@ class DeploymentController extends Controller
             return $this->redirectWithFeedback('error', 'Не вдалося оновити код до останнього коміту.', $commandsOutput);
         }
 
+        $cleanProcess = $this->runCommand(['git', 'clean', '-fd'], $repoPath);
+        $commandsOutput[] = $this->formatProcess('git clean -fd', $cleanProcess);
+
+        if (! $cleanProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося видалити локальні файли, яких немає в репозиторії.', $commandsOutput);
+        }
+
         $message = 'Сайт успішно оновлено до останнього стану гілки.';
         if (! $backupStored) {
             $message .= ' Увага: резервну копію не збережено.';

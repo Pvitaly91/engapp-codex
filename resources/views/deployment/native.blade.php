@@ -101,7 +101,7 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">1. Оновити з GitHub API</h2>
-          <p class="text-sm text-muted-foreground">Завантажує архів гілки з GitHub API та оновлює файли напряму, не виконуючи SSH-команд.</p>
+          <p class="text-sm text-muted-foreground">Завантажує архів гілки з GitHub API, оновлює файли напряму та видаляє локальні елементи, яких немає в репозиторії — усе без виконання SSH-команд.</p>
         </div>
         <form method="POST" action="{{ route('deployment.native.deploy') }}" class="space-y-4">
           @csrf

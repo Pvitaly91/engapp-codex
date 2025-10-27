@@ -58,6 +58,7 @@ class NativeGitDeploymentService
         }
 
         $extracted = $this->fetchAndExtract($branch, $logs, "гілки {$branch}");
+        $logs[] = 'Очищуємо локальне дерево від файлів, яких немає в архіві.';
         $this->filesystem->replaceWorkingTree($extracted);
         File::deleteDirectory(dirname($extracted));
 
