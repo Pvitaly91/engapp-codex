@@ -107,6 +107,9 @@ Route::middleware('auth.admin')->group(function () {
             Route::get('/{page}/edit', [PageManageController::class, 'edit'])->name('edit');
             Route::put('/{page}', [PageManageController::class, 'update'])->name('update');
             Route::delete('/{page}', [PageManageController::class, 'destroy'])->name('destroy');
+            Route::post('/categories', [PageManageController::class, 'storeCategory'])->name('categories.store');
+            Route::put('/categories/{category}', [PageManageController::class, 'updateCategory'])->name('categories.update');
+            Route::delete('/categories/{category}', [PageManageController::class, 'destroyCategory'])->name('categories.destroy');
             Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])->name('blocks.create');
             Route::post('/{page}/blocks', [PageManageController::class, 'storeBlock'])->name('blocks.store');
             Route::get('/{page}/blocks/{block}/edit', [PageManageController::class, 'editBlock'])->name('blocks.edit');

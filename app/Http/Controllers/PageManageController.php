@@ -11,15 +11,33 @@ use Illuminate\Validation\Rule;
 
 class PageManageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $pages = Page::query()
             ->with('category')
             ->orderBy('title')
             ->get();
 
+        $categories = PageCategory::query()
+            ->withCount('pages')
+            ->orderBy('title')
+            ->get();
+
+        $activeTab = $request->query('tab', 'pages');
+
+        $editingCategory = null;
+        if ($request->filled('edit')) {
+            $activeTab = 'categories';
+
+            $categoryId = (int) $request->query('edit');
+            $editingCategory = $categories->firstWhere('id', $categoryId);
+        }
+
         return view('engram.pages.manage.index', [
             'pages' => $pages,
+            'categories' => $categories,
+            'activeTab' => $activeTab,
+            'editingCategory' => $editingCategory,
         ]);
     }
 
@@ -88,6 +106,37 @@ class PageManageController extends Controller
             ->with('status', 'Сторінку видалено.');
     }
 
+    public function storeCategory(Request $request): RedirectResponse
+    {
+        $data = $this->validatedCategoryData($request);
+
+        PageCategory::create($data);
+
+        return redirect()
+            ->route('pages.manage.index', ['tab' => 'categories'])
+            ->with('status', 'Категорію створено.');
+    }
+
+    public function updateCategory(Request $request, PageCategory $category): RedirectResponse
+    {
+        $data = $this->validatedCategoryData($request, $category);
+
+        $category->fill($data)->save();
+
+        return redirect()
+            ->route('pages.manage.index', ['tab' => 'categories'])
+            ->with('status', 'Категорію оновлено.');
+    }
+
+    public function destroyCategory(PageCategory $category): RedirectResponse
+    {
+        $category->delete();
+
+        return redirect()
+            ->route('pages.manage.index', ['tab' => 'categories'])
+            ->with('status', 'Категорію видалено.');
+    }
+
     protected function validatedData(Request $request, ?Page $page = null): array
     {
         $pageId = $page?->getKey();
@@ -102,6 +151,22 @@ class PageManageController extends Controller
             ],
             'text' => ['nullable', 'string'],
             'page_category_id' => ['required', 'integer', Rule::exists('page_categories', 'id')],
+        ]);
+    }
+
+    protected function validatedCategoryData(Request $request, ?PageCategory $category = null): array
+    {
+        $categoryId = $category?->getKey();
+
+        return $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'slug' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('page_categories', 'slug')->ignore($categoryId),
+            ],
+            'language' => ['required', 'string', 'max:8'],
         ]);
     }
 
