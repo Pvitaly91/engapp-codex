@@ -13,7 +13,11 @@ use Database\Seeders\Pages\Conditions\ZeroConditionalPageSeeder;
 use Database\Seeders\Pages\Demonstratives\ThisThatTheseThosePageSeeder;
 use Database\Seeders\Pages\HaveGot\HaveGotPageSeeder;
 use Database\Seeders\Pages\IrregularVerbs\IrregularVerbsPageSeeder;
-use Database\Seeders\Pages\ModalVerbsPageSeeder;
+use Database\Seeders\Pages\Modals\CanCouldPageSeeder;
+use Database\Seeders\Pages\Modals\MayMightPageSeeder;
+use Database\Seeders\Pages\Modals\MustHaveToPageSeeder;
+use Database\Seeders\Pages\Modals\NeedNeedToPageSeeder;
+use Database\Seeders\Pages\Modals\ShouldOughtToPageSeeder;
 use Database\Seeders\Pages\Pronouns\PronounsPageSeeder;
 use Database\Seeders\Pages\Questions\QuestionFormsPageSeeder;
 use Database\Seeders\Pages\Questions\ShortAnswersPageSeeder;
@@ -59,7 +63,11 @@ class GrammarPagesSeeder extends Seeder
         SecondConditionalPageSeeder::class,
         ThirdConditionalPageSeeder::class,
         MixedConditionalPageSeeder::class,
-        ModalVerbsPageSeeder::class,
+        CanCouldPageSeeder::class,
+        MayMightPageSeeder::class,
+        MustHaveToPageSeeder::class,
+        ShouldOughtToPageSeeder::class,
+        NeedNeedToPageSeeder::class,
         PronounsPageSeeder::class,
         ThisThatTheseThosePageSeeder::class,
         HaveGotPageSeeder::class,
