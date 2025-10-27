@@ -122,7 +122,12 @@ class QuestionSeedingService
     private function recreateQuestionRelations(Question $question, array $data): void
     {
         QuestionAnswer::where('question_id', $question->id)->delete();
-        VerbHint::where('question_id', $question->id)->delete();
+
+        $existingVerbHints = VerbHint::where('question_id', $question->id)->get();
+        $existingVerbHintMap = $existingVerbHints
+            ->mapWithKeys(fn (VerbHint $hint) => [$hint->marker . '|' . $hint->option_id => $hint]);
+        $verbHintIdsToKeep = [];
+
         QuestionVariant::where('question_id', $question->id)->delete();
         DB::table('question_option_question')->where('question_id', $question->id)->delete();
 
@@ -151,6 +156,12 @@ class QuestionSeedingService
             $hintOption = $hintOptions[$hint];
             $hintKey = $ans['marker'] . '|' . $hintOption->id;
 
+            if (isset($existingVerbHintMap[$hintKey])) {
+                $verbHintIdsToKeep[] = $existingVerbHintMap[$hintKey]->id;
+
+                continue;
+            }
+
             if (! array_key_exists($hintKey, $queuedVerbHints)) {
                 $queuedVerbHints[$hintKey] = [
                     'question_id' => $question->id,
@@ -160,8 +171,18 @@ class QuestionSeedingService
             }
         }
 
+        $verbHintIdsToKeep = array_values(array_unique($verbHintIdsToKeep));
+
+        $verbHintsToDelete = VerbHint::where('question_id', $question->id);
+
+        if (! empty($verbHintIdsToKeep)) {
+            $verbHintsToDelete->whereNotIn('id', $verbHintIdsToKeep);
+        }
+
+        $verbHintsToDelete->delete();
+
         foreach ($queuedVerbHints as $payload) {
-            VerbHint::create($payload);
+            VerbHint::firstOrCreate($payload);
         }
 
         foreach ($data['options'] ?? [] as $opt) {
