@@ -122,9 +122,17 @@ class QuestionSeedingService
     private function recreateQuestionRelations(Question $question, array $data): void
     {
         QuestionAnswer::where('question_id', $question->id)->delete();
-        VerbHint::where('question_id', $question->id)->delete();
+
+        $existingVerbHints = VerbHint::where('question_id', $question->id)->get();
+        $existingVerbHintMap = $existingVerbHints
+            ->mapWithKeys(fn (VerbHint $hint) => [$hint->marker . '|' . $hint->option_id => $hint]);
+        $verbHintIdsToKeep = [];
+
         QuestionVariant::where('question_id', $question->id)->delete();
         DB::table('question_option_question')->where('question_id', $question->id)->delete();
+
+        $hintOptions = [];
+        $queuedVerbHints = [];
 
         foreach ($data['answers'] as $ans) {
             $option = $this->attachOption($question, $ans['answer']);
@@ -135,15 +143,46 @@ class QuestionSeedingService
                 'option_id'   => $option->id,
             ]);
 
-            if (! empty($ans['verb_hint'])) {
-                $hintOption = $this->attachOption($question, $ans['verb_hint'], 1);
+            $hint = $ans['verb_hint'] ?? null;
 
-                VerbHint::create([
+            if (empty($hint)) {
+                continue;
+            }
+
+            if (! array_key_exists($hint, $hintOptions)) {
+                $hintOptions[$hint] = $this->attachOption($question, $hint, 1);
+            }
+
+            $hintOption = $hintOptions[$hint];
+            $hintKey = $ans['marker'] . '|' . $hintOption->id;
+
+            if (isset($existingVerbHintMap[$hintKey])) {
+                $verbHintIdsToKeep[] = $existingVerbHintMap[$hintKey]->id;
+
+                continue;
+            }
+
+            if (! array_key_exists($hintKey, $queuedVerbHints)) {
+                $queuedVerbHints[$hintKey] = [
                     'question_id' => $question->id,
                     'marker'      => $ans['marker'],
                     'option_id'   => $hintOption->id,
-                ]);
+                ];
             }
+        }
+
+        $verbHintIdsToKeep = array_values(array_unique($verbHintIdsToKeep));
+
+        $verbHintsToDelete = VerbHint::where('question_id', $question->id);
+
+        if (! empty($verbHintIdsToKeep)) {
+            $verbHintsToDelete->whereNotIn('id', $verbHintIdsToKeep);
+        }
+
+        $verbHintsToDelete->delete();
+
+        foreach ($queuedVerbHints as $payload) {
+            VerbHint::firstOrCreate($payload);
         }
 
         foreach ($data['options'] ?? [] as $opt) {
