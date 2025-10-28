@@ -315,80 +315,12 @@
                 activeContainer = null;
             };
 
-            const formatMeta = (question) => {
-                const difficulty = (question.difficulty ?? '') !== '' ? `Складність: ${question.difficulty}` : null;
-                const level = (question.level ?? '') !== '' ? `Рівень: ${question.level}` : null;
-                const parts = [difficulty, level].filter(Boolean);
-
-                return parts.length ? parts.join(' · ') : 'Додаткова інформація недоступна';
-            };
-
-            const renderQuestions = (container, questions) => {
-                const normalisedQuestions = Array.isArray(questions)
-                    ? questions
-                    : (questions && typeof questions === 'object')
-                        ? Object.values(questions)
-                        : [];
-
-                if (!normalisedQuestions.length) {
-                    container.innerHTML = '<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>';
-                    return;
-                }
-
-                const questionsHtml = normalisedQuestions
-                    .map((question) => {
-                        const answers = Array.isArray(question.answers) ? question.answers : [];
-                        const answersHtml = answers.length
-                            ? `
-                                <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Відповіді</p>
-                                <ul class="space-y-1 text-sm text-slate-700">
-                                    ${answers
-                                        .map((answer) => `
-                                            <li class="flex items-start gap-2">
-                                                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600">${answer.marker ?? '•'}</span>
-                                                <span class="flex-1">${answer.rendered_answer || answer.answer || ''}</span>
-                                            </li>
-                                        `)
-                                        .join('')}
-                                </ul>
-                            `
-                            : '';
-
-                        return `
-                            <li class="space-y-2 rounded-lg border border-slate-200 bg-white p-4">
-                                <p class="font-medium text-slate-800">${question.rendered_question || question.question || ''}</p>
-                                ${answersHtml}
-                                <p class="text-xs text-slate-500">${formatMeta(question)}</p>
-                            </li>
-                        `;
-                    })
-                    .join('');
-
-                container.innerHTML = `
-                    <ol class="space-y-3 text-sm text-slate-700">
-                        ${questionsHtml}
-                    </ol>
-                `;
-            };
-
-            const showError = (container, message) => {
-                container.innerHTML = `<p class="text-sm text-red-600">${message}</p>`;
-            };
-
-            const showLoading = (container) => {
-                container.innerHTML = '<p class="text-sm text-slate-500">Зачекайте, дані завантажуються…</p>';
-            };
-
             tagButtons.forEach((button) => {
                 button.addEventListener('click', () => {
                     const url = button.dataset.tagUrl;
                     const container = button.closest('li')?.querySelector('[data-tag-questions]');
 
-                    if (!url) {
-                        return;
-                    }
-
-                    if (!container) {
+                    if (!url || !container) {
                         return;
                     }
 
@@ -402,7 +334,7 @@
                         return;
                     }
 
-                    if (activeButton) {
+                    if (activeButton && activeButton !== button) {
                         activeButton.classList.remove('text-blue-600', 'font-semibold');
                     }
 
@@ -416,42 +348,50 @@
                     activeContainer = container;
 
                     container.classList.remove('hidden');
-                    container.innerHTML = '';
+
+                    if (button.dataset.loaded === 'true') {
+                        return;
+                    }
 
                     if (abortController) {
                         abortController.abort();
                     }
 
                     abortController = new AbortController();
-
-                    showLoading(container);
+                    container.innerHTML = '<p class="text-sm text-slate-500">Зачекайте, дані завантажуються…</p>';
 
                     fetch(url, {
                         headers: {
                             'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json',
                         },
                         signal: abortController.signal,
                     })
-                        .then((response) => {
+                        .then(async (response) => {
+                            const payload = await response.json().catch(() => null);
+
                             if (!response.ok) {
-                                throw new Error('Не вдалося завантажити питання.');
+                                const message = payload && typeof payload.message === 'string' && payload.message
+                                    ? payload.message
+                                    : 'Не вдалося завантажити питання.';
+                                throw new Error(message);
                             }
 
-                            return response.json();
-                        })
-                        .then((data) => {
-                            if (!data || !data.tag) {
-                                throw new Error('Невірна відповідь від сервера.');
-                            }
+                            const html = payload && typeof payload.html === 'string' ? payload.html : '';
 
-                            renderQuestions(container, data.questions);
+                            container.innerHTML = html.trim()
+                                ? html
+                                : '<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>';
+
+                            button.dataset.loaded = 'true';
                         })
                         .catch((error) => {
                             if (error.name === 'AbortError') {
                                 return;
                             }
 
-                            showError(container, error.message || 'Сталася помилка під час завантаження.');
+                            container.innerHTML = `<p class="text-sm text-red-600">${error.message || 'Сталася помилка під час завантаження.'}</p>`;
+                            button.dataset.loaded = 'error';
                         })
                         .finally(() => {
                             abortController = null;

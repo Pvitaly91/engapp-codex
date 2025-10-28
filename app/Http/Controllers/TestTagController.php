@@ -14,6 +14,72 @@ class TestTagController extends Controller
 {
     private const UNCATEGORIZED_KEY = '__uncategorized__';
 
+    private function formatQuestionMeta(Question $question): ?string
+    {
+        $parts = [];
+
+        if (filled($question->difficulty)) {
+            $parts[] = 'Складність: ' . $question->difficulty;
+        }
+
+        if (filled($question->level)) {
+            $parts[] = 'Рівень: ' . $question->level;
+        }
+
+        if (empty($parts)) {
+            return 'Додаткова інформація недоступна';
+        }
+
+        return implode(' · ', $parts);
+    }
+
+    private function renderQuestionAnswersBlock(Question $question): string
+    {
+        $answers = $question->answers->map(function ($answer) {
+            $label = optional($answer->option)->option ?? $answer->answer;
+
+            return [
+                'marker' => $answer->marker,
+                'label' => $label,
+                'option_id' => $answer->option_id,
+            ];
+        });
+
+        $correctOptionIds = $answers
+            ->pluck('option_id')
+            ->filter()
+            ->unique()
+            ->all();
+
+        $options = $question->options
+            ->map(function ($option) use ($correctOptionIds) {
+                return [
+                    'id' => $option->id,
+                    'label' => $option->option,
+                    'is_correct' => in_array($option->id, $correctOptionIds, true),
+                ];
+            })
+            ->sortBy('label', SORT_NATURAL | SORT_FLAG_CASE)
+            ->values();
+
+        $textAnswers = $answers
+            ->filter(function ($answer) {
+                return empty($answer['option_id']) && filled($answer['label']);
+            })
+            ->map(function ($answer) {
+                return [
+                    'marker' => $answer['marker'],
+                    'label' => $answer['label'],
+                ];
+            })
+            ->values();
+
+        return view('seed-runs.partials.question-answers', [
+            'options' => $options,
+            'textAnswers' => $textAnswers,
+        ])->render();
+    }
+
     private function resolveCategory(array $data): ?string
     {
         $newCategory = isset($data['new_category']) ? trim((string) $data['new_category']) : '';
@@ -144,36 +210,35 @@ class TestTagController extends Controller
     public function questions(Tag $tag): JsonResponse
     {
         $questions = $tag->questions()
-            ->with(['answers.option'])
+            ->with(['answers.option', 'options'])
             ->orderBy('id')
             ->get()
-            ->map(function (Question $question) {
+            ->map(function (Question $question) use ($tag) {
                 return [
                     'id' => $question->id,
-                    'question' => $question->question,
-                    'rendered_question' => $question->renderQuestionText(),
-                    'difficulty' => $question->difficulty,
-                    'level' => $question->level,
-                    'answers' => $question->answers->map(function ($answer) {
-                        return [
-                            'id' => $answer->id,
-                            'marker' => $answer->marker,
-                            'answer' => $answer->answer,
-                            'option' => optional($answer->option)->option,
-                            'rendered_answer' => optional($answer->option)->option ?? $answer->answer,
-                        ];
-                    })->values()->all(),
+                    'content_html' => $question->renderQuestionText(),
+                    'meta' => $this->formatQuestionMeta($question),
+                    'answers_html' => $this->renderQuestionAnswersBlock($question),
+                    'container_data' => [
+                        'question-container' => true,
+                        'question-id' => $question->id,
+                        'tag-id' => $tag->id,
+                    ],
+                    'wrapper_class' => 'border border-slate-200 rounded-lg bg-white px-4 py-3 text-left text-sm leading-relaxed shadow-sm',
                 ];
-            })
-            ->values()
-            ->all();
+            });
+
+        $html = view('admin.questions.list', [
+            'questions' => $questions,
+            'emptyMessage' => 'Для цього тегу ще не додано питань.',
+        ])->render();
 
         return response()->json([
             'tag' => [
                 'id' => $tag->id,
                 'name' => $tag->name,
             ],
-            'questions' => $questions,
+            'html' => $html,
         ]);
     }
 
