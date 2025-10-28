@@ -25,6 +25,7 @@ use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
+use App\Http\Controllers\TestTagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -104,14 +105,41 @@ Route::middleware('auth.admin')->group(function () {
             Route::get('/', [PageManageController::class, 'index'])->name('index');
             Route::get('/create', [PageManageController::class, 'create'])->name('create');
             Route::post('/', [PageManageController::class, 'store'])->name('store');
-            Route::get('/{page}/edit', [PageManageController::class, 'edit'])->name('edit');
-            Route::put('/{page}', [PageManageController::class, 'update'])->name('update');
-            Route::delete('/{page}', [PageManageController::class, 'destroy'])->name('destroy');
-            Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])->name('blocks.create');
-            Route::post('/{page}/blocks', [PageManageController::class, 'storeBlock'])->name('blocks.store');
-            Route::get('/{page}/blocks/{block}/edit', [PageManageController::class, 'editBlock'])->name('blocks.edit');
-            Route::put('/{page}/blocks/{block}', [PageManageController::class, 'updateBlock'])->name('blocks.update');
-            Route::delete('/{page}/blocks/{block}', [PageManageController::class, 'destroyBlock'])->name('blocks.destroy');
+            Route::get('/{page}/edit', [PageManageController::class, 'edit'])
+                ->whereNumber('page')
+                ->name('edit');
+            Route::put('/{page}', [PageManageController::class, 'update'])
+                ->whereNumber('page')
+                ->name('update');
+            Route::delete('/{page}', [PageManageController::class, 'destroy'])
+                ->whereNumber('page')
+                ->name('destroy');
+            Route::post('/categories', [PageManageController::class, 'storeCategory'])->name('categories.store');
+            Route::put('/categories/{category}', [PageManageController::class, 'updateCategory'])
+                ->whereNumber('category')
+                ->name('categories.update');
+            Route::delete('/categories/{category}', [PageManageController::class, 'destroyCategory'])
+                ->whereNumber('category')
+                ->name('categories.destroy');
+            Route::delete('/categories-empty', [PageManageController::class, 'destroyEmptyCategories'])->name('categories.destroy-empty');
+            Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])
+                ->whereNumber('page')
+                ->name('blocks.create');
+            Route::post('/{page}/blocks', [PageManageController::class, 'storeBlock'])
+                ->whereNumber('page')
+                ->name('blocks.store');
+            Route::get('/{page}/blocks/{block}/edit', [PageManageController::class, 'editBlock'])
+                ->whereNumber('page')
+                ->whereNumber('block')
+                ->name('blocks.edit');
+            Route::put('/{page}/blocks/{block}', [PageManageController::class, 'updateBlock'])
+                ->whereNumber('page')
+                ->whereNumber('block')
+                ->name('blocks.update');
+            Route::delete('/{page}/blocks/{block}', [PageManageController::class, 'destroyBlock'])
+                ->whereNumber('page')
+                ->whereNumber('block')
+                ->name('blocks.destroy');
         });
 
         Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
@@ -128,6 +156,25 @@ Route::middleware('auth.admin')->group(function () {
         Route::get('/translate/test2', [SentenceTranslationTestController::class, 'indexV2'])->name('translate.test2');
         Route::post('/translate/test2/check', [SentenceTranslationTestController::class, 'checkV2'])->name('translate.test2.check');
         Route::post('/translate/test2/reset', [SentenceTranslationTestController::class, 'resetV2'])->name('translate.test2.reset');
+
+        Route::prefix('test-tags')->name('test-tags.')->group(function () {
+            Route::get('/', [TestTagController::class, 'index'])->name('index');
+            Route::get('/create', [TestTagController::class, 'create'])->name('create');
+            Route::post('/', [TestTagController::class, 'store'])->name('store');
+            Route::get('/categories/{category}/edit', [TestTagController::class, 'editCategory'])
+                ->where('category', '.*')
+                ->name('categories.edit');
+            Route::put('/categories/{category}', [TestTagController::class, 'updateCategory'])
+                ->where('category', '.*')
+                ->name('categories.update');
+            Route::delete('/categories/{category}', [TestTagController::class, 'destroyCategory'])
+                ->where('category', '.*')
+                ->name('categories.destroy');
+            Route::get('/{tag}/questions', [TestTagController::class, 'questions'])->name('questions');
+            Route::get('/{tag}/edit', [TestTagController::class, 'edit'])->name('edit');
+            Route::put('/{tag}', [TestTagController::class, 'update'])->name('update');
+            Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');
+        });
 
         Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
         Route::post('/grammar-test', [GrammarTestController::class, 'generate'])->name('grammar-test.generate');
@@ -213,12 +260,21 @@ Route::middleware('auth.admin')->group(function () {
         Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
 
         Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
+        Route::get('/seed-runs/preview', [SeedRunController::class, 'preview'])->name('seed-runs.preview');
+        Route::get('/seed-runs/file', [SeedRunController::class, 'showSeederFile'])->name('seed-runs.file.show');
+        Route::put('/seed-runs/file', [SeedRunController::class, 'updateSeederFile'])->name('seed-runs.file.update');
         Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
+        Route::delete('/seed-runs/delete-file', [SeedRunController::class, 'destroySeederFile'])
+            ->name('seed-runs.destroy-seeder-file');
+        Route::delete('/seed-runs/delete-files/bulk', [SeedRunController::class, 'destroySeederFiles'])
+            ->name('seed-runs.destroy-seeder-files');
+        Route::post('/seed-runs/mark-executed', [SeedRunController::class, 'markAsExecuted'])->name('seed-runs.mark-executed');
         Route::post('/seed-runs/run-missing', [SeedRunController::class, 'runMissing'])->name('seed-runs.run-missing');
         Route::get('/seed-runs/folders/children', [SeedRunController::class, 'loadFolderChildren'])->name('seed-runs.folders.children');
         Route::get('/seed-runs/{seedRun}/categories', [SeedRunController::class, 'loadSeederCategories'])->name('seed-runs.seeders.categories');
         Route::get('/seed-runs/{seedRun}/categories/{categoryKey}/sources/{sourceKey}', [SeedRunController::class, 'loadSourceQuestions'])->name('seed-runs.seeders.sources.questions');
         Route::get('/seed-runs/{seedRun}/questions/{question}/answers', [SeedRunController::class, 'loadQuestionAnswers'])->name('seed-runs.questions.answers');
+        Route::get('/seed-runs/{seedRun}/questions/{question}/tags', [SeedRunController::class, 'loadQuestionTags'])->name('seed-runs.questions.tags');
         Route::delete('/seed-runs/folders/delete-records', [SeedRunController::class, 'destroyFolder'])
             ->name('seed-runs.folders.destroy');
         Route::delete('/seed-runs/folders/delete-with-questions', [SeedRunController::class, 'destroyFolderWithQuestions'])

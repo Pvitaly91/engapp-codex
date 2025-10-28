@@ -5,13 +5,29 @@
 @section('content')
   <div class="max-w-4xl mx-auto space-y-8">
     <header class="space-y-4 text-center">
+      @php
+        $shellActive = request()->routeIs('deployment.index');
+        $nativeActive = request()->routeIs('deployment.native.*');
+      @endphp
       <div class="inline-flex items-center rounded-full border border-border/70 bg-muted/40 p-1 text-sm">
-        <a href="{{ route('deployment.index') }}" class="rounded-full px-4 py-1.5 font-medium {{ request()->routeIs('deployment.index') ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground' }}">Shell версія</a>
-        <a href="{{ route('deployment.native.index') }}" class="rounded-full px-4 py-1.5 font-medium {{ request()->routeIs('deployment.native.*') ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground' }}">Без shell</a>
+        <a
+          href="{{ route('deployment.index') }}"
+          class="rounded-full px-4 py-1.5 font-medium transition {{ $shellActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
+          @if($shellActive) aria-current="page" @endif
+        >
+          SSH режим
+        </a>
+        <a
+          href="{{ route('deployment.native.index') }}"
+          class="rounded-full px-4 py-1.5 font-medium transition {{ $nativeActive ? 'bg-primary text-primary-foreground shadow-sm ring-2 ring-primary/60 ring-offset-2 ring-offset-background' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground' }}"
+          @if($nativeActive) aria-current="page" @endif
+        >
+          API режим
+        </a>
       </div>
       <div class="space-y-2">
         <h1 class="text-3xl font-semibold">Оновлення сайту з репозиторію</h1>
-        <p class="text-muted-foreground">Ця сторінка виконує git-команди через shell. Ви також можете скористатися альтернативною сторінкою без викликів shell.</p>
+        <p class="text-muted-foreground">Ця сторінка виконує git-команди безпосередньо через SSH. Ви також можете скористатися альтернативною сторінкою, що працює через GitHub API.</p>
       </div>
     </header>
 
@@ -27,18 +43,47 @@
     </div>
 
     @if($feedback)
+      @php
+        $highlightSuccessfulUpdate = $feedback['status'] === 'success'
+          && \Illuminate\Support\Str::contains($feedback['message'], 'Сайт успішно оновлено до останнього стану гілки.');
+      @endphp
+      @php
+        $highlightShellUnavailable = $feedback['status'] === 'error'
+          && \Illuminate\Support\Str::contains($feedback['message'], 'Режим через SSH недоступний на цьому сервері.');
+      @endphp
       <div @class([
         'rounded-2xl border p-4 shadow-soft',
         'border-success/40 bg-success/10 text-success' => $feedback['status'] === 'success',
         'border-destructive/40 bg-destructive/10 text-destructive-foreground' => $feedback['status'] === 'error',
       ])>
-        <div class="font-medium">{{ $feedback['message'] }}</div>
+        <div class="font-medium">
+          @if($highlightSuccessfulUpdate)
+            <span class="inline-flex items-center gap-2 rounded-xl bg-success/20 px-3 py-2 text-success">
+              <span class="inline-flex h-2.5 w-2.5 rounded-full bg-success"></span>
+              {{ $feedback['message'] }}
+            </span>
+          @elseif($highlightShellUnavailable)
+            <span class="inline-flex items-center gap-2 rounded-xl bg-destructive/15 px-3 py-2 text-destructive-foreground">
+              <span class="inline-flex h-2.5 w-2.5 rounded-full bg-destructive"></span>
+              {{ $feedback['message'] }}
+            </span>
+          @else
+            {{ $feedback['message'] }}
+          @endif
+        </div>
         @if(! empty($feedback['commands']))
           <ul class="mt-4 space-y-3 text-sm">
             @foreach($feedback['commands'] as $command)
-              <li class="rounded-xl border border-border/80 bg-background/80 p-3 text-left">
+              <li @class([
+                'rounded-xl border p-3 text-left shadow-soft/20',
+                'border-border/80 bg-background/80' => $command['successful'],
+                'border-destructive/60 bg-destructive/10 text-destructive-foreground' => ! $command['successful'],
+              ])>
                 <div class="flex items-center justify-between gap-4">
-                  <span class="font-semibold">{{ $command['command'] }}</span>
+                  <span @class([
+                    'font-semibold',
+                    'text-destructive-foreground' => ! $command['successful'],
+                  ])>{{ $command['command'] }}</span>
                   <span @class([
                     'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold',
                     'bg-success/15 text-success' => $command['successful'],
@@ -47,7 +92,10 @@
                     {{ $command['successful'] ? 'OK' : 'Помилка' }}
                   </span>
                 </div>
-                <pre class="mt-2 overflow-x-auto whitespace-pre-wrap text-xs leading-relaxed">{{ $command['output'] }}</pre>
+                <pre @class([
+                  'mt-2 overflow-x-auto whitespace-pre-wrap text-xs leading-relaxed',
+                  'text-destructive-foreground' => ! $command['successful'],
+                ])>{{ $command['output'] }}</pre>
               </li>
             @endforeach
           </ul>
@@ -59,13 +107,13 @@
       <div class="space-y-6 p-6">
         <div>
           <h2 class="text-2xl font-semibold">1. Оновити з Git</h2>
-          <p class="text-sm text-muted-foreground">Натисніть кнопку нижче, щоб виконати послідовність команд: <code>git fetch origin</code> та <code>git reset --hard origin/&lt;гілка&gt;</code>. Перед скиданням автоматично збережеться резервний коміт.</p>
+          <p class="text-sm text-muted-foreground">Натисніть кнопку нижче, щоб виконати послідовність команд: <code>git fetch origin</code>, <code>git reset --hard origin/&lt;гілка&gt;</code> та <code>git clean -fd</code>. Перед скиданням автоматично збережеться резервний коміт, а після — будуть видалені локальні файли, яких немає в репозиторії.</p>
         </div>
         <form method="POST" action="{{ route('deployment.deploy') }}" class="space-y-4">
           @csrf
           <label class="block text-sm font-medium">Гілка для оновлення</label>
           <input type="text" name="branch" value="main" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
-          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">Оновити зараз</button>
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-red-600/90">Оновити зараз</button>
         </form>
       </div>
     </section>
@@ -75,6 +123,16 @@
         <div>
           <h2 class="text-2xl font-semibold">2. Запушити поточний стан</h2>
           <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
+          <div class="mt-3 rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs text-muted-foreground">
+            <p class="font-semibold text-foreground">Команди, які буде виконано:</p>
+            <ul class="mt-2 list-disc space-y-1 pl-5">
+              <li><code>git rev-parse --abbrev-ref HEAD</code> — визначає поточну гілку.</li>
+              <li>
+                <code>git push --force origin HEAD:&lt;обрана_гілка&gt;</code>
+                — примусово оновлює віддалену гілку станом вашого локального HEAD.
+              </li>
+            </ul>
+          </div>
         </div>
         <form method="POST" action="{{ route('deployment.push-current') }}" class="space-y-4">
           @csrf
@@ -90,6 +148,20 @@
         <div>
           <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
+        </div>
+        <div class="rounded-2xl border border-border/70 bg-muted/40 p-4 text-sm text-muted-foreground">
+          <p class="font-medium text-foreground">Під час створення виконується еквівалент таких команд git:</p>
+          <ul class="mt-3 list-disc space-y-2 pl-5">
+            <li>
+              <code>git rev-parse HEAD</code>
+              — визначає хеш поточного коміту, якщо обрано «Поточний HEAD».
+            </li>
+            <li>
+              <code>git update-ref refs/heads/&lt;назва_гілки&gt; &lt;коміт&gt;</code>
+              — записує ref нової гілки на зазначений коміт.
+            </li>
+          </ul>
+          <p class="mt-3">Операції виконуються через GitHub API та прямий запис refs без запуску shell-команд.</p>
         </div>
         <form method="POST" action="{{ route('deployment.backup-branch') }}" class="space-y-4">
           @csrf
@@ -138,7 +210,17 @@
               <tbody class="divide-y divide-border/60 bg-background/60">
                 @foreach($backupBranches as $branch)
                   <tr>
-                    <td class="px-4 py-3 font-medium">{{ $branch->name }}</td>
+                    <td class="px-4 py-3 font-medium">
+                      <button
+                        type="button"
+                        class="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-left font-medium text-foreground transition hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        data-copy-branch="{{ $branch->name }}"
+                      >
+                        <span data-copy-branch-text>{{ $branch->name }}</span>
+                        <span class="hidden text-xs font-semibold text-success" data-copy-branch-success>Скопійовано!</span>
+                        <span class="hidden text-xs font-semibold text-destructive-foreground" data-copy-branch-error>Не вдалося скопіювати</span>
+                      </button>
+                    </td>
                     <td class="px-4 py-3 font-mono text-xs">{{ $branch->commit_hash }}</td>
                     <td class="px-4 py-3">{{ $branch->created_at->format('d.m.Y H:i') }}</td>
                     <td class="px-4 py-3">
@@ -212,4 +294,6 @@
       </div>
     </section>
   </div>
+
+  @include('deployment.partials.backup-branch-copy-script')
 @endsection
