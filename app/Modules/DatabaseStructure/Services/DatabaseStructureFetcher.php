@@ -50,7 +50,13 @@ class DatabaseStructureFetcher
         ];
     }
 
-    public function getPreview(string $table, int $limit = 20): array
+    public function getPreview(
+        string $table,
+        int $page = 1,
+        int $perPage = 20,
+        ?string $sort = null,
+        string $direction = 'asc'
+    ): array
     {
         $structure = Collection::make($this->getStructure());
         $tableInfo = $structure->firstWhere('name', $table);
@@ -59,22 +65,59 @@ class DatabaseStructureFetcher
             throw new RuntimeException("Table '{$table}' was not found in the current connection.");
         }
 
-        $rows = $this->connection->table($table)->limit($limit)->get()->map(static function ($row) {
-            return (array) $row;
-        })->all();
-
         $columns = $tableInfo['columns'] ?? [];
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+
+        $validSort = null;
+        if ($sort && in_array($sort, $columnNames, true)) {
+            $validSort = $sort;
+        } elseif ($sort && empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $sort)) {
+            $validSort = $sort;
+        }
+
+        $direction = strtolower($direction) === 'desc' ? 'desc' : 'asc';
+
+        $query = $this->connection->table($table);
+        $countQuery = $this->connection->table($table);
+
+        if ($validSort) {
+            $query->orderBy($validSort, $direction);
+        }
+
+        $total = (int) $countQuery->count();
+        $page = max($page, 1);
+        $perPage = max($perPage, 1);
+        $offset = ($page - 1) * $perPage;
+
+        if ($offset >= $total && $total > 0) {
+            $page = (int) ceil($total / $perPage);
+            $offset = ($page - 1) * $perPage;
+        }
+
+        $rows = $query
+            ->skip($offset)
+            ->take($perPage)
+            ->get()
+            ->map(static function ($row) {
+                return (array) $row;
+            })->all();
 
         if (empty($columnNames) && !empty($rows)) {
             $columnNames = array_keys($rows[0]);
         }
 
+        $lastPage = $perPage > 0 ? (int) max(1, ceil($total / $perPage)) : 1;
+
         return [
             'table' => $table,
             'columns' => $columnNames,
             'rows' => $rows,
-            'limit' => $limit,
+            'page' => $page,
+            'per_page' => $perPage,
+            'total' => $total,
+            'last_page' => $lastPage,
+            'sort' => $validSort,
+            'direction' => $validSort ? $direction : null,
         ];
     }
 

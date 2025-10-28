@@ -6,6 +6,7 @@ use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class DatabaseStructureController
 {
@@ -24,10 +25,15 @@ class DatabaseStructureController
         ]);
     }
 
-    public function records(string $table): JsonResponse
+    public function records(Request $request, string $table): JsonResponse
     {
         try {
-            $preview = $this->fetcher->getPreview($table);
+            $page = max(1, (int) $request->query('page', 1));
+            $perPage = max(1, min((int) $request->query('per_page', 20), 100));
+            $sort = $request->query('sort');
+            $direction = strtolower((string) $request->query('direction', 'asc'));
+
+            $preview = $this->fetcher->getPreview($table, $page, $perPage, $sort, $direction);
 
             return response()->json($preview);
         } catch (\Throwable $exception) {

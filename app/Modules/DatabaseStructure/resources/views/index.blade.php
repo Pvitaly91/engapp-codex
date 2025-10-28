@@ -142,7 +142,21 @@
                     <thead class="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <tr>
                         <template x-for="column in table.records.columns" :key="column">
-                          <th class="px-3 py-2 font-medium" x-text="column"></th>
+                          <th class="px-3 py-2 font-medium">
+                            <button
+                              type="button"
+                              class="flex items-center gap-2 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground transition hover:text-primary"
+                              @click.stop="toggleSort(table, column)"
+                            >
+                              <span x-text="column"></span>
+                              <span class="text-[10px]" x-show="table.records.sort === column">
+                                <i
+                                  class="fa-solid"
+                                  :class="table.records.direction === 'asc' ? 'fa-arrow-up-short-wide' : 'fa-arrow-down-wide-short'"
+                                ></i>
+                              </span>
+                            </button>
+                          </th>
                         </template>
                       </tr>
                     </thead>
@@ -156,6 +170,53 @@
                       </template>
                     </tbody>
                   </table>
+                </template>
+
+                <template x-if="table.records.rows.length > 0">
+                  <div class="mt-4 flex flex-col gap-4 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+                    <div>
+                      Всього записів: <span class="font-semibold text-foreground" x-text="table.records.total"></span>
+                    </div>
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                      <label class="flex items-center gap-2">
+                        <span>На сторінці:</span>
+                        <select
+                          class="rounded-xl border border-input bg-background px-3 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                          :value="table.records.perPage"
+                          @change="changePerPage(table, $event.target.value)"
+                        >
+                          <option value="10">10</option>
+                          <option value="20">20</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                        </select>
+                      </label>
+                      <div class="flex items-center gap-2">
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                          :disabled="table.records.page <= 1"
+                          @click="changePage(table, table.records.page - 1)"
+                        >
+                          <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                          Попередня
+                        </button>
+                        <span>
+                          Сторінка <span class="font-semibold text-foreground" x-text="table.records.page"></span>
+                          з <span class="font-semibold text-foreground" x-text="table.records.lastPage"></span>
+                        </span>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                          :disabled="table.records.page >= table.records.lastPage"
+                          @click="changePage(table, table.records.page + 1)"
+                        >
+                          Наступна
+                          <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </template>
               </div>
             </div>
@@ -182,6 +243,12 @@
             rows: [],
             columns: table.columns.map((column) => column.name),
             error: null,
+            page: 1,
+            perPage: 20,
+            total: 0,
+            lastPage: 1,
+            sort: null,
+            direction: 'asc',
           },
         })),
         get filteredTables() {
@@ -212,9 +279,27 @@
         async loadRecords(table) {
           table.records.loading = true;
           table.records.error = null;
+          table.records.loaded = false;
 
           try {
-            const response = await fetch(this.recordsRoute.replace('__TABLE__', encodeURIComponent(table.name)));
+            const url = new URL(
+              this.recordsRoute.replace('__TABLE__', encodeURIComponent(table.name)),
+              window.location.origin
+            );
+
+            url.searchParams.set('page', table.records.page);
+            url.searchParams.set('per_page', table.records.perPage);
+
+            if (table.records.sort) {
+              url.searchParams.set('sort', table.records.sort);
+              url.searchParams.set('direction', table.records.direction);
+            }
+
+            const response = await fetch(url.toString(), {
+              headers: {
+                Accept: 'application/json',
+              },
+            });
 
             if (!response.ok) {
               throw new Error('Не вдалося завантажити записи.');
@@ -223,12 +308,56 @@
             const data = await response.json();
             table.records.rows = data.rows || [];
             table.records.columns = data.columns || table.records.columns;
+            table.records.page = data.page || 1;
+            table.records.perPage = data.per_page || table.records.perPage;
+            table.records.total = data.total ?? table.records.total;
+            table.records.lastPage = data.last_page || 1;
+            table.records.sort = data.sort || null;
+            table.records.direction = data.direction || table.records.direction;
             table.records.loaded = true;
           } catch (error) {
             table.records.error = error.message ?? 'Сталася помилка під час завантаження записів.';
           } finally {
             table.records.loading = false;
           }
+        },
+        changePage(table, page) {
+          if (table.records.loading) {
+            return;
+          }
+
+          const target = Math.min(Math.max(page, 1), table.records.lastPage || 1);
+
+          if (target === table.records.page) {
+            return;
+          }
+
+          table.records.page = target;
+          this.loadRecords(table);
+        },
+        changePerPage(table, perPage) {
+          if (table.records.loading) {
+            return;
+          }
+
+          table.records.perPage = Number(perPage) || table.records.perPage;
+          table.records.page = 1;
+          this.loadRecords(table);
+        },
+        toggleSort(table, column) {
+          if (table.records.loading) {
+            return;
+          }
+
+          if (table.records.sort === column) {
+            table.records.direction = table.records.direction === 'asc' ? 'desc' : 'asc';
+          } else {
+            table.records.sort = column;
+            table.records.direction = 'asc';
+          }
+
+          table.records.page = 1;
+          this.loadRecords(table);
         },
         formatCell(value) {
           if (value === null || value === undefined) {
