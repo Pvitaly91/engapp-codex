@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Question;
 use App\Models\Tag;
-use App\Models\TagCategory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -133,7 +133,7 @@ class TestTagController extends Controller
                 return $tag->category ?: null;
             });
 
-        $storedCategories = TagCategory::query()
+        $storedCategories = Category::query()
             ->orderBy('name')
             ->pluck('name');
 
@@ -408,7 +408,7 @@ class TestTagController extends Controller
         $lowerNewName = Str::lower($newName);
         $currentLower = $resolved !== null ? Str::lower($resolved) : null;
 
-        $duplicateExists = TagCategory::query()
+        $duplicateExists = Category::query()
             ->whereRaw('LOWER(name) = ?', [$lowerNewName])
             ->when($currentLower !== null, function ($query) use ($currentLower) {
                 $query->whereRaw('LOWER(name) != ?', [$currentLower]);
@@ -440,7 +440,7 @@ class TestTagController extends Controller
 
         $categoryRecord = $resolved === null
             ? null
-            : TagCategory::query()->where('name', $resolved)->first();
+            : Category::query()->whereRaw('LOWER(name) = ?', [Str::lower($resolved)])->first();
 
         if ($categoryRecord) {
             $categoryRecord->update(['name' => $newName]);
@@ -467,7 +467,7 @@ class TestTagController extends Controller
 
         $categoryRecord = $resolved === null
             ? null
-            : TagCategory::query()->where('name', $resolved)->first();
+            : Category::query()->whereRaw('LOWER(name) = ?', [Str::lower($resolved)])->first();
 
         if ($tags->isEmpty()) {
             if ($categoryRecord) {
