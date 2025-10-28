@@ -129,6 +129,84 @@ class DatabaseStructureFetcher
     }
 
     /**
+     * @param array<int, array{column: string, value: mixed}> $identifiers
+     */
+    public function deleteRecord(string $table, array $identifiers): int
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $columns = $tableInfo['columns'] ?? [];
+        $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+
+        $normalizedIdentifiers = Collection::make($identifiers)
+            ->filter(function ($identifier): bool {
+                return is_array($identifier)
+                    && isset($identifier['column'])
+                    && is_string($identifier['column']);
+            })
+            ->map(function (array $identifier) use ($columnNames): ?array {
+                $column = trim($identifier['column']);
+
+                if ($column === '') {
+                    return null;
+                }
+
+                $isKnownColumn = in_array($column, $columnNames, true);
+                $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $column);
+
+                if (!$isKnownColumn && !$isAdHocColumn) {
+                    return null;
+                }
+
+                if (!array_key_exists('value', $identifier)) {
+                    return null;
+                }
+
+                $value = $identifier['value'];
+
+                if ($value !== null && !is_scalar($value)) {
+                    return null;
+                }
+
+                return [
+                    'column' => $column,
+                    'value' => $value,
+                ];
+            })
+            ->filter()
+            ->values()
+            ->all();
+
+        if (empty($normalizedIdentifiers)) {
+            throw new RuntimeException('Не вдалося визначити ідентифікатори запису для видалення.');
+        }
+
+        $query = $this->connection->table($table);
+
+        foreach ($normalizedIdentifiers as $identifier) {
+            if ($identifier['value'] === null) {
+                $query->whereNull($identifier['column']);
+                continue;
+            }
+
+            $query->where($identifier['column'], '=', $identifier['value']);
+        }
+
+        $deleted = $query->delete();
+
+        if ($deleted === 0) {
+            throw new RuntimeException('Запис не знайдено або не вдалося видалити.');
+        }
+
+        return $deleted;
+    }
+
+    /**
      * @param array<int, array{column: string, operator: string, value?: mixed}> $filters
      * @param array<int, string> $columnNames
      * @return array<int, array{column: string, operator: string, value?: mixed}>
