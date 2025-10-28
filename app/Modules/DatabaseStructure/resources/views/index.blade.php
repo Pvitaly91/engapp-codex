@@ -131,13 +131,13 @@
               </div>
 
               <div x-show="table.records.visible" x-collapse class="mt-4 space-y-4">
-                <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-xs text-muted-foreground">
+                <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-[15px] text-muted-foreground">
                   <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                     <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
-                    <div class="flex flex-wrap items-center gap-2">
+                    <div class="flex flex-wrap items-center gap-2 text-[15px]">
                       <button
                         type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
+                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
                         @click.stop="addFilter(table)"
                         :disabled="table.records.loading"
                       >
@@ -146,7 +146,7 @@
                       </button>
                       <button
                         type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
                         :disabled="table.records.filters.length === 0 || table.records.loading"
                         @click.stop="resetFilters(table)"
                       >
@@ -155,7 +155,7 @@
                       </button>
                       <button
                         type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                        class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
                         :disabled="table.records.loading"
                         @click.stop="applyFilters(table)"
                       >
@@ -164,23 +164,23 @@
                       </button>
                     </div>
                   </div>
-                  <p class="mt-2 text-[11px] text-muted-foreground">
+                  <p class="mt-2 text-[15px] text-muted-foreground">
                     Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
                     <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
                   </p>
                   <template x-if="table.records.filters.length === 0">
-                    <div class="mt-3 rounded-xl border border-dashed border-border/60 bg-background/60 p-4 text-[11px] text-muted-foreground">
+                    <div class="mt-3 rounded-xl border border-dashed border-border/60 bg-background/60 p-4 text-[15px] text-muted-foreground">
                       Фільтри не задано. Додайте новий, щоб відфільтрувати записи.
                     </div>
                   </template>
-                  <div class="mt-3 space-y-3" x-show="table.records.filters.length > 0">
+                  <div class="mt-3 space-y-3 text-[15px]" x-show="table.records.filters.length > 0">
                     <template x-for="(filter, filterIndex) in table.records.filters" :key="filter.id">
-                      <div class="flex flex-col gap-3 rounded-xl border border-border/60 bg-background/70 p-4 sm:flex-row sm:items-end sm:gap-4">
-                        <div class="flex flex-1 flex-col gap-3 sm:flex-row sm:items-end sm:gap-4">
-                          <label class="flex flex-1 flex-col gap-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                      <div class="flex flex-col gap-3 rounded-xl border border-border/60 bg-background/70 p-4 text-[15px] sm:flex-row sm:items-end sm:gap-4">
+                        <div class="flex flex-1 flex-col gap-3 text-[15px] sm:flex-row sm:items-end sm:gap-4">
+                          <label class="flex flex-1 flex-col gap-1 text-[15px] font-semibold uppercase tracking-wide text-muted-foreground/80">
                             <span>Поле</span>
                             <select
-                              class="rounded-xl border border-input bg-background px-3 py-2 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                               x-model="filter.column"
                               :disabled="table.records.loading"
                             >
@@ -190,10 +190,10 @@
                               </template>
                             </select>
                           </label>
-                          <label class="flex w-full flex-col gap-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80 sm:w-48">
+                          <label class="flex w-full flex-col gap-1 text-[15px] font-semibold uppercase tracking-wide text-muted-foreground/80 sm:w-48">
                             <span>Оператор</span>
                             <select
-                              class="rounded-xl border border-input bg-background px-3 py-2 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                               x-model="filter.operator"
                               :disabled="table.records.loading"
                             >
@@ -203,13 +203,13 @@
                             </select>
                           </label>
                           <label
-                            class="flex flex-1 flex-col gap-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80"
+                            class="flex flex-1 flex-col gap-1 text-[15px] font-semibold uppercase tracking-wide text-muted-foreground/80"
                             x-show="operatorRequiresValue(filter.operator)"
                           >
                             <span>Значення</span>
                             <input
                               type="text"
-                              class="rounded-xl border border-input bg-background px-3 py-2 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                               placeholder="Вкажіть значення"
                               x-model="filter.value"
                               :disabled="table.records.loading"
@@ -218,7 +218,7 @@
                         </div>
                         <button
                           type="button"
-                          class="inline-flex items-center justify-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-rose-300 hover:text-rose-500"
+                          class="inline-flex items-center justify-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1.5 text-[15px] font-semibold text-muted-foreground transition hover:border-rose-300 hover:text-rose-500"
                           @click.stop="removeFilter(table, filterIndex)"
                           :disabled="table.records.loading"
                         >
