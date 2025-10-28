@@ -33,6 +33,17 @@ function writeCsvRow($handle, array $row)
     return fputcsv($handle, $row, ',', '"', '\\');
 }
 
+if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle)
+    {
+        if ($needle === '') {
+            return true;
+        }
+
+        return strpos($haystack, $needle) !== false;
+    }
+}
+
 $symbolToName = [];
 
 $manualMappingFile = $baseDir . DIRECTORY_SEPARATOR . 'asset_manual_mappings.php';
