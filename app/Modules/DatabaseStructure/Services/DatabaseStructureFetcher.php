@@ -50,6 +50,34 @@ class DatabaseStructureFetcher
         ];
     }
 
+    public function getPreview(string $table, int $limit = 20): array
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $rows = $this->connection->table($table)->limit($limit)->get()->map(static function ($row) {
+            return (array) $row;
+        })->all();
+
+        $columns = $tableInfo['columns'] ?? [];
+        $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+
+        if (empty($columnNames) && !empty($rows)) {
+            $columnNames = array_keys($rows[0]);
+        }
+
+        return [
+            'table' => $table,
+            'columns' => $columnNames,
+            'rows' => $rows,
+            'limit' => $limit,
+        ];
+    }
+
     private function structureFromMySql(): array
     {
         $database = $this->connection->getDatabaseName();

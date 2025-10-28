@@ -3,7 +3,7 @@
 @section('title', 'Структура бази даних')
 
 @section('content')
-  <div class="space-y-8" x-data="databaseStructureViewer(@js($structure))">
+  <div class="space-y-8" x-data="databaseStructureViewer(@js($structure), @js(route('database-structure.records', ['table' => '__TABLE__'])))">
     <header class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div class="space-y-3">
@@ -114,6 +114,51 @@
                 </tbody>
               </table>
             </div>
+            <div class="border-t border-border/60 px-6 py-5">
+              <div class="flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  @click.stop="toggleRecords(table)"
+                  x-text="table.records.visible ? 'Сховати записи' : 'Показати записи'"
+                ></button>
+                <template x-if="table.records.loading">
+                  <span class="text-xs text-muted-foreground">Завантаження записів...</span>
+                </template>
+                <template x-if="table.records.error">
+                  <span class="text-xs text-rose-600" x-text="table.records.error"></span>
+                </template>
+              </div>
+
+              <div x-show="table.records.visible" x-collapse class="mt-4 overflow-x-auto">
+                <template x-if="table.records.rows.length === 0 && !table.records.loading && !table.records.error">
+                  <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-6 text-center text-xs text-muted-foreground">
+                    Записів не знайдено.
+                  </div>
+                </template>
+
+                <template x-if="table.records.rows.length > 0">
+                  <table class="min-w-full divide-y divide-border/60 text-sm">
+                    <thead class="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
+                      <tr>
+                        <template x-for="column in table.records.columns" :key="column">
+                          <th class="px-3 py-2 font-medium" x-text="column"></th>
+                        </template>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border/60">
+                      <template x-for="(row, rowIndex) in table.records.rows" :key="rowIndex">
+                        <tr class="hover:bg-muted/40">
+                          <template x-for="column in table.records.columns" :key="column">
+                            <td class="px-3 py-2 text-xs text-foreground" x-text="formatCell(row[column])"></td>
+                          </template>
+                        </tr>
+                      </template>
+                    </tbody>
+                  </table>
+                </template>
+              </div>
+            </div>
           </div>
         </section>
       </template>
@@ -124,9 +169,21 @@
 @push('scripts')
   <script>
     document.addEventListener('alpine:init', () => {
-      Alpine.data('databaseStructureViewer', (tables) => ({
+      Alpine.data('databaseStructureViewer', (tables, recordsRoute) => ({
         query: '',
-        tables: tables.map((table) => ({ ...table, open: false })),
+        recordsRoute,
+        tables: tables.map((table) => ({
+          ...table,
+          open: false,
+          records: {
+            visible: false,
+            loading: false,
+            loaded: false,
+            rows: [],
+            columns: table.columns.map((column) => column.name),
+            error: null,
+          },
+        })),
         get filteredTables() {
           if (!this.query) {
             return this.tables;
@@ -143,6 +200,50 @@
               (column.type && column.type.toLowerCase().includes(q))
             );
           });
+        },
+        async toggleRecords(table) {
+          table.records.visible = !table.records.visible;
+          table.records.error = null;
+
+          if (table.records.visible && !table.records.loaded) {
+            await this.loadRecords(table);
+          }
+        },
+        async loadRecords(table) {
+          table.records.loading = true;
+          table.records.error = null;
+
+          try {
+            const response = await fetch(this.recordsRoute.replace('__TABLE__', encodeURIComponent(table.name)));
+
+            if (!response.ok) {
+              throw new Error('Не вдалося завантажити записи.');
+            }
+
+            const data = await response.json();
+            table.records.rows = data.rows || [];
+            table.records.columns = data.columns || table.records.columns;
+            table.records.loaded = true;
+          } catch (error) {
+            table.records.error = error.message ?? 'Сталася помилка під час завантаження записів.';
+          } finally {
+            table.records.loading = false;
+          }
+        },
+        formatCell(value) {
+          if (value === null || value === undefined) {
+            return '—';
+          }
+
+          if (typeof value === 'object') {
+            try {
+              return JSON.stringify(value);
+            } catch (error) {
+              return '[object]';
+            }
+          }
+
+          return String(value);
         },
       }));
     });

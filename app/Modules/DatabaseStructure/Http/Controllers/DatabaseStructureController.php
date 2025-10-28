@@ -5,6 +5,7 @@ namespace App\Modules\DatabaseStructure\Http\Controllers;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class DatabaseStructureController
 {
@@ -12,7 +13,7 @@ class DatabaseStructureController
     {
     }
 
-    public function __invoke(): View|ViewFactory
+    public function index(): View|ViewFactory
     {
         $structure = $this->fetcher->getStructure();
         $meta = $this->fetcher->getMeta();
@@ -21,5 +22,18 @@ class DatabaseStructureController
             'structure' => $structure,
             'meta' => $meta,
         ]);
+    }
+
+    public function records(string $table): JsonResponse
+    {
+        try {
+            $preview = $this->fetcher->getPreview($table);
+
+            return response()->json($preview);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
     }
 }
