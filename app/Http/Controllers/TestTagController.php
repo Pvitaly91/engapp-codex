@@ -143,7 +143,7 @@ class TestTagController extends Controller
             }
         }
 
-        $tagsByCategory = $tagsByCategory->sortKeys(function ($a, $b) {
+        $tagsByCategory = $tagsByCategory->sortKeysUsing(function ($a, $b) {
             if ($a === $b) {
                 return 0;
             }
