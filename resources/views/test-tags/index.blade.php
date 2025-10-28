@@ -100,42 +100,48 @@
                                             @php
                                                 $isEmptyTag = (int) $tag->questions_count === 0;
                                             @endphp
-                                            <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-100 px-3 py-2">
-                                                <button
-                                                    type="button"
-                                                    class="flex flex-1 items-center justify-between gap-3 text-left font-medium transition {{ $isEmptyTag ? 'text-red-600 hover:text-red-600' : 'text-slate-700 hover:text-blue-600' }}"
-                                                    data-tag-load
-                                                    data-tag-id="{{ $tag->id }}"
-                                                    data-tag-name="{{ $tag->name }}"
-                                                    data-tag-url="{{ route('test-tags.questions', $tag) }}"
-                                                >
-                                                    <span>{{ $tag->name }}</span>
-                                                    <span class="inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $isEmptyTag ? 'bg-red-100 text-red-600' : 'bg-slate-100 text-slate-600' }}">
-                                                        {{ $tag->questions_count }}
-                                                    </span>
-                                                </button>
-                                                <span class="flex items-center gap-2 text-xs">
-                                                    <a
-                                                        href="{{ route('test-tags.edit', $tag) }}"
-                                                        class="rounded-lg border border-slate-200 px-3 py-1.5 font-medium text-slate-600 hover:border-blue-200 hover:text-blue-600"
+                                            <li class="space-y-3 rounded-lg border border-slate-100 px-3 py-2">
+                                                <div class="flex flex-wrap items-center justify-between gap-3">
+                                                    <button
+                                                        type="button"
+                                                        class="flex flex-1 items-center justify-between gap-3 text-left font-medium transition {{ $isEmptyTag ? 'text-red-600 hover:text-red-600' : 'text-slate-700 hover:text-blue-600' }}"
+                                                        data-tag-load
+                                                        data-tag-id="{{ $tag->id }}"
+                                                        data-tag-name="{{ $tag->name }}"
+                                                        data-tag-url="{{ route('test-tags.questions', $tag) }}"
                                                     >
-                                                        Редагувати
-                                                    </a>
-                                                    <form
-                                                        action="{{ route('test-tags.destroy', $tag) }}"
-                                                        method="POST"
-                                                        data-confirm="Видалити тег «{{ $tag->name }}»?"
-                                                    >
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button
-                                                            type="submit"
-                                                            class="rounded-lg border border-red-200 px-3 py-1.5 font-medium text-red-600 hover:bg-red-50"
+                                                        <span>{{ $tag->name }}</span>
+                                                        <span class="inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $isEmptyTag ? 'bg-red-100 text-red-600' : 'bg-slate-100 text-slate-600' }}">
+                                                            {{ $tag->questions_count }}
+                                                        </span>
+                                                    </button>
+                                                    <span class="flex items-center gap-2 text-xs">
+                                                        <a
+                                                            href="{{ route('test-tags.edit', $tag) }}"
+                                                            class="rounded-lg border border-slate-200 px-3 py-1.5 font-medium text-slate-600 hover:border-blue-200 hover:text-blue-600"
                                                         >
-                                                            Видалити
-                                                        </button>
-                                                    </form>
-                                                </span>
+                                                            Редагувати
+                                                        </a>
+                                                        <form
+                                                            action="{{ route('test-tags.destroy', $tag) }}"
+                                                            method="POST"
+                                                            data-confirm="Видалити тег «{{ $tag->name }}»?"
+                                                        >
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button
+                                                                type="submit"
+                                                                class="rounded-lg border border-red-200 px-3 py-1.5 font-medium text-red-600 hover:bg-red-50"
+                                                            >
+                                                                Видалити
+                                                            </button>
+                                                        </form>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="hidden rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-600"
+                                                    data-tag-questions
+                                                ></div>
                                             </li>
                                         @empty
                                             <li class="rounded-lg border border-dashed px-3 py-4 text-center text-sm {{ $categoryIsEmpty ? 'border-red-200 bg-red-100 text-red-600' : 'border-slate-200 bg-slate-50 text-slate-500' }}">
@@ -150,18 +156,6 @@
                 @endif
             </section>
 
-            <section class="space-y-4">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-xl font-semibold text-slate-800">Питання за тегом</h2>
-                    <p class="text-sm text-slate-400" id="tag-questions-selected"></p>
-                </div>
-                <div
-                    id="tag-questions-panel"
-                    class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
-                >
-                    <p class="text-sm text-slate-500">Натисніть на тег, щоб переглянути питання, пов'язані з ним.</p>
-                </div>
-            </section>
         </div>
     </div>
 
@@ -297,19 +291,28 @@
         };
 
         const initTestTagQuestionsPanel = () => {
-            const panel = document.getElementById('tag-questions-panel');
-            const selectedLabel = document.getElementById('tag-questions-selected');
+            const tagButtons = document.querySelectorAll('[data-tag-load]');
 
-            if (!panel || !selectedLabel) {
+            if (!tagButtons.length) {
                 return;
             }
 
-            const defaultPanelContent = panel.innerHTML;
             let activeButton = null;
+            let activeContainer = null;
             let abortController = null;
 
-            const setPanelContent = (html) => {
-                panel.innerHTML = html;
+            const closeActiveContainer = () => {
+                if (activeContainer) {
+                    activeContainer.classList.add('hidden');
+                    activeContainer.innerHTML = '';
+                }
+
+                if (activeButton) {
+                    activeButton.classList.remove('text-blue-600', 'font-semibold');
+                }
+
+                activeButton = null;
+                activeContainer = null;
             };
 
             const formatMeta = (question) => {
@@ -320,17 +323,15 @@
                 return parts.length ? parts.join(' · ') : 'Додаткова інформація недоступна';
             };
 
-            const renderQuestions = (tagName, questions) => {
+            const renderQuestions = (container, questions) => {
                 const normalisedQuestions = Array.isArray(questions)
                     ? questions
                     : (questions && typeof questions === 'object')
                         ? Object.values(questions)
                         : [];
 
-                selectedLabel.textContent = `Обраний тег: ${tagName} • Питань: ${normalisedQuestions.length}`;
-
                 if (!normalisedQuestions.length) {
-                    setPanelContent('<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>');
+                    container.innerHTML = '<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>';
                     return;
                 }
 
@@ -354,40 +355,50 @@
                             : '';
 
                         return `
-                            <li>
-                                <div class="space-y-2">
-                                    <p class="font-medium text-slate-800">${question.rendered_question || question.question || ''}</p>
-                                    ${answersHtml}
-                                    <p class="text-xs text-slate-500">${formatMeta(question)}</p>
-                                </div>
+                            <li class="space-y-2 rounded-lg border border-slate-200 bg-white p-4">
+                                <p class="font-medium text-slate-800">${question.rendered_question || question.question || ''}</p>
+                                ${answersHtml}
+                                <p class="text-xs text-slate-500">${formatMeta(question)}</p>
                             </li>
                         `;
                     })
                     .join('');
 
-                setPanelContent(`
-                    <ol class="space-y-4 list-decimal list-inside text-sm text-slate-700">
+                container.innerHTML = `
+                    <ol class="space-y-3 text-sm text-slate-700">
                         ${questionsHtml}
                     </ol>
-                `);
+                `;
             };
 
-            const showError = (message) => {
-                selectedLabel.textContent = '';
-                setPanelContent(`<p class="text-sm text-red-600">${message}</p>`);
+            const showError = (container, message) => {
+                container.innerHTML = `<p class="text-sm text-red-600">${message}</p>`;
             };
 
-            const showLoading = (tagName) => {
-                selectedLabel.textContent = `Завантаження: ${tagName}...`;
-                setPanelContent('<p class="text-sm text-slate-500">Зачекайте, дані завантажуються…</p>');
+            const showLoading = (container) => {
+                container.innerHTML = '<p class="text-sm text-slate-500">Зачекайте, дані завантажуються…</p>';
             };
 
-            document.querySelectorAll('[data-tag-load]').forEach((button) => {
+            tagButtons.forEach((button) => {
                 button.addEventListener('click', () => {
                     const url = button.dataset.tagUrl;
-                    const tagName = button.dataset.tagName;
+                    const container = button.closest('li')?.querySelector('[data-tag-questions]');
 
                     if (!url) {
+                        return;
+                    }
+
+                    if (!container) {
+                        return;
+                    }
+
+                    if (activeButton === button && activeContainer && !activeContainer.classList.contains('hidden')) {
+                        if (abortController) {
+                            abortController.abort();
+                            abortController = null;
+                        }
+
+                        closeActiveContainer();
                         return;
                     }
 
@@ -395,8 +406,17 @@
                         activeButton.classList.remove('text-blue-600', 'font-semibold');
                     }
 
+                    if (activeContainer && activeContainer !== container) {
+                        activeContainer.classList.add('hidden');
+                        activeContainer.innerHTML = '';
+                    }
+
                     button.classList.add('text-blue-600', 'font-semibold');
                     activeButton = button;
+                    activeContainer = container;
+
+                    container.classList.remove('hidden');
+                    container.innerHTML = '';
 
                     if (abortController) {
                         abortController.abort();
@@ -404,7 +424,7 @@
 
                     abortController = new AbortController();
 
-                    showLoading(tagName);
+                    showLoading(container);
 
                     fetch(url, {
                         headers: {
@@ -424,20 +444,20 @@
                                 throw new Error('Невірна відповідь від сервера.');
                             }
 
-                            renderQuestions(data.tag.name || '', data.questions);
+                            renderQuestions(container, data.questions);
                         })
                         .catch((error) => {
                             if (error.name === 'AbortError') {
                                 return;
                             }
 
-                            showError(error.message || 'Сталася помилка під час завантаження.');
+                            showError(container, error.message || 'Сталася помилка під час завантаження.');
+                        })
+                        .finally(() => {
+                            abortController = null;
                         });
                 });
             });
-
-            selectedLabel.textContent = '';
-            setPanelContent(defaultPanelContent);
         };
 
         const initTestTagPage = () => {
