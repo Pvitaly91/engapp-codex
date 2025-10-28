@@ -159,12 +159,20 @@ Route::middleware('auth.admin')->group(function () {
 
         Route::prefix('test-tags')->name('test-tags.')->group(function () {
             Route::get('/', [TestTagController::class, 'index'])->name('index');
-            Route::get('/manage', [TestTagController::class, 'manage'])->name('manage');
+            Route::get('/create', [TestTagController::class, 'create'])->name('create');
             Route::post('/', [TestTagController::class, 'store'])->name('store');
+            Route::get('/categories/{category}/edit', [TestTagController::class, 'editCategory'])
+                ->where('category', '.*')
+                ->name('categories.edit');
+            Route::put('/categories/{category}', [TestTagController::class, 'updateCategory'])
+                ->where('category', '.*')
+                ->name('categories.update');
+            Route::delete('/categories/{category}', [TestTagController::class, 'destroyCategory'])
+                ->where('category', '.*')
+                ->name('categories.destroy');
+            Route::get('/{tag}/edit', [TestTagController::class, 'edit'])->name('edit');
             Route::put('/{tag}', [TestTagController::class, 'update'])->name('update');
             Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');
-            Route::put('/categories', [TestTagController::class, 'updateCategory'])->name('categories.update');
-            Route::delete('/categories', [TestTagController::class, 'destroyCategory'])->name('categories.destroy');
         });
 
         Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');

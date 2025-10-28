@@ -10,6 +10,8 @@ use Illuminate\View\View;
 
 class TestTagController extends Controller
 {
+    private const UNCATEGORIZED_KEY = '__uncategorized__';
+
     private function resolveCategory(array $data): ?string
     {
         $newCategory = isset($data['new_category']) ? trim((string) $data['new_category']) : '';
@@ -52,19 +54,26 @@ class TestTagController extends Controller
     {
         [$tagsByCategory, $categories] = $this->loadTagData();
 
+        $tagGroups = $tagsByCategory->map(function ($tags, $category) {
+            return [
+                'name' => $category,
+                'label' => $category ?: 'Без категорії',
+                'key' => $this->encodeCategoryParam($category),
+                'tags' => $tags,
+            ];
+        })->values();
+
         return view('test-tags.index', [
-            'tagsByCategory' => $tagsByCategory,
-            'categories' => $categories,
+            'tagGroups' => $tagGroups,
             'totalTags' => $tagsByCategory->sum(fn ($tags) => $tags->count()),
         ]);
     }
 
-    public function manage(): View
+    public function create(): View
     {
-        [$tagsByCategory, $categories] = $this->loadTagData();
+        [, $categories] = $this->loadTagData();
 
-        return view('test-tags.manage', [
-            'tagsByCategory' => $tagsByCategory,
+        return view('test-tags.create', [
             'categories' => $categories,
         ]);
     }
@@ -84,7 +93,17 @@ class TestTagController extends Controller
             'category' => $category,
         ]);
 
-        return redirect()->route('test-tags.manage')->with('status', 'Тег успішно створено.');
+        return redirect()->route('test-tags.index')->with('status', 'Тег успішно створено.');
+    }
+
+    public function edit(Tag $tag): View
+    {
+        [, $categories] = $this->loadTagData();
+
+        return view('test-tags.edit', [
+            'tag' => $tag,
+            'categories' => $categories,
+        ]);
     }
 
     public function update(Request $request, Tag $tag): RedirectResponse
@@ -102,7 +121,7 @@ class TestTagController extends Controller
             'category' => $category,
         ]);
 
-        return redirect()->route('test-tags.manage')->with('status', 'Тег оновлено.');
+        return redirect()->route('test-tags.index')->with('status', 'Тег оновлено.');
     }
 
     public function destroy(Tag $tag): RedirectResponse
@@ -111,41 +130,79 @@ class TestTagController extends Controller
         $tag->words()->detach();
         $tag->delete();
 
-        return redirect()->route('test-tags.manage')->with('status', 'Тег видалено.');
+        return redirect()->route('test-tags.index')->with('status', 'Тег видалено.');
     }
 
-    public function updateCategory(Request $request): RedirectResponse
+    public function editCategory(string $category): View
     {
+        [, $categories] = $this->loadTagData();
+
+        $resolved = $this->normaliseCategoryParam($category);
+
+        if ($resolved !== null && !$categories->contains($resolved)) {
+            abort(404);
+        }
+
+        if ($resolved === null) {
+            $hasUncategorised = Tag::query()
+                ->whereNull('category')
+                ->orWhere('category', '')
+                ->exists();
+
+            if (! $hasUncategorised) {
+                abort(404);
+            }
+        }
+
+        return view('test-tags.categories.edit', [
+            'category' => $resolved,
+            'categoryKey' => $this->encodeCategoryParam($resolved),
+        ]);
+    }
+
+    public function updateCategory(Request $request, string $category): RedirectResponse
+    {
+        $resolved = $this->normaliseCategoryParam($category);
+
         $validated = $request->validate([
-            'original_category' => ['required', 'string'],
             'new_name' => ['required', 'string', 'max:255'],
         ]);
 
-        $original = trim($validated['original_category']);
         $newName = trim($validated['new_name']);
 
-        $affected = Tag::where('category', $original)
+        $affected = Tag::query()
+            ->when($resolved === null, function ($query) {
+                $query->where(function ($q) {
+                    $q->whereNull('category')->orWhere('category', '');
+                });
+            }, function ($query) use ($resolved) {
+                $query->where('category', $resolved);
+            })
             ->update(['category' => $newName]);
 
         if ($affected === 0) {
-            return redirect()->route('test-tags.manage')->with('error', 'Категорію не знайдено.');
+            return redirect()->route('test-tags.index')->with('error', 'Категорію не знайдено.');
         }
 
-        return redirect()->route('test-tags.manage')->with('status', 'Категорію перейменовано.');
+        return redirect()->route('test-tags.index')->with('status', 'Категорію перейменовано.');
     }
 
-    public function destroyCategory(Request $request): RedirectResponse
+    public function destroyCategory(string $category): RedirectResponse
     {
-        $validated = $request->validate([
-            'category' => ['required', 'string'],
-        ]);
+        $resolved = $this->normaliseCategoryParam($category);
 
-        $category = trim($validated['category']);
-
-        $tags = Tag::where('category', $category)->get();
+        $tags = Tag::query()
+            ->when($resolved === null, function ($query) {
+                $query->where(function ($q) {
+                    $q->whereNull('category')->orWhere('category', '');
+                });
+            }, function ($query) use ($resolved) {
+                $query->where('category', $resolved);
+            })
+            ->get();
 
         if ($tags->isEmpty()) {
-            return redirect()->route('test-tags.manage')->with('error', 'Категорію не знайдено.');
+            return redirect()->route('test-tags.index')->with('error', 'Категорію не знайдено.');
         }
 
         foreach ($tags as $tag) {
@@ -154,6 +211,40 @@ class TestTagController extends Controller
             $tag->delete();
         }
 
-        return redirect()->route('test-tags.manage')->with('status', 'Категорію та всі її теги видалено.');
+        return redirect()->route('test-tags.index')->with('status', 'Категорію та всі її теги видалено.');
+    }
+
+    private function normaliseCategoryParam(?string $category): ?string
+    {
+        if ($category === null || $category === '') {
+            return null;
+        }
+
+        if ($category === self::UNCATEGORIZED_KEY) {
+            return null;
+        }
+
+        $prefix = 'encoded:';
+
+        if (str_starts_with($category, $prefix)) {
+            $decoded = base64_decode(substr($category, strlen($prefix)), true);
+
+            if ($decoded === false) {
+                abort(404);
+            }
+
+            return $decoded;
+        }
+
+        return $category;
+    }
+
+    private function encodeCategoryParam(?string $category): string
+    {
+        if ($category === null || $category === '') {
+            return self::UNCATEGORIZED_KEY;
+        }
+
+        return 'encoded:' . base64_encode($category);
     }
 }
