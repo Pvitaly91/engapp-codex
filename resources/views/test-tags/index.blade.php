@@ -100,42 +100,48 @@
                                             @php
                                                 $isEmptyTag = (int) $tag->questions_count === 0;
                                             @endphp
-                                            <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-100 px-3 py-2">
-                                                <button
-                                                    type="button"
-                                                    class="flex flex-1 items-center justify-between gap-3 text-left font-medium transition {{ $isEmptyTag ? 'text-red-600 hover:text-red-600' : 'text-slate-700 hover:text-blue-600' }}"
-                                                    data-tag-load
-                                                    data-tag-id="{{ $tag->id }}"
-                                                    data-tag-name="{{ $tag->name }}"
-                                                    data-tag-url="{{ route('test-tags.questions', $tag) }}"
-                                                >
-                                                    <span>{{ $tag->name }}</span>
-                                                    <span class="inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $isEmptyTag ? 'bg-red-100 text-red-600' : 'bg-slate-100 text-slate-600' }}">
-                                                        {{ $tag->questions_count }}
-                                                    </span>
-                                                </button>
-                                                <span class="flex items-center gap-2 text-xs">
-                                                    <a
-                                                        href="{{ route('test-tags.edit', $tag) }}"
-                                                        class="rounded-lg border border-slate-200 px-3 py-1.5 font-medium text-slate-600 hover:border-blue-200 hover:text-blue-600"
+                                            <li class="space-y-3 rounded-lg border border-slate-100 px-3 py-2">
+                                                <div class="flex flex-wrap items-center justify-between gap-3">
+                                                    <button
+                                                        type="button"
+                                                        class="flex flex-1 items-center justify-between gap-3 text-left font-medium transition {{ $isEmptyTag ? 'text-red-600 hover:text-red-600' : 'text-slate-700 hover:text-blue-600' }}"
+                                                        data-tag-load
+                                                        data-tag-id="{{ $tag->id }}"
+                                                        data-tag-name="{{ $tag->name }}"
+                                                        data-tag-url="{{ route('test-tags.questions', $tag) }}"
                                                     >
-                                                        Редагувати
-                                                    </a>
-                                                    <form
-                                                        action="{{ route('test-tags.destroy', $tag) }}"
-                                                        method="POST"
-                                                        data-confirm="Видалити тег «{{ $tag->name }}»?"
-                                                    >
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button
-                                                            type="submit"
-                                                            class="rounded-lg border border-red-200 px-3 py-1.5 font-medium text-red-600 hover:bg-red-50"
+                                                        <span>{{ $tag->name }}</span>
+                                                        <span class="inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $isEmptyTag ? 'bg-red-100 text-red-600' : 'bg-slate-100 text-slate-600' }}">
+                                                            {{ $tag->questions_count }}
+                                                        </span>
+                                                    </button>
+                                                    <span class="flex items-center gap-2 text-xs">
+                                                        <a
+                                                            href="{{ route('test-tags.edit', $tag) }}"
+                                                            class="rounded-lg border border-slate-200 px-3 py-1.5 font-medium text-slate-600 hover:border-blue-200 hover:text-blue-600"
                                                         >
-                                                            Видалити
-                                                        </button>
-                                                    </form>
-                                                </span>
+                                                            Редагувати
+                                                        </a>
+                                                        <form
+                                                            action="{{ route('test-tags.destroy', $tag) }}"
+                                                            method="POST"
+                                                            data-confirm="Видалити тег «{{ $tag->name }}»?"
+                                                        >
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button
+                                                                type="submit"
+                                                                class="rounded-lg border border-red-200 px-3 py-1.5 font-medium text-red-600 hover:bg-red-50"
+                                                            >
+                                                                Видалити
+                                                            </button>
+                                                        </form>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="hidden rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-600"
+                                                    data-tag-questions
+                                                ></div>
                                             </li>
                                         @empty
                                             <li class="rounded-lg border border-dashed px-3 py-4 text-center text-sm {{ $categoryIsEmpty ? 'border-red-200 bg-red-100 text-red-600' : 'border-slate-200 bg-slate-50 text-slate-500' }}">
@@ -150,18 +156,6 @@
                 @endif
             </section>
 
-            <section class="space-y-4">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-xl font-semibold text-slate-800">Питання за тегом</h2>
-                    <p class="text-sm text-slate-400" id="tag-questions-selected"></p>
-                </div>
-                <div
-                    id="tag-questions-panel"
-                    class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
-                >
-                    <p class="text-sm text-slate-500">Натисніть на тег, щоб переглянути питання, пов'язані з ним.</p>
-                </div>
-            </section>
         </div>
     </div>
 
@@ -296,154 +290,292 @@
             });
         };
 
-        const initTestTagQuestionsPanel = () => {
-            const panel = document.getElementById('tag-questions-panel');
-            const selectedLabel = document.getElementById('tag-questions-selected');
-            const defaultPanelContent = panel.innerHTML;
-            let activeButton = null;
-            let abortController = null;
+        const updateToggleLabels = (button, expanded) => {
+            const collapsedLabel = button.querySelector('[data-toggle-label-collapsed]');
+            const expandedLabel = button.querySelector('[data-toggle-label-expanded]');
 
-            const setPanelContent = (html) => {
-                panel.innerHTML = html;
-            };
+            if (collapsedLabel) {
+                collapsedLabel.classList.toggle('hidden', expanded);
+            }
 
-            const renderQuestions = (tagName, questions) => {
-                const questionCount = questions.length;
-                selectedLabel.textContent = `Обраний тег: ${tagName} • Питань: ${questionCount}`;
+            if (expandedLabel) {
+                expandedLabel.classList.toggle('hidden', !expanded);
+            }
+        };
 
-                if (!questions.length) {
-                    setPanelContent('<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>');
+        const loadQuestionTags = async (tagsContainer) => {
+            if (!tagsContainer || tagsContainer.dataset.loaded === 'loading' || tagsContainer.dataset.loaded === 'true') {
+                return;
+            }
+
+            const url = tagsContainer.dataset.loadUrl;
+
+            if (!url) {
+                tagsContainer.innerHTML = '<p class="text-xs text-red-600">Посилання для завантаження тегів не вказане.</p>';
+                tagsContainer.dataset.loaded = 'error';
+
+                return;
+            }
+
+            tagsContainer.dataset.loaded = 'loading';
+            tagsContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        'Accept': 'application/json',
+                    },
+                });
+
+                const payload = await response.json().catch(() => null);
+
+                if (!response.ok) {
+                    const message = payload && typeof payload.message === 'string' && payload.message
+                        ? payload.message
+                        : 'Не вдалося завантажити теги.';
+                    throw new Error(message);
+                }
+
+                const html = payload && typeof payload.html === 'string' ? payload.html : '';
+
+                tagsContainer.innerHTML = html.trim()
+                    ? html
+                    : '<p class="text-xs text-gray-500">Теги не знайдені.</p>';
+                tagsContainer.dataset.loaded = 'true';
+            } catch (error) {
+                const message = error && typeof error.message === 'string' && error.message
+                    ? error.message
+                    : 'Не вдалося завантажити теги.';
+
+                tagsContainer.innerHTML = `<p class="text-xs text-red-600">${message}</p>`;
+                tagsContainer.dataset.loaded = 'error';
+            }
+        };
+
+        const attachQuestionToggleHandlers = (root) => {
+            if (!root) {
+                return;
+            }
+
+            const toggles = root.querySelectorAll('[data-question-toggle]');
+
+            toggles.forEach((button) => {
+                if (button.dataset.questionToggleBound === 'true') {
                     return;
                 }
 
-                const list = document.createElement('ol');
-                list.className = 'space-y-4 list-decimal list-inside text-sm text-slate-700';
+                button.dataset.questionToggleBound = 'true';
 
-                questions.forEach((question) => {
-                    const item = document.createElement('li');
-                    const questionWrapper = document.createElement('div');
-                    questionWrapper.className = 'space-y-2';
+                button.addEventListener('click', async () => {
+                    const container = button.closest('[data-question-container]');
 
-                    const questionText = document.createElement('p');
-                    questionText.className = 'font-medium text-slate-800';
-                    questionText.innerHTML = question.rendered_question || question.question;
-
-                    const meta = document.createElement('p');
-                    meta.className = 'text-xs text-slate-500';
-                    const difficulty = (question.difficulty ?? '') !== '' ? `Складність: ${question.difficulty}` : null;
-                    const level = (question.level ?? '') !== '' ? `Рівень: ${question.level}` : null;
-                    const metaParts = [difficulty, level].filter(Boolean);
-                    meta.textContent = metaParts.length ? metaParts.join(' · ') : 'Додаткова інформація недоступна';
-
-                    questionWrapper.appendChild(questionText);
-                    if (Array.isArray(question.answers) && question.answers.length) {
-                        const answersTitle = document.createElement('p');
-                        answersTitle.className = 'text-xs font-semibold uppercase tracking-wide text-slate-500';
-                        answersTitle.textContent = 'Відповіді';
-
-                        const answersList = document.createElement('ul');
-                        answersList.className = 'space-y-1 text-sm text-slate-700';
-
-                        question.answers.forEach((answer) => {
-                            const answerItem = document.createElement('li');
-                            answerItem.className = 'flex items-start gap-2';
-
-                            const marker = document.createElement('span');
-                            marker.className = 'mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600';
-                            marker.textContent = answer.marker ?? '•';
-
-                            const value = document.createElement('span');
-                            value.className = 'flex-1';
-                            value.textContent = answer.rendered_answer || answer.answer || '';
-
-                            answerItem.appendChild(marker);
-                            answerItem.appendChild(value);
-                            answersList.appendChild(answerItem);
-                        });
-
-                        questionWrapper.appendChild(answersTitle);
-                        questionWrapper.appendChild(answersList);
-                    }
-
-                    questionWrapper.appendChild(meta);
-                    item.appendChild(questionWrapper);
-                    list.appendChild(item);
-                });
-
-                panel.innerHTML = '';
-                panel.appendChild(list);
-            };
-
-            const showError = (message) => {
-                selectedLabel.textContent = '';
-                setPanelContent(`<p class="text-sm text-red-600">${message}</p>`);
-            };
-
-            const showLoading = (tagName) => {
-                selectedLabel.textContent = `Завантаження: ${tagName}...`;
-                setPanelContent('<p class="text-sm text-slate-500">Зачекайте, дані завантажуються…</p>');
-            };
-
-            document.querySelectorAll('[data-tag-load]').forEach((button) => {
-                button.addEventListener('click', () => {
-                    const url = button.dataset.tagUrl;
-                    const tagName = button.dataset.tagName;
-
-                    if (!url) {
+                    if (!container) {
                         return;
                     }
 
-                    if (activeButton) {
+                    const detailsContainer = container.querySelector('[data-question-details]');
+
+                    if (!detailsContainer) {
+                        return;
+                    }
+
+                    const answersContainer = detailsContainer.querySelector('[data-question-answers]');
+                    const tagsContainer = detailsContainer.querySelector('[data-question-tags]');
+
+                    if (!answersContainer) {
+                        return;
+                    }
+
+                    const icon = button.querySelector('[data-question-toggle-icon]');
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                    if (isExpanded) {
+                        button.setAttribute('aria-expanded', 'false');
+                        updateToggleLabels(button, false);
+
+                        if (icon) {
+                            icon.classList.remove('rotate-180');
+                        }
+
+                        detailsContainer.classList.add('hidden');
+
+                        return;
+                    }
+
+                    button.setAttribute('aria-expanded', 'true');
+                    updateToggleLabels(button, true);
+
+                    if (icon) {
+                        icon.classList.add('rotate-180');
+                    }
+
+                    detailsContainer.classList.remove('hidden');
+
+                    if (button.dataset.loaded === 'true') {
+                        if (tagsContainer) {
+                            loadQuestionTags(tagsContainer);
+                        }
+
+                        return;
+                    }
+
+                    const url = button.dataset.loadUrl;
+
+                    if (!url) {
+                        answersContainer.innerHTML = '<p class="text-xs text-red-600">Посилання для завантаження не вказане.</p>';
+                        button.dataset.loaded = 'error';
+
+                        return;
+                    }
+
+                    button.dataset.loaded = 'loading';
+                    answersContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                    try {
+                        const response = await fetch(url, {
+                            headers: {
+                                'Accept': 'application/json',
+                            },
+                        });
+
+                        const payload = await response.json().catch(() => null);
+
+                        if (!response.ok) {
+                            const message = payload && typeof payload.message === 'string' && payload.message
+                                ? payload.message
+                                : 'Не вдалося завантажити варіанти.';
+                            throw new Error(message);
+                        }
+
+                        const html = payload && typeof payload.html === 'string' ? payload.html : '';
+
+                        answersContainer.innerHTML = html.trim()
+                            ? html
+                            : '<p class="text-xs text-gray-500">Варіанти відповіді не знайдені.</p>';
+                        button.dataset.loaded = 'true';
+
+                        if (tagsContainer) {
+                            loadQuestionTags(tagsContainer);
+                        }
+                    } catch (error) {
+                        const message = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : 'Не вдалося завантажити варіанти.';
+
+                        answersContainer.innerHTML = `<p class="text-xs text-red-600">${message}</p>`;
+                        button.dataset.loaded = 'error';
+                    }
+                });
+            });
+        };
+
+        const initTestTagQuestionsPanel = () => {
+            const tagButtons = document.querySelectorAll('[data-tag-load]');
+
+            if (!tagButtons.length) {
+                return;
+            }
+
+            let activeButton = null;
+            let activeContainer = null;
+            let abortController = null;
+
+            const closeActiveContainer = () => {
+                if (activeContainer) {
+                    activeContainer.classList.add('hidden');
+                }
+
+                if (activeButton) {
+                    activeButton.classList.remove('text-blue-600', 'font-semibold');
+                }
+
+                activeButton = null;
+                activeContainer = null;
+            };
+
+            tagButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const url = button.dataset.tagUrl;
+                    const container = button.closest('li')?.querySelector('[data-tag-questions]');
+
+                    if (!url || !container) {
+                        return;
+                    }
+
+                    if (activeButton === button && activeContainer && !activeContainer.classList.contains('hidden')) {
+                        if (abortController) {
+                            abortController.abort();
+                            abortController = null;
+                        }
+
+                        closeActiveContainer();
+                        return;
+                    }
+
+                    if (activeButton && activeButton !== button) {
                         activeButton.classList.remove('text-blue-600', 'font-semibold');
+                    }
+
+                    if (activeContainer && activeContainer !== container) {
+                        activeContainer.classList.add('hidden');
                     }
 
                     button.classList.add('text-blue-600', 'font-semibold');
                     activeButton = button;
+                    activeContainer = container;
+
+                    container.classList.remove('hidden');
+
+                    if (button.dataset.loaded === 'true') {
+                        return;
+                    }
 
                     if (abortController) {
                         abortController.abort();
                     }
 
                     abortController = new AbortController();
-
-                    showLoading(tagName);
+                    container.innerHTML = '<p class="text-sm text-slate-500">Зачекайте, дані завантажуються…</p>';
 
                     fetch(url, {
                         headers: {
                             'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json',
                         },
                         signal: abortController.signal,
                     })
-                        .then((response) => {
+                        .then(async (response) => {
+                            const payload = await response.json().catch(() => null);
+
                             if (!response.ok) {
-                                throw new Error('Не вдалося завантажити питання.');
+                                const message = payload && typeof payload.message === 'string' && payload.message
+                                    ? payload.message
+                                    : 'Не вдалося завантажити питання.';
+                                throw new Error(message);
                             }
 
-                            return response.json();
-                        })
-                        .then((data) => {
-                            if (!data || !data.tag || !Array.isArray(data.questions)) {
-                                throw new Error('Невірна відповідь від сервера.');
-                            }
+                            const html = payload && typeof payload.html === 'string' ? payload.html : '';
 
-                            renderQuestions(data.tag.name, data.questions);
+                            container.innerHTML = html.trim()
+                                ? html
+                                : '<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>';
+
+                            attachQuestionToggleHandlers(container);
+                            button.dataset.loaded = 'true';
                         })
                         .catch((error) => {
                             if (error.name === 'AbortError') {
                                 return;
                             }
 
-                            showError(error.message || 'Сталася помилка під час завантаження.');
+                            container.innerHTML = `<p class="text-sm text-red-600">${error.message || 'Сталася помилка під час завантаження.'}</p>`;
+                            button.dataset.loaded = 'error';
+                        })
+                        .finally(() => {
+                            abortController = null;
                         });
                 });
             });
-
-            // Reset helpers on initial load
-            const resetPanel = () => {
-                selectedLabel.textContent = '';
-                panel.innerHTML = defaultPanelContent;
-            };
-            resetPanel();
         };
 
         const initTestTagPage = () => {

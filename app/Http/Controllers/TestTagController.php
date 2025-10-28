@@ -9,10 +9,99 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 
 class TestTagController extends Controller
 {
     private const UNCATEGORIZED_KEY = '__uncategorized__';
+
+    private function renderQuestionWithHighlightedAnswers(Question $question): string
+    {
+        $questionText = e($question->question ?? '');
+
+        foreach ($question->answers as $answer) {
+            $answerText = optional($answer->option)->option ?? $answer->answer;
+
+            if (! filled($answerText)) {
+                continue;
+            }
+
+            $replacement = sprintf(
+                '<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">%s</span>',
+                e($answerText)
+            );
+
+            $questionText = str_replace('{' . $answer->marker . '}', $replacement, $questionText);
+        }
+
+        return nl2br($questionText);
+    }
+
+    private function formatQuestionMeta(Question $question): ?string
+    {
+        $parts = [];
+
+        if (filled($question->difficulty)) {
+            $parts[] = 'Складність: ' . $question->difficulty;
+        }
+
+        if (filled($question->level)) {
+            $parts[] = 'Рівень: ' . $question->level;
+        }
+
+        if (empty($parts)) {
+            return 'Додаткова інформація недоступна';
+        }
+
+        return implode(' · ', $parts);
+    }
+
+    private function renderQuestionAnswersBlock(Question $question): string
+    {
+        $answers = $question->answers->map(function ($answer) {
+            $label = optional($answer->option)->option ?? $answer->answer;
+
+            return [
+                'marker' => $answer->marker,
+                'label' => $label,
+                'option_id' => $answer->option_id,
+            ];
+        });
+
+        $correctOptionIds = $answers
+            ->pluck('option_id')
+            ->filter()
+            ->unique()
+            ->all();
+
+        $options = $question->options
+            ->map(function ($option) use ($correctOptionIds) {
+                return [
+                    'id' => $option->id,
+                    'label' => $option->option,
+                    'is_correct' => in_array($option->id, $correctOptionIds, true),
+                ];
+            })
+            ->sortBy('label', SORT_NATURAL | SORT_FLAG_CASE)
+            ->values();
+
+        $textAnswers = $answers
+            ->filter(function ($answer) {
+                return empty($answer['option_id']) && filled($answer['label']);
+            })
+            ->map(function ($answer) {
+                return [
+                    'marker' => $answer['marker'],
+                    'label' => $answer['label'],
+                ];
+            })
+            ->values();
+
+        return view('seed-runs.partials.question-answers', [
+            'options' => $options,
+            'textAnswers' => $textAnswers,
+        ])->render();
+    }
 
     private function resolveCategory(array $data): ?string
     {
@@ -43,12 +132,32 @@ class TestTagController extends Controller
                 return $tag->category ?: null;
             });
 
-        $categories = Tag::query()
-            ->whereNotNull('category')
-            ->where('category', '!=', '')
-            ->distinct()
-            ->orderBy('category')
-            ->pluck('category');
+        $tagsByCategory = $tagsByCategory->sortKeysUsing(function ($a, $b) {
+            if ($a === $b) {
+                return 0;
+            }
+
+            if ($a === null) {
+                return -1;
+            }
+
+            if ($b === null) {
+                return 1;
+            }
+
+            return strnatcasecmp($a, $b);
+        });
+
+        $categories = $tagsByCategory
+            ->keys()
+            ->filter(fn ($category) => $category !== null)
+            ->unique(function ($value) {
+                return Str::lower($value);
+            })
+            ->sort(function ($a, $b) {
+                return strnatcasecmp($a, $b);
+            })
+            ->values();
 
         return [$tagsByCategory, $categories];
     }
@@ -147,32 +256,101 @@ class TestTagController extends Controller
             ->with(['answers.option'])
             ->orderBy('id')
             ->get()
-            ->map(function (Question $question) {
+            ->map(function (Question $question) use ($tag) {
+                $answersUrl = route('test-tags.questions.answers', [$tag, $question->id]);
+                $tagsUrl = route('test-tags.questions.tags', [$tag, $question->id]);
+
                 return [
                     'id' => $question->id,
-                    'question' => $question->question,
-                    'rendered_question' => $question->renderQuestionText(),
-                    'difficulty' => $question->difficulty,
-                    'level' => $question->level,
-                    'answers' => $question->answers->map(function ($answer) {
-                        return [
-                            'id' => $answer->id,
-                            'marker' => $answer->marker,
-                            'answer' => $answer->answer,
-                            'option' => optional($answer->option)->option,
-                            'rendered_answer' => optional($answer->option)->option ?? $answer->answer,
-                        ];
-                    })->values(),
+                    'content_html' => $this->renderQuestionWithHighlightedAnswers($question),
+                    'meta' => $this->formatQuestionMeta($question),
+                    'toggle' => [
+                        'url' => $answersUrl,
+                        'data' => [
+                            'question-id' => $question->id,
+                            'tag-id' => $tag->id,
+                        ],
+                    ],
+                    'details' => [
+                        'answers' => [
+                            'url' => $answersUrl,
+                        ],
+                        'tags' => [
+                            'url' => $tagsUrl,
+                        ],
+                    ],
+                    'container_data' => [
+                        'question-container' => true,
+                        'question-id' => $question->id,
+                        'tag-id' => $tag->id,
+                    ],
                 ];
-            })
-            ->values();
+            });
+
+        $html = view('admin.questions.list', [
+            'questions' => $questions,
+            'emptyMessage' => 'Для цього тегу ще не додано питань.',
+        ])->render();
 
         return response()->json([
             'tag' => [
                 'id' => $tag->id,
                 'name' => $tag->name,
             ],
-            'questions' => $questions,
+            'html' => $html,
+        ]);
+    }
+
+    public function questionAnswers(Tag $tag, Question $question): JsonResponse
+    {
+        $belongsToTag = $question->tags()
+            ->where('tags.id', $tag->id)
+            ->exists();
+
+        if (! $belongsToTag) {
+            return response()->json([
+                'html' => '',
+                'message' => 'Питання не прив’язане до вибраного тегу.',
+            ], 404);
+        }
+
+        $question->loadMissing(['answers.option', 'options']);
+
+        return response()->json([
+            'html' => $this->renderQuestionAnswersBlock($question),
+        ]);
+    }
+
+    public function questionTags(Tag $tag, Question $question): JsonResponse
+    {
+        $belongsToTag = $question->tags()
+            ->where('tags.id', $tag->id)
+            ->exists();
+
+        if (! $belongsToTag) {
+            return response()->json([
+                'html' => '',
+                'message' => 'Питання не прив’язане до вибраного тегу.',
+            ], 404);
+        }
+
+        $question->loadMissing('tags');
+
+        $tags = $question->tags
+            ->map(function (Tag $relatedTag) {
+                return [
+                    'id' => $relatedTag->id,
+                    'name' => $relatedTag->name,
+                    'category' => $relatedTag->category,
+                ];
+            })
+            ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)
+            ->values();
+
+        return response()->json([
+            'html' => view('seed-runs.partials.question-tags', [
+                'tags' => $tags,
+            ])->render(),
         ]);
     }
 
@@ -212,6 +390,23 @@ class TestTagController extends Controller
         ]);
 
         $newName = trim($validated['new_name']);
+
+        $lowerNewName = Str::lower($newName);
+        $currentLower = $resolved !== null ? Str::lower($resolved) : null;
+
+        $duplicateExists = Tag::query()
+            ->whereRaw('LOWER(category) = ?', [$lowerNewName])
+            ->when($currentLower !== null, function ($query) use ($currentLower) {
+                $query->whereRaw('LOWER(category) != ?', [$currentLower]);
+            })
+            ->exists();
+
+        if ($duplicateExists) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->withErrors(['new_name' => 'Категорія з такою назвою вже існує.']);
+        }
 
         $affected = Tag::query()
             ->when($resolved === null, function ($query) {
