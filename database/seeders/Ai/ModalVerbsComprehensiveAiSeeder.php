@@ -140,6 +140,144 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
         ],
     ];
 
+    private array $themeGuidance = [
+        'ability' => [
+            'hint' => 'Підказка: обери модальне дієслово, яке показує здібність або можливість виконати дію.',
+            'goal' => 'показує здібність або можливість виконати дію',
+            'correct' => "✅ «%option%» підходить, бо %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПриклад: *%example%*",
+            'incorrect' => "❌ «%option%» %meaning%. Нам потрібна форма, що %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПравильний варіант дає: *%example%*",
+        ],
+        'permission' => [
+            'hint' => 'Підказка: шукай форму, що передає дозвіл або заборону.',
+            'goal' => 'дозволяє або забороняє дію ввічливо чи офіційно',
+            'correct' => "✅ «%option%» доречне, бо %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПриклад: *%example%*",
+            'incorrect' => "❌ «%option%» %meaning%. Для цього речення потрібна форма, що %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПравильний варіант дає: *%example%*",
+        ],
+        'obligation' => [
+            'hint' => 'Підказка: зверни увагу на модальні дієслова, що виражають необхідність або обов’язок.',
+            'goal' => 'підкреслює необхідність або обов’язок виконати дію',
+            'correct' => "✅ «%option%» пасує, бо %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПриклад: *%example%*",
+            'incorrect' => "❌ «%option%» %meaning%. Нам треба конструкцію, яка %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПравильний варіант дає: *%example%*",
+        ],
+        'advice' => [
+            'hint' => 'Підказка: обери модальне дієслово, яке звучить як порада або рекомендація.',
+            'goal' => 'слугує порадою, рекомендацією або м’яким очікуванням',
+            'correct' => "✅ «%option%» підходить, бо %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПриклад: *%example%*",
+            'incorrect' => "❌ «%option%» %meaning%. Потрібна форма, що %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПравильний варіант дає: *%example%*",
+        ],
+        'deduction' => [
+            'hint' => 'Підказка: вибери форму, яка показує логічне припущення або ймовірність.',
+            'goal' => 'дає змогу зробити логічний висновок чи оцінити ймовірність',
+            'correct' => "✅ «%option%» доречно, бо %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПриклад: *%example%*",
+            'incorrect' => "❌ «%option%» %meaning%. Треба форма, яка %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПравильний варіант дає: *%example%*",
+        ],
+    ];
+
+    private array $typeHintTexts = [
+        'question' => 'Це запитання, тому модальне дієслово ставимо перед підметом.',
+        'negative' => 'Речення заперечне — не забудь про «not» після модального дієслова.',
+        'past' => 'Це стверджувальне речення: модальне дієслово стоїть перед основною дією.',
+        'present' => 'Це стверджувальне речення в теперішньому часі: спочатку модальне дієслово, потім інфінітив.',
+        'future' => 'Це стверджувальне речення про майбутнє, тож модальне дієслово передає заплановану дію.',
+    ];
+
+    private array $typeExplanationTexts = [
+        'question' => ' Це питальне речення, тому модальне дієслово стоїть перед підметом.',
+        'negative' => ' Це заперечне речення, тож після модального дієслова додаємо «not».',
+        'past' => ' Це стверджувальне речення про минуле.',
+        'present' => ' Це стверджувальне речення про теперішню ситуацію.',
+        'future' => ' Це стверджувальне речення про майбутній сценарій.',
+    ];
+
+    private array $tenseHintTexts = [
+        'past' => 'Контекст описує минулі події — обери форму, що узгоджується з минулим.',
+        'present' => 'Контекст про теперішнє — зверни увагу на звичні або поточні ситуації.',
+        'future' => 'Контекст спрямований у майбутнє — подумай про плани чи припущення.',
+    ];
+
+    private array $tenseExplanationTexts = [
+        'past' => ' Контекст описує минулу подію чи висновок про минуле.',
+        'present' => ' Контекст говорить про теперішню ситуацію.',
+        'future' => ' Контекст спрямований у майбутнє.',
+    ];
+
+    private array $modalMeaningPatterns = [
+        "won't be allowed to" => 'показує, що в майбутньому буде заборонено робити дію',
+        'will be allowed to' => 'виражає, що в майбутньому щось буде дозволено',
+        'be allowed to' => 'описує офіційний дозвіл на дію',
+        'allowed to' => 'описує дозвіл виконати дію',
+        'still be able to' => 'наголошує на збереженій можливості виконати дію',
+        'now be able to' => 'підкреслює, що тепер стало можливим виконати дію',
+        'will be able to' => 'говорить про майбутню здатність виконати дію',
+        'be able to' => 'виражає здатність або можливість виконати дію',
+        'able to' => 'виражає здатність виконати дію',
+        'cannot have' => 'стверджує, що щось не могло статися в минулому',
+        "can't have" => 'стверджує, що щось не могло статися в минулому',
+        'cannot' => 'показує неможливість або заборону',
+        "can't" => 'показує неможливість або заборону',
+        'can have' => 'описує можливість, яка могла відбутися у минулому',
+        'can' => 'виражає загальну здатність або дозвіл у теперішньому',
+        "couldn't have" => 'говорить, що дія в минулому була неможливою',
+        "couldn't" => 'виражає неможливість або заборону у минулому',
+        'could have' => 'описує можливість, що могла статися у минулому',
+        'could' => 'вказує на можливість або ввічливе прохання',
+        'may not have' => 'натякає, що дія, ймовірно, не відбулася у минулому',
+        'may not' => 'висловлює заборону чи сумнів',
+        'may have' => 'описує можливість, що могла статися у минулому',
+        'may' => 'вказує на дозвіл або ймовірність',
+        'might not have' => 'припускає, що дія, ймовірно, не трапилася',
+        'might not' => 'виражає сумнів щодо події',
+        'might have' => 'описує невпевнену можливість у минулому',
+        'might' => 'виражає ймовірність або несміливу пропозицію',
+        "mustn't have" => 'робить висновок, що дія у минулому не могла відбутися',
+        "mustn't" => 'означає сувору заборону',
+        'must have' => 'робить впевнений висновок про минуле',
+        'must' => 'виражає сильний обов’язок або логічний висновок',
+        "won't have to" => 'вказує, що в майбутньому не буде необхідності щось робити',
+        'will have to' => 'означає майбутній обов’язок',
+        "don't have to" => 'виражає відсутність необхідності зараз',
+        "doesn't have to" => 'показує, що третя особа не має обов’язку',
+        "didn't have to" => 'означає, що в минулому не було потреби',
+        'have to' => 'описує зовнішній обов’язок',
+        'has to' => 'підкреслює обов’язок для третьої особи',
+        'had to' => 'описує обов’язок у минулому',
+        "needn't have" => 'означає, що дія в минулому була зайвою',
+        'need not' => 'виражає відсутність необхідності',
+        "needn't" => 'виражає відсутність необхідності',
+        'needed to' => 'описує потребу в минулому',
+        'needs to' => 'говорить про потребу третьої особи',
+        'need to' => 'виражає потребу виконати дію',
+        'need' => 'виражає потребу або необхідність',
+        'should have' => 'говорить про пораду в минулому, яку слід було виконати',
+        "shouldn't have" => 'критикує дію, якої не слід було робити',
+        "shouldn't" => 'радить не робити дію',
+        'should' => 'виражає пораду або очікування',
+        'ought not to have' => 'вказує, що в минулому не слід було щось робити',
+        'ought not to' => 'радить утриматися від дії',
+        'ought to have' => 'говорить, що в минулому слід було щось зробити',
+        'ought to' => 'означає моральний обов’язок або пораду',
+        "won't" => 'виражає відмову або заперечення в майбутньому',
+        'will' => 'виражає рішення або майбутню дію',
+        'would' => 'описує гіпотетичні чи ввічливі ситуації',
+        'supposed to' => 'говорить про очікуваний або встановлений обов’язок',
+    ];
+
+    private array $nonModalMeanings = [
+        'also' => 'це прислівник, а не модальне дієслово',
+        'only' => 'це обмежувальна частка, а не модальне дієслово',
+        'never' => 'це прислівник частоти, а не модальне дієслово',
+        'always' => 'це прислівник частоти, а не модальне дієслово',
+        'rarely' => 'це прислівник частоти, а не модальне дієслово',
+        'hardly' => 'це прислівник, що виражає ступінь, а не модальне дієслово',
+        'barely' => 'це прислівник, що виражає ступінь, а не модальне дієслово',
+        'already' => 'це прислівник часу, а не модальне дієслово',
+        'even' => 'це підсилювальна частка, а не модальне дієслово',
+        'just' => 'це прислівник, а не модальне дієслово',
+        'simply' => 'це прислівник, а не модальне дієслово',
+        'ever' => 'це прислівник частоти, а не модальне дієслово',
+        'to' => 'це частка інфінітива, а не модальне дієслово',
+    ];
+
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Modal Verbs Comprehensive AI Practice'])->id;
@@ -235,6 +373,15 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                 ? array_values(array_unique(array_merge(...$optionBuckets)))
                 : [];
 
+            $example = $this->formatExample($entry['question'], $answersMap);
+            $hintTexts = $this->buildHintsForEntry($entry);
+            $explanations = $this->buildExplanationsForEntry(
+                $entry,
+                $optionsPerMarker,
+                $answersMap,
+                $example
+            );
+
             $tagIds = array_filter([
                 $modalsTagId,
                 $themeTagIds[$themeKey] ?? null,
@@ -265,8 +412,8 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                 'uuid' => $uuid,
                 'answers' => $answersMap,
                 'option_markers' => $optionMarkerMap,
-                'hints' => $verbHints,
-                'explanations' => [],
+                'hints' => $hintTexts,
+                'explanations' => $explanations,
             ];
         }
 
@@ -320,6 +467,232 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
         }
 
         return array_values(array_unique($matched));
+    }
+
+    private function buildHintsForEntry(array $entry): array
+    {
+        $themeKey = $entry['theme'] ?? '';
+        $typeKey = $entry['type'] ?? '';
+        $tenseKey = $entry['tense'] ?? '';
+        $context = $this->extractSubjectContext($entry['markers'] ?? []);
+
+        $hints = [];
+
+        if (isset($this->themeGuidance[$themeKey]['hint'])) {
+            $hints[] = $this->themeGuidance[$themeKey]['hint'];
+        }
+
+        if (isset($this->typeHintTexts[$typeKey])) {
+            $hints[] = $this->typeHintTexts[$typeKey];
+        }
+
+        if (isset($this->tenseHintTexts[$tenseKey])) {
+            $hints[] = $this->tenseHintTexts[$tenseKey];
+        }
+
+        if ($context['subjects'] !== []) {
+            $subjectHint = $this->buildSubjectHint($context['subjects']);
+            if ($subjectHint !== '') {
+                $hints[] = $subjectHint;
+            }
+        }
+
+        if ($context['needs_not']) {
+            $hints[] = 'Пам’ятай додати «not» після модального дієслова.';
+        }
+
+        $hints = array_map('trim', $hints);
+
+        return array_values(array_filter($hints));
+    }
+
+    private function buildExplanationsForEntry(
+        array $entry,
+        array $optionsPerMarker,
+        array $answersMap,
+        string $example
+    ): array {
+        $themeKey = $entry['theme'] ?? '';
+        $context = $this->extractSubjectContext($entry['markers'] ?? []);
+        $themeGuidance = $this->themeGuidance[$themeKey] ?? null;
+
+        $explanations = [];
+
+        foreach ($optionsPerMarker as $marker => $options) {
+            $answer = $answersMap[$marker] ?? null;
+
+            if ($answer === null) {
+                continue;
+            }
+
+            foreach ($options as $option) {
+                $explanations[$option] = $this->buildExplanationText(
+                    $option,
+                    $answer,
+                    $entry,
+                    $example,
+                    $context,
+                    $themeGuidance
+                );
+            }
+        }
+
+        return $explanations;
+    }
+
+    private function buildExplanationText(
+        string $option,
+        string $answer,
+        array $entry,
+        string $example,
+        array $context,
+        ?array $themeGuidance
+    ): string {
+        $isCorrect = mb_strtolower(trim($option)) === mb_strtolower(trim($answer));
+        $goal = $themeGuidance['goal'] ?? 'передає потрібне модальне значення';
+        $template = $isCorrect
+            ? ($themeGuidance['correct'] ?? "✅ «%option%» правильне, бо %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПриклад: *%example%*")
+            : ($themeGuidance['incorrect'] ?? "❌ «%option%» %meaning%. Нам потрібна форма, що %goal%.%subject_clause%%type_clause%%tense_clause%%not_clause%\nПравильний варіант дає: *%example%*");
+
+        $subjectClause = $this->buildSubjectClause($context['subjects'], $isCorrect);
+        $typeClause = $this->typeExplanationTexts[$entry['type'] ?? ''] ?? '';
+        $tenseClause = $this->tenseExplanationTexts[$entry['tense'] ?? ''] ?? '';
+        $notClause = $context['needs_not'] ? ' Не забудь про «not» після модального дієслова.' : '';
+
+        $replacements = [
+            '%option%' => $option,
+            '%answer%' => $answer,
+            '%goal%' => $goal,
+            '%meaning%' => $this->describeModalMeaning($option),
+            '%subject_clause%' => $subjectClause,
+            '%type_clause%' => $typeClause,
+            '%tense_clause%' => $tenseClause,
+            '%not_clause%' => $notClause,
+            '%example%' => $example,
+        ];
+
+        $text = strtr($template, $replacements);
+        $text = preg_replace("/\s+\n/", "\n", $text) ?? $text;
+        $text = preg_replace("/\n\s+/", "\n", $text) ?? $text;
+
+        return trim($text);
+    }
+
+    private function extractSubjectContext(array $markers): array
+    {
+        $subjects = [];
+        $needsNot = false;
+
+        foreach ($markers as $marker) {
+            $hint = $this->normalizeHint($marker['verb_hint'] ?? null);
+
+            if ($hint === null || $hint === '') {
+                continue;
+            }
+
+            $parts = preg_split('/[;,]/', $hint) ?: [$hint];
+
+            foreach ($parts as $part) {
+                $clean = trim((string) $part);
+
+                if ($clean === '') {
+                    continue;
+                }
+
+                if (preg_match('/^not\s+/i', $clean) === 1) {
+                    $needsNot = true;
+                    $clean = trim(preg_replace('/^not\s+/i', '', $clean) ?? '');
+                }
+
+                if ($clean === '') {
+                    continue;
+                }
+
+                $subjects[] = $clean;
+            }
+        }
+
+        return [
+            'subjects' => array_values(array_unique($subjects)),
+            'needs_not' => $needsNot,
+        ];
+    }
+
+    private function buildSubjectHint(array $subjects): string
+    {
+        $list = $this->formatSubjectList($subjects);
+
+        if ($list === '') {
+            return '';
+        }
+
+        $prefix = count(array_unique($subjects)) > 1 ? 'Зверни увагу на підмети ' : 'Зверни увагу на підмет ';
+
+        return $prefix . $list . '.';
+    }
+
+    private function buildSubjectClause(array $subjects, bool $isCorrect): string
+    {
+        if ($subjects === []) {
+            return '';
+        }
+
+        $list = $this->formatSubjectList($subjects);
+
+        if ($list === '') {
+            return '';
+        }
+
+        $prefix = count(array_unique($subjects)) > 1 ? 'Для підметів ' : 'Для підмета ';
+        $suffix = $isCorrect
+            ? ' ця форма звучить природно.'
+            : ' краще використати правильну модальну форму.';
+
+        return ' ' . $prefix . $list . $suffix;
+    }
+
+    private function formatSubjectList(array $subjects): string
+    {
+        $unique = array_values(array_unique(array_filter(array_map('trim', $subjects))));
+
+        if ($unique === []) {
+            return '';
+        }
+
+        $quoted = array_map(static fn ($value) => '«' . $value . '»', $unique);
+
+        if (count($quoted) === 1) {
+            return $quoted[0];
+        }
+
+        $last = array_pop($quoted);
+
+        return implode(', ', $quoted) . ' та ' . $last;
+    }
+
+    private function describeModalMeaning(string $option): string
+    {
+        $normalized = mb_strtolower(trim($option));
+
+        if ($normalized === '') {
+            return 'не надає потрібного модального значення';
+        }
+
+        foreach ($this->modalMeaningPatterns as $pattern => $description) {
+            if (str_contains($normalized, $pattern)) {
+                return $description;
+            }
+        }
+
+        if (isset($this->nonModalMeanings[$normalized])) {
+            return $this->nonModalMeanings[$normalized];
+        }
+
+        if (preg_match('/\bnot\b/', $normalized) === 1) {
+            return 'створює заперечення, але не відповідає змісту вправи';
+        }
+
+        return 'не передає потрібного модального значення в цьому контексті';
     }
 
     private function answersMatchKeywords(array $answers, array $keywords): bool
