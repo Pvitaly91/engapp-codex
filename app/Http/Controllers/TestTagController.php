@@ -27,9 +27,9 @@ class TestTagController extends Controller
         return trim((string) $existingCategory);
     }
 
-    public function index(): View
+    private function loadTagData(): array
     {
-        $tags = Tag::query()
+        $tagsByCategory = Tag::query()
             ->orderByRaw('CASE WHEN category IS NULL OR category = "" THEN 1 ELSE 0 END')
             ->orderBy('category')
             ->orderBy('name')
@@ -38,14 +38,34 @@ class TestTagController extends Controller
                 return $tag->category ?: null;
             });
 
+        $categories = Tag::query()
+            ->whereNotNull('category')
+            ->where('category', '!=', '')
+            ->distinct()
+            ->orderBy('category')
+            ->pluck('category');
+
+        return [$tagsByCategory, $categories];
+    }
+
+    public function index(): View
+    {
+        [$tagsByCategory, $categories] = $this->loadTagData();
+
         return view('test-tags.index', [
-            'tagsByCategory' => $tags,
-            'categories' => Tag::query()
-                ->whereNotNull('category')
-                ->where('category', '!=', '')
-                ->distinct()
-                ->orderBy('category')
-                ->pluck('category'),
+            'tagsByCategory' => $tagsByCategory,
+            'categories' => $categories,
+            'totalTags' => $tagsByCategory->sum(fn ($tags) => $tags->count()),
+        ]);
+    }
+
+    public function manage(): View
+    {
+        [$tagsByCategory, $categories] = $this->loadTagData();
+
+        return view('test-tags.manage', [
+            'tagsByCategory' => $tagsByCategory,
+            'categories' => $categories,
         ]);
     }
 
@@ -64,7 +84,7 @@ class TestTagController extends Controller
             'category' => $category,
         ]);
 
-        return redirect()->route('test-tags.index')->with('status', 'Тег успішно створено.');
+        return redirect()->route('test-tags.manage')->with('status', 'Тег успішно створено.');
     }
 
     public function update(Request $request, Tag $tag): RedirectResponse
@@ -82,7 +102,7 @@ class TestTagController extends Controller
             'category' => $category,
         ]);
 
-        return redirect()->route('test-tags.index')->with('status', 'Тег оновлено.');
+        return redirect()->route('test-tags.manage')->with('status', 'Тег оновлено.');
     }
 
     public function destroy(Tag $tag): RedirectResponse
@@ -91,7 +111,7 @@ class TestTagController extends Controller
         $tag->words()->detach();
         $tag->delete();
 
-        return redirect()->route('test-tags.index')->with('status', 'Тег видалено.');
+        return redirect()->route('test-tags.manage')->with('status', 'Тег видалено.');
     }
 
     public function updateCategory(Request $request): RedirectResponse
@@ -108,10 +128,10 @@ class TestTagController extends Controller
             ->update(['category' => $newName]);
 
         if ($affected === 0) {
-            return redirect()->route('test-tags.index')->with('error', 'Категорію не знайдено.');
+            return redirect()->route('test-tags.manage')->with('error', 'Категорію не знайдено.');
         }
 
-        return redirect()->route('test-tags.index')->with('status', 'Категорію перейменовано.');
+        return redirect()->route('test-tags.manage')->with('status', 'Категорію перейменовано.');
     }
 
     public function destroyCategory(Request $request): RedirectResponse
@@ -125,7 +145,7 @@ class TestTagController extends Controller
         $tags = Tag::where('category', $category)->get();
 
         if ($tags->isEmpty()) {
-            return redirect()->route('test-tags.index')->with('error', 'Категорію не знайдено.');
+            return redirect()->route('test-tags.manage')->with('error', 'Категорію не знайдено.');
         }
 
         foreach ($tags as $tag) {
@@ -134,6 +154,6 @@ class TestTagController extends Controller
             $tag->delete();
         }
 
-        return redirect()->route('test-tags.index')->with('status', 'Категорію та всі її теги видалено.');
+        return redirect()->route('test-tags.manage')->with('status', 'Категорію та всі її теги видалено.');
     }
 }

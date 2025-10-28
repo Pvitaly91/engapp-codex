@@ -159,6 +159,7 @@ Route::middleware('auth.admin')->group(function () {
 
         Route::prefix('test-tags')->name('test-tags.')->group(function () {
             Route::get('/', [TestTagController::class, 'index'])->name('index');
+            Route::get('/manage', [TestTagController::class, 'manage'])->name('manage');
             Route::post('/', [TestTagController::class, 'store'])->name('store');
             Route::put('/{tag}', [TestTagController::class, 'update'])->name('update');
             Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');
