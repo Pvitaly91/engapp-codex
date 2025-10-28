@@ -75,7 +75,7 @@
                                         <form
                                             action="{{ route('test-tags.categories.destroy', ['category' => $group['key']]) }}"
                                             method="POST"
-                                            onsubmit="return confirm('Видалити категорію та всі її теги?')"
+                                            data-confirm="Видалити категорію та всі її теги?"
                                         >
                                             @csrf
                                             @method('DELETE')
@@ -124,7 +124,7 @@
                                                     <form
                                                         action="{{ route('test-tags.destroy', $tag) }}"
                                                         method="POST"
-                                                        onsubmit="return confirm('Видалити тег «{{ $tag->name }}»?')"
+                                                        data-confirm="Видалити тег «{{ $tag->name }}»?"
                                                     >
                                                         @csrf
                                                         @method('DELETE')
@@ -164,10 +164,138 @@
             </section>
         </div>
     </div>
+
+    <div
+        id="test-tag-confirmation-modal"
+        class="fixed inset-0 z-40 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="test-tag-confirmation-title"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" data-confirm-overlay></div>
+        <div class="relative w-full max-w-sm space-y-5 rounded-xl bg-white px-6 py-5 shadow-xl">
+            <div class="space-y-2">
+                <h2 id="test-tag-confirmation-title" class="text-lg font-semibold text-slate-800">Підтвердження</h2>
+                <p class="text-sm text-slate-600" data-confirm-message></p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+                <button
+                    type="button"
+                    class="rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-200"
+                    data-confirm-cancel
+                >
+                    Скасувати
+                </button>
+                <button
+                    type="button"
+                    class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-red-500"
+                    data-confirm-accept
+                >
+                    Підтвердити
+                </button>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
     <script>
+        const initTestTagDeletionConfirmation = () => {
+            const modal = document.getElementById('test-tag-confirmation-modal');
+            const messageTarget = modal ? modal.querySelector('[data-confirm-message]') : null;
+            const acceptButton = modal ? modal.querySelector('[data-confirm-accept]') : null;
+            const cancelButton = modal ? modal.querySelector('[data-confirm-cancel]') : null;
+            const overlay = modal ? modal.querySelector('[data-confirm-overlay]') : null;
+            const forms = document.querySelectorAll('form[data-confirm]');
+
+            if (!modal || !messageTarget || !acceptButton || !cancelButton) {
+                forms.forEach((form) => {
+                    form.addEventListener('submit', (event) => {
+                        if (form.dataset.confirmed === 'true') {
+                            form.dataset.confirmed = '';
+                            return;
+                        }
+
+                        const message = form.dataset.confirm || '';
+                        if (message && !window.confirm(message)) {
+                            event.preventDefault();
+                        }
+                    });
+                });
+
+                return;
+            }
+
+            let pendingForm = null;
+
+            const closeModal = (restoreFocus = true) => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'items-center', 'justify-center');
+
+                if (restoreFocus && pendingForm) {
+                    const focusTarget = pendingForm.querySelector('button, [type="submit"], [tabindex]:not([tabindex="-1"])');
+                    if (focusTarget && typeof focusTarget.focus === 'function') {
+                        focusTarget.focus();
+                    }
+                }
+
+                pendingForm = null;
+            };
+
+            const openModal = (form, message) => {
+                messageTarget.textContent = message || 'Підтвердьте дію.';
+                pendingForm = form;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex', 'items-center', 'justify-center');
+                acceptButton.focus();
+            };
+
+            const handleFormSubmit = (event) => {
+                const form = event.target;
+
+                if (form.dataset.confirmed === 'true') {
+                    form.dataset.confirmed = '';
+                    return;
+                }
+
+                event.preventDefault();
+                const message = form.dataset.confirm || '';
+                openModal(form, message);
+            };
+
+            forms.forEach((form) => {
+                form.addEventListener('submit', handleFormSubmit);
+            });
+
+            acceptButton.addEventListener('click', () => {
+                if (!pendingForm) {
+                    closeModal();
+                    return;
+                }
+
+                const formToSubmit = pendingForm;
+                formToSubmit.dataset.confirmed = 'true';
+                closeModal(false);
+                formToSubmit.requestSubmit();
+            });
+
+            const cancelHandler = () => {
+                closeModal();
+            };
+
+            cancelButton.addEventListener('click', cancelHandler);
+
+            if (overlay) {
+                overlay.addEventListener('click', cancelHandler);
+            }
+
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    cancelHandler();
+                }
+            });
+        };
+
         const initTestTagQuestionsPanel = () => {
             const panel = document.getElementById('tag-questions-panel');
             const selectedLabel = document.getElementById('tag-questions-selected');
@@ -318,10 +446,15 @@
             resetPanel();
         };
 
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initTestTagQuestionsPanel);
-        } else {
+        const initTestTagPage = () => {
+            initTestTagDeletionConfirmation();
             initTestTagQuestionsPanel();
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTestTagPage);
+        } else {
+            initTestTagPage();
         }
     </script>
 @endpush
