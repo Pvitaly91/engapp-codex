@@ -91,17 +91,20 @@
                                 >
                                     <ul class="space-y-2">
                                         @forelse ($group['tags'] as $tag)
+                                            @php
+                                                $isEmptyTag = (int) $tag->questions_count === 0;
+                                            @endphp
                                             <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-100 px-3 py-2">
                                                 <button
                                                     type="button"
-                                                    class="flex flex-1 items-center justify-between gap-3 text-left font-medium text-slate-700 transition hover:text-blue-600"
+                                                    class="flex flex-1 items-center justify-between gap-3 text-left font-medium transition {{ $isEmptyTag ? 'text-red-600 hover:text-red-600' : 'text-slate-700 hover:text-blue-600' }}"
                                                     data-tag-load
                                                     data-tag-id="{{ $tag->id }}"
                                                     data-tag-name="{{ $tag->name }}"
                                                     data-tag-url="{{ route('test-tags.questions', $tag) }}"
                                                 >
                                                     <span>{{ $tag->name }}</span>
-                                                    <span class="inline-flex shrink-0 items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600">
+                                                    <span class="inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $isEmptyTag ? 'bg-red-100 text-red-600' : 'bg-slate-100 text-slate-600' }}">
                                                         {{ $tag->questions_count }}
                                                     </span>
                                                 </button>
