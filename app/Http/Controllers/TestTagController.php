@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Question;
 use App\Models\Tag;
 use Illuminate\Http\JsonResponse;
@@ -133,16 +132,6 @@ class TestTagController extends Controller
                 return $tag->category ?: null;
             });
 
-        $storedCategories = Category::query()
-            ->orderBy('name')
-            ->pluck('name');
-
-        foreach ($storedCategories as $categoryName) {
-            if (! $tagsByCategory->has($categoryName)) {
-                $tagsByCategory[$categoryName] = collect();
-            }
-        }
-
         $tagsByCategory = $tagsByCategory->sortKeysUsing(function ($a, $b) {
             if ($a === $b) {
                 return 0;
@@ -159,12 +148,9 @@ class TestTagController extends Controller
             return strnatcasecmp($a, $b);
         });
 
-        $categories = $storedCategories
-            ->merge(
-                $tagsByCategory
-                    ->keys()
-                    ->filter(fn ($category) => $category !== null)
-            )
+        $categories = $tagsByCategory
+            ->keys()
+            ->filter(fn ($category) => $category !== null)
             ->unique(function ($value) {
                 return Str::lower($value);
             })
@@ -408,18 +394,12 @@ class TestTagController extends Controller
         $lowerNewName = Str::lower($newName);
         $currentLower = $resolved !== null ? Str::lower($resolved) : null;
 
-        $duplicateExists = Category::query()
-            ->whereRaw('LOWER(name) = ?', [$lowerNewName])
+        $duplicateExists = Tag::query()
+            ->whereRaw('LOWER(category) = ?', [$lowerNewName])
             ->when($currentLower !== null, function ($query) use ($currentLower) {
-                $query->whereRaw('LOWER(name) != ?', [$currentLower]);
+                $query->whereRaw('LOWER(category) != ?', [$currentLower]);
             })
-            ->exists()
-            || Tag::query()
-                ->whereRaw('LOWER(category) = ?', [$lowerNewName])
-                ->when($currentLower !== null, function ($query) use ($currentLower) {
-                    $query->whereRaw('LOWER(category) != ?', [$currentLower]);
-                })
-                ->exists();
+            ->exists();
 
         if ($duplicateExists) {
             return redirect()
@@ -438,13 +418,7 @@ class TestTagController extends Controller
             })
             ->update(['category' => $newName]);
 
-        $categoryRecord = $resolved === null
-            ? null
-            : Category::query()->whereRaw('LOWER(name) = ?', [Str::lower($resolved)])->first();
-
-        if ($categoryRecord) {
-            $categoryRecord->update(['name' => $newName]);
-        } elseif ($affected === 0) {
+        if ($affected === 0) {
             return redirect()->route('test-tags.index')->with('error', 'Категорію не знайдено.');
         }
 
@@ -465,17 +439,7 @@ class TestTagController extends Controller
             })
             ->get();
 
-        $categoryRecord = $resolved === null
-            ? null
-            : Category::query()->whereRaw('LOWER(name) = ?', [Str::lower($resolved)])->first();
-
         if ($tags->isEmpty()) {
-            if ($categoryRecord) {
-                $categoryRecord->delete();
-
-                return redirect()->route('test-tags.index')->with('status', 'Категорію видалено.');
-            }
-
             return redirect()->route('test-tags.index')->with('error', 'Категорію не знайдено.');
         }
 
@@ -483,10 +447,6 @@ class TestTagController extends Controller
             $tag->questions()->detach();
             $tag->words()->detach();
             $tag->delete();
-        }
-
-        if ($categoryRecord) {
-            $categoryRecord->delete();
         }
 
         return redirect()->route('test-tags.index')->with('status', 'Категорію та всі її теги видалено.');
