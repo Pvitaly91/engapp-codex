@@ -60,7 +60,7 @@ function manualDescriptionLookup($symbol, array $manualMappings)
     return $manualMappings[$symbol] ?? null;
 }
 
-function resolveForexDescription($symbol)
+function getCurrencyName($code)
 {
     static $currencyNames = [
         'AED' => 'United Arab Emirates Dirham',
@@ -104,22 +104,37 @@ function resolveForexDescription($symbol)
         'TWD' => 'New Taiwan Dollar',
         'UGX' => 'Ugandan Shilling',
         'USD' => 'US Dollar',
+        'USDC' => 'USD Coin',
+        'USDT' => 'Tether',
+        'DAI' => 'Dai Stablecoin',
+        'BUSD' => 'Binance USD',
         'VND' => 'Vietnamese Dong',
         'ZAR' => 'South African Rand',
     ];
 
+    $code = strtoupper(trim($code));
+
+    return $currencyNames[$code] ?? null;
+}
+
+function resolveForexDescription($symbol)
+{
     $parts = explode('/', $symbol);
     if (count($parts) === 2) {
         $base = strtoupper(trim($parts[0]));
         $quote = strtoupper(trim($parts[1]));
-        if (isset($currencyNames[$base], $currencyNames[$quote])) {
-            return $currencyNames[$base] . ' / ' . $currencyNames[$quote];
+        $baseName = getCurrencyName($base);
+        $quoteName = getCurrencyName($quote);
+        if ($baseName !== null && $quoteName !== null) {
+            return $baseName . ' / ' . $quoteName;
         }
     } elseif (strlen($symbol) === 6) {
         $base = strtoupper(substr($symbol, 0, 3));
         $quote = strtoupper(substr($symbol, 3));
-        if (isset($currencyNames[$base], $currencyNames[$quote])) {
-            return $currencyNames[$base] . ' / ' . $currencyNames[$quote];
+        $baseName = getCurrencyName($base);
+        $quoteName = getCurrencyName($quote);
+        if ($baseName !== null && $quoteName !== null) {
+            return $baseName . ' / ' . $quoteName;
         }
     }
 
@@ -255,29 +270,46 @@ function resolveCryptoDescription($symbol)
         'ZIL' => 'Zilliqa Token',
     ];
 
-    $base = $symbol;
+    $basePart = $symbol;
+    $quotePart = null;
+
     if (str_contains($symbol, '-')) {
-        $base = strtoupper(strtok($symbol, '-'));
+        [$basePart, $quotePart] = explode('-', $symbol, 2);
+    } elseif (str_contains($symbol, '/')) {
+        [$basePart, $quotePart] = explode('/', $symbol, 2);
     }
 
-    if (isset($cryptoNames[$base])) {
-        if ($symbol === $base) {
-            return $cryptoNames[$base];
+    $baseKey = strtoupper(trim($basePart));
+
+    if (isset($cryptoNames[$baseKey])) {
+        $baseName = $cryptoNames[$baseKey];
+    } else {
+        $pretty = formatTitleCase($baseKey);
+        if ($pretty === '') {
+            return null;
         }
-
-        return $cryptoNames[$base] . ' / ' . substr($symbol, strlen($base) + 1);
+        $baseName = $pretty . ' Token';
     }
 
-    $pretty = formatTitleCase($base);
-    if ($pretty === '') {
-        return null;
+    if ($quotePart === null) {
+        return $baseName;
     }
 
-    if ($symbol === $base) {
-        return $pretty . ' Token';
+    $quoteKey = strtoupper(trim($quotePart));
+    $quoteName = getCurrencyName($quoteKey);
+
+    if ($quoteName === null && isset($cryptoNames[$quoteKey])) {
+        $quoteName = $cryptoNames[$quoteKey];
     }
 
-    return $pretty . ' / ' . substr($symbol, strlen($base) + 1);
+    if ($quoteName === null) {
+        $quoteName = formatTitleCase($quoteKey);
+        if ($quoteName === '') {
+            $quoteName = $quoteKey;
+        }
+    }
+
+    return $baseName . ' / ' . $quoteName;
 }
 
 function resolveCommodityDescription($symbol)
