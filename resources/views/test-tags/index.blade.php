@@ -94,13 +94,16 @@
                                             <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-100 px-3 py-2">
                                                 <button
                                                     type="button"
-                                                    class="flex-1 text-left font-medium text-slate-700 transition hover:text-blue-600"
+                                                    class="flex flex-1 items-center justify-between gap-3 text-left font-medium text-slate-700 transition hover:text-blue-600"
                                                     data-tag-load
                                                     data-tag-id="{{ $tag->id }}"
                                                     data-tag-name="{{ $tag->name }}"
                                                     data-tag-url="{{ route('test-tags.questions', $tag) }}"
                                                 >
-                                                    {{ $tag->name }}
+                                                    <span>{{ $tag->name }}</span>
+                                                    <span class="inline-flex shrink-0 items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600">
+                                                        {{ $tag->questions_count }}
+                                                    </span>
                                                 </button>
                                                 <span class="flex items-center gap-2 text-xs">
                                                     <a
@@ -177,16 +180,16 @@
                 }
 
                 const list = document.createElement('ol');
-                list.className = 'space-y-3 list-decimal list-inside text-sm text-slate-700';
+                list.className = 'space-y-4 list-decimal list-inside text-sm text-slate-700';
 
                 questions.forEach((question) => {
                     const item = document.createElement('li');
                     const questionWrapper = document.createElement('div');
-                    questionWrapper.className = 'space-y-1';
+                    questionWrapper.className = 'space-y-2';
 
                     const questionText = document.createElement('p');
                     questionText.className = 'font-medium text-slate-800';
-                    questionText.textContent = question.rendered_question || question.question;
+                    questionText.innerHTML = question.rendered_question || question.question;
 
                     const meta = document.createElement('p');
                     meta.className = 'text-xs text-slate-500';
@@ -196,6 +199,35 @@
                     meta.textContent = metaParts.length ? metaParts.join(' · ') : 'Додаткова інформація недоступна';
 
                     questionWrapper.appendChild(questionText);
+                    if (Array.isArray(question.answers) && question.answers.length) {
+                        const answersTitle = document.createElement('p');
+                        answersTitle.className = 'text-xs font-semibold uppercase tracking-wide text-slate-500';
+                        answersTitle.textContent = 'Відповіді';
+
+                        const answersList = document.createElement('ul');
+                        answersList.className = 'space-y-1 text-sm text-slate-700';
+
+                        question.answers.forEach((answer) => {
+                            const answerItem = document.createElement('li');
+                            answerItem.className = 'flex items-start gap-2';
+
+                            const marker = document.createElement('span');
+                            marker.className = 'mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600';
+                            marker.textContent = answer.marker ?? '•';
+
+                            const value = document.createElement('span');
+                            value.className = 'flex-1';
+                            value.textContent = answer.rendered_answer || answer.answer || '';
+
+                            answerItem.appendChild(marker);
+                            answerItem.appendChild(value);
+                            answersList.appendChild(answerItem);
+                        });
+
+                        questionWrapper.appendChild(answersTitle);
+                        questionWrapper.appendChild(answersList);
+                    }
+
                     questionWrapper.appendChild(meta);
                     item.appendChild(questionWrapper);
                     list.appendChild(item);

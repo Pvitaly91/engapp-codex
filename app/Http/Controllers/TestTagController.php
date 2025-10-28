@@ -34,6 +34,7 @@ class TestTagController extends Controller
     private function loadTagData(): array
     {
         $tagsByCategory = Tag::query()
+            ->withCount('questions')
             ->orderByRaw('CASE WHEN category IS NULL OR category = "" THEN 1 ELSE 0 END')
             ->orderBy('category')
             ->orderBy('name')
@@ -148,6 +149,15 @@ class TestTagController extends Controller
                     'rendered_question' => $question->renderQuestionText(),
                     'difficulty' => $question->difficulty,
                     'level' => $question->level,
+                    'answers' => $question->answers->map(function ($answer) {
+                        return [
+                            'id' => $answer->id,
+                            'marker' => $answer->marker,
+                            'answer' => $answer->answer,
+                            'option' => optional($answer->option)->option,
+                            'rendered_answer' => optional($answer->option)->option ?? $answer->answer,
+                        ];
+                    })->values(),
                 ];
             })
             ->values();
