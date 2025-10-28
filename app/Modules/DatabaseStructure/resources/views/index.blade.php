@@ -138,6 +138,53 @@
                 </template>
 
                 <template x-if="table.records.rows.length > 0">
+                  <div class="mb-4 flex flex-col gap-4 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+                    <div>
+                      Всього записів: <span class="font-semibold text-foreground" x-text="table.records.total"></span>
+                    </div>
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                      <label class="flex items-center gap-2">
+                        <span>На сторінці:</span>
+                        <select
+                          class="rounded-xl border border-input bg-background px-3 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                          :value="table.records.perPage"
+                          @change="changePerPage(table, $event.target.value)"
+                        >
+                          <option value="10">10</option>
+                          <option value="20">20</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                        </select>
+                      </label>
+                      <div class="flex items-center gap-2">
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                          :disabled="table.records.page <= 1"
+                          @click="changePage(table, table.records.page - 1)"
+                        >
+                          <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                          Попередня
+                        </button>
+                        <span>
+                          Сторінка <span class="font-semibold text-foreground" x-text="table.records.page"></span>
+                          з <span class="font-semibold text-foreground" x-text="table.records.lastPage"></span>
+                        </span>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                          :disabled="table.records.page >= table.records.lastPage"
+                          @click="changePage(table, table.records.page + 1)"
+                        >
+                          Наступна
+                          <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+
+                <template x-if="table.records.rows.length > 0">
                   <table class="min-w-full divide-y divide-border/60 text-sm">
                     <thead class="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <tr>
