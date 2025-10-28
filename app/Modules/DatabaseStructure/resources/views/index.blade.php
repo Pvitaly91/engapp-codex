@@ -130,7 +130,106 @@
                 </template>
               </div>
 
-              <div x-show="table.records.visible" x-collapse class="mt-4 overflow-x-auto">
+              <div x-show="table.records.visible" x-collapse class="mt-4 space-y-4">
+                <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-xs text-muted-foreground">
+                  <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                    <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
+                    <div class="flex flex-wrap items-center gap-2">
+                      <button
+                        type="button"
+                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
+                        @click.stop="addFilter(table)"
+                        :disabled="table.records.loading"
+                      >
+                        <i class="fa-solid fa-plus text-[10px]"></i>
+                        Додати фільтр
+                      </button>
+                      <button
+                        type="button"
+                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                        :disabled="table.records.filters.length === 0 || table.records.loading"
+                        @click.stop="resetFilters(table)"
+                      >
+                        <i class="fa-solid fa-rotate-left text-[10px]"></i>
+                        Скинути
+                      </button>
+                      <button
+                        type="button"
+                        class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                        :disabled="table.records.loading"
+                        @click.stop="applyFilters(table)"
+                      >
+                        <i class="fa-solid fa-filter text-[10px]"></i>
+                        Застосувати
+                      </button>
+                    </div>
+                  </div>
+                  <p class="mt-2 text-[11px] text-muted-foreground">
+                    Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
+                    <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
+                  </p>
+                  <template x-if="table.records.filters.length === 0">
+                    <div class="mt-3 rounded-xl border border-dashed border-border/60 bg-background/60 p-4 text-[11px] text-muted-foreground">
+                      Фільтри не задано. Додайте новий, щоб відфільтрувати записи.
+                    </div>
+                  </template>
+                  <div class="mt-3 space-y-3" x-show="table.records.filters.length > 0">
+                    <template x-for="(filter, filterIndex) in table.records.filters" :key="filter.id">
+                      <div class="flex flex-col gap-3 rounded-xl border border-border/60 bg-background/70 p-4 sm:flex-row sm:items-end sm:gap-4">
+                        <div class="flex flex-1 flex-col gap-3 sm:flex-row sm:items-end sm:gap-4">
+                          <label class="flex flex-1 flex-col gap-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                            <span>Поле</span>
+                            <select
+                              class="rounded-xl border border-input bg-background px-3 py-2 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              x-model="filter.column"
+                              :disabled="table.records.loading"
+                            >
+                              <option value="">Оберіть поле</option>
+                              <template x-for="column in table.records.columns" :key="column + '-filter-option'">
+                                <option :value="column" x-text="column"></option>
+                              </template>
+                            </select>
+                          </label>
+                          <label class="flex w-full flex-col gap-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80 sm:w-48">
+                            <span>Оператор</span>
+                            <select
+                              class="rounded-xl border border-input bg-background px-3 py-2 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              x-model="filter.operator"
+                              :disabled="table.records.loading"
+                            >
+                              <template x-for="option in filterOperators" :key="option.value">
+                                <option :value="option.value" x-text="option.label"></option>
+                              </template>
+                            </select>
+                          </label>
+                          <label
+                            class="flex flex-1 flex-col gap-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80"
+                            x-show="operatorRequiresValue(filter.operator)"
+                          >
+                            <span>Значення</span>
+                            <input
+                              type="text"
+                              class="rounded-xl border border-input bg-background px-3 py-2 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              placeholder="Вкажіть значення"
+                              x-model="filter.value"
+                              :disabled="table.records.loading"
+                            />
+                          </label>
+                        </div>
+                        <button
+                          type="button"
+                          class="inline-flex items-center justify-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-rose-300 hover:text-rose-500"
+                          @click.stop="removeFilter(table, filterIndex)"
+                          :disabled="table.records.loading"
+                        >
+                          <i class="fa-solid fa-xmark text-[10px]"></i>
+                          Прибрати
+                        </button>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+
                 <template x-if="table.records.rows.length === 0 && !table.records.loading && !table.records.error">
                   <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-6 text-center text-xs text-muted-foreground">
                     Записів не знайдено.
@@ -138,129 +237,129 @@
                 </template>
 
                 <template x-if="table.records.rows.length > 0">
-                  <div class="mb-4 flex flex-col gap-4 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-                    <div>
-                      Всього записів: <span class="font-semibold text-foreground" x-text="table.records.total"></span>
-                    </div>
-                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-                      <label class="flex items-center gap-2">
-                        <span>На сторінці:</span>
-                        <select
-                          class="rounded-xl border border-input bg-background px-3 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                          :value="table.records.perPage"
-                          @change="changePerPage(table, $event.target.value)"
-                        >
-                          <option value="10">10</option>
-                          <option value="20">20</option>
-                          <option value="50">50</option>
-                          <option value="100">100</option>
-                        </select>
-                      </label>
-                      <div class="flex items-center gap-2">
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
-                          :disabled="table.records.page <= 1"
-                          @click="changePage(table, table.records.page - 1)"
-                        >
-                          <i class="fa-solid fa-chevron-left text-[10px]"></i>
-                          Попередня
-                        </button>
-                        <span>
-                          Сторінка <span class="font-semibold text-foreground" x-text="table.records.page"></span>
-                          з <span class="font-semibold text-foreground" x-text="table.records.lastPage"></span>
-                        </span>
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
-                          :disabled="table.records.page >= table.records.lastPage"
-                          @click="changePage(table, table.records.page + 1)"
-                        >
-                          Наступна
-                          <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                        </button>
+                  <div class="space-y-4">
+                    <div class="flex flex-col gap-4 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+                      <div>
+                        Всього записів: <span class="font-semibold text-foreground" x-text="table.records.total"></span>
+                      </div>
+                      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                        <label class="flex items-center gap-2">
+                          <span>На сторінці:</span>
+                          <select
+                            class="rounded-xl border border-input bg-background px-3 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                            :value="table.records.perPage"
+                            @change="changePerPage(table, $event.target.value)"
+                          >
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                          </select>
+                        </label>
+                        <div class="flex items-center gap-2">
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                            :disabled="table.records.page <= 1"
+                            @click="changePage(table, table.records.page - 1)"
+                          >
+                            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                            Попередня
+                          </button>
+                          <span>
+                            Сторінка <span class="font-semibold text-foreground" x-text="table.records.page"></span>
+                            з <span class="font-semibold text-foreground" x-text="table.records.lastPage"></span>
+                          </span>
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                            :disabled="table.records.page >= table.records.lastPage"
+                            @click="changePage(table, table.records.page + 1)"
+                          >
+                            Наступна
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </template>
 
-                <template x-if="table.records.rows.length > 0">
-                  <table class="min-w-full divide-y divide-border/60 text-sm">
-                    <thead class="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
-                      <tr>
-                        <template x-for="column in table.records.columns" :key="column">
-                          <th class="px-3 py-2 font-medium">
-                            <button
-                              type="button"
-                              class="flex items-center gap-2 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground transition hover:text-primary"
-                              @click.stop="toggleSort(table, column)"
-                            >
-                              <span x-text="column"></span>
-                              <span class="text-[10px]" x-show="table.records.sort === column">
-                                <i
-                                  class="fa-solid"
-                                  :class="table.records.direction === 'asc' ? 'fa-arrow-up-short-wide' : 'fa-arrow-down-wide-short'"
-                                ></i>
-                              </span>
-                            </button>
-                          </th>
-                        </template>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-border/60">
-                      <template x-for="(row, rowIndex) in table.records.rows" :key="rowIndex">
-                        <tr class="hover:bg-muted/40">
-                          <template x-for="column in table.records.columns" :key="column">
-                            <td class="px-3 py-2 text-xs text-foreground" x-text="formatCell(row[column])"></td>
+                    <div class="overflow-x-auto">
+                      <table class="min-w-full divide-y divide-border/60 text-sm">
+                        <thead class="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
+                          <tr>
+                            <template x-for="column in table.records.columns" :key="column">
+                              <th class="px-3 py-2 font-medium">
+                                <button
+                                  type="button"
+                                  class="flex items-center gap-2 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground transition hover:text-primary"
+                                  @click.stop="toggleSort(table, column)"
+                                >
+                                  <span x-text="column"></span>
+                                  <span class="text-[10px]" x-show="table.records.sort === column">
+                                    <i
+                                      class="fa-solid"
+                                      :class="table.records.direction === 'asc' ? 'fa-arrow-up-short-wide' : 'fa-arrow-down-wide-short'"
+                                    ></i>
+                                  </span>
+                                </button>
+                              </th>
+                            </template>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border/60">
+                          <template x-for="(row, rowIndex) in table.records.rows" :key="rowIndex">
+                            <tr class="hover:bg-muted/40">
+                              <template x-for="column in table.records.columns" :key="column">
+                                <td class="px-3 py-2 text-xs text-foreground" x-text="formatCell(row[column])"></td>
+                              </template>
+                            </tr>
                           </template>
-                        </tr>
-                      </template>
-                    </tbody>
-                  </table>
-                </template>
-
-                <template x-if="table.records.rows.length > 0">
-                  <div class="mt-4 flex flex-col gap-4 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-                    <div>
-                      Всього записів: <span class="font-semibold text-foreground" x-text="table.records.total"></span>
+                        </tbody>
+                      </table>
                     </div>
-                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-                      <label class="flex items-center gap-2">
-                        <span>На сторінці:</span>
-                        <select
-                          class="rounded-xl border border-input bg-background px-3 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                          :value="table.records.perPage"
-                          @change="changePerPage(table, $event.target.value)"
-                        >
-                          <option value="10">10</option>
-                          <option value="20">20</option>
-                          <option value="50">50</option>
-                          <option value="100">100</option>
-                        </select>
-                      </label>
-                      <div class="flex items-center gap-2">
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
-                          :disabled="table.records.page <= 1"
-                          @click="changePage(table, table.records.page - 1)"
-                        >
-                          <i class="fa-solid fa-chevron-left text-[10px]"></i>
-                          Попередня
-                        </button>
-                        <span>
-                          Сторінка <span class="font-semibold text-foreground" x-text="table.records.page"></span>
-                          з <span class="font-semibold text-foreground" x-text="table.records.lastPage"></span>
-                        </span>
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
-                          :disabled="table.records.page >= table.records.lastPage"
-                          @click="changePage(table, table.records.page + 1)"
-                        >
-                          Наступна
-                          <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                        </button>
+
+                    <div class="flex flex-col gap-4 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+                      <div>
+                        Всього записів: <span class="font-semibold text-foreground" x-text="table.records.total"></span>
+                      </div>
+                      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                        <label class="flex items-center gap-2">
+                          <span>На сторінці:</span>
+                          <select
+                            class="rounded-xl border border-input bg-background px-3 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                            :value="table.records.perPage"
+                            @change="changePerPage(table, $event.target.value)"
+                          >
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                          </select>
+                        </label>
+                        <div class="flex items-center gap-2">
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                            :disabled="table.records.page <= 1"
+                            @click="changePage(table, table.records.page - 1)"
+                          >
+                            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                            Попередня
+                          </button>
+                          <span>
+                            Сторінка <span class="font-semibold text-foreground" x-text="table.records.page"></span>
+                            з <span class="font-semibold text-foreground" x-text="table.records.lastPage"></span>
+                          </span>
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                            :disabled="table.records.page >= table.records.lastPage"
+                            @click="changePage(table, table.records.page + 1)"
+                          >
+                            Наступна
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -280,6 +379,16 @@
       Alpine.data('databaseStructureViewer', (tables, recordsRoute) => ({
         query: '',
         recordsRoute,
+        filterOperators: [
+          { value: '=', label: 'Дорівнює (=)' },
+          { value: '!=', label: 'Не дорівнює (!=)' },
+          { value: '<', label: 'Менше (<)' },
+          { value: '<=', label: 'Менше або дорівнює (<=)' },
+          { value: '>', label: 'Більше (>)' },
+          { value: '>=', label: 'Більше або дорівнює (>=)' },
+          { value: 'like', label: 'Містить (LIKE)' },
+          { value: 'not like', label: 'Не містить (NOT LIKE)' },
+        ],
         tables: tables.map((table) => ({
           ...table,
           open: false,
@@ -296,6 +405,7 @@
             lastPage: 1,
             sort: null,
             direction: 'asc',
+            filters: [],
           },
         })),
         get filteredTables() {
@@ -329,6 +439,7 @@
           table.records.loaded = false;
 
           try {
+            const previousFilters = table.records.filters.map((filter) => ({ ...filter }));
             const url = new URL(
               this.recordsRoute.replace('__TABLE__', encodeURIComponent(table.name)),
               window.location.origin
@@ -341,6 +452,20 @@
               url.searchParams.set('sort', table.records.sort);
               url.searchParams.set('direction', table.records.direction);
             }
+
+            table.records.filters.forEach((filter, index) => {
+              if (!filter || !filter.column || !filter.operator) {
+                return;
+              }
+
+              url.searchParams.append(`filters[${index}][column]`, filter.column);
+              url.searchParams.append(`filters[${index}][operator]`, filter.operator);
+
+              if (this.operatorRequiresValue(filter.operator)) {
+                const value = filter.value ?? '';
+                url.searchParams.append(`filters[${index}][value]`, value === null ? '' : String(value));
+              }
+            });
 
             const response = await fetch(url.toString(), {
               headers: {
@@ -361,6 +486,8 @@
             table.records.lastPage = data.last_page || 1;
             table.records.sort = data.sort || null;
             table.records.direction = data.direction || table.records.direction;
+            const filtersFromResponse = Array.isArray(data.filters) ? data.filters : previousFilters;
+            table.records.filters = this.normalizeFilters(filtersFromResponse, previousFilters);
             table.records.loaded = true;
           } catch (error) {
             table.records.error = error.message ?? 'Сталася помилка під час завантаження записів.';
@@ -405,6 +532,120 @@
 
           table.records.page = 1;
           this.loadRecords(table);
+        },
+        addFilter(table) {
+          if (table.records.loading) {
+            return;
+          }
+
+          const fallbackColumn = Array.isArray(table.records.columns) && table.records.columns.length > 0
+            ? table.records.columns[0]
+            : (Array.isArray(table.columns) && table.columns.length > 0 ? table.columns[0].name : '');
+
+          table.records.filters = [
+            ...table.records.filters,
+            {
+              id: this.generateFilterId(),
+              column: fallbackColumn || '',
+              operator: '=',
+              value: '',
+            },
+          ];
+        },
+        removeFilter(table, index) {
+          if (table.records.loading) {
+            return;
+          }
+
+          if (index < 0 || index >= table.records.filters.length) {
+            return;
+          }
+
+          table.records.filters = table.records.filters.filter((_, filterIndex) => filterIndex !== index);
+
+          if (table.records.loaded) {
+            table.records.page = 1;
+            this.loadRecords(table);
+          }
+        },
+        applyFilters(table) {
+          if (table.records.loading) {
+            return;
+          }
+
+          table.records.page = 1;
+          this.loadRecords(table);
+        },
+        resetFilters(table) {
+          if (table.records.loading || table.records.filters.length === 0) {
+            return;
+          }
+
+          table.records.filters = [];
+          table.records.page = 1;
+          this.loadRecords(table);
+        },
+        normalizeFilters(filters, previousFilters = []) {
+          if (!Array.isArray(filters)) {
+            return [];
+          }
+
+          const idsByKey = new Map();
+
+          previousFilters.forEach((filter) => {
+            if (!filter) {
+              return;
+            }
+
+            const key = this.filterKey(filter);
+            const existing = idsByKey.get(key) || [];
+            existing.push(filter.id);
+            idsByKey.set(key, existing);
+          });
+
+          return filters
+            .filter((filter) => filter && typeof filter === 'object')
+            .map((filter) => {
+              const column = typeof filter.column === 'string' ? filter.column : '';
+              const operator = typeof filter.operator === 'string' ? filter.operator : '=';
+              const rawValue = filter.value ?? '';
+              const value = rawValue === null ? '' : String(rawValue);
+              const key = this.filterKey({ column, operator, value });
+              const pool = idsByKey.get(key) || [];
+              const id = pool.shift() ?? this.generateFilterId();
+
+              if (pool.length > 0) {
+                idsByKey.set(key, pool);
+              } else {
+                idsByKey.delete(key);
+              }
+
+              return {
+                id,
+                column,
+                operator,
+                value,
+              };
+            });
+        },
+        filterKey(filter) {
+          const column = typeof filter.column === 'string' ? filter.column : '';
+          const operator = typeof filter.operator === 'string' ? filter.operator : '';
+          const value = filter.value === undefined || filter.value === null ? '' : String(filter.value);
+
+          return [column, operator, value].join('::');
+        },
+        operatorRequiresValue(operator) {
+          const normalized = (operator ?? '').toString().toLowerCase();
+
+          return ['=', '!=', '<', '<=', '>', '>=', 'like', 'not like', '<>'].includes(normalized);
+        },
+        generateFilterId() {
+          if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+            return window.crypto.randomUUID();
+          }
+
+          return `filter-${Date.now()}-${Math.random().toString(16).slice(2)}`;
         },
         formatCell(value) {
           if (value === null || value === undefined) {

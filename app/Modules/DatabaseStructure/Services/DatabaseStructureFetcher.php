@@ -3,6 +3,7 @@
 namespace App\Modules\DatabaseStructure\Services;
 
 use Illuminate\Database\Connection;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use RuntimeException;
@@ -55,7 +56,8 @@ class DatabaseStructureFetcher
         int $page = 1,
         int $perPage = 20,
         ?string $sort = null,
-        string $direction = 'asc'
+        string $direction = 'asc',
+        array $filters = []
     ): array
     {
         $structure = Collection::make($this->getStructure());
@@ -67,6 +69,7 @@ class DatabaseStructureFetcher
 
         $columns = $tableInfo['columns'] ?? [];
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+        $normalizedFilters = $this->prepareFilters($filters, $columnNames);
 
         $validSort = null;
         if ($sort && in_array($sort, $columnNames, true)) {
@@ -79,6 +82,9 @@ class DatabaseStructureFetcher
 
         $query = $this->connection->table($table);
         $countQuery = $this->connection->table($table);
+
+        $this->applyFilters($query, $normalizedFilters);
+        $this->applyFilters($countQuery, $normalizedFilters);
 
         if ($validSort) {
             $query->orderBy($validSort, $direction);
@@ -118,7 +124,109 @@ class DatabaseStructureFetcher
             'last_page' => $lastPage,
             'sort' => $validSort,
             'direction' => $validSort ? $direction : null,
+            'filters' => $normalizedFilters,
         ];
+    }
+
+    /**
+     * @param array<int, array{column: string, operator: string, value?: mixed}> $filters
+     * @param array<int, string> $columnNames
+     * @return array<int, array{column: string, operator: string, value?: mixed}>
+     */
+    private function prepareFilters(array $filters, array $columnNames): array
+    {
+        return Collection::make($filters)
+            ->filter(function ($filter): bool {
+                return is_array($filter)
+                    && isset($filter['column'], $filter['operator'])
+                    && is_string($filter['column'])
+                    && is_string($filter['operator']);
+            })
+            ->map(function (array $filter) use ($columnNames): ?array {
+                $column = trim($filter['column']);
+
+                if ($column === '') {
+                    return null;
+                }
+
+                $isKnownColumn = in_array($column, $columnNames, true);
+                $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $column);
+
+                if (!$isKnownColumn && !$isAdHocColumn) {
+                    return null;
+                }
+
+                $operator = $this->normalizeOperator($filter['operator']);
+
+                if ($operator === null) {
+                    return null;
+                }
+
+                $requiresValue = $this->operatorRequiresValue($operator);
+                $value = $filter['value'] ?? null;
+
+                if ($requiresValue) {
+                    if (!is_scalar($value) && $value !== null) {
+                        return null;
+                    }
+
+                    $value = $value === null ? null : (string) $value;
+
+                    if ($value === null) {
+                        return null;
+                    }
+                }
+
+                return array_filter([
+                    'column' => $column,
+                    'operator' => $operator,
+                    'value' => $requiresValue ? $value : null,
+                ], static fn ($item) => $item !== null);
+            })
+            ->filter(fn ($filter) => $filter !== null)
+            ->values()
+            ->all();
+    }
+
+    private function normalizeOperator(string $operator): ?string
+    {
+        return match (strtolower(trim($operator))) {
+            '=' => '=',
+            '!=' => '!=',
+            '<>' => '!=',
+            '<' => '<',
+            '>' => '>',
+            '<=' => '<=',
+            '>=' => '>=',
+            'like' => 'like',
+            'not like', 'not_like' => 'not like',
+            default => null,
+        };
+    }
+
+    private function operatorRequiresValue(string $operator): bool
+    {
+        return in_array($operator, ['=', '!=', '<', '>', '<=', '>=', 'like', 'not like'], true);
+    }
+
+    /**
+     * @param array<int, array{column: string, operator: string, value?: string}> $filters
+     */
+    private function applyFilters(Builder $query, array $filters): void
+    {
+        foreach ($filters as $filter) {
+            $operator = $filter['operator'];
+
+            if (in_array($operator, ['like', 'not like'], true)) {
+                $value = (string) ($filter['value'] ?? '');
+                $query->where($filter['column'], $operator, $value);
+                continue;
+            }
+
+            $queryOperator = $operator === '!=' ? '<>' : $operator;
+
+            $query->where($filter['column'], $queryOperator, $filter['value']);
+        }
     }
 
     private function structureFromMySql(): array
