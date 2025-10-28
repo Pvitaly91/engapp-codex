@@ -299,6 +299,11 @@
         const initTestTagQuestionsPanel = () => {
             const panel = document.getElementById('tag-questions-panel');
             const selectedLabel = document.getElementById('tag-questions-selected');
+
+            if (!panel || !selectedLabel) {
+                return;
+            }
+
             const defaultPanelContent = panel.innerHTML;
             let activeButton = null;
             let abortController = null;
@@ -307,71 +312,64 @@
                 panel.innerHTML = html;
             };
 
-            const renderQuestions = (tagName, questions) => {
-                const questionCount = questions.length;
-                selectedLabel.textContent = `Обраний тег: ${tagName} • Питань: ${questionCount}`;
+            const formatMeta = (question) => {
+                const difficulty = (question.difficulty ?? '') !== '' ? `Складність: ${question.difficulty}` : null;
+                const level = (question.level ?? '') !== '' ? `Рівень: ${question.level}` : null;
+                const parts = [difficulty, level].filter(Boolean);
 
-                if (!questions.length) {
+                return parts.length ? parts.join(' · ') : 'Додаткова інформація недоступна';
+            };
+
+            const renderQuestions = (tagName, questions) => {
+                const normalisedQuestions = Array.isArray(questions)
+                    ? questions
+                    : (questions && typeof questions === 'object')
+                        ? Object.values(questions)
+                        : [];
+
+                selectedLabel.textContent = `Обраний тег: ${tagName} • Питань: ${normalisedQuestions.length}`;
+
+                if (!normalisedQuestions.length) {
                     setPanelContent('<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>');
                     return;
                 }
 
-                const list = document.createElement('ol');
-                list.className = 'space-y-4 list-decimal list-inside text-sm text-slate-700';
+                const questionsHtml = normalisedQuestions
+                    .map((question) => {
+                        const answers = Array.isArray(question.answers) ? question.answers : [];
+                        const answersHtml = answers.length
+                            ? `
+                                <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Відповіді</p>
+                                <ul class="space-y-1 text-sm text-slate-700">
+                                    ${answers
+                                        .map((answer) => `
+                                            <li class="flex items-start gap-2">
+                                                <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600">${answer.marker ?? '•'}</span>
+                                                <span class="flex-1">${answer.rendered_answer || answer.answer || ''}</span>
+                                            </li>
+                                        `)
+                                        .join('')}
+                                </ul>
+                            `
+                            : '';
 
-                questions.forEach((question) => {
-                    const item = document.createElement('li');
-                    const questionWrapper = document.createElement('div');
-                    questionWrapper.className = 'space-y-2';
+                        return `
+                            <li>
+                                <div class="space-y-2">
+                                    <p class="font-medium text-slate-800">${question.rendered_question || question.question || ''}</p>
+                                    ${answersHtml}
+                                    <p class="text-xs text-slate-500">${formatMeta(question)}</p>
+                                </div>
+                            </li>
+                        `;
+                    })
+                    .join('');
 
-                    const questionText = document.createElement('p');
-                    questionText.className = 'font-medium text-slate-800';
-                    questionText.innerHTML = question.rendered_question || question.question;
-
-                    const meta = document.createElement('p');
-                    meta.className = 'text-xs text-slate-500';
-                    const difficulty = (question.difficulty ?? '') !== '' ? `Складність: ${question.difficulty}` : null;
-                    const level = (question.level ?? '') !== '' ? `Рівень: ${question.level}` : null;
-                    const metaParts = [difficulty, level].filter(Boolean);
-                    meta.textContent = metaParts.length ? metaParts.join(' · ') : 'Додаткова інформація недоступна';
-
-                    questionWrapper.appendChild(questionText);
-                    if (Array.isArray(question.answers) && question.answers.length) {
-                        const answersTitle = document.createElement('p');
-                        answersTitle.className = 'text-xs font-semibold uppercase tracking-wide text-slate-500';
-                        answersTitle.textContent = 'Відповіді';
-
-                        const answersList = document.createElement('ul');
-                        answersList.className = 'space-y-1 text-sm text-slate-700';
-
-                        question.answers.forEach((answer) => {
-                            const answerItem = document.createElement('li');
-                            answerItem.className = 'flex items-start gap-2';
-
-                            const marker = document.createElement('span');
-                            marker.className = 'mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600';
-                            marker.textContent = answer.marker ?? '•';
-
-                            const value = document.createElement('span');
-                            value.className = 'flex-1';
-                            value.textContent = answer.rendered_answer || answer.answer || '';
-
-                            answerItem.appendChild(marker);
-                            answerItem.appendChild(value);
-                            answersList.appendChild(answerItem);
-                        });
-
-                        questionWrapper.appendChild(answersTitle);
-                        questionWrapper.appendChild(answersList);
-                    }
-
-                    questionWrapper.appendChild(meta);
-                    item.appendChild(questionWrapper);
-                    list.appendChild(item);
-                });
-
-                panel.innerHTML = '';
-                panel.appendChild(list);
+                setPanelContent(`
+                    <ol class="space-y-4 list-decimal list-inside text-sm text-slate-700">
+                        ${questionsHtml}
+                    </ol>
+                `);
             };
 
             const showError = (message) => {
@@ -422,11 +420,11 @@
                             return response.json();
                         })
                         .then((data) => {
-                            if (!data || !data.tag || !Array.isArray(data.questions)) {
+                            if (!data || !data.tag) {
                                 throw new Error('Невірна відповідь від сервера.');
                             }
 
-                            renderQuestions(data.tag.name, data.questions);
+                            renderQuestions(data.tag.name || '', data.questions);
                         })
                         .catch((error) => {
                             if (error.name === 'AbortError') {
@@ -438,12 +436,8 @@
                 });
             });
 
-            // Reset helpers on initial load
-            const resetPanel = () => {
-                selectedLabel.textContent = '';
-                panel.innerHTML = defaultPanelContent;
-            };
-            resetPanel();
+            selectedLabel.textContent = '';
+            setPanelContent(defaultPanelContent);
         };
 
         const initTestTagPage = () => {

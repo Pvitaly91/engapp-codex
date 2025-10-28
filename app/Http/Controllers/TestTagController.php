@@ -162,10 +162,11 @@ class TestTagController extends Controller
                             'option' => optional($answer->option)->option,
                             'rendered_answer' => optional($answer->option)->option ?? $answer->answer,
                         ];
-                    })->values(),
+                    })->values()->all(),
                 ];
             })
-            ->values();
+            ->values()
+            ->all();
 
         return response()->json([
             'tag' => [
