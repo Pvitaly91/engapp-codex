@@ -42,7 +42,13 @@
                 @else
                     <div class="space-y-6">
                         @foreach ($tagGroups as $group)
-                            <div x-data="{ open: false }" class="space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+                            @php
+                                $categoryIsEmpty = (bool) ($group['is_empty'] ?? false);
+                            @endphp
+                            <div
+                                x-data="{ open: false }"
+                                class="space-y-3 rounded-xl border p-5 shadow-sm {{ $categoryIsEmpty ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-white' }}"
+                            >
                                 <div class="flex flex-wrap items-start justify-between gap-3">
                                     <button
                                         type="button"
@@ -51,12 +57,12 @@
                                         :aria-expanded="open.toString()"
                                         aria-controls="tag-group-{{ $loop->index }}"
                                     >
-                                        <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500">
+                                        <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border {{ $categoryIsEmpty ? 'border-red-200 bg-red-100 text-red-500' : 'border-slate-200 bg-slate-50 text-slate-500' }}">
                                             <i class="fa-solid fa-chevron-down text-sm transform transition-transform" :class="{ '-rotate-90': !open }"></i>
                                         </span>
                                         <span class="space-y-1">
-                                            <span class="block text-lg font-semibold text-slate-800">{{ $group['label'] }}</span>
-                                            <span class="block text-sm text-slate-500">{{ trans_choice('{0}Немає тегів|{1}1 тег|[2,4]:count теги|[5,*]:count тегів', $group['tags']->count(), ['count' => $group['tags']->count()]) }}</span>
+                                            <span class="block text-lg font-semibold {{ $categoryIsEmpty ? 'text-red-700' : 'text-slate-800' }}">{{ $group['label'] }}</span>
+                                            <span class="block text-sm {{ $categoryIsEmpty ? 'text-red-600' : 'text-slate-500' }}">{{ trans_choice('{0}Немає тегів|{1}1 тег|[2,4]:count теги|[5,*]:count тегів', $group['tags']->count(), ['count' => $group['tags']->count()]) }}</span>
                                         </span>
                                     </button>
                                     <div class="flex items-center gap-2">
@@ -132,7 +138,7 @@
                                                 </span>
                                             </li>
                                         @empty
-                                            <li class="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-3 py-4 text-center text-sm text-slate-500">
+                                            <li class="rounded-lg border border-dashed px-3 py-4 text-center text-sm {{ $categoryIsEmpty ? 'border-red-200 bg-red-100 text-red-600' : 'border-slate-200 bg-slate-50 text-slate-500' }}">
                                                 У цій категорії ще немає тегів.
                                             </li>
                                         @endforelse

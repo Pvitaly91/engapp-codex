@@ -58,11 +58,16 @@ class TestTagController extends Controller
         [$tagsByCategory, $categories] = $this->loadTagData();
 
         $tagGroups = $tagsByCategory->map(function ($tags, $category) {
+            $isEmpty = $tags->isEmpty() || $tags->every(function (Tag $tag) {
+                return (int) $tag->questions_count === 0;
+            });
+
             return [
                 'name' => $category,
                 'label' => $category ?: 'Без категорії',
                 'key' => $this->encodeCategoryParam($category),
                 'tags' => $tags,
+                'is_empty' => $isEmpty,
             ];
         })->values();
 
