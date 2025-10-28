@@ -930,44 +930,48 @@
                 }
             });
 
-            document.querySelectorAll('form[data-preloader]').forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.dataset.confirmed === 'true') {
-                        delete form.dataset.confirmed;
+            document.addEventListener('submit', function (event) {
+                const form = event.target.closest('form[data-preloader]');
 
-                        if (preloader) {
-                            preloader.classList.remove('hidden');
-                        }
+                if (!form) {
+                    return;
+                }
 
-                        return;
-                    }
-
-                    const confirmMessage = form.dataset.confirm;
-
-                    if (confirmMessage) {
-                        event.preventDefault();
-
-                        const modalOpened = openConfirmationModal(form, confirmMessage);
-
-                        if (!modalOpened && !window.confirm(confirmMessage)) {
-                            return;
-                        }
-
-                        if (!modalOpened) {
-                            if (preloader) {
-                                preloader.classList.remove('hidden');
-                            }
-
-                            form.submit();
-                        }
-
-                        return;
-                    }
+                if (form.dataset.confirmed === 'true') {
+                    delete form.dataset.confirmed;
 
                     if (preloader) {
                         preloader.classList.remove('hidden');
                     }
-                });
+
+                    return;
+                }
+
+                const confirmMessage = form.dataset.confirm;
+
+                if (confirmMessage) {
+                    event.preventDefault();
+
+                    const modalOpened = openConfirmationModal(form, confirmMessage);
+
+                    if (!modalOpened && !window.confirm(confirmMessage)) {
+                        return;
+                    }
+
+                    if (!modalOpened) {
+                        if (preloader) {
+                            preloader.classList.remove('hidden');
+                        }
+
+                        form.submit();
+                    }
+
+                    return;
+                }
+
+                if (preloader) {
+                    preloader.classList.remove('hidden');
+                }
             });
 
             document.querySelectorAll('[data-bulk-delete-button]').forEach(function (button) {
