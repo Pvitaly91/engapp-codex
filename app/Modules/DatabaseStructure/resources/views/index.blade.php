@@ -85,7 +85,7 @@
           </header>
           <div x-show="table.open" x-collapse>
             <div class="overflow-x-auto px-6 py-5">
-              <table class="min-w-full divide-y divide-border/60 text-sm">
+              <table class="min-w-full divide-y divide-border/60 text-[15px]">
                 <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
                   <tr>
                     <th class="pb-3 pr-4 font-medium">Поле</th>
@@ -97,7 +97,7 @@
                     <th class="pb-3 font-medium">Коментар</th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-border/60 text-foreground">
+                <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
                   <template x-for="column in table.columns" :key="column.name">
                     <tr class="hover:bg-muted/40">
                       <td class="py-2 pr-4 font-medium" x-text="column.name"></td>
@@ -284,7 +284,7 @@
                     </div>
 
                     <div class="overflow-x-auto">
-                      <table class="min-w-full divide-y divide-border/60 text-sm">
+                      <table class="min-w-full divide-y divide-border/60 text-[15px]">
                         <thead class="bg-muted/40 text-left text-xs uppercase tracking-wider text-muted-foreground">
                           <tr>
                             <template x-for="column in table.records.columns" :key="column">
@@ -306,11 +306,11 @@
                             </template>
                           </tr>
                         </thead>
-                        <tbody class="divide-y divide-border/60">
+                        <tbody class="divide-y divide-border/60 text-[15px]">
                           <template x-for="(row, rowIndex) in table.records.rows" :key="rowIndex">
                             <tr class="hover:bg-muted/40">
                               <template x-for="column in table.records.columns" :key="column">
-                                <td class="px-3 py-2 text-xs text-foreground" x-text="formatCell(row[column])"></td>
+                                <td class="px-3 py-2 text-[15px] text-foreground" x-text="formatCell(row[column])"></td>
                               </template>
                             </tr>
                           </template>
