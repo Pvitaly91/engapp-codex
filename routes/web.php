@@ -25,6 +25,7 @@ use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
+use App\Http\Controllers\TestTagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -155,6 +156,29 @@ Route::middleware('auth.admin')->group(function () {
         Route::get('/translate/test2', [SentenceTranslationTestController::class, 'indexV2'])->name('translate.test2');
         Route::post('/translate/test2/check', [SentenceTranslationTestController::class, 'checkV2'])->name('translate.test2.check');
         Route::post('/translate/test2/reset', [SentenceTranslationTestController::class, 'resetV2'])->name('translate.test2.reset');
+
+        Route::prefix('test-tags')->name('test-tags.')->group(function () {
+            Route::get('/', [TestTagController::class, 'index'])->name('index');
+            Route::get('/create', [TestTagController::class, 'create'])->name('create');
+            Route::post('/', [TestTagController::class, 'store'])->name('store');
+            Route::get('/categories/{category}/edit', [TestTagController::class, 'editCategory'])
+                ->where('category', '.*')
+                ->name('categories.edit');
+            Route::put('/categories/{category}', [TestTagController::class, 'updateCategory'])
+                ->where('category', '.*')
+                ->name('categories.update');
+            Route::delete('/categories/{category}', [TestTagController::class, 'destroyCategory'])
+                ->where('category', '.*')
+                ->name('categories.destroy');
+            Route::get('/{tag}/questions', [TestTagController::class, 'questions'])->name('questions');
+            Route::get('/{tag}/questions/{question}/answers', [TestTagController::class, 'questionAnswers'])
+                ->name('questions.answers');
+            Route::get('/{tag}/questions/{question}/tags', [TestTagController::class, 'questionTags'])
+                ->name('questions.tags');
+            Route::get('/{tag}/edit', [TestTagController::class, 'edit'])->name('edit');
+            Route::put('/{tag}', [TestTagController::class, 'update'])->name('update');
+            Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');
+        });
 
         Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
         Route::post('/grammar-test', [GrammarTestController::class, 'generate'])->name('grammar-test.generate');
