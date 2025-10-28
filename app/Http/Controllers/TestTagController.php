@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
 use App\Models\Tag;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -131,6 +133,32 @@ class TestTagController extends Controller
         $tag->delete();
 
         return redirect()->route('test-tags.index')->with('status', 'Тег видалено.');
+    }
+
+    public function questions(Tag $tag): JsonResponse
+    {
+        $questions = $tag->questions()
+            ->with(['answers.option'])
+            ->orderBy('id')
+            ->get()
+            ->map(function (Question $question) {
+                return [
+                    'id' => $question->id,
+                    'question' => $question->question,
+                    'rendered_question' => $question->renderQuestionText(),
+                    'difficulty' => $question->difficulty,
+                    'level' => $question->level,
+                ];
+            })
+            ->values();
+
+        return response()->json([
+            'tag' => [
+                'id' => $tag->id,
+                'name' => $tag->name,
+            ],
+            'questions' => $questions,
+        ]);
     }
 
     public function editCategory(string $category): View

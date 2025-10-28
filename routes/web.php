@@ -170,6 +170,7 @@ Route::middleware('auth.admin')->group(function () {
             Route::delete('/categories/{category}', [TestTagController::class, 'destroyCategory'])
                 ->where('category', '.*')
                 ->name('categories.destroy');
+            Route::get('/{tag}/questions', [TestTagController::class, 'questions'])->name('questions');
             Route::get('/{tag}/edit', [TestTagController::class, 'edit'])->name('edit');
             Route::put('/{tag}', [TestTagController::class, 'update'])->name('update');
             Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');

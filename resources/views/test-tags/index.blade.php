@@ -92,7 +92,16 @@
                                     <ul class="space-y-2">
                                         @forelse ($group['tags'] as $tag)
                                             <li class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-100 px-3 py-2">
-                                                <span class="text-slate-700">{{ $tag->name }}</span>
+                                                <button
+                                                    type="button"
+                                                    class="flex-1 text-left font-medium text-slate-700 transition hover:text-blue-600"
+                                                    data-tag-load
+                                                    data-tag-id="{{ $tag->id }}"
+                                                    data-tag-name="{{ $tag->name }}"
+                                                    data-tag-url="{{ route('test-tags.questions', $tag) }}"
+                                                >
+                                                    {{ $tag->name }}
+                                                </button>
                                                 <span class="flex items-center gap-2 text-xs">
                                                     <a
                                                         href="{{ route('test-tags.edit', $tag) }}"
@@ -128,6 +137,145 @@
                     </div>
                 @endif
             </section>
+
+            <section class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-slate-800">Питання за тегом</h2>
+                    <p class="text-sm text-slate-400" id="tag-questions-selected"></p>
+                </div>
+                <div
+                    id="tag-questions-panel"
+                    class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+                >
+                    <p class="text-sm text-slate-500">Натисніть на тег, щоб переглянути питання, пов'язані з ним.</p>
+                </div>
+            </section>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const panel = document.getElementById('tag-questions-panel');
+            const selectedLabel = document.getElementById('tag-questions-selected');
+            const defaultPanelContent = panel.innerHTML;
+            let activeButton = null;
+            let abortController = null;
+
+            const setPanelContent = (html) => {
+                panel.innerHTML = html;
+            };
+
+            const renderQuestions = (tagName, questions) => {
+                const questionCount = questions.length;
+                selectedLabel.textContent = `Обраний тег: ${tagName} • Питань: ${questionCount}`;
+
+                if (!questions.length) {
+                    setPanelContent('<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>');
+                    return;
+                }
+
+                const list = document.createElement('ol');
+                list.className = 'space-y-3 list-decimal list-inside text-sm text-slate-700';
+
+                questions.forEach((question) => {
+                    const item = document.createElement('li');
+                    const questionWrapper = document.createElement('div');
+                    questionWrapper.className = 'space-y-1';
+
+                    const questionText = document.createElement('p');
+                    questionText.className = 'font-medium text-slate-800';
+                    questionText.textContent = question.rendered_question || question.question;
+
+                    const meta = document.createElement('p');
+                    meta.className = 'text-xs text-slate-500';
+                    const difficulty = (question.difficulty ?? '') !== '' ? `Складність: ${question.difficulty}` : null;
+                    const level = (question.level ?? '') !== '' ? `Рівень: ${question.level}` : null;
+                    const metaParts = [difficulty, level].filter(Boolean);
+                    meta.textContent = metaParts.length ? metaParts.join(' · ') : 'Додаткова інформація недоступна';
+
+                    questionWrapper.appendChild(questionText);
+                    questionWrapper.appendChild(meta);
+                    item.appendChild(questionWrapper);
+                    list.appendChild(item);
+                });
+
+                panel.innerHTML = '';
+                panel.appendChild(list);
+            };
+
+            const showError = (message) => {
+                selectedLabel.textContent = '';
+                setPanelContent(`<p class="text-sm text-red-600">${message}</p>`);
+            };
+
+            const showLoading = (tagName) => {
+                selectedLabel.textContent = `Завантаження: ${tagName}...`;
+                setPanelContent('<p class="text-sm text-slate-500">Зачекайте, дані завантажуються…</p>');
+            };
+
+            document.querySelectorAll('[data-tag-load]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const url = button.dataset.tagUrl;
+                    const tagName = button.dataset.tagName;
+
+                    if (!url) {
+                        return;
+                    }
+
+                    if (activeButton) {
+                        activeButton.classList.remove('text-blue-600', 'font-semibold');
+                    }
+
+                    button.classList.add('text-blue-600', 'font-semibold');
+                    activeButton = button;
+
+                    if (abortController) {
+                        abortController.abort();
+                    }
+
+                    abortController = new AbortController();
+
+                    showLoading(tagName);
+
+                    fetch(url, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+                        signal: abortController.signal,
+                    })
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error('Не вдалося завантажити питання.');
+                            }
+
+                            return response.json();
+                        })
+                        .then((data) => {
+                            if (!data || !data.tag || !Array.isArray(data.questions)) {
+                                throw new Error('Невірна відповідь від сервера.');
+                            }
+
+                            renderQuestions(data.tag.name, data.questions);
+                        })
+                        .catch((error) => {
+                            if (error.name === 'AbortError') {
+                                return;
+                            }
+
+                            showError(error.message || 'Сталася помилка під час завантаження.');
+                        });
+                });
+            });
+
+            // Reset helpers on initial load
+            const resetPanel = () => {
+                selectedLabel.textContent = '';
+                panel.innerHTML = defaultPanelContent;
+            };
+
+            resetPanel();
+        });
+    </script>
+@endpush
