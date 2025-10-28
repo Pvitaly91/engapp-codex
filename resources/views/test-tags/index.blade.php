@@ -290,6 +290,127 @@
             });
         };
 
+        const updateToggleLabels = (button, expanded) => {
+            const collapsedLabel = button.querySelector('[data-toggle-label-collapsed]');
+            const expandedLabel = button.querySelector('[data-toggle-label-expanded]');
+
+            if (collapsedLabel) {
+                collapsedLabel.classList.toggle('hidden', expanded);
+            }
+
+            if (expandedLabel) {
+                expandedLabel.classList.toggle('hidden', !expanded);
+            }
+        };
+
+        const attachQuestionToggleHandlers = (root) => {
+            if (!root) {
+                return;
+            }
+
+            const toggles = root.querySelectorAll('[data-question-toggle]');
+
+            toggles.forEach((button) => {
+                if (button.dataset.questionToggleBound === 'true') {
+                    return;
+                }
+
+                button.dataset.questionToggleBound = 'true';
+
+                button.addEventListener('click', async () => {
+                    const container = button.closest('[data-question-container]');
+
+                    if (!container) {
+                        return;
+                    }
+
+                    const detailsContainer = container.querySelector('[data-question-details]');
+
+                    if (!detailsContainer) {
+                        return;
+                    }
+
+                    const answersContainer = detailsContainer.querySelector('[data-question-answers]');
+
+                    if (!answersContainer) {
+                        return;
+                    }
+
+                    const icon = button.querySelector('[data-question-toggle-icon]');
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                    if (isExpanded) {
+                        button.setAttribute('aria-expanded', 'false');
+                        updateToggleLabels(button, false);
+
+                        if (icon) {
+                            icon.classList.remove('rotate-180');
+                        }
+
+                        detailsContainer.classList.add('hidden');
+
+                        return;
+                    }
+
+                    button.setAttribute('aria-expanded', 'true');
+                    updateToggleLabels(button, true);
+
+                    if (icon) {
+                        icon.classList.add('rotate-180');
+                    }
+
+                    detailsContainer.classList.remove('hidden');
+
+                    if (button.dataset.loaded === 'true') {
+                        return;
+                    }
+
+                    const url = button.dataset.loadUrl;
+
+                    if (!url) {
+                        answersContainer.innerHTML = '<p class="text-xs text-red-600">Посилання для завантаження не вказане.</p>';
+                        button.dataset.loaded = 'error';
+
+                        return;
+                    }
+
+                    button.dataset.loaded = 'loading';
+                    answersContainer.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+
+                    try {
+                        const response = await fetch(url, {
+                            headers: {
+                                'Accept': 'application/json',
+                            },
+                        });
+
+                        const payload = await response.json().catch(() => null);
+
+                        if (!response.ok) {
+                            const message = payload && typeof payload.message === 'string' && payload.message
+                                ? payload.message
+                                : 'Не вдалося завантажити варіанти.';
+                            throw new Error(message);
+                        }
+
+                        const html = payload && typeof payload.html === 'string' ? payload.html : '';
+
+                        answersContainer.innerHTML = html.trim()
+                            ? html
+                            : '<p class="text-xs text-gray-500">Варіанти відповіді не знайдені.</p>';
+                        button.dataset.loaded = 'true';
+                    } catch (error) {
+                        const message = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : 'Не вдалося завантажити варіанти.';
+
+                        answersContainer.innerHTML = `<p class="text-xs text-red-600">${message}</p>`;
+                        button.dataset.loaded = 'error';
+                    }
+                });
+            });
+        };
+
         const initTestTagQuestionsPanel = () => {
             const tagButtons = document.querySelectorAll('[data-tag-load]');
 
@@ -304,7 +425,6 @@
             const closeActiveContainer = () => {
                 if (activeContainer) {
                     activeContainer.classList.add('hidden');
-                    activeContainer.innerHTML = '';
                 }
 
                 if (activeButton) {
@@ -340,7 +460,6 @@
 
                     if (activeContainer && activeContainer !== container) {
                         activeContainer.classList.add('hidden');
-                        activeContainer.innerHTML = '';
                     }
 
                     button.classList.add('text-blue-600', 'font-semibold');
@@ -383,6 +502,7 @@
                                 ? html
                                 : '<p class="text-sm text-slate-500">Для цього тегу ще не додано питань.</p>';
 
+                            attachQuestionToggleHandlers(container);
                             button.dataset.loaded = 'true';
                         })
                         .catch((error) => {

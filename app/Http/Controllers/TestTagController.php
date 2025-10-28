@@ -210,21 +210,32 @@ class TestTagController extends Controller
     public function questions(Tag $tag): JsonResponse
     {
         $questions = $tag->questions()
-            ->with(['answers.option', 'options'])
             ->orderBy('id')
             ->get()
             ->map(function (Question $question) use ($tag) {
+                $answersUrl = route('test-tags.questions.answers', [$tag, $question->id]);
+
                 return [
                     'id' => $question->id,
                     'content_html' => $question->renderQuestionText(),
                     'meta' => $this->formatQuestionMeta($question),
-                    'answers_html' => $this->renderQuestionAnswersBlock($question),
+                    'toggle' => [
+                        'url' => $answersUrl,
+                        'data' => [
+                            'question-id' => $question->id,
+                            'tag-id' => $tag->id,
+                        ],
+                    ],
+                    'details' => [
+                        'answers' => [
+                            'url' => $answersUrl,
+                        ],
+                    ],
                     'container_data' => [
                         'question-container' => true,
                         'question-id' => $question->id,
                         'tag-id' => $tag->id,
                     ],
-                    'wrapper_class' => 'border border-slate-200 rounded-lg bg-white px-4 py-3 text-left text-sm leading-relaxed shadow-sm',
                 ];
             });
 
@@ -239,6 +250,26 @@ class TestTagController extends Controller
                 'name' => $tag->name,
             ],
             'html' => $html,
+        ]);
+    }
+
+    public function questionAnswers(Tag $tag, Question $question): JsonResponse
+    {
+        $belongsToTag = $question->tags()
+            ->where('tags.id', $tag->id)
+            ->exists();
+
+        if (! $belongsToTag) {
+            return response()->json([
+                'html' => '',
+                'message' => 'Питання не прив’язане до вибраного тегу.',
+            ], 404);
+        }
+
+        $question->loadMissing(['answers.option', 'options']);
+
+        return response()->json([
+            'html' => $this->renderQuestionAnswersBlock($question),
         ]);
     }
 
