@@ -159,7 +159,7 @@
 
 @push('scripts')
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        const initTestTagQuestionsPanel = () => {
             const panel = document.getElementById('tag-questions-panel');
             const selectedLabel = document.getElementById('tag-questions-selected');
             const defaultPanelContent = panel.innerHTML;
@@ -306,8 +306,13 @@
                 selectedLabel.textContent = '';
                 panel.innerHTML = defaultPanelContent;
             };
-
             resetPanel();
-        });
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTestTagQuestionsPanel);
+        } else {
+            initTestTagQuestionsPanel();
+        }
     </script>
 @endpush
