@@ -364,7 +364,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ your sister ride a bike without training wheels yet?',
+                    'question' => '{a1} your sister ride a bike without training wheels yet?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Can',
@@ -377,7 +377,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ we leave the classroom now, teacher?',
+                    'question' => '{a1} we leave the classroom now, teacher?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'May',
@@ -390,7 +390,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ we finish the homework before the movie tonight?',
+                    'question' => '{a1} we finish the homework before the movie tonight?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Must',
@@ -403,7 +403,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ I take an umbrella to school today?',
+                    'question' => '{a1} I take an umbrella to school today?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Should',
@@ -416,7 +416,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ this be the right bus to the zoo?',
+                    'question' => '{a1} this be the right bus to the zoo?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Could',
@@ -429,7 +429,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'past',
-                    'question' => '_____ your grandfather swim when he was five?',
+                    'question' => '{a1} your grandfather swim when he was five?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Could',
@@ -442,7 +442,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'The sign says we _____ feed the ducks.',
+                    'question' => 'The sign says we {a1} feed the ducks.',
                     'markers' => [
                         'a1' => [
                             'answer' => "mustn't",
@@ -455,7 +455,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'You _____ wear a tie to this picnic; it is casual.',
+                    'question' => 'You {a1} wear a tie to this picnic; it is casual.',
                     'markers' => [
                         'a1' => [
                             'answer' => "don't have to",
@@ -468,7 +468,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'You _____ eat so many sweets before dinner.',
+                    'question' => 'You {a1} eat so many sweets before dinner.',
                     'markers' => [
                         'a1' => [
                             'answer' => "shouldn't",
@@ -481,7 +481,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'This _____ be Nina’s coat; it is too big for her.',
+                    'question' => 'This {a1} be Nina’s coat; it is too big for her.',
                     'markers' => [
                         'a1' => [
                             'answer' => "can't",
@@ -494,7 +494,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'negative',
                     'tense' => 'past',
-                    'question' => 'Lily _____ reach the top shelf yesterday, so I helped.',
+                    'question' => 'Lily {a1} reach the top shelf yesterday, so I helped.',
                     'markers' => [
                         'a1' => [
                             'answer' => "couldn't",
@@ -507,7 +507,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'We _____ stay out late on school nights next week.',
+                    'question' => 'We {a1} stay out late on school nights next week.',
                     'markers' => [
                         'a1' => [
                             'answer' => "won't be allowed to",
@@ -520,7 +520,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'Yesterday I _____ help my dad fix the fence.',
+                    'question' => 'Yesterday I {a1} help my dad fix the fence.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'needed to',
@@ -533,7 +533,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'Grandma said we _____ call her when we got home.',
+                    'question' => 'Grandma said we {a1} call her when we got home.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -546,7 +546,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'When the lights went out, we still _____ find the door easily.',
+                    'question' => 'When the lights went out, we still {a1} find the door easily.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'could',
@@ -559,7 +559,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'The door was open; someone _____ left it after lunch.',
+                    'question' => 'The door was open; someone {a1} left it after lunch.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must have',
@@ -572,7 +572,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'At this museum you _____ take photos without flash.',
+                    'question' => 'At this museum you {a1} take photos without flash.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'may',
@@ -585,7 +585,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'We _____ wear helmets when we ride our bikes in the park.',
+                    'question' => 'We {a1} wear helmets when we ride our bikes in the park.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -598,7 +598,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'You _____ drink water during the game to stay hydrated.',
+                    'question' => 'You {a1} drink water during the game to stay hydrated.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -611,7 +611,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'The sky is dark; it _____ rain soon.',
+                    'question' => 'The sky is dark; it {a1} rain soon.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'might',
@@ -624,7 +624,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Next year Emma _____ join the advanced dance group.',
+                    'question' => 'Next year Emma {a1} join the advanced dance group.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will be able to',
@@ -637,7 +637,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'After the test we _____ go outside to play.',
+                    'question' => 'After the test we {a1} go outside to play.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will be allowed to',
@@ -650,7 +650,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'We _____ clean the classroom after the art project tomorrow.',
+                    'question' => 'We {a1} clean the classroom after the art project tomorrow.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will have to',
@@ -663,7 +663,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'If it is sunny tomorrow, you _____ wear a hat.',
+                    'question' => 'If it is sunny tomorrow, you {a1} wear a hat.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -679,7 +679,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ you _____ join the video call if the bus is delayed?',
+                    'question' => '{a1} you {a2} join the video call if the bus is delayed?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Will',
@@ -697,7 +697,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ we _____ invite a guest to the members-only lounge?',
+                    'question' => '{a1} we {a2} invite a guest to the members-only lounge?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'May',
@@ -715,7 +715,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ I _____ submit the report before lunch or is the afternoon fine?',
+                    'question' => '{a1} I {a2} submit the report before lunch or is the afternoon fine?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Do',
@@ -733,7 +733,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ we _____ bring anything special to the networking dinner tomorrow?',
+                    'question' => '{a1} we {a2} bring anything special to the networking dinner tomorrow?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Should',
@@ -751,7 +751,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'question',
                     'tense' => 'past',
-                    'question' => '_____ this _____ been the train that arrived early this morning?',
+                    'question' => '{a1} this {a2} been the train that arrived early this morning?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Could',
@@ -769,7 +769,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ your colleagues _____ solve this coding issue without the documentation?',
+                    'question' => '{a1} your colleagues {a2} solve this coding issue without the documentation?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Can',
@@ -787,7 +787,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'Staff _____ _____ use personal email accounts during client meetings.',
+                    'question' => 'Staff {a1} {a2} use personal email accounts during client meetings.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -805,7 +805,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'You _____ _____ attend the optional workshop next Friday.',
+                    'question' => 'You {a1} {a2} attend the optional workshop next Friday.',
                     'markers' => [
                         'a1' => [
                             'answer' => "won't",
@@ -823,7 +823,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'They _____ _____ rely on last year’s data for this forecast.',
+                    'question' => 'They {a1} {a2} rely on last year’s data for this forecast.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -841,7 +841,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'negative',
                     'tense' => 'past',
-                    'question' => 'This _____ _____ been Paul’s laptop; his is silver, not black.',
+                    'question' => 'This {a1} {a2} been Paul’s laptop; his is silver, not black.',
                     'markers' => [
                         'a1' => [
                             'answer' => "can't",
@@ -859,7 +859,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'Maria _____ _____ attend the rehearsal because of her flight schedule.',
+                    'question' => 'Maria {a1} {a2} attend the rehearsal because of her flight schedule.',
                     'markers' => [
                         'a1' => [
                             'answer' => "won't",
@@ -877,7 +877,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'Last year interns _____ _____ work remotely on Fridays.',
+                    'question' => 'Last year interns {a1} {a2} work remotely on Fridays.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'were',
@@ -895,7 +895,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'We _____ _____ complete safety training before entering the lab.',
+                    'question' => 'We {a1} {a2} complete safety training before entering the lab.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'had',
@@ -913,7 +913,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'She _____ _____ talk to the mentor before accepting the offer.',
+                    'question' => 'She {a1} {a2} talk to the mentor before accepting the offer.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -931,7 +931,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'From the footprints, the hikers _____ _____ taken the northern trail.',
+                    'question' => 'From the footprints, the hikers {a1} {a2} taken the northern trail.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -949,7 +949,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Engineers _____ _____ adapt the prototype quickly when feedback arrives.',
+                    'question' => 'Engineers {a1} {a2} adapt the prototype quickly when feedback arrives.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -967,7 +967,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Guests _____ _____ bring small pets into the outdoor café area.',
+                    'question' => 'Guests {a1} {a2} bring small pets into the outdoor café area.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'may',
@@ -985,7 +985,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'All drivers _____ _____ keep their documents in the vehicle.',
+                    'question' => 'All drivers {a1} {a2} keep their documents in the vehicle.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'have',
@@ -1003,7 +1003,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'You _____ _____ break big tasks into smaller steps for clarity.',
+                    'question' => 'You {a1} {a2} break big tasks into smaller steps for clarity.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1021,7 +1021,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'With all the lights off, they _____ _____ already left the office.',
+                    'question' => 'With all the lights off, they {a1} {a2} already left the office.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'might',
@@ -1039,7 +1039,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'By winter we _____ _____ operate the new machinery safely.',
+                    'question' => 'By winter we {a1} {a2} operate the new machinery safely.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -1057,7 +1057,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Residents _____ _____ extend their leases after the renovation.',
+                    'question' => 'Residents {a1} {a2} extend their leases after the renovation.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -1075,7 +1075,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Next quarter we _____ _____ report progress every Monday.',
+                    'question' => 'Next quarter we {a1} {a2} report progress every Monday.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -1093,7 +1093,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'If the forecast changes, you _____ _____ adjust the schedule.',
+                    'question' => 'If the forecast changes, you {a1} {a2} adjust the schedule.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1114,7 +1114,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ your team _____ _____ a backup plan if negotiations fail?',
+                    'question' => '{a1} your team {a2} {a3} a backup plan if negotiations fail?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Will',
@@ -1137,7 +1137,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ we _____ _____ use the auditorium for an unscheduled rehearsal?',
+                    'question' => '{a1} we {a2} {a3} use the auditorium for an unscheduled rehearsal?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'May',
@@ -1160,7 +1160,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'question',
                     'tense' => 'past',
-                    'question' => '_____ the contractors _____ _____ finish the wiring by Friday?',
+                    'question' => '{a1} the contractors {a2} {a3} finish the wiring by Friday?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Did',
@@ -1183,7 +1183,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ I _____ _____ the itinerary so the guests know what to expect?',
+                    'question' => '{a1} I {a2} {a3} the itinerary so the guests know what to expect?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Should',
@@ -1206,7 +1206,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ this _____ _____ the server that keeps crashing?',
+                    'question' => '{a1} this {a2} {a3} the server that keeps crashing?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Could',
@@ -1229,7 +1229,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'past',
-                    'question' => '_____ your mentor _____ _____ new software so quickly last quarter?',
+                    'question' => '{a1} your mentor {a2} {a3} new software so quickly last quarter?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'How',
@@ -1252,7 +1252,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'Volunteers _____ _____ _____ enter the archive without supervision next week.',
+                    'question' => 'Volunteers {a1} {a2} {a3} enter the archive without supervision next week.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -1275,7 +1275,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'Consultants _____ _____ _____ send daily updates during the maintenance window.',
+                    'question' => 'Consultants {a1} {a2} {a3} send daily updates during the maintenance window.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'do',
@@ -1298,7 +1298,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'You _____ _____ _____ underestimate the client’s expectations again.',
+                    'question' => 'You {a1} {a2} {a3} underestimate the client’s expectations again.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1321,7 +1321,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'That explanation _____ _____ _____ correct because the logs disagree.',
+                    'question' => 'That explanation {a1} {a2} {a3} correct because the logs disagree.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'cannot',
@@ -1344,7 +1344,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'negative',
                     'tense' => 'past',
-                    'question' => 'They _____ _____ _____ reach consensus despite several mediation rounds.',
+                    'question' => 'They {a1} {a2} {a3} reach consensus despite several mediation rounds.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'could',
@@ -1367,7 +1367,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'During the pilot phase, analysts _____ _____ _____ access confidential files after hours.',
+                    'question' => 'During the pilot phase, analysts {a1} {a2} {a3} access confidential files after hours.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'were',
@@ -1390,7 +1390,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'We _____ _____ _____ attend every stakeholder briefing last season.',
+                    'question' => 'We {a1} {a2} {a3} attend every stakeholder briefing last season.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'had',
@@ -1413,7 +1413,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'You _____ _____ _____ double-check the invoices before authorizing them.',
+                    'question' => 'You {a1} {a2} {a3} double-check the invoices before authorizing them.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1436,7 +1436,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'The timeline _____ _____ _____ adjusted earlier to meet the launch date.',
+                    'question' => 'The timeline {a1} {a2} {a3} adjusted earlier to meet the launch date.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -1459,7 +1459,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Our system _____ _____ _____ handle multilingual input smoothly now.',
+                    'question' => 'Our system {a1} {a2} {a3} handle multilingual input smoothly now.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1482,7 +1482,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Members _____ _____ _____ reserve collaboration rooms via the new app.',
+                    'question' => 'Members {a1} {a2} {a3} reserve collaboration rooms via the new app.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'may',
@@ -1505,7 +1505,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'All contractors _____ _____ _____ follow the updated safety protocol.',
+                    'question' => 'All contractors {a1} {a2} {a3} follow the updated safety protocol.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -1528,7 +1528,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'You _____ _____ _____ involve the support team before launching updates.',
+                    'question' => 'You {a1} {a2} {a3} involve the support team before launching updates.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1551,7 +1551,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Given the empty parking lot, the committee _____ _____ _____ concluded early.',
+                    'question' => 'Given the empty parking lot, the committee {a1} {a2} {a3} concluded early.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -1574,7 +1574,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'With the new funding, the lab _____ _____ _____ develop custom sensors.',
+                    'question' => 'With the new funding, the lab {a1} {a2} {a3} develop custom sensors.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -1597,7 +1597,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'After accreditation, students _____ _____ _____ enroll in evening clinics.',
+                    'question' => 'After accreditation, students {a1} {a2} {a3} enroll in evening clinics.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -1620,7 +1620,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Project leads _____ _____ _____ submit risk assessments every quarter.',
+                    'question' => 'Project leads {a1} {a2} {a3} submit risk assessments every quarter.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -1643,7 +1643,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'If supply issues continue, you _____ _____ _____ diversify vendors quickly.',
+                    'question' => 'If supply issues continue, you {a1} {a2} {a3} diversify vendors quickly.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1669,7 +1669,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ the research unit _____ _____ prototype a solution within six weeks?',
+                    'question' => '{a1} the research unit {a2} {a3} prototype a solution within six weeks?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Will',
@@ -1692,7 +1692,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ visiting fellows _____ _____ access the advanced analytics lab after hours?',
+                    'question' => '{a1} visiting fellows {a2} {a3} access the advanced analytics lab after hours?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'May',
@@ -1715,7 +1715,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ we _____ _____ escalate every variance to the board next quarter?',
+                    'question' => '{a1} we {a2} {a3} escalate every variance to the board next quarter?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Will',
@@ -1738,7 +1738,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ I _____ _____ stakeholders before locking the sprint goals?',
+                    'question' => '{a1} I {a2} {a3} stakeholders before locking the sprint goals?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Should',
@@ -1761,7 +1761,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'question',
                     'tense' => 'past',
-                    'question' => '_____ the auditors _____ _____ uncovered this discrepancy last year?',
+                    'question' => '{a1} the auditors {a2} {a3} uncovered this discrepancy last year?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Could',
@@ -1784,7 +1784,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ your analysts _____ _____ adapt the model when the dataset doubles overnight?',
+                    'question' => '{a1} your analysts {a2} {a3} adapt the model when the dataset doubles overnight?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Can',
@@ -1807,7 +1807,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'Contractors _____ _____ _____ disclose client data outside secured channels.',
+                    'question' => 'Contractors {a1} {a2} {a3} disclose client data outside secured channels.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -1830,7 +1830,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'Our division _____ _____ _____ submit duplicate compliance reports next cycle.',
+                    'question' => 'Our division {a1} {a2} {a3} submit duplicate compliance reports next cycle.',
                     'markers' => [
                         'a1' => [
                             'answer' => "won't",
@@ -1853,7 +1853,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'You _____ _____ _____ rely solely on intuition for these investment calls.',
+                    'question' => 'You {a1} {a2} {a3} rely solely on intuition for these investment calls.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1876,7 +1876,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'negative',
                     'tense' => 'past',
-                    'question' => 'This spike _____ _____ _____ resulted from user activity; the logs show maintenance scripts.',
+                    'question' => 'This spike {a1} {a2} {a3} resulted from user activity; the logs show maintenance scripts.',
                     'markers' => [
                         'a1' => [
                             'answer' => "can't",
@@ -1899,7 +1899,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'Our suppliers _____ _____ _____ guarantee next-day shipping during peak season.',
+                    'question' => 'Our suppliers {a1} {a2} {a3} guarantee next-day shipping during peak season.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'may',
@@ -1922,7 +1922,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'Before the merger, teams _____ _____ _____ file expenses without pre-approval.',
+                    'question' => 'Before the merger, teams {a1} {a2} {a3} file expenses without pre-approval.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'could',
@@ -1945,7 +1945,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'We _____ _____ _____ deliver weekly dashboards during the pilot rollout.',
+                    'question' => 'We {a1} {a2} {a3} deliver weekly dashboards during the pilot rollout.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'had',
@@ -1968,7 +1968,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'You _____ _____ _____ brief the legal team before signing the vendor agreement.',
+                    'question' => 'You {a1} {a2} {a3} brief the legal team before signing the vendor agreement.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -1991,7 +1991,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'Given the timestamps, the contractors _____ _____ _____ completed the audit overnight.',
+                    'question' => 'Given the timestamps, the contractors {a1} {a2} {a3} completed the audit overnight.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -2014,7 +2014,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Our platform _____ _____ _____ process cross-border payments in real time now.',
+                    'question' => 'Our platform {a1} {a2} {a3} process cross-border payments in real time now.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -2037,7 +2037,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Partners _____ _____ _____ access the beta features under the new licensing plan.',
+                    'question' => 'Partners {a1} {a2} {a3} access the beta features under the new licensing plan.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'may',
@@ -2060,7 +2060,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Every branch _____ _____ _____ comply with the revised transparency charter.',
+                    'question' => 'Every branch {a1} {a2} {a3} comply with the revised transparency charter.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -2083,7 +2083,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'You _____ _____ _____ archive your notes in the shared knowledge base.',
+                    'question' => 'You {a1} {a2} {a3} archive your notes in the shared knowledge base.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -2106,7 +2106,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Given the silence, the panel _____ _____ _____ reached a unanimous verdict already.',
+                    'question' => 'Given the silence, the panel {a1} {a2} {a3} reached a unanimous verdict already.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -2129,7 +2129,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'After the upgrade, the support bots _____ _____ _____ resolve billing issues autonomously.',
+                    'question' => 'After the upgrade, the support bots {a1} {a2} {a3} resolve billing issues autonomously.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -2152,7 +2152,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Once certified, trainees _____ _____ _____ lead onsite inspections.',
+                    'question' => 'Once certified, trainees {a1} {a2} {a3} lead onsite inspections.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -2175,7 +2175,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Regional offices _____ _____ _____ submit ESG metrics alongside financial statements.',
+                    'question' => 'Regional offices {a1} {a2} {a3} submit ESG metrics alongside financial statements.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -2198,7 +2198,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'If competition intensifies, you _____ _____ _____ reposition the product narrative.',
+                    'question' => 'If competition intensifies, you {a1} {a2} {a3} reposition the product narrative.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -2224,7 +2224,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ the crisis team _____ _____ pivot the strategy without executive sign-off?',
+                    'question' => '{a1} the crisis team {a2} {a3} pivot the strategy without executive sign-off?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Can',
@@ -2247,7 +2247,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ the consortium _____ _____ publish interim results before peer review concludes?',
+                    'question' => '{a1} the consortium {a2} {a3} publish interim results before peer review concludes?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'May',
@@ -2270,7 +2270,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'question',
                     'tense' => 'past',
-                    'question' => '_____ the regulator _____ _____ impose stricter capital buffers after the audit?',
+                    'question' => '{a1} the regulator {a2} {a3} impose stricter capital buffers after the audit?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Did',
@@ -2293,7 +2293,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ we _____ _____ disclose the risk scenarios to reassure investors?',
+                    'question' => '{a1} we {a2} {a3} disclose the risk scenarios to reassure investors?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Should',
@@ -2316,7 +2316,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'question',
                     'tense' => 'past',
-                    'question' => '_____ the cyberattack _____ _____ originated from an insider, given the access logs?',
+                    'question' => '{a1} the cyberattack {a2} {a3} originated from an insider, given the access logs?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Could',
@@ -2339,7 +2339,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ the biotech firm _____ _____ ramp production if regulators approve tomorrow?',
+                    'question' => '{a1} the biotech firm {a2} {a3} ramp production if regulators approve tomorrow?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Will',
@@ -2362,7 +2362,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'External counsel _____ _____ _____ circulate draft agreements beyond the legal board.',
+                    'question' => 'External counsel {a1} {a2} {a3} circulate draft agreements beyond the legal board.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -2385,7 +2385,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'The task force _____ _____ _____ submit redundant status reports under the new policy.',
+                    'question' => 'The task force {a1} {a2} {a3} submit redundant status reports under the new policy.',
                     'markers' => [
                         'a1' => [
                             'answer' => "won't",
@@ -2408,7 +2408,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'You _____ _____ _____ prioritise vanity metrics over retention signals again.',
+                    'question' => 'You {a1} {a2} {a3} prioritise vanity metrics over retention signals again.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -2431,7 +2431,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'negative',
                     'tense' => 'past',
-                    'question' => 'That valuation _____ _____ _____ emerged from independent analysts; the language matches marketing decks.',
+                    'question' => 'That valuation {a1} {a2} {a3} emerged from independent analysts; the language matches marketing decks.',
                     'markers' => [
                         'a1' => [
                             'answer' => "can't",
@@ -2454,7 +2454,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'Our distributed teams _____ _____ _____ synchronise daily once the firewall restrictions tighten.',
+                    'question' => 'Our distributed teams {a1} {a2} {a3} synchronise daily once the firewall restrictions tighten.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'may',
@@ -2477,7 +2477,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'Senior fellows _____ _____ _____ invite external reviewers during the confidential deliberations.',
+                    'question' => 'Senior fellows {a1} {a2} {a3} invite external reviewers during the confidential deliberations.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'were',
@@ -2500,7 +2500,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'We _____ _____ _____ convene emergency sessions throughout the litigation.',
+                    'question' => 'We {a1} {a2} {a3} convene emergency sessions throughout the litigation.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'had',
@@ -2523,7 +2523,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'You _____ _____ _____ outline clear contingencies before pitching the acquisition.',
+                    'question' => 'You {a1} {a2} {a3} outline clear contingencies before pitching the acquisition.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -2546,7 +2546,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'The negotiation team _____ _____ _____ secured concessions overnight; the terms barely shifted.',
+                    'question' => 'The negotiation team {a1} {a2} {a3} secured concessions overnight; the terms barely shifted.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must not have',
@@ -2569,7 +2569,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Our analytics stack _____ _____ _____ parse multilingual sentiment in near real time now.',
+                    'question' => 'Our analytics stack {a1} {a2} {a3} parse multilingual sentiment in near real time now.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -2592,7 +2592,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Advisory partners _____ _____ _____ join the confidential steering meetings under NDA.',
+                    'question' => 'Advisory partners {a1} {a2} {a3} join the confidential steering meetings under NDA.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'may',
@@ -2615,7 +2615,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Each subsidiary _____ _____ _____ implement the whistleblower safeguards without delay.',
+                    'question' => 'Each subsidiary {a1} {a2} {a3} implement the whistleblower safeguards without delay.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -2638,7 +2638,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'You _____ _____ _____ publish transparent post-mortems after each incident.',
+                    'question' => 'You {a1} {a2} {a3} publish transparent post-mortems after each incident.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'ought to',
@@ -2661,7 +2661,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'The silence in chat _____ _____ _____ mean the deployment failed; logs show success.',
+                    'question' => 'The silence in chat {a1} {a2} {a3} mean the deployment failed; logs show success.',
                     'markers' => [
                         'a1' => [
                             'answer' => "can't",
@@ -2684,7 +2684,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'With the AI overhaul, the platform _____ _____ _____ diagnose anomalies before outages.',
+                    'question' => 'With the AI overhaul, the platform {a1} {a2} {a3} diagnose anomalies before outages.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -2707,7 +2707,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'After ratification, regional leads _____ _____ _____ negotiate bespoke pricing tiers.',
+                    'question' => 'After ratification, regional leads {a1} {a2} {a3} negotiate bespoke pricing tiers.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -2730,7 +2730,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Boards _____ _____ _____ certify ESG disclosures alongside audited statements.',
+                    'question' => 'Boards {a1} {a2} {a3} certify ESG disclosures alongside audited statements.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -2753,7 +2753,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'If macro signals deteriorate, you _____ _____ _____ recalibrate hiring plans immediately.',
+                    'question' => 'If macro signals deteriorate, you {a1} {a2} {a3} recalibrate hiring plans immediately.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -2779,7 +2779,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'question',
                     'tense' => 'past',
-                    'question' => '_____ your predecessor _____ _____ rescued the merger talks without the emergency loan facility?',
+                    'question' => '{a1} your predecessor {a2} {a3} rescued the merger talks without the emergency loan facility?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Could',
@@ -2802,7 +2802,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ the oversight board _____ _____ waive the embargo if the leak investigation concludes today?',
+                    'question' => '{a1} the oversight board {a2} {a3} waive the embargo if the leak investigation concludes today?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Might',
@@ -2825,7 +2825,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ I _____ _____ escalate every whistleblower allegation to the audit chair immediately?',
+                    'question' => '{a1} I {a2} {a3} escalate every whistleblower allegation to the audit chair immediately?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Must',
@@ -2848,7 +2848,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'question',
                     'tense' => 'future',
-                    'question' => '_____ we _____ _____ hedge aggressively if the central bank hints at tapering?',
+                    'question' => '{a1} we {a2} {a3} hedge aggressively if the central bank hints at tapering?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Should',
@@ -2871,7 +2871,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'question',
                     'tense' => 'present',
-                    'question' => '_____ this spike _____ _____ signalling regulatory scrutiny, given the unusual data requests?',
+                    'question' => '{a1} this spike {a2} {a3} signalling regulatory scrutiny, given the unusual data requests?',
                     'markers' => [
                         'a1' => [
                             'answer' => 'Could',
@@ -2895,7 +2895,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'The ethics panel _____ _____ _____ authorise undisclosed data sharing under any scenario.',
+                    'question' => 'The ethics panel {a1} {a2} {a3} authorise undisclosed data sharing under any scenario.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -2918,7 +2918,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'negative',
                     'tense' => 'present',
-                    'question' => 'Directors _____ _____ _____ convene extraordinary sessions if thresholds are not breached.',
+                    'question' => 'Directors {a1} {a2} {a3} convene extraordinary sessions if thresholds are not breached.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'do',
@@ -2941,7 +2941,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'You _____ _____ _____ chase yield with leveraged bets once volatility spikes again.',
+                    'question' => 'You {a1} {a2} {a3} chase yield with leveraged bets once volatility spikes again.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -2964,7 +2964,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'negative',
                     'tense' => 'past',
-                    'question' => 'Those numbers _____ _____ _____ come from finance; the rounding mimics sales projections.',
+                    'question' => 'Those numbers {a1} {a2} {a3} come from finance; the rounding mimics sales projections.',
                     'markers' => [
                         'a1' => [
                             'answer' => "can't",
@@ -2987,7 +2987,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'negative',
                     'tense' => 'future',
-                    'question' => 'The legacy platform _____ _____ _____ handle real-time fraud scoring once the user base triples.',
+                    'question' => 'The legacy platform {a1} {a2} {a3} handle real-time fraud scoring once the user base triples.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -3010,7 +3010,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'Under the emergency decree, ministers _____ _____ _____ bypass procurement rules entirely.',
+                    'question' => 'Under the emergency decree, ministers {a1} {a2} {a3} bypass procurement rules entirely.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'were briefly',
@@ -3033,7 +3033,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'We _____ _____ _____ notify antitrust regulators before concluding that strategic alliance.',
+                    'question' => 'We {a1} {a2} {a3} notify antitrust regulators before concluding that strategic alliance.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should have',
@@ -3056,7 +3056,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'You _____ _____ _____ diversified your suppliers before sanctions were announced.',
+                    'question' => 'You {a1} {a2} {a3} diversified your suppliers before sanctions were announced.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'ought to have',
@@ -3079,7 +3079,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'The committee _____ _____ _____ leaked the memo; the watermark belongs to legal.',
+                    'question' => 'The committee {a1} {a2} {a3} leaked the memo; the watermark belongs to legal.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must have',
@@ -3102,7 +3102,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'ability',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Our quantum prototype _____ _____ _____ model systemic shocks beyond traditional Monte Carlo.',
+                    'question' => 'Our quantum prototype {a1} {a2} {a3} model systemic shocks beyond traditional Monte Carlo.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -3125,7 +3125,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Institutional clients _____ _____ _____ deploy the sandbox under the premium covenant.',
+                    'question' => 'Institutional clients {a1} {a2} {a3} deploy the sandbox under the premium covenant.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'may',
@@ -3148,7 +3148,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'Every portfolio manager _____ _____ _____ certify ESG exposure with audited evidence.',
+                    'question' => 'Every portfolio manager {a1} {a2} {a3} certify ESG exposure with audited evidence.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must',
@@ -3171,7 +3171,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'You _____ _____ _____ interrogate leading indicators rather than lagging ones.',
+                    'question' => 'You {a1} {a2} {a3} interrogate leading indicators rather than lagging ones.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
@@ -3194,7 +3194,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'present',
                     'tense' => 'present',
-                    'question' => 'The absence of volatility _____ _____ _____ indicate complacency; hedges are active.',
+                    'question' => 'The absence of volatility {a1} {a2} {a3} indicate complacency; hedges are active.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should not',
@@ -3218,7 +3218,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'permission',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Post-ratification, independent directors _____ _____ _____ veto related-party deals outright.',
+                    'question' => 'Post-ratification, independent directors {a1} {a2} {a3} veto related-party deals outright.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -3241,7 +3241,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'obligation',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'Supervisors _____ _____ _____ certify climate risk assumptions alongside stress tests.',
+                    'question' => 'Supervisors {a1} {a2} {a3} certify climate risk assumptions alongside stress tests.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'will',
@@ -3264,7 +3264,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'advice',
                     'type' => 'future',
                     'tense' => 'future',
-                    'question' => 'If liquidity evaporates, you _____ _____ _____ unwind exposure before markets seize.',
+                    'question' => 'If liquidity evaporates, you {a1} {a2} {a3} unwind exposure before markets seize.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'should',
