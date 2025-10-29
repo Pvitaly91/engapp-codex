@@ -34,8 +34,9 @@ class DatabaseStructureController
             $sort = $request->query('sort');
             $direction = strtolower((string) $request->query('direction', 'asc'));
             $filters = $this->extractFilters($request);
+            $search = $request->query('search');
 
-            $preview = $this->fetcher->getPreview($table, $page, $perPage, $sort, $direction, $filters);
+            $preview = $this->fetcher->getPreview($table, $page, $perPage, $sort, $direction, $filters, $search);
 
             return response()->json($preview);
         } catch (\Throwable $exception) {

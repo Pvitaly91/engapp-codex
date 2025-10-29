@@ -139,37 +139,55 @@
 
               <div x-show="table.records.visible" x-collapse class="mt-4 space-y-4">
                 <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-[15px] text-muted-foreground">
-                  <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                    <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
-                    <div class="flex flex-wrap items-center gap-2 text-[15px]">
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
-                        @click.stop="addFilter(table)"
-                        :disabled="table.records.loading"
-                      >
-                        <i class="fa-solid fa-plus text-[10px]"></i>
-                        Додати фільтр
-                      </button>
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                        :disabled="table.records.filters.length === 0 || table.records.loading"
-                        @click.stop="resetFilters(table)"
-                      >
-                        <i class="fa-solid fa-rotate-left text-[10px]"></i>
-                        Скинути
-                      </button>
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
-                        :disabled="table.records.loading"
-                        @click.stop="applyFilters(table)"
-                      >
-                        <i class="fa-solid fa-filter text-[10px]"></i>
-                        Застосувати
-                      </button>
+                  <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                      <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
+                      <div class="flex flex-wrap items-center gap-2 text-[15px]">
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
+                          @click.stop="addFilter(table)"
+                          :disabled="table.records.loading"
+                        >
+                          <i class="fa-solid fa-plus text-[10px]"></i>
+                          Додати фільтр
+                        </button>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                          :disabled="table.records.filters.length === 0 || table.records.loading"
+                          @click.stop="resetFilters(table)"
+                        >
+                          <i class="fa-solid fa-rotate-left text-[10px]"></i>
+                          Скинути
+                        </button>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                          :disabled="table.records.loading"
+                          @click.stop="applyFilters(table)"
+                        >
+                          <i class="fa-solid fa-filter text-[10px]"></i>
+                          Застосувати
+                        </button>
+                      </div>
                     </div>
+                    <label class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                      <span class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
+                      <div class="relative">
+                        <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+                          <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                        </span>
+                        <input
+                          type="search"
+                          class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                          :disabled="table.records.loading"
+                          placeholder="Миттєвий пошук за всіма колонками..."
+                          x-model="table.records.searchInput"
+                          @input.debounce.500ms="updateSearch(table, $event.target.value)"
+                        />
+                      </div>
+                    </label>
                   </div>
                   <p class="mt-2 text-[15px] text-muted-foreground">
                     Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
@@ -437,6 +455,9 @@
             direction: 'asc',
             filters: [],
             deletingRowIndex: null,
+            search: '',
+            searchInput: '',
+            requestId: 0,
           },
         })),
         get filteredTables() {
@@ -465,6 +486,8 @@
           }
         },
         async loadRecords(table) {
+          const requestId = (table.records.requestId ?? 0) + 1;
+          table.records.requestId = requestId;
           table.records.loading = true;
           table.records.error = null;
           table.records.loaded = false;
@@ -482,6 +505,12 @@
             if (table.records.sort) {
               url.searchParams.set('sort', table.records.sort);
               url.searchParams.set('direction', table.records.direction);
+            }
+
+            const searchQuery = typeof table.records.search === 'string' ? table.records.search.trim() : '';
+
+            if (searchQuery) {
+              url.searchParams.set('search', searchQuery);
             }
 
             table.records.filters.forEach((filter, index) => {
@@ -509,6 +538,11 @@
             }
 
             const data = await response.json();
+
+            if (table.records.requestId !== requestId) {
+              return;
+            }
+
             table.records.rows = data.rows || [];
             table.records.columns = data.columns || table.records.columns;
             table.records.page = data.page || 1;
@@ -519,11 +553,23 @@
             table.records.direction = data.direction || table.records.direction;
             const filtersFromResponse = Array.isArray(data.filters) ? data.filters : previousFilters;
             table.records.filters = this.normalizeFilters(filtersFromResponse, previousFilters);
+
+            if (typeof data.search === 'string') {
+              table.records.search = data.search;
+              table.records.searchInput = data.search;
+            }
+
             table.records.loaded = true;
           } catch (error) {
+            if (table.records.requestId !== requestId) {
+              return;
+            }
+
             table.records.error = error.message ?? 'Сталася помилка під час завантаження записів.';
           } finally {
-            table.records.loading = false;
+            if (table.records.requestId === requestId) {
+              table.records.loading = false;
+            }
           }
         },
         changePage(table, page) {
@@ -706,6 +752,20 @@
           }
 
           table.records.filters = [];
+          table.records.page = 1;
+          this.loadRecords(table);
+        },
+        updateSearch(table, value) {
+          const rawValue = typeof value === 'string' ? value : '';
+          const normalized = rawValue.trim();
+
+          table.records.searchInput = rawValue;
+
+          if (table.records.search === normalized && table.records.page === 1 && table.records.loaded) {
+            return;
+          }
+
+          table.records.search = normalized;
           table.records.page = 1;
           this.loadRecords(table);
         },

@@ -57,7 +57,8 @@ class DatabaseStructureFetcher
         int $perPage = 20,
         ?string $sort = null,
         string $direction = 'asc',
-        array $filters = []
+        array $filters = [],
+        ?string $search = null
     ): array
     {
         $structure = Collection::make($this->getStructure());
@@ -70,6 +71,7 @@ class DatabaseStructureFetcher
         $columns = $tableInfo['columns'] ?? [];
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
         $normalizedFilters = $this->prepareFilters($filters, $columnNames);
+        $searchTerm = is_string($search) ? trim($search) : '';
 
         $validSort = null;
         if ($sort && in_array($sort, $columnNames, true)) {
@@ -85,6 +87,11 @@ class DatabaseStructureFetcher
 
         $this->applyFilters($query, $normalizedFilters);
         $this->applyFilters($countQuery, $normalizedFilters);
+
+        if ($searchTerm !== '') {
+            $this->applySearch($query, $columnNames, $searchTerm);
+            $this->applySearch($countQuery, $columnNames, $searchTerm);
+        }
 
         if ($validSort) {
             $query->orderBy($validSort, $direction);
@@ -125,6 +132,7 @@ class DatabaseStructureFetcher
             'sort' => $validSort,
             'direction' => $validSort ? $direction : null,
             'filters' => $normalizedFilters,
+            'search' => $searchTerm,
         ];
     }
 
@@ -305,6 +313,54 @@ class DatabaseStructureFetcher
 
             $query->where($filter['column'], $queryOperator, $filter['value']);
         }
+    }
+
+    /**
+     * @param array<int, string> $columnNames
+     */
+    private function applySearch(Builder $query, array $columnNames, string $searchTerm): void
+    {
+        $searchTerm = trim($searchTerm);
+
+        if ($searchTerm === '') {
+            return;
+        }
+
+        $wrappedColumns = Collection::make($columnNames)
+            ->filter(fn ($column) => is_string($column) && $column !== '')
+            ->map(function (string $column): string {
+                return $this->connection->getQueryGrammar()->wrap($column);
+            })
+            ->unique()
+            ->values()
+            ->all();
+
+        if (empty($wrappedColumns)) {
+            return;
+        }
+
+        $driver = $this->connection->getDriverName();
+        $pattern = '%' . $searchTerm . '%';
+
+        $query->where(function (Builder $builder) use ($wrappedColumns, $pattern, $driver): void {
+            foreach ($wrappedColumns as $wrappedColumn) {
+                [$sql, $bindings] = $this->buildSearchExpression($wrappedColumn, $pattern, $driver);
+                $builder->orWhereRaw($sql, $bindings);
+            }
+        });
+    }
+
+    /**
+     * @return array{0: string, 1: array<int, string>}
+     */
+    private function buildSearchExpression(string $wrappedColumn, string $pattern, string $driver): array
+    {
+        return match ($driver) {
+            'pgsql' => ["CAST({$wrappedColumn} AS TEXT) ILIKE ?", [$pattern]],
+            'sqlsrv' => ["CAST({$wrappedColumn} AS NVARCHAR(MAX)) LIKE ?", [$pattern]],
+            'sqlite' => ["CAST({$wrappedColumn} AS TEXT) LIKE ?", [$pattern]],
+            default => ["CAST({$wrappedColumn} AS CHAR) LIKE ?", [$pattern]],
+        };
     }
 
     private function structureFromMySql(): array
