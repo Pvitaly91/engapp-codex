@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Modules\GitDeployment\Http\Controllers;
 
-use App\Models\BackupBranch;
-use App\Services\Deployment\NativeGitDeploymentService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use App\Modules\GitDeployment\Models\BackupBranch;
+use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 
-class NativeDeploymentController extends Controller
+class NativeDeploymentController extends BaseController
 {
     private const BACKUP_FILE = 'deployment_backups.json';
 
@@ -26,7 +27,7 @@ class NativeDeploymentController extends Controller
             ->orderByDesc('created_at')
             ->get();
 
-        return view('deployment.native', [
+        return view('git-deployment::deployment.native', [
             'backups' => $backups,
             'feedback' => $feedback,
             'backupBranches' => $backupBranches,
@@ -129,15 +130,27 @@ class NativeDeploymentController extends Controller
 
     private function loadBackups(): array
     {
-        $path = storage_path('app/' . self::BACKUP_FILE);
-
-        if (! File::exists($path)) {
-            return [];
-        }
+        $path = $this->ensureBackupFile();
 
         $decoded = json_decode(File::get($path), true);
 
         return is_array($decoded) ? $decoded : [];
+    }
+
+    private function ensureBackupFile(): string
+    {
+        $path = storage_path('app/' . self::BACKUP_FILE);
+        $directory = dirname($path);
+
+        if (! File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0755, true);
+        }
+
+        if (! File::exists($path)) {
+            File::put($path, json_encode([], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+
+        return $path;
     }
 
     private function sanitizeBranchName(string $branch): string

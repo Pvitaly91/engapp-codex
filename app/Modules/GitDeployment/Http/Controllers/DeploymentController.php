@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Modules\GitDeployment\Http\Controllers;
 
-use App\Models\BackupBranch;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use App\Modules\GitDeployment\Models\BackupBranch;
 use Symfony\Component\Process\Process;
 
-class DeploymentController extends Controller
+class DeploymentController extends BaseController
 {
     private const BACKUP_FILE = 'deployment_backups.json';
 
@@ -31,7 +32,7 @@ class DeploymentController extends Controller
             ? trim($branchProcess->getOutput())
             : null;
 
-        return view('deployment.index', [
+        return view('git-deployment::deployment.index', [
             'backups' => $backups,
             'feedback' => $feedback,
             'backupBranches' => $backupBranches,
@@ -203,7 +204,7 @@ class DeploymentController extends Controller
         $commandsOutput[] = $this->formatProcess("git branch --list {$branchName}", $branchListProcess);
 
         if (! $branchListProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося перевірити наявні гілки.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося перевірити наявність існуючої гілки.', $commandsOutput);
         }
 
         if (trim($branchListProcess->getOutput()) !== '') {
@@ -225,10 +226,7 @@ class DeploymentController extends Controller
             ]
         );
 
-        $message = "Резервну гілку \"{$branchName}\" створено на коміті {$resolvedCommit}.";
-        $message .= ' Ви можете запушити її на GitHub із цього інтерфейсу.';
-
-        return $this->redirectWithFeedback('success', $message, $commandsOutput);
+        return $this->redirectWithFeedback('success', 'Резервну гілку створено.', $commandsOutput);
     }
 
     public function pushBackupBranch(BackupBranch $backupBranch): RedirectResponse
@@ -244,23 +242,86 @@ class DeploymentController extends Controller
         $commandsOutput[] = $this->formatProcess("git branch --list {$backupBranch->name}", $branchCheck);
 
         if (! $branchCheck->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося перевірити наявність гілки.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося перевірити наявність резервної гілки.', $commandsOutput);
         }
 
         if (trim($branchCheck->getOutput()) === '') {
-            return $this->redirectWithFeedback('error', 'Резервної гілки не знайдено у локальному репозиторії.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Резервну гілку не знайдено.', $commandsOutput);
         }
 
         $pushProcess = $this->runCommand(['git', 'push', 'origin', $backupBranch->name], $repoPath);
         $commandsOutput[] = $this->formatProcess("git push origin {$backupBranch->name}", $pushProcess);
 
         if (! $pushProcess->isSuccessful()) {
-            return $this->redirectWithFeedback('error', 'Не вдалося запушити резервну гілку на GitHub.', $commandsOutput);
+            return $this->redirectWithFeedback('error', 'Не вдалося запушити резервну гілку.', $commandsOutput);
         }
 
         $backupBranch->forceFill(['pushed_at' => now()])->save();
 
-        return $this->redirectWithFeedback('success', 'Резервну гілку успішно запушено на віддалений репозиторій.', $commandsOutput);
+        return $this->redirectWithFeedback('success', 'Резервну гілку надіслано на віддалений репозиторій.', $commandsOutput);
+    }
+
+    private function redirectWithFeedback(string $status, string $message, array $commandsOutput): RedirectResponse
+    {
+        return redirect()
+            ->route('deployment.index')
+            ->with('deployment', [
+                'status' => $status,
+                'message' => $message,
+                'commands' => $commandsOutput,
+            ]);
+    }
+
+    private function loadBackups(): array
+    {
+        $path = $this->ensureBackupFile();
+
+        $decoded = json_decode(File::get($path), true);
+
+        return is_array($decoded) ? $decoded : [];
+    }
+
+    private function storeBackup(array $backup): void
+    {
+        $path = $this->ensureBackupFile();
+        $backups = $this->loadBackups();
+        $backups[] = $backup;
+
+        File::put($path, json_encode($backups, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    private function ensureBackupFile(): string
+    {
+        $path = storage_path('app/' . self::BACKUP_FILE);
+        $directory = dirname($path);
+
+        if (! File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0755, true);
+        }
+
+        if (! File::exists($path)) {
+            File::put($path, json_encode([], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+
+        return $path;
+    }
+
+    private function redirectIfShellUnavailable(?string $branch = null): ?RedirectResponse
+    {
+        if ($this->supportsShellCommands()) {
+            return null;
+        }
+
+        return $this->redirectWithFeedback(
+            'error',
+            'Режим через SSH недоступний на цьому сервері. Спробуйте альтернативний режим через GitHub API.',
+            $branch !== null ? [['command' => 'git', 'output' => 'Shell commands are disabled.', 'successful' => false]] : []
+        );
+    }
+
+    private function supportsShellCommands(): bool
+    {
+        return function_exists('proc_open');
     }
 
     private function runCommand(array $command, string $workingDirectory): Process
@@ -271,79 +332,12 @@ class DeploymentController extends Controller
         return $process;
     }
 
-    private function formatProcess(string $command, ?Process $process): array
+    private function formatProcess(string $command, Process $process): array
     {
-        if (! $process) {
-            return [
-                'command' => $command,
-                'successful' => false,
-                'output' => 'Команда не була виконана.',
-            ];
-        }
-
-        $output = trim($process->getOutput());
-        $errorOutput = trim($process->getErrorOutput());
-        $combined = trim($output . ($errorOutput !== '' ? PHP_EOL . $errorOutput : ''));
-
         return [
             'command' => $command,
             'successful' => $process->isSuccessful(),
-            'output' => $combined !== '' ? $combined : 'Без виводу',
+            'output' => trim($process->getErrorOutput() . $process->getOutput()),
         ];
-    }
-
-    private function loadBackups(): array
-    {
-        $path = storage_path('app/' . self::BACKUP_FILE);
-
-        if (! File::exists($path)) {
-            return [];
-        }
-
-        $decoded = json_decode(File::get($path), true);
-
-        return is_array($decoded) ? $decoded : [];
-    }
-
-    private function storeBackup(array $backup): void
-    {
-        $backups = $this->loadBackups();
-        $backups[] = $backup;
-        $backups = array_slice($backups, -10);
-
-        $path = storage_path('app/' . self::BACKUP_FILE);
-        File::put($path, json_encode($backups, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    }
-
-    private function redirectWithFeedback(string $status, string $message, array $commands): RedirectResponse
-    {
-        return redirect()
-            ->route('deployment.index')
-            ->with('deployment', [
-                'status' => $status,
-                'message' => $message,
-                'commands' => $commands,
-            ]);
-    }
-
-    private function supportsShellCommands(): bool
-    {
-        return function_exists('proc_open');
-    }
-
-    private function redirectIfShellUnavailable(?string $branch = null): ?RedirectResponse
-    {
-        if ($this->supportsShellCommands()) {
-            return null;
-        }
-
-        return redirect()
-            ->route('deployment.native.index')
-            ->with('deployment_native', [
-                'status' => 'error',
-                'message' => 'Режим через SSH недоступний на цьому сервері. Скористайтеся сторінкою через API.',
-                'logs' => [],
-                'branch' => $branch,
-            ]);
     }
 }
