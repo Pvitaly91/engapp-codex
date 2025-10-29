@@ -160,6 +160,8 @@ return [
          * Package Service Providers...
          */
 
+        App\Modules\GitDeployment\GitDeploymentServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

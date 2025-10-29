@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Deployment;
+namespace App\Modules\GitDeployment\Services;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -133,7 +133,7 @@ class NativeGitFilesystem
                 continue;
             }
 
-            if (in_array(Str::before($relative, '/'), config('deployment.preserve_paths'), true)) {
+            if (in_array(Str::before($relative, '/'), config('git-deployment.preserve_paths'), true)) {
                 continue;
             }
 
@@ -160,7 +160,7 @@ class NativeGitFilesystem
 
     public function replaceWorkingTree(string $sourceDirectory): void
     {
-        $preserve = collect(config('deployment.preserve_paths'));
+        $preserve = collect(config('git-deployment.preserve_paths'));
 
         foreach (File::directories($this->repositoryPath) as $directory) {
             $name = basename($directory);

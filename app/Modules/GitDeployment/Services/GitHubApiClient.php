@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Deployment;
+namespace App\Modules\GitDeployment\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -13,9 +13,9 @@ class GitHubApiClient
 
     public function __construct()
     {
-        $owner = config('deployment.github.owner');
-        $repo = config('deployment.github.repo');
-        $token = config('deployment.github.token');
+        $owner = config('git-deployment.github.owner');
+        $repo = config('git-deployment.github.repo');
+        $token = config('git-deployment.github.token');
 
         if (! $owner || ! $repo) {
             throw new RuntimeException('GitHub repository configuration is missing.');
@@ -23,7 +23,7 @@ class GitHubApiClient
 
         $headers = [
             'Accept' => 'application/vnd.github+json',
-            'User-Agent' => config('deployment.github.user_agent'),
+            'User-Agent' => config('git-deployment.github.user_agent'),
         ];
 
         if ($token) {
@@ -192,8 +192,8 @@ class GitHubApiClient
 
     private function repoUri(string $path = ''): string
     {
-        $owner = config('deployment.github.owner');
-        $repo = config('deployment.github.repo');
+        $owner = config('git-deployment.github.owner');
+        $repo = config('git-deployment.github.repo');
 
         $base = sprintf('repos/%s/%s', $owner, $repo);
 
