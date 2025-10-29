@@ -357,17 +357,27 @@
                                 @php
                                     $categoryTagNames = collect($tags)->pluck('name');
                                     $tagCategoryHasSelected = $categoryTagNames->intersect($selectedTags)->isNotEmpty();
+                                    $tagCategoryHasRecent = collect($tags)->contains(fn ($tag) => $recentTagIds->contains($tag->id));
                                 @endphp
                                 <div x-data="{ open: {{ ($tagCategoryHasSelected || $loop->first) ? 'true' : 'false' }} }"
                                      @class([
                                         'border rounded-2xl overflow-hidden transition',
-                                        'border-gray-200' => ! $tagCategoryHasSelected,
+                                        'border-gray-200' => ! $tagCategoryHasSelected && ! $tagCategoryHasRecent,
+                                        'border-amber-300 bg-amber-50 shadow-sm' => $tagCategoryHasRecent && ! $tagCategoryHasSelected,
                                         'border-blue-400 shadow-sm bg-blue-50' => $tagCategoryHasSelected,
+                                        'ring-2 ring-amber-300' => $tagCategoryHasRecent && $tagCategoryHasSelected,
                                      ])
                                 >
                                     <button type="button" class="w-full flex items-center justify-between px-4 py-2 bg-gray-50 text-left font-semibold text-gray-800"
                                             @click="open = !open">
-                                        <span>{{ $tagCategory }}</span>
+                                        <span class="flex items-center gap-2">
+                                            <span>{{ $tagCategory }}</span>
+                                            @if($tagCategoryHasRecent)
+                                                <span class="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-700">
+                                                    Нові теги
+                                                </span>
+                                            @endif
+                                        </span>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                         </svg>
