@@ -13,6 +13,14 @@
         $savePayloadKey = $savePayloadKey ?? 'uuid';
         $questions = collect($questions ?? []);
         $tagGroups = $tagsByCategory ?? collect();
+        $tagCategorySearchData = $tagGroups
+            ->map(function ($tags, $category) {
+                return [
+                    'name' => $category,
+                    'tags' => collect($tags)->pluck('name')->values(),
+                ];
+            })
+            ->values();
         $sourceGroups = $sourcesByCategory ?? collect();
         $seederClasses = collect($seederClasses ?? [])->filter(fn ($value) => filled($value))->values();
         $rawSeederGroups = collect($seederSourceGroups ?? [])->filter(fn ($group) => filled($group['seeder'] ?? null));
@@ -336,7 +344,49 @@
                 @endif
 
                 @if($tagGroups->isNotEmpty())
-                    <div x-data="{ openTags: {{ $hasSelectedTags ? 'true' : 'false' }} }"
+                    <div x-data="{
+                            openTags: {{ $hasSelectedTags ? 'true' : 'false' }},
+                            query: '',
+                            categories: @js($tagCategorySearchData),
+                            get normalizedQuery() {
+                                return this.query.trim().toLowerCase();
+                            },
+                            matches(tagName) {
+                                if (!this.normalizedQuery || typeof tagName !== 'string') {
+                                    return true;
+                                }
+
+                                return tagName.toLowerCase().includes(this.normalizedQuery);
+                            },
+                            categoryMatches(tagNames) {
+                                if (!Array.isArray(tagNames)) {
+                                    return false;
+                                }
+
+                                if (tagNames.length === 0) {
+                                    return !this.normalizedQuery;
+                                }
+
+                                return tagNames.some(tag => this.matches(tag));
+                            },
+                            hasAnyMatch() {
+                                if (!this.normalizedQuery) {
+                                    return true;
+                                }
+
+                                return this.categories.some(category => this.categoryMatches(category.tags));
+                            },
+                            clearSearch() {
+                                this.query = '';
+                            },
+                            init() {
+                                this.$watch('query', value => {
+                                    if (value && !this.openTags) {
+                                        this.openTags = true;
+                                    }
+                                });
+                            }
+                        }"
                          @class([
                             'space-y-3 border border-transparent rounded-2xl p-3',
                             'border-blue-300 bg-blue-50' => $hasSelectedTags,
@@ -352,14 +402,51 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="space-y-3" x-show="openTags" x-transition style="display: none;">
+                        <div class="relative">
+                            <label for="tag-search" class="sr-only">Пошук тегів</label>
+                            <div class="relative">
+                                <input id="tag-search"
+                                       type="search"
+                                       placeholder="Пошук тегів..."
+                                       x-model.debounce.200ms="query"
+                                       x-on:keydown.escape.stop="clearSearch()"
+                                       class="w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                >
+                                <button type="button"
+                                        class="absolute inset-y-0 right-2 my-1 rounded-full bg-gray-100 px-2 text-xs font-semibold text-gray-600 hover:bg-gray-200"
+                                        x-show="query"
+                                        x-transition
+                                        @click="clearSearch()"
+                                        x-cloak
+                                        aria-label="Скинути пошук тегів"
+                                >
+                                    Скинути
+                                </button>
+                            </div>
+                        </div>
+                        <div class="space-y-3" x-show="openTags" x-transition x-cloak style="display: none;">
                             @foreach($tagGroups as $tagCategory => $tags)
                                 @php
                                     $categoryTagNames = collect($tags)->pluck('name');
                                     $tagCategoryHasSelected = $categoryTagNames->intersect($selectedTags)->isNotEmpty();
                                     $tagCategoryHasRecent = collect($tags)->contains(fn ($tag) => $recentTagIds->contains($tag->id));
                                 @endphp
-                                <div x-data="{ open: {{ ($tagCategoryHasSelected || $loop->first) ? 'true' : 'false' }} }"
+                                <div x-data="{
+                                        open: {{ ($tagCategoryHasSelected || $loop->first) ? 'true' : 'false' }},
+                                        categoryTags: @js($categoryTagNames->values()),
+                                        toggle(openState = undefined) {
+                                            if (openState === undefined) {
+                                                this.open = !this.open;
+
+                                                return;
+                                            }
+
+                                            this.open = !!openState;
+                                        }
+                                    }"
+                                     x-show="$root.categoryMatches(categoryTags)"
+                                     x-transition
+                                     x-cloak
                                      @class([
                                         'border rounded-2xl overflow-hidden transition',
                                         'border-gray-200' => ! $tagCategoryHasSelected && ! $tagCategoryHasRecent,
@@ -367,9 +454,10 @@
                                         'border-blue-400 shadow-sm bg-blue-50' => $tagCategoryHasSelected,
                                         'ring-2 ring-amber-300' => $tagCategoryHasRecent && $tagCategoryHasSelected,
                                      ])
+                                     x-effect="if ($root.normalizedQuery) { toggle($root.categoryMatches(categoryTags)); }"
                                 >
                                     <button type="button" class="w-full flex items-center justify-between px-4 py-2 bg-gray-50 text-left font-semibold text-gray-800"
-                                            @click="open = !open">
+                                            @click="toggle()">
                                         <span class="flex items-center gap-2">
                                             <span>{{ $tagCategory }}</span>
                                             @if($tagCategoryHasRecent)
@@ -382,13 +470,13 @@
                                             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                         </svg>
                                     </button>
-                                    <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
+                                    <div x-show="open" x-transition x-cloak style="display: none;" class="px-4 pb-4 pt-2">
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($tags as $tag)
                                                 @php $tagId = 'tag-' . md5($tag->id . '-' . $tag->name); @endphp
                                                 @php $tagIsNew = $recentTagIds->contains($tag->id); @endphp
                                                 @php $tagOrdinal = $recentTagOrdinals->get($tag->id); @endphp
-                                                <div>
+                                                <div x-show="$root.matches(@js($tag->name))" x-cloak>
                                                     <input type="checkbox" name="tags[]" value="{{ $tag->name }}" id="{{ $tagId }}" class="hidden peer"
                                                            {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}>
                                                     <label for="{{ $tagId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white flex items-center gap-2">
@@ -405,6 +493,9 @@
                                     </div>
                                 </div>
                             @endforeach
+                            <div x-show="normalizedQuery && !hasAnyMatch()" x-cloak class="rounded-xl border border-dashed border-gray-200 px-4 py-3 text-sm text-gray-500">
+                                Нічого не знайдено за пошуком.
+                            </div>
                         </div>
                     </div>
                 @endif
