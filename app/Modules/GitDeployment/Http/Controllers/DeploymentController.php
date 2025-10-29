@@ -274,11 +274,7 @@ class DeploymentController extends BaseController
 
     private function loadBackups(): array
     {
-        $path = storage_path('app/' . self::BACKUP_FILE);
-
-        if (! File::exists($path)) {
-            return [];
-        }
+        $path = $this->ensureBackupFile();
 
         $decoded = json_decode(File::get($path), true);
 
@@ -287,10 +283,27 @@ class DeploymentController extends BaseController
 
     private function storeBackup(array $backup): void
     {
+        $path = $this->ensureBackupFile();
         $backups = $this->loadBackups();
         $backups[] = $backup;
 
-        File::put(storage_path('app/' . self::BACKUP_FILE), json_encode($backups, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        File::put($path, json_encode($backups, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    private function ensureBackupFile(): string
+    {
+        $path = storage_path('app/' . self::BACKUP_FILE);
+        $directory = dirname($path);
+
+        if (! File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0755, true);
+        }
+
+        if (! File::exists($path)) {
+            File::put($path, json_encode([], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+
+        return $path;
     }
 
     private function redirectIfShellUnavailable(?string $branch = null): ?RedirectResponse

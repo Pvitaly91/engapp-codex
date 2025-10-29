@@ -130,15 +130,27 @@ class NativeDeploymentController extends BaseController
 
     private function loadBackups(): array
     {
-        $path = storage_path('app/' . self::BACKUP_FILE);
-
-        if (! File::exists($path)) {
-            return [];
-        }
+        $path = $this->ensureBackupFile();
 
         $decoded = json_decode(File::get($path), true);
 
         return is_array($decoded) ? $decoded : [];
+    }
+
+    private function ensureBackupFile(): string
+    {
+        $path = storage_path('app/' . self::BACKUP_FILE);
+        $directory = dirname($path);
+
+        if (! File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0755, true);
+        }
+
+        if (! File::exists($path)) {
+            File::put($path, json_encode([], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+
+        return $path;
     }
 
     private function sanitizeBranchName(string $branch): string
