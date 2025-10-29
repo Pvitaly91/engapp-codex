@@ -78,7 +78,7 @@
           >
             <div class="space-y-1">
               <div class="flex items-center gap-3">
-                <h2 class="text-xl font-semibold text-foreground" x-text="table.name"></h2>
+                <h2 class="text-xl font-semibold text-foreground" x-html="highlightMatch(table.name)"></h2>
                 <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="table.columns.length + ' полів'"></span>
               </div>
               <p class="text-sm text-muted-foreground" x-show="table.comment" x-text="table.comment"></p>
@@ -107,8 +107,8 @@
                 <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
                   <template x-for="column in table.columns" :key="column.name">
                     <tr class="hover:bg-muted/40">
-                      <td class="py-2 pr-4 font-medium" x-text="column.name"></td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.type"></td>
+                      <td class="py-2 pr-4 font-medium" x-html="highlightMatch(column.name)"></td>
+                      <td class="py-2 pr-4 text-muted-foreground" x-html="highlightMatch(column.type)"></td>
                       <td class="py-2 pr-4">
                         <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
                       </td>
@@ -455,6 +455,56 @@
               (column.type && column.type.toLowerCase().includes(q))
             );
           });
+        },
+        escapeHtml(value) {
+          if (value === null || value === undefined) {
+            return '';
+          }
+
+          return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        },
+        highlightMatch(value) {
+          const text = value === null || value === undefined ? '' : String(value);
+
+          if (!text) {
+            return '';
+          }
+
+          if (!this.query) {
+            return this.escapeHtml(text);
+          }
+
+          const trimmedQuery = this.query.trim();
+
+          if (!trimmedQuery) {
+            return this.escapeHtml(text);
+          }
+
+          const lowerText = text.toLowerCase();
+          const lowerQuery = trimmedQuery.toLowerCase();
+          const queryLength = trimmedQuery.length;
+
+          let result = '';
+          let lastIndex = 0;
+          let matchIndex = lowerText.indexOf(lowerQuery, lastIndex);
+
+          while (matchIndex !== -1) {
+            result += this.escapeHtml(text.slice(lastIndex, matchIndex));
+            result += `<mark class="rounded bg-primary/20 px-1 font-semibold text-primary">${this.escapeHtml(
+              text.slice(matchIndex, matchIndex + queryLength)
+            )}</mark>`;
+            lastIndex = matchIndex + queryLength;
+            matchIndex = lowerText.indexOf(lowerQuery, lastIndex);
+          }
+
+          result += this.escapeHtml(text.slice(lastIndex));
+
+          return result;
         },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
