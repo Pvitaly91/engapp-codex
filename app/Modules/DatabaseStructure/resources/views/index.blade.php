@@ -541,7 +541,7 @@
                   </button>
                   <button
                     type="button"
-                    class="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
+                    class="inline-flex items-center gap-2 rounded-full border border-emerald-600 bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 disabled:cursor-not-allowed disabled:opacity-60"
                     :disabled="valueModal.saving"
                     @click="saveEditedValue()"
                   >
