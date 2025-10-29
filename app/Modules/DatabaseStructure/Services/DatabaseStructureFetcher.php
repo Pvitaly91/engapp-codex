@@ -58,7 +58,8 @@ class DatabaseStructureFetcher
         ?string $sort = null,
         string $direction = 'asc',
         array $filters = [],
-        ?string $search = null
+        ?string $search = null,
+        ?string $searchColumn = null
     ): array
     {
         $structure = Collection::make($this->getStructure());
@@ -72,12 +73,26 @@ class DatabaseStructureFetcher
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
         $normalizedFilters = $this->prepareFilters($filters, $columnNames);
         $searchTerm = is_string($search) ? trim($search) : '';
+        $normalizedSearchColumn = is_string($searchColumn) ? trim($searchColumn) : '';
 
         $validSort = null;
         if ($sort && in_array($sort, $columnNames, true)) {
             $validSort = $sort;
         } elseif ($sort && empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $sort)) {
             $validSort = $sort;
+        }
+
+        $searchColumns = $columnNames;
+
+        if ($normalizedSearchColumn !== '') {
+            $isKnownColumn = in_array($normalizedSearchColumn, $columnNames, true);
+            $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $normalizedSearchColumn);
+
+            if ($isKnownColumn || $isAdHocColumn) {
+                $searchColumns = [$normalizedSearchColumn];
+            } else {
+                $normalizedSearchColumn = '';
+            }
         }
 
         $direction = strtolower($direction) === 'desc' ? 'desc' : 'asc';
@@ -89,8 +104,8 @@ class DatabaseStructureFetcher
         $this->applyFilters($countQuery, $normalizedFilters);
 
         if ($searchTerm !== '') {
-            $this->applySearch($query, $columnNames, $searchTerm);
-            $this->applySearch($countQuery, $columnNames, $searchTerm);
+            $this->applySearch($query, $searchColumns, $searchTerm);
+            $this->applySearch($countQuery, $searchColumns, $searchTerm);
         }
 
         if ($validSort) {
@@ -133,6 +148,7 @@ class DatabaseStructureFetcher
             'direction' => $validSort ? $direction : null,
             'filters' => $normalizedFilters,
             'search' => $searchTerm,
+            'search_column' => $normalizedSearchColumn,
         ];
     }
 

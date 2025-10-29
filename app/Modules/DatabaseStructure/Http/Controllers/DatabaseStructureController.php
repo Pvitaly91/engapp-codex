@@ -35,8 +35,18 @@ class DatabaseStructureController
             $direction = strtolower((string) $request->query('direction', 'asc'));
             $filters = $this->extractFilters($request);
             $search = $request->query('search');
+            $searchColumn = $request->query('search_column');
 
-            $preview = $this->fetcher->getPreview($table, $page, $perPage, $sort, $direction, $filters, $search);
+            $preview = $this->fetcher->getPreview(
+                $table,
+                $page,
+                $perPage,
+                $sort,
+                $direction,
+                $filters,
+                $search,
+                $searchColumn,
+            );
 
             return response()->json($preview);
         } catch (\Throwable $exception) {

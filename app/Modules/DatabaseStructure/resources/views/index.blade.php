@@ -172,22 +172,38 @@
                         </button>
                       </div>
                     </div>
-                    <label class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                    <div class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
                       <span class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
-                      <div class="relative">
-                        <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
-                          <i class="fa-solid fa-magnifying-glass text-xs"></i>
-                        </span>
-                        <input
-                          type="search"
-                          class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
-                          :disabled="table.records.loading"
-                          placeholder="Миттєвий пошук за всіма колонками..."
-                          x-model="table.records.searchInput"
-                          @input.debounce.500ms="updateSearch(table, $event.target.value)"
-                        />
+                      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                        <div class="relative flex-1">
+                          <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+                            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                          </span>
+                          <input
+                            type="search"
+                            class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                            :disabled="table.records.loading"
+                            placeholder="Миттєвий пошук за вибраною колонкою або всіма..."
+                            x-model="table.records.searchInput"
+                            @input.debounce.500ms="updateSearch(table, $event.target.value)"
+                          />
+                        </div>
+                        <label class="flex flex-col gap-1 text-[12px] font-semibold uppercase tracking-wide text-muted-foreground sm:w-48">
+                          <span>Колонка для пошуку</span>
+                          <select
+                            class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                            :disabled="table.records.loading || !table.records.columns || table.records.columns.length === 0"
+                            :value="table.records.searchColumn"
+                            @change="updateSearchColumn(table, $event.target.value)"
+                          >
+                            <option value="">Всі колонки</option>
+                            <template x-for="column in table.records.columns" :key="column + '-search-option'">
+                              <option :value="column" x-text="column"></option>
+                            </template>
+                          </select>
+                        </label>
                       </div>
-                    </label>
+                    </div>
                   </div>
                   <p class="mt-2 text-[15px] text-muted-foreground">
                     Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
@@ -457,6 +473,7 @@
             deletingRowIndex: null,
             search: '',
             searchInput: '',
+            searchColumn: '',
             requestId: 0,
           },
         })),
@@ -508,9 +525,16 @@
             }
 
             const searchQuery = typeof table.records.search === 'string' ? table.records.search.trim() : '';
+            const searchColumn = typeof table.records.searchColumn === 'string'
+              ? table.records.searchColumn.trim()
+              : '';
 
             if (searchQuery) {
               url.searchParams.set('search', searchQuery);
+            }
+
+            if (searchColumn) {
+              url.searchParams.set('search_column', searchColumn);
             }
 
             table.records.filters.forEach((filter, index) => {
@@ -557,6 +581,19 @@
             if (typeof data.search === 'string') {
               table.records.search = data.search;
               table.records.searchInput = data.search;
+            }
+
+            const responseSearchColumn = typeof data.search_column === 'string'
+              ? data.search_column
+              : table.records.searchColumn;
+            table.records.searchColumn = responseSearchColumn || '';
+
+            if (
+              table.records.searchColumn &&
+              Array.isArray(table.records.columns) &&
+              !table.records.columns.includes(table.records.searchColumn)
+            ) {
+              table.records.searchColumn = '';
             }
 
             table.records.loaded = true;
@@ -766,6 +803,21 @@
           }
 
           table.records.search = normalized;
+          table.records.page = 1;
+          this.loadRecords(table);
+        },
+        updateSearchColumn(table, value) {
+          const normalized = typeof value === 'string' ? value.trim() : '';
+          const previous = typeof table.records.searchColumn === 'string'
+            ? table.records.searchColumn.trim()
+            : '';
+
+          if (previous === normalized && table.records.page === 1 && table.records.loaded) {
+            table.records.searchColumn = normalized;
+            return;
+          }
+
+          table.records.searchColumn = normalized;
           table.records.page = 1;
           this.loadRecords(table);
         },
