@@ -493,11 +493,149 @@
   <script>
     document.addEventListener('alpine:init', () => {
       Alpine.data('databaseStructureViewer', (tables, recordsRoute, deleteRoute, valueRoute) => {
-        const initialTables = Array.isArray(tables)
-          ? tables.filter(Boolean)
-          : (tables && typeof tables === 'object'
-            ? Object.values(tables).filter(Boolean)
-            : []);
+        const extractTables = (payload) => {
+          if (Array.isArray(payload)) {
+            return payload.filter(Boolean);
+          }
+
+          if (payload && typeof payload === 'object') {
+            if (Array.isArray(payload.tables)) {
+              return payload.tables.filter(Boolean);
+            }
+
+            if (Array.isArray(payload.data)) {
+              return payload.data.filter(Boolean);
+            }
+
+            return Object.values(payload).filter((item) => {
+              if (!item || typeof item !== 'object' || Array.isArray(item)) {
+                return false;
+              }
+
+              const keys = Object.keys(item);
+
+              return keys.some((key) => ['name', 'columns', 'comment', 'engine'].includes(key));
+            });
+          }
+
+          return [];
+        };
+
+        const normalizeNullable = (value) => {
+          if (value === true || value === false) {
+            return value;
+          }
+
+          if (typeof value === 'string') {
+            const normalized = value.toLowerCase();
+            return ['1', 'true', 'yes'].includes(normalized);
+          }
+
+          if (typeof value === 'number') {
+            return value === 1;
+          }
+
+          return Boolean(value);
+        };
+
+        const normalizedTables = extractTables(tables)
+          .map((table) => {
+            const tableObject = table && typeof table === 'object' && !Array.isArray(table)
+              ? table
+              : {};
+
+            const fallbackName = typeof table === 'string' ? table : '';
+            const name = typeof tableObject.name === 'string' && tableObject.name.trim().length > 0
+              ? tableObject.name
+              : fallbackName.trim();
+
+            if (!name) {
+              return null;
+            }
+
+            const rawColumns = Array.isArray(tableObject.columns)
+              ? tableObject.columns
+                  .map((column) => {
+                    if (column && typeof column === 'object' && !Array.isArray(column)) {
+                      const columnName = typeof column.name === 'string' ? column.name : '';
+
+                      if (!columnName) {
+                        return null;
+                      }
+
+                      return {
+                        name: columnName,
+                        type: typeof column.type === 'string' ? column.type : '',
+                        nullable: normalizeNullable(column.nullable),
+                        default: Object.prototype.hasOwnProperty.call(column, 'default') ? column.default : null,
+                        key: typeof column.key === 'string' && column.key !== '' ? column.key : null,
+                        extra: typeof column.extra === 'string' && column.extra !== '' ? column.extra : null,
+                        comment: typeof column.comment === 'string' && column.comment !== '' ? column.comment : null,
+                      };
+                    }
+
+                    if (typeof column === 'string' && column) {
+                      return {
+                        name: column,
+                        type: '',
+                        nullable: true,
+                        default: null,
+                        key: null,
+                        extra: null,
+                        comment: null,
+                      };
+                    }
+
+                    return null;
+                  })
+                  .filter(Boolean)
+              : [];
+
+            const columnNames = rawColumns
+              .map((column) => (typeof column.name === 'string' ? column.name : ''))
+              .filter((column) => column.length > 0);
+
+            const comment = typeof tableObject.comment === 'string' && tableObject.comment !== ''
+              ? tableObject.comment
+              : null;
+            const engine = typeof tableObject.engine === 'string' && tableObject.engine !== ''
+              ? tableObject.engine
+              : null;
+
+            return {
+              ...tableObject,
+              name,
+              comment,
+              engine,
+              columns: rawColumns,
+              open: false,
+              structureVisible: true,
+              primaryKeys: rawColumns
+                .filter((column) => column && column.key === 'PRI' && column.name)
+                .map((column) => column.name),
+              records: {
+                visible: false,
+                loading: false,
+                loaded: false,
+                rows: [],
+                columns: columnNames,
+                error: null,
+                page: 1,
+                perPage: 20,
+                total: 0,
+                lastPage: 1,
+                sort: null,
+                direction: 'asc',
+                filters: [],
+                deletingRowIndex: null,
+                search: '',
+                searchInput: '',
+                searchColumn: '',
+                requestId: 0,
+              },
+            };
+          })
+          .filter(Boolean);
 
         return {
           query: '',
@@ -527,64 +665,7 @@
             { value: 'like', label: 'Містить (LIKE)' },
             { value: 'not like', label: 'Не містить (NOT LIKE)' },
           ],
-          tables: initialTables.map((table) => {
-            const rawColumns = Array.isArray(table?.columns)
-              ? table.columns
-                  .map((column) => {
-                    if (column && typeof column === 'object') {
-                      return column;
-                    }
-
-                    if (typeof column === 'string') {
-                      return {
-                        name: column,
-                        type: '',
-                        nullable: true,
-                        default: null,
-                        key: null,
-                        extra: null,
-                        comment: null,
-                      };
-                    }
-
-                    return null;
-                  })
-                  .filter(Boolean)
-              : [];
-            const columnNames = rawColumns
-              .map((column) => column.name)
-              .filter((name) => typeof name === 'string' && name.length > 0);
-
-            return {
-              ...table,
-              columns: rawColumns,
-              open: false,
-              structureVisible: true,
-              primaryKeys: rawColumns
-                .filter((column) => column && column.key === 'PRI' && column.name)
-                .map((column) => column.name),
-              records: {
-                visible: false,
-                loading: false,
-                loaded: false,
-                rows: [],
-                columns: columnNames,
-                error: null,
-                page: 1,
-                perPage: 20,
-                total: 0,
-                lastPage: 1,
-                sort: null,
-                direction: 'asc',
-                filters: [],
-                deletingRowIndex: null,
-                search: '',
-                searchInput: '',
-                searchColumn: '',
-                requestId: 0,
-              },
-            };
-          }),
+          tables: normalizedTables,
           get filteredTables() {
             if (!this.query) {
               return this.tables;
