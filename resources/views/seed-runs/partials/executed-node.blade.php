@@ -33,7 +33,7 @@
 
         <div class="space-y-3 hidden" data-folder-children data-depth="{{ $depth + 1 }}">
             @if(!empty($folderSeedRunIds))
-                <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-end gap-2 sm:items-center lg:max-w-3xl lg:ml-auto lg:flex-nowrap" data-folder-actions>
+                <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-end gap-2 sm:items-center w-full lg:ml-auto xl:flex-nowrap" data-folder-actions>
                     <form method="POST"
                           action="{{ route('seed-runs.folders.destroy-with-questions') }}"
                           data-preloader
@@ -45,7 +45,7 @@
                         @foreach($folderSeedRunIds as $seedRunId)
                             <input type="hidden" name="seed_run_ids[]" value="{{ $seedRunId }}">
                         @endforeach
-                        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
+                        <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
                             <i class="fa-solid fa-broom"></i>
                             {{ $folderDeleteButton }}
                         </button>
@@ -61,7 +61,7 @@
                         @foreach($folderSeedRunIds as $seedRunId)
                             <input type="hidden" name="seed_run_ids[]" value="{{ $seedRunId }}">
                         @endforeach
-                        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                        <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
                             <i class="fa-solid fa-trash"></i>
                             Видалити записи
                         </button>
@@ -171,10 +171,10 @@
                                     <div class="{{ $questionCount > 0 ? 'hidden ' : '' }}space-y-4"
                                          data-seeder-content
                                          data-seed-run-id="{{ $seedRun->id }}">
-                                        <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap lg:flex-nowrap lg:items-center lg:justify-between lg:max-w-4xl" data-seeder-actions>
-                                            <div class="flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap lg:items-center gap-2 w-full lg:w-auto">
+                                        <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap lg:items-start lg:justify-between lg:gap-3 xl:flex-nowrap" data-seeder-actions>
+                                            <div class="flex flex-col sm:flex-row sm:flex-wrap gap-2 w-full sm:w-auto lg:flex-1 lg:min-w-0 xl:flex-nowrap xl:items-center">
                                                 <button type="button"
-                                                        class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
+                                                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
                                                         data-seeder-file-open
                                                         data-class-name="{{ $seedRun->class_name }}"
                                                         data-display-name="{{ $seedRun->display_class_name }}">
@@ -195,7 +195,7 @@
                                                     @method('DELETE')
                                                     <input type="hidden" name="class_name" value="{{ $seedRun->class_name }}">
                                                     <input type="hidden" name="delete_with_questions" value="0" data-delete-with-questions-input data-class-name="{{ $seedRun->class_name }}">
-                                                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
                                                         <i class="fa-solid fa-file-circle-xmark"></i>
                                                         Видалити файл
                                                     </button>
@@ -203,7 +203,7 @@
                                                 <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="{{ __($seederDeleteConfirm) }}" class="w-full sm:w-auto lg:w-auto">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
+                                                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition">
                                                         <i class="fa-solid fa-broom"></i>
                                                         {{ $seederDeleteButton }}
                                                     </button>
@@ -211,7 +211,7 @@
                                                 <form method="POST" action="{{ route('seed-runs.destroy', $seedRun->id) }}" data-preloader data-confirm="Видалити лише запис про виконання?" class="w-full sm:w-auto lg:w-auto">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
+                                                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition">
                                                         <i class="fa-solid fa-trash"></i>
                                                         Видалити запис
                                                     </button>
