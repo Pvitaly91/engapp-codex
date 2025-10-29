@@ -22,6 +22,7 @@
             display: none !important;
         }
     </style>
+    @stack('head-scripts')
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
 
