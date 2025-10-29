@@ -48,32 +48,32 @@
         </div>
 
         @if($tableExists)
-            <form id="pending-bulk-delete-form"
-                  method="POST"
-                  action="{{ route('seed-runs.destroy-seeder-files') }}"
-                  data-preloader
-                  data-bulk-delete-form
-                  data-bulk-scope="pending"
-                  data-confirm="Видалити файли вибраних сидерів?"
-                  class="hidden">
-                @csrf
-                @method('DELETE')
-            </form>
+            <div class="space-y-6">
+                <form id="pending-bulk-delete-form"
+                      method="POST"
+                      action="{{ route('seed-runs.destroy-seeder-files') }}"
+                      data-preloader
+                      data-bulk-delete-form
+                      data-bulk-scope="pending"
+                      data-confirm="Видалити файли вибраних сидерів?"
+                      class="hidden">
+                    @csrf
+                    @method('DELETE')
+                </form>
 
-            <form id="executed-bulk-delete-form"
-                  method="POST"
-                  action="{{ route('seed-runs.destroy-seeder-files') }}"
-                  data-preloader
-                  data-bulk-delete-form
-                  data-bulk-scope="executed"
-                  data-confirm="Видалити файли вибраних сидерів?"
-                  class="hidden">
-                @csrf
-                @method('DELETE')
-            </form>
+                <form id="executed-bulk-delete-form"
+                      method="POST"
+                      action="{{ route('seed-runs.destroy-seeder-files') }}"
+                      data-preloader
+                      data-bulk-delete-form
+                      data-bulk-scope="executed"
+                      data-confirm="Видалити файли вибраних сидерів?"
+                      class="hidden">
+                    @csrf
+                    @method('DELETE')
+                </form>
 
-            <div >
-                <div class="bg-white shadow rounded-lg p-6 my-4">
+                <div class="bg-white shadow rounded-lg p-6">
                     <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
                         <h2 class="text-xl font-semibold text-gray-800">Невиконані сидери</h2>
                         @if($pendingSeeders->isNotEmpty())
