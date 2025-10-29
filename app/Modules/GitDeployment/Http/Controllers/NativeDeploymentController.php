@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\GitDeployment\Http\Controllers;
+namespace App\Modules\GitDeployment\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Modules\GitDeployment\Models\BackupBranch;
-use Modules\GitDeployment\Services\NativeGitDeploymentService;
+use App\Modules\GitDeployment\Models\BackupBranch;
+use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 
 class NativeDeploymentController extends BaseController
 {

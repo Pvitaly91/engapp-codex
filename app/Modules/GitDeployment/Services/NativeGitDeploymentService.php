@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\GitDeployment\Services;
+namespace App\Modules\GitDeployment\Services;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;

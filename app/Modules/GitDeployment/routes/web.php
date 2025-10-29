@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\GitDeployment\Http\Controllers\DeploymentController;
-use Modules\GitDeployment\Http\Controllers\NativeDeploymentController;
+use App\Modules\GitDeployment\Http\Controllers\DeploymentController;
+use App\Modules\GitDeployment\Http\Controllers\NativeDeploymentController;
 
 Route::middleware(['web', 'auth.admin'])
     ->prefix('admin')

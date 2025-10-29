@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\GitDeployment\Models;
+namespace App\Modules\GitDeployment\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

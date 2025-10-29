@@ -3,28 +3,20 @@
 Цей модуль інкапсулює усю логіку керування Git-оновленнями та резервними гілками, що раніше знаходилась у проєкті. Його можна легко перенести в інший Laravel-додаток.
 
 ## Структура
-- `src/Http/Controllers` — контролери для SSH та API режимів оновлення.
-- `src/Services` — робота з GitHub API та файловою системою без shell-команд.
-- `src/Models` — модель `BackupBranch` для обліку резервних гілок.
+- `Http/Controllers` — контролери для SSH та API режимів оновлення.
+- `Services` — робота з GitHub API та файловою системою без shell-команд.
+- `Models` — модель `BackupBranch` для обліку резервних гілок.
 - `routes/web.php` — маршрути адмінської панелі для розгортання.
 - `resources/views` — Blade-шаблони інтерфейсу.
 - `config/git-deployment.php` — налаштування GitHub та список шляхів, що зберігаються при оновленні.
 - `database/migrations` — міграції для таблиці резервних гілок.
 
 ## Підключення в іншому проєкті
-1. Скопіюйте каталог `modules/GitDeployment` у свій репозиторій.
-2. Додайте простір імен у `composer.json`:
-   ```json
-   "autoload": {
-       "psr-4": {
-           "Modules\\\\GitDeployment\\\\": "modules/GitDeployment/src/"
-       }
-   }
-   ```
-   Після цього виконайте `composer dump-autoload`.
+1. Скопіюйте каталог `app/Modules/GitDeployment` у свій репозиторій.
+2. Переконайтеся, що стандартний PSR-4-маппінг `"App\\": "app/"` увімкнений (цей крок типовий для Laravel).
 3. Зареєструйте сервіс-провайдер у `config/app.php` (розділ `providers`):
    ```php
-   Modules\GitDeployment\GitDeploymentServiceProvider::class,
+   App\Modules\GitDeployment\GitDeploymentServiceProvider::class,
    ```
 4. Налаштуйте змінні середовища для GitHub у `.env`:
    ```env
