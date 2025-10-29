@@ -91,35 +91,50 @@
             </div>
           </header>
           <div x-show="table.open" x-collapse>
-            <div class="overflow-x-auto px-6 py-5">
-              <table class="min-w-full divide-y divide-border/60 text-[15px]">
-                <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
-                  <tr>
-                    <th class="pb-3 pr-4 font-medium">Поле</th>
-                    <th class="pb-3 pr-4 font-medium">Тип</th>
-                    <th class="pb-3 pr-4 font-medium">Null</th>
-                    <th class="pb-3 pr-4 font-medium">За замовчуванням</th>
-                    <th class="pb-3 pr-4 font-medium">Ключ</th>
-                    <th class="pb-3 pr-4 font-medium">Додатково</th>
-                    <th class="pb-3 font-medium">Коментар</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
-                  <template x-for="column in table.columns" :key="column.name">
-                    <tr class="hover:bg-muted/40">
-                      <td class="py-2 pr-4 font-medium" x-text="column.name"></td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.type"></td>
-                      <td class="py-2 pr-4">
-                        <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
-                      </td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.default ?? '—'"></td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.key ?? '—'"></td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.extra ?? '—'"></td>
-                      <td class="py-2 text-muted-foreground" x-text="column.comment ?? '—'"></td>
-                    </tr>
-                  </template>
-                </tbody>
-              </table>
+            <div class="px-6 py-5">
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Структура таблиці</h3>
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  @click.stop="table.structureVisible = !table.structureVisible"
+                >
+                  <i class="fa-solid" :class="table.structureVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                  <span x-text="table.structureVisible ? 'Сховати структуру' : 'Показати структуру'"></span>
+                </button>
+              </div>
+              <div x-show="table.structureVisible" x-collapse>
+                <div class="mt-4 overflow-x-auto">
+                  <table class="min-w-full divide-y divide-border/60 text-[15px]">
+                    <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
+                      <tr>
+                        <th class="pb-3 pr-4 font-medium">Поле</th>
+                        <th class="pb-3 pr-4 font-medium">Тип</th>
+                        <th class="pb-3 pr-4 font-medium">Null</th>
+                        <th class="pb-3 pr-4 font-medium">За замовчуванням</th>
+                        <th class="pb-3 pr-4 font-medium">Ключ</th>
+                        <th class="pb-3 pr-4 font-medium">Додатково</th>
+                        <th class="pb-3 font-medium">Коментар</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
+                      <template x-for="column in table.columns" :key="column.name">
+                        <tr class="hover:bg-muted/40">
+                          <td class="py-2 pr-4 font-medium" x-text="column.name"></td>
+                          <td class="py-2 pr-4 text-muted-foreground" x-text="column.type"></td>
+                          <td class="py-2 pr-4">
+                            <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
+                          </td>
+                          <td class="py-2 pr-4 text-muted-foreground" x-text="column.default ?? '—'"></td>
+                          <td class="py-2 pr-4 text-muted-foreground" x-text="column.key ?? '—'"></td>
+                          <td class="py-2 pr-4 text-muted-foreground" x-text="column.extra ?? '—'"></td>
+                          <td class="py-2 text-muted-foreground" x-text="column.comment ?? '—'"></td>
+                        </tr>
+                      </template>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
             <div class="border-t border-border/60 px-6 py-5">
               <div class="flex flex-wrap items-center gap-3">
@@ -449,6 +464,7 @@
         tables: tables.map((table) => ({
           ...table,
           open: false,
+          structureVisible: true,
           primaryKeys: Array.isArray(table.columns)
             ? table.columns
                 .filter((column) => column && column.key === 'PRI' && column.name)
