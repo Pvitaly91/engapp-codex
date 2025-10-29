@@ -78,14 +78,14 @@
           >
             <div class="space-y-1">
               <div class="flex items-center gap-3">
-                <h2 class="text-xl font-semibold text-foreground" x-text="table.name"></h2>
+                <h2 class="text-xl font-semibold text-foreground" x-html="highlightQuery(table.name)"></h2>
                 <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="table.columns.length + ' полів'"></span>
               </div>
-              <p class="text-sm text-muted-foreground" x-show="table.comment" x-text="table.comment"></p>
+              <p class="text-sm text-muted-foreground" x-show="table.comment" x-html="highlightQuery(table.comment)"></p>
             </div>
             <div class="flex items-center gap-3">
               <template x-if="table.engine">
-                <span class="rounded-full border border-border/70 bg-background px-3 py-1 text-xs font-medium text-muted-foreground" x-text="table.engine"></span>
+                <span class="rounded-full border border-border/70 bg-background px-3 py-1 text-xs font-medium text-muted-foreground" x-html="highlightQuery(table.engine)"></span>
               </template>
               <i class="fa-solid fa-chevron-down text-muted-foreground transition-transform duration-200" :class="{ 'rotate-180': table.open }"></i>
             </div>
@@ -120,15 +120,15 @@
                     <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
                       <template x-for="column in table.columns" :key="column.name">
                         <tr class="hover:bg-muted/40">
-                          <td class="py-2 pr-4 font-medium" x-text="column.name"></td>
-                          <td class="py-2 pr-4 text-muted-foreground" x-text="column.type"></td>
+                          <td class="py-2 pr-4 font-medium" x-html="highlightQuery(column.name)"></td>
+                          <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.type)"></td>
                           <td class="py-2 pr-4">
                             <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
                           </td>
-                          <td class="py-2 pr-4 text-muted-foreground" x-text="column.default ?? '—'"></td>
-                          <td class="py-2 pr-4 text-muted-foreground" x-text="column.key ?? '—'"></td>
-                          <td class="py-2 pr-4 text-muted-foreground" x-text="column.extra ?? '—'"></td>
-                          <td class="py-2 text-muted-foreground" x-text="column.comment ?? '—'"></td>
+                          <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.default ?? '—')"></td>
+                          <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.key ?? '—')"></td>
+                          <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
+                          <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
                         </tr>
                       </template>
                     </tbody>
@@ -367,7 +367,7 @@
                           <template x-for="(row, rowIndex) in table.records.rows" :key="rowIndex">
                             <tr class="hover:bg-muted/40">
                               <template x-for="column in table.records.columns" :key="column">
-                                <td class="px-3 py-2 text-[15px] text-foreground" x-text="formatCell(row[column])"></td>
+                                <td class="px-3 py-2 text-[15px] text-foreground" x-html="highlightRecordCell(table, column, row[column])"></td>
                               </template>
                               <td class="px-3 py-2 text-right">
                                 <button
@@ -913,6 +913,60 @@
           }
 
           return String(value);
+        },
+        highlightRecordCell(table, column, value) {
+          const text = this.formatCell(value);
+          const records = table && typeof table === 'object' ? table.records || {} : {};
+          const searchTerm = typeof records.search === 'string' ? records.search : '';
+          const selectedColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
+          const columnName = typeof column === 'string' ? column.trim() : '';
+
+          if (!searchTerm || (selectedColumn && selectedColumn !== columnName)) {
+            return this.escapeHtml(text);
+          }
+
+          return this.highlightText(text, searchTerm);
+        },
+        highlightQuery(value) {
+          return this.highlightText(value, this.query);
+        },
+        highlightText(value, term) {
+          const stringValue = value === null || value === undefined ? '' : String(value);
+          const searchTerm = typeof term === 'string' ? term.trim() : '';
+
+          if (!searchTerm) {
+            return this.escapeHtml(stringValue);
+          }
+
+          const escapedSearch = this.escapeRegExp(searchTerm);
+
+          if (!escapedSearch) {
+            return this.escapeHtml(stringValue);
+          }
+
+          const regex = new RegExp(`(${escapedSearch})`, 'gi');
+          const parts = stringValue.split(regex);
+
+          return parts
+            .map((part, index) => {
+              if (index % 2 === 1 && part.length > 0) {
+                return `<mark class="rounded bg-amber-200/70 px-1 py-0.5 text-amber-900">${this.escapeHtml(part)}</mark>`;
+              }
+
+              return this.escapeHtml(part);
+            })
+            .join('');
+        },
+        escapeHtml(value) {
+          return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        },
+        escapeRegExp(value) {
+          return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         },
       }));
     });
