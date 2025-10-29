@@ -492,83 +492,129 @@
 @push('scripts')
   <script>
     document.addEventListener('alpine:init', () => {
-      Alpine.data('databaseStructureViewer', (tables, recordsRoute, deleteRoute, valueRoute) => ({
-        query: '',
-        recordsRoute,
-        recordsDeleteRoute: deleteRoute,
-        recordsValueRoute: valueRoute,
-        csrfToken:
-          document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
-          (window.Laravel ? window.Laravel.csrfToken : ''),
-        cellPreviewLimit: 120,
-        valueModal: {
-          open: false,
-          table: '',
-          column: '',
-          value: '',
-          loading: false,
-          error: null,
-          searchTerm: '',
-        },
-        filterOperators: [
-          { value: '=', label: 'Дорівнює (=)' },
-          { value: '!=', label: 'Не дорівнює (!=)' },
-          { value: '<', label: 'Менше (<)' },
-          { value: '<=', label: 'Менше або дорівнює (<=)' },
-          { value: '>', label: 'Більше (>)' },
-          { value: '>=', label: 'Більше або дорівнює (>=)' },
-          { value: 'like', label: 'Містить (LIKE)' },
-          { value: 'not like', label: 'Не містить (NOT LIKE)' },
-        ],
-        tables: tables.map((table) => ({
-          ...table,
-          open: false,
-          structureVisible: true,
-          primaryKeys: Array.isArray(table.columns)
-            ? table.columns
-                .filter((column) => column && column.key === 'PRI' && column.name)
-                .map((column) => column.name)
-            : [],
-          records: {
-            visible: false,
-            loading: false,
-            loaded: false,
-            rows: [],
-            columns: Array.isArray(table.columns)
-              ? table.columns.map((column) => column.name)
-              : [],
-            error: null,
-            page: 1,
-            perPage: 20,
-            total: 0,
-            lastPage: 1,
-            sort: null,
-            direction: 'asc',
-            filters: [],
-            deletingRowIndex: null,
-            search: '',
-            searchInput: '',
-            searchColumn: '',
-            requestId: 0,
-          },
-        })),
-        get filteredTables() {
-          if (!this.query) {
-            return this.tables;
-          }
+      Alpine.data('databaseStructureViewer', (tables, recordsRoute, deleteRoute, valueRoute) => {
+        const initialTables = Array.isArray(tables)
+          ? tables.filter(Boolean)
+          : (tables && typeof tables === 'object'
+            ? Object.values(tables).filter(Boolean)
+            : []);
 
-          const q = this.query.toLowerCase();
-          return this.tables.filter((table) => {
-            if (table.name.toLowerCase().includes(q)) {
-              return true;
+        return {
+          query: '',
+          recordsRoute,
+          recordsDeleteRoute: deleteRoute,
+          recordsValueRoute: valueRoute,
+          csrfToken:
+            document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
+            (window.Laravel ? window.Laravel.csrfToken : ''),
+          cellPreviewLimit: 120,
+          valueModal: {
+            open: false,
+            table: '',
+            column: '',
+            value: '',
+            loading: false,
+            error: null,
+            searchTerm: '',
+          },
+          filterOperators: [
+            { value: '=', label: 'Дорівнює (=)' },
+            { value: '!=', label: 'Не дорівнює (!=)' },
+            { value: '<', label: 'Менше (<)' },
+            { value: '<=', label: 'Менше або дорівнює (<=)' },
+            { value: '>', label: 'Більше (>)' },
+            { value: '>=', label: 'Більше або дорівнює (>=)' },
+            { value: 'like', label: 'Містить (LIKE)' },
+            { value: 'not like', label: 'Не містить (NOT LIKE)' },
+          ],
+          tables: initialTables.map((table) => {
+            const rawColumns = Array.isArray(table?.columns)
+              ? table.columns
+                  .map((column) => {
+                    if (column && typeof column === 'object') {
+                      return column;
+                    }
+
+                    if (typeof column === 'string') {
+                      return {
+                        name: column,
+                        type: '',
+                        nullable: true,
+                        default: null,
+                        key: null,
+                        extra: null,
+                        comment: null,
+                      };
+                    }
+
+                    return null;
+                  })
+                  .filter(Boolean)
+              : [];
+            const columnNames = rawColumns
+              .map((column) => column.name)
+              .filter((name) => typeof name === 'string' && name.length > 0);
+
+            return {
+              ...table,
+              columns: rawColumns,
+              open: false,
+              structureVisible: true,
+              primaryKeys: rawColumns
+                .filter((column) => column && column.key === 'PRI' && column.name)
+                .map((column) => column.name),
+              records: {
+                visible: false,
+                loading: false,
+                loaded: false,
+                rows: [],
+                columns: columnNames,
+                error: null,
+                page: 1,
+                perPage: 20,
+                total: 0,
+                lastPage: 1,
+                sort: null,
+                direction: 'asc',
+                filters: [],
+                deletingRowIndex: null,
+                search: '',
+                searchInput: '',
+                searchColumn: '',
+                requestId: 0,
+              },
+            };
+          }),
+          get filteredTables() {
+            if (!this.query) {
+              return this.tables;
             }
 
-            return table.columns.some((column) =>
-              column.name.toLowerCase().includes(q) ||
-              (column.type && column.type.toLowerCase().includes(q))
-            );
-          });
-        },
+            const q = this.query.toLowerCase();
+            return this.tables.filter((table) => {
+              const tableName = typeof table.name === 'string' ? table.name : '';
+
+              if (tableName.toLowerCase().includes(q)) {
+                return true;
+              }
+
+              const columns = Array.isArray(table.columns) ? table.columns : [];
+
+              return columns.some((column) => {
+                if (!column) {
+                  return false;
+                }
+
+                const columnName = typeof column.name === 'string' ? column.name : '';
+                const columnType = typeof column.type === 'string' ? column.type : '';
+
+                return (
+                  columnName.toLowerCase().includes(q) ||
+                  columnType.toLowerCase().includes(q)
+                );
+              });
+            });
+          },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
           table.records.error = null;
@@ -643,7 +689,9 @@
             }
 
             table.records.rows = data.rows || [];
-            table.records.columns = data.columns || table.records.columns;
+            table.records.columns = Array.isArray(data.columns)
+              ? data.columns.filter((name) => typeof name === 'string')
+              : table.records.columns;
             table.records.page = data.page || 1;
             table.records.perPage = data.per_page || table.records.perPage;
             table.records.total = data.total ?? table.records.total;
@@ -1127,7 +1175,8 @@
         escapeRegExp(value) {
           return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         },
-      }));
+      };
     });
+  });
   </script>
 @endpush
