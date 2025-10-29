@@ -293,7 +293,7 @@ class NativeGitDeploymentService
 
     private function storeBackup(array $backup): void
     {
-        $path = storage_path('app/deployment_backups.json');
+        $path = $this->ensureBackupFile();
         $items = [];
 
         if (File::exists($path)) {
@@ -306,6 +306,22 @@ class NativeGitDeploymentService
         $items[] = $backup;
         $items = array_slice($items, -10);
         File::put($path, json_encode($items, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    }
+
+    private function ensureBackupFile(): string
+    {
+        $path = storage_path('app/deployment_backups.json');
+        $directory = dirname($path);
+
+        if (! File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0755, true);
+        }
+
+        if (! File::exists($path)) {
+            File::put($path, json_encode([], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+
+        return $path;
     }
 
     private function fetchAndExtract(string $ref, array &$logs, string $context): string
