@@ -489,7 +489,7 @@
   </div>
 @endsection
 
-@push('scripts')
+@push('head-scripts')
   <script>
     window.databaseStructureViewer = function (tables, recordsRoute, deleteRoute, valueRoute) {
       const extractTables = (payload) => {
