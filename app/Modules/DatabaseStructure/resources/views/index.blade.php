@@ -491,9 +491,8 @@
 
 @push('scripts')
   <script>
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('databaseStructureViewer', (tables, recordsRoute, deleteRoute, valueRoute) => {
-        const extractTables = (payload) => {
+    window.databaseStructureViewer = function (tables, recordsRoute, deleteRoute, valueRoute) {
+      const extractTables = (payload) => {
           if (Array.isArray(payload)) {
             return payload.filter(Boolean);
           }
@@ -538,7 +537,7 @@
           return Boolean(value);
         };
 
-        const normalizedTables = extractTables(tables)
+      const normalizedTables = extractTables(tables)
           .map((table) => {
             const tableObject = table && typeof table === 'object' && !Array.isArray(table)
               ? table
@@ -637,7 +636,7 @@
           })
           .filter(Boolean);
 
-        return {
+      return {
           query: '',
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
@@ -1257,7 +1256,12 @@
           return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         },
       };
+    };
+
+    document.addEventListener('alpine:init', () => {
+      if (window.Alpine && typeof window.Alpine.data === 'function') {
+        window.Alpine.data('databaseStructureViewer', window.databaseStructureViewer);
+      }
     });
-  });
   </script>
 @endpush
