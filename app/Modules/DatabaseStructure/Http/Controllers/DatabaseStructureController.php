@@ -17,13 +17,32 @@ class DatabaseStructureController
 
     public function index(): View|ViewFactory
     {
-        $structure = $this->fetcher->getStructure();
+        $structure = $this->fetcher->getStructureSummary();
         $meta = $this->fetcher->getMeta();
 
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
         ]);
+    }
+
+    public function structure(string $table): JsonResponse
+    {
+        try {
+            $structure = $this->fetcher->getTableStructure($table);
+
+            return response()->json($structure);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
     }
 
     public function records(Request $request, string $table): JsonResponse
