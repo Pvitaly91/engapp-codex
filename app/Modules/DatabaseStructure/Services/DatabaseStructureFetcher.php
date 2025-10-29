@@ -256,6 +256,73 @@ class DatabaseStructureFetcher
 
     /**
      * @param array<int, array{column: string, value: mixed}> $identifiers
+     */
+    public function updateRecordValue(string $table, string $column, array $identifiers, mixed $value): mixed
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $columns = $tableInfo['columns'] ?? [];
+        $columnNames = array_map(static fn ($tableColumn) => $tableColumn['name'], $columns);
+        $normalizedColumn = trim($column);
+
+        $isKnownColumn = in_array($normalizedColumn, $columnNames, true);
+        $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $normalizedColumn);
+
+        if (!$isKnownColumn && !$isAdHocColumn) {
+            throw new RuntimeException("Колонку '{$normalizedColumn}' не знайдено у таблиці.");
+        }
+
+        $normalizedIdentifiers = $this->normalizeIdentifiers($identifiers, $columnNames);
+
+        if (empty($normalizedIdentifiers)) {
+            throw new RuntimeException('Не вдалося визначити ідентифікатори запису для оновлення.');
+        }
+
+        $query = $this->connection->table($table);
+
+        foreach ($normalizedIdentifiers as $identifier) {
+            if ($identifier['value'] === null) {
+                $query->whereNull($identifier['column']);
+                continue;
+            }
+
+            $query->where($identifier['column'], '=', $identifier['value']);
+        }
+
+        $updated = $query->update([$normalizedColumn => $value]);
+
+        if ($updated === 0) {
+            throw new RuntimeException('Запис не знайдено або не вдалося оновити.');
+        }
+
+        $identifiersForFetch = array_map(
+            static function (array $identifier) use ($normalizedColumn, $value): array {
+                if ($identifier['column'] === $normalizedColumn) {
+                    return [
+                        'column' => $identifier['column'],
+                        'value' => $value,
+                    ];
+                }
+
+                return $identifier;
+            },
+            $normalizedIdentifiers,
+        );
+
+        try {
+            return $this->getRecordValue($table, $normalizedColumn, $identifiersForFetch);
+        } catch (RuntimeException) {
+            return $this->convertValueForResponse($value);
+        }
+    }
+
+    /**
+     * @param array<int, array{column: string, value: mixed}> $identifiers
      * @return mixed
      */
     public function getRecordValue(string $table, string $column, array $identifiers)

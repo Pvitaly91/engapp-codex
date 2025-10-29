@@ -13,6 +13,9 @@ Route::get('/tables/{table}/records', [DatabaseStructureController::class, 'reco
 Route::post('/tables/{table}/records/value', [DatabaseStructureController::class, 'value'])
     ->where('table', '[^/]+')
     ->name('value');
+Route::put('/tables/{table}/records/value', [DatabaseStructureController::class, 'update'])
+    ->where('table', '[^/]+')
+    ->name('update');
 Route::delete('/tables/{table}/records', [DatabaseStructureController::class, 'destroy'])
     ->where('table', '[^/]+')
     ->name('destroy');

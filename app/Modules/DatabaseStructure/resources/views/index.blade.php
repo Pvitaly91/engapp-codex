@@ -10,6 +10,7 @@
       @js(route('database-structure.records', ['table' => '__TABLE__'])),
       @js(route('database-structure.destroy', ['table' => '__TABLE__'])),
       @js(route('database-structure.value', ['table' => '__TABLE__'])),
+      @js(route('database-structure.update', ['table' => '__TABLE__'])),
       @js(route('database-structure.structure', ['table' => '__TABLE__']))
     )"
     @keydown.window.escape.prevent="valueModal.open && closeValueModal()"
@@ -477,33 +478,80 @@
           <div class="flex items-start justify-between gap-4">
             <div>
               <h2 class="text-lg font-semibold text-foreground">Повне значення</h2>
-            <p class="mt-1 text-sm text-muted-foreground">
-              Таблиця: <span class="font-medium text-foreground" x-text="valueModal.table || '—'"></span>,
-              колонка: <span class="font-medium text-foreground" x-text="valueModal.column || '—'"></span>
-            </p>
+              <p class="mt-1 text-sm text-muted-foreground">
+                Таблиця: <span class="font-medium text-foreground" x-text="valueModal.table || '—'"></span>,
+                колонка: <span class="font-medium text-foreground" x-text="valueModal.column || '—'"></span>
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                x-show="!valueModal.loading && !valueModal.error && !valueModal.editing"
+                x-cloak
+                :disabled="valueModal.loading"
+                @click="startEditingValue()"
+              >
+                <i class="fa-solid fa-pen"></i>
+                Редагувати
+              </button>
+              <button
+                type="button"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+                @click="closeValueModal()"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
           </div>
-          <button
-            type="button"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
-            @click="closeValueModal()"
-          >
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-        <div class="mt-4 space-y-3 text-sm text-foreground">
-          <template x-if="valueModal.loading">
-            <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-center text-sm text-muted-foreground">
-              Завантаження значення...
-            </div>
-          </template>
-          <template x-if="!valueModal.loading && valueModal.error">
-            <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.error"></div>
-          </template>
-          <template x-if="!valueModal.loading && !valueModal.error">
-            <div class="rounded-2xl border border-border/60 bg-background p-4">
-              <pre class="max-h-96 whitespace-pre-wrap break-words text-[15px]" x-html="highlightText(valueModal.value, valueModal.searchTerm)"></pre>
-            </div>
-          </template>
+          <div class="mt-4 space-y-3 text-sm text-foreground">
+            <template x-if="valueModal.loading">
+              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-center text-sm text-muted-foreground">
+                Завантаження значення...
+              </div>
+            </template>
+            <template x-if="!valueModal.loading && valueModal.error">
+              <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.error"></div>
+            </template>
+            <template x-if="!valueModal.loading && !valueModal.error">
+              <div class="space-y-3">
+                <template x-if="valueModal.updateError">
+                  <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.updateError"></div>
+                </template>
+                <div class="rounded-2xl border border-border/60 bg-background p-4">
+                  <template x-if="!valueModal.editing">
+                    <pre class="max-h-96 whitespace-pre-wrap break-words text-[15px]" x-html="highlightText(valueModal.value, valueModal.searchTerm)"></pre>
+                  </template>
+                  <template x-if="valueModal.editing">
+                    <textarea
+                      class="h-60 w-full rounded-2xl border border-input bg-white px-3 py-2 text-[15px] font-mono text-foreground shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                      x-model="valueModal.editValue"
+                      :disabled="valueModal.saving"
+                    ></textarea>
+                  </template>
+                </div>
+                <div class="flex items-center justify-end gap-3" x-show="valueModal.editing">
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="valueModal.saving"
+                    @click="cancelEditingValue()"
+                  >
+                    Скасувати
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="valueModal.saving"
+                    @click="saveEditedValue()"
+                  >
+                    <span x-show="!valueModal.saving">Зберегти</span>
+                    <span x-show="valueModal.saving" x-cloak>Збереження...</span>
+                  </button>
+                </div>
+              </div>
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -515,7 +563,7 @@
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
   @endonce
   <script>
-    window.databaseStructureViewer = function (tables, recordsRoute, deleteRoute, valueRoute, structureRoute) {
+    window.databaseStructureViewer = function (tables, recordsRoute, deleteRoute, valueRoute, updateRoute, structureRoute) {
       const extractTables = (payload) => {
           if (Array.isArray(payload)) {
             return payload.filter(Boolean);
@@ -687,6 +735,7 @@
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
           recordsValueRoute: valueRoute,
+          recordsUpdateRoute: updateRoute,
           structureRoute,
           csrfToken:
             document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
@@ -697,9 +746,15 @@
             table: '',
             column: '',
             value: '',
+            rawValue: null,
             loading: false,
             error: null,
             searchTerm: '',
+            editing: false,
+            editValue: '',
+            saving: false,
+            updateError: null,
+            identifiers: [],
           },
           filterOperators: [
             { value: '=', label: 'Дорівнює (=)' },
@@ -1082,13 +1137,25 @@
           }
 
           const identifiers = this.buildIdentifiers(table, row);
+          const clonedIdentifiers = identifiers
+            .filter((identifier) => identifier && typeof identifier.column === 'string' && identifier.column !== '')
+            .map((identifier) => ({
+              column: identifier.column,
+              value: identifier.value,
+            }));
 
           this.valueModal.open = true;
           this.valueModal.loading = true;
           this.valueModal.error = null;
+          this.valueModal.updateError = null;
           this.valueModal.table = tableName;
           this.valueModal.column = columnName;
           this.valueModal.value = '';
+          this.valueModal.rawValue = null;
+          this.valueModal.editValue = '';
+          this.valueModal.editing = false;
+          this.valueModal.saving = false;
+          this.valueModal.identifiers = clonedIdentifiers;
 
           const records = table && typeof table === 'object' ? table.records || {} : {};
           const searchTerm = typeof records.search === 'string' ? records.search : '';
@@ -1097,7 +1164,7 @@
             ? ''
             : searchTerm;
 
-          if (identifiers.length === 0) {
+          if (clonedIdentifiers.length === 0) {
             this.valueModal.loading = false;
             this.valueModal.error = 'Не вдалося визначити ідентифікатори запису для отримання значення.';
             return;
@@ -1124,7 +1191,7 @@
               },
               body: JSON.stringify({
                 column: columnName,
-                identifiers,
+                identifiers: clonedIdentifiers,
               }),
             });
 
@@ -1139,21 +1206,134 @@
               ? payload.value
               : null;
 
+            this.valueModal.rawValue = rawValue;
             this.valueModal.value = this.formatCell(rawValue);
+            this.valueModal.editValue = this.prepareEditableValue(rawValue);
           } catch (error) {
             this.valueModal.error = error.message ?? 'Сталася помилка під час отримання значення.';
           } finally {
             this.valueModal.loading = false;
           }
         },
+        startEditingValue() {
+          if (this.valueModal.loading || this.valueModal.error) {
+            return;
+          }
+
+          this.valueModal.editValue = this.prepareEditableValue(this.valueModal.rawValue);
+          this.valueModal.editing = true;
+          this.valueModal.updateError = null;
+        },
+        cancelEditingValue() {
+          if (this.valueModal.saving) {
+            return;
+          }
+
+          this.valueModal.editValue = this.prepareEditableValue(this.valueModal.rawValue);
+          this.valueModal.editing = false;
+          this.valueModal.updateError = null;
+        },
+        async saveEditedValue() {
+          if (this.valueModal.saving || this.valueModal.loading) {
+            return;
+          }
+
+          const tableName = typeof this.valueModal.table === 'string' ? this.valueModal.table : '';
+          const columnName = typeof this.valueModal.column === 'string' ? this.valueModal.column : '';
+          const identifiers = Array.isArray(this.valueModal.identifiers)
+            ? this.valueModal.identifiers
+              .filter((identifier) => identifier && typeof identifier.column === 'string' && identifier.column !== '')
+              .map((identifier) => ({
+                column: identifier.column,
+                value: identifier.value,
+              }))
+            : [];
+
+          if (!tableName || !columnName) {
+            this.valueModal.updateError = 'Невідомо, яке значення оновлювати.';
+            return;
+          }
+
+          if (identifiers.length === 0) {
+            this.valueModal.updateError = 'Не вдалося визначити ідентифікатори запису для збереження.';
+            return;
+          }
+
+          if (!this.recordsUpdateRoute) {
+            this.valueModal.updateError = 'Маршрут для збереження значення не налаштовано.';
+            return;
+          }
+
+          this.valueModal.saving = true;
+          this.valueModal.updateError = null;
+
+          try {
+            const url = new URL(
+              this.recordsUpdateRoute.replace('__TABLE__', encodeURIComponent(tableName)),
+              window.location.origin
+            );
+
+            const response = await fetch(url.toString(), {
+              method: 'PUT',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                column: columnName,
+                value: this.valueModal.editValue,
+                identifiers,
+              }),
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося зберегти значення.';
+              throw new Error(message);
+            }
+
+            const payload = await response.json();
+            const updatedValue = payload && Object.prototype.hasOwnProperty.call(payload, 'value')
+              ? payload.value
+              : null;
+
+            this.valueModal.rawValue = updatedValue;
+            this.valueModal.value = this.formatCell(updatedValue);
+            this.valueModal.editValue = this.prepareEditableValue(updatedValue);
+            this.valueModal.editing = false;
+            this.valueModal.updateError = null;
+
+            this.valueModal.identifiers = identifiers.map((identifier) => {
+              if (identifier.column === columnName) {
+                return {
+                  column: identifier.column,
+                  value: updatedValue,
+                };
+              }
+
+              return identifier;
+            });
+          } catch (error) {
+            this.valueModal.updateError = error.message ?? 'Сталася помилка під час збереження значення.';
+          } finally {
+            this.valueModal.saving = false;
+          }
+        },
         closeValueModal() {
           this.valueModal.open = false;
           this.valueModal.loading = false;
           this.valueModal.error = null;
+          this.valueModal.updateError = null;
           this.valueModal.value = '';
+          this.valueModal.rawValue = null;
           this.valueModal.table = '';
           this.valueModal.column = '';
           this.valueModal.searchTerm = '';
+          this.valueModal.editing = false;
+          this.valueModal.editValue = '';
+          this.valueModal.saving = false;
+          this.valueModal.identifiers = [];
         },
         toggleSort(table, column) {
           if (table.records.loading) {
@@ -1325,6 +1505,21 @@
               return JSON.stringify(value);
             } catch (error) {
               return '[object]';
+            }
+          }
+
+          return String(value);
+        },
+        prepareEditableValue(value) {
+          if (value === null || value === undefined) {
+            return '';
+          }
+
+          if (typeof value === 'object') {
+            try {
+              return JSON.stringify(value, null, 2);
+            } catch (error) {
+              return String(value);
             }
           }
 
