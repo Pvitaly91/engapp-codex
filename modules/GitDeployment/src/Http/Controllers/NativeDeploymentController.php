@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\GitDeployment\Http\Controllers;
 
-use App\Models\BackupBranch;
-use App\Services\Deployment\NativeGitDeploymentService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Modules\GitDeployment\Models\BackupBranch;
+use Modules\GitDeployment\Services\NativeGitDeploymentService;
 
-class NativeDeploymentController extends Controller
+class NativeDeploymentController extends BaseController
 {
     private const BACKUP_FILE = 'deployment_backups.json';
 
@@ -26,7 +27,7 @@ class NativeDeploymentController extends Controller
             ->orderByDesc('created_at')
             ->get();
 
-        return view('deployment.native', [
+        return view('git-deployment::deployment.native', [
             'backups' => $backups,
             'feedback' => $feedback,
             'backupBranches' => $backupBranches,

@@ -3,11 +3,9 @@
 use App\Http\Controllers\AiTestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatGPTExplanationController;
-use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MigrationController;
-use App\Http\Controllers\NativeDeploymentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PageManageController;
 use App\Http\Controllers\QuestionAnswerController;
@@ -24,6 +22,8 @@ use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
+use Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
+use Modules\GitDeployment\Http\Controllers\NativeDeploymentController;
 use App\Http\Controllers\WordsTestController;
 use App\Http\Controllers\TestTagController;
 use Illuminate\Support\Facades\Route;
@@ -66,7 +66,7 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('/test/{slug}/js/drag-drop', [GrammarTestController::class, 'showSavedTestJsDragDrop'])->name('saved-test.js.drag-drop');
 
     Route::prefix('admin')->group(function () {
-        Route::get('/', [DeploymentController::class, 'index'])->name('admin.dashboard');
+        Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
 
         Route::get('set-locale', function (\Illuminate\Http\Request $request) {
             $lang = $request->input('lang', 'en');
@@ -80,22 +80,6 @@ Route::middleware('auth.admin')->group(function () {
         })->name('setlocale');
 
         Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
-
-        Route::get('/deployment', [DeploymentController::class, 'index'])->name('deployment.index');
-        Route::post('/deployment/deploy', [DeploymentController::class, 'deploy'])->name('deployment.deploy');
-        Route::post('/deployment/push-current', [DeploymentController::class, 'pushCurrent'])->name('deployment.push-current');
-        Route::post('/deployment/backup-branch', [DeploymentController::class, 'createBackupBranch'])->name('deployment.backup-branch');
-        Route::post('/deployment/backup-branches/{backupBranch}/push', [DeploymentController::class, 'pushBackupBranch'])->name('deployment.backup-branch.push');
-        Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
-
-        Route::prefix('deployment/native')->name('deployment.native.')->group(function () {
-            Route::get('/', [NativeDeploymentController::class, 'index'])->name('index');
-            Route::post('/deploy', [NativeDeploymentController::class, 'deploy'])->name('deploy');
-            Route::post('/push-current', [NativeDeploymentController::class, 'pushCurrent'])->name('push-current');
-            Route::post('/rollback', [NativeDeploymentController::class, 'rollback'])->name('rollback');
-            Route::post('/backup-branch', [NativeDeploymentController::class, 'createBackupBranch'])->name('backup-branch');
-            Route::post('/backup-branches/{backupBranch}/push', [NativeDeploymentController::class, 'pushBackupBranch'])->name('backup-branch.push');
-        });
 
         Route::get('/migrations', [MigrationController::class, 'index'])->name('migrations.index');
         Route::post('/migrations/run', [MigrationController::class, 'run'])->name('migrations.run');
