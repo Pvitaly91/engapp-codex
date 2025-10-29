@@ -490,6 +490,9 @@
 @endsection
 
 @push('head-scripts')
+  @once
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  @endonce
   <script>
     window.databaseStructureViewer = function (tables, recordsRoute, deleteRoute, valueRoute) {
       const extractTables = (payload) => {
