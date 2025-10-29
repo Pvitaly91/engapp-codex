@@ -9,7 +9,8 @@
       @js($structure),
       @js(route('database-structure.records', ['table' => '__TABLE__'])),
       @js(route('database-structure.destroy', ['table' => '__TABLE__'])),
-      @js(route('database-structure.value', ['table' => '__TABLE__']))
+      @js(route('database-structure.value', ['table' => '__TABLE__'])),
+      @js(route('database-structure.structure', ['table' => '__TABLE__']))
     )"
     @keydown.window.escape.prevent="valueModal.open && closeValueModal()"
   >
@@ -76,12 +77,12 @@
         <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
           <header
             class="flex flex-col gap-4 border-b border-border/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
-            @click="table.open = !table.open"
+            @click="toggleTable(table)"
           >
             <div class="space-y-1">
               <div class="flex items-center gap-3">
                 <h2 class="text-xl font-semibold text-foreground" x-html="highlightQuery(table.name)"></h2>
-                <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="table.columns.length + ' полів'"></span>
+                <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="table.columnsCount + ' полів'"></span>
               </div>
               <p class="text-sm text-muted-foreground" x-show="table.comment" x-html="highlightQuery(table.comment)"></p>
             </div>
@@ -106,35 +107,52 @@
                 </button>
               </div>
               <div x-show="table.structureVisible" x-collapse>
-                <div class="mt-4 overflow-x-auto">
-                  <table class="min-w-full divide-y divide-border/60 text-[15px]">
-                    <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
-                      <tr>
-                        <th class="pb-3 pr-4 font-medium">Поле</th>
-                        <th class="pb-3 pr-4 font-medium">Тип</th>
-                        <th class="pb-3 pr-4 font-medium">Null</th>
-                        <th class="pb-3 pr-4 font-medium">За замовчуванням</th>
-                        <th class="pb-3 pr-4 font-medium">Ключ</th>
-                        <th class="pb-3 pr-4 font-medium">Додатково</th>
-                        <th class="pb-3 font-medium">Коментар</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
-                      <template x-for="column in table.columns" :key="column.name">
-                        <tr class="hover:bg-muted/40">
-                          <td class="py-2 pr-4 font-medium" x-html="highlightQuery(column.name)"></td>
-                          <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.type)"></td>
-                          <td class="py-2 pr-4">
-                            <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
-                          </td>
-                          <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.default ?? '—')"></td>
-                          <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.key ?? '—')"></td>
-                          <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
-                          <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
-                        </tr>
-                      </template>
-                    </tbody>
-                  </table>
+                <div class="mt-4 space-y-3">
+                  <template x-if="table.structure.loading">
+                    <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
+                      Завантаження структури...
+                    </div>
+                  </template>
+                  <template x-if="!table.structure.loading && table.structure.error">
+                    <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="table.structure.error"></div>
+                  </template>
+                  <template x-if="!table.structure.loading && !table.structure.error && table.structure.loaded && table.structure.columns.length === 0">
+                    <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
+                      Структуру таблиці не знайдено.
+                    </div>
+                  </template>
+                  <template x-if="!table.structure.loading && table.structure.columns.length > 0">
+                    <div class="overflow-x-auto">
+                      <table class="min-w-full divide-y divide-border/60 text-[15px]">
+                        <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
+                          <tr>
+                            <th class="pb-3 pr-4 font-medium">Поле</th>
+                            <th class="pb-3 pr-4 font-medium">Тип</th>
+                            <th class="pb-3 pr-4 font-medium">Null</th>
+                            <th class="pb-3 pr-4 font-medium">За замовчуванням</th>
+                            <th class="pb-3 pr-4 font-medium">Ключ</th>
+                            <th class="pb-3 pr-4 font-medium">Додатково</th>
+                            <th class="pb-3 font-medium">Коментар</th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
+                          <template x-for="column in table.structure.columns" :key="column.name">
+                            <tr class="hover:bg-muted/40">
+                              <td class="py-2 pr-4 font-medium" x-html="highlightQuery(column.name)"></td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.type)"></td>
+                              <td class="py-2 pr-4">
+                                <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
+                              </td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.default ?? '—')"></td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.key ?? '—')"></td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
+                              <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
+                            </tr>
+                          </template>
+                        </tbody>
+                      </table>
+                    </div>
+                  </template>
                 </div>
               </div>
             </div>
@@ -198,8 +216,7 @@
                           </span>
                           <input
                             type="search"
-                            class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
-                            :disabled="table.records.loading"
+                            class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                             placeholder="Миттєвий пошук за вибраною колонкою або всіма..."
                             x-model="table.records.searchInput"
                             @input.debounce.500ms="updateSearch(table, $event.target.value)"
@@ -455,8 +472,8 @@
         role="dialog"
         aria-modal="true"
       >
-        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" @click="closeValueModal()"></div>
-        <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-card p-6 shadow-xl">
+        <div class="absolute inset-0 bg-background backdrop-blur-sm" @click="closeValueModal()"></div>
+        <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h2 class="text-lg font-semibold text-foreground">Повне значення</h2>
@@ -483,7 +500,7 @@
             <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.error"></div>
           </template>
           <template x-if="!valueModal.loading && !valueModal.error">
-            <div class="rounded-2xl border border-border/60 bg-background/70 p-4">
+            <div class="rounded-2xl border border-border/60 bg-background p-4">
               <pre class="max-h-96 whitespace-pre-wrap break-words text-[15px]" x-html="highlightText(valueModal.value, valueModal.searchTerm)"></pre>
             </div>
           </template>
@@ -498,7 +515,7 @@
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
   @endonce
   <script>
-    window.databaseStructureViewer = function (tables, recordsRoute, deleteRoute, valueRoute) {
+    window.databaseStructureViewer = function (tables, recordsRoute, deleteRoute, valueRoute, structureRoute) {
       const extractTables = (payload) => {
           if (Array.isArray(payload)) {
             return payload.filter(Boolean);
@@ -534,7 +551,7 @@
 
           if (typeof value === 'string') {
             const normalized = value.toLowerCase();
-            return ['1', 'true', 'yes'].includes(normalized);
+            return ['1', 'true', 'yes', 'y', 't'].includes(normalized);
           }
 
           if (typeof value === 'number') {
@@ -544,7 +561,49 @@
           return Boolean(value);
         };
 
-      const normalizedTables = extractTables(tables)
+        const normalizeColumns = (rawColumns) => {
+          if (!Array.isArray(rawColumns)) {
+            return [];
+          }
+
+          return rawColumns
+            .map((column) => {
+              if (column && typeof column === 'object' && !Array.isArray(column)) {
+                const columnName = typeof column.name === 'string' ? column.name : '';
+
+                if (!columnName) {
+                  return null;
+                }
+
+                return {
+                  name: columnName,
+                  type: typeof column.type === 'string' ? column.type : '',
+                  nullable: normalizeNullable(column.nullable),
+                  default: Object.prototype.hasOwnProperty.call(column, 'default') ? column.default : null,
+                  key: typeof column.key === 'string' && column.key !== '' ? column.key : null,
+                  extra: typeof column.extra === 'string' && column.extra !== '' ? column.extra : null,
+                  comment: typeof column.comment === 'string' && column.comment !== '' ? column.comment : null,
+                };
+              }
+
+              if (typeof column === 'string' && column.trim().length > 0) {
+                return {
+                  name: column.trim(),
+                  type: '',
+                  nullable: true,
+                  default: null,
+                  key: null,
+                  extra: null,
+                  comment: null,
+                };
+              }
+
+              return null;
+            })
+            .filter(Boolean);
+        };
+
+        const normalizedTables = extractTables(tables)
           .map((table) => {
             const tableObject = table && typeof table === 'object' && !Array.isArray(table)
               ? table
@@ -559,47 +618,18 @@
               return null;
             }
 
-            const rawColumns = Array.isArray(tableObject.columns)
-              ? tableObject.columns
-                  .map((column) => {
-                    if (column && typeof column === 'object' && !Array.isArray(column)) {
-                      const columnName = typeof column.name === 'string' ? column.name : '';
-
-                      if (!columnName) {
-                        return null;
-                      }
-
-                      return {
-                        name: columnName,
-                        type: typeof column.type === 'string' ? column.type : '',
-                        nullable: normalizeNullable(column.nullable),
-                        default: Object.prototype.hasOwnProperty.call(column, 'default') ? column.default : null,
-                        key: typeof column.key === 'string' && column.key !== '' ? column.key : null,
-                        extra: typeof column.extra === 'string' && column.extra !== '' ? column.extra : null,
-                        comment: typeof column.comment === 'string' && column.comment !== '' ? column.comment : null,
-                      };
-                    }
-
-                    if (typeof column === 'string' && column) {
-                      return {
-                        name: column,
-                        type: '',
-                        nullable: true,
-                        default: null,
-                        key: null,
-                        extra: null,
-                        comment: null,
-                      };
-                    }
-
-                    return null;
-                  })
-                  .filter(Boolean)
-              : [];
-
-            const columnNames = rawColumns
+            const normalizedColumns = normalizeColumns(tableObject.columns);
+            const columnNames = normalizedColumns
               .map((column) => (typeof column.name === 'string' ? column.name : ''))
               .filter((column) => column.length > 0);
+
+            let columnsCount = normalizedColumns.length;
+            if (Object.prototype.hasOwnProperty.call(tableObject, 'columns_count')) {
+              const numeric = Number(tableObject.columns_count);
+              if (!Number.isNaN(numeric) && numeric >= 0) {
+                columnsCount = Math.max(columnsCount, Math.trunc(numeric));
+              }
+            }
 
             const comment = typeof tableObject.comment === 'string' && tableObject.comment !== ''
               ? tableObject.comment
@@ -608,17 +638,26 @@
               ? tableObject.engine
               : null;
 
+            const structureLoaded = normalizedColumns.length > 0;
+
             return {
-              ...tableObject,
               name,
               comment,
               engine,
-              columns: rawColumns,
+              columnsCount,
+              structure: {
+                loading: false,
+                loaded: structureLoaded,
+                columns: normalizedColumns,
+                error: null,
+              },
               open: false,
               structureVisible: true,
-              primaryKeys: rawColumns
-                .filter((column) => column && column.key === 'PRI' && column.name)
-                .map((column) => column.name),
+              primaryKeys: structureLoaded
+                ? normalizedColumns
+                  .filter((column) => column && column.key === 'PRI' && column.name)
+                  .map((column) => column.name)
+                : [],
               records: {
                 visible: false,
                 loading: false,
@@ -648,6 +687,7 @@
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
           recordsValueRoute: valueRoute,
+          structureRoute,
           csrfToken:
             document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
             (window.Laravel ? window.Laravel.csrfToken : ''),
@@ -685,7 +725,7 @@
                 return true;
               }
 
-              const columns = Array.isArray(table.columns) ? table.columns : [];
+              const columns = Array.isArray(table.structure?.columns) ? table.structure.columns : [];
 
               return columns.some((column) => {
                 if (!column) {
@@ -702,6 +742,104 @@
               });
             });
           },
+        async toggleTable(table) {
+          if (!table) {
+            return;
+          }
+
+          table.open = !table.open;
+
+          if (table.open) {
+            await this.ensureStructureLoaded(table);
+          }
+        },
+        async ensureStructureLoaded(table) {
+          if (!table || !table.structure) {
+            return;
+          }
+
+          if (table.structure.loading || table.structure.loaded) {
+            return;
+          }
+
+          if (table.structure.error) {
+            table.structure.error = null;
+          }
+
+          if (Array.isArray(table.structure.columns) && table.structure.columns.length > 0) {
+            table.structure.loaded = true;
+            return;
+          }
+
+          if (!this.structureRoute) {
+            table.structure.loaded = true;
+            return;
+          }
+
+          await this.loadTableStructure(table);
+        },
+        async loadTableStructure(table) {
+          if (!table || !this.structureRoute) {
+            return;
+          }
+
+          table.structure.loading = true;
+          table.structure.error = null;
+
+          try {
+            const url = new URL(
+              this.structureRoute.replace('__TABLE__', encodeURIComponent(table.name)),
+              window.location.origin
+            );
+
+            const response = await fetch(url.toString(), {
+              headers: {
+                Accept: 'application/json',
+              },
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося завантажити структуру таблиці.';
+              throw new Error(message);
+            }
+
+            const data = await response.json();
+            this.setTableColumns(table, data.columns);
+
+            if (Object.prototype.hasOwnProperty.call(data, 'columns_count')) {
+              const numericCount = Number(data.columns_count);
+              if (!Number.isNaN(numericCount) && numericCount >= 0) {
+                table.columnsCount = Math.max(table.columnsCount, Math.trunc(numericCount));
+              }
+            }
+          } catch (error) {
+            table.structure.error = error.message ?? 'Сталася помилка під час завантаження структури таблиці.';
+            table.structure.loaded = false;
+          } finally {
+            table.structure.loading = false;
+          }
+        },
+        setTableColumns(table, columns) {
+          if (!table || !table.structure) {
+            return;
+          }
+
+          const normalizedColumns = normalizeColumns(columns);
+          table.structure.columns = normalizedColumns;
+          table.structure.loaded = true;
+          const currentCount = typeof table.columnsCount === 'number' && !Number.isNaN(table.columnsCount)
+            ? table.columnsCount
+            : 0;
+          table.columnsCount = Math.max(currentCount, normalizedColumns.length);
+          table.primaryKeys = normalizedColumns
+            .filter((column) => column && column.key === 'PRI' && column.name)
+            .map((column) => column.name);
+
+          if (!Array.isArray(table.records.columns) || table.records.columns.length === 0) {
+            table.records.columns = normalizedColumns.map((column) => column.name).filter(Boolean);
+          }
+        },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
           table.records.error = null;
@@ -899,8 +1037,8 @@
           const primaryKeys = Array.isArray(table.primaryKeys)
             ? table.primaryKeys.filter(Boolean)
             : [];
-          const fallbackColumns = Array.isArray(table.columns)
-            ? table.columns.map((column) => column.name)
+          const fallbackColumns = Array.isArray(table.structure?.columns)
+            ? table.structure.columns.map((column) => column.name)
             : [];
           const columns = primaryKeys.length > 0
             ? primaryKeys
@@ -1039,7 +1177,9 @@
 
           const fallbackColumn = Array.isArray(table.records.columns) && table.records.columns.length > 0
             ? table.records.columns[0]
-            : (Array.isArray(table.columns) && table.columns.length > 0 ? table.columns[0].name : '');
+            : (Array.isArray(table.structure?.columns) && table.structure.columns.length > 0
+              ? table.structure.columns[0].name
+              : '');
 
           table.records.filters = [
             ...table.records.filters,

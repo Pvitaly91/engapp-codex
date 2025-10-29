@@ -13,6 +13,7 @@ class DatabaseStructureFetcher
 {
     private Connection $connection;
     private ?array $structureCache = null;
+    private ?array $structureSummaryCache = null;
 
     public function __construct()
     {
@@ -39,16 +40,75 @@ class DatabaseStructureFetcher
         };
     }
 
-    public function getMeta(): array
+    public function getStructureSummary(): array
+    {
+        if ($this->structureSummaryCache !== null) {
+            return $this->structureSummaryCache;
+        }
+
+        return $this->structureSummaryCache = array_map(
+            static function (array $table): array {
+                $columns = $table['columns'] ?? [];
+
+                return [
+                    'name' => $table['name'] ?? null,
+                    'comment' => $table['comment'] ?? null,
+                    'engine' => $table['engine'] ?? null,
+                    'columns_count' => is_array($columns) ? count($columns) : 0,
+                ];
+            },
+            $this->getStructure()
+        );
+    }
+
+    public function getTableStructure(string $table): array
     {
         $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $columns = Collection::make($tableInfo['columns'] ?? [])
+            ->map(function ($column): ?array {
+                if (is_array($column)) {
+                    return [
+                        'name' => $column['name'] ?? null,
+                        'type' => $column['type'] ?? null,
+                        'nullable' => (bool) ($column['nullable'] ?? false),
+                        'default' => $column['default'] ?? null,
+                        'key' => $column['key'] ?? null,
+                        'extra' => $column['extra'] ?? null,
+                        'comment' => $column['comment'] ?? null,
+                    ];
+                }
+
+                return null;
+            })
+            ->filter(fn ($column) => $column !== null && is_string($column['name'] ?? null) && $column['name'] !== '')
+            ->values()
+            ->all();
+
+        return [
+            'name' => $tableInfo['name'] ?? $table,
+            'comment' => $tableInfo['comment'] ?? null,
+            'engine' => $tableInfo['engine'] ?? null,
+            'columns' => $columns,
+            'columns_count' => count($columns),
+        ];
+    }
+
+    public function getMeta(): array
+    {
+        $structure = Collection::make($this->getStructureSummary());
 
         return [
             'connection' => $this->connection->getName(),
             'driver' => $this->connection->getDriverName(),
             'database' => $this->connection->getDatabaseName(),
             'tables_count' => $structure->count(),
-            'columns_count' => $structure->sum(fn ($table) => count($table['columns'] ?? [])),
+            'columns_count' => $structure->sum(fn ($table) => (int) ($table['columns_count'] ?? 0)),
         ];
     }
 
