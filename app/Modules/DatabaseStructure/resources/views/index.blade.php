@@ -3,7 +3,14 @@
 @section('title', 'Структура бази даних')
 
 @section('content')
-  <div class="space-y-8" x-data="databaseStructureViewer(@js($structure), @js(route('database-structure.records', ['table' => '__TABLE__'])))">
+  <div
+    class="space-y-8"
+    x-data="databaseStructureViewer(
+      @js($structure),
+      @js(route('database-structure.records', ['table' => '__TABLE__'])),
+      @js(route('database-structure.destroy', ['table' => '__TABLE__']))
+    )"
+  >
     <header class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div class="space-y-3">
@@ -71,7 +78,7 @@
           >
             <div class="space-y-1">
               <div class="flex items-center gap-3">
-                <h2 class="text-xl font-semibold text-foreground" x-text="table.name"></h2>
+                <h2 class="text-xl font-semibold text-foreground" x-html="highlightMatch(table.name)"></h2>
                 <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="table.columns.length + ' полів'"></span>
               </div>
               <p class="text-sm text-muted-foreground" x-show="table.comment" x-text="table.comment"></p>
@@ -100,8 +107,8 @@
                 <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
                   <template x-for="column in table.columns" :key="column.name">
                     <tr class="hover:bg-muted/40">
-                      <td class="py-2 pr-4 font-medium" x-text="column.name"></td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.type"></td>
+                      <td class="py-2 pr-4 font-medium" x-html="highlightMatch(column.name)"></td>
+                      <td class="py-2 pr-4 text-muted-foreground" x-html="highlightMatch(column.type)"></td>
                       <td class="py-2 pr-4">
                         <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
                       </td>
@@ -304,6 +311,7 @@
                                 </button>
                               </th>
                             </template>
+                            <th class="px-3 py-2 font-medium text-right">Дії</th>
                           </tr>
                         </thead>
                         <tbody class="divide-y divide-border/60 text-[15px]">
@@ -312,6 +320,17 @@
                               <template x-for="column in table.records.columns" :key="column">
                                 <td class="px-3 py-2 text-[15px] text-foreground" x-text="formatCell(row[column])"></td>
                               </template>
+                              <td class="px-3 py-2 text-right">
+                                <button
+                                  type="button"
+                                  class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1 text-xs font-semibold text-rose-500 transition hover:border-rose-300 hover:text-rose-600 disabled:cursor-not-allowed disabled:opacity-60"
+                                  :disabled="table.records.loading || table.records.deletingRowIndex === rowIndex"
+                                  @click.stop="deleteRecord(table, row, rowIndex)"
+                                >
+                                  <span x-show="table.records.deletingRowIndex !== rowIndex">Видалити</span>
+                                  <span x-show="table.records.deletingRowIndex === rowIndex" x-cloak>Видалення...</span>
+                                </button>
+                              </td>
                             </tr>
                           </template>
                         </tbody>
@@ -376,9 +395,13 @@
 @push('scripts')
   <script>
     document.addEventListener('alpine:init', () => {
-      Alpine.data('databaseStructureViewer', (tables, recordsRoute) => ({
+      Alpine.data('databaseStructureViewer', (tables, recordsRoute, deleteRoute) => ({
         query: '',
         recordsRoute,
+        recordsDeleteRoute: deleteRoute,
+        csrfToken:
+          document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
+          (window.Laravel ? window.Laravel.csrfToken : ''),
         filterOperators: [
           { value: '=', label: 'Дорівнює (=)' },
           { value: '!=', label: 'Не дорівнює (!=)' },
@@ -392,12 +415,19 @@
         tables: tables.map((table) => ({
           ...table,
           open: false,
+          primaryKeys: Array.isArray(table.columns)
+            ? table.columns
+                .filter((column) => column && column.key === 'PRI' && column.name)
+                .map((column) => column.name)
+            : [],
           records: {
             visible: false,
             loading: false,
             loaded: false,
             rows: [],
-            columns: table.columns.map((column) => column.name),
+            columns: Array.isArray(table.columns)
+              ? table.columns.map((column) => column.name)
+              : [],
             error: null,
             page: 1,
             perPage: 20,
@@ -406,6 +436,7 @@
             sort: null,
             direction: 'asc',
             filters: [],
+            deletingRowIndex: null,
           },
         })),
         get filteredTables() {
@@ -424,6 +455,56 @@
               (column.type && column.type.toLowerCase().includes(q))
             );
           });
+        },
+        escapeHtml(value) {
+          if (value === null || value === undefined) {
+            return '';
+          }
+
+          return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        },
+        highlightMatch(value) {
+          const text = value === null || value === undefined ? '' : String(value);
+
+          if (!text) {
+            return '';
+          }
+
+          if (!this.query) {
+            return this.escapeHtml(text);
+          }
+
+          const trimmedQuery = this.query.trim();
+
+          if (!trimmedQuery) {
+            return this.escapeHtml(text);
+          }
+
+          const lowerText = text.toLowerCase();
+          const lowerQuery = trimmedQuery.toLowerCase();
+          const queryLength = trimmedQuery.length;
+
+          let result = '';
+          let lastIndex = 0;
+          let matchIndex = lowerText.indexOf(lowerQuery, lastIndex);
+
+          while (matchIndex !== -1) {
+            result += this.escapeHtml(text.slice(lastIndex, matchIndex));
+            result += `<mark class="rounded bg-primary/20 px-1 font-semibold text-primary">${this.escapeHtml(
+              text.slice(matchIndex, matchIndex + queryLength)
+            )}</mark>`;
+            lastIndex = matchIndex + queryLength;
+            matchIndex = lowerText.indexOf(lowerQuery, lastIndex);
+          }
+
+          result += this.escapeHtml(text.slice(lastIndex));
+
+          return result;
         },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
@@ -517,6 +598,99 @@
           table.records.perPage = Number(perPage) || table.records.perPage;
           table.records.page = 1;
           this.loadRecords(table);
+        },
+        async deleteRecord(table, row, rowIndex) {
+          if (table.records.loading) {
+            return;
+          }
+
+          if (!row || typeof row !== 'object') {
+            return;
+          }
+
+          if (!window.confirm('Ви впевнені, що хочете видалити цей запис?')) {
+            return;
+          }
+
+          const identifiers = this.buildIdentifiers(table, row);
+
+          if (identifiers.length === 0) {
+            table.records.error = 'Не вдалося визначити ідентифікатори запису для видалення.';
+            return;
+          }
+
+          table.records.error = null;
+          table.records.deletingRowIndex = rowIndex;
+
+          try {
+            const url = new URL(
+              this.recordsDeleteRoute.replace('__TABLE__', encodeURIComponent(table.name)),
+              window.location.origin
+            );
+
+            const response = await fetch(url.toString(), {
+              method: 'DELETE',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({ identifiers }),
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося видалити запис.';
+              throw new Error(message);
+            }
+
+            await this.loadRecords(table);
+          } catch (error) {
+            table.records.error = error.message ?? 'Сталася помилка під час видалення запису.';
+          } finally {
+            table.records.deletingRowIndex = null;
+          }
+        },
+        buildIdentifiers(table, row) {
+          const identifiers = [];
+          const primaryKeys = Array.isArray(table.primaryKeys)
+            ? table.primaryKeys.filter(Boolean)
+            : [];
+          const fallbackColumns = Array.isArray(table.columns)
+            ? table.columns.map((column) => column.name)
+            : [];
+          const columns = primaryKeys.length > 0
+            ? primaryKeys
+            : (Array.isArray(table.records.columns) && table.records.columns.length > 0
+              ? table.records.columns
+              : fallbackColumns);
+
+          columns.forEach((column) => {
+            if (!column || typeof column !== 'string') {
+              return;
+            }
+
+            if (!Object.prototype.hasOwnProperty.call(row, column)) {
+              return;
+            }
+
+            const value = row[column];
+
+            if (value === undefined) {
+              return;
+            }
+
+            if (value !== null && typeof value === 'object') {
+              return;
+            }
+
+            identifiers.push({
+              column,
+              value,
+            });
+          });
+
+          return identifiers;
         },
         toggleSort(table, column) {
           if (table.records.loading) {

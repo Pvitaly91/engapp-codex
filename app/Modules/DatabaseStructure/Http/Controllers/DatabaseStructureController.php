@@ -7,6 +7,7 @@ use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use RuntimeException;
 
 class DatabaseStructureController
 {
@@ -37,6 +38,34 @@ class DatabaseStructureController
             $preview = $this->fetcher->getPreview($table, $page, $perPage, $sort, $direction, $filters);
 
             return response()->json($preview);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
+    }
+
+    public function destroy(Request $request, string $table): JsonResponse
+    {
+        try {
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису для видалення.');
+            }
+
+            $deleted = $this->fetcher->deleteRecord($table, $identifiers);
+
+            return response()->json([
+                'deleted' => $deleted,
+                'message' => 'Запис успішно видалено.',
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
         } catch (\Throwable $exception) {
             return response()->json([
                 'message' => $exception->getMessage(),
@@ -77,6 +106,48 @@ class DatabaseStructureController
 
                 return $payload;
             })
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @return array<int, array{column: string, value: mixed}>
+     */
+    private function extractIdentifiers(Request $request): array
+    {
+        $identifiers = $request->input('identifiers', []);
+
+        if (!is_array($identifiers)) {
+            return [];
+        }
+
+        return collect($identifiers)
+            ->filter(fn ($identifier) => is_array($identifier))
+            ->map(function (array $identifier): ?array {
+                $column = isset($identifier['column']) && is_string($identifier['column'])
+                    ? trim($identifier['column'])
+                    : '';
+
+                if ($column === '') {
+                    return null;
+                }
+
+                if (!array_key_exists('value', $identifier)) {
+                    return null;
+                }
+
+                $value = $identifier['value'];
+
+                if ($value !== null && !is_scalar($value)) {
+                    return null;
+                }
+
+                return [
+                    'column' => $column,
+                    'value' => $value,
+                ];
+            })
+            ->filter()
             ->values()
             ->all();
     }
