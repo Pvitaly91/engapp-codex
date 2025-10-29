@@ -13,6 +13,11 @@
         $savePayloadKey = $savePayloadKey ?? 'uuid';
         $questions = collect($questions ?? []);
         $tagGroups = $tagsByCategory ?? collect();
+        $allTagNames = $tagGroups
+            ->flatMap(fn ($tags) => collect($tags)->pluck('name'))
+            ->filter(fn ($name) => filled($name))
+            ->unique()
+            ->values();
         $sourceGroups = $sourcesByCategory ?? collect();
         $seederClasses = collect($seederClasses ?? [])->filter(fn ($value) => filled($value))->values();
         $rawSeederGroups = collect($seederSourceGroups ?? [])->filter(fn ($group) => filled($group['seeder'] ?? null));
@@ -337,6 +342,7 @@
 
                 @if($tagGroups->isNotEmpty())
                     <div x-data="{ openTags: {{ $hasSelectedTags ? 'true' : 'false' }} }"
+                         x-init="$store.tagSearch.setAllTags(@js($allTagNames))"
                          @class([
                             'space-y-3 border border-transparent rounded-2xl p-3',
                             'border-blue-300 bg-blue-50' => $hasSelectedTags,
@@ -353,13 +359,29 @@
                             </button>
                         </div>
                         <div class="space-y-3" x-show="openTags" x-transition style="display: none;">
+                            <div class="relative">
+                                <input
+                                    type="search"
+                                    placeholder="Пошук тегів..."
+                                    x-model.debounce.200ms="$store.tagSearch.query"
+                                    class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    autocomplete="off"
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.9 14.32a6 6 0 111.414-1.414l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM14 9a5 5 0 11-10 0 5 5 0 0110 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p x-show="$store.tagSearch.query && !$store.tagSearch.hasResults()" x-cloak class="text-sm text-gray-500">Теги не знайдено.</p>
                             @foreach($tagGroups as $tagCategory => $tags)
                                 @php
                                     $categoryTagNames = collect($tags)->pluck('name');
                                     $tagCategoryHasSelected = $categoryTagNames->intersect($selectedTags)->isNotEmpty();
                                     $tagCategoryHasRecent = collect($tags)->contains(fn ($tag) => $recentTagIds->contains($tag->id));
                                 @endphp
-                                <div x-data="{ open: {{ ($tagCategoryHasSelected || $loop->first) ? 'true' : 'false' }} }"
+                                <div x-data="{ open: {{ ($tagCategoryHasSelected || $loop->first) ? 'true' : 'false' }}, categoryTags: @js($categoryTagNames) }"
+                                     x-show="$store.tagSearch.matchesAny(categoryTags)"
+                                     x-effect="if ($store.tagSearch.normalized() && $store.tagSearch.matchesAny(categoryTags)) { open = true }"
+                                     x-cloak
                                      @class([
                                         'border rounded-2xl overflow-hidden transition',
                                         'border-gray-200' => ! $tagCategoryHasSelected && ! $tagCategoryHasRecent,
@@ -388,7 +410,7 @@
                                                 @php $tagId = 'tag-' . md5($tag->id . '-' . $tag->name); @endphp
                                                 @php $tagIsNew = $recentTagIds->contains($tag->id); @endphp
                                                 @php $tagOrdinal = $recentTagOrdinals->get($tag->id); @endphp
-                                                <div>
+                                                <div x-show="$store.tagSearch.matches(@js($tag->name))" x-cloak>
                                                     <input type="checkbox" name="tags[]" value="{{ $tag->name }}" id="{{ $tagId }}" class="hidden peer"
                                                            {{ in_array($tag->name, $selectedTags) ? 'checked' : '' }}>
                                                     <label for="{{ $tagId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white flex items-center gap-2">
@@ -660,6 +682,46 @@
 </div>
 
 <script>
+document.addEventListener('alpine:init', () => {
+    Alpine.store('tagSearch', {
+        query: '',
+        all: [],
+        setAllTags(tags) {
+            this.all = Array.isArray(tags) ? tags : [];
+        },
+        normalized() {
+            return this.query.trim().toLowerCase();
+        },
+        matches(tagName) {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            return String(tagName || '').toLowerCase().includes(normalized);
+        },
+        matchesAny(tagNames) {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            return (Array.isArray(tagNames) ? tagNames : []).some(tag => this.matches(tag));
+        },
+        hasResults() {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            return this.matchesAny(this.all);
+        },
+    });
+});
+
 function checkFullQuestionAjax(btn, questionId, markerList) {
     let markers = markerList.split(',');
     let answers = {};
