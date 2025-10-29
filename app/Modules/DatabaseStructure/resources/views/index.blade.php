@@ -473,7 +473,7 @@
         aria-modal="true"
       >
         <div class="absolute inset-0 bg-background backdrop-blur-sm" @click="closeValueModal()"></div>
-        <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-card p-6 shadow-xl">
+        <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
           <div class="flex items-start justify-between gap-4">
             <div>
               <h2 class="text-lg font-semibold text-foreground">Повне значення</h2>
