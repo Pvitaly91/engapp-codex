@@ -2,6 +2,7 @@
 
 namespace App\Modules\DatabaseStructure\Services;
 
+use DateTimeInterface;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
@@ -167,44 +168,7 @@ class DatabaseStructureFetcher
         $columns = $tableInfo['columns'] ?? [];
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
 
-        $normalizedIdentifiers = Collection::make($identifiers)
-            ->filter(function ($identifier): bool {
-                return is_array($identifier)
-                    && isset($identifier['column'])
-                    && is_string($identifier['column']);
-            })
-            ->map(function (array $identifier) use ($columnNames): ?array {
-                $column = trim($identifier['column']);
-
-                if ($column === '') {
-                    return null;
-                }
-
-                $isKnownColumn = in_array($column, $columnNames, true);
-                $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $column);
-
-                if (!$isKnownColumn && !$isAdHocColumn) {
-                    return null;
-                }
-
-                if (!array_key_exists('value', $identifier)) {
-                    return null;
-                }
-
-                $value = $identifier['value'];
-
-                if ($value !== null && !is_scalar($value)) {
-                    return null;
-                }
-
-                return [
-                    'column' => $column,
-                    'value' => $value,
-                ];
-            })
-            ->filter()
-            ->values()
-            ->all();
+        $normalizedIdentifiers = $this->normalizeIdentifiers($identifiers, $columnNames);
 
         if (empty($normalizedIdentifiers)) {
             throw new RuntimeException('Не вдалося визначити ідентифікатори запису для видалення.');
@@ -228,6 +192,58 @@ class DatabaseStructureFetcher
         }
 
         return $deleted;
+    }
+
+    /**
+     * @param array<int, array{column: string, value: mixed}> $identifiers
+     * @return mixed
+     */
+    public function getRecordValue(string $table, string $column, array $identifiers)
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $columns = $tableInfo['columns'] ?? [];
+        $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+        $normalizedColumn = trim($column);
+
+        $isKnownColumn = in_array($normalizedColumn, $columnNames, true);
+        $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $normalizedColumn);
+
+        if (!$isKnownColumn && !$isAdHocColumn) {
+            throw new RuntimeException("Колонку '{$normalizedColumn}' не знайдено у таблиці.");
+        }
+
+        $normalizedIdentifiers = $this->normalizeIdentifiers($identifiers, $columnNames);
+
+        if (empty($normalizedIdentifiers)) {
+            throw new RuntimeException('Не вдалося визначити ідентифікатори запису для отримання значення.');
+        }
+
+        $query = $this->connection->table($table);
+
+        foreach ($normalizedIdentifiers as $identifier) {
+            if ($identifier['value'] === null) {
+                $query->whereNull($identifier['column']);
+                continue;
+            }
+
+            $query->where($identifier['column'], '=', $identifier['value']);
+        }
+
+        $record = $query->first([$normalizedColumn]);
+
+        if (!$record) {
+            throw new RuntimeException('Запис не знайдено або вже видалено.');
+        }
+
+        $value = $record->{$normalizedColumn} ?? null;
+
+        return $this->convertValueForResponse($value);
     }
 
     /**
@@ -377,6 +393,88 @@ class DatabaseStructureFetcher
             'sqlite' => ["CAST({$wrappedColumn} AS TEXT) LIKE ?", [$pattern]],
             default => ["CAST({$wrappedColumn} AS CHAR) LIKE ?", [$pattern]],
         };
+    }
+
+    private function convertValueForResponse(mixed $value): mixed
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        if (is_resource($value)) {
+            $contents = stream_get_contents($value);
+
+            return $contents === false ? null : $contents;
+        }
+
+        if ($value instanceof DateTimeInterface) {
+            return $value->format('Y-m-d H:i:s.u');
+        }
+
+        if (is_array($value)) {
+            $encoded = json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+            return $encoded === false ? '[]' : $encoded;
+        }
+
+        if (is_object($value)) {
+            if (method_exists($value, '__toString')) {
+                return (string) $value;
+            }
+
+            $encoded = json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+            return $encoded === false ? get_class($value) : $encoded;
+        }
+
+        return $value;
+    }
+
+    /**
+     * @param array<int, array{column: string, value: mixed}> $identifiers
+     * @param array<int, string> $columnNames
+     * @return array<int, array{column: string, value: mixed}>
+     */
+    private function normalizeIdentifiers(array $identifiers, array $columnNames): array
+    {
+        return Collection::make($identifiers)
+            ->filter(function ($identifier): bool {
+                return is_array($identifier)
+                    && isset($identifier['column'])
+                    && is_string($identifier['column']);
+            })
+            ->map(function (array $identifier) use ($columnNames): ?array {
+                $column = trim($identifier['column']);
+
+                if ($column === '') {
+                    return null;
+                }
+
+                $isKnownColumn = in_array($column, $columnNames, true);
+                $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $column);
+
+                if (!$isKnownColumn && !$isAdHocColumn) {
+                    return null;
+                }
+
+                if (!array_key_exists('value', $identifier)) {
+                    return null;
+                }
+
+                $value = $identifier['value'];
+
+                if ($value !== null && !is_scalar($value)) {
+                    return null;
+                }
+
+                return [
+                    'column' => $column,
+                    'value' => $value,
+                ];
+            })
+            ->filter()
+            ->values()
+            ->all();
     }
 
     private function structureFromMySql(): array

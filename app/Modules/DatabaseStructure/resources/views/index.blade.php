@@ -8,8 +8,10 @@
     x-data="databaseStructureViewer(
       @js($structure),
       @js(route('database-structure.records', ['table' => '__TABLE__'])),
-      @js(route('database-structure.destroy', ['table' => '__TABLE__']))
+      @js(route('database-structure.destroy', ['table' => '__TABLE__'])),
+      @js(route('database-structure.value', ['table' => '__TABLE__']))
     )"
+    @keydown.window.escape.prevent="valueModal.open && closeValueModal()"
   >
     <header class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
@@ -367,7 +369,15 @@
                           <template x-for="(row, rowIndex) in table.records.rows" :key="rowIndex">
                             <tr class="hover:bg-muted/40">
                               <template x-for="column in table.records.columns" :key="column">
-                                <td class="px-3 py-2 text-[15px] text-foreground" x-html="highlightRecordCell(table, column, row[column])"></td>
+                                <td class="px-3 py-2 text-[15px] text-foreground">
+                                  <button
+                                    type="button"
+                                    class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-[15px] text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                    @click.stop="showRecordValue(table, column, row)"
+                                    :title="formatCell(row[column])"
+                                    x-html="renderRecordPreview(table, column, row[column])"
+                                  ></button>
+                                </td>
                               </template>
                               <td class="px-3 py-2 text-right">
                                 <button
@@ -431,12 +441,50 @@
                       </div>
                     </div>
                   </div>
-                </template>
-              </div>
-            </div>
+          </section>
+        </template>
+      </div>
+      <div
+        x-show="valueModal.open"
+        x-cloak
+        class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" @click="closeValueModal()"></div>
+        <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-card p-6 shadow-xl">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-semibold text-foreground">Повне значення</h2>
+            <p class="mt-1 text-sm text-muted-foreground">
+              Таблиця: <span class="font-medium text-foreground" x-text="valueModal.table || '—'"></span>,
+              колонка: <span class="font-medium text-foreground" x-text="valueModal.column || '—'"></span>
+            </p>
           </div>
-        </section>
-      </template>
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="closeValueModal()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="mt-4 space-y-3 text-sm text-foreground">
+          <template x-if="valueModal.loading">
+            <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-center text-sm text-muted-foreground">
+              Завантаження значення...
+            </div>
+          </template>
+          <template x-if="!valueModal.loading && valueModal.error">
+            <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.error"></div>
+          </template>
+          <template x-if="!valueModal.loading && !valueModal.error">
+            <div class="rounded-2xl border border-border/60 bg-background/70 p-4">
+              <pre class="max-h-96 whitespace-pre-wrap break-words text-[15px]" x-html="highlightText(valueModal.value, valueModal.searchTerm)"></pre>
+            </div>
+          </template>
+        </div>
+      </div>
     </div>
   </div>
 @endsection
@@ -444,13 +492,24 @@
 @push('scripts')
   <script>
     document.addEventListener('alpine:init', () => {
-      Alpine.data('databaseStructureViewer', (tables, recordsRoute, deleteRoute) => ({
+      Alpine.data('databaseStructureViewer', (tables, recordsRoute, deleteRoute, valueRoute) => ({
         query: '',
         recordsRoute,
         recordsDeleteRoute: deleteRoute,
+        recordsValueRoute: valueRoute,
         csrfToken:
           document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
           (window.Laravel ? window.Laravel.csrfToken : ''),
+        cellPreviewLimit: 120,
+        valueModal: {
+          open: false,
+          table: '',
+          column: '',
+          value: '',
+          loading: false,
+          error: null,
+          searchTerm: '',
+        },
         filterOperators: [
           { value: '=', label: 'Дорівнює (=)' },
           { value: '!=', label: 'Не дорівнює (!=)' },
@@ -741,6 +800,88 @@
 
           return identifiers;
         },
+        async showRecordValue(table, column, row) {
+          const columnName = typeof column === 'string' ? column.trim() : '';
+          const tableName = table && typeof table.name === 'string' ? table.name : '';
+
+          if (!columnName || !tableName) {
+            return;
+          }
+
+          const identifiers = this.buildIdentifiers(table, row);
+
+          this.valueModal.open = true;
+          this.valueModal.loading = true;
+          this.valueModal.error = null;
+          this.valueModal.table = tableName;
+          this.valueModal.column = columnName;
+          this.valueModal.value = '';
+
+          const records = table && typeof table === 'object' ? table.records || {} : {};
+          const searchTerm = typeof records.search === 'string' ? records.search : '';
+          const searchColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
+          this.valueModal.searchTerm = !searchTerm || (searchColumn && searchColumn !== columnName)
+            ? ''
+            : searchTerm;
+
+          if (identifiers.length === 0) {
+            this.valueModal.loading = false;
+            this.valueModal.error = 'Не вдалося визначити ідентифікатори запису для отримання значення.';
+            return;
+          }
+
+          if (!this.recordsValueRoute) {
+            this.valueModal.loading = false;
+            this.valueModal.error = 'Маршрут для отримання значення не налаштовано.';
+            return;
+          }
+
+          try {
+            const url = new URL(
+              this.recordsValueRoute.replace('__TABLE__', encodeURIComponent(tableName)),
+              window.location.origin
+            );
+
+            const response = await fetch(url.toString(), {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                column: columnName,
+                identifiers,
+              }),
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося отримати повне значення.';
+              throw new Error(message);
+            }
+
+            const payload = await response.json();
+            const rawValue = payload && Object.prototype.hasOwnProperty.call(payload, 'value')
+              ? payload.value
+              : null;
+
+            this.valueModal.value = this.formatCell(rawValue);
+          } catch (error) {
+            this.valueModal.error = error.message ?? 'Сталася помилка під час отримання значення.';
+          } finally {
+            this.valueModal.loading = false;
+          }
+        },
+        closeValueModal() {
+          this.valueModal.open = false;
+          this.valueModal.loading = false;
+          this.valueModal.error = null;
+          this.valueModal.value = '';
+          this.valueModal.table = '';
+          this.valueModal.column = '';
+          this.valueModal.searchTerm = '';
+        },
         toggleSort(table, column) {
           if (table.records.loading) {
             return;
@@ -914,18 +1055,36 @@
 
           return String(value);
         },
-        highlightRecordCell(table, column, value) {
+        truncateText(value, limit = 120) {
+          const text = value === null || value === undefined ? '' : String(value);
+          const numericLimit = Number(limit);
+
+          if (!Number.isFinite(numericLimit) || numericLimit <= 0) {
+            return text;
+          }
+
+          if (text.length <= numericLimit) {
+            return text;
+          }
+
+          const ellipsis = '…';
+          const sliceLength = Math.max(0, numericLimit - ellipsis.length);
+
+          return `${text.slice(0, sliceLength)}${ellipsis}`;
+        },
+        renderRecordPreview(table, column, value) {
           const text = this.formatCell(value);
+          const truncated = this.truncateText(text, this.cellPreviewLimit);
           const records = table && typeof table === 'object' ? table.records || {} : {};
           const searchTerm = typeof records.search === 'string' ? records.search : '';
           const selectedColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
           const columnName = typeof column === 'string' ? column.trim() : '';
 
           if (!searchTerm || (selectedColumn && selectedColumn !== columnName)) {
-            return this.escapeHtml(text);
+            return this.escapeHtml(truncated);
           }
 
-          return this.highlightText(text, searchTerm);
+          return this.highlightText(truncated, searchTerm);
         },
         highlightQuery(value) {
           return this.highlightText(value, this.query);

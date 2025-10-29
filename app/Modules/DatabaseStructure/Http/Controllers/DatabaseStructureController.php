@@ -56,6 +56,41 @@ class DatabaseStructureController
         }
     }
 
+    public function value(Request $request, string $table): JsonResponse
+    {
+        try {
+            $column = is_string($request->input('column'))
+                ? trim((string) $request->input('column'))
+                : '';
+
+            if ($column === '') {
+                throw new RuntimeException('Не вказано колонку для отримання значення.');
+            }
+
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису.');
+            }
+
+            $value = $this->fetcher->getRecordValue($table, $column, $identifiers);
+
+            return response()->json([
+                'value' => $value,
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
+    }
+
     public function destroy(Request $request, string $table): JsonResponse
     {
         try {
