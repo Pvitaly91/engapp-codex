@@ -529,6 +529,127 @@
                       :disabled="valueModal.saving"
                     ></textarea>
                   </template>
+                  <template x-if="valueModal.editing && valueModal.foreignKey">
+                    <div class="mt-3 space-y-3 rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-4">
+                      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <div class="text-sm text-muted-foreground">
+                          Це поле є зовнішнім ключем на таблицю
+                          <span class="font-medium text-foreground" x-text="valueModal.foreignKey.table"></span>.
+                          Колонка ключа:
+                          <span class="font-medium text-foreground" x-text="valueModal.foreignKey.column"></span>
+                          <template x-if="valueModal.foreignKey.displayColumn">
+                            <span class="block text-xs text-muted-foreground">
+                              Відображення за колонкою
+                              <span class="font-medium text-foreground" x-text="valueModal.foreignKey.displayColumn"></span>
+                            </span>
+                          </template>
+                        </div>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                          @click="toggleForeignRecords()"
+                        >
+                          <i class="fa-solid" :class="valueModal.foreignRecords.visible ? 'fa-eye-slash' : 'fa-database'"></i>
+                          <span x-text="valueModal.foreignRecords.visible ? 'Сховати записи' : 'Обрати запис'"></span>
+                        </button>
+                      </div>
+                      <div x-show="valueModal.foreignRecords.visible" x-collapse class="space-y-3">
+                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                          <div class="text-sm text-muted-foreground">
+                            Пошук у пов'язаних записах
+                          </div>
+                          <div class="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+                            <input
+                              type="search"
+                              class="w-full rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              placeholder="Пошук пов'язаних записів..."
+                              x-model="valueModal.foreignRecords.query"
+                              @input.debounce.500ms="searchForeignRecords()"
+                              :disabled="valueModal.foreignRecords.loading"
+                            />
+                            <button
+                              type="button"
+                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                              @click="searchForeignRecords()"
+                              :disabled="valueModal.foreignRecords.loading"
+                            >
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                              Знайти
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          x-show="valueModal.foreignRecords.loading"
+                          class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-3 text-sm text-muted-foreground"
+                        >
+                          Завантаження пов'язаних записів...
+                        </div>
+                        <template x-if="valueModal.foreignRecords.error">
+                          <div
+                            class="rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-600"
+                            x-text="valueModal.foreignRecords.error"
+                          ></div>
+                        </template>
+                        <template x-if="!valueModal.foreignRecords.loading && !valueModal.foreignRecords.error">
+                          <div class="space-y-2">
+                            <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length === 0">
+                              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-3 text-sm text-muted-foreground">
+                                Записи не знайдено.
+                              </div>
+                            </template>
+                            <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length > 0">
+                              <div class="space-y-2">
+                                <template x-for="record in valueModal.foreignRecords.options" :key="foreignRecordKey(record)">
+                                  <button
+                                    type="button"
+                                    class="w-full rounded-2xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                    :class="isForeignRecordSelected(record)
+                                      ? 'border-primary bg-primary/10 text-primary'
+                                      : 'border-border/60 bg-white hover:border-primary/60 hover:text-primary'"
+                                    @click="selectForeignRecord(record)"
+                                  >
+                                    <div class="font-semibold" x-text="formatForeignRecordLabel(record)"></div>
+                                    <div class="mt-1 text-xs text-muted-foreground" x-text="formatForeignRecordSummary(record)"></div>
+                                  </button>
+                                </template>
+                              </div>
+                            </template>
+                          </div>
+                        </template>
+                        <div
+                          class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+                          x-show="valueModal.foreignRecords.lastPage > 1"
+                        >
+                          <div class="flex items-center gap-2">
+                            <button
+                              type="button"
+                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                              @click="changeForeignRecordsPage((valueModal.foreignRecords.page || 1) - 1)"
+                              :disabled="valueModal.foreignRecords.loading || (valueModal.foreignRecords.page || 1) <= 1"
+                            >
+                              <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                              Попередня
+                            </button>
+                            <button
+                              type="button"
+                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                              @click="changeForeignRecordsPage((valueModal.foreignRecords.page || 1) + 1)"
+                              :disabled="valueModal.foreignRecords.loading || (valueModal.foreignRecords.page || 1) >= (valueModal.foreignRecords.lastPage || 1)"
+                            >
+                              Наступна
+                              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                          </div>
+                          <div class="text-xs text-muted-foreground">
+                            Сторінка
+                            <span class="font-medium text-foreground" x-text="valueModal.foreignRecords.page"></span>
+                            з
+                            <span class="font-medium text-foreground" x-text="valueModal.foreignRecords.lastPage"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
                 </div>
                 <div class="flex items-center justify-end gap-3" x-show="valueModal.editing">
                   <button
@@ -623,6 +744,37 @@
                   return null;
                 }
 
+                const rawForeign = column.foreign && typeof column.foreign === 'object'
+                  ? column.foreign
+                  : null;
+
+                let normalizedForeign = null;
+
+                if (rawForeign) {
+                  const foreignTable = typeof rawForeign.table === 'string' ? rawForeign.table : '';
+                  const foreignColumn = typeof rawForeign.column === 'string' ? rawForeign.column : '';
+
+                  if (foreignTable && foreignColumn) {
+                    const constraint = typeof rawForeign.constraint === 'string' && rawForeign.constraint !== ''
+                      ? rawForeign.constraint
+                      : null;
+                    const displayColumn = typeof rawForeign.display_column === 'string' && rawForeign.display_column !== ''
+                      ? rawForeign.display_column
+                      : null;
+                    const labelColumns = Array.isArray(rawForeign.label_columns)
+                      ? rawForeign.label_columns.filter((label) => typeof label === 'string' && label !== '')
+                      : [];
+
+                    normalizedForeign = {
+                      table: foreignTable,
+                      column: foreignColumn,
+                      constraint,
+                      displayColumn,
+                      labelColumns,
+                    };
+                  }
+                }
+
                 return {
                   name: columnName,
                   type: typeof column.type === 'string' ? column.type : '',
@@ -631,6 +783,7 @@
                   key: typeof column.key === 'string' && column.key !== '' ? column.key : null,
                   extra: typeof column.extra === 'string' && column.extra !== '' ? column.extra : null,
                   comment: typeof column.comment === 'string' && column.comment !== '' ? column.comment : null,
+                  foreign: normalizedForeign,
                 };
               }
 
@@ -643,6 +796,7 @@
                   key: null,
                   extra: null,
                   comment: null,
+                  foreign: null,
                 };
               }
 
@@ -650,6 +804,21 @@
             })
             .filter(Boolean);
         };
+
+        const createForeignRecordsState = () => ({
+          visible: false,
+          loading: false,
+          loaded: false,
+          error: null,
+          options: [],
+          columns: [],
+          page: 1,
+          lastPage: 1,
+          perPage: 8,
+          query: '',
+          requestId: 0,
+          selectedValue: '',
+        });
 
         const normalizedTables = extractTables(tables)
           .map((table) => {
@@ -755,6 +924,8 @@
             saving: false,
             updateError: null,
             identifiers: [],
+            foreignKey: null,
+            foreignRecords: createForeignRecordsState(),
           },
           filterOperators: [
             { value: '=', label: 'Дорівнює (=)' },
@@ -1128,6 +1299,319 @@
 
           return identifiers;
         },
+        findForeignKey(table, columnName) {
+          if (!table || typeof columnName !== 'string' || !table.structure) {
+            return null;
+          }
+
+          const normalizedColumn = columnName.trim();
+
+          if (!normalizedColumn) {
+            return null;
+          }
+
+          const columns = Array.isArray(table.structure.columns)
+            ? table.structure.columns
+            : [];
+
+          const column = columns.find((item) => item && item.name === normalizedColumn);
+
+          if (!column || !column.foreign) {
+            return null;
+          }
+
+          const foreign = column.foreign;
+          const foreignTable = typeof foreign.table === 'string' ? foreign.table : '';
+          const foreignColumn = typeof foreign.column === 'string' ? foreign.column : '';
+
+          if (!foreignTable || !foreignColumn) {
+            return null;
+          }
+
+          const constraint = typeof foreign.constraint === 'string' && foreign.constraint !== ''
+            ? foreign.constraint
+            : null;
+          const displayColumn = typeof foreign.displayColumn === 'string' && foreign.displayColumn !== ''
+            ? foreign.displayColumn
+            : null;
+          const labelColumns = Array.isArray(foreign.labelColumns)
+            ? foreign.labelColumns.filter((label) => typeof label === 'string' && label !== '')
+            : [];
+
+          return {
+            table: foreignTable,
+            column: foreignColumn,
+            constraint,
+            displayColumn,
+            labelColumns,
+          };
+        },
+        toggleForeignRecords() {
+          if (!this.valueModal.foreignKey) {
+            return;
+          }
+
+          this.valueModal.foreignRecords.visible = !this.valueModal.foreignRecords.visible;
+
+          if (this.valueModal.foreignRecords.visible && !this.valueModal.foreignRecords.loaded) {
+            this.loadForeignRecords();
+          }
+        },
+        async loadForeignRecords(page = null) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey) {
+            return;
+          }
+
+          if (!this.recordsRoute) {
+            this.valueModal.foreignRecords.error = 'Маршрут для завантаження записів не налаштовано.';
+            this.valueModal.foreignRecords.loaded = false;
+            return;
+          }
+
+          if (typeof page === 'number' && Number.isFinite(page)) {
+            this.valueModal.foreignRecords.page = Math.max(1, Math.trunc(page));
+          }
+
+          const currentPage = this.valueModal.foreignRecords.page || 1;
+          const perPage = this.valueModal.foreignRecords.perPage || 8;
+          const requestId = (this.valueModal.foreignRecords.requestId ?? 0) + 1;
+
+          this.valueModal.foreignRecords.requestId = requestId;
+          this.valueModal.foreignRecords.loading = true;
+          this.valueModal.foreignRecords.error = null;
+
+          try {
+            const url = new URL(
+              this.recordsRoute.replace('__TABLE__', encodeURIComponent(foreignKey.table)),
+              window.location.origin,
+            );
+
+            url.searchParams.set('page', currentPage);
+            url.searchParams.set('per_page', perPage);
+
+            const query = typeof this.valueModal.foreignRecords.query === 'string'
+              ? this.valueModal.foreignRecords.query.trim()
+              : '';
+
+            if (query) {
+              url.searchParams.set('search', query);
+            }
+
+            const response = await fetch(url.toString(), {
+              headers: {
+                Accept: 'application/json',
+              },
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося завантажити пов\'язані записи.';
+              throw new Error(message);
+            }
+
+            const data = await response.json();
+
+            if (this.valueModal.foreignRecords.requestId !== requestId) {
+              return;
+            }
+
+            this.valueModal.foreignRecords.options = Array.isArray(data.rows) ? data.rows : [];
+            this.valueModal.foreignRecords.columns = Array.isArray(data.columns)
+              ? data.columns.filter((name) => typeof name === 'string' && name !== '')
+              : [];
+            this.valueModal.foreignRecords.page = data.page || currentPage;
+            this.valueModal.foreignRecords.lastPage = data.last_page || 1;
+            this.valueModal.foreignRecords.loaded = true;
+          } catch (error) {
+            if (this.valueModal.foreignRecords.requestId !== requestId) {
+              return;
+            }
+
+            this.valueModal.foreignRecords.error = error.message ?? 'Сталася помилка під час завантаження пов’язаних записів.';
+            this.valueModal.foreignRecords.loaded = false;
+          } finally {
+            if (this.valueModal.foreignRecords.requestId === requestId) {
+              this.valueModal.foreignRecords.loading = false;
+            }
+          }
+        },
+        searchForeignRecords() {
+          if (!this.valueModal.foreignKey) {
+            return;
+          }
+
+          this.valueModal.foreignRecords.page = 1;
+          this.loadForeignRecords(1);
+        },
+        changeForeignRecordsPage(page) {
+          if (this.valueModal.foreignRecords.loading) {
+            return;
+          }
+
+          const numericPage = Number(page);
+
+          if (!Number.isFinite(numericPage)) {
+            return;
+          }
+
+          const lastPage = this.valueModal.foreignRecords.lastPage || 1;
+          const target = Math.min(Math.max(Math.trunc(numericPage), 1), lastPage);
+
+          if (target === (this.valueModal.foreignRecords.page || 1)) {
+            return;
+          }
+
+          this.valueModal.foreignRecords.page = target;
+          this.loadForeignRecords(target);
+        },
+        selectForeignRecord(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return;
+          }
+
+          const value = record[foreignKey.column];
+
+          if (value === undefined) {
+            return;
+          }
+
+          this.valueModal.editValue = value === null ? '' : String(value);
+          this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(value);
+        },
+        foreignRecordKey(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (foreignKey && record && typeof record === 'object') {
+            const value = record[foreignKey.column];
+
+            if (value !== undefined && value !== null) {
+              return `${foreignKey.table}:${foreignKey.column}:${String(value)}`;
+            }
+          }
+
+          try {
+            return JSON.stringify(record ?? {});
+          } catch (error) {
+            return String(Math.random());
+          }
+        },
+        isForeignRecordSelected(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return false;
+          }
+
+          const value = record[foreignKey.column];
+          const normalized = this.normalizeForeignSelectionValue(value);
+
+          if (normalized === '') {
+            return false;
+          }
+
+          return normalized === this.valueModal.foreignRecords.selectedValue;
+        },
+        formatForeignRecordLabel(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return '';
+          }
+
+          const labelColumns = Array.isArray(foreignKey.labelColumns) && foreignKey.labelColumns.length > 0
+            ? foreignKey.labelColumns
+            : [];
+
+          const candidates = labelColumns.length > 0
+            ? labelColumns
+            : [foreignKey.displayColumn, foreignKey.column].filter((column) => typeof column === 'string' && column);
+
+          for (const column of candidates) {
+            if (!column || !Object.prototype.hasOwnProperty.call(record, column)) {
+              continue;
+            }
+
+            const value = record[column];
+            const formatted = this.formatCell(value);
+
+            if (formatted && formatted !== '—') {
+              return formatted;
+            }
+          }
+
+          return this.formatCell(record[foreignKey.column]);
+        },
+        formatForeignRecordSummary(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return '';
+          }
+
+          const columns = Array.isArray(this.valueModal.foreignRecords.columns)
+            ? this.valueModal.foreignRecords.columns.filter((name) => typeof name === 'string' && name !== '')
+            : Object.keys(record);
+
+          const summary = [];
+
+          columns.forEach((column) => {
+            if (column === foreignKey.column) {
+              return;
+            }
+
+            if (!Object.prototype.hasOwnProperty.call(record, column)) {
+              return;
+            }
+
+            const value = record[column];
+            const formatted = this.formatCell(value);
+
+            if (!formatted || formatted === '—') {
+              return;
+            }
+
+            summary.push(`${column}: ${formatted}`);
+          });
+
+          return summary.slice(0, 3).join(' • ');
+        },
+        normalizeForeignSelectionValue(value) {
+          if (value === null || value === undefined) {
+            return '';
+          }
+
+          if (typeof value === 'object') {
+            try {
+              return JSON.stringify(value);
+            } catch (error) {
+              return '';
+            }
+          }
+
+          return String(value);
+        },
+        syncForeignSelectionWithEditValue() {
+          if (!this.valueModal.foreignKey) {
+            this.valueModal.foreignRecords.selectedValue = '';
+            return;
+          }
+
+          this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(
+            this.valueModal.editValue,
+          );
+        },
+        syncForeignSelectionWithRawValue(value) {
+          if (!this.valueModal.foreignKey) {
+            this.valueModal.foreignRecords.selectedValue = '';
+            return;
+          }
+
+          this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(value);
+        },
         async showRecordValue(table, column, row) {
           const columnName = typeof column === 'string' ? column.trim() : '';
           const tableName = table && typeof table.name === 'string' ? table.name : '';
@@ -1156,6 +1640,8 @@
           this.valueModal.editing = false;
           this.valueModal.saving = false;
           this.valueModal.identifiers = clonedIdentifiers;
+          this.valueModal.foreignKey = null;
+          this.valueModal.foreignRecords = createForeignRecordsState();
 
           const records = table && typeof table === 'object' ? table.records || {} : {};
           const searchTerm = typeof records.search === 'string' ? records.search : '';
@@ -1175,6 +1661,10 @@
             this.valueModal.error = 'Маршрут для отримання значення не налаштовано.';
             return;
           }
+
+          await this.ensureStructureLoaded(table);
+          this.valueModal.foreignKey = this.findForeignKey(table, columnName);
+          this.valueModal.foreignRecords = createForeignRecordsState();
 
           try {
             const url = new URL(
@@ -1209,6 +1699,7 @@
             this.valueModal.rawValue = rawValue;
             this.valueModal.value = this.formatCell(rawValue);
             this.valueModal.editValue = this.prepareEditableValue(rawValue);
+            this.syncForeignSelectionWithRawValue(rawValue);
           } catch (error) {
             this.valueModal.error = error.message ?? 'Сталася помилка під час отримання значення.';
           } finally {
@@ -1223,6 +1714,7 @@
           this.valueModal.editValue = this.prepareEditableValue(this.valueModal.rawValue);
           this.valueModal.editing = true;
           this.valueModal.updateError = null;
+          this.syncForeignSelectionWithEditValue();
         },
         cancelEditingValue() {
           if (this.valueModal.saving) {
@@ -1232,6 +1724,8 @@
           this.valueModal.editValue = this.prepareEditableValue(this.valueModal.rawValue);
           this.valueModal.editing = false;
           this.valueModal.updateError = null;
+          this.valueModal.foreignRecords.visible = false;
+          this.syncForeignSelectionWithRawValue(this.valueModal.rawValue);
         },
         async saveEditedValue() {
           if (this.valueModal.saving || this.valueModal.loading) {
@@ -1303,6 +1797,7 @@
             this.valueModal.editValue = this.prepareEditableValue(updatedValue);
             this.valueModal.editing = false;
             this.valueModal.updateError = null;
+            this.syncForeignSelectionWithRawValue(updatedValue);
 
             this.valueModal.identifiers = identifiers.map((identifier) => {
               if (identifier.column === columnName) {
@@ -1334,6 +1829,8 @@
           this.valueModal.editValue = '';
           this.valueModal.saving = false;
           this.valueModal.identifiers = [];
+          this.valueModal.foreignKey = null;
+          this.valueModal.foreignRecords = createForeignRecordsState();
         },
         toggleSort(table, column) {
           if (table.records.loading) {
