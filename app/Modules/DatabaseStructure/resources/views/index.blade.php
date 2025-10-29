@@ -598,7 +598,7 @@
                               </div>
                             </template>
                             <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length > 0">
-                              <div class="space-y-2">
+                              <div class="space-y-2 max-h-80 overflow-y-auto pr-1 sm:max-h-96">
                                 <template x-for="record in valueModal.foreignRecords.options" :key="foreignRecordKey(record)">
                                   <button
                                     type="button"
