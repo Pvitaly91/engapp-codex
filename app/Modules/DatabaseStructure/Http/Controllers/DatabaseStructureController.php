@@ -2,6 +2,7 @@
 
 namespace App\Modules\DatabaseStructure\Http\Controllers;
 
+use App\Modules\DatabaseStructure\Services\ContentManagementMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
@@ -15,6 +16,7 @@ class DatabaseStructureController
     public function __construct(
         private DatabaseStructureFetcher $fetcher,
         private ManualRelationManager $manualRelationManager,
+        private ContentManagementMenuManager $contentManagementMenuManager,
     )
     {
     }
@@ -27,8 +29,61 @@ class DatabaseStructureController
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
-            'contentManagementMenu' => config('database-structure.content_management.menu', []),
+            'contentManagementMenu' => $this->contentManagementMenuManager->getMenu(),
         ]);
+    }
+
+    public function storeContentManagementMenu(Request $request): JsonResponse
+    {
+        try {
+            $table = is_string($request->input('table'))
+                ? trim((string) $request->input('table'))
+                : '';
+
+            if ($table === '') {
+                throw new RuntimeException('Не вказано таблицю для додавання до меню.');
+            }
+
+            $structureSummary = $this->fetcher->getStructureSummary();
+            $tableExists = false;
+
+            foreach ($structureSummary as $tableInfo) {
+                if (is_array($tableInfo) && ($tableInfo['name'] ?? null) === $table) {
+                    $tableExists = true;
+                    break;
+                }
+            }
+
+            if (!$tableExists) {
+                throw new RuntimeException('Таблицю не знайдено у структурі бази даних.');
+            }
+
+            $label = is_string($request->input('label'))
+                ? trim((string) $request->input('label'))
+                : '';
+            $description = is_string($request->input('description'))
+                ? trim((string) $request->input('description'))
+                : '';
+
+            $item = $this->contentManagementMenuManager->add(
+                $table,
+                $label !== '' ? $label : null,
+                $description !== '' ? $description : null,
+            );
+
+            return response()->json([
+                'message' => 'Таблицю успішно додано до меню керування контентом.',
+                'item' => $item,
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
     }
 
     public function structure(string $table): JsonResponse

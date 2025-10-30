@@ -15,6 +15,7 @@
       @js(route('database-structure.structure', ['table' => '__TABLE__'])),
       @js(route('database-structure.manual-foreign.store', ['table' => '__TABLE__', 'column' => '__COLUMN__'])),
       @js(route('database-structure.manual-foreign.destroy', ['table' => '__TABLE__', 'column' => '__COLUMN__'])),
+      @js(route('database-structure.content-management.menu.store')),
       @js($contentManagementMenu)
     )"
     @keydown.window.escape.prevent="handleEscape()"
@@ -596,7 +597,18 @@
           <aside class="border-b border-border/60 bg-background/60 p-6 lg:border-b-0 lg:border-r">
             <div class="flex items-center justify-between gap-2">
               <h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Меню таблиць</h2>
-              <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="contentManagement.menu.length + ' шт.'"></span>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="contentManagement.menu.length + ' шт.'"></span>
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[11px] font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="!contentManagementMenuRoutes.store"
+                  @click="openContentManagementMenuModal()"
+                >
+                  <i class="fa-solid fa-plus text-[9px]"></i>
+                  <span>Додати таблицю</span>
+                </button>
+              </div>
             </div>
             <template x-if="contentManagement.menu.length === 0">
               <p class="mt-4 rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-xs text-muted-foreground">
@@ -1110,12 +1122,100 @@
               </div>
             </div>
           </form>
-        </div>
       </div>
+    </div>
 
+    <div
+      x-show="contentManagementMenuModal.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+    >
       <div
-        x-show="valueModal.open"
-        x-cloak
+        class="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        @click="contentManagementMenuModal.saving ? null : closeContentManagementMenuModal()"
+      ></div>
+      <div class="relative z-10 w-full max-w-lg rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-foreground">Налаштування меню</h2>
+            <p class="mt-1 text-xs text-muted-foreground">
+              Додайте таблицю до меню керування контентом та задайте її назву.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="contentManagementMenuModal.saving ? null : closeContentManagementMenuModal()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <form class="mt-6 space-y-4" @submit.prevent="saveContentManagementMenuItem">
+          <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <span>Таблиця</span>
+            <select
+              class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              :disabled="contentManagementMenuModal.saving"
+              x-model="contentManagementMenuModal.table"
+              @change="contentManagementMenuModal.error = null"
+            >
+              <option value="">Оберіть таблицю</option>
+              <template x-for="availableTable in tables" :key="`menu-table-${availableTable.name}`">
+                <option :value="availableTable.name" x-text="availableTable.name"></option>
+              </template>
+            </select>
+          </label>
+          <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <span>Назва в меню</span>
+            <input
+              type="text"
+              class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              :disabled="contentManagementMenuModal.saving"
+              x-model="contentManagementMenuModal.label"
+              placeholder="Назва, що відображатиметься у меню"
+              @input="contentManagementMenuModal.error = null"
+            />
+          </label>
+          <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <span>Опис (необов'язково)</span>
+            <textarea
+              class="min-h-[88px] rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              :disabled="contentManagementMenuModal.saving"
+              x-model="contentManagementMenuModal.description"
+              placeholder="Короткий опис для підказки"
+              @input="contentManagementMenuModal.error = null"
+            ></textarea>
+          </label>
+          <template x-if="contentManagementMenuModal.error">
+            <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600" x-text="contentManagementMenuModal.error"></div>
+          </template>
+          <div class="flex flex-wrap items-center justify-end gap-2">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+              :disabled="contentManagementMenuModal.saving"
+              @click.prevent="closeContentManagementMenuModal()"
+            >
+              Скасувати
+            </button>
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+              :disabled="contentManagementMenuModal.saving"
+            >
+              <span x-show="!contentManagementMenuModal.saving">Зберегти</span>
+              <span x-show="contentManagementMenuModal.saving" x-cloak>Збереження...</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      x-show="valueModal.open"
+      x-cloak
         class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
         :class="valueModal.editing ? 'items-start pt-4 pb-6 sm:pt-10' : 'items-center py-6'"
         role="dialog"
@@ -1405,6 +1505,7 @@
       structureRoute,
       manualForeignStoreRoute,
       manualForeignDeleteRoute,
+      contentManagementMenuStoreRoute,
       contentManagementMenu,
     ) {
       const extractTables = (payload) => {
@@ -1727,6 +1828,9 @@
             store: typeof manualForeignStoreRoute === 'string' ? manualForeignStoreRoute : '',
             delete: typeof manualForeignDeleteRoute === 'string' ? manualForeignDeleteRoute : '',
           },
+          contentManagementMenuRoutes: {
+            store: typeof contentManagementMenuStoreRoute === 'string' ? contentManagementMenuStoreRoute : '',
+          },
           csrfToken:
             document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
             (window.Laravel ? window.Laravel.csrfToken : ''),
@@ -1739,6 +1843,14 @@
             targetColumn: '',
             displayColumn: '',
             targetColumns: [],
+            saving: false,
+            error: null,
+          },
+          contentManagementMenuModal: {
+            open: false,
+            table: '',
+            label: '',
+            description: '',
             saving: false,
             error: null,
           },
@@ -1788,6 +1900,14 @@
 
             this.$watch('manualForeignModal.open', () => {
               this.syncBodyScrollLock();
+            });
+
+            this.$watch('contentManagementMenuModal.open', () => {
+              this.syncBodyScrollLock();
+            });
+
+            this.$watch('contentManagementMenuModal.table', (value, oldValue) => {
+              this.handleContentManagementMenuTableChange(value, oldValue);
             });
 
             if (this.activeTab === 'content-management') {
@@ -1867,7 +1987,10 @@
             });
           },
         syncBodyScrollLock() {
-          const shouldLock = this.valueModal.open || this.manualForeignModal.open;
+          const shouldLock =
+            this.valueModal.open ||
+            this.manualForeignModal.open ||
+            this.contentManagementMenuModal.open;
           this.toggleBodyScroll(shouldLock);
         },
         toggleBodyScroll(shouldLock) {
@@ -1912,6 +2035,11 @@
           body.style.paddingRight = this.bodyOriginalPaddingRight;
         },
         handleEscape() {
+          if (this.contentManagementMenuModal.open) {
+            this.closeContentManagementMenuModal();
+            return;
+          }
+
           if (this.valueModal.open) {
             this.closeValueModal();
             return;
@@ -2064,6 +2192,165 @@
           }
 
           this.ensureContentManagementData();
+        },
+        handleContentManagementMenuTableChange(value, oldValue) {
+          if (!this.contentManagementMenuModal || this.contentManagementMenuModal.saving) {
+            return;
+          }
+
+          const normalized = typeof value === 'string' ? value.trim() : '';
+          const oldNormalized = typeof oldValue === 'string' ? oldValue.trim() : '';
+
+          if (this.contentManagementMenuModal.table !== normalized) {
+            this.contentManagementMenuModal.table = normalized;
+            return;
+          }
+
+          const currentLabel = typeof this.contentManagementMenuModal.label === 'string'
+            ? this.contentManagementMenuModal.label.trim()
+            : '';
+
+          if (!currentLabel || currentLabel === oldNormalized) {
+            this.contentManagementMenuModal.label = normalized;
+          }
+
+          if (this.contentManagementMenuModal.error && normalized) {
+            this.contentManagementMenuModal.error = null;
+          }
+        },
+        resetContentManagementMenuModal() {
+          if (!this.contentManagementMenuModal) {
+            return;
+          }
+
+          this.contentManagementMenuModal.table = '';
+          this.contentManagementMenuModal.label = '';
+          this.contentManagementMenuModal.description = '';
+          this.contentManagementMenuModal.saving = false;
+          this.contentManagementMenuModal.error = null;
+        },
+        openContentManagementMenuModal() {
+          if (!this.contentManagementMenuRoutes.store || !this.contentManagementMenuModal) {
+            return;
+          }
+
+          if (this.contentManagementMenuModal.saving) {
+            return;
+          }
+
+          const activeTable = this.contentManagementActiveTable;
+          const activeItem = this.contentManagementActiveItem;
+          const activeTableName = activeTable && typeof activeTable.name === 'string' ? activeTable.name : '';
+          const activeItemTable = activeItem && typeof activeItem.table === 'string' ? activeItem.table : '';
+          const defaultTable = activeTableName || activeItemTable || '';
+
+          this.resetContentManagementMenuModal();
+          this.contentManagementMenuModal.open = true;
+          this.contentManagementMenuModal.table = defaultTable;
+          this.contentManagementMenuModal.label = defaultTable;
+        },
+        closeContentManagementMenuModal() {
+          if (!this.contentManagementMenuModal) {
+            return;
+          }
+
+          if (this.contentManagementMenuModal.saving) {
+            return;
+          }
+
+          this.contentManagementMenuModal.open = false;
+          this.resetContentManagementMenuModal();
+        },
+        async saveContentManagementMenuItem() {
+          if (!this.contentManagementMenuModal || !this.contentManagementMenuRoutes.store) {
+            return;
+          }
+
+          if (this.contentManagementMenuModal.saving) {
+            return;
+          }
+
+          const table = typeof this.contentManagementMenuModal.table === 'string'
+            ? this.contentManagementMenuModal.table.trim()
+            : '';
+          const label = typeof this.contentManagementMenuModal.label === 'string'
+            ? this.contentManagementMenuModal.label.trim()
+            : '';
+          const description = typeof this.contentManagementMenuModal.description === 'string'
+            ? this.contentManagementMenuModal.description.trim()
+            : '';
+
+          if (!table) {
+            this.contentManagementMenuModal.error = 'Оберіть таблицю для додавання до меню.';
+            return;
+          }
+
+          this.contentManagementMenuModal.saving = true;
+          this.contentManagementMenuModal.error = null;
+
+          try {
+            const response = await fetch(this.contentManagementMenuRoutes.store, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken,
+                'X-Requested-With': 'XMLHttpRequest',
+              },
+              body: JSON.stringify({
+                table,
+                label,
+                description,
+              }),
+            });
+
+            const payload = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+              const message = typeof payload === 'object' && payload && typeof payload.message === 'string'
+                ? payload.message.trim()
+                : '';
+
+              this.contentManagementMenuModal.error = message !== ''
+                ? message
+                : 'Не вдалося зберегти меню.';
+              this.contentManagementMenuModal.saving = false;
+              return;
+            }
+
+            const itemPayload = payload && typeof payload === 'object' ? (payload.item ?? null) : null;
+            const normalizedItems = normalizeContentManagementMenu([itemPayload]);
+            const newItem = normalizedItems.length > 0 ? normalizedItems[0] : null;
+
+            if (!newItem) {
+              this.contentManagementMenuModal.error = 'Отримано некоректну відповідь сервера.';
+              this.contentManagementMenuModal.saving = false;
+              return;
+            }
+
+            const currentMenu = Array.isArray(this.contentManagement?.menu)
+              ? [...this.contentManagement.menu]
+              : [];
+
+            currentMenu.push(newItem);
+            this.contentManagement.menu = currentMenu;
+            this.contentManagement.activeKey = newItem.key;
+            this.contentManagement.activeTableName = newItem.table;
+
+            this.contentManagementMenuModal.open = false;
+            this.resetContentManagementMenuModal();
+
+            this.ensureContentManagementData();
+          } catch (error) {
+            const message = error && typeof error.message === 'string'
+              ? error.message
+              : 'Сталася помилка під час збереження меню.';
+            this.contentManagementMenuModal.error = message;
+          } finally {
+            if (this.contentManagementMenuModal) {
+              this.contentManagementMenuModal.saving = false;
+            }
+          }
         },
         async openManualForeignModal(table, column) {
           if (!table || !column) {
