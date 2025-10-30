@@ -139,30 +139,21 @@
                         </thead>
                         <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
                           <template x-for="column in table.structure.columns" :key="column.name">
-                            <tr
-                              class="hover:bg-muted/40 transition"
-                              :class="column.foreign ? 'cursor-pointer' : ''"
-                              @click="column.foreign && toggleForeignKeyDetails(table, column)"
-                            >
+                            <tr class="hover:bg-muted/40 transition">
                               <td class="py-2 pr-4 font-medium">
-                                <div class="flex items-center gap-2">
+                                <div class="flex flex-col gap-1">
+                                  <span x-html="highlightQuery(column.name)"></span>
                                   <template x-if="column.foreign">
-                                    <button
-                                      type="button"
-                                      class="inline-flex items-center gap-2 rounded-md bg-transparent p-0 text-left text-current focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 hover:text-primary"
-                                      @click.stop="toggleForeignKeyDetails(table, column)"
-                                    >
-                                      <span x-html="highlightQuery(column.name)"></span>
-                                      <span
-                                        class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[12px] text-primary"
-                                        :title="`${column.name} -> ${column.foreign.table}.${column.foreign.column}`"
-                                      >
-                                        <i class="fa-solid fa-link"></i>
+                                    <span class="inline-flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
+                                      <i class="fa-solid fa-link text-primary"></i>
+                                      <span>
+                                        <span x-text="column.name"></span>
+                                        <span> -&gt; </span>
+                                        <span x-text="column.foreign.table"></span>
+                                        <span>.</span>
+                                        <span x-text="column.foreign.column"></span>
                                       </span>
-                                    </button>
-                                  </template>
-                                  <template x-if="!column.foreign">
-                                    <span x-html="highlightQuery(column.name)"></span>
+                                    </span>
                                   </template>
                                 </div>
                               </td>
@@ -175,25 +166,14 @@
                               <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
                               <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
                             </tr>
-                            <template x-if="column.foreign">
-                              <tr
-                                x-show="column.showForeign"
-                                x-transition.opacity
-                                x-cloak
-                              >
+                            <template x-if="column.foreign && (column.foreign.constraint || column.foreign.displayColumn)">
+                              <tr>
                                 <td colspan="7" class="bg-primary/5 px-6 py-3 text-sm text-muted-foreground">
                                   <div class="flex items-start gap-3">
                                     <span class="mt-0.5 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                                       <i class="fa-solid fa-database"></i>
                                     </span>
                                     <div class="space-y-1">
-                                      <div class="font-semibold text-foreground">
-                                        <span x-text="column.name"></span>
-                                        <span class="text-muted-foreground">-&gt;</span>
-                                        <span x-text="column.foreign.table"></span>
-                                        <span class="text-muted-foreground">.</span>
-                                        <span x-text="column.foreign.column"></span>
-                                      </div>
                                       <template x-if="column.foreign.constraint">
                                         <div>
                                           Обмеження:
@@ -919,7 +899,6 @@
                   extra: typeof column.extra === 'string' && column.extra.trim() !== '' ? column.extra.trim() : null,
                   comment: typeof column.comment === 'string' && column.comment.trim() !== '' ? column.comment.trim() : null,
                   foreign: normalizedForeign,
-                  showForeign: false,
                 };
               }
 
@@ -933,7 +912,6 @@
                   extra: null,
                   comment: null,
                   foreign: null,
-                  showForeign: false,
                 };
               }
 
@@ -1215,68 +1193,6 @@
           if (!Array.isArray(table.records.columns) || table.records.columns.length === 0) {
             table.records.columns = normalizedColumns.map((column) => column.name).filter(Boolean);
           }
-        },
-        toggleForeignKeyDetails(table, columnOrName) {
-          if (!table || !table.structure) {
-            return;
-          }
-
-          const columns = Array.isArray(table.structure.columns)
-            ? table.structure.columns
-            : [];
-
-          let targetColumn = null;
-
-          if (columnOrName && typeof columnOrName === 'object') {
-            const index = columns.indexOf(columnOrName);
-
-            if (index !== -1) {
-              targetColumn = columnOrName;
-            }
-          }
-
-          const normalizedColumnName = (() => {
-            if (targetColumn && typeof targetColumn.name === 'string') {
-              return targetColumn.name.trim();
-            }
-
-            return typeof columnOrName === 'string' ? columnOrName.trim() : '';
-          })();
-
-          if (!normalizedColumnName) {
-            return;
-          }
-
-          columns.forEach((item) => {
-            if (!item || !item.foreign || typeof item.name !== 'string') {
-              return;
-            }
-
-            const itemName = item.name.trim();
-
-            if (!targetColumn && itemName === normalizedColumnName) {
-              targetColumn = item;
-            }
-          });
-
-          if (!targetColumn || !targetColumn.foreign) {
-            columns.forEach((item) => {
-              if (item && item.foreign) {
-                item.showForeign = false;
-              }
-            });
-            return;
-          }
-
-          const nextState = !targetColumn.showForeign;
-
-          columns.forEach((item) => {
-            if (!item || !item.foreign) {
-              return;
-            }
-
-            item.showForeign = item === targetColumn ? nextState : false;
-          });
         },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
