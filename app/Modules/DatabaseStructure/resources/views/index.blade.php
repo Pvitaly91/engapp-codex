@@ -142,13 +142,16 @@
                             <tr
                               class="hover:bg-muted/40 transition"
                               :class="column.foreign ? 'cursor-pointer' : ''"
-                              @click="column.foreign && toggleForeignKeyDetails(table, column)"
+                              @click="column.foreign && toggleForeignKeyDetails(table, column.name)"
                             >
                               <td class="py-2 pr-4 font-medium">
                                 <div class="flex items-center gap-2">
                                   <span x-html="highlightQuery(column.name)"></span>
                                   <template x-if="column.foreign">
-                                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[12px] text-primary">
+                                    <span
+                                      class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[12px] text-primary"
+                                      :title="`${column.name} -> ${column.foreign.table}.${column.foreign.column}`"
+                                    >
                                       <i class="fa-solid fa-link"></i>
                                     </span>
                                   </template>
@@ -175,14 +178,12 @@
                                       <i class="fa-solid fa-database"></i>
                                     </span>
                                     <div class="space-y-1">
-                                      <div>
-                                        Поле
-                                        <span class="font-semibold text-foreground" x-text="column.name"></span>
-                                        пов'язане з таблицею
-                                        <span class="font-semibold text-foreground" x-text="column.foreign.table"></span>
-                                        →
-                                        <span class="font-semibold text-foreground" x-text="column.foreign.column"></span>
-                                        .
+                                      <div class="font-semibold text-foreground">
+                                        <span x-text="column.name"></span>
+                                        <span class="text-muted-foreground">-&gt;</span>
+                                        <span x-text="column.foreign.table"></span>
+                                        <span class="text-muted-foreground">.</span>
+                                        <span x-text="column.foreign.column"></span>
                                       </div>
                                       <template x-if="column.foreign.constraint">
                                         <div>
@@ -1206,14 +1207,24 @@
             table.records.columns = normalizedColumns.map((column) => column.name).filter(Boolean);
           }
         },
-        toggleForeignKeyDetails(table, column) {
-          if (!table || !table.structure || !column || !column.foreign) {
+        toggleForeignKeyDetails(table, columnName) {
+          if (!table || !table.structure) {
             return;
           }
 
-          const columnName = typeof column.name === 'string' ? column.name.trim() : '';
+          const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
 
-          if (!columnName) {
+          if (!normalizedColumn) {
+            return;
+          }
+
+          const columns = Array.isArray(table.structure.columns)
+            ? table.structure.columns
+            : [];
+
+          const column = columns.find((item) => item && item.name === normalizedColumn && item.foreign);
+
+          if (!column) {
             return;
           }
 
@@ -1221,7 +1232,7 @@
             ? table.structure.activeForeignColumn
             : null;
 
-          table.structure.activeForeignColumn = currentActive === columnName ? null : columnName;
+          table.structure.activeForeignColumn = currentActive === normalizedColumn ? null : normalizedColumn;
         },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
