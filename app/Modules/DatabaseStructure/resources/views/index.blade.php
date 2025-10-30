@@ -469,9 +469,11 @@
       <div
         x-show="valueModal.open"
         x-cloak
-        class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+        class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
+        :class="valueModal.editing ? 'items-start pt-4 pb-6 sm:pt-10' : 'items-center py-6'"
         role="dialog"
         aria-modal="true"
+        x-ref="valueModalOverlay"
       >
         <div class="absolute inset-0 bg-background backdrop-blur-sm" @click="closeValueModal()"></div>
         <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
@@ -524,9 +526,12 @@
                   </template>
                   <template x-if="valueModal.editing">
                     <textarea
-                      class="h-60 w-full rounded-2xl border border-input bg-white px-3 py-2 text-[15px] font-mono text-foreground shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                      class="w-full min-h-[120px] resize-none overflow-hidden rounded-2xl border border-input bg-white px-3 py-2 text-[15px] font-mono text-foreground shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                       x-model="valueModal.editValue"
                       :disabled="valueModal.saving"
+                      x-ref="valueEditor"
+                      x-init="autoResizeValueEditor($el)"
+                      @input="autoResizeValueEditor($event.target)"
                     ></textarea>
                   </template>
                   <template x-if="valueModal.editing && valueModal.foreignKey">
@@ -1481,6 +1486,9 @@
 
           this.valueModal.editValue = value === null ? '' : String(value);
           this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(value);
+          this.$nextTick(() => {
+            this.autoResizeValueEditor();
+          });
         },
         foreignRecordKey(record) {
           const foreignKey = this.valueModal.foreignKey;
@@ -1612,6 +1620,31 @@
 
           this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(value);
         },
+        scrollValueModalToTop() {
+          const overlay = this.$refs?.valueModalOverlay;
+
+          if (!overlay) {
+            return;
+          }
+
+          overlay.scrollTop = 0;
+        },
+        autoResizeValueEditor(element = null) {
+          const textarea = element || this.$refs?.valueEditor;
+
+          if (!textarea) {
+            return;
+          }
+
+          requestAnimationFrame(() => {
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
+
+            if (this.valueModal.editing) {
+              this.scrollValueModalToTop();
+            }
+          });
+        },
         async showRecordValue(table, column, row) {
           const columnName = typeof column === 'string' ? column.trim() : '';
           const tableName = table && typeof table.name === 'string' ? table.name : '';
@@ -1715,6 +1748,10 @@
           this.valueModal.editing = true;
           this.valueModal.updateError = null;
           this.syncForeignSelectionWithEditValue();
+          this.$nextTick(() => {
+            this.scrollValueModalToTop();
+            this.autoResizeValueEditor();
+          });
         },
         cancelEditingValue() {
           if (this.valueModal.saving) {
