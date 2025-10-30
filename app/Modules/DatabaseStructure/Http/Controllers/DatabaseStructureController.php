@@ -27,6 +27,7 @@ class DatabaseStructureController
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
+            'contentManagementMenu' => config('database-structure.content_management.menu', []),
         ]);
     }
 
