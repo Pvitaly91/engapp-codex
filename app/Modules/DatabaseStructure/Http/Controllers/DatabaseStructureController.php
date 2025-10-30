@@ -33,6 +33,18 @@ class DatabaseStructureController
         ]);
     }
 
+    public function contentManagement(): View|ViewFactory
+    {
+        $structure = $this->fetcher->getStructureSummary();
+        $meta = $this->fetcher->getMeta();
+
+        return view('database-structure::content-management', [
+            'structure' => $structure,
+            'meta' => $meta,
+            'contentManagementMenu' => $this->contentManagementMenuManager->getMenu(),
+        ]);
+    }
+
     public function storeContentManagementMenu(Request $request): JsonResponse
     {
         try {
