@@ -324,6 +324,61 @@ class DatabaseStructureFetcher
 
     /**
      * @param array<int, array{column: string, value: mixed}> $identifiers
+     * @return array{record: array<string, mixed>, columns: array<int, string>}
+     */
+    public function getRecord(string $table, array $identifiers): array
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $columns = $tableInfo['columns'] ?? [];
+        $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+
+        $normalizedIdentifiers = $this->normalizeIdentifiers($identifiers, $columnNames);
+
+        if (empty($normalizedIdentifiers)) {
+            throw new RuntimeException('Не вдалося визначити ідентифікатори запису.');
+        }
+
+        $query = $this->connection->table($table);
+
+        foreach ($normalizedIdentifiers as $identifier) {
+            if ($identifier['value'] === null) {
+                $query->whereNull($identifier['column']);
+                continue;
+            }
+
+            $query->where($identifier['column'], '=', $identifier['value']);
+        }
+
+        $record = $query->first();
+
+        if (!$record) {
+            throw new RuntimeException('Запис не знайдено або вже видалено.');
+        }
+
+        $payload = [];
+
+        foreach ((array) $record as $column => $value) {
+            $payload[$column] = $this->convertValueForResponse($value);
+        }
+
+        if (empty($columnNames) && !empty($payload)) {
+            $columnNames = array_keys($payload);
+        }
+
+        return [
+            'record' => $payload,
+            'columns' => $columnNames,
+        ];
+    }
+
+    /**
+     * @param array<int, array{column: string, value: mixed}> $identifiers
      * @return mixed
      */
     public function getRecordValue(string $table, string $column, array $identifiers)

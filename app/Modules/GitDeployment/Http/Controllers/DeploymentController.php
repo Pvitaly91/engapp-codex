@@ -312,11 +312,18 @@ class DeploymentController extends BaseController
             return null;
         }
 
-        return $this->redirectWithFeedback(
-            'error',
-            'Режим через SSH недоступний на цьому сервері. Спробуйте альтернативний режим через GitHub API.',
-            $branch !== null ? [['command' => 'git', 'output' => 'Shell commands are disabled.', 'successful' => false]] : []
-        );
+        $logs = $branch !== null
+            ? ['Shell commands are disabled. Перемкніться на API режим.']
+            : [];
+
+        return redirect()
+            ->route('deployment.native.index')
+            ->with('deployment_native', [
+                'status' => 'error',
+                'message' => 'Режим через SSH недоступний на цьому сервері. Спробуйте альтернативний режим через GitHub API.',
+                'logs' => $logs,
+                'branch' => $branch,
+            ]);
     }
 
     private function supportsShellCommands(): bool
