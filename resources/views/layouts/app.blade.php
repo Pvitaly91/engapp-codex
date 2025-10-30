@@ -5,7 +5,45 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'English App')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @php
+        $viteManifest = public_path('build/manifest.json');
+        $shouldUseVite = app()->environment('local') || file_exists($viteManifest);
+    @endphp
+
+    @if($shouldUseVite)
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#2563eb',
+                            foreground: '#0f172a',
+                            muted: '#f8fafc',
+                            border: '#e2e8f0',
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            .text-base{
+                line-height: 2.2rem !important;
+            }
+            .test-description {
+                background-color: #fefce8;
+                border-left: 4px solid #f59e0b;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
+    @endif
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @stack('head-scripts')
 </head>

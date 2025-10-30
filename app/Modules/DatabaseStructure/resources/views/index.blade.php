@@ -177,7 +177,7 @@
                             </tr>
                             <template x-if="column.foreign">
                               <tr
-                                x-show="column.foreignOpen"
+                                x-show="table.structure.activeForeignColumn === column.name"
                                 x-transition.opacity
                                 x-cloak
                               >
@@ -919,7 +919,6 @@
                   extra: typeof column.extra === 'string' && column.extra.trim() !== '' ? column.extra.trim() : null,
                   comment: typeof column.comment === 'string' && column.comment.trim() !== '' ? column.comment.trim() : null,
                   foreign: normalizedForeign,
-                  foreignOpen: false,
                 };
               }
 
@@ -933,7 +932,6 @@
                   extra: null,
                   comment: null,
                   foreign: null,
-                  foreignOpen: false,
                 };
               }
 
@@ -1256,11 +1254,6 @@
 
             if (!targetColumn && item.name === normalizedColumnName) {
               targetColumn = item;
-              return;
-            }
-
-            if (item.name !== normalizedColumnName && item.foreignOpen) {
-              item.foreignOpen = false;
             }
           });
 
@@ -1269,9 +1262,8 @@
             return;
           }
 
-          const nextOpenState = !targetColumn.foreignOpen;
-          targetColumn.foreignOpen = nextOpenState;
-          table.structure.activeForeignColumn = nextOpenState ? targetColumn.name : null;
+          const isActive = table.structure.activeForeignColumn === targetColumn.name;
+          table.structure.activeForeignColumn = isActive ? null : targetColumn.name;
         },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
