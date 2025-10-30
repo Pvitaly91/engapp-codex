@@ -8,8 +8,13 @@
     x-data="databaseStructureViewer(
       @js($structure),
       @js(route('database-structure.records', ['table' => '__TABLE__'])),
-      @js(route('database-structure.destroy', ['table' => '__TABLE__']))
+      @js(route('database-structure.destroy', ['table' => '__TABLE__'])),
+      @js(route('database-structure.value', ['table' => '__TABLE__'])),
+      @js(route('database-structure.record', ['table' => '__TABLE__'])),
+      @js(route('database-structure.update', ['table' => '__TABLE__'])),
+      @js(route('database-structure.structure', ['table' => '__TABLE__']))
     )"
+    @keydown.window.escape.prevent="valueModal.open && closeValueModal()"
   >
     <header class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
@@ -74,52 +79,84 @@
         <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
           <header
             class="flex flex-col gap-4 border-b border-border/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
-            @click="table.open = !table.open"
+            @click="toggleTable(table)"
           >
             <div class="space-y-1">
               <div class="flex items-center gap-3">
-                <h2 class="text-xl font-semibold text-foreground" x-text="table.name"></h2>
-                <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="table.columns.length + ' полів'"></span>
+                <h2 class="text-xl font-semibold text-foreground" x-html="highlightQuery(table.name)"></h2>
+                <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="table.columnsCount + ' полів'"></span>
               </div>
-              <p class="text-sm text-muted-foreground" x-show="table.comment" x-text="table.comment"></p>
+              <p class="text-sm text-muted-foreground" x-show="table.comment" x-html="highlightQuery(table.comment)"></p>
             </div>
             <div class="flex items-center gap-3">
               <template x-if="table.engine">
-                <span class="rounded-full border border-border/70 bg-background px-3 py-1 text-xs font-medium text-muted-foreground" x-text="table.engine"></span>
+                <span class="rounded-full border border-border/70 bg-background px-3 py-1 text-xs font-medium text-muted-foreground" x-html="highlightQuery(table.engine)"></span>
               </template>
               <i class="fa-solid fa-chevron-down text-muted-foreground transition-transform duration-200" :class="{ 'rotate-180': table.open }"></i>
             </div>
           </header>
           <div x-show="table.open" x-collapse>
-            <div class="overflow-x-auto px-6 py-5">
-              <table class="min-w-full divide-y divide-border/60 text-[15px]">
-                <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
-                  <tr>
-                    <th class="pb-3 pr-4 font-medium">Поле</th>
-                    <th class="pb-3 pr-4 font-medium">Тип</th>
-                    <th class="pb-3 pr-4 font-medium">Null</th>
-                    <th class="pb-3 pr-4 font-medium">За замовчуванням</th>
-                    <th class="pb-3 pr-4 font-medium">Ключ</th>
-                    <th class="pb-3 pr-4 font-medium">Додатково</th>
-                    <th class="pb-3 font-medium">Коментар</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
-                  <template x-for="column in table.columns" :key="column.name">
-                    <tr class="hover:bg-muted/40">
-                      <td class="py-2 pr-4 font-medium" x-text="column.name"></td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.type"></td>
-                      <td class="py-2 pr-4">
-                        <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
-                      </td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.default ?? '—'"></td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.key ?? '—'"></td>
-                      <td class="py-2 pr-4 text-muted-foreground" x-text="column.extra ?? '—'"></td>
-                      <td class="py-2 text-muted-foreground" x-text="column.comment ?? '—'"></td>
-                    </tr>
+            <div class="px-6 py-5">
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Структура таблиці</h3>
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  @click.stop="table.structureVisible = !table.structureVisible"
+                >
+                  <i class="fa-solid" :class="table.structureVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                  <span x-text="table.structureVisible ? 'Сховати структуру' : 'Показати структуру'"></span>
+                </button>
+              </div>
+              <div x-show="table.structureVisible" x-collapse>
+                <div class="mt-4 space-y-3">
+                  <template x-if="table.structure.loading">
+                    <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
+                      Завантаження структури...
+                    </div>
                   </template>
-                </tbody>
-              </table>
+                  <template x-if="!table.structure.loading && table.structure.error">
+                    <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="table.structure.error"></div>
+                  </template>
+                  <template x-if="!table.structure.loading && !table.structure.error && table.structure.loaded && table.structure.columns.length === 0">
+                    <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
+                      Структуру таблиці не знайдено.
+                    </div>
+                  </template>
+                  <template x-if="!table.structure.loading && table.structure.columns.length > 0">
+                    <div class="overflow-x-auto">
+                      <table class="min-w-full divide-y divide-border/60 text-[15px]">
+                        <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
+                          <tr>
+                            <th class="pb-3 pr-4 font-medium">Поле</th>
+                            <th class="pb-3 pr-4 font-medium">Тип</th>
+                            <th class="pb-3 pr-4 font-medium">Null</th>
+                            <th class="pb-3 pr-4 font-medium">За замовчуванням</th>
+                            <th class="pb-3 pr-4 font-medium">Ключ</th>
+                            <th class="pb-3 pr-4 font-medium">Додатково</th>
+                            <th class="pb-3 font-medium">Коментар</th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
+                          <template x-for="column in table.structure.columns" :key="column.name">
+                            <tr class="hover:bg-muted/40">
+                              <td class="py-2 pr-4 font-medium" x-html="highlightQuery(column.name)"></td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.type)"></td>
+                              <td class="py-2 pr-4">
+                                <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
+                              </td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.default ?? '—')"></td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.key ?? '—')"></td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
+                              <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
+                            </tr>
+                          </template>
+                        </tbody>
+                      </table>
+                    </div>
+                  </template>
+                </div>
+              </div>
             </div>
             <div class="border-t border-border/60 px-6 py-5">
               <div class="flex flex-wrap items-center gap-3">
@@ -139,36 +176,69 @@
 
               <div x-show="table.records.visible" x-collapse class="mt-4 space-y-4">
                 <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-[15px] text-muted-foreground">
-                  <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                    <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
-                    <div class="flex flex-wrap items-center gap-2 text-[15px]">
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
-                        @click.stop="addFilter(table)"
-                        :disabled="table.records.loading"
-                      >
-                        <i class="fa-solid fa-plus text-[10px]"></i>
-                        Додати фільтр
-                      </button>
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                        :disabled="table.records.filters.length === 0 || table.records.loading"
-                        @click.stop="resetFilters(table)"
-                      >
-                        <i class="fa-solid fa-rotate-left text-[10px]"></i>
-                        Скинути
-                      </button>
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
-                        :disabled="table.records.loading"
-                        @click.stop="applyFilters(table)"
-                      >
-                        <i class="fa-solid fa-filter text-[10px]"></i>
-                        Застосувати
-                      </button>
+                  <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                      <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
+                      <div class="flex flex-wrap items-center gap-2 text-[15px]">
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
+                          @click.stop="addFilter(table)"
+                          :disabled="table.records.loading"
+                        >
+                          <i class="fa-solid fa-plus text-[10px]"></i>
+                          Додати фільтр
+                        </button>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                          :disabled="table.records.filters.length === 0 || table.records.loading"
+                          @click.stop="resetFilters(table)"
+                        >
+                          <i class="fa-solid fa-rotate-left text-[10px]"></i>
+                          Скинути
+                        </button>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                          :disabled="table.records.loading"
+                          @click.stop="applyFilters(table)"
+                        >
+                          <i class="fa-solid fa-filter text-[10px]"></i>
+                          Застосувати
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                      <span class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
+                      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                        <div class="relative flex-1">
+                          <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+                            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                          </span>
+                          <input
+                            type="search"
+                            class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                            placeholder="Миттєвий пошук за вибраною колонкою або всіма..."
+                            x-model="table.records.searchInput"
+                            @input.debounce.500ms="updateSearch(table, $event.target.value)"
+                          />
+                        </div>
+                        <label class="flex flex-col gap-1 text-[12px] font-semibold uppercase tracking-wide text-muted-foreground sm:w-48">
+                          <span>Колонка для пошуку</span>
+                          <select
+                            class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                            :disabled="table.records.loading || !table.records.columns || table.records.columns.length === 0"
+                            :value="table.records.searchColumn"
+                            @change="updateSearchColumn(table, $event.target.value)"
+                          >
+                            <option value="">Всі колонки</option>
+                            <template x-for="column in table.records.columns" :key="column + '-search-option'">
+                              <option :value="column" x-text="column"></option>
+                            </template>
+                          </select>
+                        </label>
+                      </div>
                     </div>
                   </div>
                   <p class="mt-2 text-[15px] text-muted-foreground">
@@ -318,7 +388,15 @@
                           <template x-for="(row, rowIndex) in table.records.rows" :key="rowIndex">
                             <tr class="hover:bg-muted/40">
                               <template x-for="column in table.records.columns" :key="column">
-                                <td class="px-3 py-2 text-[15px] text-foreground" x-text="formatCell(row[column])"></td>
+                                <td class="px-3 py-2 text-[15px] text-foreground">
+                                  <button
+                                    type="button"
+                                    class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-[15px] text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                    @click.stop="showRecordValue(table, column, row)"
+                                    :title="formatCell(row[column])"
+                                    x-html="renderRecordPreview(table, column, row[column])"
+                                  ></button>
+                                </td>
                               </template>
                               <td class="px-3 py-2 text-right">
                                 <button
@@ -386,75 +464,692 @@
               </div>
             </div>
           </div>
-        </section>
-      </template>
+          </section>
+        </template>
+      </div>
+      <div
+        x-show="valueModal.open"
+        x-cloak
+        class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
+        :class="valueModal.editing ? 'items-start pt-4 pb-6 sm:pt-10' : 'items-center py-6'"
+        role="dialog"
+        aria-modal="true"
+        x-ref="valueModalOverlay"
+      >
+        <div class="absolute inset-0 bg-background backdrop-blur-sm" @click="closeValueModal()"></div>
+        <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-semibold text-foreground">Повне значення</h2>
+              <p class="mt-1 text-sm text-muted-foreground">
+                Таблиця: <span class="font-medium text-foreground" x-text="valueModal.table || '—'"></span>,
+                колонка: <span class="font-medium text-foreground" x-text="valueModal.column || '—'"></span>
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                x-show="!valueModal.loading && !valueModal.error && !valueModal.editing"
+                x-cloak
+                :disabled="valueModal.loading"
+                @click="startEditingValue()"
+              >
+                <i class="fa-solid fa-pen"></i>
+                Редагувати
+              </button>
+              <button
+                type="button"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+                @click="closeValueModal()"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 space-y-3 text-sm text-foreground">
+            <template x-if="valueModal.loading">
+              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-center text-sm text-muted-foreground">
+                Завантаження значення...
+              </div>
+            </template>
+            <template x-if="!valueModal.loading && valueModal.error">
+              <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.error"></div>
+            </template>
+            <template x-if="!valueModal.loading && !valueModal.error">
+              <div class="space-y-3">
+                <template x-if="valueModal.updateError">
+                  <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.updateError"></div>
+                </template>
+                <div class="rounded-2xl border border-border/60 bg-background p-4">
+                  <template x-if="!valueModal.editing">
+                    <pre class="max-h-96 whitespace-pre-wrap break-words text-[15px]" x-html="highlightText(valueModal.value, valueModal.searchTerm)"></pre>
+                  </template>
+                  <template
+                    x-if="valueModal.editing && (!valueModal.foreignKey || !valueModal.foreignRecords.visible)"
+                  >
+                    <textarea
+                      class="w-full min-h-[120px] resize-none overflow-hidden rounded-2xl border border-input bg-white px-3 py-2 text-[15px] font-mono text-foreground shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                      x-model="valueModal.editValue"
+                      :disabled="valueModal.saving"
+                      x-ref="valueEditor"
+                      x-init="autoResizeValueEditor($el)"
+                      @input="autoResizeValueEditor($event.target)"
+                    ></textarea>
+                  </template>
+                  <template x-if="valueModal.editing && valueModal.foreignKey">
+                    <div class="mt-3 space-y-3 rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-4">
+                      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <div class="text-sm text-muted-foreground">
+                          Це поле є зовнішнім ключем на таблицю
+                          <span class="font-medium text-foreground" x-text="valueModal.foreignKey.table"></span>.
+                          Колонка ключа:
+                          <span class="font-medium text-foreground" x-text="valueModal.foreignKey.column"></span>
+                          <template x-if="valueModal.foreignKey.displayColumn">
+                            <span class="block text-xs text-muted-foreground">
+                              Відображення за колонкою
+                              <span class="font-medium text-foreground" x-text="valueModal.foreignKey.displayColumn"></span>
+                            </span>
+                          </template>
+                        </div>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                          @click="toggleForeignRecords()"
+                        >
+                          <i class="fa-solid" :class="valueModal.foreignRecords.visible ? 'fa-eye-slash' : 'fa-database'"></i>
+                          <span x-text="valueModal.foreignRecords.visible ? 'Сховати записи' : 'Обрати запис'"></span>
+                        </button>
+                      </div>
+                      <div x-show="valueModal.foreignRecords.visible" x-collapse class="space-y-3">
+                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                          <div class="text-sm text-muted-foreground">
+                            Пошук у пов'язаних записах
+                          </div>
+                          <div class="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
+                            <div class="relative w-full sm:w-48">
+                              <select
+                                class="w-full appearance-none rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                x-model="valueModal.foreignRecords.searchColumn"
+                                @change="updateForeignRecordsSearchColumn($event.target.value)"
+                              >
+                                <option value="">Усі поля</option>
+                                <template x-for="columnName in valueModal.foreignRecords.columns" :key="columnName">
+                                  <option :value="columnName" x-text="columnName"></option>
+                                </template>
+                              </select>
+                              <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-xs text-muted-foreground">
+                                <i class="fa-solid fa-chevron-down"></i>
+                              </span>
+                            </div>
+                            <input
+                              type="search"
+                              class="w-full rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              placeholder="Пошук пов'язаних записів..."
+                              x-model="valueModal.foreignRecords.query"
+                              @input.debounce.500ms="searchForeignRecords()"
+                            />
+                            <button
+                              type="button"
+                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                              @click="searchForeignRecords()"
+                              :disabled="valueModal.foreignRecords.loading"
+                            >
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                              Знайти
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          x-show="valueModal.foreignRecords.loading"
+                          class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-3 text-sm text-muted-foreground"
+                        >
+                          Завантаження пов'язаних записів...
+                        </div>
+                        <template x-if="valueModal.foreignRecords.error">
+                          <div
+                            class="rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-600"
+                            x-text="valueModal.foreignRecords.error"
+                          ></div>
+                        </template>
+                        <template x-if="!valueModal.foreignRecords.loading && !valueModal.foreignRecords.error">
+                          <div class="space-y-2">
+                            <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length === 0">
+                              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-3 text-sm text-muted-foreground">
+                                Записи не знайдено.
+                              </div>
+                            </template>
+                            <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length > 0">
+                              <div class="space-y-2 max-h-80 overflow-y-auto pr-1 sm:max-h-96">
+                                <template x-for="record in valueModal.foreignRecords.options" :key="foreignRecordKey(record)">
+                                  <div class="rounded-2xl border border-border/60 bg-white p-3 shadow-soft/10">
+                                    <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                                      <button
+                                        type="button"
+                                        class="w-full rounded-xl border px-4 py-2.5 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-primary/40 sm:flex-1"
+                                        :class="isForeignRecordSelected(record)
+                                          ? 'border-primary bg-primary/10 text-primary'
+                                          : 'border-border/60 bg-white hover:border-primary/60 hover:text-primary'"
+                                        @click="selectForeignRecord(record)"
+                                      >
+                                        <div class="font-semibold" x-html="highlightForeignRecordText(formatForeignRecordLabel(record))"></div>
+                                        <div
+                                          class="mt-1 text-xs text-muted-foreground"
+                                          x-html="highlightForeignRecordText(formatForeignRecordSummary(record))"
+                                        ></div>
+                                      </button>
+                                      <button
+                                        type="button"
+                                        class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition focus:outline-none focus:ring-2 focus:ring-primary/40 sm:self-start"
+                                        :class="isForeignRecordPreviewed(record)
+                                          ? 'border-primary/50 bg-primary/10 text-primary'
+                                          : 'border-border/60 bg-background text-muted-foreground hover:border-primary/60 hover:text-primary'"
+                                        @click.stop="previewForeignRecord(record)"
+                                        :disabled="valueModal.foreignRecords.preview.loading && valueModal.foreignRecords.preview.key === foreignRecordKey(record)"
+                                      >
+                                        <i class="fa-solid fa-eye text-[10px]"></i>
+                                        Переглянути
+                                      </button>
+                                    </div>
+                                    <template x-if="isForeignRecordPreviewed(record)">
+                                      <div class="mt-3 rounded-2xl border border-dashed border-border/60 bg-muted/20 p-3 text-sm">
+                                        <template x-if="valueModal.foreignRecords.preview.loading">
+                                          <div class="text-muted-foreground">Завантаження повного запису...</div>
+                                        </template>
+                                        <template x-if="!valueModal.foreignRecords.preview.loading && valueModal.foreignRecords.preview.error">
+                                          <div class="text-rose-600" x-text="valueModal.foreignRecords.preview.error"></div>
+                                        </template>
+                                        <template x-if="!valueModal.foreignRecords.preview.loading && !valueModal.foreignRecords.preview.error">
+                                          <dl class="grid grid-cols-1 gap-3">
+                                            <template x-for="fieldName in valueModal.foreignRecords.preview.columns" :key="`${foreignRecordKey(record)}:${fieldName}`">
+                                              <div class="space-y-1">
+                                                <dt class="text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80" x-text="fieldName"></dt>
+                                                <dd
+                                                  class="rounded-xl border border-border/60 bg-white px-3 py-2 text-sm text-foreground"
+                                                  x-html="highlightForeignRecordText(formatCell((valueModal.foreignRecords.preview.record || {})[fieldName]))"
+                                                ></dd>
+                                              </div>
+                                            </template>
+                                          </dl>
+                                        </template>
+                                      </div>
+                                    </template>
+                                  </div>
+                                </template>
+                              </div>
+                            </template>
+                          </div>
+                        </template>
+                        <div
+                          class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+                          x-show="valueModal.foreignRecords.lastPage > 1"
+                        >
+                          <div class="flex items-center gap-2">
+                            <button
+                              type="button"
+                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                              @click="changeForeignRecordsPage((valueModal.foreignRecords.page || 1) - 1)"
+                              :disabled="valueModal.foreignRecords.loading || (valueModal.foreignRecords.page || 1) <= 1"
+                            >
+                              <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                              Попередня
+                            </button>
+                            <button
+                              type="button"
+                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                              @click="changeForeignRecordsPage((valueModal.foreignRecords.page || 1) + 1)"
+                              :disabled="valueModal.foreignRecords.loading || (valueModal.foreignRecords.page || 1) >= (valueModal.foreignRecords.lastPage || 1)"
+                            >
+                              Наступна
+                              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                          </div>
+                          <div class="text-xs text-muted-foreground">
+                            Сторінка
+                            <span class="font-medium text-foreground" x-text="valueModal.foreignRecords.page"></span>
+                            з
+                            <span class="font-medium text-foreground" x-text="valueModal.foreignRecords.lastPage"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+                <div class="flex items-center justify-end gap-3" x-show="valueModal.editing">
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="valueModal.saving"
+                    @click="cancelEditingValue()"
+                  >
+                    Скасувати
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-emerald-600 bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="valueModal.saving"
+                    @click="saveEditedValue()"
+                  >
+                    <span x-show="!valueModal.saving">Зберегти</span>
+                    <span x-show="valueModal.saving" x-cloak>Збереження...</span>
+                  </button>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 @endsection
 
-@push('scripts')
+@push('head-scripts')
+  @once
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  @endonce
   <script>
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('databaseStructureViewer', (tables, recordsRoute, deleteRoute) => ({
-        query: '',
-        recordsRoute,
-        recordsDeleteRoute: deleteRoute,
-        csrfToken:
-          document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
-          (window.Laravel ? window.Laravel.csrfToken : ''),
-        filterOperators: [
-          { value: '=', label: 'Дорівнює (=)' },
-          { value: '!=', label: 'Не дорівнює (!=)' },
-          { value: '<', label: 'Менше (<)' },
-          { value: '<=', label: 'Менше або дорівнює (<=)' },
-          { value: '>', label: 'Більше (>)' },
-          { value: '>=', label: 'Більше або дорівнює (>=)' },
-          { value: 'like', label: 'Містить (LIKE)' },
-          { value: 'not like', label: 'Не містить (NOT LIKE)' },
-        ],
-        tables: tables.map((table) => ({
-          ...table,
-          open: false,
-          primaryKeys: Array.isArray(table.columns)
-            ? table.columns
-                .filter((column) => column && column.key === 'PRI' && column.name)
-                .map((column) => column.name)
-            : [],
-          records: {
-            visible: false,
-            loading: false,
-            loaded: false,
-            rows: [],
-            columns: Array.isArray(table.columns)
-              ? table.columns.map((column) => column.name)
-              : [],
-            error: null,
-            page: 1,
-            perPage: 20,
-            total: 0,
-            lastPage: 1,
-            sort: null,
-            direction: 'asc',
-            filters: [],
-            deletingRowIndex: null,
-          },
-        })),
-        get filteredTables() {
-          if (!this.query) {
-            return this.tables;
+    window.databaseStructureViewer = function (
+      tables,
+      recordsRoute,
+      deleteRoute,
+      valueRoute,
+      recordRoute,
+      updateRoute,
+      structureRoute,
+    ) {
+      const extractTables = (payload) => {
+          if (Array.isArray(payload)) {
+            return payload.filter(Boolean);
           }
 
-          const q = this.query.toLowerCase();
-          return this.tables.filter((table) => {
-            if (table.name.toLowerCase().includes(q)) {
-              return true;
+          if (payload && typeof payload === 'object') {
+            if (Array.isArray(payload.tables)) {
+              return payload.tables.filter(Boolean);
             }
 
-            return table.columns.some((column) =>
-              column.name.toLowerCase().includes(q) ||
-              (column.type && column.type.toLowerCase().includes(q))
+            if (Array.isArray(payload.data)) {
+              return payload.data.filter(Boolean);
+            }
+
+            return Object.values(payload).filter((item) => {
+              if (!item || typeof item !== 'object' || Array.isArray(item)) {
+                return false;
+              }
+
+              const keys = Object.keys(item);
+
+              return keys.some((key) => ['name', 'columns', 'comment', 'engine'].includes(key));
+            });
+          }
+
+          return [];
+        };
+
+        const normalizeNullable = (value) => {
+          if (value === true || value === false) {
+            return value;
+          }
+
+          if (typeof value === 'string') {
+            const normalized = value.toLowerCase();
+            return ['1', 'true', 'yes', 'y', 't'].includes(normalized);
+          }
+
+          if (typeof value === 'number') {
+            return value === 1;
+          }
+
+          return Boolean(value);
+        };
+
+        const normalizeColumns = (rawColumns) => {
+          if (!Array.isArray(rawColumns)) {
+            return [];
+          }
+
+          return rawColumns
+            .map((column) => {
+              if (column && typeof column === 'object' && !Array.isArray(column)) {
+                const columnName = typeof column.name === 'string' ? column.name : '';
+
+                if (!columnName) {
+                  return null;
+                }
+
+                const rawForeign = column.foreign && typeof column.foreign === 'object'
+                  ? column.foreign
+                  : null;
+
+                let normalizedForeign = null;
+
+                if (rawForeign) {
+                  const foreignTable = typeof rawForeign.table === 'string' ? rawForeign.table : '';
+                  const foreignColumn = typeof rawForeign.column === 'string' ? rawForeign.column : '';
+
+                  if (foreignTable && foreignColumn) {
+                    const constraint = typeof rawForeign.constraint === 'string' && rawForeign.constraint !== ''
+                      ? rawForeign.constraint
+                      : null;
+                    const displayColumn = typeof rawForeign.display_column === 'string' && rawForeign.display_column !== ''
+                      ? rawForeign.display_column
+                      : null;
+                    const labelColumns = Array.isArray(rawForeign.label_columns)
+                      ? rawForeign.label_columns.filter((label) => typeof label === 'string' && label !== '')
+                      : [];
+
+                    normalizedForeign = {
+                      table: foreignTable,
+                      column: foreignColumn,
+                      constraint,
+                      displayColumn,
+                      labelColumns,
+                    };
+                  }
+                }
+
+                return {
+                  name: columnName,
+                  type: typeof column.type === 'string' ? column.type : '',
+                  nullable: normalizeNullable(column.nullable),
+                  default: Object.prototype.hasOwnProperty.call(column, 'default') ? column.default : null,
+                  key: typeof column.key === 'string' && column.key !== '' ? column.key : null,
+                  extra: typeof column.extra === 'string' && column.extra !== '' ? column.extra : null,
+                  comment: typeof column.comment === 'string' && column.comment !== '' ? column.comment : null,
+                  foreign: normalizedForeign,
+                };
+              }
+
+              if (typeof column === 'string' && column.trim().length > 0) {
+                return {
+                  name: column.trim(),
+                  type: '',
+                  nullable: true,
+                  default: null,
+                  key: null,
+                  extra: null,
+                  comment: null,
+                  foreign: null,
+                };
+              }
+
+              return null;
+            })
+            .filter(Boolean);
+        };
+
+        const createForeignRecordPreviewState = () => ({
+          key: '',
+          visible: false,
+          loading: false,
+          error: null,
+          record: null,
+          columns: [],
+          requestId: 0,
+        });
+
+        const createForeignRecordsState = () => ({
+          visible: false,
+          loading: false,
+          loaded: false,
+          error: null,
+          options: [],
+          columns: [],
+          page: 1,
+          lastPage: 1,
+          perPage: 8,
+          query: '',
+          searchColumn: '',
+          requestId: 0,
+          selectedValue: '',
+          preview: createForeignRecordPreviewState(),
+        });
+
+        const normalizedTables = extractTables(tables)
+          .map((table) => {
+            const tableObject = table && typeof table === 'object' && !Array.isArray(table)
+              ? table
+              : {};
+
+            const fallbackName = typeof table === 'string' ? table : '';
+            const name = typeof tableObject.name === 'string' && tableObject.name.trim().length > 0
+              ? tableObject.name
+              : fallbackName.trim();
+
+            if (!name) {
+              return null;
+            }
+
+            const normalizedColumns = normalizeColumns(tableObject.columns);
+            const columnNames = normalizedColumns
+              .map((column) => (typeof column.name === 'string' ? column.name : ''))
+              .filter((column) => column.length > 0);
+
+            let columnsCount = normalizedColumns.length;
+            if (Object.prototype.hasOwnProperty.call(tableObject, 'columns_count')) {
+              const numeric = Number(tableObject.columns_count);
+              if (!Number.isNaN(numeric) && numeric >= 0) {
+                columnsCount = Math.max(columnsCount, Math.trunc(numeric));
+              }
+            }
+
+            const comment = typeof tableObject.comment === 'string' && tableObject.comment !== ''
+              ? tableObject.comment
+              : null;
+            const engine = typeof tableObject.engine === 'string' && tableObject.engine !== ''
+              ? tableObject.engine
+              : null;
+
+            const structureLoaded = normalizedColumns.length > 0;
+
+            return {
+              name,
+              comment,
+              engine,
+              columnsCount,
+              structure: {
+                loading: false,
+                loaded: structureLoaded,
+                columns: normalizedColumns,
+                error: null,
+              },
+              open: false,
+              structureVisible: true,
+              primaryKeys: structureLoaded
+                ? normalizedColumns
+                  .filter((column) => column && column.key === 'PRI' && column.name)
+                  .map((column) => column.name)
+                : [],
+              records: {
+                visible: false,
+                loading: false,
+                loaded: false,
+                rows: [],
+                columns: columnNames,
+                error: null,
+                page: 1,
+                perPage: 20,
+                total: 0,
+                lastPage: 1,
+                sort: null,
+                direction: 'asc',
+                filters: [],
+                deletingRowIndex: null,
+                search: '',
+                searchInput: '',
+                searchColumn: '',
+                requestId: 0,
+              },
+            };
+          })
+          .filter(Boolean);
+
+      return {
+          query: '',
+          recordsRoute,
+          recordsDeleteRoute: deleteRoute,
+          recordsValueRoute: valueRoute,
+          recordsShowRoute: recordRoute,
+          recordsUpdateRoute: updateRoute,
+          structureRoute,
+          csrfToken:
+            document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
+            (window.Laravel ? window.Laravel.csrfToken : ''),
+          cellPreviewLimit: 120,
+          valueModal: {
+            open: false,
+            table: '',
+            column: '',
+            value: '',
+            rawValue: null,
+            loading: false,
+            error: null,
+            searchTerm: '',
+            editing: false,
+            editValue: '',
+            saving: false,
+            updateError: null,
+            identifiers: [],
+            foreignKey: null,
+            foreignRecords: createForeignRecordsState(),
+          },
+          filterOperators: [
+            { value: '=', label: 'Дорівнює (=)' },
+            { value: '!=', label: 'Не дорівнює (!=)' },
+            { value: '<', label: 'Менше (<)' },
+            { value: '<=', label: 'Менше або дорівнює (<=)' },
+            { value: '>', label: 'Більше (>)' },
+            { value: '>=', label: 'Більше або дорівнює (>=)' },
+            { value: 'like', label: 'Містить (LIKE)' },
+            { value: 'not like', label: 'Не містить (NOT LIKE)' },
+          ],
+          tables: normalizedTables,
+          get filteredTables() {
+            if (!this.query) {
+              return this.tables;
+            }
+
+            const q = this.query.toLowerCase();
+            return this.tables.filter((table) => {
+              const tableName = typeof table.name === 'string' ? table.name : '';
+
+              if (tableName.toLowerCase().includes(q)) {
+                return true;
+              }
+
+              const columns = Array.isArray(table.structure?.columns) ? table.structure.columns : [];
+
+              return columns.some((column) => {
+                if (!column) {
+                  return false;
+                }
+
+                const columnName = typeof column.name === 'string' ? column.name : '';
+                const columnType = typeof column.type === 'string' ? column.type : '';
+
+                return (
+                  columnName.toLowerCase().includes(q) ||
+                  columnType.toLowerCase().includes(q)
+                );
+              });
+            });
+          },
+        async toggleTable(table) {
+          if (!table) {
+            return;
+          }
+
+          table.open = !table.open;
+
+          if (table.open) {
+            await this.ensureStructureLoaded(table);
+          }
+        },
+        async ensureStructureLoaded(table) {
+          if (!table || !table.structure) {
+            return;
+          }
+
+          if (table.structure.loading || table.structure.loaded) {
+            return;
+          }
+
+          if (table.structure.error) {
+            table.structure.error = null;
+          }
+
+          if (Array.isArray(table.structure.columns) && table.structure.columns.length > 0) {
+            table.structure.loaded = true;
+            return;
+          }
+
+          if (!this.structureRoute) {
+            table.structure.loaded = true;
+            return;
+          }
+
+          await this.loadTableStructure(table);
+        },
+        async loadTableStructure(table) {
+          if (!table || !this.structureRoute) {
+            return;
+          }
+
+          table.structure.loading = true;
+          table.structure.error = null;
+
+          try {
+            const url = new URL(
+              this.structureRoute.replace('__TABLE__', encodeURIComponent(table.name)),
+              window.location.origin
             );
-          });
+
+            const response = await fetch(url.toString(), {
+              headers: {
+                Accept: 'application/json',
+              },
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося завантажити структуру таблиці.';
+              throw new Error(message);
+            }
+
+            const data = await response.json();
+            this.setTableColumns(table, data.columns);
+
+            if (Object.prototype.hasOwnProperty.call(data, 'columns_count')) {
+              const numericCount = Number(data.columns_count);
+              if (!Number.isNaN(numericCount) && numericCount >= 0) {
+                table.columnsCount = Math.max(table.columnsCount, Math.trunc(numericCount));
+              }
+            }
+          } catch (error) {
+            table.structure.error = error.message ?? 'Сталася помилка під час завантаження структури таблиці.';
+            table.structure.loaded = false;
+          } finally {
+            table.structure.loading = false;
+          }
+        },
+        setTableColumns(table, columns) {
+          if (!table || !table.structure) {
+            return;
+          }
+
+          const normalizedColumns = normalizeColumns(columns);
+          table.structure.columns = normalizedColumns;
+          table.structure.loaded = true;
+          const currentCount = typeof table.columnsCount === 'number' && !Number.isNaN(table.columnsCount)
+            ? table.columnsCount
+            : 0;
+          table.columnsCount = Math.max(currentCount, normalizedColumns.length);
+          table.primaryKeys = normalizedColumns
+            .filter((column) => column && column.key === 'PRI' && column.name)
+            .map((column) => column.name);
+
+          if (!Array.isArray(table.records.columns) || table.records.columns.length === 0) {
+            table.records.columns = normalizedColumns.map((column) => column.name).filter(Boolean);
+          }
         },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
@@ -465,6 +1160,8 @@
           }
         },
         async loadRecords(table) {
+          const requestId = (table.records.requestId ?? 0) + 1;
+          table.records.requestId = requestId;
           table.records.loading = true;
           table.records.error = null;
           table.records.loaded = false;
@@ -482,6 +1179,19 @@
             if (table.records.sort) {
               url.searchParams.set('sort', table.records.sort);
               url.searchParams.set('direction', table.records.direction);
+            }
+
+            const searchQuery = typeof table.records.search === 'string' ? table.records.search.trim() : '';
+            const searchColumn = typeof table.records.searchColumn === 'string'
+              ? table.records.searchColumn.trim()
+              : '';
+
+            if (searchQuery) {
+              url.searchParams.set('search', searchQuery);
+            }
+
+            if (searchColumn) {
+              url.searchParams.set('search_column', searchColumn);
             }
 
             table.records.filters.forEach((filter, index) => {
@@ -509,8 +1219,15 @@
             }
 
             const data = await response.json();
+
+            if (table.records.requestId !== requestId) {
+              return;
+            }
+
             table.records.rows = data.rows || [];
-            table.records.columns = data.columns || table.records.columns;
+            table.records.columns = Array.isArray(data.columns)
+              ? data.columns.filter((name) => typeof name === 'string')
+              : table.records.columns;
             table.records.page = data.page || 1;
             table.records.perPage = data.per_page || table.records.perPage;
             table.records.total = data.total ?? table.records.total;
@@ -519,11 +1236,36 @@
             table.records.direction = data.direction || table.records.direction;
             const filtersFromResponse = Array.isArray(data.filters) ? data.filters : previousFilters;
             table.records.filters = this.normalizeFilters(filtersFromResponse, previousFilters);
+
+            if (typeof data.search === 'string') {
+              table.records.search = data.search;
+              table.records.searchInput = data.search;
+            }
+
+            const responseSearchColumn = typeof data.search_column === 'string'
+              ? data.search_column
+              : table.records.searchColumn;
+            table.records.searchColumn = responseSearchColumn || '';
+
+            if (
+              table.records.searchColumn &&
+              Array.isArray(table.records.columns) &&
+              !table.records.columns.includes(table.records.searchColumn)
+            ) {
+              table.records.searchColumn = '';
+            }
+
             table.records.loaded = true;
           } catch (error) {
+            if (table.records.requestId !== requestId) {
+              return;
+            }
+
             table.records.error = error.message ?? 'Сталася помилка під час завантаження записів.';
           } finally {
-            table.records.loading = false;
+            if (table.records.requestId === requestId) {
+              table.records.loading = false;
+            }
           }
         },
         changePage(table, page) {
@@ -606,8 +1348,8 @@
           const primaryKeys = Array.isArray(table.primaryKeys)
             ? table.primaryKeys.filter(Boolean)
             : [];
-          const fallbackColumns = Array.isArray(table.columns)
-            ? table.columns.map((column) => column.name)
+          const fallbackColumns = Array.isArray(table.structure?.columns)
+            ? table.structure.columns.map((column) => column.name)
             : [];
           const columns = primaryKeys.length > 0
             ? primaryKeys
@@ -642,6 +1384,780 @@
 
           return identifiers;
         },
+        findForeignKey(table, columnName) {
+          if (!table || typeof columnName !== 'string' || !table.structure) {
+            return null;
+          }
+
+          const normalizedColumn = columnName.trim();
+
+          if (!normalizedColumn) {
+            return null;
+          }
+
+          const columns = Array.isArray(table.structure.columns)
+            ? table.structure.columns
+            : [];
+
+          const column = columns.find((item) => item && item.name === normalizedColumn);
+
+          if (!column || !column.foreign) {
+            return null;
+          }
+
+          const foreign = column.foreign;
+          const foreignTable = typeof foreign.table === 'string' ? foreign.table : '';
+          const foreignColumn = typeof foreign.column === 'string' ? foreign.column : '';
+
+          if (!foreignTable || !foreignColumn) {
+            return null;
+          }
+
+          const constraint = typeof foreign.constraint === 'string' && foreign.constraint !== ''
+            ? foreign.constraint
+            : null;
+          const displayColumn = typeof foreign.displayColumn === 'string' && foreign.displayColumn !== ''
+            ? foreign.displayColumn
+            : null;
+          const labelColumns = Array.isArray(foreign.labelColumns)
+            ? foreign.labelColumns.filter((label) => typeof label === 'string' && label !== '')
+            : [];
+
+          return {
+            table: foreignTable,
+            column: foreignColumn,
+            constraint,
+            displayColumn,
+            labelColumns,
+          };
+        },
+        toggleForeignRecords() {
+          if (!this.valueModal.foreignKey) {
+            return;
+          }
+
+          const nextVisible = !this.valueModal.foreignRecords.visible;
+          this.valueModal.foreignRecords.visible = nextVisible;
+
+          if (nextVisible) {
+            if (!this.valueModal.foreignRecords.loaded) {
+              this.loadForeignRecords();
+            }
+
+            this.$nextTick(() => {
+              this.scrollValueModalToTop();
+            });
+          } else {
+            this.resetForeignRecordPreview();
+            this.$nextTick(() => {
+              this.autoResizeValueEditor();
+            });
+          }
+        },
+        resetForeignRecordPreview() {
+          if (!this.valueModal.foreignRecords) {
+            return;
+          }
+
+          this.valueModal.foreignRecords.preview = createForeignRecordPreviewState();
+        },
+        async loadForeignRecords(page = null) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey) {
+            return;
+          }
+
+          if (!this.recordsRoute) {
+            this.valueModal.foreignRecords.error = 'Маршрут для завантаження записів не налаштовано.';
+            this.valueModal.foreignRecords.loaded = false;
+            return;
+          }
+
+          if (typeof page === 'number' && Number.isFinite(page)) {
+            this.valueModal.foreignRecords.page = Math.max(1, Math.trunc(page));
+          }
+
+          const currentPage = this.valueModal.foreignRecords.page || 1;
+          const perPage = this.valueModal.foreignRecords.perPage || 8;
+          const requestId = (this.valueModal.foreignRecords.requestId ?? 0) + 1;
+
+          this.valueModal.foreignRecords.requestId = requestId;
+          this.valueModal.foreignRecords.loading = true;
+          this.valueModal.foreignRecords.error = null;
+          this.valueModal.foreignRecords.preview = createForeignRecordPreviewState();
+
+          try {
+            const url = new URL(
+              this.recordsRoute.replace('__TABLE__', encodeURIComponent(foreignKey.table)),
+              window.location.origin,
+            );
+
+            url.searchParams.set('page', currentPage);
+            url.searchParams.set('per_page', perPage);
+
+            const query = typeof this.valueModal.foreignRecords.query === 'string'
+              ? this.valueModal.foreignRecords.query.trim()
+              : '';
+            const searchColumn = typeof this.valueModal.foreignRecords.searchColumn === 'string'
+              ? this.valueModal.foreignRecords.searchColumn.trim()
+              : '';
+
+            if (query) {
+              url.searchParams.set('search', query);
+            }
+
+            if (searchColumn) {
+              url.searchParams.set('search_column', searchColumn);
+            }
+
+            const response = await fetch(url.toString(), {
+              headers: {
+                Accept: 'application/json',
+              },
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося завантажити пов\'язані записи.';
+              throw new Error(message);
+            }
+
+            const data = await response.json();
+
+            if (this.valueModal.foreignRecords.requestId !== requestId) {
+              return;
+            }
+
+            this.valueModal.foreignRecords.options = Array.isArray(data.rows) ? data.rows : [];
+            this.valueModal.foreignRecords.columns = Array.isArray(data.columns)
+              ? data.columns.filter((name) => typeof name === 'string' && name !== '')
+              : [];
+            const responseSearchColumn = typeof data.search_column === 'string'
+              ? data.search_column
+              : this.valueModal.foreignRecords.searchColumn;
+            this.valueModal.foreignRecords.searchColumn = responseSearchColumn || '';
+
+            if (
+              this.valueModal.foreignRecords.searchColumn &&
+              !this.valueModal.foreignRecords.columns.includes(this.valueModal.foreignRecords.searchColumn)
+            ) {
+              this.valueModal.foreignRecords.searchColumn = '';
+            }
+            this.valueModal.foreignRecords.page = data.page || currentPage;
+            this.valueModal.foreignRecords.lastPage = data.last_page || 1;
+            this.valueModal.foreignRecords.loaded = true;
+          } catch (error) {
+            if (this.valueModal.foreignRecords.requestId !== requestId) {
+              return;
+            }
+
+            this.valueModal.foreignRecords.error = error.message ?? 'Сталася помилка під час завантаження пов’язаних записів.';
+            this.valueModal.foreignRecords.loaded = false;
+          } finally {
+            if (this.valueModal.foreignRecords.requestId === requestId) {
+              this.valueModal.foreignRecords.loading = false;
+            }
+          }
+        },
+        searchForeignRecords() {
+          if (!this.valueModal.foreignKey) {
+            return;
+          }
+
+          this.valueModal.foreignRecords.page = 1;
+          this.loadForeignRecords(1);
+        },
+        updateForeignRecordsSearchColumn(column) {
+          if (!this.valueModal.foreignKey) {
+            return;
+          }
+
+          const normalized = typeof column === 'string' ? column.trim() : '';
+          const previous = typeof this.valueModal.foreignRecords.searchColumn === 'string'
+            ? this.valueModal.foreignRecords.searchColumn.trim()
+            : '';
+
+          if (normalized === previous && this.valueModal.foreignRecords.loaded) {
+            this.valueModal.foreignRecords.searchColumn = normalized;
+            return;
+          }
+
+          this.valueModal.foreignRecords.searchColumn = normalized;
+          this.valueModal.foreignRecords.page = 1;
+          this.loadForeignRecords(1);
+        },
+        changeForeignRecordsPage(page) {
+          if (this.valueModal.foreignRecords.loading) {
+            return;
+          }
+
+          const numericPage = Number(page);
+
+          if (!Number.isFinite(numericPage)) {
+            return;
+          }
+
+          const lastPage = this.valueModal.foreignRecords.lastPage || 1;
+          const target = Math.min(Math.max(Math.trunc(numericPage), 1), lastPage);
+
+          if (target === (this.valueModal.foreignRecords.page || 1)) {
+            return;
+          }
+
+          this.valueModal.foreignRecords.page = target;
+          this.loadForeignRecords(target);
+        },
+        selectForeignRecord(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return;
+          }
+
+          const value = record[foreignKey.column];
+
+          if (value === undefined) {
+            return;
+          }
+
+          this.valueModal.editValue = value === null ? '' : String(value);
+          this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(value);
+          this.resetForeignRecordPreview();
+          this.$nextTick(() => {
+            this.autoResizeValueEditor();
+          });
+        },
+        foreignRecordKey(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (foreignKey && record && typeof record === 'object') {
+            const value = record[foreignKey.column];
+
+            if (value !== undefined && value !== null) {
+              return `${foreignKey.table}:${foreignKey.column}:${String(value)}`;
+            }
+          }
+
+          try {
+            return JSON.stringify(record ?? {});
+          } catch (error) {
+            return String(Math.random());
+          }
+        },
+        isForeignRecordSelected(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return false;
+          }
+
+          const value = record[foreignKey.column];
+          const normalized = this.normalizeForeignSelectionValue(value);
+
+          if (normalized === '') {
+            return false;
+          }
+
+          return normalized === this.valueModal.foreignRecords.selectedValue;
+        },
+        isForeignRecordPreviewed(record) {
+          const preview = this.valueModal.foreignRecords?.preview;
+
+          if (!preview) {
+            return false;
+          }
+
+          const key = this.foreignRecordKey(record);
+
+          return (
+            preview.visible &&
+            typeof preview.key === 'string' &&
+            preview.key !== '' &&
+            preview.key === key
+          );
+        },
+        buildForeignRecordIdentifiers(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return [];
+          }
+
+          const value = record[foreignKey.column];
+
+          if (value !== null && typeof value === 'object') {
+            return [];
+          }
+
+          if (value === undefined) {
+            return [];
+          }
+
+          return [
+            {
+              column: foreignKey.column,
+              value,
+            },
+          ];
+        },
+        async previewForeignRecord(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return;
+          }
+
+          const key = this.foreignRecordKey(record);
+
+          if (!key) {
+            return;
+          }
+
+          const preview = this.valueModal.foreignRecords.preview;
+
+          if (preview.visible && preview.key === key) {
+            this.resetForeignRecordPreview();
+            return;
+          }
+
+          const identifiers = this.buildForeignRecordIdentifiers(record);
+
+          if (identifiers.length === 0) {
+            this.valueModal.foreignRecords.preview = {
+              ...createForeignRecordPreviewState(),
+              visible: true,
+              key,
+              error: 'Не вдалося визначити ідентифікатори пов’язаного запису.',
+            };
+            return;
+          }
+
+          if (!this.recordsShowRoute) {
+            this.valueModal.foreignRecords.preview = {
+              ...createForeignRecordPreviewState(),
+              visible: true,
+              key,
+              error: 'Маршрут для завантаження повного запису не налаштовано.',
+            };
+            return;
+          }
+
+          const requestId = (preview.requestId ?? 0) + 1;
+
+          this.valueModal.foreignRecords.preview = {
+            ...createForeignRecordPreviewState(),
+            visible: true,
+            key,
+            loading: true,
+            requestId,
+          };
+
+          try {
+            const url = new URL(
+              this.recordsShowRoute.replace('__TABLE__', encodeURIComponent(foreignKey.table)),
+              window.location.origin,
+            );
+
+            const response = await fetch(url.toString(), {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                identifiers,
+              }),
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося завантажити повний запис.';
+              throw new Error(message);
+            }
+
+            const data = await response.json();
+
+            if (this.valueModal.foreignRecords.preview.requestId !== requestId) {
+              return;
+            }
+
+            const recordData = data && typeof data === 'object' && !Array.isArray(data.record)
+              ? (data.record ?? {})
+              : {};
+            const normalizedRecord = recordData && typeof recordData === 'object' ? recordData : {};
+            const columns = Array.isArray(data?.columns)
+              ? data.columns.filter((column) => typeof column === 'string' && column !== '')
+              : Object.keys(normalizedRecord);
+
+            this.valueModal.foreignRecords.preview.loading = false;
+            this.valueModal.foreignRecords.preview.error = null;
+            this.valueModal.foreignRecords.preview.record = normalizedRecord;
+            this.valueModal.foreignRecords.preview.columns = columns;
+          } catch (error) {
+            if (this.valueModal.foreignRecords.preview.requestId !== requestId) {
+              return;
+            }
+
+            this.valueModal.foreignRecords.preview.loading = false;
+            this.valueModal.foreignRecords.preview.error = error.message ?? 'Сталася помилка під час завантаження запису.';
+          } finally {
+            if (this.valueModal.foreignRecords.preview.requestId === requestId) {
+              this.valueModal.foreignRecords.preview.loading = false;
+            }
+
+            this.$nextTick(() => {
+              this.scrollValueModalToTop();
+            });
+          }
+        },
+        formatForeignRecordLabel(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return '';
+          }
+
+          const labelColumns = Array.isArray(foreignKey.labelColumns) && foreignKey.labelColumns.length > 0
+            ? foreignKey.labelColumns
+            : [];
+
+          const candidates = labelColumns.length > 0
+            ? labelColumns
+            : [foreignKey.displayColumn, foreignKey.column].filter((column) => typeof column === 'string' && column);
+
+          for (const column of candidates) {
+            if (!column || !Object.prototype.hasOwnProperty.call(record, column)) {
+              continue;
+            }
+
+            const value = record[column];
+            const formatted = this.formatCell(value);
+
+            if (formatted && formatted !== '—') {
+              return formatted;
+            }
+          }
+
+          return this.formatCell(record[foreignKey.column]);
+        },
+        formatForeignRecordSummary(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return '';
+          }
+
+          const columns = Array.isArray(this.valueModal.foreignRecords.columns)
+            ? this.valueModal.foreignRecords.columns.filter((name) => typeof name === 'string' && name !== '')
+            : Object.keys(record);
+
+          const summary = [];
+
+          columns.forEach((column) => {
+            if (column === foreignKey.column) {
+              return;
+            }
+
+            if (!Object.prototype.hasOwnProperty.call(record, column)) {
+              return;
+            }
+
+            const value = record[column];
+            const formatted = this.formatCell(value);
+
+            if (!formatted || formatted === '—') {
+              return;
+            }
+
+            summary.push(`${column}: ${formatted}`);
+          });
+
+          return summary.slice(0, 3).join(' • ');
+        },
+        normalizeForeignSelectionValue(value) {
+          if (value === null || value === undefined) {
+            return '';
+          }
+
+          if (typeof value === 'object') {
+            try {
+              return JSON.stringify(value);
+            } catch (error) {
+              return '';
+            }
+          }
+
+          return String(value);
+        },
+        syncForeignSelectionWithEditValue() {
+          if (!this.valueModal.foreignKey) {
+            this.valueModal.foreignRecords.selectedValue = '';
+            return;
+          }
+
+          this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(
+            this.valueModal.editValue,
+          );
+        },
+        syncForeignSelectionWithRawValue(value) {
+          if (!this.valueModal.foreignKey) {
+            this.valueModal.foreignRecords.selectedValue = '';
+            return;
+          }
+
+          this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(value);
+        },
+        scrollValueModalToTop() {
+          const overlay = this.$refs?.valueModalOverlay;
+
+          if (!overlay) {
+            return;
+          }
+
+          overlay.scrollTop = 0;
+        },
+        autoResizeValueEditor(element = null) {
+          const textarea = element || this.$refs?.valueEditor;
+
+          if (!textarea) {
+            return;
+          }
+
+          requestAnimationFrame(() => {
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
+
+            if (this.valueModal.editing) {
+              this.scrollValueModalToTop();
+            }
+          });
+        },
+        async showRecordValue(table, column, row) {
+          const columnName = typeof column === 'string' ? column.trim() : '';
+          const tableName = table && typeof table.name === 'string' ? table.name : '';
+
+          if (!columnName || !tableName) {
+            return;
+          }
+
+          const identifiers = this.buildIdentifiers(table, row);
+          const clonedIdentifiers = identifiers
+            .filter((identifier) => identifier && typeof identifier.column === 'string' && identifier.column !== '')
+            .map((identifier) => ({
+              column: identifier.column,
+              value: identifier.value,
+            }));
+
+          this.valueModal.open = true;
+          this.valueModal.loading = true;
+          this.valueModal.error = null;
+          this.valueModal.updateError = null;
+          this.valueModal.table = tableName;
+          this.valueModal.column = columnName;
+          this.valueModal.value = '';
+          this.valueModal.rawValue = null;
+          this.valueModal.editValue = '';
+          this.valueModal.editing = false;
+          this.valueModal.saving = false;
+          this.valueModal.identifiers = clonedIdentifiers;
+          this.valueModal.foreignKey = null;
+          this.valueModal.foreignRecords = createForeignRecordsState();
+
+          const records = table && typeof table === 'object' ? table.records || {} : {};
+          const searchTerm = typeof records.search === 'string' ? records.search : '';
+          const searchColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
+          this.valueModal.searchTerm = !searchTerm || (searchColumn && searchColumn !== columnName)
+            ? ''
+            : searchTerm;
+
+          if (clonedIdentifiers.length === 0) {
+            this.valueModal.loading = false;
+            this.valueModal.error = 'Не вдалося визначити ідентифікатори запису для отримання значення.';
+            return;
+          }
+
+          if (!this.recordsValueRoute) {
+            this.valueModal.loading = false;
+            this.valueModal.error = 'Маршрут для отримання значення не налаштовано.';
+            return;
+          }
+
+          await this.ensureStructureLoaded(table);
+          this.valueModal.foreignKey = this.findForeignKey(table, columnName);
+          this.valueModal.foreignRecords = createForeignRecordsState();
+
+          try {
+            const url = new URL(
+              this.recordsValueRoute.replace('__TABLE__', encodeURIComponent(tableName)),
+              window.location.origin
+            );
+
+            const response = await fetch(url.toString(), {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                column: columnName,
+                identifiers: clonedIdentifiers,
+              }),
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося отримати повне значення.';
+              throw new Error(message);
+            }
+
+            const payload = await response.json();
+            const rawValue = payload && Object.prototype.hasOwnProperty.call(payload, 'value')
+              ? payload.value
+              : null;
+
+            this.valueModal.rawValue = rawValue;
+            this.valueModal.value = this.formatCell(rawValue);
+            this.valueModal.editValue = this.prepareEditableValue(rawValue);
+            this.syncForeignSelectionWithRawValue(rawValue);
+          } catch (error) {
+            this.valueModal.error = error.message ?? 'Сталася помилка під час отримання значення.';
+          } finally {
+            this.valueModal.loading = false;
+          }
+        },
+        startEditingValue() {
+          if (this.valueModal.loading || this.valueModal.error) {
+            return;
+          }
+
+          this.valueModal.editValue = this.prepareEditableValue(this.valueModal.rawValue);
+          this.valueModal.editing = true;
+          this.valueModal.updateError = null;
+          this.syncForeignSelectionWithEditValue();
+          this.$nextTick(() => {
+            this.scrollValueModalToTop();
+            this.autoResizeValueEditor();
+          });
+        },
+        cancelEditingValue() {
+          if (this.valueModal.saving) {
+            return;
+          }
+
+          this.valueModal.editValue = this.prepareEditableValue(this.valueModal.rawValue);
+          this.valueModal.editing = false;
+          this.valueModal.updateError = null;
+          this.valueModal.foreignRecords.visible = false;
+          this.syncForeignSelectionWithRawValue(this.valueModal.rawValue);
+        },
+        async saveEditedValue() {
+          if (this.valueModal.saving || this.valueModal.loading) {
+            return;
+          }
+
+          const tableName = typeof this.valueModal.table === 'string' ? this.valueModal.table : '';
+          const columnName = typeof this.valueModal.column === 'string' ? this.valueModal.column : '';
+          const identifiers = Array.isArray(this.valueModal.identifiers)
+            ? this.valueModal.identifiers
+              .filter((identifier) => identifier && typeof identifier.column === 'string' && identifier.column !== '')
+              .map((identifier) => ({
+                column: identifier.column,
+                value: identifier.value,
+              }))
+            : [];
+
+          if (!tableName || !columnName) {
+            this.valueModal.updateError = 'Невідомо, яке значення оновлювати.';
+            return;
+          }
+
+          if (identifiers.length === 0) {
+            this.valueModal.updateError = 'Не вдалося визначити ідентифікатори запису для збереження.';
+            return;
+          }
+
+          if (!this.recordsUpdateRoute) {
+            this.valueModal.updateError = 'Маршрут для збереження значення не налаштовано.';
+            return;
+          }
+
+          this.valueModal.saving = true;
+          this.valueModal.updateError = null;
+
+          try {
+            const url = new URL(
+              this.recordsUpdateRoute.replace('__TABLE__', encodeURIComponent(tableName)),
+              window.location.origin
+            );
+
+            const response = await fetch(url.toString(), {
+              method: 'PUT',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                column: columnName,
+                value: this.valueModal.editValue,
+                identifiers,
+              }),
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося зберегти значення.';
+              throw new Error(message);
+            }
+
+            const payload = await response.json();
+            const updatedValue = payload && Object.prototype.hasOwnProperty.call(payload, 'value')
+              ? payload.value
+              : null;
+
+            this.valueModal.rawValue = updatedValue;
+            this.valueModal.value = this.formatCell(updatedValue);
+            this.valueModal.editValue = this.prepareEditableValue(updatedValue);
+            this.valueModal.editing = false;
+            this.valueModal.updateError = null;
+            this.syncForeignSelectionWithRawValue(updatedValue);
+
+            this.valueModal.identifiers = identifiers.map((identifier) => {
+              if (identifier.column === columnName) {
+                return {
+                  column: identifier.column,
+                  value: updatedValue,
+                };
+              }
+
+              return identifier;
+            });
+          } catch (error) {
+            this.valueModal.updateError = error.message ?? 'Сталася помилка під час збереження значення.';
+          } finally {
+            this.valueModal.saving = false;
+          }
+        },
+        closeValueModal() {
+          this.valueModal.open = false;
+          this.valueModal.loading = false;
+          this.valueModal.error = null;
+          this.valueModal.updateError = null;
+          this.valueModal.value = '';
+          this.valueModal.rawValue = null;
+          this.valueModal.table = '';
+          this.valueModal.column = '';
+          this.valueModal.searchTerm = '';
+          this.valueModal.editing = false;
+          this.valueModal.editValue = '';
+          this.valueModal.saving = false;
+          this.valueModal.identifiers = [];
+          this.valueModal.foreignKey = null;
+          this.valueModal.foreignRecords = createForeignRecordsState();
+        },
         toggleSort(table, column) {
           if (table.records.loading) {
             return;
@@ -664,7 +2180,9 @@
 
           const fallbackColumn = Array.isArray(table.records.columns) && table.records.columns.length > 0
             ? table.records.columns[0]
-            : (Array.isArray(table.columns) && table.columns.length > 0 ? table.columns[0].name : '');
+            : (Array.isArray(table.structure?.columns) && table.structure.columns.length > 0
+              ? table.structure.columns[0].name
+              : '');
 
           table.records.filters = [
             ...table.records.filters,
@@ -706,6 +2224,35 @@
           }
 
           table.records.filters = [];
+          table.records.page = 1;
+          this.loadRecords(table);
+        },
+        updateSearch(table, value) {
+          const rawValue = typeof value === 'string' ? value : '';
+          const normalized = rawValue.trim();
+
+          table.records.searchInput = rawValue;
+
+          if (table.records.search === normalized && table.records.page === 1 && table.records.loaded) {
+            return;
+          }
+
+          table.records.search = normalized;
+          table.records.page = 1;
+          this.loadRecords(table);
+        },
+        updateSearchColumn(table, value) {
+          const normalized = typeof value === 'string' ? value.trim() : '';
+          const previous = typeof table.records.searchColumn === 'string'
+            ? table.records.searchColumn.trim()
+            : '';
+
+          if (previous === normalized && table.records.page === 1 && table.records.loaded) {
+            table.records.searchColumn = normalized;
+            return;
+          }
+
+          table.records.searchColumn = normalized;
           table.records.page = 1;
           this.loadRecords(table);
         },
@@ -786,7 +2333,108 @@
 
           return String(value);
         },
-      }));
+        prepareEditableValue(value) {
+          if (value === null || value === undefined) {
+            return '';
+          }
+
+          if (typeof value === 'object') {
+            try {
+              return JSON.stringify(value, null, 2);
+            } catch (error) {
+              return String(value);
+            }
+          }
+
+          return String(value);
+        },
+        truncateText(value, limit = 120) {
+          const text = value === null || value === undefined ? '' : String(value);
+          const numericLimit = Number(limit);
+
+          if (!Number.isFinite(numericLimit) || numericLimit <= 0) {
+            return text;
+          }
+
+          if (text.length <= numericLimit) {
+            return text;
+          }
+
+          const ellipsis = '…';
+          const sliceLength = Math.max(0, numericLimit - ellipsis.length);
+
+          return `${text.slice(0, sliceLength)}${ellipsis}`;
+        },
+        renderRecordPreview(table, column, value) {
+          const text = this.formatCell(value);
+          const truncated = this.truncateText(text, this.cellPreviewLimit);
+          const records = table && typeof table === 'object' ? table.records || {} : {};
+          const searchTerm = typeof records.search === 'string' ? records.search : '';
+          const selectedColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
+          const columnName = typeof column === 'string' ? column.trim() : '';
+
+          if (!searchTerm || (selectedColumn && selectedColumn !== columnName)) {
+            return this.escapeHtml(truncated);
+          }
+
+          return this.highlightText(truncated, searchTerm);
+        },
+        highlightQuery(value) {
+          return this.highlightText(value, this.query);
+        },
+        highlightForeignRecordText(value) {
+          const query =
+            this.valueModal && this.valueModal.foreignRecords && typeof this.valueModal.foreignRecords.query === 'string'
+              ? this.valueModal.foreignRecords.query
+              : '';
+
+          return this.highlightText(value, query);
+        },
+        highlightText(value, term) {
+          const stringValue = value === null || value === undefined ? '' : String(value);
+          const searchTerm = typeof term === 'string' ? term.trim() : '';
+
+          if (!searchTerm) {
+            return this.escapeHtml(stringValue);
+          }
+
+          const escapedSearch = this.escapeRegExp(searchTerm);
+
+          if (!escapedSearch) {
+            return this.escapeHtml(stringValue);
+          }
+
+          const regex = new RegExp(`(${escapedSearch})`, 'gi');
+          const parts = stringValue.split(regex);
+
+          return parts
+            .map((part, index) => {
+              if (index % 2 === 1 && part.length > 0) {
+                return `<mark class="rounded bg-amber-200/70 px-1 py-0.5 text-amber-900">${this.escapeHtml(part)}</mark>`;
+              }
+
+              return this.escapeHtml(part);
+            })
+            .join('');
+        },
+        escapeHtml(value) {
+          return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        },
+        escapeRegExp(value) {
+          return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        },
+      };
+    };
+
+    document.addEventListener('alpine:init', () => {
+      if (window.Alpine && typeof window.Alpine.data === 'function') {
+        window.Alpine.data('databaseStructureViewer', window.databaseStructureViewer);
+      }
     });
   </script>
 @endpush
