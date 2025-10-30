@@ -142,18 +142,27 @@
                             <tr
                               class="hover:bg-muted/40 transition"
                               :class="column.foreign ? 'cursor-pointer' : ''"
-                              @click="column.foreign && toggleForeignKeyDetails(table, column.name)"
+                              @click="column.foreign && toggleForeignKeyDetails(table, column)"
                             >
                               <td class="py-2 pr-4 font-medium">
                                 <div class="flex items-center gap-2">
-                                  <span x-html="highlightQuery(column.name)"></span>
                                   <template x-if="column.foreign">
-                                    <span
-                                      class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[12px] text-primary"
-                                      :title="`${column.name} -> ${column.foreign.table}.${column.foreign.column}`"
+                                    <button
+                                      type="button"
+                                      class="inline-flex items-center gap-2 rounded-md bg-transparent p-0 text-left text-current focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 hover:text-primary"
+                                      @click.stop="toggleForeignKeyDetails(table, column)"
                                     >
-                                      <i class="fa-solid fa-link"></i>
-                                    </span>
+                                      <span x-html="highlightQuery(column.name)"></span>
+                                      <span
+                                        class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[12px] text-primary"
+                                        :title="`${column.name} -> ${column.foreign.table}.${column.foreign.column}`"
+                                      >
+                                        <i class="fa-solid fa-link"></i>
+                                      </span>
+                                    </button>
+                                  </template>
+                                  <template x-if="!column.foreign">
+                                    <span x-html="highlightQuery(column.name)"></span>
                                   </template>
                                 </div>
                               </td>
@@ -168,7 +177,7 @@
                             </tr>
                             <template x-if="column.foreign">
                               <tr
-                                x-show="table.structure.activeForeignColumn === column.name"
+                                x-show="column.foreignOpen"
                                 x-transition.opacity
                                 x-cloak
                               >
@@ -910,6 +919,7 @@
                   extra: typeof column.extra === 'string' && column.extra.trim() !== '' ? column.extra.trim() : null,
                   comment: typeof column.comment === 'string' && column.comment.trim() !== '' ? column.comment.trim() : null,
                   foreign: normalizedForeign,
+                  foreignOpen: false,
                 };
               }
 
@@ -923,6 +933,7 @@
                   extra: null,
                   comment: null,
                   foreign: null,
+                  foreignOpen: false,
                 };
               }
 
@@ -1207,14 +1218,8 @@
             table.records.columns = normalizedColumns.map((column) => column.name).filter(Boolean);
           }
         },
-        toggleForeignKeyDetails(table, columnName) {
+        toggleForeignKeyDetails(table, columnOrName) {
           if (!table || !table.structure) {
-            return;
-          }
-
-          const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
-
-          if (!normalizedColumn) {
             return;
           }
 
@@ -1222,17 +1227,51 @@
             ? table.structure.columns
             : [];
 
-          const column = columns.find((item) => item && item.name === normalizedColumn && item.foreign);
+          let targetColumn = null;
 
-          if (!column) {
+          if (columnOrName && typeof columnOrName === 'object') {
+            const index = columns.indexOf(columnOrName);
+
+            if (index !== -1) {
+              targetColumn = columnOrName;
+            }
+          }
+
+          const normalizedColumnName = (() => {
+            if (targetColumn && typeof targetColumn.name === 'string') {
+              return targetColumn.name.trim();
+            }
+
+            return typeof columnOrName === 'string' ? columnOrName.trim() : '';
+          })();
+
+          if (!normalizedColumnName) {
             return;
           }
 
-          const currentActive = typeof table.structure.activeForeignColumn === 'string'
-            ? table.structure.activeForeignColumn
-            : null;
+          columns.forEach((item) => {
+            if (!item || !item.foreign || typeof item.name !== 'string') {
+              return;
+            }
 
-          table.structure.activeForeignColumn = currentActive === normalizedColumn ? null : normalizedColumn;
+            if (!targetColumn && item.name === normalizedColumnName) {
+              targetColumn = item;
+              return;
+            }
+
+            if (item.name !== normalizedColumnName && item.foreignOpen) {
+              item.foreignOpen = false;
+            }
+          });
+
+          if (!targetColumn || !targetColumn.foreign) {
+            table.structure.activeForeignColumn = null;
+            return;
+          }
+
+          const nextOpenState = !targetColumn.foreignOpen;
+          targetColumn.foreignOpen = nextOpenState;
+          table.structure.activeForeignColumn = nextOpenState ? targetColumn.name : null;
         },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;

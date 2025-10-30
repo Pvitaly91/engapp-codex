@@ -5,23 +5,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'English App')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        .text-base{
-            line-height: 2.2rem !important;
-        }
-        .test-description {
-            background-color: #fefce8; /* yellow-50 */
-            border-left: 4px solid #f59e0b; /* yellow-500 */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        [x-cloak] {
-            display: none !important;
-        }
-    </style>
     @stack('head-scripts')
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
