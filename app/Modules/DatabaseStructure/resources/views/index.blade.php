@@ -861,7 +861,7 @@
           return rawColumns
             .map((column) => {
               if (column && typeof column === 'object' && !Array.isArray(column)) {
-                const columnName = typeof column.name === 'string' ? column.name : '';
+                const columnName = typeof column.name === 'string' ? column.name.trim() : '';
 
                 if (!columnName) {
                   return null;
@@ -874,18 +874,20 @@
                 let normalizedForeign = null;
 
                 if (rawForeign) {
-                  const foreignTable = typeof rawForeign.table === 'string' ? rawForeign.table : '';
-                  const foreignColumn = typeof rawForeign.column === 'string' ? rawForeign.column : '';
+                  const foreignTable = typeof rawForeign.table === 'string' ? rawForeign.table.trim() : '';
+                  const foreignColumn = typeof rawForeign.column === 'string' ? rawForeign.column.trim() : '';
 
                   if (foreignTable && foreignColumn) {
                     const constraint = typeof rawForeign.constraint === 'string' && rawForeign.constraint !== ''
-                      ? rawForeign.constraint
+                      ? rawForeign.constraint.trim()
                       : null;
-                    const displayColumn = typeof rawForeign.display_column === 'string' && rawForeign.display_column !== ''
-                      ? rawForeign.display_column
+                    const displayColumn = typeof rawForeign.display_column === 'string' && rawForeign.display_column.trim() !== ''
+                      ? rawForeign.display_column.trim()
                       : null;
                     const labelColumns = Array.isArray(rawForeign.label_columns)
-                      ? rawForeign.label_columns.filter((label) => typeof label === 'string' && label !== '')
+                      ? rawForeign.label_columns
+                        .map((label) => (typeof label === 'string' ? label.trim() : ''))
+                        .filter((label) => label !== '')
                       : [];
 
                     normalizedForeign = {
@@ -900,12 +902,12 @@
 
                 return {
                   name: columnName,
-                  type: typeof column.type === 'string' ? column.type : '',
+                  type: typeof column.type === 'string' ? column.type.trim() : '',
                   nullable: normalizeNullable(column.nullable),
                   default: Object.prototype.hasOwnProperty.call(column, 'default') ? column.default : null,
-                  key: typeof column.key === 'string' && column.key !== '' ? column.key : null,
-                  extra: typeof column.extra === 'string' && column.extra !== '' ? column.extra : null,
-                  comment: typeof column.comment === 'string' && column.comment !== '' ? column.comment : null,
+                  key: typeof column.key === 'string' && column.key.trim() !== '' ? column.key.trim() : null,
+                  extra: typeof column.extra === 'string' && column.extra.trim() !== '' ? column.extra.trim() : null,
+                  comment: typeof column.comment === 'string' && column.comment.trim() !== '' ? column.comment.trim() : null,
                   foreign: normalizedForeign,
                 };
               }
