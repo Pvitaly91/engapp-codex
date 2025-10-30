@@ -4,7 +4,7 @@
 
 @section('content')
   <div
-    class="space-y-8"
+    class="space-y-8 lg:grid lg:grid-cols-[280px,minmax(0,1fr)] lg:items-start lg:gap-6 lg:space-y-0"
     x-data="databaseStructureViewer(
       @js($structure),
       @js(route('database-structure.records', ['table' => '__TABLE__'])),
@@ -16,10 +16,104 @@
     )"
     @keydown.window.escape.prevent="valueModal.open && closeValueModal()"
   >
-    <header class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
-      <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-        <div class="space-y-3">
-          <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+    <aside class="space-y-4 lg:sticky lg:top-24">
+      <div class="rounded-3xl border border-border/70 bg-card/70 p-4 shadow-soft">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h2 class="text-sm font-semibold text-foreground">Меню таблиць</h2>
+            <p class="mt-1 text-xs text-muted-foreground">
+              Закріпіть важливі таблиці для швидкого доступу.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="toggleTableMenuSettings()"
+          >
+            <i class="fa-solid fa-sliders"></i>
+            <span class="sr-only">Налаштувати меню таблиць</span>
+          </button>
+        </div>
+        <nav class="mt-4 space-y-2">
+          <template x-if="tableMenu.items.length === 0">
+            <p class="rounded-2xl border border-dashed border-border/60 bg-background/60 px-3 py-2 text-xs text-muted-foreground">
+              Меню порожнє. Додайте таблицю через налаштування.
+            </p>
+          </template>
+          <template x-for="tableName in tableMenu.items" :key="`sidebar-table-${tableName}`">
+            <button
+              type="button"
+              class="w-full rounded-xl border px-3 py-2 text-left text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-primary/40"
+              :class="isTableActive(tableName)
+                ? 'border-primary/50 bg-primary/10 text-primary'
+                : 'border-border/60 bg-background/70 text-muted-foreground hover:border-primary/60 hover:text-primary'"
+              @click="focusTableFromMenu(tableName)"
+            >
+              <span x-text="tableName"></span>
+            </button>
+          </template>
+        </nav>
+        <div x-show="tableMenu.open" x-collapse x-cloak class="mt-4 space-y-3">
+          <div class="rounded-2xl border border-border/60 bg-muted/20 p-3 text-xs text-muted-foreground">
+            <p class="font-semibold text-foreground">Налаштування меню</p>
+            <p class="mt-1">
+              Додайте або приберіть таблиці зі списку швидкого доступу.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <span>Нова таблиця</span>
+              <div class="mt-1 flex gap-2">
+                <select
+                  class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  x-model="tableMenu.newTable"
+                  @change="tableMenu.error = null"
+                  :disabled="menuCandidates.length === 0"
+                >
+                  <option value="">Оберіть таблицю...</option>
+                  <template x-for="candidate in menuCandidates" :key="`sidebar-option-${candidate}`">
+                    <option :value="candidate" x-text="candidate"></option>
+                  </template>
+                </select>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center gap-2 rounded-full border border-border/70 bg-background px-4 py-2 text-xs font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="!tableMenu.newTable"
+                  @click="addTableToMenu()"
+                >
+                  <i class="fa-solid fa-plus text-[10px]"></i>
+                  Додати
+                </button>
+              </div>
+            </label>
+          </div>
+          <template x-if="tableMenu.error">
+            <div class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-600" x-text="tableMenu.error"></div>
+          </template>
+          <div class="space-y-2" x-show="tableMenu.items.length > 0">
+            <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Закріплені таблиці</p>
+            <template x-for="menuTable in tableMenu.items" :key="`sidebar-manage-${menuTable}`">
+              <div class="flex items-center justify-between rounded-xl border border-border/60 bg-background px-3 py-2 text-sm text-foreground">
+                <span class="font-medium" x-text="menuTable"></span>
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-1 rounded-full border border-border/60 px-2 py-1 text-xs text-muted-foreground transition hover:border-rose-300 hover:text-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-400/40"
+                  @click="removeTableFromMenu(menuTable)"
+                >
+                  <i class="fa-solid fa-xmark text-[10px]"></i>
+                  Прибрати
+                </button>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="space-y-8">
+      <header class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+          <div class="space-y-3">
+            <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
             <span class="inline-flex h-2.5 w-2.5 rounded-full bg-primary"></span>
             Інструмент адміністрування
           </p>
@@ -68,15 +162,15 @@
       </div>
     </header>
 
-    <template x-if="filteredTables.length === 0">
-      <div class="rounded-3xl border border-dashed border-border/60 bg-muted/30 p-10 text-center text-sm text-muted-foreground">
-        Нічого не знайдено. Змініть пошуковий запит або скиньте фільтр.
-      </div>
-    </template>
+      <template x-if="filteredTables.length === 0">
+        <div class="rounded-3xl border border-dashed border-border/60 bg-muted/30 p-10 text-center text-sm text-muted-foreground">
+          Нічого не знайдено. Змініть пошуковий запит або скиньте фільтр.
+        </div>
+      </template>
 
-    <div class="space-y-6">
-      <template x-for="table in filteredTables" :key="table.name">
-        <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6">
+        <template x-for="table in filteredTables" :key="table.name">
+          <section :id="tableDomId(table.name)" class="rounded-3xl border border-border/70 bg-card shadow-soft">
           <header
             class="flex flex-col gap-4 border-b border-border/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
             @click="toggleTable(table)"
@@ -983,6 +1077,87 @@
           })
           .filter(Boolean);
 
+        const sanitizeTableIdentifier = (name) => {
+          if (typeof name !== 'string') {
+            return '';
+          }
+
+          return name
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/gi, '-')
+            .replace(/-{2,}/g, '-')
+            .replace(/^-+|-+$/g, '');
+        };
+
+        const buildTableDomId = (name) => {
+          const sanitized = sanitizeTableIdentifier(name);
+          return sanitized ? `db-structure-table-${sanitized}` : 'db-structure-table';
+        };
+
+        const storageKey = 'database-structure.menu';
+
+        const defaultMenuItems = () => {
+          const names = normalizedTables
+            .map((table) => (table && typeof table.name === 'string' ? table.name : ''))
+            .filter((name) => name !== '');
+
+          const limit = Math.min(names.length, 6);
+          return names.slice(0, limit);
+        };
+
+        const loadStoredMenuItems = () => {
+          if (typeof window === 'undefined' || typeof window.localStorage === 'undefined') {
+            return defaultMenuItems();
+          }
+
+          try {
+            const raw = window.localStorage.getItem(storageKey);
+
+            if (!raw) {
+              return defaultMenuItems();
+            }
+
+            const parsed = JSON.parse(raw);
+
+            if (!Array.isArray(parsed)) {
+              return defaultMenuItems();
+            }
+
+            const available = new Set(
+              normalizedTables
+                .map((table) => (table && typeof table.name === 'string' ? table.name : ''))
+                .filter((name) => name !== ''),
+            );
+
+            const sanitized = parsed
+              .map((name) => (typeof name === 'string' ? name.trim() : ''))
+              .filter((name) => name !== '' && available.has(name));
+
+            return sanitized.length > 0 ? sanitized : defaultMenuItems();
+          } catch (error) {
+            return defaultMenuItems();
+          }
+        };
+
+        const persistMenuItems = (items) => {
+          if (typeof window === 'undefined' || typeof window.localStorage === 'undefined') {
+            return;
+          }
+
+          try {
+            const serialized = Array.isArray(items)
+              ? items.filter((name) => typeof name === 'string' && name.trim() !== '')
+              : [];
+
+            window.localStorage.setItem(storageKey, JSON.stringify(serialized));
+          } catch (error) {
+            // Ignore persistence issues (e.g., private mode, quota exceeded)
+          }
+        };
+
+        const initialMenuItems = loadStoredMenuItems();
+
       return {
           query: '',
           recordsRoute,
@@ -1011,6 +1186,24 @@
             identifiers: [],
             foreignKey: null,
             foreignRecords: createForeignRecordsState(),
+          },
+          tableMenu: {
+            open: false,
+            items: initialMenuItems,
+            newTable: '',
+            error: null,
+          },
+          init() {
+            this.syncTableMenu();
+          },
+          get menuCandidates() {
+            const taken = new Set(
+              Array.isArray(this.tableMenu?.items) ? this.tableMenu.items.filter(Boolean) : [],
+            );
+
+            return this.tables
+              .map((table) => (table && typeof table.name === 'string' ? table.name : ''))
+              .filter((name) => name !== '' && !taken.has(name));
           },
           filterOperators: [
             { value: '=', label: 'Дорівнює (=)' },
@@ -1053,6 +1246,121 @@
               });
             });
           },
+        toggleTableMenuSettings() {
+          this.tableMenu.open = !this.tableMenu.open;
+
+          if (!this.tableMenu.open) {
+            this.tableMenu.newTable = '';
+            this.tableMenu.error = null;
+          }
+        },
+        addTableToMenu() {
+          const selected = typeof this.tableMenu.newTable === 'string'
+            ? this.tableMenu.newTable.trim()
+            : '';
+
+          if (!selected) {
+            this.tableMenu.error = 'Оберіть таблицю для додавання.';
+            return;
+          }
+
+          const exists = this.tables.some((table) => table && table.name === selected);
+
+          if (!exists) {
+            this.tableMenu.error = 'Таку таблицю не знайдено.';
+            return;
+          }
+
+          if (this.tableMenu.items.includes(selected)) {
+            this.tableMenu.error = 'Така таблиця вже додана до меню.';
+            return;
+          }
+
+          this.tableMenu.items = [...this.tableMenu.items, selected];
+          this.tableMenu.newTable = '';
+          this.tableMenu.error = null;
+          this.persistTableMenu();
+
+          this.$nextTick(() => {
+            this.focusTable(selected);
+          });
+        },
+        removeTableFromMenu(name) {
+          const normalized = typeof name === 'string' ? name.trim() : '';
+
+          if (!normalized) {
+            return;
+          }
+
+          this.tableMenu.items = this.tableMenu.items.filter((item) => item !== normalized);
+          this.persistTableMenu();
+        },
+        focusTableFromMenu(name) {
+          this.focusTable(name);
+        },
+        focusTable(name) {
+          const normalized = typeof name === 'string' ? name.trim() : '';
+
+          if (!normalized) {
+            return;
+          }
+
+          const table = this.tables.find((item) => item && item.name === normalized);
+
+          if (!table) {
+            return;
+          }
+
+          if (!table.open) {
+            table.open = true;
+          }
+
+          Promise.resolve(this.ensureStructureLoaded(table)).finally(() => {
+            this.$nextTick(() => {
+              const elementId = this.tableDomId(normalized);
+
+              if (!elementId) {
+                return;
+              }
+
+              const element = document.getElementById(elementId);
+
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            });
+          });
+        },
+        isTableActive(name) {
+          const normalized = typeof name === 'string' ? name.trim() : '';
+
+          if (!normalized) {
+            return false;
+          }
+
+          return this.tables.some((table) => table && table.name === normalized && table.open);
+        },
+        tableDomId(name) {
+          return buildTableDomId(name);
+        },
+        persistTableMenu() {
+          persistMenuItems(this.tableMenu.items);
+        },
+        syncTableMenu() {
+          const available = new Set(
+            this.tables
+              .map((table) => (table && typeof table.name === 'string' ? table.name : ''))
+              .filter((name) => name !== ''),
+          );
+
+          this.tableMenu.items = this.tableMenu.items.filter((name) => available.has(name));
+
+          if (this.tableMenu.items.length === 0 && available.size > 0) {
+            this.tableMenu.items = Array.from(available).slice(0, Math.min(available.size, 6));
+          }
+
+          this.persistTableMenu();
+        },
         async toggleTable(table) {
           if (!table) {
             return;
