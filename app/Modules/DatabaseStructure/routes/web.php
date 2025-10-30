@@ -10,6 +10,9 @@ Route::get('/tables/{table}/structure', [DatabaseStructureController::class, 'st
 Route::get('/tables/{table}/records', [DatabaseStructureController::class, 'records'])
     ->where('table', '[^/]+')
     ->name('records');
+Route::post('/tables/{table}/records/record', [DatabaseStructureController::class, 'record'])
+    ->where('table', '[^/]+')
+    ->name('record');
 Route::post('/tables/{table}/records/value', [DatabaseStructureController::class, 'value'])
     ->where('table', '[^/]+')
     ->name('value');

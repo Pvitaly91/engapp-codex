@@ -75,6 +75,31 @@ class DatabaseStructureController
         }
     }
 
+    public function record(Request $request, string $table): JsonResponse
+    {
+        try {
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису.');
+            }
+
+            $record = $this->fetcher->getRecord($table, $identifiers);
+
+            return response()->json($record);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
+    }
+
     public function value(Request $request, string $table): JsonResponse
     {
         try {

@@ -10,6 +10,7 @@
       @js(route('database-structure.records', ['table' => '__TABLE__'])),
       @js(route('database-structure.destroy', ['table' => '__TABLE__'])),
       @js(route('database-structure.value', ['table' => '__TABLE__'])),
+      @js(route('database-structure.record', ['table' => '__TABLE__'])),
       @js(route('database-structure.update', ['table' => '__TABLE__'])),
       @js(route('database-structure.structure', ['table' => '__TABLE__']))
     )"
@@ -621,20 +622,59 @@
                             <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length > 0">
                               <div class="space-y-2 max-h-80 overflow-y-auto pr-1 sm:max-h-96">
                                 <template x-for="record in valueModal.foreignRecords.options" :key="foreignRecordKey(record)">
-                                  <button
-                                    type="button"
-                                    class="w-full rounded-2xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-primary/40"
-                                    :class="isForeignRecordSelected(record)
-                                      ? 'border-primary bg-primary/10 text-primary'
-                                      : 'border-border/60 bg-white hover:border-primary/60 hover:text-primary'"
-                                    @click="selectForeignRecord(record)"
-                                  >
-                                    <div class="font-semibold" x-html="highlightForeignRecordText(formatForeignRecordLabel(record))"></div>
-                                    <div
-                                      class="mt-1 text-xs text-muted-foreground"
-                                      x-html="highlightForeignRecordText(formatForeignRecordSummary(record))"
-                                    ></div>
-                                  </button>
+                                  <div class="rounded-2xl border border-border/60 bg-white p-3 shadow-soft/10">
+                                    <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                                      <button
+                                        type="button"
+                                        class="w-full rounded-xl border px-4 py-2.5 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-primary/40 sm:flex-1"
+                                        :class="isForeignRecordSelected(record)
+                                          ? 'border-primary bg-primary/10 text-primary'
+                                          : 'border-border/60 bg-white hover:border-primary/60 hover:text-primary'"
+                                        @click="selectForeignRecord(record)"
+                                      >
+                                        <div class="font-semibold" x-html="highlightForeignRecordText(formatForeignRecordLabel(record))"></div>
+                                        <div
+                                          class="mt-1 text-xs text-muted-foreground"
+                                          x-html="highlightForeignRecordText(formatForeignRecordSummary(record))"
+                                        ></div>
+                                      </button>
+                                      <button
+                                        type="button"
+                                        class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition focus:outline-none focus:ring-2 focus:ring-primary/40 sm:self-start"
+                                        :class="isForeignRecordPreviewed(record)
+                                          ? 'border-primary/50 bg-primary/10 text-primary'
+                                          : 'border-border/60 bg-background text-muted-foreground hover:border-primary/60 hover:text-primary'"
+                                        @click.stop="previewForeignRecord(record)"
+                                        :disabled="valueModal.foreignRecords.preview.loading && valueModal.foreignRecords.preview.key === foreignRecordKey(record)"
+                                      >
+                                        <i class="fa-solid fa-eye text-[10px]"></i>
+                                        Переглянути
+                                      </button>
+                                    </div>
+                                    <template x-if="isForeignRecordPreviewed(record)">
+                                      <div class="mt-3 rounded-2xl border border-dashed border-border/60 bg-muted/20 p-3 text-sm">
+                                        <template x-if="valueModal.foreignRecords.preview.loading">
+                                          <div class="text-muted-foreground">Завантаження повного запису...</div>
+                                        </template>
+                                        <template x-if="!valueModal.foreignRecords.preview.loading && valueModal.foreignRecords.preview.error">
+                                          <div class="text-rose-600" x-text="valueModal.foreignRecords.preview.error"></div>
+                                        </template>
+                                        <template x-if="!valueModal.foreignRecords.preview.loading && !valueModal.foreignRecords.preview.error">
+                                          <dl class="grid grid-cols-1 gap-3">
+                                            <template x-for="fieldName in valueModal.foreignRecords.preview.columns" :key="`${foreignRecordKey(record)}:${fieldName}`">
+                                              <div class="space-y-1">
+                                                <dt class="text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80" x-text="fieldName"></dt>
+                                                <dd
+                                                  class="rounded-xl border border-border/60 bg-white px-3 py-2 text-sm text-foreground"
+                                                  x-html="highlightForeignRecordText(formatCell((valueModal.foreignRecords.preview.record || {})[fieldName]))"
+                                                ></dd>
+                                              </div>
+                                            </template>
+                                          </dl>
+                                        </template>
+                                      </div>
+                                    </template>
+                                  </div>
                                 </template>
                               </div>
                             </template>
@@ -708,7 +748,15 @@
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
   @endonce
   <script>
-    window.databaseStructureViewer = function (tables, recordsRoute, deleteRoute, valueRoute, updateRoute, structureRoute) {
+    window.databaseStructureViewer = function (
+      tables,
+      recordsRoute,
+      deleteRoute,
+      valueRoute,
+      recordRoute,
+      updateRoute,
+      structureRoute,
+    ) {
       const extractTables = (payload) => {
           if (Array.isArray(payload)) {
             return payload.filter(Boolean);
@@ -829,6 +877,16 @@
             .filter(Boolean);
         };
 
+        const createForeignRecordPreviewState = () => ({
+          key: '',
+          visible: false,
+          loading: false,
+          error: null,
+          record: null,
+          columns: [],
+          requestId: 0,
+        });
+
         const createForeignRecordsState = () => ({
           visible: false,
           loading: false,
@@ -843,6 +901,7 @@
           searchColumn: '',
           requestId: 0,
           selectedValue: '',
+          preview: createForeignRecordPreviewState(),
         });
 
         const normalizedTables = extractTables(tables)
@@ -929,6 +988,7 @@
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
           recordsValueRoute: valueRoute,
+          recordsShowRoute: recordRoute,
           recordsUpdateRoute: updateRoute,
           structureRoute,
           csrfToken:
@@ -1388,10 +1448,18 @@
               this.scrollValueModalToTop();
             });
           } else {
+            this.resetForeignRecordPreview();
             this.$nextTick(() => {
               this.autoResizeValueEditor();
             });
           }
+        },
+        resetForeignRecordPreview() {
+          if (!this.valueModal.foreignRecords) {
+            return;
+          }
+
+          this.valueModal.foreignRecords.preview = createForeignRecordPreviewState();
         },
         async loadForeignRecords(page = null) {
           const foreignKey = this.valueModal.foreignKey;
@@ -1417,6 +1485,7 @@
           this.valueModal.foreignRecords.requestId = requestId;
           this.valueModal.foreignRecords.loading = true;
           this.valueModal.foreignRecords.error = null;
+          this.valueModal.foreignRecords.preview = createForeignRecordPreviewState();
 
           try {
             const url = new URL(
@@ -1554,6 +1623,7 @@
 
           this.valueModal.editValue = value === null ? '' : String(value);
           this.valueModal.foreignRecords.selectedValue = this.normalizeForeignSelectionValue(value);
+          this.resetForeignRecordPreview();
           this.$nextTick(() => {
             this.autoResizeValueEditor();
           });
@@ -1590,6 +1660,157 @@
           }
 
           return normalized === this.valueModal.foreignRecords.selectedValue;
+        },
+        isForeignRecordPreviewed(record) {
+          const preview = this.valueModal.foreignRecords?.preview;
+
+          if (!preview) {
+            return false;
+          }
+
+          const key = this.foreignRecordKey(record);
+
+          return (
+            preview.visible &&
+            typeof preview.key === 'string' &&
+            preview.key !== '' &&
+            preview.key === key
+          );
+        },
+        buildForeignRecordIdentifiers(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return [];
+          }
+
+          const value = record[foreignKey.column];
+
+          if (value !== null && typeof value === 'object') {
+            return [];
+          }
+
+          if (value === undefined) {
+            return [];
+          }
+
+          return [
+            {
+              column: foreignKey.column,
+              value,
+            },
+          ];
+        },
+        async previewForeignRecord(record) {
+          const foreignKey = this.valueModal.foreignKey;
+
+          if (!foreignKey || !record || typeof record !== 'object') {
+            return;
+          }
+
+          const key = this.foreignRecordKey(record);
+
+          if (!key) {
+            return;
+          }
+
+          const preview = this.valueModal.foreignRecords.preview;
+
+          if (preview.visible && preview.key === key) {
+            this.resetForeignRecordPreview();
+            return;
+          }
+
+          const identifiers = this.buildForeignRecordIdentifiers(record);
+
+          if (identifiers.length === 0) {
+            this.valueModal.foreignRecords.preview = {
+              ...createForeignRecordPreviewState(),
+              visible: true,
+              key,
+              error: 'Не вдалося визначити ідентифікатори пов’язаного запису.',
+            };
+            return;
+          }
+
+          if (!this.recordsShowRoute) {
+            this.valueModal.foreignRecords.preview = {
+              ...createForeignRecordPreviewState(),
+              visible: true,
+              key,
+              error: 'Маршрут для завантаження повного запису не налаштовано.',
+            };
+            return;
+          }
+
+          const requestId = (preview.requestId ?? 0) + 1;
+
+          this.valueModal.foreignRecords.preview = {
+            ...createForeignRecordPreviewState(),
+            visible: true,
+            key,
+            loading: true,
+            requestId,
+          };
+
+          try {
+            const url = new URL(
+              this.recordsShowRoute.replace('__TABLE__', encodeURIComponent(foreignKey.table)),
+              window.location.origin,
+            );
+
+            const response = await fetch(url.toString(), {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                identifiers,
+              }),
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося завантажити повний запис.';
+              throw new Error(message);
+            }
+
+            const data = await response.json();
+
+            if (this.valueModal.foreignRecords.preview.requestId !== requestId) {
+              return;
+            }
+
+            const recordData = data && typeof data === 'object' && !Array.isArray(data.record)
+              ? (data.record ?? {})
+              : {};
+            const normalizedRecord = recordData && typeof recordData === 'object' ? recordData : {};
+            const columns = Array.isArray(data?.columns)
+              ? data.columns.filter((column) => typeof column === 'string' && column !== '')
+              : Object.keys(normalizedRecord);
+
+            this.valueModal.foreignRecords.preview.loading = false;
+            this.valueModal.foreignRecords.preview.error = null;
+            this.valueModal.foreignRecords.preview.record = normalizedRecord;
+            this.valueModal.foreignRecords.preview.columns = columns;
+          } catch (error) {
+            if (this.valueModal.foreignRecords.preview.requestId !== requestId) {
+              return;
+            }
+
+            this.valueModal.foreignRecords.preview.loading = false;
+            this.valueModal.foreignRecords.preview.error = error.message ?? 'Сталася помилка під час завантаження запису.';
+          } finally {
+            if (this.valueModal.foreignRecords.preview.requestId === requestId) {
+              this.valueModal.foreignRecords.preview.loading = false;
+            }
+
+            this.$nextTick(() => {
+              this.scrollValueModalToTop();
+            });
+          }
         },
         formatForeignRecordLabel(record) {
           const foreignKey = this.valueModal.foreignKey;
