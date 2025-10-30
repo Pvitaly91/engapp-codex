@@ -139,68 +139,67 @@
                         </thead>
                         <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
                           <template x-for="column in table.structure.columns" :key="column.name">
-                            <template>
+                            <tr
+                              class="hover:bg-muted/40 transition"
+                              :class="column.foreign ? 'cursor-pointer' : ''"
+                              @click="column.foreign && toggleForeignKeyDetails(table, column)"
+                            >
+                              <td class="py-2 pr-4 font-medium">
+                                <div class="flex items-center gap-2">
+                                  <span x-html="highlightQuery(column.name)"></span>
+                                  <template x-if="column.foreign">
+                                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[12px] text-primary">
+                                      <i class="fa-solid fa-link"></i>
+                                    </span>
+                                  </template>
+                                </div>
+                              </td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.type)"></td>
+                              <td class="py-2 pr-4">
+                                <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
+                              </td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.default ?? '—')"></td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.key ?? '—')"></td>
+                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
+                              <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
+                            </tr>
+                            <template x-if="column.foreign">
                               <tr
-                                class="hover:bg-muted/40 transition"
-                                :class="column.foreign ? 'cursor-pointer' : ''"
-                                @click="column.foreign && toggleForeignKeyDetails(table, column)"
+                                x-show="table.structure.activeForeignColumn === column.name"
+                                x-transition.opacity
+                                x-cloak
                               >
-                                <td class="py-2 pr-4 font-medium">
-                                  <div class="flex items-center gap-2">
-                                    <span x-html="highlightQuery(column.name)"></span>
-                                    <template x-if="column.foreign">
-                                      <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[12px] text-primary">
-                                        <i class="fa-solid fa-link"></i>
-                                      </span>
-                                    </template>
+                                <td colspan="7" class="bg-primary/5 px-6 py-3 text-sm text-muted-foreground">
+                                  <div class="flex items-start gap-3">
+                                    <span class="mt-0.5 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                                      <i class="fa-solid fa-database"></i>
+                                    </span>
+                                    <div class="space-y-1">
+                                      <div>
+                                        Поле
+                                        <span class="font-semibold text-foreground" x-text="column.name"></span>
+                                        пов'язане з таблицею
+                                        <span class="font-semibold text-foreground" x-text="column.foreign.table"></span>
+                                        →
+                                        <span class="font-semibold text-foreground" x-text="column.foreign.column"></span>
+                                        .
+                                      </div>
+                                      <template x-if="column.foreign.constraint">
+                                        <div>
+                                          Обмеження:
+                                          <span class="font-medium text-foreground" x-text="column.foreign.constraint"></span>
+                                        </div>
+                                      </template>
+                                      <template x-if="column.foreign.displayColumn">
+                                        <div>
+                                          Колонка для відображення:
+                                          <span class="font-medium text-foreground" x-text="column.foreign.displayColumn"></span>
+                                        </div>
+                                      </template>
+                                    </div>
                                   </div>
                                 </td>
-                                <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.type)"></td>
-                                <td class="py-2 pr-4">
-                                  <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
-                                </td>
-                                <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.default ?? '—')"></td>
-                                <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.key ?? '—')"></td>
-                                <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
-                                <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
                               </tr>
-                              <template x-if="column.foreign">
-                                <tr
-                                  x-show="table.structure.activeForeignColumn === column.name"
-                                  x-transition.opacity
-                                >
-                                  <td colspan="7" class="bg-primary/5 px-6 py-3 text-sm text-muted-foreground">
-                                    <div class="flex items-start gap-3">
-                                      <span class="mt-0.5 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                                        <i class="fa-solid fa-database"></i>
-                                      </span>
-                                      <div class="space-y-1">
-                                        <div>
-                                          Поле
-                                          <span class="font-semibold text-foreground" x-text="column.name"></span>
-                                          пов'язане з таблицею
-                                          <span class="font-semibold text-foreground" x-text="column.foreign.table"></span>
-                                          →
-                                          <span class="font-semibold text-foreground" x-text="column.foreign.column"></span>
-                                          .
-                                        </div>
-                                        <template x-if="column.foreign.constraint">
-                                          <div>
-                                            Обмеження:
-                                            <span class="font-medium text-foreground" x-text="column.foreign.constraint"></span>
-                                          </div>
-                                        </template>
-                                        <template x-if="column.foreign.displayColumn">
-                                          <div>
-                                            Колонка для відображення:
-                                            <span class="font-medium text-foreground" x-text="column.foreign.displayColumn"></span>
-                                          </div>
-                                        </template>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </template>
                             </template>
                           </template>
                         </tbody>
