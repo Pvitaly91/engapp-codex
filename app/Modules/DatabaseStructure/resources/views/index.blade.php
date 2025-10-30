@@ -524,7 +524,9 @@
                   <template x-if="!valueModal.editing">
                     <pre class="max-h-96 whitespace-pre-wrap break-words text-[15px]" x-html="highlightText(valueModal.value, valueModal.searchTerm)"></pre>
                   </template>
-                  <template x-if="valueModal.editing">
+                  <template
+                    x-if="valueModal.editing && (!valueModal.foreignKey || !valueModal.foreignRecords.visible)"
+                  >
                     <textarea
                       class="w-full min-h-[120px] resize-none overflow-hidden rounded-2xl border border-input bg-white px-3 py-2 text-[15px] font-mono text-foreground shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                       x-model="valueModal.editValue"
@@ -1356,10 +1358,21 @@
             return;
           }
 
-          this.valueModal.foreignRecords.visible = !this.valueModal.foreignRecords.visible;
+          const nextVisible = !this.valueModal.foreignRecords.visible;
+          this.valueModal.foreignRecords.visible = nextVisible;
 
-          if (this.valueModal.foreignRecords.visible && !this.valueModal.foreignRecords.loaded) {
-            this.loadForeignRecords();
+          if (nextVisible) {
+            if (!this.valueModal.foreignRecords.loaded) {
+              this.loadForeignRecords();
+            }
+
+            this.$nextTick(() => {
+              this.scrollValueModalToTop();
+            });
+          } else {
+            this.$nextTick(() => {
+              this.autoResizeValueEditor();
+            });
           }
         },
         async loadForeignRecords(page = null) {
