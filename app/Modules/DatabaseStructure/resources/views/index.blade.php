@@ -572,7 +572,6 @@
                               placeholder="Пошук пов'язаних записів..."
                               x-model="valueModal.foreignRecords.query"
                               @input.debounce.500ms="searchForeignRecords()"
-                              :disabled="valueModal.foreignRecords.loading"
                             />
                             <button
                               type="button"
@@ -615,8 +614,11 @@
                                       : 'border-border/60 bg-white hover:border-primary/60 hover:text-primary'"
                                     @click="selectForeignRecord(record)"
                                   >
-                                    <div class="font-semibold" x-text="formatForeignRecordLabel(record)"></div>
-                                    <div class="mt-1 text-xs text-muted-foreground" x-text="formatForeignRecordSummary(record)"></div>
+                                    <div class="font-semibold" x-html="highlightForeignRecordText(formatForeignRecordLabel(record))"></div>
+                                    <div
+                                      class="mt-1 text-xs text-muted-foreground"
+                                      x-html="highlightForeignRecordText(formatForeignRecordSummary(record))"
+                                    ></div>
                                   </button>
                                 </template>
                               </div>
@@ -2105,6 +2107,14 @@
         },
         highlightQuery(value) {
           return this.highlightText(value, this.query);
+        },
+        highlightForeignRecordText(value) {
+          const query =
+            this.valueModal && this.valueModal.foreignRecords && typeof this.valueModal.foreignRecords.query === 'string'
+              ? this.valueModal.foreignRecords.query
+              : '';
+
+          return this.highlightText(value, query);
         },
         highlightText(value, term) {
           const stringValue = value === null || value === undefined ? '' : String(value);
