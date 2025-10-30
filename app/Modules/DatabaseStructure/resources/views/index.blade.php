@@ -80,7 +80,7 @@
       <template x-for="table in filteredTables" :key="table.name">
         <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
           <header
-            class="flex flex-col gap-4 border-b border-border/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
+            class="flex flex-col gap-4 border-b border-border/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between cursor-pointer"
             @click="toggleTable(table)"
           >
             <div class="space-y-1">
@@ -672,13 +672,13 @@
       <div
         x-show="valueModal.open"
         x-cloak
-        class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
+        class="fixed inset-0 z-50 mt-0 flex justify-center px-4 overflow-y-auto"
         :class="valueModal.editing ? 'items-start pt-4 pb-6 sm:pt-10' : 'items-center py-6'"
         role="dialog"
         aria-modal="true"
         x-ref="valueModalOverlay"
       >
-        <div class="absolute inset-0 bg-background backdrop-blur-sm" @click="closeValueModal()"></div>
+        <div class="absolute inset-0 backdrop-blur-sm" @click="closeValueModal()"></div>
         <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
           <div class="flex items-start justify-between gap-4">
             <div>
@@ -1230,6 +1230,9 @@
             error: null,
           },
           manualForeignErrors: {},
+          bodyScrollLocked: false,
+          bodyOriginalOverflow: '',
+          bodyOriginalPaddingRight: '',
           valueModal: {
             open: false,
             table: '',
@@ -1258,6 +1261,17 @@
             { value: 'not like', label: 'Не містить (NOT LIKE)' },
           ],
           tables: normalizedTables,
+          init() {
+            this.syncBodyScrollLock();
+
+            this.$watch('valueModal.open', () => {
+              this.syncBodyScrollLock();
+            });
+
+            this.$watch('manualForeignModal.open', () => {
+              this.syncBodyScrollLock();
+            });
+          },
           get filteredTables() {
             if (!this.query) {
               return this.tables;
@@ -1288,6 +1302,51 @@
               });
             });
           },
+        syncBodyScrollLock() {
+          const shouldLock = this.valueModal.open || this.manualForeignModal.open;
+          this.toggleBodyScroll(shouldLock);
+        },
+        toggleBodyScroll(shouldLock) {
+          if (typeof document === 'undefined') {
+            return;
+          }
+
+          const body = document.body;
+
+          if (!body) {
+            return;
+          }
+
+          if (shouldLock) {
+            if (this.bodyScrollLocked) {
+              return;
+            }
+
+            this.bodyScrollLocked = true;
+            this.bodyOriginalOverflow = body.style.overflow || '';
+            this.bodyOriginalPaddingRight = body.style.paddingRight || '';
+
+            if (typeof window !== 'undefined' && document.documentElement) {
+              const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+              if (scrollbarWidth > 0) {
+                body.style.paddingRight = `${scrollbarWidth}px`;
+              }
+            }
+
+            body.style.overflow = 'hidden';
+
+            return;
+          }
+
+          if (!this.bodyScrollLocked) {
+            return;
+          }
+
+          this.bodyScrollLocked = false;
+          body.style.overflow = this.bodyOriginalOverflow;
+          body.style.paddingRight = this.bodyOriginalPaddingRight;
+        },
         handleEscape() {
           if (this.valueModal.open) {
             this.closeValueModal();
