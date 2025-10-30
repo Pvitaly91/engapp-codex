@@ -177,7 +177,7 @@
                             </tr>
                             <template x-if="column.foreign">
                               <tr
-                                x-show="table.structure.activeForeignColumn === column.name"
+                                x-show="column.showForeign"
                                 x-transition.opacity
                                 x-cloak
                               >
@@ -919,6 +919,7 @@
                   extra: typeof column.extra === 'string' && column.extra.trim() !== '' ? column.extra.trim() : null,
                   comment: typeof column.comment === 'string' && column.comment.trim() !== '' ? column.comment.trim() : null,
                   foreign: normalizedForeign,
+                  showForeign: false,
                 };
               }
 
@@ -932,6 +933,7 @@
                   extra: null,
                   comment: null,
                   foreign: null,
+                  showForeign: false,
                 };
               }
 
@@ -1014,7 +1016,6 @@
                 loaded: structureLoaded,
                 columns: normalizedColumns,
                 error: null,
-                activeForeignColumn: null,
               },
               open: false,
               structureVisible: true,
@@ -1203,7 +1204,6 @@
           const normalizedColumns = normalizeColumns(columns);
           table.structure.columns = normalizedColumns;
           table.structure.loaded = true;
-          table.structure.activeForeignColumn = null;
           const currentCount = typeof table.columnsCount === 'number' && !Number.isNaN(table.columnsCount)
             ? table.columnsCount
             : 0;
@@ -1252,18 +1252,31 @@
               return;
             }
 
-            if (!targetColumn && item.name === normalizedColumnName) {
+            const itemName = item.name.trim();
+
+            if (!targetColumn && itemName === normalizedColumnName) {
               targetColumn = item;
             }
           });
 
           if (!targetColumn || !targetColumn.foreign) {
-            table.structure.activeForeignColumn = null;
+            columns.forEach((item) => {
+              if (item && item.foreign) {
+                item.showForeign = false;
+              }
+            });
             return;
           }
 
-          const isActive = table.structure.activeForeignColumn === targetColumn.name;
-          table.structure.activeForeignColumn = isActive ? null : targetColumn.name;
+          const nextState = !targetColumn.showForeign;
+
+          columns.forEach((item) => {
+            if (!item || !item.foreign) {
+              return;
+            }
+
+            item.showForeign = item === targetColumn ? nextState : false;
+          });
         },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
