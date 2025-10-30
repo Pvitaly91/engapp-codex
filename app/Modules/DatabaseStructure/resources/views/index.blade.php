@@ -672,11 +672,12 @@
       <div
         x-show="valueModal.open"
         x-cloak
-        class="fixed inset-0 z-50 mt-0 flex justify-center px-4 overflow-y-auto"
+        class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
         :class="valueModal.editing ? 'items-start pt-4 pb-6 sm:pt-10' : 'items-center py-6'"
         role="dialog"
         aria-modal="true"
         x-ref="valueModalOverlay"
+        style="margin-top: 0px"
       >
         <div class="absolute inset-0 backdrop-blur-sm" @click="closeValueModal()"></div>
         <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
