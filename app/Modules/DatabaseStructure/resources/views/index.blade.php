@@ -565,7 +565,22 @@
                           <div class="text-sm text-muted-foreground">
                             Пошук у пов'язаних записах
                           </div>
-                          <div class="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+                          <div class="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
+                            <div class="relative w-full sm:w-48">
+                              <select
+                                class="w-full appearance-none rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                x-model="valueModal.foreignRecords.searchColumn"
+                                @change="updateForeignRecordsSearchColumn($event.target.value)"
+                              >
+                                <option value="">Усі поля</option>
+                                <template x-for="columnName in valueModal.foreignRecords.columns" :key="columnName">
+                                  <option :value="columnName" x-text="columnName"></option>
+                                </template>
+                              </select>
+                              <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-xs text-muted-foreground">
+                                <i class="fa-solid fa-chevron-down"></i>
+                              </span>
+                            </div>
                             <input
                               type="search"
                               class="w-full rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
@@ -825,6 +840,7 @@
           lastPage: 1,
           perPage: 8,
           query: '',
+          searchColumn: '',
           requestId: 0,
           selectedValue: '',
         });
@@ -1414,9 +1430,16 @@
             const query = typeof this.valueModal.foreignRecords.query === 'string'
               ? this.valueModal.foreignRecords.query.trim()
               : '';
+            const searchColumn = typeof this.valueModal.foreignRecords.searchColumn === 'string'
+              ? this.valueModal.foreignRecords.searchColumn.trim()
+              : '';
 
             if (query) {
               url.searchParams.set('search', query);
+            }
+
+            if (searchColumn) {
+              url.searchParams.set('search_column', searchColumn);
             }
 
             const response = await fetch(url.toString(), {
@@ -1441,6 +1464,17 @@
             this.valueModal.foreignRecords.columns = Array.isArray(data.columns)
               ? data.columns.filter((name) => typeof name === 'string' && name !== '')
               : [];
+            const responseSearchColumn = typeof data.search_column === 'string'
+              ? data.search_column
+              : this.valueModal.foreignRecords.searchColumn;
+            this.valueModal.foreignRecords.searchColumn = responseSearchColumn || '';
+
+            if (
+              this.valueModal.foreignRecords.searchColumn &&
+              !this.valueModal.foreignRecords.columns.includes(this.valueModal.foreignRecords.searchColumn)
+            ) {
+              this.valueModal.foreignRecords.searchColumn = '';
+            }
             this.valueModal.foreignRecords.page = data.page || currentPage;
             this.valueModal.foreignRecords.lastPage = data.last_page || 1;
             this.valueModal.foreignRecords.loaded = true;
@@ -1462,6 +1496,25 @@
             return;
           }
 
+          this.valueModal.foreignRecords.page = 1;
+          this.loadForeignRecords(1);
+        },
+        updateForeignRecordsSearchColumn(column) {
+          if (!this.valueModal.foreignKey) {
+            return;
+          }
+
+          const normalized = typeof column === 'string' ? column.trim() : '';
+          const previous = typeof this.valueModal.foreignRecords.searchColumn === 'string'
+            ? this.valueModal.foreignRecords.searchColumn.trim()
+            : '';
+
+          if (normalized === previous && this.valueModal.foreignRecords.loaded) {
+            this.valueModal.foreignRecords.searchColumn = normalized;
+            return;
+          }
+
+          this.valueModal.foreignRecords.searchColumn = normalized;
           this.valueModal.foreignRecords.page = 1;
           this.loadForeignRecords(1);
         },
