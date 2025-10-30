@@ -75,6 +75,31 @@ class DatabaseStructureController
         }
     }
 
+    public function record(Request $request, string $table): JsonResponse
+    {
+        try {
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису.');
+            }
+
+            $record = $this->fetcher->getRecord($table, $identifiers);
+
+            return response()->json($record);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
+    }
+
     public function value(Request $request, string $table): JsonResponse
     {
         try {
@@ -96,6 +121,48 @@ class DatabaseStructureController
 
             return response()->json([
                 'value' => $value,
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
+    }
+
+    public function update(Request $request, string $table): JsonResponse
+    {
+        try {
+            $column = is_string($request->input('column'))
+                ? trim((string) $request->input('column'))
+                : '';
+
+            if ($column === '') {
+                throw new RuntimeException('Не вказано колонку для оновлення значення.');
+            }
+
+            $payload = $request->all();
+
+            if (!array_key_exists('value', $payload)) {
+                throw new RuntimeException('Не вказано значення для збереження.');
+            }
+
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису для оновлення.');
+            }
+
+            $updatedValue = $this->fetcher->updateRecordValue($table, $column, $identifiers, $payload['value']);
+
+            return response()->json([
+                'value' => $updatedValue,
+                'message' => 'Значення успішно оновлено.',
             ]);
         } catch (RuntimeException $exception) {
             $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
