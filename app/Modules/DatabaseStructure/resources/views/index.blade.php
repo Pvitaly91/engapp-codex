@@ -12,9 +12,11 @@
       @js(route('database-structure.value', ['table' => '__TABLE__'])),
       @js(route('database-structure.record', ['table' => '__TABLE__'])),
       @js(route('database-structure.update', ['table' => '__TABLE__'])),
-      @js(route('database-structure.structure', ['table' => '__TABLE__']))
+      @js(route('database-structure.structure', ['table' => '__TABLE__'])),
+      @js(route('database-structure.manual-foreign.store', ['table' => '__TABLE__', 'column' => '__COLUMN__'])),
+      @js(route('database-structure.manual-foreign.destroy', ['table' => '__TABLE__', 'column' => '__COLUMN__']))
     )"
-    @keydown.window.escape.prevent="valueModal.open && closeValueModal()"
+    @keydown.window.escape.prevent="handleEscape()"
   >
     <header class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
@@ -144,8 +146,8 @@
                                 <div class="flex flex-col gap-1">
                                   <span x-html="highlightQuery(column.name)"></span>
                                   <template x-if="column.foreign">
-                                    <span class="inline-flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
-                                      <i class="fa-solid fa-link text-primary"></i>
+                                    <span class="inline-flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                                      <i class="fa-solid fa-link" :class="column.foreign.manual ? 'text-amber-500' : 'text-primary'"></i>
                                       <span>
                                         <span x-text="column.name"></span>
                                         <span> -&gt; </span>
@@ -153,7 +155,37 @@
                                         <span>.</span>
                                         <span x-text="column.foreign.column"></span>
                                       </span>
+                                      <template x-if="column.foreign.manual">
+                                        <span class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-600">
+                                          Ручний зв'язок
+                                        </span>
+                                      </template>
                                     </span>
+                                  </template>
+                                  <template x-if="(!column.foreign || column.foreign.manual) && manualForeignRoutes.store">
+                                    <div class="flex flex-wrap items-center gap-2 text-xs">
+                                      <button
+                                        type="button"
+                                        class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-1 focus:ring-primary/40"
+                                        @click.stop="openManualForeignModal(table, column)"
+                                      >
+                                        <i class="fa-solid fa-plug text-[10px]"></i>
+                                        <span x-text="column.foreign && column.foreign.manual ? 'Змінити ручний зв\'язок' : 'Налаштувати зв\'язок'"></span>
+                                      </button>
+                                      <template x-if="column.foreign && column.foreign.manual && manualForeignRoutes.delete">
+                                        <button
+                                          type="button"
+                                          class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-[11px] font-semibold text-rose-600 transition hover:border-rose-300 hover:bg-rose-50 focus:outline-none focus:ring-1 focus:ring-rose-200/70"
+                                          @click.stop="confirmManualForeignRemoval(table, column)"
+                                        >
+                                          <i class="fa-solid fa-trash text-[10px]"></i>
+                                          Видалити
+                                        </button>
+                                      </template>
+                                    </div>
+                                  </template>
+                                  <template x-if="getManualForeignError(table.name, column.name)">
+                                    <div class="text-xs text-rose-600" x-text="getManualForeignError(table.name, column.name)"></div>
                                   </template>
                                 </div>
                               </td>
@@ -166,7 +198,7 @@
                               <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
                               <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
                             </tr>
-                            <template x-if="column.foreign && (column.foreign.constraint || column.foreign.displayColumn)">
+                            <template x-if="column.foreign && (column.foreign.constraint || column.foreign.displayColumn || column.foreign.manual)">
                               <tr>
                                 <td colspan="7" class="bg-primary/5 px-6 py-3 text-sm text-muted-foreground">
                                   <div class="flex items-start gap-3">
@@ -174,6 +206,12 @@
                                       <i class="fa-solid fa-database"></i>
                                     </span>
                                     <div class="space-y-1">
+                                      <template x-if="column.foreign.manual">
+                                        <div>
+                                          Тип зв'язку:
+                                          <span class="font-medium text-amber-600">Ручний (конфігурація)</span>
+                                        </div>
+                                      </template>
                                       <template x-if="column.foreign.constraint">
                                         <div>
                                           Обмеження:
@@ -509,6 +547,129 @@
         </template>
       </div>
       <div
+        x-show="manualForeignModal.open"
+        x-cloak
+        class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div
+          class="absolute inset-0 bg-background/80 backdrop-blur-sm"
+          @click="manualForeignModal.saving ? null : closeManualForeignModal()"
+        ></div>
+        <div class="relative z-10 w-full max-w-xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-semibold text-foreground">Налаштування ручного зв'язку</h2>
+              <p class="mt-1 text-xs text-muted-foreground">
+                Виберіть таблицю та колонку, з якою потрібно пов'язати це поле.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+              @click="manualForeignModal.saving ? null : closeManualForeignModal()"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="mt-4 space-y-2 text-xs text-muted-foreground">
+            <div>
+              <span class="font-semibold text-foreground">Таблиця:</span>
+              <span class="ml-1" x-text="manualForeignModal.sourceTable || '—'"></span>
+            </div>
+            <div>
+              <span class="font-semibold text-foreground">Поле:</span>
+              <span class="ml-1" x-text="manualForeignModal.sourceColumn || '—'"></span>
+            </div>
+          </div>
+          <form class="mt-6 space-y-4" @submit.prevent="saveManualForeign">
+            <div class="space-y-4">
+              <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <span>Таблиця призначення</span>
+                <select
+                  class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  :disabled="manualForeignModal.saving"
+                  :value="manualForeignModal.targetTable"
+                  @change="changeManualForeignTargetTable($event.target.value)"
+                >
+                  <option value="">Оберіть таблицю</option>
+                  <template x-for="availableTable in tables" :key="`manual-table-${availableTable.name}`">
+                    <option
+                      :value="availableTable.name"
+                      x-text="availableTable.name"
+                    ></option>
+                  </template>
+                </select>
+              </label>
+              <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <span>Колонка призначення</span>
+                <select
+                  class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  :disabled="manualForeignModal.saving || !manualForeignModal.targetTable"
+                  :value="manualForeignModal.targetColumn"
+                  @change="changeManualForeignTargetColumn($event.target.value)"
+                >
+                  <option value="">Оберіть колонку</option>
+                  <template x-for="columnName in manualForeignModal.targetColumns" :key="`manual-column-${columnName}`">
+                    <option :value="columnName" x-text="columnName"></option>
+                  </template>
+                </select>
+              </label>
+              <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <span>Колонка для відображення</span>
+                <select
+                  class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  :disabled="manualForeignModal.saving || !manualForeignModal.targetTable"
+                  :value="manualForeignModal.displayColumn"
+                  @change="changeManualForeignDisplayColumn($event.target.value)"
+                >
+                  <option value="">Автоматично</option>
+                  <template x-for="columnName in manualForeignModal.targetColumns" :key="`manual-display-${columnName}`">
+                    <option :value="columnName" x-text="columnName"></option>
+                  </template>
+                </select>
+              </label>
+            </div>
+            <template x-if="manualForeignModal.error">
+              <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600" x-text="manualForeignModal.error"></div>
+            </template>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <template x-if="hasManualForeign(manualForeignModal.sourceTable, manualForeignModal.sourceColumn) && manualForeignRoutes.delete">
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-rose-600 transition hover:border-rose-300 hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="manualForeignModal.saving"
+                  @click.prevent="deleteManualForeignFromModal()"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                  Видалити зв'язок
+                </button>
+              </template>
+              <div class="flex flex-wrap items-center gap-2 sm:justify-end">
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="manualForeignModal.saving"
+                  @click.prevent="closeManualForeignModal()"
+                >
+                  Скасувати
+                </button>
+                <button
+                  type="submit"
+                  class="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="manualForeignModal.saving"
+                >
+                  <span x-show="!manualForeignModal.saving">Зберегти</span>
+                  <span x-show="manualForeignModal.saving" x-cloak>Збереження...</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div
         x-show="valueModal.open"
         x-cloak
         class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
@@ -797,6 +958,8 @@
       recordRoute,
       updateRoute,
       structureRoute,
+      manualForeignStoreRoute,
+      manualForeignDeleteRoute,
     ) {
       const extractTables = (payload) => {
           if (Array.isArray(payload)) {
@@ -843,6 +1006,50 @@
           return Boolean(value);
         };
 
+        const normalizeForeignDefinition = (rawForeign) => {
+          if (!rawForeign || typeof rawForeign !== 'object' || Array.isArray(rawForeign)) {
+            return null;
+          }
+
+          const foreignTable = typeof rawForeign.table === 'string' ? rawForeign.table.trim() : '';
+          const foreignColumn = typeof rawForeign.column === 'string' ? rawForeign.column.trim() : '';
+
+          if (!foreignTable || !foreignColumn) {
+            return null;
+          }
+
+          const constraint = typeof rawForeign.constraint === 'string' && rawForeign.constraint.trim() !== ''
+            ? rawForeign.constraint.trim()
+            : null;
+
+          let displayColumn = null;
+
+          if (typeof rawForeign.display_column === 'string' && rawForeign.display_column.trim() !== '') {
+            displayColumn = rawForeign.display_column.trim();
+          } else if (typeof rawForeign.displayColumn === 'string' && rawForeign.displayColumn.trim() !== '') {
+            displayColumn = rawForeign.displayColumn.trim();
+          }
+
+          const rawLabels = Array.isArray(rawForeign.label_columns)
+            ? rawForeign.label_columns
+            : (Array.isArray(rawForeign.labelColumns) ? rawForeign.labelColumns : []);
+
+          const labelColumns = rawLabels
+            .map((label) => (typeof label === 'string' ? label.trim() : ''))
+            .filter((label) => label !== '');
+
+          const manual = Boolean(rawForeign.manual);
+
+          return {
+            table: foreignTable,
+            column: foreignColumn,
+            constraint,
+            displayColumn,
+            labelColumns,
+            manual,
+          };
+        };
+
         const normalizeColumns = (rawColumns) => {
           if (!Array.isArray(rawColumns)) {
             return [];
@@ -857,38 +1064,7 @@
                   return null;
                 }
 
-                const rawForeign = column.foreign && typeof column.foreign === 'object'
-                  ? column.foreign
-                  : null;
-
-                let normalizedForeign = null;
-
-                if (rawForeign) {
-                  const foreignTable = typeof rawForeign.table === 'string' ? rawForeign.table.trim() : '';
-                  const foreignColumn = typeof rawForeign.column === 'string' ? rawForeign.column.trim() : '';
-
-                  if (foreignTable && foreignColumn) {
-                    const constraint = typeof rawForeign.constraint === 'string' && rawForeign.constraint !== ''
-                      ? rawForeign.constraint.trim()
-                      : null;
-                    const displayColumn = typeof rawForeign.display_column === 'string' && rawForeign.display_column.trim() !== ''
-                      ? rawForeign.display_column.trim()
-                      : null;
-                    const labelColumns = Array.isArray(rawForeign.label_columns)
-                      ? rawForeign.label_columns
-                        .map((label) => (typeof label === 'string' ? label.trim() : ''))
-                        .filter((label) => label !== '')
-                      : [];
-
-                    normalizedForeign = {
-                      table: foreignTable,
-                      column: foreignColumn,
-                      constraint,
-                      displayColumn,
-                      labelColumns,
-                    };
-                  }
-                }
+                const normalizedForeign = normalizeForeignDefinition(column.foreign);
 
                 return {
                   name: columnName,
@@ -1034,10 +1210,26 @@
           recordsShowRoute: recordRoute,
           recordsUpdateRoute: updateRoute,
           structureRoute,
+          manualForeignRoutes: {
+            store: typeof manualForeignStoreRoute === 'string' ? manualForeignStoreRoute : '',
+            delete: typeof manualForeignDeleteRoute === 'string' ? manualForeignDeleteRoute : '',
+          },
           csrfToken:
             document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
             (window.Laravel ? window.Laravel.csrfToken : ''),
           cellPreviewLimit: 120,
+          manualForeignModal: {
+            open: false,
+            sourceTable: '',
+            sourceColumn: '',
+            targetTable: '',
+            targetColumn: '',
+            displayColumn: '',
+            targetColumns: [],
+            saving: false,
+            error: null,
+          },
+          manualForeignErrors: {},
           valueModal: {
             open: false,
             table: '',
@@ -1096,6 +1288,417 @@
               });
             });
           },
+        handleEscape() {
+          if (this.valueModal.open) {
+            this.closeValueModal();
+            return;
+          }
+
+          if (this.manualForeignModal.open) {
+            this.closeManualForeignModal();
+          }
+        },
+        findTableByName(name) {
+          if (typeof name !== 'string') {
+            return null;
+          }
+
+          const normalized = name.trim();
+
+          if (!normalized) {
+            return null;
+          }
+
+          return this.tables.find((table) => table && table.name === normalized) ?? null;
+        },
+        getTableColumnNames(table) {
+          if (!table || !table.structure || !Array.isArray(table.structure.columns)) {
+            return [];
+          }
+
+          return table.structure.columns
+            .map((column) => (column && typeof column.name === 'string' ? column.name : null))
+            .filter((name) => typeof name === 'string' && name !== '');
+        },
+        hasManualForeign(tableName, columnName) {
+          const table = this.findTableByName(tableName);
+
+          if (!table || !table.structure || !Array.isArray(table.structure.columns)) {
+            return false;
+          }
+
+          const column = table.structure.columns.find((item) => item && item.name === columnName);
+
+          return Boolean(column && column.foreign && column.foreign.manual);
+        },
+        async ensureStructureLoadedByName(name) {
+          const table = this.findTableByName(name);
+
+          if (!table) {
+            return null;
+          }
+
+          await this.ensureStructureLoaded(table);
+
+          return table;
+        },
+        setManualForeignError(tableName, columnName, message) {
+          if (!this.manualForeignErrors || typeof this.manualForeignErrors !== 'object') {
+            this.manualForeignErrors = {};
+          }
+
+          const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+          const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+          if (!normalizedTable || !normalizedColumn) {
+            return;
+          }
+
+          const key = `${normalizedTable}:${normalizedColumn}`;
+
+          if (typeof message === 'string' && message.trim() !== '') {
+            this.manualForeignErrors[key] = message.trim();
+          } else {
+            delete this.manualForeignErrors[key];
+          }
+        },
+        getManualForeignError(tableName, columnName) {
+          if (!this.manualForeignErrors) {
+            return '';
+          }
+
+          const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+          const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+          if (!normalizedTable || !normalizedColumn) {
+            return '';
+          }
+
+          const key = `${normalizedTable}:${normalizedColumn}`;
+          const message = this.manualForeignErrors[key];
+
+          return typeof message === 'string' ? message : '';
+        },
+        getManualForeignRoute(template, tableName, columnName) {
+          if (typeof template !== 'string' || template === '') {
+            return '';
+          }
+
+          const tableValue = typeof tableName === 'string' ? encodeURIComponent(tableName) : '';
+          const columnValue = typeof columnName === 'string' ? encodeURIComponent(columnName) : '';
+
+          return template
+            .split('__TABLE__').join(tableValue)
+            .split('__COLUMN__').join(columnValue);
+        },
+        updateColumnForeign(table, columnName, foreign) {
+          if (!table || !table.structure) {
+            return;
+          }
+
+          const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+          if (!normalizedColumn) {
+            return;
+          }
+
+          const columns = Array.isArray(table.structure.columns) ? table.structure.columns : [];
+          const column = columns.find((item) => item && item.name === normalizedColumn);
+
+          if (!column) {
+            return;
+          }
+
+          column.foreign = normalizeForeignDefinition(foreign);
+          this.setManualForeignError(table.name, normalizedColumn, '');
+        },
+        async openManualForeignModal(table, column) {
+          if (!table || !column) {
+            return;
+          }
+
+          const tableName = typeof table.name === 'string' ? table.name : '';
+          const columnName = typeof column.name === 'string' ? column.name : '';
+
+          if (!tableName || !columnName) {
+            return;
+          }
+
+          await this.ensureStructureLoaded(table);
+
+          this.manualForeignModal.open = true;
+          this.manualForeignModal.error = null;
+          this.manualForeignModal.saving = false;
+          this.manualForeignModal.sourceTable = tableName;
+          this.manualForeignModal.sourceColumn = columnName;
+
+          const currentForeign = column.foreign && column.foreign.manual
+            ? column.foreign
+            : null;
+
+          this.manualForeignModal.targetTable = currentForeign ? currentForeign.table : '';
+          this.manualForeignModal.targetColumn = currentForeign ? currentForeign.column : '';
+          this.manualForeignModal.displayColumn = currentForeign && currentForeign.displayColumn
+            ? currentForeign.displayColumn
+            : '';
+          this.manualForeignModal.targetColumns = [];
+
+          this.setManualForeignError(tableName, columnName, '');
+
+          if (this.manualForeignModal.targetTable) {
+            const targetTable = await this.ensureStructureLoadedByName(this.manualForeignModal.targetTable);
+            this.manualForeignModal.targetColumns = this.getTableColumnNames(targetTable);
+          }
+
+          if (!Array.isArray(this.manualForeignModal.targetColumns)) {
+            this.manualForeignModal.targetColumns = [];
+          }
+
+          if (this.manualForeignModal.targetColumn && !this.manualForeignModal.targetColumns.includes(this.manualForeignModal.targetColumn)) {
+            this.manualForeignModal.targetColumn = '';
+          }
+
+          if (this.manualForeignModal.displayColumn && !this.manualForeignModal.targetColumns.includes(this.manualForeignModal.displayColumn)) {
+            this.manualForeignModal.displayColumn = '';
+          }
+        },
+        closeManualForeignModal() {
+          this.manualForeignModal.open = false;
+          this.manualForeignModal.sourceTable = '';
+          this.manualForeignModal.sourceColumn = '';
+          this.manualForeignModal.targetTable = '';
+          this.manualForeignModal.targetColumn = '';
+          this.manualForeignModal.displayColumn = '';
+          this.manualForeignModal.targetColumns = [];
+          this.manualForeignModal.error = null;
+          this.manualForeignModal.saving = false;
+        },
+        async changeManualForeignTargetTable(value) {
+          if (this.manualForeignModal.saving) {
+            return;
+          }
+
+          const normalized = typeof value === 'string' ? value.trim() : '';
+          this.manualForeignModal.targetTable = normalized;
+          this.manualForeignModal.targetColumn = '';
+          this.manualForeignModal.displayColumn = '';
+          this.manualForeignModal.error = null;
+          this.manualForeignModal.targetColumns = [];
+
+          if (!normalized) {
+            return;
+          }
+
+          const targetTable = await this.ensureStructureLoadedByName(normalized);
+          this.manualForeignModal.targetColumns = this.getTableColumnNames(targetTable);
+        },
+        changeManualForeignTargetColumn(value) {
+          if (this.manualForeignModal.saving) {
+            return;
+          }
+
+          const normalized = typeof value === 'string' ? value.trim() : '';
+          this.manualForeignModal.targetColumn = normalized;
+
+          if (
+            normalized &&
+            (!this.manualForeignModal.displayColumn ||
+              !this.manualForeignModal.targetColumns.includes(this.manualForeignModal.displayColumn))
+          ) {
+            this.manualForeignModal.displayColumn = normalized;
+          }
+        },
+        changeManualForeignDisplayColumn(value) {
+          if (this.manualForeignModal.saving) {
+            return;
+          }
+
+          this.manualForeignModal.displayColumn = typeof value === 'string' ? value.trim() : '';
+        },
+        async saveManualForeign() {
+          if (this.manualForeignModal.saving) {
+            return;
+          }
+
+          const tableName = this.manualForeignModal.sourceTable;
+          const columnName = this.manualForeignModal.sourceColumn;
+
+          if (!tableName || !columnName) {
+            this.manualForeignModal.error = 'Не вдалося визначити колонку для збереження зв\'язку.';
+            return;
+          }
+
+          const routeTemplate = this.manualForeignRoutes.store;
+
+          if (!routeTemplate) {
+            this.manualForeignModal.error = 'Маршрут для збереження ручного зв\'язку не налаштовано.';
+            return;
+          }
+
+          const targetTable = this.manualForeignModal.targetTable;
+          const targetColumn = this.manualForeignModal.targetColumn;
+
+          if (!targetTable || !targetColumn) {
+            this.manualForeignModal.error = 'Оберіть таблицю та колонку для зв\'язку.';
+            return;
+          }
+
+          const displayColumn = this.manualForeignModal.displayColumn;
+          const route = this.getManualForeignRoute(routeTemplate, tableName, columnName);
+
+          if (!route) {
+            this.manualForeignModal.error = 'Маршрут для збереження ручного зв\'язку не налаштовано.';
+            return;
+          }
+
+          const payload = {
+            foreign_table: targetTable,
+            foreign_column: targetColumn,
+          };
+
+          if (displayColumn) {
+            payload.display_column = displayColumn;
+          }
+
+          this.manualForeignModal.saving = true;
+          this.manualForeignModal.error = null;
+
+          try {
+            const response = await fetch(new URL(route, window.location.origin).toString(), {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify(payload),
+            });
+
+            const data = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+              const message = data?.message || 'Не вдалося зберегти ручний зв\'язок.';
+              throw new Error(message);
+            }
+
+            const sourceTable = this.findTableByName(tableName);
+
+            if (sourceTable) {
+              this.updateColumnForeign(sourceTable, columnName, data?.foreign ?? null);
+            }
+
+            this.manualForeignModal.saving = false;
+            this.closeManualForeignModal();
+          } catch (error) {
+            this.manualForeignModal.saving = false;
+            this.manualForeignModal.error = error?.message ?? 'Сталася помилка під час збереження ручного зв\'язку.';
+          }
+        },
+        async deleteManualForeignFromModal() {
+          if (this.manualForeignModal.saving) {
+            return;
+          }
+
+          const tableName = this.manualForeignModal.sourceTable;
+          const columnName = this.manualForeignModal.sourceColumn;
+
+          if (!tableName || !columnName) {
+            this.manualForeignModal.error = 'Не вдалося визначити колонку для видалення.';
+            return;
+          }
+
+          const table = this.findTableByName(tableName);
+
+          if (!table) {
+            this.manualForeignModal.error = 'Не вдалося знайти таблицю для видалення зв\'язку.';
+            return;
+          }
+
+          const columns = Array.isArray(table.structure?.columns) ? table.structure.columns : [];
+          const column = columns.find((item) => item && item.name === columnName);
+
+          if (!column) {
+            this.manualForeignModal.error = 'Не вдалося знайти колонку для видалення зв\'язку.';
+            return;
+          }
+
+          this.manualForeignModal.saving = true;
+          this.manualForeignModal.error = null;
+
+          const success = await this.removeManualForeign(table, column);
+
+          this.manualForeignModal.saving = false;
+
+          if (success) {
+            this.closeManualForeignModal();
+          } else {
+            const errorMessage = this.getManualForeignError(tableName, columnName);
+            this.manualForeignModal.error = errorMessage || 'Не вдалося видалити ручний зв\'язок.';
+          }
+        },
+        async removeManualForeign(table, column) {
+          if (!table || !column) {
+            return false;
+          }
+
+          const tableName = typeof table.name === 'string' ? table.name : '';
+          const columnName = typeof column.name === 'string' ? column.name : '';
+
+          if (!tableName || !columnName) {
+            return false;
+          }
+
+          const routeTemplate = this.manualForeignRoutes.delete;
+
+          if (!routeTemplate) {
+            this.setManualForeignError(tableName, columnName, 'Маршрут для видалення ручного зв\'язку не налаштовано.');
+            return false;
+          }
+
+          const route = this.getManualForeignRoute(routeTemplate, tableName, columnName);
+
+          if (!route) {
+            this.setManualForeignError(tableName, columnName, 'Маршрут для видалення ручного зв\'язку не налаштовано.');
+            return false;
+          }
+
+          try {
+            const response = await fetch(new URL(route, window.location.origin).toString(), {
+              method: 'DELETE',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+            });
+
+            const data = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+              const message = data?.message || 'Не вдалося видалити ручний зв\'язок.';
+              throw new Error(message);
+            }
+
+            this.updateColumnForeign(table, columnName, data?.foreign ?? null);
+
+            return true;
+          } catch (error) {
+            const message = error?.message ?? 'Сталася помилка під час видалення ручного зв\'язку.';
+            this.setManualForeignError(tableName, columnName, message);
+            return false;
+          }
+        },
+        async confirmManualForeignRemoval(table, column) {
+          if (!table || !column) {
+            return;
+          }
+
+          if (!window.confirm('Видалити ручний зв\'язок для цього поля?')) {
+            return;
+          }
+
+          await this.removeManualForeign(table, column);
+        },
         async toggleTable(table) {
           if (!table) {
             return;
