@@ -14,7 +14,9 @@
       @js(route('database-structure.update', ['table' => '__TABLE__'])),
       @js(route('database-structure.structure', ['table' => '__TABLE__'])),
       @js(route('database-structure.manual-foreign.store', ['table' => '__TABLE__', 'column' => '__COLUMN__'])),
-      @js(route('database-structure.manual-foreign.destroy', ['table' => '__TABLE__', 'column' => '__COLUMN__']))
+      @js(route('database-structure.manual-foreign.destroy', ['table' => '__TABLE__', 'column' => '__COLUMN__'])),
+      @js($contentMenu ?? []),
+      @js(route('database-structure.content-menu.store'))
     )"
     @keydown.window.escape.prevent="handleEscape()"
   >
@@ -52,11 +54,34 @@
           </div>
         </dl>
       </div>
-      <div class="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <div class="text-xs text-muted-foreground">
-          Натисніть на назву таблиці, щоб розгорнути або згорнути деталі.
+      <div class="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div class="flex w-full flex-col gap-3">
+          <div class="inline-flex w-full max-w-lg rounded-full border border-border/70 bg-background/70 p-1 text-sm font-semibold text-muted-foreground">
+            <button
+              type="button"
+              class="flex-1 rounded-full px-4 py-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+              :class="activeTab === 'structure' ? 'bg-primary text-white shadow-sm' : 'text-muted-foreground hover:text-primary'"
+              @click="activeTab = 'structure'"
+            >
+              Структура БД
+            </button>
+            <button
+              type="button"
+              class="flex-1 rounded-full px-4 py-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+              :class="activeTab === 'content' ? 'bg-primary text-white shadow-sm' : 'text-muted-foreground hover:text-primary'"
+              @click="activeTab = 'content'"
+            >
+              Content Management
+            </button>
+          </div>
+          <div class="text-xs text-muted-foreground" x-show="activeTab === 'structure'" x-cloak>
+            Натисніть на назву таблиці, щоб розгорнути або згорнути деталі.
+          </div>
+          <div class="text-xs text-muted-foreground" x-show="activeTab === 'content'" x-cloak>
+            Оберіть таблицю в меню зліва, щоб переглянути та керувати її записами.
+          </div>
         </div>
-        <div class="relative w-full md:w-80">
+        <div class="relative w-full md:w-80" x-show="activeTab === 'structure'" x-cloak>
           <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
             <i class="fa-solid fa-magnifying-glass text-sm"></i>
           </span>
@@ -70,14 +95,15 @@
       </div>
     </header>
 
-    <template x-if="filteredTables.length === 0">
-      <div class="rounded-3xl border border-dashed border-border/60 bg-muted/30 p-10 text-center text-sm text-muted-foreground">
-        Нічого не знайдено. Змініть пошуковий запит або скиньте фільтр.
-      </div>
-    </template>
+    <div x-show="activeTab === 'structure'" x-cloak>
+      <template x-if="filteredTables.length === 0">
+        <div class="rounded-3xl border border-dashed border-border/60 bg-muted/30 p-10 text-center text-sm text-muted-foreground">
+          Нічого не знайдено. Змініть пошуковий запит або скиньте фільтр.
+        </div>
+      </template>
 
-    <div class="space-y-6">
-      <template x-for="table in filteredTables" :key="table.name">
+      <div class="space-y-6">
+        <template x-for="table in filteredTables" :key="table.name">
         <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
           <header
             class="flex flex-col gap-4 border-b border-border/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between cursor-pointer"
@@ -181,8 +207,9 @@
                                           <i class="fa-solid fa-trash text-[10px]"></i>
                                           Видалити
                                         </button>
-                                      </template>
-                                    </div>
+        </template>
+      </div>
+    </div>
                                   </template>
                                   <template x-if="getManualForeignError(table.name, column.name)">
                                     <div class="text-xs text-rose-600" x-text="getManualForeignError(table.name, column.name)"></div>
@@ -545,7 +572,187 @@
           </div>
           </section>
         </template>
+    </div>
+
+    <div
+      x-show="activeTab === 'content'"
+      x-cloak
+      class="grid gap-6 lg:grid-cols-[280px,1fr]"
+    >
+      <aside class="space-y-4">
+        <div class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h2 class="text-lg font-semibold text-foreground">Content Management</h2>
+              <p class="mt-1 text-sm text-muted-foreground">
+                Оберіть таблицю для швидкого перегляду та управління даними.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 text-muted-foreground transition hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              @click="openContentMenuSettings()"
+            >
+              <span class="sr-only">Налаштувати меню</span>
+              <i class="fa-solid fa-gear"></i>
+            </button>
+          </div>
+          <div class="mt-4 space-y-3">
+            <template x-if="contentManagement.menu.length === 0">
+              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-sm text-muted-foreground">
+                Меню порожнє. Додайте таблицю через налаштування, щоб побачити її записи.
+              </div>
+            </template>
+            <nav
+              class="space-y-2"
+              x-show="contentManagement.menu.length > 0"
+              x-cloak
+            >
+              <template x-for="item in contentManagement.menu" :key="item.table">
+                <button
+                  type="button"
+                  class="w-full rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  :class="contentManagement.selected === item.table ? 'border-primary bg-primary/10 text-primary shadow-sm' : 'border-border/70 bg-background text-foreground hover:border-primary/60 hover:text-primary'"
+                  @click="selectContentTable(item.table)"
+                >
+                  <div class="flex items-center justify-between gap-2">
+                    <span x-text="item.label || item.table"></span>
+                    <i class="fa-solid fa-chevron-right text-xs" :class="contentManagement.selected === item.table ? 'text-primary' : 'text-muted-foreground'"></i>
+                  </div>
+                  <p class="mt-1 text-xs text-muted-foreground" x-text="item.table"></p>
+                </button>
+              </template>
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <div class="space-y-4">
+        <div class="rounded-3xl border border-border/70 bg-card shadow-soft">
+          <div class="space-y-6 p-6">
+            <template x-if="contentManagement.menu.length === 0">
+              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-6 text-sm text-muted-foreground">
+                Додайте таблицю до меню, щоб розпочати роботу з контентом.
+              </div>
+            </template>
+            <div
+              class="space-y-6"
+              x-show="contentManagement.menu.length > 0"
+              x-cloak
+            >
+              <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h2 class="text-2xl font-semibold text-foreground" x-text="(currentContentItem && currentContentItem.label) || '—'"></h2>
+                  <p class="text-sm text-muted-foreground">
+                    Таблиця:
+                    <span class="font-semibold text-foreground" x-text="currentContentItem?.table || '—'"></span>
+                  </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                  <label class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    <span>На сторінці</span>
+                    <select
+                      class="rounded-full border border-input bg-background px-3 py-1.5 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                      :value="contentManagement.records.perPage"
+                      :disabled="contentManagement.records.loading"
+                      @change="changeContentPerPage($event.target.value)"
+                    >
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select>
+                  </label>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-sm font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="contentManagement.records.loading"
+                    @click="refreshContentRecords()"
+                  >
+                    <i class="fa-solid fa-rotate text-xs"></i>
+                    Оновити
+                  </button>
+                </div>
+              </div>
+              <template x-if="contentManagement.records.loading">
+                <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-6 text-sm text-muted-foreground">
+                  Завантаження даних таблиці...
+                </div>
+              </template>
+              <template x-if="!contentManagement.records.loading && contentManagement.records.error">
+                <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="contentManagement.records.error"></div>
+              </template>
+              <template x-if="!contentManagement.records.loading && !contentManagement.records.error && contentManagement.records.rows.length === 0">
+                <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-6 text-sm text-muted-foreground">
+                  Записи не знайдено або таблиця порожня.
+                </div>
+              </template>
+              <div
+                class="overflow-x-auto rounded-2xl border border-border/60"
+                x-show="!contentManagement.records.loading && !contentManagement.records.error && contentManagement.records.rows.length > 0"
+                x-cloak
+              >
+                <table class="min-w-full divide-y divide-border/60 text-sm">
+                  <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
+                    <tr>
+                      <template x-for="column in contentManagement.records.columns" :key="`content-head-${column}`">
+                        <th class="px-4 py-3 font-semibold" x-text="column"></th>
+                      </template>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-border/60 bg-background text-sm text-foreground">
+                    <template x-for="(row, rowIndex) in contentManagement.records.rows" :key="`content-row-${rowIndex}`">
+                      <tr class="hover:bg-muted/40 transition">
+                        <template x-for="column in contentManagement.records.columns" :key="`content-cell-${rowIndex}-${column}`">
+                          <td class="px-4 py-2 align-top">
+                            <span x-html="renderContentCell(row, column)"></span>
+                          </td>
+                        </template>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="flex flex-col gap-3 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between"
+                x-show="contentManagement.records.lastPage > 1"
+                x-cloak
+              >
+                <div>
+                  Сторінка
+                  <span class="font-semibold text-foreground" x-text="contentManagement.records.page"></span>
+                  з
+                  <span class="font-semibold text-foreground" x-text="contentManagement.records.lastPage"></span>
+                  (усього
+                  <span class="font-semibold text-foreground" x-text="contentManagement.records.total"></span>
+                  записів)
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-sm font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="contentManagement.records.loading || contentManagement.records.page <= 1"
+                    @click="changeContentPage(contentManagement.records.page - 1)"
+                  >
+                    <i class="fa-solid fa-arrow-left text-xs"></i>
+                    Попередня
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-sm font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="contentManagement.records.loading || contentManagement.records.page >= contentManagement.records.lastPage"
+                    @click="changeContentPage(contentManagement.records.page + 1)"
+                  >
+                    Наступна
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+
       <div
         x-show="manualForeignModal.open"
         x-cloak
@@ -664,6 +871,79 @@
                   <span x-show="manualForeignModal.saving" x-cloak>Збереження...</span>
                 </button>
               </div>
+            </div>
+          </form>
+      </div>
+    </div>
+
+      <div
+        x-show="contentManagement.settings.open"
+        x-cloak
+        class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div
+          class="absolute inset-0 bg-background/80 backdrop-blur-sm"
+          @click="contentManagement.settings.saving ? null : closeContentMenuSettings()"
+        ></div>
+        <div class="relative z-10 w-full max-w-lg rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-semibold text-foreground">Налаштування меню</h2>
+              <p class="mt-1 text-sm text-muted-foreground">
+                Додайте таблицю, щоб вона з'явилася у Content Management.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+              @click="contentManagement.settings.saving ? null : closeContentMenuSettings()"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <form class="mt-6 space-y-4" @submit.prevent="submitContentMenu">
+            <label class="flex flex-col gap-1 text-sm font-semibold text-muted-foreground">
+              <span class="text-xs uppercase tracking-wide">Назва таблиці</span>
+              <input
+                type="text"
+                class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                placeholder="наприклад, posts"
+                x-model="contentManagement.settings.table"
+                :disabled="contentManagement.settings.saving"
+              />
+            </label>
+            <label class="flex flex-col gap-1 text-sm font-semibold text-muted-foreground">
+              <span class="text-xs uppercase tracking-wide">Заголовок у меню <span class="font-normal text-muted-foreground">(необов'язково)</span></span>
+              <input
+                type="text"
+                class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                placeholder="відображувана назва"
+                x-model="contentManagement.settings.label"
+                :disabled="contentManagement.settings.saving"
+              />
+            </label>
+            <template x-if="contentManagement.settings.error">
+              <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600" x-text="contentManagement.settings.error"></div>
+            </template>
+            <div class="flex flex-wrap items-center gap-2 sm:justify-end">
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                :disabled="contentManagement.settings.saving"
+                @click.prevent="closeContentMenuSettings()"
+              >
+                Скасувати
+              </button>
+              <button
+                type="submit"
+                class="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                :disabled="contentManagement.settings.saving"
+              >
+                <span x-show="!contentManagement.settings.saving">Зберегти</span>
+                <span x-show="contentManagement.settings.saving" x-cloak>Збереження...</span>
+              </button>
             </div>
           </form>
         </div>
@@ -961,6 +1241,8 @@
       structureRoute,
       manualForeignStoreRoute,
       manualForeignDeleteRoute,
+      contentMenu,
+      contentMenuStoreRoute,
     ) {
       const extractTables = (payload) => {
           if (Array.isArray(payload)) {
@@ -1124,6 +1406,45 @@
           preview: createForeignRecordPreviewState(),
         });
 
+        const normalizeContentMenu = (menu) => {
+          if (!Array.isArray(menu)) {
+            return [];
+          }
+
+          const normalized = [];
+          const seen = new Set();
+
+          menu.forEach((item) => {
+            let tableName = '';
+            let label = '';
+
+            if (typeof item === 'string') {
+              tableName = item.trim();
+              label = tableName;
+            } else if (item && typeof item === 'object' && !Array.isArray(item)) {
+              tableName = typeof item.table === 'string' ? item.table.trim() : '';
+              const rawLabel = typeof item.label === 'string' ? item.label.trim() : '';
+              label = rawLabel || tableName;
+            }
+
+            if (!tableName || seen.has(tableName)) {
+              return;
+            }
+
+            if (!label) {
+              label = tableName;
+            }
+
+            seen.add(tableName);
+            normalized.push({
+              table: tableName,
+              label,
+            });
+          });
+
+          return normalized;
+        };
+
         const normalizedTables = extractTables(tables)
           .map((table) => {
             const tableObject = table && typeof table === 'object' && !Array.isArray(table)
@@ -1203,7 +1524,12 @@
           })
           .filter(Boolean);
 
+        const normalizedContentMenu = normalizeContentMenu(contentMenu);
+        const defaultContentSelection = normalizedContentMenu.length > 0 ? normalizedContentMenu[0].table : '';
+        const menuStoreRoute = typeof contentMenuStoreRoute === 'string' ? contentMenuStoreRoute : '';
+
       return {
+          activeTab: 'structure',
           query: '',
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
@@ -1262,6 +1588,29 @@
             { value: 'not like', label: 'Не містить (NOT LIKE)' },
           ],
           tables: normalizedTables,
+          contentManagement: {
+            menu: normalizedContentMenu,
+            selected: defaultContentSelection,
+            menuStoreRoute,
+            records: {
+              loading: false,
+              error: null,
+              columns: [],
+              rows: [],
+              page: 1,
+              perPage: 20,
+              total: 0,
+              lastPage: 1,
+              requestId: 0,
+            },
+            settings: {
+              open: false,
+              table: '',
+              label: '',
+              error: null,
+              saving: false,
+            },
+          },
           init() {
             this.syncBodyScrollLock();
 
@@ -1272,6 +1621,39 @@
             this.$watch('manualForeignModal.open', () => {
               this.syncBodyScrollLock();
             });
+
+            this.$watch('contentManagement.settings.open', () => {
+              this.syncBodyScrollLock();
+            });
+
+            this.$watch('activeTab', (value) => {
+              if (value === 'content') {
+                this.syncContentSelection();
+
+                if (this.contentManagement.selected) {
+                  this.loadContentRecords();
+                }
+              }
+            });
+
+            this.$watch('contentManagement.selected', (value, oldValue) => {
+              if (value === oldValue) {
+                return;
+              }
+
+              if (!value) {
+                this.resetContentRecords();
+                return;
+              }
+
+              this.contentManagement.records.page = 1;
+
+              if (this.activeTab === 'content') {
+                this.loadContentRecords();
+              }
+            });
+
+            this.syncContentSelection();
           },
           get filteredTables() {
             if (!this.query) {
@@ -1303,8 +1685,20 @@
               });
             });
           },
+          get currentContentItem() {
+            const selected = typeof this.contentManagement.selected === 'string'
+              ? this.contentManagement.selected.trim()
+              : '';
+
+            if (!selected) {
+              return null;
+            }
+
+            return this.contentManagement.menu.find((item) => item && item.table === selected) ?? null;
+          },
         syncBodyScrollLock() {
-          const shouldLock = this.valueModal.open || this.manualForeignModal.open;
+          const shouldLock =
+            this.valueModal.open || this.manualForeignModal.open || this.contentManagement.settings.open;
           this.toggleBodyScroll(shouldLock);
         },
         toggleBodyScroll(shouldLock) {
@@ -1348,6 +1742,300 @@
           body.style.overflow = this.bodyOriginalOverflow;
           body.style.paddingRight = this.bodyOriginalPaddingRight;
         },
+        syncContentSelection() {
+          if (!Array.isArray(this.contentManagement.menu)) {
+            this.contentManagement.menu = [];
+          }
+
+          const selected = typeof this.contentManagement.selected === 'string'
+            ? this.contentManagement.selected.trim()
+            : '';
+
+          const exists = this.contentManagement.menu.some((item) => item && item.table === selected);
+
+          if (!exists) {
+            this.contentManagement.selected =
+              this.contentManagement.menu.length > 0 ? this.contentManagement.menu[0].table : '';
+          }
+
+          if (!this.contentManagement.selected) {
+            this.resetContentRecords();
+          }
+        },
+        updateContentMenu(menu) {
+          this.contentManagement.menu = normalizeContentMenu(menu);
+          this.syncContentSelection();
+        },
+        resetContentRecords() {
+          const records = this.contentManagement.records;
+
+          records.rows = [];
+          records.columns = [];
+          records.error = null;
+          records.total = 0;
+          records.lastPage = 1;
+          records.requestId = 0;
+          records.loading = false;
+        },
+        selectContentTable(tableName) {
+          const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+          if (!normalized) {
+            return;
+          }
+
+          if (this.contentManagement.selected === normalized) {
+            if (this.activeTab === 'content') {
+              this.loadContentRecords();
+            }
+
+            return;
+          }
+
+          this.contentManagement.selected = normalized;
+        },
+        async loadContentRecords() {
+          const tableName = typeof this.contentManagement.selected === 'string'
+            ? this.contentManagement.selected.trim()
+            : '';
+
+          if (!tableName) {
+            this.resetContentRecords();
+            return;
+          }
+
+          if (!this.recordsRoute) {
+            this.contentManagement.records.error = 'Маршрут для завантаження записів не налаштовано.';
+            this.contentManagement.records.loading = false;
+            return;
+          }
+
+          const records = this.contentManagement.records;
+          const requestId = (records.requestId ?? 0) + 1;
+          records.requestId = requestId;
+          records.loading = true;
+          records.error = null;
+
+          try {
+            const url = new URL(
+              this.recordsRoute.replace('__TABLE__', encodeURIComponent(tableName)),
+              window.location.origin
+            );
+
+            url.searchParams.set('page', records.page);
+            url.searchParams.set('per_page', records.perPage);
+
+            const response = await fetch(url.toString(), {
+              headers: {
+                Accept: 'application/json',
+              },
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося завантажити дані таблиці.';
+              throw new Error(message);
+            }
+
+            const data = await response.json();
+
+            if (records.requestId !== requestId) {
+              return;
+            }
+
+            const rawColumns = Array.isArray(data.columns) ? data.columns : [];
+            let columns = rawColumns
+              .map((column) => (typeof column === 'string' ? column.trim() : ''))
+              .filter((column) => column !== '');
+
+            const rows = Array.isArray(data.rows)
+              ? data.rows.map((row) => (row && typeof row === 'object' ? row : {}))
+              : [];
+
+            if (columns.length === 0 && rows.length > 0) {
+              columns = Object.keys(rows[0] ?? {}).map((column) => column.trim()).filter(Boolean);
+            }
+
+            const numericTotal = Number(data.total);
+            const numericPage = Number(data.page);
+            const numericPerPage = Number(data.per_page);
+            const numericLastPage = Number(data.last_page);
+
+            records.columns = columns;
+            records.rows = rows;
+            records.total = Number.isFinite(numericTotal) && numericTotal >= 0
+              ? Math.trunc(numericTotal)
+              : rows.length;
+            records.page = Number.isFinite(numericPage) && numericPage > 0
+              ? Math.trunc(numericPage)
+              : records.page;
+            records.perPage = Number.isFinite(numericPerPage) && numericPerPage > 0
+              ? Math.trunc(numericPerPage)
+              : records.perPage;
+            records.lastPage = Number.isFinite(numericLastPage) && numericLastPage > 0
+              ? Math.trunc(numericLastPage)
+              : Math.max(1, Math.ceil((records.total || 0) / (records.perPage || 1)));
+          } catch (error) {
+            if (records.requestId !== requestId) {
+              return;
+            }
+
+            records.error = error?.message || 'Сталася помилка під час завантаження таблиці.';
+            records.rows = [];
+            records.columns = [];
+          } finally {
+            if (records.requestId === requestId) {
+              records.loading = false;
+            }
+          }
+        },
+        refreshContentRecords() {
+          if (this.contentManagement.records.loading) {
+            return;
+          }
+
+          this.loadContentRecords();
+        },
+        changeContentPage(page) {
+          if (this.contentManagement.records.loading) {
+            return;
+          }
+
+          const numeric = Number(page);
+
+          if (!Number.isFinite(numeric)) {
+            return;
+          }
+
+          const target = Math.min(
+            Math.max(Math.trunc(numeric), 1),
+            this.contentManagement.records.lastPage || 1,
+          );
+
+          if (target === this.contentManagement.records.page) {
+            return;
+          }
+
+          this.contentManagement.records.page = target;
+          this.loadContentRecords();
+        },
+        changeContentPerPage(perPage) {
+          if (this.contentManagement.records.loading) {
+            return;
+          }
+
+          const numeric = Number(perPage);
+
+          if (!Number.isFinite(numeric) || numeric <= 0) {
+            return;
+          }
+
+          this.contentManagement.records.perPage = Math.trunc(numeric);
+          this.contentManagement.records.page = 1;
+          this.loadContentRecords();
+        },
+        renderContentCell(row, column) {
+          if (!row || typeof row !== 'object') {
+            return this.escapeHtml('—');
+          }
+
+          const columnName = typeof column === 'string' ? column : '';
+
+          if (!columnName) {
+            return this.escapeHtml(this.formatCell(null));
+          }
+
+          const value = Object.prototype.hasOwnProperty.call(row, columnName)
+            ? row[columnName]
+            : null;
+
+          const formatted = this.formatCell(value);
+
+          return this.escapeHtml(formatted);
+        },
+        openContentMenuSettings() {
+          if (this.contentManagement.settings.open) {
+            return;
+          }
+
+          this.contentManagement.settings.open = true;
+          this.contentManagement.settings.error = null;
+          this.contentManagement.settings.table = '';
+          this.contentManagement.settings.label = '';
+        },
+        closeContentMenuSettings() {
+          this.contentManagement.settings.open = false;
+          this.contentManagement.settings.error = null;
+          this.contentManagement.settings.table = '';
+          this.contentManagement.settings.label = '';
+          this.contentManagement.settings.saving = false;
+        },
+        async submitContentMenu() {
+          if (this.contentManagement.settings.saving) {
+            return;
+          }
+
+          const route = this.contentManagement.menuStoreRoute;
+
+          if (!route) {
+            this.contentManagement.settings.error = 'Маршрут для збереження меню не налаштовано.';
+            return;
+          }
+
+          const table = typeof this.contentManagement.settings.table === 'string'
+            ? this.contentManagement.settings.table.trim()
+            : '';
+          const label = typeof this.contentManagement.settings.label === 'string'
+            ? this.contentManagement.settings.label.trim()
+            : '';
+
+          if (!table) {
+            this.contentManagement.settings.error = 'Вкажіть назву таблиці для додавання до меню.';
+            return;
+          }
+
+          this.contentManagement.settings.saving = true;
+          this.contentManagement.settings.error = null;
+
+          try {
+            const response = await fetch(route, {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                table,
+                label,
+              }),
+            });
+
+            const payload = await response.json().catch(() => null);
+
+            if (!response.ok) {
+              const message = payload?.message || 'Не вдалося зберегти пункт меню.';
+              throw new Error(message);
+            }
+
+            if (payload && Array.isArray(payload.menu)) {
+              this.updateContentMenu(payload.menu);
+            }
+
+            if (payload && payload.item && typeof payload.item === 'object' && typeof payload.item.table === 'string') {
+              this.contentManagement.selected = payload.item.table;
+            } else {
+              this.syncContentSelection();
+            }
+
+            this.closeContentMenuSettings();
+          } catch (error) {
+            this.contentManagement.settings.error =
+              error?.message || 'Сталася помилка під час збереження пункту меню.';
+          } finally {
+            this.contentManagement.settings.saving = false;
+          }
+        },
         handleEscape() {
           if (this.valueModal.open) {
             this.closeValueModal();
@@ -1356,6 +2044,11 @@
 
           if (this.manualForeignModal.open) {
             this.closeManualForeignModal();
+            return;
+          }
+
+          if (this.contentManagement.settings.open) {
+            this.closeContentMenuSettings();
           }
         },
         findTableByName(name) {

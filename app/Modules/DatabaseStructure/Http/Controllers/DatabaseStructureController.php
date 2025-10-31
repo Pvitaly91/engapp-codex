@@ -2,6 +2,7 @@
 
 namespace App\Modules\DatabaseStructure\Http\Controllers;
 
+use App\Modules\DatabaseStructure\Services\ContentMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
@@ -15,6 +16,7 @@ class DatabaseStructureController
     public function __construct(
         private DatabaseStructureFetcher $fetcher,
         private ManualRelationManager $manualRelationManager,
+        private ContentMenuManager $contentMenuManager,
     )
     {
     }
@@ -27,6 +29,7 @@ class DatabaseStructureController
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
+            'contentMenu' => $this->contentMenuManager->getMenu(),
         ]);
     }
 
@@ -206,6 +209,34 @@ class DatabaseStructureController
             return response()->json([
                 'message' => $exception->getMessage(),
             ], 404);
+        }
+    }
+
+    public function storeContentMenu(Request $request): JsonResponse
+    {
+        try {
+            $table = is_string($request->input('table'))
+                ? trim((string) $request->input('table'))
+                : '';
+            $label = is_string($request->input('label'))
+                ? trim((string) $request->input('label'))
+                : null;
+
+            $item = $this->contentMenuManager->addItem($table, $label);
+
+            return response()->json([
+                'message' => 'Пункт меню успішно додано.',
+                'item' => $item,
+                'menu' => $this->contentMenuManager->getMenu(),
+            ], 201);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
         }
     }
 
