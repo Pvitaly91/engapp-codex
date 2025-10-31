@@ -974,9 +974,9 @@
     <div
       x-show="activeTab === 'content-management'"
       x-cloak
-      class="grid gap-6 lg:grid-cols-[280px_1fr]"
+      class="space-y-4"
     >
-      <aside class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
+      <div class="lg:hidden space-y-4 rounded-3xl border border-border/70 bg-card/80 p-4 shadow-soft">
         <div class="flex items-start justify-between gap-3">
           <div class="space-y-1">
             <h2 class="text-lg font-semibold text-foreground">Меню таблиць</h2>
@@ -985,24 +985,86 @@
           <button
             type="button"
             class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-            @click="toggleContentManagementMenuSettings()"
+            @click="openContentManagementMenuSettings()"
           >
             <i class="fa-solid fa-sliders text-[11px]"></i>
             Налаштувати
           </button>
         </div>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div
+            class="text-sm font-semibold text-foreground"
+            x-text="
+              contentManagement.menu.length > 0
+                ? (contentManagementLabel(contentManagement.selectedTable) || 'Оберіть таблицю')
+                : 'Меню порожнє'
+            "
+          ></div>
+          <button
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="openContentManagementMobileMenu()"
+          >
+            <i class="fa-solid fa-table-list text-xs"></i>
+            Відкрити меню
+          </button>
+        </div>
+      </div>
 
-        <div
-          x-show="contentManagement.menuSettings.open"
-          x-transition
+      <div
+        x-show="contentManagement.mobileMenuOpen && !isDesktop"
+        x-transition.opacity
+        x-cloak
+        class="fixed inset-0 z-40 bg-background/70 backdrop-blur-sm"
+        @click="closeContentManagementMobileMenu()"
+      ></div>
+
+      <div class="grid gap-6 lg:grid-cols-[minmax(0,280px)_1fr] lg:items-start">
+        <aside
+          x-show="contentManagement.mobileMenuOpen || isDesktop"
           x-cloak
-          class="space-y-4 rounded-2xl border border-border/60 bg-background/70 p-4"
+          class="hidden space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft lg:block lg:sticky lg:top-24"
+          :class="{
+            '!block fixed inset-4 z-50 max-h-[calc(100vh-2rem)] overflow-y-auto bg-card/95 shadow-xl lg:relative lg:max-h-none lg:overflow-visible lg:shadow-soft': contentManagement.mobileMenuOpen && !isDesktop,
+          }"
         >
-          <div class="space-y-1">
-            <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Таблиця</label>
-            <select
-              x-model="contentManagement.menuSettings.table"
-              class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+          <div class="flex items-start justify-between gap-3">
+            <div class="space-y-1">
+              <h2 class="text-lg font-semibold text-foreground">Меню таблиць</h2>
+              <p class="text-xs text-muted-foreground">Виберіть таблицю або налаштуйте список.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                @click="toggleContentManagementMenuSettings()"
+              >
+                <i class="fa-solid fa-sliders text-[11px]"></i>
+                <span class="hidden sm:inline">Налаштувати</span>
+                <span class="sm:hidden">Меню</span>
+              </button>
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 lg:hidden"
+                @click="closeContentManagementMobileMenu()"
+              >
+                <i class="fa-solid fa-xmark text-[11px]"></i>
+                Закрити
+              </button>
+            </div>
+          </div>
+
+          <div
+            x-show="contentManagement.menuSettings.open"
+            x-transition
+            x-cloak
+            class="space-y-4 rounded-2xl border border-border/60 bg-background/70 p-4"
+          >
+            <div class="space-y-1">
+              <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Таблиця</label>
+              <select
+                x-model="contentManagement.menuSettings.table"
+                class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
               <option value="">Оберіть таблицю</option>
               <template x-for="name in contentManagementAvailableTables" :key="`cm-option-${name}`">
@@ -1073,13 +1135,13 @@
             </div>
           </template>
         </div>
-      </aside>
-      <section class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
-        <template x-if="!contentManagement.selectedTable">
-          <div class="flex h-full min-h-[260px] flex-col items-center justify-center gap-3 text-center text-sm text-muted-foreground">
-            <i class="fa-regular fa-folder-open text-3xl text-muted-foreground/80"></i>
-            <span>Оберіть таблицю з меню ліворуч, щоб переглянути дані.</span>
-          </div>
+        </aside>
+        <section class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
+          <template x-if="!contentManagement.selectedTable">
+            <div class="flex h-full min-h-[260px] flex-col items-center justify-center gap-3 text-center text-sm text-muted-foreground">
+              <i class="fa-regular fa-folder-open text-3xl text-muted-foreground/80"></i>
+              <span>Оберіть таблицю з меню ліворуч, щоб переглянути дані.</span>
+            </div>
         </template>
         <template x-if="contentManagement.selectedTable">
           <div class="space-y-4">
@@ -1559,7 +1621,11 @@
             selectedTable: '',
             removingTable: '',
             viewer: createContentManagementViewerState(),
+            mobileMenuOpen: false,
           },
+          isDesktop: false,
+          desktopMediaQuery: null,
+          desktopMediaQueryListener: null,
           csrfToken:
             document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
             (window.Laravel ? window.Laravel.csrfToken : ''),
@@ -1609,6 +1675,18 @@
           tables: normalizedTables,
           init() {
             this.syncBodyScrollLock();
+            this.isDesktop = this.checkIsDesktop();
+            this.setupDesktopMediaQueryListener();
+
+            this.$nextTick(() => {
+              if (!this.$el) {
+                return;
+              }
+
+              this.$el.addEventListener('alpine:destroy', () => {
+                this.cleanupDesktopMediaQueryListener();
+              });
+            });
 
             this.$watch('valueModal.open', () => {
               this.syncBodyScrollLock();
@@ -1618,7 +1696,21 @@
               this.syncBodyScrollLock();
             });
 
+            this.$watch('contentManagement.mobileMenuOpen', () => {
+              this.syncBodyScrollLock();
+            });
+
+            this.$watch('isDesktop', (isDesktop) => {
+              if (isDesktop) {
+                this.contentManagement.mobileMenuOpen = false;
+              }
+            });
+
             this.$watch('contentManagement.menuSettings.open', (open) => {
+              if (open && !this.isDesktop && !this.contentManagement.mobileMenuOpen) {
+                this.openContentManagementMobileMenu();
+              }
+
               if (open && !this.contentManagement.menuSettings.table) {
                 const available = this.contentManagementAvailableTables;
 
@@ -1636,6 +1728,10 @@
               ) {
                 this.contentManagement.selectedTable = '';
                 this.resetContentManagementViewer();
+              }
+
+              if (!Array.isArray(menu) || menu.length === 0) {
+                this.contentManagement.mobileMenuOpen = false;
               }
             });
           },
@@ -1701,6 +1797,7 @@
               return;
             }
 
+            this.contentManagement.mobileMenuOpen = false;
             this.activeTab = 'structure';
           },
           toggleContentManagementMenuSettings() {
@@ -1709,16 +1806,16 @@
               return;
             }
 
+            this.openContentManagementMenuSettings();
+          },
+          openContentManagementMenuSettings() {
+            if (!this.isDesktop && !this.contentManagement.mobileMenuOpen) {
+              this.openContentManagementMobileMenu();
+            }
+
             this.contentManagement.menuSettings.open = true;
             this.contentManagement.menuSettings.error = null;
-
-            if (!this.contentManagement.menuSettings.table) {
-              const available = this.contentManagementAvailableTables;
-
-              if (Array.isArray(available) && available.length > 0) {
-                [this.contentManagement.menuSettings.table] = available;
-              }
-            }
+            this.contentManagement.menuSettings.saving = false;
           },
           closeContentManagementMenuSettings() {
             this.contentManagement.menuSettings.open = false;
@@ -1729,6 +1826,20 @@
             this.contentManagement.menuSettings.label = '';
             this.contentManagement.menuSettings.error = null;
             this.contentManagement.menuSettings.saving = false;
+          },
+          openContentManagementMobileMenu() {
+            if (this.isDesktop) {
+              return;
+            }
+
+            this.contentManagement.mobileMenuOpen = true;
+          },
+          closeContentManagementMobileMenu() {
+            if (this.isDesktop) {
+              return;
+            }
+
+            this.contentManagement.mobileMenuOpen = false;
           },
           async addContentManagementMenuItem() {
             if (!this.contentManagementRoutes.menuStore) {
@@ -1896,6 +2007,10 @@
             this.contentManagement.viewer.rows = [];
             this.contentManagement.viewer.columns = [];
 
+            if (!this.isDesktop) {
+              this.closeContentManagementMobileMenu();
+            }
+
             await this.loadContentManagementTable(normalized);
           },
           async refreshContentManagementTable() {
@@ -2026,8 +2141,64 @@
               }
             }
           },
+        checkIsDesktop() {
+          if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+            return false;
+          }
+
+          try {
+            return window.matchMedia('(min-width: 1024px)').matches;
+          } catch (error) {
+            return false;
+          }
+        },
+        setupDesktopMediaQueryListener() {
+          if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+            return;
+          }
+
+          try {
+            const query = window.matchMedia('(min-width: 1024px)');
+            const handler = (event) => {
+              this.isDesktop = event?.matches ?? false;
+            };
+
+            if (typeof query.addEventListener === 'function') {
+              query.addEventListener('change', handler);
+            } else if (typeof query.addListener === 'function') {
+              query.addListener(handler);
+            }
+
+            this.desktopMediaQuery = query;
+            this.desktopMediaQueryListener = handler;
+            this.isDesktop = query.matches;
+          } catch (error) {
+            // Ignore media query errors in non-browser environments.
+          }
+        },
+        cleanupDesktopMediaQueryListener() {
+          if (!this.desktopMediaQuery || !this.desktopMediaQueryListener) {
+            return;
+          }
+
+          try {
+            if (typeof this.desktopMediaQuery.removeEventListener === 'function') {
+              this.desktopMediaQuery.removeEventListener('change', this.desktopMediaQueryListener);
+            } else if (typeof this.desktopMediaQuery.removeListener === 'function') {
+              this.desktopMediaQuery.removeListener(this.desktopMediaQueryListener);
+            }
+          } catch (error) {
+            // Ignore cleanup errors.
+          }
+
+          this.desktopMediaQuery = null;
+          this.desktopMediaQueryListener = null;
+        },
         syncBodyScrollLock() {
-          const shouldLock = this.valueModal.open || this.manualForeignModal.open;
+          const shouldLock =
+            this.valueModal.open ||
+            this.manualForeignModal.open ||
+            (this.contentManagement.mobileMenuOpen && !this.isDesktop);
           this.toggleBodyScroll(shouldLock);
         },
         toggleBodyScroll(shouldLock) {
@@ -2084,6 +2255,11 @@
 
           if (this.contentManagement.menuSettings.open) {
             this.closeContentManagementMenuSettings();
+            return;
+          }
+
+          if (this.contentManagement.mobileMenuOpen && !this.isDesktop) {
+            this.closeContentManagementMobileMenu();
           }
         },
         findTableByName(name) {
