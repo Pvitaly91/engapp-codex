@@ -1511,7 +1511,23 @@
                     <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <tr>
                         <template x-for="column in contentManagement.viewer.columns" :key="`cm-column-${column}`">
-                          <th class="px-3 py-2 font-medium" :title="column" x-text="contentManagementColumnHeading(column)"></th>
+                          <th class="px-3 py-2 font-medium">
+                            <button
+                              type="button"
+                              class="flex w-full items-center gap-2 text-left text-xs font-semibold uppercase tracking-wider transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                              :class="contentManagement.viewer.sort === column ? 'text-primary' : 'text-muted-foreground hover:text-primary'"
+                              :title="column"
+                              @click="toggleContentManagementSort(column)"
+                            >
+                              <span x-text="contentManagementColumnHeading(column)"></span>
+                              <span class="text-[10px]" x-show="contentManagement.viewer.sort === column" x-cloak>
+                                <i
+                                  class="fa-solid"
+                                  :class="contentManagement.viewer.direction === 'asc' ? 'fa-arrow-up-short-wide' : 'fa-arrow-down-wide-short'"
+                                ></i>
+                              </span>
+                            </button>
+                          </th>
                         </template>
                       </tr>
                     </thead>
@@ -1932,6 +1948,8 @@
           error: null,
           columns: [],
           rows: [],
+          sort: '',
+          direction: 'asc',
           filters: [],
           search: '',
           searchInput: '',
@@ -2869,6 +2887,8 @@
             this.contentManagement.viewer.error = fresh.error;
             this.contentManagement.viewer.columns = fresh.columns;
             this.contentManagement.viewer.rows = fresh.rows;
+            this.contentManagement.viewer.sort = fresh.sort;
+            this.contentManagement.viewer.direction = fresh.direction;
             this.contentManagement.viewer.filters = fresh.filters;
             this.contentManagement.viewer.search = fresh.search;
             this.contentManagement.viewer.searchInput = fresh.searchInput;
@@ -2940,6 +2960,29 @@
             this.contentManagement.viewer.page = 1;
 
             await this.loadContentManagementTable(this.contentManagement.selectedTable);
+          },
+          toggleContentManagementSort(column) {
+            if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
+              return;
+            }
+
+            const normalized = typeof column === 'string' ? column.trim() : '';
+
+            if (!normalized) {
+              return;
+            }
+
+            const viewer = this.contentManagement.viewer;
+
+            if (viewer.sort === normalized) {
+              viewer.direction = viewer.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+              viewer.sort = normalized;
+              viewer.direction = 'asc';
+            }
+
+            viewer.page = 1;
+            this.loadContentManagementTable(this.contentManagement.selectedTable);
           },
           addContentManagementFilter() {
             if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
@@ -3075,6 +3118,14 @@
               url.searchParams.set('page', currentPage);
               url.searchParams.set('per_page', currentPerPage);
 
+              const sortColumn = typeof viewer.sort === 'string' ? viewer.sort.trim() : '';
+              const sortDirection = viewer.direction === 'desc' ? 'desc' : 'asc';
+
+              if (sortColumn) {
+                url.searchParams.set('sort', sortColumn);
+                url.searchParams.set('direction', sortDirection);
+              }
+
               const searchQuery = typeof viewer.search === 'string' ? viewer.search.trim() : '';
               const searchColumn = typeof viewer.searchColumn === 'string' ? viewer.searchColumn.trim() : '';
 
@@ -3138,6 +3189,16 @@
                 ? Math.max(1, Number(data.last_page))
                 : Math.max(1, Math.ceil((viewer.total || 0) / (viewer.perPage || 1)));
               viewer.table = normalized;
+              const responseSort = typeof data.sort === 'string' ? data.sort.trim() : '';
+              const responseDirection = typeof data.direction === 'string'
+                ? data.direction.toLowerCase()
+                : '';
+              viewer.sort = responseSort;
+              viewer.direction = responseSort && responseDirection === 'desc' ? 'desc' : 'asc';
+              if (viewer.sort && Array.isArray(viewer.columns) && !viewer.columns.includes(viewer.sort)) {
+                viewer.sort = '';
+                viewer.direction = 'asc';
+              }
               const filtersFromResponse = Array.isArray(data.filters) ? data.filters : previousFilters;
               viewer.filters = this.normalizeFilters(filtersFromResponse, previousFilters);
               if (typeof data.search === 'string') {
