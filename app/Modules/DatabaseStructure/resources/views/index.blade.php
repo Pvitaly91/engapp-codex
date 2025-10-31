@@ -1514,8 +1514,8 @@
 
             <template x-if="!contentManagement.viewer.loading && !contentManagement.viewer.error && contentManagement.viewer.rows.length > 0">
               <div class="space-y-4">
-                <div class="overflow-x-auto">
-                  <table class="min-w-full divide-y divide-border/60 text-[15px]">
+                <div class="-mx-6 w-full max-w-[calc(100vw-2rem)] overflow-x-auto sm:mx-0 sm:max-w-none sm:w-auto">
+                  <table class="min-w-[40rem] divide-y divide-border/60 text-[15px] sm:min-w-full">
                     <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <tr>
                         <template x-for="column in contentManagement.viewer.columns" :key="`cm-column-${column}`">
