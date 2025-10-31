@@ -111,18 +111,29 @@
             @else
                 <div class="space-y-8">
                     @foreach($questionGroups as $sourceName => $questions)
-                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                            <h2 class="text-lg font-semibold text-gray-800">
-                                {{ __('Джерело: :source', ['source' => $sourceName]) }}
-                            </h2>
-                            <span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-medium">
-                                {{ __('Кількість: :count', ['count' => $questions->count()]) }}
-                            </span>
-                        </div>
+                        <div class="border border-slate-200 rounded-lg bg-white" data-source-group>
+                            <button
+                                type="button"
+                                class="w-full flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between px-4 py-3 text-left hover:bg-slate-50 transition"
+                                data-source-group-toggle
+                                aria-expanded="true"
+                            >
+                                <span class="text-lg font-semibold text-gray-800">
+                                    {{ __('Джерело: :source', ['source' => $sourceName]) }}
+                                </span>
+                                <span class="flex items-center gap-2">
+                                    <span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-medium">
+                                        {{ __('Кількість: :count', ['count' => $questions->count()]) }}
+                                    </span>
+                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200 rotate-180" viewBox="0 0 20 20" fill="currentColor" data-source-group-icon>
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </button>
 
-                        <div class="space-y-4">
-                            @foreach($questions as $question)
-                                <div class="bg-white shadow rounded-lg p-6 space-y-4" data-question-preview>
+                            <div class="border-t border-slate-200 px-4 py-4 space-y-4" data-source-group-content>
+                                @foreach($questions as $question)
+                                    <div class="bg-white shadow rounded-lg p-6 space-y-4" data-question-preview>
                                     <div class="space-y-1">
                                         <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
                                         <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
@@ -295,6 +306,7 @@
                                     </div>
                                 </div>
                             @endforeach
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -333,6 +345,43 @@
 
     <script>
         document.addEventListener('click', function (event) {
+            const sourceToggle = event.target.closest('[data-source-group-toggle]');
+
+            if (sourceToggle) {
+                const group = sourceToggle.closest('[data-source-group]');
+
+                if (!group) {
+                    return;
+                }
+
+                const content = group.querySelector('[data-source-group-content]');
+
+                if (!content) {
+                    return;
+                }
+
+                const isExpanded = sourceToggle.getAttribute('aria-expanded') === 'true';
+                const icon = sourceToggle.querySelector('[data-source-group-icon]');
+
+                if (isExpanded) {
+                    sourceToggle.setAttribute('aria-expanded', 'false');
+                    content.classList.add('hidden');
+
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+                } else {
+                    sourceToggle.setAttribute('aria-expanded', 'true');
+                    content.classList.remove('hidden');
+
+                    if (icon) {
+                        icon.classList.add('rotate-180');
+                    }
+                }
+
+                return;
+            }
+
             const toggle = event.target.closest('[data-preview-section-toggle]');
 
             if (!toggle) {
