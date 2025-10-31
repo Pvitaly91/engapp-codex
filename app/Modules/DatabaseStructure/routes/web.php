@@ -22,6 +22,8 @@ Route::put('/tables/{table}/records/value', [DatabaseStructureController::class,
 Route::delete('/tables/{table}/records', [DatabaseStructureController::class, 'destroy'])
     ->where('table', '[^/]+')
     ->name('destroy');
+Route::post('/content-management/menu', [DatabaseStructureController::class, 'storeContentMenu'])
+    ->name('content-menu.store');
 Route::post('/tables/{table}/columns/{column}/manual-foreign', [DatabaseStructureController::class, 'storeManualForeign'])
     ->where(['table' => '[^/]+', 'column' => '[^/]+'])
     ->name('manual-foreign.store');
