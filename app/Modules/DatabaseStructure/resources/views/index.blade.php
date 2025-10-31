@@ -1126,7 +1126,9 @@
               <button
                 type="button"
                 class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70 disabled:cursor-not-allowed disabled:opacity-60"
-                @click="removeContentManagementMenuItem(item.table)"
+                x-show="contentManagement.menuSettings.open"
+                x-cloak
+                @click="promptContentManagementMenuRemoval(item.table)"
                 :disabled="contentManagement.removingTable === item.table"
               >
                 <i class="fa-solid fa-xmark text-xs" x-show="contentManagement.removingTable !== item.table"></i>
@@ -1172,8 +1174,50 @@
                   <i class="fa-solid fa-rotate-right text-[11px]"></i>
                   Оновити
                 </button>
-              </div>
-            </div>
+      </div>
+    </div>
+
+    <div
+      x-show="contentManagement.confirmation.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="absolute inset-0 bg-background/70 backdrop-blur-sm" @click="closeContentManagementMenuRemovalConfirmation()"></div>
+      <div class="relative z-10 w-full max-w-md space-y-5 rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+        <div class="space-y-2">
+          <h2 class="text-lg font-semibold text-foreground">Видалити таблицю з меню?</h2>
+          <p class="text-sm text-muted-foreground">
+            Ви збираєтесь видалити таблицю
+            <span class="font-semibold text-foreground" x-text="contentManagement.confirmation.label || contentManagement.confirmation.table"></span>
+            з меню. Цю дію не можна скасувати.
+          </p>
+        </div>
+        <template x-if="contentManagement.confirmation.error">
+          <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600" x-text="contentManagement.confirmation.error"></div>
+        </template>
+        <div class="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-end">
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="contentManagement.confirmation.processing"
+            @click="closeContentManagementMenuRemovalConfirmation()"
+          >
+            Скасувати
+          </button>
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-rose-500 bg-rose-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-400/60 disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="contentManagement.confirmation.processing"
+            @click="confirmRemoveContentManagementMenuItem()"
+          >
+            <span x-show="!contentManagement.confirmation.processing">Видалити</span>
+            <span x-show="contentManagement.confirmation.processing" x-cloak>Видалення...</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
             <template x-if="contentManagement.viewer.error">
               <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="contentManagement.viewer.error"></div>
@@ -1620,6 +1664,13 @@
             },
             selectedTable: '',
             removingTable: '',
+            confirmation: {
+              open: false,
+              table: '',
+              label: '',
+              processing: false,
+              error: null,
+            },
             viewer: createContentManagementViewerState(),
             mobileMenuOpen: false,
           },
@@ -1697,6 +1748,10 @@
             });
 
             this.$watch('contentManagement.mobileMenuOpen', () => {
+              this.syncBodyScrollLock();
+            });
+
+            this.$watch('contentManagement.confirmation.open', () => {
               this.syncBodyScrollLock();
             });
 
@@ -1819,6 +1874,7 @@
           },
           closeContentManagementMenuSettings() {
             this.contentManagement.menuSettings.open = false;
+            this.closeContentManagementMenuRemovalConfirmation();
             this.resetContentManagementMenuSettings();
           },
           resetContentManagementMenuSettings() {
@@ -1904,11 +1960,67 @@
               this.contentManagement.menuSettings.saving = false;
             }
           },
-          async removeContentManagementMenuItem(tableName) {
+          promptContentManagementMenuRemoval(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized) {
+              return;
+            }
+
+            const label = this.contentManagementLabel(normalized);
+
+            this.contentManagement.confirmation.table = normalized;
+            this.contentManagement.confirmation.label = label;
+            this.contentManagement.confirmation.error = null;
+            this.contentManagement.confirmation.processing = false;
+            this.contentManagement.confirmation.open = true;
+          },
+          closeContentManagementMenuRemovalConfirmation() {
+            this.contentManagement.confirmation.open = false;
+            this.contentManagement.confirmation.table = '';
+            this.contentManagement.confirmation.label = '';
+            this.contentManagement.confirmation.error = null;
+            this.contentManagement.confirmation.processing = false;
+          },
+          async confirmRemoveContentManagementMenuItem() {
+            const table = typeof this.contentManagement.confirmation.table === 'string'
+              ? this.contentManagement.confirmation.table.trim()
+              : '';
+
+            if (!table || this.contentManagement.confirmation.processing) {
+              return;
+            }
+
+            this.contentManagement.confirmation.processing = true;
+            this.contentManagement.confirmation.error = null;
+
+            const success = await this.removeContentManagementMenuItem(table, {
+              onError: (message) => {
+                this.contentManagement.confirmation.error = message;
+              },
+            });
+
+            this.contentManagement.confirmation.processing = false;
+
+            if (success) {
+              this.closeContentManagementMenuRemovalConfirmation();
+            }
+          },
+          async removeContentManagementMenuItem(tableName, options = {}) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
 
             if (!normalized || !this.contentManagementRoutes.menuDelete) {
-              return;
+              const message = !normalized
+                ? 'Не вдалося визначити таблицю для видалення.'
+                : 'Маршрут видалення меню не налаштовано.';
+
+              if (options && typeof options.onError === 'function') {
+                options.onError(message);
+              }
+
+              this.contentManagement.menuSettings.error = message;
+              this.contentManagement.menuSettings.open = true;
+              return false;
             }
 
             this.contentManagement.removingTable = normalized;
@@ -1938,6 +2050,8 @@
                 (item) => item && item.table !== normalized,
               );
 
+              this.contentManagement.menuSettings.error = null;
+
               if (this.contentManagement.selectedTable === normalized) {
                 this.contentManagement.selectedTable = '';
                 this.resetContentManagementViewer();
@@ -1950,9 +2064,18 @@
                   }
                 }
               }
+
+              return true;
             } catch (error) {
-              this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час видалення таблиці з меню.';
+              const message = error?.message ?? 'Сталася помилка під час видалення таблиці з меню.';
+
+              if (options && typeof options.onError === 'function') {
+                options.onError(message);
+              }
+
+              this.contentManagement.menuSettings.error = message;
               this.contentManagement.menuSettings.open = true;
+              return false;
             } finally {
               this.contentManagement.removingTable = '';
             }
@@ -2198,6 +2321,7 @@
           const shouldLock =
             this.valueModal.open ||
             this.manualForeignModal.open ||
+            this.contentManagement.confirmation.open ||
             (this.contentManagement.mobileMenuOpen && !this.isDesktop);
           this.toggleBodyScroll(shouldLock);
         },
@@ -2243,6 +2367,11 @@
           body.style.paddingRight = this.bodyOriginalPaddingRight;
         },
         handleEscape() {
+          if (this.contentManagement.confirmation.open) {
+            this.closeContentManagementMenuRemovalConfirmation();
+            return;
+          }
+
           if (this.valueModal.open) {
             this.closeValueModal();
             return;
