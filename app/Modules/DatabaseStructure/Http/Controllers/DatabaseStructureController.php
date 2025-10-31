@@ -2,6 +2,7 @@
 
 namespace App\Modules\DatabaseStructure\Http\Controllers;
 
+use App\Modules\DatabaseStructure\Services\ContentManagementMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
@@ -15,6 +16,7 @@ class DatabaseStructureController
     public function __construct(
         private DatabaseStructureFetcher $fetcher,
         private ManualRelationManager $manualRelationManager,
+        private ContentManagementMenuManager $contentManagementMenuManager,
     )
     {
     }
@@ -23,11 +25,59 @@ class DatabaseStructureController
     {
         $structure = $this->fetcher->getStructureSummary();
         $meta = $this->fetcher->getMeta();
+        $contentManagementMenu = $this->contentManagementMenuManager->getMenu();
 
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
+            'contentManagementMenu' => $contentManagementMenu,
         ]);
+    }
+
+    public function storeContentManagementMenu(Request $request): JsonResponse
+    {
+        try {
+            $table = is_string($request->input('table'))
+                ? trim((string) $request->input('table'))
+                : '';
+
+            $label = is_string($request->input('label'))
+                ? trim((string) $request->input('label'))
+                : null;
+
+            $item = $this->contentManagementMenuManager->add($table, $label);
+
+            return response()->json($item);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroyContentManagementMenu(string $table): JsonResponse
+    {
+        try {
+            $tableName = is_string($table) ? trim($table) : '';
+
+            $this->contentManagementMenuManager->delete($tableName);
+
+            return response()->json([
+                'deleted' => true,
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
     }
 
     public function structure(string $table): JsonResponse
