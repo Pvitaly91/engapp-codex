@@ -398,7 +398,6 @@
             menu: normalizedContentMenu,
             activeKey: normalizedContentMenu[0]?.key ?? '',
             activeTableName: normalizedContentMenu[0]?.table ?? '',
-            activeTable: null,
           },
           init() {
             this.syncBodyScrollLock();
@@ -430,15 +429,6 @@
             });
 
             this.$watch('contentManagement.activeTableName', (value) => {
-              const normalized = typeof value === 'string' ? value.trim() : '';
-
-              if (!normalized) {
-                this.contentManagement.activeTable = null;
-                return;
-              }
-
-              this.contentManagement.activeTable = this.findTableByName(normalized);
-
               if (!value) {
                 return;
               }
@@ -447,14 +437,6 @@
                 this.ensureContentManagementData();
               }
             });
-
-            const initialTableName = typeof this.contentManagement.activeTableName === 'string'
-              ? this.contentManagement.activeTableName.trim()
-              : '';
-
-            if (initialTableName) {
-              this.contentManagement.activeTable = this.findTableByName(initialTableName);
-            }
           },
           get contentManagementActiveItem() {
             if (!this.contentManagement || !Array.isArray(this.contentManagement.menu)) {
@@ -472,12 +454,6 @@
             return this.contentManagement.menu.find((item) => item && item.key === activeKey) ?? null;
           },
           get contentManagementActiveTable() {
-            const storedTable = this.contentManagement?.activeTable;
-
-            if (storedTable && typeof storedTable.name === 'string' && storedTable.name !== '') {
-              return storedTable;
-            }
-
             const tableName = typeof this.contentManagement?.activeTableName === 'string'
               ? this.contentManagement.activeTableName.trim()
               : '';
@@ -592,7 +568,35 @@
             return null;
           }
 
-          return this.tables.find((table) => table && table.name === normalized) ?? null;
+          const normalizedLower = normalized.toLowerCase();
+          const possibleNames = new Set([normalized, normalizedLower]);
+
+          if (normalized.includes('.')) {
+            const withoutSchema = normalized.split('.').pop();
+
+            if (withoutSchema) {
+              possibleNames.add(withoutSchema);
+              possibleNames.add(withoutSchema.toLowerCase());
+            }
+          }
+
+          return this.tables.find((table) => {
+            if (!table || typeof table.name !== 'string') {
+              return false;
+            }
+
+            const candidate = table.name.trim();
+
+            if (!candidate) {
+              return false;
+            }
+
+            if (possibleNames.has(candidate)) {
+              return true;
+            }
+
+            return possibleNames.has(candidate.toLowerCase());
+          }) ?? null;
         },
         getTableColumnNames(table) {
           if (!table || !table.structure || !Array.isArray(table.structure.columns)) {
@@ -705,7 +709,6 @@
           if (!normalizedKey) {
             this.contentManagement.activeKey = '';
             this.contentManagement.activeTableName = '';
-            this.contentManagement.activeTable = null;
             return;
           }
 
@@ -714,13 +717,11 @@
           if (!item) {
             this.contentManagement.activeKey = '';
             this.contentManagement.activeTableName = '';
-            this.contentManagement.activeTable = null;
             return;
           }
 
           this.contentManagement.activeKey = item.key;
           this.contentManagement.activeTableName = item.table;
-          this.contentManagement.activeTable = this.findTableByName(item.table) ?? null;
 
           if (this.activeTab !== 'content-management') {
             this.activeTab = 'content-management';
@@ -871,7 +872,6 @@
             this.contentManagement.menu = currentMenu;
             this.contentManagement.activeKey = newItem.key;
             this.contentManagement.activeTableName = newItem.table;
-            this.contentManagement.activeTable = this.findTableByName(newItem.table) ?? null;
 
             this.contentManagementMenuModal.open = false;
             this.resetContentManagementMenuModal();
