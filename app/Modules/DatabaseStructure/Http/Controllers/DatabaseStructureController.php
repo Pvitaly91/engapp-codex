@@ -26,11 +26,32 @@ class DatabaseStructureController
         $structure = $this->fetcher->getStructureSummary();
         $meta = $this->fetcher->getMeta();
         $contentManagementMenu = $this->contentManagementMenuManager->getMenu();
+        $contentManagementTableSettings = config('database-structure.content_management.table_settings', []);
 
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
             'contentManagementMenu' => $contentManagementMenu,
+            'contentManagementTableSettings' => $contentManagementTableSettings,
+            'activeTab' => 'structure',
+            'standaloneTab' => 'structure',
+        ]);
+    }
+
+    public function contentManagement(): View|ViewFactory
+    {
+        $structure = $this->fetcher->getStructureSummary();
+        $meta = $this->fetcher->getMeta();
+        $contentManagementMenu = $this->contentManagementMenuManager->getMenu();
+        $contentManagementTableSettings = config('database-structure.content_management.table_settings', []);
+
+        return view('database-structure::index', [
+            'structure' => $structure,
+            'meta' => $meta,
+            'contentManagementMenu' => $contentManagementMenu,
+            'contentManagementTableSettings' => $contentManagementTableSettings,
+            'activeTab' => 'content-management',
+            'standaloneTab' => 'content-management',
         ]);
     }
 

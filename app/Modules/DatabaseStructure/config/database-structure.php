@@ -6,5 +6,6 @@ return [
     'manual_relations' => [],
     'content_management' => [
         'menu' => [],
+        'table_settings' => [],
     ],
 ];
