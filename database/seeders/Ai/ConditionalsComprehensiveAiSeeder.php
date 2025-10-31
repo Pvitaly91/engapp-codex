@@ -51,32 +51,116 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
         ],
     ];
 
+    private array $modalTagConfig = [
+        'will_would' => [
+            'name' => 'Modal: Will / Would',
+            'keywords' => [
+                'will',
+                "won't",
+                'will have to',
+                "won't have to",
+                'would',
+                "wouldn't",
+                'would have',
+                "wouldn't have",
+                'would have to',
+                "wouldn't have to",
+            ],
+        ],
+        'can_could' => [
+            'name' => 'Modal: Can / Could',
+            'keywords' => [
+                'can',
+                "can't",
+                'could',
+                "couldn't",
+                'could have',
+                "couldn't have",
+            ],
+        ],
+        'may_might' => [
+            'name' => 'Modal: May / Might',
+            'keywords' => [
+                'may',
+                'may not',
+                'may have',
+                'may not have',
+                'might',
+                'might not',
+                'might have',
+                'might not have',
+            ],
+        ],
+        'must_have_to' => [
+            'name' => 'Modal: Must / Have to',
+            'keywords' => [
+                'must',
+                "mustn't",
+                'have to',
+                'has to',
+                'had to',
+                "don't have to",
+                "doesn't have to",
+                "didn't have to",
+                'will have to',
+                "won't have to",
+                'would have to',
+                "wouldn't have to",
+            ],
+        ],
+        'should_ought_to' => [
+            'name' => 'Modal: Should / Ought to',
+            'keywords' => [
+                'should',
+                "shouldn't",
+                'should have',
+                "shouldn't have",
+                'ought to',
+                'ought not to',
+                'ought to have',
+                'ought not to have',
+            ],
+        ],
+        'need_need_to' => [
+            'name' => 'Modal: Need / Need to',
+            'keywords' => [
+                'need',
+                'need to',
+                'needs to',
+                'needed to',
+                "needn't",
+                'need not',
+                "needn't have",
+            ],
+        ],
+    ];
+
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Conditionals'])->id;
 
         $sourceMap = [
-            'past_question' => Source::firstOrCreate(['name' => 'AI Conditionals: Past Questions'])->id,
-            'past_negative' => Source::firstOrCreate(['name' => 'AI Conditionals: Past Negatives'])->id,
-            'present_question' => Source::firstOrCreate(['name' => 'AI Conditionals: Present Questions'])->id,
-            'present_negative' => Source::firstOrCreate(['name' => 'AI Conditionals: Present Negatives'])->id,
-            'future_question' => Source::firstOrCreate(['name' => 'AI Conditionals: Future Questions'])->id,
-            'future_negative' => Source::firstOrCreate(['name' => 'AI Conditionals: Future Negatives'])->id,
+            'past_question' => Source::firstOrCreate(['name' => 'AI Conditional Modals: Past Questions'])->id,
+            'past_negative' => Source::firstOrCreate(['name' => 'AI Conditional Modals: Past Negatives'])->id,
+            'present_question' => Source::firstOrCreate(['name' => 'AI Conditional Modals: Present Questions'])->id,
+            'present_negative' => Source::firstOrCreate(['name' => 'AI Conditional Modals: Present Negatives'])->id,
+            'future_question' => Source::firstOrCreate(['name' => 'AI Conditional Modals: Future Questions'])->id,
+            'future_negative' => Source::firstOrCreate(['name' => 'AI Conditional Modals: Future Negatives'])->id,
         ];
 
         $themeTagId = Tag::firstOrCreate(
-            ['name' => 'AI Conditional Practice'],
+            ['name' => 'AI Conditional Modal Practice'],
             ['category' => 'English Grammar Theme']
         )->id;
 
         $detailTagId = Tag::firstOrCreate(
-            ['name' => 'Conditional Sentence Completion'],
+            ['name' => 'Conditional Modal Completion'],
             ['category' => 'English Grammar Detail']
         )->id;
- 
+
         $typeTagIds = [
-            'question' => Tag::firstOrCreate(['name' => 'Conditional Question Form'], ['category' => 'English Grammar Structure'])->id,
-            'negative' => Tag::firstOrCreate(['name' => 'Conditional Negative Form'], ['category' => 'English Grammar Structure'])->id,
+            'question' => Tag::firstOrCreate(['name' => 'Conditional Modal Question Form'], ['category' => 'English Grammar Structure'])->id,
+            'negative' => Tag::firstOrCreate(['name' => 'Conditional Modal Negative Form'], ['category' => 'English Grammar Structure'])->id,
         ];
 
         $tenseTagIds = [
@@ -84,6 +168,14 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             'Second Conditional' => Tag::firstOrCreate(['name' => 'Second Conditional'], ['category' => 'Conditional'])->id,
             'Third Conditional' => Tag::firstOrCreate(['name' => 'Third Conditional'], ['category' => 'Conditional'])->id,
         ];
+
+        $modalTagIds = [];
+        foreach ($this->modalTagConfig as $key => $config) {
+            $modalTagIds[$key] = Tag::firstOrCreate(
+                ['name' => $config['name']],
+                ['category' => 'Modal Verb']
+            )->id;
+        }
 
         $questions = $this->buildQuestionBank();
 
@@ -96,6 +188,7 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             $verbHints = [];
             $optionsPerMarker = [];
             $optionMarkerMap = [];
+            $questionModalTagIds = [];
 
             foreach ($question['markers'] as $marker => $markerData) {
                 $answer = (string) ($markerData['answer'] ?? '');
@@ -114,6 +207,13 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
                 foreach ($options as $option) {
                     $optionMarkerMap[$option] = $marker;
                 }
+
+                $modalKeys = $this->determineModalTagKeys($answer, $markerData['modal_key'] ?? null);
+                foreach ($modalKeys as $modalKey) {
+                    if (isset($modalTagIds[$modalKey])) {
+                        $questionModalTagIds[] = $modalTagIds[$modalKey];
+                    }
+                }
             }
 
             $optionBuckets = array_values($optionsPerMarker);
@@ -128,6 +228,10 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
                 if (isset($tenseTagIds[$tenseName])) {
                     $tagIds[] = $tenseTagIds[$tenseName];
                 }
+            }
+
+            if ($questionModalTagIds !== []) {
+                $tagIds = array_merge($tagIds, $questionModalTagIds);
             }
 
             $uuid = $this->generateQuestionUuid($question['level'], $question['source_key'], $index + 1);
@@ -183,252 +287,210 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             'A1' => [
                 'future_question' => [
                     [
-                        'question' => 'If it rains tonight, will we {a1} the picnic?',
+                        'question' => 'If it rains tomorrow, {a1} you take an umbrella?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'cancel',
-                                'options' => ['cancel', 'cancelled', 'cancels'],
-                                'verb_hint' => 'cancel',
+                                'answer' => 'will',
+                                'options' => ['will', 'might', 'should'],
+                                'verb_hint' => 'certainty',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If you feel tired, will you {a1} the class early?',
+                        'question' => 'If the lights go out, {a1} we use candles?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'leave',
-                                'options' => ['leave', 'leaves', 'left'],
-                                'verb_hint' => 'leave',
+                                'answer' => 'should',
+                                'options' => ['should', 'might', 'can'],
+                                'verb_hint' => 'advice',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the bus is late, will they {a1} for us?',
+                        'question' => 'If we miss the bus, {a1} we call a taxi?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'wait',
-                                'options' => ['wait', 'waited', 'waiting'],
-                                'verb_hint' => 'wait',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If Anna calls later, will I {a1} to her?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'talk',
-                                'options' => ['talk', 'talks', 'talked'],
-                                'verb_hint' => 'talk',
+                                'answer' => 'can',
+                                'options' => ['can', 'might', 'will'],
+                                'verb_hint' => 'ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                 ],
                 'future_negative' => [
                     [
-                        'question' => 'If you close the window, you {a1} cold.',
+                        'question' => 'If it stays warm, we {a1} need coats.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "won't feel",
-                                'options' => ["won't feel", "don't feel", "didn't feel"],
-                                'verb_hint' => 'not feel',
+                                'answer' => "won't",
+                                'options' => ["won't", "can't", "shouldn't"],
+                                'verb_hint' => 'definite negative',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If they arrive early, we {a1} the meeting.',
+                        'question' => 'If the cafe is closed, you {a1} wait outside.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "won't delay",
-                                'options' => ["won't delay", "don't delay", "didn't delay"],
-                                'verb_hint' => 'not delay',
+                                'answer' => "can't",
+                                'options' => ["can't", "won't", "mustn't"],
+                                'verb_hint' => 'inability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If I cook tonight, you {a1} hungry.',
+                        'question' => 'If the soup is too hot, you {a1} eat it yet.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "won't be",
-                                'options' => ["won't be", "aren't", "weren't"],
-                                'verb_hint' => 'not be',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the shop is closed, I {a1} bread.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "won't buy",
-                                'options' => ["won't buy", "don't buy", "didn't buy"],
-                                'verb_hint' => 'not buy',
+                                'answer' => "shouldn't",
+                                'options' => ["shouldn't", "won't", "can't"],
+                                'verb_hint' => 'discouraged action',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                 ],
                 'present_question' => [
                     [
-                        'question' => 'If you won a free ticket, would you {a1} to the concert?',
+                        'question' => 'If you had a free ticket, {a1} you go to the concert?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'go',
-                                'options' => ['go', 'went', 'going'],
-                                'verb_hint' => 'go',
+                                'answer' => 'would',
+                                'options' => ['would', 'might', 'could'],
+                                'verb_hint' => 'hypothetical decision',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If Ben had more time, would he {a1} another language?',
+                        'question' => 'If she knew the answer, {a1} she tell us?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'learn',
-                                'options' => ['learn', 'learned', 'learning'],
-                                'verb_hint' => 'learn',
+                                'answer' => 'would',
+                                'options' => ['would', 'might', 'could'],
+                                'verb_hint' => 'hypothetical decision',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the cafe were quiet, would we {a1} there?',
+                        'question' => 'If I were taller, {a1} I reach the shelf?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'study',
-                                'options' => ['study', 'studied', 'studying'],
-                                'verb_hint' => 'study',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If I saw a wallet, would I {a1} it to the desk?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'take',
-                                'options' => ['take', 'took', 'taking'],
-                                'verb_hint' => 'take',
+                                'answer' => 'could',
+                                'options' => ['could', 'would', 'might'],
+                                'verb_hint' => 'potential ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                 ],
                 'present_negative' => [
                     [
-                        'question' => 'If I {a1} so busy, I would call you every day.',
+                        'question' => 'If I were you, I {a1} ignore the rules.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "weren't",
-                                'options' => ["weren't", "wasn't", "hadn't been"],
-                                'verb_hint' => 'not be',
+                                'answer' => "wouldn't",
+                                'options' => ["wouldn't", "couldn't", "shouldn't"],
+                                'verb_hint' => 'hypothetical refusal',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If he knew your secret, he {a1} silent.',
+                        'question' => 'If he liked the idea, he {a1} refuse.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't stay",
-                                'options' => ["wouldn't stay", "won't stay", "would stay"],
-                                'verb_hint' => 'not stay',
+                                'answer' => "wouldn't",
+                                'options' => ["wouldn't", "couldn't", "might not"],
+                                'verb_hint' => 'hypothetical refusal',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If they lived closer, they {a1} late so often.',
+                        'question' => 'If we lived nearby, we {a1} miss class.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't arrive",
-                                'options' => ["wouldn't arrive", "won't arrive", "would arrive"],
-                                'verb_hint' => 'not arrive',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we had a car, we {a1} the bus.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "wouldn't take",
-                                'options' => ["wouldn't take", "won't take", "would take"],
-                                'verb_hint' => 'not take',
+                                'answer' => "wouldn't",
+                                'options' => ["wouldn't", "couldn't", "shouldn't"],
+                                'verb_hint' => 'hypothetical refusal',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                 ],
                 'past_question' => [
                     [
-                        'question' => 'If you had missed the train, would you {a1} a taxi?',
+                        'question' => 'If she had left earlier, {a1} she have caught the train?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have taken',
-                                'options' => ['have taken', 'take', 'took'],
-                                'verb_hint' => 'take',
+                                'answer' => 'could have',
+                                'options' => ['could have', 'would have', 'might have'],
+                                'verb_hint' => 'missed opportunity',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If I had known earlier, would I {a1} you?',
+                        'question' => 'If they had checked the door, {a1} they have stopped the theft?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have called',
-                                'options' => ['have called', 'call', 'called'],
-                                'verb_hint' => 'call',
+                                'answer' => 'might have',
+                                'options' => ['might have', 'could have', 'would have'],
+                                'verb_hint' => 'past possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If they had seen the sign, would they {a1} that road?',
+                        'question' => 'If I had known, {a1} I have helped?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have chosen',
-                                'options' => ['have chosen', 'choose', 'chose'],
-                                'verb_hint' => 'choose',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If Mia had saved more, would she {a1} the trip?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have booked',
-                                'options' => ['have booked', 'book', 'booked'],
-                                'verb_hint' => 'book',
+                                'answer' => 'would have',
+                                'options' => ['would have', 'could have', 'might have'],
+                                'verb_hint' => 'imagined past outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                 ],
                 'past_negative' => [
                     [
-                        'question' => 'If I {a1} my keys, I would have arrived on time.',
+                        'question' => 'If you had listened, you {a1} have made that mistake.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "hadn't lost",
-                                'options' => ["hadn't lost", "didn't lose", "haven't lost"],
-                                'verb_hint' => 'not lose',
+                                'answer' => "wouldn't have",
+                                'options' => ["wouldn't have", "couldn't have", "shouldn't have"],
+                                'verb_hint' => 'avoided outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If he had checked the map, he {a1} in the woods.',
+                        'question' => 'If the door had been locked, they {a1} have entered.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have got lost",
-                                'options' => ["wouldn't have got lost", "wouldn't get lost", "won't get lost"],
-                                'verb_hint' => 'not get lost',
+                                'answer' => "couldn't have",
+                                'options' => ["couldn't have", "wouldn't have", "might not have"],
+                                'verb_hint' => 'past impossibility',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If they had listened to the warning, they {a1} the roof.',
+                        'question' => 'If she had noticed the sign, she {a1} have turned wrong.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have damaged",
-                                'options' => ["wouldn't have damaged", "wouldn't damage", "won't damage"],
-                                'verb_hint' => 'not damage',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we {a1} the deadline, the client would have been calm.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't missed",
-                                'options' => ["hadn't missed", "didn't miss", "haven't missed"],
-                                'verb_hint' => 'not miss',
+                                'answer' => "wouldn't have",
+                                'options' => ["wouldn't have", "couldn't have", "shouldn't have"],
+                                'verb_hint' => 'avoided outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
@@ -437,312 +499,210 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             'A2' => [
                 'future_question' => [
                     [
-                        'question' => 'If the courier {a1} before noon, will we {a2} the documents today?',
+                        'question' => 'If the forecast warns of storms, {a1} we cancel the picnic?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'arrives',
-                                'options' => ['arrives', 'arrive', 'arrived'],
-                                'verb_hint' => 'arrive',
-                            ],
-                            'a2' => [
-                                'answer' => 'sign',
-                                'options' => ['sign', 'signed', 'signing'],
-                                'verb_hint' => 'sign',
+                                'answer' => 'should',
+                                'options' => ['should', 'might', 'can'],
+                                'verb_hint' => 'advice',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If you {a1} the form now, will the clerk {a2} it for you?',
+                        'question' => 'If the train is delayed again, {a1} we try the bus instead?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'complete',
-                                'options' => ['complete', 'completes', 'completed'],
-                                'verb_hint' => 'complete',
-                            ],
-                            'a2' => [
-                                'answer' => 'check',
-                                'options' => ['check', 'checks', 'checked'],
-                                'verb_hint' => 'check',
+                                'answer' => 'could',
+                                'options' => ['could', 'may', 'should'],
+                                'verb_hint' => 'potential ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If Nina {a1} the tickets online, will you {a2} the seats together?',
+                        'question' => 'If the manager approves it, {a1} we start the campaign early?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'buys',
-                                'options' => ['buys', 'buy', 'bought'],
-                                'verb_hint' => 'buy',
-                            ],
-                            'a2' => [
-                                'answer' => 'choose',
-                                'options' => ['choose', 'chooses', 'chose'],
-                                'verb_hint' => 'choose',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If they {a1} the report tonight, will the manager {a2} it tomorrow?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'finish',
-                                'options' => ['finish', 'finishes', 'finished'],
-                                'verb_hint' => 'finish',
-                            ],
-                            'a2' => [
-                                'answer' => 'approve',
-                                'options' => ['approve', 'approves', 'approved'],
-                                'verb_hint' => 'approve',
+                                'answer' => 'may',
+                                'options' => ['may', 'might', 'can'],
+                                'verb_hint' => 'tentative possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                 ],
                 'future_negative' => [
                     [
-                        'question' => 'If the roads {a1} icy, we {a2} the mountain drive.',
+                        'question' => 'If the sky clears up, we {a1} need umbrellas.',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'get',
-                                'options' => ['get', 'gets', 'got'],
-                                'verb_hint' => 'get',
-                            ],
-                            'a2' => [
-                                'answer' => "won't risk",
-                                'options' => ["won't risk", "don't risk", "didn't risk"],
-                                'verb_hint' => 'not risk',
+                                'answer' => "won't",
+                                'options' => ["won't", "mustn't", "can't"],
+                                'verb_hint' => 'definite negative',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If you {a1} your ticket, you {a2} the concert.',
+                        'question' => 'If you follow the recipe, you {a1} burn the cake.',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'forget',
-                                'options' => ['forget', 'forgets', 'forgot'],
-                                'verb_hint' => 'forget',
-                            ],
-                            'a2' => [
-                                'answer' => "won't enter",
-                                'options' => ["won't enter", "don't enter", "didn't enter"],
-                                'verb_hint' => 'not enter',
+                                'answer' => "shouldn't",
+                                'options' => ["shouldn't", "can't", "mustn't"],
+                                'verb_hint' => 'discouraged action',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If they {a1} the warning signs, the hikers {a2} the cliff path.',
+                        'question' => 'If the doctor calls, you {a1} ignore the instructions.',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'ignore',
-                                'options' => ['ignore', 'ignores', 'ignored'],
-                                'verb_hint' => 'ignore',
-                            ],
-                            'a2' => [
-                                'answer' => "won't take",
-                                'options' => ["won't take", "don't take", "didn't take"],
-                                'verb_hint' => 'not take',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If I {a1} enough rest, I {a2} tonight\'s meeting.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "don't get",
-                                'options' => ["don't get", 'get', 'got'],
-                                'verb_hint' => 'not get',
-                            ],
-                            'a2' => [
-                                'answer' => "won't focus",
-                                'options' => ["won't focus", "don't focus", "didn't focus"],
-                                'verb_hint' => 'not focus',
+                                'answer' => "mustn't",
+                                'options' => ["mustn't", "shouldn't", "can't"],
+                                'verb_hint' => 'prohibition',
+                                'modal_key' => 'must_have_to',
                             ],
                         ],
                     ],
                 ],
                 'present_question' => [
                     [
-                        'question' => 'If the team {a1} more support, would they {a2} the project on time?',
+                        'question' => 'If you saved enough money, {a1} you travel for a year?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'had',
-                                'options' => ['had', 'have', 'has'],
-                                'verb_hint' => 'have',
-                            ],
-                            'a2' => [
-                                'answer' => 'finish',
-                                'options' => ['finish', 'finished', 'finishing'],
-                                'verb_hint' => 'finish',
+                                'answer' => 'could',
+                                'options' => ['could', 'might', 'would'],
+                                'verb_hint' => 'potential ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If Maya {a1} closer to campus, would she {a2} to cycle to class?',
+                        'question' => 'If she spoke French, {a1} she work in Paris?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'lived',
-                                'options' => ['lived', 'lives', 'live'],
-                                'verb_hint' => 'live',
-                            ],
-                            'a2' => [
-                                'answer' => 'decide',
-                                'options' => ['decide', 'decided', 'deciding'],
-                                'verb_hint' => 'decide',
+                                'answer' => 'would',
+                                'options' => ['would', 'could', 'might'],
+                                'verb_hint' => 'hypothetical decision',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If you {a1} a different job, would you {a2} happier?',
+                        'question' => 'If they knew the code, {a1} they open the door?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'took',
-                                'options' => ['took', 'take', 'taken'],
-                                'verb_hint' => 'take',
-                            ],
-                            'a2' => [
-                                'answer' => 'feel',
-                                'options' => ['feel', 'felt', 'feeling'],
-                                'verb_hint' => 'feel',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the museum {a1} late hours, would we {a2} after work?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'offered',
-                                'options' => ['offered', 'offers', 'offer'],
-                                'verb_hint' => 'offer',
-                            ],
-                            'a2' => [
-                                'answer' => 'visit',
-                                'options' => ['visit', 'visited', 'visiting'],
-                                'verb_hint' => 'visit',
+                                'answer' => 'might',
+                                'options' => ['might', 'would', 'could'],
+                                'verb_hint' => 'uncertain possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                 ],
                 'present_negative' => [
                     [
-                        'question' => 'If I {a1} allergic to cats, I wouldn\'t keep one at home.',
+                        'question' => 'If he trusted them, he {a1} doubt every answer.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "weren't",
-                                'options' => ["weren't", "wasn't", "hadn't been"],
-                                'verb_hint' => 'not be',
+                                'answer' => "wouldn't",
+                                'options' => ["wouldn't", "couldn't", "shouldn't"],
+                                'verb_hint' => 'hypothetical refusal',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If they {a1} so stubborn, they wouldn\'t argue every day.',
+                        'question' => 'If you had more time, you {a1} feel so stressed.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "didn't act",
-                                'options' => ["didn't act", "don't act", "wouldn't act"],
-                                'verb_hint' => 'not act',
+                                'answer' => "wouldn't",
+                                'options' => ["wouldn't", "might not", "couldn't"],
+                                'verb_hint' => 'hypothetical refusal',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the city {a1} so noisy, we wouldn\'t need earplugs.',
+                        'question' => 'If the road looked dangerous, I {a1} drive that way.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "didn't stay",
-                                'options' => ["didn't stay", "doesn't stay", "wouldn't stay"],
-                                'verb_hint' => 'not stay',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If you {a1} so late, you wouldn\'t feel exhausted.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "didn't stay up",
-                                'options' => ["didn't stay up", "don't stay up", "wouldn't stay up"],
-                                'verb_hint' => 'not stay up',
+                                'answer' => 'might not',
+                                'options' => ['might not', "wouldn't", "couldn't"],
+                                'verb_hint' => 'possible negative',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                 ],
                 'past_question' => [
                     [
-                        'question' => 'If the pilot had seen the storm, would he {a1} the flight?',
+                        'question' => 'If the pilot had reacted sooner, {a1} he have avoided the storm?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have delayed',
-                                'options' => ['have delayed', 'delay', 'delayed'],
-                                'verb_hint' => 'delay',
+                                'answer' => 'could have',
+                                'options' => ['could have', 'might have', 'would have'],
+                                'verb_hint' => 'missed opportunity',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If we had saved more, would we {a1} a bigger apartment?',
+                        'question' => 'If they had checked the schedule, {a1} they have prevented the delay?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have rented',
-                                'options' => ['have rented', 'rent', 'rented'],
-                                'verb_hint' => 'rent',
+                                'answer' => 'might have',
+                                'options' => ['might have', 'could have', 'would have'],
+                                'verb_hint' => 'past possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If Lara had worn boots, would she {a1} the puddle?',
+                        'question' => 'If I had bought tickets earlier, {a1} I have chosen better seats?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have avoided',
-                                'options' => ['have avoided', 'avoid', 'avoided'],
-                                'verb_hint' => 'avoid',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If they had remembered the address, would they {a1} on time?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have arrived',
-                                'options' => ['have arrived', 'arrive', 'arrived'],
-                                'verb_hint' => 'arrive',
+                                'answer' => 'would have',
+                                'options' => ['would have', 'could have', 'might have'],
+                                'verb_hint' => 'imagined past outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                 ],
                 'past_negative' => [
                     [
-                        'question' => 'If I {a1} the alarm, I wouldn\'t have missed the train.',
+                        'question' => 'If she had read the manual, she {a1} have broken the device.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "hadn't ignored",
-                                'options' => ["hadn't ignored", "didn't ignore", "haven't ignored"],
-                                'verb_hint' => 'not ignore',
+                                'answer' => "wouldn't have",
+                                'options' => ["wouldn't have", "couldn't have", "shouldn't have"],
+                                'verb_hint' => 'avoided outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If she had packed earlier, she {a1} her passport.',
+                        'question' => 'If the guards had stayed awake, they {a1} have missed the alarm.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have forgotten",
-                                'options' => ["wouldn't have forgotten", "wouldn't forget", "won't forget"],
-                                'verb_hint' => 'not forget',
+                                'answer' => "couldn't have",
+                                'options' => ["couldn't have", "wouldn't have", "might not have"],
+                                'verb_hint' => 'past impossibility',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the team had rehearsed more, they {a1} the opening night.',
+                        'question' => 'If we had checked the list, we {a1} have forgotten anyone.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have spoiled",
-                                'options' => ["wouldn't have spoiled", "wouldn't spoil", "won't spoil"],
-                                'verb_hint' => 'not spoil',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we {a1} the instructions, we wouldn\'t have broken the device.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't skipped",
-                                'options' => ["hadn't skipped", "didn't skip", "haven't skipped"],
-                                'verb_hint' => 'not skip',
+                                'answer' => "shouldn't have",
+                                'options' => ["shouldn't have", "wouldn't have", "couldn't have"],
+                                'verb_hint' => 'regretful advice',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
@@ -751,312 +711,210 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             'B1' => [
                 'future_question' => [
                     [
-                        'question' => 'If the investors {a1} positive feedback, will the team {a2} the prototype this week?',
+                        'question' => 'If the investors like the pitch, {a1} we secure funding?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'give',
-                                'options' => ['give', 'gives', 'gave'],
-                                'verb_hint' => 'give',
-                            ],
-                            'a2' => [
-                                'answer' => 'launch',
-                                'options' => ['launch', 'launched', 'launches'],
-                                'verb_hint' => 'launch',
+                                'answer' => 'could',
+                                'options' => ['could', 'might', 'should'],
+                                'verb_hint' => 'potential ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If our hotel {a1} an upgrade, will you {a2} it for the clients?',
+                        'question' => 'If the lab confirms the results, {a1} we publish immediately?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'offers',
-                                'options' => ['offers', 'offer', 'offered'],
-                                'verb_hint' => 'offer',
-                            ],
-                            'a2' => [
-                                'answer' => 'accept',
-                                'options' => ['accept', 'accepted', 'accepts'],
-                                'verb_hint' => 'accept',
+                                'answer' => 'should',
+                                'options' => ['should', 'might', 'can'],
+                                'verb_hint' => 'advice',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the editor {a1} the chapter tonight, will we {a2} the proofs tomorrow?',
+                        'question' => 'If the negotiations go well, {a1} we sign the contract tomorrow?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'reviews',
-                                'options' => ['reviews', 'review', 'reviewed'],
-                                'verb_hint' => 'review',
-                            ],
-                            'a2' => [
-                                'answer' => 'send',
-                                'options' => ['send', 'sent', 'sending'],
-                                'verb_hint' => 'send',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If you {a1} the visa today, will the embassy {a2} it by Friday?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'submit',
-                                'options' => ['submit', 'submits', 'submitted'],
-                                'verb_hint' => 'submit',
-                            ],
-                            'a2' => [
-                                'answer' => 'approve',
-                                'options' => ['approve', 'approves', 'approved'],
-                                'verb_hint' => 'approve',
+                                'answer' => 'can',
+                                'options' => ['can', 'may', 'should'],
+                                'verb_hint' => 'ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                 ],
                 'future_negative' => [
                     [
-                        'question' => 'If the supplier {a1} the shipment late, we {a2} the launch date.',
+                        'question' => 'If the forecast changes, we {a1} postpone the launch.',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'delivers',
-                                'options' => ['delivers', 'deliver', 'delivered'],
-                                'verb_hint' => 'deliver',
-                            ],
-                            'a2' => [
-                                'answer' => "won't move",
-                                'options' => ["won't move", "don't move", "didn't move"],
-                                'verb_hint' => 'not move',
+                                'answer' => "won't",
+                                'options' => ["won't", "mustn't", "can't"],
+                                'verb_hint' => 'definite negative',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If you {a1} the updated manual, the technicians {a2} the new settings.',
+                        'question' => 'If the safety checks are complete, you {a1} enter the area without gear.',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'ignore',
-                                'options' => ['ignore', 'ignores', 'ignored'],
-                                'verb_hint' => 'ignore',
-                            ],
-                            'a2' => [
-                                'answer' => "won't understand",
-                                'options' => ["won't understand", "don't understand", "didn't understand"],
-                                'verb_hint' => 'not understand',
+                                'answer' => "mustn't",
+                                'options' => ["mustn't", "shouldn't", "can't"],
+                                'verb_hint' => 'prohibition',
+                                'modal_key' => 'must_have_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the lab {a1} the results late, we {a2} the medication tomorrow.',
+                        'question' => 'If the team meets its goals, they {a1} work this weekend.',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'sends',
-                                'options' => ['sends', 'send', 'sent'],
-                                'verb_hint' => 'send',
-                            ],
-                            'a2' => [
-                                'answer' => "won't release",
-                                'options' => ["won't release", "don't release", "didn't release"],
-                                'verb_hint' => 'not release',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If I {a1} a taxi now, I {a2} the ceremony.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "don't get",
-                                'options' => ["don't get", 'get', 'got'],
-                                'verb_hint' => 'not get',
-                            ],
-                            'a2' => [
-                                'answer' => "won't reach",
-                                'options' => ["won't reach", "don't reach", "didn't reach"],
-                                'verb_hint' => 'not reach',
+                                'answer' => "won't have to",
+                                'options' => ["won't have to", "mustn't", "shouldn't"],
+                                'verb_hint' => 'future freedom',
+                                'modal_key' => 'must_have_to',
                             ],
                         ],
                     ],
                 ],
                 'present_question' => [
                     [
-                        'question' => 'If the committee {a1} your proposal, would you {a2} the extra budget wisely?',
+                        'question' => 'If the company offered you a transfer, {a1} you accept?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'approved',
-                                'options' => ['approved', 'approves', 'approve'],
-                                'verb_hint' => 'approve',
-                            ],
-                            'a2' => [
-                                'answer' => 'use',
-                                'options' => ['use', 'used', 'using'],
-                                'verb_hint' => 'use',
+                                'answer' => 'would',
+                                'options' => ['would', 'could', 'might'],
+                                'verb_hint' => 'hypothetical decision',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the interns {a1} more mentoring, would they {a2} faster?',
+                        'question' => 'If we had more staff, {a1} we finish sooner?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'received',
-                                'options' => ['received', 'receive', 'receives'],
-                                'verb_hint' => 'receive',
-                            ],
-                            'a2' => [
-                                'answer' => 'progress',
-                                'options' => ['progress', 'progressed', 'progressing'],
-                                'verb_hint' => 'progress',
+                                'answer' => 'could',
+                                'options' => ['could', 'would', 'might'],
+                                'verb_hint' => 'potential ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If Mia {a1} a flexible schedule, would she {a2} later?',
+                        'question' => 'If the data looked uncertain, {a1} you delay the release?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'had',
-                                'options' => ['had', 'has', 'have'],
-                                'verb_hint' => 'have',
-                            ],
-                            'a2' => [
-                                'answer' => 'work',
-                                'options' => ['work', 'worked', 'working'],
-                                'verb_hint' => 'work',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the town {a1} a new gallery, would tourists {a2} longer?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'built',
-                                'options' => ['built', 'builds', 'build'],
-                                'verb_hint' => 'build',
-                            ],
-                            'a2' => [
-                                'answer' => 'stay',
-                                'options' => ['stay', 'stayed', 'staying'],
-                                'verb_hint' => 'stay',
+                                'answer' => 'might',
+                                'options' => ['might', 'would', 'could'],
+                                'verb_hint' => 'uncertain possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                 ],
                 'present_negative' => [
                     [
-                        'question' => 'If I {a1} so cautious, I wouldn\'t ignore their advice.',
+                        'question' => 'If the plan seemed unfair, they {a1} agree.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "weren't",
-                                'options' => ["weren't", "wasn't", "hadn't been"],
-                                'verb_hint' => 'not be',
+                                'answer' => "wouldn't",
+                                'options' => ["wouldn't", "couldn't", "shouldn't"],
+                                'verb_hint' => 'hypothetical refusal',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the board {a1} the risks, it wouldn\'t delay decisions.',
+                        'question' => 'If I valued comfort, I {a1} choose that design.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "didn't fear",
-                                'options' => ["didn't fear", "doesn't fear", "wouldn't fear"],
-                                'verb_hint' => 'not fear',
+                                'answer' => "wouldn't",
+                                'options' => ["wouldn't", "couldn't", "might not"],
+                                'verb_hint' => 'hypothetical refusal',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the neighbors {a1} loud music every night, we wouldn\'t wear earplugs.',
+                        'question' => 'If you saw the risks, you {a1} ignore them.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "didn't play",
-                                'options' => ["didn't play", "don't play", "wouldn't play"],
-                                'verb_hint' => 'not play',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If you {a1} every detail, you wouldn\'t overthink everything.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "didn't question",
-                                'options' => ["didn't question", "don't question", "wouldn't question"],
-                                'verb_hint' => 'not question',
+                                'answer' => "couldn't",
+                                'options' => ["couldn't", "wouldn't", "shouldn't"],
+                                'verb_hint' => 'impossibility',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                 ],
                 'past_question' => [
                     [
-                        'question' => 'If the auditors had found errors, would they {a1} the report?',
+                        'question' => 'If the analyst had double-checked, {a1} she have caught the error?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have rewritten',
-                                'options' => ['have rewritten', 'rewrite', 'rewrote'],
-                                'verb_hint' => 'rewrite',
+                                'answer' => 'could have',
+                                'options' => ['could have', 'might have', 'would have'],
+                                'verb_hint' => 'missed opportunity',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If we had booked earlier, would we {a1} a balcony room?',
+                        'question' => 'If the team had rehearsed more, {a1} they have impressed the client?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have secured',
-                                'options' => ['have secured', 'secure', 'secured'],
-                                'verb_hint' => 'secure',
+                                'answer' => 'might have',
+                                'options' => ['might have', 'could have', 'would have'],
+                                'verb_hint' => 'past possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If Clara had studied law, would she {a1} a different career?',
+                        'question' => 'If I had trusted my instincts, {a1} I have avoided the loss?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have chosen',
-                                'options' => ['have chosen', 'choose', 'chose'],
-                                'verb_hint' => 'choose',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the team had trusted the data, would they {a1} the project?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have continued',
-                                'options' => ['have continued', 'continue', 'continued'],
-                                'verb_hint' => 'continue',
+                                'answer' => 'would have',
+                                'options' => ['would have', 'could have', 'might have'],
+                                'verb_hint' => 'imagined past outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                 ],
                 'past_negative' => [
                     [
-                        'question' => 'If I {a1} your warning, I wouldn\'t have invested.',
+                        'question' => 'If the guard had secured the gate, thieves {a1} have entered.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "hadn't dismissed",
-                                'options' => ["hadn't dismissed", "didn't dismiss", "haven't dismissed"],
-                                'verb_hint' => 'not dismiss',
+                                'answer' => "couldn't have",
+                                'options' => ["couldn't have", "wouldn't have", "might not have"],
+                                'verb_hint' => 'past impossibility',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the driver had rested, he {a1} the barrier.',
+                        'question' => 'If they had read the fine print, they {a1} have signed that deal.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have hit",
-                                'options' => ["wouldn't have hit", "wouldn't hit", "won't hit"],
-                                'verb_hint' => 'not hit',
+                                'answer' => "wouldn't have",
+                                'options' => ["wouldn't have", "couldn't have", "shouldn't have"],
+                                'verb_hint' => 'avoided outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If they had set two alarms, they {a1} their flight.',
+                        'question' => 'If you had backed up the files, you {a1} have lost anything.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have missed",
-                                'options' => ["wouldn't have missed", "wouldn't miss", "won't miss"],
-                                'verb_hint' => 'not miss',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we {a1} the contract, we wouldn\'t have faced penalties.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't breached",
-                                'options' => ["hadn't breached", "didn't breach", "haven't breached"],
-                                'verb_hint' => 'not breach',
+                                'answer' => "wouldn't have",
+                                'options' => ["wouldn't have", "couldn't have", "might not have"],
+                                'verb_hint' => 'avoided outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
@@ -1065,312 +923,210 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             'B2' => [
                 'future_question' => [
                     [
-                        'question' => 'If the research team {a1} conclusive evidence, will the board {a2} the new policy this quarter?',
+                        'question' => 'If the market shifts again, {a1} we revise the proposal?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'collects',
-                                'options' => ['collects', 'collect', 'collected'],
-                                'verb_hint' => 'collect',
-                            ],
-                            'a2' => [
-                                'answer' => 'adopt',
-                                'options' => ['adopt', 'adopts', 'adopted'],
-                                'verb_hint' => 'adopt',
+                                'answer' => 'should',
+                                'options' => ['should', 'might', 'could'],
+                                'verb_hint' => 'advice',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If our partners {a1} the draft tonight, will you {a2} the announcement tomorrow?',
+                        'question' => 'If the committee hesitates, {a1} we offer more data?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'finalize',
-                                'options' => ['finalize', 'finalizes', 'finalized'],
-                                'verb_hint' => 'finalize',
-                            ],
-                            'a2' => [
-                                'answer' => 'schedule',
-                                'options' => ['schedule', 'schedules', 'scheduled'],
-                                'verb_hint' => 'schedule',
+                                'answer' => 'might',
+                                'options' => ['might', 'could', 'may'],
+                                'verb_hint' => 'uncertain possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the conference {a1} enough speakers, will we {a2} the registration fee?',
+                        'question' => 'If the community expects transparency, {a1} we release the minutes?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'secures',
-                                'options' => ['secures', 'secure', 'secured'],
-                                'verb_hint' => 'secure',
-                            ],
-                            'a2' => [
-                                'answer' => 'reduce',
-                                'options' => ['reduce', 'reduces', 'reduced'],
-                                'verb_hint' => 'reduce',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If you {a1} the stakeholders early, will they {a2} their expectations?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'brief',
-                                'options' => ['brief', 'briefs', 'briefed'],
-                                'verb_hint' => 'brief',
-                            ],
-                            'a2' => [
-                                'answer' => 'adjust',
-                                'options' => ['adjust', 'adjusts', 'adjusted'],
-                                'verb_hint' => 'adjust',
+                                'answer' => 'ought to',
+                                'options' => ['ought to', 'must', 'should'],
+                                'verb_hint' => 'moral duty',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                 ],
                 'future_negative' => [
                     [
-                        'question' => 'If the negotiation {a1} today, we {a2} the contract this week.',
+                        'question' => 'If the legal team approves the clause, we {a1} fear a lawsuit.',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'fails',
-                                'options' => ['fails', 'fail', 'failed'],
-                                'verb_hint' => 'fail',
-                            ],
-                            'a2' => [
-                                'answer' => "won't sign",
-                                'options' => ["won't sign", "don't sign", "didn't sign"],
-                                'verb_hint' => 'not sign',
+                                'answer' => "needn't",
+                                'options' => ["needn't", "mustn't", "can't"],
+                                'verb_hint' => 'lack of necessity',
+                                'modal_key' => 'need_need_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the shipment {a1} customs, the retailers {a2} the promotion.',
+                        'question' => 'If the shipment arrives today, you {a1} stay late.',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'gets stuck',
-                                'options' => ['gets stuck', 'get stuck', 'got stuck'],
-                                'verb_hint' => 'get stuck',
-                            ],
-                            'a2' => [
-                                'answer' => "won't launch",
-                                'options' => ["won't launch", "don't launch", "didn't launch"],
-                                'verb_hint' => 'not launch',
+                                'answer' => "won't have to",
+                                'options' => ["won't have to", "mustn't", "shouldn't"],
+                                'verb_hint' => 'future freedom',
+                                'modal_key' => 'must_have_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If our CFO {a1} the forecast, investors {a2} reassurance.',
+                        'question' => 'If the sensors keep working, we {a1} reboot the system.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "doesn't share",
-                                'options' => ["doesn't share", 'shares', 'shared'],
-                                'verb_hint' => 'not share',
-                            ],
-                            'a2' => [
-                                'answer' => "won't get",
-                                'options' => ["won't get", "don't get", "didn't get"],
-                                'verb_hint' => 'not get',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If I {a1} the grant application, the lab {a2} new equipment.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "don't finish",
-                                'options' => ["don't finish", 'finish', 'finished'],
-                                'verb_hint' => 'not finish',
-                            ],
-                            'a2' => [
-                                'answer' => "won't receive",
-                                'options' => ["won't receive", "don't receive", "didn't receive"],
-                                'verb_hint' => 'not receive',
+                                'answer' => "shouldn't",
+                                'options' => ["shouldn't", "mustn't", "can't"],
+                                'verb_hint' => 'discouraged action',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                 ],
                 'present_question' => [
                     [
-                        'question' => 'If the analysts {a1} more context, would they {a2} the trend differently?',
+                        'question' => 'If the board valued innovation, {a1} they invest in startups?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'had',
-                                'options' => ['had', 'have', 'has'],
-                                'verb_hint' => 'have',
-                            ],
-                            'a2' => [
-                                'answer' => 'interpret',
-                                'options' => ['interpret', 'interpreted', 'interpreting'],
-                                'verb_hint' => 'interpret',
+                                'answer' => 'might',
+                                'options' => ['might', 'would', 'could'],
+                                'verb_hint' => 'uncertain possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If your mentor {a1} more time, would you {a2} a different topic?',
+                        'question' => 'If you were less cautious, {a1} you take that gamble?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'had',
-                                'options' => ['had', 'has', 'have'],
-                                'verb_hint' => 'have',
-                            ],
-                            'a2' => [
-                                'answer' => 'pursue',
-                                'options' => ['pursue', 'pursued', 'pursuing'],
-                                'verb_hint' => 'pursue',
+                                'answer' => 'might',
+                                'options' => ['might', 'would', 'could'],
+                                'verb_hint' => 'uncertain possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the council {a1} a larger grant, would the artists {a2} bigger installations?',
+                        'question' => 'If the researchers had more freedom, {a1} they test radical ideas?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'provided',
-                                'options' => ['provided', 'provides', 'provide'],
-                                'verb_hint' => 'provide',
-                            ],
-                            'a2' => [
-                                'answer' => 'build',
-                                'options' => ['build', 'built', 'building'],
-                                'verb_hint' => 'build',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we {a1} an extra engineer, would the rollout {a2} smoother?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'hired',
-                                'options' => ['hired', 'hire', 'hires'],
-                                'verb_hint' => 'hire',
-                            ],
-                            'a2' => [
-                                'answer' => 'be',
-                                'options' => ['be', 'was', 'been'],
-                                'verb_hint' => 'be',
+                                'answer' => 'could',
+                                'options' => ['could', 'might', 'would'],
+                                'verb_hint' => 'potential ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                 ],
                 'present_negative' => [
                     [
-                        'question' => 'If the firm {a1} so risk-averse, it wouldn\'t ignore emerging markets.',
+                        'question' => 'If ethics mattered most, the firm {a1} approve that project.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "weren't",
-                                'options' => ["weren't", "wasn't", "hadn't been"],
-                                'verb_hint' => 'not be',
+                                'answer' => "wouldn't",
+                                'options' => ["wouldn't", "might not", "couldn't"],
+                                'verb_hint' => 'hypothetical refusal',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the students {a1} assignments late, they wouldn\'t lose participation points.',
+                        'question' => 'If the risks seemed inevitable, we {a1} ignore them.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "didn't submit",
-                                'options' => ["didn't submit", "don't submit", "wouldn't submit"],
-                                'verb_hint' => 'not submit',
+                                'answer' => "couldn't",
+                                'options' => ["couldn't", "wouldn't", "shouldn't"],
+                                'verb_hint' => 'impossibility',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If you {a1} every rumour, you wouldn\'t stress the team.',
+                        'question' => 'If the evidence felt weak, they {a1} proceed.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "didn't repeat",
-                                'options' => ["didn't repeat", "don't repeat", "wouldn't repeat"],
-                                'verb_hint' => 'not repeat',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If our neighbors {a1} so early, we wouldn\'t miss sleep.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "didn't start",
-                                'options' => ["didn't start", "don't start", "wouldn't start"],
-                                'verb_hint' => 'not start',
+                                'answer' => 'might not',
+                                'options' => ['might not', "wouldn't", "couldn't"],
+                                'verb_hint' => 'possible negative',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                 ],
                 'past_question' => [
                     [
-                        'question' => 'If the panel had heard her pitch, would they {a1} the funding?',
+                        'question' => 'If the auditors had dug deeper, {a1} they have uncovered the fraud?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have approved',
-                                'options' => ['have approved', 'approve', 'approved'],
-                                'verb_hint' => 'approve',
+                                'answer' => 'might have',
+                                'options' => ['might have', 'could have', 'would have'],
+                                'verb_hint' => 'past possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If we had mapped the risks, would we {a1} a backup supplier?',
+                        'question' => 'If the engineers had run simulations, {a1} they have prevented the failure?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have chosen',
-                                'options' => ['have chosen', 'choose', 'chose'],
-                                'verb_hint' => 'choose',
+                                'answer' => 'could have',
+                                'options' => ['could have', 'might have', 'would have'],
+                                'verb_hint' => 'missed opportunity',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the director had rehearsed longer, would the cast {a1} fewer mistakes?',
+                        'question' => 'If the negotiators had paused, {a1} they have secured better terms?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have made',
-                                'options' => ['have made', 'make', 'made'],
-                                'verb_hint' => 'make',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If they had tracked the spending, would they {a1} the budget overrun?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have avoided',
-                                'options' => ['have avoided', 'avoid', 'avoided'],
-                                'verb_hint' => 'avoid',
+                                'answer' => 'might have',
+                                'options' => ['might have', 'could have', 'would have'],
+                                'verb_hint' => 'past possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                 ],
                 'past_negative' => [
                     [
-                        'question' => 'If I {a1} the backup files, we wouldn\'t have lost the footage.',
+                        'question' => 'If the alarms had functioned, the leak {a1} have gone unnoticed.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "hadn't deleted",
-                                'options' => ["hadn't deleted", "didn't delete", "haven't deleted"],
-                                'verb_hint' => 'not delete',
+                                'answer' => "couldn't have",
+                                'options' => ["couldn't have", "wouldn't have", "might not have"],
+                                'verb_hint' => 'past impossibility',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the airline had notified us, we {a1} hours at the airport.',
+                        'question' => 'If we had respected the protocol, we {a1} have triggered the shutdown.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have waited",
-                                'options' => ["wouldn't have waited", "wouldn't wait", "won't wait"],
-                                'verb_hint' => 'not wait',
+                                'answer' => "wouldn't have",
+                                'options' => ["wouldn't have", "couldn't have", "shouldn't have"],
+                                'verb_hint' => 'avoided outcome',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If our chef had checked the oven, the pastries {a1} burnt.',
+                        'question' => 'If she had trusted her instincts, she {a1} have approved that plan.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have been",
-                                'options' => ["wouldn't have been", "wouldn't be", "won't be"],
-                                'verb_hint' => 'not be',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the engineers {a1} the faulty valve, the factory wouldn\'t have shut down.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't ignored",
-                                'options' => ["hadn't ignored", "didn't ignore", "haven't ignored"],
-                                'verb_hint' => 'not ignore',
+                                'answer' => 'might not have',
+                                'options' => ['might not have', "wouldn't have", "couldn't have"],
+                                'verb_hint' => 'uncertain past negative',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
@@ -1379,797 +1135,178 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             'C1' => [
                 'future_question' => [
                     [
-                        'question' => 'If the ethics panel {a1} the revised protocol, will the institute {a2} the trial next month?',
+                        'question' => 'If stakeholder pressure grows, {a1} we disclose the preliminary data?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'endorses',
-                                'options' => ['endorses', 'endorse', 'endorsed'],
-                                'verb_hint' => 'endorse',
-                            ],
-                            'a2' => [
-                                'answer' => 'open',
-                                'options' => ['open', 'opens', 'opened'],
-                                'verb_hint' => 'open',
+                                'answer' => 'ought to',
+                                'options' => ['ought to', 'should', 'might'],
+                                'verb_hint' => 'moral duty',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If your team {a1} the migration script tonight, will operations {a2} the switchover at dawn?',
+                        'question' => 'If the regulator signals approval, {a1} we accelerate the rollout?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'completes',
-                                'options' => ['completes', 'complete', 'completed'],
-                                'verb_hint' => 'complete',
-                            ],
-                            'a2' => [
-                                'answer' => 'trigger',
-                                'options' => ['trigger', 'triggers', 'triggered'],
-                                'verb_hint' => 'trigger',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the curator {a1} the loan agreement, will the gallery {a2} the rare collection?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'signs',
-                                'options' => ['signs', 'sign', 'signed'],
-                                'verb_hint' => 'sign',
-                            ],
-                            'a2' => [
-                                'answer' => 'display',
-                                'options' => ['display', 'displays', 'displayed'],
-                                'verb_hint' => 'display',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we {a1} the climate report in time, will the council {a2} emergency measures?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'deliver',
-                                'options' => ['deliver', 'delivers', 'delivered'],
-                                'verb_hint' => 'deliver',
-                            ],
-                            'a2' => [
-                                'answer' => 'declare',
-                                'options' => ['declare', 'declares', 'declared'],
-                                'verb_hint' => 'declare',
+                                'answer' => 'should',
+                                'options' => ['should', 'might', 'must'],
+                                'verb_hint' => 'advice',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                 ],
                 'future_negative' => [
                     [
-                        'question' => 'If the auditors {a1} a discrepancy, we {a2} the quarterly statement.',
+                        'question' => 'If collaboration remains stable, we {a1} impose new controls.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "don't flag",
-                                'options' => ["don't flag", 'flag', 'flagged'],
-                                'verb_hint' => 'not flag',
-                            ],
-                            'a2' => [
-                                'answer' => "won't release",
-                                'options' => ["won't release", "don't release", "didn't release"],
-                                'verb_hint' => 'not release',
+                                'answer' => "needn't",
+                                'options' => ["needn't", "mustn't", "can't"],
+                                'verb_hint' => 'lack of necessity',
+                                'modal_key' => 'need_need_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the venue {a1} accessible, the organizers {a2} the booking.',
+                        'question' => 'If the partners honour the contract, we {a1} renegotiate terms.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "isn't",
-                                'options' => ["isn't", 'is', 'was'],
-                                'verb_hint' => 'not be',
-                            ],
-                            'a2' => [
-                                'answer' => "won't confirm",
-                                'options' => ["won't confirm", "don't confirm", "didn't confirm"],
-                                'verb_hint' => 'not confirm',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If I {a1} the strategic memo, the board {a2} immediate approval.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "don't submit",
-                                'options' => ["don't submit", 'submit', 'submitted'],
-                                'verb_hint' => 'not submit',
-                            ],
-                            'a2' => [
-                                'answer' => "won't grant",
-                                'options' => ["won't grant", "don't grant", "didn't grant"],
-                                'verb_hint' => 'not grant',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If our sponsors {a1} their pledge, we {a2} the satellite launch.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'withdraw',
-                                'options' => ['withdraw', 'withdraws', 'withdrew'],
-                                'verb_hint' => 'withdraw',
-                            ],
-                            'a2' => [
-                                'answer' => "won't fund",
-                                'options' => ["won't fund", "don't fund", "didn't fund"],
-                                'verb_hint' => 'not fund',
+                                'answer' => "won't",
+                                'options' => ["won't", "mustn't", "shouldn't"],
+                                'verb_hint' => 'definite negative',
+                                'modal_key' => 'will_would',
                             ],
                         ],
                     ],
                 ],
                 'present_question' => [
                     [
-                        'question' => 'If the lab {a1} unlimited funding, would its researchers {a2} breakthroughs sooner?',
+                        'question' => 'If the board valued dissent, {a1} they invite critical voices?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'had',
-                                'options' => ['had', 'has', 'have'],
-                                'verb_hint' => 'have',
-                            ],
-                            'a2' => [
-                                'answer' => 'deliver',
-                                'options' => ['deliver', 'delivered', 'delivering'],
-                                'verb_hint' => 'deliver',
+                                'answer' => 'might',
+                                'options' => ['might', 'would', 'could'],
+                                'verb_hint' => 'uncertain possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If your firm {a1} a bilingual workforce, would it {a2} the Latin American market?',
+                        'question' => 'If the analysts had richer data, {a1} they forecast disruptions better?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'employed',
-                                'options' => ['employed', 'employs', 'employ'],
-                                'verb_hint' => 'employ',
-                            ],
-                            'a2' => [
-                                'answer' => 'dominate',
-                                'options' => ['dominate', 'dominated', 'dominating'],
-                                'verb_hint' => 'dominate',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the negotiators {a1} more transparency, would the talks {a2} more swiftly?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'demanded',
-                                'options' => ['demanded', 'demands', 'demand'],
-                                'verb_hint' => 'demand',
-                            ],
-                            'a2' => [
-                                'answer' => 'progress',
-                                'options' => ['progress', 'progressed', 'progressing'],
-                                'verb_hint' => 'progress',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the archive {a1} more volunteers, would they {a2} the fragile manuscripts?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'recruited',
-                                'options' => ['recruited', 'recruits', 'recruit'],
-                                'verb_hint' => 'recruit',
-                            ],
-                            'a2' => [
-                                'answer' => 'preserve',
-                                'options' => ['preserve', 'preserved', 'preserving'],
-                                'verb_hint' => 'preserve',
+                                'answer' => 'could',
+                                'options' => ['could', 'might', 'would'],
+                                'verb_hint' => 'potential ability',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                 ],
                 'present_negative' => [
                     [
-                        'question' => 'If I {a1} tied to deadlines, I wouldn\'t postpone travel.',
+                        'question' => 'If transparency were paramount, leadership {a1} withhold the memo.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "weren't",
-                                'options' => ["weren't", "wasn't", "hadn't been"],
-                                'verb_hint' => 'not be',
+                                'answer' => 'ought not to',
+                                'options' => ['ought not to', "wouldn't", "might not"],
+                                'verb_hint' => 'ethical avoidance',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the analysts {a1} proprietary models, they wouldn\'t guard their code.',
+                        'question' => 'If the timeline looked unrealistic, we {a1} commit to it.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "didn't rely",
-                                'options' => ["didn't rely", "don't rely", "wouldn't rely"],
-                                'verb_hint' => 'not rely',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If our publisher {a1} quarterly profits, it wouldn\'t kill bold ideas.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "didn't chase",
-                                'options' => ["didn't chase", "doesn't chase", "wouldn't chase"],
-                                'verb_hint' => 'not chase',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If you {a1} so defensive, you wouldn\'t reject feedback.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "didn't feel",
-                                'options' => ["didn't feel", "don't feel", "wouldn't feel"],
-                                'verb_hint' => 'not feel',
+                                'answer' => "might not",
+                                'options' => ["might not", "wouldn't", "couldn't"],
+                                'verb_hint' => 'possible negative',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                 ],
                 'past_question' => [
                     [
-                        'question' => 'If the task force had issued the alert, would the residents {a1} sooner?',
+                        'question' => 'If the auditors had widened their scope, {a1} they have exposed the fraud earlier?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have evacuated',
-                                'options' => ['have evacuated', 'evacuate', 'evacuated'],
-                                'verb_hint' => 'evacuate',
+                                'answer' => 'might have',
+                                'options' => ['might have', 'could have', 'would have'],
+                                'verb_hint' => 'past possibility',
+                                'modal_key' => 'may_might',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If we had coded automated tests, would we {a1} the outage?',
+                        'question' => 'If the scientists had questioned the model, {a1} they have avoided confirmation bias?',
                         'markers' => [
                             'a1' => [
-                                'answer' => 'have avoided',
-                                'options' => ['have avoided', 'avoid', 'avoided'],
-                                'verb_hint' => 'avoid',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the playwright had accepted edits, would the critics {a1} differently?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have responded',
-                                'options' => ['have responded', 'respond', 'responded'],
-                                'verb_hint' => 'respond',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the explorers had carried more supplies, would they {a1} another week?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have survived',
-                                'options' => ['have survived', 'survive', 'survived'],
-                                'verb_hint' => 'survive',
+                                'answer' => 'could have',
+                                'options' => ['could have', 'might have', 'would have'],
+                                'verb_hint' => 'missed opportunity',
+                                'modal_key' => 'can_could',
                             ],
                         ],
                     ],
                 ],
                 'past_negative' => [
                     [
-                        'question' => 'If I {a1} the encryption keys, the breach wouldn\'t have happened.',
+                        'question' => 'If the committee had awaited peer review, it {a1} have endorsed the draft so quickly.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "hadn't shared",
-                                'options' => ["hadn't shared", "didn't share", "haven't shared"],
-                                'verb_hint' => 'not share',
+                                'answer' => 'ought not to have',
+                                'options' => ['ought not to have', "wouldn't have", "couldn't have"],
+                                'verb_hint' => 'moral regret',
+                                'modal_key' => 'should_ought_to',
                             ],
                         ],
                     ],
                     [
-                        'question' => 'If the agency had vetted the ad, the brand {a1} backlash.',
+                        'question' => 'If we had shared the dataset earlier, we {a1} have sparked that backlash.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "wouldn't have faced",
-                                'options' => ["wouldn't have faced", "wouldn't face", "won't face"],
-                                'verb_hint' => 'not face',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If our researchers had tracked anomalies, they {a1} the dataset.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "wouldn't have corrupted",
-                                'options' => ["wouldn't have corrupted", "wouldn't corrupt", "won't corrupt"],
-                                'verb_hint' => 'not corrupt',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the pilots {a1} the storm warnings, the flight wouldn\'t have been diverted.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't overridden",
-                                'options' => ["hadn't overridden", "didn't override", "haven't overridden"],
-                                'verb_hint' => 'not override',
+                                'answer' => "needn't have",
+                                'options' => ["needn't have", "shouldn't have", "wouldn't have"],
+                                'verb_hint' => 'unnecessary action',
+                                'modal_key' => 'need_need_to',
                             ],
                         ],
                     ],
                 ],
             ],
-            'C2' => [
-                'future_question' => [
-                    [
-                        'question' => 'If the tribunal {a1} the appeal tomorrow, will the regulators {a2} the suspension or {a3} further sanctions?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'hears',
-                                'options' => ['hears', 'hear', 'heard'],
-                                'verb_hint' => 'hear',
-                            ],
-                            'a2' => [
-                                'answer' => 'lift',
-                                'options' => ['lift', 'lifts', 'lifted'],
-                                'verb_hint' => 'lift',
-                            ],
-                            'a3' => [
-                                'answer' => 'impose',
-                                'options' => ['impose', 'imposes', 'imposed'],
-                                'verb_hint' => 'impose',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If your consortium {a1} the final patent, will investors {a2} fresh capital and {a3} the valuation?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'secures',
-                                'options' => ['secures', 'secure', 'secured'],
-                                'verb_hint' => 'secure',
-                            ],
-                            'a2' => [
-                                'answer' => 'commit',
-                                'options' => ['commit', 'commits', 'committed'],
-                                'verb_hint' => 'commit',
-                            ],
-                            'a3' => [
-                                'answer' => 'boost',
-                                'options' => ['boost', 'boosts', 'boosted'],
-                                'verb_hint' => 'boost',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the orchestra {a1} the premiere flawlessly, will critics {a2} rave reviews and {a3} our reputation?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'delivers',
-                                'options' => ['delivers', 'deliver', 'delivered'],
-                                'verb_hint' => 'deliver',
-                            ],
-                            'a2' => [
-                                'answer' => 'publish',
-                                'options' => ['publish', 'publishes', 'published'],
-                                'verb_hint' => 'publish',
-                            ],
-                            'a3' => [
-                                'answer' => 'enhance',
-                                'options' => ['enhance', 'enhances', 'enhanced'],
-                                'verb_hint' => 'enhance',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we {a1} the emergency blueprint in March, will the ministry {a2} rapid funding or {a3} another audit?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'submit',
-                                'options' => ['submit', 'submits', 'submitted'],
-                                'verb_hint' => 'submit',
-                            ],
-                            'a2' => [
-                                'answer' => 'release',
-                                'options' => ['release', 'releases', 'released'],
-                                'verb_hint' => 'release',
-                            ],
-                            'a3' => [
-                                'answer' => 'order',
-                                'options' => ['order', 'orders', 'ordered'],
-                                'verb_hint' => 'order',
-                            ],
-                        ],
-                    ],
-                ],
-                'future_negative' => [
-                    [
-                        'question' => 'If the arbitration {a1} before July, we {a2} the merger or {a3} staff transfers.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "doesn't conclude",
-                                'options' => ["doesn't conclude", 'concludes', 'concluded'],
-                                'verb_hint' => 'not conclude',
-                            ],
-                            'a2' => [
-                                'answer' => "won't finalize",
-                                'options' => ["won't finalize", "don't finalize", "didn't finalize"],
-                                'verb_hint' => 'not finalize',
-                            ],
-                            'a3' => [
-                                'answer' => "won't initiate",
-                                'options' => ["won't initiate", "don't initiate", "didn't initiate"],
-                                'verb_hint' => 'not initiate',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the expedition {a1} safe weather windows, the crew {a2} the ascent and {a3} a new route.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "doesn't find",
-                                'options' => ["doesn't find", 'finds', 'found'],
-                                'verb_hint' => 'not find',
-                            ],
-                            'a2' => [
-                                'answer' => "won't attempt",
-                                'options' => ["won't attempt", "don't attempt", "didn't attempt"],
-                                'verb_hint' => 'not attempt',
-                            ],
-                            'a3' => [
-                                'answer' => "won't map",
-                                'options' => ["won't map", "don't map", "didn't map"],
-                                'verb_hint' => 'not map',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If our donors {a1} the transparency report, we {a2} promised grants nor {a3} the scholarship fund.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'reject',
-                                'options' => ['reject', 'rejects', 'rejected'],
-                                'verb_hint' => 'reject',
-                            ],
-                            'a2' => [
-                                'answer' => "won't receive",
-                                'options' => ["won't receive", "don't receive", "didn't receive"],
-                                'verb_hint' => 'not receive',
-                            ],
-                            'a3' => [
-                                'answer' => "won't expand",
-                                'options' => ["won't expand", "don't expand", "didn't expand"],
-                                'verb_hint' => 'not expand',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If I {a1} the cyber audit today, the board {a2} interim safeguards and {a3} the launch window.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "don't schedule",
-                                'options' => ["don't schedule", 'schedule', 'scheduled'],
-                                'verb_hint' => 'not schedule',
-                            ],
-                            'a2' => [
-                                'answer' => "won't approve",
-                                'options' => ["won't approve", "don't approve", "didn't approve"],
-                                'verb_hint' => 'not approve',
-                            ],
-                            'a3' => [
-                                'answer' => "won't extend",
-                                'options' => ["won't extend", "don't extend", "didn't extend"],
-                                'verb_hint' => 'not extend',
-                            ],
-                        ],
-                    ],
-                ],
-                'present_question' => [
-                    [
-                        'question' => 'If the legislature {a1} sweeping reforms, would lobbyists {a2} their strategy or {a3} the proposal?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'passed',
-                                'options' => ['passed', 'passes', 'pass'],
-                                'verb_hint' => 'pass',
-                            ],
-                            'a2' => [
-                                'answer' => 'revise',
-                                'options' => ['revise', 'revised', 'revising'],
-                                'verb_hint' => 'revise',
-                            ],
-                            'a3' => [
-                                'answer' => 'oppose',
-                                'options' => ['oppose', 'opposed', 'opposing'],
-                                'verb_hint' => 'oppose',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If your lab {a1} quantum processors, would you {a2} commercial partners and {a3} new markets?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'developed',
-                                'options' => ['developed', 'develops', 'develop'],
-                                'verb_hint' => 'develop',
-                            ],
-                            'a2' => [
-                                'answer' => 'attract',
-                                'options' => ['attract', 'attracted', 'attracting'],
-                                'verb_hint' => 'attract',
-                            ],
-                            'a3' => [
-                                'answer' => 'enter',
-                                'options' => ['enter', 'entered', 'entering'],
-                                'verb_hint' => 'enter',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the museum {a1} indefinite loans, would curators {a2} riskier exhibits or {a3} their catalogue?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'secured',
-                                'options' => ['secured', 'secures', 'secure'],
-                                'verb_hint' => 'secure',
-                            ],
-                            'a2' => [
-                                'answer' => 'stage',
-                                'options' => ['stage', 'staged', 'staging'],
-                                'verb_hint' => 'stage',
-                            ],
-                            'a3' => [
-                                'answer' => 'rethink',
-                                'options' => ['rethink', 'rethought', 'rethinking'],
-                                'verb_hint' => 'rethink',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we {a1} a multilingual newsroom, would readers {a2} premium subscriptions and {a3} loyalty?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'built',
-                                'options' => ['built', 'build', 'builds'],
-                                'verb_hint' => 'build',
-                            ],
-                            'a2' => [
-                                'answer' => 'purchase',
-                                'options' => ['purchase', 'purchased', 'purchasing'],
-                                'verb_hint' => 'purchase',
-                            ],
-                            'a3' => [
-                                'answer' => 'sustain',
-                                'options' => ['sustain', 'sustained', 'sustaining'],
-                                'verb_hint' => 'sustain',
-                            ],
-                        ],
-                    ],
-                ],
-                'present_negative' => [
-                    [
-                        'question' => 'If I {a1} tied to quarterly reports, I {a2} ambitious pilots or {a3} experimental teams.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "weren't",
-                                'options' => ["weren't", "wasn't", "hadn't been"],
-                                'verb_hint' => 'not be',
-                            ],
-                            'a2' => [
-                                'answer' => "wouldn't cancel",
-                                'options' => ["wouldn't cancel", "won't cancel", "would cancel"],
-                                'verb_hint' => 'not cancel',
-                            ],
-                            'a3' => [
-                                'answer' => "wouldn't dissolve",
-                                'options' => ["wouldn't dissolve", "won't dissolve", "would dissolve"],
-                                'verb_hint' => 'not dissolve',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the agency {a1} obsessed with metrics, it {a2} daring campaigns nor {a3} every risk.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "didn't stay",
-                                'options' => ["didn't stay", "doesn't stay", "wouldn't stay"],
-                                'verb_hint' => 'not stay',
-                            ],
-                            'a2' => [
-                                'answer' => "wouldn't reject",
-                                'options' => ["wouldn't reject", "won't reject", "would reject"],
-                                'verb_hint' => 'not reject',
-                            ],
-                            'a3' => [
-                                'answer' => "wouldn't micromanage",
-                                'options' => ["wouldn't micromanage", "won't micromanage", "would micromanage"],
-                                'verb_hint' => 'not micromanage',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If your partners {a1} purely on profit, they {a2} community grants or {a3} local artists.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "didn't focus",
-                                'options' => ["didn't focus", "don't focus", "wouldn't focus"],
-                                'verb_hint' => 'not focus',
-                            ],
-                            'a2' => [
-                                'answer' => "wouldn't cut",
-                                'options' => ["wouldn't cut", "won't cut", "would cut"],
-                                'verb_hint' => 'not cut',
-                            ],
-                            'a3' => [
-                                'answer' => "wouldn't overlook",
-                                'options' => ["wouldn't overlook", "won't overlook", "would overlook"],
-                                'verb_hint' => 'not overlook',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the think tank {a1} beholden to donors, it {a2} bold research or {a3} controversial findings.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "weren't",
-                                'options' => ["weren't", "wasn't", "hadn't been"],
-                                'verb_hint' => 'not be',
-                            ],
-                            'a2' => [
-                                'answer' => "wouldn't suppress",
-                                'options' => ["wouldn't suppress", "won't suppress", "would suppress"],
-                                'verb_hint' => 'not suppress',
-                            ],
-                            'a3' => [
-                                'answer' => "wouldn't soften",
-                                'options' => ["wouldn't soften", "won't soften", "would soften"],
-                                'verb_hint' => 'not soften',
-                            ],
-                        ],
-                    ],
-                ],
-                'past_question' => [
-                    [
-                        'question' => 'If the diplomats had coordinated sooner, would they {a1} the ceasefire, {a2} new concessions, or {a3} the summit?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have secured',
-                                'options' => ['have secured', 'secure', 'secured'],
-                                'verb_hint' => 'secure',
-                            ],
-                            'a2' => [
-                                'answer' => 'have extracted',
-                                'options' => ['have extracted', 'extract', 'extracted'],
-                                'verb_hint' => 'extract',
-                            ],
-                            'a3' => [
-                                'answer' => 'have extended',
-                                'options' => ['have extended', 'extend', 'extended'],
-                                'verb_hint' => 'extend',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If we had archived the raw data, would the reviewers {a1} the findings or {a2} the methodology?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have endorsed',
-                                'options' => ['have endorsed', 'endorse', 'endorsed'],
-                                'verb_hint' => 'endorse',
-                            ],
-                            'a2' => [
-                                'answer' => 'have questioned',
-                                'options' => ['have questioned', 'question', 'questioned'],
-                                'verb_hint' => 'question',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the artist had retained control, would publishers {a1} the series or {a2} the ending?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have continued',
-                                'options' => ['have continued', 'continue', 'continued'],
-                                'verb_hint' => 'continue',
-                            ],
-                            'a2' => [
-                                'answer' => 'have altered',
-                                'options' => ['have altered', 'alter', 'altered'],
-                                'verb_hint' => 'alter',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the expedition had secured mapping rights, would it {a1} the valley or {a2} rival claims?',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => 'have charted',
-                                'options' => ['have charted', 'chart', 'charted'],
-                                'verb_hint' => 'chart',
-                            ],
-                            'a2' => [
-                                'answer' => 'have prevented',
-                                'options' => ['have prevented', 'prevent', 'prevented'],
-                                'verb_hint' => 'prevent',
-                            ],
-                        ],
-                    ],
-                ],
-                'past_negative' => [
-                    [
-                        'question' => 'If I {a1} the briefing memo, the council {a2} the proposal nor {a3} our timetable.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't misplaced",
-                                'options' => ["hadn't misplaced", "didn't misplace", "haven't misplaced"],
-                                'verb_hint' => 'not misplace',
-                            ],
-                            'a2' => [
-                                'answer' => "wouldn't have delayed",
-                                'options' => ["wouldn't have delayed", "wouldn't delay", "won't delay"],
-                                'verb_hint' => 'not delay',
-                            ],
-                            'a3' => [
-                                'answer' => "wouldn't have questioned",
-                                'options' => ["wouldn't have questioned", "wouldn't question", "won't question"],
-                                'verb_hint' => 'not question',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the network {a1} maintenance alerts, the engineers {a2} service or {a3} customer trust.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't ignored",
-                                'options' => ["hadn't ignored", "didn't ignore", "haven't ignored"],
-                                'verb_hint' => 'not ignore',
-                            ],
-                            'a2' => [
-                                'answer' => "wouldn't have lost",
-                                'options' => ["wouldn't have lost", "wouldn't lose", "won't lose"],
-                                'verb_hint' => 'not lose',
-                            ],
-                            'a3' => [
-                                'answer' => "wouldn't have damaged",
-                                'options' => ["wouldn't have damaged", "wouldn't damage", "won't damage"],
-                                'verb_hint' => 'not damage',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the editors {a1} the leak, the newspaper {a2} lawsuits nor {a3} its sources.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't published",
-                                'options' => ["hadn't published", "didn't publish", "haven't published"],
-                                'verb_hint' => 'not publish',
-                            ],
-                            'a2' => [
-                                'answer' => "wouldn't have faced",
-                                'options' => ["wouldn't have faced", "wouldn't face", "won't face"],
-                                'verb_hint' => 'not face',
-                            ],
-                            'a3' => [
-                                'answer' => "wouldn't have compromised",
-                                'options' => ["wouldn't have compromised", "wouldn't compromise", "won't compromise"],
-                                'verb_hint' => 'not compromise',
-                            ],
-                        ],
-                    ],
-                    [
-                        'question' => 'If the pilots {a1} the safety ceiling, the mission {a2} mid-flight or {a3} its payload.',
-                        'markers' => [
-                            'a1' => [
-                                'answer' => "hadn't broken",
-                                'options' => ["hadn't broken", "didn't break", "haven't broken"],
-                                'verb_hint' => 'not break',
-                            ],
-                            'a2' => [
-                                'answer' => "wouldn't have aborted",
-                                'options' => ["wouldn't have aborted", "wouldn't abort", "won't abort"],
-                                'verb_hint' => 'not abort',
-                            ],
-                            'a3' => [
-                                'answer' => "wouldn't have jettisoned",
-                                'options' => ["wouldn't have jettisoned", "wouldn't jettison", "won't jettison"],
-                                'verb_hint' => 'not jettison',
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            // Additional levels will be appended here.
         ];
+    }
+
+    private function determineModalTagKeys(string $answer, ?string $explicitKey = null): array
+    {
+        if ($explicitKey !== null && isset($this->modalTagConfig[$explicitKey])) {
+            return [$explicitKey];
+        }
+
+        $normalized = $this->normalizeModalPhrase($answer);
+        $keys = [];
+
+        foreach ($this->modalTagConfig as $key => $config) {
+            foreach ($config['keywords'] as $keyword) {
+                if ($normalized === $this->normalizeModalPhrase($keyword)) {
+                    $keys[] = $key;
+                    break;
+                }
+            }
+        }
+
+        return array_values(array_unique($keys));
+    }
+
+    private function normalizeModalPhrase(string $value): string
+    {
+        $value = trim(mb_strtolower($value));
+        $value = preg_replace('/\s+/', ' ', $value);
+
+        return is_string($value) ? $value : '';
     }
 }
