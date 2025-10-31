@@ -1199,37 +1199,139 @@
               </div>
             </div>
 
-            <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:gap-4">
-              <label class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                <span>Пошук записів</span>
-                <div class="relative">
-                  <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
-                    <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
-                  </span>
-                  <input
-                    type="search"
-                    class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                    placeholder="Миттєвий пошук..."
-                    x-model="contentManagement.viewer.searchInput"
-                    @input.debounce.400ms="updateContentManagementSearch($event.target.value)"
-                    @keydown.enter.prevent
-                  />
+            <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
+              <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
+                <div class="flex flex-wrap items-center gap-2 text-sm">
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                    @click="addContentManagementFilter()"
+                    :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
+                  >
+                    <i class="fa-solid fa-plus text-[10px]"></i>
+                    Додати фільтр
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="contentManagement.viewer.filters.length === 0 || contentManagement.viewer.loading"
+                    @click="resetContentManagementFilters()"
+                  >
+                    <i class="fa-solid fa-rotate-left text-[10px]"></i>
+                    Скинути
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
+                    @click="applyContentManagementFilters()"
+                  >
+                    <i class="fa-solid fa-filter text-[10px]"></i>
+                    Застосувати
+                  </button>
                 </div>
-              </label>
-              <label class="flex w-full flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:w-56">
-                <span>Поле для пошуку</span>
-                <select
-                  class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
-                  :disabled="contentManagement.viewer.loading || !Array.isArray(contentManagement.viewer.columns) || contentManagement.viewer.columns.length === 0"
-                  :value="contentManagement.viewer.searchColumn"
-                  @change="updateContentManagementSearchColumn($event.target.value)"
-                >
-                  <option value="">Всі колонки</option>
-                  <template x-for="column in contentManagement.viewer.columns" :key="`cm-search-${column}`">
-                    <option :value="column" x-text="column"></option>
-                  </template>
-                </select>
-              </label>
+              </div>
+
+              <div class="mt-4 flex flex-col gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80 sm:flex-row sm:items-center sm:gap-3">
+                <label class="flex flex-1 flex-col gap-1">
+                  <span>Пошук записів</span>
+                  <div class="relative">
+                    <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+                      <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+                    </span>
+                    <input
+                      type="search"
+                      class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                      placeholder="Миттєвий пошук..."
+                      x-model="contentManagement.viewer.searchInput"
+                      @input.debounce.400ms="updateContentManagementSearch($event.target.value)"
+                      @keydown.enter.prevent
+                    />
+                  </div>
+                </label>
+                <label class="flex w-full flex-col gap-1 sm:w-56">
+                  <span>Поле для пошуку</span>
+                  <select
+                    class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                    :disabled="contentManagement.viewer.loading || !Array.isArray(contentManagement.viewer.columns) || contentManagement.viewer.columns.length === 0"
+                    :value="contentManagement.viewer.searchColumn"
+                    @change="updateContentManagementSearchColumn($event.target.value)"
+                  >
+                    <option value="">Всі колонки</option>
+                    <template x-for="column in contentManagement.viewer.columns" :key="`cm-search-${column}`">
+                      <option :value="column" x-text="column"></option>
+                    </template>
+                  </select>
+                </label>
+              </div>
+
+              <p class="mt-3 text-xs text-muted-foreground">
+                Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
+                <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
+              </p>
+
+              <template x-if="contentManagement.viewer.filters.length === 0">
+                <div class="mt-4 rounded-xl border border-dashed border-border/60 bg-background/60 p-4 text-sm text-muted-foreground">
+                  Фільтри не задано. Додайте новий, щоб відфільтрувати записи.
+                </div>
+              </template>
+
+              <div class="mt-4 space-y-3" x-show="contentManagement.viewer.filters.length > 0">
+                <template x-for="(filter, filterIndex) in contentManagement.viewer.filters" :key="filter.id">
+                  <div class="flex flex-col gap-3 rounded-xl border border-border/60 bg-background/70 p-4 sm:flex-row sm:items-end sm:gap-4">
+                    <div class="flex flex-1 flex-col gap-3 sm:flex-row sm:items-end sm:gap-4">
+                      <label class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
+                        <span>Поле</span>
+                        <select
+                          class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                          x-model="filter.column"
+                          :disabled="contentManagement.viewer.loading"
+                        >
+                          <option value="">Оберіть поле</option>
+                          <template x-for="column in contentManagement.viewer.columns" :key="`${column}-content-filter`">
+                            <option :value="column" x-text="column"></option>
+                          </template>
+                        </select>
+                      </label>
+                      <label class="flex w-full flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80 sm:w-48">
+                        <span>Оператор</span>
+                        <select
+                          class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                          x-model="filter.operator"
+                          :disabled="contentManagement.viewer.loading"
+                        >
+                          <template x-for="option in filterOperators" :key="`content-filter-${option.value}`">
+                            <option :value="option.value" x-text="option.label"></option>
+                          </template>
+                        </select>
+                      </label>
+                      <label
+                        class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80"
+                        x-show="operatorRequiresValue(filter.operator)"
+                      >
+                        <span>Значення</span>
+                        <input
+                          type="text"
+                          class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                          placeholder="Вкажіть значення"
+                          x-model="filter.value"
+                          :disabled="contentManagement.viewer.loading"
+                        />
+                      </label>
+                    </div>
+                    <button
+                      type="button"
+                      class="inline-flex items-center justify-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1.5 text-sm font-semibold text-muted-foreground transition hover:border-rose-300 hover:text-rose-500 disabled:cursor-not-allowed disabled:opacity-60"
+                      @click="removeContentManagementFilter(filterIndex)"
+                      :disabled="contentManagement.viewer.loading"
+                    >
+                      <i class="fa-solid fa-trash-can text-xs"></i>
+                      Видалити
+                    </button>
+                  </div>
+                </template>
+              </div>
             </div>
 
             <template x-if="contentManagement.viewer.error">
@@ -1536,6 +1638,7 @@
           error: null,
           columns: [],
           rows: [],
+          filters: [],
           search: '',
           searchInput: '',
           searchColumn: '',
@@ -2134,6 +2237,7 @@
             this.contentManagement.viewer.error = fresh.error;
             this.contentManagement.viewer.columns = fresh.columns;
             this.contentManagement.viewer.rows = fresh.rows;
+            this.contentManagement.viewer.filters = fresh.filters;
             this.contentManagement.viewer.search = fresh.search;
             this.contentManagement.viewer.searchInput = fresh.searchInput;
             this.contentManagement.viewer.searchColumn = fresh.searchColumn;
@@ -2205,6 +2309,69 @@
 
             await this.loadContentManagementTable(this.contentManagement.selectedTable);
           },
+          addContentManagementFilter() {
+            if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
+              return;
+            }
+
+            const viewer = this.contentManagement.viewer;
+            const structureTable = this.findTableByName(this.contentManagement.selectedTable);
+            const availableColumns = Array.isArray(viewer.columns) && viewer.columns.length > 0
+              ? viewer.columns
+              : this.getTableColumnNames(structureTable);
+
+            const fallbackColumn = availableColumns.length > 0 ? availableColumns[0] : '';
+
+            viewer.filters = [
+              ...viewer.filters,
+              {
+                id: this.generateFilterId(),
+                column: fallbackColumn || '',
+                operator: '=',
+                value: '',
+              },
+            ];
+          },
+          removeContentManagementFilter(index) {
+            const viewer = this.contentManagement.viewer;
+
+            if (viewer.loading) {
+              return;
+            }
+
+            if (index < 0 || index >= viewer.filters.length) {
+              return;
+            }
+
+            viewer.filters = viewer.filters.filter((_, filterIndex) => filterIndex !== index);
+
+            if (this.contentManagement.selectedTable && viewer.loaded) {
+              viewer.page = 1;
+              this.loadContentManagementTable(this.contentManagement.selectedTable);
+            }
+          },
+          applyContentManagementFilters() {
+            if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
+              return;
+            }
+
+            this.contentManagement.viewer.page = 1;
+            this.loadContentManagementTable(this.contentManagement.selectedTable);
+          },
+          resetContentManagementFilters() {
+            const viewer = this.contentManagement.viewer;
+
+            if (viewer.loading || viewer.filters.length === 0) {
+              return;
+            }
+
+            viewer.filters = [];
+            viewer.page = 1;
+
+            if (this.contentManagement.selectedTable) {
+              this.loadContentManagementTable(this.contentManagement.selectedTable);
+            }
+          },
           updateContentManagementSearch(value) {
             const viewer = this.contentManagement.viewer;
             const rawValue = typeof value === 'string' ? value : '';
@@ -2254,6 +2421,7 @@
             }
 
             const viewer = this.contentManagement.viewer;
+            const previousFilters = viewer.filters.map((filter) => ({ ...filter }));
             const requestId = (viewer.requestId ?? 0) + 1;
             viewer.requestId = requestId;
             viewer.loading = true;
@@ -2285,6 +2453,20 @@
               if (searchColumn) {
                 url.searchParams.set('search_column', searchColumn);
               }
+
+              viewer.filters.forEach((filter, index) => {
+                if (!filter || !filter.column || !filter.operator) {
+                  return;
+                }
+
+                url.searchParams.append(`filters[${index}][column]`, filter.column);
+                url.searchParams.append(`filters[${index}][operator]`, filter.operator);
+
+                if (this.operatorRequiresValue(filter.operator)) {
+                  const value = filter.value ?? '';
+                  url.searchParams.append(`filters[${index}][value]`, value === null ? '' : String(value));
+                }
+              });
 
               const response = await fetch(url.toString(), {
                 headers: {
@@ -2324,6 +2506,8 @@
                 ? Math.max(1, Number(data.last_page))
                 : Math.max(1, Math.ceil((viewer.total || 0) / (viewer.perPage || 1)));
               viewer.table = normalized;
+              const filtersFromResponse = Array.isArray(data.filters) ? data.filters : previousFilters;
+              viewer.filters = this.normalizeFilters(filtersFromResponse, previousFilters);
               if (typeof data.search === 'string') {
                 viewer.search = data.search.trim();
                 viewer.searchInput = data.search;
