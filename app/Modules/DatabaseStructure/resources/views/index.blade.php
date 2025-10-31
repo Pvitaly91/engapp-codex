@@ -8,6 +8,7 @@
     $standaloneTab = in_array($standaloneTab ?? null, ['structure', 'content-management'], true)
       ? $standaloneTab
       : null;
+    $contentManagementTableSettings = $contentManagementTableSettings ?? config('database-structure.content_management.table_settings', []);
   @endphp
 
   <div
@@ -27,6 +28,7 @@
         'menuStore' => route('database-structure.content-management.menu.store'),
         'menuDelete' => route('database-structure.content-management.menu.destroy', ['table' => '__TABLE__']),
       ]),
+      @js($contentManagementTableSettings),
       @js([
         'initialTab' => $currentTab,
         'standaloneTab' => $standaloneTab,
@@ -355,10 +357,10 @@
                           >
                             <option value="">Всі колонки</option>
                             <template x-for="column in table.records.columns" :key="column + '-search-option'">
-                              <option :value="column" x-text="column"></option>
-                            </template>
-                          </select>
-                        </label>
+                          <option :value="column" x-text="column"></option>
+                        </template>
+                      </select>
+                    </label>
                       </div>
                     </div>
                   </div>
@@ -1260,7 +1262,7 @@
                   >
                     <option value="">Всі колонки</option>
                     <template x-for="column in contentManagement.viewer.columns" :key="`cm-search-${column}`">
-                      <option :value="column" x-text="column"></option>
+                      <option :value="column" x-text="contentManagementColumnOptionLabel(column)"></option>
                     </template>
                   </select>
                 </label>
@@ -1290,7 +1292,7 @@
                         >
                           <option value="">Оберіть поле</option>
                           <template x-for="column in contentManagement.viewer.columns" :key="`${column}-content-filter`">
-                            <option :value="column" x-text="column"></option>
+                            <option :value="column" x-text="contentManagementColumnOptionLabel(column)"></option>
                           </template>
                         </select>
                       </label>
@@ -1353,7 +1355,7 @@
                     <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <tr>
                         <template x-for="column in contentManagement.viewer.columns" :key="`cm-column-${column}`">
-                          <th class="px-3 py-2 font-medium" x-text="column"></th>
+                          <th class="px-3 py-2 font-medium" :title="column" x-text="contentManagementColumnHeading(column)"></th>
                         </template>
                       </tr>
                     </thead>
@@ -1428,6 +1430,7 @@
       manualForeignDeleteRoute,
       contentManagementMenu,
       contentManagementRoutes,
+      contentManagementSettings = {},
       viewOptions = {},
     ) {
       const extractTables = (payload) => {
@@ -1632,6 +1635,141 @@
           };
         };
 
+        const normalizeAliasMap = (source) => {
+          const result = {};
+
+          if (!source) {
+            return result;
+          }
+
+          if (Array.isArray(source)) {
+            source.forEach((entry) => {
+              if (!entry) {
+                return;
+              }
+
+              if (Array.isArray(entry)) {
+                if (entry.length < 2) {
+                  return;
+                }
+
+                const [rawColumn, rawAlias] = entry;
+                const columnName = typeof rawColumn === 'string' ? rawColumn.trim() : '';
+                const aliasName = typeof rawAlias === 'string' ? rawAlias.trim() : '';
+
+                if (columnName && aliasName) {
+                  result[columnName] = aliasName;
+                }
+
+                return;
+              }
+
+              if (typeof entry === 'object') {
+                const columnName = typeof entry.column === 'string' ? entry.column.trim() : '';
+                let aliasName = '';
+
+                if (typeof entry.alias === 'string') {
+                  aliasName = entry.alias.trim();
+                } else if (typeof entry.label === 'string') {
+                  aliasName = entry.label.trim();
+                } else if (typeof entry.title === 'string') {
+                  aliasName = entry.title.trim();
+                }
+
+                if (columnName && aliasName) {
+                  result[columnName] = aliasName;
+                }
+              }
+            });
+
+            return result;
+          }
+
+          if (typeof source === 'object') {
+            Object.entries(source).forEach(([rawColumn, rawAlias]) => {
+              const columnName = typeof rawColumn === 'string' ? rawColumn.trim() : '';
+
+              if (!columnName) {
+                return;
+              }
+
+              let aliasName = '';
+
+              if (typeof rawAlias === 'string') {
+                aliasName = rawAlias.trim();
+              } else if (rawAlias && typeof rawAlias === 'object') {
+                if (typeof rawAlias.alias === 'string') {
+                  aliasName = rawAlias.alias.trim();
+                } else if (typeof rawAlias.label === 'string') {
+                  aliasName = rawAlias.label.trim();
+                } else if (typeof rawAlias.title === 'string') {
+                  aliasName = rawAlias.title.trim();
+                }
+              }
+
+              if (aliasName) {
+                result[columnName] = aliasName;
+              }
+            });
+          }
+
+          return result;
+        };
+
+        const normalizeContentManagementTableSettings = (settings) => {
+          if (!settings || typeof settings !== 'object') {
+            return {};
+          }
+
+          const normalized = {};
+
+          Object.entries(settings).forEach(([rawTable, rawConfig]) => {
+            const tableName = typeof rawTable === 'string' ? rawTable.trim() : '';
+
+            if (!tableName) {
+              return;
+            }
+
+            let aliasMap = {};
+
+            if (Array.isArray(rawConfig)) {
+              aliasMap = normalizeAliasMap(rawConfig);
+            } else if (rawConfig && typeof rawConfig === 'object') {
+              const candidates = [
+                rawConfig.aliases,
+                rawConfig.columns,
+                rawConfig.fields,
+                rawConfig.column_aliases,
+                rawConfig.columnAliases,
+              ];
+
+              aliasMap = candidates.reduce((carry, candidate) => {
+                if (Object.keys(carry).length > 0) {
+                  return carry;
+                }
+
+                const normalizedCandidate = normalizeAliasMap(candidate);
+
+                if (Object.keys(normalizedCandidate).length > 0) {
+                  return normalizedCandidate;
+                }
+
+                return carry;
+              }, {});
+
+              if (Object.keys(aliasMap).length === 0) {
+                aliasMap = normalizeAliasMap(rawConfig);
+              }
+            }
+
+            if (Object.keys(aliasMap).length > 0) {
+              normalized[tableName] = aliasMap;
+            }
+          });
+
+          return normalized;
+        };
+
         const createContentManagementViewerState = () => ({
           table: '',
           loading: false,
@@ -1758,6 +1896,7 @@
 
         const normalizedContentManagementMenu = normalizeContentManagementMenu(contentManagementMenu);
         const normalizedContentManagementRoutes = normalizeContentManagementRoutes(contentManagementRoutes);
+        const normalizedContentManagementSettings = normalizeContentManagementTableSettings(contentManagementSettings);
         const normalizedViewOptions =
           viewOptions && typeof viewOptions === 'object' && !Array.isArray(viewOptions)
             ? viewOptions
@@ -1797,6 +1936,7 @@
           contentManagementRoutes: normalizedContentManagementRoutes,
           contentManagement: {
             menu: normalizedContentManagementMenu,
+            settings: normalizedContentManagementSettings,
             menuSettings: {
               open: false,
               table: '',
@@ -2227,6 +2367,78 @@
             }
 
             return normalized;
+          },
+          getContentManagementTableAliases(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized) {
+              return {};
+            }
+
+            const settings = this.contentManagement && this.contentManagement.settings
+              ? this.contentManagement.settings
+              : {};
+
+            const tableAliases = settings && typeof settings === 'object' ? settings[normalized] : null;
+
+            if (!tableAliases || typeof tableAliases !== 'object') {
+              return {};
+            }
+
+            return tableAliases;
+          },
+          getContentManagementColumnAlias(tableName, columnName) {
+            const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedTable || !normalizedColumn) {
+              return '';
+            }
+
+            const aliases = this.getContentManagementTableAliases(normalizedTable);
+            const aliasValue = aliases && typeof aliases === 'object' ? aliases[normalizedColumn] : null;
+
+            if (typeof aliasValue === 'string') {
+              const trimmed = aliasValue.trim();
+
+              if (trimmed !== '') {
+                return trimmed;
+              }
+            }
+
+            return '';
+          },
+          contentManagementColumnHeading(columnName) {
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedColumn) {
+              return '';
+            }
+
+            const alias = this.getContentManagementColumnAlias(
+              this.contentManagement.selectedTable,
+              normalizedColumn,
+            );
+
+            return alias || normalizedColumn;
+          },
+          contentManagementColumnOptionLabel(columnName) {
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedColumn) {
+              return '';
+            }
+
+            const alias = this.getContentManagementColumnAlias(
+              this.contentManagement.selectedTable,
+              normalizedColumn,
+            );
+
+            if (alias && alias !== normalizedColumn) {
+              return `${alias} (${normalizedColumn})`;
+            }
+
+            return normalizedColumn;
           },
           resetContentManagementViewer() {
             const fresh = createContentManagementViewerState();
