@@ -1059,7 +1059,7 @@
     <div
       x-show="contentManagement.tableSettings.open"
       x-cloak
-      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      class="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto px-4 py-6 sm:items-center"
       role="dialog"
       aria-modal="true"
     >
@@ -1068,7 +1068,7 @@
         @click="closeContentManagementTableSettings()"
       ></div>
       <div
-        class="relative z-10 w-full max-w-3xl space-y-5 rounded-3xl border border-border/70 bg-card p-6 shadow-xl"
+        class="relative z-10 w-full max-w-3xl max-h-[90vh] space-y-5 overflow-y-auto rounded-3xl border border-border/70 bg-card p-6 shadow-xl"
         @click.stop
       >
         <div class="flex flex-wrap items-start justify-between gap-4">
@@ -1317,7 +1317,7 @@
           </template>
         </div>
       </aside>
-      <section class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
+      <section class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-4 shadow-soft sm:p-6">
         <template x-if="!contentManagement.selectedTable">
           <div class="flex h-full min-h-[260px] flex-col items-center justify-center gap-3 text-center text-sm text-muted-foreground">
             <i class="fa-regular fa-folder-open text-3xl text-muted-foreground/80"></i>
@@ -1514,8 +1514,8 @@
 
             <template x-if="!contentManagement.viewer.loading && !contentManagement.viewer.error && contentManagement.viewer.rows.length > 0">
               <div class="space-y-4">
-                <div class="overflow-x-auto">
-                  <table class="min-w-full divide-y divide-border/60 text-[15px]">
+                <div class="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+                  <table class="min-w-[640px] divide-y divide-border/60 text-left text-[13px] sm:min-w-full sm:text-[15px]">
                     <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <tr>
                         <template x-for="column in contentManagement.viewer.columns" :key="`cm-column-${column}`">
@@ -1539,7 +1539,7 @@
                         </template>
                       </tr>
                     </thead>
-                    <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
+                    <tbody class="divide-y divide-border/60 text-[13px] text-foreground sm:text-[15px]">
                       <template x-for="(row, rowIndex) in contentManagement.viewer.rows" :key="`cm-row-${rowIndex}`">
                         <tr class="hover:bg-muted/40 transition">
                           <template x-for="column in contentManagement.viewer.columns" :key="`cm-cell-${rowIndex}-${column}`">
