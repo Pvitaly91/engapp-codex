@@ -1057,9 +1057,9 @@
     <div
       x-show="activeTab === 'content-management'"
       x-cloak
-      class="grid gap-6 lg:grid-cols-[280px_1fr]"
+      class="grid gap-6 lg:grid-cols-[280px_1fr] lg:items-start"
     >
-      <aside class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
+      <aside class="self-start space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
         <div class="flex flex-wrap items-start justify-between gap-3">
           <div class="space-y-1">
             <h2 class="text-lg font-semibold text-foreground">Меню таблиць</h2>
@@ -1199,6 +1199,39 @@
               </div>
             </div>
 
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:gap-4">
+              <label class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <span>Пошук записів</span>
+                <div class="relative">
+                  <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+                    <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+                  </span>
+                  <input
+                    type="search"
+                    class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    placeholder="Миттєвий пошук..."
+                    x-model="contentManagement.viewer.searchInput"
+                    @input.debounce.400ms="updateContentManagementSearch($event.target.value)"
+                    @keydown.enter.prevent
+                  />
+                </div>
+              </label>
+              <label class="flex w-full flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:w-56">
+                <span>Поле для пошуку</span>
+                <select
+                  class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                  :disabled="contentManagement.viewer.loading || !Array.isArray(contentManagement.viewer.columns) || contentManagement.viewer.columns.length === 0"
+                  :value="contentManagement.viewer.searchColumn"
+                  @change="updateContentManagementSearchColumn($event.target.value)"
+                >
+                  <option value="">Всі колонки</option>
+                  <template x-for="column in contentManagement.viewer.columns" :key="`cm-search-${column}`">
+                    <option :value="column" x-text="column"></option>
+                  </template>
+                </select>
+              </label>
+            </div>
+
             <template x-if="contentManagement.viewer.error">
               <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="contentManagement.viewer.error"></div>
             </template>
@@ -1227,7 +1260,7 @@
                         <tr class="hover:bg-muted/40 transition">
                           <template x-for="column in contentManagement.viewer.columns" :key="`cm-cell-${rowIndex}-${column}`">
                             <td class="px-3 py-2 align-top">
-                              <div class="text-sm text-foreground" x-text="formatCell(row[column])"></div>
+                              <div class="text-sm text-foreground" x-html="contentManagementHighlight(column, row[column])"></div>
                             </td>
                           </template>
                         </tr>
@@ -1503,6 +1536,9 @@
           error: null,
           columns: [],
           rows: [],
+          search: '',
+          searchInput: '',
+          searchColumn: '',
           page: 1,
           perPage: 20,
           total: 0,
@@ -2098,6 +2134,9 @@
             this.contentManagement.viewer.error = fresh.error;
             this.contentManagement.viewer.columns = fresh.columns;
             this.contentManagement.viewer.rows = fresh.rows;
+            this.contentManagement.viewer.search = fresh.search;
+            this.contentManagement.viewer.searchInput = fresh.searchInput;
+            this.contentManagement.viewer.searchColumn = fresh.searchColumn;
             this.contentManagement.viewer.page = 1;
             this.contentManagement.viewer.perPage = perPage;
             this.contentManagement.viewer.total = fresh.total;
@@ -2117,10 +2156,7 @@
             }
 
             this.contentManagement.selectedTable = normalized;
-            this.contentManagement.viewer.page = 1;
-            this.contentManagement.viewer.error = null;
-            this.contentManagement.viewer.rows = [];
-            this.contentManagement.viewer.columns = [];
+            this.resetContentManagementViewer();
 
             await this.loadContentManagementTable(normalized);
           },
@@ -2169,6 +2205,47 @@
 
             await this.loadContentManagementTable(this.contentManagement.selectedTable);
           },
+          updateContentManagementSearch(value) {
+            const viewer = this.contentManagement.viewer;
+            const rawValue = typeof value === 'string' ? value : '';
+            const normalized = rawValue.trim();
+
+            viewer.searchInput = rawValue;
+
+            if (!this.contentManagement.selectedTable) {
+              viewer.search = normalized;
+              return;
+            }
+
+            if (viewer.search === normalized && viewer.page === 1 && viewer.loaded) {
+              return;
+            }
+
+            viewer.search = normalized;
+            viewer.page = 1;
+
+            this.loadContentManagementTable(this.contentManagement.selectedTable);
+          },
+          updateContentManagementSearchColumn(value) {
+            const viewer = this.contentManagement.viewer;
+            const normalized = typeof value === 'string' ? value.trim() : '';
+            const previous = typeof viewer.searchColumn === 'string' ? viewer.searchColumn.trim() : '';
+
+            if (!this.contentManagement.selectedTable) {
+              viewer.searchColumn = normalized;
+              return;
+            }
+
+            if (previous === normalized && viewer.page === 1 && viewer.loaded) {
+              viewer.searchColumn = normalized;
+              return;
+            }
+
+            viewer.searchColumn = normalized;
+            viewer.page = 1;
+
+            this.loadContentManagementTable(this.contentManagement.selectedTable);
+          },
           async loadContentManagementTable(tableName) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
 
@@ -2197,6 +2274,17 @@
 
               url.searchParams.set('page', currentPage);
               url.searchParams.set('per_page', currentPerPage);
+
+              const searchQuery = typeof viewer.search === 'string' ? viewer.search.trim() : '';
+              const searchColumn = typeof viewer.searchColumn === 'string' ? viewer.searchColumn.trim() : '';
+
+              if (searchQuery) {
+                url.searchParams.set('search', searchQuery);
+              }
+
+              if (searchColumn) {
+                url.searchParams.set('search_column', searchColumn);
+              }
 
               const response = await fetch(url.toString(), {
                 headers: {
@@ -2236,6 +2324,21 @@
                 ? Math.max(1, Number(data.last_page))
                 : Math.max(1, Math.ceil((viewer.total || 0) / (viewer.perPage || 1)));
               viewer.table = normalized;
+              if (typeof data.search === 'string') {
+                viewer.search = data.search.trim();
+                viewer.searchInput = data.search;
+              }
+              const responseSearchColumn = typeof data.search_column === 'string'
+                ? data.search_column.trim()
+                : viewer.searchColumn;
+              viewer.searchColumn = responseSearchColumn || '';
+              if (
+                viewer.searchColumn &&
+                Array.isArray(viewer.columns) &&
+                !viewer.columns.includes(viewer.searchColumn)
+              ) {
+                viewer.searchColumn = '';
+              }
               viewer.loaded = true;
             } catch (error) {
               if (viewer.requestId !== requestId) {
@@ -2251,6 +2354,22 @@
                 viewer.loading = false;
               }
             }
+          },
+          contentManagementHighlight(columnName, value) {
+            const text = this.formatCell(value);
+            const searchTerm = typeof this.contentManagement.viewer.search === 'string'
+              ? this.contentManagement.viewer.search
+              : '';
+            const selectedColumn = typeof this.contentManagement.viewer.searchColumn === 'string'
+              ? this.contentManagement.viewer.searchColumn.trim()
+              : '';
+            const currentColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!searchTerm || (selectedColumn && selectedColumn !== currentColumn)) {
+              return this.escapeHtml(text);
+            }
+
+            return this.highlightText(text, searchTerm);
           },
         syncBodyScrollLock() {
           const shouldLock =
