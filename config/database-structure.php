@@ -12,9 +12,12 @@ return array (
     array (
       0 => 
       array (
-        'table' => 'questions',
-        'label' => 'questions',
+        'table' => 'pages',
+        'label' => 'pages',
       ),
+    ),
+    'table_settings' => 
+    array (
     ),
   ),
 );
