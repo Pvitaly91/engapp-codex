@@ -1068,7 +1068,7 @@
         @click="closeContentManagementTableSettings()"
       ></div>
       <div
-        class="relative z-10 w-full max-w-3xl max-h-[90vh] space-y-5 overflow-y-auto rounded-3xl border border-border/70 bg-card p-6 shadow-xl"
+        class="relative z-10 w-full max-w-3xl max-h-[calc(100vh-3rem)] space-y-5 overflow-y-auto rounded-3xl border border-border/70 bg-card p-6 shadow-xl sm:max-h-[90vh]"
         @click.stop
       >
         <div class="flex flex-wrap items-start justify-between gap-4">
@@ -1214,14 +1214,56 @@
     <div
       x-show="activeTab === 'content-management'"
       x-cloak
-      class="grid gap-6 lg:grid-cols-[280px_1fr] lg:items-start"
+      class="space-y-4 sm:space-y-6"
     >
-      <aside class="self-start space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
-        <div class="flex flex-wrap items-start justify-between gap-3">
-          <div class="space-y-1">
-            <h2 class="text-lg font-semibold text-foreground">Меню таблиць</h2>
-            <p class="text-xs text-muted-foreground">Виберіть таблицю або налаштуйте список.</p>
+      <div class="flex flex-col gap-3 sm:hidden">
+        <div class="flex items-center justify-between gap-3">
+          <div class="space-y-0.5">
+            <h2 class="text-base font-semibold text-foreground">Меню таблиць</h2>
+            <p class="text-xs text-muted-foreground">
+              <span x-show="contentManagement.selectedTable" x-cloak>
+                Активна таблиця:
+                <span class="font-semibold text-foreground" x-text="contentManagementLabel(contentManagement.selectedTable)"></span>
+              </span>
+              <span x-show="!contentManagement.selectedTable" x-cloak>
+                Виберіть таблицю для перегляду даних.
+              </span>
+            </p>
           </div>
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="toggleContentManagementMobileMenu()"
+            :aria-expanded="contentManagement.mobileMenuOpen"
+          >
+            <i
+              class="fa-solid"
+              :class="contentManagement.mobileMenuOpen ? 'fa-chevron-up' : 'fa-table-list'"
+            ></i>
+            <span x-text="contentManagement.mobileMenuOpen ? 'Сховати меню' : 'Показати меню'"></span>
+          </button>
+        </div>
+        <p
+          class="text-xs text-muted-foreground"
+          x-show="contentManagement.mobileMenuOpen"
+          x-cloak
+        >
+          Торкніться назви таблиці, щоб завантажити дані.
+        </p>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-[280px_1fr] lg:items-start">
+        <aside
+          class="self-start space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft sm:block"
+          :class="contentManagement.mobileMenuOpen ? 'block sm:block' : 'hidden sm:block'"
+          x-cloak
+          x-transition
+        >
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div class="space-y-1">
+              <h2 class="text-lg font-semibold text-foreground">Меню таблиць</h2>
+              <p class="text-xs text-muted-foreground">Виберіть таблицю або налаштуйте список.</p>
+            </div>
           <button
             type="button"
             class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
@@ -1316,8 +1358,8 @@
             </div>
           </template>
         </div>
-      </aside>
-      <section class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-4 shadow-soft sm:p-6">
+        </aside>
+        <section class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-4 shadow-soft sm:p-6">
         <template x-if="!contentManagement.selectedTable">
           <div class="flex h-full min-h-[260px] flex-col items-center justify-center gap-3 text-center text-sm text-muted-foreground">
             <i class="fa-regular fa-folder-open text-3xl text-muted-foreground/80"></i>
@@ -1361,6 +1403,37 @@
                   >
                     <i class="fa-solid fa-gear text-[11px]"></i>
                     Конфіг таблиці
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-2 sm:hidden">
+                <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
+                  <span>Сортувати за полем</span>
+                  <select
+                    class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                    :value="contentManagement.viewer.sort"
+                    :disabled="contentManagement.viewer.loading || !Array.isArray(contentManagement.viewer.columns) || contentManagement.viewer.columns.length === 0"
+                    @change="updateContentManagementSort($event.target.value)"
+                  >
+                    <option value="">Без сортування</option>
+                    <template x-for="column in contentManagement.viewer.columns" :key="`cm-mobile-sort-${column}`">
+                      <option :value="column" x-text="contentManagementColumnOptionLabel(column)"></option>
+                    </template>
+                  </select>
+                </label>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                    :disabled="!contentManagement.viewer.sort || contentManagement.viewer.loading"
+                    @click="toggleContentManagementSortDirection()"
+                  >
+                    <i
+                      class="fa-solid text-[11px]"
+                      :class="contentManagement.viewer.direction === 'desc' ? 'fa-arrow-down-wide-short' : 'fa-arrow-up-short-wide'"
+                    ></i>
+                    <span x-text="contentManagement.viewer.direction === 'desc' ? 'За спаданням' : 'За зростанням'"></span>
                   </button>
                 </div>
               </div>
@@ -1514,8 +1587,27 @@
 
             <template x-if="!contentManagement.viewer.loading && !contentManagement.viewer.error && contentManagement.viewer.rows.length > 0">
               <div class="space-y-4">
-                <div class="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-                  <table class="min-w-[640px] divide-y divide-border/60 text-left text-[13px] sm:min-w-full sm:text-[15px]">
+                <div class="space-y-3 sm:hidden">
+                  <template x-for="(row, rowIndex) in contentManagement.viewer.rows" :key="`cm-card-${rowIndex}`">
+                    <article class="rounded-2xl border border-border/70 bg-background/80 p-4 shadow-soft/30">
+                      <div class="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Запис</span>
+                        <span class="font-semibold text-foreground" x-text="rowIndex + 1 + (contentManagement.viewer.page - 1) * contentManagement.viewer.perPage"></span>
+                      </div>
+                      <div class="mt-3 space-y-3">
+                        <template x-for="column in contentManagement.viewer.columns" :key="`cm-card-cell-${rowIndex}-${column}`">
+                          <div class="space-y-1">
+                            <span class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" x-text="contentManagementColumnHeading(column)"></span>
+                            <div class="rounded-xl bg-muted/20 px-3 py-2 text-sm text-foreground break-words" x-html="contentManagementHighlight(column, row[column])"></div>
+                          </div>
+                        </template>
+                      </div>
+                    </article>
+                  </template>
+                </div>
+
+                <div class="hidden -mx-4 overflow-x-auto px-4 sm:mx-0 sm:block sm:px-0">
+                  <table class="min-w-full divide-y divide-border/60 text-left text-[13px] sm:text-[15px]">
                     <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <tr>
                         <template x-for="column in contentManagement.viewer.columns" :key="`cm-column-${column}`">
@@ -2259,6 +2351,7 @@
               loading: false,
               error: null,
             },
+            mobileMenuOpen: true,
           },
           csrfToken:
             document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
@@ -2323,6 +2416,10 @@
             });
 
             this.$watch('contentManagement.menuSettings.open', (open) => {
+              if (open) {
+                this.contentManagement.mobileMenuOpen = true;
+              }
+
               if (open && !this.contentManagement.menuSettings.table) {
                 const available = this.contentManagementAvailableTables;
 
@@ -2334,6 +2431,12 @@
 
             this.$watch('contentManagement.tableSettings.open', () => {
               this.syncBodyScrollLock();
+            });
+
+            this.$watch('activeTab', (tab) => {
+              if (tab !== 'content-management') {
+                this.contentManagement.mobileMenuOpen = false;
+              }
             });
 
             this.$watch('contentManagement.menu', (menu) => {
@@ -2355,7 +2458,7 @@
                 const firstItem = this.contentManagement.menu[0];
 
                 if (firstItem && firstItem.table) {
-                  this.selectContentManagementTable(firstItem.table);
+                  this.selectContentManagementTable(firstItem.table, { closeMenu: false });
                 }
               }
             });
@@ -2369,7 +2472,7 @@
               const firstItem = this.contentManagement.menu[0];
 
               if (firstItem && firstItem.table) {
-                this.selectContentManagementTable(firstItem.table);
+                this.selectContentManagementTable(firstItem.table, { closeMenu: false });
               }
             }
           },
@@ -2440,7 +2543,7 @@
                 const firstItem = this.contentManagement.menu[0];
 
                 if (firstItem && firstItem.table) {
-                  this.selectContentManagementTable(firstItem.table);
+                  this.selectContentManagementTable(firstItem.table, { closeMenu: false });
                 }
               }
 
@@ -2530,6 +2633,12 @@
                 [this.contentManagement.menuSettings.table] = available;
               }
             }
+          },
+          toggleContentManagementMobileMenu() {
+            this.contentManagement.mobileMenuOpen = !this.contentManagement.mobileMenuOpen;
+          },
+          closeContentManagementMobileMenu() {
+            this.contentManagement.mobileMenuOpen = false;
           },
           closeContentManagementMenuSettings() {
             this.contentManagement.menuSettings.open = false;
@@ -3224,7 +3333,7 @@
             this.contentManagement.viewer.requestId = fresh.requestId;
             this.contentManagement.viewer.loaded = fresh.loaded;
           },
-          async selectContentManagementTable(tableName) {
+          async selectContentManagementTable(tableName, options = {}) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
 
             if (!normalized) {
@@ -3235,7 +3344,12 @@
               return;
             }
 
+            const shouldCloseMenu = options && options.closeMenu !== false;
+
             this.contentManagement.selectedTable = normalized;
+            if (shouldCloseMenu) {
+              this.closeContentManagementMobileMenu();
+            }
             this.resetContentManagementViewer();
 
             await this.loadContentManagementTable(normalized);
@@ -3307,6 +3421,48 @@
 
             viewer.page = 1;
             this.loadContentManagementTable(this.contentManagement.selectedTable);
+          },
+          updateContentManagementSort(column) {
+            if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
+              return;
+            }
+
+            const viewer = this.contentManagement.viewer;
+            const normalized = typeof column === 'string' ? column.trim() : '';
+
+            if (normalized) {
+              if (Array.isArray(viewer.columns) && !viewer.columns.includes(normalized)) {
+                return;
+              }
+
+              if (viewer.sort === normalized) {
+                return;
+              }
+
+              viewer.sort = normalized;
+              viewer.direction = 'asc';
+            } else {
+              if (!viewer.sort) {
+                return;
+              }
+
+              viewer.sort = '';
+              viewer.direction = 'asc';
+            }
+
+            viewer.page = 1;
+            this.loadContentManagementTable(this.contentManagement.selectedTable);
+          },
+          toggleContentManagementSortDirection() {
+            const current = typeof this.contentManagement.viewer.sort === 'string'
+              ? this.contentManagement.viewer.sort.trim()
+              : '';
+
+            if (!current) {
+              return;
+            }
+
+            this.toggleContentManagementSort(current);
           },
           addContentManagementFilter() {
             if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
