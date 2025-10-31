@@ -14,6 +14,7 @@ class DatabaseStructureFetcher
     private Connection $connection;
     private ?array $structureCache = null;
     private ?array $structureSummaryCache = null;
+    private ?array $manualRelationsCache = null;
 
     public function __construct()
     {
@@ -21,6 +22,13 @@ class DatabaseStructureFetcher
         $this->connection = $connectionName
             ? DB::connection($connectionName)
             : DB::connection();
+    }
+
+    public function clearCache(): void
+    {
+        $this->structureCache = null;
+        $this->structureSummaryCache = null;
+        $this->manualRelationsCache = null;
     }
 
     public function getStructure(): array
@@ -31,13 +39,17 @@ class DatabaseStructureFetcher
 
         $driver = $this->connection->getDriverName();
 
-        return $this->structureCache = match ($driver) {
+        $structure = match ($driver) {
             'mysql' => $this->structureFromMySql(),
             'pgsql' => $this->structureFromPostgres(),
             'sqlite' => $this->structureFromSqlite(),
             'sqlsrv' => $this->structureFromSqlServer(),
             default => throw new RuntimeException("Database driver '{$driver}' is not supported."),
         };
+
+        $structureWithManualRelations = $this->applyManualForeignDefinitions($structure);
+
+        return $this->structureCache = $structureWithManualRelations;
     }
 
     public function getStructureSummary(): array
@@ -700,7 +712,165 @@ class DatabaseStructureFetcher
             'constraint' => $constraint !== '' ? $constraint : null,
             'display_column' => $displayColumn !== '' ? $displayColumn : null,
             'label_columns' => $labelColumns,
+            'manual' => isset($foreign['manual']) && $foreign['manual'] ? true : false,
         ];
+    }
+
+    private function getManualRelations(): array
+    {
+        if ($this->manualRelationsCache !== null) {
+            return $this->manualRelationsCache;
+        }
+
+        $relations = config('database-structure.manual_relations', []);
+
+        if (!is_array($relations)) {
+            return $this->manualRelationsCache = [];
+        }
+
+        $normalized = [];
+
+        foreach ($relations as $table => $columns) {
+            if (!is_string($table) || trim($table) === '' || !is_array($columns)) {
+                continue;
+            }
+
+            $tableName = trim($table);
+
+            foreach ($columns as $column => $definition) {
+                if (!is_string($column) || trim($column) === '' || !is_array($definition)) {
+                    continue;
+                }
+
+                $normalized[$tableName][trim($column)] = $definition;
+            }
+        }
+
+        return $this->manualRelationsCache = $normalized;
+    }
+
+    private function applyManualForeignDefinitions(array $structure): array
+    {
+        $manualRelations = $this->getManualRelations();
+
+        if (empty($manualRelations)) {
+            return $structure;
+        }
+
+        $structureByTable = [];
+
+        foreach ($structure as $table) {
+            if (!is_array($table)) {
+                continue;
+            }
+
+            $name = $table['name'] ?? null;
+
+            if (is_string($name) && $name !== '') {
+                $structureByTable[$name] = $table;
+            }
+        }
+
+        foreach ($structure as &$table) {
+            if (!is_array($table)) {
+                continue;
+            }
+
+            $tableName = $table['name'] ?? null;
+
+            if (!is_string($tableName) || $tableName === '') {
+                continue;
+            }
+
+            if (!isset($table['columns']) || !is_array($table['columns'])) {
+                continue;
+            }
+
+            foreach ($table['columns'] as &$column) {
+                if (!is_array($column)) {
+                    continue;
+                }
+
+                $columnName = $column['name'] ?? null;
+
+                if (!is_string($columnName) || $columnName === '') {
+                    continue;
+                }
+
+                if (isset($column['foreign']) && is_array($column['foreign'])) {
+                    $column['foreign']['manual'] = $column['foreign']['manual'] ?? false;
+                    continue;
+                }
+
+                $definition = $manualRelations[$tableName][$columnName] ?? null;
+
+                if (!is_array($definition)) {
+                    continue;
+                }
+
+                $manualDefinition = $this->prepareManualForeignDefinition($definition, $structureByTable);
+
+                if ($manualDefinition !== null) {
+                    $column['foreign'] = $manualDefinition;
+                }
+            }
+
+            unset($column);
+        }
+
+        unset($table);
+
+        return $structure;
+    }
+
+    private function prepareManualForeignDefinition(array $definition, array $structureByTable): ?array
+    {
+        $table = isset($definition['table']) && is_string($definition['table'])
+            ? trim($definition['table'])
+            : '';
+        $column = isset($definition['column']) && is_string($definition['column'])
+            ? trim($definition['column'])
+            : '';
+
+        if ($table === '' || $column === '') {
+            return null;
+        }
+
+        $displayColumn = isset($definition['display_column']) && is_string($definition['display_column'])
+            ? trim($definition['display_column'])
+            : '';
+
+        $labelColumns = [];
+
+        if (isset($definition['label_columns']) && is_array($definition['label_columns'])) {
+            foreach ($definition['label_columns'] as $labelColumn) {
+                if (is_string($labelColumn) && trim($labelColumn) !== '') {
+                    $labelColumns[] = trim($labelColumn);
+                }
+            }
+        }
+
+        if (empty($labelColumns)) {
+            $referencedTable = $structureByTable[$table]['columns'] ?? null;
+
+            if (is_array($referencedTable)) {
+                $labelColumns = $this->guessLabelColumns($referencedTable, $column);
+            }
+        }
+
+        $payload = [
+            'table' => $table,
+            'column' => $column,
+            'display_column' => $displayColumn !== '' ? $displayColumn : null,
+            'label_columns' => $labelColumns,
+            'manual' => true,
+        ];
+
+        if ($payload['display_column'] === null && !empty($labelColumns)) {
+            $payload['display_column'] = $labelColumns[0];
+        }
+
+        return $payload;
     }
 
     /**

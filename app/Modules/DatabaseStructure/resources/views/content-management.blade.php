@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Структура бази даних')
+@section('title', 'Content Management')
 
 @section('content')
   <div
@@ -16,8 +16,9 @@
       @js(route('database-structure.manual-foreign.store', ['table' => '__TABLE__', 'column' => '__COLUMN__'])),
       @js(route('database-structure.manual-foreign.destroy', ['table' => '__TABLE__', 'column' => '__COLUMN__'])),
       @js(route('database-structure.content-management.menu.store')),
-      @js($contentManagementMenu)
+      @js($contentManagementMenu),
     )"
+    x-init="activeTab = 'content-management'; ensureContentManagementData();"
     @keydown.window.escape.prevent="handleEscape()"
   >
     <header class="rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
@@ -28,10 +29,9 @@
             Інструмент адміністрування
           </p>
           <div class="space-y-2">
-            <h1 class="text-3xl font-semibold text-foreground">Структура бази даних</h1>
+            <h1 class="text-3xl font-semibold text-foreground">Content Management</h1>
             <p class="max-w-2xl text-sm text-muted-foreground">
-              Цей модуль відображає таблиці поточного з'єднання Laravel, їх поля та типи.
-              Ви можете використати його на будь-якому проєкті, просто підключивши сервіс-провайдер.
+              Керуйте записами вибраних таблиць через зручний інтерфейс з фільтрами, пошуком та попереднім переглядом.
             </p>
           </div>
         </div>
@@ -56,216 +56,117 @@
       </div>
       <div class="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div class="text-xs text-muted-foreground">
-          Натисніть на назву таблиці, щоб розгорнути або згорнути деталі.
+          Використовуйте меню зліва, щоб обрати таблицю для роботи.
         </div>
         <div class="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
           <a
-            href="{{ route('database-structure.content-management') }}"
-            class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+            href="{{ route('database-structure.index') }}"
+            class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
           >
-            <i class="fa-solid fa-table-list text-[11px]"></i>
-            Content Management
+            <i class="fa-solid fa-database text-[11px]"></i>
+            Структура БД
           </a>
-          <div class="relative w-full sm:w-72 md:w-80">
-            <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
-              <i class="fa-solid fa-magnifying-glass text-sm"></i>
-            </span>
-            <input
-              type="search"
-              placeholder="Пошук за таблицями або полями..."
-              class="w-full rounded-2xl border border-input bg-background py-2 pl-10 pr-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-              x-model.trim="query"
-            />
-          </div>
         </div>
       </div>
     </header>
 
-
-    <template x-if="filteredTables.length === 0">
-      <div class="mt-6 rounded-3xl border border-dashed border-border/60 bg-muted/30 p-10 text-center text-sm text-muted-foreground">
-        Нічого не знайдено. Змініть пошуковий запит або скиньте фільтр.
-      </div>
-    </template>
-
-    <div class="space-y-6">
-      <template x-for="table in filteredTables" :key="table.name">
-        <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
-          <header
-            class="flex flex-col gap-4 border-b border-border/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between cursor-pointer"
-            @click="toggleTable(table)"
-          >
-            <div class="space-y-1">
-              <div class="flex items-center gap-3">
-                <h2 class="text-xl font-semibold text-foreground" x-html="highlightQuery(table.name)"></h2>
-                <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="table.columnsCount + ' полів'"></span>
-              </div>
-              <p class="text-sm text-muted-foreground" x-show="table.comment" x-html="highlightQuery(table.comment)"></p>
-            </div>
-            <div class="flex items-center gap-3">
-              <template x-if="table.engine">
-                <span class="rounded-full border border-border/70 bg-background px-3 py-1 text-xs font-medium text-muted-foreground" x-html="highlightQuery(table.engine)"></span>
-              </template>
-              <i class="fa-solid fa-chevron-down text-muted-foreground transition-transform duration-200" :class="{ 'rotate-180': table.open }"></i>
-            </div>
-          </header>
-          <div x-show="table.open" x-collapse>
-            <div class="px-6 py-5">
-              <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Структура таблиці</h3>
+      <div class="mt-6 rounded-3xl border border-border/70 bg-card shadow-soft">
+        <div class="grid gap-0 lg:grid-cols-[260px,1fr]">
+          <aside class="border-b border-border/60 bg-background/60 p-6 lg:border-b-0 lg:border-r">
+            <div class="flex items-center justify-between gap-2">
+              <h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Меню таблиць</h2>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary" x-text="contentManagement.menu.length + ' шт.'"></span>
                 <button
                   type="button"
-                  class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                  @click.stop="table.structureVisible = !table.structureVisible"
+                  class="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-[11px] font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="!contentManagementMenuRoutes.store"
+                  @click="openContentManagementMenuModal()"
                 >
-                  <i class="fa-solid" :class="table.structureVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
-                  <span x-text="table.structureVisible ? 'Сховати структуру' : 'Показати структуру'"></span>
+                  <i class="fa-solid fa-plus text-[9px]"></i>
+                  <span>Додати таблицю</span>
                 </button>
               </div>
-              <div x-show="table.structureVisible" x-collapse>
-                <div class="mt-4 space-y-3">
-                  <template x-if="table.structure.loading">
-                    <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
-                      Завантаження структури...
-                    </div>
-                  </template>
-                  <template x-if="!table.structure.loading && table.structure.error">
-                    <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="table.structure.error"></div>
-                  </template>
-                  <template x-if="!table.structure.loading && !table.structure.error && table.structure.loaded && table.structure.columns.length === 0">
-                    <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
-                      Структуру таблиці не знайдено.
-                    </div>
-                  </template>
-                  <template x-if="!table.structure.loading && table.structure.columns.length > 0">
-                    <div class="overflow-x-auto">
-                      <table class="min-w-full divide-y divide-border/60 text-[15px]">
-                        <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
-                          <tr>
-                            <th class="pb-3 pr-4 font-medium">Поле</th>
-                            <th class="pb-3 pr-4 font-medium">Тип</th>
-                            <th class="pb-3 pr-4 font-medium">Null</th>
-                            <th class="pb-3 pr-4 font-medium">За замовчуванням</th>
-                            <th class="pb-3 pr-4 font-medium">Ключ</th>
-                            <th class="pb-3 pr-4 font-medium">Додатково</th>
-                            <th class="pb-3 font-medium">Коментар</th>
-                          </tr>
-                        </thead>
-                        <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
-                          <template x-for="column in table.structure.columns" :key="column.name">
-                            <tr class="hover:bg-muted/40 transition">
-                              <td class="py-2 pr-4 font-medium">
-                                <div class="flex flex-col gap-1">
-                                  <span x-html="highlightQuery(column.name)"></span>
-                                  <template x-if="column.foreign">
-                                    <span class="inline-flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                                      <i class="fa-solid fa-link" :class="column.foreign.manual ? 'text-amber-500' : 'text-primary'"></i>
-                                      <span>
-                                        <span x-text="column.name"></span>
-                                        <span> -&gt; </span>
-                                        <span x-text="column.foreign.table"></span>
-                                        <span>.</span>
-                                        <span x-text="column.foreign.column"></span>
-                                      </span>
-                                      <template x-if="column.foreign.manual">
-                                        <span class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-600">
-                                          Ручний зв'язок
-                                        </span>
-                                      </template>
-                                    </span>
-                                  </template>
-                                  <template x-if="(!column.foreign || column.foreign.manual) && manualForeignRoutes.store">
-                                    <div class="flex flex-wrap items-center gap-2 text-xs">
-                                      <button
-                                        type="button"
-                                        class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-1 focus:ring-primary/40"
-                                        @click.stop="openManualForeignModal(table, column)"
-                                      >
-                                        <i class="fa-solid fa-plug text-[10px]"></i>
-                                        <span x-text="column.foreign && column.foreign.manual ? 'Змінити ручний зв\'язок' : 'Налаштувати зв\'язок'"></span>
-                                      </button>
-                                      <template x-if="column.foreign && column.foreign.manual && manualForeignRoutes.delete">
-                                        <button
-                                          type="button"
-                                          class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-[11px] font-semibold text-rose-600 transition hover:border-rose-300 hover:bg-rose-50 focus:outline-none focus:ring-1 focus:ring-rose-200/70"
-                                          @click.stop="confirmManualForeignRemoval(table, column)"
-                                        >
-                                          <i class="fa-solid fa-trash text-[10px]"></i>
-                                          Видалити
-                                        </button>
-                                      </template>
-                                    </div>
-                                  </template>
-                                  <template x-if="getManualForeignError(table.name, column.name)">
-                                    <div class="text-xs text-rose-600" x-text="getManualForeignError(table.name, column.name)"></div>
-                                  </template>
-                                </div>
-                              </td>
-                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.type)"></td>
-                              <td class="py-2 pr-4">
-                                <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-semibold" :class="column.nullable ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'" x-text="column.nullable ? 'Так' : 'Ні'"></span>
-                              </td>
-                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.default ?? '—')"></td>
-                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.key ?? '—')"></td>
-                              <td class="py-2 pr-4 text-muted-foreground" x-html="highlightQuery(column.extra ?? '—')"></td>
-                              <td class="py-2 text-muted-foreground" x-html="highlightQuery(column.comment ?? '—')"></td>
-                            </tr>
-                            <template x-if="column.foreign && (column.foreign.constraint || column.foreign.displayColumn || column.foreign.manual)">
-                              <tr>
-                                <td colspan="7" class="bg-primary/5 px-6 py-3 text-sm text-muted-foreground">
-                                  <div class="flex items-start gap-3">
-                                    <span class="mt-0.5 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                                      <i class="fa-solid fa-database"></i>
-                                    </span>
-                                    <div class="space-y-1">
-                                      <template x-if="column.foreign.manual">
-                                        <div>
-                                          Тип зв'язку:
-                                          <span class="font-medium text-amber-600">Ручний (конфігурація)</span>
-                                        </div>
-                                      </template>
-                                      <template x-if="column.foreign.constraint">
-                                        <div>
-                                          Обмеження:
-                                          <span class="font-medium text-foreground" x-text="column.foreign.constraint"></span>
-                                        </div>
-                                      </template>
-                                      <template x-if="column.foreign.displayColumn">
-                                        <div>
-                                          Колонка для відображення:
-                                          <span class="font-medium text-foreground" x-text="column.foreign.displayColumn"></span>
-                                        </div>
-                                      </template>
-                                    </div>
-                                  </div>
-                                </td>
-                              </tr>
-                            </template>
-                          </template>
-                        </tbody>
-                      </table>
-                    </div>
-                  </template>
-                </div>
-              </div>
             </div>
-            <div class="border-t border-border/60 px-6 py-5">
-              <div class="flex flex-wrap items-center gap-3">
-                <button
-                  type="button"
-                  class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40"
-                  @click.stop="toggleRecords(table)"
-                  x-text="table.records.visible ? 'Сховати записи' : 'Показати записи'"
-                ></button>
-                <template x-if="table.records.loading">
-                  <span class="text-xs text-muted-foreground">Завантаження записів...</span>
+            <template x-if="contentManagement.menu.length === 0">
+              <p class="mt-4 rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-xs text-muted-foreground">
+                Меню порожнє. Додайте записи у конфігурації
+                <code class="rounded bg-background px-1 text-[11px] text-foreground">database-structure.content_management.menu</code>.
+              </p>
+            </template>
+            <template x-if="contentManagement.menu.length > 0">
+              <nav class="mt-4 space-y-2">
+                <template x-for="item in contentManagement.menu" :key="item.key">
+                  <button
+                    type="button"
+                    class="flex w-full flex-col gap-1 rounded-2xl border px-4 py-3 text-left transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                    :class="contentManagement.activeKey === item.key ? 'border-primary/50 bg-primary/10 text-primary shadow-soft/40' : 'border-border/60 bg-background text-muted-foreground hover:border-primary/40 hover:text-primary'"
+                    @click="selectContentMenuItem(item.key)"
+                  >
+                    <span class="text-sm font-semibold" x-text="item.label"></span>
+                    <span class="text-xs text-muted-foreground" x-show="item.description" x-text="item.description"></span>
+                    <span class="mt-2 inline-flex items-center gap-2 text-[11px] text-muted-foreground/80">
+                      <i class="fa-solid fa-table text-[10px]"></i>
+                      <span x-text="item.table"></span>
+                    </span>
+                  </button>
                 </template>
-                <template x-if="table.records.error">
-                  <span class="text-xs text-rose-600" x-text="table.records.error"></span>
-                </template>
+              </nav>
+            </template>
+          </aside>
+          <section class="p-6">
+            <template x-if="contentManagement.menu.length === 0">
+              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-6 text-sm text-muted-foreground">
+                Налаштуйте меню ліворуч, щоб обрати таблиці для керування контентом.
               </div>
+            </template>
+            <template x-if="contentManagement.menu.length > 0 && !contentManagementActiveTable && !contentManagementActiveItem">
+              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-6 text-sm text-muted-foreground">
+                Виберіть таблицю з меню ліворуч, щоб переглянути записи.
+              </div>
+            </template>
+            <template x-if="contentManagement.menu.length > 0 && contentManagementActiveItem && !contentManagementActiveTable">
+              <div class="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-700">
+                Таблицю
+                <span class="font-semibold text-amber-800" x-text="contentManagementActiveItem.table"></span>
+                не знайдено у структурі бази даних. Перевірте налаштування меню.
+              </div>
+            </template>
+            <template x-if="contentManagementActiveTable">
+              <div
+                x-data="{ table: contentManagementActiveTable }"
+                x-effect="table = $root.contentManagementActiveTable"
+                class="space-y-6"
+              >
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                      Content Management
+                    </div>
+                    <h2 class="mt-3 text-2xl font-semibold text-foreground" x-text="table.name"></h2>
+                    <p class="mt-1 text-sm text-muted-foreground" x-show="table.comment" x-text="table.comment"></p>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                      @click.prevent="$root.loadRecords(table)"
+                      :disabled="table.records.loading"
+                    >
+                      <i class="fa-solid fa-rotate-right text-[10px]"></i>
+                      Оновити записи
+                    </button>
+                    <button
+                      type="button"
+                      class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                      @click.prevent="$root.ensureStructureLoaded(table)"
+                    >
+                      <i class="fa-solid fa-table-columns text-[10px]"></i>
+                      Оновити структуру
+                    </button>
+                  </div>
+                </div>
 
-              <div x-show="table.records.visible" x-collapse class="mt-4 space-y-4">
                 <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-[15px] text-muted-foreground">
                   <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -274,7 +175,7 @@
                         <button
                           type="button"
                           class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
-                          @click.stop="addFilter(table)"
+                          @click.stop="$root.addFilter(table)"
                           :disabled="table.records.loading"
                         >
                           <i class="fa-solid fa-plus text-[10px]"></i>
@@ -284,7 +185,7 @@
                           type="button"
                           class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
                           :disabled="table.records.filters.length === 0 || table.records.loading"
-                          @click.stop="resetFilters(table)"
+                          @click.stop="$root.resetFilters(table)"
                         >
                           <i class="fa-solid fa-rotate-left text-[10px]"></i>
                           Скинути
@@ -293,7 +194,7 @@
                           type="button"
                           class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
                           :disabled="table.records.loading"
-                          @click.stop="applyFilters(table)"
+                          @click.stop="$root.applyFilters(table)"
                         >
                           <i class="fa-solid fa-filter text-[10px]"></i>
                           Застосувати
@@ -312,7 +213,7 @@
                             class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                             placeholder="Миттєвий пошук за вибраною колонкою або всіма..."
                             x-model="table.records.searchInput"
-                            @input.debounce.500ms="updateSearch(table, $event.target.value)"
+                            @input.debounce.500ms="$root.updateSearch(table, $event.target.value)"
                           />
                         </div>
                         <label class="flex flex-col gap-1 text-[12px] font-semibold uppercase tracking-wide text-muted-foreground sm:w-48">
@@ -321,7 +222,7 @@
                             class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
                             :disabled="table.records.loading || !table.records.columns || table.records.columns.length === 0"
                             :value="table.records.searchColumn"
-                            @change="updateSearchColumn(table, $event.target.value)"
+                            @change="$root.updateSearchColumn(table, $event.target.value)"
                           >
                             <option value="">Всі колонки</option>
                             <template x-for="column in table.records.columns" :key="column + '-search-option'">
@@ -365,14 +266,14 @@
                               x-model="filter.operator"
                               :disabled="table.records.loading"
                             >
-                              <template x-for="option in filterOperators" :key="option.value">
+                              <template x-for="option in $root.filterOperators" :key="option.value">
                                 <option :value="option.value" x-text="option.label"></option>
                               </template>
                             </select>
                           </label>
                           <label
                             class="flex flex-1 flex-col gap-1 text-[15px] font-semibold uppercase tracking-wide text-muted-foreground/80"
-                            x-show="operatorRequiresValue(filter.operator)"
+                            x-show="$root.operatorRequiresValue(filter.operator)"
                           >
                             <span>Значення</span>
                             <input
@@ -387,7 +288,7 @@
                         <button
                           type="button"
                           class="inline-flex items-center justify-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1.5 text-[15px] font-semibold text-muted-foreground transition hover:border-rose-300 hover:text-rose-500"
-                          @click.stop="removeFilter(table, filterIndex)"
+                          @click.stop="$root.removeFilter(table, filterIndex)"
                           :disabled="table.records.loading"
                         >
                           <i class="fa-solid fa-xmark text-[10px]"></i>
@@ -416,7 +317,7 @@
                           <select
                             class="rounded-xl border border-input bg-background px-3 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                             :value="table.records.perPage"
-                            @change="changePerPage(table, $event.target.value)"
+                            @change="$root.changePerPage(table, $event.target.value)"
                           >
                             <option value="10">10</option>
                             <option value="20">20</option>
@@ -429,7 +330,7 @@
                             type="button"
                             class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
                             :disabled="table.records.page <= 1"
-                            @click="changePage(table, table.records.page - 1)"
+                            @click="$root.changePage(table, table.records.page - 1)"
                           >
                             <i class="fa-solid fa-chevron-left text-[10px]"></i>
                             Попередня
@@ -442,7 +343,7 @@
                             type="button"
                             class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
                             :disabled="table.records.page >= table.records.lastPage"
-                            @click="changePage(table, table.records.page + 1)"
+                            @click="$root.changePage(table, table.records.page + 1)"
                           >
                             Наступна
                             <i class="fa-solid fa-chevron-right text-[10px]"></i>
@@ -460,7 +361,7 @@
                                 <button
                                   type="button"
                                   class="inline-flex items-center gap-1 text-left text-xs font-semibold uppercase tracking-wide transition hover:text-primary"
-                                  @click.stop="toggleSort(table, column)"
+                                  @click.stop="$root.toggleSort(table, column)"
                                 >
                                   <span x-text="column"></span>
                                   <template x-if="table.records.sort === column">
@@ -478,11 +379,11 @@
                               <template x-for="column in table.records.columns" :key="rowIndex + '-' + column">
                                 <td class="whitespace-nowrap px-4 py-2 align-top text-sm text-foreground">
                                   <div class="space-y-1">
-                                    <div class="font-medium text-foreground" x-html="formatCell(row[column])"></div>
+                                    <div class="font-medium text-foreground" x-html="$root.formatCell(row[column])"></div>
                                     <button
                                       type="button"
                                       class="inline-flex items-center gap-2 text-[11px] font-semibold text-primary transition hover:underline"
-                                      @click.stop="openValueModal(table, column, row)"
+                                      @click.stop="$root.openValueModal(table, column, row)"
                                     >
                                       <i class="fa-solid fa-maximize text-[10px]"></i>
                                       Переглянути
@@ -496,7 +397,7 @@
                                     type="button"
                                     class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
                                     :disabled="table.records.loading"
-                                    @click.stop="previewRecord(table, row)"
+                                    @click.stop="$root.previewRecord(table, row)"
                                   >
                                     <i class="fa-solid fa-eye text-[10px]"></i>
                                     Переглянути
@@ -505,7 +406,7 @@
                                     type="button"
                                     class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
                                     :disabled="table.records.loading"
-                                    @click.stop="editRecord(table, row)"
+                                    @click.stop="$root.editRecord(table, row)"
                                   >
                                     <i class="fa-solid fa-pen text-[10px]"></i>
                                     Редагувати
@@ -514,7 +415,7 @@
                                     type="button"
                                     class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-xs font-medium text-rose-600 transition hover:border-rose-300 hover:text-rose-500 disabled:cursor-not-allowed disabled:opacity-60"
                                     :disabled="table.records.loading || table.records.deletingRowIndex === rowIndex"
-                                    @click.stop="deleteRecord(table, row, rowIndex)"
+                                    @click.stop="$root.deleteRecord(table, row, rowIndex)"
                                   >
                                     <span x-show="table.records.deletingRowIndex !== rowIndex">Видалити</span>
                                     <span x-show="table.records.deletingRowIndex === rowIndex" x-cloak>Видалення...</span>
@@ -537,7 +438,7 @@
                           <select
                             class="rounded-xl border border-input bg-background px-3 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                             :value="table.records.perPage"
-                            @change="changePerPage(table, $event.target.value)"
+                            @change="$root.changePerPage(table, $event.target.value)"
                           >
                             <option value="10">10</option>
                             <option value="20">20</option>
@@ -550,7 +451,7 @@
                             type="button"
                             class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
                             :disabled="table.records.page <= 1"
-                            @click="changePage(table, table.records.page - 1)"
+                            @click="$root.changePage(table, table.records.page - 1)"
                           >
                             <i class="fa-solid fa-chevron-left text-[10px]"></i>
                             Попередня
@@ -563,7 +464,7 @@
                             type="button"
                             class="inline-flex items-center gap-1 rounded-full border border-border/60 px-3 py-1 font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
                             :disabled="table.records.page >= table.records.lastPage"
-                            @click="changePage(table, table.records.page + 1)"
+                            @click="$root.changePage(table, table.records.page + 1)"
                           >
                             Наступна
                             <i class="fa-solid fa-chevron-right text-[10px]"></i>
@@ -574,14 +475,12 @@
                   </div>
                 </template>
               </div>
-            </div>
-          </div>
-        </section>
-      </template>
-    </div>
+            </template>
+          </section>
+        </div>
+      </div>
 
     @include('database-structure::partials.modals')
-
   </div>
 @endsection
 

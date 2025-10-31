@@ -4,6 +4,7 @@ use App\Modules\DatabaseStructure\Http\Controllers\DatabaseStructureController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DatabaseStructureController::class, 'index'])->name('index');
+Route::get('/content-management', [DatabaseStructureController::class, 'contentManagement'])->name('content-management');
 Route::get('/tables/{table}/structure', [DatabaseStructureController::class, 'structure'])
     ->where('table', '[^/]+')
     ->name('structure');
@@ -22,3 +23,11 @@ Route::put('/tables/{table}/records/value', [DatabaseStructureController::class,
 Route::delete('/tables/{table}/records', [DatabaseStructureController::class, 'destroy'])
     ->where('table', '[^/]+')
     ->name('destroy');
+Route::post('/tables/{table}/columns/{column}/manual-foreign', [DatabaseStructureController::class, 'storeManualForeign'])
+    ->where(['table' => '[^/]+', 'column' => '[^/]+'])
+    ->name('manual-foreign.store');
+Route::delete('/tables/{table}/columns/{column}/manual-foreign', [DatabaseStructureController::class, 'destroyManualForeign'])
+    ->where(['table' => '[^/]+', 'column' => '[^/]+'])
+    ->name('manual-foreign.destroy');
+Route::post('/content-management/menu', [DatabaseStructureController::class, 'storeContentManagementMenu'])
+    ->name('content-management.menu.store');
