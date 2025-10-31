@@ -568,7 +568,35 @@
             return null;
           }
 
-          return this.tables.find((table) => table && table.name === normalized) ?? null;
+          const normalizedLower = normalized.toLowerCase();
+          const possibleNames = new Set([normalized, normalizedLower]);
+
+          if (normalized.includes('.')) {
+            const withoutSchema = normalized.split('.').pop();
+
+            if (withoutSchema) {
+              possibleNames.add(withoutSchema);
+              possibleNames.add(withoutSchema.toLowerCase());
+            }
+          }
+
+          return this.tables.find((table) => {
+            if (!table || typeof table.name !== 'string') {
+              return false;
+            }
+
+            const candidate = table.name.trim();
+
+            if (!candidate) {
+              return false;
+            }
+
+            if (possibleNames.has(candidate)) {
+              return true;
+            }
+
+            return possibleNames.has(candidate.toLowerCase());
+          }) ?? null;
         },
         getTableColumnNames(table) {
           if (!table || !table.structure || !Array.isArray(table.structure.columns)) {
