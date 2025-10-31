@@ -14,6 +14,15 @@
 
         $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
+        $questionsBySource = $previewType === 'questions'
+            ? $questionPreviews
+                ->groupBy(function ($question) {
+                    $source = $question['source'] ?? null;
+
+                    return filled($source) ? $source : __('Без джерела');
+                })
+                ->sortKeys()
+            : collect();
     @endphp
 
     <div class="max-w-5xl mx-auto space-y-6">
@@ -101,28 +110,36 @@
                     </p>
                 </div>
             @else
-                <div class="space-y-4">
-                    @foreach($questionPreviews as $question)
-                        <div class="bg-white shadow rounded-lg p-6 space-y-4" data-question-preview>
-                            <div class="space-y-1">
-                                <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
-                                <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
+                <div class="space-y-8">
+                    @foreach($questionsBySource as $sourceName => $questions)
+                        <div class="space-y-4" data-question-source-group>
+                            <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                                <h2 class="text-xl font-semibold text-slate-800">{{ $sourceName }}</h2>
+                                <span class="text-sm text-slate-500">{{ __('Питання: :count', ['count' => $questions->count()]) }}</span>
                             </div>
 
-                            <div>
-                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">{{ __('Правильні відповіді') }}</h3>
-                                @php
-                                    $filledAnswers = $question['answers']->filter(fn ($answer) => filled($answer['label']));
-                                @endphp
-                                @if($filledAnswers->isEmpty())
-                                    <p class="mt-2 text-sm text-gray-500">{{ __('Коректні відповіді відсутні.') }}</p>
-                                @else
-                                    <ul class="mt-2 space-y-1">
-                                        @foreach($filledAnswers as $answer)
-                                            <li class="flex items-center gap-2">
-                                                <span class="font-mono text-xs text-gray-500">{{ $answer['marker'] }}</span>
-                                                <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-medium">{{ $answer['label'] }}</span>
-                                            </li>
+                            <div class="space-y-4">
+                                @foreach($questions as $question)
+                                    <div class="bg-white shadow rounded-lg p-6 space-y-4" data-question-preview>
+                                        <div class="space-y-1">
+                                            <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
+                                            <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
+                                        </div>
+
+                                        <div>
+                                            <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">{{ __('Правильні відповіді') }}</h3>
+                                            @php
+                                                $filledAnswers = $question['answers']->filter(fn ($answer) => filled($answer['label']));
+                                            @endphp
+                                            @if($filledAnswers->isEmpty())
+                                                <p class="mt-2 text-sm text-gray-500">{{ __('Коректні відповіді відсутні.') }}</p>
+                                            @else
+                                                <ul class="mt-2 space-y-1">
+                                                    @foreach($filledAnswers as $answer)
+                                                        <li class="flex items-center gap-2">
+                                                            <span class="font-mono text-xs text-gray-500">{{ $answer['marker'] }}</span>
+                                                            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-medium">{{ $answer['label'] }}</span>
+                                                        </li>
                                         @endforeach
                                     </ul>
                                 @endif
@@ -277,6 +294,9 @@
                                         </div>
                                     </div>
                                 @endif
+                            </div>
+                        </div>
+                                @endforeach
                             </div>
                         </div>
                     @endforeach
