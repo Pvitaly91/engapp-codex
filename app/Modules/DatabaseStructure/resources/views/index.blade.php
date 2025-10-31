@@ -1544,7 +1544,13 @@
                         <tr class="hover:bg-muted/40 transition">
                           <template x-for="column in contentManagement.viewer.columns" :key="`cm-cell-${rowIndex}-${column}`">
                             <td class="px-3 py-2 align-top">
-                              <div class="text-sm text-foreground" x-html="contentManagementHighlight(column, row[column])"></div>
+                              <button
+                                type="button"
+                                class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-[15px] text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                @click="showContentManagementRecordValue(column, row)"
+                                :title="formatCell(row[column])"
+                                x-html="contentManagementHighlight(column, row[column])"
+                              ></button>
                             </td>
                           </template>
                         </tr>
@@ -3563,6 +3569,41 @@
                 viewer.loading = false;
               }
             }
+          },
+          async showContentManagementRecordValue(column, row) {
+            const selectedTable = typeof this.contentManagement.selectedTable === 'string'
+              ? this.contentManagement.selectedTable.trim()
+              : '';
+            const columnName = typeof column === 'string' ? column.trim() : '';
+
+            if (!selectedTable || !columnName || !row || typeof row !== 'object') {
+              return;
+            }
+
+            const structureTable = await this.ensureStructureLoadedByName(selectedTable);
+
+            if (!structureTable) {
+              return;
+            }
+
+            const viewer = this.contentManagement.viewer;
+            const baseRecords = structureTable.records || {};
+            const proxyRecords = {
+              ...baseRecords,
+              columns: Array.isArray(viewer.columns) && viewer.columns.length > 0
+                ? viewer.columns
+                : baseRecords.columns,
+              search: viewer.search,
+              searchColumn: viewer.searchColumn,
+            };
+
+            const tableForModal = {
+              ...structureTable,
+              name: structureTable.name || selectedTable,
+              records: proxyRecords,
+            };
+
+            await this.showRecordValue(tableForModal, columnName, row);
           },
           contentManagementHighlight(columnName, value) {
             const text = this.formatCell(value);
