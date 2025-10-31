@@ -1127,7 +1127,7 @@
 
             <template x-if="!contentManagement.viewer.loading && !contentManagement.viewer.error && contentManagement.viewer.rows.length > 0">
               <div class="space-y-4">
-                <div class="overflow-x-auto">
+                <div class="-mx-6 overflow-x-auto sm:mx-0">
                   <table class="min-w-full divide-y divide-border/60 text-[15px]">
                     <thead class="text-left text-xs uppercase tracking-wider text-muted-foreground">
                       <tr>
