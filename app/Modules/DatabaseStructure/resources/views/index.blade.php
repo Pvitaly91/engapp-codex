@@ -3580,28 +3580,45 @@
               return;
             }
 
-            const structureTable = await this.ensureStructureLoadedByName(selectedTable);
+            const viewer = this.contentManagement.viewer;
+            let structureTable = null;
 
-            if (!structureTable) {
-              return;
+            try {
+              structureTable = await this.ensureStructureLoadedByName(selectedTable);
+            } catch (error) {
+              structureTable = null;
             }
 
-            const viewer = this.contentManagement.viewer;
-            const baseRecords = structureTable.records || {};
+            const baseRecords = structureTable && structureTable.records && typeof structureTable.records === 'object'
+              ? structureTable.records
+              : {};
+            const structureColumns = Array.isArray(baseRecords.columns) ? baseRecords.columns : [];
+            const viewerColumns = Array.isArray(viewer.columns) ? viewer.columns : [];
+            const mergedColumns = structureColumns.length > 0
+              ? Array.from(new Set([...structureColumns, ...viewerColumns]))
+              : viewerColumns;
+
             const proxyRecords = {
               ...baseRecords,
-              columns: Array.isArray(viewer.columns) && viewer.columns.length > 0
-                ? viewer.columns
-                : baseRecords.columns,
+              columns: mergedColumns,
               search: viewer.search,
               searchColumn: viewer.searchColumn,
             };
 
-            const tableForModal = {
-              ...structureTable,
-              name: structureTable.name || selectedTable,
-              records: proxyRecords,
-            };
+            const tableForModal = structureTable
+              ? {
+                ...structureTable,
+                name: structureTable.name || selectedTable,
+                records: proxyRecords,
+              }
+              : {
+                name: selectedTable,
+                primaryKeys: [],
+                structure: {
+                  columns: mergedColumns.map((name) => ({ name })),
+                },
+                records: proxyRecords,
+              };
 
             await this.showRecordValue(tableForModal, columnName, row);
           },
