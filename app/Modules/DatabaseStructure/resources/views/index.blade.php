@@ -1082,7 +1082,7 @@
                 <span class="font-semibold text-foreground" x-text="contentManagementLabel(contentManagement.tableSettings.table) || contentManagement.tableSettings.table"></span>
               </div>
               <p class="mt-1 text-sm text-muted-foreground">
-                Задайте дружні назви для колонок. Порожні поля не потраплять до конфігурації.
+                Задайте дружні назви для колонок та позначайте непотрібні поля як приховані. Порожні alias або колонки без назви не потраплять до конфігурації.
               </p>
             </div>
           </div>
@@ -1103,7 +1103,7 @@
         <div class="max-h-[50vh] space-y-3 overflow-y-auto pr-1">
           <template x-if="contentManagement.tableSettings.entries.length === 0">
             <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-sm text-muted-foreground">
-              Додайте колонку, щоб налаштувати для неї alias.
+              Додайте колонку, щоб налаштувати для неї alias або приховати її у таблиці.
             </div>
           </template>
           <template x-for="(entry, entryIndex) in contentManagement.tableSettings.entries" :key="entry.id">
@@ -1128,7 +1128,15 @@
                   x-model="entry.alias"
                 />
               </label>
-              <div class="flex items-center justify-end sm:flex-col sm:justify-between sm:gap-2">
+              <div class="flex items-start justify-between gap-3 sm:flex-col sm:items-end sm:gap-2">
+                <label class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                  <input
+                    type="checkbox"
+                    class="h-4 w-4 rounded border-input text-primary focus:ring-primary/40"
+                    x-model="entry.hidden"
+                  />
+                  <span>Приховати колонку</span>
+                </label>
                 <template x-if="!entry.locked">
                   <button
                     type="button"
@@ -1888,6 +1896,82 @@
           return result;
         };
 
+        const normalizeHiddenColumnsList = (source) => {
+          if (!source) {
+            return [];
+          }
+
+          const set = new Set();
+
+          const push = (value) => {
+            if (typeof value !== 'string') {
+              return;
+            }
+
+            const normalized = value.trim();
+
+            if (normalized) {
+              set.add(normalized);
+            }
+          };
+
+          if (Array.isArray(source)) {
+            source.forEach((entry) => {
+              if (typeof entry === 'string') {
+                push(entry);
+                return;
+              }
+
+              if (entry && typeof entry === 'object') {
+                Object.entries(entry).forEach(([key, value]) => {
+                  const columnName = typeof key === 'string' ? key.trim() : '';
+                  const normalizedValue = typeof value === 'string' ? value.trim().toLowerCase() : value;
+
+                  if (normalizedValue === true || normalizedValue === 'true' || normalizedValue === '1' || normalizedValue === 1) {
+                    if (columnName) {
+                      set.add(columnName);
+                    }
+                  }
+                });
+              }
+            });
+          } else if (typeof source === 'string') {
+            push(source);
+          } else if (source && typeof source === 'object') {
+            Object.entries(source).forEach(([key, value]) => {
+              const columnName = typeof key === 'string' ? key.trim() : '';
+
+              if (!columnName) {
+                if (typeof value === 'string') {
+                  push(value);
+                }
+
+                return;
+              }
+
+              if (value === true || value === 1 || value === '1' || value === 'true') {
+                set.add(columnName);
+                return;
+              }
+
+              if (Array.isArray(value)) {
+                normalizeHiddenColumnsList(value).forEach((entry) => set.add(entry));
+                return;
+              }
+
+              if (typeof value === 'string') {
+                const normalizedValue = value.trim().toLowerCase();
+
+                if (normalizedValue === 'true' || normalizedValue === '1') {
+                  set.add(columnName);
+                }
+              }
+            });
+          }
+
+          return Array.from(set);
+        };
+
         const normalizeContentManagementTableSettings = (settings) => {
           if (!settings || typeof settings !== 'object') {
             return {};
@@ -1903,9 +1987,14 @@
             }
 
             let aliasMap = {};
+            let hiddenColumns = [];
 
             if (Array.isArray(rawConfig)) {
               aliasMap = normalizeAliasMap(rawConfig);
+
+              if (Object.keys(aliasMap).length === 0) {
+                hiddenColumns = normalizeHiddenColumnsList(rawConfig);
+              }
             } else if (rawConfig && typeof rawConfig === 'object') {
               const candidates = [
                 rawConfig.aliases,
@@ -1932,11 +2021,46 @@
               if (Object.keys(aliasMap).length === 0) {
                 aliasMap = normalizeAliasMap(rawConfig);
               }
+
+              const hiddenCandidates = [
+                rawConfig.hidden,
+                rawConfig.hidden_columns,
+                rawConfig.hiddenColumns,
+                rawConfig.columns_hidden,
+                rawConfig.columnsHidden,
+                rawConfig.hide,
+              ];
+
+              hiddenColumns = hiddenCandidates.reduce((carry, candidate) => {
+                if (carry.length > 0) {
+                  return carry;
+                }
+
+                const normalizedHidden = normalizeHiddenColumnsList(candidate);
+
+                if (normalizedHidden.length > 0) {
+                  return normalizedHidden;
+                }
+
+                return carry;
+              }, []);
             }
 
-            if (Object.keys(aliasMap).length > 0) {
-              normalized[tableName] = aliasMap;
+            if (hiddenColumns.length === 0) {
+              hiddenColumns = normalizeHiddenColumnsList(rawConfig);
             }
+
+            const hasAliases = Object.keys(aliasMap).length > 0;
+            const hasHidden = hiddenColumns.length > 0;
+
+            if (!hasAliases && !hasHidden) {
+              return;
+            }
+
+            normalized[tableName] = {
+              ...(hasAliases ? { aliases: aliasMap } : {}),
+              ...(hasHidden ? { hidden: hiddenColumns } : {}),
+            };
           });
 
           return normalized;
@@ -2573,9 +2697,16 @@
             const table = this.findTableByName(normalized);
             const structureColumns = table ? this.getTableColumnNames(table) : [];
 
-            const unique = new Set([...structureColumns, ...viewerColumns]);
+            const hiddenColumns = this.getContentManagementHiddenColumns(normalized);
+            const unique = new Set([
+              ...structureColumns,
+              ...viewerColumns,
+              ...(Array.isArray(hiddenColumns) ? hiddenColumns : []),
+            ]);
 
-            return Array.from(unique).filter((column) => typeof column === 'string' && column !== '');
+            return Array.from(unique)
+              .map((column) => (typeof column === 'string' ? column.trim() : ''))
+              .filter((column) => column !== '');
           },
           nextContentManagementTableSettingsId() {
             const current = Number(this.contentManagement.tableSettings.nextId) || 0;
@@ -2594,25 +2725,37 @@
             this.contentManagement.tableSettings.nextId = 0;
 
             const aliases = this.getContentManagementTableAliases(tableName);
+            const hiddenColumns = this.getContentManagementHiddenColumns(tableName);
+            const hiddenSet = new Set(
+              Array.isArray(hiddenColumns)
+                ? hiddenColumns
+                  .map((column) => (typeof column === 'string' ? column.trim() : ''))
+                  .filter((column) => column !== '')
+                : [],
+            );
             const columns = this.getContentManagementColumnsForSettings(tableName);
             const seen = new Set();
             const entries = [];
 
             columns.forEach((column) => {
-              if (!column) {
+              const normalizedColumn = typeof column === 'string' ? column.trim() : '';
+
+              if (!normalizedColumn) {
                 return;
               }
 
-              const aliasValue = typeof aliases[column] === 'string' ? aliases[column] : '';
+              const aliasValue = typeof aliases[normalizedColumn] === 'string' ? aliases[normalizedColumn] : '';
 
               entries.push({
                 id: this.nextContentManagementTableSettingsId(),
-                column,
+                column: normalizedColumn,
                 alias: aliasValue,
+                hidden: hiddenSet.has(normalizedColumn),
                 locked: true,
               });
 
-              seen.add(column);
+              seen.add(normalizedColumn);
+              hiddenSet.delete(normalizedColumn);
             });
 
             Object.entries(aliases).forEach(([column, alias]) => {
@@ -2626,10 +2769,23 @@
                 id: this.nextContentManagementTableSettingsId(),
                 column: normalizedColumn,
                 alias: typeof alias === 'string' ? alias : '',
+                hidden: hiddenSet.has(normalizedColumn),
                 locked: false,
               });
 
               seen.add(normalizedColumn);
+              hiddenSet.delete(normalizedColumn);
+            });
+
+            hiddenSet.forEach((column) => {
+              entries.push({
+                id: this.nextContentManagementTableSettingsId(),
+                column,
+                alias: '',
+                hidden: true,
+                locked: false,
+              });
+              seen.add(column);
             });
 
             if (entries.length === 0) {
@@ -2637,6 +2793,7 @@
                 id: this.nextContentManagementTableSettingsId(),
                 column: '',
                 alias: '',
+                hidden: false,
                 locked: false,
               });
             }
@@ -2669,6 +2826,7 @@
                 id: this.nextContentManagementTableSettingsId(),
                 column: '',
                 alias: '',
+                hidden: false,
                 locked: false,
               },
             ];
@@ -2704,6 +2862,25 @@
               return carry;
             }, {});
           },
+          collectContentManagementTableSettingsHiddenColumns() {
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            const hidden = new Set();
+
+            entries.forEach((entry) => {
+              const column = typeof entry?.column === 'string' ? entry.column.trim() : '';
+              const value = entry?.hidden;
+              const isHidden = value === true || value === 'true' || value === '1' || value === 1;
+
+              if (column && isHidden) {
+                hidden.add(column);
+              }
+            });
+
+            return Array.from(hidden);
+          },
           contentManagementTableSettingsSnippet() {
             const tableName = typeof this.contentManagement.tableSettings.table === 'string'
               ? this.contentManagement.tableSettings.table.trim()
@@ -2714,18 +2891,33 @@
             }
 
             const aliases = this.collectContentManagementTableSettingsAliases();
+            const hidden = this.collectContentManagementTableSettingsHiddenColumns();
+            const hasAliases = Object.keys(aliases).length > 0;
+            const hasHidden = hidden.length > 0;
 
-            if (Object.keys(aliases).length === 0) {
+            if (!hasAliases && !hasHidden) {
               return '';
             }
 
-            return JSON.stringify({ [tableName]: aliases }, null, 2);
+            if (!hasHidden) {
+              return JSON.stringify({ [tableName]: aliases }, null, 2);
+            }
+
+            const payload = {};
+
+            if (hasAliases) {
+              payload.aliases = aliases;
+            }
+
+            payload.hidden = hidden;
+
+            return JSON.stringify({ [tableName]: payload }, null, 2);
           },
           async copyContentManagementTableSettingsSnippet() {
             const snippet = this.contentManagementTableSettingsSnippet();
 
             if (!snippet) {
-              this.contentManagement.tableSettings.error = 'Немає даних для копіювання. Заповніть хоча б один alias.';
+              this.contentManagement.tableSettings.error = 'Немає даних для копіювання. Додайте хоча б один alias або приховану колонку.';
               this.contentManagement.tableSettings.feedback = '';
               return;
             }
@@ -2789,14 +2981,21 @@
             }
 
             const aliases = this.collectContentManagementTableSettingsAliases();
+            const hidden = this.collectContentManagementTableSettingsHiddenColumns();
             const hasAliases = Object.keys(aliases).length > 0;
+            const hasHidden = hidden.length > 0;
             const currentSettings =
               this.contentManagement.settings && typeof this.contentManagement.settings === 'object'
                 ? { ...this.contentManagement.settings }
                 : {};
 
-            if (hasAliases) {
-              currentSettings[tableName] = aliases;
+            if (hasAliases || hasHidden) {
+              currentSettings[tableName] = hasHidden
+                ? {
+                  ...(hasAliases ? { aliases } : {}),
+                  hidden,
+                }
+                : aliases;
             } else {
               delete currentSettings[tableName];
             }
@@ -2805,6 +3004,10 @@
             this.contentManagement.tableSettings.error = null;
             this.contentManagement.tableSettings.feedback = '';
             this.closeContentManagementTableSettings();
+
+            if (this.contentManagement.selectedTable === tableName) {
+              this.refreshContentManagementTable();
+            }
           },
           getContentManagementTableAliases(tableName) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
@@ -2817,13 +3020,134 @@
               ? this.contentManagement.settings
               : {};
 
-            const tableAliases = settings && typeof settings === 'object' ? settings[normalized] : null;
+            const tableConfig = settings && typeof settings === 'object' ? settings[normalized] : null;
 
-            if (!tableAliases || typeof tableAliases !== 'object') {
+            if (!tableConfig) {
               return {};
             }
 
-            return tableAliases;
+            if (Array.isArray(tableConfig)) {
+              return normalizeAliasMap(tableConfig);
+            }
+
+            if (tableConfig && typeof tableConfig === 'object') {
+              if (tableConfig.aliases && typeof tableConfig.aliases === 'object') {
+                return normalizeAliasMap(tableConfig.aliases);
+              }
+
+              return normalizeAliasMap(tableConfig);
+            }
+
+            return {};
+          },
+          getContentManagementHiddenColumns(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized) {
+              return [];
+            }
+
+            const settings = this.contentManagement && this.contentManagement.settings
+              ? this.contentManagement.settings
+              : {};
+
+            const tableConfig = settings && typeof settings === 'object' ? settings[normalized] : null;
+
+            if (!tableConfig) {
+              return [];
+            }
+
+            if (Array.isArray(tableConfig)) {
+              return normalizeHiddenColumnsList(tableConfig);
+            }
+
+            if (tableConfig && typeof tableConfig === 'object') {
+              if (tableConfig.hidden !== undefined) {
+                const normalizedHidden = normalizeHiddenColumnsList(tableConfig.hidden);
+
+                if (normalizedHidden.length > 0) {
+                  return normalizedHidden;
+                }
+              }
+
+              const alternateKeys = ['hidden_columns', 'hiddenColumns', 'columns_hidden', 'columnsHidden', 'hide'];
+
+              for (const key of alternateKeys) {
+                if (tableConfig[key] !== undefined) {
+                  const normalizedHidden = normalizeHiddenColumnsList(tableConfig[key]);
+
+                  if (normalizedHidden.length > 0) {
+                    return normalizedHidden;
+                  }
+                }
+              }
+
+              if (!tableConfig.aliases) {
+                const fallback = normalizeHiddenColumnsList(tableConfig);
+
+                if (fallback.length > 0) {
+                  return fallback;
+                }
+              }
+            }
+
+            return [];
+          },
+          filterContentManagementColumns(tableName, columns) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+            const list = Array.isArray(columns) ? columns : [];
+
+            const sanitized = list
+              .map((column) => (typeof column === 'string' ? column.trim() : ''))
+              .filter((column) => column !== '');
+
+            if (!normalized) {
+              return sanitized;
+            }
+
+            const hidden = this.getContentManagementHiddenColumns(normalized);
+            const hiddenSet = new Set(
+              Array.isArray(hidden)
+                ? hidden.map((column) => (typeof column === 'string' ? column.trim() : '')).filter((column) => column !== '')
+                : [],
+            );
+
+            if (hiddenSet.size === 0) {
+              return sanitized;
+            }
+
+            return sanitized.filter((column) => !hiddenSet.has(column));
+          },
+          ensureContentManagementVisibleColumns(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized || this.contentManagement.viewer.table !== normalized) {
+              return;
+            }
+
+            const viewer = this.contentManagement.viewer;
+            const visibleColumns = this.filterContentManagementColumns(normalized, viewer.columns);
+
+            viewer.columns = visibleColumns;
+
+            if (viewer.sort && !visibleColumns.includes(viewer.sort)) {
+              viewer.sort = '';
+              viewer.direction = 'asc';
+            }
+
+            if (viewer.searchColumn && !visibleColumns.includes(viewer.searchColumn)) {
+              viewer.searchColumn = '';
+            }
+
+            if (Array.isArray(viewer.filters) && viewer.filters.length > 0) {
+              viewer.filters = viewer.filters.filter((filter) => {
+                if (!filter || !filter.column) {
+                  return true;
+                }
+
+                return visibleColumns.includes(filter.column);
+              });
+            }
           },
           getContentManagementColumnAlias(tableName, columnName) {
             const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
@@ -2991,9 +3315,14 @@
 
             const viewer = this.contentManagement.viewer;
             const structureTable = this.findTableByName(this.contentManagement.selectedTable);
+            const structureColumns = this.getTableColumnNames(structureTable);
+            const visibleStructureColumns = this.filterContentManagementColumns(
+              this.contentManagement.selectedTable,
+              structureColumns,
+            );
             const availableColumns = Array.isArray(viewer.columns) && viewer.columns.length > 0
               ? viewer.columns
-              : this.getTableColumnNames(structureTable);
+              : visibleStructureColumns;
 
             const fallbackColumn = availableColumns.length > 0 ? availableColumns[0] : '';
 
@@ -3176,11 +3505,13 @@
 
               const rows = Array.isArray(data.rows) ? data.rows : [];
 
-              viewer.columns = normalizedColumns.length > 0
+              const baseColumns = normalizedColumns.length > 0
                 ? normalizedColumns
                 : (structureColumns.length > 0
                   ? structureColumns
                   : (rows.length > 0 ? Object.keys(rows[0]) : []));
+
+              viewer.columns = baseColumns;
               viewer.rows = rows.map((row) => (row && typeof row === 'object' ? row : {}));
               viewer.page = Number.isFinite(data.page) ? Number(data.page) : currentPage;
               viewer.perPage = Number.isFinite(data.per_page) ? Number(data.per_page) : currentPerPage;
@@ -3216,6 +3547,7 @@
               ) {
                 viewer.searchColumn = '';
               }
+              this.ensureContentManagementVisibleColumns(normalized);
               viewer.loaded = true;
             } catch (error) {
               if (viewer.requestId !== requestId) {
