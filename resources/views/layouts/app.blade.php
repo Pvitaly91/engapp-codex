@@ -103,7 +103,6 @@
                     </div>
                     <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
                     <a href="{{ route('database-structure.index') }}" class="hover:text-blue-500 transition">Структура БД</a>
-                    <a href="{{ route('database-structure.content-management') }}" class="hover:text-blue-500 transition">Content Management</a>
                     <div
                         x-data="{ open: false }"
                         class="relative"
@@ -170,7 +169,6 @@
                 </div>
                 <a href="{{ route('seed-runs.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs</a>
                 <a href="{{ route('database-structure.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Структура БД</a>
-                <a href="{{ route('database-structure.content-management') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Content Management</a>
                 <div x-data="{ openDeployment: false }" class="space-y-1">
                     <button
                         type="button"

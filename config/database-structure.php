@@ -12,18 +12,17 @@ return array (
     array (
       0 => 
       array (
-        'key' => 'content-categories',
-        'table' => 'categories',
-        'label' => 'Сategories',
-        'description' => '',
+        'table' => 'pages',
+        'label' => 'pages',
       ),
       1 => 
       array (
-        'key' => 'content-questions',
-        'table' => 'questions',
-        'label' => 'Questions',
-        'description' => '',
+        'table' => 'question_hints',
+        'label' => 'question_hints',
       ),
+    ),
+    'table_settings' => 
+    array (
     ),
   ),
 );

@@ -25,11 +25,16 @@ class DatabaseStructureController
     {
         $structure = $this->fetcher->getStructureSummary();
         $meta = $this->fetcher->getMeta();
+        $contentManagementMenu = $this->contentManagementMenuManager->getMenu();
+        $contentManagementTableSettings = config('database-structure.content_management.table_settings', []);
 
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
-            'contentManagementMenu' => $this->contentManagementMenuManager->getMenu(),
+            'contentManagementMenu' => $contentManagementMenu,
+            'contentManagementTableSettings' => $contentManagementTableSettings,
+            'activeTab' => 'structure',
+            'standaloneTab' => 'structure',
         ]);
     }
 
@@ -37,11 +42,16 @@ class DatabaseStructureController
     {
         $structure = $this->fetcher->getStructureSummary();
         $meta = $this->fetcher->getMeta();
+        $contentManagementMenu = $this->contentManagementMenuManager->getMenu();
+        $contentManagementTableSettings = config('database-structure.content_management.table_settings', []);
 
-        return view('database-structure::content-management', [
+        return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
-            'contentManagementMenu' => $this->contentManagementMenuManager->getMenu(),
+            'contentManagementMenu' => $contentManagementMenu,
+            'contentManagementTableSettings' => $contentManagementTableSettings,
+            'activeTab' => 'content-management',
+            'standaloneTab' => 'content-management',
         ]);
     }
 
@@ -52,40 +62,33 @@ class DatabaseStructureController
                 ? trim((string) $request->input('table'))
                 : '';
 
-            if ($table === '') {
-                throw new RuntimeException('Не вказано таблицю для додавання до меню.');
-            }
-
-            $structureSummary = $this->fetcher->getStructureSummary();
-            $tableExists = false;
-
-            foreach ($structureSummary as $tableInfo) {
-                if (is_array($tableInfo) && ($tableInfo['name'] ?? null) === $table) {
-                    $tableExists = true;
-                    break;
-                }
-            }
-
-            if (!$tableExists) {
-                throw new RuntimeException('Таблицю не знайдено у структурі бази даних.');
-            }
-
             $label = is_string($request->input('label'))
                 ? trim((string) $request->input('label'))
-                : '';
-            $description = is_string($request->input('description'))
-                ? trim((string) $request->input('description'))
-                : '';
+                : null;
 
-            $item = $this->contentManagementMenuManager->add(
-                $table,
-                $label !== '' ? $label : null,
-                $description !== '' ? $description : null,
-            );
+            $item = $this->contentManagementMenuManager->add($table, $label);
+
+            return response()->json($item);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroyContentManagementMenu(string $table): JsonResponse
+    {
+        try {
+            $tableName = is_string($table) ? trim($table) : '';
+
+            $this->contentManagementMenuManager->delete($tableName);
 
             return response()->json([
-                'message' => 'Таблицю успішно додано до меню керування контентом.',
-                'item' => $item,
+                'deleted' => true,
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([

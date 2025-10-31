@@ -12,14 +12,6 @@
             $questionPreviews = collect($questionPreviews);
         }
 
-        $questionGroups = $questionPreviews
-            ->groupBy(function ($question) {
-                $source = $question['source'] ?? null;
-
-                return filled($source) ? $source : __('Без джерела');
-            })
-            ->sortKeys();
-
         $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
     @endphp
@@ -109,203 +101,182 @@
                     </p>
                 </div>
             @else
-                <div class="space-y-8">
-                    @foreach($questionGroups as $sourceName => $questions)
-                        <div class="border border-slate-200 rounded-lg bg-white" data-source-group>
-                            <button
-                                type="button"
-                                class="w-full flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between px-4 py-3 text-left hover:bg-slate-50 transition"
-                                data-source-group-toggle
-                                aria-expanded="true"
-                            >
-                                <span class="text-lg font-semibold text-gray-800">
-                                    {{ __('Джерело: :source', ['source' => $sourceName]) }}
-                                </span>
-                                <span class="flex items-center gap-2">
-                                    <span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-medium">
-                                        {{ __('Кількість: :count', ['count' => $questions->count()]) }}
-                                    </span>
-                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200 rotate-180" viewBox="0 0 20 20" fill="currentColor" data-source-group-icon>
-                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                            </button>
+                <div class="space-y-4">
+                    @foreach($questionPreviews as $question)
+                        <div class="bg-white shadow rounded-lg p-6 space-y-4" data-question-preview>
+                            <div class="space-y-1">
+                                <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
+                                <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
+                            </div>
 
-                            <div class="border-t border-slate-200 px-4 py-4 space-y-4" data-source-group-content>
-                                @foreach($questions as $question)
-                                    <div class="bg-white shadow rounded-lg p-6 space-y-4" data-question-preview>
-                                    <div class="space-y-1">
-                                        <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
-                                        <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
-                                    </div>
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">{{ __('Правильні відповіді') }}</h3>
+                                @php
+                                    $filledAnswers = $question['answers']->filter(fn ($answer) => filled($answer['label']));
+                                @endphp
+                                @if($filledAnswers->isEmpty())
+                                    <p class="mt-2 text-sm text-gray-500">{{ __('Коректні відповіді відсутні.') }}</p>
+                                @else
+                                    <ul class="mt-2 space-y-1">
+                                        @foreach($filledAnswers as $answer)
+                                            <li class="flex items-center gap-2">
+                                                <span class="font-mono text-xs text-gray-500">{{ $answer['marker'] }}</span>
+                                                <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-medium">{{ $answer['label'] }}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
 
-                                    <div>
-                                        <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">{{ __('Правильні відповіді') }}</h3>
-                                        @php
-                                            $filledAnswers = $question['answers']->filter(fn ($answer) => filled($answer['label']));
-                                        @endphp
-                                        @if($filledAnswers->isEmpty())
-                                            <p class="mt-2 text-sm text-gray-500">{{ __('Коректні відповіді відсутні.') }}</p>
-                                        @else
-                                            <ul class="mt-2 space-y-1">
-                                                @foreach($filledAnswers as $answer)
-                                                    <li class="flex items-center gap-2">
-                                                        <span class="font-mono text-xs text-gray-500">{{ $answer['marker'] }}</span>
-                                                        <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-medium">{{ $answer['label'] }}</span>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    </div>
+                            <div class="space-y-3">
+                                <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                    <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                        <span>{{ __('Деталі питання') }}</span>
+                                        <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div class="hidden border-t border-slate-200 px-3 py-3 text-sm text-slate-700 space-y-3" data-preview-section-content>
+                                        <dl class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                            <div>
+                                                <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Категорія') }}</dt>
+                                                <dd>{{ $question['category'] ?? __('Без категорії') }}</dd>
+                                            </div>
+                                            <div>
+                                                <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Джерело') }}</dt>
+                                                <dd>{{ $question['source'] ?? __('Без джерела') }}</dd>
+                                            </div>
+                                            <div>
+                                                <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Рівень') }}</dt>
+                                                <dd>{{ $question['level'] ?? __('Невідомо') }}</dd>
+                                            </div>
+                                            <div>
+                                                <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Складність') }}</dt>
+                                                <dd>{{ $question['difficulty'] }}</dd>
+                                            </div>
+                                            <div>
+                                                <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Прапор') }}</dt>
+                                                <dd>{{ $question['flag'] }}</dd>
+                                            </div>
+                                        </dl>
 
-                                    <div class="space-y-3">
-                                        <div class="border border-slate-200 rounded-lg" data-preview-section>
-                                            <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
-                                                <span>{{ __('Деталі питання') }}</span>
-                                                <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
-                                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
-                                                </svg>
-                                            </button>
-                                            <div class="hidden border-t border-slate-200 px-3 py-3 text-sm text-slate-700 space-y-3" data-preview-section-content>
-                                                <dl class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                                    <div>
-                                                        <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Категорія') }}</dt>
-                                                        <dd>{{ $question['category'] ?? __('Без категорії') }}</dd>
-                                                    </div>
-                                                    <div>
-                                                        <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Джерело') }}</dt>
-                                                        <dd>{{ $question['source'] ?? __('Без джерела') }}</dd>
-                                                    </div>
-                                                    <div>
-                                                        <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Рівень') }}</dt>
-                                                        <dd>{{ $question['level'] ?? __('Невідомо') }}</dd>
-                                                    </div>
-                                                    <div>
-                                                        <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Складність') }}</dt>
-                                                        <dd>{{ $question['difficulty'] }}</dd>
-                                                    </div>
-                                                    <div>
-                                                        <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Прапор') }}</dt>
-                                                        <dd>{{ $question['flag'] }}</dd>
-                                                    </div>
-                                                </dl>
-
-                                                @if($question['tags']->isNotEmpty())
-                                                    <div>
-                                                        <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Теги') }}</h4>
-                                                        <div class="mt-2 flex flex-wrap gap-2">
-                                                            @foreach($question['tags'] as $tag)
-                                                                <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-xs">
-                                                                    {{ $tag['name'] }}
-                                                                    @if(!empty($tag['category']))
-                                                                        <span class="ml-2 text-[10px] uppercase tracking-wide text-indigo-500">{{ $tag['category'] }}</span>
-                                                                    @endif
-                                                                </span>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
-                                                @endif
-
-                                                <div>
-                                                    <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Текст питання без підсвічування') }}</h4>
-                                                    <p class="mt-2 text-slate-700 whitespace-pre-line">{{ $question['raw_text'] }}</p>
+                                        @if($question['tags']->isNotEmpty())
+                                            <div>
+                                                <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Теги') }}</h4>
+                                                <div class="mt-2 flex flex-wrap gap-2">
+                                                    @foreach($question['tags'] as $tag)
+                                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-xs">
+                                                            {{ $tag['name'] }}
+                                                            @if(!empty($tag['category']))
+                                                                <span class="ml-2 text-[10px] uppercase tracking-wide text-indigo-500">{{ $tag['category'] }}</span>
+                                                            @endif
+                                                        </span>
+                                                    @endforeach
                                                 </div>
                                             </div>
+                                        @endif
+
+                                        <div>
+                                            <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Текст питання без підсвічування') }}</h4>
+                                            <p class="mt-2 text-slate-700 whitespace-pre-line">{{ $question['raw_text'] }}</p>
                                         </div>
-
-                                        @if($question['options']->isNotEmpty())
-                                            <div class="border border-slate-200 rounded-lg" data-preview-section>
-                                                <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
-                                                    <span>{{ __('Варіанти відповідей') }}</span>
-                                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
-                                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
-                                                    </svg>
-                                                </button>
-                                                <div class="hidden border-t border-slate-200 px-3 py-3" data-preview-section-content>
-                                                    <div class="flex flex-wrap gap-2">
-                                                        @foreach($question['options'] as $option)
-                                                            <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 text-xs font-medium">{{ $option }}</span>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-
-                                        @if($question['verb_hints']->isNotEmpty())
-                                            <div class="border border-slate-200 rounded-lg" data-preview-section>
-                                                <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
-                                                    <span>{{ __('Підказки дієслів') }}</span>
-                                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
-                                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
-                                                    </svg>
-                                                </button>
-                                                <div class="hidden border-t border-slate-200 px-3 py-3" data-preview-section-content>
-                                                    <ul class="space-y-1 text-sm text-gray-600">
-                                                        @foreach($question['verb_hints'] as $hint)
-                                                            <li><span class="font-mono text-xs text-gray-500">{{ $hint['marker'] }}</span> — {{ $hint['label'] }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        @endif
-
-                                        @if($question['variants']->isNotEmpty())
-                                            <div class="border border-slate-200 rounded-lg" data-preview-section>
-                                                <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
-                                                    <span>{{ __('Варіанти формулювань') }}</span>
-                                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
-                                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
-                                                    </svg>
-                                                </button>
-                                                <div class="hidden border-t border-slate-200 px-3 py-3 space-y-2" data-preview-section-content>
-                                                    @foreach($question['variants'] as $variant)
-                                                        <p class="text-sm text-slate-700 whitespace-pre-line">{{ $variant }}</p>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        @endif
-
-                                        @if($question['hints']->isNotEmpty())
-                                            <div class="border border-slate-200 rounded-lg" data-preview-section>
-                                                <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
-                                                    <span>{{ __('Підказки') }}</span>
-                                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
-                                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
-                                                    </svg>
-                                                </button>
-                                                <div class="hidden border-t border-slate-200 px-3 py-3 space-y-2" data-preview-section-content>
-                                                    @foreach($question['hints'] as $hint)
-                                                        <div class="border border-slate-200 rounded px-3 py-2 bg-slate-50">
-                                                            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Провайдер') }}: <span class="font-normal text-slate-700">{{ $hint['provider'] }}</span></p>
-                                                            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Локаль') }}: <span class="font-normal text-slate-700">{{ strtoupper($hint['locale']) }}</span></p>
-                                                            <p class="mt-2 text-sm text-slate-700 whitespace-pre-line">{{ $hint['text'] }}</p>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        @endif
-
-                                        @if($question['explanations']->isNotEmpty())
-                                            <div class="border border-slate-200 rounded-lg" data-preview-section>
-                                                <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
-                                                    <span>{{ __('Пояснення ChatGPT') }}</span>
-                                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
-                                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
-                                                    </svg>
-                                                </button>
-                                                <div class="hidden border-t border-slate-200 px-3 py-3 space-y-2" data-preview-section-content>
-                                                    @foreach($question['explanations'] as $explanation)
-                                                        <div class="rounded border border-slate-200 px-3 py-2 bg-slate-50">
-                                                            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Неправильна відповідь') }}: <span class="font-normal text-slate-700">{{ $explanation['wrong_answer'] ?? __('Невідомо') }}</span></p>
-                                                            <p class="mt-1 text-sm text-slate-700 whitespace-pre-line">{{ $explanation['text'] }}</p>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        @endif
                                     </div>
                                 </div>
-                            @endforeach
+
+                                @if($question['options']->isNotEmpty())
+                                    <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                        <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                            <span>{{ __('Варіанти відповідей') }}</span>
+                                            <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <div class="hidden border-t border-slate-200 px-3 py-3" data-preview-section-content>
+                                            <div class="flex flex-wrap gap-2">
+                                                @foreach($question['options'] as $option)
+                                                    <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 text-xs font-medium">{{ $option }}</span>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                @if($question['verb_hints']->isNotEmpty())
+                                    <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                        <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                            <span>{{ __('Підказки дієслів') }}</span>
+                                            <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <div class="hidden border-t border-slate-200 px-3 py-3" data-preview-section-content>
+                                            <ul class="space-y-1 text-sm text-gray-600">
+                                                @foreach($question['verb_hints'] as $hint)
+                                                    <li><span class="font-mono text-xs text-gray-500">{{ $hint['marker'] }}</span> — {{ $hint['label'] }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                @if($question['variants']->isNotEmpty())
+                                    <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                        <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                            <span>{{ __('Варіанти формулювань') }}</span>
+                                            <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <div class="hidden border-t border-slate-200 px-3 py-3" data-preview-section-content>
+                                            <ul class="list-disc list-inside space-y-1 text-sm text-gray-600">
+                                                @foreach($question['variants'] as $variant)
+                                                    <li>{{ $variant }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                @if($question['hints']->isNotEmpty())
+                                    <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                        <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                            <span>{{ __('Підказки') }}</span>
+                                            <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <div class="hidden border-t border-slate-200 px-3 py-3 space-y-2" data-preview-section-content>
+                                            @foreach($question['hints'] as $hint)
+                                                <div class="rounded bg-slate-50 border border-slate-200 px-3 py-2 text-sm text-gray-600 space-y-1">
+                                                    <div class="flex items-center justify-between text-xs text-slate-500">
+                                                        <span>{{ $hint['provider'] ?? __('Невідомий провайдер') }}</span>
+                                                        <span>{{ strtoupper($hint['locale'] ?? '–') }}</span>
+                                                    </div>
+                                                    <p class="whitespace-pre-line">{{ $hint['text'] }}</p>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+
+                                @if($question['explanations']->isNotEmpty())
+                                    <div class="border border-slate-200 rounded-lg" data-preview-section>
+                                        <button type="button" class="w-full flex items-center justify-between gap-3 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition" data-preview-section-toggle aria-expanded="false">
+                                            <span>{{ __('Пояснення ChatGPT') }}</span>
+                                            <svg class="h-4 w-4 text-slate-500 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" data-preview-section-icon>
+                                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94л3.71-3.7a.75.75 0 0 1 1.08 1.04л-4.25 4.25a.75.75 0 0 1-1.08 0Л5.25 8.27a.75.75 0 0 1-.02-1.06З" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <div class="hidden border-t border-slate-200 px-3 py-3 space-y-2" data-preview-section-content>
+                                            @foreach($question['explanations'] as $explanation)
+                                                <div class="rounded bg-purple-50 border border-purple-200 px-3 py-2 text-sm text-purple-800 space-y-1">
+                                                    <div class="text-xs text-purple-600 font-semibold">{{ __('Неправильна відповідь:') }} {{ $explanation['wrong_answer'] }}</div>
+                                                    <p class="whitespace-pre-line">{{ $explanation['text'] }}</p>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endforeach
@@ -345,43 +316,6 @@
 
     <script>
         document.addEventListener('click', function (event) {
-            const sourceToggle = event.target.closest('[data-source-group-toggle]');
-
-            if (sourceToggle) {
-                const group = sourceToggle.closest('[data-source-group]');
-
-                if (!group) {
-                    return;
-                }
-
-                const content = group.querySelector('[data-source-group-content]');
-
-                if (!content) {
-                    return;
-                }
-
-                const isExpanded = sourceToggle.getAttribute('aria-expanded') === 'true';
-                const icon = sourceToggle.querySelector('[data-source-group-icon]');
-
-                if (isExpanded) {
-                    sourceToggle.setAttribute('aria-expanded', 'false');
-                    content.classList.add('hidden');
-
-                    if (icon) {
-                        icon.classList.remove('rotate-180');
-                    }
-                } else {
-                    sourceToggle.setAttribute('aria-expanded', 'true');
-                    content.classList.remove('hidden');
-
-                    if (icon) {
-                        icon.classList.add('rotate-180');
-                    }
-                }
-
-                return;
-            }
-
             const toggle = event.target.closest('[data-preview-section-toggle]');
 
             if (!toggle) {
