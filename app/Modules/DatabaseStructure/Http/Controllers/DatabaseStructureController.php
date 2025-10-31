@@ -3,6 +3,7 @@
 namespace App\Modules\DatabaseStructure\Http\Controllers;
 
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
+use App\Modules\DatabaseStructure\Services\ManualRelationManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -11,7 +12,10 @@ use RuntimeException;
 
 class DatabaseStructureController
 {
-    public function __construct(private DatabaseStructureFetcher $fetcher)
+    public function __construct(
+        private DatabaseStructureFetcher $fetcher,
+        private ManualRelationManager $manualRelationManager,
+    )
     {
     }
 
@@ -75,6 +79,31 @@ class DatabaseStructureController
         }
     }
 
+    public function record(Request $request, string $table): JsonResponse
+    {
+        try {
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису.');
+            }
+
+            $record = $this->fetcher->getRecord($table, $identifiers);
+
+            return response()->json($record);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
+    }
+
     public function value(Request $request, string $table): JsonResponse
     {
         try {
@@ -96,6 +125,48 @@ class DatabaseStructureController
 
             return response()->json([
                 'value' => $value,
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 404);
+        }
+    }
+
+    public function update(Request $request, string $table): JsonResponse
+    {
+        try {
+            $column = is_string($request->input('column'))
+                ? trim((string) $request->input('column'))
+                : '';
+
+            if ($column === '') {
+                throw new RuntimeException('Не вказано колонку для оновлення значення.');
+            }
+
+            $payload = $request->all();
+
+            if (!array_key_exists('value', $payload)) {
+                throw new RuntimeException('Не вказано значення для збереження.');
+            }
+
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису для оновлення.');
+            }
+
+            $updatedValue = $this->fetcher->updateRecordValue($table, $column, $identifiers, $payload['value']);
+
+            return response()->json([
+                'value' => $updatedValue,
+                'message' => 'Значення успішно оновлено.',
             ]);
         } catch (RuntimeException $exception) {
             $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
@@ -135,6 +206,132 @@ class DatabaseStructureController
             return response()->json([
                 'message' => $exception->getMessage(),
             ], 404);
+        }
+    }
+
+    public function storeManualForeign(Request $request, string $table, string $column): JsonResponse
+    {
+        try {
+            $tableName = is_string($table) ? trim($table) : '';
+            $columnName = is_string($column) ? trim($column) : '';
+
+            if ($tableName === '' || $columnName === '') {
+                throw new RuntimeException('Не вказано таблицю або колонку для налаштування зв\'язку.');
+            }
+
+            $structure = $this->fetcher->getTableStructure($tableName);
+            $columns = collect($structure['columns'] ?? []);
+            $columnDefinition = $columns->firstWhere('name', $columnName);
+
+            if (!$columnDefinition) {
+                throw new RuntimeException('Колонку не знайдено у вибраній таблиці.');
+            }
+
+            if (!empty($columnDefinition['foreign']) && empty($columnDefinition['foreign']['manual'])) {
+                throw new RuntimeException('Для цього поля вже існує зовнішній ключ у базі даних.');
+            }
+
+            $foreignTable = is_string($request->input('foreign_table'))
+                ? trim((string) $request->input('foreign_table'))
+                : '';
+            $foreignColumn = is_string($request->input('foreign_column'))
+                ? trim((string) $request->input('foreign_column'))
+                : '';
+            $displayColumn = is_string($request->input('display_column'))
+                ? trim((string) $request->input('display_column'))
+                : '';
+
+            if ($foreignTable === '' || $foreignColumn === '') {
+                throw new RuntimeException('Потрібно вказати таблицю та колонку, на які посилатиметься поле.');
+            }
+
+            $targetStructure = $this->fetcher->getTableStructure($foreignTable);
+            $targetColumns = collect($targetStructure['columns'] ?? []);
+
+            $targetExists = $targetColumns->contains(fn ($item) => is_array($item) && ($item['name'] ?? null) === $foreignColumn);
+
+            if (!$targetExists) {
+                throw new RuntimeException('У вибраній таблиці не знайдено колонку для зв\'язку.');
+            }
+
+            if ($displayColumn !== '') {
+                $displayExists = $targetColumns->contains(fn ($item) => is_array($item) && ($item['name'] ?? null) === $displayColumn);
+
+                if (!$displayExists) {
+                    throw new RuntimeException('Колонку для відображення не знайдено у вибраній таблиці.');
+                }
+            }
+
+            $this->manualRelationManager->save($tableName, $columnName, [
+                'table' => $foreignTable,
+                'column' => $foreignColumn,
+                'display_column' => $displayColumn !== '' ? $displayColumn : null,
+            ]);
+
+            $this->fetcher->clearCache();
+
+            $updatedStructure = $this->fetcher->getTableStructure($tableName);
+            $updatedColumn = collect($updatedStructure['columns'] ?? [])->firstWhere('name', $columnName);
+
+            return response()->json([
+                'message' => 'Ручний зв\'язок успішно збережено.',
+                'foreign' => $updatedColumn['foreign'] ?? null,
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroyManualForeign(string $table, string $column): JsonResponse
+    {
+        try {
+            $tableName = is_string($table) ? trim($table) : '';
+            $columnName = is_string($column) ? trim($column) : '';
+
+            if ($tableName === '' || $columnName === '') {
+                throw new RuntimeException('Не вказано таблицю або колонку для видалення зв\'язку.');
+            }
+
+            $structure = $this->fetcher->getTableStructure($tableName);
+            $columns = collect($structure['columns'] ?? []);
+            $columnDefinition = $columns->firstWhere('name', $columnName);
+
+            if (!$columnDefinition) {
+                throw new RuntimeException('Колонку не знайдено у вибраній таблиці.');
+            }
+
+            if (empty($columnDefinition['foreign']) || empty($columnDefinition['foreign']['manual'])) {
+                throw new RuntimeException('Для цього поля немає ручного зв\'язку.');
+            }
+
+            $this->manualRelationManager->delete($tableName, $columnName);
+            $this->fetcher->clearCache();
+
+            $updatedStructure = $this->fetcher->getTableStructure($tableName);
+            $updatedColumn = collect($updatedStructure['columns'] ?? [])->firstWhere('name', $columnName);
+
+            return response()->json([
+                'message' => 'Ручний зв\'язок успішно видалено.',
+                'foreign' => $updatedColumn['foreign'] ?? null,
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
         }
     }
 

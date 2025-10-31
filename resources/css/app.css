@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base {
+  [x-cloak] {
+    display: none !important;
+  }
+}
+
+@layer utilities {
+  .text-base {
+    line-height: 2.2rem !important;
+  }
+
+  .test-description {
+    background-color: #fefce8;
+    border-left: 4px solid #f59e0b;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
