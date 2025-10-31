@@ -70,7 +70,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
         'future' => 'Tense: Future',
     ];
 
-    private array $modalTagConfig = [
+    protected array $modalTagConfig = [
         'can_could' => [
             'name' => 'Can / Could',
             'keywords' => [
@@ -136,6 +136,28 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                 'ought not to',
                 'ought to have',
                 'ought not to have',
+            ],
+        ],
+        'will_would' => [
+            'name' => 'Will / Would',
+            'keywords' => [
+                'will',
+                "won't",
+                'will have',
+                "won't have",
+                'would',
+                "wouldn't",
+                'would have',
+                "wouldn't have",
+            ],
+        ],
+        'shall' => [
+            'name' => 'Shall',
+            'keywords' => [
+                'shall',
+                "shan't",
+                'shall have',
+                "shan't have",
             ],
         ],
     ];
@@ -729,7 +751,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
         return str_contains($text, $keyword);
     }
 
-    private function getLevelData(): array
+    protected function getLevelData(): array
     {
         return [
             'A1' => [
