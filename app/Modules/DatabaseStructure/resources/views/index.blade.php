@@ -1117,109 +1117,116 @@
       </div>
     </div>
 
-    <div
-      x-show="contentManagement.menuSettings.open"
-      x-cloak
-      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div class="absolute inset-0 bg-background/70 backdrop-blur-sm" @click="closeContentManagementMenuSettings()"></div>
-      <div class="relative z-10 w-full max-w-lg space-y-6 rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
-        <div class="flex items-start justify-between gap-4">
-          <div class="space-y-1">
-            <h2 class="text-lg font-semibold text-foreground">Налаштування меню таблиць</h2>
-            <p class="text-sm text-muted-foreground">
-              Додайте або видаліть таблиці, які відображаються у меню керування контентом.
-            </p>
-          </div>
-          <button
-            type="button"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-            @click="closeContentManagementMenuSettings()"
-          >
-            <i class="fa-solid fa-xmark text-sm"></i>
-          </button>
-        </div>
-
-        <div class="space-y-2">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Поточні таблиці</h3>
-          <template x-if="contentManagement.menu.length === 0">
-            <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
-              Меню ще не містить таблиць.
+    <template x-teleport="body">
+      <div
+        x-show="contentManagement.menuSettings.open"
+        x-transition.opacity
+        x-cloak
+        class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="absolute inset-0 bg-background/70 backdrop-blur-sm" @click="closeContentManagementMenuSettings()"></div>
+        <div
+          class="relative z-10 w-full max-w-lg space-y-6 rounded-3xl border border-border/70 bg-white p-6 shadow-xl"
+          @click.stop
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div class="space-y-1">
+              <h2 class="text-lg font-semibold text-foreground">Налаштування меню таблиць</h2>
+              <p class="text-sm text-muted-foreground">
+                Додайте або видаліть таблиці, які відображаються у меню керування контентом.
+              </p>
             </div>
-          </template>
-          <template x-for="item in contentManagement.menu" :key="`cm-manage-${item.table}`">
-            <div class="flex items-center justify-between gap-3 rounded-2xl border border-border/60 bg-background/80 px-4 py-3">
-              <div>
-                <div class="font-semibold text-foreground" x-text="item.label || item.table"></div>
-                <div class="text-xs text-muted-foreground" x-text="item.table"></div>
+            <button
+              type="button"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              @click="closeContentManagementMenuSettings()"
+            >
+              <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+          </div>
+
+          <div class="space-y-2">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Поточні таблиці</h3>
+            <template x-if="contentManagement.menu.length === 0">
+              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
+                Меню ще не містить таблиць.
               </div>
+            </template>
+            <template x-for="item in contentManagement.menu" :key="`cm-manage-${item.table}`">
+              <div class="flex items-center justify-between gap-3 rounded-2xl border border-border/60 bg-background/80 px-4 py-3">
+                <div>
+                  <div class="font-semibold text-foreground" x-text="item.label || item.table"></div>
+                  <div class="text-xs text-muted-foreground" x-text="item.table"></div>
+                </div>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="promptContentManagementMenuRemoval(item.table)"
+                  :disabled="contentManagement.removingTable === item.table"
+                >
+                  <i class="fa-solid fa-xmark text-xs" x-show="contentManagement.removingTable !== item.table"></i>
+                  <span
+                    class="text-[10px] font-semibold uppercase tracking-wide"
+                    x-show="contentManagement.removingTable === item.table"
+                    x-cloak
+                  >...</span>
+                </button>
+              </div>
+            </template>
+          </div>
+
+          <div class="space-y-4 rounded-2xl border border-border/60 bg-background/70 p-4">
+            <div class="space-y-1">
+              <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Таблиця</label>
+              <select
+                x-model="contentManagement.menuSettings.table"
+                class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              >
+                <option value="">Оберіть таблицю</option>
+                <template x-for="name in contentManagementAvailableTables" :key="`cm-option-${name}`">
+                  <option :value="name" x-text="name"></option>
+                </template>
+              </select>
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Назва в меню</label>
+              <input
+                type="text"
+                class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                placeholder="Наприклад, &quot;Пости&quot;"
+                x-model.trim="contentManagement.menuSettings.label"
+                x-ref="contentManagementMenuLabelInput"
+              />
+              <p class="text-[11px] text-muted-foreground">Якщо залишити порожнім, буде використано назву таблиці.</p>
+            </div>
+            <template x-if="contentManagement.menuSettings.error">
+              <div class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-600" x-text="contentManagement.menuSettings.error"></div>
+            </template>
+            <div class="flex items-center justify-end gap-3">
               <button
                 type="button"
-                class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70 disabled:cursor-not-allowed disabled:opacity-60"
-                @click="promptContentManagementMenuRemoval(item.table)"
-                :disabled="contentManagement.removingTable === item.table"
+                class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                @click="closeContentManagementMenuSettings()"
+                :disabled="contentManagement.menuSettings.saving"
               >
-                <i class="fa-solid fa-xmark text-xs" x-show="contentManagement.removingTable !== item.table"></i>
-                <span
-                  class="text-[10px] font-semibold uppercase tracking-wide"
-                  x-show="contentManagement.removingTable === item.table"
-                  x-cloak
-                >...</span>
+                Скасувати
+              </button>
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-primary/70 bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                @click="addContentManagementMenuItem()"
+                :disabled="contentManagement.menuSettings.saving"
+              >
+                <span x-show="!contentManagement.menuSettings.saving">Додати</span>
+                <span x-show="contentManagement.menuSettings.saving" x-cloak>Збереження...</span>
               </button>
             </div>
-          </template>
-        </div>
-
-        <div class="space-y-4 rounded-2xl border border-border/60 bg-background/70 p-4">
-          <div class="space-y-1">
-            <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Таблиця</label>
-            <select
-              x-model="contentManagement.menuSettings.table"
-              class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-            >
-              <option value="">Оберіть таблицю</option>
-              <template x-for="name in contentManagementAvailableTables" :key="`cm-option-${name}`">
-                <option :value="name" x-text="name"></option>
-              </template>
-            </select>
-          </div>
-          <div class="space-y-1">
-            <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Назва в меню</label>
-            <input
-              type="text"
-              class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-              placeholder="Наприклад, &quot;Пости&quot;"
-              x-model.trim="contentManagement.menuSettings.label"
-            />
-            <p class="text-[11px] text-muted-foreground">Якщо залишити порожнім, буде використано назву таблиці.</p>
-          </div>
-          <template x-if="contentManagement.menuSettings.error">
-            <div class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-600" x-text="contentManagement.menuSettings.error"></div>
-          </template>
-          <div class="flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-end">
-            <button
-              type="button"
-              class="rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-              @click="closeContentManagementMenuSettings()"
-              :disabled="contentManagement.menuSettings.saving"
-            >
-              Скасувати
-            </button>
-            <button
-              type="button"
-              class="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-              @click="addContentManagementMenuItem()"
-              :disabled="contentManagement.menuSettings.saving"
-            >
-              <span x-show="!contentManagement.menuSettings.saving">Додати</span>
-              <span x-show="contentManagement.menuSettings.saving" x-cloak>Збереження...</span>
-            </button>
           </div>
         </div>
       </div>
-    </div>
+    </template>
 
     <div
       x-show="contentManagement.confirmation.open"
@@ -1906,9 +1913,34 @@
             this.openContentManagementMenuSettings();
           },
           openContentManagementMenuSettings() {
-            this.contentManagement.menuSettings.open = true;
+            if (!this.isDesktop && this.contentManagement.mobileMenuOpen) {
+              this.contentManagement.mobileMenuOpen = false;
+            }
+
             this.contentManagement.menuSettings.error = null;
             this.contentManagement.menuSettings.saving = false;
+
+            if (!this.contentManagement.menuSettings.table) {
+              const [firstAvailable] = this.contentManagementAvailableTables;
+
+              if (firstAvailable) {
+                this.contentManagement.menuSettings.table = firstAvailable;
+              }
+            }
+
+            this.contentManagement.menuSettings.open = true;
+
+            this.$nextTick(() => {
+              const input = this.$refs.contentManagementMenuLabelInput;
+
+              if (input && typeof input.focus === 'function') {
+                input.focus();
+
+                if (typeof input.select === 'function') {
+                  input.select();
+                }
+              }
+            });
           },
           closeContentManagementMenuSettings() {
             this.contentManagement.menuSettings.open = false;
