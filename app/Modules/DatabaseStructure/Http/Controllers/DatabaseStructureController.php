@@ -2,6 +2,7 @@
 
 namespace App\Modules\DatabaseStructure\Http\Controllers;
 
+use App\Modules\DatabaseStructure\Services\ContentManagementMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
@@ -15,6 +16,7 @@ class DatabaseStructureController
     public function __construct(
         private DatabaseStructureFetcher $fetcher,
         private ManualRelationManager $manualRelationManager,
+        private ContentManagementMenuManager $contentMenuManager,
     )
     {
     }
@@ -24,10 +26,35 @@ class DatabaseStructureController
         $structure = $this->fetcher->getStructureSummary();
         $meta = $this->fetcher->getMeta();
 
+        $contentManagementTables = $this->contentMenuManager->getTables();
+
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
+            'contentManagementTables' => $contentManagementTables,
         ]);
+    }
+
+    public function storeContentManagementTable(Request $request): JsonResponse
+    {
+        try {
+            $table = is_string($request->input('table')) ? trim((string) $request->input('table')) : '';
+
+            $tables = $this->contentMenuManager->addTable($table);
+
+            return response()->json([
+                'tables' => $tables,
+                'message' => 'Таблицю успішно додано до Content Management.',
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
     }
 
     public function structure(string $table): JsonResponse
