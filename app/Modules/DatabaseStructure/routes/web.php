@@ -28,3 +28,5 @@ Route::post('/tables/{table}/columns/{column}/manual-foreign', [DatabaseStructur
 Route::delete('/tables/{table}/columns/{column}/manual-foreign', [DatabaseStructureController::class, 'destroyManualForeign'])
     ->where(['table' => '[^/]+', 'column' => '[^/]+'])
     ->name('manual-foreign.destroy');
+Route::post('/content-management/menu', [DatabaseStructureController::class, 'updateContentManagementMenu'])
+    ->name('content-management.menu');

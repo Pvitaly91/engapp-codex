@@ -2,6 +2,7 @@
 
 namespace App\Modules\DatabaseStructure\Http\Controllers;
 
+use App\Modules\DatabaseStructure\Services\ContentManagementMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
@@ -15,6 +16,7 @@ class DatabaseStructureController
     public function __construct(
         private DatabaseStructureFetcher $fetcher,
         private ManualRelationManager $manualRelationManager,
+        private ContentManagementMenuManager $contentManagementMenuManager,
     )
     {
     }
@@ -27,6 +29,7 @@ class DatabaseStructureController
         return view('database-structure::index', [
             'structure' => $structure,
             'meta' => $meta,
+            'contentManagementMenu' => $this->contentManagementMenuManager->getMenu(),
         ]);
     }
 
@@ -46,6 +49,34 @@ class DatabaseStructureController
             return response()->json([
                 'message' => $exception->getMessage(),
             ], 404);
+        }
+    }
+
+    public function updateContentManagementMenu(Request $request): JsonResponse
+    {
+        $menu = $request->input('menu');
+
+        if (!is_array($menu)) {
+            return response()->json([
+                'message' => 'Невірний формат меню.',
+            ], 422);
+        }
+
+        try {
+            $normalized = $this->contentManagementMenuManager->saveMenu($menu);
+
+            return response()->json([
+                'menu' => $normalized,
+                'message' => 'Меню контенту успішно оновлено.',
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
         }
     }
 
