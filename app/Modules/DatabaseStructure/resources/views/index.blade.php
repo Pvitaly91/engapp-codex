@@ -1057,6 +1057,153 @@
     </div>
 
     <div
+      x-show="contentManagement.tableSettings.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        @click="closeContentManagementTableSettings()"
+      ></div>
+      <div
+        class="relative z-10 w-full max-w-3xl space-y-5 rounded-3xl border border-border/70 bg-card p-6 shadow-xl"
+        @click.stop
+      >
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div class="space-y-2">
+            <h2 class="text-lg font-semibold text-foreground">
+              Налаштування таблиці
+            </h2>
+            <div class="text-sm text-muted-foreground">
+              <div>
+                Таблиця:
+                <span class="font-semibold text-foreground" x-text="contentManagementLabel(contentManagement.tableSettings.table) || contentManagement.tableSettings.table"></span>
+              </div>
+              <p class="mt-1 text-sm text-muted-foreground">
+                Задайте дружні назви для колонок. Порожні поля не потраплять до конфігурації.
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="closeContentManagementTableSettings()"
+            aria-label="Закрити налаштування таблиці"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <template x-if="contentManagement.tableSettings.error">
+          <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="contentManagement.tableSettings.error"></div>
+        </template>
+
+        <div class="max-h-[50vh] space-y-3 overflow-y-auto pr-1">
+          <template x-if="contentManagement.tableSettings.entries.length === 0">
+            <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-sm text-muted-foreground">
+              Додайте колонку, щоб налаштувати для неї alias.
+            </div>
+          </template>
+          <template x-for="(entry, entryIndex) in contentManagement.tableSettings.entries" :key="entry.id">
+            <div class="flex flex-col gap-3 rounded-2xl border border-border/60 bg-background/70 p-4 sm:flex-row sm:items-end sm:gap-4">
+              <label class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
+                <span>Колонка</span>
+                <input
+                  type="text"
+                  class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                  placeholder="Наприклад, title"
+                  x-model.trim="entry.column"
+                  :readonly="entry.locked"
+                />
+                <span class="text-[11px] text-muted-foreground" x-show="entry.locked">Назва зі структури таблиці</span>
+              </label>
+              <label class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
+                <span>Alias</span>
+                <input
+                  type="text"
+                  class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  placeholder="Відображувана назва"
+                  x-model="entry.alias"
+                />
+              </label>
+              <div class="flex items-center justify-end sm:flex-col sm:justify-between sm:gap-2">
+                <template x-if="!entry.locked">
+                  <button
+                    type="button"
+                    class="inline-flex items-center justify-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-rose-300 hover:text-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-300/40 disabled:cursor-not-allowed disabled:opacity-60"
+                    @click="removeContentManagementTableSettingsEntry(entryIndex)"
+                  >
+                    <i class="fa-solid fa-trash-can text-xs"></i>
+                    Видалити
+                  </button>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="addContentManagementTableSettingsEntry()"
+          >
+            <i class="fa-solid fa-plus text-[11px]"></i>
+            Додати колонку
+          </button>
+          <div class="flex flex-col gap-1 text-xs text-muted-foreground sm:text-right">
+            <span>Порожні alias будуть проігноровані при застосуванні та в JSON-конфігурації.</span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">JSON для config/database-structure.php</label>
+          <textarea
+            class="min-h-[120px] w-full rounded-2xl border border-input bg-background px-3 py-2 text-sm focus:outline-none"
+            readonly
+            :value="contentManagementTableSettingsSnippet()"
+          ></textarea>
+          <div class="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+              @click="copyContentManagementTableSettingsSnippet()"
+              :disabled="!contentManagementTableSettingsSnippet()"
+            >
+              <i class="fa-solid fa-copy text-[11px]"></i>
+              Скопіювати JSON
+            </button>
+            <template x-if="contentManagement.tableSettings.feedback">
+              <span class="text-xs font-medium text-emerald-600" x-text="contentManagement.tableSettings.feedback"></span>
+            </template>
+          </div>
+          <p class="text-[11px] text-muted-foreground">
+            Додайте цей фрагмент до <code class="rounded bg-muted px-1">config/database-structure.php</code> у секцію <code class="rounded bg-muted px-1">content_management.table_settings</code>.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
+          <button
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="closeContentManagementTableSettings()"
+          >
+            Скасувати
+          </button>
+          <button
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="applyContentManagementTableSettings()"
+          >
+            Застосувати
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
       x-show="activeTab === 'content-management'"
       x-cloak
       class="grid gap-6 lg:grid-cols-[280px_1fr] lg:items-start"
@@ -1171,14 +1318,14 @@
         </template>
         <template x-if="contentManagement.selectedTable">
           <div class="space-y-4">
-            <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <h2 class="text-2xl font-semibold text-foreground" x-text="contentManagementLabel(contentManagement.selectedTable)"></h2>
-                <p class="text-sm text-muted-foreground" x-text="contentManagement.selectedTable"></p>
-              </div>
-              <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
-                <label class="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-                  На сторінці:
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 class="text-2xl font-semibold text-foreground" x-text="contentManagementLabel(contentManagement.selectedTable)"></h2>
+                  <p class="text-sm text-muted-foreground" x-text="contentManagement.selectedTable"></p>
+                </div>
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                  <label class="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
+                    На сторінці:
                   <select
                     class="rounded-xl border border-input bg-background px-2 py-1 text-xs focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                     x-model.number="contentManagement.viewer.perPage"
@@ -1188,18 +1335,27 @@
                     <option value="20">20</option>
                     <option value="50">50</option>
                   </select>
-                </label>
-                <button
-                  type="button"
-                  class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-                  @click="refreshContentManagementTable()"
-                  :disabled="contentManagement.viewer.loading"
-                >
-                  <i class="fa-solid fa-rotate-right text-[11px]"></i>
-                  Оновити
-                </button>
+                  </label>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                    @click="refreshContentManagementTable()"
+                    :disabled="contentManagement.viewer.loading"
+                  >
+                    <i class="fa-solid fa-rotate-right text-[11px]"></i>
+                    Оновити
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                    @click="openContentManagementTableSettingsModal()"
+                    :disabled="!contentManagement.selectedTable || contentManagement.viewer.loading"
+                  >
+                    <i class="fa-solid fa-gear text-[11px]"></i>
+                    Конфіг таблиці
+                  </button>
+                </div>
               </div>
-            </div>
 
             <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
               <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -1944,6 +2100,14 @@
               saving: false,
               error: null,
             },
+            tableSettings: {
+              open: false,
+              table: '',
+              entries: [],
+              error: null,
+              feedback: '',
+              nextId: 0,
+            },
             selectedTable: '',
             viewer: createContentManagementViewerState(),
             deletionModal: {
@@ -2024,6 +2188,10 @@
                   [this.contentManagement.menuSettings.table] = available;
                 }
               }
+            });
+
+            this.$watch('contentManagement.tableSettings.open', () => {
+              this.syncBodyScrollLock();
             });
 
             this.$watch('contentManagement.menu', (menu) => {
@@ -2367,6 +2535,258 @@
             }
 
             return normalized;
+          },
+          getContentManagementColumnsForSettings(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized) {
+              return [];
+            }
+
+            const viewerColumns =
+              this.contentManagement.viewer &&
+              this.contentManagement.viewer.table === normalized &&
+              Array.isArray(this.contentManagement.viewer.columns)
+                ? this.contentManagement.viewer.columns
+                  .map((column) => (typeof column === 'string' ? column.trim() : ''))
+                  .filter((column) => column !== '')
+                : [];
+
+            const table = this.findTableByName(normalized);
+            const structureColumns = table ? this.getTableColumnNames(table) : [];
+
+            const unique = new Set([...structureColumns, ...viewerColumns]);
+
+            return Array.from(unique).filter((column) => typeof column === 'string' && column !== '');
+          },
+          nextContentManagementTableSettingsId() {
+            const current = Number(this.contentManagement.tableSettings.nextId) || 0;
+            this.contentManagement.tableSettings.nextId = current + 1;
+            return `cm-table-settings-${Date.now()}-${current}`;
+          },
+          openContentManagementTableSettingsModal() {
+            const tableName = typeof this.contentManagement.selectedTable === 'string'
+              ? this.contentManagement.selectedTable.trim()
+              : '';
+
+            if (!tableName) {
+              return;
+            }
+
+            this.contentManagement.tableSettings.nextId = 0;
+
+            const aliases = this.getContentManagementTableAliases(tableName);
+            const columns = this.getContentManagementColumnsForSettings(tableName);
+            const seen = new Set();
+            const entries = [];
+
+            columns.forEach((column) => {
+              if (!column) {
+                return;
+              }
+
+              const aliasValue = typeof aliases[column] === 'string' ? aliases[column] : '';
+
+              entries.push({
+                id: this.nextContentManagementTableSettingsId(),
+                column,
+                alias: aliasValue,
+                locked: true,
+              });
+
+              seen.add(column);
+            });
+
+            Object.entries(aliases).forEach(([column, alias]) => {
+              const normalizedColumn = typeof column === 'string' ? column.trim() : '';
+
+              if (!normalizedColumn || seen.has(normalizedColumn)) {
+                return;
+              }
+
+              entries.push({
+                id: this.nextContentManagementTableSettingsId(),
+                column: normalizedColumn,
+                alias: typeof alias === 'string' ? alias : '',
+                locked: false,
+              });
+
+              seen.add(normalizedColumn);
+            });
+
+            if (entries.length === 0) {
+              entries.push({
+                id: this.nextContentManagementTableSettingsId(),
+                column: '',
+                alias: '',
+                locked: false,
+              });
+            }
+
+            this.contentManagement.tableSettings.table = tableName;
+            this.contentManagement.tableSettings.entries = entries;
+            this.contentManagement.tableSettings.error = null;
+            this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.open = true;
+          },
+          closeContentManagementTableSettings() {
+            this.resetContentManagementTableSettings();
+          },
+          resetContentManagementTableSettings() {
+            this.contentManagement.tableSettings.open = false;
+            this.contentManagement.tableSettings.table = '';
+            this.contentManagement.tableSettings.entries = [];
+            this.contentManagement.tableSettings.error = null;
+            this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.nextId = 0;
+          },
+          addContentManagementTableSettingsEntry() {
+            if (!Array.isArray(this.contentManagement.tableSettings.entries)) {
+              this.contentManagement.tableSettings.entries = [];
+            }
+
+            this.contentManagement.tableSettings.entries = [
+              ...this.contentManagement.tableSettings.entries,
+              {
+                id: this.nextContentManagementTableSettingsId(),
+                column: '',
+                alias: '',
+                locked: false,
+              },
+            ];
+
+            this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.error = null;
+          },
+          removeContentManagementTableSettingsEntry(index) {
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            this.contentManagement.tableSettings.entries = entries.filter(
+              (_entry, entryIndex) => entryIndex !== index,
+            );
+
+            this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.error = null;
+          },
+          collectContentManagementTableSettingsAliases() {
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            return entries.reduce((carry, entry) => {
+              const column = typeof entry?.column === 'string' ? entry.column.trim() : '';
+              const alias = typeof entry?.alias === 'string' ? entry.alias.trim() : '';
+
+              if (column && alias) {
+                carry[column] = alias;
+              }
+
+              return carry;
+            }, {});
+          },
+          contentManagementTableSettingsSnippet() {
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            if (!tableName) {
+              return '';
+            }
+
+            const aliases = this.collectContentManagementTableSettingsAliases();
+
+            if (Object.keys(aliases).length === 0) {
+              return '';
+            }
+
+            return JSON.stringify({ [tableName]: aliases }, null, 2);
+          },
+          async copyContentManagementTableSettingsSnippet() {
+            const snippet = this.contentManagementTableSettingsSnippet();
+
+            if (!snippet) {
+              this.contentManagement.tableSettings.error = 'Немає даних для копіювання. Заповніть хоча б один alias.';
+              this.contentManagement.tableSettings.feedback = '';
+              return;
+            }
+
+            if (typeof navigator !== 'undefined' && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+              try {
+                await navigator.clipboard.writeText(snippet);
+                this.contentManagement.tableSettings.feedback = 'JSON скопійовано у буфер обміну.';
+                this.contentManagement.tableSettings.error = null;
+                setTimeout(() => {
+                  if (this.contentManagement.tableSettings.feedback === 'JSON скопійовано у буфер обміну.') {
+                    this.contentManagement.tableSettings.feedback = '';
+                  }
+                }, 2500);
+              } catch (error) {
+                this.contentManagement.tableSettings.error = 'Не вдалося скопіювати JSON. Спробуйте вручну.';
+                this.contentManagement.tableSettings.feedback = '';
+              }
+
+              return;
+            }
+
+            if (typeof document !== 'undefined') {
+              try {
+                const textarea = document.createElement('textarea');
+                textarea.value = snippet;
+                textarea.setAttribute('readonly', '');
+                textarea.style.position = 'absolute';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                this.contentManagement.tableSettings.feedback = 'JSON скопійовано у буфер обміну.';
+                this.contentManagement.tableSettings.error = null;
+                setTimeout(() => {
+                  if (this.contentManagement.tableSettings.feedback === 'JSON скопійовано у буфер обміну.') {
+                    this.contentManagement.tableSettings.feedback = '';
+                  }
+                }, 2500);
+                return;
+              } catch (error) {
+                this.contentManagement.tableSettings.error = 'Не вдалося скопіювати JSON. Скопіюйте текст вручну.';
+                this.contentManagement.tableSettings.feedback = '';
+                return;
+              }
+            }
+
+            this.contentManagement.tableSettings.error = 'Неможливо скопіювати JSON у цьому середовищі.';
+            this.contentManagement.tableSettings.feedback = '';
+          },
+          applyContentManagementTableSettings() {
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            if (!tableName) {
+              this.contentManagement.tableSettings.error = 'Не вдалося визначити таблицю для налаштування.';
+              this.contentManagement.tableSettings.feedback = '';
+              return;
+            }
+
+            const aliases = this.collectContentManagementTableSettingsAliases();
+            const hasAliases = Object.keys(aliases).length > 0;
+            const currentSettings =
+              this.contentManagement.settings && typeof this.contentManagement.settings === 'object'
+                ? { ...this.contentManagement.settings }
+                : {};
+
+            if (hasAliases) {
+              currentSettings[tableName] = aliases;
+            } else {
+              delete currentSettings[tableName];
+            }
+
+            this.contentManagement.settings = currentSettings;
+            this.contentManagement.tableSettings.error = null;
+            this.contentManagement.tableSettings.feedback = '';
+            this.closeContentManagementTableSettings();
           },
           getContentManagementTableAliases(tableName) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
@@ -2771,7 +3191,8 @@
           const shouldLock =
             this.valueModal.open ||
             this.manualForeignModal.open ||
-            this.contentManagement.deletionModal.open;
+            this.contentManagement.deletionModal.open ||
+            this.contentManagement.tableSettings.open;
           this.toggleBodyScroll(shouldLock);
         },
         toggleBodyScroll(shouldLock) {
@@ -2816,6 +3237,11 @@
           body.style.paddingRight = this.bodyOriginalPaddingRight;
         },
         handleEscape() {
+          if (this.contentManagement.tableSettings.open) {
+            this.closeContentManagementTableSettings();
+            return;
+          }
+
           if (this.contentManagement.deletionModal.open) {
             this.closeContentManagementDeletionModal();
             return;
