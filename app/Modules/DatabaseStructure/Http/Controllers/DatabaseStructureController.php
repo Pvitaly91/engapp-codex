@@ -31,6 +31,23 @@ class DatabaseStructureController
             'structure' => $structure,
             'meta' => $meta,
             'contentManagementMenu' => $contentManagementMenu,
+            'activeTab' => 'structure',
+            'standaloneTab' => 'structure',
+        ]);
+    }
+
+    public function contentManagement(): View|ViewFactory
+    {
+        $structure = $this->fetcher->getStructureSummary();
+        $meta = $this->fetcher->getMeta();
+        $contentManagementMenu = $this->contentManagementMenuManager->getMenu();
+
+        return view('database-structure::index', [
+            'structure' => $structure,
+            'meta' => $meta,
+            'contentManagementMenu' => $contentManagementMenu,
+            'activeTab' => 'content-management',
+            'standaloneTab' => 'content-management',
         ]);
     }
 

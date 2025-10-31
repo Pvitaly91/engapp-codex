@@ -3,8 +3,15 @@
 @section('title', 'Структура бази даних')
 
 @section('content')
+  @php
+    $currentTab = ($activeTab ?? 'structure') === 'content-management' ? 'content-management' : 'structure';
+    $standaloneTab = in_array($standaloneTab ?? null, ['structure', 'content-management'], true)
+      ? $standaloneTab
+      : null;
+  @endphp
+
   <div
-    class="space-y-8"
+    class="space-y-8 px-4 sm:px-0"
     x-data="databaseStructureViewer(
       @js($structure),
       @js(route('database-structure.records', ['table' => '__TABLE__'])),
@@ -19,28 +26,36 @@
       @js([
         'menuStore' => route('database-structure.content-management.menu.store'),
         'menuDelete' => route('database-structure.content-management.menu.destroy', ['table' => '__TABLE__']),
+      ]),
+      @js([
+        'initialTab' => $currentTab,
+        'standaloneTab' => $standaloneTab,
+        'tabRoutes' => [
+          'structure' => route('database-structure.index'),
+          'content-management' => route('database-structure.content-management'),
+        ],
       ])
     )"
     @keydown.window.escape.prevent="handleEscape()"
   >
     <div class="flex justify-start">
-      <div class="inline-flex gap-1 rounded-full border border-border/60 bg-background p-1 text-sm font-semibold text-muted-foreground shadow-soft/40">
-        <button
-          type="button"
-          class="rounded-full px-4 py-1.5 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+      <div class="inline-flex w-full flex-wrap items-center gap-1 rounded-full border border-border/60 bg-background p-1 text-sm font-semibold text-muted-foreground shadow-soft/40 sm:w-auto">
+        <a
+          href="{{ route('database-structure.index') }}"
+          class="flex-1 rounded-full px-4 py-1.5 text-center transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 sm:flex-none"
           :class="activeTab === 'structure' ? 'bg-primary text-white shadow-soft' : 'text-muted-foreground hover:text-foreground'"
-          @click="setActiveTab('structure')"
+          aria-current="{{ $currentTab === 'structure' ? 'page' : 'false' }}"
         >
           Структура БД
-        </button>
-        <button
-          type="button"
-          class="rounded-full px-4 py-1.5 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+        </a>
+        <a
+          href="{{ route('database-structure.content-management') }}"
+          class="flex-1 rounded-full px-4 py-1.5 text-center transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 sm:flex-none"
           :class="activeTab === 'content-management' ? 'bg-primary text-white shadow-soft' : 'text-muted-foreground hover:text-foreground'"
-          @click="setActiveTab('content-management')"
+          aria-current="{{ $currentTab === 'content-management' ? 'page' : 'false' }}"
         >
           Content Management
-        </button>
+        </a>
       </div>
     </div>
 
@@ -60,7 +75,7 @@
             </p>
           </div>
         </div>
-        <dl class="grid flex-shrink-0 grid-cols-2 gap-4 text-sm">
+        <dl class="grid flex-shrink-0 grid-cols-1 gap-4 text-sm sm:grid-cols-2">
           <div class="rounded-2xl border border-border/70 bg-background/60 p-4 shadow-soft/30">
             <dt class="text-muted-foreground">Підключення</dt>
             <dd class="mt-1 font-semibold text-foreground">{{ $meta['connection'] }} ({{ $meta['driver'] }})</dd>
@@ -972,12 +987,80 @@
     </div>
 
     <div
+      x-show="contentManagement.deletionModal.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        @click="contentManagement.deletionModal.loading ? null : closeContentManagementDeletionModal()"
+      ></div>
+      <div class="relative z-10 w-full max-w-md rounded-3xl border border-border/70 bg-card p-6 shadow-xl">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-foreground">Підтвердження видалення</h2>
+            <p class="mt-1 text-sm text-muted-foreground">
+              Таблиця
+              <span class="font-semibold text-foreground" x-text="contentManagement.deletionModal.label || contentManagement.deletionModal.table"></span>
+              буде прибрана з меню.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="contentManagement.deletionModal.loading ? null : closeContentManagementDeletionModal()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="mt-4 space-y-3 text-sm text-muted-foreground">
+          <p>
+            Ви впевнені, що хочете видалити запис
+            <span class="font-semibold text-foreground" x-text="contentManagement.deletionModal.label || contentManagement.deletionModal.table"></span>
+            (<span class="font-mono text-xs text-muted-foreground/80" x-text="contentManagement.deletionModal.table"></span>)
+            з меню?
+          </p>
+          <p class="text-xs text-muted-foreground">
+            Дію не можна скасувати, проте ви зможете знову додати таблицю через налаштування.
+          </p>
+        </div>
+        <template x-if="contentManagement.deletionModal.error">
+          <div
+            class="mt-4 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600"
+            x-text="contentManagement.deletionModal.error"
+          ></div>
+        </template>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
+          <button
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="contentManagement.deletionModal.loading"
+            @click="contentManagement.deletionModal.loading ? null : closeContentManagementDeletionModal()"
+          >
+            Скасувати
+          </button>
+          <button
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-rose-500 bg-rose-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-500/40 disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="contentManagement.deletionModal.loading"
+            @click="confirmContentManagementDeletion()"
+          >
+            <span x-show="!contentManagement.deletionModal.loading">Видалити</span>
+            <span x-show="contentManagement.deletionModal.loading" x-cloak>Видалення...</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
       x-show="activeTab === 'content-management'"
       x-cloak
       class="grid gap-6 lg:grid-cols-[280px_1fr]"
     >
       <aside class="space-y-4 rounded-3xl border border-border/70 bg-card/80 p-6 shadow-soft">
-        <div class="flex items-start justify-between gap-3">
+        <div class="flex flex-wrap items-start justify-between gap-3">
           <div class="space-y-1">
             <h2 class="text-lg font-semibold text-foreground">Меню таблиць</h2>
             <p class="text-xs text-muted-foreground">Виберіть таблицю або налаштуйте список.</p>
@@ -1051,7 +1134,7 @@
             </div>
           </template>
           <template x-for="item in contentManagement.menu" :key="`cm-item-${item.table}`">
-            <div class="flex items-center gap-2">
+            <div class="flex flex-wrap items-center gap-2">
               <button
                 type="button"
                 class="flex-1 rounded-2xl border px-4 py-3 text-left transition focus:outline-none focus:ring-2 focus:ring-primary/40"
@@ -1063,12 +1146,15 @@
               </button>
               <button
                 type="button"
-                class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70 disabled:cursor-not-allowed disabled:opacity-60"
-                @click="removeContentManagementMenuItem(item.table)"
-                :disabled="contentManagement.removingTable === item.table"
+                class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70"
+                x-show="contentManagement.menuSettings.open"
+                x-cloak
+                @click="openContentManagementDeletionModal(item)"
+                :disabled="contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table"
+                :aria-disabled="contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table"
+                aria-label="Видалити таблицю з меню"
               >
-                <i class="fa-solid fa-xmark text-xs" x-show="contentManagement.removingTable !== item.table"></i>
-                <span class="text-[10px] font-semibold uppercase tracking-wide" x-show="contentManagement.removingTable === item.table" x-cloak>...</span>
+                <i class="fa-solid fa-trash-can text-xs"></i>
               </button>
             </div>
           </template>
@@ -1207,6 +1293,7 @@
       manualForeignDeleteRoute,
       contentManagementMenu,
       contentManagementRoutes,
+      viewOptions = {},
     ) {
       const extractTables = (payload) => {
           if (Array.isArray(payload)) {
@@ -1532,9 +1619,31 @@
 
         const normalizedContentManagementMenu = normalizeContentManagementMenu(contentManagementMenu);
         const normalizedContentManagementRoutes = normalizeContentManagementRoutes(contentManagementRoutes);
+        const normalizedViewOptions =
+          viewOptions && typeof viewOptions === 'object' && !Array.isArray(viewOptions)
+            ? viewOptions
+            : {};
+        const initialTab = normalizedViewOptions.initialTab === 'content-management'
+          ? 'content-management'
+          : 'structure';
+        const standaloneTab = normalizedViewOptions.standaloneTab === 'content-management'
+          ? 'content-management'
+          : (normalizedViewOptions.standaloneTab === 'structure' ? 'structure' : '');
+        const tabRoutesSource =
+          normalizedViewOptions.tabRoutes && typeof normalizedViewOptions.tabRoutes === 'object'
+            ? normalizedViewOptions.tabRoutes
+            : {};
+        const normalizedTabRoutes = {
+          structure: typeof tabRoutesSource.structure === 'string' ? tabRoutesSource.structure : '',
+          'content-management': typeof tabRoutesSource['content-management'] === 'string'
+            ? tabRoutesSource['content-management']
+            : '',
+        };
 
-      return {
-          activeTab: 'structure',
+        return {
+          activeTab: standaloneTab || initialTab,
+          standaloneTab,
+          tabRoutes: normalizedTabRoutes,
           query: '',
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
@@ -1557,8 +1666,14 @@
               error: null,
             },
             selectedTable: '',
-            removingTable: '',
             viewer: createContentManagementViewerState(),
+            deletionModal: {
+              open: false,
+              table: '',
+              label: '',
+              loading: false,
+              error: null,
+            },
           },
           csrfToken:
             document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
@@ -1618,6 +1733,10 @@
               this.syncBodyScrollLock();
             });
 
+            this.$watch('contentManagement.deletionModal.open', () => {
+              this.syncBodyScrollLock();
+            });
+
             this.$watch('contentManagement.menuSettings.open', (open) => {
               if (open && !this.contentManagement.menuSettings.table) {
                 const available = this.contentManagementAvailableTables;
@@ -1637,7 +1756,33 @@
                 this.contentManagement.selectedTable = '';
                 this.resetContentManagementViewer();
               }
+
+              if (
+                this.activeTab === 'content-management' &&
+                !this.contentManagement.selectedTable &&
+                Array.isArray(this.contentManagement.menu) &&
+                this.contentManagement.menu.length > 0
+              ) {
+                const firstItem = this.contentManagement.menu[0];
+
+                if (firstItem && firstItem.table) {
+                  this.selectContentManagementTable(firstItem.table);
+                }
+              }
             });
+
+            if (
+              this.activeTab === 'content-management' &&
+              !this.contentManagement.selectedTable &&
+              Array.isArray(this.contentManagement.menu) &&
+              this.contentManagement.menu.length > 0
+            ) {
+              const firstItem = this.contentManagement.menu[0];
+
+              if (firstItem && firstItem.table) {
+                this.selectContentManagementTable(firstItem.table);
+              }
+            }
           },
           get filteredTables() {
             if (!this.query) {
@@ -1687,6 +1832,18 @@
           setActiveTab(tab) {
             const normalized = typeof tab === 'string' ? tab.trim() : '';
 
+            if (this.standaloneTab) {
+              if (normalized && normalized !== this.standaloneTab) {
+                const target = this.tabRoutes?.[normalized];
+
+                if (typeof target === 'string' && target) {
+                  window.location.href = target;
+                }
+              }
+
+              return;
+            }
+
             if (normalized === 'content-management') {
               this.activeTab = 'content-management';
 
@@ -1702,6 +1859,71 @@
             }
 
             this.activeTab = 'structure';
+          },
+          openContentManagementDeletionModal(item) {
+            if (!item || typeof item.table !== 'string') {
+              return;
+            }
+
+            const tableName = item.table.trim();
+
+            if (!tableName) {
+              return;
+            }
+
+            const label =
+              typeof item.label === 'string' && item.label.trim() !== ''
+                ? item.label.trim()
+                : tableName;
+
+            this.contentManagement.deletionModal.table = tableName;
+            this.contentManagement.deletionModal.label = label;
+            this.contentManagement.deletionModal.error = null;
+            this.contentManagement.deletionModal.loading = false;
+            this.contentManagement.deletionModal.open = true;
+          },
+          closeContentManagementDeletionModal() {
+            if (this.contentManagement.deletionModal.loading) {
+              return;
+            }
+
+            this.resetContentManagementDeletionModal();
+          },
+          resetContentManagementDeletionModal() {
+            this.contentManagement.deletionModal.open = false;
+            this.contentManagement.deletionModal.table = '';
+            this.contentManagement.deletionModal.label = '';
+            this.contentManagement.deletionModal.error = null;
+            this.contentManagement.deletionModal.loading = false;
+          },
+          async confirmContentManagementDeletion() {
+            if (this.contentManagement.deletionModal.loading) {
+              return;
+            }
+
+            const tableName = typeof this.contentManagement.deletionModal.table === 'string'
+              ? this.contentManagement.deletionModal.table.trim()
+              : '';
+
+            if (!tableName) {
+              this.contentManagement.deletionModal.error = 'Не вдалося визначити таблицю для видалення.';
+              return;
+            }
+
+            this.contentManagement.deletionModal.loading = true;
+            this.contentManagement.deletionModal.error = null;
+
+            try {
+              await this.removeContentManagementMenuItem(tableName);
+              this.resetContentManagementDeletionModal();
+            } catch (error) {
+              const message = error?.message ?? 'Сталася помилка під час видалення таблиці з меню.';
+              this.contentManagement.deletionModal.error = message;
+              this.contentManagement.menuSettings.error = message;
+              this.contentManagement.menuSettings.open = true;
+            } finally {
+              this.contentManagement.deletionModal.loading = false;
+            }
           },
           toggleContentManagementMenuSettings() {
             if (this.contentManagement.menuSettings.open) {
@@ -1796,11 +2018,13 @@
           async removeContentManagementMenuItem(tableName) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
 
-            if (!normalized || !this.contentManagementRoutes.menuDelete) {
-              return;
+            if (!normalized) {
+              throw new Error('Не вдалося визначити таблицю для видалення з меню.');
             }
 
-            this.contentManagement.removingTable = normalized;
+            if (!this.contentManagementRoutes.menuDelete) {
+              throw new Error('Маршрут видалення таблиці з меню не налаштовано.');
+            }
 
             try {
               const url = new URL(
@@ -1826,6 +2050,7 @@
               this.contentManagement.menu = this.contentManagement.menu.filter(
                 (item) => item && item.table !== normalized,
               );
+              this.contentManagement.menuSettings.error = null;
 
               if (this.contentManagement.selectedTable === normalized) {
                 this.contentManagement.selectedTable = '';
@@ -1839,11 +2064,12 @@
                   }
                 }
               }
+
+              return true;
             } catch (error) {
-              this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час видалення таблиці з меню.';
-              this.contentManagement.menuSettings.open = true;
-            } finally {
-              this.contentManagement.removingTable = '';
+              throw error instanceof Error
+                ? error
+                : new Error(error?.message ?? 'Сталася помилка під час видалення таблиці з меню.');
             }
           },
           contentManagementLabel(tableName) {
@@ -2027,7 +2253,10 @@
             }
           },
         syncBodyScrollLock() {
-          const shouldLock = this.valueModal.open || this.manualForeignModal.open;
+          const shouldLock =
+            this.valueModal.open ||
+            this.manualForeignModal.open ||
+            this.contentManagement.deletionModal.open;
           this.toggleBodyScroll(shouldLock);
         },
         toggleBodyScroll(shouldLock) {
@@ -2072,6 +2301,11 @@
           body.style.paddingRight = this.bodyOriginalPaddingRight;
         },
         handleEscape() {
+          if (this.contentManagement.deletionModal.open) {
+            this.closeContentManagementDeletionModal();
+            return;
+          }
+
           if (this.valueModal.open) {
             this.closeValueModal();
             return;
