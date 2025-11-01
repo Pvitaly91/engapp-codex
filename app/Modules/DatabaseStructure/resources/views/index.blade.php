@@ -1192,14 +1192,42 @@
         </div>
 
         <div class="flex flex-wrap items-center justify-between gap-3">
-          <button
-            type="button"
-            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-            @click="addContentManagementTableSettingsEntry()"
-          >
-            <i class="fa-solid fa-plus text-[11px]"></i>
-            Додати колонку
-          </button>
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="flex min-w-[240px] flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
+              <span>Додати зі структури</span>
+              <select
+                class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                x-model="contentManagement.tableSettings.columnPicker.selected"
+                @change="handleContentManagementTableSettingsColumnSelection(contentManagement.tableSettings.columnPicker.selected)"
+                :disabled="contentManagement.tableSettings.columnPicker.loading || contentManagement.tableSettings.columnPicker.groups.length === 0"
+              >
+                <option
+                  value=""
+                  x-text="contentManagement.tableSettings.columnPicker.loading ? 'Завантаження…' : 'Оберіть поле зі структури'"
+                ></option>
+                <template x-for="group in contentManagement.tableSettings.columnPicker.groups" :key="group.key">
+                  <optgroup :label="group.label">
+                    <template x-for="option in group.options" :key="option.value">
+                      <option :value="option.value" x-text="option.label"></option>
+                    </template>
+                  </optgroup>
+                </template>
+              </select>
+              <template x-if="!contentManagement.tableSettings.columnPicker.loading && contentManagement.tableSettings.columnPicker.groups.length === 0">
+                <span class="text-[11px] font-normal normal-case text-muted-foreground/80">
+                  Немає доступних полів. Переконайтеся, що структура таблиці та зв'язки завантажені.
+                </span>
+              </template>
+            </div>
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              @click="addContentManagementTableSettingsEntry()"
+            >
+              <i class="fa-solid fa-plus text-[11px]"></i>
+              Додати колонку
+            </button>
+          </div>
           <div class="flex flex-col gap-1 text-xs text-muted-foreground sm:text-right">
             <span>Порожні alias будуть проігноровані при застосуванні та в JSON-конфігурації.</span>
           </div>
@@ -2140,6 +2168,54 @@
 
           return result;
         };
+        const fallbackUnescape = typeof unescape === 'function'
+          ? unescape
+          : (value) => value;
+        const fallbackEscape = typeof escape === 'function'
+          ? escape
+          : (value) => value;
+
+        const encodeColumnPickerOption = (option) => {
+          try {
+            const json = JSON.stringify(option);
+            const encoder = typeof TextEncoder !== 'undefined' ? new TextEncoder() : null;
+
+            if (!encoder) {
+              return window.btoa(fallbackUnescape(encodeURIComponent(json)));
+            }
+
+            const bytes = encoder.encode(json);
+            let binary = '';
+
+            bytes.forEach((byte) => {
+              binary += String.fromCharCode(byte);
+            });
+
+            return window.btoa(binary);
+          } catch (_error) {
+            return '';
+          }
+        };
+
+        const decodeColumnPickerValue = (value) => {
+          if (typeof value !== 'string' || value === '') {
+            return null;
+          }
+
+          try {
+            const binary = window.atob(value);
+            const decoder = typeof TextDecoder !== 'undefined' ? new TextDecoder() : null;
+
+            if (!decoder) {
+              return JSON.parse(decodeURIComponent(fallbackEscape(binary)));
+            }
+
+            const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+            return JSON.parse(decoder.decode(bytes));
+          } catch (_error) {
+            return null;
+          }
+        };
 
         const normalizeContentManagementTableSettings = (settings) => {
           if (!settings || typeof settings !== 'object') {
@@ -2310,6 +2386,12 @@
           preview: createForeignRecordPreviewState(),
         });
 
+        const createTableSettingsColumnPickerState = () => ({
+          groups: [],
+          selected: '',
+          loading: false,
+        });
+
         const normalizedTables = extractTables(tables)
           .map((table) => {
             const tableObject = table && typeof table === 'object' && !Array.isArray(table)
@@ -2446,6 +2528,7 @@
               error: null,
               feedback: '',
               nextId: 0,
+              columnPicker: createTableSettingsColumnPickerState(),
             },
             selectedTable: '',
             viewer: createContentManagementViewerState(),
@@ -3213,9 +3296,288 @@
             this.contentManagement.tableSettings.error = null;
             this.contentManagement.tableSettings.feedback = '';
             this.contentManagement.tableSettings.open = true;
+            await this.refreshContentManagementTableSettingsColumnPickerOptions(tableName);
           },
           closeContentManagementTableSettings() {
             this.resetContentManagementTableSettings();
+          },
+          ensureContentManagementColumnPickerState() {
+            const picker = this.contentManagement.tableSettings.columnPicker;
+
+            if (!picker || typeof picker !== 'object') {
+              this.contentManagement.tableSettings.columnPicker = createTableSettingsColumnPickerState();
+            }
+
+            return this.contentManagement.tableSettings.columnPicker;
+          },
+          resetContentManagementTableSettingsColumnPicker() {
+            this.contentManagement.tableSettings.columnPicker = createTableSettingsColumnPickerState();
+          },
+          async refreshContentManagementTableSettingsColumnPickerOptions(tableName = null) {
+            const picker = this.ensureContentManagementColumnPickerState();
+
+            const normalizedTable = typeof tableName === 'string' && tableName.trim() !== ''
+              ? tableName.trim()
+              : (typeof this.contentManagement.tableSettings.table === 'string'
+                ? this.contentManagement.tableSettings.table.trim()
+                : '');
+
+            if (!normalizedTable) {
+              picker.groups = [];
+              picker.selected = '';
+              picker.loading = false;
+              return;
+            }
+
+            picker.loading = true;
+
+            try {
+              const table = await this.ensureStructureLoadedByName(normalizedTable);
+
+              if (!table) {
+                picker.groups = [];
+                picker.selected = '';
+                return;
+              }
+
+              const baseColumns = this.getTableColumnNames(table)
+                .map((column) => (typeof column === 'string' ? column.trim() : ''))
+                .filter((column) => column !== '')
+                .sort((a, b) => a.localeCompare(b, 'uk'));
+
+              const baseOptions = baseColumns.map((column) => ({
+                value: encodeColumnPickerOption({ type: 'column', column }),
+                label: column,
+              }));
+
+              const relationOverrides = this.getContentManagementRelationOverrides(normalizedTable);
+              const relationOptions = [];
+              const relationKeys = new Set();
+              const structureColumns = Array.isArray(table.structure?.columns) ? table.structure.columns : [];
+
+              for (const columnDefinition of structureColumns) {
+                if (!columnDefinition || typeof columnDefinition.name !== 'string') {
+                  continue;
+                }
+
+                const columnName = columnDefinition.name;
+                const foreign = columnDefinition.foreign;
+                const foreignTable = foreign && typeof foreign.table === 'string' ? foreign.table.trim() : '';
+                const foreignColumn = foreign && typeof foreign.column === 'string' ? foreign.column.trim() : '';
+                const foreignDisplay = foreign && typeof foreign.displayColumn === 'string'
+                  ? foreign.displayColumn.trim()
+                  : '';
+
+                const override = relationOverrides && typeof relationOverrides === 'object'
+                  ? relationOverrides[columnName]
+                  : null;
+
+                const overrideTable = override && typeof override.table === 'string' ? override.table.trim() : '';
+                const overrideDisplay = override && typeof override.column === 'string' ? override.column.trim() : '';
+
+                const relationTable = overrideTable || foreignTable;
+
+                if (!relationTable) {
+                  continue;
+                }
+
+                const relatedTable = await this.ensureStructureLoadedByName(relationTable);
+                const relatedColumns = this.getTableColumnNames(relatedTable)
+                  .map((column) => (typeof column === 'string' ? column.trim() : ''))
+                  .filter((column) => column !== '');
+
+                const optionSet = new Set(relatedColumns);
+
+                [foreignColumn, foreignDisplay, overrideDisplay].forEach((candidate) => {
+                  if (typeof candidate === 'string' && candidate !== '') {
+                    optionSet.add(candidate);
+                  }
+                });
+
+                optionSet.forEach((targetColumn) => {
+                  if (typeof targetColumn !== 'string' || targetColumn === '') {
+                    return;
+                  }
+
+                  const key = `${columnName}::${relationTable}::${targetColumn}`;
+
+                  if (relationKeys.has(key)) {
+                    return;
+                  }
+
+                  relationKeys.add(key);
+
+                  relationOptions.push({
+                    value: encodeColumnPickerOption({
+                      type: 'relation',
+                      column: columnName,
+                      relationTable,
+                      relationColumn: targetColumn,
+                    }),
+                    label: `${columnName} → ${relationTable}.${targetColumn}`,
+                  });
+                });
+              }
+
+              relationOptions.sort((a, b) => a.label.localeCompare(b.label, 'uk'));
+
+              const groups = [];
+
+              if (baseOptions.length > 0) {
+                groups.push({
+                  key: 'columns',
+                  label: 'Колонки таблиці',
+                  options: baseOptions,
+                });
+              }
+
+              if (relationOptions.length > 0) {
+                groups.push({
+                  key: 'relations',
+                  label: "Поля пов'язаних таблиць",
+                  options: relationOptions,
+                });
+              }
+
+              picker.groups = groups;
+              picker.selected = '';
+            } finally {
+              picker.loading = false;
+            }
+          },
+          handleContentManagementTableSettingsColumnSelection(value) {
+            const picker = this.ensureContentManagementColumnPickerState();
+            const selection = decodeColumnPickerValue(value);
+
+            picker.selected = '';
+
+            if (!selection || typeof selection !== 'object') {
+              return;
+            }
+
+            if (selection.type === 'relation') {
+              this.applyContentManagementRelationSelection(selection);
+              return;
+            }
+
+            if (selection.type === 'column') {
+              this.applyContentManagementColumnSelection(selection.column);
+            }
+          },
+          applyContentManagementColumnSelection(columnName) {
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!tableName || !normalizedColumn) {
+              return;
+            }
+
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            const existingIndex = entries.findIndex(
+              (entry) => entry && typeof entry.column === 'string' && entry.column === normalizedColumn,
+            );
+
+            if (existingIndex >= 0) {
+              this.contentManagement.tableSettings.feedback = `Колонка «${normalizedColumn}» вже додана.`;
+              this.contentManagement.tableSettings.error = null;
+              return;
+            }
+
+            const overrides = this.getContentManagementRelationOverrides(tableName);
+            const override = overrides && typeof overrides === 'object' ? overrides[normalizedColumn] : null;
+            const relation = this.resolveContentManagementRelationState(
+              tableName,
+              normalizedColumn,
+              override ?? null,
+            );
+
+            this.contentManagement.tableSettings.entries = [
+              ...entries,
+              {
+                id: this.nextContentManagementTableSettingsId(),
+                column: normalizedColumn,
+                alias: '',
+                hidden: false,
+                locked: false,
+                relation: relation ?? null,
+              },
+            ];
+
+            this.contentManagement.tableSettings.feedback = `Колонка «${normalizedColumn}» додана зі структури.`;
+            this.contentManagement.tableSettings.error = null;
+          },
+          applyContentManagementRelationSelection(selection) {
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            const normalizedColumn = selection && typeof selection.column === 'string'
+              ? selection.column.trim()
+              : '';
+            const displayColumn = selection && typeof selection.relationColumn === 'string'
+              ? selection.relationColumn.trim()
+              : '';
+
+            if (!tableName || !normalizedColumn || !displayColumn) {
+              return;
+            }
+
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            const overrides = this.getContentManagementRelationOverrides(tableName);
+            const override = overrides && typeof overrides === 'object' ? overrides[normalizedColumn] : null;
+            const relationState = this.resolveContentManagementRelationState(
+              tableName,
+              normalizedColumn,
+              override ?? null,
+              displayColumn,
+            );
+
+            if (!relationState) {
+              this.contentManagement.tableSettings.error = 'Не вдалося визначити зв\'язок для вибраного поля.';
+              this.contentManagement.tableSettings.feedback = '';
+              return;
+            }
+
+            const existingIndex = entries.findIndex(
+              (entry) => entry && typeof entry.column === 'string' && entry.column === normalizedColumn,
+            );
+
+            if (existingIndex >= 0) {
+              this.contentManagement.tableSettings.entries = entries.map((entry, index) => {
+                if (index !== existingIndex) {
+                  return entry;
+                }
+
+                return {
+                  ...entry,
+                  relation: relationState,
+                };
+              });
+            } else {
+              this.contentManagement.tableSettings.entries = [
+                ...entries,
+                {
+                  id: this.nextContentManagementTableSettingsId(),
+                  column: normalizedColumn,
+                  alias: '',
+                  hidden: false,
+                  locked: false,
+                  relation: relationState,
+                },
+              ];
+            }
+
+            this.contentManagement.tableSettings.feedback = `Поле «${displayColumn}» додано для колонки «${normalizedColumn}».`;
+            this.contentManagement.tableSettings.error = null;
           },
           resetContentManagementTableSettings() {
             this.contentManagement.tableSettings.open = false;
@@ -3224,6 +3586,7 @@
             this.contentManagement.tableSettings.error = null;
             this.contentManagement.tableSettings.feedback = '';
             this.contentManagement.tableSettings.nextId = 0;
+            this.resetContentManagementTableSettingsColumnPicker();
           },
           addContentManagementTableSettingsEntry() {
             if (!Array.isArray(this.contentManagement.tableSettings.entries)) {
