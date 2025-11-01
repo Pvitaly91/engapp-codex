@@ -2301,6 +2301,7 @@
             identifiers: [],
             foreignKey: null,
             foreignRecords: createForeignRecordsState(),
+            canEdit: true,
           },
           filterOperators: [
             { value: '=', label: 'Дорівнює (=)' },
@@ -3570,7 +3571,7 @@
               }
             }
           },
-          showContentManagementRecordValue(columnName, row) {
+          async showContentManagementRecordValue(columnName, row) {
             const selected = typeof this.contentManagement.selectedTable === 'string'
               ? this.contentManagement.selectedTable.trim()
               : '';
@@ -3621,7 +3622,27 @@
                   },
                 };
 
-            this.showRecordValue(tableForModal, normalizedColumn, row);
+            const baseState = this.prepareValueModalBaseState(tableForModal, normalizedColumn, row);
+
+            if (!baseState) {
+              return;
+            }
+
+            if (baseState.identifiers.length === 0) {
+              this.openValueModalFromRow(tableForModal, normalizedColumn, row, baseState);
+              return;
+            }
+
+            await this.ensureStructureLoaded(tableForModal);
+
+            const knownColumns = new Set(this.getTableColumnNames(tableForModal));
+
+            if (!knownColumns.has(normalizedColumn)) {
+              this.openValueModalFromRow(tableForModal, normalizedColumn, row, baseState);
+              return;
+            }
+
+            await this.showRecordValue(tableForModal, normalizedColumn, row, baseState);
           },
           contentManagementHighlight(columnName, value) {
             const text = this.formatCell(value);
@@ -4365,7 +4386,8 @@
             return;
           }
 
-          const identifiers = this.buildIdentifiers(table, row);
+          const sourceRow = row && typeof row === 'object' ? row : {};
+          const identifiers = this.buildIdentifiers(table, sourceRow);
 
           if (identifiers.length === 0) {
             table.records.error = 'Не вдалося визначити ідентифікатори запису для видалення.';
@@ -4444,6 +4466,71 @@
           });
 
           return identifiers;
+        },
+        prepareValueModalBaseState(table, columnName, row) {
+          if (!table || typeof columnName !== 'string') {
+            return null;
+          }
+
+          const normalizedColumn = columnName.trim();
+          const tableName = typeof table.name === 'string' ? table.name : '';
+
+          if (!normalizedColumn || !tableName) {
+            return null;
+          }
+
+          const sourceRow = row && typeof row === 'object' ? row : {};
+          const identifiers = this.buildIdentifiers(table, sourceRow);
+          const sanitizedIdentifiers = Array.isArray(identifiers)
+            ? identifiers
+              .filter((identifier) => identifier && typeof identifier.column === 'string' && identifier.column !== '')
+              .map((identifier) => ({
+                column: identifier.column,
+                value: identifier.value,
+              }))
+            : [];
+
+          const records = table && typeof table === 'object' ? table.records || {} : {};
+          const searchTerm = typeof records.search === 'string' ? records.search : '';
+          const searchColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
+
+          return {
+            tableName,
+            columnName: normalizedColumn,
+            identifiers: sanitizedIdentifiers,
+            searchTerm: !searchTerm || (searchColumn && searchColumn !== normalizedColumn)
+              ? ''
+              : searchTerm,
+          };
+        },
+        openValueModalFromRow(table, columnName, row, baseState = null) {
+          const state = baseState || this.prepareValueModalBaseState(table, columnName, row);
+
+          if (!state) {
+            return;
+          }
+
+          const rawValue = row && typeof row === 'object'
+            ? row[state.columnName]
+            : null;
+
+          this.valueModal.open = true;
+          this.valueModal.loading = false;
+          this.valueModal.error = null;
+          this.valueModal.updateError = null;
+          this.valueModal.table = state.tableName;
+          this.valueModal.column = state.columnName;
+          this.valueModal.value = this.formatCell(rawValue);
+          this.valueModal.rawValue = rawValue;
+          this.valueModal.editValue = this.prepareEditableValue(rawValue);
+          this.valueModal.editing = false;
+          this.valueModal.saving = false;
+          this.valueModal.identifiers = state.identifiers;
+          this.valueModal.searchTerm = state.searchTerm;
+          this.valueModal.foreignKey = null;
+          this.valueModal.foreignRecords = createForeignRecordsState();
+          this.valueModal.canEdit = false;
+          this.syncForeignSelectionWithRawValue(rawValue);
         },
         findForeignKey(table, columnName) {
           if (!table || typeof columnName !== 'string' || !table.structure) {
@@ -4995,45 +5082,31 @@
             }
           });
         },
-        async showRecordValue(table, column, row) {
-          const columnName = typeof column === 'string' ? column.trim() : '';
-          const tableName = table && typeof table.name === 'string' ? table.name : '';
+        async showRecordValue(table, column, row, baseState = null) {
+          const state = baseState || this.prepareValueModalBaseState(table, column, row);
 
-          if (!columnName || !tableName) {
+          if (!state) {
             return;
           }
-
-          const identifiers = this.buildIdentifiers(table, row);
-          const clonedIdentifiers = identifiers
-            .filter((identifier) => identifier && typeof identifier.column === 'string' && identifier.column !== '')
-            .map((identifier) => ({
-              column: identifier.column,
-              value: identifier.value,
-            }));
 
           this.valueModal.open = true;
           this.valueModal.loading = true;
           this.valueModal.error = null;
           this.valueModal.updateError = null;
-          this.valueModal.table = tableName;
-          this.valueModal.column = columnName;
+          this.valueModal.table = state.tableName;
+          this.valueModal.column = state.columnName;
           this.valueModal.value = '';
           this.valueModal.rawValue = null;
           this.valueModal.editValue = '';
           this.valueModal.editing = false;
           this.valueModal.saving = false;
-          this.valueModal.identifiers = clonedIdentifiers;
+          this.valueModal.identifiers = state.identifiers;
           this.valueModal.foreignKey = null;
           this.valueModal.foreignRecords = createForeignRecordsState();
+          this.valueModal.searchTerm = state.searchTerm;
+          this.valueModal.canEdit = state.identifiers.length > 0;
 
-          const records = table && typeof table === 'object' ? table.records || {} : {};
-          const searchTerm = typeof records.search === 'string' ? records.search : '';
-          const searchColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
-          this.valueModal.searchTerm = !searchTerm || (searchColumn && searchColumn !== columnName)
-            ? ''
-            : searchTerm;
-
-          if (clonedIdentifiers.length === 0) {
+          if (state.identifiers.length === 0) {
             this.valueModal.loading = false;
             this.valueModal.error = 'Не вдалося визначити ідентифікатори запису для отримання значення.';
             return;
@@ -5046,12 +5119,12 @@
           }
 
           await this.ensureStructureLoaded(table);
-          this.valueModal.foreignKey = this.findForeignKey(table, columnName);
+          this.valueModal.foreignKey = this.findForeignKey(table, state.columnName);
           this.valueModal.foreignRecords = createForeignRecordsState();
 
           try {
             const url = new URL(
-              this.recordsValueRoute.replace('__TABLE__', encodeURIComponent(tableName)),
+              this.recordsValueRoute.replace('__TABLE__', encodeURIComponent(state.tableName)),
               window.location.origin
             );
 
@@ -5063,8 +5136,8 @@
                 'X-CSRF-TOKEN': this.csrfToken || '',
               },
               body: JSON.stringify({
-                column: columnName,
-                identifiers: clonedIdentifiers,
+                column: state.columnName,
+                identifiers: state.identifiers,
               }),
             });
 
@@ -5094,7 +5167,7 @@
           }
         },
         startEditingValue() {
-          if (this.valueModal.loading || this.valueModal.error) {
+          if (this.valueModal.loading || this.valueModal.error || !this.valueModal.canEdit) {
             return;
           }
 
@@ -5222,6 +5295,7 @@
           this.valueModal.identifiers = [];
           this.valueModal.foreignKey = null;
           this.valueModal.foreignRecords = createForeignRecordsState();
+          this.valueModal.canEdit = true;
         },
         toggleSort(table, column) {
           if (table.records.loading) {
