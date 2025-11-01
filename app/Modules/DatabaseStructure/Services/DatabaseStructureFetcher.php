@@ -183,6 +183,7 @@ class DatabaseStructureFetcher
 
         $displayColumnAliases = [];
         $searchColumnOverrides = [];
+        $additionalColumnAliases = [];
 
         foreach ($relationDisplayOverrides as $columnName => $override) {
             $relationAlias = $this->buildRelationAlias($columnName);
@@ -206,6 +207,27 @@ class DatabaseStructureFetcher
 
             $displayColumnAliases[$columnName] = $displayAlias;
             $searchColumnOverrides[$columnName] = sprintf('%s.%s', $relationAlias, $override['display_column']);
+
+            $additionalColumns = [];
+
+            if (!empty($override['additional_columns']) && is_array($override['additional_columns'])) {
+                $additionalColumns = array_values(
+                    array_filter(
+                        array_map(
+                            fn ($column) => $this->sanitizeConfigName($column),
+                            $override['additional_columns'],
+                        ),
+                    ),
+                );
+            }
+
+            if (!empty($additionalColumns)) {
+                foreach ($additionalColumns as $additionalColumn) {
+                    $additionalAlias = $this->buildRelationAdditionalColumnAlias($columnName, $additionalColumn);
+                    $query->addSelect(sprintf('%s.%s as %s', $relationAlias, $additionalColumn, $additionalAlias));
+                    $additionalColumnAliases[$columnName][$additionalColumn] = $additionalAlias;
+                }
+            }
         }
 
         $this->applyFilters($query, $normalizedFilters);
@@ -236,17 +258,43 @@ class DatabaseStructureFetcher
             ->skip($offset)
             ->take($perPage)
             ->get()
-            ->map(function ($row) use ($displayColumnAliases) {
+            ->map(function ($row) use ($displayColumnAliases, $additionalColumnAliases) {
                 $arrayRow = (array) $row;
                 $displayValues = [];
 
                 foreach ($displayColumnAliases as $columnName => $alias) {
-                    if (!array_key_exists($alias, $arrayRow)) {
-                        continue;
+                    $hasPrimary = array_key_exists($alias, $arrayRow);
+                    $primaryValue = null;
+
+                    if ($hasPrimary) {
+                        $primaryValue = $this->convertValueForResponse($arrayRow[$alias]);
+                        unset($arrayRow[$alias]);
                     }
 
-                    $displayValues[$columnName] = $this->convertValueForResponse($arrayRow[$alias]);
-                    unset($arrayRow[$alias]);
+                    $additionalValues = [];
+                    $additionalAliases = $additionalColumnAliases[$columnName] ?? [];
+
+                    if (!empty($additionalAliases)) {
+                        foreach ($additionalAliases as $fieldName => $additionalAlias) {
+                            if (!array_key_exists($additionalAlias, $arrayRow)) {
+                                continue;
+                            }
+
+                            $additionalValues[$fieldName] = $this->convertValueForResponse($arrayRow[$additionalAlias]);
+                            unset($arrayRow[$additionalAlias]);
+                        }
+                    }
+
+                    if ($hasPrimary || !empty($additionalValues)) {
+                        if (!empty($additionalValues)) {
+                            $displayValues[$columnName] = [
+                                'value' => $hasPrimary ? $primaryValue : null,
+                                'additional' => $additionalValues,
+                            ];
+                        } elseif ($hasPrimary) {
+                            $displayValues[$columnName] = $primaryValue;
+                        }
+                    }
                 }
 
                 if (!empty($displayValues)) {
@@ -861,6 +909,12 @@ class DatabaseStructureFetcher
                 'display_column' => $displayColumn,
                 'referenced_column' => $foreign['column'],
             ];
+
+            if (!empty($definition['additional']) && is_array($definition['additional'])) {
+                $overrides[$columnName]['additional_columns'] = array_values(
+                    array_unique($definition['additional']),
+                );
+            }
         }
 
         return $overrides;
@@ -1002,6 +1056,35 @@ class DatabaseStructureFetcher
             $payload['table'] = $table;
         }
 
+        $additionalKeys = [
+            'additional',
+            'additional_columns',
+            'additionalColumns',
+            'extra',
+            'extras',
+            'fields',
+            'columns',
+            'select',
+            'include',
+        ];
+
+        $additional = [];
+
+        foreach ($additionalKeys as $key) {
+            if (!array_key_exists($key, $definition)) {
+                continue;
+            }
+
+            $additional = array_merge(
+                $additional,
+                $this->normalizeAdditionalColumns($definition[$key]),
+            );
+        }
+
+        if (!empty($additional)) {
+            $payload['additional'] = array_values(array_unique($additional));
+        }
+
         return $payload;
     }
 
@@ -1047,6 +1130,61 @@ class DatabaseStructureFetcher
         $hash = substr(md5($columnName), 0, 6);
 
         return sprintf('__ds_display_%s_%s', $sanitized, $hash);
+    }
+
+    private function buildRelationAdditionalColumnAlias(string $columnName, string $fieldName): string
+    {
+        $columnSanitized = preg_replace('/[^A-Za-z0-9_]/', '_', $columnName) ?: 'column';
+        $fieldSanitized = preg_replace('/[^A-Za-z0-9_]/', '_', $fieldName) ?: 'field';
+        $hash = substr(md5($columnName . '|' . $fieldName), 0, 6);
+
+        return sprintf('__ds_extra_%s_%s_%s', $columnSanitized, $fieldSanitized, $hash);
+    }
+
+    private function normalizeAdditionalColumns(mixed $source): array
+    {
+        $result = [];
+
+        $push = function ($value) use (&$result): void {
+            if (!is_string($value)) {
+                return;
+            }
+
+            $normalized = $this->sanitizeConfigName($value);
+
+            if ($normalized !== null) {
+                $result[] = $normalized;
+            }
+        };
+
+        if (is_array($source)) {
+            foreach ($source as $entry) {
+                if (is_string($entry)) {
+                    $push($entry);
+                    continue;
+                }
+
+                if (!is_array($entry)) {
+                    continue;
+                }
+
+                foreach (['column', 'field', 'name', 'value'] as $key) {
+                    if (isset($entry[$key])) {
+                        $push($entry[$key]);
+                    }
+                }
+            }
+
+            return array_values(array_unique($result));
+        }
+
+        if (is_string($source)) {
+            foreach (explode(',', $source) as $piece) {
+                $push($piece);
+            }
+        }
+
+        return array_values(array_unique($result));
     }
 
     private function normalizeForeignDefinition(mixed $foreign): ?array
