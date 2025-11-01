@@ -34,6 +34,7 @@ class DatabaseStructureServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/config/database-structure.php', 'database-structure');
         $this->app->singleton(Services\DatabaseStructureFetcher::class);
         $this->app->singleton(Services\ContentManagementMenuManager::class);
+        $this->app->singleton(Services\FilterStorageManager::class);
     }
 
     protected function registerRoutes(): void

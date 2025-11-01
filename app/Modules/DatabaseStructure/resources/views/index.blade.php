@@ -30,6 +30,12 @@
       ]),
       @js($contentManagementTableSettings),
       @js([
+        'index' => route('database-structure.filters.index', ['table' => '__TABLE__', 'scope' => '__SCOPE__']),
+        'store' => route('database-structure.filters.store', ['table' => '__TABLE__', 'scope' => '__SCOPE__']),
+        'use' => route('database-structure.filters.use', ['table' => '__TABLE__', 'scope' => '__SCOPE__', 'filter' => '__FILTER__']),
+        'destroy' => route('database-structure.filters.destroy', ['table' => '__TABLE__', 'scope' => '__SCOPE__', 'filter' => '__FILTER__']),
+      ]),
+      @js([
         'initialTab' => $currentTab,
         'standaloneTab' => $standaloneTab,
         'tabRoutes' => [
@@ -302,36 +308,77 @@
                   <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                       <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
-                      <div class="flex flex-wrap items-center gap-2 text-[15px]">
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
-                          @click.stop="addFilter(table)"
-                          :disabled="table.records.loading"
+                      <div class="flex flex-col items-start gap-2 md:items-end">
+                        <div class="flex flex-wrap items-center gap-2 text-[15px]">
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary"
+                            @click.stop="addFilter(table)"
+                            :disabled="table.records.loading"
                         >
                           <i class="fa-solid fa-plus text-[10px]"></i>
                           Додати фільтр
                         </button>
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                          :disabled="table.records.filters.length === 0 || table.records.loading"
-                          @click.stop="resetFilters(table)"
-                        >
-                          <i class="fa-solid fa-rotate-left text-[10px]"></i>
-                          Скинути
-                        </button>
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
-                          :disabled="table.records.loading"
-                          @click.stop="applyFilters(table)"
-                        >
-                          <i class="fa-solid fa-filter text-[10px]"></i>
-                          Застосувати
-                        </button>
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 text-[15px] font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                            :disabled="table.records.filters.length === 0 || table.records.loading"
+                            @click.stop="resetFilters(table)"
+                          >
+                            <i class="fa-solid fa-rotate-left text-[10px]"></i>
+                            Скинути
+                          </button>
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                            :disabled="table.records.loading"
+                            @click.stop="saveRecordsFilters(table)"
+                          >
+                            <i class="fa-solid fa-floppy-disk text-[10px]"></i>
+                            Зберегти фільтр
+                          </button>
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[15px] font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                            :disabled="table.records.loading"
+                            @click.stop="applyFilters(table)"
+                          >
+                            <i class="fa-solid fa-filter text-[10px]"></i>
+                            Застосувати
+                          </button>
+                        </div>
+                        <template x-if="table.records.feedback">
+                          <span class="text-xs font-semibold text-emerald-600 md:text-right" x-text="table.records.feedback"></span>
+                        </template>
+                        <template x-if="table.records.savedFilters.loading">
+                          <span class="text-[12px] text-muted-foreground md:text-right">Завантаження збережених фільтрів…</span>
+                        </template>
+                        <template x-if="!table.records.savedFilters.loading && table.records.savedFilters.items.length > 0">
+                          <div class="flex flex-wrap items-center gap-2 pt-1 md:justify-end">
+                            <template x-for="saved in table.records.savedFilters.items" :key="`records-saved-${saved.id}`">
+                              <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background text-xs font-semibold">
+                                <button
+                                  type="button"
+                                  class="px-3 py-1 text-foreground transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                                  :disabled="table.records.loading || table.records.savedFilters.loading"
+                                  @click.stop="applySavedRecordsFilterButton(table, saved.id)"
+                                  x-text="saved.name"
+                                ></button>
+                                <button
+                                  type="button"
+                                  class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
+                                  :disabled="table.records.savedFilters.loading"
+                                  @click.stop="deleteSavedRecordsFilter(table, saved.id)"
+                                  :aria-label="`Видалити фільтр ${saved.name}`"
+                                >
+                                  <i class="fa-solid fa-xmark text-[10px]"></i>
+                                </button>
+                              </div>
+                            </template>
+                          </div>
+                        </template>
+                        </div>
                       </div>
-                    </div>
                     <div class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
                       <span class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
                       <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
@@ -1472,34 +1519,75 @@
             <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
               <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
-                <div class="flex flex-wrap items-center gap-2 text-sm">
-                  <button
-                    type="button"
-                    class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                    @click="addContentManagementFilter()"
-                    :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
+                <div class="flex flex-col items-start gap-2 md:items-end">
+                  <div class="flex flex-wrap items-center gap-2 text-sm">
+                    <button
+                      type="button"
+                      class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                      @click="addContentManagementFilter()"
+                      :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
                   >
                     <i class="fa-solid fa-plus text-[10px]"></i>
                     Додати фільтр
                   </button>
-                  <button
-                    type="button"
-                    class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                    :disabled="contentManagement.viewer.filters.length === 0 || contentManagement.viewer.loading"
-                    @click="resetContentManagementFilters()"
-                  >
-                    <i class="fa-solid fa-rotate-left text-[10px]"></i>
-                    Скинути
-                  </button>
-                  <button
-                    type="button"
-                    class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
-                    :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
-                    @click="applyContentManagementFilters()"
-                  >
-                    <i class="fa-solid fa-filter text-[10px]"></i>
-                    Застосувати
-                  </button>
+                    <button
+                      type="button"
+                      class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                      :disabled="contentManagement.viewer.filters.length === 0 || contentManagement.viewer.loading"
+                      @click="resetContentManagementFilters()"
+                    >
+                      <i class="fa-solid fa-rotate-left text-[10px]"></i>
+                      Скинути
+                    </button>
+                    <button
+                      type="button"
+                      class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                      :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
+                      @click="saveContentManagementFilters()"
+                    >
+                      <i class="fa-solid fa-floppy-disk text-[10px]"></i>
+                      Зберегти фільтр
+                    </button>
+                    <button
+                      type="button"
+                      class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-semibold text-primary transition hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-60"
+                      :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
+                      @click="applyContentManagementFilters()"
+                    >
+                      <i class="fa-solid fa-filter text-[10px]"></i>
+                      Застосувати
+                    </button>
+                  </div>
+                  <template x-if="contentManagement.viewer.feedback">
+                    <span class="text-xs font-semibold text-emerald-600 md:text-right" x-text="contentManagement.viewer.feedback"></span>
+                  </template>
+                  <template x-if="contentManagement.viewer.savedFilters.loading">
+                    <span class="text-[11px] text-muted-foreground md:text-right">Завантаження збережених фільтрів…</span>
+                  </template>
+                  <template x-if="!contentManagement.viewer.savedFilters.loading && contentManagement.viewer.savedFilters.items.length > 0">
+                    <div class="flex flex-wrap items-center gap-2 pt-1 md:justify-end">
+                      <template x-for="saved in contentManagement.viewer.savedFilters.items" :key="`content-saved-${saved.id}`">
+                        <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background text-[11px] font-semibold">
+                          <button
+                            type="button"
+                            class="px-3 py-1 text-foreground transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                            :disabled="contentManagement.viewer.loading || contentManagement.viewer.savedFilters.loading"
+                            @click.stop="applySavedContentManagementFilter(saved.id)"
+                            x-text="saved.name"
+                          ></button>
+                          <button
+                            type="button"
+                            class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
+                            :disabled="contentManagement.viewer.savedFilters.loading"
+                            @click.stop="deleteSavedContentManagementFilter(saved.id)"
+                            :aria-label="`Видалити фільтр ${saved.name}`"
+                          >
+                            <i class="fa-solid fa-xmark text-[10px]"></i>
+                          </button>
+                        </div>
+                      </template>
+                    </div>
+                  </template>
                 </div>
               </div>
 
@@ -1721,8 +1809,155 @@
       contentManagementMenu,
       contentManagementRoutes,
       contentManagementSettings = {},
+      filterRoutes = {},
       viewOptions = {},
     ) {
+      const normalizeFilterScope = (scope) => (scope === 'content' ? 'content' : 'records');
+
+      const normalizeFilterRoutes = (routes) => {
+        const source = routes && typeof routes === 'object' ? routes : {};
+
+        return {
+          index: typeof source.index === 'string' ? source.index : '',
+          store: typeof source.store === 'string' ? source.store : '',
+          destroy: typeof source.destroy === 'string' ? source.destroy : '',
+          use: typeof source.use === 'string' ? source.use : '',
+        };
+      };
+
+      const buildFilterRoute = (template, tableName, scope, filterId = null) => {
+        if (typeof template !== 'string' || template.trim() === '') {
+          return '';
+        }
+
+        const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+        const normalizedScope = normalizeFilterScope(scope);
+
+        if (!normalizedTable) {
+          return '';
+        }
+
+        let route = template.replace('__TABLE__', encodeURIComponent(normalizedTable));
+        route = route.replace('__SCOPE__', encodeURIComponent(normalizedScope));
+
+        if (route.includes('__FILTER__')) {
+          if (filterId === null) {
+            return '';
+          }
+
+          const normalizedFilter = typeof filterId === 'string' ? filterId.trim() : '';
+
+          if (!normalizedFilter) {
+            return '';
+          }
+
+          route = route.replace('__FILTER__', encodeURIComponent(normalizedFilter));
+        }
+
+        return route;
+      };
+
+      const normalizeSavedFilterEntry = (entry) => {
+        if (!entry || typeof entry !== 'object') {
+          return null;
+        }
+
+        const id = typeof entry.id === 'string' ? entry.id.trim() : '';
+        const name = typeof entry.name === 'string' ? entry.name.trim() : '';
+
+        if (!id || !name) {
+          return null;
+        }
+
+        const filtersSource = Array.isArray(entry.filters) ? entry.filters : [];
+        const filters = filtersSource
+          .map((filter) => {
+            if (!filter || typeof filter !== 'object') {
+              return null;
+            }
+
+            const column = typeof filter.column === 'string' ? filter.column.trim() : '';
+            const operator = typeof filter.operator === 'string' ? filter.operator.trim() : '';
+            const rawValue = filter.value === undefined || filter.value === null ? '' : String(filter.value);
+
+            if (!column || !operator) {
+              return null;
+            }
+
+            return {
+              column,
+              operator,
+              value: rawValue,
+            };
+          })
+          .filter(Boolean);
+
+        const search = typeof entry.search === 'string' ? entry.search : '';
+        const searchColumn = typeof entry.search_column === 'string'
+          ? entry.search_column.trim()
+          : '';
+
+        return {
+          id,
+          name,
+          filters,
+          search,
+          searchColumn,
+        };
+      };
+
+      const normalizeSavedFiltersResponse = (payload) => {
+        const itemsSource = payload && typeof payload === 'object' ? payload.filters : [];
+        const lastUsed = payload && typeof payload === 'object' && typeof payload.last_used === 'string'
+          ? payload.last_used.trim()
+          : '';
+
+        const items = Array.isArray(itemsSource)
+          ? itemsSource.map((entry) => normalizeSavedFilterEntry(entry)).filter(Boolean)
+          : [];
+
+        return {
+          items,
+          lastUsed,
+        };
+      };
+
+      const createSavedFiltersState = () => ({
+        loading: false,
+        loaded: false,
+        items: [],
+        lastUsed: '',
+      });
+
+      const serializeFilters = (filters) => {
+        if (!Array.isArray(filters)) {
+          return [];
+        }
+
+        return filters
+          .map((filter) => {
+            if (!filter || typeof filter !== 'object') {
+              return null;
+            }
+
+            const column = typeof filter.column === 'string' ? filter.column.trim() : '';
+            const operator = typeof filter.operator === 'string' ? filter.operator.trim() : '';
+            const rawValue = filter.value;
+            const value = rawValue === undefined || rawValue === null ? '' : String(rawValue);
+
+            if (!column || !operator) {
+              return null;
+            }
+
+            return {
+              column,
+              operator,
+              value,
+            };
+          })
+          .filter(Boolean);
+      };
+
       const extractTables = (payload) => {
           if (Array.isArray(payload)) {
             return payload.filter(Boolean);
@@ -2464,6 +2699,10 @@
           lastPage: 1,
           requestId: 0,
           loaded: false,
+          feedback: '',
+          feedbackTimeout: null,
+          restoredFromStorage: false,
+          savedFilters: createSavedFiltersState(),
         });
 
         const createForeignRecordPreviewState = () => ({
@@ -2567,6 +2806,10 @@
                 searchInput: '',
                 searchColumn: '',
                 requestId: 0,
+                feedback: '',
+                feedbackTimeout: null,
+                restoredFromStorage: false,
+                savedFilters: createSavedFiltersState(),
               },
             };
           })
@@ -2575,6 +2818,7 @@
         const normalizedContentManagementMenu = normalizeContentManagementMenu(contentManagementMenu);
         const normalizedContentManagementRoutes = normalizeContentManagementRoutes(contentManagementRoutes);
         const normalizedContentManagementSettings = normalizeContentManagementTableSettings(contentManagementSettings);
+        const normalizedFilterRoutes = normalizeFilterRoutes(filterRoutes);
         const normalizedViewOptions =
           viewOptions && typeof viewOptions === 'object' && !Array.isArray(viewOptions)
             ? viewOptions
@@ -2601,6 +2845,7 @@
           standaloneTab,
           tabRoutes: normalizedTabRoutes,
           query: '',
+          filterRoutes: normalizedFilterRoutes,
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
           recordsValueRoute: valueRoute,
@@ -2755,6 +3000,141 @@
                 this.selectContentManagementTable(firstItem.table);
               }
             }
+          },
+          buildFilterUrl(type, tableName, scope, filterId = null) {
+            const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalizedTable) {
+              return '';
+            }
+
+            const routes = this.filterRoutes ?? {};
+            const template = routes?.[type];
+
+            if (typeof template !== 'string' || template.trim() === '') {
+              return '';
+            }
+
+            const normalizedScope = normalizeFilterScope(scope);
+
+            return buildFilterRoute(template, normalizedTable, normalizedScope, filterId);
+          },
+          async sendFilterRequest(method, routeKey, scope, tableName, options = {}) {
+            const normalizedScope = normalizeFilterScope(scope);
+            const urlPath = this.buildFilterUrl(routeKey, tableName, normalizedScope, options.filterId ?? null);
+
+            if (!urlPath) {
+              throw new Error('Маршрут для роботи з фільтрами не налаштовано.');
+            }
+
+            const url = new URL(urlPath, window.location.origin);
+            const fetchOptions = {
+              method,
+              headers: {
+                Accept: 'application/json',
+              },
+            };
+
+            if (options.body) {
+              fetchOptions.headers['Content-Type'] = 'application/json';
+              fetchOptions.headers['X-CSRF-TOKEN'] = this.csrfToken || '';
+              fetchOptions.body = JSON.stringify(options.body);
+            } else if (method !== 'GET') {
+              fetchOptions.headers['X-CSRF-TOKEN'] = this.csrfToken || '';
+            }
+
+            const response = await fetch(url.toString(), fetchOptions);
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося виконати запит для фільтрів.';
+              throw new Error(message);
+            }
+
+            return response.json().catch(() => ({}));
+          },
+          async fetchSavedFiltersFor(scope, tableName, targetState, { force = false } = {}) {
+            if (!targetState) {
+              return { items: [], lastUsed: '' };
+            }
+
+            const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalizedTable) {
+              targetState.items = [];
+              targetState.lastUsed = '';
+              targetState.loaded = true;
+              return { items: [], lastUsed: '' };
+            }
+
+            if (!force && targetState.loaded) {
+              return { items: targetState.items, lastUsed: targetState.lastUsed };
+            }
+
+            if (!this.filterRoutes.index) {
+              targetState.items = [];
+              targetState.lastUsed = '';
+              targetState.loaded = true;
+              return { items: [], lastUsed: '' };
+            }
+
+            targetState.loading = true;
+
+            try {
+              const response = await this.sendFilterRequest('GET', 'index', scope, normalizedTable);
+              const normalized = normalizeSavedFiltersResponse(response || {});
+              this.updateSavedFiltersState(targetState, normalized);
+              return normalized;
+            } catch (error) {
+              targetState.items = [];
+              targetState.lastUsed = '';
+              targetState.loaded = true;
+              return { items: [], lastUsed: '' };
+            } finally {
+              targetState.loading = false;
+            }
+          },
+          updateSavedFiltersState(targetState, normalized) {
+            if (!targetState) {
+              return;
+            }
+
+            targetState.items = Array.isArray(normalized.items) ? normalized.items : [];
+            targetState.lastUsed = typeof normalized.lastUsed === 'string' ? normalized.lastUsed : '';
+            targetState.loaded = true;
+          },
+          generateDefaultFilterName(existing) {
+            const items = Array.isArray(existing) ? existing : [];
+            const base = 'Фільтр';
+            const existingNames = new Set(
+              items
+                .map((item) => (item && typeof item.name === 'string' ? item.name.toLowerCase() : ''))
+                .filter((name) => name !== ''),
+            );
+
+            for (let index = 1; index <= items.length + 10; index += 1) {
+              const candidate = `${base} ${index}`;
+
+              if (!existingNames.has(candidate.toLowerCase())) {
+                return candidate;
+              }
+            }
+
+            return `${base} ${Date.now()}`;
+          },
+          promptFilterName(defaultName = '') {
+            const placeholder = typeof defaultName === 'string' && defaultName.trim() !== ''
+              ? defaultName.trim()
+              : 'Новий фільтр';
+            const result = window.prompt('Вкажіть назву фільтру', placeholder);
+
+            if (result === null) {
+              return null;
+            }
+
+            const normalized = result.trim();
+
+            return normalized === '' ? null : normalized;
           },
           get filteredTables() {
             if (!this.query) {
@@ -4527,12 +4907,13 @@
 
             return normalizedColumn;
           },
-          resetContentManagementViewer() {
-            const fresh = createContentManagementViewerState();
-            const perPage = Number(this.contentManagement.viewer?.perPage) || fresh.perPage;
+        resetContentManagementViewer() {
+          this.clearFeedback(this.contentManagement.viewer);
+          const fresh = createContentManagementViewerState();
+          const perPage = Number(this.contentManagement.viewer?.perPage) || fresh.perPage;
 
-            this.contentManagement.viewer.table = fresh.table;
-            this.contentManagement.viewer.loading = fresh.loading;
+          this.contentManagement.viewer.table = fresh.table;
+          this.contentManagement.viewer.loading = fresh.loading;
             this.contentManagement.viewer.error = fresh.error;
             this.contentManagement.viewer.columns = fresh.columns;
             this.contentManagement.viewer.rows = fresh.rows;
@@ -4544,12 +4925,16 @@
             this.contentManagement.viewer.searchColumn = fresh.searchColumn;
             this.contentManagement.viewer.page = 1;
             this.contentManagement.viewer.perPage = perPage;
-            this.contentManagement.viewer.total = fresh.total;
-            this.contentManagement.viewer.lastPage = fresh.lastPage;
-            this.contentManagement.viewer.requestId = fresh.requestId;
-            this.contentManagement.viewer.loaded = fresh.loaded;
-          },
-          async selectContentManagementTable(tableName) {
+          this.contentManagement.viewer.total = fresh.total;
+          this.contentManagement.viewer.lastPage = fresh.lastPage;
+          this.contentManagement.viewer.requestId = fresh.requestId;
+          this.contentManagement.viewer.loaded = fresh.loaded;
+          this.contentManagement.viewer.feedback = fresh.feedback;
+          this.contentManagement.viewer.feedbackTimeout = fresh.feedbackTimeout;
+          this.contentManagement.viewer.restoredFromStorage = fresh.restoredFromStorage;
+          this.contentManagement.viewer.savedFilters = fresh.savedFilters;
+        },
+        async selectContentManagementTable(tableName) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
 
             if (!normalized) {
@@ -4562,6 +4947,8 @@
 
             this.contentManagement.selectedTable = normalized;
             this.resetContentManagementViewer();
+
+            await this.restoreContentManagementFilters(normalized);
 
             await this.loadContentManagementTable(normalized);
           },
@@ -4694,6 +5081,7 @@
               return;
             }
 
+            this.clearFeedback(viewer);
             viewer.filters = [];
             viewer.page = 1;
 
@@ -4701,10 +5089,210 @@
               this.loadContentManagementTable(this.contentManagement.selectedTable);
             }
           },
-          updateContentManagementSearch(value) {
-            const viewer = this.contentManagement.viewer;
-            const rawValue = typeof value === 'string' ? value : '';
-            const normalized = rawValue.trim();
+        resolveContentManagementSearchColumn(tableName, column) {
+          const normalizedColumn = typeof column === 'string' ? column.trim() : '';
+
+          if (!normalizedColumn) {
+            return '';
+          }
+
+          const table = this.findTableByName(tableName);
+          const structureColumns = this.getTableColumnNames(table);
+          const viewerColumns = Array.isArray(this.contentManagement.viewer.columns)
+            ? this.contentManagement.viewer.columns
+            : [];
+
+          const available = new Set(
+            [...structureColumns, ...viewerColumns]
+              .map((item) => (typeof item === 'string' ? item.trim() : ''))
+              .filter((item) => item !== ''),
+          );
+
+          if (available.size === 0 || available.has(normalizedColumn)) {
+            return normalizedColumn;
+          }
+
+          return '';
+        },
+        applyContentSavedFilter(savedFilter) {
+          if (!savedFilter) {
+            return;
+          }
+
+          const viewer = this.contentManagement.viewer;
+          const filters = Array.isArray(savedFilter.filters) ? savedFilter.filters : [];
+          viewer.filters = this.normalizeFilters(filters, viewer.filters);
+
+          const search = typeof savedFilter.search === 'string' ? savedFilter.search : '';
+          viewer.search = search;
+          viewer.searchInput = search;
+
+          const tableName = typeof this.contentManagement.selectedTable === 'string'
+            ? this.contentManagement.selectedTable.trim()
+            : '';
+          const searchColumn = this.resolveContentManagementSearchColumn(tableName, savedFilter.searchColumn);
+          viewer.searchColumn = searchColumn;
+
+          viewer.page = 1;
+        },
+        async applyContentSavedFilterById(filterId, options = {}) {
+          if (!filterId) {
+            return;
+          }
+
+          const viewer = this.contentManagement.viewer;
+          const state = viewer.savedFilters;
+          const target = Array.isArray(state.items)
+            ? state.items.find((item) => item && item.id === filterId)
+            : null;
+
+          if (!target) {
+            return;
+          }
+
+          this.applyContentSavedFilter(target);
+
+          const tableName = typeof this.contentManagement.selectedTable === 'string'
+            ? this.contentManagement.selectedTable.trim()
+            : '';
+
+          if (!tableName) {
+            return;
+          }
+
+          if (options.markAsUsed) {
+            try {
+              const response = await this.sendFilterRequest('PATCH', 'use', 'content', tableName, {
+                filterId,
+              });
+              const normalized = normalizeSavedFiltersResponse(response || {});
+              if (normalized.lastUsed) {
+                state.lastUsed = normalized.lastUsed;
+              } else {
+                state.lastUsed = filterId;
+              }
+            } catch (error) {
+              state.lastUsed = filterId;
+            }
+          } else {
+            state.lastUsed = filterId;
+          }
+
+          if (options.reload) {
+            await this.loadContentManagementTable(tableName);
+          }
+        },
+        async saveContentManagementFilters() {
+          const tableName = typeof this.contentManagement.selectedTable === 'string'
+            ? this.contentManagement.selectedTable.trim()
+            : '';
+
+          if (!tableName) {
+            this.setFeedback(this.contentManagement.viewer, 'Оберіть таблицю для збереження фільтру.');
+            return;
+          }
+
+          const viewer = this.contentManagement.viewer;
+
+          if (viewer.loading) {
+            return;
+          }
+
+          if (!this.filterRoutes.store) {
+            this.setFeedback(viewer, 'Збереження фільтрів недоступне.');
+            return;
+          }
+
+          const filters = serializeFilters(viewer.filters);
+          const search = typeof viewer.search === 'string' ? viewer.search.trim() : '';
+          const searchColumn = this.resolveContentManagementSearchColumn(tableName, viewer.searchColumn);
+
+          if (filters.length === 0 && !search && !searchColumn) {
+            this.setFeedback(viewer, 'Немає даних для збереження.');
+            return;
+          }
+
+          const defaultName = this.generateDefaultFilterName(viewer.savedFilters.items);
+          const name = this.promptFilterName(defaultName);
+
+          if (!name) {
+            return;
+          }
+
+          viewer.savedFilters.loading = true;
+          this.clearFeedback(viewer);
+
+          try {
+            const response = await this.sendFilterRequest('POST', 'store', 'content', tableName, {
+              body: {
+                name,
+                filters,
+                search,
+                search_column: searchColumn,
+              },
+            });
+
+            const normalized = normalizeSavedFiltersResponse(response || {});
+            this.updateSavedFiltersState(viewer.savedFilters, normalized);
+            this.setFeedback(viewer, 'Фільтр збережено.');
+
+            if (normalized.lastUsed) {
+              await this.applyContentSavedFilterById(normalized.lastUsed);
+            }
+          } catch (error) {
+            this.setFeedback(viewer, error?.message ?? 'Не вдалося зберегти фільтр.');
+          } finally {
+            viewer.savedFilters.loading = false;
+          }
+        },
+        async applySavedContentManagementFilter(filterId) {
+          if (!filterId || !this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
+            return;
+          }
+
+          await this.applyContentSavedFilterById(filterId, { markAsUsed: true, reload: true });
+        },
+        async deleteSavedContentManagementFilter(filterId) {
+          if (!filterId) {
+            return;
+          }
+
+          const tableName = typeof this.contentManagement.selectedTable === 'string'
+            ? this.contentManagement.selectedTable.trim()
+            : '';
+
+          if (!tableName) {
+            return;
+          }
+
+          if (!this.filterRoutes.destroy) {
+            this.setFeedback(this.contentManagement.viewer, 'Видалення фільтрів недоступне.');
+            return;
+          }
+
+          const state = this.contentManagement.viewer.savedFilters;
+          state.loading = true;
+
+          try {
+            const response = await this.sendFilterRequest('DELETE', 'destroy', 'content', tableName, {
+              filterId,
+            });
+            const normalized = normalizeSavedFiltersResponse(response || {});
+            this.updateSavedFiltersState(state, normalized);
+
+            if (state.lastUsed) {
+              await this.applyContentSavedFilterById(state.lastUsed, { reload: true });
+            }
+          } catch (error) {
+            this.setFeedback(this.contentManagement.viewer, error?.message ?? 'Не вдалося видалити фільтр.');
+          } finally {
+            state.loading = false;
+          }
+        },
+        updateContentManagementSearch(value) {
+          const viewer = this.contentManagement.viewer;
+          const rawValue = typeof value === 'string' ? value : '';
+          const normalized = rawValue.trim();
 
             viewer.searchInput = rawValue;
 
@@ -4742,6 +5330,33 @@
 
             this.loadContentManagementTable(this.contentManagement.selectedTable);
           },
+        async restoreContentManagementFilters(tableName, force = false) {
+          const viewer = this.contentManagement.viewer;
+
+          if (!viewer) {
+            return;
+          }
+
+          const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+          if (!force && viewer.restoredFromStorage && viewer.table === normalized) {
+            return;
+          }
+
+          viewer.restoredFromStorage = true;
+          viewer.table = normalized;
+
+          if (!normalized) {
+            viewer.savedFilters.loaded = true;
+            return;
+          }
+
+          const result = await this.fetchSavedFiltersFor('content', normalized, viewer.savedFilters, { force });
+
+          if (result.lastUsed) {
+            await this.applyContentSavedFilterById(result.lastUsed);
+          }
+        },
           async loadContentManagementTable(tableName) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
 
@@ -5644,6 +6259,10 @@
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
           table.records.error = null;
+
+          if (table.records.visible) {
+            await this.restoreRecordsFilters(table);
+          }
 
           if (table.records.visible && !table.records.loaded) {
             await this.loadRecords(table);
@@ -6786,9 +7405,219 @@
             return;
           }
 
+          this.clearFeedback(table.records);
           table.records.filters = [];
           table.records.page = 1;
           this.loadRecords(table);
+        },
+        resolveRecordsSearchColumn(table, column) {
+          const normalized = typeof column === 'string' ? column.trim() : '';
+
+          if (!normalized) {
+            return '';
+          }
+
+          const availableColumns = new Set(
+            [
+              ...(Array.isArray(table.records.columns) ? table.records.columns : []),
+              ...this.getTableColumnNames(table),
+            ]
+              .map((item) => (typeof item === 'string' ? item.trim() : ''))
+              .filter((item) => item !== ''),
+          );
+
+          if (availableColumns.size === 0 || availableColumns.has(normalized)) {
+            return normalized;
+          }
+
+          return '';
+        },
+        applyRecordsSavedFilter(table, savedFilter) {
+          if (!table || !savedFilter) {
+            return;
+          }
+
+          const filters = Array.isArray(savedFilter.filters) ? savedFilter.filters : [];
+          table.records.filters = this.normalizeFilters(filters, table.records.filters);
+
+          const search = typeof savedFilter.search === 'string' ? savedFilter.search : '';
+          table.records.search = search;
+          table.records.searchInput = search;
+
+          const searchColumn = this.resolveRecordsSearchColumn(table, savedFilter.searchColumn);
+          table.records.searchColumn = searchColumn;
+
+          table.records.page = 1;
+        },
+        async applyRecordsSavedFilterById(table, filterId, options = {}) {
+          if (!table || !filterId) {
+            return;
+          }
+
+          const state = table.records.savedFilters;
+          const target = Array.isArray(state.items)
+            ? state.items.find((item) => item && item.id === filterId)
+            : null;
+
+          if (!target) {
+            return;
+          }
+
+          this.applyRecordsSavedFilter(table, target);
+
+          const shouldReload = options.reload === true;
+          const shouldMark = options.markAsUsed === true;
+          const tableName = typeof table.name === 'string' ? table.name.trim() : '';
+
+          if (shouldMark && tableName) {
+            try {
+              const response = await this.sendFilterRequest('PATCH', 'use', 'records', tableName, {
+                filterId,
+              });
+              const normalized = normalizeSavedFiltersResponse(response || {});
+              if (normalized.lastUsed) {
+                state.lastUsed = normalized.lastUsed;
+              } else {
+                state.lastUsed = filterId;
+              }
+            } catch (error) {
+              state.lastUsed = filterId;
+            }
+          } else if (tableName) {
+            state.lastUsed = filterId;
+          }
+
+          if (shouldReload) {
+            await this.loadRecords(table);
+          }
+        },
+        async saveRecordsFilters(table) {
+          if (!table || table.records.loading) {
+            return;
+          }
+
+          const tableName = typeof table.name === 'string' ? table.name.trim() : '';
+
+          if (!tableName) {
+            return;
+          }
+
+          if (!this.filterRoutes.store) {
+            this.setFeedback(table.records, 'Збереження фільтрів недоступне.');
+            return;
+          }
+
+          const filters = serializeFilters(table.records.filters);
+          const search = typeof table.records.search === 'string' ? table.records.search.trim() : '';
+          const searchColumn = this.resolveRecordsSearchColumn(table, table.records.searchColumn);
+
+          if (filters.length === 0 && !search && !searchColumn) {
+            this.setFeedback(table.records, 'Немає даних для збереження фільтру.');
+            return;
+          }
+
+          const defaultName = this.generateDefaultFilterName(table.records.savedFilters.items);
+          const name = this.promptFilterName(defaultName);
+
+          if (!name) {
+            return;
+          }
+
+          table.records.savedFilters.loading = true;
+          this.clearFeedback(table.records);
+
+          try {
+            const response = await this.sendFilterRequest('POST', 'store', 'records', tableName, {
+              body: {
+                name,
+                filters,
+                search,
+                search_column: searchColumn,
+              },
+            });
+
+            const normalized = normalizeSavedFiltersResponse(response || {});
+            this.updateSavedFiltersState(table.records.savedFilters, normalized);
+            this.setFeedback(table.records, 'Фільтр збережено.');
+
+            if (normalized.lastUsed) {
+              await this.applyRecordsSavedFilterById(table, normalized.lastUsed);
+            }
+          } catch (error) {
+            this.setFeedback(table.records, error?.message ?? 'Не вдалося зберегти фільтр.');
+          } finally {
+            table.records.savedFilters.loading = false;
+          }
+        },
+        async restoreRecordsFilters(table, force = false) {
+          if (!table || !table.records) {
+            return;
+          }
+
+          const state = table.records;
+
+          if (!force && state.restoredFromStorage) {
+            return;
+          }
+
+          state.restoredFromStorage = true;
+
+          const tableName = typeof table.name === 'string' ? table.name.trim() : '';
+
+          if (!tableName) {
+            state.savedFilters.loaded = true;
+            return;
+          }
+
+          const result = await this.fetchSavedFiltersFor('records', tableName, state.savedFilters, { force });
+
+          if (result.lastUsed) {
+            await this.applyRecordsSavedFilterById(table, result.lastUsed);
+          }
+        },
+        async applySavedRecordsFilterButton(table, filterId) {
+          if (!table || !filterId || table.records.loading) {
+            return;
+          }
+
+          await this.applyRecordsSavedFilterById(table, filterId, { markAsUsed: true });
+          table.records.page = 1;
+          await this.loadRecords(table);
+        },
+        async deleteSavedRecordsFilter(table, filterId) {
+          if (!table || !filterId) {
+            return;
+          }
+
+          if (!this.filterRoutes.destroy) {
+            this.setFeedback(table.records, 'Видалення фільтрів недоступне.');
+            return;
+          }
+
+          const tableName = typeof table.name === 'string' ? table.name.trim() : '';
+
+          if (!tableName) {
+            return;
+          }
+
+          const state = table.records.savedFilters;
+          state.loading = true;
+
+          try {
+            const response = await this.sendFilterRequest('DELETE', 'destroy', 'records', tableName, {
+              filterId,
+            });
+            const normalized = normalizeSavedFiltersResponse(response || {});
+            this.updateSavedFiltersState(state, normalized);
+
+            if (state.lastUsed) {
+              await this.applyRecordsSavedFilterById(table, state.lastUsed, { reload: true });
+            }
+          } catch (error) {
+            this.setFeedback(table.records, error?.message ?? 'Не вдалося видалити фільтр.');
+          } finally {
+            state.loading = false;
+          }
         },
         updateSearch(table, value) {
           const rawValue = typeof value === 'string' ? value : '';
@@ -6880,6 +7709,37 @@
           }
 
           return `filter-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+        },
+        setFeedback(target, message) {
+          if (!target || typeof target !== 'object') {
+            return;
+          }
+
+          if (target.feedbackTimeout) {
+            clearTimeout(target.feedbackTimeout);
+            target.feedbackTimeout = null;
+          }
+
+          target.feedback = message || '';
+
+          if (target.feedback) {
+            target.feedbackTimeout = window.setTimeout(() => {
+              target.feedback = '';
+              target.feedbackTimeout = null;
+            }, 4000);
+          }
+        },
+        clearFeedback(target) {
+          if (!target || typeof target !== 'object') {
+            return;
+          }
+
+          if (target.feedbackTimeout) {
+            clearTimeout(target.feedbackTimeout);
+            target.feedbackTimeout = null;
+          }
+
+          target.feedback = '';
         },
         formatCell(value) {
           if (value === null || value === undefined) {
