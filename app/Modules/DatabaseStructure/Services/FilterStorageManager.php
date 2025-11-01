@@ -16,7 +16,7 @@ class FilterStorageManager
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null}
+     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null, default_disabled: bool}
      */
     public function getScopeFilters(string $table, string $scope): array
     {
@@ -40,6 +40,10 @@ class FilterStorageManager
 
         $items = [];
 
+        $default = isset($scopeData['default']) && is_string($scopeData['default'])
+            ? trim($scopeData['default'])
+            : null;
+
         if (isset($scopeData['items']) && is_array($scopeData['items'])) {
             foreach ($scopeData['items'] as $entry) {
                 $normalized = $this->normalizeFilterEntry($entry);
@@ -52,16 +56,22 @@ class FilterStorageManager
             }
         }
 
+        $defaultDisabled = array_key_exists('default_disabled', $scopeData)
+            ? (bool) $scopeData['default_disabled']
+            : false;
+
         return [
             'items' => $items,
             'last_used' => $lastUsed !== '' ? $lastUsed : null,
+            'default' => $default !== '' ? $default : null,
+            'default_disabled' => $defaultDisabled,
         ];
     }
 
     /**
      * @param array<int, array{column: string, operator: string, value: string}> $filters
      *
-     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null}
+     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null, default_disabled: bool}
      */
     public function store(string $table, string $scope, string $name, array $filters, string $search, string $searchColumn): array
     {
@@ -94,6 +104,10 @@ class FilterStorageManager
         $scopeData = $data[$scopeKey];
 
         $items = $scopeData['items'] ?? [];
+        $previousDefaultId = isset($scopeData['default']) && is_string($scopeData['default'])
+            ? trim($scopeData['default'])
+            : '';
+        $defaultRemoved = false;
 
         if (!is_array($items)) {
             $items = [];
@@ -101,14 +115,23 @@ class FilterStorageManager
 
         $items = array_values(array_filter(
             $items,
-            static function ($item) use ($filterName): bool {
+            static function ($item) use ($filterName, $previousDefaultId, &$defaultRemoved): bool {
                 if (!is_array($item)) {
                     return false;
                 }
 
                 $name = isset($item['name']) && is_string($item['name']) ? trim($item['name']) : '';
+                $id = isset($item['id']) && is_string($item['id']) ? trim($item['id']) : '';
 
-                return strcasecmp($name, $filterName) !== 0;
+                if (strcasecmp($name, $filterName) === 0) {
+                    if ($id !== '' && $id === $previousDefaultId) {
+                        $defaultRemoved = true;
+                    }
+
+                    return false;
+                }
+
+                return true;
             }
         ));
 
@@ -132,6 +155,22 @@ class FilterStorageManager
         $scopeData['items'] = $items;
         $scopeData['last_used'] = $filterId;
 
+        if ($defaultRemoved) {
+            $scopeData['default'] = $filterId;
+            $scopeData['default_disabled'] = false;
+        } elseif (isset($scopeData['default'])) {
+            $currentDefault = is_string($scopeData['default']) ? trim($scopeData['default']) : '';
+            $scopeData['default'] = $currentDefault !== '' ? $currentDefault : null;
+        } else {
+            $scopeData['default'] = $previousDefaultId !== '' ? $previousDefaultId : null;
+        }
+
+        if (!array_key_exists('default_disabled', $scopeData)) {
+            $scopeData['default_disabled'] = false;
+        } else {
+            $scopeData['default_disabled'] = (bool) $scopeData['default_disabled'];
+        }
+
         $data[$scopeKey] = $scopeData;
 
         $this->writeTableFile($tableName, $data);
@@ -140,7 +179,7 @@ class FilterStorageManager
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null}
+     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null, default_disabled: bool}
      */
     public function delete(string $table, string $scope, string $filterId): array
     {
@@ -190,6 +229,25 @@ class FilterStorageManager
 
         if ($lastUsed === $targetId) {
             $scopeData['last_used'] = null;
+        }
+
+        $defaultId = isset($scopeData['default']) && is_string($scopeData['default'])
+            ? trim($scopeData['default'])
+            : '';
+
+        if ($defaultId === $targetId) {
+            $scopeData['default'] = null;
+            $scopeData['default_disabled'] = false;
+        } elseif (isset($scopeData['default'])) {
+            $scopeData['default'] = $defaultId !== '' ? $defaultId : null;
+        } else {
+            $scopeData['default'] = null;
+        }
+
+        if (!array_key_exists('default_disabled', $scopeData)) {
+            $scopeData['default_disabled'] = false;
+        } else {
+            $scopeData['default_disabled'] = (bool) $scopeData['default_disabled'];
         }
 
         $scopeData['items'] = $items;
@@ -243,9 +301,99 @@ class FilterStorageManager
         }
 
         $scopeData['last_used'] = $targetId;
+
+        if (!array_key_exists('default', $scopeData)) {
+            $scopeData['default'] = null;
+        } elseif (!is_string($scopeData['default']) || trim($scopeData['default']) === '') {
+            $scopeData['default'] = null;
+        }
+
+        if (!array_key_exists('default_disabled', $scopeData)) {
+            $scopeData['default_disabled'] = false;
+        } else {
+            $scopeData['default_disabled'] = (bool) $scopeData['default_disabled'];
+        }
+
         $data[$scopeKey] = $scopeData;
 
         $this->writeTableFile($tableName, $data);
+    }
+
+    /**
+     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null, default_disabled: bool}
+     */
+    public function setDefault(string $table, string $scope, ?string $filterId): array
+    {
+        $tableName = $this->normalizeTable($table);
+        $scopeKey = $this->normalizeScope($scope);
+
+        if ($tableName === '') {
+            throw new RuntimeException('Не вдалося оновити фільтр.');
+        }
+
+        $data = $this->readTableFile($tableName);
+
+        if (!isset($data[$scopeKey]) || !is_array($data[$scopeKey])) {
+            $data[$scopeKey] = $this->emptyScope();
+        }
+
+        $scopeData = $data[$scopeKey];
+        $items = $scopeData['items'] ?? [];
+
+        if (!is_array($items)) {
+            $items = [];
+        }
+
+        if ($filterId === null || $filterId === '') {
+            $scopeData['default'] = null;
+            $scopeData['default_disabled'] = true;
+        } else {
+            $targetId = $this->normalizeId($filterId);
+
+            if ($targetId === '') {
+                throw new RuntimeException('Не вдалося оновити фільтр.');
+            }
+
+            $exists = false;
+
+            foreach ($items as $item) {
+                if (!is_array($item)) {
+                    continue;
+                }
+
+                $id = isset($item['id']) && is_string($item['id']) ? trim($item['id']) : '';
+
+                if ($id === $targetId) {
+                    $exists = true;
+                    break;
+                }
+            }
+
+            if (!$exists) {
+                throw new RuntimeException('Фільтр не знайдено.');
+            }
+
+            $scopeData['default'] = $targetId;
+            $scopeData['default_disabled'] = false;
+        }
+
+        if (!array_key_exists('last_used', $scopeData)) {
+            $scopeData['last_used'] = null;
+        } elseif (!is_string($scopeData['last_used']) || trim($scopeData['last_used']) === '') {
+            $scopeData['last_used'] = null;
+        }
+
+        if (!array_key_exists('default_disabled', $scopeData)) {
+            $scopeData['default_disabled'] = false;
+        } else {
+            $scopeData['default_disabled'] = (bool) $scopeData['default_disabled'];
+        }
+
+        $data[$scopeKey] = $scopeData;
+
+        $this->writeTableFile($tableName, $data);
+
+        return $this->getScopeFilters($tableName, $scopeKey);
     }
 
     private function readTableFile(string $table): array
@@ -406,6 +554,8 @@ class FilterStorageManager
         return [
             'items' => [],
             'last_used' => null,
+            'default' => null,
+            'default_disabled' => false,
         ];
     }
 
