@@ -516,8 +516,8 @@
                                     type="button"
                                     class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-[15px] text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
                                     @click.stop="showRecordValue(table, column, row)"
-                                    :title="formatCell(row[column])"
-                                    x-html="renderRecordPreview(table, column, row[column])"
+                                    :title="formatCell(getCellDisplayValue(row, column))"
+                                    x-html="renderRecordPreview(table, column, row)"
                                   ></button>
                                 </td>
                               </template>
@@ -1550,8 +1550,8 @@
                                 type="button"
                                 class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
                                 @click.stop="showContentManagementRecordValue(column, row)"
-                                :title="formatCell(row[column])"
-                                x-html="contentManagementHighlight(column, row[column])"
+                                :title="formatCell(getCellDisplayValue(row, column))"
+                                x-html="contentManagementHighlight(column, row)"
                               ></button>
                             </td>
                           </template>
@@ -3648,7 +3648,8 @@
 
             await this.showRecordValue(tableForModal, normalizedColumn, row, baseState);
           },
-          contentManagementHighlight(columnName, value) {
+          contentManagementHighlight(columnName, row) {
+            const value = this.getCellDisplayValue(row, columnName);
             const text = this.formatCell(value);
             const searchTerm = typeof this.contentManagement.viewer.search === 'string'
               ? this.contentManagement.viewer.search
@@ -5492,6 +5493,27 @@
 
           return String(value);
         },
+        getCellDisplayValue(row, column, fallbackToRaw = true) {
+          const normalizedColumn = typeof column === 'string' ? column.trim() : '';
+
+          if (!row || typeof row !== 'object' || !normalizedColumn) {
+            return fallbackToRaw && row && typeof row === 'object' ? row[column] : undefined;
+          }
+
+          const display = row.__display && typeof row.__display === 'object' && row.__display !== null
+            ? row.__display
+            : null;
+
+          if (display && Object.prototype.hasOwnProperty.call(display, normalizedColumn)) {
+            const value = display[normalizedColumn];
+
+            if (value !== undefined) {
+              return value;
+            }
+          }
+
+          return fallbackToRaw ? row[normalizedColumn] : undefined;
+        },
         prepareEditableValue(value) {
           if (value === null || value === undefined) {
             return '';
@@ -5524,7 +5546,8 @@
 
           return `${text.slice(0, sliceLength)}${ellipsis}`;
         },
-        renderRecordPreview(table, column, value) {
+        renderRecordPreview(table, column, row) {
+          const value = this.getCellDisplayValue(row, column);
           const text = this.formatCell(value);
           const truncated = this.truncateText(text, this.cellPreviewLimit);
           const records = table && typeof table === 'object' ? table.records || {} : {};
