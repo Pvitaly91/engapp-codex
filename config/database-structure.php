@@ -38,5 +38,6 @@ return array (
     'table_settings' => 
     array (
     ),
+    'default_table' => 'question_hints',
   ),
 );
