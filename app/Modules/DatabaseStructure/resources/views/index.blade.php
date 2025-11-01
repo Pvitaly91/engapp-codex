@@ -713,277 +713,279 @@
         </div>
       </div>
 
-      <div
-        x-show="valueModal.open"
-        x-cloak
-        class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
-        :class="valueModal.editing ? 'items-start pt-4 pb-6 sm:pt-10' : 'items-center py-6'"
-        role="dialog"
-        aria-modal="true"
-        x-ref="valueModalOverlay"
-        style="margin-top: 0px"
-      >
-        <div class="absolute inset-0 backdrop-blur-sm" @click="closeValueModal()"></div>
-        <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <h2 class="text-lg font-semibold text-foreground">Повне значення</h2>
-              <p class="mt-1 text-sm text-muted-foreground">
-                Таблиця: <span class="font-medium text-foreground" x-text="valueModal.table || '—'"></span>,
-                колонка: <span class="font-medium text-foreground" x-text="valueModal.column || '—'"></span>
-              </p>
-            </div>
-            <div class="flex items-center gap-2">
-              <button
-                type="button"
-                class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                x-show="!valueModal.loading && !valueModal.error && !valueModal.editing"
-                x-cloak
-                :disabled="valueModal.loading"
-                @click="startEditingValue()"
-              >
-                <i class="fa-solid fa-pen"></i>
-                Редагувати
-              </button>
-              <button
-                type="button"
-                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
-                @click="closeValueModal()"
-              >
-                <i class="fa-solid fa-xmark"></i>
-              </button>
-            </div>
+    </div>
+
+
+    <div
+      x-show="valueModal.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
+      :class="valueModal.editing ? 'items-start pt-4 pb-6 sm:pt-10' : 'items-center py-6'"
+      role="dialog"
+      aria-modal="true"
+      x-ref="valueModalOverlay"
+      style="margin-top: 0px"
+    >
+      <div class="absolute inset-0 backdrop-blur-sm" @click="closeValueModal()"></div>
+      <div class="relative z-10 w-full max-w-2xl rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-foreground">Повне значення</h2>
+            <p class="mt-1 text-sm text-muted-foreground">
+              Таблиця: <span class="font-medium text-foreground" x-text="valueModal.table || '—'"></span>,
+              колонка: <span class="font-medium text-foreground" x-text="valueModal.column || '—'"></span>
+            </p>
           </div>
-          <div class="mt-4 space-y-3 text-sm text-foreground">
-            <template x-if="valueModal.loading">
-              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-center text-sm text-muted-foreground">
-                Завантаження значення...
-              </div>
-            </template>
-            <template x-if="!valueModal.loading && valueModal.error">
-              <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.error"></div>
-            </template>
-            <template x-if="!valueModal.loading && !valueModal.error">
-              <div class="space-y-3">
-                <template x-if="valueModal.updateError">
-                  <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.updateError"></div>
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+              x-show="!valueModal.loading && !valueModal.error && !valueModal.editing"
+              x-cloak
+              :disabled="valueModal.loading"
+              @click="startEditingValue()"
+            >
+              <i class="fa-solid fa-pen"></i>
+              Редагувати
+            </button>
+            <button
+              type="button"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+              @click="closeValueModal()"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+        <div class="mt-4 space-y-3 text-sm text-foreground">
+          <template x-if="valueModal.loading">
+            <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-4 text-center text-sm text-muted-foreground">
+              Завантаження значення...
+            </div>
+          </template>
+          <template x-if="!valueModal.loading && valueModal.error">
+            <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.error"></div>
+          </template>
+          <template x-if="!valueModal.loading && !valueModal.error">
+            <div class="space-y-3">
+              <template x-if="valueModal.updateError">
+                <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-600" x-text="valueModal.updateError"></div>
+              </template>
+              <div class="rounded-2xl border border-border/60 bg-background p-4">
+                <template x-if="!valueModal.editing">
+                  <pre class="max-h-96 whitespace-pre-wrap break-words text-[15px]" x-html="highlightText(valueModal.value, valueModal.searchTerm)"></pre>
                 </template>
-                <div class="rounded-2xl border border-border/60 bg-background p-4">
-                  <template x-if="!valueModal.editing">
-                    <pre class="max-h-96 whitespace-pre-wrap break-words text-[15px]" x-html="highlightText(valueModal.value, valueModal.searchTerm)"></pre>
-                  </template>
-                  <template
-                    x-if="valueModal.editing && (!valueModal.foreignKey || !valueModal.foreignRecords.visible)"
-                  >
-                    <textarea
-                      class="w-full min-h-[120px] resize-none overflow-hidden rounded-2xl border border-input bg-white px-3 py-2 text-[15px] font-mono text-foreground shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                      x-model="valueModal.editValue"
-                      :disabled="valueModal.saving"
-                      x-ref="valueEditor"
-                      x-init="autoResizeValueEditor($el)"
-                      @input="autoResizeValueEditor($event.target)"
-                    ></textarea>
-                  </template>
-                  <template x-if="valueModal.editing && valueModal.foreignKey">
-                    <div class="mt-3 space-y-3 rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-4">
+                <template
+                  x-if="valueModal.editing && (!valueModal.foreignKey || !valueModal.foreignRecords.visible)"
+                >
+                  <textarea
+                    class="w-full min-h-[120px] resize-none overflow-hidden rounded-2xl border border-input bg-white px-3 py-2 text-[15px] font-mono text-foreground shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    x-model="valueModal.editValue"
+                    :disabled="valueModal.saving"
+                    x-ref="valueEditor"
+                    x-init="autoResizeValueEditor($el)"
+                    @input="autoResizeValueEditor($event.target)"
+                  ></textarea>
+                </template>
+                <template x-if="valueModal.editing && valueModal.foreignKey">
+                  <div class="mt-3 space-y-3 rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-4">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                      <div class="text-sm text-muted-foreground">
+                        Це поле є зовнішнім ключем на таблицю
+                        <span class="font-medium text-foreground" x-text="valueModal.foreignKey.table"></span>.
+                        Колонка ключа:
+                        <span class="font-medium text-foreground" x-text="valueModal.foreignKey.column"></span>
+                        <template x-if="valueModal.foreignKey.displayColumn">
+                          <span class="block text-xs text-muted-foreground">
+                            Відображення за колонкою
+                            <span class="font-medium text-foreground" x-text="valueModal.foreignKey.displayColumn"></span>
+                          </span>
+                        </template>
+                      </div>
+                      <button
+                        type="button"
+                        class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                        @click="toggleForeignRecords()"
+                      >
+                        <i class="fa-solid" :class="valueModal.foreignRecords.visible ? 'fa-eye-slash' : 'fa-database'"></i>
+                        <span x-text="valueModal.foreignRecords.visible ? 'Сховати записи' : 'Обрати запис'"></span>
+                      </button>
+                    </div>
+                    <div x-show="valueModal.foreignRecords.visible" x-collapse class="space-y-3">
                       <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                         <div class="text-sm text-muted-foreground">
-                          Це поле є зовнішнім ключем на таблицю
-                          <span class="font-medium text-foreground" x-text="valueModal.foreignKey.table"></span>.
-                          Колонка ключа:
-                          <span class="font-medium text-foreground" x-text="valueModal.foreignKey.column"></span>
-                          <template x-if="valueModal.foreignKey.displayColumn">
-                            <span class="block text-xs text-muted-foreground">
-                              Відображення за колонкою
-                              <span class="font-medium text-foreground" x-text="valueModal.foreignKey.displayColumn"></span>
+                          Пошук у пов'язаних записах
+                        </div>
+                        <div class="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
+                          <div class="relative w-full sm:w-48">
+                            <select
+                              class="w-full appearance-none rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                              x-model="valueModal.foreignRecords.searchColumn"
+                              @change="updateForeignRecordsSearchColumn($event.target.value)"
+                            >
+                              <option value="">Усі поля</option>
+                              <template x-for="columnName in valueModal.foreignRecords.columns" :key="columnName">
+                                <option :value="columnName" x-text="columnName"></option>
+                              </template>
+                            </select>
+                            <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-xs text-muted-foreground">
+                              <i class="fa-solid fa-chevron-down"></i>
                             </span>
+                          </div>
+                          <input
+                            type="search"
+                            class="w-full rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                            placeholder="Пошук пов'язаних записів..."
+                            x-model="valueModal.foreignRecords.query"
+                            @input.debounce.500ms="searchForeignRecords()"
+                          />
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                            @click="searchForeignRecords()"
+                            :disabled="valueModal.foreignRecords.loading"
+                          >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Знайти
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        x-show="valueModal.foreignRecords.loading"
+                        class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-3 text-sm text-muted-foreground"
+                      >
+                        Завантаження пов'язаних записів...
+                      </div>
+                      <template x-if="valueModal.foreignRecords.error">
+                        <div
+                          class="rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-600"
+                          x-text="valueModal.foreignRecords.error"
+                        ></div>
+                      </template>
+                      <template x-if="!valueModal.foreignRecords.loading && !valueModal.foreignRecords.error">
+                        <div class="space-y-2">
+                          <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length === 0">
+                            <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-3 text-sm text-muted-foreground">
+                              Записи не знайдено.
+                            </div>
+                          </template>
+                          <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length > 0">
+                            <div class="space-y-2 max-h-80 overflow-y-auto pr-1 sm:max-h-96">
+                              <template x-for="record in valueModal.foreignRecords.options" :key="foreignRecordKey(record)">
+                                <div class="rounded-2xl border border-border/60 bg-white p-3 shadow-soft/10">
+                                  <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                                    <button
+                                      type="button"
+                                      class="w-full rounded-xl border px-4 py-2.5 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-primary/40 sm:flex-1"
+                                      :class="isForeignRecordSelected(record)
+                                        ? 'border-primary bg-primary/10 text-primary'
+                                        : 'border-border/60 bg-white hover:border-primary/60 hover:text-primary'"
+                                      @click="selectForeignRecord(record)"
+                                    >
+                                      <div class="font-semibold" x-html="highlightForeignRecordText(formatForeignRecordLabel(record))"></div>
+                                      <div
+                                        class="mt-1 text-xs text-muted-foreground"
+                                        x-html="highlightForeignRecordText(formatForeignRecordSummary(record))"
+                                      ></div>
+                                    </button>
+                                    <button
+                                      type="button"
+                                      class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition focus:outline-none focus:ring-2 focus:ring-primary/40 sm:self-start"
+                                      :class="isForeignRecordPreviewed(record)
+                                        ? 'border-primary/50 bg-primary/10 text-primary'
+                                        : 'border-border/60 bg-background text-muted-foreground hover:border-primary/60 hover:text-primary'"
+                                      @click.stop="previewForeignRecord(record)"
+                                      :disabled="valueModal.foreignRecords.preview.loading && valueModal.foreignRecords.preview.key === foreignRecordKey(record)"
+                                    >
+                                      <i class="fa-solid fa-eye text-[10px]"></i>
+                                      Переглянути
+                                    </button>
+                                  </div>
+                                  <template x-if="isForeignRecordPreviewed(record)">
+                                    <div class="mt-3 rounded-2xl border border-dashed border-border/60 bg-muted/20 p-3 text-sm">
+                                      <template x-if="valueModal.foreignRecords.preview.loading">
+                                        <div class="text-muted-foreground">Завантаження повного запису...</div>
+                                      </template>
+                                      <template x-if="!valueModal.foreignRecords.preview.loading && valueModal.foreignRecords.preview.error">
+                                        <div class="text-rose-600" x-text="valueModal.foreignRecords.preview.error"></div>
+                                      </template>
+                                      <template x-if="!valueModal.foreignRecords.preview.loading && !valueModal.foreignRecords.preview.error">
+                                        <dl class="grid grid-cols-1 gap-3">
+                                          <template x-for="fieldName in valueModal.foreignRecords.preview.columns" :key="`${foreignRecordKey(record)}:${fieldName}`">
+                                            <div class="space-y-1">
+                                              <dt class="text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80" x-text="fieldName"></dt>
+                                              <dd
+                                                class="rounded-xl border border-border/60 bg-white px-3 py-2 text-sm text-foreground"
+                                                x-html="highlightForeignRecordText(formatCell((valueModal.foreignRecords.preview.record || {})[fieldName]))"
+                                              ></dd>
+                                            </div>
+                                          </template>
+                                        </dl>
+                                      </template>
+                                    </div>
+                                  </template>
+                                </div>
+                              </template>
+                            </div>
                           </template>
                         </div>
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40"
-                          @click="toggleForeignRecords()"
-                        >
-                          <i class="fa-solid" :class="valueModal.foreignRecords.visible ? 'fa-eye-slash' : 'fa-database'"></i>
-                          <span x-text="valueModal.foreignRecords.visible ? 'Сховати записи' : 'Обрати запис'"></span>
-                        </button>
-                      </div>
-                      <div x-show="valueModal.foreignRecords.visible" x-collapse class="space-y-3">
-                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                          <div class="text-sm text-muted-foreground">
-                            Пошук у пов'язаних записах
-                          </div>
-                          <div class="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
-                            <div class="relative w-full sm:w-48">
-                              <select
-                                class="w-full appearance-none rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                                x-model="valueModal.foreignRecords.searchColumn"
-                                @change="updateForeignRecordsSearchColumn($event.target.value)"
-                              >
-                                <option value="">Усі поля</option>
-                                <template x-for="columnName in valueModal.foreignRecords.columns" :key="columnName">
-                                  <option :value="columnName" x-text="columnName"></option>
-                                </template>
-                              </select>
-                              <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-xs text-muted-foreground">
-                                <i class="fa-solid fa-chevron-down"></i>
-                              </span>
-                            </div>
-                            <input
-                              type="search"
-                              class="w-full rounded-full border border-input bg-white px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                              placeholder="Пошук пов'язаних записів..."
-                              x-model="valueModal.foreignRecords.query"
-                              @input.debounce.500ms="searchForeignRecords()"
-                            />
-                            <button
-                              type="button"
-                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                              @click="searchForeignRecords()"
-                              :disabled="valueModal.foreignRecords.loading"
-                            >
-                              <i class="fa-solid fa-magnifying-glass"></i>
-                              Знайти
-                            </button>
-                          </div>
+                      </template>
+                      <div
+                        class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+                        x-show="valueModal.foreignRecords.lastPage > 1"
+                      >
+                        <div class="flex items-center gap-2">
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                            @click="changeForeignRecordsPage((valueModal.foreignRecords.page || 1) - 1)"
+                            :disabled="valueModal.foreignRecords.loading || (valueModal.foreignRecords.page || 1) <= 1"
+                          >
+                            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                            Попередня
+                          </button>
+                          <button
+                            type="button"
+                            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                            @click="changeForeignRecordsPage((valueModal.foreignRecords.page || 1) + 1)"
+                            :disabled="valueModal.foreignRecords.loading || (valueModal.foreignRecords.page || 1) >= (valueModal.foreignRecords.lastPage || 1)"
+                          >
+                            Наступна
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                          </button>
                         </div>
-                        <div
-                          x-show="valueModal.foreignRecords.loading"
-                          class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-3 text-sm text-muted-foreground"
-                        >
-                          Завантаження пов'язаних записів...
-                        </div>
-                        <template x-if="valueModal.foreignRecords.error">
-                          <div
-                            class="rounded-2xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-600"
-                            x-text="valueModal.foreignRecords.error"
-                          ></div>
-                        </template>
-                        <template x-if="!valueModal.foreignRecords.loading && !valueModal.foreignRecords.error">
-                          <div class="space-y-2">
-                            <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length === 0">
-                              <div class="rounded-2xl border border-dashed border-border/60 bg-muted/30 p-3 text-sm text-muted-foreground">
-                                Записи не знайдено.
-                              </div>
-                            </template>
-                            <template x-if="Array.isArray(valueModal.foreignRecords.options) && valueModal.foreignRecords.options.length > 0">
-                              <div class="space-y-2 max-h-80 overflow-y-auto pr-1 sm:max-h-96">
-                                <template x-for="record in valueModal.foreignRecords.options" :key="foreignRecordKey(record)">
-                                  <div class="rounded-2xl border border-border/60 bg-white p-3 shadow-soft/10">
-                                    <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                                      <button
-                                        type="button"
-                                        class="w-full rounded-xl border px-4 py-2.5 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-primary/40 sm:flex-1"
-                                        :class="isForeignRecordSelected(record)
-                                          ? 'border-primary bg-primary/10 text-primary'
-                                          : 'border-border/60 bg-white hover:border-primary/60 hover:text-primary'"
-                                        @click="selectForeignRecord(record)"
-                                      >
-                                        <div class="font-semibold" x-html="highlightForeignRecordText(formatForeignRecordLabel(record))"></div>
-                                        <div
-                                          class="mt-1 text-xs text-muted-foreground"
-                                          x-html="highlightForeignRecordText(formatForeignRecordSummary(record))"
-                                        ></div>
-                                      </button>
-                                      <button
-                                        type="button"
-                                        class="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition focus:outline-none focus:ring-2 focus:ring-primary/40 sm:self-start"
-                                        :class="isForeignRecordPreviewed(record)
-                                          ? 'border-primary/50 bg-primary/10 text-primary'
-                                          : 'border-border/60 bg-background text-muted-foreground hover:border-primary/60 hover:text-primary'"
-                                        @click.stop="previewForeignRecord(record)"
-                                        :disabled="valueModal.foreignRecords.preview.loading && valueModal.foreignRecords.preview.key === foreignRecordKey(record)"
-                                      >
-                                        <i class="fa-solid fa-eye text-[10px]"></i>
-                                        Переглянути
-                                      </button>
-                                    </div>
-                                    <template x-if="isForeignRecordPreviewed(record)">
-                                      <div class="mt-3 rounded-2xl border border-dashed border-border/60 bg-muted/20 p-3 text-sm">
-                                        <template x-if="valueModal.foreignRecords.preview.loading">
-                                          <div class="text-muted-foreground">Завантаження повного запису...</div>
-                                        </template>
-                                        <template x-if="!valueModal.foreignRecords.preview.loading && valueModal.foreignRecords.preview.error">
-                                          <div class="text-rose-600" x-text="valueModal.foreignRecords.preview.error"></div>
-                                        </template>
-                                        <template x-if="!valueModal.foreignRecords.preview.loading && !valueModal.foreignRecords.preview.error">
-                                          <dl class="grid grid-cols-1 gap-3">
-                                            <template x-for="fieldName in valueModal.foreignRecords.preview.columns" :key="`${foreignRecordKey(record)}:${fieldName}`">
-                                              <div class="space-y-1">
-                                                <dt class="text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80" x-text="fieldName"></dt>
-                                                <dd
-                                                  class="rounded-xl border border-border/60 bg-white px-3 py-2 text-sm text-foreground"
-                                                  x-html="highlightForeignRecordText(formatCell((valueModal.foreignRecords.preview.record || {})[fieldName]))"
-                                                ></dd>
-                                              </div>
-                                            </template>
-                                          </dl>
-                                        </template>
-                                      </div>
-                                    </template>
-                                  </div>
-                                </template>
-                              </div>
-                            </template>
-                          </div>
-                        </template>
-                        <div
-                          class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
-                          x-show="valueModal.foreignRecords.lastPage > 1"
-                        >
-                          <div class="flex items-center gap-2">
-                            <button
-                              type="button"
-                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                              @click="changeForeignRecordsPage((valueModal.foreignRecords.page || 1) - 1)"
-                              :disabled="valueModal.foreignRecords.loading || (valueModal.foreignRecords.page || 1) <= 1"
-                            >
-                              <i class="fa-solid fa-chevron-left text-[10px]"></i>
-                              Попередня
-                            </button>
-                            <button
-                              type="button"
-                              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                              @click="changeForeignRecordsPage((valueModal.foreignRecords.page || 1) + 1)"
-                              :disabled="valueModal.foreignRecords.loading || (valueModal.foreignRecords.page || 1) >= (valueModal.foreignRecords.lastPage || 1)"
-                            >
-                              Наступна
-                              <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                            </button>
-                          </div>
-                          <div class="text-xs text-muted-foreground">
-                            Сторінка
-                            <span class="font-medium text-foreground" x-text="valueModal.foreignRecords.page"></span>
-                            з
-                            <span class="font-medium text-foreground" x-text="valueModal.foreignRecords.lastPage"></span>
-                          </div>
+                        <div class="text-xs text-muted-foreground">
+                          Сторінка
+                          <span class="font-medium text-foreground" x-text="valueModal.foreignRecords.page"></span>
+                          з
+                          <span class="font-medium text-foreground" x-text="valueModal.foreignRecords.lastPage"></span>
                         </div>
                       </div>
                     </div>
-                  </template>
-                </div>
-                <div class="flex items-center justify-end gap-3" x-show="valueModal.editing">
-                  <button
-                    type="button"
-                    class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
-                    :disabled="valueModal.saving"
-                    @click="cancelEditingValue()"
-                  >
-                    Скасувати
-                  </button>
-                  <button
-                    type="button"
-                    class="inline-flex items-center gap-2 rounded-full border border-emerald-600 bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 disabled:cursor-not-allowed disabled:opacity-60"
-                    :disabled="valueModal.saving"
-                    @click="saveEditedValue()"
-                  >
-                    <span x-show="!valueModal.saving">Зберегти</span>
-                    <span x-show="valueModal.saving" x-cloak>Збереження...</span>
-                  </button>
-                </div>
+                  </div>
+                </template>
               </div>
-            </template>
-          </div>
+              <div class="flex items-center justify-end gap-3" x-show="valueModal.editing">
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="valueModal.saving"
+                  @click="cancelEditingValue()"
+                >
+                  Скасувати
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-emerald-600 bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="valueModal.saving"
+                  @click="saveEditedValue()"
+                >
+                  <span x-show="!valueModal.saving">Зберегти</span>
+                  <span x-show="valueModal.saving" x-cloak>Збереження...</span>
+                </button>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -1116,18 +1118,55 @@
                   placeholder="Наприклад, title"
                   x-model.trim="entry.column"
                   :readonly="entry.locked"
+                  @change="updateContentManagementEntryRelation(entry)"
                 />
                 <span class="text-[11px] text-muted-foreground" x-show="entry.locked">Назва зі структури таблиці</span>
               </label>
-              <label class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
-                <span>Alias</span>
-                <input
-                  type="text"
-                  class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                  placeholder="Відображувана назва"
-                  x-model="entry.alias"
-                />
-              </label>
+              <div class="flex flex-1 flex-col gap-3">
+                <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
+                  <span>Alias</span>
+                  <input
+                    type="text"
+                    class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    placeholder="Відображувана назва"
+                    x-model="entry.alias"
+                  />
+                </label>
+                <template x-if="entry.relation && entry.relation.table">
+                  <div class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
+                    <span>Поле пов'язаної таблиці</span>
+                    <div>
+                      <select
+                        class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                        x-model="entry.relation.displayColumn"
+                        :disabled="entry.relation.options.length === 0"
+                      >
+                        <option value="">— Використати значення за замовчуванням —</option>
+                        <template x-for="option in entry.relation.options" :key="option">
+                          <option :value="option" x-text="option"></option>
+                        </template>
+                      </select>
+                    </div>
+                    <p class="text-[11px] font-normal normal-case text-muted-foreground">
+                      <span>Зв'язок:</span>
+                      <span class="font-semibold text-foreground" x-text="entry.relation.table"></span>
+                      <template x-if="entry.relation.referencedColumn">
+                        <span>
+                          (<span x-text="entry.relation.referencedColumn"></span>)
+                        </span>
+                      </template>
+                    </p>
+                    <template x-if="entry.relation.options.length === 0">
+                      <p class="text-[11px] font-normal normal-case text-amber-600">
+                        Структура пов'язаної таблиці відсутня. Додайте її вручну у конфігурації або відкрийте таблицю зі структури.
+                      </p>
+                    </template>
+                    <p class="text-[11px] font-normal normal-case text-muted-foreground/80">
+                      Залиште порожнім, щоб використовувати значення за замовчуванням.
+                    </p>
+                  </div>
+                </template>
+              </div>
               <div class="flex items-start justify-between gap-3 sm:flex-col sm:items-end sm:gap-2">
                 <label class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">
                   <input
@@ -1544,7 +1583,13 @@
                         <tr class="hover:bg-muted/40 transition">
                           <template x-for="column in contentManagement.viewer.columns" :key="`cm-cell-${rowIndex}-${column}`">
                             <td class="px-3 py-2 align-top">
-                              <div class="text-sm text-foreground" x-html="contentManagementHighlight(column, row[column])"></div>
+                              <button
+                                type="button"
+                                class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                @click.stop="showContentManagementRecordValue(column, row)"
+                                :title="formatCell(contentManagementCellValue(row, column))"
+                                x-html="contentManagementHighlight(column, row)"
+                              ></button>
                             </td>
                           </template>
                         </tr>
@@ -1972,6 +2017,130 @@
           return Array.from(set);
         };
 
+        const normalizeRelationDisplayMap = (source, allowSimple = false) => {
+          const result = {};
+
+          const push = (columnName, definition) => {
+            const column = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!column) {
+              return;
+            }
+
+            let table = '';
+            let display = '';
+
+            if (typeof definition === 'string') {
+              const value = definition.trim();
+
+              if (!value) {
+                return;
+              }
+
+              if (value.includes('.')) {
+                const [rawTable, rawColumn] = value.split('.', 2);
+                table = typeof rawTable === 'string' ? rawTable.trim() : '';
+                display = typeof rawColumn === 'string' ? rawColumn.trim() : '';
+              } else if (allowSimple) {
+                display = value;
+              } else {
+                return;
+              }
+            } else if (definition && typeof definition === 'object') {
+              const tableCandidate = definition.table
+                ?? definition.target_table
+                ?? definition.targetTable
+                ?? definition.foreign_table
+                ?? definition.foreignTable
+                ?? definition.relation_table
+                ?? definition.relationTable;
+
+              if (typeof tableCandidate === 'string') {
+                table = tableCandidate.trim();
+              }
+
+              const displayCandidate = definition.display
+                ?? definition.display_column
+                ?? definition.displayColumn
+                ?? definition.column
+                ?? definition.field
+                ?? definition.name
+                ?? definition.value;
+
+              if (typeof displayCandidate === 'string') {
+                display = displayCandidate.trim();
+              }
+
+              if (!display && typeof definition.path === 'string' && definition.path.includes('.')) {
+                const [rawTable, rawColumn] = definition.path.split('.', 2);
+
+                if (!display && typeof rawColumn === 'string') {
+                  display = rawColumn.trim();
+                }
+
+                if (!table && typeof rawTable === 'string') {
+                  table = rawTable.trim();
+                }
+              }
+            } else {
+              return;
+            }
+
+            if (!display) {
+              return;
+            }
+
+            const payload = { column: display };
+
+            if (table) {
+              payload.table = table;
+            }
+
+            result[column] = payload;
+          };
+
+          if (!source) {
+            return result;
+          }
+
+          if (Array.isArray(source)) {
+            source.forEach((entry) => {
+              if (!entry) {
+                return;
+              }
+
+              if (Array.isArray(entry)) {
+                if (entry.length < 2) {
+                  return;
+                }
+
+                const [columnName, value] = entry;
+                push(columnName, value);
+                return;
+              }
+
+              if (typeof entry === 'object') {
+                const columnName = entry.column
+                  ?? entry.field
+                  ?? entry.source
+                  ?? entry.name;
+
+                push(columnName, entry);
+              }
+            });
+
+            return result;
+          }
+
+          if (typeof source === 'object') {
+            Object.entries(source).forEach(([columnName, value]) => {
+              push(columnName, value);
+            });
+          }
+
+          return result;
+        };
+
         const normalizeContentManagementTableSettings = (settings) => {
           if (!settings || typeof settings !== 'object') {
             return {};
@@ -1988,6 +2157,7 @@
 
             let aliasMap = {};
             let hiddenColumns = [];
+            let relationMap = {};
 
             if (Array.isArray(rawConfig)) {
               aliasMap = normalizeAliasMap(rawConfig);
@@ -2044,22 +2214,49 @@
 
                 return carry;
               }, []);
+
+              const relationCandidates = [
+                rawConfig.relations,
+                rawConfig.relation_columns,
+                rawConfig.relationColumns,
+                rawConfig.foreign_relations,
+                rawConfig.foreignRelations,
+                rawConfig.display_relations,
+                rawConfig.displayRelations,
+              ];
+
+              relationMap = relationCandidates.reduce((carry, candidate) => {
+                const normalized = normalizeRelationDisplayMap(candidate, true);
+
+                if (Object.keys(normalized).length === 0) {
+                  return carry;
+                }
+
+                return { ...carry, ...normalized };
+              }, {});
             }
 
             if (hiddenColumns.length === 0) {
               hiddenColumns = normalizeHiddenColumnsList(rawConfig);
             }
 
+            if (Object.keys(relationMap).length === 0) {
+              relationMap = normalizeRelationDisplayMap(rawConfig, false);
+            }
+
             const hasAliases = Object.keys(aliasMap).length > 0;
             const hasHidden = hiddenColumns.length > 0;
 
-            if (!hasAliases && !hasHidden) {
+            const hasRelations = Object.keys(relationMap).length > 0;
+
+            if (!hasAliases && !hasHidden && !hasRelations) {
               return;
             }
 
             normalized[tableName] = {
               ...(hasAliases ? { aliases: aliasMap } : {}),
               ...(hasHidden ? { hidden: hiddenColumns } : {}),
+              ...(hasRelations ? { relations: relationMap } : {}),
             };
           });
 
@@ -2295,6 +2492,7 @@
             identifiers: [],
             foreignKey: null,
             foreignRecords: createForeignRecordsState(),
+            canEdit: true,
           },
           filterOperators: [
             { value: '=', label: 'Дорівнює (=)' },
@@ -2708,12 +2906,129 @@
               .map((column) => (typeof column === 'string' ? column.trim() : ''))
               .filter((column) => column !== '');
           },
+          resolveContentManagementRelationState(tableName, columnName, override = null, preferred = '') {
+            const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedTable || !normalizedColumn) {
+              return null;
+            }
+
+            const column = this.findTableColumn(normalizedTable, normalizedColumn);
+
+            if (!column || !column.foreign) {
+              return null;
+            }
+
+            const foreign = column.foreign;
+            const foreignTable = typeof foreign.table === 'string' ? foreign.table.trim() : '';
+            const foreignColumn = typeof foreign.column === 'string' ? foreign.column.trim() : '';
+
+            if (!foreignTable || !foreignColumn) {
+              return null;
+            }
+
+            const overrideTable = override && typeof override.table === 'string' ? override.table.trim() : '';
+            const overrideDisplay = override && typeof override.column === 'string' ? override.column.trim() : '';
+            const preferredDisplay = typeof preferred === 'string' ? preferred.trim() : '';
+            const foreignDisplay = typeof foreign.displayColumn === 'string' ? foreign.displayColumn.trim() : '';
+
+            const relationTable = overrideTable || foreignTable;
+
+            if (!relationTable) {
+              return null;
+            }
+
+            const targetTable = this.findTableByName(relationTable);
+            const targetColumns = this.getTableColumnNames(targetTable);
+            const optionSet = new Set(Array.isArray(targetColumns) ? targetColumns : []);
+
+            [overrideDisplay, foreignDisplay, preferredDisplay, foreignColumn].forEach((value) => {
+              if (typeof value === 'string' && value !== '') {
+                optionSet.add(value);
+              }
+            });
+
+            const options = Array.from(optionSet);
+            const selectedDisplay = preferredDisplay || overrideDisplay || foreignDisplay || '';
+
+            return {
+              sourceColumn: normalizedColumn,
+              table: relationTable,
+              originalTable: foreignTable,
+              referencedColumn: foreignColumn,
+              displayColumn: selectedDisplay,
+              options,
+              manual: Boolean(foreign.manual),
+            };
+          },
+          async updateContentManagementEntryRelation(entry) {
+            if (!entry || typeof entry !== 'object') {
+              return;
+            }
+
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            if (!tableName) {
+              entry.relation = null;
+              return;
+            }
+
+            const columnName = typeof entry.column === 'string' ? entry.column.trim() : '';
+
+            if (!columnName) {
+              entry.relation = null;
+              return;
+            }
+
+            const table = await this.ensureStructureLoadedByName(tableName);
+
+            if (!table) {
+              entry.relation = null;
+              return;
+            }
+
+            const relations = this.getContentManagementRelationOverrides(tableName);
+            const override = relations && typeof relations === 'object' ? relations[columnName] : null;
+            const preferred = entry.relation
+              && entry.relation.sourceColumn === columnName
+              && typeof entry.relation.displayColumn === 'string'
+              ? entry.relation.displayColumn
+              : '';
+
+            const column = this.findTableColumn(table, columnName);
+            const foreignTable = column
+              && column.foreign
+              && typeof column.foreign.table === 'string'
+              ? column.foreign.table.trim()
+              : '';
+            const overrideTable = override && typeof override.table === 'string' ? override.table.trim() : '';
+
+            if (foreignTable) {
+              await this.ensureStructureLoadedByName(foreignTable);
+            }
+
+            if (overrideTable && overrideTable !== foreignTable) {
+              await this.ensureStructureLoadedByName(overrideTable);
+            }
+
+            const relationState = this.resolveContentManagementRelationState(
+              tableName,
+              columnName,
+              override,
+              preferred,
+            );
+
+            entry.relation = relationState ?? null;
+          },
           nextContentManagementTableSettingsId() {
             const current = Number(this.contentManagement.tableSettings.nextId) || 0;
             this.contentManagement.tableSettings.nextId = current + 1;
             return `cm-table-settings-${Date.now()}-${current}`;
           },
-          openContentManagementTableSettingsModal() {
+          async openContentManagementTableSettingsModal() {
             const tableName = typeof this.contentManagement.selectedTable === 'string'
               ? this.contentManagement.selectedTable.trim()
               : '';
@@ -2724,8 +3039,14 @@
 
             this.contentManagement.tableSettings.nextId = 0;
 
+            const table = await this.ensureStructureLoadedByName(tableName);
             const aliases = this.getContentManagementTableAliases(tableName);
             const hiddenColumns = this.getContentManagementHiddenColumns(tableName);
+            const relationsSource = this.getContentManagementRelationOverrides(tableName);
+            const relationOverrides = relationsSource && typeof relationsSource === 'object'
+              ? { ...relationsSource }
+              : {};
+            const relationTargets = new Set();
             const hiddenSet = new Set(
               Array.isArray(hiddenColumns)
                 ? hiddenColumns
@@ -2733,6 +3054,36 @@
                   .filter((column) => column !== '')
                 : [],
             );
+            const structureColumns = table && table.structure && Array.isArray(table.structure.columns)
+              ? table.structure.columns
+              : [];
+
+            structureColumns.forEach((columnDefinition) => {
+              const relatedTable = columnDefinition
+                && columnDefinition.foreign
+                && typeof columnDefinition.foreign.table === 'string'
+                ? columnDefinition.foreign.table.trim()
+                : '';
+
+              if (relatedTable) {
+                relationTargets.add(relatedTable);
+              }
+            });
+
+            Object.values(relationOverrides).forEach((definition) => {
+              const relatedTable = definition && typeof definition.table === 'string'
+                ? definition.table.trim()
+                : '';
+
+              if (relatedTable) {
+                relationTargets.add(relatedTable);
+              }
+            });
+
+            for (const relatedTable of relationTargets) {
+              await this.ensureStructureLoadedByName(relatedTable);
+            }
+
             const columns = this.getContentManagementColumnsForSettings(tableName);
             const seen = new Set();
             const entries = [];
@@ -2745,6 +3096,11 @@
               }
 
               const aliasValue = typeof aliases[normalizedColumn] === 'string' ? aliases[normalizedColumn] : '';
+              const relation = this.resolveContentManagementRelationState(
+                tableName,
+                normalizedColumn,
+                relationOverrides[normalizedColumn] ?? null,
+              );
 
               entries.push({
                 id: this.nextContentManagementTableSettingsId(),
@@ -2752,10 +3108,15 @@
                 alias: aliasValue,
                 hidden: hiddenSet.has(normalizedColumn),
                 locked: true,
+                relation: relation ?? null,
               });
 
               seen.add(normalizedColumn);
               hiddenSet.delete(normalizedColumn);
+
+              if (Object.prototype.hasOwnProperty.call(relationOverrides, normalizedColumn)) {
+                delete relationOverrides[normalizedColumn];
+              }
             });
 
             Object.entries(aliases).forEach(([column, alias]) => {
@@ -2765,27 +3126,75 @@
                 return;
               }
 
+              const relation = this.resolveContentManagementRelationState(
+                tableName,
+                normalizedColumn,
+                relationOverrides[normalizedColumn] ?? null,
+              );
+
               entries.push({
                 id: this.nextContentManagementTableSettingsId(),
                 column: normalizedColumn,
                 alias: typeof alias === 'string' ? alias : '',
                 hidden: hiddenSet.has(normalizedColumn),
                 locked: false,
+                relation: relation ?? null,
               });
 
               seen.add(normalizedColumn);
               hiddenSet.delete(normalizedColumn);
+
+              if (Object.prototype.hasOwnProperty.call(relationOverrides, normalizedColumn)) {
+                delete relationOverrides[normalizedColumn];
+              }
             });
 
             hiddenSet.forEach((column) => {
+              const normalizedColumn = typeof column === 'string' ? column.trim() : '';
+              const relation = this.resolveContentManagementRelationState(
+                tableName,
+                normalizedColumn,
+                relationOverrides[normalizedColumn] ?? null,
+              );
+
               entries.push({
                 id: this.nextContentManagementTableSettingsId(),
                 column,
                 alias: '',
                 hidden: true,
                 locked: false,
+                relation: relation ?? null,
               });
               seen.add(column);
+
+              if (Object.prototype.hasOwnProperty.call(relationOverrides, normalizedColumn)) {
+                delete relationOverrides[normalizedColumn];
+              }
+            });
+
+            Object.entries(relationOverrides).forEach(([column, definition]) => {
+              const normalizedColumn = typeof column === 'string' ? column.trim() : '';
+
+              if (!normalizedColumn || seen.has(normalizedColumn)) {
+                return;
+              }
+
+              const relation = this.resolveContentManagementRelationState(
+                tableName,
+                normalizedColumn,
+                definition,
+              );
+
+              entries.push({
+                id: this.nextContentManagementTableSettingsId(),
+                column: normalizedColumn,
+                alias: '',
+                hidden: false,
+                locked: false,
+                relation: relation ?? null,
+              });
+
+              seen.add(normalizedColumn);
             });
 
             if (entries.length === 0) {
@@ -2795,6 +3204,7 @@
                 alias: '',
                 hidden: false,
                 locked: false,
+                relation: null,
               });
             }
 
@@ -2828,6 +3238,7 @@
                 alias: '',
                 hidden: false,
                 locked: false,
+                relation: null,
               },
             ];
 
@@ -2881,6 +3292,44 @@
 
             return Array.from(hidden);
           },
+          collectContentManagementTableSettingsRelations() {
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            return entries.reduce((carry, entry) => {
+              const column = typeof entry?.column === 'string' ? entry.column.trim() : '';
+
+              if (!column) {
+                return carry;
+              }
+
+              const relation = entry?.relation && typeof entry.relation === 'object'
+                ? entry.relation
+                : null;
+
+              if (!relation) {
+                return carry;
+              }
+
+              const displayColumn = typeof relation.displayColumn === 'string'
+                ? relation.displayColumn.trim()
+                : '';
+
+              if (!displayColumn) {
+                return carry;
+              }
+
+              const relationTable = typeof relation.table === 'string' ? relation.table.trim() : '';
+
+              carry[column] = {
+                column: displayColumn,
+                ...(relationTable ? { table: relationTable } : {}),
+              };
+
+              return carry;
+            }, {});
+          },
           contentManagementTableSettingsSnippet() {
             const tableName = typeof this.contentManagement.tableSettings.table === 'string'
               ? this.contentManagement.tableSettings.table.trim()
@@ -2892,14 +3341,16 @@
 
             const aliases = this.collectContentManagementTableSettingsAliases();
             const hidden = this.collectContentManagementTableSettingsHiddenColumns();
+            const relations = this.collectContentManagementTableSettingsRelations();
             const hasAliases = Object.keys(aliases).length > 0;
             const hasHidden = hidden.length > 0;
+            const hasRelations = Object.keys(relations).length > 0;
 
-            if (!hasAliases && !hasHidden) {
+            if (!hasAliases && !hasHidden && !hasRelations) {
               return '';
             }
 
-            if (!hasHidden) {
+            if (!hasHidden && !hasRelations) {
               return JSON.stringify({ [tableName]: aliases }, null, 2);
             }
 
@@ -2909,7 +3360,13 @@
               payload.aliases = aliases;
             }
 
-            payload.hidden = hidden;
+            if (hasHidden) {
+              payload.hidden = hidden;
+            }
+
+            if (hasRelations) {
+              payload.relations = relations;
+            }
 
             return JSON.stringify({ [tableName]: payload }, null, 2);
           },
@@ -2917,7 +3374,7 @@
             const snippet = this.contentManagementTableSettingsSnippet();
 
             if (!snippet) {
-              this.contentManagement.tableSettings.error = 'Немає даних для копіювання. Додайте хоча б один alias або приховану колонку.';
+              this.contentManagement.tableSettings.error = 'Немає даних для копіювання. Додайте хоча б один alias, приховану колонку або поле пов\'язаної таблиці.';
               this.contentManagement.tableSettings.feedback = '';
               return;
             }
@@ -2982,20 +3439,35 @@
 
             const aliases = this.collectContentManagementTableSettingsAliases();
             const hidden = this.collectContentManagementTableSettingsHiddenColumns();
+            const relations = this.collectContentManagementTableSettingsRelations();
             const hasAliases = Object.keys(aliases).length > 0;
             const hasHidden = hidden.length > 0;
+            const hasRelations = Object.keys(relations).length > 0;
             const currentSettings =
               this.contentManagement.settings && typeof this.contentManagement.settings === 'object'
                 ? { ...this.contentManagement.settings }
                 : {};
 
-            if (hasAliases || hasHidden) {
-              currentSettings[tableName] = hasHidden
-                ? {
-                  ...(hasAliases ? { aliases } : {}),
-                  hidden,
+            if (hasAliases || hasHidden || hasRelations) {
+              if (!hasHidden && !hasRelations && hasAliases) {
+                currentSettings[tableName] = aliases;
+              } else {
+                const payload = {};
+
+                if (hasAliases) {
+                  payload.aliases = aliases;
                 }
-                : aliases;
+
+                if (hasHidden) {
+                  payload.hidden = hidden;
+                }
+
+                if (hasRelations) {
+                  payload.relations = relations;
+                }
+
+                currentSettings[tableName] = payload;
+              }
             } else {
               delete currentSettings[tableName];
             }
@@ -3092,6 +3564,47 @@
             }
 
             return [];
+          },
+          getContentManagementRelationOverrides(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized) {
+              return {};
+            }
+
+            const settings = this.contentManagement && this.contentManagement.settings
+              ? this.contentManagement.settings
+              : {};
+
+            const tableConfig = settings && typeof settings === 'object' ? settings[normalized] : null;
+
+            if (!tableConfig || typeof tableConfig !== 'object' || Array.isArray(tableConfig)) {
+              return {};
+            }
+
+            const candidates = [
+              tableConfig.relations,
+              tableConfig.relation_columns,
+              tableConfig.relationColumns,
+              tableConfig.foreign_relations,
+              tableConfig.foreignRelations,
+              tableConfig.display_relations,
+              tableConfig.displayRelations,
+            ];
+
+            for (const candidate of candidates) {
+              if (candidate === undefined) {
+                continue;
+              }
+
+              const normalizedMap = normalizeRelationDisplayMap(candidate, true);
+
+              if (Object.keys(normalizedMap).length > 0) {
+                return normalizedMap;
+              }
+            }
+
+            return {};
           },
           filterContentManagementColumns(tableName, columns) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
@@ -3480,6 +3993,42 @@
                 }
               });
 
+              const relationOverrides = this.getContentManagementRelationOverrides(normalized);
+
+              if (relationOverrides && typeof relationOverrides === 'object') {
+                Object.entries(relationOverrides).forEach(([column, definition]) => {
+                  const columnKey = typeof column === 'string' ? column.trim() : '';
+
+                  if (!columnKey) {
+                    return;
+                  }
+
+                  const payload = definition && typeof definition === 'object'
+                    ? definition
+                    : {};
+
+                  let displayColumn = '';
+
+                  if (typeof payload.column === 'string') {
+                    displayColumn = payload.column.trim();
+                  } else if (typeof definition === 'string') {
+                    displayColumn = definition.trim();
+                  }
+
+                  if (!displayColumn) {
+                    return;
+                  }
+
+                  url.searchParams.set(`display_relations[${columnKey}][column]`, displayColumn);
+
+                  const relationTable = typeof payload.table === 'string' ? payload.table.trim() : '';
+
+                  if (relationTable) {
+                    url.searchParams.set(`display_relations[${columnKey}][table]`, relationTable);
+                  }
+                });
+              }
+
               const response = await fetch(url.toString(), {
                 headers: {
                   Accept: 'application/json',
@@ -3505,11 +4054,15 @@
 
               const rows = Array.isArray(data.rows) ? data.rows : [];
 
+              const fallbackColumns = rows.length > 0
+                ? Object.keys(rows[0]).filter((column) => column !== '__display')
+                : [];
+
               const baseColumns = normalizedColumns.length > 0
                 ? normalizedColumns
                 : (structureColumns.length > 0
                   ? structureColumns
-                  : (rows.length > 0 ? Object.keys(rows[0]) : []));
+                  : fallbackColumns);
 
               viewer.columns = baseColumns;
               viewer.rows = rows.map((row) => (row && typeof row === 'object' ? row : {}));
@@ -3564,7 +4117,103 @@
               }
             }
           },
-          contentManagementHighlight(columnName, value) {
+          async showContentManagementRecordValue(columnName, row) {
+            const selected = typeof this.contentManagement.selectedTable === 'string'
+              ? this.contentManagement.selectedTable.trim()
+              : '';
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!selected || !normalizedColumn || !row || typeof row !== 'object') {
+              return;
+            }
+
+            const baseTable = this.findTableByName(selected);
+            const viewerColumns = Array.isArray(this.contentManagement.viewer.columns)
+              ? this.contentManagement.viewer.columns
+                .map((column) => (typeof column === 'string' ? column.trim() : ''))
+                .filter((column) => column !== '')
+              : [];
+            const search = typeof this.contentManagement.viewer.search === 'string'
+              ? this.contentManagement.viewer.search
+              : '';
+            const searchColumn = typeof this.contentManagement.viewer.searchColumn === 'string'
+              ? this.contentManagement.viewer.searchColumn.trim()
+              : '';
+
+            const tableForState = baseTable
+              ? {
+                  ...baseTable,
+                  records: {
+                    ...(baseTable.records || {}),
+                    columns: viewerColumns.length > 0
+                      ? viewerColumns
+                      : (Array.isArray(baseTable.records?.columns) ? baseTable.records.columns : []),
+                    search,
+                    searchColumn,
+                  },
+                }
+              : {
+                  name: selected,
+                  structure: {
+                    loading: false,
+                    loaded: false,
+                    columns: [],
+                    error: null,
+                  },
+                  primaryKeys: [],
+                  records: {
+                    columns: viewerColumns,
+                    search,
+                    searchColumn,
+                  },
+                };
+
+            const baseState = this.prepareValueModalBaseState(tableForState, normalizedColumn, row);
+
+            if (!baseState) {
+              return;
+            }
+
+            const tableForModal = baseTable || tableForState;
+
+            if (baseState.identifiers.length === 0) {
+              this.openValueModalFromRow(tableForModal, normalizedColumn, row, baseState);
+              return;
+            }
+
+            await this.ensureStructureLoaded(tableForModal);
+
+            const knownColumns = new Set(this.getTableColumnNames(tableForModal));
+
+            if (!knownColumns.has(normalizedColumn)) {
+              this.openValueModalFromRow(tableForModal, normalizedColumn, row, baseState);
+              return;
+            }
+
+            await this.showRecordValue(tableForModal, normalizedColumn, row, baseState);
+          },
+          contentManagementCellValue(row, columnName) {
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedColumn || !row || typeof row !== 'object') {
+              return undefined;
+            }
+
+            const displayMap = row.__display && typeof row.__display === 'object'
+              ? row.__display
+              : null;
+
+            if (
+              displayMap &&
+              Object.prototype.hasOwnProperty.call(displayMap, normalizedColumn)
+            ) {
+              return displayMap[normalizedColumn];
+            }
+
+            return row[normalizedColumn];
+          },
+          contentManagementHighlight(columnName, row) {
+            const value = this.contentManagementCellValue(row, columnName);
             const text = this.formatCell(value);
             const searchTerm = typeof this.contentManagement.viewer.search === 'string'
               ? this.contentManagement.viewer.search
@@ -3675,6 +4324,27 @@
           return table.structure.columns
             .map((column) => (column && typeof column.name === 'string' ? column.name : null))
             .filter((name) => typeof name === 'string' && name !== '');
+        },
+        findTableColumn(table, columnName) {
+          if (!columnName || typeof columnName !== 'string') {
+            return null;
+          }
+
+          const normalizedColumn = columnName.trim();
+
+          if (!normalizedColumn) {
+            return null;
+          }
+
+          const tableObject = typeof table === 'string' ? this.findTableByName(table) : table;
+
+          if (!tableObject || !tableObject.structure || !Array.isArray(tableObject.structure.columns)) {
+            return null;
+          }
+
+          return tableObject.structure.columns.find(
+            (column) => column && column.name === normalizedColumn,
+          ) ?? null;
         },
         hasManualForeign(tableName, columnName) {
           const table = this.findTableByName(tableName);
@@ -4306,7 +4976,8 @@
             return;
           }
 
-          const identifiers = this.buildIdentifiers(table, row);
+          const sourceRow = row && typeof row === 'object' ? row : {};
+          const identifiers = this.buildIdentifiers(table, sourceRow);
 
           if (identifiers.length === 0) {
             table.records.error = 'Не вдалося визначити ідентифікатори запису для видалення.';
@@ -4385,6 +5056,71 @@
           });
 
           return identifiers;
+        },
+        prepareValueModalBaseState(table, columnName, row) {
+          if (!table || typeof columnName !== 'string') {
+            return null;
+          }
+
+          const normalizedColumn = columnName.trim();
+          const tableName = typeof table.name === 'string' ? table.name : '';
+
+          if (!normalizedColumn || !tableName) {
+            return null;
+          }
+
+          const sourceRow = row && typeof row === 'object' ? row : {};
+          const identifiers = this.buildIdentifiers(table, sourceRow);
+          const sanitizedIdentifiers = Array.isArray(identifiers)
+            ? identifiers
+              .filter((identifier) => identifier && typeof identifier.column === 'string' && identifier.column !== '')
+              .map((identifier) => ({
+                column: identifier.column,
+                value: identifier.value,
+              }))
+            : [];
+
+          const records = table && typeof table === 'object' ? table.records || {} : {};
+          const searchTerm = typeof records.search === 'string' ? records.search : '';
+          const searchColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
+
+          return {
+            tableName,
+            columnName: normalizedColumn,
+            identifiers: sanitizedIdentifiers,
+            searchTerm: !searchTerm || (searchColumn && searchColumn !== normalizedColumn)
+              ? ''
+              : searchTerm,
+          };
+        },
+        openValueModalFromRow(table, columnName, row, baseState = null) {
+          const state = baseState || this.prepareValueModalBaseState(table, columnName, row);
+
+          if (!state) {
+            return;
+          }
+
+          const rawValue = row && typeof row === 'object'
+            ? row[state.columnName]
+            : null;
+
+          this.valueModal.open = true;
+          this.valueModal.loading = false;
+          this.valueModal.error = null;
+          this.valueModal.updateError = null;
+          this.valueModal.table = state.tableName;
+          this.valueModal.column = state.columnName;
+          this.valueModal.value = this.formatCell(rawValue);
+          this.valueModal.rawValue = rawValue;
+          this.valueModal.editValue = this.prepareEditableValue(rawValue);
+          this.valueModal.editing = false;
+          this.valueModal.saving = false;
+          this.valueModal.identifiers = state.identifiers;
+          this.valueModal.searchTerm = state.searchTerm;
+          this.valueModal.foreignKey = null;
+          this.valueModal.foreignRecords = createForeignRecordsState();
+          this.valueModal.canEdit = false;
+          this.syncForeignSelectionWithRawValue(rawValue);
         },
         findForeignKey(table, columnName) {
           if (!table || typeof columnName !== 'string' || !table.structure) {
@@ -4936,45 +5672,33 @@
             }
           });
         },
-        async showRecordValue(table, column, row) {
-          const columnName = typeof column === 'string' ? column.trim() : '';
-          const tableName = table && typeof table.name === 'string' ? table.name : '';
+        async showRecordValue(table, column, row, baseState = null) {
+          const state = baseState || this.prepareValueModalBaseState(table, column, row);
 
-          if (!columnName || !tableName) {
+          if (!state) {
             return;
           }
 
-          const identifiers = this.buildIdentifiers(table, row);
-          const clonedIdentifiers = identifiers
-            .filter((identifier) => identifier && typeof identifier.column === 'string' && identifier.column !== '')
-            .map((identifier) => ({
-              column: identifier.column,
-              value: identifier.value,
-            }));
+          const fallbackRawValue = row && typeof row === 'object' ? row[state.columnName] : null;
 
           this.valueModal.open = true;
           this.valueModal.loading = true;
           this.valueModal.error = null;
           this.valueModal.updateError = null;
-          this.valueModal.table = tableName;
-          this.valueModal.column = columnName;
-          this.valueModal.value = '';
-          this.valueModal.rawValue = null;
-          this.valueModal.editValue = '';
+          this.valueModal.table = state.tableName;
+          this.valueModal.column = state.columnName;
+          this.valueModal.value = this.formatCell(fallbackRawValue);
+          this.valueModal.rawValue = fallbackRawValue;
+          this.valueModal.editValue = this.prepareEditableValue(fallbackRawValue);
           this.valueModal.editing = false;
           this.valueModal.saving = false;
-          this.valueModal.identifiers = clonedIdentifiers;
+          this.valueModal.identifiers = state.identifiers;
           this.valueModal.foreignKey = null;
           this.valueModal.foreignRecords = createForeignRecordsState();
+          this.valueModal.searchTerm = state.searchTerm;
+          this.valueModal.canEdit = state.identifiers.length > 0;
 
-          const records = table && typeof table === 'object' ? table.records || {} : {};
-          const searchTerm = typeof records.search === 'string' ? records.search : '';
-          const searchColumn = typeof records.searchColumn === 'string' ? records.searchColumn.trim() : '';
-          this.valueModal.searchTerm = !searchTerm || (searchColumn && searchColumn !== columnName)
-            ? ''
-            : searchTerm;
-
-          if (clonedIdentifiers.length === 0) {
+          if (state.identifiers.length === 0) {
             this.valueModal.loading = false;
             this.valueModal.error = 'Не вдалося визначити ідентифікатори запису для отримання значення.';
             return;
@@ -4986,13 +5710,23 @@
             return;
           }
 
-          await this.ensureStructureLoaded(table);
-          this.valueModal.foreignKey = this.findForeignKey(table, columnName);
+          const modalTable = table && typeof table === 'object' ? table : null;
+
+          if (modalTable) {
+            await this.ensureStructureLoaded(modalTable);
+          }
+
+          const structureTable = await this.ensureStructureLoadedByName(state.tableName);
+          const foreignSource = structureTable || modalTable;
+
+          this.valueModal.foreignKey = foreignSource
+            ? this.findForeignKey(foreignSource, state.columnName)
+            : null;
           this.valueModal.foreignRecords = createForeignRecordsState();
 
           try {
             const url = new URL(
-              this.recordsValueRoute.replace('__TABLE__', encodeURIComponent(tableName)),
+              this.recordsValueRoute.replace('__TABLE__', encodeURIComponent(state.tableName)),
               window.location.origin
             );
 
@@ -5004,8 +5738,8 @@
                 'X-CSRF-TOKEN': this.csrfToken || '',
               },
               body: JSON.stringify({
-                column: columnName,
-                identifiers: clonedIdentifiers,
+                column: state.columnName,
+                identifiers: state.identifiers,
               }),
             });
 
@@ -5016,9 +5750,13 @@
             }
 
             const payload = await response.json();
-            const rawValue = payload && Object.prototype.hasOwnProperty.call(payload, 'value')
-              ? payload.value
-              : null;
+            let rawValue = fallbackRawValue;
+
+            if (payload && typeof payload === 'object' && payload !== null && Object.prototype.hasOwnProperty.call(payload, 'value')) {
+              rawValue = payload.value;
+            } else if (payload !== undefined) {
+              rawValue = payload;
+            }
 
             this.valueModal.rawValue = rawValue;
             this.valueModal.value = this.formatCell(rawValue);
@@ -5026,12 +5764,16 @@
             this.syncForeignSelectionWithRawValue(rawValue);
           } catch (error) {
             this.valueModal.error = error.message ?? 'Сталася помилка під час отримання значення.';
+            this.valueModal.rawValue = fallbackRawValue;
+            this.valueModal.value = this.formatCell(fallbackRawValue);
+            this.valueModal.editValue = this.prepareEditableValue(fallbackRawValue);
+            this.syncForeignSelectionWithRawValue(fallbackRawValue);
           } finally {
             this.valueModal.loading = false;
           }
         },
         startEditingValue() {
-          if (this.valueModal.loading || this.valueModal.error) {
+          if (this.valueModal.loading || this.valueModal.error || !this.valueModal.canEdit) {
             return;
           }
 
@@ -5159,6 +5901,7 @@
           this.valueModal.identifiers = [];
           this.valueModal.foreignKey = null;
           this.valueModal.foreignRecords = createForeignRecordsState();
+          this.valueModal.canEdit = true;
         },
         toggleSort(table, column) {
           if (table.records.loading) {

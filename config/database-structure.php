@@ -21,8 +21,17 @@ return array (
         'label' => 'question_hints',
       ),
     ),
-    'table_settings' => 
+    'table_settings' =>
     array (
+      /*
+      'posts' =>
+      array (
+        'relations' =>
+        array (
+          'user_id' => 'users.name',
+        ),
+      ),
+      */
     ),
   ),
 );

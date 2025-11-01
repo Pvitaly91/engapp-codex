@@ -6,6 +6,18 @@ return [
     'manual_relations' => [],
     'content_management' => [
         'menu' => [],
-        'table_settings' => [],
+        'table_settings' => [
+            /*
+            'posts' => [
+                'aliases' => [
+                    'title' => 'Заголовок',
+                ],
+                'hidden' => ['secret_column'],
+                'relations' => [
+                    'user_id' => 'users.name',
+                ],
+            ],
+            */
+        ],
     ],
 ];
