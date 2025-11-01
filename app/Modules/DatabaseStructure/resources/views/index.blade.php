@@ -764,6 +764,65 @@
 
 
     <div
+      x-show="filterNameModal.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" @click="cancelFilterNameModal()"></div>
+      <div class="relative z-10 w-full max-w-md rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-foreground">Збереження фільтру</h2>
+            <p class="mt-1 text-xs text-muted-foreground">
+              Вкажіть назву, під якою потрібно зберегти вибрані умови.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="cancelFilterNameModal()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <form class="mt-6 space-y-4" @submit.prevent="confirmFilterNameModal()">
+          <label class="flex flex-col gap-2 text-sm font-medium text-foreground">
+            <span class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Назва фільтру</span>
+            <input
+              type="text"
+              class="w-full rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              x-model="filterNameModal.value"
+              :placeholder="filterNameModal.defaultName || 'Новий фільтр'"
+              x-ref="filterNameInput"
+              @input="filterNameModal.error = ''"
+            />
+          </label>
+          <template x-if="filterNameModal.error">
+            <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600" x-text="filterNameModal.error"></div>
+          </template>
+          <div class="flex flex-wrap items-center justify-end gap-2">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary"
+              @click.prevent="cancelFilterNameModal()"
+            >
+              Скасувати
+            </button>
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20"
+            >
+              Зберегти
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <div
       x-show="valueModal.open"
       x-cloak
       class="fixed inset-0 z-50 flex justify-center px-4 overflow-y-auto"
@@ -2903,6 +2962,13 @@
             error: null,
           },
           manualForeignErrors: {},
+          filterNameModal: {
+            open: false,
+            value: '',
+            defaultName: '',
+            error: '',
+            resolve: null,
+          },
           bodyScrollLocked: false,
           bodyOriginalOverflow: '',
           bodyOriginalPaddingRight: '',
@@ -2944,6 +3010,24 @@
 
             this.$watch('manualForeignModal.open', () => {
               this.syncBodyScrollLock();
+            });
+
+            this.$watch('filterNameModal.open', (open) => {
+              this.syncBodyScrollLock();
+
+              if (open) {
+                this.$nextTick(() => {
+                  const input = this.$refs?.filterNameInput;
+
+                  if (input && typeof input.focus === 'function') {
+                    input.focus();
+
+                    if (typeof input.select === 'function') {
+                      input.select();
+                    }
+                  }
+                });
+              }
             });
 
             this.$watch('contentManagement.deletionModal.open', () => {
@@ -3122,19 +3206,63 @@
 
             return `${base} ${Date.now()}`;
           },
+          closeFilterNameModal(result = null) {
+            const resolver = this.filterNameModal.resolve;
+
+            this.filterNameModal.open = false;
+            this.filterNameModal.resolve = null;
+            this.filterNameModal.value = '';
+            this.filterNameModal.defaultName = '';
+            this.filterNameModal.error = '';
+
+            if (typeof resolver === 'function') {
+              resolver(result);
+            }
+          },
+          cancelFilterNameModal() {
+            this.closeFilterNameModal(null);
+          },
+          confirmFilterNameModal() {
+            const value = typeof this.filterNameModal.value === 'string'
+              ? this.filterNameModal.value.trim()
+              : '';
+
+            if (!value) {
+              this.filterNameModal.error = 'Вкажіть назву фільтру.';
+
+              this.$nextTick(() => {
+                const input = this.$refs?.filterNameInput;
+
+                if (input && typeof input.focus === 'function') {
+                  input.focus();
+
+                  if (typeof input.select === 'function') {
+                    input.select();
+                  }
+                }
+              });
+
+              return;
+            }
+
+            this.closeFilterNameModal(value);
+          },
           promptFilterName(defaultName = '') {
             const placeholder = typeof defaultName === 'string' && defaultName.trim() !== ''
               ? defaultName.trim()
               : 'Новий фільтр';
-            const result = window.prompt('Вкажіть назву фільтру', placeholder);
 
-            if (result === null) {
-              return null;
-            }
+            return new Promise((resolve) => {
+              if (typeof this.filterNameModal.resolve === 'function') {
+                this.filterNameModal.resolve(null);
+              }
 
-            const normalized = result.trim();
-
-            return normalized === '' ? null : normalized;
+              this.filterNameModal.defaultName = placeholder;
+              this.filterNameModal.value = placeholder;
+              this.filterNameModal.error = '';
+              this.filterNameModal.resolve = resolve;
+              this.filterNameModal.open = true;
+            });
           },
           get filteredTables() {
             if (!this.query) {
@@ -5213,7 +5341,7 @@
           }
 
           const defaultName = this.generateDefaultFilterName(viewer.savedFilters.items);
-          const name = this.promptFilterName(defaultName);
+          const name = await this.promptFilterName(defaultName);
 
           if (!name) {
             return;
@@ -5666,6 +5794,7 @@
           const shouldLock =
             this.valueModal.open ||
             this.manualForeignModal.open ||
+            this.filterNameModal.open ||
             this.contentManagement.deletionModal.open ||
             this.contentManagement.tableSettings.open;
           this.toggleBodyScroll(shouldLock);
@@ -5712,6 +5841,11 @@
           body.style.paddingRight = this.bodyOriginalPaddingRight;
         },
         handleEscape() {
+          if (this.filterNameModal.open) {
+            this.cancelFilterNameModal();
+            return;
+          }
+
           if (this.contentManagement.tableSettings.open) {
             this.closeContentManagementTableSettings();
             return;
@@ -7517,7 +7651,7 @@
           }
 
           const defaultName = this.generateDefaultFilterName(table.records.savedFilters.items);
-          const name = this.promptFilterName(defaultName);
+          const name = await this.promptFilterName(defaultName);
 
           if (!name) {
             return;
