@@ -2921,8 +2921,8 @@
             }
 
             const foreign = column.foreign;
-            const foreignTable = typeof foreign.table === 'string' ? foreign.table : '';
-            const foreignColumn = typeof foreign.column === 'string' ? foreign.column : '';
+            const foreignTable = typeof foreign.table === 'string' ? foreign.table.trim() : '';
+            const foreignColumn = typeof foreign.column === 'string' ? foreign.column.trim() : '';
 
             if (!foreignTable || !foreignColumn) {
               return null;
@@ -2931,7 +2931,7 @@
             const overrideTable = override && typeof override.table === 'string' ? override.table.trim() : '';
             const overrideDisplay = override && typeof override.column === 'string' ? override.column.trim() : '';
             const preferredDisplay = typeof preferred === 'string' ? preferred.trim() : '';
-            const foreignDisplay = typeof foreign.displayColumn === 'string' ? foreign.displayColumn : '';
+            const foreignDisplay = typeof foreign.displayColumn === 'string' ? foreign.displayColumn.trim() : '';
 
             const relationTable = overrideTable || foreignTable;
 
@@ -2943,7 +2943,7 @@
             const targetColumns = this.getTableColumnNames(targetTable);
             const optionSet = new Set(Array.isArray(targetColumns) ? targetColumns : []);
 
-            [overrideDisplay, foreignDisplay, preferredDisplay].forEach((value) => {
+            [overrideDisplay, foreignDisplay, preferredDisplay, foreignColumn].forEach((value) => {
               if (typeof value === 'string' && value !== '') {
                 optionSet.add(value);
               }
@@ -2962,7 +2962,7 @@
               manual: Boolean(foreign.manual),
             };
           },
-          updateContentManagementEntryRelation(entry) {
+          async updateContentManagementEntryRelation(entry) {
             if (!entry || typeof entry !== 'object') {
               return;
             }
@@ -2983,6 +2983,13 @@
               return;
             }
 
+            const table = await this.ensureStructureLoadedByName(tableName);
+
+            if (!table) {
+              entry.relation = null;
+              return;
+            }
+
             const relations = this.getContentManagementRelationOverrides(tableName);
             const override = relations && typeof relations === 'object' ? relations[columnName] : null;
             const preferred = entry.relation
@@ -2990,6 +2997,22 @@
               && typeof entry.relation.displayColumn === 'string'
               ? entry.relation.displayColumn
               : '';
+
+            const column = this.findTableColumn(table, columnName);
+            const foreignTable = column
+              && column.foreign
+              && typeof column.foreign.table === 'string'
+              ? column.foreign.table.trim()
+              : '';
+            const overrideTable = override && typeof override.table === 'string' ? override.table.trim() : '';
+
+            if (foreignTable) {
+              await this.ensureStructureLoadedByName(foreignTable);
+            }
+
+            if (overrideTable && overrideTable !== foreignTable) {
+              await this.ensureStructureLoadedByName(overrideTable);
+            }
 
             const relationState = this.resolveContentManagementRelationState(
               tableName,
@@ -3005,7 +3028,7 @@
             this.contentManagement.tableSettings.nextId = current + 1;
             return `cm-table-settings-${Date.now()}-${current}`;
           },
-          openContentManagementTableSettingsModal() {
+          async openContentManagementTableSettingsModal() {
             const tableName = typeof this.contentManagement.selectedTable === 'string'
               ? this.contentManagement.selectedTable.trim()
               : '';
@@ -3016,12 +3039,14 @@
 
             this.contentManagement.tableSettings.nextId = 0;
 
+            const table = await this.ensureStructureLoadedByName(tableName);
             const aliases = this.getContentManagementTableAliases(tableName);
             const hiddenColumns = this.getContentManagementHiddenColumns(tableName);
             const relationsSource = this.getContentManagementRelationOverrides(tableName);
             const relationOverrides = relationsSource && typeof relationsSource === 'object'
               ? { ...relationsSource }
               : {};
+            const relationTargets = new Set();
             const hiddenSet = new Set(
               Array.isArray(hiddenColumns)
                 ? hiddenColumns
@@ -3029,6 +3054,36 @@
                   .filter((column) => column !== '')
                 : [],
             );
+            const structureColumns = table && table.structure && Array.isArray(table.structure.columns)
+              ? table.structure.columns
+              : [];
+
+            structureColumns.forEach((columnDefinition) => {
+              const relatedTable = columnDefinition
+                && columnDefinition.foreign
+                && typeof columnDefinition.foreign.table === 'string'
+                ? columnDefinition.foreign.table.trim()
+                : '';
+
+              if (relatedTable) {
+                relationTargets.add(relatedTable);
+              }
+            });
+
+            Object.values(relationOverrides).forEach((definition) => {
+              const relatedTable = definition && typeof definition.table === 'string'
+                ? definition.table.trim()
+                : '';
+
+              if (relatedTable) {
+                relationTargets.add(relatedTable);
+              }
+            });
+
+            for (const relatedTable of relationTargets) {
+              await this.ensureStructureLoadedByName(relatedTable);
+            }
+
             const columns = this.getContentManagementColumnsForSettings(tableName);
             const seen = new Set();
             const entries = [];
