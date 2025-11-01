@@ -394,10 +394,10 @@
                               :class="(!table.records.savedFilters.defaultId || table.records.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
                               :aria-pressed="!table.records.savedFilters.defaultId || table.records.savedFilters.defaultDisabled"
                               :disabled="table.records.savedFilters.loading"
-                              @click.stop="setRecordsDefaultFilter(table, '')"
+                              @click.stop="setRecordsDefaultFilter(table, '', { resetActive: true })"
                             >
                               <i class="fa-solid fa-ban text-[10px]"></i>
-                              <span>Без фільтра</span>
+                              <span>All</span>
                             </button>
                           </div>
                         </template>
@@ -1685,10 +1685,10 @@
                           :class="(!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
                           :aria-pressed="!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled"
                           :disabled="contentManagement.viewer.savedFilters.loading"
-                          @click.stop="setContentManagementDefaultFilter('')"
+                          @click.stop="setContentManagementDefaultFilter('', { resetActive: true })"
                         >
                           <i class="fa-solid fa-ban text-[10px]"></i>
-                          <span>Без фільтра</span>
+                          <span>All</span>
                         </button>
                       </div>
                     </template>
@@ -5975,7 +5975,7 @@
             this.setContentManagementDefaultFilter(filterId);
           }
         },
-        async setContentManagementDefaultFilter(filterId) {
+        async setContentManagementDefaultFilter(filterId, options = {}) {
           const tableName = typeof this.contentManagement.selectedTable === 'string'
             ? this.contentManagement.selectedTable.trim()
             : '';
@@ -5992,6 +5992,27 @@
             this.contentManagement.viewer.savedFilters,
             this.contentManagement.viewer,
           );
+
+          if (options && options.resetActive === true) {
+            const viewer = this.contentManagement.viewer;
+
+            if (viewer) {
+              const savedFilters = viewer.savedFilters;
+
+              if (savedFilters) {
+                savedFilters.lastUsed = '';
+              }
+
+              viewer.filters = [];
+              viewer.search = '';
+              viewer.searchInput = '';
+              viewer.searchColumn = '';
+              viewer.page = 1;
+              this.contentManagement.pendingFilterId = '';
+
+              await this.loadContentManagementTable(tableName);
+            }
+          }
         },
         async saveContentManagementFilters() {
           const tableName = typeof this.contentManagement.selectedTable === 'string'
@@ -8476,7 +8497,7 @@
             this.setRecordsDefaultFilter(table, filterId);
           }
         },
-        async setRecordsDefaultFilter(table, filterId) {
+        async setRecordsDefaultFilter(table, filterId, options = {}) {
           if (!table || !table.records) {
             return;
           }
@@ -8494,6 +8515,26 @@
             table.records.savedFilters,
             table.records,
           );
+
+          if (options && options.resetActive === true) {
+            const records = table.records;
+
+            if (records) {
+              const savedFilters = records.savedFilters;
+
+              if (savedFilters) {
+                savedFilters.lastUsed = '';
+              }
+
+              records.filters = [];
+              records.search = '';
+              records.searchInput = '';
+              records.searchColumn = '';
+              records.page = 1;
+
+              await this.loadRecords(table);
+            }
+          }
         },
         async applySavedRecordsFilterButton(table, filterId) {
           if (!table || !filterId || table.records.loading) {
