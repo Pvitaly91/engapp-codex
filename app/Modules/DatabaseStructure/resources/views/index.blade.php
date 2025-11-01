@@ -387,22 +387,19 @@
                                 </button>
                               </div>
                             </template>
+                            <button
+                              type="button"
+                              class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1 text-xs font-semibold text-muted-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                              :class="(!table.records.savedFilters.defaultId || table.records.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
+                              :aria-pressed="!table.records.savedFilters.defaultId || table.records.savedFilters.defaultDisabled"
+                              :disabled="table.records.savedFilters.loading"
+                              @click.stop="setRecordsDefaultFilter(table, '')"
+                            >
+                              <i class="fa-solid fa-ban text-[10px]"></i>
+                              <span>Без фільтра</span>
+                            </button>
                           </div>
                         </template>
-                        <label class="flex w-full flex-col gap-1 text-[12px] font-semibold uppercase tracking-wide text-muted-foreground/80 md:w-56">
-                          <span>Фільтр за замовчуванням</span>
-                          <select
-                            class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
-                            :disabled="table.records.savedFilters.loading"
-                            :value="table.records.savedFilters.defaultId"
-                            @change.stop="setRecordsDefaultFilter(table, $event.target.value)"
-                          >
-                            <option value="">Без фільтра</option>
-                            <template x-for="option in table.records.savedFilters.items" :key="`records-default-${option.id}`">
-                              <option :value="option.id" x-text="option.name"></option>
-                            </template>
-                          </select>
-                        </label>
                       </div>
                     </div>
                     <div class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
@@ -1695,22 +1692,19 @@
                           </button>
                         </div>
                       </template>
+                      <button
+                        type="button"
+                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                        :class="(!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
+                        :aria-pressed="!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled"
+                        :disabled="contentManagement.viewer.savedFilters.loading"
+                        @click.stop="setContentManagementDefaultFilter('')"
+                      >
+                        <i class="fa-solid fa-ban text-[10px]"></i>
+                        <span>Без фільтра</span>
+                      </button>
                     </div>
                   </template>
-                  <label class="flex w-full flex-col gap-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80 md:w-56">
-                    <span>Фільтр за замовчуванням</span>
-                    <select
-                      class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
-                      :disabled="contentManagement.viewer.savedFilters.loading"
-                      :value="contentManagement.viewer.savedFilters.defaultId"
-                      @change.stop="setContentManagementDefaultFilter($event.target.value)"
-                    >
-                      <option value="">Без фільтра</option>
-                      <template x-for="option in contentManagement.viewer.savedFilters.items" :key="`content-default-${option.id}`">
-                        <option :value="option.id" x-text="option.name"></option>
-                      </template>
-                    </select>
-                  </label>
                 </div>
               </div>
 
