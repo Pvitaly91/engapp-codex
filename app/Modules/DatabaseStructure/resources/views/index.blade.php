@@ -3055,6 +3055,10 @@
             );
 
             entry.relation = relationState ?? null;
+
+            if (relationState && relationState.displayColumn) {
+              entry.hidden = false;
+            }
           },
           nextContentManagementTableSettingsId() {
             const current = Number(this.contentManagement.tableSettings.nextId) || 0;
@@ -3327,10 +3331,26 @@
 
             entries.forEach((entry) => {
               const column = typeof entry?.column === 'string' ? entry.column.trim() : '';
+
+              if (!column) {
+                return;
+              }
+
+              const relation = entry?.relation && typeof entry.relation === 'object'
+                ? entry.relation
+                : null;
+              const relationDisplay = typeof relation?.displayColumn === 'string'
+                ? relation.displayColumn.trim()
+                : '';
+
+              if (relation && relationDisplay) {
+                return;
+              }
+
               const value = entry?.hidden;
               const isHidden = value === true || value === 'true' || value === '1' || value === 1;
 
-              if (column && isHidden) {
+              if (isHidden) {
                 hidden.add(column);
               }
             });
@@ -3617,7 +3637,7 @@
                 ...existing,
                 column: existing.column ?? option.sourceColumn,
                 alias: nextAlias,
-                hidden: Boolean(existing.hidden),
+                hidden: false,
                 locked: Boolean(existing.locked),
                 relation: relationState,
               };
