@@ -3993,6 +3993,42 @@
                 }
               });
 
+              const relationOverrides = this.getContentManagementRelationOverrides(normalized);
+
+              if (relationOverrides && typeof relationOverrides === 'object') {
+                Object.entries(relationOverrides).forEach(([column, definition]) => {
+                  const columnKey = typeof column === 'string' ? column.trim() : '';
+
+                  if (!columnKey) {
+                    return;
+                  }
+
+                  const payload = definition && typeof definition === 'object'
+                    ? definition
+                    : {};
+
+                  let displayColumn = '';
+
+                  if (typeof payload.column === 'string') {
+                    displayColumn = payload.column.trim();
+                  } else if (typeof definition === 'string') {
+                    displayColumn = definition.trim();
+                  }
+
+                  if (!displayColumn) {
+                    return;
+                  }
+
+                  url.searchParams.set(`display_relations[${columnKey}][column]`, displayColumn);
+
+                  const relationTable = typeof payload.table === 'string' ? payload.table.trim() : '';
+
+                  if (relationTable) {
+                    url.searchParams.set(`display_relations[${columnKey}][table]`, relationTable);
+                  }
+                });
+              }
+
               const response = await fetch(url.toString(), {
                 headers: {
                   Accept: 'application/json',

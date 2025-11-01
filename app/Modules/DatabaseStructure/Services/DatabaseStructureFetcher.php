@@ -133,7 +133,8 @@ class DatabaseStructureFetcher
         string $direction = 'asc',
         array $filters = [],
         ?string $search = null,
-        ?string $searchColumn = null
+        ?string $searchColumn = null,
+        array $runtimeRelationOverrides = []
     ): array
     {
         $structure = Collection::make($this->getStructure());
@@ -145,7 +146,11 @@ class DatabaseStructureFetcher
 
         $columns = $tableInfo['columns'] ?? [];
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
-        $relationDisplayOverrides = $this->getContentManagementRelationOverrides($table, $columns);
+        $relationDisplayOverrides = $this->getContentManagementRelationOverrides(
+            $table,
+            $columns,
+            $runtimeRelationOverrides,
+        );
         $normalizedFilters = $this->prepareFilters($filters, $columnNames);
         $searchTerm = is_string($search) ? trim($search) : '';
         $normalizedSearchColumn = is_string($searchColumn) ? trim($searchColumn) : '';
@@ -757,41 +762,51 @@ class DatabaseStructureFetcher
      * @param array<int, array<string, mixed>> $columns
      * @return array<string, array{table: string, display_column: string, referenced_column: string}>
      */
-    private function getContentManagementRelationOverrides(string $table, array $columns): array
+    private function getContentManagementRelationOverrides(
+        string $table,
+        array $columns,
+        array $runtimeOverrides = []
+    ): array
     {
         $settings = config('database-structure.content_management.table_settings', []);
         $tableConfig = $settings[$table] ?? null;
 
-        if (!is_array($tableConfig)) {
-            return [];
-        }
-
         $relationMaps = [];
 
-        $candidates = [
-            $tableConfig['relations'] ?? null,
-            $tableConfig['relation_columns'] ?? null,
-            $tableConfig['relationColumns'] ?? null,
-            $tableConfig['foreign_relations'] ?? null,
-            $tableConfig['foreignRelations'] ?? null,
-            $tableConfig['display_relations'] ?? null,
-            $tableConfig['displayRelations'] ?? null,
-        ];
+        if (is_array($tableConfig)) {
+            $candidates = [
+                $tableConfig['relations'] ?? null,
+                $tableConfig['relation_columns'] ?? null,
+                $tableConfig['relationColumns'] ?? null,
+                $tableConfig['foreign_relations'] ?? null,
+                $tableConfig['foreignRelations'] ?? null,
+                $tableConfig['display_relations'] ?? null,
+                $tableConfig['displayRelations'] ?? null,
+            ];
 
-        foreach ($candidates as $candidate) {
-            if ($candidate === null) {
-                continue;
+            foreach ($candidates as $candidate) {
+                if ($candidate === null) {
+                    continue;
+                }
+
+                $normalized = $this->normalizeRelationDisplayConfig($candidate);
+
+                if (!empty($normalized)) {
+                    $relationMaps = array_merge($relationMaps, $normalized);
+                }
             }
 
-            $normalized = $this->normalizeRelationDisplayConfig($candidate);
-
-            if (!empty($normalized)) {
-                $relationMaps = array_merge($relationMaps, $normalized);
+            if (empty($relationMaps) && $this->isAssociativeArray($tableConfig)) {
+                $relationMaps = $this->normalizeRelationDisplayConfig($tableConfig);
             }
         }
 
-        if (empty($relationMaps) && $this->isAssociativeArray($tableConfig)) {
-            $relationMaps = $this->normalizeRelationDisplayConfig($tableConfig);
+        if (!empty($runtimeOverrides)) {
+            $normalizedRuntime = $this->normalizeRelationDisplayConfig($runtimeOverrides);
+
+            if (!empty($normalizedRuntime)) {
+                $relationMaps = array_merge($relationMaps, $normalizedRuntime);
+            }
         }
 
         if (empty($relationMaps)) {

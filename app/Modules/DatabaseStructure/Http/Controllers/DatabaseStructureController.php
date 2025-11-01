@@ -131,6 +131,8 @@ class DatabaseStructureController
             $search = $request->query('search');
             $searchColumn = $request->query('search_column');
 
+            $relationOverrides = $this->extractRelationDisplayOverrides($request);
+
             $preview = $this->fetcher->getPreview(
                 $table,
                 $page,
@@ -140,6 +142,7 @@ class DatabaseStructureController
                 $filters,
                 $search,
                 $searchColumn,
+                $relationOverrides,
             );
 
             return response()->json($preview);
@@ -441,6 +444,55 @@ class DatabaseStructureController
             })
             ->values()
             ->all();
+    }
+
+    private function extractRelationDisplayOverrides(Request $request): array
+    {
+        $overrides = $request->query('display_relations', []);
+
+        if (!is_array($overrides)) {
+            return [];
+        }
+
+        $normalized = [];
+
+        foreach ($overrides as $column => $definition) {
+            if (is_string($column)) {
+                $normalizedColumn = trim($column);
+
+                if ($normalizedColumn === '') {
+                    continue;
+                }
+
+                $normalized[$normalizedColumn] = $definition;
+                continue;
+            }
+
+            if (!is_array($definition)) {
+                continue;
+            }
+
+            $columnName = null;
+
+            foreach (['column', 'field', 'source', 'name'] as $key) {
+                if (isset($definition[$key]) && is_string($definition[$key])) {
+                    $candidate = trim($definition[$key]);
+
+                    if ($candidate !== '') {
+                        $columnName = $candidate;
+                        break;
+                    }
+                }
+            }
+
+            if ($columnName === null) {
+                continue;
+            }
+
+            $normalized[$columnName] = $definition;
+        }
+
+        return $normalized;
     }
 
     /**
