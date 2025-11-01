@@ -59,13 +59,38 @@ class ContentManagementMenuManager
 
         $menu[] = $item;
 
-        usort($menu, static function (array $a, array $b): int {
-            return strcasecmp($a['label'], $b['label']);
-        });
-
         $this->writeConfig($menu);
 
         return $item;
+    }
+
+    /**
+     * @param array<int, array{table?: mixed, label?: mixed}|string> $items
+     * @return array<int, array{table: string, label: string}>
+     */
+    public function updateMenu(array $items): array
+    {
+        $normalized = [];
+        $seen = [];
+
+        foreach ($items as $item) {
+            $normalizedItem = $this->normalizeItem($item);
+
+            if ($normalizedItem === null) {
+                continue;
+            }
+
+            if (in_array($normalizedItem['table'], $seen, true)) {
+                continue;
+            }
+
+            $normalized[] = $normalizedItem;
+            $seen[] = $normalizedItem['table'];
+        }
+
+        $this->writeConfig($normalized);
+
+        return $normalized;
     }
 
     public function delete(string $table): void

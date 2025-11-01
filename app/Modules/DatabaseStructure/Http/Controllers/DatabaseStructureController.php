@@ -103,6 +103,31 @@ class DatabaseStructureController
         }
     }
 
+    public function updateContentManagementMenu(Request $request): JsonResponse
+    {
+        try {
+            $menu = $request->input('menu');
+
+            if (!is_array($menu)) {
+                throw new RuntimeException('Необхідно передати список таблиць для оновлення меню.');
+            }
+
+            $updated = $this->contentManagementMenuManager->updateMenu($menu);
+
+            return response()->json([
+                'menu' => $updated,
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
     public function filters(string $table, string $scope): JsonResponse
     {
         try {

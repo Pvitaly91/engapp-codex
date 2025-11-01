@@ -26,6 +26,7 @@
       @js($contentManagementMenu),
       @js([
         'menuStore' => route('database-structure.content-management.menu.store'),
+        'menuUpdate' => route('database-structure.content-management.menu.update'),
         'menuDelete' => route('database-structure.content-management.menu.destroy', ['table' => '__TABLE__']),
       ]),
       @js($contentManagementTableSettings),
@@ -1519,13 +1520,23 @@
           </div>
         </div>
 
+        <template x-if="contentManagement.menuFeedback">
+          <div
+            class="rounded-2xl border px-3 py-2 text-sm"
+            :class="contentManagement.menuFeedbackType === 'success'
+              ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+              : 'border-rose-200 bg-rose-50 text-rose-600'"
+            x-text="contentManagement.menuFeedback"
+          ></div>
+        </template>
+
         <div class="space-y-2">
           <template x-if="contentManagement.menu.length === 0">
             <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
               Меню порожнє. Додайте таблицю через налаштування.
             </div>
           </template>
-          <template x-for="item in contentManagement.menu" :key="`cm-item-${item.table}`">
+          <template x-for="(item, index) in contentManagement.menu" :key="`cm-item-${item.table}`">
             <div class="flex flex-wrap items-center gap-2">
               <button
                 type="button"
@@ -1536,18 +1547,49 @@
                 <div class="font-semibold" x-text="item.label || item.table"></div>
                 <div class="text-xs text-muted-foreground" x-text="item.table"></div>
               </button>
-              <button
-                type="button"
-                class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70"
+              <div
+                class="inline-flex items-center gap-1"
                 x-show="contentManagement.menuSettings.open"
                 x-cloak
-                @click="openContentManagementDeletionModal(item)"
-                :disabled="contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table"
-                :aria-disabled="contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table"
-                aria-label="Видалити таблицю з меню"
               >
-                <i class="fa-solid fa-trash-can text-xs"></i>
-              </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-primary/60 hover:bg-primary/10 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="renameContentManagementMenuItem(item.table)"
+                  :disabled="contentManagement.menuSettings.saving"
+                  aria-label="Перейменувати таблицю в меню"
+                >
+                  <i class="fa-solid fa-pen text-xs"></i>
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-primary/60 hover:bg-primary/10 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="moveContentManagementMenuItem(item.table, -1)"
+                  :disabled="contentManagement.menuSettings.saving || index === 0"
+                  aria-label="Перемістити таблицю вгору"
+                >
+                  <i class="fa-solid fa-chevron-up text-xs"></i>
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-primary/60 hover:bg-primary/10 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="moveContentManagementMenuItem(item.table, 1)"
+                  :disabled="contentManagement.menuSettings.saving || index === contentManagement.menu.length - 1"
+                  aria-label="Перемістити таблицю вниз"
+                >
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="openContentManagementDeletionModal(item)"
+                  :disabled="(contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table) || contentManagement.menuSettings.saving"
+                  :aria-disabled="(contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table) || contentManagement.menuSettings.saving"
+                  aria-label="Видалити таблицю з меню"
+                >
+                  <i class="fa-solid fa-trash-can text-xs"></i>
+                </button>
+              </div>
             </div>
           </template>
         </div>
@@ -1587,6 +1629,15 @@
                   >
                     <i class="fa-solid fa-rotate-right text-[11px]"></i>
                     Оновити
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                    @click="copyContentManagementTableUrl(contentManagement.selectedTable)"
+                    :disabled="!contentManagement.selectedTable || contentManagement.copyingUrl"
+                  >
+                    <i class="fa-solid fa-link text-[11px]"></i>
+                    Скопіювати посилання
                   </button>
                   <button
                     type="button"
@@ -2290,6 +2341,7 @@
 
           return {
             menuStore: typeof normalized.menuStore === 'string' ? normalized.menuStore : '',
+            menuUpdate: typeof normalized.menuUpdate === 'string' ? normalized.menuUpdate : '',
             menuDelete: typeof normalized.menuDelete === 'string' ? normalized.menuDelete : '',
           };
         };
@@ -2994,6 +3046,9 @@
           contentManagement: {
             menu: normalizedContentManagementMenu,
             settings: normalizedContentManagementSettings,
+            menuFeedback: '',
+            menuFeedbackType: 'success',
+            menuFeedbackTimeout: null,
             menuSettings: {
               open: false,
               table: '',
@@ -3001,6 +3056,7 @@
               saving: false,
               error: null,
             },
+            copyingUrl: false,
             tableSettings: {
               open: false,
               table: '',
@@ -3627,6 +3683,72 @@
             this.contentManagement.menuSettings.error = null;
             this.contentManagement.menuSettings.saving = false;
           },
+          setContentManagementMenuFeedback(message, type = 'success') {
+            if (this.contentManagement.menuFeedbackTimeout) {
+              clearTimeout(this.contentManagement.menuFeedbackTimeout);
+              this.contentManagement.menuFeedbackTimeout = null;
+            }
+
+            const normalizedMessage = typeof message === 'string' ? message.trim() : '';
+
+            if (!normalizedMessage) {
+              this.contentManagement.menuFeedback = '';
+              this.contentManagement.menuFeedbackType = 'success';
+              return;
+            }
+
+            this.contentManagement.menuFeedback = normalizedMessage;
+            this.contentManagement.menuFeedbackType = type === 'error' ? 'error' : 'success';
+
+            this.contentManagement.menuFeedbackTimeout = window.setTimeout(() => {
+              this.contentManagement.menuFeedback = '';
+              this.contentManagement.menuFeedbackTimeout = null;
+            }, 4000);
+          },
+          async persistContentManagementMenu(updatedMenu) {
+            if (!Array.isArray(updatedMenu)) {
+              throw new Error('Не вдалося визначити меню для збереження.');
+            }
+
+            if (!this.contentManagementRoutes.menuUpdate) {
+              throw new Error('Маршрут оновлення меню не налаштовано.');
+            }
+
+            const payload = updatedMenu
+              .map((item) => normalizeContentManagementMenuItem(item))
+              .filter(Boolean);
+
+            const response = await fetch(this.contentManagementRoutes.menuUpdate, {
+              method: 'PUT',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                menu: payload,
+              }),
+            });
+
+            if (!response.ok) {
+              const payloadResponse = await response.json().catch(() => null);
+              const message = payloadResponse?.message || 'Не вдалося оновити меню Content Management.';
+              throw new Error(message);
+            }
+
+            const responsePayload = await response.json().catch(() => null);
+            const normalizedMenu = normalizeContentManagementMenu(responsePayload?.menu ?? responsePayload);
+
+            if (!Array.isArray(normalizedMenu) || normalizedMenu.length !== payload.length) {
+              this.contentManagement.menu = Array.isArray(normalizedMenu) ? normalizedMenu : this.contentManagement.menu;
+              throw new Error('Отримано некоректну відповідь під час оновлення меню.');
+            }
+
+            this.contentManagement.menu = normalizedMenu;
+            this.contentManagement.menuSettings.error = null;
+
+            return normalizedMenu;
+          },
           async addContentManagementMenuItem() {
             if (!this.contentManagementRoutes.menuStore) {
               this.contentManagement.menuSettings.error = 'Маршрут збереження меню не налаштовано.';
@@ -3678,14 +3800,110 @@
 
               const updatedMenu = this.contentManagement.menu
                 .filter((item) => item && item.table !== normalizedItem.table)
-                .concat([normalizedItem])
-                .sort((a, b) => a.label.localeCompare(b.label));
+                .concat([normalizedItem]);
 
               this.contentManagement.menu = updatedMenu;
               this.closeContentManagementMenuSettings();
               await this.selectContentManagementTable(normalizedItem.table);
+              this.setContentManagementMenuFeedback('Таблицю додано до меню.', 'success');
             } catch (error) {
               this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час збереження меню.';
+            } finally {
+              this.contentManagement.menuSettings.saving = false;
+            }
+          },
+          async renameContentManagementMenuItem(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized || this.contentManagement.menuSettings.saving) {
+              return;
+            }
+
+            const currentItem = this.contentManagement.menu.find((entry) => entry && entry.table === normalized);
+
+            if (!currentItem) {
+              return;
+            }
+
+            const currentLabel = currentItem.label || currentItem.table;
+            const newLabel = window.prompt('Нова назва таблиці в меню', currentLabel);
+
+            if (newLabel === null) {
+              return;
+            }
+
+            const trimmed = typeof newLabel === 'string' ? newLabel.trim() : '';
+            const previousMenu = this.contentManagement.menu.slice();
+            const updatedMenu = this.contentManagement.menu.map((entry) => {
+              if (!entry || entry.table !== normalized) {
+                return entry;
+              }
+
+              return {
+                table: entry.table,
+                label: trimmed || entry.table,
+              };
+            });
+
+            this.contentManagement.menu = updatedMenu;
+            this.contentManagement.menuSettings.saving = true;
+            this.contentManagement.menuSettings.error = null;
+            this.setContentManagementMenuFeedback('', 'success');
+
+            try {
+              await this.persistContentManagementMenu(updatedMenu);
+              this.setContentManagementMenuFeedback('Назву таблиці оновлено.', 'success');
+            } catch (error) {
+              this.contentManagement.menu = previousMenu;
+              this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час оновлення меню.';
+              this.setContentManagementMenuFeedback('', 'success');
+            } finally {
+              this.contentManagement.menuSettings.saving = false;
+            }
+          },
+          async moveContentManagementMenuItem(tableName, direction) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+            const offset = Number(direction);
+
+            if (!normalized || !Number.isFinite(offset) || offset === 0 || this.contentManagement.menuSettings.saving) {
+              return;
+            }
+
+            const index = this.contentManagement.menu.findIndex((entry) => entry && entry.table === normalized);
+
+            if (index === -1) {
+              return;
+            }
+
+            const step = offset > 0 ? 1 : -1;
+            const targetIndex = index + step;
+
+            if (targetIndex < 0 || targetIndex >= this.contentManagement.menu.length) {
+              return;
+            }
+
+            const previousMenu = this.contentManagement.menu.slice();
+            const updatedMenu = previousMenu.slice();
+            const [moved] = updatedMenu.splice(index, 1);
+
+            if (!moved) {
+              return;
+            }
+
+            updatedMenu.splice(targetIndex, 0, moved);
+
+            this.contentManagement.menu = updatedMenu;
+            this.contentManagement.menuSettings.saving = true;
+            this.contentManagement.menuSettings.error = null;
+            this.setContentManagementMenuFeedback('', 'success');
+
+            try {
+              await this.persistContentManagementMenu(updatedMenu);
+              this.setContentManagementMenuFeedback('Порядок меню оновлено.', 'success');
+            } catch (error) {
+              this.contentManagement.menu = previousMenu;
+              this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час оновлення меню.';
+              this.setContentManagementMenuFeedback('', 'success');
             } finally {
               this.contentManagement.menuSettings.saving = false;
             }
@@ -3726,6 +3944,7 @@
                 (item) => item && item.table !== normalized,
               );
               this.contentManagement.menuSettings.error = null;
+              this.setContentManagementMenuFeedback('Таблицю видалено з меню.', 'success');
 
               if (this.contentManagement.selectedTable === normalized) {
                 this.contentManagement.selectedTable = '';
@@ -3745,6 +3964,58 @@
               throw error instanceof Error
                 ? error
                 : new Error(error?.message ?? 'Сталася помилка під час видалення таблиці з меню.');
+            }
+          },
+          contentManagementTableUrl(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+            const base = this.tabRoutes?.['content-management'];
+
+            if (!normalized || !base) {
+              return '';
+            }
+
+            try {
+              const url = new URL(base, window.location.origin);
+              url.searchParams.set('table', normalized);
+              return url.toString();
+            } catch (error) {
+              return '';
+            }
+          },
+          async copyContentManagementTableUrl(tableName) {
+            if (this.contentManagement.copyingUrl) {
+              return;
+            }
+
+            const url = this.contentManagementTableUrl(tableName);
+
+            if (!url) {
+              this.setContentManagementMenuFeedback('Не вдалося сформувати посилання для цієї таблиці.', 'error');
+              return;
+            }
+
+            this.contentManagement.copyingUrl = true;
+
+            try {
+              if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+                await navigator.clipboard.writeText(url);
+              } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = url;
+                textarea.setAttribute('readonly', '');
+                textarea.style.position = 'absolute';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+              }
+
+              this.setContentManagementMenuFeedback('Посилання на таблицю скопійовано.', 'success');
+            } catch (error) {
+              this.setContentManagementMenuFeedback('Не вдалося скопіювати посилання. Спробуйте ще раз.', 'error');
+            } finally {
+              this.contentManagement.copyingUrl = false;
             }
           },
           contentManagementLabel(tableName) {
