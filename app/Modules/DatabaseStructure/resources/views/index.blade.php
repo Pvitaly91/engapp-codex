@@ -3594,7 +3594,7 @@
               ? this.contentManagement.viewer.searchColumn.trim()
               : '';
 
-            const tableForModal = baseTable
+            const tableForState = baseTable
               ? {
                   ...baseTable,
                   records: {
@@ -3622,11 +3622,13 @@
                   },
                 };
 
-            const baseState = this.prepareValueModalBaseState(tableForModal, normalizedColumn, row);
+            const baseState = this.prepareValueModalBaseState(tableForState, normalizedColumn, row);
 
             if (!baseState) {
               return;
             }
+
+            const tableForModal = baseTable || tableForState;
 
             if (baseState.identifiers.length === 0) {
               this.openValueModalFromRow(tableForModal, normalizedColumn, row, baseState);
@@ -5089,15 +5091,17 @@
             return;
           }
 
+          const fallbackRawValue = row && typeof row === 'object' ? row[state.columnName] : null;
+
           this.valueModal.open = true;
           this.valueModal.loading = true;
           this.valueModal.error = null;
           this.valueModal.updateError = null;
           this.valueModal.table = state.tableName;
           this.valueModal.column = state.columnName;
-          this.valueModal.value = '';
-          this.valueModal.rawValue = null;
-          this.valueModal.editValue = '';
+          this.valueModal.value = this.formatCell(fallbackRawValue);
+          this.valueModal.rawValue = fallbackRawValue;
+          this.valueModal.editValue = this.prepareEditableValue(fallbackRawValue);
           this.valueModal.editing = false;
           this.valueModal.saving = false;
           this.valueModal.identifiers = state.identifiers;
@@ -5118,8 +5122,18 @@
             return;
           }
 
-          await this.ensureStructureLoaded(table);
-          this.valueModal.foreignKey = this.findForeignKey(table, state.columnName);
+          const modalTable = table && typeof table === 'object' ? table : null;
+
+          if (modalTable) {
+            await this.ensureStructureLoaded(modalTable);
+          }
+
+          const structureTable = await this.ensureStructureLoadedByName(state.tableName);
+          const foreignSource = structureTable || modalTable;
+
+          this.valueModal.foreignKey = foreignSource
+            ? this.findForeignKey(foreignSource, state.columnName)
+            : null;
           this.valueModal.foreignRecords = createForeignRecordsState();
 
           try {
@@ -5148,9 +5162,9 @@
             }
 
             const payload = await response.json();
-            let rawValue = null;
+            let rawValue = fallbackRawValue;
 
-            if (payload && typeof payload === 'object' && payload !== null && 'value' in payload) {
+            if (payload && typeof payload === 'object' && payload !== null && Object.prototype.hasOwnProperty.call(payload, 'value')) {
               rawValue = payload.value;
             } else if (payload !== undefined) {
               rawValue = payload;
@@ -5162,6 +5176,10 @@
             this.syncForeignSelectionWithRawValue(rawValue);
           } catch (error) {
             this.valueModal.error = error.message ?? 'Сталася помилка під час отримання значення.';
+            this.valueModal.rawValue = fallbackRawValue;
+            this.valueModal.value = this.formatCell(fallbackRawValue);
+            this.valueModal.editValue = this.prepareEditableValue(fallbackRawValue);
+            this.syncForeignSelectionWithRawValue(fallbackRawValue);
           } finally {
             this.valueModal.loading = false;
           }
