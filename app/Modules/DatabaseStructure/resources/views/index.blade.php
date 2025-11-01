@@ -1168,6 +1168,27 @@
                 </template>
               </div>
               <div class="flex items-start justify-between gap-3 sm:flex-col sm:items-end sm:gap-2">
+                <div class="flex flex-col items-start gap-2 sm:items-end">
+                  <div class="inline-flex items-center gap-2">
+                    <button
+                      type="button"
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/60 bg-background text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                      :disabled="entryIndex === 0"
+                      @click="moveContentManagementTableSettingsEntry(entryIndex, entryIndex - 1)"
+                      aria-label="Перемістити колонку вгору"
+                    >
+                      <i class="fa-solid fa-arrow-up text-xs"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/60 bg-background text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                      :disabled="entryIndex === contentManagement.tableSettings.entries.length - 1"
+                      @click="moveContentManagementTableSettingsEntry(entryIndex, entryIndex + 1)"
+                      aria-label="Перемістити колонку вниз"
+                    >
+                      <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </button>
+                  </div>
                 <label class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">
                   <input
                     type="checkbox"
@@ -1176,6 +1197,7 @@
                   />
                   <span>Приховати колонку</span>
                 </label>
+                </div>
                 <template x-if="!entry.locked">
                   <button
                     type="button"
@@ -3375,6 +3397,30 @@
               (_entry, entryIndex) => entryIndex !== index,
             );
 
+            this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.error = null;
+          },
+          moveContentManagementTableSettingsEntry(fromIndex, toIndex) {
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? [...this.contentManagement.tableSettings.entries]
+              : [];
+
+            if (
+              !Number.isInteger(fromIndex) ||
+              !Number.isInteger(toIndex) ||
+              fromIndex < 0 ||
+              toIndex < 0 ||
+              fromIndex >= entries.length ||
+              toIndex >= entries.length ||
+              fromIndex === toIndex
+            ) {
+              return;
+            }
+
+            const [moved] = entries.splice(fromIndex, 1);
+            entries.splice(toIndex, 0, moved);
+
+            this.contentManagement.tableSettings.entries = entries;
             this.contentManagement.tableSettings.feedback = '';
             this.contentManagement.tableSettings.error = null;
           },
