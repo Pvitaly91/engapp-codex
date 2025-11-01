@@ -5,6 +5,7 @@ namespace App\Modules\DatabaseStructure\Services;
 use DateTimeInterface;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use RuntimeException;
@@ -145,6 +146,9 @@ class DatabaseStructureFetcher
 
         $columns = $tableInfo['columns'] ?? [];
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+        $foreignColumns = $this->extractForeignColumns($columns);
+        $relationOverrides = $this->getContentManagementRelationOverrides($table);
+        $displayOverrides = $this->prepareContentManagementDisplayOverrides($foreignColumns, $relationOverrides);
         $normalizedFilters = $this->prepareFilters($filters, $columnNames);
         $searchTerm = is_string($search) ? trim($search) : '';
         $normalizedSearchColumn = is_string($searchColumn) ? trim($searchColumn) : '';
@@ -156,14 +160,63 @@ class DatabaseStructureFetcher
             $validSort = $sort;
         }
 
-        $searchColumns = $columnNames;
+        $baseSelectColumns = $this->buildBaseSelectColumns($table, $columnNames);
+        $displaySelectColumns = $this->buildDisplaySelectColumns($displayOverrides);
+        $selectColumns = array_merge($baseSelectColumns, $displaySelectColumns);
+
+        if (!empty($selectColumns)) {
+            $query->select($selectColumns);
+        }
+
+        foreach ($displayOverrides as $override) {
+            $joinTable = $override['foreign_table'] . ' as ' . $override['join_alias'];
+
+            $query->leftJoin($joinTable, function (JoinClause $join) use ($override, $table): void {
+                $join->on(
+                    $override['join_alias'] . '.' . $override['foreign_column'],
+                    '=',
+                    $table . '.' . $override['column_name']
+                );
+            });
+
+            $countQuery->leftJoin($joinTable, function (JoinClause $join) use ($override, $table): void {
+                $join->on(
+                    $override['join_alias'] . '.' . $override['foreign_column'],
+                    '=',
+                    $table . '.' . $override['column_name']
+                );
+            });
+        }
+
+        $searchColumnsByField = $this->buildSearchColumns($columnNames, $displayOverrides);
+
+        if ($normalizedSearchColumn !== '') {
+            $searchColumns = $searchColumnsByField[$normalizedSearchColumn] ?? [$normalizedSearchColumn];
+        } else {
+            $searchColumns = [];
+
+            foreach ($searchColumnsByField as $columnsForSearch) {
+                foreach ($columnsForSearch as $searchColumn) {
+                    $searchColumns[] = $searchColumn;
+                }
+            }
+
+            if (empty($searchColumns)) {
+                $searchColumns = $columnNames;
+            }
+        }
+
+        $searchColumns = array_values(array_unique(array_filter(
+            $searchColumns,
+            static fn ($column) => is_string($column) && $column !== ''
+        )));
 
         if ($normalizedSearchColumn !== '') {
             $isKnownColumn = in_array($normalizedSearchColumn, $columnNames, true);
             $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $normalizedSearchColumn);
 
             if ($isKnownColumn || $isAdHocColumn) {
-                $searchColumns = [$normalizedSearchColumn];
+                $searchColumns = $searchColumns ?: [$normalizedSearchColumn];
             } else {
                 $normalizedSearchColumn = '';
             }
@@ -182,8 +235,15 @@ class DatabaseStructureFetcher
             $this->applySearch($countQuery, $searchColumns, $searchTerm);
         }
 
-        if ($validSort) {
-            $query->orderBy($validSort, $direction);
+        $sortColumnForQuery = $validSort;
+
+        if ($validSort && isset($displayOverrides[$validSort])) {
+            $override = $displayOverrides[$validSort];
+            $sortColumnForQuery = $override['join_alias'] . '.' . $override['display_column'];
+        }
+
+        if ($validSort && $sortColumnForQuery) {
+            $query->orderBy($sortColumnForQuery, $direction);
         }
 
         $total = (int) $countQuery->count();
@@ -196,16 +256,45 @@ class DatabaseStructureFetcher
             $offset = ($page - 1) * $perPage;
         }
 
+        $displayAliasMap = [];
+
+        foreach ($displayOverrides as $columnName => $override) {
+            $displayAliasMap[$override['select_alias']] = $columnName;
+        }
+
         $rows = $query
             ->skip($offset)
             ->take($perPage)
             ->get()
-            ->map(static function ($row) {
-                return (array) $row;
+            ->map(function ($row) use ($displayAliasMap) {
+                $array = (array) $row;
+                $display = [];
+                $result = [];
+
+                foreach ($array as $key => $value) {
+                    if (isset($displayAliasMap[$key])) {
+                        $column = $displayAliasMap[$key];
+                        $display[$column] = $this->convertValueForResponse($value);
+                        continue;
+                    }
+
+                    $result[$key] = $this->convertValueForResponse($value);
+                }
+
+                if (!empty($display)) {
+                    $result['__display'] = $display;
+                }
+
+                return $result;
             })->all();
 
         if (empty($columnNames) && !empty($rows)) {
-            $columnNames = array_keys($rows[0]);
+            $columnNames = array_values(
+                array_filter(
+                    array_keys($rows[0]),
+                    static fn ($name) => $name !== '__display'
+                )
+            );
         }
 
         $lastPage = $perPage > 0 ? (int) max(1, ceil($total / $perPage)) : 1;
@@ -623,6 +712,460 @@ class DatabaseStructureFetcher
         }
 
         return $value;
+    }
+
+    /**
+     * @param array<int, array<string, mixed>> $columns
+     * @return array<string, array{table: string, column: string, display_column: ?string}>
+     */
+    private function extractForeignColumns(array $columns): array
+    {
+        $result = [];
+
+        foreach ($columns as $column) {
+            if (!is_array($column)) {
+                continue;
+            }
+
+            $name = isset($column['name']) && is_string($column['name'])
+                ? trim($column['name'])
+                : '';
+
+            if ($name === '') {
+                continue;
+            }
+
+            if (!isset($column['foreign']) || !is_array($column['foreign'])) {
+                continue;
+            }
+
+            $foreignTable = isset($column['foreign']['table']) && is_string($column['foreign']['table'])
+                ? trim($column['foreign']['table'])
+                : '';
+            $foreignColumn = isset($column['foreign']['column']) && is_string($column['foreign']['column'])
+                ? trim($column['foreign']['column'])
+                : '';
+
+            if ($foreignTable === '' || $foreignColumn === '') {
+                continue;
+            }
+
+            $displayColumn = isset($column['foreign']['display_column']) && is_string($column['foreign']['display_column'])
+                ? trim($column['foreign']['display_column'])
+                : '';
+
+            $result[$name] = [
+                'table' => $foreignTable,
+                'column' => $foreignColumn,
+                'display_column' => $displayColumn !== '' ? $displayColumn : null,
+            ];
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    private function getContentManagementRelationOverrides(string $table): array
+    {
+        $settings = config('database-structure.content_management.table_settings', []);
+
+        if (!is_array($settings)) {
+            return [];
+        }
+
+        $tableConfig = $settings[$table] ?? null;
+
+        if (!is_array($tableConfig)) {
+            return [];
+        }
+
+        $keys = [
+            'relations',
+            'relation_display',
+            'relation_display_columns',
+            'relationDisplayColumns',
+            'relationDisplay',
+            'foreign_display',
+            'foreignDisplay',
+            'relation_overrides',
+            'relationOverrides',
+        ];
+
+        $normalized = [];
+
+        foreach ($keys as $key) {
+            if (!array_key_exists($key, $tableConfig)) {
+                continue;
+            }
+
+            $normalized += $this->normalizeRelationConfig($tableConfig[$key]);
+        }
+
+        if (empty($normalized)) {
+            $normalized = $this->normalizeRelationConfig($tableConfig);
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * @return array<string, array<string, mixed>>
+     */
+    private function normalizeRelationConfig(mixed $config): array
+    {
+        if (!is_array($config)) {
+            return [];
+        }
+
+        $reservedKeys = [
+            'aliases',
+            'columns',
+            'fields',
+            'hidden',
+            'hidden_columns',
+            'hiddenColumns',
+            'columns_hidden',
+            'columnsHidden',
+            'hide',
+            'menu',
+            'table',
+            'label',
+        ];
+
+        $normalized = [];
+
+        foreach ($config as $column => $definition) {
+            if (is_int($column)) {
+                if (is_array($definition)) {
+                    $normalized += $this->normalizeRelationConfig($definition);
+                }
+
+                continue;
+            }
+
+            if (!is_string($column)) {
+                continue;
+            }
+
+            $columnName = trim($column);
+
+            if ($columnName === '' || in_array($columnName, $reservedKeys, true)) {
+                continue;
+            }
+
+            $entry = [];
+
+            if (is_string($definition)) {
+                $displayColumn = trim($definition);
+
+                if ($displayColumn === '') {
+                    continue;
+                }
+
+                $entry['display_column'] = $displayColumn;
+                $normalized[$columnName] = $entry;
+                continue;
+            }
+
+            if (!is_array($definition)) {
+                continue;
+            }
+
+            $tableCandidates = [
+                $definition['table'] ?? null,
+                $definition['reference_table'] ?? null,
+                $definition['referenced_table'] ?? null,
+                $definition['target_table'] ?? null,
+            ];
+
+            foreach ($tableCandidates as $candidate) {
+                if (is_string($candidate)) {
+                    $candidate = trim($candidate);
+
+                    if ($candidate !== '') {
+                        $entry['table'] = $candidate;
+                        break;
+                    }
+                }
+            }
+
+            $columnCandidates = [
+                $definition['column'] ?? null,
+                $definition['reference_column'] ?? null,
+                $definition['referenced_column'] ?? null,
+                $definition['target_column'] ?? null,
+                $definition['foreign_column'] ?? null,
+            ];
+
+            foreach ($columnCandidates as $candidate) {
+                if (is_string($candidate)) {
+                    $candidate = trim($candidate);
+
+                    if ($candidate !== '') {
+                        $entry['column'] = $candidate;
+                        break;
+                    }
+                }
+            }
+
+            $displayCandidates = [
+                $definition['display_column'] ?? null,
+                $definition['displayColumn'] ?? null,
+                $definition['label_column'] ?? null,
+                $definition['labelColumn'] ?? null,
+                $definition['value_column'] ?? null,
+            ];
+
+            foreach ($displayCandidates as $candidate) {
+                if (is_string($candidate)) {
+                    $candidate = trim($candidate);
+
+                    if ($candidate !== '') {
+                        $entry['display_column'] = $candidate;
+                        break;
+                    }
+                }
+            }
+
+            $searchColumns = [];
+
+            $searchCandidates = [
+                $definition['search_columns'] ?? null,
+                $definition['searchColumns'] ?? null,
+                $definition['search'] ?? null,
+            ];
+
+            foreach ($searchCandidates as $candidate) {
+                if (is_string($candidate)) {
+                    $value = trim($candidate);
+
+                    if ($value !== '') {
+                        $searchColumns[] = $value;
+                    }
+
+                    continue;
+                }
+
+                if (!is_array($candidate)) {
+                    continue;
+                }
+
+                foreach ($candidate as $item) {
+                    if (!is_string($item)) {
+                        continue;
+                    }
+
+                    $value = trim($item);
+
+                    if ($value !== '') {
+                        $searchColumns[] = $value;
+                    }
+                }
+            }
+
+            if (!empty($searchColumns)) {
+                $entry['search_columns'] = array_values(array_unique($searchColumns));
+            }
+
+            if (!empty($entry)) {
+                $normalized[$columnName] = $entry;
+            }
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * @param array<string, array{table: string, column: string, display_column: ?string}> $foreignColumns
+     * @param array<string, array<string, mixed>> $relationOverrides
+     * @return array<string, array{foreign_table: string, foreign_column: string, display_column: string, join_alias: string, select_alias: string, column_name: string, search_columns: array<int, string>}>
+     */
+    private function prepareContentManagementDisplayOverrides(
+        array $foreignColumns,
+        array $relationOverrides
+    ): array {
+        $overrides = [];
+        $columns = array_unique(array_merge(array_keys($foreignColumns), array_keys($relationOverrides)));
+
+        foreach ($columns as $columnName) {
+            $structure = $foreignColumns[$columnName] ?? null;
+            $config = $relationOverrides[$columnName] ?? [];
+
+            $foreignTable = '';
+            $foreignColumn = '';
+
+            if (is_array($config)) {
+                if (isset($config['table']) && is_string($config['table'])) {
+                    $foreignTable = trim($config['table']);
+                }
+
+                if (isset($config['column']) && is_string($config['column'])) {
+                    $foreignColumn = trim($config['column']);
+                }
+            }
+
+            if ($foreignTable === '' && $structure && isset($structure['table'])) {
+                $foreignTable = (string) $structure['table'];
+            }
+
+            if ($foreignColumn === '' && $structure && isset($structure['column'])) {
+                $foreignColumn = (string) $structure['column'];
+            }
+
+            $displayColumn = '';
+
+            if (is_array($config) && isset($config['display_column']) && is_string($config['display_column'])) {
+                $displayColumn = trim($config['display_column']);
+            } elseif ($structure && isset($structure['display_column']) && is_string($structure['display_column'])) {
+                $displayColumn = trim($structure['display_column']);
+            }
+
+            if ($foreignTable === '' || $foreignColumn === '' || $displayColumn === '') {
+                continue;
+            }
+
+            $searchColumns = [];
+
+            if (is_array($config) && isset($config['search_columns'])) {
+                $searchColumns = array_filter(
+                    array_map(
+                        static function ($column): string {
+                            return is_string($column) ? trim($column) : '';
+                        },
+                        (array) $config['search_columns']
+                    ),
+                    static fn ($column) => $column !== ''
+                );
+            }
+
+            if (empty($searchColumns)) {
+                $searchColumns = [$displayColumn];
+            }
+
+            $sanitized = $this->sanitizeIdentifier($columnName);
+            $joinAlias = '__ds_' . $sanitized;
+            $selectAlias = '__display_' . $sanitized;
+
+            $overrides[$columnName] = [
+                'foreign_table' => $foreignTable,
+                'foreign_column' => $foreignColumn,
+                'display_column' => $displayColumn,
+                'join_alias' => $joinAlias,
+                'select_alias' => $selectAlias,
+                'column_name' => $columnName,
+                'search_columns' => array_values(array_unique($searchColumns)),
+            ];
+        }
+
+        return $overrides;
+    }
+
+    private function sanitizeIdentifier(string $value): string
+    {
+        $normalized = preg_replace('/[^A-Za-z0-9_]/', '_', $value);
+
+        if ($normalized === null || $normalized === '') {
+            $normalized = 'column';
+        }
+
+        if (preg_match('/^[0-9]/', $normalized) === 1) {
+            $normalized = '_' . $normalized;
+        }
+
+        return substr($normalized, 0, 50);
+    }
+
+    /**
+     * @param array<int, string> $columnNames
+     * @return array<int, string>
+     */
+    private function buildBaseSelectColumns(string $table, array $columnNames): array
+    {
+        if (empty($columnNames)) {
+            return [$this->wrapQualified($table, '*')];
+        }
+
+        return array_map(function (string $column) use ($table): string {
+            return sprintf(
+                '%s as %s',
+                $this->wrapQualified($table, $column),
+                $this->connection->getQueryGrammar()->wrap($column)
+            );
+        }, $columnNames);
+    }
+
+    /**
+     * @param array<string, array{display_column: string, join_alias: string, select_alias: string}> $displayOverrides
+     * @return array<int, string>
+     */
+    private function buildDisplaySelectColumns(array $displayOverrides): array
+    {
+        $selects = [];
+
+        foreach ($displayOverrides as $override) {
+            $selects[] = sprintf(
+                '%s as %s',
+                $this->wrapQualified($override['join_alias'], $override['display_column']),
+                $this->connection->getQueryGrammar()->wrap($override['select_alias'])
+            );
+        }
+
+        return $selects;
+    }
+
+    private function wrapQualified(string $table, string $column): string
+    {
+        $grammar = $this->connection->getQueryGrammar();
+
+        if ($column === '*') {
+            return $grammar->wrapTable($table) . '.*';
+        }
+
+        return $grammar->wrapTable($table) . '.' . $grammar->wrap($column);
+    }
+
+    /**
+     * @param array<int, string> $columnNames
+     * @param array<string, array{join_alias: string, search_columns: array<int, string>}> $displayOverrides
+     * @return array<string, array<int, string>>
+     */
+    private function buildSearchColumns(array $columnNames, array $displayOverrides): array
+    {
+        $searchColumns = [];
+
+        foreach ($columnNames as $columnName) {
+            $columns = [$columnName];
+
+            if (isset($displayOverrides[$columnName])) {
+                $override = $displayOverrides[$columnName];
+
+                foreach ($override['search_columns'] as $searchColumn) {
+                    $columns[] = $override['join_alias'] . '.' . $searchColumn;
+                }
+            }
+
+            $searchColumns[$columnName] = array_values(array_unique($columns));
+        }
+
+        foreach ($displayOverrides as $columnName => $override) {
+            if (isset($searchColumns[$columnName])) {
+                continue;
+            }
+
+            $columns = [];
+
+            foreach ($override['search_columns'] as $searchColumn) {
+                $columns[] = $override['join_alias'] . '.' . $searchColumn;
+            }
+
+            if (!empty($columns)) {
+                $searchColumns[$columnName] = array_values(array_unique($columns));
+            }
+        }
+
+        return $searchColumns;
     }
 
     /**
