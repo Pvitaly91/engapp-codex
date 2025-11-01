@@ -5,6 +5,15 @@ return array (
   'connection' => NULL,
   'manual_relations' => 
   array (
+    'test_parent' => 
+    array (
+      'test_id' => 
+      array (
+        'table' => 'test',
+        'column' => 'id',
+        'display_column' => 'id',
+      ),
+    ),
   ),
   'content_management' => 
   array (
@@ -20,18 +29,14 @@ return array (
         'table' => 'question_hints',
         'label' => 'question_hints',
       ),
-    ),
-    'table_settings' =>
-    array (
-      /*
-      'posts' =>
+      2 => 
       array (
-        'relations' =>
-        array (
-          'user_id' => 'users.name',
-        ),
+        'table' => 'test_parent',
+        'label' => 'test_parent',
       ),
-      */
+    ),
+    'table_settings' => 
+    array (
     ),
   ),
 );
