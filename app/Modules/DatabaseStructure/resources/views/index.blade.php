@@ -2038,6 +2038,15 @@
         const defaultId = payload && typeof payload === 'object' && typeof payload.default === 'string'
           ? payload.default.trim()
           : '';
+        let defaultDisabled = false;
+
+        if (payload && typeof payload === 'object') {
+          if (typeof payload.default_disabled === 'boolean') {
+            defaultDisabled = payload.default_disabled;
+          } else if (payload.default_disabled === 1 || payload.default_disabled === '1') {
+            defaultDisabled = true;
+          }
+        }
 
         const items = Array.isArray(itemsSource)
           ? itemsSource.map((entry) => normalizeSavedFilterEntry(entry)).filter(Boolean)
@@ -2047,6 +2056,7 @@
           items,
           lastUsed,
           defaultId,
+          defaultDisabled,
         };
       };
 
@@ -2056,6 +2066,7 @@
         items: [],
         lastUsed: '',
         defaultId: '',
+        defaultDisabled: false,
       });
 
       const serializeFilters = (filters) => {
@@ -3244,7 +3255,7 @@
           },
           async fetchSavedFiltersFor(scope, tableName, targetState, { force = false } = {}) {
             if (!targetState) {
-              return { items: [], lastUsed: '', defaultId: '' };
+              return { items: [], lastUsed: '', defaultId: '', defaultDisabled: false };
             }
 
             const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
@@ -3253,8 +3264,9 @@
               targetState.items = [];
               targetState.lastUsed = '';
               targetState.defaultId = '';
+              targetState.defaultDisabled = false;
               targetState.loaded = true;
-              return { items: [], lastUsed: '', defaultId: '' };
+              return { items: [], lastUsed: '', defaultId: '', defaultDisabled: false };
             }
 
             if (!force && targetState.loaded) {
@@ -3262,6 +3274,7 @@
                 items: targetState.items,
                 lastUsed: targetState.lastUsed,
                 defaultId: targetState.defaultId,
+                defaultDisabled: targetState.defaultDisabled === true,
               };
             }
 
@@ -3269,8 +3282,9 @@
               targetState.items = [];
               targetState.lastUsed = '';
               targetState.defaultId = '';
+              targetState.defaultDisabled = false;
               targetState.loaded = true;
-              return { items: [], lastUsed: '', defaultId: '' };
+              return { items: [], lastUsed: '', defaultId: '', defaultDisabled: false };
             }
 
             targetState.loading = true;
@@ -3284,8 +3298,9 @@
               targetState.items = [];
               targetState.lastUsed = '';
               targetState.defaultId = '';
+              targetState.defaultDisabled = false;
               targetState.loaded = true;
-              return { items: [], lastUsed: '', defaultId: '' };
+              return { items: [], lastUsed: '', defaultId: '', defaultDisabled: false };
             } finally {
               targetState.loading = false;
             }
@@ -3298,6 +3313,7 @@
           targetState.items = Array.isArray(normalized.items) ? normalized.items : [];
           targetState.lastUsed = typeof normalized.lastUsed === 'string' ? normalized.lastUsed : '';
           targetState.defaultId = typeof normalized.defaultId === 'string' ? normalized.defaultId : '';
+          targetState.defaultDisabled = normalized.defaultDisabled === true;
           targetState.loaded = true;
         },
         async updateSavedFilterDefault(scope, tableName, filterId, state, feedbackTarget) {
@@ -5750,6 +5766,8 @@
           const candidateFilterId = explicitFilterId || pendingFilterId;
           const markCandidate = opts.markAsUsed === true;
           const updateLastUsed = opts.updateLastUsed !== false;
+          const defaultDisabled = result.defaultDisabled === true
+            || viewer.savedFilters.defaultDisabled === true;
           let applied = false;
 
           const items = Array.isArray(viewer.savedFilters.items) ? viewer.savedFilters.items : [];
@@ -5776,7 +5794,7 @@
             }
           }
 
-          if (!applied) {
+          if (!applied && !defaultDisabled) {
             const defaultId = typeof viewer.savedFilters.defaultId === 'string'
               ? viewer.savedFilters.defaultId.trim()
               : '';
@@ -5786,7 +5804,7 @@
             }
           }
 
-          if (!applied) {
+          if (!applied && !defaultDisabled) {
             const lastUsedId = typeof result.lastUsed === 'string' ? result.lastUsed : '';
 
             if (lastUsedId && hasFilter(lastUsedId)) {
@@ -8018,11 +8036,17 @@
           const result = await this.fetchSavedFiltersFor('records', tableName, state.savedFilters, { force });
           const savedState = state.savedFilters;
           const defaultId = typeof savedState.defaultId === 'string' ? savedState.defaultId.trim() : '';
+          const defaultDisabled = savedState.defaultDisabled === true
+            || result.defaultDisabled === true;
           const items = Array.isArray(savedState.items) ? savedState.items : [];
           const hasFilter = (filterId) => items.some((item) => item && item.id === filterId);
 
-          if (defaultId && hasFilter(defaultId)) {
+          if (!defaultDisabled && defaultId && hasFilter(defaultId)) {
             await this.applyRecordsSavedFilterById(table, defaultId, { updateLastUsed: false });
+            return;
+          }
+
+          if (defaultDisabled) {
             return;
           }
 

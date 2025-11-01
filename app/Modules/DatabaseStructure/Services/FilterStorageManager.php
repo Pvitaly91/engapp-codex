@@ -16,7 +16,7 @@ class FilterStorageManager
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null}
+     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null, default_disabled: bool}
      */
     public function getScopeFilters(string $table, string $scope): array
     {
@@ -56,17 +56,22 @@ class FilterStorageManager
             }
         }
 
+        $defaultDisabled = array_key_exists('default_disabled', $scopeData)
+            ? (bool) $scopeData['default_disabled']
+            : false;
+
         return [
             'items' => $items,
             'last_used' => $lastUsed !== '' ? $lastUsed : null,
             'default' => $default !== '' ? $default : null,
+            'default_disabled' => $defaultDisabled,
         ];
     }
 
     /**
      * @param array<int, array{column: string, operator: string, value: string}> $filters
      *
-     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null}
+     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null, default_disabled: bool}
      */
     public function store(string $table, string $scope, string $name, array $filters, string $search, string $searchColumn): array
     {
@@ -152,11 +157,18 @@ class FilterStorageManager
 
         if ($defaultRemoved) {
             $scopeData['default'] = $filterId;
+            $scopeData['default_disabled'] = false;
         } elseif (isset($scopeData['default'])) {
             $currentDefault = is_string($scopeData['default']) ? trim($scopeData['default']) : '';
             $scopeData['default'] = $currentDefault !== '' ? $currentDefault : null;
         } else {
             $scopeData['default'] = $previousDefaultId !== '' ? $previousDefaultId : null;
+        }
+
+        if (!array_key_exists('default_disabled', $scopeData)) {
+            $scopeData['default_disabled'] = false;
+        } else {
+            $scopeData['default_disabled'] = (bool) $scopeData['default_disabled'];
         }
 
         $data[$scopeKey] = $scopeData;
@@ -167,7 +179,7 @@ class FilterStorageManager
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null}
+     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null, default_disabled: bool}
      */
     public function delete(string $table, string $scope, string $filterId): array
     {
@@ -225,10 +237,17 @@ class FilterStorageManager
 
         if ($defaultId === $targetId) {
             $scopeData['default'] = null;
+            $scopeData['default_disabled'] = false;
         } elseif (isset($scopeData['default'])) {
             $scopeData['default'] = $defaultId !== '' ? $defaultId : null;
         } else {
             $scopeData['default'] = null;
+        }
+
+        if (!array_key_exists('default_disabled', $scopeData)) {
+            $scopeData['default_disabled'] = false;
+        } else {
+            $scopeData['default_disabled'] = (bool) $scopeData['default_disabled'];
         }
 
         $scopeData['items'] = $items;
@@ -289,13 +308,19 @@ class FilterStorageManager
             $scopeData['default'] = null;
         }
 
+        if (!array_key_exists('default_disabled', $scopeData)) {
+            $scopeData['default_disabled'] = false;
+        } else {
+            $scopeData['default_disabled'] = (bool) $scopeData['default_disabled'];
+        }
+
         $data[$scopeKey] = $scopeData;
 
         $this->writeTableFile($tableName, $data);
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null}
+     * @return array{items: array<int, array{id: string, name: string, filters: array<int, array{column: string, operator: string, value: string}>, search: string, search_column: string}>, last_used: string|null, default: string|null, default_disabled: bool}
      */
     public function setDefault(string $table, string $scope, ?string $filterId): array
     {
@@ -321,6 +346,7 @@ class FilterStorageManager
 
         if ($filterId === null || $filterId === '') {
             $scopeData['default'] = null;
+            $scopeData['default_disabled'] = true;
         } else {
             $targetId = $this->normalizeId($filterId);
 
@@ -348,12 +374,19 @@ class FilterStorageManager
             }
 
             $scopeData['default'] = $targetId;
+            $scopeData['default_disabled'] = false;
         }
 
         if (!array_key_exists('last_used', $scopeData)) {
             $scopeData['last_used'] = null;
         } elseif (!is_string($scopeData['last_used']) || trim($scopeData['last_used']) === '') {
             $scopeData['last_used'] = null;
+        }
+
+        if (!array_key_exists('default_disabled', $scopeData)) {
+            $scopeData['default_disabled'] = false;
+        } else {
+            $scopeData['default_disabled'] = (bool) $scopeData['default_disabled'];
         }
 
         $data[$scopeKey] = $scopeData;
@@ -522,6 +555,7 @@ class FilterStorageManager
             'items' => [],
             'last_used' => null,
             'default' => null,
+            'default_disabled' => false,
         ];
     }
 

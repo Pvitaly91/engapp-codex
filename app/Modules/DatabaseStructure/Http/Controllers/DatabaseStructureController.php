@@ -113,6 +113,7 @@ class DatabaseStructureController
                 'filters' => $filters['items'],
                 'last_used' => $filters['last_used'],
                 'default' => $filters['default'],
+                'default_disabled' => $filters['default_disabled'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
@@ -147,6 +148,7 @@ class DatabaseStructureController
                 'filters' => $result['items'],
                 'last_used' => $result['last_used'],
                 'default' => $result['default'],
+                'default_disabled' => $result['default_disabled'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
@@ -171,6 +173,7 @@ class DatabaseStructureController
             return response()->json([
                 'last_used' => $result['last_used'],
                 'default' => $result['default'],
+                'default_disabled' => $result['default_disabled'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
@@ -194,6 +197,7 @@ class DatabaseStructureController
                 'filters' => $result['items'],
                 'last_used' => $result['last_used'],
                 'default' => $result['default'],
+                'default_disabled' => $result['default_disabled'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
@@ -223,6 +227,7 @@ class DatabaseStructureController
                 'filters' => $result['items'],
                 'last_used' => $result['last_used'],
                 'default' => $result['default'],
+                'default_disabled' => $result['default_disabled'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
