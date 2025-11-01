@@ -229,10 +229,10 @@
   <section class="rounded-3xl border border-border/70 bg-secondary/10 p-8 text-center shadow-soft">
     <div class="mx-auto max-w-2xl space-y-4">
       <h2 class="text-2xl font-semibold text-foreground">Готові спробувати Engram у роботі?</h2>
-      <p class="text-sm text-muted-foreground">Увійдіть до адмін-панелі, щоб додавати власні матеріали, запускати AI-сценарії та керувати командним доступом.</p>
+      <p class="text-sm text-muted-foreground">Напишіть нам, щоб отримати доступ, презентувати платформу команді або поставити запитання.</p>
       <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <a href="{{ route('login.show') }}" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition hover:bg-primary/90">Увійти до адмін-панелі</a>
-        <a href="mailto:hello@engram.app" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80">Запросити демо<span aria-hidden="true">→</span></a>
+        <a href="mailto:hello@engram.app" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition hover:bg-primary/90">Запросити демо</a>
+        <a href="https://t.me/engram_app" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80">Написати в Telegram<span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
