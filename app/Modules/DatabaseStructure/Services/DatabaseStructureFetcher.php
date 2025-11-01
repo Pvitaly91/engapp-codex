@@ -133,7 +133,8 @@ class DatabaseStructureFetcher
         string $direction = 'asc',
         array $filters = [],
         ?string $search = null,
-        ?string $searchColumn = null
+        ?string $searchColumn = null,
+        array $runtimeRelationOverrides = []
     ): array
     {
         $structure = Collection::make($this->getStructure());
@@ -145,6 +146,11 @@ class DatabaseStructureFetcher
 
         $columns = $tableInfo['columns'] ?? [];
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+        $relationDisplayOverrides = $this->getContentManagementRelationOverrides(
+            $table,
+            $columns,
+            $runtimeRelationOverrides,
+        );
         $normalizedFilters = $this->prepareFilters($filters, $columnNames);
         $searchTerm = is_string($search) ? trim($search) : '';
         $normalizedSearchColumn = is_string($searchColumn) ? trim($searchColumn) : '';
@@ -173,13 +179,43 @@ class DatabaseStructureFetcher
 
         $query = $this->connection->table($table);
         $countQuery = $this->connection->table($table);
+        $query->select("{$table}.*");
+
+        $displayColumnAliases = [];
+        $searchColumnOverrides = [];
+
+        foreach ($relationDisplayOverrides as $columnName => $override) {
+            $relationAlias = $this->buildRelationAlias($columnName);
+            $displayAlias = $this->buildRelationDisplayColumnAlias($columnName);
+
+            $query->leftJoin(
+                sprintf('%s as %s', $override['table'], $relationAlias),
+                sprintf('%s.%s', $relationAlias, $override['referenced_column']),
+                '=',
+                sprintf('%s.%s', $table, $columnName),
+            );
+
+            $countQuery->leftJoin(
+                sprintf('%s as %s', $override['table'], $relationAlias),
+                sprintf('%s.%s', $relationAlias, $override['referenced_column']),
+                '=',
+                sprintf('%s.%s', $table, $columnName),
+            );
+
+            $query->addSelect(sprintf('%s.%s as %s', $relationAlias, $override['display_column'], $displayAlias));
+
+            $displayColumnAliases[$columnName] = $displayAlias;
+            $searchColumnOverrides[$columnName] = sprintf('%s.%s', $relationAlias, $override['display_column']);
+        }
 
         $this->applyFilters($query, $normalizedFilters);
         $this->applyFilters($countQuery, $normalizedFilters);
 
+        $searchExpressions = $this->buildSearchExpressions($table, $searchColumns, $searchColumnOverrides);
+
         if ($searchTerm !== '') {
-            $this->applySearch($query, $searchColumns, $searchTerm);
-            $this->applySearch($countQuery, $searchColumns, $searchTerm);
+            $this->applySearch($query, $searchExpressions, $searchTerm);
+            $this->applySearch($countQuery, $searchExpressions, $searchTerm);
         }
 
         if ($validSort) {
@@ -200,8 +236,24 @@ class DatabaseStructureFetcher
             ->skip($offset)
             ->take($perPage)
             ->get()
-            ->map(static function ($row) {
-                return (array) $row;
+            ->map(function ($row) use ($displayColumnAliases) {
+                $arrayRow = (array) $row;
+                $displayValues = [];
+
+                foreach ($displayColumnAliases as $columnName => $alias) {
+                    if (!array_key_exists($alias, $arrayRow)) {
+                        continue;
+                    }
+
+                    $displayValues[$columnName] = $this->convertValueForResponse($arrayRow[$alias]);
+                    unset($arrayRow[$alias]);
+                }
+
+                if (!empty($displayValues)) {
+                    $arrayRow['__display'] = $displayValues;
+                }
+
+                return $arrayRow;
             })->all();
 
         if (empty($columnNames) && !empty($rows)) {
@@ -626,6 +678,40 @@ class DatabaseStructureFetcher
     }
 
     /**
+     * @param array<int, string> $columnNames
+     * @param array<string, string> $overrides
+     * @return array<int, string>
+     */
+    private function buildSearchExpressions(string $table, array $columnNames, array $overrides): array
+    {
+        $expressions = [];
+
+        foreach ($columnNames as $column) {
+            if (!is_string($column) || $column === '') {
+                continue;
+            }
+
+            $baseExpression = sprintf('%s.%s', $table, $column);
+
+            if (!in_array($baseExpression, $expressions, true)) {
+                $expressions[] = $baseExpression;
+            }
+
+            if (!isset($overrides[$column])) {
+                continue;
+            }
+
+            $overrideExpression = $overrides[$column];
+
+            if (!in_array($overrideExpression, $expressions, true)) {
+                $expressions[] = $overrideExpression;
+            }
+        }
+
+        return $expressions;
+    }
+
+    /**
      * @param array<int, array{column: string, value: mixed}> $identifiers
      * @param array<int, string> $columnNames
      * @return array<int, array{column: string, value: mixed}>
@@ -670,6 +756,297 @@ class DatabaseStructureFetcher
             ->filter()
             ->values()
             ->all();
+    }
+
+    /**
+     * @param array<int, array<string, mixed>> $columns
+     * @return array<string, array{table: string, display_column: string, referenced_column: string}>
+     */
+    private function getContentManagementRelationOverrides(
+        string $table,
+        array $columns,
+        array $runtimeOverrides = []
+    ): array
+    {
+        $settings = config('database-structure.content_management.table_settings', []);
+        $tableConfig = $settings[$table] ?? null;
+
+        $relationMaps = [];
+
+        if (is_array($tableConfig)) {
+            $candidates = [
+                $tableConfig['relations'] ?? null,
+                $tableConfig['relation_columns'] ?? null,
+                $tableConfig['relationColumns'] ?? null,
+                $tableConfig['foreign_relations'] ?? null,
+                $tableConfig['foreignRelations'] ?? null,
+                $tableConfig['display_relations'] ?? null,
+                $tableConfig['displayRelations'] ?? null,
+            ];
+
+            foreach ($candidates as $candidate) {
+                if ($candidate === null) {
+                    continue;
+                }
+
+                $normalized = $this->normalizeRelationDisplayConfig($candidate);
+
+                if (!empty($normalized)) {
+                    $relationMaps = array_merge($relationMaps, $normalized);
+                }
+            }
+
+            if (empty($relationMaps) && $this->isAssociativeArray($tableConfig)) {
+                $relationMaps = $this->normalizeRelationDisplayConfig($tableConfig);
+            }
+        }
+
+        if (!empty($runtimeOverrides)) {
+            $normalizedRuntime = $this->normalizeRelationDisplayConfig($runtimeOverrides);
+
+            if (!empty($normalizedRuntime)) {
+                $relationMaps = array_merge($relationMaps, $normalizedRuntime);
+            }
+        }
+
+        if (empty($relationMaps)) {
+            return [];
+        }
+
+        $foreignColumns = [];
+
+        foreach ($columns as $column) {
+            if (!is_array($column)) {
+                continue;
+            }
+
+            $name = isset($column['name']) && is_string($column['name'])
+                ? trim($column['name'])
+                : '';
+
+            if ($name === '') {
+                continue;
+            }
+
+            $foreign = $this->normalizeForeignDefinition($column['foreign'] ?? null);
+
+            if ($foreign === null) {
+                continue;
+            }
+
+            $foreignColumns[$name] = $foreign;
+        }
+
+        if (empty($foreignColumns)) {
+            return [];
+        }
+
+        $overrides = [];
+
+        foreach ($relationMaps as $columnName => $definition) {
+            if (!isset($foreignColumns[$columnName])) {
+                continue;
+            }
+
+            $foreign = $foreignColumns[$columnName];
+            $targetTable = $definition['table'] ?? $foreign['table'] ?? null;
+            $displayColumn = $definition['column'] ?? null;
+
+            if (!$targetTable || !$displayColumn) {
+                continue;
+            }
+
+            $overrides[$columnName] = [
+                'table' => $targetTable,
+                'display_column' => $displayColumn,
+                'referenced_column' => $foreign['column'],
+            ];
+        }
+
+        return $overrides;
+    }
+
+    /**
+     * @return array<string, array{table?: string, column: string}>
+     */
+    private function normalizeRelationDisplayConfig(mixed $config): array
+    {
+        if (!is_array($config)) {
+            return [];
+        }
+
+        $result = [];
+
+        if ($this->isAssociativeArray($config)) {
+            foreach ($config as $columnName => $definition) {
+                $normalizedColumn = $this->sanitizeConfigName($columnName);
+
+                if ($normalizedColumn === null) {
+                    continue;
+                }
+
+                $normalizedDefinition = $this->normalizeRelationDisplayDefinition($definition);
+
+                if ($normalizedDefinition === null) {
+                    continue;
+                }
+
+                $result[$normalizedColumn] = $normalizedDefinition;
+            }
+
+            return $result;
+        }
+
+        foreach ($config as $entry) {
+            if (!is_array($entry)) {
+                continue;
+            }
+
+            $columnName = $entry['column']
+                ?? $entry['field']
+                ?? $entry['source']
+                ?? $entry['name']
+                ?? null;
+
+            $normalizedColumn = $this->sanitizeConfigName($columnName);
+
+            if ($normalizedColumn === null) {
+                continue;
+            }
+
+            $normalizedDefinition = $this->normalizeRelationDisplayDefinition($entry);
+
+            if ($normalizedDefinition === null) {
+                continue;
+            }
+
+            $result[$normalizedColumn] = $normalizedDefinition;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array{column: string, table?: string}|null
+     */
+    private function normalizeRelationDisplayDefinition(mixed $definition): ?array
+    {
+        if (is_string($definition)) {
+            $value = $this->sanitizeConfigName($definition);
+
+            if ($value === null) {
+                return null;
+            }
+
+            $table = null;
+            $column = $value;
+
+            if (str_contains($value, '.')) {
+                [$tablePart, $columnPart] = array_pad(explode('.', $value, 2), 2, null);
+                $table = $this->sanitizeConfigName($tablePart);
+                $column = $this->sanitizeConfigName($columnPart);
+            }
+
+            if ($column === null) {
+                return null;
+            }
+
+            $payload = ['column' => $column];
+
+            if ($table !== null) {
+                $payload['table'] = $table;
+            }
+
+            return $payload;
+        }
+
+        if (!is_array($definition)) {
+            return null;
+        }
+
+        $table = $this->sanitizeConfigName(
+            $definition['table']
+                ?? $definition['target_table']
+                ?? $definition['foreign_table']
+                ?? $definition['relation_table']
+                ?? null,
+        );
+
+        $columnCandidate = $definition['display']
+            ?? $definition['display_column']
+            ?? $definition['column']
+            ?? $definition['field']
+            ?? $definition['name']
+            ?? $definition['value']
+            ?? null;
+
+        $column = $this->sanitizeConfigName($columnCandidate);
+
+        if ($column === null && isset($definition['path']) && is_string($definition['path'])) {
+            $path = trim($definition['path']);
+
+            if ($path !== '' && str_contains($path, '.')) {
+                [$tablePart, $columnPart] = array_pad(explode('.', $path, 2), 2, null);
+                $table = $table ?? $this->sanitizeConfigName($tablePart);
+                $column = $this->sanitizeConfigName($columnPart);
+            }
+        }
+
+        if ($column === null) {
+            return null;
+        }
+
+        $payload = ['column' => $column];
+
+        if ($table !== null) {
+            $payload['table'] = $table;
+        }
+
+        return $payload;
+    }
+
+    private function sanitizeConfigName(mixed $value): ?string
+    {
+        if (!is_string($value)) {
+            return null;
+        }
+
+        $trimmed = trim($value);
+
+        return $trimmed === '' ? null : $trimmed;
+    }
+
+    private function isAssociativeArray(array $source): bool
+    {
+        $expectedKey = 0;
+
+        foreach ($source as $key => $_value) {
+            if ($key !== $expectedKey) {
+                return true;
+            }
+
+            $expectedKey++;
+        }
+
+        return false;
+    }
+
+    private function buildRelationAlias(string $columnName): string
+    {
+        $sanitized = preg_replace('/[^A-Za-z0-9_]/', '_', $columnName);
+        $sanitized = $sanitized !== '' ? $sanitized : 'column';
+        $hash = substr(md5($columnName), 0, 6);
+
+        return sprintf('__ds_rel_%s_%s', $sanitized, $hash);
+    }
+
+    private function buildRelationDisplayColumnAlias(string $columnName): string
+    {
+        $sanitized = preg_replace('/[^A-Za-z0-9_]/', '_', $columnName);
+        $sanitized = $sanitized !== '' ? $sanitized : 'column';
+        $hash = substr(md5($columnName), 0, 6);
+
+        return sprintf('__ds_display_%s_%s', $sanitized, $hash);
     }
 
     private function normalizeForeignDefinition(mixed $foreign): ?array
