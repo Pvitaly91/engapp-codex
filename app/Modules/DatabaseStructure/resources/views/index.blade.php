@@ -1189,14 +1189,26 @@
                       <i class="fa-solid fa-arrow-down text-xs"></i>
                     </button>
                   </div>
-                <label class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">
-                  <input
-                    type="checkbox"
-                    class="h-4 w-4 rounded border-input text-primary focus:ring-primary/40"
-                    x-model="entry.hidden"
-                  />
-                  <span>Приховати колонку</span>
-                </label>
+                  <div class="flex items-center gap-2 sm:flex-row-reverse sm:justify-end sm:gap-3">
+                    <label class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                      <input
+                        type="checkbox"
+                        class="h-4 w-4 rounded border-input text-primary focus:ring-primary/40"
+                        x-model="entry.hidden"
+                      />
+                      <span>Приховати колонку</span>
+                    </label>
+                    <template x-if="entry.relation && entry.relation.additional">
+                      <button
+                        type="button"
+                        class="inline-flex items-center justify-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground transition hover:border-rose-300 hover:text-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-300/40"
+                        @click="removeContentManagementTableSettingsEntry(entryIndex)"
+                      >
+                        <i class="fa-solid fa-trash-can text-xs"></i>
+                        Видалити поле
+                      </button>
+                    </template>
+                  </div>
                 </div>
                 <template x-if="!entry.locked">
                   <button
