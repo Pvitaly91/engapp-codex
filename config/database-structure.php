@@ -15,6 +15,11 @@ return array (
         'table' => 'pages',
         'label' => 'pages',
       ),
+      1 => 
+      array (
+        'table' => 'question_hints',
+        'label' => 'question_hints',
+      ),
     ),
     'table_settings' => 
     array (
