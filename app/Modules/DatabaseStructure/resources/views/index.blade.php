@@ -422,13 +422,7 @@
                         </template>
                       </div>
                     </div>
-                    <div
-                      x-show="table.records.filtersOpen"
-                      x-collapse
-                      x-cloak
-                      :id="`records-filters-${(table.name || '').replace(/[^A-Za-z0-9_-]/g, '-')}`"
-                    >
-                      <div class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                    <div class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
                       <span class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
                       <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
                         <div class="relative flex-1">
@@ -453,12 +447,20 @@
                           >
                             <option value="">Всі колонки</option>
                             <template x-for="column in table.records.columns" :key="column + '-search-option'">
-                          <option :value="column" x-text="column"></option>
-                        </template>
-                      </select>
-                    </label>
+                              <option :value="column" x-text="column"></option>
+                            </template>
+                          </select>
+                        </label>
                       </div>
-                      <p class="mt-2 text-[15px] text-muted-foreground">
+                    </div>
+
+                    <div
+                      x-show="table.records.filtersOpen"
+                      x-collapse
+                      x-cloak
+                      :id="`records-filters-${(table.name || '').replace(/[^A-Za-z0-9_-]/g, '-')}`"
+                    >
+                      <p class="text-[15px] text-muted-foreground">
                         Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
                         <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
                       </p>
@@ -1789,10 +1791,10 @@
                       class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
                       @click="addContentManagementFilter()"
                       :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
-                  >
-                    <i class="fa-solid fa-plus text-[10px]"></i>
-                    Додати фільтр
-                  </button>
+                    >
+                      <i class="fa-solid fa-plus text-[10px]"></i>
+                      Додати фільтр
+                    </button>
                     <button
                       type="button"
                       class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
@@ -1824,13 +1826,7 @@
                 </div>
               </div>
 
-              <div
-                x-show="contentManagement.viewer.filtersOpen"
-                x-collapse
-                x-cloak
-                id="content-management-filters"
-              >
-                <div class="mt-4 flex flex-col gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80 sm:flex-row sm:items-center sm:gap-3">
+              <div class="mt-4 flex flex-col gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80 sm:flex-row sm:items-center sm:gap-3">
                 <label class="flex flex-1 flex-col gap-1">
                   <span>Пошук записів</span>
                   <div class="relative">
@@ -1863,10 +1859,16 @@
                 </label>
               </div>
 
-              <p class="mt-3 text-xs text-muted-foreground">
-                Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
-                <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
-              </p>
+              <div
+                x-show="contentManagement.viewer.filtersOpen"
+                x-collapse
+                x-cloak
+                id="content-management-filters"
+              >
+                <p class="text-xs text-muted-foreground">
+                  Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
+                  <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
+                </p>
 
               <template x-if="contentManagement.viewer.filters.length === 0">
                 <div class="mt-4 rounded-xl border border-dashed border-border/60 bg-background/60 p-4 text-sm text-muted-foreground">
