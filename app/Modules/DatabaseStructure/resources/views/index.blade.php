@@ -1550,8 +1550,8 @@
                                 type="button"
                                 class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
                                 @click.stop="showContentManagementRecordValue(column, row)"
-                                :title="formatCell(row[column])"
-                                x-html="contentManagementHighlight(column, row[column])"
+                                :title="formatCell(contentManagementCellValue(row, column))"
+                                x-html="contentManagementHighlight(column, row)"
                               ></button>
                             </td>
                           </template>
@@ -1980,6 +1980,130 @@
           return Array.from(set);
         };
 
+        const normalizeRelationDisplayMap = (source, allowSimple = false) => {
+          const result = {};
+
+          const push = (columnName, definition) => {
+            const column = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!column) {
+              return;
+            }
+
+            let table = '';
+            let display = '';
+
+            if (typeof definition === 'string') {
+              const value = definition.trim();
+
+              if (!value) {
+                return;
+              }
+
+              if (value.includes('.')) {
+                const [rawTable, rawColumn] = value.split('.', 2);
+                table = typeof rawTable === 'string' ? rawTable.trim() : '';
+                display = typeof rawColumn === 'string' ? rawColumn.trim() : '';
+              } else if (allowSimple) {
+                display = value;
+              } else {
+                return;
+              }
+            } else if (definition && typeof definition === 'object') {
+              const tableCandidate = definition.table
+                ?? definition.target_table
+                ?? definition.targetTable
+                ?? definition.foreign_table
+                ?? definition.foreignTable
+                ?? definition.relation_table
+                ?? definition.relationTable;
+
+              if (typeof tableCandidate === 'string') {
+                table = tableCandidate.trim();
+              }
+
+              const displayCandidate = definition.display
+                ?? definition.display_column
+                ?? definition.displayColumn
+                ?? definition.column
+                ?? definition.field
+                ?? definition.name
+                ?? definition.value;
+
+              if (typeof displayCandidate === 'string') {
+                display = displayCandidate.trim();
+              }
+
+              if (!display && typeof definition.path === 'string' && definition.path.includes('.')) {
+                const [rawTable, rawColumn] = definition.path.split('.', 2);
+
+                if (!display && typeof rawColumn === 'string') {
+                  display = rawColumn.trim();
+                }
+
+                if (!table && typeof rawTable === 'string') {
+                  table = rawTable.trim();
+                }
+              }
+            } else {
+              return;
+            }
+
+            if (!display) {
+              return;
+            }
+
+            const payload = { column: display };
+
+            if (table) {
+              payload.table = table;
+            }
+
+            result[column] = payload;
+          };
+
+          if (!source) {
+            return result;
+          }
+
+          if (Array.isArray(source)) {
+            source.forEach((entry) => {
+              if (!entry) {
+                return;
+              }
+
+              if (Array.isArray(entry)) {
+                if (entry.length < 2) {
+                  return;
+                }
+
+                const [columnName, value] = entry;
+                push(columnName, value);
+                return;
+              }
+
+              if (typeof entry === 'object') {
+                const columnName = entry.column
+                  ?? entry.field
+                  ?? entry.source
+                  ?? entry.name;
+
+                push(columnName, entry);
+              }
+            });
+
+            return result;
+          }
+
+          if (typeof source === 'object') {
+            Object.entries(source).forEach(([columnName, value]) => {
+              push(columnName, value);
+            });
+          }
+
+          return result;
+        };
+
         const normalizeContentManagementTableSettings = (settings) => {
           if (!settings || typeof settings !== 'object') {
             return {};
@@ -1996,6 +2120,7 @@
 
             let aliasMap = {};
             let hiddenColumns = [];
+            let relationMap = {};
 
             if (Array.isArray(rawConfig)) {
               aliasMap = normalizeAliasMap(rawConfig);
@@ -2052,22 +2177,49 @@
 
                 return carry;
               }, []);
+
+              const relationCandidates = [
+                rawConfig.relations,
+                rawConfig.relation_columns,
+                rawConfig.relationColumns,
+                rawConfig.foreign_relations,
+                rawConfig.foreignRelations,
+                rawConfig.display_relations,
+                rawConfig.displayRelations,
+              ];
+
+              relationMap = relationCandidates.reduce((carry, candidate) => {
+                const normalized = normalizeRelationDisplayMap(candidate, true);
+
+                if (Object.keys(normalized).length === 0) {
+                  return carry;
+                }
+
+                return { ...carry, ...normalized };
+              }, {});
             }
 
             if (hiddenColumns.length === 0) {
               hiddenColumns = normalizeHiddenColumnsList(rawConfig);
             }
 
+            if (Object.keys(relationMap).length === 0) {
+              relationMap = normalizeRelationDisplayMap(rawConfig, false);
+            }
+
             const hasAliases = Object.keys(aliasMap).length > 0;
             const hasHidden = hiddenColumns.length > 0;
 
-            if (!hasAliases && !hasHidden) {
+            const hasRelations = Object.keys(relationMap).length > 0;
+
+            if (!hasAliases && !hasHidden && !hasRelations) {
               return;
             }
 
             normalized[tableName] = {
               ...(hasAliases ? { aliases: aliasMap } : {}),
               ...(hasHidden ? { hidden: hiddenColumns } : {}),
+              ...(hasRelations ? { relations: relationMap } : {}),
             };
           });
 
@@ -3514,11 +3666,15 @@
 
               const rows = Array.isArray(data.rows) ? data.rows : [];
 
+              const fallbackColumns = rows.length > 0
+                ? Object.keys(rows[0]).filter((column) => column !== '__display')
+                : [];
+
               const baseColumns = normalizedColumns.length > 0
                 ? normalizedColumns
                 : (structureColumns.length > 0
                   ? structureColumns
-                  : (rows.length > 0 ? Object.keys(rows[0]) : []));
+                  : fallbackColumns);
 
               viewer.columns = baseColumns;
               viewer.rows = rows.map((row) => (row && typeof row === 'object' ? row : {}));
@@ -3648,7 +3804,28 @@
 
             await this.showRecordValue(tableForModal, normalizedColumn, row, baseState);
           },
-          contentManagementHighlight(columnName, value) {
+          contentManagementCellValue(row, columnName) {
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedColumn || !row || typeof row !== 'object') {
+              return undefined;
+            }
+
+            const displayMap = row.__display && typeof row.__display === 'object'
+              ? row.__display
+              : null;
+
+            if (
+              displayMap &&
+              Object.prototype.hasOwnProperty.call(displayMap, normalizedColumn)
+            ) {
+              return displayMap[normalizedColumn];
+            }
+
+            return row[normalizedColumn];
+          },
+          contentManagementHighlight(columnName, row) {
+            const value = this.contentManagementCellValue(row, columnName);
             const text = this.formatCell(value);
             const searchTerm = typeof this.contentManagement.viewer.search === 'string'
               ? this.contentManagement.viewer.search
