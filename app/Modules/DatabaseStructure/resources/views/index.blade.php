@@ -1070,7 +1070,7 @@
         @click="closeContentManagementTableSettings()"
       ></div>
       <div
-        class="relative z-10 w-full max-w-3xl space-y-5 rounded-3xl border border-border/70 bg-card p-6 shadow-xl"
+        class="relative z-10 w-full max-w-3xl space-y-5 overflow-y-auto rounded-3xl border border-border/70 bg-card p-4 shadow-xl max-h-[calc(100vh-3rem)] sm:max-h-[calc(100vh-4rem)] sm:p-6 lg:max-h-[calc(100vh-6rem)]"
         @click.stop
       >
         <div class="flex flex-wrap items-start justify-between gap-4">
