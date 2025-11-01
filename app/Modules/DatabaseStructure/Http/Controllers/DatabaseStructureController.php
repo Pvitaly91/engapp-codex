@@ -4,6 +4,7 @@ namespace App\Modules\DatabaseStructure\Http\Controllers;
 
 use App\Modules\DatabaseStructure\Services\ContentManagementMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
+use App\Modules\DatabaseStructure\Services\FilterStorageManager;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
@@ -17,6 +18,7 @@ class DatabaseStructureController
         private DatabaseStructureFetcher $fetcher,
         private ManualRelationManager $manualRelationManager,
         private ContentManagementMenuManager $contentManagementMenuManager,
+        private FilterStorageManager $filterStorageManager,
     )
     {
     }
@@ -89,6 +91,105 @@ class DatabaseStructureController
 
             return response()->json([
                 'deleted' => true,
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function filters(string $table, string $scope): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $filters = $this->filterStorageManager->getScopeFilters($table, $scopeKey);
+
+            return response()->json([
+                'filters' => $filters['items'],
+                'last_used' => $filters['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function storeFilter(Request $request, string $table, string $scope): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $name = is_string($request->input('name')) ? trim((string) $request->input('name')) : '';
+            $filters = $this->normalizeFiltersPayload($request->input('filters'));
+            $search = is_string($request->input('search')) ? trim((string) $request->input('search')) : '';
+            $searchColumn = is_string($request->input('search_column')) ? trim((string) $request->input('search_column')) : '';
+
+            $result = $this->filterStorageManager->store(
+                $table,
+                $scopeKey,
+                $name,
+                $filters,
+                $search,
+                $searchColumn,
+            );
+
+            return response()->json([
+                'filters' => $result['items'],
+                'last_used' => $result['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function useFilter(string $table, string $scope, string $filter): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $filterId = is_string($filter) ? trim($filter) : '';
+
+            $this->filterStorageManager->markAsLastUsed($table, $scopeKey, $filterId);
+            $result = $this->filterStorageManager->getScopeFilters($table, $scopeKey);
+
+            return response()->json([
+                'last_used' => $result['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroyFilter(string $table, string $scope, string $filter): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $filterId = is_string($filter) ? trim($filter) : '';
+            $result = $this->filterStorageManager->delete($table, $scopeKey, $filterId);
+
+            return response()->json([
+                'filters' => $result['items'],
+                'last_used' => $result['last_used'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
@@ -407,6 +508,61 @@ class DatabaseStructureController
                 'message' => $exception->getMessage(),
             ], 500);
         }
+    }
+
+    private function resolveFilterScope(string $scope): string
+    {
+        return $scope === 'content' ? 'content' : 'records';
+    }
+
+    /**
+     * @param mixed $filters
+     * @return array<int, array{column: string, operator: string, value: string}>
+     */
+    private function normalizeFiltersPayload(mixed $filters): array
+    {
+        if (!is_array($filters)) {
+            return [];
+        }
+
+        $normalized = [];
+
+        foreach ($filters as $filter) {
+            if (!is_array($filter)) {
+                continue;
+            }
+
+            $column = isset($filter['column']) && is_string($filter['column'])
+                ? trim($filter['column'])
+                : '';
+            $operator = isset($filter['operator']) && is_string($filter['operator'])
+                ? trim($filter['operator'])
+                : '';
+
+            if ($column === '' || $operator === '') {
+                continue;
+            }
+
+            $value = '';
+
+            if (array_key_exists('value', $filter)) {
+                $raw = $filter['value'];
+
+                if ($raw === null) {
+                    $value = '';
+                } elseif (is_scalar($raw)) {
+                    $value = (string) $raw;
+                }
+            }
+
+            $normalized[] = [
+                'column' => $column,
+                'operator' => $operator,
+                'value' => $value,
+            ];
+        }
+
+        return $normalized;
     }
 
     /**
