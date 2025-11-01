@@ -35,3 +35,18 @@ Route::post('/content-management/menu', [DatabaseStructureController::class, 'st
 Route::delete('/content-management/menu/{table}', [DatabaseStructureController::class, 'destroyContentManagementMenu'])
     ->where('table', '[^/]+')
     ->name('content-management.menu.destroy');
+Route::get('/tables/{table}/filters/{scope}', [DatabaseStructureController::class, 'filters'])
+    ->where(['table' => '[^/]+', 'scope' => 'records|content'])
+    ->name('filters.index');
+Route::post('/tables/{table}/filters/{scope}', [DatabaseStructureController::class, 'storeFilter'])
+    ->where(['table' => '[^/]+', 'scope' => 'records|content'])
+    ->name('filters.store');
+Route::patch('/tables/{table}/filters/{scope}/{filter}/use', [DatabaseStructureController::class, 'useFilter'])
+    ->where(['table' => '[^/]+', 'scope' => 'records|content', 'filter' => '[^/]+'])
+    ->name('filters.use');
+Route::patch('/tables/{table}/filters/{scope}/default', [DatabaseStructureController::class, 'setDefaultFilter'])
+    ->where(['table' => '[^/]+', 'scope' => 'records|content'])
+    ->name('filters.default');
+Route::delete('/tables/{table}/filters/{scope}/{filter}', [DatabaseStructureController::class, 'destroyFilter'])
+    ->where(['table' => '[^/]+', 'scope' => 'records|content', 'filter' => '[^/]+'])
+    ->name('filters.destroy');
