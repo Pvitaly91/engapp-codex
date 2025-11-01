@@ -1544,7 +1544,13 @@
                         <tr class="hover:bg-muted/40 transition">
                           <template x-for="column in contentManagement.viewer.columns" :key="`cm-cell-${rowIndex}-${column}`">
                             <td class="px-3 py-2 align-top">
-                              <div class="text-sm text-foreground" x-html="contentManagementHighlight(column, row[column])"></div>
+                              <button
+                                type="button"
+                                class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                @click.stop="showContentManagementRecordValue(column, row)"
+                                :title="formatCell(row[column])"
+                                x-html="contentManagementHighlight(column, row[column])"
+                              ></button>
                             </td>
                           </template>
                         </tr>
@@ -3563,6 +3569,59 @@
                 viewer.loading = false;
               }
             }
+          },
+          showContentManagementRecordValue(columnName, row) {
+            const selected = typeof this.contentManagement.selectedTable === 'string'
+              ? this.contentManagement.selectedTable.trim()
+              : '';
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!selected || !normalizedColumn || !row || typeof row !== 'object') {
+              return;
+            }
+
+            const baseTable = this.findTableByName(selected);
+            const viewerColumns = Array.isArray(this.contentManagement.viewer.columns)
+              ? this.contentManagement.viewer.columns
+                .map((column) => (typeof column === 'string' ? column.trim() : ''))
+                .filter((column) => column !== '')
+              : [];
+            const search = typeof this.contentManagement.viewer.search === 'string'
+              ? this.contentManagement.viewer.search
+              : '';
+            const searchColumn = typeof this.contentManagement.viewer.searchColumn === 'string'
+              ? this.contentManagement.viewer.searchColumn.trim()
+              : '';
+
+            const tableForModal = baseTable
+              ? {
+                  ...baseTable,
+                  records: {
+                    ...(baseTable.records || {}),
+                    columns: viewerColumns.length > 0
+                      ? viewerColumns
+                      : (Array.isArray(baseTable.records?.columns) ? baseTable.records.columns : []),
+                    search,
+                    searchColumn,
+                  },
+                }
+              : {
+                  name: selected,
+                  structure: {
+                    loading: false,
+                    loaded: false,
+                    columns: [],
+                    error: null,
+                  },
+                  primaryKeys: [],
+                  records: {
+                    columns: viewerColumns,
+                    search,
+                    searchColumn,
+                  },
+                };
+
+            this.showRecordValue(tableForModal, normalizedColumn, row);
           },
           contentManagementHighlight(columnName, value) {
             const text = this.formatCell(value);
