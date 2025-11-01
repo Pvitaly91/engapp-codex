@@ -1139,6 +1139,7 @@
                       <select
                         class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
                         x-model="entry.relation.displayColumn"
+                        @change="handleContentManagementRelationDisplayChange(entry)"
                         :disabled="entry.relation.options.length === 0"
                       >
                         <option value="">— Використати значення за замовчуванням —</option>
@@ -1164,6 +1165,28 @@
                     <p class="text-[11px] font-normal normal-case text-muted-foreground/80">
                       Залиште порожнім, щоб використовувати значення за замовчуванням.
                     </p>
+                    <div class="flex flex-col gap-1">
+                      <span class="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                        Додаткові поля
+                      </span>
+                      <select
+                        multiple
+                        size="5"
+                        class="min-h-[120px] w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                        x-model="entry.relation.additionalColumns"
+                        @change="handleContentManagementRelationDisplayChange(entry)"
+                        :disabled="entry.relation.options.length <= 1"
+                      >
+                        <template x-for="option in entry.relation.options" :key="`relation-extra-${option}`">
+                          <template x-if="option && option !== entry.relation.displayColumn">
+                            <option :value="option" x-text="option"></option>
+                          </template>
+                        </template>
+                      </select>
+                      <p class="text-[11px] font-normal normal-case text-muted-foreground/80">
+                        Виберіть додаткові поля пов'язаної таблиці, які потрібно додати до конфігурації.
+                      </p>
+                    </div>
                   </div>
                 </template>
               </div>
@@ -2020,6 +2043,38 @@
         const normalizeRelationDisplayMap = (source, allowSimple = false) => {
           const result = {};
 
+          const extractRelationAdditionalColumns = (...sources) => {
+            const set = new Set();
+
+            const collect = (value) => {
+              if (Array.isArray(value)) {
+                value.forEach((item) => collect(item));
+                return;
+              }
+
+              if (!value) {
+                return;
+              }
+
+              if (typeof value === 'object') {
+                Object.values(value).forEach((item) => collect(item));
+                return;
+              }
+
+              if (typeof value === 'string') {
+                const normalized = value.trim();
+
+                if (normalized) {
+                  set.add(normalized);
+                }
+              }
+            };
+
+            sources.forEach((sourceEntry) => collect(sourceEntry));
+
+            return Array.from(set);
+          };
+
           const push = (columnName, definition) => {
             const column = typeof columnName === 'string' ? columnName.trim() : '';
 
@@ -2029,6 +2084,7 @@
 
             let table = '';
             let display = '';
+            let additional = [];
 
             if (typeof definition === 'string') {
               const value = definition.trim();
@@ -2082,6 +2138,17 @@
                   table = rawTable.trim();
                 }
               }
+
+              additional = extractRelationAdditionalColumns(
+                definition.label_columns,
+                definition.labelColumns,
+                definition.columns,
+                definition.fields,
+                definition.labels,
+                definition.additional,
+                definition.extra,
+                definition.extras,
+              );
             } else {
               return;
             }
@@ -2090,10 +2157,18 @@
               return;
             }
 
+            const sanitizedAdditional = Array.isArray(additional)
+              ? additional.filter((value) => typeof value === 'string' && value.trim() !== '' && value.trim() !== display)
+              : [];
+
             const payload = { column: display };
 
             if (table) {
               payload.table = table;
+            }
+
+            if (sanitizedAdditional.length > 0) {
+              payload.labelColumns = sanitizedAdditional.map((value) => value.trim());
             }
 
             result[column] = payload;
@@ -2906,7 +2981,13 @@
               .map((column) => (typeof column === 'string' ? column.trim() : ''))
               .filter((column) => column !== '');
           },
-          resolveContentManagementRelationState(tableName, columnName, override = null, preferred = '') {
+          resolveContentManagementRelationState(
+            tableName,
+            columnName,
+            override = null,
+            preferredDisplay = '',
+            preferredAdditional = [],
+          ) {
             const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
             const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
 
@@ -2930,7 +3011,7 @@
 
             const overrideTable = override && typeof override.table === 'string' ? override.table.trim() : '';
             const overrideDisplay = override && typeof override.column === 'string' ? override.column.trim() : '';
-            const preferredDisplay = typeof preferred === 'string' ? preferred.trim() : '';
+            const preferred = typeof preferredDisplay === 'string' ? preferredDisplay.trim() : '';
             const foreignDisplay = typeof foreign.displayColumn === 'string' ? foreign.displayColumn.trim() : '';
 
             const relationTable = overrideTable || foreignTable;
@@ -2941,16 +3022,102 @@
 
             const targetTable = this.findTableByName(relationTable);
             const targetColumns = this.getTableColumnNames(targetTable);
-            const optionSet = new Set(Array.isArray(targetColumns) ? targetColumns : []);
+            const optionSet = new Set();
 
-            [overrideDisplay, foreignDisplay, preferredDisplay, foreignColumn].forEach((value) => {
-              if (typeof value === 'string' && value !== '') {
-                optionSet.add(value);
+            const pushOption = (value) => {
+              if (typeof value !== 'string') {
+                return;
               }
-            });
+
+              const normalized = value.trim();
+
+              if (normalized) {
+                optionSet.add(normalized);
+              }
+            };
+
+            const collectAdditionalColumns = (source) => {
+              if (!source) {
+                return [];
+              }
+
+              const target = new Set();
+
+              const collect = (value) => {
+                if (Array.isArray(value)) {
+                  value.forEach((item) => collect(item));
+                  return;
+                }
+
+                if (typeof value === 'string') {
+                  const normalized = value.trim();
+
+                  if (normalized) {
+                    target.add(normalized);
+                  }
+                }
+              };
+
+              collect(source);
+
+              return Array.from(target);
+            };
+
+            const sanitizedPreferredAdditional = Array.isArray(preferredAdditional)
+              ? preferredAdditional
+                .map((value) => (typeof value === 'string' ? value.trim() : ''))
+                .filter((value) => value !== '')
+              : [];
+
+            const overrideAdditional = override && typeof override === 'object'
+              ? collectAdditionalColumns(
+                override.labelColumns
+                  ?? override.label_columns
+                  ?? override.columns
+                  ?? override.fields
+                  ?? override.additional
+                  ?? override.extra
+                  ?? override.extras,
+              )
+              : [];
+
+            const foreignLabelColumns = Array.isArray(foreign.labelColumns)
+              ? foreign.labelColumns
+                .map((value) => (typeof value === 'string' ? value.trim() : ''))
+                .filter((value) => value !== '')
+              : [];
+
+            (Array.isArray(targetColumns) ? targetColumns : []).forEach(pushOption);
+            [overrideDisplay, foreignDisplay, preferred, foreignColumn].forEach(pushOption);
+            overrideAdditional.forEach(pushOption);
+            foreignLabelColumns.forEach(pushOption);
+            sanitizedPreferredAdditional.forEach(pushOption);
 
             const options = Array.from(optionSet);
-            const selectedDisplay = preferredDisplay || overrideDisplay || foreignDisplay || '';
+            const selectedDisplay = preferred || overrideDisplay || foreignDisplay || '';
+
+            const additionalSet = new Set();
+
+            const addAdditional = (list) => {
+              if (!Array.isArray(list)) {
+                return;
+              }
+
+              list.forEach((value) => {
+                if (typeof value !== 'string') {
+                  return;
+                }
+
+                const normalized = value.trim();
+
+                if (normalized && normalized !== selectedDisplay && optionSet.has(normalized)) {
+                  additionalSet.add(normalized);
+                }
+              });
+            };
+
+            addAdditional(overrideAdditional);
+            addAdditional(sanitizedPreferredAdditional);
 
             return {
               sourceColumn: normalizedColumn,
@@ -2960,7 +3127,36 @@
               displayColumn: selectedDisplay,
               options,
               manual: Boolean(foreign.manual),
+              additionalColumns: Array.from(additionalSet),
             };
+          },
+          handleContentManagementRelationDisplayChange(entry) {
+            if (!entry || typeof entry !== 'object') {
+              return;
+            }
+
+            if (!entry.relation || typeof entry.relation !== 'object') {
+              return;
+            }
+
+            const displayColumn = typeof entry.relation.displayColumn === 'string'
+              ? entry.relation.displayColumn.trim()
+              : '';
+
+            const currentAdditional = Array.isArray(entry.relation.additionalColumns)
+              ? entry.relation.additionalColumns
+              : [];
+
+            const sanitized = currentAdditional
+              .map((value) => (typeof value === 'string' ? value.trim() : ''))
+              .filter((value, index, array) => value !== '' && array.indexOf(value) === index);
+
+            if (!displayColumn) {
+              entry.relation.additionalColumns = sanitized;
+              return;
+            }
+
+            entry.relation.additionalColumns = sanitized.filter((value) => value !== displayColumn);
           },
           async updateContentManagementEntryRelation(entry) {
             if (!entry || typeof entry !== 'object') {
@@ -2997,6 +3193,11 @@
               && typeof entry.relation.displayColumn === 'string'
               ? entry.relation.displayColumn
               : '';
+            const preferredAdditional = entry.relation
+              && entry.relation.sourceColumn === columnName
+              && Array.isArray(entry.relation.additionalColumns)
+              ? entry.relation.additionalColumns
+              : [];
 
             const column = this.findTableColumn(table, columnName);
             const foreignTable = column
@@ -3019,6 +3220,7 @@
               columnName,
               override,
               preferred,
+              preferredAdditional,
             );
 
             entry.relation = relationState ?? null;
@@ -3321,10 +3523,17 @@
               }
 
               const relationTable = typeof relation.table === 'string' ? relation.table.trim() : '';
+              const additionalColumns = Array.isArray(relation.additionalColumns)
+                ? relation.additionalColumns
+                  .map((value) => (typeof value === 'string' ? value.trim() : ''))
+                  .filter((value) => value !== '' && value !== displayColumn)
+                : [];
+              const uniqueAdditional = Array.from(new Set(additionalColumns));
 
               carry[column] = {
                 column: displayColumn,
                 ...(relationTable ? { table: relationTable } : {}),
+                ...(uniqueAdditional.length > 0 ? { label_columns: uniqueAdditional } : {}),
               };
 
               return carry;

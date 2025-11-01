@@ -851,6 +851,21 @@ class DatabaseStructureFetcher
             $foreign = $foreignColumns[$columnName];
             $targetTable = $definition['table'] ?? $foreign['table'] ?? null;
             $displayColumn = $definition['column'] ?? null;
+            $labelColumns = [];
+
+            if (isset($definition['label_columns']) && is_array($definition['label_columns'])) {
+                foreach ($definition['label_columns'] as $labelColumn) {
+                    if (is_string($labelColumn) && $labelColumn !== '') {
+                        $labelColumns[] = $labelColumn;
+                    }
+                }
+            } elseif (isset($definition['labelColumns']) && is_array($definition['labelColumns'])) {
+                foreach ($definition['labelColumns'] as $labelColumn) {
+                    if (is_string($labelColumn) && $labelColumn !== '') {
+                        $labelColumns[] = $labelColumn;
+                    }
+                }
+            }
 
             if (!$targetTable || !$displayColumn) {
                 continue;
@@ -861,6 +876,17 @@ class DatabaseStructureFetcher
                 'display_column' => $displayColumn,
                 'referenced_column' => $foreign['column'],
             ];
+
+            if (!empty($labelColumns)) {
+                $labelColumns = array_values(array_unique(array_filter(
+                    $labelColumns,
+                    static fn ($value) => is_string($value) && $value !== '' && $value !== $displayColumn,
+                )));
+
+                if (!empty($labelColumns)) {
+                    $overrides[$columnName]['label_columns'] = $labelColumns;
+                }
+            }
         }
 
         return $overrides;
@@ -1000,6 +1026,49 @@ class DatabaseStructureFetcher
 
         if ($table !== null) {
             $payload['table'] = $table;
+        }
+
+        $labelColumns = [];
+        $sources = [
+            $definition['label_columns'] ?? null,
+            $definition['labelColumns'] ?? null,
+            $definition['columns'] ?? null,
+            $definition['fields'] ?? null,
+            $definition['labels'] ?? null,
+            $definition['additional'] ?? null,
+            $definition['extra'] ?? null,
+            $definition['extras'] ?? null,
+        ];
+
+        foreach ($sources as $source) {
+            if (is_array($source)) {
+                foreach ($source as $candidate) {
+                    $normalized = $this->sanitizeConfigName($candidate);
+
+                    if ($normalized !== null) {
+                        $labelColumns[] = $normalized;
+                    }
+                }
+
+                continue;
+            }
+
+            $normalized = $this->sanitizeConfigName($source);
+
+            if ($normalized !== null) {
+                $labelColumns[] = $normalized;
+            }
+        }
+
+        if (!empty($labelColumns)) {
+            $labelColumns = array_values(array_unique(array_filter(
+                $labelColumns,
+                static fn ($value) => is_string($value) && $value !== '' && $value !== $payload['column'],
+            )));
+        }
+
+        if (!empty($labelColumns)) {
+            $payload['label_columns'] = $labelColumns;
         }
 
         return $payload;
