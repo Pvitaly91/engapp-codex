@@ -1607,6 +1607,71 @@
                 <div>
                   <h2 class="text-2xl font-semibold text-foreground" x-text="contentManagementLabel(contentManagement.selectedTable)"></h2>
                   <p class="text-sm text-muted-foreground" x-text="contentManagement.selectedTable"></p>
+                  <div class="mt-3 space-y-2">
+                    <template x-if="contentManagement.viewer.feedback">
+                      <span class="text-xs font-semibold text-emerald-600" x-text="contentManagement.viewer.feedback"></span>
+                    </template>
+                    <template x-if="contentManagement.viewer.savedFilters.loading">
+                      <span class="text-[11px] text-muted-foreground">Завантаження збережених фільтрів…</span>
+                    </template>
+                    <template x-if="!contentManagement.viewer.savedFilters.loading && contentManagement.viewer.savedFilters.items.length > 0">
+                      <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                        <template x-for="saved in contentManagement.viewer.savedFilters.items" :key="`content-saved-${saved.id}`">
+                          <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background">
+                            <button
+                              type="button"
+                              class="px-3 py-1 transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                              :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'bg-primary/10 text-primary' : 'text-foreground'"
+                              :disabled="contentManagement.viewer.loading || contentManagement.viewer.savedFilters.loading"
+                              @click.stop="applySavedContentManagementFilter(saved.id)"
+                              x-text="saved.name"
+                            ></button>
+                            <button
+                              type="button"
+                              class="px-2 py-1 transition hover:text-amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+                              :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'text-amber-500' : 'text-muted-foreground'"
+                              :disabled="contentManagement.viewer.savedFilters.loading"
+                              @click.stop="toggleContentManagementDefaultFilter(saved.id)"
+                              :aria-label="contentManagement.viewer.savedFilters.defaultId === saved.id ? `Вимкнути фільтр ${saved.name} за замовчуванням` : `Зробити фільтр ${saved.name} за замовчуванням`"
+                            >
+                              <i class="fa-solid fa-star text-[10px]"></i>
+                            </button>
+                            <template x-if="contentManagementFilterShareUrl(saved)">
+                              <a
+                                class="px-2 py-1 text-muted-foreground transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                                :href="contentManagementFilterShareUrl(saved)"
+                                target="_blank"
+                                rel="noopener"
+                                :aria-label="`Відкрити таблицю з фільтром ${saved.name}`"
+                              >
+                                <i class="fa-solid fa-link text-[10px]"></i>
+                              </a>
+                            </template>
+                            <button
+                              type="button"
+                              class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
+                              :disabled="contentManagement.viewer.savedFilters.loading"
+                              @click.stop="deleteSavedContentManagementFilter(saved.id)"
+                              :aria-label="`Видалити фільтр ${saved.name}`"
+                            >
+                              <i class="fa-solid fa-xmark text-[10px]"></i>
+                            </button>
+                          </div>
+                        </template>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                          :class="(!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
+                          :aria-pressed="!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled"
+                          :disabled="contentManagement.viewer.savedFilters.loading"
+                          @click.stop="setContentManagementDefaultFilter('')"
+                        >
+                          <i class="fa-solid fa-ban text-[10px]"></i>
+                          <span>Без фільтра</span>
+                        </button>
+                      </div>
+                    </template>
+                  </div>
                 </div>
                 <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
                   <label class="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
@@ -1693,69 +1758,6 @@
                       Застосувати
                     </button>
                   </div>
-                  <template x-if="contentManagement.viewer.feedback">
-                    <span class="text-xs font-semibold text-emerald-600 md:text-right" x-text="contentManagement.viewer.feedback"></span>
-                  </template>
-                  <template x-if="contentManagement.viewer.savedFilters.loading">
-                    <span class="text-[11px] text-muted-foreground md:text-right">Завантаження збережених фільтрів…</span>
-                  </template>
-                  <template x-if="!contentManagement.viewer.savedFilters.loading && contentManagement.viewer.savedFilters.items.length > 0">
-                    <div class="flex flex-wrap items-center gap-2 pt-1 md:justify-end">
-                      <template x-for="saved in contentManagement.viewer.savedFilters.items" :key="`content-saved-${saved.id}`">
-                        <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background text-[11px] font-semibold">
-                          <button
-                            type="button"
-                            class="px-3 py-1 transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-                            :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'bg-primary/10 text-primary' : 'text-foreground'"
-                            :disabled="contentManagement.viewer.loading || contentManagement.viewer.savedFilters.loading"
-                            @click.stop="applySavedContentManagementFilter(saved.id)"
-                            x-text="saved.name"
-                          ></button>
-                          <button
-                            type="button"
-                            class="px-2 py-1 transition hover:text-amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
-                            :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'text-amber-500' : 'text-muted-foreground'"
-                            :disabled="contentManagement.viewer.savedFilters.loading"
-                            @click.stop="toggleContentManagementDefaultFilter(saved.id)"
-                            :aria-label="contentManagement.viewer.savedFilters.defaultId === saved.id ? `Вимкнути фільтр ${saved.name} за замовчуванням` : `Зробити фільтр ${saved.name} за замовчуванням`"
-                          >
-                            <i class="fa-solid fa-star text-[10px]"></i>
-                          </button>
-                          <template x-if="contentManagementFilterShareUrl(saved)">
-                            <a
-                              class="px-2 py-1 text-muted-foreground transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                              :href="contentManagementFilterShareUrl(saved)"
-                              target="_blank"
-                              rel="noopener"
-                              :aria-label="`Відкрити таблицю з фільтром ${saved.name}`"
-                            >
-                              <i class="fa-solid fa-link text-[10px]"></i>
-                            </a>
-                          </template>
-                          <button
-                            type="button"
-                            class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
-                            :disabled="contentManagement.viewer.savedFilters.loading"
-                            @click.stop="deleteSavedContentManagementFilter(saved.id)"
-                            :aria-label="`Видалити фільтр ${saved.name}`"
-                          >
-                            <i class="fa-solid fa-xmark text-[10px]"></i>
-                          </button>
-                        </div>
-                      </template>
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-                        :class="(!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
-                        :aria-pressed="!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled"
-                        :disabled="contentManagement.viewer.savedFilters.loading"
-                        @click.stop="setContentManagementDefaultFilter('')"
-                      >
-                        <i class="fa-solid fa-ban text-[10px]"></i>
-                        <span>Без фільтра</span>
-                      </button>
-                    </div>
-                  </template>
                 </div>
               </div>
 
