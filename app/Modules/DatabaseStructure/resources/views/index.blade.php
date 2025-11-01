@@ -1544,7 +1544,13 @@
                         <tr class="hover:bg-muted/40 transition">
                           <template x-for="column in contentManagement.viewer.columns" :key="`cm-cell-${rowIndex}-${column}`">
                             <td class="px-3 py-2 align-top">
-                              <div class="text-sm text-foreground" x-html="contentManagementHighlight(column, row[column])"></div>
+                              <button
+                                type="button"
+                                class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                                @click.stop="showContentManagementValue(column, row)"
+                                :title="formatCell(row[column])"
+                                x-html="contentManagementHighlight(column, row[column])"
+                              ></button>
                             </td>
                           </template>
                         </tr>
@@ -3580,11 +3586,63 @@
 
             return this.highlightText(text, searchTerm);
           },
-        syncBodyScrollLock() {
-          const shouldLock =
-            this.valueModal.open ||
-            this.manualForeignModal.open ||
-            this.contentManagement.deletionModal.open ||
+          async showContentManagementValue(column, row) {
+            const columnName = typeof column === 'string' ? column.trim() : '';
+            const tableName = typeof this.contentManagement.selectedTable === 'string'
+              ? this.contentManagement.selectedTable.trim()
+              : '';
+
+            if (!columnName || !tableName) {
+              return;
+            }
+
+            const viewer = this.contentManagement.viewer || {};
+            const columns = Array.isArray(viewer.columns)
+              ? viewer.columns
+                .map((name) => (typeof name === 'string' ? name.trim() : ''))
+                .filter((name) => name !== '')
+              : [];
+            const searchValue = typeof viewer.search === 'string' ? viewer.search : '';
+            const searchColumn = typeof viewer.searchColumn === 'string'
+              ? viewer.searchColumn.trim()
+              : '';
+
+            const normalizedRow = row && typeof row === 'object' ? row : {};
+            const baseTable = await this.ensureStructureLoadedByName(tableName);
+
+            const modalTable = baseTable
+              ? {
+                ...baseTable,
+                records: {
+                  ...(baseTable.records ? { ...baseTable.records } : {}),
+                  columns,
+                  search: searchValue,
+                  searchColumn,
+                },
+              }
+              : {
+                name: tableName,
+                primaryKeys: [],
+                structure: {
+                  columns: columns.map((name) => ({ name })),
+                  loading: false,
+                  loaded: true,
+                  error: null,
+                },
+                records: {
+                  columns,
+                  search: searchValue,
+                  searchColumn,
+                },
+              };
+
+            await this.showRecordValue(modalTable, columnName, normalizedRow);
+          },
+          syncBodyScrollLock() {
+            const shouldLock =
+              this.valueModal.open ||
+              this.manualForeignModal.open ||
+              this.contentManagement.deletionModal.open ||
             this.contentManagement.tableSettings.open;
           this.toggleBodyScroll(shouldLock);
         },
