@@ -512,14 +512,14 @@
                             <tr class="hover:bg-muted/40">
                               <template x-for="column in table.records.columns" :key="column">
                                 <td class="px-3 py-2 text-[15px] text-foreground">
-                                  <button
-                                    type="button"
-                                    class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-[15px] text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
-                                    @click.stop="showRecordValue(table, column, row)"
-                                    :title="formatCell(row[column])"
-                                    x-html="renderRecordPreview(table, column, row[column])"
-                                  ></button>
-                                </td>
+                                <button
+                                  type="button"
+                                  class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-[15px] text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                  @click.stop="showRecordValue(table, column, row)"
+                                  :title="formatCell(getRecordDisplayValue(row, column))"
+                                  x-html="renderRecordPreview(table, column, row)"
+                                ></button>
+                              </td>
                               </template>
                               <td class="px-3 py-2 text-right">
                                 <button
@@ -1550,8 +1550,8 @@
                                 type="button"
                                 class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
                                 @click.stop="showContentManagementRecordValue(column, row)"
-                                :title="formatCell(row[column])"
-                                x-html="contentManagementHighlight(column, row[column])"
+                                :title="formatCell(getRecordDisplayValue(row, column))"
+                                x-html="contentManagementHighlight(column, row)"
                               ></button>
                             </td>
                           </template>
@@ -2080,6 +2080,7 @@
           error: null,
           columns: [],
           rows: [],
+          displayValues: [],
           sort: '',
           direction: 'asc',
           filters: [],
@@ -2181,6 +2182,7 @@
                 loading: false,
                 loaded: false,
                 rows: [],
+                displayValues: [],
                 columns: columnNames,
                 error: null,
                 page: 1,
@@ -3220,6 +3222,7 @@
             this.contentManagement.viewer.error = fresh.error;
             this.contentManagement.viewer.columns = fresh.columns;
             this.contentManagement.viewer.rows = fresh.rows;
+            this.contentManagement.viewer.displayValues = fresh.displayValues;
             this.contentManagement.viewer.sort = fresh.sort;
             this.contentManagement.viewer.direction = fresh.direction;
             this.contentManagement.viewer.filters = fresh.filters;
@@ -3512,16 +3515,21 @@
                 .map((column) => (typeof column === 'string' ? column.trim() : ''))
                 .filter((column) => column !== '');
 
-              const rows = Array.isArray(data.rows) ? data.rows : [];
+              const normalizedPayload = this.normalizeRowsWithDisplay(data.rows, data.display_values);
+              const rows = normalizedPayload.rows;
+              const fallbackColumnsFromRows = rows.length > 0
+                ? Object.keys(rows[0]).filter((key) => key !== '__display')
+                : [];
 
               const baseColumns = normalizedColumns.length > 0
                 ? normalizedColumns
                 : (structureColumns.length > 0
                   ? structureColumns
-                  : (rows.length > 0 ? Object.keys(rows[0]) : []));
+                  : fallbackColumnsFromRows);
 
               viewer.columns = baseColumns;
-              viewer.rows = rows.map((row) => (row && typeof row === 'object' ? row : {}));
+              viewer.rows = rows;
+              viewer.displayValues = normalizedPayload.displayValues;
               viewer.page = Number.isFinite(data.page) ? Number(data.page) : currentPage;
               viewer.perPage = Number.isFinite(data.per_page) ? Number(data.per_page) : currentPerPage;
               viewer.total = Number.isFinite(data.total) ? Number(data.total) : rows.length;
@@ -3566,6 +3574,7 @@
               viewer.error = error?.message ?? 'Сталася помилка під час завантаження даних таблиці.';
               viewer.rows = [];
               viewer.columns = [];
+              viewer.displayValues = [];
               viewer.loaded = false;
             } finally {
               if (viewer.requestId === requestId) {
@@ -3619,6 +3628,7 @@
                   primaryKeys: [],
                   records: {
                     columns: viewerColumns,
+                    displayValues: [],
                     search,
                     searchColumn,
                   },
@@ -3648,7 +3658,8 @@
 
             await this.showRecordValue(tableForModal, normalizedColumn, row, baseState);
           },
-          contentManagementHighlight(columnName, value) {
+          contentManagementHighlight(columnName, row) {
+            const value = this.getRecordDisplayValue(row, columnName);
             const text = this.formatCell(value);
             const searchTerm = typeof this.contentManagement.viewer.search === 'string'
               ? this.contentManagement.viewer.search
@@ -4310,7 +4321,9 @@
               return;
             }
 
-            table.records.rows = data.rows || [];
+            const normalizedRecords = this.normalizeRowsWithDisplay(data.rows, data.display_values);
+            table.records.rows = normalizedRecords.rows;
+            table.records.displayValues = normalizedRecords.displayValues;
             table.records.columns = Array.isArray(data.columns)
               ? data.columns.filter((name) => typeof name === 'string')
               : table.records.columns;
@@ -5477,6 +5490,72 @@
 
           return `filter-${Date.now()}-${Math.random().toString(16).slice(2)}`;
         },
+        normalizeRowsWithDisplay(rowsPayload, displayPayload = []) {
+          const rows = Array.isArray(rowsPayload) ? rowsPayload : [];
+          const displayValuesSource = Array.isArray(displayPayload)
+            ? displayPayload.map((entry) => (entry && typeof entry === 'object' ? entry : {}))
+            : [];
+
+          const normalizedRows = rows.map((row, index) => {
+            const baseRow = row && typeof row === 'object' && !Array.isArray(row)
+              ? { ...row }
+              : {};
+
+            const displayRow = displayValuesSource[index] && typeof displayValuesSource[index] === 'object'
+              ? displayValuesSource[index]
+              : {};
+
+            if (Object.keys(displayRow).length > 0) {
+              baseRow.__display = displayRow;
+            } else if (Object.prototype.hasOwnProperty.call(baseRow, '__display')) {
+              delete baseRow.__display;
+            }
+
+            return baseRow;
+          });
+
+          const hasDisplay = normalizedRows.some((row) => {
+            if (!row || typeof row !== 'object') {
+              return false;
+            }
+
+            const display = row.__display;
+
+            return display && typeof display === 'object' && Object.keys(display).length > 0;
+          });
+
+          const normalizedDisplayValues = hasDisplay
+            ? normalizedRows.map((row) => (row && typeof row.__display === 'object' ? row.__display : {}))
+            : [];
+
+          return {
+            rows: normalizedRows,
+            displayValues: normalizedDisplayValues,
+          };
+        },
+        getRecordDisplayValue(row, column) {
+          if (!row || typeof row !== 'object' || typeof column !== 'string') {
+            return row && typeof row === 'object' ? row[column] : undefined;
+          }
+
+          const normalizedColumn = column.trim();
+
+          if (!normalizedColumn) {
+            return row[column];
+          }
+
+          const displaySource = row.__display;
+
+          if (displaySource && typeof displaySource === 'object' && Object.prototype.hasOwnProperty.call(displaySource, normalizedColumn)) {
+            const value = displaySource[normalizedColumn];
+
+            if (value !== undefined) {
+              return value;
+            }
+          }
+
+          return row[normalizedColumn];
+        },
         formatCell(value) {
           if (value === null || value === undefined) {
             return '—';
@@ -5524,7 +5603,8 @@
 
           return `${text.slice(0, sliceLength)}${ellipsis}`;
         },
-        renderRecordPreview(table, column, value) {
+        renderRecordPreview(table, column, row) {
+          const value = this.getRecordDisplayValue(row, column);
           const text = this.formatCell(value);
           const truncated = this.truncateText(text, this.cellPreviewLimit);
           const records = table && typeof table === 'object' ? table.records || {} : {};

@@ -3,10 +3,13 @@
 return array (
   'route_prefix' => 'admin/database-structure',
   'connection' => NULL,
-  'manual_relations' => 
+  'manual_relations' =>
   array (
   ),
-  'content_management' => 
+  'foreign_overrides' =>
+  array (
+  ),
+  'content_management' =>
   array (
     'menu' => 
     array (
