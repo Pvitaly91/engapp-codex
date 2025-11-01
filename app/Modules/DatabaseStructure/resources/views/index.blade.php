@@ -1134,19 +1134,29 @@
                 </label>
                 <template x-if="entry.relation && entry.relation.table">
                   <div class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
-                    <span>Поле пов'язаної таблиці</span>
-                    <div>
-                      <select
-                        class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
-                        x-model="entry.relation.displayColumn"
-                        :disabled="entry.relation.options.length === 0"
-                      >
-                        <option value="">— Використати значення за замовчуванням —</option>
-                        <template x-for="option in entry.relation.options" :key="option">
-                          <option :value="option" x-text="option"></option>
-                        </template>
-                      </select>
-                    </div>
+                    <span x-text="entry.relationAdditional ? 'Додаткове поле пов\'язаної таблиці' : 'Поле пов\'язаної таблиці'"></span>
+                    <template x-if="!entry.relationAdditional">
+                      <div>
+                        <select
+                          class="w-full rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                          x-model="entry.relation.displayColumn"
+                          :disabled="entry.relation.options.length === 0"
+                        >
+                          <option value="">— Використати значення за замовчуванням —</option>
+                          <template x-for="option in entry.relation.options" :key="option">
+                            <option :value="option" x-text="option"></option>
+                          </template>
+                        </select>
+                      </div>
+                    </template>
+                    <template x-if="entry.relationAdditional">
+                      <div class="rounded-xl border border-dashed border-border/60 bg-muted/30 px-3 py-2 text-[13px] font-normal normal-case text-muted-foreground">
+                        <p class="font-medium text-foreground" x-text="entry.relationAdditional.table ? `${entry.relationAdditional.table}.${entry.relationAdditional.column}` : entry.relationAdditional.column"></p>
+                        <p class="text-[11px] text-muted-foreground/80">
+                          Джерело: <span class="font-semibold text-foreground" x-text="entry.relationAdditional.sourceColumn"></span>
+                        </p>
+                      </div>
+                    </template>
                     <p class="text-[11px] font-normal normal-case text-muted-foreground">
                       <span>Зв'язок:</span>
                       <span class="font-semibold text-foreground" x-text="entry.relation.table"></span>
@@ -1156,14 +1166,16 @@
                         </span>
                       </template>
                     </p>
-                    <template x-if="entry.relation.options.length === 0">
+                    <template x-if="entry.relation.options.length === 0 && !entry.relationAdditional">
                       <p class="text-[11px] font-normal normal-case text-amber-600">
                         Структура пов'язаної таблиці відсутня. Додайте її вручну у конфігурації або відкрийте таблицю зі структури.
                       </p>
                     </template>
-                    <p class="text-[11px] font-normal normal-case text-muted-foreground/80">
-                      Залиште порожнім, щоб використовувати значення за замовчуванням.
-                    </p>
+                    <template x-if="!entry.relationAdditional">
+                      <p class="text-[11px] font-normal normal-case text-muted-foreground/80">
+                        Залиште порожнім, щоб використовувати значення за замовчуванням.
+                      </p>
+                    </template>
                   </div>
                 </template>
               </div>
@@ -1192,14 +1204,65 @@
         </div>
 
         <div class="flex flex-wrap items-center justify-between gap-3">
-          <button
-            type="button"
-            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-            @click="addContentManagementTableSettingsEntry()"
-          >
-            <i class="fa-solid fa-plus text-[11px]"></i>
-            Додати колонку
-          </button>
+          <div class="relative" @click.away="contentManagement.tableSettings.addColumnMenuOpen = false">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              @click="contentManagement.tableSettings.addColumnMenuOpen = !contentManagement.tableSettings.addColumnMenuOpen"
+              @keydown.escape.prevent.stop="contentManagement.tableSettings.addColumnMenuOpen = false"
+            >
+              <i class="fa-solid fa-plus text-[11px]"></i>
+              Додати колонку
+              <i class="fa-solid fa-angle-down text-[10px]" :class="contentManagement.tableSettings.addColumnMenuOpen ? 'rotate-180 transition-transform' : 'transition-transform'"></i>
+            </button>
+            <template x-if="contentManagement.tableSettings.addColumnMenuOpen">
+              <div
+                x-cloak
+                class="absolute z-20 mt-2 w-72 rounded-2xl border border-border/60 bg-background p-2 shadow-xl"
+                @keydown.escape.prevent.stop="contentManagement.tableSettings.addColumnMenuOpen = false"
+              >
+                <template x-if="contentManagementTableSettingsStructureOptions().length > 0">
+                  <div class="mb-2">
+                    <p class="px-2 pb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">Зі структури</p>
+                    <div class="flex max-h-52 flex-col gap-1 overflow-y-auto">
+                      <template x-for="option in contentManagementTableSettingsStructureOptions()" :key="option.column">
+                        <button
+                          type="button"
+                          class="w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-foreground transition hover:bg-muted/60"
+                          @click="addContentManagementTableSettingsEntryFromOption(option)"
+                        >
+                          <span x-text="option.label"></span>
+                        </button>
+                      </template>
+                    </div>
+                  </div>
+                </template>
+                <template x-if="contentManagementTableSettingsRelationOptions().length > 0">
+                  <div class="mb-2 border-t border-dashed border-border/60 pt-2">
+                    <p class="px-2 pb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80">Додаткові поля зв'язків</p>
+                    <div class="flex max-h-52 flex-col gap-1 overflow-y-auto">
+                      <template x-for="option in contentManagementTableSettingsRelationOptions()" :key="option.key">
+                        <button
+                          type="button"
+                          class="w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-foreground transition hover:bg-muted/60"
+                          @click="addContentManagementTableSettingsEntryFromOption(option)"
+                        >
+                          <span x-text="option.label"></span>
+                        </button>
+                      </template>
+                    </div>
+                  </div>
+                </template>
+                <button
+                  type="button"
+                  class="w-full rounded-xl border border-dashed border-border/60 px-3 py-2 text-left text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary"
+                  @click="addContentManagementTableSettingsEntryFromOption({ type: 'manual' })"
+                >
+                  Ввести колонку вручну
+                </button>
+              </div>
+            </template>
+          </div>
           <div class="flex flex-col gap-1 text-xs text-muted-foreground sm:text-right">
             <span>Порожні alias будуть проігноровані при застосуванні та в JSON-конфігурації.</span>
           </div>
@@ -2017,6 +2080,108 @@
           return Array.from(set);
         };
 
+        const buildRelationAdditionalColumnKey = (sourceColumn, targetColumn) => {
+          const source = typeof sourceColumn === 'string' ? sourceColumn.trim() : '';
+          const target = typeof targetColumn === 'string' ? targetColumn.trim() : '';
+
+          if (!source || !target) {
+            return '';
+          }
+
+          return `${source}.${target}`;
+        };
+
+        const parseRelationAdditionalValue = (value) => {
+          if (typeof value === 'string') {
+            const trimmed = value.trim();
+
+            if (!trimmed) {
+              return null;
+            }
+
+            if (trimmed.includes('.')) {
+              const [rawTable, rawColumn] = trimmed.split('.', 2);
+              const column = typeof rawColumn === 'string' ? rawColumn.trim() : '';
+              const table = typeof rawTable === 'string' ? rawTable.trim() : '';
+
+              if (!column) {
+                return null;
+              }
+
+              return table ? { column, table } : { column };
+            }
+
+            return { column: trimmed };
+          }
+
+          if (!value || typeof value !== 'object') {
+            return null;
+          }
+
+          const columnCandidate = value.column
+            ?? value.field
+            ?? value.name
+            ?? value.value;
+          const tableCandidate = value.table
+            ?? value.target_table
+            ?? value.targetTable
+            ?? value.foreign_table
+            ?? value.foreignTable
+            ?? value.relation_table
+            ?? value.relationTable;
+
+          const column = typeof columnCandidate === 'string' ? columnCandidate.trim() : '';
+          const table = typeof tableCandidate === 'string' ? tableCandidate.trim() : '';
+
+          if (!column) {
+            return null;
+          }
+
+          return table ? { column, table } : { column };
+        };
+
+        const normalizeRelationAdditionalList = (source) => {
+          const result = [];
+          const seen = new Set();
+
+          const push = (entry) => {
+            if (!entry || typeof entry !== 'object' || typeof entry.column !== 'string') {
+              return;
+            }
+
+            const column = entry.column.trim();
+
+            if (!column) {
+              return;
+            }
+
+            const table = typeof entry.table === 'string' ? entry.table.trim() : '';
+            const key = `${table}:${column}`;
+
+            if (seen.has(key)) {
+              return;
+            }
+
+            seen.add(key);
+            result.push(table ? { column, table } : { column });
+          };
+
+          if (typeof source === 'string' || (source && typeof source === 'object' && !Array.isArray(source))) {
+            const parsed = parseRelationAdditionalValue(source);
+            push(parsed);
+            return result;
+          }
+
+          if (Array.isArray(source)) {
+            source.forEach((item) => {
+              const parsed = parseRelationAdditionalValue(item);
+              push(parsed);
+            });
+          }
+
+          return result;
+        };
+
         const normalizeRelationDisplayMap = (source, allowSimple = false) => {
           const result = {};
 
@@ -2029,6 +2194,7 @@
 
             let table = '';
             let display = '';
+            let additional = [];
 
             if (typeof definition === 'string') {
               const value = definition.trim();
@@ -2082,11 +2248,32 @@
                   table = rawTable.trim();
                 }
               }
+
+              const additionalCandidates = [
+                definition.additional,
+                definition.additional_columns,
+                definition.additionalColumns,
+                definition.extras,
+                definition.extra,
+                definition.related,
+                definition.related_columns,
+                definition.relatedColumns,
+              ];
+
+              additionalCandidates.forEach((candidate) => {
+                normalizeRelationAdditionalList(candidate).forEach((item) => {
+                  const key = `${item.table || ''}:${item.column}`;
+
+                  if (!additional.some((existing) => `${existing.table || ''}:${existing.column}` === key)) {
+                    additional.push(item);
+                  }
+                });
+              });
             } else {
               return;
             }
 
-            if (!display) {
+            if (!display && additional.length === 0) {
               return;
             }
 
@@ -2094,6 +2281,16 @@
 
             if (table) {
               payload.table = table;
+            }
+
+            if (additional.length > 0) {
+              payload.additional = additional.map((item) => {
+                if (item.table && item.table !== table) {
+                  return `${item.table}.${item.column}`;
+                }
+
+                return item.column;
+              });
             }
 
             result[column] = payload;
@@ -2446,6 +2643,8 @@
               error: null,
               feedback: '',
               nextId: 0,
+              relationStates: {},
+              addColumnMenuOpen: false,
             },
             selectedTable: '',
             viewer: createContentManagementViewerState(),
@@ -2967,6 +3166,10 @@
               return;
             }
 
+            if (entry.relationAdditional) {
+              return;
+            }
+
             const tableName = typeof this.contentManagement.tableSettings.table === 'string'
               ? this.contentManagement.tableSettings.table.trim()
               : '';
@@ -3019,15 +3222,6 @@
               columnName,
               override,
               preferred,
-            );
-
-            entry.relation = relationState ?? null;
-          },
-          nextContentManagementTableSettingsId() {
-            const current = Number(this.contentManagement.tableSettings.nextId) || 0;
-            this.contentManagement.tableSettings.nextId = current + 1;
-            return `cm-table-settings-${Date.now()}-${current}`;
-          },
           async openContentManagementTableSettingsModal() {
             const tableName = typeof this.contentManagement.selectedTable === 'string'
               ? this.contentManagement.selectedTable.trim()
@@ -3038,20 +3232,70 @@
             }
 
             this.contentManagement.tableSettings.nextId = 0;
+            this.contentManagement.tableSettings.addColumnMenuOpen = false;
 
             const table = await this.ensureStructureLoadedByName(tableName);
             const aliases = this.getContentManagementTableAliases(tableName);
             const hiddenColumns = this.getContentManagementHiddenColumns(tableName);
             const relationsSource = this.getContentManagementRelationOverrides(tableName);
-            const relationOverrides = relationsSource && typeof relationsSource === 'object'
-              ? { ...relationsSource }
-              : {};
+            const normalizedRelationOverrides = {};
+
+            if (relationsSource && typeof relationsSource === 'object') {
+              Object.entries(relationsSource).forEach(([column, definition]) => {
+                if (typeof column !== 'string') {
+                  return;
+                }
+
+                const normalizedColumn = column.trim();
+
+                if (!normalizedColumn) {
+                  return;
+                }
+
+                if (definition && typeof definition === 'object') {
+                  normalizedRelationOverrides[normalizedColumn] = { ...definition };
+                } else if (typeof definition === 'string') {
+                  normalizedRelationOverrides[normalizedColumn] = { column: definition };
+                } else {
+                  normalizedRelationOverrides[normalizedColumn] = {};
+                }
+              });
+            }
+
+            const parsedRelationAdditional = {};
+            const additionalDefinitionMap = {};
+
+            Object.entries(normalizedRelationOverrides).forEach(([column, definition]) => {
+              const additionalList = Array.isArray(definition?.additional) ? definition.additional : [];
+              const parsed = normalizeRelationAdditionalList(additionalList);
+
+              parsedRelationAdditional[column] = parsed;
+
+              parsed.forEach((item) => {
+                if (!item || typeof item.column !== 'string') {
+                  return;
+                }
+
+                const additionalKey = buildRelationAdditionalColumnKey(column, item.column);
+
+                if (!additionalKey) {
+                  return;
+                }
+
+                additionalDefinitionMap[additionalKey] = {
+                  sourceColumn: column,
+                  column: item.column,
+                  table: typeof item.table === 'string' ? item.table : '',
+                };
+              });
+            });
+
             const relationTargets = new Set();
             const hiddenSet = new Set(
               Array.isArray(hiddenColumns)
                 ? hiddenColumns
-                  .map((column) => (typeof column === 'string' ? column.trim() : ''))
-                  .filter((column) => column !== '')
+                  .map((value) => (typeof value === 'string' ? value.trim() : ''))
+                  .filter((value) => value !== '')
                 : [],
             );
             const structureColumns = table && table.structure && Array.isArray(table.structure.columns)
@@ -3070,7 +3314,7 @@
               }
             });
 
-            Object.values(relationOverrides).forEach((definition) => {
+            Object.values(normalizedRelationOverrides).forEach((definition) => {
               const relatedTable = definition && typeof definition.table === 'string'
                 ? definition.table.trim()
                 : '';
@@ -3086,21 +3330,154 @@
 
             const columns = this.getContentManagementColumnsForSettings(tableName);
             const seen = new Set();
+            const relationStatesMap = {};
+            const processedOverrideColumns = new Set();
             const entries = [];
+
+            const registerRelationState = (columnName, relation) => {
+              if (typeof columnName !== 'string' || !columnName) {
+                return;
+              }
+
+              relationStatesMap[columnName] = relation ?? null;
+            };
+
+            const appendAdditionalEntries = (sourceColumn, relation, additionalList = []) => {
+              if (!relation || !Array.isArray(additionalList)) {
+                return;
+              }
+
+              additionalList.forEach((item) => {
+                if (!item || typeof item.column !== 'string') {
+                  return;
+                }
+
+                const additionalColumn = item.column.trim();
+
+                if (!additionalColumn) {
+                  return;
+                }
+
+                const key = buildRelationAdditionalColumnKey(sourceColumn, additionalColumn);
+
+                if (!key || seen.has(key)) {
+                  return;
+                }
+
+                const meta = additionalDefinitionMap[key] ?? {
+                  sourceColumn,
+                  column: additionalColumn,
+                  table: typeof item.table === 'string' ? item.table : '',
+                };
+
+                const aliasValue = typeof aliases[key] === 'string' ? aliases[key] : '';
+                const isHidden = hiddenSet.has(key);
+                const relationTable = meta.table || relation.table || relation.originalTable || '';
+
+                entries.push({
+                  id: this.nextContentManagementTableSettingsId(),
+                  column: key,
+                  alias: aliasValue,
+                  hidden: isHidden,
+                  locked: true,
+                  relation,
+                  relationAdditional: {
+                    sourceColumn,
+                    column: additionalColumn,
+                    table: relationTable,
+                  },
+                });
+
+                seen.add(key);
+                hiddenSet.delete(key);
+              });
+            };
+
+            const processAdditionalKey = (key, aliasValue = '', hidden = false) => {
+              const normalizedKey = typeof key === 'string' ? key.trim() : '';
+
+              if (!normalizedKey || seen.has(normalizedKey)) {
+                return false;
+              }
+
+              const fallbackMeta = (() => {
+                if (!normalizedKey.includes('.')) {
+                  return null;
+                }
+
+                const [rawSource, rawColumn] = normalizedKey.split('.', 2);
+                const sourceColumn = typeof rawSource === 'string' ? rawSource.trim() : '';
+                const column = typeof rawColumn === 'string' ? rawColumn.trim() : '';
+
+                if (!sourceColumn || !column) {
+                  return null;
+                }
+
+                return { sourceColumn, column, table: '' };
+              })();
+
+              const meta = additionalDefinitionMap[normalizedKey] ?? fallbackMeta;
+
+              if (!meta || !meta.sourceColumn || !meta.column) {
+                return false;
+              }
+
+              let relation = relationStatesMap[meta.sourceColumn];
+
+              if (!relation) {
+                const overrideDefinition = normalizedRelationOverrides[meta.sourceColumn] ?? null;
+
+                relation = this.resolveContentManagementRelationState(
+                  tableName,
+                  meta.sourceColumn,
+                  overrideDefinition ?? null,
+                );
+
+                if (!relation) {
+                  return false;
+                }
+
+                registerRelationState(meta.sourceColumn, relation);
+              }
+
+              const relationTable = meta.table || relation.table || relation.originalTable || '';
+
+              entries.push({
+                id: this.nextContentManagementTableSettingsId(),
+                column: normalizedKey,
+                alias: typeof aliasValue === 'string' ? aliasValue : '',
+                hidden: Boolean(hidden),
+                locked: true,
+                relation,
+                relationAdditional: {
+                  sourceColumn: meta.sourceColumn,
+                  column: meta.column,
+                  table: relationTable,
+                },
+              });
+
+              seen.add(normalizedKey);
+              hiddenSet.delete(normalizedKey);
+
+              return true;
+            };
 
             columns.forEach((column) => {
               const normalizedColumn = typeof column === 'string' ? column.trim() : '';
 
-              if (!normalizedColumn) {
+              if (!normalizedColumn || seen.has(normalizedColumn)) {
                 return;
               }
 
               const aliasValue = typeof aliases[normalizedColumn] === 'string' ? aliases[normalizedColumn] : '';
+              const overrideDefinition = normalizedRelationOverrides[normalizedColumn] ?? null;
               const relation = this.resolveContentManagementRelationState(
                 tableName,
                 normalizedColumn,
-                relationOverrides[normalizedColumn] ?? null,
+                overrideDefinition ?? null,
               );
+
+              registerRelationState(normalizedColumn, relation);
 
               entries.push({
                 id: this.nextContentManagementTableSettingsId(),
@@ -3108,15 +3485,18 @@
                 alias: aliasValue,
                 hidden: hiddenSet.has(normalizedColumn),
                 locked: true,
-                relation: relation ?? null,
+                relation,
               });
 
               seen.add(normalizedColumn);
               hiddenSet.delete(normalizedColumn);
+              processedOverrideColumns.add(normalizedColumn);
 
-              if (Object.prototype.hasOwnProperty.call(relationOverrides, normalizedColumn)) {
-                delete relationOverrides[normalizedColumn];
-              }
+              appendAdditionalEntries(
+                normalizedColumn,
+                relation,
+                parsedRelationAdditional[normalizedColumn] ?? [],
+              );
             });
 
             Object.entries(aliases).forEach(([column, alias]) => {
@@ -3126,11 +3506,18 @@
                 return;
               }
 
+              if (processAdditionalKey(normalizedColumn, alias, hiddenSet.has(normalizedColumn))) {
+                return;
+              }
+
+              const overrideDefinition = normalizedRelationOverrides[normalizedColumn] ?? null;
               const relation = this.resolveContentManagementRelationState(
                 tableName,
                 normalizedColumn,
-                relationOverrides[normalizedColumn] ?? null,
+                overrideDefinition ?? null,
               );
+
+              registerRelationState(normalizedColumn, relation);
 
               entries.push({
                 id: this.nextContentManagementTableSettingsId(),
@@ -3138,52 +3525,73 @@
                 alias: typeof alias === 'string' ? alias : '',
                 hidden: hiddenSet.has(normalizedColumn),
                 locked: false,
-                relation: relation ?? null,
+                relation,
               });
 
               seen.add(normalizedColumn);
               hiddenSet.delete(normalizedColumn);
+              processedOverrideColumns.add(normalizedColumn);
 
-              if (Object.prototype.hasOwnProperty.call(relationOverrides, normalizedColumn)) {
-                delete relationOverrides[normalizedColumn];
-              }
+              appendAdditionalEntries(
+                normalizedColumn,
+                relation,
+                parsedRelationAdditional[normalizedColumn] ?? [],
+              );
             });
 
             hiddenSet.forEach((column) => {
-              const normalizedColumn = typeof column === 'string' ? column.trim() : '';
-              const relation = this.resolveContentManagementRelationState(
-                tableName,
-                normalizedColumn,
-                relationOverrides[normalizedColumn] ?? null,
-              );
-
-              entries.push({
-                id: this.nextContentManagementTableSettingsId(),
-                column,
-                alias: '',
-                hidden: true,
-                locked: false,
-                relation: relation ?? null,
-              });
-              seen.add(column);
-
-              if (Object.prototype.hasOwnProperty.call(relationOverrides, normalizedColumn)) {
-                delete relationOverrides[normalizedColumn];
-              }
-            });
-
-            Object.entries(relationOverrides).forEach(([column, definition]) => {
               const normalizedColumn = typeof column === 'string' ? column.trim() : '';
 
               if (!normalizedColumn || seen.has(normalizedColumn)) {
                 return;
               }
 
+              if (processAdditionalKey(normalizedColumn, '', true)) {
+                return;
+              }
+
+              const overrideDefinition = normalizedRelationOverrides[normalizedColumn] ?? null;
               const relation = this.resolveContentManagementRelationState(
                 tableName,
                 normalizedColumn,
-                definition,
+                overrideDefinition ?? null,
               );
+
+              registerRelationState(normalizedColumn, relation);
+
+              entries.push({
+                id: this.nextContentManagementTableSettingsId(),
+                column: normalizedColumn,
+                alias: '',
+                hidden: true,
+                locked: false,
+                relation,
+              });
+
+              seen.add(normalizedColumn);
+              processedOverrideColumns.add(normalizedColumn);
+
+              appendAdditionalEntries(
+                normalizedColumn,
+                relation,
+                parsedRelationAdditional[normalizedColumn] ?? [],
+              );
+            });
+
+            Object.entries(normalizedRelationOverrides).forEach(([column, definition]) => {
+              const normalizedColumn = typeof column === 'string' ? column.trim() : '';
+
+              if (!normalizedColumn || seen.has(normalizedColumn) || processedOverrideColumns.has(normalizedColumn)) {
+                return;
+              }
+
+              const relation = this.resolveContentManagementRelationState(
+                tableName,
+                normalizedColumn,
+                definition ?? null,
+              );
+
+              registerRelationState(normalizedColumn, relation);
 
               entries.push({
                 id: this.nextContentManagementTableSettingsId(),
@@ -3191,10 +3599,29 @@
                 alias: '',
                 hidden: false,
                 locked: false,
-                relation: relation ?? null,
+                relation,
               });
 
               seen.add(normalizedColumn);
+              processedOverrideColumns.add(normalizedColumn);
+
+              appendAdditionalEntries(
+                normalizedColumn,
+                relation,
+                parsedRelationAdditional[normalizedColumn] ?? [],
+              );
+            });
+
+            Object.keys(additionalDefinitionMap).forEach((key) => {
+              if (seen.has(key)) {
+                return;
+              }
+
+              processAdditionalKey(
+                key,
+                typeof aliases[key] === 'string' ? aliases[key] : '',
+                hiddenSet.has(key),
+              );
             });
 
             if (entries.length === 0) {
@@ -3212,6 +3639,7 @@
             this.contentManagement.tableSettings.entries = entries;
             this.contentManagement.tableSettings.error = null;
             this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.relationStates = relationStatesMap;
             this.contentManagement.tableSettings.open = true;
           },
           closeContentManagementTableSettings() {
@@ -3224,6 +3652,8 @@
             this.contentManagement.tableSettings.error = null;
             this.contentManagement.tableSettings.feedback = '';
             this.contentManagement.tableSettings.nextId = 0;
+            this.contentManagement.tableSettings.relationStates = {};
+            this.contentManagement.tableSettings.addColumnMenuOpen = false;
           },
           addContentManagementTableSettingsEntry() {
             if (!Array.isArray(this.contentManagement.tableSettings.entries)) {
@@ -3244,7 +3674,303 @@
 
             this.contentManagement.tableSettings.feedback = '';
             this.contentManagement.tableSettings.error = null;
+            this.contentManagement.tableSettings.addColumnMenuOpen = false;
           },
+          addContentManagementTableSettingsEntryFromOption(option) {
+            if (!option || typeof option !== 'object') {
+              this.addContentManagementTableSettingsEntry();
+              return;
+            }
+
+            const type = option.type;
+
+            if (type === 'structure') {
+              this.addContentManagementStructureColumn(option.column);
+              return;
+            }
+
+            if (type === 'relation') {
+              this.addContentManagementRelationColumn(option);
+              return;
+            }
+
+            if (type === 'manual') {
+              this.addContentManagementTableSettingsEntry();
+            }
+          },
+          addContentManagementStructureColumn(columnName) {
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            if (!tableName) {
+              return;
+            }
+
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedColumn) {
+              return;
+            }
+
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            if (entries.some((entry) => entry && entry.column === normalizedColumn)) {
+              this.contentManagement.tableSettings.addColumnMenuOpen = false;
+              return;
+            }
+
+            const aliases = this.getContentManagementTableAliases(tableName);
+            const aliasValue = typeof aliases[normalizedColumn] === 'string' ? aliases[normalizedColumn] : '';
+            const hiddenColumns = this.getContentManagementHiddenColumns(tableName);
+            const hiddenSet = new Set(
+              Array.isArray(hiddenColumns)
+                ? hiddenColumns
+                  .map((item) => (typeof item === 'string' ? item.trim() : ''))
+                  .filter((item) => item !== '')
+                : [],
+            );
+            const relationOverrides = this.getContentManagementRelationOverrides(tableName);
+            const overrideDefinition = relationOverrides && typeof relationOverrides === 'object'
+              ? relationOverrides[normalizedColumn]
+              : null;
+            const relation = this.resolveContentManagementRelationState(
+              tableName,
+              normalizedColumn,
+              overrideDefinition ?? null,
+            );
+
+            this.contentManagement.tableSettings.entries = [
+              ...entries,
+              {
+                id: this.nextContentManagementTableSettingsId(),
+                column: normalizedColumn,
+                alias: aliasValue,
+                hidden: hiddenSet.has(normalizedColumn),
+                locked: true,
+                relation: relation ?? null,
+              },
+            ];
+
+            this.contentManagement.tableSettings.relationStates = {
+              ...(this.contentManagement.tableSettings.relationStates || {}),
+              [normalizedColumn]: relation ?? null,
+            };
+
+            this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.error = null;
+            this.contentManagement.tableSettings.addColumnMenuOpen = false;
+          },
+          addContentManagementRelationColumn(option) {
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            if (!tableName) {
+              return;
+            }
+
+            const sourceColumn = typeof option?.sourceColumn === 'string' ? option.sourceColumn.trim() : '';
+            const targetColumn = typeof option?.column === 'string' ? option.column.trim() : '';
+
+            if (!sourceColumn || !targetColumn) {
+              return;
+            }
+
+            const key = typeof option?.key === 'string' && option.key.trim()
+              ? option.key.trim()
+              : buildRelationAdditionalColumnKey(sourceColumn, targetColumn);
+
+            if (!key) {
+              return;
+            }
+
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            if (entries.some((entry) => entry && entry.column === key)) {
+              this.contentManagement.tableSettings.addColumnMenuOpen = false;
+              return;
+            }
+
+            const relationStates = this.contentManagement.tableSettings.relationStates
+              && typeof this.contentManagement.tableSettings.relationStates === 'object'
+              ? { ...this.contentManagement.tableSettings.relationStates }
+              : {};
+            let relation = relationStates[sourceColumn];
+
+            if (!relation) {
+              const relationOverrides = this.getContentManagementRelationOverrides(tableName);
+              const overrideDefinition = relationOverrides && typeof relationOverrides === 'object'
+                ? relationOverrides[sourceColumn]
+                : null;
+
+              relation = this.resolveContentManagementRelationState(
+                tableName,
+                sourceColumn,
+                overrideDefinition ?? null,
+              );
+
+              relationStates[sourceColumn] = relation ?? null;
+            }
+
+            if (!relation) {
+              return;
+            }
+
+            const aliases = this.getContentManagementTableAliases(tableName);
+            const aliasValue = typeof aliases[key] === 'string' ? aliases[key] : '';
+            const hiddenColumns = this.getContentManagementHiddenColumns(tableName);
+            const hiddenSet = new Set(
+              Array.isArray(hiddenColumns)
+                ? hiddenColumns
+                  .map((item) => (typeof item === 'string' ? item.trim() : ''))
+                  .filter((item) => item !== '')
+                : [],
+            );
+            const relationTable = typeof option?.table === 'string' && option.table.trim()
+              ? option.table.trim()
+              : (relation.table || relation.originalTable || '');
+
+            this.contentManagement.tableSettings.entries = [
+              ...entries,
+              {
+                id: this.nextContentManagementTableSettingsId(),
+                column: key,
+                alias: aliasValue,
+                hidden: hiddenSet.has(key),
+                locked: true,
+                relation,
+                relationAdditional: {
+                  sourceColumn,
+                  column: targetColumn,
+                  table: relationTable,
+                },
+              },
+            ];
+
+            this.contentManagement.tableSettings.relationStates = relationStates;
+            this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.error = null;
+            this.contentManagement.tableSettings.addColumnMenuOpen = false;
+          },
+          contentManagementTableSettingsStructureOptions() {
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            if (!tableName) {
+              return [];
+            }
+
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+            const used = new Set(
+              entries
+                .map((entry) => (entry && typeof entry.column === 'string' ? entry.column.trim() : ''))
+                .filter((value) => value !== ''),
+            );
+            const columns = this.getContentManagementColumnsForSettings(tableName);
+
+            return columns
+              .filter((column) => column && !used.has(column))
+              .map((column) => ({
+                type: 'structure',
+                column,
+                label: column,
+              }));
+          },
+          contentManagementTableSettingsRelationOptions() {
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            if (!tableName) {
+              return [];
+            }
+
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+            const used = new Set(
+              entries
+                .map((entry) => (entry && typeof entry.column === 'string' ? entry.column.trim() : ''))
+                .filter((value) => value !== ''),
+            );
+
+            const relationStates = this.contentManagement.tableSettings.relationStates
+              && typeof this.contentManagement.tableSettings.relationStates === 'object'
+              ? this.contentManagement.tableSettings.relationStates
+              : {};
+
+            const relationMap = new Map();
+
+            entries.forEach((entry) => {
+              if (!entry || typeof entry !== 'object' || !entry.relation) {
+                return;
+              }
+
+              const sourceColumn = entry.relationAdditional && typeof entry.relationAdditional.sourceColumn === 'string'
+                ? entry.relationAdditional.sourceColumn.trim()
+                : (typeof entry.column === 'string' ? entry.column.trim() : '');
+
+              if (!sourceColumn || relationMap.has(sourceColumn)) {
+                return;
+              }
+
+              const state = relationStates[sourceColumn] ?? entry.relation;
+
+              if (!state || !Array.isArray(state.options) || state.options.length === 0) {
+                return;
+              }
+
+              relationMap.set(sourceColumn, state);
+            });
+
+            const options = [];
+
+            relationMap.forEach((relation, sourceColumn) => {
+              const normalizedSource = typeof sourceColumn === 'string' ? sourceColumn.trim() : '';
+
+              if (!normalizedSource) {
+                return;
+              }
+
+              relation.options.forEach((targetColumn) => {
+                const normalizedTarget = typeof targetColumn === 'string' ? targetColumn.trim() : '';
+
+                if (!normalizedTarget) {
+                  return;
+                }
+
+                const key = buildRelationAdditionalColumnKey(normalizedSource, normalizedTarget);
+
+                if (!key || used.has(key)) {
+                  return;
+                }
+
+                const relationTable = relation.table || relation.originalTable || '';
+
+                options.push({
+                  type: 'relation',
+                  key,
+                  sourceColumn: normalizedSource,
+                  column: normalizedTarget,
+                  table: relationTable,
+                  label: relationTable
+                    ? `${relationTable}.${normalizedTarget} (через ${normalizedSource})`
+                    : `${normalizedTarget} (через ${normalizedSource})`,
+                });
+              });
+            });
+
+            return options.sort((a, b) => a.label.localeCompare(b.label));
+          },
+
           removeContentManagementTableSettingsEntry(index) {
             const entries = Array.isArray(this.contentManagement.tableSettings.entries)
               ? this.contentManagement.tableSettings.entries
@@ -3297,38 +4023,98 @@
               ? this.contentManagement.tableSettings.entries
               : [];
 
-            return entries.reduce((carry, entry) => {
-              const column = typeof entry?.column === 'string' ? entry.column.trim() : '';
+            const relations = {};
 
-              if (!column) {
-                return carry;
+            entries.forEach((entry) => {
+              if (!entry || typeof entry !== 'object' || !entry.relation) {
+                return;
               }
 
-              const relation = entry?.relation && typeof entry.relation === 'object'
-                ? entry.relation
-                : null;
+              const relation = entry.relation;
+              const relationTable = typeof relation.table === 'string' && relation.table.trim()
+                ? relation.table.trim()
+                : (typeof relation.originalTable === 'string' ? relation.originalTable.trim() : '');
+              const baseColumn = entry.relationAdditional && typeof entry.relationAdditional.sourceColumn === 'string'
+                ? entry.relationAdditional.sourceColumn.trim()
+                : (typeof entry.column === 'string' ? entry.column.trim() : '');
 
-              if (!relation) {
-                return carry;
+              if (!baseColumn) {
+                return;
               }
 
-              const displayColumn = typeof relation.displayColumn === 'string'
-                ? relation.displayColumn.trim()
+              if (!relations[baseColumn]) {
+                relations[baseColumn] = {};
+              }
+
+              const payload = relations[baseColumn];
+
+              if (relationTable && !payload.table) {
+                payload.table = relationTable;
+              }
+
+              if (!entry.relationAdditional) {
+                const displayColumn = typeof relation.displayColumn === 'string'
+                  ? relation.displayColumn.trim()
+                  : '';
+
+                if (displayColumn) {
+                  payload.column = displayColumn;
+                }
+
+                if (!payload.table && typeof relation.table === 'string') {
+                  const normalizedTable = relation.table.trim();
+
+                  if (normalizedTable) {
+                    payload.table = normalizedTable;
+                  }
+                }
+
+                return;
+              }
+
+              const additionalColumn = typeof entry.relationAdditional.column === 'string'
+                ? entry.relationAdditional.column.trim()
                 : '';
 
-              if (!displayColumn) {
-                return carry;
+              if (!additionalColumn) {
+                return;
               }
 
-              const relationTable = typeof relation.table === 'string' ? relation.table.trim() : '';
+              const additionalTable = entry.relationAdditional.table && typeof entry.relationAdditional.table === 'string'
+                ? entry.relationAdditional.table.trim()
+                : '';
 
-              carry[column] = {
-                column: displayColumn,
-                ...(relationTable ? { table: relationTable } : {}),
-              };
+              const normalizedTable = additionalTable || payload.table || relationTable;
 
-              return carry;
-            }, {});
+              if (normalizedTable && !payload.table) {
+                payload.table = normalizedTable;
+              }
+
+              const list = Array.isArray(payload.additional) ? payload.additional : [];
+              const value = normalizedTable && payload.table && normalizedTable !== payload.table
+                ? `${normalizedTable}.${additionalColumn}`
+                : additionalColumn;
+
+              if (!list.includes(value)) {
+                list.push(value);
+              }
+
+              payload.additional = list;
+            });
+
+            Object.entries(relations).forEach(([column, definition]) => {
+              const payload = definition || {};
+
+              if (Array.isArray(payload.additional) && payload.additional.length === 0) {
+                delete payload.additional;
+              }
+
+              if (!payload.column && !payload.additional) {
+                delete relations[column];
+              }
+            });
+
+            return relations;
           },
           contentManagementTableSettingsSnippet() {
             const tableName = typeof this.contentManagement.tableSettings.table === 'string'
@@ -4016,6 +4802,37 @@
                   }
 
                   if (!displayColumn) {
+                    const additionalList = normalizeRelationAdditionalList(payload.additional);
+
+                    if (additionalList.length === 0) {
+                      return;
+                    }
+
+                    const relationTable = typeof payload.table === 'string' ? payload.table.trim() : '';
+
+                    additionalList.forEach((item) => {
+                      if (!item || typeof item !== 'object' || typeof item.column !== 'string') {
+                        return;
+                      }
+
+                      const additionalColumn = item.column.trim();
+
+                      if (!additionalColumn) {
+                        return;
+                      }
+
+                      const tablePart = typeof item.table === 'string' ? item.table.trim() : '';
+                      const value = tablePart && tablePart !== relationTable
+                        ? `${tablePart}.${additionalColumn}`
+                        : additionalColumn;
+
+                      url.searchParams.append(`display_relations[${columnKey}][additional][]`, value);
+                    });
+
+                    if (relationTable) {
+                      url.searchParams.set(`display_relations[${columnKey}][table]`, relationTable);
+                    }
+
                     return;
                   }
 
@@ -4026,6 +4843,27 @@
                   if (relationTable) {
                     url.searchParams.set(`display_relations[${columnKey}][table]`, relationTable);
                   }
+
+                  const additionalList = normalizeRelationAdditionalList(payload.additional);
+
+                  additionalList.forEach((item) => {
+                    if (!item || typeof item !== 'object' || typeof item.column !== 'string') {
+                      return;
+                    }
+
+                    const additionalColumn = item.column.trim();
+
+                    if (!additionalColumn) {
+                      return;
+                    }
+
+                    const tablePart = typeof item.table === 'string' ? item.table.trim() : '';
+                    const tableForValue = tablePart && tablePart !== relationTable
+                      ? `${tablePart}.${additionalColumn}`
+                      : additionalColumn;
+
+                    url.searchParams.append(`display_relations[${columnKey}][additional][]`, tableForValue);
+                  });
                 });
               }
 
