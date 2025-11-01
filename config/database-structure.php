@@ -5,6 +5,15 @@ return array (
   'connection' => NULL,
   'manual_relations' => 
   array (
+    'test_parent' => 
+    array (
+      'test_id' => 
+      array (
+        'table' => 'test',
+        'column' => 'id',
+        'display_column' => 'id',
+      ),
+    ),
   ),
   'content_management' => 
   array (
@@ -19,6 +28,11 @@ return array (
       array (
         'table' => 'question_hints',
         'label' => 'question_hints',
+      ),
+      2 => 
+      array (
+        'table' => 'test_parent',
+        'label' => 'test_parent',
       ),
     ),
     'table_settings' => 

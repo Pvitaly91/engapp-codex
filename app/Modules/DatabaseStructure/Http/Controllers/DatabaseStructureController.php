@@ -4,6 +4,7 @@ namespace App\Modules\DatabaseStructure\Http\Controllers;
 
 use App\Modules\DatabaseStructure\Services\ContentManagementMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
+use App\Modules\DatabaseStructure\Services\FilterStorageManager;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
@@ -17,6 +18,7 @@ class DatabaseStructureController
         private DatabaseStructureFetcher $fetcher,
         private ManualRelationManager $manualRelationManager,
         private ContentManagementMenuManager $contentManagementMenuManager,
+        private FilterStorageManager $filterStorageManager,
     )
     {
     }
@@ -101,6 +103,143 @@ class DatabaseStructureController
         }
     }
 
+    public function filters(string $table, string $scope): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $filters = $this->filterStorageManager->getScopeFilters($table, $scopeKey);
+
+            return response()->json([
+                'filters' => $filters['items'],
+                'last_used' => $filters['last_used'],
+                'default' => $filters['default'],
+                'default_disabled' => $filters['default_disabled'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function storeFilter(Request $request, string $table, string $scope): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $name = is_string($request->input('name')) ? trim((string) $request->input('name')) : '';
+            $filters = $this->normalizeFiltersPayload($request->input('filters'));
+            $search = is_string($request->input('search')) ? trim((string) $request->input('search')) : '';
+            $searchColumn = is_string($request->input('search_column')) ? trim((string) $request->input('search_column')) : '';
+
+            $result = $this->filterStorageManager->store(
+                $table,
+                $scopeKey,
+                $name,
+                $filters,
+                $search,
+                $searchColumn,
+            );
+
+            return response()->json([
+                'filters' => $result['items'],
+                'last_used' => $result['last_used'],
+                'default' => $result['default'],
+                'default_disabled' => $result['default_disabled'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function useFilter(string $table, string $scope, string $filter): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $filterId = is_string($filter) ? trim($filter) : '';
+
+            $this->filterStorageManager->markAsLastUsed($table, $scopeKey, $filterId);
+            $result = $this->filterStorageManager->getScopeFilters($table, $scopeKey);
+
+            return response()->json([
+                'last_used' => $result['last_used'],
+                'default' => $result['default'],
+                'default_disabled' => $result['default_disabled'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroyFilter(string $table, string $scope, string $filter): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $filterId = is_string($filter) ? trim($filter) : '';
+            $result = $this->filterStorageManager->delete($table, $scopeKey, $filterId);
+
+            return response()->json([
+                'filters' => $result['items'],
+                'last_used' => $result['last_used'],
+                'default' => $result['default'],
+                'default_disabled' => $result['default_disabled'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function setDefaultFilter(Request $request, string $table, string $scope): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $filterId = $request->input('filter_id');
+            $normalized = is_string($filterId) ? trim((string) $filterId) : '';
+
+            $result = $this->filterStorageManager->setDefault(
+                $table,
+                $scopeKey,
+                $normalized !== '' ? $normalized : null,
+            );
+
+            return response()->json([
+                'filters' => $result['items'],
+                'last_used' => $result['last_used'],
+                'default' => $result['default'],
+                'default_disabled' => $result['default_disabled'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
     public function structure(string $table): JsonResponse
     {
         try {
@@ -131,6 +270,8 @@ class DatabaseStructureController
             $search = $request->query('search');
             $searchColumn = $request->query('search_column');
 
+            $relationOverrides = $this->extractRelationDisplayOverrides($request);
+
             $preview = $this->fetcher->getPreview(
                 $table,
                 $page,
@@ -140,6 +281,7 @@ class DatabaseStructureController
                 $filters,
                 $search,
                 $searchColumn,
+                $relationOverrides,
             );
 
             return response()->json($preview);
@@ -406,6 +548,61 @@ class DatabaseStructureController
         }
     }
 
+    private function resolveFilterScope(string $scope): string
+    {
+        return $scope === 'content' ? 'content' : 'records';
+    }
+
+    /**
+     * @param mixed $filters
+     * @return array<int, array{column: string, operator: string, value: string}>
+     */
+    private function normalizeFiltersPayload(mixed $filters): array
+    {
+        if (!is_array($filters)) {
+            return [];
+        }
+
+        $normalized = [];
+
+        foreach ($filters as $filter) {
+            if (!is_array($filter)) {
+                continue;
+            }
+
+            $column = isset($filter['column']) && is_string($filter['column'])
+                ? trim($filter['column'])
+                : '';
+            $operator = isset($filter['operator']) && is_string($filter['operator'])
+                ? trim($filter['operator'])
+                : '';
+
+            if ($column === '' || $operator === '') {
+                continue;
+            }
+
+            $value = '';
+
+            if (array_key_exists('value', $filter)) {
+                $raw = $filter['value'];
+
+                if ($raw === null) {
+                    $value = '';
+                } elseif (is_scalar($raw)) {
+                    $value = (string) $raw;
+                }
+            }
+
+            $normalized[] = [
+                'column' => $column,
+                'operator' => $operator,
+                'value' => $value,
+            ];
+        }
+
+        return $normalized;
+    }
+
     /**
      * @return array<int, array{column: string, operator: string, value?: mixed}>
      */
@@ -441,6 +638,55 @@ class DatabaseStructureController
             })
             ->values()
             ->all();
+    }
+
+    private function extractRelationDisplayOverrides(Request $request): array
+    {
+        $overrides = $request->query('display_relations', []);
+
+        if (!is_array($overrides)) {
+            return [];
+        }
+
+        $normalized = [];
+
+        foreach ($overrides as $column => $definition) {
+            if (is_string($column)) {
+                $normalizedColumn = trim($column);
+
+                if ($normalizedColumn === '') {
+                    continue;
+                }
+
+                $normalized[$normalizedColumn] = $definition;
+                continue;
+            }
+
+            if (!is_array($definition)) {
+                continue;
+            }
+
+            $columnName = null;
+
+            foreach (['column', 'field', 'source', 'name'] as $key) {
+                if (isset($definition[$key]) && is_string($definition[$key])) {
+                    $candidate = trim($definition[$key]);
+
+                    if ($candidate !== '') {
+                        $columnName = $candidate;
+                        break;
+                    }
+                }
+            }
+
+            if ($columnName === null) {
+                continue;
+            }
+
+            $normalized[$columnName] = $definition;
+        }
+
+        return $normalized;
     }
 
     /**

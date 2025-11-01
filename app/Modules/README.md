@@ -16,6 +16,7 @@
   php artisan vendor:publish --tag=database-structure-config
   ```
   Це створить файл `config/database-structure.php`, де можна змінити префікс маршруту (`route_prefix`) та вказати окреме підключення до бази (`connection`).
+  Тут же доступні налаштування для контент-менеджменту: ви можете додавати псевдоніми колонок (`aliases`), приховувати поля (`hidden`) і задавати відображувані значення для зовнішніх ключів через секцію `relations`, наприклад ` 'relations' => ['user_id' => 'users.name']`.
 - Щоб перевизначити Blade-шаблони, виконайте (необов'язково):
   ```bash
   php artisan vendor:publish --tag=database-structure-views
