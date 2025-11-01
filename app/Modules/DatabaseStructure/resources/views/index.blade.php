@@ -1544,7 +1544,13 @@
                         <tr class="hover:bg-muted/40 transition">
                           <template x-for="column in contentManagement.viewer.columns" :key="`cm-cell-${rowIndex}-${column}`">
                             <td class="px-3 py-2 align-top">
-                              <div class="text-sm text-foreground" x-html="contentManagementHighlight(column, row[column])"></div>
+                              <button
+                                type="button"
+                                class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1.5 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                @click="showContentManagementValue(column, row)"
+                                :title="formatCell(row[column])"
+                                x-html="contentManagementHighlight(column, row[column])"
+                              ></button>
                             </td>
                           </template>
                         </tr>
@@ -3563,6 +3569,46 @@
                 viewer.loading = false;
               }
             }
+          },
+          async showContentManagementValue(column, row) {
+            const columnName = typeof column === 'string' ? column.trim() : '';
+            const selectedTable = typeof this.contentManagement?.selectedTable === 'string'
+              ? this.contentManagement.selectedTable.trim()
+              : '';
+
+            if (!columnName || !selectedTable || !row || typeof row !== 'object') {
+              return;
+            }
+
+            const table = await this.ensureStructureLoadedByName(selectedTable);
+
+            if (!table) {
+              return;
+            }
+
+            const viewer = this.contentManagement?.viewer || {};
+            const viewerColumns = Array.isArray(viewer.columns)
+              ? viewer.columns.filter((name) => typeof name === 'string' && name !== '')
+              : [];
+
+            const pseudoTable = {
+              ...table,
+              name: table.name || selectedTable,
+              records: {
+                ...(table.records ? { ...table.records } : {}),
+                columns: viewerColumns.length > 0
+                  ? viewerColumns
+                  : (Array.isArray(table.records?.columns)
+                    ? table.records.columns
+                    : []),
+                search: typeof viewer.search === 'string' ? viewer.search : '',
+                searchColumn: typeof viewer.searchColumn === 'string'
+                  ? viewer.searchColumn.trim()
+                  : '',
+              },
+            };
+
+            await this.showRecordValue(pseudoTable, columnName, row);
           },
           contentManagementHighlight(columnName, value) {
             const text = this.formatCell(value);
