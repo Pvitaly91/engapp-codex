@@ -12,11 +12,12 @@ class ContentManagementMenuManager
     }
 
     /**
-     * @return array<int, array{table: string, label: string}>
+     * @return array<int, array{table: string, label: string, is_default: bool}>
      */
     public function getMenu(): array
     {
         $menu = config('database-structure.content_management.menu', []);
+        $defaultTable = $this->getDefaultTable();
 
         if (!is_array($menu)) {
             return [];
@@ -30,6 +31,8 @@ class ContentManagementMenuManager
             if ($normalizedItem === null) {
                 continue;
             }
+
+            $normalizedItem['is_default'] = $defaultTable !== '' && $normalizedItem['table'] === $defaultTable;
 
             $normalized[$normalizedItem['table']] = $normalizedItem;
         }
@@ -47,9 +50,11 @@ class ContentManagementMenuManager
 
         $menu = $this->getMenu();
 
+        $defaultTable = $this->getDefaultTable();
         $item = [
             'table' => $tableName,
             'label' => $this->normalizeLabel($label) ?: $tableName,
+            'is_default' => $defaultTable !== '' && $defaultTable === $tableName,
         ];
 
         $menu = array_values(array_filter(
@@ -59,19 +64,20 @@ class ContentManagementMenuManager
 
         $menu[] = $item;
 
-        $this->writeConfig($menu);
+        $this->writeConfig($menu, $defaultTable);
 
         return $item;
     }
 
     /**
-     * @param array<int, array{table?: mixed, label?: mixed}|string> $items
-     * @return array<int, array{table: string, label: string}>
+     * @param array<int, array{table?: mixed, label?: mixed, is_default?: mixed, default?: mixed}|string> $items
+     * @return array<int, array{table: string, label: string, is_default: bool}>
      */
     public function updateMenu(array $items): array
     {
         $normalized = [];
         $seen = [];
+        $defaultCandidate = '';
 
         foreach ($items as $item) {
             $normalizedItem = $this->normalizeItem($item);
@@ -84,11 +90,29 @@ class ContentManagementMenuManager
                 continue;
             }
 
+            if ($normalizedItem['is_default'] && $defaultCandidate === '') {
+                $defaultCandidate = $normalizedItem['table'];
+            }
+
             $normalized[] = $normalizedItem;
             $seen[] = $normalizedItem['table'];
         }
 
-        $this->writeConfig($normalized);
+        $currentDefault = $this->getDefaultTable();
+        $defaultTable = $defaultCandidate !== ''
+            ? $defaultCandidate
+            : (in_array($currentDefault, $seen, true) ? $currentDefault : '');
+
+        $normalized = array_map(
+            function (array $entry) use ($defaultTable): array {
+                $entry['is_default'] = $defaultTable !== '' && $entry['table'] === $defaultTable;
+
+                return $entry;
+            },
+            $normalized,
+        );
+
+        $this->writeConfig($normalized, $defaultTable);
 
         return $normalized;
     }
@@ -102,6 +126,7 @@ class ContentManagementMenuManager
         }
 
         $menu = $this->getMenu();
+        $defaultTable = $this->getDefaultTable();
         $originalCount = count($menu);
 
         $menu = array_values(array_filter(
@@ -113,7 +138,11 @@ class ContentManagementMenuManager
             throw new RuntimeException('Цю таблицю не знайдено в меню.');
         }
 
-        $this->writeConfig($menu);
+        if ($defaultTable === $tableName) {
+            $defaultTable = '';
+        }
+
+        $this->writeConfig($menu, $defaultTable);
     }
 
     private function normalizeItem(mixed $item): ?array
@@ -137,6 +166,7 @@ class ContentManagementMenuManager
         return [
             'table' => $table,
             'label' => $label,
+            'is_default' => $this->normalizeBoolean($item['is_default'] ?? $item['default'] ?? false),
         ];
     }
 
@@ -150,8 +180,44 @@ class ContentManagementMenuManager
         return is_string($value) ? trim($value) : '';
     }
 
-    private function writeConfig(array $menu): void
+    private function normalizeBoolean(mixed $value): bool
     {
+        if (is_bool($value)) {
+            return $value;
+        }
+
+        if (is_string($value)) {
+            $normalized = strtolower(trim($value));
+
+            return in_array($normalized, ['1', 'true', 'yes', 'on'], true);
+        }
+
+        if (is_numeric($value)) {
+            return (int) $value !== 0;
+        }
+
+        return false;
+    }
+
+    private function getDefaultTable(): string
+    {
+        $value = config('database-structure.content_management.default_table');
+
+        return is_string($value) ? trim($value) : '';
+    }
+
+    private function writeConfig(array $menu, ?string $defaultTable = null): void
+    {
+        $normalizedDefault = $this->normalizeName($defaultTable);
+        $availableTables = array_map(
+            static fn (array $item): string => $item['table'] ?? '',
+            $menu,
+        );
+
+        if ($normalizedDefault !== '' && !in_array($normalizedDefault, $availableTables, true)) {
+            $normalizedDefault = '';
+        }
+
         $config = config('database-structure');
 
         if (!is_array($config)) {
@@ -172,6 +238,12 @@ class ContentManagementMenuManager
             $menu,
         ));
 
+        if ($normalizedDefault !== '') {
+            $config['content_management']['default_table'] = $normalizedDefault;
+        } else {
+            unset($config['content_management']['default_table']);
+        }
+
         $content = "<?php\n\nreturn " . var_export($config, true) . ";\n";
         $path = config_path('database-structure.php');
 
@@ -180,5 +252,6 @@ class ContentManagementMenuManager
         }
 
         config(['database-structure.content_management.menu' => $config['content_management']['menu']]);
+        config(['database-structure.content_management.default_table' => $normalizedDefault !== '' ? $normalizedDefault : null]);
     }
 }

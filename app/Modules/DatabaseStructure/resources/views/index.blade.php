@@ -1546,12 +1546,33 @@
               >
                 <div class="font-semibold" x-text="item.label || item.table"></div>
                 <div class="text-xs text-muted-foreground" x-text="item.table"></div>
+                <div
+                  class="mt-2 inline-flex items-center gap-1 rounded-full bg-amber-100/80 px-2 py-0.5 text-[11px] font-semibold text-amber-700"
+                  x-show="item.is_default"
+                  x-cloak
+                >
+                  <i class="fa-solid fa-star text-[10px]"></i>
+                  <span>За замовчуванням</span>
+                </div>
               </button>
               <div
                 class="inline-flex items-center gap-1"
                 x-show="contentManagement.menuSettings.open"
                 x-cloak
               >
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-amber-400 hover:bg-amber-50 hover:text-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-200/70 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="setContentManagementDefaultTable(item.table)"
+                  :disabled="contentManagement.menuSettings.saving || item.is_default"
+                  :aria-label="item.is_default ? 'Таблиця вже обрана за замовчуванням' : 'Зробити таблицю за замовчуванням'"
+                  :title="item.is_default ? 'Таблиця за замовчуванням' : 'Зробити таблицю за замовчуванням'"
+                >
+                  <i
+                    class="fa-solid fa-star text-xs"
+                    :class="item.is_default ? 'text-amber-500' : 'text-muted-foreground'"
+                  ></i>
+                </button>
                 <button
                   type="button"
                   class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-primary/60 hover:bg-primary/10 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
@@ -2280,6 +2301,24 @@
             .filter(Boolean);
         };
 
+        const coerceBoolean = (value) => {
+          if (typeof value === 'boolean') {
+            return value;
+          }
+
+          if (typeof value === 'string') {
+            const normalized = value.trim().toLowerCase();
+
+            return ['1', 'true', 'yes', 'on'].includes(normalized);
+          }
+
+          if (typeof value === 'number') {
+            return Number.isFinite(value) && value !== 0;
+          }
+
+          return false;
+        };
+
         const normalizeContentManagementMenuItem = (item) => {
           if (typeof item === 'string') {
             const tableName = item.trim();
@@ -2291,6 +2330,7 @@
             return {
               table: tableName,
               label: tableName,
+              is_default: false,
             };
           }
 
@@ -2311,6 +2351,7 @@
           return {
             table: tableName,
             label,
+            is_default: coerceBoolean(item.is_default ?? item.default ?? false),
           };
         };
 
@@ -2320,6 +2361,7 @@
           }
 
           const seen = new Set();
+          let defaultAssigned = false;
 
           return rawMenu
             .map((item) => normalizeContentManagementMenuItem(item))
@@ -2335,6 +2377,19 @@
               seen.add(item.table);
 
               return true;
+            })
+            .map((item) => {
+              if (!item) {
+                return item;
+              }
+
+              if (item.is_default && !defaultAssigned) {
+                defaultAssigned = true;
+              } else {
+                item.is_default = false;
+              }
+
+              return item;
             });
         };
 
@@ -3011,6 +3066,15 @@
           viewOptions && typeof viewOptions === 'object' && !Array.isArray(viewOptions)
             ? viewOptions
             : {};
+        const resolveDefaultContentManagementTable = (menu) => {
+          if (!Array.isArray(menu)) {
+            return '';
+          }
+
+          const found = menu.find((item) => item && typeof item.table === 'string' && item.is_default);
+
+          return found ? found.table : '';
+        };
         const initialTab = normalizedViewOptions.initialTab === 'content-management'
           ? 'content-management'
           : 'structure';
@@ -3047,6 +3111,7 @@
           contentManagementRoutes: normalizedContentManagementRoutes,
           contentManagement: {
             menu: normalizedContentManagementMenu,
+            defaultTable: resolveDefaultContentManagementTable(normalizedContentManagementMenu),
             settings: normalizedContentManagementSettings,
             menuFeedback: '',
             menuFeedbackType: 'success',
@@ -3184,6 +3249,11 @@
             });
 
             this.$watch('contentManagement.menu', (menu) => {
+              const normalizedMenu = Array.isArray(menu) ? menu : [];
+              const defaultItem = normalizedMenu.find((item) => item && item.is_default);
+
+              this.contentManagement.defaultTable = defaultItem && defaultItem.table ? defaultItem.table : '';
+
               if (
                 this.contentManagement.selectedTable &&
                 (!Array.isArray(menu) ||
@@ -3197,13 +3267,12 @@
                 this.activeTab === 'content-management' &&
                 !this.contentManagement.selectedTable &&
                 !this.contentManagement.preventAutoSelect &&
-                Array.isArray(this.contentManagement.menu) &&
-                this.contentManagement.menu.length > 0
+                normalizedMenu.length > 0
               ) {
-                const firstItem = this.contentManagement.menu[0];
+                const targetItem = defaultItem || normalizedMenu[0];
 
-                if (firstItem && firstItem.table) {
-                  this.selectContentManagementTable(firstItem.table);
+                if (targetItem && targetItem.table) {
+                  this.selectContentManagementTable(targetItem.table);
                 }
               }
             });
@@ -3246,10 +3315,11 @@
               Array.isArray(this.contentManagement.menu) &&
               this.contentManagement.menu.length > 0
             ) {
-              const firstItem = this.contentManagement.menu[0];
+              const defaultItem = this.contentManagement.menu.find((item) => item && item.is_default);
+              const targetItem = defaultItem || this.contentManagement.menu[0];
 
-              if (firstItem && firstItem.table) {
-                this.selectContentManagementTable(firstItem.table);
+              if (targetItem && targetItem.table) {
+                this.selectContentManagementTable(targetItem.table);
               }
             }
           },
@@ -3747,9 +3817,72 @@
             }
 
             this.contentManagement.menu = normalizedMenu;
+            const defaultItem = normalizedMenu.find((item) => item && item.is_default);
+            this.contentManagement.defaultTable = defaultItem && defaultItem.table ? defaultItem.table : '';
             this.contentManagement.menuSettings.error = null;
 
             return normalizedMenu;
+          },
+          async setContentManagementDefaultTable(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized || this.contentManagement.menuSettings.saving) {
+              return;
+            }
+
+            if (this.contentManagement.defaultTable === normalized) {
+              return;
+            }
+
+            const currentMenu = Array.isArray(this.contentManagement.menu)
+              ? this.contentManagement.menu
+              : [];
+            const hasTarget = currentMenu.some((item) => item && item.table === normalized);
+
+            if (!hasTarget) {
+              return;
+            }
+
+            const previousMenu = currentMenu.map((item) => ({
+              table: item.table,
+              label: item.label,
+              is_default: item.is_default,
+            }));
+            const updatedMenu = currentMenu.map((item) => {
+              if (!item) {
+                return item;
+              }
+
+              return {
+                ...item,
+                is_default: item.table === normalized,
+              };
+            });
+
+            this.contentManagement.menu = updatedMenu;
+            this.contentManagement.defaultTable = normalized;
+            this.contentManagement.menuSettings.saving = true;
+            this.contentManagement.menuSettings.error = null;
+            this.setContentManagementMenuFeedback('', 'success');
+
+            try {
+              await this.persistContentManagementMenu(updatedMenu);
+              this.setContentManagementMenuFeedback('Таблицю встановлено за замовчуванням.', 'success');
+
+              if (this.activeTab === 'content-management') {
+                await this.selectContentManagementTable(normalized);
+              }
+            } catch (error) {
+              this.contentManagement.menu = previousMenu;
+              const previousDefault = previousMenu.find((item) => item && item.is_default);
+              this.contentManagement.defaultTable = previousDefault && previousDefault.table
+                ? previousDefault.table
+                : '';
+              this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час оновлення меню.';
+              this.setContentManagementMenuFeedback('', 'success');
+            } finally {
+              this.contentManagement.menuSettings.saving = false;
+            }
           },
           async addContentManagementMenuItem() {
             if (!this.contentManagementRoutes.menuStore) {
@@ -3800,11 +3933,15 @@
                 throw new Error('Отримано некоректну відповідь від сервера.');
               }
 
-              const updatedMenu = this.contentManagement.menu
-                .filter((item) => item && item.table !== normalizedItem.table)
-                .concat([normalizedItem]);
+              const updatedMenu = normalizeContentManagementMenu(
+                this.contentManagement.menu
+                  .filter((item) => item && item.table !== normalizedItem.table)
+                  .concat([normalizedItem]),
+              );
 
               this.contentManagement.menu = updatedMenu;
+              const defaultItem = updatedMenu.find((item) => item && item.is_default);
+              this.contentManagement.defaultTable = defaultItem && defaultItem.table ? defaultItem.table : '';
               this.closeContentManagementMenuSettings();
               await this.selectContentManagementTable(normalizedItem.table);
               this.setContentManagementMenuFeedback('Таблицю додано до меню.', 'success');
@@ -3844,6 +3981,7 @@
               return {
                 table: entry.table,
                 label: trimmed || entry.table,
+                is_default: entry.is_default === true,
               };
             });
 
