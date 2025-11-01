@@ -112,6 +112,7 @@ class DatabaseStructureController
             return response()->json([
                 'filters' => $filters['items'],
                 'last_used' => $filters['last_used'],
+                'default' => $filters['default'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
@@ -145,6 +146,7 @@ class DatabaseStructureController
             return response()->json([
                 'filters' => $result['items'],
                 'last_used' => $result['last_used'],
+                'default' => $result['default'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
@@ -168,6 +170,7 @@ class DatabaseStructureController
 
             return response()->json([
                 'last_used' => $result['last_used'],
+                'default' => $result['default'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([
@@ -190,6 +193,36 @@ class DatabaseStructureController
             return response()->json([
                 'filters' => $result['items'],
                 'last_used' => $result['last_used'],
+                'default' => $result['default'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function setDefaultFilter(Request $request, string $table, string $scope): JsonResponse
+    {
+        try {
+            $scopeKey = $this->resolveFilterScope($scope);
+            $filterId = $request->input('filter_id');
+            $normalized = is_string($filterId) ? trim((string) $filterId) : '';
+
+            $result = $this->filterStorageManager->setDefault(
+                $table,
+                $scopeKey,
+                $normalized !== '' ? $normalized : null,
+            );
+
+            return response()->json([
+                'filters' => $result['items'],
+                'last_used' => $result['last_used'],
+                'default' => $result['default'],
             ]);
         } catch (RuntimeException $exception) {
             return response()->json([

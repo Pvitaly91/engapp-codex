@@ -44,6 +44,9 @@ Route::post('/tables/{table}/filters/{scope}', [DatabaseStructureController::cla
 Route::patch('/tables/{table}/filters/{scope}/{filter}/use', [DatabaseStructureController::class, 'useFilter'])
     ->where(['table' => '[^/]+', 'scope' => 'records|content', 'filter' => '[^/]+'])
     ->name('filters.use');
+Route::patch('/tables/{table}/filters/{scope}/default', [DatabaseStructureController::class, 'setDefaultFilter'])
+    ->where(['table' => '[^/]+', 'scope' => 'records|content'])
+    ->name('filters.default');
 Route::delete('/tables/{table}/filters/{scope}/{filter}', [DatabaseStructureController::class, 'destroyFilter'])
     ->where(['table' => '[^/]+', 'scope' => 'records|content', 'filter' => '[^/]+'])
     ->name('filters.destroy');

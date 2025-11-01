@@ -33,6 +33,7 @@
         'index' => route('database-structure.filters.index', ['table' => '__TABLE__', 'scope' => '__SCOPE__']),
         'store' => route('database-structure.filters.store', ['table' => '__TABLE__', 'scope' => '__SCOPE__']),
         'use' => route('database-structure.filters.use', ['table' => '__TABLE__', 'scope' => '__SCOPE__', 'filter' => '__FILTER__']),
+        'default' => route('database-structure.filters.default', ['table' => '__TABLE__', 'scope' => '__SCOPE__']),
         'destroy' => route('database-structure.filters.destroy', ['table' => '__TABLE__', 'scope' => '__SCOPE__', 'filter' => '__FILTER__']),
       ]),
       @js([
@@ -359,11 +360,22 @@
                               <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background text-xs font-semibold">
                                 <button
                                   type="button"
-                                  class="px-3 py-1 text-foreground transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                                  class="px-3 py-1 transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                                  :class="table.records.savedFilters.defaultId === saved.id ? 'bg-primary/10 text-primary' : 'text-foreground'"
                                   :disabled="table.records.loading || table.records.savedFilters.loading"
                                   @click.stop="applySavedRecordsFilterButton(table, saved.id)"
                                   x-text="saved.name"
                                 ></button>
+                                <button
+                                  type="button"
+                                  class="px-2 py-1 transition hover:text-amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+                                  :class="table.records.savedFilters.defaultId === saved.id ? 'text-amber-500' : 'text-muted-foreground'"
+                                  :disabled="table.records.savedFilters.loading"
+                                  @click.stop="toggleRecordsDefaultFilter(table, saved.id)"
+                                  :aria-label="table.records.savedFilters.defaultId === saved.id ? `Вимкнути фільтр ${saved.name} за замовчуванням` : `Зробити фільтр ${saved.name} за замовчуванням`"
+                                >
+                                  <i class="fa-solid fa-star text-[10px]"></i>
+                                </button>
                                 <button
                                   type="button"
                                   class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
@@ -377,8 +389,22 @@
                             </template>
                           </div>
                         </template>
-                        </div>
+                        <label class="flex w-full flex-col gap-1 text-[12px] font-semibold uppercase tracking-wide text-muted-foreground/80 md:w-56">
+                          <span>Фільтр за замовчуванням</span>
+                          <select
+                            class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                            :disabled="table.records.savedFilters.loading"
+                            :value="table.records.savedFilters.defaultId"
+                            @change.stop="setRecordsDefaultFilter(table, $event.target.value)"
+                          >
+                            <option value="">Без фільтра</option>
+                            <template x-for="option in table.records.savedFilters.items" :key="`records-default-${option.id}`">
+                              <option :value="option.id" x-text="option.name"></option>
+                            </template>
+                          </select>
+                        </label>
                       </div>
+                    </div>
                     <div class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
                       <span class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
                       <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
@@ -760,6 +786,67 @@
         </div>
       </div>
 
+    </div>
+
+
+    <div
+      x-show="filterNameModal.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        @click="cancelFilterNameModal()"
+      ></div>
+      <div class="relative z-10 w-full max-w-md rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-foreground">Збереження фільтру</h2>
+            <p class="mt-1 text-xs text-muted-foreground">
+              Вкажіть назву для збереженого фільтру.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+            @click="cancelFilterNameModal()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <form class="mt-6 space-y-4" @submit.prevent="confirmFilterNameModal()">
+          <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <span>Назва фільтру</span>
+            <input
+              type="text"
+              class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              x-model="filterNameModal.name"
+              :placeholder="filterNameModal.defaultName || 'Новий фільтр'"
+              x-ref="filterNameInput"
+            />
+          </label>
+          <template x-if="filterNameModal.error">
+            <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-2 text-sm text-rose-600" x-text="filterNameModal.error"></div>
+          </template>
+          <div class="flex flex-wrap items-center justify-end gap-2">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary"
+              @click.prevent="cancelFilterNameModal()"
+            >
+              Скасувати
+            </button>
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20"
+            >
+              Зберегти
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
 
@@ -1570,11 +1657,33 @@
                         <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background text-[11px] font-semibold">
                           <button
                             type="button"
-                            class="px-3 py-1 text-foreground transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                            class="px-3 py-1 transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                            :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'bg-primary/10 text-primary' : 'text-foreground'"
                             :disabled="contentManagement.viewer.loading || contentManagement.viewer.savedFilters.loading"
                             @click.stop="applySavedContentManagementFilter(saved.id)"
                             x-text="saved.name"
                           ></button>
+                          <button
+                            type="button"
+                            class="px-2 py-1 transition hover:text-amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+                            :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'text-amber-500' : 'text-muted-foreground'"
+                            :disabled="contentManagement.viewer.savedFilters.loading"
+                            @click.stop="toggleContentManagementDefaultFilter(saved.id)"
+                            :aria-label="contentManagement.viewer.savedFilters.defaultId === saved.id ? `Вимкнути фільтр ${saved.name} за замовчуванням` : `Зробити фільтр ${saved.name} за замовчуванням`"
+                          >
+                            <i class="fa-solid fa-star text-[10px]"></i>
+                          </button>
+                          <template x-if="contentManagementFilterShareUrl(saved)">
+                            <a
+                              class="px-2 py-1 text-muted-foreground transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                              :href="contentManagementFilterShareUrl(saved)"
+                              target="_blank"
+                              rel="noopener"
+                              :aria-label="`Відкрити таблицю з фільтром ${saved.name}`"
+                            >
+                              <i class="fa-solid fa-link text-[10px]"></i>
+                            </a>
+                          </template>
                           <button
                             type="button"
                             class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
@@ -1588,6 +1697,20 @@
                       </template>
                     </div>
                   </template>
+                  <label class="flex w-full flex-col gap-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground/80 md:w-56">
+                    <span>Фільтр за замовчуванням</span>
+                    <select
+                      class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                      :disabled="contentManagement.viewer.savedFilters.loading"
+                      :value="contentManagement.viewer.savedFilters.defaultId"
+                      @change.stop="setContentManagementDefaultFilter($event.target.value)"
+                    >
+                      <option value="">Без фільтра</option>
+                      <template x-for="option in contentManagement.viewer.savedFilters.items" :key="`content-default-${option.id}`">
+                        <option :value="option.id" x-text="option.name"></option>
+                      </template>
+                    </select>
+                  </label>
                 </div>
               </div>
 
@@ -1822,6 +1945,7 @@
           store: typeof source.store === 'string' ? source.store : '',
           destroy: typeof source.destroy === 'string' ? source.destroy : '',
           use: typeof source.use === 'string' ? source.use : '',
+          default: typeof source.default === 'string' ? source.default : '',
         };
       };
 
@@ -1911,6 +2035,9 @@
         const lastUsed = payload && typeof payload === 'object' && typeof payload.last_used === 'string'
           ? payload.last_used.trim()
           : '';
+        const defaultId = payload && typeof payload === 'object' && typeof payload.default === 'string'
+          ? payload.default.trim()
+          : '';
 
         const items = Array.isArray(itemsSource)
           ? itemsSource.map((entry) => normalizeSavedFilterEntry(entry)).filter(Boolean)
@@ -1919,6 +2046,7 @@
         return {
           items,
           lastUsed,
+          defaultId,
         };
       };
 
@@ -1927,6 +2055,7 @@
         loaded: false,
         items: [],
         lastUsed: '',
+        defaultId: '',
       });
 
       const serializeFilters = (filters) => {
@@ -2886,6 +3015,8 @@
               loading: false,
               error: null,
             },
+            pendingFilterId: '',
+            preventAutoSelect: false,
           },
           csrfToken:
             document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ??
@@ -2901,6 +3032,13 @@
             targetColumns: [],
             saving: false,
             error: null,
+          },
+          filterNameModal: {
+            open: false,
+            name: '',
+            defaultName: '',
+            error: '',
+            resolve: null,
           },
           manualForeignErrors: {},
           bodyScrollLocked: false,
@@ -2946,6 +3084,24 @@
               this.syncBodyScrollLock();
             });
 
+            this.$watch('filterNameModal.open', (open) => {
+              this.syncBodyScrollLock();
+
+              if (open) {
+                this.$nextTick(() => {
+                  const input = this.$refs?.filterNameInput;
+
+                  if (input && typeof input.focus === 'function') {
+                    input.focus();
+
+                    if (typeof input.select === 'function') {
+                      input.select();
+                    }
+                  }
+                });
+              }
+            });
+
             this.$watch('contentManagement.deletionModal.open', () => {
               this.syncBodyScrollLock();
             });
@@ -2977,6 +3133,7 @@
               if (
                 this.activeTab === 'content-management' &&
                 !this.contentManagement.selectedTable &&
+                !this.contentManagement.preventAutoSelect &&
                 Array.isArray(this.contentManagement.menu) &&
                 this.contentManagement.menu.length > 0
               ) {
@@ -2988,9 +3145,41 @@
               }
             });
 
+            const searchParams = new URLSearchParams(window.location.search || '');
+            const rawContentTableParam = searchParams.get('table') ?? searchParams.get('content_table');
+            const rawContentFilterParam = searchParams.get('content_filter');
+            const urlContentFilter = typeof rawContentFilterParam === 'string'
+              ? rawContentFilterParam.trim()
+              : '';
+
+            if (urlContentFilter) {
+              this.contentManagement.pendingFilterId = urlContentFilter;
+            }
+
+            const urlContentTable = typeof rawContentTableParam === 'string'
+              ? rawContentTableParam.trim()
+              : '';
+
+            if (
+              urlContentTable &&
+              (this.standaloneTab === 'content-management' || this.activeTab === 'content-management')
+            ) {
+              this.contentManagement.preventAutoSelect = true;
+
+              this.$nextTick(() => {
+                this.selectContentManagementTable(urlContentTable, {
+                  filterId: urlContentFilter,
+                  markAsUsed: true,
+                }).finally(() => {
+                  this.contentManagement.preventAutoSelect = false;
+                });
+              });
+            }
+
             if (
               this.activeTab === 'content-management' &&
               !this.contentManagement.selectedTable &&
+              !this.contentManagement.preventAutoSelect &&
               Array.isArray(this.contentManagement.menu) &&
               this.contentManagement.menu.length > 0
             ) {
@@ -3055,7 +3244,7 @@
           },
           async fetchSavedFiltersFor(scope, tableName, targetState, { force = false } = {}) {
             if (!targetState) {
-              return { items: [], lastUsed: '' };
+              return { items: [], lastUsed: '', defaultId: '' };
             }
 
             const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
@@ -3063,19 +3252,25 @@
             if (!normalizedTable) {
               targetState.items = [];
               targetState.lastUsed = '';
+              targetState.defaultId = '';
               targetState.loaded = true;
-              return { items: [], lastUsed: '' };
+              return { items: [], lastUsed: '', defaultId: '' };
             }
 
             if (!force && targetState.loaded) {
-              return { items: targetState.items, lastUsed: targetState.lastUsed };
+              return {
+                items: targetState.items,
+                lastUsed: targetState.lastUsed,
+                defaultId: targetState.defaultId,
+              };
             }
 
             if (!this.filterRoutes.index) {
               targetState.items = [];
               targetState.lastUsed = '';
+              targetState.defaultId = '';
               targetState.loaded = true;
-              return { items: [], lastUsed: '' };
+              return { items: [], lastUsed: '', defaultId: '' };
             }
 
             targetState.loading = true;
@@ -3088,8 +3283,9 @@
             } catch (error) {
               targetState.items = [];
               targetState.lastUsed = '';
+              targetState.defaultId = '';
               targetState.loaded = true;
-              return { items: [], lastUsed: '' };
+              return { items: [], lastUsed: '', defaultId: '' };
             } finally {
               targetState.loading = false;
             }
@@ -3099,10 +3295,67 @@
               return;
             }
 
-            targetState.items = Array.isArray(normalized.items) ? normalized.items : [];
-            targetState.lastUsed = typeof normalized.lastUsed === 'string' ? normalized.lastUsed : '';
-            targetState.loaded = true;
-          },
+          targetState.items = Array.isArray(normalized.items) ? normalized.items : [];
+          targetState.lastUsed = typeof normalized.lastUsed === 'string' ? normalized.lastUsed : '';
+          targetState.defaultId = typeof normalized.defaultId === 'string' ? normalized.defaultId : '';
+          targetState.loaded = true;
+        },
+        async updateSavedFilterDefault(scope, tableName, filterId, state, feedbackTarget) {
+          if (!state) {
+            return;
+          }
+
+          const normalizedScope = normalizeFilterScope(scope);
+          const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+          const normalizedFilterId = typeof filterId === 'string' ? filterId.trim() : '';
+
+          if (!normalizedTable) {
+            if (feedbackTarget) {
+              this.setFeedback(feedbackTarget, 'Оберіть таблицю, щоб оновити фільтр за замовчуванням.');
+            }
+            return;
+          }
+
+          if (!this.filterRoutes.default) {
+            if (feedbackTarget) {
+              this.setFeedback(feedbackTarget, 'Оновлення фільтру за замовчуванням недоступне.');
+            }
+            return;
+          }
+
+          state.loading = true;
+
+          if (feedbackTarget) {
+            this.clearFeedback(feedbackTarget);
+          }
+
+          try {
+            const response = await this.sendFilterRequest('PATCH', 'default', normalizedScope, normalizedTable, {
+              body: {
+                filter_id: normalizedFilterId !== '' ? normalizedFilterId : null,
+              },
+            });
+            const normalized = normalizeSavedFiltersResponse(response || {});
+            this.updateSavedFiltersState(state, normalized);
+
+            if (feedbackTarget) {
+              if (normalized.defaultId) {
+                this.setFeedback(feedbackTarget, 'Фільтр за замовчуванням оновлено.');
+              } else {
+                this.setFeedback(feedbackTarget, 'Фільтр за замовчуванням вимкнено.');
+              }
+            }
+          } catch (error) {
+            if (feedbackTarget) {
+              this.setFeedback(
+                feedbackTarget,
+                error?.message ?? 'Не вдалося оновити фільтр за замовчуванням.',
+              );
+            }
+          } finally {
+            state.loading = false;
+          }
+        },
           generateDefaultFilterName(existing) {
             const items = Array.isArray(existing) ? existing : [];
             const base = 'Фільтр';
@@ -3123,18 +3376,78 @@
             return `${base} ${Date.now()}`;
           },
           promptFilterName(defaultName = '') {
-            const placeholder = typeof defaultName === 'string' && defaultName.trim() !== ''
+            const fallback = typeof defaultName === 'string' && defaultName.trim() !== ''
               ? defaultName.trim()
               : 'Новий фільтр';
-            const result = window.prompt('Вкажіть назву фільтру', placeholder);
 
-            if (result === null) {
-              return null;
+            return new Promise((resolve) => {
+              if (typeof this.filterNameModal.resolve === 'function') {
+                this.filterNameModal.resolve(null);
+              }
+
+              this.filterNameModal.open = true;
+              this.filterNameModal.name = fallback;
+              this.filterNameModal.defaultName = fallback;
+              this.filterNameModal.error = '';
+              this.filterNameModal.resolve = resolve;
+
+              this.$nextTick(() => {
+                const input = this.$refs?.filterNameInput;
+
+                if (input && typeof input.focus === 'function') {
+                  input.focus();
+
+                  if (typeof input.select === 'function') {
+                    input.select();
+                  }
+                }
+              });
+            });
+          },
+          closeFilterNameModal() {
+            this.filterNameModal.open = false;
+            this.filterNameModal.name = '';
+            this.filterNameModal.defaultName = '';
+            this.filterNameModal.error = '';
+            this.filterNameModal.resolve = null;
+          },
+          confirmFilterNameModal() {
+            const name = typeof this.filterNameModal.name === 'string'
+              ? this.filterNameModal.name.trim()
+              : '';
+
+            if (!name) {
+              this.filterNameModal.error = 'Вкажіть назву фільтру.';
+
+              this.$nextTick(() => {
+                const input = this.$refs?.filterNameInput;
+
+                if (input && typeof input.focus === 'function') {
+                  input.focus();
+
+                  if (typeof input.select === 'function') {
+                    input.select();
+                  }
+                }
+              });
+
+              return;
             }
 
-            const normalized = result.trim();
+            const resolver = this.filterNameModal.resolve;
+            this.closeFilterNameModal();
 
-            return normalized === '' ? null : normalized;
+            if (typeof resolver === 'function') {
+              resolver(name);
+            }
+          },
+          cancelFilterNameModal() {
+            const resolver = this.filterNameModal.resolve;
+            this.closeFilterNameModal();
+
+            if (typeof resolver === 'function') {
+              resolver(null);
+            }
           },
           get filteredTables() {
             if (!this.query) {
@@ -4901,12 +5214,36 @@
               normalizedColumn,
             );
 
-            if (alias && alias !== normalizedColumn) {
-              return `${alias} (${normalizedColumn})`;
-            }
+          if (alias && alias !== normalizedColumn) {
+            return `${alias} (${normalizedColumn})`;
+          }
 
-            return normalizedColumn;
-          },
+          return normalizedColumn;
+        },
+        contentManagementFilterShareUrl(filter) {
+          if (!filter || typeof filter.id !== 'string') {
+            return '';
+          }
+
+          const base = this.tabRoutes?.['content-management'];
+          const tableName = typeof this.contentManagement.selectedTable === 'string'
+            ? this.contentManagement.selectedTable.trim()
+            : '';
+          const filterId = filter.id.trim();
+
+          if (!base || !tableName || !filterId) {
+            return '';
+          }
+
+          try {
+            const url = new URL(base, window.location.origin);
+            url.searchParams.set('table', tableName);
+            url.searchParams.set('content_filter', filterId);
+            return url.toString();
+          } catch (error) {
+            return '';
+          }
+        },
         resetContentManagementViewer() {
           this.clearFeedback(this.contentManagement.viewer);
           const fresh = createContentManagementViewerState();
@@ -4934,21 +5271,34 @@
           this.contentManagement.viewer.restoredFromStorage = fresh.restoredFromStorage;
           this.contentManagement.viewer.savedFilters = fresh.savedFilters;
         },
-        async selectContentManagementTable(tableName) {
+        async selectContentManagementTable(tableName, options = {}) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+            const normalizedOptions = options && typeof options === 'object' ? options : {};
+            const normalizedFilterId = typeof normalizedOptions.filterId === 'string'
+              ? normalizedOptions.filterId.trim()
+              : '';
+
+            if (normalizedFilterId) {
+              this.contentManagement.pendingFilterId = normalizedFilterId;
+            }
 
             if (!normalized) {
               return;
             }
 
-            if (this.contentManagement.selectedTable === normalized && this.contentManagement.viewer.loaded) {
+            if (
+              this.contentManagement.selectedTable === normalized &&
+              this.contentManagement.viewer.loaded &&
+              !normalizedFilterId
+            ) {
               return;
             }
 
             this.contentManagement.selectedTable = normalized;
+            this.contentManagement.preventAutoSelect = false;
             this.resetContentManagementViewer();
 
-            await this.restoreContentManagementFilters(normalized);
+            await this.restoreContentManagementFilters(normalized, false, normalizedOptions);
 
             await this.loadContentManagementTable(normalized);
           },
@@ -5152,6 +5502,9 @@
 
           this.applyContentSavedFilter(target);
 
+          const shouldReload = options.reload === true;
+          const shouldMark = options.markAsUsed === true;
+          const updateLastUsed = options.updateLastUsed !== false;
           const tableName = typeof this.contentManagement.selectedTable === 'string'
             ? this.contentManagement.selectedTable.trim()
             : '';
@@ -5160,7 +5513,7 @@
             return;
           }
 
-          if (options.markAsUsed) {
+          if (shouldMark) {
             try {
               const response = await this.sendFilterRequest('PATCH', 'use', 'content', tableName, {
                 filterId,
@@ -5168,19 +5521,56 @@
               const normalized = normalizeSavedFiltersResponse(response || {});
               if (normalized.lastUsed) {
                 state.lastUsed = normalized.lastUsed;
-              } else {
+              } else if (updateLastUsed) {
                 state.lastUsed = filterId;
               }
             } catch (error) {
-              state.lastUsed = filterId;
+              if (updateLastUsed) {
+                state.lastUsed = filterId;
+              }
             }
-          } else {
+          } else if (updateLastUsed) {
             state.lastUsed = filterId;
           }
 
-          if (options.reload) {
+          if (shouldReload) {
             await this.loadContentManagementTable(tableName);
           }
+        },
+        toggleContentManagementDefaultFilter(filterId) {
+          const viewer = this.contentManagement.viewer;
+
+          if (!viewer || !viewer.savedFilters) {
+            return;
+          }
+
+          const current = typeof viewer.savedFilters.defaultId === 'string'
+            ? viewer.savedFilters.defaultId
+            : '';
+
+          if (current === filterId) {
+            this.setContentManagementDefaultFilter('');
+          } else {
+            this.setContentManagementDefaultFilter(filterId);
+          }
+        },
+        async setContentManagementDefaultFilter(filterId) {
+          const tableName = typeof this.contentManagement.selectedTable === 'string'
+            ? this.contentManagement.selectedTable.trim()
+            : '';
+
+          if (!tableName) {
+            this.setFeedback(this.contentManagement.viewer, 'Оберіть таблицю, щоб оновити фільтр за замовчуванням.');
+            return;
+          }
+
+          await this.updateSavedFilterDefault(
+            'content',
+            tableName,
+            typeof filterId === 'string' ? filterId : '',
+            this.contentManagement.viewer.savedFilters,
+            this.contentManagement.viewer,
+          );
         },
         async saveContentManagementFilters() {
           const tableName = typeof this.contentManagement.selectedTable === 'string'
@@ -5213,7 +5603,7 @@
           }
 
           const defaultName = this.generateDefaultFilterName(viewer.savedFilters.items);
-          const name = this.promptFilterName(defaultName);
+          const name = await this.promptFilterName(defaultName);
 
           if (!name) {
             return;
@@ -5330,7 +5720,7 @@
 
             this.loadContentManagementTable(this.contentManagement.selectedTable);
           },
-        async restoreContentManagementFilters(tableName, force = false) {
+        async restoreContentManagementFilters(tableName, force = false, options = {}) {
           const viewer = this.contentManagement.viewer;
 
           if (!viewer) {
@@ -5352,9 +5742,56 @@
           }
 
           const result = await this.fetchSavedFiltersFor('content', normalized, viewer.savedFilters, { force });
+          const opts = options && typeof options === 'object' ? options : {};
+          const explicitFilterId = typeof opts.filterId === 'string' ? opts.filterId.trim() : '';
+          const pendingFilterId = typeof this.contentManagement.pendingFilterId === 'string'
+            ? this.contentManagement.pendingFilterId.trim()
+            : '';
+          const candidateFilterId = explicitFilterId || pendingFilterId;
+          const markCandidate = opts.markAsUsed === true;
+          const updateLastUsed = opts.updateLastUsed !== false;
+          let applied = false;
 
-          if (result.lastUsed) {
-            await this.applyContentSavedFilterById(result.lastUsed);
+          const items = Array.isArray(viewer.savedFilters.items) ? viewer.savedFilters.items : [];
+          const hasFilter = (filterId) => items.some((item) => item && item.id === filterId);
+
+          const applyFilterById = async (filterId, applyOptions = {}) => {
+            await this.applyContentSavedFilterById(filterId, {
+              reload: false,
+              markAsUsed: applyOptions.markAsUsed === true,
+              updateLastUsed: applyOptions.updateLastUsed !== false,
+            });
+            applied = true;
+          };
+
+          if (candidateFilterId) {
+            if (hasFilter(candidateFilterId)) {
+              this.contentManagement.pendingFilterId = '';
+              await applyFilterById(candidateFilterId, {
+                markAsUsed: markCandidate,
+                updateLastUsed,
+              });
+            } else {
+              this.contentManagement.pendingFilterId = '';
+            }
+          }
+
+          if (!applied) {
+            const defaultId = typeof viewer.savedFilters.defaultId === 'string'
+              ? viewer.savedFilters.defaultId.trim()
+              : '';
+
+            if (defaultId && hasFilter(defaultId)) {
+              await applyFilterById(defaultId, { markAsUsed: false, updateLastUsed: false });
+            }
+          }
+
+          if (!applied) {
+            const lastUsedId = typeof result.lastUsed === 'string' ? result.lastUsed : '';
+
+            if (lastUsedId && hasFilter(lastUsedId)) {
+              await applyFilterById(lastUsedId, { markAsUsed: false });
+            }
           }
         },
           async loadContentManagementTable(tableName) {
@@ -5666,6 +6103,7 @@
           const shouldLock =
             this.valueModal.open ||
             this.manualForeignModal.open ||
+            this.filterNameModal.open ||
             this.contentManagement.deletionModal.open ||
             this.contentManagement.tableSettings.open;
           this.toggleBodyScroll(shouldLock);
@@ -5712,6 +6150,11 @@
           body.style.paddingRight = this.bodyOriginalPaddingRight;
         },
         handleEscape() {
+          if (this.filterNameModal.open) {
+            this.cancelFilterNameModal();
+            return;
+          }
+
           if (this.contentManagement.tableSettings.open) {
             this.closeContentManagementTableSettings();
             return;
@@ -7467,6 +7910,7 @@
 
           const shouldReload = options.reload === true;
           const shouldMark = options.markAsUsed === true;
+          const updateLastUsed = options.updateLastUsed !== false;
           const tableName = typeof table.name === 'string' ? table.name.trim() : '';
 
           if (shouldMark && tableName) {
@@ -7477,13 +7921,15 @@
               const normalized = normalizeSavedFiltersResponse(response || {});
               if (normalized.lastUsed) {
                 state.lastUsed = normalized.lastUsed;
-              } else {
+              } else if (updateLastUsed) {
                 state.lastUsed = filterId;
               }
             } catch (error) {
-              state.lastUsed = filterId;
+              if (updateLastUsed) {
+                state.lastUsed = filterId;
+              }
             }
-          } else if (tableName) {
+          } else if (tableName && updateLastUsed) {
             state.lastUsed = filterId;
           }
 
@@ -7517,7 +7963,7 @@
           }
 
           const defaultName = this.generateDefaultFilterName(table.records.savedFilters.items);
-          const name = this.promptFilterName(defaultName);
+          const name = await this.promptFilterName(defaultName);
 
           if (!name) {
             return;
@@ -7570,10 +8016,55 @@
           }
 
           const result = await this.fetchSavedFiltersFor('records', tableName, state.savedFilters, { force });
+          const savedState = state.savedFilters;
+          const defaultId = typeof savedState.defaultId === 'string' ? savedState.defaultId.trim() : '';
+          const items = Array.isArray(savedState.items) ? savedState.items : [];
+          const hasFilter = (filterId) => items.some((item) => item && item.id === filterId);
 
-          if (result.lastUsed) {
-            await this.applyRecordsSavedFilterById(table, result.lastUsed);
+          if (defaultId && hasFilter(defaultId)) {
+            await this.applyRecordsSavedFilterById(table, defaultId, { updateLastUsed: false });
+            return;
           }
+
+          const lastUsedId = typeof result.lastUsed === 'string' ? result.lastUsed : '';
+
+          if (lastUsedId && hasFilter(lastUsedId)) {
+            await this.applyRecordsSavedFilterById(table, lastUsedId);
+          }
+        },
+        toggleRecordsDefaultFilter(table, filterId) {
+          if (!table || !table.records || !table.records.savedFilters) {
+            return;
+          }
+
+          const current = typeof table.records.savedFilters.defaultId === 'string'
+            ? table.records.savedFilters.defaultId
+            : '';
+
+          if (current === filterId) {
+            this.setRecordsDefaultFilter(table, '');
+          } else {
+            this.setRecordsDefaultFilter(table, filterId);
+          }
+        },
+        async setRecordsDefaultFilter(table, filterId) {
+          if (!table || !table.records) {
+            return;
+          }
+
+          const tableName = typeof table.name === 'string' ? table.name.trim() : '';
+
+          if (!tableName) {
+            return;
+          }
+
+          await this.updateSavedFilterDefault(
+            'records',
+            tableName,
+            typeof filterId === 'string' ? filterId : '',
+            table.records.savedFilters,
+            table.records,
+          );
         },
         async applySavedRecordsFilterButton(table, filterId) {
           if (!table || !filterId || table.records.loading) {
