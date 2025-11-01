@@ -146,27 +146,50 @@ class DatabaseStructureFetcher
 
         $columns = $tableInfo['columns'] ?? [];
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
-        $relationDisplayOverrides = $this->getContentManagementRelationOverrides(
+        $relationOverrides = $this->getContentManagementRelationOverrides(
             $table,
             $columns,
             $runtimeRelationOverrides,
         );
+        $relationDisplayOverrides = $relationOverrides['display'];
+        $relationAdditionalOverrides = $relationOverrides['additional'];
+        $additionalKeys = [];
+
+        foreach ($relationAdditionalOverrides as $extras) {
+            foreach ($extras as $extra) {
+                if (!isset($extra['key']) || !is_string($extra['key'])) {
+                    continue;
+                }
+
+                $key = trim($extra['key']);
+
+                if ($key === '') {
+                    continue;
+                }
+
+                $additionalKeys[] = $key;
+            }
+        }
+
+        $allKnownColumns = array_values(array_unique(array_merge($columnNames, $additionalKeys)));
         $normalizedFilters = $this->prepareFilters($filters, $columnNames);
         $searchTerm = is_string($search) ? trim($search) : '';
         $normalizedSearchColumn = is_string($searchColumn) ? trim($searchColumn) : '';
 
         $validSort = null;
-        if ($sort && in_array($sort, $columnNames, true)) {
+        if ($sort && in_array($sort, $allKnownColumns, true)) {
             $validSort = $sort;
-        } elseif ($sort && empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $sort)) {
+        } elseif ($sort && empty($allKnownColumns) && preg_match('/^[A-Za-z0-9_]+$/', $sort)) {
             $validSort = $sort;
         }
 
-        $searchColumns = $columnNames;
+        $additionalColumnAliases = [];
+        $sortColumnOverrides = [];
+        $searchColumns = $allKnownColumns;
 
         if ($normalizedSearchColumn !== '') {
-            $isKnownColumn = in_array($normalizedSearchColumn, $columnNames, true);
-            $isAdHocColumn = empty($columnNames) && preg_match('/^[A-Za-z0-9_]+$/', $normalizedSearchColumn);
+            $isKnownColumn = in_array($normalizedSearchColumn, $allKnownColumns, true);
+            $isAdHocColumn = empty($allKnownColumns) && preg_match('/^[A-Za-z0-9_]+$/', $normalizedSearchColumn);
 
             if ($isKnownColumn || $isAdHocColumn) {
                 $searchColumns = [$normalizedSearchColumn];
@@ -184,28 +207,57 @@ class DatabaseStructureFetcher
         $displayColumnAliases = [];
         $searchColumnOverrides = [];
 
-        foreach ($relationDisplayOverrides as $columnName => $override) {
+        $relationColumns = array_unique(array_merge(
+            array_keys($relationDisplayOverrides),
+            array_keys($relationAdditionalOverrides),
+        ));
+
+        foreach ($relationColumns as $columnName) {
+            $override = $relationDisplayOverrides[$columnName] ?? null;
+            $extras = $relationAdditionalOverrides[$columnName] ?? [];
+
+            if ($override === null && empty($extras)) {
+                continue;
+            }
+
             $relationAlias = $this->buildRelationAlias($columnName);
-            $displayAlias = $this->buildRelationDisplayColumnAlias($columnName);
+            $primary = $override ?? ($extras[0] ?? null);
+
+            if ($primary === null) {
+                continue;
+            }
 
             $query->leftJoin(
-                sprintf('%s as %s', $override['table'], $relationAlias),
-                sprintf('%s.%s', $relationAlias, $override['referenced_column']),
+                sprintf('%s as %s', $primary['table'], $relationAlias),
+                sprintf('%s.%s', $relationAlias, $primary['referenced_column']),
                 '=',
                 sprintf('%s.%s', $table, $columnName),
             );
 
             $countQuery->leftJoin(
-                sprintf('%s as %s', $override['table'], $relationAlias),
-                sprintf('%s.%s', $relationAlias, $override['referenced_column']),
+                sprintf('%s as %s', $primary['table'], $relationAlias),
+                sprintf('%s.%s', $relationAlias, $primary['referenced_column']),
                 '=',
                 sprintf('%s.%s', $table, $columnName),
             );
 
-            $query->addSelect(sprintf('%s.%s as %s', $relationAlias, $override['display_column'], $displayAlias));
+            if ($override !== null) {
+                $displayAlias = $this->buildRelationDisplayColumnAlias($columnName);
+                $query->addSelect(sprintf('%s.%s as %s', $relationAlias, $override['display_column'], $displayAlias));
+                $displayColumnAliases[$columnName] = $displayAlias;
+                $expression = sprintf('%s.%s', $relationAlias, $override['display_column']);
+                $searchColumnOverrides[$columnName] = $expression;
+                $sortColumnOverrides[$columnName] = $expression;
+            }
 
-            $displayColumnAliases[$columnName] = $displayAlias;
-            $searchColumnOverrides[$columnName] = sprintf('%s.%s', $relationAlias, $override['display_column']);
+            foreach ($extras as $extra) {
+                $extraAlias = $this->buildRelationAdditionalColumnAlias($extra['key']);
+                $query->addSelect(sprintf('%s.%s as %s', $relationAlias, $extra['display_column'], $extraAlias));
+                $additionalColumnAliases[$extra['key']] = $extraAlias;
+                $expression = sprintf('%s.%s', $relationAlias, $extra['display_column']);
+                $searchColumnOverrides[$extra['key']] = $expression;
+                $sortColumnOverrides[$extra['key']] = $expression;
+            }
         }
 
         $this->applyFilters($query, $normalizedFilters);
@@ -219,7 +271,13 @@ class DatabaseStructureFetcher
         }
 
         if ($validSort) {
-            $query->orderBy($validSort, $direction);
+            $sortExpression = $sortColumnOverrides[$validSort] ?? null;
+
+            if ($sortExpression) {
+                $query->orderByRaw(sprintf('%s %s', $sortExpression, strtoupper($direction)));
+            } else {
+                $query->orderBy($validSort, $direction);
+            }
         }
 
         $total = (int) $countQuery->count();
@@ -236,7 +294,7 @@ class DatabaseStructureFetcher
             ->skip($offset)
             ->take($perPage)
             ->get()
-            ->map(function ($row) use ($displayColumnAliases) {
+            ->map(function ($row) use ($displayColumnAliases, $additionalColumnAliases) {
                 $arrayRow = (array) $row;
                 $displayValues = [];
 
@@ -249,6 +307,15 @@ class DatabaseStructureFetcher
                     unset($arrayRow[$alias]);
                 }
 
+                foreach ($additionalColumnAliases as $columnKey => $alias) {
+                    if (!array_key_exists($alias, $arrayRow)) {
+                        continue;
+                    }
+
+                    $arrayRow[$columnKey] = $this->convertValueForResponse($arrayRow[$alias]);
+                    unset($arrayRow[$alias]);
+                }
+
                 if (!empty($displayValues)) {
                     $arrayRow['__display'] = $displayValues;
                 }
@@ -258,6 +325,10 @@ class DatabaseStructureFetcher
 
         if (empty($columnNames) && !empty($rows)) {
             $columnNames = array_keys($rows[0]);
+        }
+
+        if (!empty($additionalColumnAliases)) {
+            $columnNames = array_values(array_unique(array_merge($columnNames, array_keys($additionalColumnAliases))));
         }
 
         $lastPage = $perPage > 0 ? (int) max(1, ceil($total / $perPage)) : 1;
@@ -691,10 +762,12 @@ class DatabaseStructureFetcher
                 continue;
             }
 
-            $baseExpression = sprintf('%s.%s', $table, $column);
+            if (preg_match('/^[A-Za-z0-9_]+$/', $column)) {
+                $baseExpression = sprintf('%s.%s', $table, $column);
 
-            if (!in_array($baseExpression, $expressions, true)) {
-                $expressions[] = $baseExpression;
+                if (!in_array($baseExpression, $expressions, true)) {
+                    $expressions[] = $baseExpression;
+                }
             }
 
             if (!isset($overrides[$column])) {
@@ -760,7 +833,7 @@ class DatabaseStructureFetcher
 
     /**
      * @param array<int, array<string, mixed>> $columns
-     * @return array<string, array{table: string, display_column: string, referenced_column: string}>
+     * @return array{display: array<string, array{table: string, display_column: string, referenced_column: string}>, additional: array<string, array<int, array{key: string, table: string, display_column: string, referenced_column: string}>>}
      */
     private function getContentManagementRelationOverrides(
         string $table,
@@ -810,7 +883,10 @@ class DatabaseStructureFetcher
         }
 
         if (empty($relationMaps)) {
-            return [];
+            return [
+                'display' => [],
+                'additional' => [],
+            ];
         }
 
         $foreignColumns = [];
@@ -838,17 +914,30 @@ class DatabaseStructureFetcher
         }
 
         if (empty($foreignColumns)) {
-            return [];
+            return [
+                'display' => [],
+                'additional' => [],
+            ];
         }
 
-        $overrides = [];
+        $displayOverrides = [];
+        $additionalOverrides = [];
 
         foreach ($relationMaps as $columnName => $definition) {
-            if (!isset($foreignColumns[$columnName])) {
+            $sourceColumn = $definition['source'] ?? null;
+            $baseColumn = $columnName;
+
+            if (is_string($sourceColumn) && $sourceColumn !== '') {
+                $baseColumn = $sourceColumn;
+            } elseif (!isset($foreignColumns[$baseColumn]) && str_contains($columnName, '::')) {
+                $baseColumn = trim((string) explode('::', $columnName, 2)[0]);
+            }
+
+            if (!isset($foreignColumns[$baseColumn])) {
                 continue;
             }
 
-            $foreign = $foreignColumns[$columnName];
+            $foreign = $foreignColumns[$baseColumn];
             $targetTable = $definition['table'] ?? $foreign['table'] ?? null;
             $displayColumn = $definition['column'] ?? null;
 
@@ -856,14 +945,33 @@ class DatabaseStructureFetcher
                 continue;
             }
 
-            $overrides[$columnName] = [
+            $payload = [
                 'table' => $targetTable,
                 'display_column' => $displayColumn,
                 'referenced_column' => $foreign['column'],
             ];
+
+            $isAdditional = $columnName !== $baseColumn
+                || (is_string($sourceColumn) && trim($sourceColumn) !== $baseColumn);
+
+            if ($isAdditional) {
+                $additionalOverrides[$baseColumn][] = [
+                    'key' => $columnName,
+                    'table' => $targetTable,
+                    'display_column' => $displayColumn,
+                    'referenced_column' => $foreign['column'],
+                ];
+
+                continue;
+            }
+
+            $displayOverrides[$baseColumn] = $payload;
         }
 
-        return $overrides;
+        return [
+            'display' => $displayOverrides,
+            'additional' => $additionalOverrides,
+        ];
     }
 
     /**
@@ -1002,6 +1110,19 @@ class DatabaseStructureFetcher
             $payload['table'] = $table;
         }
 
+        $sourceCandidate = $definition['source']
+            ?? $definition['source_column']
+            ?? $definition['sourceColumn']
+            ?? $definition['foreign_key']
+            ?? $definition['foreignKey']
+            ?? null;
+
+        $source = $this->sanitizeConfigName($sourceCandidate);
+
+        if ($source !== null) {
+            $payload['source'] = $source;
+        }
+
         return $payload;
     }
 
@@ -1047,6 +1168,15 @@ class DatabaseStructureFetcher
         $hash = substr(md5($columnName), 0, 6);
 
         return sprintf('__ds_display_%s_%s', $sanitized, $hash);
+    }
+
+    private function buildRelationAdditionalColumnAlias(string $key): string
+    {
+        $sanitized = preg_replace('/[^A-Za-z0-9_]/', '_', $key);
+        $sanitized = $sanitized !== '' ? $sanitized : 'column';
+        $hash = substr(md5($key), 0, 6);
+
+        return sprintf('__ds_extra_%s_%s', $sanitized, $hash);
     }
 
     private function normalizeForeignDefinition(mixed $foreign): ?array
