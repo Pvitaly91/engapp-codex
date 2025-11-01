@@ -1550,8 +1550,8 @@
                                 type="button"
                                 class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
                                 @click.stop="showContentManagementRecordValue(column, row)"
-                                :title="formatCell(row[column])"
-                                x-html="contentManagementHighlight(column, row[column])"
+                                :title="formatCell(contentManagementCellDisplayValue(row, column))"
+                                x-html="contentManagementHighlight(column, row)"
                               ></button>
                             </td>
                           </template>
@@ -2074,6 +2074,60 @@
           return normalized;
         };
 
+        const normalizeContentManagementDisplayOverrides = (source) => {
+          if (!source || typeof source !== 'object' || Array.isArray(source)) {
+            return {};
+          }
+
+          const normalized = {};
+
+          Object.entries(source).forEach(([rawColumn, rawValue]) => {
+            const columnName = typeof rawColumn === 'string' ? rawColumn.trim() : '';
+
+            if (!columnName) {
+              return;
+            }
+
+            if (typeof rawValue === 'string') {
+              const aliasName = rawValue.trim();
+
+              if (aliasName) {
+                normalized[columnName] = aliasName;
+              }
+
+              return;
+            }
+
+            if (rawValue && typeof rawValue === 'object') {
+              const aliasCandidates = [
+                rawValue.alias,
+                rawValue.display_alias,
+                rawValue.displayAlias,
+                rawValue.key,
+              ];
+
+              let aliasName = '';
+
+              for (const candidate of aliasCandidates) {
+                if (typeof candidate === 'string' && candidate.trim() !== '') {
+                  aliasName = candidate.trim();
+                  break;
+                }
+              }
+
+              if (!aliasName && typeof rawValue.name === 'string') {
+                aliasName = rawValue.name.trim();
+              }
+
+              if (aliasName) {
+                normalized[columnName] = aliasName;
+              }
+            }
+          });
+
+          return normalized;
+        };
+
         const createContentManagementViewerState = () => ({
           table: '',
           loading: false,
@@ -2092,6 +2146,7 @@
           lastPage: 1,
           requestId: 0,
           loaded: false,
+          displayOverrides: {},
         });
 
         const createForeignRecordPreviewState = () => ({
@@ -2316,6 +2371,38 @@
             { value: 'not like', label: 'Не містить (NOT LIKE)' },
           ],
           tables: normalizedTables,
+          normalizeContentManagementDisplayOverrides(source) {
+            return normalizeContentManagementDisplayOverrides(source);
+          },
+          contentManagementCellDisplayValue(row, columnName) {
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedColumn || !row || typeof row !== 'object') {
+              return row && typeof row === 'object' ? row[normalizedColumn] : null;
+            }
+
+            const overrides = this.contentManagement?.viewer?.displayOverrides;
+            const alias = overrides && typeof overrides === 'object' ? overrides[normalizedColumn] : null;
+
+            if (alias && Object.prototype.hasOwnProperty.call(row, alias)) {
+              return row[alias];
+            }
+
+            return row[normalizedColumn];
+          },
+          contentManagementCellRawValue(row, columnName) {
+            if (!row || typeof row !== 'object') {
+              return null;
+            }
+
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedColumn) {
+              return null;
+            }
+
+            return row[normalizedColumn];
+          },
           init() {
             this.syncBodyScrollLock();
 
@@ -3232,6 +3319,7 @@
             this.contentManagement.viewer.lastPage = fresh.lastPage;
             this.contentManagement.viewer.requestId = fresh.requestId;
             this.contentManagement.viewer.loaded = fresh.loaded;
+            this.contentManagement.viewer.displayOverrides = fresh.displayOverrides;
           },
           async selectContentManagementTable(tableName) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
@@ -3521,6 +3609,7 @@
                   : (rows.length > 0 ? Object.keys(rows[0]) : []));
 
               viewer.columns = baseColumns;
+              viewer.displayOverrides = this.normalizeContentManagementDisplayOverrides(data.display_overrides);
               viewer.rows = rows.map((row) => (row && typeof row === 'object' ? row : {}));
               viewer.page = Number.isFinite(data.page) ? Number(data.page) : currentPage;
               viewer.perPage = Number.isFinite(data.per_page) ? Number(data.per_page) : currentPerPage;
@@ -3566,6 +3655,7 @@
               viewer.error = error?.message ?? 'Сталася помилка під час завантаження даних таблиці.';
               viewer.rows = [];
               viewer.columns = [];
+              viewer.displayOverrides = {};
               viewer.loaded = false;
             } finally {
               if (viewer.requestId === requestId) {
@@ -3648,7 +3738,8 @@
 
             await this.showRecordValue(tableForModal, normalizedColumn, row, baseState);
           },
-          contentManagementHighlight(columnName, value) {
+          contentManagementHighlight(columnName, row) {
+            const value = this.contentManagementCellDisplayValue(row, columnName);
             const text = this.formatCell(value);
             const searchTerm = typeof this.contentManagement.viewer.search === 'string'
               ? this.contentManagement.viewer.search
@@ -4514,9 +4605,7 @@
             return;
           }
 
-          const rawValue = row && typeof row === 'object'
-            ? row[state.columnName]
-            : null;
+          const rawValue = this.contentManagementCellRawValue(row, state.columnName);
 
           this.valueModal.open = true;
           this.valueModal.loading = false;
@@ -5093,7 +5182,7 @@
             return;
           }
 
-          const fallbackRawValue = row && typeof row === 'object' ? row[state.columnName] : null;
+          const fallbackRawValue = this.contentManagementCellRawValue(row, state.columnName);
 
           this.valueModal.open = true;
           this.valueModal.loading = true;

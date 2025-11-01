@@ -143,7 +143,26 @@ class DatabaseStructureFetcher
             throw new RuntimeException("Table '{$table}' was not found in the current connection.");
         }
 
-        $columns = $tableInfo['columns'] ?? [];
+        $columns = Collection::make($tableInfo['columns'] ?? [])
+            ->map(function ($column): ?array {
+                if (!is_array($column)) {
+                    return null;
+                }
+
+                $name = $column['name'] ?? null;
+
+                if (!is_string($name) || trim($name) === '') {
+                    return null;
+                }
+
+                return [
+                    'name' => trim($name),
+                    'foreign' => $this->normalizeForeignDefinition($column['foreign'] ?? null),
+                ];
+            })
+            ->filter()
+            ->values()
+            ->all();
         $columnNames = array_map(static fn ($column) => $column['name'], $columns);
         $normalizedFilters = $this->prepareFilters($filters, $columnNames);
         $searchTerm = is_string($search) ? trim($search) : '';
@@ -174,16 +193,55 @@ class DatabaseStructureFetcher
         $query = $this->connection->table($table);
         $countQuery = $this->connection->table($table);
 
+        $displayOverrides = $this->prepareContentManagementDisplayOverrides($table, $columns);
+
+        if (!empty($displayOverrides)) {
+            $joinAliases = [];
+            $displayAliases = [];
+
+            $query->select(sprintf('%s.*', $table));
+
+            foreach ($displayOverrides as $column => &$override) {
+                $joinAlias = $this->generateUniqueAlias($override['join_alias'], $joinAliases);
+                $displayAlias = $this->generateUniqueAlias($override['display_alias'], $displayAliases);
+
+                $query->leftJoin("{$override['foreign_table']} as {$joinAlias}", function (Builder $join) use ($joinAlias, $table, $column, $override): void {
+                    $join->on(
+                        sprintf('%s.%s', $joinAlias, $override['foreign_column']),
+                        '=',
+                        sprintf('%s.%s', $table, $column)
+                    );
+                });
+
+                $countQuery->leftJoin("{$override['foreign_table']} as {$joinAlias}", function (Builder $join) use ($joinAlias, $table, $column, $override): void {
+                    $join->on(
+                        sprintf('%s.%s', $joinAlias, $override['foreign_column']),
+                        '=',
+                        sprintf('%s.%s', $table, $column)
+                    );
+                });
+
+                $query->addSelect(sprintf('%s.%s as %s', $joinAlias, $override['display_column'], $displayAlias));
+
+                $override['join_alias'] = $joinAlias;
+                $override['display_alias'] = $displayAlias;
+                $override['search_target'] = sprintf('%s.%s', $joinAlias, $override['display_column']);
+            }
+            unset($override);
+        }
+
         $this->applyFilters($query, $normalizedFilters);
         $this->applyFilters($countQuery, $normalizedFilters);
 
         if ($searchTerm !== '') {
-            $this->applySearch($query, $searchColumns, $searchTerm);
-            $this->applySearch($countQuery, $searchColumns, $searchTerm);
+            $searchTargets = $this->prepareSearchTargets($table, $searchColumns, $displayOverrides);
+            $this->applySearch($query, $searchTargets, $searchTerm);
+            $this->applySearch($countQuery, $searchTargets, $searchTerm);
         }
 
         if ($validSort) {
-            $query->orderBy($validSort, $direction);
+            $sortColumn = $displayOverrides[$validSort]['search_target'] ?? $validSort;
+            $query->orderBy($sortColumn, $direction);
         }
 
         $total = (int) $countQuery->count();
@@ -223,7 +281,315 @@ class DatabaseStructureFetcher
             'filters' => $normalizedFilters,
             'search' => $searchTerm,
             'search_column' => $normalizedSearchColumn,
+            'display_overrides' => array_map(
+                static fn (array $override): array => [
+                    'alias' => $override['display_alias'],
+                    'table' => $override['foreign_table'],
+                    'column' => $override['foreign_column'],
+                    'display_column' => $override['display_column'],
+                ],
+                $displayOverrides
+            ),
         ];
+    }
+
+    /**
+     * @param array<int, array{name: string, foreign: ?array}> $columns
+     * @return array<string, array{foreign_table: string, foreign_column: string, display_column: string, join_alias: string, display_alias: string, search_target?: string}>
+     */
+    private function prepareContentManagementDisplayOverrides(string $table, array $columns): array
+    {
+        $settings = config('database-structure.content_management.table_settings', []);
+
+        if (!is_array($settings)) {
+            return [];
+        }
+
+        $tableConfig = $settings[$table] ?? null;
+
+        if (!is_array($tableConfig)) {
+            return [];
+        }
+
+        $displayConfig = $this->extractDisplayOverrideConfig($tableConfig);
+
+        if (empty($displayConfig)) {
+            return [];
+        }
+
+        $columnsByName = [];
+
+        foreach ($columns as $column) {
+            if (!is_array($column)) {
+                continue;
+            }
+
+            $name = $column['name'] ?? null;
+
+            if (is_string($name) && $name !== '') {
+                $columnsByName[$name] = $column;
+            }
+        }
+
+        $overrides = [];
+
+        foreach ($displayConfig as $columnName => $definition) {
+            $columnDefinition = $columnsByName[$columnName] ?? null;
+
+            if (!is_array($columnDefinition)) {
+                continue;
+            }
+
+            $foreign = $columnDefinition['foreign'] ?? null;
+
+            $foreignTable = $definition['table'] ?? ($foreign['table'] ?? null);
+            $foreignColumn = $definition['foreign_column'] ?? ($foreign['column'] ?? null);
+            $displayColumn = $definition['display_column'] ?? null;
+
+            if (!is_string($foreignTable) || trim($foreignTable) === '') {
+                continue;
+            }
+
+            if (!is_string($foreignColumn) || trim($foreignColumn) === '') {
+                continue;
+            }
+
+            if (!is_string($displayColumn) || trim($displayColumn) === '') {
+                continue;
+            }
+
+            $sanitized = $this->sanitizeAliasSegment($columnName);
+
+            $overrides[$columnName] = [
+                'foreign_table' => trim($foreignTable),
+                'foreign_column' => trim($foreignColumn),
+                'display_column' => trim($displayColumn),
+                'join_alias' => 'cm_rel_' . $sanitized,
+                'display_alias' => 'cm_display_' . $sanitized,
+            ];
+        }
+
+        return $overrides;
+    }
+
+    /**
+     * @return array<string, array{display_column: string, table?: string, foreign_column?: string}>
+     */
+    private function extractDisplayOverrideConfig(array $config): array
+    {
+        $candidates = [
+            $config['foreign_display'] ?? null,
+            $config['foreignDisplay'] ?? null,
+            $config['display_foreign'] ?? null,
+            $config['displayForeign'] ?? null,
+            $config['relations'] ?? null,
+            $config['relation_display'] ?? null,
+            $config['foreign_columns'] ?? null,
+            $config['foreignColumns'] ?? null,
+        ];
+
+        foreach ($candidates as $candidate) {
+            $normalized = $this->normalizeDisplayOverrideEntries($candidate);
+
+            if (!empty($normalized)) {
+                return $normalized;
+            }
+        }
+
+        return [];
+    }
+
+    /**
+     * @return array<string, array{display_column: string, table?: string, foreign_column?: string}>
+     */
+    private function normalizeDisplayOverrideEntries(mixed $source): array
+    {
+        if (!is_array($source)) {
+            return [];
+        }
+
+        $normalized = [];
+
+        foreach ($source as $key => $value) {
+            $columnName = '';
+
+            if (is_string($key)) {
+                $columnName = trim($key);
+            } elseif (is_array($value)) {
+                $columnCandidates = [
+                    $value['column'] ?? null,
+                    $value['name'] ?? null,
+                    $value['field'] ?? null,
+                ];
+
+                foreach ($columnCandidates as $candidate) {
+                    if (is_string($candidate) && trim($candidate) !== '') {
+                        $columnName = trim($candidate);
+                        break;
+                    }
+                }
+            }
+
+            if ($columnName === '') {
+                continue;
+            }
+
+            $definition = $this->normalizeDisplayOverrideDefinition($value);
+
+            if ($definition === null) {
+                continue;
+            }
+
+            $normalized[$columnName] = $definition;
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * @return array{display_column: string, table?: string, foreign_column?: string}|null
+     */
+    private function normalizeDisplayOverrideDefinition(mixed $value): ?array
+    {
+        $displayColumn = null;
+        $table = null;
+        $foreignColumn = null;
+
+        if (is_string($value)) {
+            $displayColumn = trim($value);
+        } elseif (is_array($value)) {
+            $displayCandidates = [
+                $value['display_column'] ?? null,
+                $value['displayColumn'] ?? null,
+                $value['display'] ?? null,
+                $value['column'] ?? null,
+                $value['field'] ?? null,
+                $value['name'] ?? null,
+                $value['value'] ?? null,
+            ];
+
+            foreach ($displayCandidates as $candidate) {
+                if (is_string($candidate) && trim($candidate) !== '') {
+                    $displayColumn = trim($candidate);
+                    break;
+                }
+            }
+
+            $tableCandidates = [
+                $value['table'] ?? null,
+                $value['foreign_table'] ?? null,
+                $value['foreignTable'] ?? null,
+                $value['reference_table'] ?? null,
+                $value['referenceTable'] ?? null,
+            ];
+
+            foreach ($tableCandidates as $candidate) {
+                if (is_string($candidate) && trim($candidate) !== '') {
+                    $table = trim($candidate);
+                    break;
+                }
+            }
+
+            $columnCandidates = [
+                $value['foreign_column'] ?? null,
+                $value['foreignColumn'] ?? null,
+                $value['reference_column'] ?? null,
+                $value['referenceColumn'] ?? null,
+                $value['target_column'] ?? null,
+                $value['targetColumn'] ?? null,
+            ];
+
+            foreach ($columnCandidates as $candidate) {
+                if (is_string($candidate) && trim($candidate) !== '') {
+                    $foreignColumn = trim($candidate);
+                    break;
+                }
+            }
+        }
+
+        if (!is_string($displayColumn) || $displayColumn === '') {
+            return null;
+        }
+
+        if (str_contains($displayColumn, '.')) {
+            $segments = array_values(array_filter(explode('.', $displayColumn), static fn ($segment) => $segment !== ''));
+            $displayColumn = array_pop($segments) ?? $displayColumn;
+
+            if ($table === null && !empty($segments)) {
+                $table = $segments[0];
+            }
+        }
+
+        $payload = ['display_column' => $displayColumn];
+
+        if ($table !== null && $table !== '') {
+            $payload['table'] = $table;
+        }
+
+        if ($foreignColumn !== null && $foreignColumn !== '') {
+            $payload['foreign_column'] = $foreignColumn;
+        }
+
+        return $payload;
+    }
+
+    /**
+     * @param array<string, array{foreign_table: string, foreign_column: string, display_column: string, join_alias: string, display_alias: string, search_target?: string}> $overrides
+     * @param array<int, string> $searchColumns
+     * @return array<int, string>
+     */
+    private function prepareSearchTargets(string $table, array $searchColumns, array $overrides): array
+    {
+        $targets = [];
+
+        foreach ($searchColumns as $column) {
+            if (!is_string($column) || $column === '') {
+                continue;
+            }
+
+            if (isset($overrides[$column]['search_target'])) {
+                $targets[] = $overrides[$column]['search_target'];
+                continue;
+            }
+
+            if (str_contains($column, '.')) {
+                $targets[] = $column;
+                continue;
+            }
+
+            $targets[] = sprintf('%s.%s', $table, $column);
+        }
+
+        return $targets;
+    }
+
+    private function sanitizeAliasSegment(string $value): string
+    {
+        $sanitized = preg_replace('/[^A-Za-z0-9_]/', '_', strtolower($value));
+
+        if ($sanitized === null || $sanitized === '') {
+            return 'column';
+        }
+
+        return $sanitized;
+    }
+
+    /**
+     * @param array<int, string> $used
+     */
+    private function generateUniqueAlias(string $base, array &$used): string
+    {
+        $alias = $base;
+        $index = 1;
+
+        while (in_array($alias, $used, true)) {
+            $alias = $base . '_' . $index;
+            $index++;
+        }
+
+        $used[] = $alias;
+
+        return $alias;
     }
 
     /**
