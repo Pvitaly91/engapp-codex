@@ -5075,9 +5075,13 @@
             }
 
             const payload = await response.json();
-            const rawValue = payload && Object.prototype.hasOwnProperty.call(payload, 'value')
-              ? payload.value
-              : null;
+            let rawValue = null;
+
+            if (payload && typeof payload === 'object' && payload !== null && 'value' in payload) {
+              rawValue = payload.value;
+            } else if (payload !== undefined) {
+              rawValue = payload;
+            }
 
             this.valueModal.rawValue = rawValue;
             this.valueModal.value = this.formatCell(rawValue);
