@@ -1541,10 +1541,17 @@
                     </thead>
                     <tbody class="divide-y divide-border/60 text-[15px] text-foreground">
                       <template x-for="(row, rowIndex) in contentManagement.viewer.rows" :key="`cm-row-${rowIndex}`">
-                        <tr class="hover:bg-muted/40 transition">
+                        <tr class="transition hover:bg-muted/40">
                           <template x-for="column in contentManagement.viewer.columns" :key="`cm-cell-${rowIndex}-${column}`">
                             <td class="px-3 py-2 align-top">
-                              <div class="text-sm text-foreground" x-html="contentManagementHighlight(column, row[column])"></div>
+                              <button
+                                type="button"
+                                class="-mx-2 -my-1 block w-full rounded-lg px-2 py-1 text-left text-sm text-foreground transition hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                :title="formatCell(row[column])"
+                                @click="showContentManagementValue(column, row)"
+                              >
+                                <span class="block" x-html="contentManagementHighlight(column, row[column])"></span>
+                              </button>
                             </td>
                           </template>
                         </tr>
@@ -3564,22 +3571,51 @@
               }
             }
           },
-          contentManagementHighlight(columnName, value) {
-            const text = this.formatCell(value);
-            const searchTerm = typeof this.contentManagement.viewer.search === 'string'
-              ? this.contentManagement.viewer.search
-              : '';
-            const selectedColumn = typeof this.contentManagement.viewer.searchColumn === 'string'
-              ? this.contentManagement.viewer.searchColumn.trim()
-              : '';
-            const currentColumn = typeof columnName === 'string' ? columnName.trim() : '';
+        contentManagementHighlight(columnName, value) {
+          const text = this.formatCell(value);
+          const searchTerm = typeof this.contentManagement.viewer.search === 'string'
+            ? this.contentManagement.viewer.search
+            : '';
+          const selectedColumn = typeof this.contentManagement.viewer.searchColumn === 'string'
+            ? this.contentManagement.viewer.searchColumn.trim()
+            : '';
+          const currentColumn = typeof columnName === 'string' ? columnName.trim() : '';
 
-            if (!searchTerm || (selectedColumn && selectedColumn !== currentColumn)) {
-              return this.escapeHtml(text);
-            }
+          if (!searchTerm || (selectedColumn && selectedColumn !== currentColumn)) {
+            return this.escapeHtml(text);
+          }
 
-            return this.highlightText(text, searchTerm);
-          },
+          return this.highlightText(text, searchTerm);
+        },
+        async showContentManagementValue(column, row) {
+          const columnName = typeof column === 'string' ? column.trim() : '';
+          const tableName = typeof this.contentManagement.selectedTable === 'string'
+            ? this.contentManagement.selectedTable.trim()
+            : '';
+
+          if (!columnName || !tableName) {
+            return;
+          }
+
+          const viewer = this.contentManagement.viewer || {};
+          const baseTable = await this.ensureStructureLoadedByName(tableName);
+          const tableForValue = {
+            ...(baseTable || { name: tableName, primaryKeys: [] }),
+            name: tableName,
+            records: {
+              ...(baseTable?.records || {}),
+              columns: Array.isArray(viewer.columns)
+                ? [...viewer.columns]
+                : (baseTable?.records?.columns || []),
+              search: typeof viewer.search === 'string' ? viewer.search : '',
+              searchColumn: typeof viewer.searchColumn === 'string'
+                ? viewer.searchColumn
+                : (baseTable?.records?.searchColumn || ''),
+            },
+          };
+
+          await this.showRecordValue(tableForValue, columnName, row && typeof row === 'object' ? row : {});
+        },
         syncBodyScrollLock() {
           const shouldLock =
             this.valueModal.open ||
