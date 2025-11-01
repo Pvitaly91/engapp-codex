@@ -1191,18 +1191,49 @@
           </template>
         </div>
 
-        <div class="flex flex-wrap items-center justify-between gap-3">
-          <button
-            type="button"
-            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-            @click="addContentManagementTableSettingsEntry()"
-          >
-            <i class="fa-solid fa-plus text-[11px]"></i>
-            Додати колонку
-          </button>
-          <div class="flex flex-col gap-1 text-xs text-muted-foreground sm:text-right">
-            <span>Порожні alias будуть проігноровані при застосуванні та в JSON-конфігурації.</span>
+        <div class="space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              @click="addContentManagementTableSettingsEntry()"
+            >
+              <i class="fa-solid fa-plus text-[11px]"></i>
+              Додати колонку
+            </button>
+            <div class="flex flex-col gap-1 text-xs text-muted-foreground sm:text-right">
+              <span>Порожні alias будуть проігноровані при застосуванні та в JSON-конфігурації.</span>
+            </div>
           </div>
+          <template x-if="contentManagement.tableSettings.relationOptions.length > 0">
+            <div class="flex flex-col gap-3 rounded-2xl border border-dashed border-border/60 bg-muted/20 p-3 sm:flex-row sm:items-end sm:gap-3">
+              <label class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
+                <span>Поле зі зв'язаної таблиці</span>
+                <select
+                  class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  x-model="contentManagement.tableSettings.selectedRelationOption"
+                >
+                  <option value="">Оберіть поле</option>
+                  <template x-for="group in contentManagement.tableSettings.relationOptions" :key="group.key">
+                    <optgroup :label="group.label">
+                      <template x-for="option in group.options" :key="option.key">
+                        <option :value="option.key" x-text="option.label"></option>
+                      </template>
+                    </optgroup>
+                  </template>
+                </select>
+              </label>
+              <button
+                type="button"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                :disabled="!contentManagement.tableSettings.selectedRelationOption"
+                @click="addContentManagementRelationColumn()"
+              >
+                <i class="fa-solid fa-plus text-[11px]"></i>
+                Додати поле
+              </button>
+            </div>
+          </template>
         </div>
 
         <div class="space-y-2">
@@ -2446,6 +2477,8 @@
               error: null,
               feedback: '',
               nextId: 0,
+              relationOptions: [],
+              selectedRelationOption: '',
             },
             selectedTable: '',
             viewer: createContentManagementViewerState(),
@@ -3046,6 +3079,9 @@
             const relationOverrides = relationsSource && typeof relationsSource === 'object'
               ? { ...relationsSource }
               : {};
+            const relationOverridesForOptions = relationsSource && typeof relationsSource === 'object'
+              ? { ...relationsSource }
+              : {};
             const relationTargets = new Set();
             const hiddenSet = new Set(
               Array.isArray(hiddenColumns)
@@ -3197,6 +3233,11 @@
               seen.add(normalizedColumn);
             });
 
+            const relationOptions = this.buildContentManagementRelationOptions(
+              tableName,
+              relationOverridesForOptions,
+            );
+
             if (entries.length === 0) {
               entries.push({
                 id: this.nextContentManagementTableSettingsId(),
@@ -3212,6 +3253,8 @@
             this.contentManagement.tableSettings.entries = entries;
             this.contentManagement.tableSettings.error = null;
             this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.relationOptions = relationOptions;
+            this.contentManagement.tableSettings.selectedRelationOption = '';
             this.contentManagement.tableSettings.open = true;
           },
           closeContentManagementTableSettings() {
@@ -3224,6 +3267,8 @@
             this.contentManagement.tableSettings.error = null;
             this.contentManagement.tableSettings.feedback = '';
             this.contentManagement.tableSettings.nextId = 0;
+            this.contentManagement.tableSettings.relationOptions = [];
+            this.contentManagement.tableSettings.selectedRelationOption = '';
           },
           addContentManagementTableSettingsEntry() {
             if (!Array.isArray(this.contentManagement.tableSettings.entries)) {
@@ -3329,6 +3374,276 @@
 
               return carry;
             }, {});
+          },
+          buildContentManagementRelationOptions(tableName, relationOverrides = {}) {
+            const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalizedTable) {
+              return [];
+            }
+
+            const table = this.findTableByName(normalizedTable);
+
+            if (!table || !table.structure || !Array.isArray(table.structure.columns)) {
+              return [];
+            }
+
+            const overrideMap = relationOverrides && typeof relationOverrides === 'object'
+              ? { ...relationOverrides }
+              : {};
+
+            const groups = [];
+            const groupMap = new Map();
+
+            table.structure.columns.forEach((column) => {
+              if (!column || typeof column.name !== 'string') {
+                return;
+              }
+
+              const sourceColumn = column.name.trim();
+
+              if (!sourceColumn) {
+                return;
+              }
+
+              const foreign = column.foreign && typeof column.foreign === 'object'
+                ? column.foreign
+                : null;
+
+              if (!foreign) {
+                return;
+              }
+
+              const foreignTable = typeof foreign.table === 'string' ? foreign.table.trim() : '';
+              const referencedColumn = typeof foreign.column === 'string' ? foreign.column.trim() : '';
+
+              if (!foreignTable || !referencedColumn) {
+                return;
+              }
+
+              const overrideDefinition = overrideMap[sourceColumn] ?? null;
+              const overrideTable = overrideDefinition && typeof overrideDefinition.table === 'string'
+                ? overrideDefinition.table.trim()
+                : '';
+
+              const relationTable = overrideTable || foreignTable;
+              const targetTable = this.findTableByName(relationTable);
+              const targetColumns = this.getTableColumnNames(targetTable);
+              const optionSet = new Set(Array.isArray(targetColumns) ? targetColumns : []);
+              const foreignDisplay = typeof foreign.displayColumn === 'string'
+                ? foreign.displayColumn.trim()
+                : '';
+
+              if (foreignDisplay) {
+                optionSet.add(foreignDisplay);
+              }
+
+              if (overrideDefinition) {
+                if (typeof overrideDefinition === 'string') {
+                  const normalized = overrideDefinition.includes('.')
+                    ? overrideDefinition.split('.', 2)[1]?.trim() ?? ''
+                    : overrideDefinition.trim();
+
+                  if (normalized) {
+                    optionSet.add(normalized);
+                  }
+                } else if (typeof overrideDefinition === 'object' && overrideDefinition !== null) {
+                  const overrideColumn = typeof overrideDefinition.column === 'string'
+                    ? overrideDefinition.column.trim()
+                    : '';
+
+                  if (overrideColumn) {
+                    optionSet.add(overrideColumn);
+                  }
+                }
+              }
+
+              const normalizedOptions = Array.from(optionSet)
+                .map((value) => (typeof value === 'string' ? value.trim() : ''))
+                .filter((value) => value !== '');
+
+              if (normalizedOptions.length === 0) {
+                return;
+              }
+
+              const relationLabel = this.contentManagementLabel(relationTable)
+                || this.humanizeContentManagementName(relationTable)
+                || relationTable;
+              const columnLabel = this.humanizeContentManagementName(sourceColumn) || sourceColumn;
+              const groupKey = `${sourceColumn}::${relationTable}`;
+
+              if (!groupMap.has(groupKey)) {
+                groupMap.set(groupKey, {
+                  key: groupKey,
+                  sourceColumn,
+                  relationTable,
+                  referencedColumn,
+                  label: `${columnLabel} → ${relationLabel}`,
+                  manual: Boolean(foreign.manual),
+                  options: [],
+                });
+                groups.push(groupMap.get(groupKey));
+              }
+
+              const group = groupMap.get(groupKey);
+
+              const sortedOptions = normalizedOptions.sort((a, b) => a.localeCompare(b));
+
+              sortedOptions.forEach((optionColumn) => {
+                const optionKey = `${groupKey}::${optionColumn}`;
+                group.options.push({
+                  key: optionKey,
+                  sourceColumn,
+                  relationTable,
+                  referencedColumn,
+                  displayColumn: optionColumn,
+                  label: `${relationLabel} · ${optionColumn}`,
+                  aliasSuggestion: `${relationLabel} — ${this.humanizeContentManagementName(optionColumn) || optionColumn}`,
+                  manual: group.manual,
+                });
+              });
+            });
+
+            groups.forEach((group) => {
+              group.options.sort((a, b) => a.label.localeCompare(b.label, 'uk'));
+            });
+
+            groups.sort((a, b) => a.label.localeCompare(b.label, 'uk'));
+
+            return groups;
+          },
+          findContentManagementRelationOption(key) {
+            const optionKey = typeof key === 'string' ? key.trim() : '';
+
+            if (!optionKey) {
+              return null;
+            }
+
+            const groups = Array.isArray(this.contentManagement.tableSettings.relationOptions)
+              ? this.contentManagement.tableSettings.relationOptions
+              : [];
+
+            for (const group of groups) {
+              if (!group || !Array.isArray(group.options)) {
+                continue;
+              }
+
+              const option = group.options.find((entry) => entry && entry.key === optionKey);
+
+              if (option) {
+                return { group, option };
+              }
+            }
+
+            return null;
+          },
+          addContentManagementRelationColumn() {
+            const selection = this.findContentManagementRelationOption(
+              this.contentManagement.tableSettings.selectedRelationOption,
+            );
+
+            if (!selection || !selection.option) {
+              return;
+            }
+
+            const tableName = typeof this.contentManagement.tableSettings.table === 'string'
+              ? this.contentManagement.tableSettings.table.trim()
+              : '';
+
+            if (!tableName) {
+              return;
+            }
+
+            const { option } = selection;
+            const override = {
+              table: option.relationTable,
+              column: option.displayColumn,
+            };
+
+            let relationState = this.resolveContentManagementRelationState(
+              tableName,
+              option.sourceColumn,
+              override,
+              option.displayColumn,
+            );
+
+            if (relationState) {
+              const optionSet = new Set(
+                Array.isArray(relationState.options) ? relationState.options : [],
+              );
+              optionSet.add(option.displayColumn);
+              relationState = {
+                ...relationState,
+                options: Array.from(optionSet),
+                displayColumn: option.displayColumn,
+              };
+            } else {
+              relationState = {
+                sourceColumn: option.sourceColumn,
+                table: option.relationTable,
+                originalTable: option.relationTable,
+                referencedColumn: option.referencedColumn,
+                displayColumn: option.displayColumn,
+                options: [option.displayColumn],
+                manual: Boolean(option.manual),
+              };
+            }
+
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? [...this.contentManagement.tableSettings.entries]
+              : [];
+            const index = entries.findIndex(
+              (entry) => entry && typeof entry.column === 'string'
+                ? entry.column.trim() === option.sourceColumn
+                : false,
+            );
+
+            if (index === -1) {
+              entries.push({
+                id: this.nextContentManagementTableSettingsId(),
+                column: option.sourceColumn,
+                alias: option.aliasSuggestion || '',
+                hidden: false,
+                locked: false,
+                relation: relationState,
+              });
+            } else {
+              const existing = entries[index] || {};
+              const nextAlias = typeof existing.alias === 'string' && existing.alias.trim() !== ''
+                ? existing.alias
+                : (option.aliasSuggestion || existing.alias || '');
+
+              entries[index] = {
+                ...existing,
+                column: existing.column ?? option.sourceColumn,
+                alias: nextAlias,
+                hidden: Boolean(existing.hidden),
+                locked: Boolean(existing.locked),
+                relation: relationState,
+              };
+            }
+
+            this.contentManagement.tableSettings.entries = entries;
+            this.contentManagement.tableSettings.selectedRelationOption = '';
+            this.contentManagement.tableSettings.feedback = '';
+            this.contentManagement.tableSettings.error = null;
+          },
+          humanizeContentManagementName(value) {
+            if (typeof value !== 'string') {
+              return '';
+            }
+
+            const trimmed = value.trim();
+
+            if (!trimmed) {
+              return '';
+            }
+
+            return trimmed
+              .split(/[_\s]+/)
+              .filter((segment) => segment.length > 0)
+              .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+              .join(' ');
           },
           contentManagementTableSettingsSnippet() {
             const tableName = typeof this.contentManagement.tableSettings.table === 'string'
