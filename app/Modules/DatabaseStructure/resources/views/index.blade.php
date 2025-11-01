@@ -26,6 +26,7 @@
       @js($contentManagementMenu),
       @js([
         'menuStore' => route('database-structure.content-management.menu.store'),
+        'menuUpdate' => route('database-structure.content-management.menu.update'),
         'menuDelete' => route('database-structure.content-management.menu.destroy', ['table' => '__TABLE__']),
       ]),
       @js($contentManagementTableSettings),
@@ -393,10 +394,10 @@
                               :class="(!table.records.savedFilters.defaultId || table.records.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
                               :aria-pressed="!table.records.savedFilters.defaultId || table.records.savedFilters.defaultDisabled"
                               :disabled="table.records.savedFilters.loading"
-                              @click.stop="setRecordsDefaultFilter(table, '')"
+                              @click.stop="setRecordsDefaultFilter(table, '', { resetActive: true })"
                             >
                               <i class="fa-solid fa-ban text-[10px]"></i>
-                              <span>Без фільтра</span>
+                              <span>All</span>
                             </button>
                           </div>
                         </template>
@@ -1519,13 +1520,23 @@
           </div>
         </div>
 
+        <template x-if="contentManagement.menuFeedback">
+          <div
+            class="rounded-2xl border px-3 py-2 text-sm"
+            :class="contentManagement.menuFeedbackType === 'success'
+              ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
+              : 'border-rose-200 bg-rose-50 text-rose-600'"
+            x-text="contentManagement.menuFeedback"
+          ></div>
+        </template>
+
         <div class="space-y-2">
           <template x-if="contentManagement.menu.length === 0">
             <div class="rounded-2xl border border-dashed border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
               Меню порожнє. Додайте таблицю через налаштування.
             </div>
           </template>
-          <template x-for="item in contentManagement.menu" :key="`cm-item-${item.table}`">
+          <template x-for="(item, index) in contentManagement.menu" :key="`cm-item-${item.table}`">
             <div class="flex flex-wrap items-center gap-2">
               <button
                 type="button"
@@ -1535,19 +1546,71 @@
               >
                 <div class="font-semibold" x-text="item.label || item.table"></div>
                 <div class="text-xs text-muted-foreground" x-text="item.table"></div>
+                <div
+                  class="mt-2 inline-flex items-center gap-1 rounded-full bg-amber-100/80 px-2 py-0.5 text-[11px] font-semibold text-amber-700"
+                  x-show="item.is_default"
+                  x-cloak
+                >
+                  <i class="fa-solid fa-star text-[10px]"></i>
+                  <span>За замовчуванням</span>
+                </div>
               </button>
-              <button
-                type="button"
-                class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70"
+              <div
+                class="inline-flex items-center gap-1"
                 x-show="contentManagement.menuSettings.open"
                 x-cloak
-                @click="openContentManagementDeletionModal(item)"
-                :disabled="contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table"
-                :aria-disabled="contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table"
-                aria-label="Видалити таблицю з меню"
               >
-                <i class="fa-solid fa-trash-can text-xs"></i>
-              </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-amber-400 hover:bg-amber-50 hover:text-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-200/70 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="setContentManagementDefaultTable(item.table)"
+                  :disabled="contentManagement.menuSettings.saving || item.is_default"
+                  :aria-label="item.is_default ? 'Таблиця вже обрана за замовчуванням' : 'Зробити таблицю за замовчуванням'"
+                  :title="item.is_default ? 'Таблиця за замовчуванням' : 'Зробити таблицю за замовчуванням'"
+                >
+                  <i
+                    class="fa-solid fa-star text-xs"
+                    :class="item.is_default ? 'text-amber-500' : 'text-muted-foreground'"
+                  ></i>
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-primary/60 hover:bg-primary/10 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="renameContentManagementMenuItem(item.table)"
+                  :disabled="contentManagement.menuSettings.saving"
+                  aria-label="Перейменувати таблицю в меню"
+                >
+                  <i class="fa-solid fa-pen text-xs"></i>
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-primary/60 hover:bg-primary/10 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="moveContentManagementMenuItem(item.table, -1)"
+                  :disabled="contentManagement.menuSettings.saving || index === 0"
+                  aria-label="Перемістити таблицю вгору"
+                >
+                  <i class="fa-solid fa-chevron-up text-xs"></i>
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-primary/60 hover:bg-primary/10 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="moveContentManagementMenuItem(item.table, 1)"
+                  :disabled="contentManagement.menuSettings.saving || index === contentManagement.menu.length - 1"
+                  aria-label="Перемістити таблицю вниз"
+                >
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-border/60 bg-background p-2 text-muted-foreground transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-200/70 disabled:cursor-not-allowed disabled:opacity-60"
+                  @click="openContentManagementDeletionModal(item)"
+                  :disabled="(contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table) || contentManagement.menuSettings.saving"
+                  :aria-disabled="(contentManagement.deletionModal.loading && contentManagement.deletionModal.table === item.table) || contentManagement.menuSettings.saving"
+                  aria-label="Видалити таблицю з меню"
+                >
+                  <i class="fa-solid fa-trash-can text-xs"></i>
+                </button>
+              </div>
             </div>
           </template>
         </div>
@@ -1565,6 +1628,71 @@
                 <div>
                   <h2 class="text-2xl font-semibold text-foreground" x-text="contentManagementLabel(contentManagement.selectedTable)"></h2>
                   <p class="text-sm text-muted-foreground" x-text="contentManagement.selectedTable"></p>
+                  <div class="mt-3 space-y-2">
+                    <template x-if="contentManagement.viewer.feedback">
+                      <span class="text-xs font-semibold text-emerald-600" x-text="contentManagement.viewer.feedback"></span>
+                    </template>
+                    <template x-if="contentManagement.viewer.savedFilters.loading">
+                      <span class="text-[11px] text-muted-foreground">Завантаження збережених фільтрів…</span>
+                    </template>
+                    <template x-if="!contentManagement.viewer.savedFilters.loading && contentManagement.viewer.savedFilters.items.length > 0">
+                      <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                        <template x-for="saved in contentManagement.viewer.savedFilters.items" :key="`content-saved-${saved.id}`">
+                          <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background">
+                            <button
+                              type="button"
+                              class="px-3 py-1 transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                              :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'bg-primary/10 text-primary' : 'text-foreground'"
+                              :disabled="contentManagement.viewer.loading || contentManagement.viewer.savedFilters.loading"
+                              @click.stop="applySavedContentManagementFilter(saved.id)"
+                              x-text="saved.name"
+                            ></button>
+                            <button
+                              type="button"
+                              class="px-2 py-1 transition hover:text-amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+                              :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'text-amber-500' : 'text-muted-foreground'"
+                              :disabled="contentManagement.viewer.savedFilters.loading"
+                              @click.stop="toggleContentManagementDefaultFilter(saved.id)"
+                              :aria-label="contentManagement.viewer.savedFilters.defaultId === saved.id ? `Вимкнути фільтр ${saved.name} за замовчуванням` : `Зробити фільтр ${saved.name} за замовчуванням`"
+                            >
+                              <i class="fa-solid fa-star text-[10px]"></i>
+                            </button>
+                            <template x-if="contentManagementFilterShareUrl(saved)">
+                              <a
+                                class="px-2 py-1 text-muted-foreground transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                                :href="contentManagementFilterShareUrl(saved)"
+                                target="_blank"
+                                rel="noopener"
+                                :aria-label="`Відкрити таблицю з фільтром ${saved.name}`"
+                              >
+                                <i class="fa-solid fa-link text-[10px]"></i>
+                              </a>
+                            </template>
+                            <button
+                              type="button"
+                              class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
+                              :disabled="contentManagement.viewer.savedFilters.loading"
+                              @click.stop="deleteSavedContentManagementFilter(saved.id)"
+                              :aria-label="`Видалити фільтр ${saved.name}`"
+                            >
+                              <i class="fa-solid fa-xmark text-[10px]"></i>
+                            </button>
+                          </div>
+                        </template>
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                          :class="(!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
+                          :aria-pressed="!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled"
+                          :disabled="contentManagement.viewer.savedFilters.loading"
+                          @click.stop="setContentManagementDefaultFilter('', { resetActive: true })"
+                        >
+                          <i class="fa-solid fa-ban text-[10px]"></i>
+                          <span>All</span>
+                        </button>
+                      </div>
+                    </template>
+                  </div>
                 </div>
                 <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
                   <label class="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground">
@@ -1587,6 +1715,15 @@
                   >
                     <i class="fa-solid fa-rotate-right text-[11px]"></i>
                     Оновити
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+                    @click="copyContentManagementTableUrl(contentManagement.selectedTable)"
+                    :disabled="!contentManagement.selectedTable || contentManagement.copyingUrl"
+                  >
+                    <i class="fa-solid fa-link text-[11px]"></i>
+                    Скопіювати посилання
                   </button>
                   <button
                     type="button"
@@ -1642,69 +1779,6 @@
                       Застосувати
                     </button>
                   </div>
-                  <template x-if="contentManagement.viewer.feedback">
-                    <span class="text-xs font-semibold text-emerald-600 md:text-right" x-text="contentManagement.viewer.feedback"></span>
-                  </template>
-                  <template x-if="contentManagement.viewer.savedFilters.loading">
-                    <span class="text-[11px] text-muted-foreground md:text-right">Завантаження збережених фільтрів…</span>
-                  </template>
-                  <template x-if="!contentManagement.viewer.savedFilters.loading && contentManagement.viewer.savedFilters.items.length > 0">
-                    <div class="flex flex-wrap items-center gap-2 pt-1 md:justify-end">
-                      <template x-for="saved in contentManagement.viewer.savedFilters.items" :key="`content-saved-${saved.id}`">
-                        <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background text-[11px] font-semibold">
-                          <button
-                            type="button"
-                            class="px-3 py-1 transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-                            :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'bg-primary/10 text-primary' : 'text-foreground'"
-                            :disabled="contentManagement.viewer.loading || contentManagement.viewer.savedFilters.loading"
-                            @click.stop="applySavedContentManagementFilter(saved.id)"
-                            x-text="saved.name"
-                          ></button>
-                          <button
-                            type="button"
-                            class="px-2 py-1 transition hover:text-amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
-                            :class="contentManagement.viewer.savedFilters.defaultId === saved.id ? 'text-amber-500' : 'text-muted-foreground'"
-                            :disabled="contentManagement.viewer.savedFilters.loading"
-                            @click.stop="toggleContentManagementDefaultFilter(saved.id)"
-                            :aria-label="contentManagement.viewer.savedFilters.defaultId === saved.id ? `Вимкнути фільтр ${saved.name} за замовчуванням` : `Зробити фільтр ${saved.name} за замовчуванням`"
-                          >
-                            <i class="fa-solid fa-star text-[10px]"></i>
-                          </button>
-                          <template x-if="contentManagementFilterShareUrl(saved)">
-                            <a
-                              class="px-2 py-1 text-muted-foreground transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                              :href="contentManagementFilterShareUrl(saved)"
-                              target="_blank"
-                              rel="noopener"
-                              :aria-label="`Відкрити таблицю з фільтром ${saved.name}`"
-                            >
-                              <i class="fa-solid fa-link text-[10px]"></i>
-                            </a>
-                          </template>
-                          <button
-                            type="button"
-                            class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
-                            :disabled="contentManagement.viewer.savedFilters.loading"
-                            @click.stop="deleteSavedContentManagementFilter(saved.id)"
-                            :aria-label="`Видалити фільтр ${saved.name}`"
-                          >
-                            <i class="fa-solid fa-xmark text-[10px]"></i>
-                          </button>
-                        </div>
-                      </template>
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-                        :class="(!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled) ? 'border-primary/40 bg-primary/10 text-primary' : 'hover:border-primary/60 hover:text-primary'"
-                        :aria-pressed="!contentManagement.viewer.savedFilters.defaultId || contentManagement.viewer.savedFilters.defaultDisabled"
-                        :disabled="contentManagement.viewer.savedFilters.loading"
-                        @click.stop="setContentManagementDefaultFilter('')"
-                      >
-                        <i class="fa-solid fa-ban text-[10px]"></i>
-                        <span>Без фільтра</span>
-                      </button>
-                    </div>
-                  </template>
                 </div>
               </div>
 
@@ -2227,6 +2301,24 @@
             .filter(Boolean);
         };
 
+        const coerceBoolean = (value) => {
+          if (typeof value === 'boolean') {
+            return value;
+          }
+
+          if (typeof value === 'string') {
+            const normalized = value.trim().toLowerCase();
+
+            return ['1', 'true', 'yes', 'on'].includes(normalized);
+          }
+
+          if (typeof value === 'number') {
+            return Number.isFinite(value) && value !== 0;
+          }
+
+          return false;
+        };
+
         const normalizeContentManagementMenuItem = (item) => {
           if (typeof item === 'string') {
             const tableName = item.trim();
@@ -2238,6 +2330,7 @@
             return {
               table: tableName,
               label: tableName,
+              is_default: false,
             };
           }
 
@@ -2258,6 +2351,7 @@
           return {
             table: tableName,
             label,
+            is_default: coerceBoolean(item.is_default ?? item.default ?? false),
           };
         };
 
@@ -2267,6 +2361,7 @@
           }
 
           const seen = new Set();
+          let defaultAssigned = false;
 
           return rawMenu
             .map((item) => normalizeContentManagementMenuItem(item))
@@ -2282,6 +2377,19 @@
               seen.add(item.table);
 
               return true;
+            })
+            .map((item) => {
+              if (!item) {
+                return item;
+              }
+
+              if (item.is_default && !defaultAssigned) {
+                defaultAssigned = true;
+              } else {
+                item.is_default = false;
+              }
+
+              return item;
             });
         };
 
@@ -2290,6 +2398,7 @@
 
           return {
             menuStore: typeof normalized.menuStore === 'string' ? normalized.menuStore : '',
+            menuUpdate: typeof normalized.menuUpdate === 'string' ? normalized.menuUpdate : '',
             menuDelete: typeof normalized.menuDelete === 'string' ? normalized.menuDelete : '',
           };
         };
@@ -2957,6 +3066,15 @@
           viewOptions && typeof viewOptions === 'object' && !Array.isArray(viewOptions)
             ? viewOptions
             : {};
+        const resolveDefaultContentManagementTable = (menu) => {
+          if (!Array.isArray(menu)) {
+            return '';
+          }
+
+          const found = menu.find((item) => item && typeof item.table === 'string' && item.is_default);
+
+          return found ? found.table : '';
+        };
         const initialTab = normalizedViewOptions.initialTab === 'content-management'
           ? 'content-management'
           : 'structure';
@@ -2993,7 +3111,11 @@
           contentManagementRoutes: normalizedContentManagementRoutes,
           contentManagement: {
             menu: normalizedContentManagementMenu,
+            defaultTable: resolveDefaultContentManagementTable(normalizedContentManagementMenu),
             settings: normalizedContentManagementSettings,
+            menuFeedback: '',
+            menuFeedbackType: 'success',
+            menuFeedbackTimeout: null,
             menuSettings: {
               open: false,
               table: '',
@@ -3001,6 +3123,7 @@
               saving: false,
               error: null,
             },
+            copyingUrl: false,
             tableSettings: {
               open: false,
               table: '',
@@ -3126,6 +3249,11 @@
             });
 
             this.$watch('contentManagement.menu', (menu) => {
+              const normalizedMenu = Array.isArray(menu) ? menu : [];
+              const defaultItem = normalizedMenu.find((item) => item && item.is_default);
+
+              this.contentManagement.defaultTable = defaultItem && defaultItem.table ? defaultItem.table : '';
+
               if (
                 this.contentManagement.selectedTable &&
                 (!Array.isArray(menu) ||
@@ -3139,13 +3267,12 @@
                 this.activeTab === 'content-management' &&
                 !this.contentManagement.selectedTable &&
                 !this.contentManagement.preventAutoSelect &&
-                Array.isArray(this.contentManagement.menu) &&
-                this.contentManagement.menu.length > 0
+                normalizedMenu.length > 0
               ) {
-                const firstItem = this.contentManagement.menu[0];
+                const targetItem = defaultItem || normalizedMenu[0];
 
-                if (firstItem && firstItem.table) {
-                  this.selectContentManagementTable(firstItem.table);
+                if (targetItem && targetItem.table) {
+                  this.selectContentManagementTable(targetItem.table);
                 }
               }
             });
@@ -3188,10 +3315,11 @@
               Array.isArray(this.contentManagement.menu) &&
               this.contentManagement.menu.length > 0
             ) {
-              const firstItem = this.contentManagement.menu[0];
+              const defaultItem = this.contentManagement.menu.find((item) => item && item.is_default);
+              const targetItem = defaultItem || this.contentManagement.menu[0];
 
-              if (firstItem && firstItem.table) {
-                this.selectContentManagementTable(firstItem.table);
+              if (targetItem && targetItem.table) {
+                this.selectContentManagementTable(targetItem.table);
               }
             }
           },
@@ -3627,6 +3755,135 @@
             this.contentManagement.menuSettings.error = null;
             this.contentManagement.menuSettings.saving = false;
           },
+          setContentManagementMenuFeedback(message, type = 'success') {
+            if (this.contentManagement.menuFeedbackTimeout) {
+              clearTimeout(this.contentManagement.menuFeedbackTimeout);
+              this.contentManagement.menuFeedbackTimeout = null;
+            }
+
+            const normalizedMessage = typeof message === 'string' ? message.trim() : '';
+
+            if (!normalizedMessage) {
+              this.contentManagement.menuFeedback = '';
+              this.contentManagement.menuFeedbackType = 'success';
+              return;
+            }
+
+            this.contentManagement.menuFeedback = normalizedMessage;
+            this.contentManagement.menuFeedbackType = type === 'error' ? 'error' : 'success';
+
+            this.contentManagement.menuFeedbackTimeout = window.setTimeout(() => {
+              this.contentManagement.menuFeedback = '';
+              this.contentManagement.menuFeedbackTimeout = null;
+            }, 4000);
+          },
+          async persistContentManagementMenu(updatedMenu) {
+            if (!Array.isArray(updatedMenu)) {
+              throw new Error('Не вдалося визначити меню для збереження.');
+            }
+
+            if (!this.contentManagementRoutes.menuUpdate) {
+              throw new Error('Маршрут оновлення меню не налаштовано.');
+            }
+
+            const payload = updatedMenu
+              .map((item) => normalizeContentManagementMenuItem(item))
+              .filter(Boolean);
+
+            const response = await fetch(this.contentManagementRoutes.menuUpdate, {
+              method: 'PUT',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+              body: JSON.stringify({
+                menu: payload,
+              }),
+            });
+
+            if (!response.ok) {
+              const payloadResponse = await response.json().catch(() => null);
+              const message = payloadResponse?.message || 'Не вдалося оновити меню Content Management.';
+              throw new Error(message);
+            }
+
+            const responsePayload = await response.json().catch(() => null);
+            const normalizedMenu = normalizeContentManagementMenu(responsePayload?.menu ?? responsePayload);
+
+            if (!Array.isArray(normalizedMenu) || normalizedMenu.length !== payload.length) {
+              this.contentManagement.menu = Array.isArray(normalizedMenu) ? normalizedMenu : this.contentManagement.menu;
+              throw new Error('Отримано некоректну відповідь під час оновлення меню.');
+            }
+
+            this.contentManagement.menu = normalizedMenu;
+            const defaultItem = normalizedMenu.find((item) => item && item.is_default);
+            this.contentManagement.defaultTable = defaultItem && defaultItem.table ? defaultItem.table : '';
+            this.contentManagement.menuSettings.error = null;
+
+            return normalizedMenu;
+          },
+          async setContentManagementDefaultTable(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized || this.contentManagement.menuSettings.saving) {
+              return;
+            }
+
+            if (this.contentManagement.defaultTable === normalized) {
+              return;
+            }
+
+            const currentMenu = Array.isArray(this.contentManagement.menu)
+              ? this.contentManagement.menu
+              : [];
+            const hasTarget = currentMenu.some((item) => item && item.table === normalized);
+
+            if (!hasTarget) {
+              return;
+            }
+
+            const previousMenu = currentMenu.map((item) => ({
+              table: item.table,
+              label: item.label,
+              is_default: item.is_default,
+            }));
+            const updatedMenu = currentMenu.map((item) => {
+              if (!item) {
+                return item;
+              }
+
+              return {
+                ...item,
+                is_default: item.table === normalized,
+              };
+            });
+
+            this.contentManagement.menu = updatedMenu;
+            this.contentManagement.defaultTable = normalized;
+            this.contentManagement.menuSettings.saving = true;
+            this.contentManagement.menuSettings.error = null;
+            this.setContentManagementMenuFeedback('', 'success');
+
+            try {
+              await this.persistContentManagementMenu(updatedMenu);
+              this.setContentManagementMenuFeedback('Таблицю встановлено за замовчуванням.', 'success');
+
+              if (this.activeTab === 'content-management') {
+                await this.selectContentManagementTable(normalized);
+              }
+            } catch (error) {
+              this.contentManagement.menu = previousMenu;
+              const previousDefault = previousMenu.find((item) => item && item.is_default);
+              this.contentManagement.defaultTable = previousDefault && previousDefault.table
+                ? previousDefault.table
+                : '';
+              this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час оновлення меню.';
+              this.setContentManagementMenuFeedback('', 'success');
+            } finally {
+              this.contentManagement.menuSettings.saving = false;
+            }
+          },
           async addContentManagementMenuItem() {
             if (!this.contentManagementRoutes.menuStore) {
               this.contentManagement.menuSettings.error = 'Маршрут збереження меню не налаштовано.';
@@ -3676,16 +3933,117 @@
                 throw new Error('Отримано некоректну відповідь від сервера.');
               }
 
-              const updatedMenu = this.contentManagement.menu
-                .filter((item) => item && item.table !== normalizedItem.table)
-                .concat([normalizedItem])
-                .sort((a, b) => a.label.localeCompare(b.label));
+              const updatedMenu = normalizeContentManagementMenu(
+                this.contentManagement.menu
+                  .filter((item) => item && item.table !== normalizedItem.table)
+                  .concat([normalizedItem]),
+              );
 
               this.contentManagement.menu = updatedMenu;
+              const defaultItem = updatedMenu.find((item) => item && item.is_default);
+              this.contentManagement.defaultTable = defaultItem && defaultItem.table ? defaultItem.table : '';
               this.closeContentManagementMenuSettings();
               await this.selectContentManagementTable(normalizedItem.table);
+              this.setContentManagementMenuFeedback('Таблицю додано до меню.', 'success');
             } catch (error) {
               this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час збереження меню.';
+            } finally {
+              this.contentManagement.menuSettings.saving = false;
+            }
+          },
+          async renameContentManagementMenuItem(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized || this.contentManagement.menuSettings.saving) {
+              return;
+            }
+
+            const currentItem = this.contentManagement.menu.find((entry) => entry && entry.table === normalized);
+
+            if (!currentItem) {
+              return;
+            }
+
+            const currentLabel = currentItem.label || currentItem.table;
+            const newLabel = window.prompt('Нова назва таблиці в меню', currentLabel);
+
+            if (newLabel === null) {
+              return;
+            }
+
+            const trimmed = typeof newLabel === 'string' ? newLabel.trim() : '';
+            const previousMenu = this.contentManagement.menu.slice();
+            const updatedMenu = this.contentManagement.menu.map((entry) => {
+              if (!entry || entry.table !== normalized) {
+                return entry;
+              }
+
+              return {
+                table: entry.table,
+                label: trimmed || entry.table,
+                is_default: entry.is_default === true,
+              };
+            });
+
+            this.contentManagement.menu = updatedMenu;
+            this.contentManagement.menuSettings.saving = true;
+            this.contentManagement.menuSettings.error = null;
+            this.setContentManagementMenuFeedback('', 'success');
+
+            try {
+              await this.persistContentManagementMenu(updatedMenu);
+              this.setContentManagementMenuFeedback('Назву таблиці оновлено.', 'success');
+            } catch (error) {
+              this.contentManagement.menu = previousMenu;
+              this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час оновлення меню.';
+              this.setContentManagementMenuFeedback('', 'success');
+            } finally {
+              this.contentManagement.menuSettings.saving = false;
+            }
+          },
+          async moveContentManagementMenuItem(tableName, direction) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+            const offset = Number(direction);
+
+            if (!normalized || !Number.isFinite(offset) || offset === 0 || this.contentManagement.menuSettings.saving) {
+              return;
+            }
+
+            const index = this.contentManagement.menu.findIndex((entry) => entry && entry.table === normalized);
+
+            if (index === -1) {
+              return;
+            }
+
+            const step = offset > 0 ? 1 : -1;
+            const targetIndex = index + step;
+
+            if (targetIndex < 0 || targetIndex >= this.contentManagement.menu.length) {
+              return;
+            }
+
+            const previousMenu = this.contentManagement.menu.slice();
+            const updatedMenu = previousMenu.slice();
+            const [moved] = updatedMenu.splice(index, 1);
+
+            if (!moved) {
+              return;
+            }
+
+            updatedMenu.splice(targetIndex, 0, moved);
+
+            this.contentManagement.menu = updatedMenu;
+            this.contentManagement.menuSettings.saving = true;
+            this.contentManagement.menuSettings.error = null;
+            this.setContentManagementMenuFeedback('', 'success');
+
+            try {
+              await this.persistContentManagementMenu(updatedMenu);
+              this.setContentManagementMenuFeedback('Порядок меню оновлено.', 'success');
+            } catch (error) {
+              this.contentManagement.menu = previousMenu;
+              this.contentManagement.menuSettings.error = error?.message ?? 'Сталася помилка під час оновлення меню.';
+              this.setContentManagementMenuFeedback('', 'success');
             } finally {
               this.contentManagement.menuSettings.saving = false;
             }
@@ -3726,6 +4084,7 @@
                 (item) => item && item.table !== normalized,
               );
               this.contentManagement.menuSettings.error = null;
+              this.setContentManagementMenuFeedback('Таблицю видалено з меню.', 'success');
 
               if (this.contentManagement.selectedTable === normalized) {
                 this.contentManagement.selectedTable = '';
@@ -3745,6 +4104,58 @@
               throw error instanceof Error
                 ? error
                 : new Error(error?.message ?? 'Сталася помилка під час видалення таблиці з меню.');
+            }
+          },
+          contentManagementTableUrl(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+            const base = this.tabRoutes?.['content-management'];
+
+            if (!normalized || !base) {
+              return '';
+            }
+
+            try {
+              const url = new URL(base, window.location.origin);
+              url.searchParams.set('table', normalized);
+              return url.toString();
+            } catch (error) {
+              return '';
+            }
+          },
+          async copyContentManagementTableUrl(tableName) {
+            if (this.contentManagement.copyingUrl) {
+              return;
+            }
+
+            const url = this.contentManagementTableUrl(tableName);
+
+            if (!url) {
+              this.setContentManagementMenuFeedback('Не вдалося сформувати посилання для цієї таблиці.', 'error');
+              return;
+            }
+
+            this.contentManagement.copyingUrl = true;
+
+            try {
+              if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+                await navigator.clipboard.writeText(url);
+              } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = url;
+                textarea.setAttribute('readonly', '');
+                textarea.style.position = 'absolute';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+              }
+
+              this.setContentManagementMenuFeedback('Посилання на таблицю скопійовано.', 'success');
+            } catch (error) {
+              this.setContentManagementMenuFeedback('Не вдалося скопіювати посилання. Спробуйте ще раз.', 'error');
+            } finally {
+              this.contentManagement.copyingUrl = false;
             }
           },
           contentManagementLabel(tableName) {
@@ -5564,7 +5975,7 @@
             this.setContentManagementDefaultFilter(filterId);
           }
         },
-        async setContentManagementDefaultFilter(filterId) {
+        async setContentManagementDefaultFilter(filterId, options = {}) {
           const tableName = typeof this.contentManagement.selectedTable === 'string'
             ? this.contentManagement.selectedTable.trim()
             : '';
@@ -5581,6 +5992,27 @@
             this.contentManagement.viewer.savedFilters,
             this.contentManagement.viewer,
           );
+
+          if (options && options.resetActive === true) {
+            const viewer = this.contentManagement.viewer;
+
+            if (viewer) {
+              const savedFilters = viewer.savedFilters;
+
+              if (savedFilters) {
+                savedFilters.lastUsed = '';
+              }
+
+              viewer.filters = [];
+              viewer.search = '';
+              viewer.searchInput = '';
+              viewer.searchColumn = '';
+              viewer.page = 1;
+              this.contentManagement.pendingFilterId = '';
+
+              await this.loadContentManagementTable(tableName);
+            }
+          }
         },
         async saveContentManagementFilters() {
           const tableName = typeof this.contentManagement.selectedTable === 'string'
@@ -8065,7 +8497,7 @@
             this.setRecordsDefaultFilter(table, filterId);
           }
         },
-        async setRecordsDefaultFilter(table, filterId) {
+        async setRecordsDefaultFilter(table, filterId, options = {}) {
           if (!table || !table.records) {
             return;
           }
@@ -8083,6 +8515,26 @@
             table.records.savedFilters,
             table.records,
           );
+
+          if (options && options.resetActive === true) {
+            const records = table.records;
+
+            if (records) {
+              const savedFilters = records.savedFilters;
+
+              if (savedFilters) {
+                savedFilters.lastUsed = '';
+              }
+
+              records.filters = [];
+              records.search = '';
+              records.searchInput = '';
+              records.searchColumn = '';
+              records.page = 1;
+
+              await this.loadRecords(table);
+            }
+          }
         },
         async applySavedRecordsFilterButton(table, filterId) {
           if (!table || !filterId || table.records.loading) {
