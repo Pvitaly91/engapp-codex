@@ -2070,6 +2070,57 @@
           return Array.from(set);
         };
 
+        const normalizeColumnOrderList = (source) => {
+          if (!source) {
+            return [];
+          }
+
+          const result = [];
+          const seen = new Set();
+
+          const push = (value) => {
+            if (typeof value !== 'string') {
+              return;
+            }
+
+            const normalized = value.trim();
+
+            if (normalized && !seen.has(normalized)) {
+              seen.add(normalized);
+              result.push(normalized);
+            }
+          };
+
+          if (Array.isArray(source)) {
+            source.forEach((entry) => {
+              if (typeof entry === 'string') {
+                push(entry);
+                return;
+              }
+
+              if (Array.isArray(entry) && entry.length > 0) {
+                push(entry[0]);
+                return;
+              }
+
+              if (entry && typeof entry === 'object') {
+                if (typeof entry.column === 'string') {
+                  push(entry.column);
+                  return;
+                }
+
+                if (typeof entry.name === 'string') {
+                  push(entry.name);
+                }
+              }
+            });
+          } else if (typeof source === 'string') {
+            push(source);
+          }
+
+          return result;
+        };
+
         const normalizeRelationDisplayMap = (source, allowSimple = false) => {
           const result = {};
 
@@ -2247,6 +2298,7 @@
             let aliasMap = {};
             let hiddenColumns = [];
             let relationMap = {};
+            let columnOrder = [];
 
             if (Array.isArray(rawConfig)) {
               aliasMap = normalizeAliasMap(rawConfig);
@@ -2323,6 +2375,30 @@
 
                 return { ...carry, ...normalized };
               }, {});
+
+              const orderCandidates = [
+                rawConfig.order,
+                rawConfig.column_order,
+                rawConfig.columnOrder,
+                rawConfig.columns_order,
+                rawConfig.columnsOrder,
+                rawConfig.order_columns,
+                rawConfig.orderColumns,
+              ];
+
+              columnOrder = orderCandidates.reduce((carry, candidate) => {
+                if (carry.length > 0) {
+                  return carry;
+                }
+
+                const normalizedOrder = normalizeColumnOrderList(candidate);
+
+                if (normalizedOrder.length > 0) {
+                  return normalizedOrder;
+                }
+
+                return carry;
+              }, []);
             }
 
             if (hiddenColumns.length === 0) {
@@ -2333,12 +2409,17 @@
               relationMap = normalizeRelationDisplayMap(rawConfig, false);
             }
 
+            if (columnOrder.length === 0) {
+              columnOrder = normalizeColumnOrderList(rawConfig);
+            }
+
             const hasAliases = Object.keys(aliasMap).length > 0;
             const hasHidden = hiddenColumns.length > 0;
 
             const hasRelations = Object.keys(relationMap).length > 0;
+            const hasOrder = columnOrder.length > 0;
 
-            if (!hasAliases && !hasHidden && !hasRelations) {
+            if (!hasAliases && !hasHidden && !hasRelations && !hasOrder) {
               return;
             }
 
@@ -2346,6 +2427,7 @@
               ...(hasAliases ? { aliases: aliasMap } : {}),
               ...(hasHidden ? { hidden: hiddenColumns } : {}),
               ...(hasRelations ? { relations: relationMap } : {}),
+              ...(hasOrder ? { order: columnOrder } : {}),
             };
           });
 
@@ -2987,15 +3069,19 @@
             const structureColumns = table ? this.getTableColumnNames(table) : [];
 
             const hiddenColumns = this.getContentManagementHiddenColumns(normalized);
+            const orderColumns = this.getContentManagementColumnOrder(normalized);
             const unique = new Set([
               ...structureColumns,
               ...viewerColumns,
               ...(Array.isArray(hiddenColumns) ? hiddenColumns : []),
+              ...(Array.isArray(orderColumns) ? orderColumns : []),
             ]);
 
-            return Array.from(unique)
+            const columns = Array.from(unique)
               .map((column) => (typeof column === 'string' ? column.trim() : ''))
               .filter((column) => column !== '');
+
+            return this.orderContentManagementColumns(normalized, columns);
           },
           resolveContentManagementRelationState(tableName, columnName, override = null, preferred = '') {
             const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
@@ -3331,6 +3417,59 @@
               seen.add(normalizedColumn);
             });
 
+            if (entries.length > 1) {
+              const orderedKeys = this.getContentManagementColumnOrder(tableName);
+
+              if (Array.isArray(orderedKeys) && orderedKeys.length > 0) {
+                const positionMap = new Map();
+
+                orderedKeys.forEach((key, index) => {
+                  if (typeof key !== 'string') {
+                    return;
+                  }
+
+                  const normalizedKey = key.trim();
+
+                  if (normalizedKey && !positionMap.has(normalizedKey)) {
+                    positionMap.set(normalizedKey, index);
+                  }
+                });
+
+                if (positionMap.size > 0) {
+                  entries.sort((a, b) => {
+                    const keyA = this.contentManagementEntryColumnKey(a);
+                    const keyB = this.contentManagementEntryColumnKey(b);
+                    const normalizedA = typeof keyA === 'string' ? keyA.trim() : '';
+                    const normalizedB = typeof keyB === 'string' ? keyB.trim() : '';
+                    const positionA = positionMap.has(normalizedA)
+                      ? positionMap.get(normalizedA)
+                      : Number.POSITIVE_INFINITY;
+                    const positionB = positionMap.has(normalizedB)
+                      ? positionMap.get(normalizedB)
+                      : Number.POSITIVE_INFINITY;
+
+                    if (positionA !== positionB) {
+                      return positionA - positionB;
+                    }
+
+                    if (normalizedA && normalizedB) {
+                      return normalizedA.localeCompare(normalizedB, 'uk');
+                    }
+
+                    if (normalizedA) {
+                      return -1;
+                    }
+
+                    if (normalizedB) {
+                      return 1;
+                    }
+
+                    return 0;
+                  });
+                }
+              }
+            }
+
             const relationOptions = this.buildContentManagementRelationOptions(
               tableName,
               relationOverridesForOptions,
@@ -3564,6 +3703,28 @@
 
               return carry;
             }, {});
+          },
+          collectContentManagementTableSettingsOrder() {
+            const entries = Array.isArray(this.contentManagement.tableSettings.entries)
+              ? this.contentManagement.tableSettings.entries
+              : [];
+
+            const order = [];
+            const seen = new Set();
+
+            entries.forEach((entry) => {
+              const key = this.contentManagementEntryColumnKey(entry);
+              const normalizedKey = typeof key === 'string' ? key.trim() : '';
+
+              if (!normalizedKey || seen.has(normalizedKey)) {
+                return;
+              }
+
+              seen.add(normalizedKey);
+              order.push(normalizedKey);
+            });
+
+            return order;
           },
           buildContentManagementRelationOptions(tableName, relationOverrides = {}) {
             const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
@@ -3870,12 +4031,14 @@
             const hasAliases = Object.keys(aliases).length > 0;
             const hasHidden = hidden.length > 0;
             const hasRelations = Object.keys(relations).length > 0;
+            const order = this.collectContentManagementTableSettingsOrder();
+            const hasOrder = order.length > 0;
 
-            if (!hasAliases && !hasHidden && !hasRelations) {
+            if (!hasAliases && !hasHidden && !hasRelations && !hasOrder) {
               return '';
             }
 
-            if (!hasHidden && !hasRelations) {
+            if (!hasHidden && !hasRelations && !hasOrder) {
               return JSON.stringify({ [tableName]: aliases }, null, 2);
             }
 
@@ -3893,13 +4056,17 @@
               payload.relations = relations;
             }
 
+            if (hasOrder) {
+              payload.order = order;
+            }
+
             return JSON.stringify({ [tableName]: payload }, null, 2);
           },
           async copyContentManagementTableSettingsSnippet() {
             const snippet = this.contentManagementTableSettingsSnippet();
 
             if (!snippet) {
-              this.contentManagement.tableSettings.error = 'Немає даних для копіювання. Додайте хоча б один alias, приховану колонку або поле пов\'язаної таблиці.';
+              this.contentManagement.tableSettings.error = 'Немає даних для копіювання. Додайте хоча б один alias, приховану колонку, порядок колонок або поле пов\'язаної таблиці.';
               this.contentManagement.tableSettings.feedback = '';
               return;
             }
@@ -3968,13 +4135,15 @@
             const hasAliases = Object.keys(aliases).length > 0;
             const hasHidden = hidden.length > 0;
             const hasRelations = Object.keys(relations).length > 0;
+            const order = this.collectContentManagementTableSettingsOrder();
+            const hasOrder = order.length > 0;
             const currentSettings =
               this.contentManagement.settings && typeof this.contentManagement.settings === 'object'
                 ? { ...this.contentManagement.settings }
                 : {};
 
-            if (hasAliases || hasHidden || hasRelations) {
-              if (!hasHidden && !hasRelations && hasAliases) {
+            if (hasAliases || hasHidden || hasRelations || hasOrder) {
+              if (!hasHidden && !hasRelations && hasAliases && !hasOrder) {
                 currentSettings[tableName] = aliases;
               } else {
                 const payload = {};
@@ -3989,6 +4158,10 @@
 
                 if (hasRelations) {
                   payload.relations = relations;
+                }
+
+                if (hasOrder) {
+                  payload.order = order;
                 }
 
                 currentSettings[tableName] = payload;
@@ -4080,10 +4253,67 @@
               }
 
               if (!tableConfig.aliases) {
-                const fallback = normalizeHiddenColumnsList(tableConfig);
+                const orderKeys = [
+                  'order',
+                  'column_order',
+                  'columnOrder',
+                  'columns_order',
+                  'columnsOrder',
+                  'order_columns',
+                  'orderColumns',
+                ];
+
+                const sanitizedConfig = Object.fromEntries(
+                  Object.entries(tableConfig).filter(([key]) => !orderKeys.includes(key)),
+                );
+
+                const fallback = normalizeHiddenColumnsList(sanitizedConfig);
 
                 if (fallback.length > 0) {
                   return fallback;
+                }
+              }
+            }
+
+            return [];
+          },
+          getContentManagementColumnOrder(tableName) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+
+            if (!normalized) {
+              return [];
+            }
+
+            const settings = this.contentManagement && this.contentManagement.settings
+              ? this.contentManagement.settings
+              : {};
+
+            const tableConfig = settings && typeof settings === 'object' ? settings[normalized] : null;
+
+            if (!tableConfig) {
+              return [];
+            }
+
+            if (Array.isArray(tableConfig)) {
+              return normalizeColumnOrderList(tableConfig);
+            }
+
+            if (tableConfig && typeof tableConfig === 'object') {
+              const candidates = [
+                tableConfig.order,
+                tableConfig.column_order,
+                tableConfig.columnOrder,
+                tableConfig.columns_order,
+                tableConfig.columnsOrder,
+                tableConfig.order_columns,
+                tableConfig.orderColumns,
+              ];
+
+              for (const candidate of candidates) {
+                const normalizedOrder = normalizeColumnOrderList(candidate);
+
+                if (normalizedOrder.length > 0) {
+                  return normalizedOrder;
                 }
               }
             }
@@ -4156,6 +4386,50 @@
 
             return sanitized.filter((column) => !hiddenSet.has(column));
           },
+          orderContentManagementColumns(tableName, columns) {
+            const normalized = typeof tableName === 'string' ? tableName.trim() : '';
+            const list = Array.isArray(columns)
+              ? columns.map((column) => (typeof column === 'string' ? column.trim() : '')).filter((column) => column !== '')
+              : [];
+
+            if (!normalized || list.length === 0) {
+              return list;
+            }
+
+            const order = this.getContentManagementColumnOrder(normalized);
+
+            if (!Array.isArray(order) || order.length === 0) {
+              return list;
+            }
+
+            const normalizedOrder = order
+              .map((column) => (typeof column === 'string' ? column.trim() : ''))
+              .filter((column) => column !== '');
+
+            if (normalizedOrder.length === 0) {
+              return list;
+            }
+
+            const seen = new Set();
+            const available = new Set(list);
+            const ordered = [];
+
+            normalizedOrder.forEach((column) => {
+              if (available.has(column) && !seen.has(column)) {
+                seen.add(column);
+                ordered.push(column);
+              }
+            });
+
+            list.forEach((column) => {
+              if (!seen.has(column)) {
+                seen.add(column);
+                ordered.push(column);
+              }
+            });
+
+            return ordered;
+          },
           ensureContentManagementVisibleColumns(tableName) {
             const normalized = typeof tableName === 'string' ? tableName.trim() : '';
 
@@ -4164,7 +4438,8 @@
             }
 
             const viewer = this.contentManagement.viewer;
-            const visibleColumns = this.filterContentManagementColumns(normalized, viewer.columns);
+            const orderedColumns = this.orderContentManagementColumns(normalized, viewer.columns);
+            const visibleColumns = this.filterContentManagementColumns(normalized, orderedColumns);
 
             viewer.columns = visibleColumns;
 
