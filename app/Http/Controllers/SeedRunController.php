@@ -2146,7 +2146,13 @@ class SeedRunController extends Controller
             return true;
         }
 
-        return @class_exists($className);
+        try {
+            return class_exists($className);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return false;
+        }
     }
 
     /**
