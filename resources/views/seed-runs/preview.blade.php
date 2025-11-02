@@ -112,18 +112,28 @@
             @else
                 <div class="space-y-8">
                     @foreach($groupedQuestionPreviews as $sourceLabel => $questions)
-                        <div class="space-y-4" data-question-source-group>
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                                <h2 class="text-xl font-semibold text-gray-800">
+                        <div class="border border-slate-200 rounded-lg bg-slate-50" data-question-source-group>
+                            <button
+                                type="button"
+                                class="w-full flex flex-col gap-2 md:flex-row md:items-center md:justify-between px-4 py-3 text-left"
+                                data-question-source-toggle
+                                aria-expanded="true"
+                            >
+                                <span class="text-xl font-semibold text-gray-800">
                                     {{ __('Джерело') }}: <span class="font-normal">{{ $sourceLabel }}</span>
-                                </h2>
-                                <p class="text-sm text-gray-500">
-                                    {{ __('Кількість питань: :count', ['count' => $questions->count()]) }}
-                                </p>
-                            </div>
+                                </span>
 
-                            @foreach($questions as $question)
-                                <div class="bg-white shadow rounded-lg p-6 space-y-4" data-question-preview>
+                                <span class="flex items-center gap-3 text-sm text-gray-500">
+                                    {{ __('Кількість питань: :count', ['count' => $questions->count()]) }}
+                                    <svg class="h-4 w-4 text-slate-500 transition-transform duration-200 rotate-180" viewBox="0 0 20 20" fill="currentColor" data-question-source-icon>
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </button>
+
+                            <div class="space-y-4 px-4 pb-4 border-t border-slate-200 pt-4" data-question-source-content>
+                                @foreach($questions as $question)
+                                    <div class="bg-white shadow rounded-lg p-6 space-y-4" data-question-preview>
                                     <div class="space-y-1">
                                         <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
                                         <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
@@ -299,7 +309,8 @@
                                         @endif
                                     </div>
                                 </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -338,6 +349,36 @@
 
     <script>
         document.addEventListener('click', function (event) {
+            const sourceToggle = event.target.closest('[data-question-source-toggle]');
+
+            if (sourceToggle) {
+                const sourceGroup = sourceToggle.closest('[data-question-source-group]');
+
+                if (sourceGroup) {
+                    const content = sourceGroup.querySelector('[data-question-source-content]');
+                    const icon = sourceToggle.querySelector('[data-question-source-icon]');
+                    const isExpanded = sourceToggle.getAttribute('aria-expanded') === 'true';
+
+                    if (isExpanded) {
+                        sourceToggle.setAttribute('aria-expanded', 'false');
+                        content?.classList.add('hidden');
+
+                        if (icon) {
+                            icon.classList.remove('rotate-180');
+                        }
+                    } else {
+                        sourceToggle.setAttribute('aria-expanded', 'true');
+                        content?.classList.remove('hidden');
+
+                        if (icon) {
+                            icon.classList.add('rotate-180');
+                        }
+                    }
+                }
+
+                return;
+            }
+
             const toggle = event.target.closest('[data-preview-section-toggle]');
 
             if (!toggle) {
