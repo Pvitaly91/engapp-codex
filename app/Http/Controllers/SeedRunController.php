@@ -2084,7 +2084,7 @@ class SeedRunController extends Controller
             return null;
         }
 
-        if (! preg_match('/^\s*(?:final\s+)?(?:abstract\s+)?class\s+(\w+)/mi', $contents, $classMatch)) {
+        if (! preg_match('/^\s*(?:(?:final|abstract|readonly)\s+)*class\s+(\w+)/mi', $contents, $classMatch)) {
             return null;
         }
 
