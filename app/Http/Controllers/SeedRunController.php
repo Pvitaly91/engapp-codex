@@ -2105,26 +2105,30 @@ class SeedRunController extends Controller
         return Str::endsWith($parentClass, 'Seeder');
     }
 
-    private function classFromFile(SplFileInfo $file): ?string
+    /**
+     * @return string[]
+     */
+    private function classesFromFile(SplFileInfo $file): array
     {
         try {
             $contents = File::get($file->getPathname());
         } catch (\Throwable) {
-            return null;
+            return [];
         }
 
         if ($contents === false) {
-            return null;
+            return [];
         }
 
         try {
             $tokens = token_get_all($contents);
         } catch (\Throwable) {
-            return null;
+            return [];
         }
 
         $namespace = '';
         $tokenCount = count($tokens);
+        $classes = [];
 
         for ($index = 0; $index < $tokenCount; $index++) {
             $token = $tokens[$index];
@@ -2153,12 +2157,12 @@ class SeedRunController extends Controller
                 continue;
             }
 
-            return $namespace !== ''
+            $classes[] = $namespace !== ''
                 ? $namespace . '\\' . $className
                 : $className;
         }
 
-        return null;
+        return $classes;
     }
 
     private function isInstantiableSeeder(string $class, ?string $filePath = null): bool
@@ -2237,12 +2241,13 @@ class SeedRunController extends Controller
 
         $map = collect(File::allFiles($directory))
             ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'php')
-            ->mapWithKeys(function (SplFileInfo $file) {
-                $class = $this->classFromFile($file);
+            ->reduce(function (array $carry, SplFileInfo $file) {
+                foreach ($this->classesFromFile($file) as $class) {
+                    $carry[$class] = $file->getPathname();
+                }
 
-                return $class ? [$class => $file->getPathname()] : [];
-            })
-            ->all();
+                return $carry;
+            }, []);
 
         $this->seederClassMap = $map;
 
