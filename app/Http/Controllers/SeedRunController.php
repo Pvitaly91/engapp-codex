@@ -2096,49 +2096,69 @@ class SeedRunController extends Controller
             return false;
         }
 
-        if (! preg_match('/class\s+\w+\s+extends\s+([^\s{]+)/i', $contents, $match)) {
+        $parentClass = $this->inferParentClassShortName($class, $filePath);
+
+        if (! $parentClass) {
             return false;
         }
 
-        $parentClass = trim($match[1]);
-
-        if ($parentClass === '') {
-            return false;
-        }
-
-        $shortName = Str::afterLast($parentClass, '\\');
-
-        if ($shortName === '') {
-            $shortName = $parentClass;
-        }
-
-        return Str::endsWith($shortName, 'Seeder');
+        return Str::endsWith($parentClass, 'Seeder');
     }
 
     private function classFromFile(SplFileInfo $file): ?string
     {
-        $contents = File::get($file->getPathname());
+        try {
+            $contents = File::get($file->getPathname());
+        } catch (\Throwable) {
+            return null;
+        }
 
         if ($contents === false) {
             return null;
         }
 
-        if (! preg_match('/^namespace\s+([^;]+);/m', $contents, $namespaceMatch)) {
+        try {
+            $tokens = token_get_all($contents);
+        } catch (\Throwable) {
             return null;
         }
 
-        if (! preg_match('/^\s*(?:(?:final|abstract|readonly)\s+)*class\s+(\w+)/mi', $contents, $classMatch)) {
-            return null;
+        $namespace = '';
+        $tokenCount = count($tokens);
+
+        for ($index = 0; $index < $tokenCount; $index++) {
+            $token = $tokens[$index];
+
+            if (! is_array($token)) {
+                continue;
+            }
+
+            if ($token[0] === T_NAMESPACE) {
+                $namespace = $this->collectNamespaceFromTokens($tokens, $index + 1) ?? '';
+
+                continue;
+            }
+
+            if ($token[0] !== T_CLASS) {
+                continue;
+            }
+
+            if ($this->isAnonymousOrStaticClassToken($tokens, $index)) {
+                continue;
+            }
+
+            $className = $this->collectClassNameFromTokens($tokens, $index + 1);
+
+            if (! $className) {
+                continue;
+            }
+
+            return $namespace !== ''
+                ? $namespace . '\\' . $className
+                : $className;
         }
 
-        $namespace = trim($namespaceMatch[1]);
-        $className = trim($classMatch[1]);
-
-        if ($namespace === '' || $className === '') {
-            return null;
-        }
-
-        return $namespace . '\\' . $className;
+        return null;
     }
 
     private function isInstantiableSeeder(string $class, ?string $filePath = null): bool
@@ -2252,5 +2272,224 @@ class SeedRunController extends Controller
         }
 
         return $this->classExistsSafely($className);
+    }
+
+    private function collectNamespaceFromTokens(array $tokens, int $startIndex): ?string
+    {
+        $parts = [];
+        $tokenCount = count($tokens);
+
+        for ($index = $startIndex; $index < $tokenCount; $index++) {
+            $token = $tokens[$index];
+
+            if (is_array($token)) {
+                $tokenId = $token[0];
+
+                if (in_array($tokenId, [T_STRING, defined('T_NAME_QUALIFIED') ? T_NAME_QUALIFIED : null, defined('T_NAME_RELATIVE') ? T_NAME_RELATIVE : null, defined('T_NAME_FULLY_QUALIFIED') ? T_NAME_FULLY_QUALIFIED : null], true)) {
+                    $parts[] = $token[1];
+
+                    continue;
+                }
+
+                if ($tokenId === T_NS_SEPARATOR) {
+                    $parts[] = '\\';
+
+                    continue;
+                }
+
+                if ($tokenId === T_WHITESPACE) {
+                    continue;
+                }
+            } else {
+                if ($token === '\\') {
+                    $parts[] = '\\';
+
+                    continue;
+                }
+
+                if (in_array($token, [';', '{'], true)) {
+                    break;
+                }
+            }
+
+            break;
+        }
+
+        if ($parts === []) {
+            return null;
+        }
+
+        $namespace = trim(implode('', array_filter($parts, fn ($part) => $part !== null)));
+
+        return $namespace !== '' ? trim($namespace, '\\') : null;
+    }
+
+    private function collectClassNameFromTokens(array $tokens, int $startIndex): ?string
+    {
+        $tokenCount = count($tokens);
+
+        for ($index = $startIndex; $index < $tokenCount; $index++) {
+            $token = $tokens[$index];
+
+            if (is_array($token) && $token[0] === T_STRING) {
+                return $token[1];
+            }
+
+            if ($token === '{') {
+                break;
+            }
+        }
+
+        return null;
+    }
+
+    private function isAnonymousOrStaticClassToken(array $tokens, int $index): bool
+    {
+        for ($previous = $index - 1; $previous >= 0; $previous--) {
+            $token = $tokens[$previous];
+
+            if (is_array($token) && $token[0] === T_WHITESPACE) {
+                continue;
+            }
+
+            if (is_array($token)) {
+                return $token[0] === T_NEW;
+            }
+
+            return $token === '::';
+        }
+
+        return false;
+    }
+
+    private function inferParentClassShortName(string $class, string $filePath): ?string
+    {
+        try {
+            $contents = File::get($filePath);
+        } catch (\Throwable) {
+            return null;
+        }
+
+        if ($contents === false) {
+            return null;
+        }
+
+        try {
+            $tokens = token_get_all($contents);
+        } catch (\Throwable) {
+            return null;
+        }
+
+        $namespace = '';
+        $tokenCount = count($tokens);
+
+        for ($index = 0; $index < $tokenCount; $index++) {
+            $token = $tokens[$index];
+
+            if (! is_array($token)) {
+                continue;
+            }
+
+            if ($token[0] === T_NAMESPACE) {
+                $namespace = $this->collectNamespaceFromTokens($tokens, $index + 1) ?? '';
+
+                continue;
+            }
+
+            if ($token[0] !== T_CLASS) {
+                continue;
+            }
+
+            if ($this->isAnonymousOrStaticClassToken($tokens, $index)) {
+                continue;
+            }
+
+            $className = $this->collectClassNameFromTokens($tokens, $index + 1);
+
+            if (! $className) {
+                continue;
+            }
+
+            $fullyQualified = $namespace !== '' ? $namespace . '\\' . $className : $className;
+
+            if ($fullyQualified !== $class) {
+                continue;
+            }
+
+            return $this->collectParentShortNameFromTokens($tokens, $index + 1);
+        }
+
+        return null;
+    }
+
+    private function collectParentShortNameFromTokens(array $tokens, int $startIndex): ?string
+    {
+        $tokenCount = count($tokens);
+
+        for ($index = $startIndex; $index < $tokenCount; $index++) {
+            $token = $tokens[$index];
+
+            if (! is_array($token)) {
+                if ($token === '{') {
+                    break;
+                }
+
+                continue;
+            }
+
+            $tokenId = $token[0];
+
+            if ($tokenId === T_IMPLEMENTS) {
+                break;
+            }
+
+            if ($tokenId !== T_EXTENDS) {
+                continue;
+            }
+
+            $parentShortName = null;
+
+            for ($index += 1; $index < $tokenCount; $index++) {
+                $nextToken = $tokens[$index];
+
+                if (is_array($nextToken)) {
+                    $nextTokenId = $nextToken[0];
+
+                    if ($nextTokenId === T_STRING) {
+                        $parentShortName = $nextToken[1];
+
+                        continue;
+                    }
+
+                    $qualifiedTokens = array_filter([
+                        defined('T_NAME_QUALIFIED') ? T_NAME_QUALIFIED : null,
+                        defined('T_NAME_RELATIVE') ? T_NAME_RELATIVE : null,
+                        defined('T_NAME_FULLY_QUALIFIED') ? T_NAME_FULLY_QUALIFIED : null,
+                    ]);
+
+                    if (in_array($nextTokenId, $qualifiedTokens, true)) {
+                        $parentShortName = Str::afterLast($nextToken[1], '\\');
+
+                        continue;
+                    }
+
+                    if (in_array($nextTokenId, [T_WHITESPACE, T_NS_SEPARATOR], true)) {
+                        continue;
+                    }
+
+                    if ($nextTokenId === T_IMPLEMENTS || $nextTokenId === T_EXTENDS) {
+                        break 2;
+                    }
+                } else {
+                    if ($nextToken === '{') {
+                        break 2;
+                    }
+                }
+            }
+
+            return $parentShortName;
+        }
+
+        return null;
     }
 }
