@@ -198,16 +198,6 @@
                                 <div class="flex flex-col gap-1">
                                   <div class="flex flex-wrap items-center gap-2">
                                     <span x-html="highlightQuery(column.name)"></span>
-                                    <button
-                                      type="button"
-                                      class="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-1 focus:ring-primary/40"
-                                      @click.stop="openContentManagementColumnAliasForm(table.name, column.name)"
-                                      :title="`Налаштувати alias для ${column.name}`"
-                                    >
-                                      <i class="fa-solid fa-pen-to-square text-[10px]"></i>
-                                      <span class="hidden sm:inline">Контент менеджмент</span>
-                                      <span class="sm:hidden">Alias</span>
-                                    </button>
                                   </div>
                                   <template x-if="column.foreign">
                                     <span class="inline-flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
