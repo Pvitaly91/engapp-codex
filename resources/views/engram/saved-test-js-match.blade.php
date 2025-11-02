@@ -22,7 +22,9 @@
             <li><strong>Скинути</strong> очищує з'єднання та перемішує елементи.</li>
         </ul>
     </div>
-
+<h1 class="text-2xl sm:text-3xl font-bold text-sky-700 text-center mb-6">
+            🧩 Match the Sentences with Their Meanings
+        </h1>
     <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm" id="match-board">
         <svg id="match-svg" class="pointer-events-none absolute inset-0 h-full w-full"></svg>
         <div class="grid gap-10 md:grid-cols-2" id="match-columns">
@@ -477,7 +479,6 @@ function renderColumns() {
             <span class="match-card-label">${index + 1}</span>
             <div class="flex-1">
                 <div class="text-sm leading-relaxed">${html(item.question)}</div>
-                ${renderMeta(item)}
             </div>
         `;
         attachItemEvents(card);
@@ -504,21 +505,7 @@ function renderColumns() {
     updateEmptyState();
 }
 
-function renderMeta(item) {
-    const meta = [];
-    if (item.level) {
-        meta.push(`<span>${html(item.level)}</span>`);
-    }
-    if (item.tense) {
-        meta.push(`<span>${html(item.tense)}</span>`);
-    }
 
-    if (!meta.length) {
-        return '';
-    }
-
-    return `<div class="match-card-meta">${meta.join('')}</div>`;
-}
 
 function renderConnections() {
     svg.querySelectorAll('line[data-conn]').forEach(line => line.remove());
