@@ -5,9 +5,13 @@
 @section('content')
 @php
     $preferredView = data_get($test->filters, 'preferred_view');
-    $primaryJsRoute = $preferredView === 'drag-drop'
-        ? route('saved-test.js.drag-drop', $test->slug)
-        : route('saved-test.js', $test->slug);
+    if ($preferredView === 'drag-drop') {
+        $primaryJsRoute = route('saved-test.js.drag-drop', $test->slug);
+    } elseif ($preferredView === 'match') {
+        $primaryJsRoute = route('saved-test.js.match', $test->slug);
+    } else {
+        $primaryJsRoute = route('saved-test.js', $test->slug);
+    }
 @endphp
 <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
     <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
