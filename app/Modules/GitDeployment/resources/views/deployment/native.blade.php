@@ -106,7 +106,23 @@
         <form method="POST" action="{{ route('deployment.native.deploy') }}" class="space-y-4">
           @csrf
           <label class="block text-sm font-medium">Гілка для оновлення</label>
-          <input type="text" name="branch" value="{{ $feedback['branch'] ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
+          <div class="relative">
+            <input
+              id="native-deploy-branch"
+              type="text"
+              name="branch"
+              value="{{ $feedback['branch'] ?? 'main' }}"
+              class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-12"
+            />
+            <button
+              type="button"
+              class="absolute inset-y-0 right-3 flex items-center text-muted-foreground opacity-0 pointer-events-none transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              data-branch-clear="native-deploy-branch"
+            >
+              <span class="sr-only">Очистити поле</span>
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
           <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-red-600/90">Оновити зараз</button>
         </form>
       </div>
@@ -121,7 +137,23 @@
         <form method="POST" action="{{ route('deployment.native.push-current') }}" class="space-y-4">
           @csrf
           <label class="block text-sm font-medium" for="native-push-current-branch">Віддалена гілка</label>
-          <input id="native-push-current-branch" type="text" name="branch" value="{{ $feedback['branch'] ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
+          <div class="relative">
+            <input
+              id="native-push-current-branch"
+              type="text"
+              name="branch"
+              value="{{ $feedback['branch'] ?? 'main' }}"
+              class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-12"
+            />
+            <button
+              type="button"
+              class="absolute inset-y-0 right-3 flex items-center text-muted-foreground opacity-0 pointer-events-none transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              data-branch-clear="native-push-current-branch"
+            >
+              <span class="sr-only">Очистити поле</span>
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
           <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-emerald-600/90">Запушити через API</button>
         </form>
       </div>
@@ -152,7 +184,24 @@
           <div class="grid gap-4 md:grid-cols-2">
             <div class="space-y-2">
               <label class="block text-sm font-medium" for="native-backup-branch-name">Назва резервної гілки</label>
-              <input id="native-backup-branch-name" type="text" name="branch_name" placeholder="backup/{{ now()->format('Y-m-d') }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" required />
+              <div class="relative">
+                <input
+                  id="native-backup-branch-name"
+                  type="text"
+                  name="branch_name"
+                  placeholder="backup/{{ now()->format('Y-m-d') }}"
+                  class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-12"
+                  required
+                />
+                <button
+                  type="button"
+                  class="absolute inset-y-0 right-3 flex items-center text-muted-foreground opacity-0 pointer-events-none transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  data-branch-clear="native-backup-branch-name"
+                >
+                  <span class="sr-only">Очистити поле</span>
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
             </div>
             <div class="space-y-2">
               <label class="block text-sm font-medium" for="native-backup-branch-commit">Коміт для копії</label>
@@ -279,5 +328,6 @@
     </section>
   </div>
 
+  @include('git-deployment::deployment.partials.branch-input-clear-script')
   @include('git-deployment::deployment.partials.backup-branch-copy-script')
 @endsection
