@@ -8,8 +8,10 @@ use App\Support\Database\Seeder;
 use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
 use Database\Seeders\Ai\ConditionalsComprehensiveAiSeeder;
+use Database\Seeders\Ai\ConditionalsModalComprehensiveAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\ModalVerbsComprehensiveAiSeeder;
+use Database\Seeders\Ai\ModalVerbsModalOnlyAiSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
 use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
@@ -143,8 +145,10 @@ class DatabaseSeeder extends Seeder
             Ai\FutureTensesPracticeComprehensiveAiSeeder::class,
             Ai\DoDoesIsAreFormsComprehensiveAiSeeder::class,
             ConditionalsComprehensiveAiSeeder::class,
+            ConditionalsModalComprehensiveAiSeeder::class,
             SecondConditionalComprehensiveAiSeeder::class,
             ModalVerbsComprehensiveAiSeeder::class,
+            ModalVerbsModalOnlyAiSeeder::class,
             QuestionWordsDragDropSeeder::class,
 
         ]);
