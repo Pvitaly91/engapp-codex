@@ -2064,55 +2064,12 @@ class SeedRunController extends Controller
         }
 
         return $this->getSeederClassMap()
-            ->filter(fn (string $path, string $class) => $this->isSeederClass($class, $path))
+            ->filter(fn (string $path, string $class) => $this->isInstantiableSeeder($class, $path))
             ->keys()
             ->unique()
             ->sort()
             ->values()
             ->all();
-    }
-
-    private function isSeederClass(string $class, ?string $filePath = null): bool
-    {
-        if ($this->isInstantiableSeeder($class, $filePath)) {
-            return true;
-        }
-
-        if (! $filePath) {
-            $filePath = $this->getSeederClassMap()->get($class);
-        }
-
-        if (! $filePath || ! is_file($filePath)) {
-            return false;
-        }
-
-        try {
-            $contents = File::get($filePath);
-        } catch (\Throwable) {
-            return false;
-        }
-
-        if ($contents === false) {
-            return false;
-        }
-
-        if (! preg_match('/class\s+\w+\s+extends\s+([^\s{]+)/i', $contents, $match)) {
-            return false;
-        }
-
-        $parentClass = trim($match[1]);
-
-        if ($parentClass === '') {
-            return false;
-        }
-
-        $shortName = Str::afterLast($parentClass, '\\');
-
-        if ($shortName === '') {
-            $shortName = $parentClass;
-        }
-
-        return Str::endsWith($shortName, 'Seeder');
     }
 
     private function classFromFile(SplFileInfo $file): ?string
@@ -2127,7 +2084,7 @@ class SeedRunController extends Controller
             return null;
         }
 
-        if (! preg_match('/^\s*(?:(?:final|abstract|readonly)\s+)*class\s+(\w+)/mi', $contents, $classMatch)) {
+        if (! preg_match('/^\s*(?:final\s+)?(?:abstract\s+)?class\s+(\w+)/mi', $contents, $classMatch)) {
             return null;
         }
 
@@ -2189,13 +2146,7 @@ class SeedRunController extends Controller
             return true;
         }
 
-        try {
-            return class_exists($className);
-        } catch (\Throwable $exception) {
-            report($exception);
-
-            return false;
-        }
+        return @class_exists($className);
     }
 
     /**
