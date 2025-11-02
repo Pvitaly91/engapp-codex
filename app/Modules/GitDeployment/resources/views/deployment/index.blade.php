@@ -112,14 +112,7 @@
         <form method="POST" action="{{ route('deployment.deploy') }}" class="space-y-4">
           @csrf
           <label class="block text-sm font-medium">Гілка для оновлення</label>
-          <div class="relative">
-            <input type="text" name="branch" value="main" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" />
-            <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-            </button>
-          </div>
+          <input type="text" name="branch" value="main" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
           <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-red-600/90">Оновити зараз</button>
         </form>
       </div>
@@ -144,14 +137,7 @@
         <form method="POST" action="{{ route('deployment.push-current') }}" class="space-y-4">
           @csrf
           <label class="block text-sm font-medium" for="push-current-branch">Віддалена гілка</label>
-          <div class="relative">
-            <input id="push-current-branch" type="text" name="branch" value="master" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" />
-            <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-            </button>
-          </div>
+          <input id="push-current-branch" type="text" name="branch" value="master" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
           <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-emerald-600/90">Запушити поточний коміт</button>
         </form>
       </div>
@@ -182,14 +168,7 @@
           <div class="grid gap-4 md:grid-cols-2">
             <div class="space-y-2">
               <label class="block text-sm font-medium" for="backup-branch-name">Назва резервної гілки</label>
-              <div class="relative">
-                <input id="backup-branch-name" type="text" name="branch_name" placeholder="backup/{{ now()->format('Y-m-d') }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" required />
-                <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                  </svg>
-                </button>
-              </div>
+              <input id="backup-branch-name" type="text" name="branch_name" placeholder="backup/{{ now()->format('Y-m-d') }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" required />
             </div>
             <div class="space-y-2">
               <label class="block text-sm font-medium" for="backup-branch-commit">Коміт для копії</label>

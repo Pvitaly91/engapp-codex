@@ -306,61 +306,11 @@
               </div>
 
               <div x-show="table.records.visible" x-collapse class="mt-4 space-y-4">
-                <div class="flex w-full flex-col gap-2 rounded-2xl border border-border/60 bg-background/70 p-4 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
-                  <span class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
-                  <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
-                    <div class="relative flex-1">
-                      <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
-                        <i class="fa-solid fa-magnifying-glass text-xs"></i>
-                      </span>
-                      <input
-                        type="search"
-                        class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                        placeholder="Миттєвий пошук за вибраною колонкою або всіма..."
-                        x-model="table.records.searchInput"
-                        @input.debounce.500ms="updateSearch(table, $event.target.value)"
-                      />
-                    </div>
-                    <label class="flex flex-col gap-1 text-[12px] font-semibold uppercase tracking-wide text-muted-foreground sm:w-48">
-                      <span>Колонка для пошуку</span>
-                      <select
-                        class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
-                        :disabled="table.records.loading || !table.records.columns || table.records.columns.length === 0"
-                        :value="table.records.searchColumn"
-                        @change="updateSearchColumn(table, $event.target.value)"
-                      >
-                        <option value="">Всі колонки</option>
-                        <template x-for="column in table.records.columns" :key="column + '-search-option'">
-                          <option :value="column" x-text="column"></option>
-                        </template>
-                      </select>
-                    </label>
-                  </div>
-                </div>
                 <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-[15px] text-muted-foreground">
                   <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                      <h3 class="text-sm font-semibold text-foreground">
-                        <button
-                          type="button"
-                          class="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                          @click.stop="toggleRecordsFilters(table)"
-                          :aria-expanded="table.records.filtersOpen ? 'true' : 'false'"
-                          :aria-controls="`records-filters-${(table.name || '').replace(/[^A-Za-z0-9_-]/g, '-')}`"
-                        >
-                          <i
-                            class="fa-solid fa-chevron-down text-xs transition-transform duration-200"
-                            :class="table.records.filtersOpen ? 'rotate-180 text-primary' : 'text-muted-foreground'"
-                          ></i>
-                          <span>Фільтри записів</span>
-                        </button>
-                      </h3>
-                      <div
-                        class="flex flex-col items-start gap-2 md:items-end"
-                        x-show="table.records.filtersOpen"
-                        x-transition
-                        x-cloak
-                      >
+                      <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
+                      <div class="flex flex-col items-start gap-2 md:items-end">
                         <div class="flex flex-wrap items-center gap-2 text-[15px]">
                           <button
                             type="button"
@@ -453,25 +403,51 @@
                         </template>
                       </div>
                     </div>
-                    <div
-                      x-show="table.records.filtersOpen"
-                      x-collapse
-                      x-cloak
-                      :id="`records-filters-${(table.name || '').replace(/[^A-Za-z0-9_-]/g, '-')}`"
-                    >
-                      <p class="text-[15px] text-muted-foreground">
-                        Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
-                        <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
-                      </p>
-                      <template x-if="table.records.filters.length === 0">
-                        <div class="mt-3 rounded-xl border border-dashed border-border/60 bg-background/60 p-4 text-[15px] text-muted-foreground">
-                          Фільтри не задано. Додайте новий, щоб відфільтрувати записи.
+                    <div class="flex w-full flex-col gap-2 text-[13px] font-semibold uppercase tracking-wide text-muted-foreground/80">
+                      <span class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
+                      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                        <div class="relative flex-1">
+                          <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+                            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                          </span>
+                          <input
+                            type="search"
+                            class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                            placeholder="Миттєвий пошук за вибраною колонкою або всіма..."
+                            x-model="table.records.searchInput"
+                            @input.debounce.500ms="updateSearch(table, $event.target.value)"
+                          />
                         </div>
-                      </template>
-                      <div class="mt-3 space-y-3 text-[15px]" x-show="table.records.filters.length > 0">
-                        <template x-for="(filter, filterIndex) in table.records.filters" :key="filter.id">
-                          <div class="flex flex-col gap-3 rounded-xl border border-border/60 bg-background/70 p-4 text-[15px] sm:flex-row sm:items-end sm:gap-4">
-                            <div class="flex flex-1 flex-col gap-3 text-[15px] sm:flex-row sm:items-end sm:gap-4">
+                        <label class="flex flex-col gap-1 text-[12px] font-semibold uppercase tracking-wide text-muted-foreground sm:w-48">
+                          <span>Колонка для пошуку</span>
+                          <select
+                            class="rounded-xl border border-input bg-background px-3 py-2 text-[15px] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                            :disabled="table.records.loading || !table.records.columns || table.records.columns.length === 0"
+                            :value="table.records.searchColumn"
+                            @change="updateSearchColumn(table, $event.target.value)"
+                          >
+                            <option value="">Всі колонки</option>
+                            <template x-for="column in table.records.columns" :key="column + '-search-option'">
+                          <option :value="column" x-text="column"></option>
+                        </template>
+                      </select>
+                    </label>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-2 text-[15px] text-muted-foreground">
+                    Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
+                    <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
+                  </p>
+                  <template x-if="table.records.filters.length === 0">
+                    <div class="mt-3 rounded-xl border border-dashed border-border/60 bg-background/60 p-4 text-[15px] text-muted-foreground">
+                      Фільтри не задано. Додайте новий, щоб відфільтрувати записи.
+                    </div>
+                  </template>
+                  <div class="mt-3 space-y-3 text-[15px]" x-show="table.records.filters.length > 0">
+                    <template x-for="(filter, filterIndex) in table.records.filters" :key="filter.id">
+                      <div class="flex flex-col gap-3 rounded-xl border border-border/60 bg-background/70 p-4 text-[15px] sm:flex-row sm:items-end sm:gap-4">
+                        <div class="flex flex-1 flex-col gap-3 text-[15px] sm:flex-row sm:items-end sm:gap-4">
                           <label class="flex flex-1 flex-col gap-1 text-[15px] font-semibold uppercase tracking-wide text-muted-foreground/80">
                             <span>Поле</span>
                             <select
@@ -1523,25 +1499,25 @@
           <template x-if="contentManagement.menuSettings.error">
             <div class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-600" x-text="contentManagement.menuSettings.error"></div>
           </template>
-            <div class="flex items-center justify-end gap-2">
-              <button
-                type="button"
-                class="rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-                @click="closeContentManagementMenuSettings()"
-                :disabled="contentManagement.menuSettings.saving"
-              >
-              Вийти
-              </button>
-              <button
-                type="button"
-                class="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
-                @click="addContentManagementMenuItem()"
-                :disabled="contentManagement.menuSettings.saving"
-              >
-              <span x-show="!contentManagement.menuSettings.saving">Зберегти</span>
-                <span x-show="contentManagement.menuSettings.saving" x-cloak>Збереження...</span>
-              </button>
-            </div>
+          <div class="flex items-center justify-end gap-2">
+            <button
+              type="button"
+              class="rounded-full border border-border/60 bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+              @click="closeContentManagementMenuSettings()"
+              :disabled="contentManagement.menuSettings.saving"
+            >
+              Скасувати
+            </button>
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+              @click="addContentManagementMenuItem()"
+              :disabled="contentManagement.menuSettings.saving"
+            >
+              <span x-show="!contentManagement.menuSettings.saving">Додати</span>
+              <span x-show="contentManagement.menuSettings.saving" x-cloak>Збереження...</span>
+            </button>
+          </div>
         </div>
 
         <template x-if="contentManagement.menuFeedback">
@@ -1761,72 +1737,20 @@
                 </div>
               </div>
 
-            <div class="flex w-full flex-col gap-2 rounded-2xl border border-border/60 bg-background/70 p-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
-              <span class="font-semibold uppercase tracking-wide text-muted-foreground">Пошук записів</span>
-              <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
-                <div class="relative flex-1">
-                  <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
-                    <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
-                  </span>
-                  <input
-                    type="search"
-                    class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                    placeholder="Миттєвий пошук..."
-                    x-model="contentManagement.viewer.searchInput"
-                    @input.debounce.400ms="updateContentManagementSearch($event.target.value)"
-                    @keydown.enter.prevent
-                  />
-                </div>
-                <label class="flex w-full flex-col gap-1 sm:w-56">
-                  <span>Поле для пошуку</span>
-                  <select
-                    class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
-                    :disabled="contentManagement.viewer.loading || !Array.isArray(contentManagement.viewer.columns) || contentManagement.viewer.columns.length === 0"
-                    :value="contentManagement.viewer.searchColumn"
-                    @change="updateContentManagementSearchColumn($event.target.value)"
-                  >
-                    <option value="">Всі колонки</option>
-                    <template x-for="column in contentManagement.viewer.columns" :key="`cm-search-${column}`">
-                      <option :value="column" x-text="contentManagementColumnOptionLabel(column)"></option>
-                    </template>
-                  </select>
-                </label>
-              </div>
-            </div>
-
             <div class="rounded-2xl border border-border/60 bg-muted/20 p-4 text-sm text-muted-foreground">
               <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <h3 class="text-sm font-semibold text-foreground">
-                  <button
-                    type="button"
-                    class="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-                    @click.stop="toggleContentManagementFilters()"
-                    :aria-expanded="contentManagement.viewer.filtersOpen ? 'true' : 'false'"
-                    aria-controls="content-management-filters"
-                  >
-                    <i
-                      class="fa-solid fa-chevron-down text-xs transition-transform duration-200"
-                      :class="contentManagement.viewer.filtersOpen ? 'rotate-180 text-primary' : 'text-muted-foreground'"
-                    ></i>
-                    <span>Фільтри записів</span>
-                  </button>
-                </h3>
-                <div
-                  class="flex flex-col items-start gap-2 md:items-end"
-                  x-show="contentManagement.viewer.filtersOpen"
-                  x-transition
-                  x-cloak
-                >
+                <h3 class="text-sm font-semibold text-foreground">Фільтри записів</h3>
+                <div class="flex flex-col items-start gap-2 md:items-end">
                   <div class="flex flex-wrap items-center gap-2 text-sm">
                     <button
                       type="button"
                       class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
                       @click="addContentManagementFilter()"
                       :disabled="contentManagement.viewer.loading || !contentManagement.selectedTable"
-                    >
-                      <i class="fa-solid fa-plus text-[10px]"></i>
-                      Додати фільтр
-                    </button>
+                  >
+                    <i class="fa-solid fa-plus text-[10px]"></i>
+                    Додати фільтр
+                  </button>
                     <button
                       type="button"
                       class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background px-4 py-1.5 font-semibold text-foreground transition hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
@@ -1858,16 +1782,43 @@
                 </div>
               </div>
 
-              <div
-                x-show="contentManagement.viewer.filtersOpen"
-                x-collapse
-                x-cloak
-                id="content-management-filters"
-              >
-                <p class="text-xs text-muted-foreground">
-                  Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
-                  <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
-                </p>
+              <div class="mt-4 flex flex-col gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80 sm:flex-row sm:items-center sm:gap-3">
+                <label class="flex flex-1 flex-col gap-1">
+                  <span>Пошук записів</span>
+                  <div class="relative">
+                    <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+                      <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+                    </span>
+                    <input
+                      type="search"
+                      class="w-full rounded-xl border border-input bg-background py-2 pl-9 pr-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                      placeholder="Миттєвий пошук..."
+                      x-model="contentManagement.viewer.searchInput"
+                      @input.debounce.400ms="updateContentManagementSearch($event.target.value)"
+                      @keydown.enter.prevent
+                    />
+                  </div>
+                </label>
+                <label class="flex w-full flex-col gap-1 sm:w-56">
+                  <span>Поле для пошуку</span>
+                  <select
+                    class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-75"
+                    :disabled="contentManagement.viewer.loading || !Array.isArray(contentManagement.viewer.columns) || contentManagement.viewer.columns.length === 0"
+                    :value="contentManagement.viewer.searchColumn"
+                    @change="updateContentManagementSearchColumn($event.target.value)"
+                  >
+                    <option value="">Всі колонки</option>
+                    <template x-for="column in contentManagement.viewer.columns" :key="`cm-search-${column}`">
+                      <option :value="column" x-text="contentManagementColumnOptionLabel(column)"></option>
+                    </template>
+                  </select>
+                </label>
+              </div>
+
+              <p class="mt-3 text-xs text-muted-foreground">
+                Використовуйте фільтри, щоб обмежити записи за значеннями колонок. Для операторів LIKE можна застосовувати символи
+                <code class="rounded bg-muted px-1">%</code> та <code class="rounded bg-muted px-1">_</code>.
+              </p>
 
               <template x-if="contentManagement.viewer.filters.length === 0">
                 <div class="mt-4 rounded-xl border border-dashed border-border/60 bg-background/60 p-4 text-sm text-muted-foreground">
@@ -2185,28 +2136,6 @@
         defaultId: '',
         defaultDisabled: false,
       });
-
-      const hasActiveRecordsFilters = (state) => {
-        if (!state || typeof state !== 'object') {
-          return false;
-        }
-
-        const hasFilters = Array.isArray(state.filters) && state.filters.length > 0;
-        const hasSearch = typeof state.search === 'string' && state.search.trim() !== '';
-
-        return hasFilters || hasSearch;
-      };
-
-      const hasActiveContentFilters = (viewer) => {
-        if (!viewer || typeof viewer !== 'object') {
-          return false;
-        }
-
-        const hasFilters = Array.isArray(viewer.filters) && viewer.filters.length > 0;
-        const hasSearch = typeof viewer.search === 'string' && viewer.search.trim() !== '';
-
-        return hasFilters || hasSearch;
-      };
 
       const serializeFilters = (filters) => {
         if (!Array.isArray(filters)) {
@@ -3004,7 +2933,6 @@
           sort: '',
           direction: 'asc',
           filters: [],
-          filtersOpen: false,
           search: '',
           searchInput: '',
           searchColumn: '',
@@ -3104,7 +3032,6 @@
                 : [],
               records: {
                 visible: false,
-                filtersOpen: false,
                 loading: false,
                 loaded: false,
                 rows: [],
@@ -5841,35 +5768,10 @@
 
             await this.loadContentManagementTable(this.contentManagement.selectedTable);
           },
-        toggleContentManagementFilters(state = null) {
-          const viewer = this.contentManagement && this.contentManagement.viewer
-            ? this.contentManagement.viewer
-            : null;
-
-          if (!viewer) {
-            return;
-          }
-
-          const nextState = typeof state === 'boolean' ? state : !viewer.filtersOpen;
-          viewer.filtersOpen = nextState;
-        },
-        ensureContentManagementFiltersOpen() {
-          const viewer = this.contentManagement && this.contentManagement.viewer
-            ? this.contentManagement.viewer
-            : null;
-
-          if (!viewer) {
-            return;
-          }
-
-          if (hasActiveContentFilters(viewer)) {
-            viewer.filtersOpen = true;
-          }
-        },
-        toggleContentManagementSort(column) {
-          if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
-            return;
-          }
+          toggleContentManagementSort(column) {
+            if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
+              return;
+            }
 
             const normalized = typeof column === 'string' ? column.trim() : '';
 
@@ -5889,14 +5791,13 @@
             viewer.page = 1;
             this.loadContentManagementTable(this.contentManagement.selectedTable);
           },
-        addContentManagementFilter() {
-          if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
-            return;
-          }
+          addContentManagementFilter() {
+            if (!this.contentManagement.selectedTable || this.contentManagement.viewer.loading) {
+              return;
+            }
 
-          const viewer = this.contentManagement.viewer;
-          viewer.filtersOpen = true;
-          const structureTable = this.findTableByName(this.contentManagement.selectedTable);
+            const viewer = this.contentManagement.viewer;
+            const structureTable = this.findTableByName(this.contentManagement.selectedTable);
             const structureColumns = this.getTableColumnNames(structureTable);
             const visibleStructureColumns = this.filterContentManagementColumns(
               this.contentManagement.selectedTable,
@@ -6004,7 +5905,6 @@
           viewer.searchColumn = searchColumn;
 
           viewer.page = 1;
-          this.ensureContentManagementFiltersOpen();
         },
         async applyContentSavedFilterById(filterId, options = {}) {
           if (!filterId) {
@@ -6516,7 +6416,6 @@
               }
               this.ensureContentManagementVisibleColumns(normalized);
               viewer.loaded = true;
-              this.ensureContentManagementFiltersOpen();
             } catch (error) {
               if (viewer.requestId !== requestId) {
                 return;
@@ -7244,23 +7143,6 @@
             table.records.columns = normalizedColumns.map((column) => column.name).filter(Boolean);
           }
         },
-        toggleRecordsFilters(table, state = null) {
-          if (!table || !table.records) {
-            return;
-          }
-
-          const nextState = typeof state === 'boolean' ? state : !table.records.filtersOpen;
-          table.records.filtersOpen = nextState;
-        },
-        ensureRecordsFiltersOpen(table) {
-          if (!table || !table.records) {
-            return;
-          }
-
-          if (hasActiveRecordsFilters(table.records)) {
-            table.records.filtersOpen = true;
-          }
-        },
         async toggleRecords(table) {
           table.records.visible = !table.records.visible;
           table.records.error = null;
@@ -7370,7 +7252,6 @@
             }
 
             table.records.loaded = true;
-            this.ensureRecordsFiltersOpen(table);
           } catch (error) {
             if (table.records.requestId !== requestId) {
               return;
@@ -8366,7 +8247,6 @@
             return;
           }
 
-          table.records.filtersOpen = true;
           const fallbackColumn = Array.isArray(table.records.columns) && table.records.columns.length > 0
             ? table.records.columns[0]
             : (Array.isArray(table.structure?.columns) && table.structure.columns.length > 0
@@ -8455,7 +8335,6 @@
           table.records.searchColumn = searchColumn;
 
           table.records.page = 1;
-          this.ensureRecordsFiltersOpen(table);
         },
         async applyRecordsSavedFilterById(table, filterId, options = {}) {
           if (!table || !filterId) {
