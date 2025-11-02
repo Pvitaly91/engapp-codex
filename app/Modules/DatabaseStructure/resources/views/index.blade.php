@@ -197,6 +197,16 @@
                               <td class="py-2 pr-4 font-medium">
                                 <div class="flex flex-col gap-1">
                                   <span x-html="highlightQuery(column.name)"></span>
+                                  <div class="flex flex-wrap items-center gap-2 text-xs">
+                                    <button
+                                      type="button"
+                                      class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-1 focus:ring-primary/40"
+                                      @click.stop="openContentManagementAliasForm(table.name, column.name)"
+                                    >
+                                      <i class="fa-solid fa-pen-to-square text-[10px]"></i>
+                                      <span>Контент менеджмент</span>
+                                    </button>
+                                  </div>
                                   <template x-if="column.foreign">
                                     <span class="inline-flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                                       <i class="fa-solid fa-link" :class="column.foreign.manual ? 'text-amber-500' : 'text-primary'"></i>
@@ -1265,7 +1275,11 @@
             </div>
           </template>
           <template x-for="(entry, entryIndex) in contentManagement.tableSettings.entries" :key="entry.id">
-            <div class="flex flex-col gap-3 rounded-2xl border border-border/60 bg-background/70 p-4 sm:flex-row sm:items-end sm:gap-4">
+            <div
+              class="flex flex-col gap-3 rounded-2xl border border-border/60 bg-background/70 p-4 sm:flex-row sm:items-end sm:gap-4"
+              :class="contentManagement.tableSettings.focusColumn === contentManagementEntryColumnKey(entry) ? 'ring-2 ring-primary/40' : ''"
+              :data-cm-alias-entry="contentManagementEntryColumnKey(entry)"
+            >
               <label class="flex flex-1 flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
                 <span>Колонка</span>
                 <input
@@ -1286,6 +1300,7 @@
                     class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
                     placeholder="Відображувана назва"
                     x-model="entry.alias"
+                    :data-cm-alias-input="contentManagementEntryColumnKey(entry)"
                   />
                 </label>
                 <template x-if="entry.relation && entry.relation.table">
@@ -3206,6 +3221,7 @@
               nextId: 0,
               relationOptions: [],
               selectedRelationOption: '',
+              focusColumn: '',
             },
             selectedTable: '',
             viewer: createContentManagementViewerState(),
@@ -4444,6 +4460,81 @@
             this.contentManagement.tableSettings.nextId = current + 1;
             return `cm-table-settings-${Date.now()}-${current}`;
           },
+          async openContentManagementAliasForm(tableName, columnName) {
+            const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
+            const normalizedColumn = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalizedTable || !normalizedColumn) {
+              return;
+            }
+
+            if (this.contentManagement.selectedTable !== normalizedTable) {
+              this.contentManagement.selectedTable = normalizedTable;
+            }
+            this.contentManagement.tableSettings.focusColumn = normalizedColumn;
+
+            await this.openContentManagementTableSettingsModal();
+
+            this.$nextTick(() => {
+              this.focusContentManagementAliasInput(normalizedColumn);
+            });
+          },
+          focusContentManagementAliasInput(columnName) {
+            const normalized = typeof columnName === 'string' ? columnName.trim() : '';
+
+            if (!normalized) {
+              this.contentManagement.tableSettings.focusColumn = '';
+              return;
+            }
+
+            const schedule = typeof window !== 'undefined'
+              && typeof window.requestAnimationFrame === 'function'
+              ? window.requestAnimationFrame.bind(window)
+              : (callback) => setTimeout(callback, 16);
+
+            schedule(() => {
+              const root = this.$root || document;
+              const inputs = Array.from(root.querySelectorAll('[data-cm-alias-input]'));
+              let target = null;
+
+              inputs.some((input) => {
+                if (!input || typeof input.getAttribute !== 'function') {
+                  return false;
+                }
+
+                const value = input.getAttribute('data-cm-alias-input');
+
+                if (typeof value === 'string' && value.trim() === normalized) {
+                  target = input;
+                  return true;
+                }
+
+                return false;
+              });
+
+              if (target) {
+                if (typeof target.focus === 'function') {
+                  target.focus();
+                }
+
+                if (typeof target.select === 'function') {
+                  target.select();
+                }
+
+                const container = typeof target.closest === 'function'
+                  ? target.closest('[data-cm-alias-entry]')
+                  : null;
+
+                if (container && typeof container.scrollIntoView === 'function') {
+                  container.scrollIntoView({ block: 'center', behavior: 'smooth' });
+                }
+              }
+
+              setTimeout(() => {
+                this.contentManagement.tableSettings.focusColumn = '';
+              }, 600);
+            });
+          },
           async openContentManagementTableSettingsModal() {
             const tableName = typeof this.contentManagement.selectedTable === 'string'
               ? this.contentManagement.selectedTable.trim()
@@ -4705,6 +4796,7 @@
             this.contentManagement.tableSettings.nextId = 0;
             this.contentManagement.tableSettings.relationOptions = [];
             this.contentManagement.tableSettings.selectedRelationOption = '';
+            this.contentManagement.tableSettings.focusColumn = '';
           },
           addContentManagementTableSettingsEntry() {
             if (!Array.isArray(this.contentManagement.tableSettings.entries)) {
