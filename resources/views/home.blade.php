@@ -191,7 +191,7 @@
         @endphp
         @foreach ($statsList as $stat)
           <div class="rounded-2xl border border-border bg-card p-6 text-center transition-all hover:scale-105 hover:shadow-lg">
-            <div class="text-4xl font-bold text-{{ $stat['color'] }} lg:text-5xl">{{ number_format($stat['value'], 0, ',', ' ') }}</div>
+            <div class="text-4xl font-bold lg:text-5xl {{ $stat['color'] === 'primary' ? 'text-primary' : ($stat['color'] === 'secondary' ? 'text-secondary' : 'text-accent') }}">{{ number_format($stat['value'], 0, ',', ' ') }}</div>
             <div class="mt-2 text-sm font-medium text-muted-foreground">{{ $stat['label'] }}</div>
           </div>
         @endforeach
@@ -247,14 +247,14 @@
         @foreach ($steps as $index => $step)
           <div class="relative grid gap-6 lg:grid-cols-[auto_1fr] lg:gap-8">
             <div class="relative flex items-start lg:items-center">
-              <div class="flex h-16 w-16 items-center justify-center rounded-2xl border-4 border-background {{ $index % 3 === 0 ? 'bg-primary' : ($index % 3 === 1 ? 'bg-secondary' : 'bg-accent') }} text-2xl font-bold text-white shadow-lg">
+              <div class="flex h-16 w-16 items-center justify-center rounded-2xl border-4 border-background bg-primary text-2xl font-bold text-white shadow-lg">
                 {{ $step['number'] }}
               </div>
             </div>
-            <div class="rounded-2xl border border-border bg-card p-6 transition-all hover:border-{{ $index % 3 === 0 ? 'primary' : ($index % 3 === 1 ? 'secondary' : 'accent') }}/50 hover:shadow-lg lg:p-8">
+            <div class="rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg lg:p-8">
               <div class="flex items-start gap-4">
                 <div class="hidden lg:block">
-                  <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl {{ $index % 3 === 0 ? 'bg-primary/10 text-primary' : ($index % 3 === 1 ? 'bg-secondary/10 text-secondary' : 'bg-accent/10 text-accent') }}">
+                  <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $step['icon'] }}" />
                     </svg>
