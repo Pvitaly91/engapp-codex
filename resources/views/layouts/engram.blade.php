@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>@yield('title', 'Engram — Вивчення англійської')</title>
-  <meta name="description" content="Короткі тести з англійської, проста теорія, прогрес та рекомендації." />
+  <title>@yield('title', 'Gramlyze — Платформа для викладачів англійської')</title>
+  <meta name="description" content="Gramlyze допомагає збирати тести, аналізувати відповіді та координувати команду викладачів англійської." />
 
   <!-- Google Font: Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -118,22 +118,36 @@
   <!-- HEADER / NAV -->
   <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/80">
     <div class="container mx-auto px-4">
-      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-16 md:flex-nowrap">
-        <div class="flex items-center gap-3 flex-shrink-0">
-          <div class="h-9 w-9 rounded-2xl bg-primary text-primary-foreground grid place-items-center font-bold">E</div>
-          <span class="text-lg font-semibold tracking-tight">Engram</span>
-          <span class="ml-2 inline-flex items-center rounded-lg bg-accent text-accent-foreground px-2 py-0.5 text-xs font-medium">beta</span>
-        </div>
-        <nav class="order-3 w-full flex flex-wrap items-center gap-4 text-sm md:order-none md:w-auto md:flex-nowrap md:gap-6">
-          <a class="text-muted-foreground hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Тести</a>
-          <a class="text-muted-foreground hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-20 md:flex-nowrap">
+        <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0">
+          <span class="relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent text-white shadow-soft">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.5 7.75C5.5 5.12665 7.62665 3 10.25 3H13.25C16.1495 3 18.5 5.3505 18.5 8.25C18.5 11.1495 16.1495 13.5 13.25 13.5H11.75C10.2312 13.5 9 14.7312 9 16.25C9 17.7688 10.2312 19 11.75 19H15.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M5 19H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </span>
+          <div class="flex flex-col">
+            <span class="text-lg font-semibold tracking-tight">Gramlyze</span>
+            <span class="text-[0.65rem] font-medium uppercase tracking-[0.45em] text-muted-foreground">Language OS</span>
+          </div>
+        </a>
+        <nav class="order-3 w-full flex flex-wrap items-center gap-4 text-sm font-medium md:order-none md:w-auto md:flex-nowrap md:gap-6">
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Каталог</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">AI Toolkit</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">Командам</a>
         </nav>
-        <div class="flex items-center gap-2 order-2 ml-auto md:order-none md:ml-0">
+        <div class="flex items-center gap-3 order-2 ml-auto md:order-none md:ml-0">
           <form action="{{ route('site.search') }}" method="GET" class="hidden md:block relative">
             <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
             <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
           </form>
+          <a href="{{ route('login.show') }}" class="hidden items-center gap-2 rounded-2xl border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary md:inline-flex">Увійти</a>
           <button id="mobile-search-btn" class="md:hidden rounded-xl border border-border p-2 text-sm">🔍</button>
+          <a href="{{ route('catalog-tests.cards') }}" class="inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            Демо
+          </a>
         </div>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
@@ -152,8 +166,8 @@
   <footer class="border-t border-border mt-10 py-6 text-sm">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <div class="h-6 w-6 rounded-md bg-primary text-primary-foreground grid place-items-center font-semibold text-xs">E</div>
-        <span>Engram <span id="year"></span></span>
+        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-primary via-secondary to-accent text-xs font-semibold text-white shadow-soft">G</span>
+        <span>Gramlyze <span id="year"></span></span>
       </div>
       <div class="flex md:justify-end gap-4 text-sm">
         <a class="text-muted-foreground hover:text-foreground" href="#">Політика</a>

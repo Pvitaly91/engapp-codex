@@ -1,11 +1,11 @@
 @extends('layouts.engram')
 
-@section('title', 'Engram — платформа англійської практики')
+@section('title', 'Gramlyze — платформа англійської практики')
 
 @section('content')
 <div class="space-y-24">
   <!-- HERO -->
-  <section class="relative overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary/10 via-background to-secondary/15 p-10 shadow-soft md:p-16">
+  <section id="hero" class="relative overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary/10 via-background to-secondary/15 p-10 shadow-soft md:p-16">
     <div class="absolute -top-32 right-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl"></div>
     <div class="absolute -bottom-32 left-4 h-72 w-72 rounded-full bg-accent/15 blur-3xl"></div>
     <div class="relative grid gap-12 md:grid-cols-[1.35fr_1fr]">
@@ -18,7 +18,7 @@
             Конструктор тестів, теорія та AI-помічники для викладачів англійської
           </h1>
           <p class="text-base leading-relaxed text-muted-foreground md:text-lg">
-            Engram поєднує повний цикл підготовки до заняття: від пошуку завдань до перевірки відповідей і аналітики по студентах. Усе працює у браузері та синхронізується між командою.
+            Gramlyze поєднує повний цикл підготовки до заняття: від пошуку завдань до перевірки відповідей і аналітики по студентах. Усе працює у браузері та синхронізується між командою.
           </p>
         </div>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -60,7 +60,7 @@
 
       <div class="space-y-6 rounded-3xl border border-border/60 bg-card/90 p-6 shadow-xl backdrop-blur">
         <div class="space-y-3">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Як виглядає день з Engram</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Як виглядає день з Gramlyze</p>
           <h2 class="text-2xl font-semibold text-foreground">3 модулі, що закривають підготовку уроку</h2>
         </div>
         <div class="space-y-4 text-sm text-muted-foreground">
@@ -133,11 +133,11 @@
       ],
     ];
   @endphp
-  <section class="space-y-8">
+  <section id="solutions" class="space-y-8">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Мапа платформи</p>
-        <h2 class="text-3xl font-semibold text-foreground">Інструменти, які відкриті в Engram</h2>
+        <h2 class="text-3xl font-semibold text-foreground">Інструменти платформи Gramlyze</h2>
         <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Кожний модуль взаємопов'язаний: теги з теорії доступні у тестах, AI-рекомендації видно у каталозі, а результати зберігаються у спільному просторі.</p>
       </div>
     </div>
@@ -174,7 +174,7 @@
         'tags' => ['label' => 'Тегів для фільтрації', 'icon' => 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z'],
     ];
   @endphp
-  <section class="space-y-8">
+  <section id="metrics" class="space-y-8">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Дані вашої бази</p>
@@ -215,12 +215,12 @@
       ['step' => '4', 'title' => 'Аналізуйте успішність', 'description' => 'Переглядайте рецензії, теги та нотатки команди, формуйте наступні добірки за рекомендаціями.'],
     ];
   @endphp
-  <section class="space-y-8">
+  <section id="workflow" class="space-y-8">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Процес роботи</p>
         <h2 class="text-3xl font-semibold text-foreground">Від пошуку вправ до аналітики — за один потік</h2>
-        <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Engram структурує робочий день викладача: ви не губитеся між Google-доками і таблицями, а працюєте в єдиній системі.</p>
+        <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Gramlyze структурує робочий день викладача: ви не губитеся між Google-доками і таблицями, а працюєте в єдиній системі.</p>
       </div>
     </div>
     <ol class="grid gap-6 md:grid-cols-2">
@@ -244,16 +244,16 @@
     $aiToolkit = [
       ['title' => 'Пояснення відповідей', 'description' => 'AI формує коротке пояснення після кожної вправи та зберігає його у картці студента.', 'icon' => 'M13 16h-1v-4h-1m1-4h.01M12 6a9 9 0 11-9 9 9 9 0 019-9z'],
       ['title' => 'Автоматичні підказки', 'description' => 'Під час тесту студент може отримати контекстні підказки й не втратити темп.', 'icon' => 'M4.5 12.75l6 6 9-13.5'],
-      ['title' => 'Визначення рівня', 'description' => 'Після проходження тесту Engram пропонує рівень CEFR і тему для повторення.', 'icon' => 'M12 8c-1.657 0-3 1.343-3 3 0 1.023.512 1.943 1.294 2.5l-1.36 3.543A1 1 0 009.868 18h4.264a1 1 0 00.934-1.457l-1.36-3.043A2.999 2.999 0 0015 11c0-1.657-1.343-3-3-3z'],
+      ['title' => 'Визначення рівня', 'description' => 'Після проходження тесту Gramlyze пропонує рівень CEFR і тему для повторення.', 'icon' => 'M12 8c-1.657 0-3 1.343-3 3 0 1.023.512 1.943 1.294 2.5l-1.36 3.543A1 1 0 009.868 18h4.264a1 1 0 00.934-1.457l-1.36-3.043A2.999 2.999 0 0015 11c0-1.657-1.343-3-3-3z'],
       ['title' => 'Рецензії запитань', 'description' => 'Зберігайте варіанти, помилки, коментарі ШІ і робіть на їх основі наступні плани.', 'icon' => 'M7 8h10M7 12h4m-4 4h6M5 5a2 2 0 012-2h10a2 2 0 012 2v14l-4-2-4 2-4-2-4 2z'],
     ];
   @endphp
-  <section class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-background via-primary/5 to-secondary/10 p-10 shadow-soft md:p-16">
+  <section id="ai-toolkit" class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-background via-primary/5 to-secondary/10 p-10 shadow-soft md:p-16">
     <div class="space-y-8">
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">AI Toolkit</p>
         <h2 class="text-3xl font-semibold text-foreground">ШІ як асистент, а не заміна викладача</h2>
-        <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Кожна функція допомагає зробити заняття змістовнішим: Engram аналізує, пропонує та фіксує результати, але рішення ухвалює викладач.</p>
+        <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Кожна функція допомагає зробити заняття змістовнішим: Gramlyze аналізує, пропонує та фіксує результати, але рішення ухвалює викладач.</p>
       </div>
       <div class="grid gap-6 md:grid-cols-2">
         @foreach ($aiToolkit as $tool)
@@ -282,11 +282,11 @@
       ['title' => 'Команди викладачів', 'description' => 'Спільні теги, історія змін, швидке дублювання курсів та централізований банк матеріалів.', 'color' => 'accent'],
     ];
   @endphp
-  <section class="space-y-8">
+  <section id="team-collaboration" class="space-y-8">
     <div class="space-y-2">
       <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Сценарії використання</p>
       <h2 class="text-3xl font-semibold text-foreground">Команда отримує спільний простір роботи</h2>
-      <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Підключіть кілька викладачів, діліться шаблонами, відстежуйте прогрес груп — Engram підтримує масштабування студій та онлайн-шкіл.</p>
+      <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Підключіть кілька викладачів, діліться шаблонами, відстежуйте прогрес груп — Gramlyze підтримує масштабування студій та онлайн-шкіл.</p>
     </div>
     <div class="grid gap-6 md:grid-cols-3">
       @foreach ($teamUseCases as $case)
@@ -307,7 +307,7 @@
   <section class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary via-primary/80 to-secondary p-10 text-primary-foreground shadow-soft md:p-16">
     <div class="grid gap-10 md:grid-cols-[1.5fr_1fr] md:items-center">
       <div class="space-y-6">
-        <h2 class="text-3xl font-semibold md:text-4xl">Готові протестувати Engram з командою?</h2>
+        <h2 class="text-3xl font-semibold md:text-4xl">Готові протестувати Gramlyze з командою?</h2>
         <p class="text-base leading-relaxed text-primary-foreground/90">
           Долучіться до beta-доступу: ми допоможемо мігрувати існуючі матеріали, налаштуємо структуру тестів та дамо поради щодо інтеграції AI у ваші програми.
         </p>
