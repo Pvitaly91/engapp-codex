@@ -5,11 +5,11 @@
 @section('content')
 <div class="space-y-24">
   <!-- HERO -->
-  <section id="hero" class="relative overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary/10 via-background to-secondary/15 p-10 shadow-soft md:p-16">
+  <section id="hero" class="relative overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary/10 via-background to-secondary/15 p-10 shadow-soft md:p-16" data-animate data-animate-type="fade-up">
     <div class="absolute -top-32 right-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl"></div>
     <div class="absolute -bottom-32 left-4 h-72 w-72 rounded-full bg-accent/15 blur-3xl"></div>
     <div class="relative grid gap-12 md:grid-cols-[1.35fr_1fr]">
-      <div class="space-y-8">
+      <div class="space-y-8" data-animate data-animate-delay="0.1s">
         <span class="inline-flex items-center gap-2 rounded-full bg-background/70 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.4em] text-primary backdrop-blur">
           beta доступ
         </span>
@@ -44,7 +44,7 @@
         @endphp
         <dl class="grid gap-4 sm:grid-cols-3">
           @foreach ($heroHighlights as $item)
-            <div class="group rounded-2xl border border-border/70 bg-background/80 p-4 backdrop-blur transition hover:-translate-y-1 hover:border-primary/50">
+            <div class="group rounded-2xl border border-border/70 bg-background/80 p-4 backdrop-blur transition hover:-translate-y-1 hover:border-primary/50" data-animate data-animate-delay="{{ number_format($loop->index * 0.08 + 0.2, 2, '.', '') }}s">
               <dt class="flex items-center gap-3 text-sm font-semibold text-foreground">
                 <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,7 +58,7 @@
         </dl>
       </div>
 
-      <div class="space-y-6 rounded-3xl border border-border/60 bg-card/90 p-6 shadow-xl backdrop-blur">
+      <div class="space-y-6 rounded-3xl border border-border/60 bg-card/90 p-6 shadow-xl backdrop-blur" data-animate data-animate-delay="0.25s">
         <div class="space-y-3">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Як виглядає день з Gramlyze</p>
           <h2 class="text-2xl font-semibold text-foreground">3 модулі, що закривають підготовку уроку</h2>
@@ -147,17 +147,18 @@
       ],
     ];
   @endphp
-  <section id="solutions" class="space-y-8">
-    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+  <section id="solutions" class="space-y-8" data-animate data-animate-type="fade-up">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between" data-animate data-animate-delay="0.05s">
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Мапа платформи</p>
         <h2 class="text-3xl font-semibold text-foreground">Інструменти платформи Gramlyze</h2>
         <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Кожний модуль взаємопов'язаний: теги з теорії доступні у тестах, AI-рекомендації видно у каталозі, а результати зберігаються у спільному просторі.</p>
       </div>
     </div>
-    <div class="grid gap-6 md:grid-cols-2">
-      @foreach ($productMap as $card)
-        <article class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/70 bg-card p-8 shadow-soft transition hover:-translate-y-2 hover:border-{{ $card['accent'] }}/60 hover:shadow-xl">
+    <div class="relative" data-slider data-animate data-animate-delay="0.15s">
+      <div class="-mx-4 flex gap-4 overflow-x-auto px-4 pb-6 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0" data-slider-track>
+        @foreach ($productMap as $card)
+          <article data-slide data-animate data-animate-delay="{{ number_format($loop->index * 0.08, 2, '.', '') }}s" class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/70 bg-card p-8 shadow-soft transition hover:-translate-y-2 hover:border-{{ $card['accent'] }}/60 hover:shadow-xl">
           <div class="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-{{ $card['accent'] }}/10 transition group-hover:scale-150"></div>
           <div class="relative space-y-5">
             <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-{{ $card['accent'] }}/10 text-{{ $card['accent'] }} ring-1 ring-{{ $card['accent'] }}/20">
@@ -174,8 +175,21 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
-        </article>
-      @endforeach
+          </article>
+        @endforeach
+      </div>
+      <div class="mt-4 flex justify-end gap-3 md:hidden">
+        <button type="button" class="slider-nav-btn" data-slider-prev aria-label="Попередній слайд">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button type="button" class="slider-nav-btn" data-slider-next aria-label="Наступний слайд">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -188,8 +202,8 @@
         'tags' => ['label' => 'Тегів для фільтрації', 'icon' => 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z'],
     ];
   @endphp
-  <section id="metrics" class="space-y-8">
-    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+  <section id="metrics" class="space-y-8" data-animate data-animate-type="fade-up">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between" data-animate data-animate-delay="0.05s">
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Дані вашої бази</p>
         <h2 class="text-3xl font-semibold text-foreground">Статистика оновлюється автоматично</h2>
@@ -202,9 +216,10 @@
         </svg>
       </a>
     </div>
-    <dl class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      @foreach ($statLabels as $key => $meta)
-        <div class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:shadow-xl">
+    <div class="relative" data-slider data-animate data-animate-delay="0.15s">
+      <dl class="-mx-4 flex gap-4 overflow-x-auto px-4 pb-6 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4" data-slider-track>
+        @foreach ($statLabels as $key => $meta)
+          <div data-slide data-animate data-animate-delay="{{ number_format($loop->index * 0.08, 2, '.', '') }}s" class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:shadow-xl">
           <div class="absolute right-0 top-0 h-28 w-28 translate-x-10 -translate-y-10 rounded-full bg-primary/10 transition group-hover:scale-150"></div>
           <dt class="relative flex items-center gap-3 text-sm font-medium text-muted-foreground">
             <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
@@ -215,9 +230,22 @@
             {{ $meta['label'] }}
           </dt>
           <dd class="relative mt-5 text-4xl font-semibold tracking-tight text-foreground">{{ number_format($stats[$key] ?? 0, 0, ',', ' ') }}</dd>
-        </div>
-      @endforeach
-    </dl>
+          </div>
+        @endforeach
+      </dl>
+      <div class="mt-4 flex justify-end gap-3 md:hidden">
+        <button type="button" class="slider-nav-btn" data-slider-prev aria-label="Попередній слайд">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button type="button" class="slider-nav-btn" data-slider-next aria-label="Наступний слайд">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+    </div>
   </section>
 
   <!-- WORKFLOW -->
@@ -229,17 +257,18 @@
       ['step' => '4', 'title' => 'Аналізуйте успішність', 'description' => 'Переглядайте рецензії, теги та нотатки команди, формуйте наступні добірки за рекомендаціями.'],
     ];
   @endphp
-  <section id="workflow" class="space-y-8">
-    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+  <section id="workflow" class="space-y-8" data-animate data-animate-type="fade-up">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between" data-animate data-animate-delay="0.05s">
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Процес роботи</p>
         <h2 class="text-3xl font-semibold text-foreground">Від пошуку вправ до аналітики — за один потік</h2>
         <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Gramlyze структурує робочий день викладача: ви не губитеся між Google-доками і таблицями, а працюєте в єдиній системі.</p>
       </div>
     </div>
-    <ol class="grid gap-6 md:grid-cols-2">
-      @foreach ($workflow as $item)
-        <li class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:border-primary/60 hover:shadow-xl">
+    <div class="relative" data-slider data-animate data-animate-delay="0.15s">
+      <ol class="-mx-4 flex gap-4 overflow-x-auto px-4 pb-6 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0" data-slider-track>
+        @foreach ($workflow as $item)
+          <li data-slide data-animate data-animate-delay="{{ number_format($loop->index * 0.08, 2, '.', '') }}s" class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:border-primary/60 hover:shadow-xl">
           <div class="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/10 transition group-hover:scale-150"></div>
           <div class="relative flex items-center gap-4">
             <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-lg font-semibold text-primary-foreground">{{ $item['step'] }}</span>
@@ -248,9 +277,22 @@
               <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{{ $item['description'] }}</p>
             </div>
           </div>
-        </li>
-      @endforeach
-    </ol>
+          </li>
+        @endforeach
+      </ol>
+      <div class="mt-4 flex justify-end gap-3 md:hidden">
+        <button type="button" class="slider-nav-btn" data-slider-prev aria-label="Попередній слайд">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button type="button" class="slider-nav-btn" data-slider-next aria-label="Наступний слайд">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+    </div>
   </section>
 
   <!-- AI TOOLKIT -->
@@ -262,28 +304,42 @@
       ['title' => 'Рецензії запитань', 'description' => 'Зберігайте варіанти, помилки, коментарі ШІ і робіть на їх основі наступні плани.', 'icon' => 'M7 8h10M7 12h4m-4 4h6M5 5a2 2 0 012-2h10a2 2 0 012 2v14l-4-2-4 2-4-2-4 2z'],
     ];
   @endphp
-  <section id="ai-toolkit" class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-background via-primary/5 to-secondary/10 p-10 shadow-soft md:p-16">
+  <section id="ai-toolkit" class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-background via-primary/5 to-secondary/10 p-10 shadow-soft md:p-16" data-animate data-animate-type="fade-up">
     <div class="space-y-8">
-      <div class="space-y-2">
+      <div class="space-y-2" data-animate data-animate-delay="0.05s">
         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">AI Toolkit</p>
         <h2 class="text-3xl font-semibold text-foreground">ШІ як асистент, а не заміна викладача</h2>
         <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Кожна функція допомагає зробити заняття змістовнішим: Gramlyze аналізує, пропонує та фіксує результати, але рішення ухвалює викладач.</p>
       </div>
-      <div class="grid gap-6 md:grid-cols-2">
-        @foreach ($aiToolkit as $tool)
-          <article class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:border-primary/60 hover:shadow-xl">
-            <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/10 transition group-hover:scale-150"></div>
-            <div class="relative space-y-4">
-              <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $tool['icon'] }}" />
-                </svg>
-              </span>
-              <h3 class="text-lg font-semibold text-foreground">{{ $tool['title'] }}</h3>
-              <p class="text-sm leading-relaxed text-muted-foreground">{{ $tool['description'] }}</p>
-            </div>
-          </article>
-        @endforeach
+      <div class="relative" data-slider data-animate data-animate-delay="0.15s">
+        <div class="-mx-4 flex gap-4 overflow-x-auto px-4 pb-6 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0" data-slider-track>
+          @foreach ($aiToolkit as $tool)
+            <article data-slide data-animate data-animate-delay="{{ number_format($loop->index * 0.08, 2, '.', '') }}s" class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:border-primary/60 hover:shadow-xl">
+              <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/10 transition group-hover:scale-150"></div>
+              <div class="relative space-y-4">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+                  <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $tool['icon'] }}" />
+                  </svg>
+                </span>
+                <h3 class="text-lg font-semibold text-foreground">{{ $tool['title'] }}</h3>
+                <p class="text-sm leading-relaxed text-muted-foreground">{{ $tool['description'] }}</p>
+              </div>
+            </article>
+          @endforeach
+        </div>
+        <div class="mt-4 flex justify-end gap-3 md:hidden">
+          <button type="button" class="slider-nav-btn" data-slider-prev aria-label="Попередній слайд">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button type="button" class="slider-nav-btn" data-slider-next aria-label="Наступний слайд">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -296,48 +352,62 @@
       ['title' => 'Команди викладачів', 'description' => 'Спільні теги, історія змін, швидке дублювання курсів та централізований банк матеріалів.', 'color' => 'accent'],
     ];
   @endphp
-  <section id="team-collaboration" class="space-y-8">
-    <div class="space-y-2">
+  <section id="team-collaboration" class="space-y-8" data-animate data-animate-type="fade-up">
+    <div class="space-y-2" data-animate data-animate-delay="0.05s">
       <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Сценарії використання</p>
       <h2 class="text-3xl font-semibold text-foreground">Команда отримує спільний простір роботи</h2>
       <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Підключіть кілька викладачів, діліться шаблонами, відстежуйте прогрес груп — Gramlyze підтримує масштабування студій та онлайн-шкіл.</p>
     </div>
-    <div class="grid gap-6 md:grid-cols-3">
-      @foreach ($teamUseCases as $case)
-        <article class="rounded-3xl border border-border/70 bg-card p-6 shadow-soft">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-{{ $case['color'] }}/10 text-{{ $case['color'] }}">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h4a4 4 0 014 4v2M9 7a4 4 0 118 0 4 4 0 01-8 0zm-6 10v-2a4 4 0 014-4h.01M3 7a4 4 0 108 0 4 4 0 00-8 0z" />
-            </svg>
-          </span>
-          <h3 class="mt-4 text-lg font-semibold text-foreground">{{ $case['title'] }}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{{ $case['description'] }}</p>
-        </article>
-      @endforeach
+    <div class="relative" data-slider data-animate data-animate-delay="0.15s">
+      <div class="-mx-4 flex gap-4 overflow-x-auto px-4 pb-6 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0" data-slider-track>
+        @foreach ($teamUseCases as $case)
+          <article data-slide data-animate data-animate-delay="{{ number_format($loop->index * 0.08, 2, '.', '') }}s" class="rounded-3xl border border-border/70 bg-card p-6 shadow-soft">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-{{ $case['color'] }}/10 text-{{ $case['color'] }}">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h4a4 4 0 014 4v2M9 7a4 4 0 118 0 4 4 0 01-8 0zm-6 10v-2a4 4 0 014-4h.01M3 7a4 4 0 108 0 4 4 0 00-8 0z" />
+              </svg>
+            </span>
+            <h3 class="mt-4 text-lg font-semibold text-foreground">{{ $case['title'] }}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{{ $case['description'] }}</p>
+          </article>
+        @endforeach
+      </div>
+      <div class="mt-4 flex justify-end gap-3 md:hidden">
+        <button type="button" class="slider-nav-btn" data-slider-prev aria-label="Попередній слайд">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button type="button" class="slider-nav-btn" data-slider-next aria-label="Наступний слайд">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary via-primary/80 to-secondary p-10 text-primary-foreground shadow-soft md:p-16">
+  <section class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary via-primary/80 to-secondary p-10 text-primary-foreground shadow-soft md:p-16" data-animate data-animate-type="fade-up">
     <div class="grid gap-10 md:grid-cols-[1.5fr_1fr] md:items-center">
-      <div class="space-y-6">
+      <div class="space-y-6" data-animate data-animate-delay="0.05s">
         <h2 class="text-3xl font-semibold md:text-4xl">Готові протестувати Gramlyze з командою?</h2>
         <p class="text-base leading-relaxed text-primary-foreground/90">
           Долучіться до beta-доступу: ми допоможемо мігрувати існуючі матеріали, налаштуємо структуру тестів та дамо поради щодо інтеграції AI у ваші програми.
         </p>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a href="{{ route('login.show') }}" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-background/80">
-            Увійти або зареєструватися
+          <a href="{{ route('catalog-tests.cards') }}" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-background/80">
+            Переглянути каталог
             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
-          <a href="{{ route('catalog-tests.cards') }}" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground/90 transition hover:bg-primary-foreground/10">
-            Переглянути демо-каталог
+          <a href="#solutions" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground/90 transition hover:bg-primary-foreground/10">
+            Дізнатися про інструменти
           </a>
         </div>
       </div>
-      <div class="space-y-4 rounded-3xl border border-primary-foreground/40 bg-primary-foreground/10 p-6 text-sm text-primary-foreground">
+      <div class="space-y-4 rounded-3xl border border-primary-foreground/40 bg-primary-foreground/10 p-6 text-sm text-primary-foreground" data-animate data-animate-delay="0.2s">
         <div class="flex items-center gap-3">
           <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-background text-primary font-semibold">1</span>
           <div>

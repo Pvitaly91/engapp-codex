@@ -111,6 +111,78 @@
     html, body { height: 100%; }
     body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
     .container { max-width: 72rem; }
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(var(--animate-distance, 30px));
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition-delay: var(--animate-delay, 0s);
+    }
+    [data-animate].animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-animate][data-animate-type="fade-up"] {
+      --animate-distance: 40px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      [data-animate],
+      [data-animate].animate-in {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+    [data-slider-track] {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    [data-slider-track]::-webkit-scrollbar {
+      display: none;
+    }
+    [data-slide] {
+      scroll-snap-align: start;
+      flex: 0 0 85%;
+      max-width: 85%;
+    }
+    @media (min-width: 640px) {
+      [data-slide] {
+        flex-basis: 75%;
+        max-width: 75%;
+      }
+    }
+    @media (min-width: 768px) {
+      [data-slider-track] {
+        scroll-snap-type: none;
+      }
+      [data-slide] {
+        flex: initial;
+        max-width: none;
+      }
+    }
+    .slider-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 9999px;
+      border: 1px solid hsl(var(--border));
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
+      box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.15);
+      transition: border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    }
+    .slider-nav-btn:hover {
+      border-color: hsl(var(--primary));
+      color: hsl(var(--primary));
+      transform: translateY(-2px);
+    }
+    .slider-nav-btn[disabled] {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
   </style>
 </head>
 
@@ -236,6 +308,75 @@
     }
     setupPredictiveSearch('search-box', 'search-box-list');
     setupPredictiveSearch('search-box-mobile', 'search-box-mobile-list');
+
+    // Animate on scroll
+    const animated = document.querySelectorAll('[data-animate]');
+    if (animated.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            if (entry.target.dataset.animateOnce !== 'false') {
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, { threshold: 0.15 });
+
+      animated.forEach((el) => {
+        const delay = el.dataset.animateDelay;
+        if (delay) {
+          el.style.setProperty('--animate-delay', delay);
+        }
+        observer.observe(el);
+      });
+    }
+
+    // Mobile sliders
+    document.querySelectorAll('[data-slider]').forEach((slider) => {
+      const track = slider.querySelector('[data-slider-track]');
+      if (!track) return;
+      const prev = slider.querySelector('[data-slider-prev]');
+      const next = slider.querySelector('[data-slider-next]');
+
+      const getGap = () => {
+        const styles = window.getComputedStyle(track);
+        const gapValue = parseFloat(styles.columnGap || styles.gap || '0');
+        return Number.isFinite(gapValue) ? gapValue : 0;
+      };
+
+      const getScrollAmount = () => {
+        const firstSlide = track.querySelector('[data-slide]');
+        if (!firstSlide) return track.clientWidth;
+        const slideRect = firstSlide.getBoundingClientRect();
+        return slideRect.width + getGap();
+      };
+
+      const updateButtons = () => {
+        if (!prev || !next) return;
+        const maxScroll = track.scrollWidth - track.clientWidth - 1;
+        prev.disabled = track.scrollLeft <= 0;
+        next.disabled = track.scrollLeft >= maxScroll;
+      };
+
+      const scrollByAmount = (direction) => {
+        track.scrollBy({ left: direction * getScrollAmount(), behavior: 'smooth' });
+      };
+
+      prev?.addEventListener('click', () => {
+        scrollByAmount(-1);
+      });
+      next?.addEventListener('click', () => {
+        scrollByAmount(1);
+      });
+
+      track.addEventListener('scroll', () => {
+        window.requestAnimationFrame(updateButtons);
+      });
+
+      window.addEventListener('resize', updateButtons);
+      updateButtons();
+    });
   </script>
 
   @yield('scripts')
