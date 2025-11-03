@@ -9124,10 +9124,8 @@
           this.globalSearch.loading = false;
         },
         toggleGlobalSearchResult(result) {
-          if (result && typeof result === 'object' && 'open' in result) {
+          if (result && typeof result === 'object') {
             result.open = !result.open;
-          } else if (result && typeof result === 'object') {
-            result.open = false;
           }
         },
         highlightForeignRecordText(value) {
