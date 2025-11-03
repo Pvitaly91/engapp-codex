@@ -708,7 +708,7 @@ class ModalVerbsMixedPracticeV2Seeder extends QuestionSeeder
 
     private function classifyOption(string $option): string
     {
-        $normalized = str_replace([''', '''], "'", mb_strtolower($option));
+        $normalized = str_replace(["'", '"'], "'", mb_strtolower($option));
         $normalized = preg_replace('/\s+/', ' ', $normalized);
 
         return match (true) {
