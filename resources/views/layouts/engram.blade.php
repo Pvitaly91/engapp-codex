@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>@yield('title', 'Engram — Вивчення англійської')</title>
-  <meta name="description" content="Короткі тести з англійської, проста теорія, прогрес та рекомендації." />
+  <title>@yield('title', 'Gramlyze — Платформа для викладачів англійської')</title>
+  <meta name="description" content="Gramlyze допомагає збирати тести, аналізувати відповіді та координувати команду викладачів англійської." />
 
   <!-- Google Font: Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -111,6 +111,38 @@
     html, body { height: 100%; }
     body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
     .container { max-width: 72rem; }
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-element[data-animate='fade-in'] {
+      transform: scale(0.96);
+    }
+    .reveal-element[data-animate='fade-left'] {
+      transform: translateX(32px);
+    }
+    .reveal-element[data-animate='fade-right'] {
+      transform: translateX(-32px);
+    }
+    .reveal-element.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    .reveal-element[data-animate='fade-in'].is-visible {
+      transform: scale(1);
+    }
+    .reveal-element[data-animate='fade-left'].is-visible,
+    .reveal-element[data-animate='fade-right'].is-visible {
+      transform: translate3d(0, 0, 0);
+    }
+    .mobile-slider {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mobile-slider::-webkit-scrollbar {
+      display: none;
+    }
   </style>
 </head>
 
@@ -118,23 +150,33 @@
   <!-- HEADER / NAV -->
   <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/80">
     <div class="container mx-auto px-4">
-      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-16 md:flex-nowrap">
-        <div class="flex items-center gap-3 flex-shrink-0">
-          <div class="h-9 w-9 rounded-2xl bg-primary text-primary-foreground grid place-items-center font-bold">E</div>
-          <span class="text-lg font-semibold tracking-tight">Engram</span>
-          <span class="ml-2 inline-flex items-center rounded-lg bg-accent text-accent-foreground px-2 py-0.5 text-xs font-medium">beta</span>
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-20 md:flex-nowrap">
+        <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0" aria-label="Gramlyze">
+          <x-gramlyze-logo class="hidden md:inline-flex" />
+          <x-gramlyze-logo variant="compact" class="md:hidden" />
+        </a>
+        <form action="{{ route('site.search') }}" method="GET" class="relative hidden md:block">
+          <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+          <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
+        </form>
+        <div class="flex items-center gap-2 md:hidden">
+          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">Пошук</span></button>
+          <button id="mobile-menu-toggle" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="primary-nav">
+            <span class="sr-only">Меню</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+          </button>
         </div>
-        <nav class="order-3 w-full flex flex-wrap items-center gap-4 text-sm md:order-none md:w-auto md:flex-nowrap md:gap-6">
-          <a class="text-muted-foreground hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Тести</a>
-          <a class="text-muted-foreground hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+        <nav id="primary-nav" class="order-3 hidden flex w-full flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium md:order-none md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:pt-0">
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Каталог</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">AI Toolkit</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">Командам</a>
         </nav>
-        <div class="flex items-center gap-2 order-2 ml-auto md:order-none md:ml-0">
-          <form action="{{ route('site.search') }}" method="GET" class="hidden md:block relative">
-            <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
-            <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
-          </form>
-          <button id="mobile-search-btn" class="md:hidden rounded-xl border border-border p-2 text-sm">🔍</button>
-        </div>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
         <form action="{{ route('site.search') }}" method="GET" class="relative">
@@ -152,8 +194,8 @@
   <footer class="border-t border-border mt-10 py-6 text-sm">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <div class="h-6 w-6 rounded-md bg-primary text-primary-foreground grid place-items-center font-semibold text-xs">E</div>
-        <span>Engram <span id="year"></span></span>
+        <x-gramlyze-logo variant="compact" size="h-9 w-9" />
+        <span>Gramlyze <span id="year"></span></span>
       </div>
       <div class="flex md:justify-end gap-4 text-sm">
         <a class="text-muted-foreground hover:text-foreground" href="#">Політика</a>
@@ -177,8 +219,28 @@
     })();
 
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('mobile-search-btn')?.addEventListener('click', () => {
-      document.getElementById('mobile-search')?.classList.toggle('hidden');
+    const mobileSearchBtn = document.getElementById('mobile-search-btn');
+    const mobileSearchPanel = document.getElementById('mobile-search');
+    mobileSearchBtn?.addEventListener('click', () => {
+      const expanded = mobileSearchBtn.getAttribute('aria-expanded') === 'true';
+      mobileSearchBtn.setAttribute('aria-expanded', (!expanded).toString());
+      mobileSearchPanel?.classList.toggle('hidden', expanded);
+    });
+
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const primaryNav = document.getElementById('primary-nav');
+    mobileMenuToggle?.addEventListener('click', () => {
+      const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', (!expanded).toString());
+      primaryNav?.classList.toggle('hidden', expanded);
+    });
+    primaryNav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+          primaryNav.classList.add('hidden');
+        }
+      });
     });
 
     function setupPredictiveSearch(inputId, listId) {
@@ -206,6 +268,89 @@
     }
     setupPredictiveSearch('search-box', 'search-box-list');
     setupPredictiveSearch('search-box-mobile', 'search-box-mobile-list');
+
+    // Scroll-triggered reveal animations
+    const revealElements = document.querySelectorAll('[data-animate]');
+    if (revealElements.length) {
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (motionQuery.matches) {
+        revealElements.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              const delay = parseInt(el.getAttribute('data-animate-delay') || '0', 10);
+              if (delay) {
+                el.style.transitionDelay = `${delay}ms`;
+              }
+              requestAnimationFrame(() => {
+                el.classList.add('is-visible');
+              });
+              if (el.getAttribute('data-animate-once') !== 'false') {
+                observer.unobserve(el);
+              }
+            }
+          });
+        }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
+        revealElements.forEach((el) => {
+          el.classList.add('reveal-element');
+          observer.observe(el);
+        });
+      }
+    }
+
+    // Basic mobile slider controls
+    const sliderQueries = window.matchMedia('(max-width: 767px)');
+    const sliders = document.querySelectorAll('[data-mobile-slider]');
+    const initializeSliderControls = () => {
+      sliders.forEach((slider) => {
+        const sliderId = slider.getAttribute('id');
+        if (!sliderId) return;
+        const prevButtons = document.querySelectorAll(`[data-slider-prev="${sliderId}"]`);
+        const nextButtons = document.querySelectorAll(`[data-slider-next="${sliderId}"]`);
+        const scrollStep = () => Math.max(slider.clientWidth * 0.85, 240);
+        const scrollByDirection = (direction) => {
+          slider.scrollBy({ left: scrollStep() * direction, behavior: 'smooth' });
+        };
+        const updateButtonState = () => {
+          const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+          prevButtons.forEach((btn) => {
+            btn.disabled = slider.scrollLeft <= 8;
+          });
+          nextButtons.forEach((btn) => {
+            btn.disabled = slider.scrollLeft >= maxScrollLeft - 8;
+          });
+        };
+        if (slider.dataset.sliderInit !== 'true') {
+          prevButtons.forEach((btn) => {
+            btn.addEventListener('click', () => scrollByDirection(-1));
+          });
+          nextButtons.forEach((btn) => {
+            btn.addEventListener('click', () => scrollByDirection(1));
+          });
+          slider.addEventListener('scroll', () => {
+            requestAnimationFrame(updateButtonState);
+          });
+          window.addEventListener('resize', updateButtonState);
+          slider.dataset.sliderInit = 'true';
+        }
+        if (sliderQueries.matches) {
+          updateButtonState();
+        } else {
+          prevButtons.forEach((btn) => (btn.disabled = false));
+          nextButtons.forEach((btn) => (btn.disabled = false));
+        }
+      });
+    };
+    if (sliders.length) {
+      initializeSliderControls();
+      if (typeof sliderQueries.addEventListener === 'function') {
+        sliderQueries.addEventListener('change', initializeSliderControls);
+      } else if (typeof sliderQueries.addListener === 'function') {
+        sliderQueries.addListener(initializeSliderControls);
+      }
+    }
   </script>
 
   @yield('scripts')
