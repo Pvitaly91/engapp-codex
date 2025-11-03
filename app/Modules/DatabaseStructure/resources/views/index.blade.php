@@ -9096,7 +9096,9 @@
             }
 
             this.globalSearch.results = Array.isArray(payload.results) 
-              ? payload.results.map(result => ({ ...result, open: true }))
+              ? payload.results
+                  .filter(result => result && typeof result === 'object')
+                  .map(result => ({ ...result, open: true }))
               : [];
             this.globalSearch.completed = true;
           } catch (error) {
@@ -9122,8 +9124,10 @@
           this.globalSearch.loading = false;
         },
         toggleGlobalSearchResult(result) {
-          if (result && typeof result === 'object') {
+          if (result && typeof result === 'object' && 'open' in result) {
             result.open = !result.open;
+          } else if (result && typeof result === 'object') {
+            result.open = false;
           }
         },
         highlightForeignRecordText(value) {
