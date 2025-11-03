@@ -22,5 +22,6 @@
         <span class="font-semibold">Games:</span>
         <a href="{{ route('saved-test.js.drag-drop', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.drag-drop') ? 'bg-stone-900 text-white' : '' }}">Drag &amp; Drop</a>
         <a href="{{ route('saved-test.js.match', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.match') ? 'bg-stone-900 text-white' : '' }}">Match</a>
+        <a href="{{ route('saved-test.js.dialogue', $test->slug) }}" class="px-3 py-1 rounded-lg border border-stone-300 {{ request()->routeIs('saved-test.js.dialogue') ? 'bg-stone-900 text-white' : '' }}">Dialogue</a>
     </div>
 </nav>
