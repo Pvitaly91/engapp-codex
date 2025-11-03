@@ -41,6 +41,7 @@ class GrammarTestController extends Controller
         'saved-test-js-step-select',
         'saved-test-js-select',
         'saved-test-js-drag-drop',
+        'saved-test-js-match',
     ];
 
     public function __construct(
@@ -385,6 +386,11 @@ class GrammarTestController extends Controller
     public function showSavedTestJsDragDrop($slug)
     {
         return $this->renderSavedTestJsView($slug, 'saved-test-js-drag-drop');
+    }
+
+    public function showSavedTestJsMatch($slug)
+    {
+        return $this->renderSavedTestJsView($slug, 'saved-test-js-match');
     }
 
     private function renderSavedTestJsView(string $slug, string $view)

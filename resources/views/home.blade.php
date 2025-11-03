@@ -1,934 +1,492 @@
 @extends('layouts.engram')
 
-@section('title', 'English Test Hub')
+@section('title', 'Gramlyze — платформа англійської практики')
 
 @section('content')
-<!-- Past Perfect (Минулий доконаний час) — вставний блок -->
-<section class="grammar-card" lang="uk">
-  <style>
-    /* СТИЛІ ЛИШЕ ДЛЯ ЦЬОГО БЛОКУ */
-    .grammar-card { --bg:#ffffff; --text:#1f2937; --muted:#6b7280; --accent:#2563eb; --chip:#f3f4f6; --ok:#10b981; --warn:#f59e0b;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color: var(--text); background: var(--bg); border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; max-width: 980px; margin: 0 auto 24px; box-shadow: 0 6px 18px rgba(0,0,0,.04);
-    }
-    .grammar-card * { box-sizing: border-box; }
-    .gw-title { font-size: 28px; line-height: 1.2; margin: 0 0 10px; }
-    .gw-sub { color: var(--muted); margin: 0 0 18px; }
-    .gw-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .gw-box { border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px; background: #fff; }
-    .gw-box h3 { margin: 0 0 8px; font-size: 18px; }
-    .gw-list { margin: 8px 0 0 18px; }
-    .gw-list li { margin: 6px 0; }
-    .gw-formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: #0b1220; color: #e5e7eb; border-radius: 10px; padding: 12px; font-size: 14px; overflow:auto;
-    }
-    .gw-code-badge { display: inline-block; font-size: 12px; color:#d1d5db; border:1px solid #334155; padding:2px 8px; border-radius:999px; margin-bottom:8px; }
-    .gw-ex { background: #f9fafb; border-left: 4px solid var(--accent); padding: 10px 12px; border-radius: 8px; margin-top: 10px; }
-    .gw-en { font-weight: 600; }
-    .gw-ua { color: var(--muted); }
-    .gw-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-    .gw-chip { background: var(--chip); border:1px solid #e5e7eb; padding:6px 10px; border-radius:999px; font-size:13px; }
-    .gw-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .gw-table th, .gw-table td { border: 1px solid #e5e7eb; padding: 10px; vertical-align: top; }
-    .gw-table th { background:#f8fafc; text-align:left; }
-    .gw-hint { display:flex; gap:10px; align-items:flex-start; background:#f8fafc; border:1px dashed #cbd5e1; padding:10px 12px; border-radius:10px; }
-    .gw-emoji { font-size: 18px; }
-    .tag-ok { color: var(--ok); font-weight: 700; }
-    .tag-warn { color: var(--warn); font-weight: 700; }
-    @media (min-width: 720px) {
-      .gw-grid { grid-template-columns: 1.2fr 1fr; }
-    }
-  </style>
- 
-  <header>
-    <h2 class="gw-title">Past Perfect — Минулий доконаний час</h2>
-    <p class="gw-sub">Використовуємо, щоб показати дію, яка сталася <strong>раніше іншої минулої події</strong>.</p>
-  </header>
-
-  <div class="gw-grid">
-    <!-- ЛІВА КОЛОНКА -->
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li><strong>Подія А</strong> відбулася, а потім сталася <strong>подія Б</strong> (обидві в минулому). Для події А — <em>Past Perfect</em>, для події Б — <em>Past Simple</em>.</li>
-          <li>Часто з маркерами: <em>before, after, by the time, already, when</em>.</li>
-        </ul>
-
-        <div class="gw-ex">
-          <div class="gw-en">I had finished my homework <u>before</u> my friend called.</div>
-          <div class="gw-ua">Я закінчив домашнє завдання <u>перед тим</u>, як подзвонив друг.</div>
+<div class="space-y-24">
+  <!-- HERO -->
+  <section id="hero" data-animate class="relative overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary/10 via-background to-secondary/15 p-10 shadow-soft md:p-16">
+    <div class="absolute -top-32 right-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl"></div>
+    <div class="absolute -bottom-32 left-4 h-72 w-72 rounded-full bg-accent/15 blur-3xl"></div>
+    <div class="relative grid gap-12 md:grid-cols-[1.35fr_1fr]">
+      <div class="space-y-8" data-animate data-animate-delay="100">
+        <span class="inline-flex items-center gap-2 rounded-full bg-background/70 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.4em] text-primary backdrop-blur">
+          beta доступ
+        </span>
+        <div class="space-y-6">
+          <h1 class="text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
+            Конструктор тестів, теорія та AI-помічники для викладачів англійської
+          </h1>
+          <p class="text-base leading-relaxed text-muted-foreground md:text-lg">
+            Gramlyze поєднує повний цикл підготовки до заняття: від пошуку завдань до перевірки відповідей і аналітики по студентах. Усе працює у браузері та синхронізується між командою.
+          </p>
         </div>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="{{ route('catalog-tests.cards') }}" class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">
+            Перейти до каталогу
+            <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="{{ route('grammar-test') }}" class="group inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-background/80 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition hover:border-primary hover:text-primary">
+            Зібрати власний тест
+            <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+        @php
+          $heroHighlights = [
+            ['label' => 'Каталоги за CEFR та темами', 'icon' => 'M19 11H5M7 7h10M9 3h6a2 2 0 012 2v2H7V5a2 2 0 012-2zM5 11v6a2 2 0 002 2h10a2 2 0 002-2v-6'],
+            ['label' => 'AI-перевірка відповідей', 'icon' => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'],
+            ['label' => 'Спільна робота команди', 'icon' => 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2a3 3 0 00-.132-.894M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2a3 3 0 01.132-.894M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a3 3 0 11-6 0 3 3 0 016 0zM9 10a3 3 0 11-6 0 3 3 0 016 0z'],
+          ];
+        @endphp
+        <dl class="grid gap-4 sm:grid-cols-3">
+          @foreach ($heroHighlights as $item)
+            <div class="group rounded-2xl border border-border/70 bg-background/80 p-4 backdrop-blur transition hover:-translate-y-1 hover:border-primary/50" data-animate data-animate-delay="{{ 200 + $loop->index * 80 }}">
+              <dt class="flex items-center gap-3 text-sm font-semibold text-foreground">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}" />
+                  </svg>
+                </span>
+                {{ $item['label'] }}
+              </dt>
+            </div>
+          @endforeach
+        </dl>
       </div>
 
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[Підмет] + <span style="color:#93c5fd">had</span> + <span style="color:#86efac">V3 (дієслово у 3-й формі / Past Participle)</span>
-I had <span style="color:#86efac">seen</span> / She had <span style="color:#86efac">gone</span> / They had <span style="color:#86efac">eaten</span></pre>
-
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[Підмет] + <span style="color:#93c5fd">had not</span> (hadn’t) + V3
-I hadn’t <span style="color:#86efac">seen</span> that movie before.</pre>
-
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula"><span style="color:#93c5fd">Had</span> + [підмет] + V3?
-Had you <span style="color:#86efac">studied</span> before the test?</pre>
-      </div>
-
-      <div class="gw-box">
-        <h3>Маркери часу</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">before — перед</span>
-          <span class="gw-chip">after — після</span>
-          <span class="gw-chip">by the time — до того часу як</span>
-          <span class="gw-chip">already — вже</span>
-          <span class="gw-chip">when — коли</span>
-          <span class="gw-chip">until/till — до (моменту)</span>
+      <div class="space-y-6 rounded-3xl border border-border/60 bg-card/90 p-6 shadow-xl backdrop-blur" data-animate data-animate-delay="250">
+        <div class="space-y-3">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Як виглядає день з Gramlyze</p>
+          <h2 class="text-2xl font-semibold text-foreground">3 модулі, що закривають підготовку уроку</h2>
         </div>
-
-        <div class="gw-ex">
-          <div class="gw-en">By the time we started, they <strong>had already prepared</strong> everything.</div>
-          <div class="gw-ua">До того, як ми почали, вони <strong>вже підготували</strong> все.</div>
+        <div class="space-y-4 text-sm text-muted-foreground">
+          <p class="rounded-2xl border border-dashed border-primary/40 bg-primary/10 p-4 text-primary">
+            Конструктор тестів аналізує банк питань, пропонує AI-переформулювання та одразу показує рекомендації з рівня.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-primary"></span>
+              <span>Каталоги з тегами дозволяють зібрати сценарій заняття за 5 хвилин.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-secondary"></span>
+              <span>AI-рецензії фіксують типові помилки та формують підсумкові пояснення для групи.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-accent"></span>
+              <span>Теорія та перекладні вправи доступні у спільній бібліотеці команди.</span>
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-
-    <!-- ПРАВА КОЛОНКА -->
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Швидка пам’ятка</h3>
-        <div class="gw-hint">
-          <div class="gw-emoji">🧠</div>
-          <div>
-            <p><strong>A сталося перед B → A: Past Perfect, B: Past Simple.</strong></p>
-            <p class="gw-ua">Коли порядок подій і так зрозумілий (через <em>before/after</em>), <em>Past Perfect</em> інколи можна опустити. Але з ним зрозуміліше.</p>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div class="rounded-2xl border border-border/60 bg-background/60 p-4 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            <span class="text-[0.6rem] font-semibold text-primary">Основний логотип</span>
+            <div class="mt-3 flex justify-start">
+              <x-gramlyze-logo size="h-10 w-10" />
+            </div>
           </div>
-        </div>
-
-        <div class="gw-ex" style="margin-top:10px">
-          <div class="gw-en">When I arrived, she <strong>had left</strong>.</div>
-          <div class="gw-ua">Коли я прийшов, вона <strong>вже пішла</strong>.</div>
-        </div>
-      </div>
-
-      <div class="gw-box">
-        <h3>Порівняння</h3>
-        <table class="gw-table" aria-label="Порівняння Past Simple та Past Perfect">
-          <thead>
-            <tr>
-              <th>Час</th>
-              <th>Що виражає</th>
-              <th>Формула</th>
-              <th>Приклад</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Past Simple</strong></td>
-              <td>Звичайна минула дія/факт (B)</td>
-              <td>V2 (went, saw) / did + V1</td>
-              <td><span class="gw-en">My friend <strong>called</strong>.</span></td>
-            </tr>
-            <tr>
-              <td><strong>Past Perfect</strong></td>
-              <td>Раніша минула дія перед іншою (A)</td>
-              <td>had + V3</td>
-              <td><span class="gw-en">I <strong>had finished</strong> before he called.</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="gw-box">
-        <h3>Типові помилки</h3>
-        <ul class="gw-list">
-          <li><span class="tag-warn">✗</span> Використовувати <em>had + V3</em> без другої минулої події/контексту.</li>
-          <li><span class="tag-warn">✗</span> Плутати з <em>Present Perfect</em> (це про зв’язок із теперішнім, а не з іншою минулою дією).</li>
-          <li><span class="tag-ok">✓</span> Думай: “<em>Що сталося раніше?</em>” — туди став <strong>Past Perfect</strong>.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ====== SHARED STYLES for grammar cards (include once) ====== -->
-<section class="grammar-card" lang="uk">
-  <style>
-    .grammar-card { --bg:#ffffff; --text:#1f2937; --muted:#6b7280; --accent:#2563eb; --chip:#f3f4f6; --ok:#10b981; --warn:#f59e0b;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color: var(--text); background: var(--bg); border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; max-width: 980px; margin: 0 auto 24px; box-shadow: 0 6px 18px rgba(0,0,0,.04);
-    }
-    .grammar-card * { box-sizing: border-box; }
-    .gw-title { font-size: 28px; line-height: 1.2; margin: 0 0 10px; }
-    .gw-sub { color: var(--muted); margin: 0 0 18px; }
-    .gw-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .gw-box { border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px; background: #fff; }
-    .gw-box h3 { margin: 0 0 8px; font-size: 18px; }
-    .gw-list { margin: 8px 0 0 18px; }
-    .gw-list li { margin: 6px 0; }
-    .gw-formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: #0b1220; color: #e5e7eb; border-radius: 10px; padding: 12px; font-size: 14px; overflow:auto;
-    }
-    .gw-code-badge { display: inline-block; font-size: 12px; color:#d1d5db; border:1px solid #334155; padding:2px 8px; border-radius:999px; margin-bottom:8px; }
-    .gw-ex { background: #f9fafb; border-left: 4px solid var(--accent); padding: 10px 12px; border-radius: 8px; margin-top: 10px; }
-    .gw-en { font-weight: 600; }
-    .gw-ua { color: var(--muted); }
-    .gw-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-    .gw-chip { background: var(--chip); border:1px solid #e5e7eb; padding:6px 10px; border-radius:999px; font-size:13px; }
-    .gw-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .gw-table th, .gw-table td { border: 1px solid #e5e7eb; padding: 10px; vertical-align: top; }
-    .gw-table th { background:#f8fafc; text-align:left; }
-    .gw-hint { display:flex; gap:10px; align-items:flex-start; background:#f8fafc; border:1px dashed #cbd5e1; padding:10px 12px; border-radius:10px; }
-    .gw-emoji { font-size: 18px; }
-    .tag-ok { color: var(--ok); font-weight: 700; }
-    .tag-warn { color: var(--warn); font-weight: 700; }
-    @media (min-width: 720px) {
-      .gw-grid { grid-template-columns: 1.2fr 1fr; }
-    }
-  </style>
-  <!-- Цю "порожню" секцію можна видалити після копіювання стилів нагору сторінки -->
-</section>
-
-
-<!-- Future Perfect (Майбутній доконаний час) — вставний блок -->
-<section class="grammar-card" lang="uk">
-  <style>
-    /* СТИЛІ ЛИШЕ ДЛЯ ЦЬОГО БЛОКУ */
-    .grammar-card { --bg:#ffffff; --text:#1f2937; --muted:#6b7280; --accent:#2563eb; --chip:#f3f4f6; --ok:#10b981; --warn:#f59e0b;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color: var(--text); background: var(--bg); border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; max-width: 980px; margin: 0 auto 24px; box-shadow: 0 6px 18px rgba(0,0,0,.04);
-    }
-    .grammar-card * { box-sizing: border-box; }
-    .gw-title { font-size: 28px; line-height: 1.2; margin: 0 0 10px; }
-    .gw-sub { color: var(--muted); margin: 0 0 18px; }
-    .gw-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .gw-box { border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px; background: #fff; }
-    .gw-box h3 { margin: 0 0 8px; font-size: 18px; }
-    .gw-list { margin: 8px 0 0 18px; }
-    .gw-list li { margin: 6px 0; }
-    .gw-formula { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: #0b1220; color: #e5e7eb; border-radius: 10px; padding: 12px; font-size: 14px; overflow:auto;
-    }
-    .gw-code-badge { display: inline-block; font-size: 12px; color:#d1d5db; border:1px solid #334155; padding:2px 8px; border-radius:999px; margin-bottom:8px; }
-    .gw-ex { background: #f9fafb; border-left: 4px solid var(--accent); padding: 10px 12px; border-radius: 8px; margin-top: 10px; }
-    .gw-en { font-weight: 600; }
-    .gw-ua { color: var(--muted); }
-    .gw-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-    .gw-chip { background: var(--chip); border:1px solid #e5e7eb; padding:6px 10px; border-radius:999px; font-size:13px; }
-    .gw-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .gw-table th, .gw-table td { border: 1px solid #e5e7eb; padding: 10px; vertical-align: top; }
-    .gw-table th { background:#f8fafc; text-align:left; }
-    .gw-hint { display:flex; gap:10px; align-items:flex-start; background:#f8fafc; border:1px dashed #cbd5e1; padding:10px 12px; border-radius:10px; }
-    .gw-emoji { font-size: 18px; }
-    .tag-ok { color: var(--ok); font-weight: 700; }
-    .tag-warn { color: var(--warn); font-weight: 700; }
-    @media (min-width: 720px) {
-      .gw-grid { grid-template-columns: 1.2fr 1fr; }
-    }
-  </style>
-
-  <header>
-    <h2 class="gw-title">Future Perfect — Майбутній доконаний час</h2>
-    <p class="gw-sub">Використовуємо, щоб показати, що дія буде <strong>завершена до певного моменту в майбутньому</strong>.</p>
-  </header>
-
-  <div class="gw-grid">
-    <!-- ЛІВА КОЛОНКА -->
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li><strong>Завершення до дедлайну/події</strong>: «До п’ятниці вже зроблю».</li>
-          <li><strong>Прогноз про виконання</strong> до конкретного часу/моменту.</li>
-          <li><strong>У складних реченнях</strong> з <em>by (the time), before, until/till</em>.</li>
-        </ul>
-
-        <div class="gw-ex">
-          <div class="gw-en">By 6 pm, I <strong>will have finished</strong> the report.</div>
-          <div class="gw-ua">До 18:00 я <strong>вже закінчу</strong> звіт.</div>
-        </div>
-      </div>
-
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[Підмет] + <span style="color:#93c5fd">will have</span> + <span style="color:#86efac">V3 (Past Participle)</span>
-I <span style="color:#93c5fd">will have</span> <span style="color:#86efac">finished</span>.</pre>
-
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[Підмет] + will not (won’t) have + V3
-She <span style="color:#93c5fd">won’t have</span> <span style="color:#86efac">arrived</span> by noon.</pre>
-
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula"><span style="color:#93c5fd">Will</span> + [підмет] + <span style="color:#93c5fd">have</span> + V3?
-<span style="color:#93c5fd">Will</span> they <span style="color:#93c5fd">have</span> <span style="color:#86efac">completed</span> it by then?</pre>
-      </div>
-
-      <div class="gw-box">
-        <h3>Маркери часу</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">by … (by Friday, by 2030)</span>
-          <span class="gw-chip">by the time …</span>
-          <span class="gw-chip">before …</span>
-          <span class="gw-chip">until/till …</span>
-        </div>
-
-        <div class="gw-ex">
-          <div class="gw-en">By the time you come, we <strong>will have prepared</strong> everything.</div>
-          <div class="gw-ua">До того часу, як ти прийдеш, ми <strong>вже підготуємо</strong> все.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ПРАВА КОЛОНКА -->
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Швидка пам’ятка</h3>
-        <div class="gw-hint">
-          <div class="gw-emoji">🧠</div>
-          <div>
-            <p><strong>Майбутня точка → до неї дія буде завершена.</strong></p>
-            <p class="gw-ua">У підрядних часу після <em>when, after, before, by the time, until</em> зазвичай <b>Present Simple</b>, а не <em>will</em>:</p>
-            <div class="gw-ex" style="margin-top:6px">
-              <div class="gw-en">I will have finished <u>before you arrive</u>.</div>
-              <div class="gw-ua">Я закінчу <u>перш ніж ти приїдеш</u> (не “will arrive”).</div>
+          <div class="rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-4 text-xs uppercase tracking-[0.3em] text-primary">
+            <span class="text-[0.6rem] font-semibold">Альтернативний бейдж</span>
+            <div class="mt-3 flex justify-start">
+              <x-gramlyze-logo variant="badge" />
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="gw-box">
-        <h3>Порівняння</h3>
-        <table class="gw-table" aria-label="Порівняння Future Simple та Future Perfect">
-          <thead>
-            <tr>
-              <th>Час</th>
-              <th>Що виражає</th>
-              <th>Формула</th>
-              <th>Приклад</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Future Simple</strong></td>
-              <td>Проста дія в майбутньому</td>
-              <td>will + V1</td>
-              <td><span class="gw-en">I will finish tomorrow.</span></td>
-            </tr>
-            <tr>
-              <td><strong>Future Perfect</strong></td>
-              <td>Дія завершиться <u>до</u> майбутньої точки</td>
-              <td>will have + V3</td>
-              <td><span class="gw-en">By tomorrow, I <strong>will have finished</strong>.</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="gw-box">
-        <h3>Типові помилки</h3>
-        <ul class="gw-list">
-          <li><span class="tag-warn">✗</span> Ставити <em>will</em> після сполучників часу: <em>*when you will come</em>. Правильно: <em>when you come</em>.</li>
-          <li><span class="tag-warn">✗</span> Плутати з <em>Future Continuous</em> (той підкреслює процес у майбутній точці).</li>
-          <li><span class="tag-ok">✓</span> Думай про дедлайн у майбутньому: «Що <b>буде зроблено</b> до нього?»</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 1) PRESENT SIMPLE -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Present Simple — Теперішній простий</h2>
-    <p class="gw-sub">Факти, звички, розклади. He/She/It — додаємо <b>s/es</b>.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Звички, рутини, загальні факти.</li>
-          <li>Розклади та графіки (уроки, рейси).</li>
-          <li>Стан: know, like, love, believe тощо.</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">She works from home.</div><div class="gw-ua">Вона працює з дому.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + V1 (he/she/it + s/es)</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + do/does not + V1</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Do/Does + [S] + V1?</pre>
-      </div>
-      <div class="gw-box">
-        <h3>Маркери</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">always</span><span class="gw-chip">usually</span><span class="gw-chip">often</span>
-          <span class="gw-chip">every day</span><span class="gw-chip">on Mondays</span>
+        <div class="grid gap-4 border-t border-border/60 pt-4 text-sm">
+          <div class="flex items-center justify-between rounded-2xl border border-border/60 bg-background/70 px-4 py-3">
+            <span class="font-semibold text-muted-foreground">Виділити тему</span>
+            <span class="text-sm font-semibold text-primary">+ теги & рівні CEFR</span>
+          </div>
+          <div class="flex items-center justify-between rounded-2xl border border-border/60 bg-background/70 px-4 py-3">
+            <span class="font-semibold text-muted-foreground">Поділитися тестом</span>
+            <span class="text-sm font-semibold text-secondary">посиланням або PDF</span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">I live in Lviv.</span> <span class="gw-ua">Я живу у Львові.</span></li>
-          <li><span class="gw-en">He doesn’t eat meat.</span> <span class="gw-ua">Він не їсть м’яса.</span></li>
-          <li><span class="gw-en">Do you play chess?</span> <span class="gw-ua">Ти граєш у шахи?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Типові помилки</h3>
-        <ul class="gw-list">
-          <li>Забувають <b>s</b> у 3-й особі однини.</li>
-          <li>Використовують <em>am/is/are</em> з діями: <span class="tag-warn">✗</span> I am go.</li>
-        </ul>
+  </section>
+
+  <!-- PRODUCT MAP -->
+  @php
+    $productMap = [
+      [
+        'title' => 'Каталог тестів',
+        'description' => 'Добірки завдань за рівнями, часами, професійними контекстами. Фільтруйте за тегами та обсягом.',
+        'icon' => 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+        'cta' => 'Відкрити каталог',
+        'link' => route('catalog-tests.cards'),
+        'accent' => 'primary'
+      ],
+      [
+        'title' => 'Конструктор тестів',
+        'description' => 'Збирайте власні вправи, додавайте AI-підказки, контролюйте складність і кількість кроків.',
+        'icon' => 'M4 6h16M4 10h16M4 14h16M4 18h7',
+        'cta' => 'Створити тест',
+        'link' => route('grammar-test'),
+        'accent' => 'secondary'
+      ],
+      [
+        'title' => 'Теоретичні сторінки',
+        'description' => 'Конспекти з прикладами, таблицями та швидкими нагадуваннями українською мовою.',
+        'icon' => 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13',
+        'cta' => 'Перейти до теорії',
+        'link' => route('pages.index'),
+        'accent' => 'accent'
+      ],
+      [
+        'title' => 'Рецензії та аналіз відповідей',
+        'description' => 'AI-пояснення, порівняння варіантів, збереження коментарів для кожного студента чи групи.',
+        'icon' => 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+        'cta' => 'Переглянути рецензії',
+        'link' => route('question-review.index'),
+        'accent' => 'success'
+      ],
+    ];
+  @endphp
+  <section id="solutions" class="space-y-8" data-animate>
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between" data-animate data-animate-delay="100">
+      <div class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Мапа платформи</p>
+        <h2 class="text-3xl font-semibold text-foreground">Інструменти платформи Gramlyze</h2>
+        <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Кожний модуль взаємопов'язаний: теги з теорії доступні у тестах, AI-рекомендації видно у каталозі, а результати зберігаються у спільному просторі.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- 2) PRESENT CONTINUOUS -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Present Continuous — Теперішній тривалий</h2>
-    <p class="gw-sub">Дія триває зараз/тимчасово. Також — узгоджені плани.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Відбувається зараз або навколо поточного моменту.</li>
-          <li>Тимчасові ситуації, тренди, зміни.</li>
-          <li>Узгоджені майбутні плани.</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">I’m working now.</div><div class="gw-ua">Я зараз працюю.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + am/is/are + V-ing</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + am/is/are not + V-ing</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Am/Is/Are + [S] + V-ing?</pre>
-      </div>
-      <div class="gw-box">
-        <h3>Маркери</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">now</span><span class="gw-chip">right now</span><span class="gw-chip">at the moment</span>
-          <span class="gw-chip">currently</span><span class="gw-chip">these days</span>
+    <div class="md:hidden" data-animate data-animate-delay="160">
+      <div class="relative" data-slider>
+        <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 pl-2" data-slider-track>
+          @foreach ($productMap as $card)
+            <article class="group relative flex min-w-[85%] basis-[85%] flex-col justify-between overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition focus-within:ring-2 focus-within:ring-{{ $card['accent'] }}/50">
+              <div class="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-{{ $card['accent'] }}/10 transition group-hover:scale-150"></div>
+              <div class="relative space-y-5">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-{{ $card['accent'] }}/10 text-{{ $card['accent'] }} ring-1 ring-{{ $card['accent'] }}/20">
+                  <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $card['icon'] }}" />
+                  </svg>
+                </span>
+                <h3 class="text-xl font-semibold text-foreground">{{ $card['title'] }}</h3>
+                <p class="text-sm leading-relaxed text-muted-foreground">{{ $card['description'] }}</p>
+              </div>
+              <a href="{{ $card['link'] }}" class="relative mt-6 inline-flex items-center gap-2 text-sm font-semibold text-{{ $card['accent'] }} transition group-hover:gap-3">
+                {{ $card['cta'] }}
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </article>
+          @endforeach
+        </div>
+        <div class="mt-2 flex items-center justify-between pr-2">
+          <button type="button" data-slider-prev aria-label="Попередній слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">‹</button>
+          <div class="flex items-center gap-2" data-slider-dots></div>
+          <button type="button" data-slider-next aria-label="Наступний слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">›</button>
         </div>
       </div>
     </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">She isn’t watching TV.</span> <span class="gw-ua">Вона не дивиться телевізор.</span></li>
-          <li><span class="gw-en">Are you coming tonight?</span> <span class="gw-ua">Ти прийдеш сьогодні ввечері?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Примітка</h3>
-        <p class="gw-ua">Зі state-verbs (know, like) зазвичай не вживаємо Continuous.</p>
-      </div>
+    <div class="hidden gap-6 md:grid md:grid-cols-2" data-animate data-animate-delay="220">
+      @foreach ($productMap as $card)
+        <article class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/70 bg-card p-8 shadow-soft transition hover:-translate-y-2 hover:border-{{ $card['accent'] }}/60 hover:shadow-xl">
+          <div class="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-{{ $card['accent'] }}/10 transition group-hover:scale-150"></div>
+          <div class="relative space-y-5">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-{{ $card['accent'] }}/10 text-{{ $card['accent'] }} ring-1 ring-{{ $card['accent'] }}/20">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $card['icon'] }}" />
+              </svg>
+            </span>
+            <h3 class="text-xl font-semibold text-foreground">{{ $card['title'] }}</h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">{{ $card['description'] }}</p>
+          </div>
+          <a href="{{ $card['link'] }}" class="relative mt-6 inline-flex items-center gap-2 text-sm font-semibold text-{{ $card['accent'] }} transition group-hover:gap-3">
+            {{ $card['cta'] }}
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </article>
+      @endforeach
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 3) PRESENT PERFECT -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Present Perfect — Теперішній доконаний</h2>
-    <p class="gw-sub">Досвід/результат до тепер; не вказуємо конкретний минулий час.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Досвід (ever, never).</li>
-          <li>Нещодавно завершено з ефектом зараз (just, already, yet).</li>
-          <li>Тривалість до тепер (for, since).</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">I have just finished.</div><div class="gw-ua">Я щойно закінчив.</div></div>
+  <!-- STATS -->
+  @php
+    $statLabels = [
+        'tests' => ['label' => 'Готових тестів', 'icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2'],
+        'questions' => ['label' => 'Питань у базі', 'icon' => 'M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'],
+        'pages' => ['label' => 'Сторінок теорії', 'icon' => 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
+        'tags' => ['label' => 'Тегів для фільтрації', 'icon' => 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z'],
+    ];
+  @endphp
+  <section id="metrics" class="space-y-8" data-animate>
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between" data-animate data-animate-delay="100">
+      <div class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Дані вашої бази</p>
+        <h2 class="text-3xl font-semibold text-foreground">Статистика оновлюється автоматично</h2>
+        <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Коли ви додаєте нові завдання або редагуєте теорію, показники перераховуються й доступні команді у реальному часі.</p>
       </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + have/has + V3</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + have/has not + V3</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Have/Has + [S] + V3?</pre>
-      </div>
-      <div class="gw-box">
-        <h3>Маркери</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">already</span><span class="gw-chip">yet</span><span class="gw-chip">just</span>
-          <span class="gw-chip">ever</span><span class="gw-chip">never</span><span class="gw-chip">for</span><span class="gw-chip">since</span>
+      <a href="{{ route('saved-tests.list') }}" class="group inline-flex items-center gap-2 self-start rounded-2xl border border-border px-4 py-2 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-primary">
+        Переглянути всі тести
+        <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+    <div class="md:hidden" data-animate data-animate-delay="160">
+      <div class="relative" data-slider>
+        <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 pl-2" data-slider-track>
+          @foreach ($statLabels as $key => $meta)
+            <article class="group relative min-w-[80%] basis-[80%] overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft">
+              <div class="absolute right-0 top-0 h-28 w-28 translate-x-10 -translate-y-10 rounded-full bg-primary/10"></div>
+              <div class="relative flex items-center gap-3 text-sm font-medium text-muted-foreground">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $meta['icon'] }}" />
+                  </svg>
+                </span>
+                {{ $meta['label'] }}
+              </div>
+              <p class="relative mt-5 text-4xl font-semibold tracking-tight text-foreground">{{ number_format($stats[$key] ?? 0, 0, ',', ' ') }}</p>
+            </article>
+          @endforeach
+        </div>
+        <div class="mt-2 flex items-center justify-between pr-2">
+          <button type="button" data-slider-prev aria-label="Попередній слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">‹</button>
+          <div class="flex items-center gap-2" data-slider-dots></div>
+          <button type="button" data-slider-next aria-label="Наступний слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">›</button>
         </div>
       </div>
     </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">She hasn’t visited us since 2022.</span> <span class="gw-ua">Вона не навідувала нас з 2022.</span></li>
-          <li><span class="gw-en">Have you ever been to Rome?</span> <span class="gw-ua">Був у Римі?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Типова помилка</h3>
-        <p class="gw-ua"><span class="tag-warn">✗</span> Не став конкретний минулий час — тоді це Past Simple.</p>
+    <dl class="hidden gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-4" data-animate data-animate-delay="220">
+      @foreach ($statLabels as $key => $meta)
+        <div class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:shadow-xl">
+          <div class="absolute right-0 top-0 h-28 w-28 translate-x-10 -translate-y-10 rounded-full bg-primary/10 transition group-hover:scale-150"></div>
+          <dt class="relative flex items-center gap-3 text-sm font-medium text-muted-foreground">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $meta['icon'] }}" />
+              </svg>
+            </span>
+            {{ $meta['label'] }}
+          </dt>
+          <dd class="relative mt-5 text-4xl font-semibold tracking-tight text-foreground">{{ number_format($stats[$key] ?? 0, 0, ',', ' ') }}</dd>
+        </div>
+      @endforeach
+    </dl>
+  </section>
+
+  <!-- WORKFLOW -->
+  @php
+    $workflow = [
+      ['step' => '1', 'title' => 'Знайдіть потрібний набір завдань', 'description' => 'Фільтруйте каталог за рівнем, граматичною темою або професійним доменом. Збережіть шаблон для повторного використання.'],
+      ['step' => '2', 'title' => 'Налаштуйте тест під конкретну групу', 'description' => 'Додавайте власні питання, налаштовуйте кількість кроків, додавайте AI-підказки та пояснення.'],
+      ['step' => '3', 'title' => 'Ведіть урок та збирайте результати', 'description' => 'Діліться посиланням або експортуйте в PDF. Результати відстежуються, а AI-аналіз показує типові помилки.'],
+      ['step' => '4', 'title' => 'Аналізуйте успішність', 'description' => 'Переглядайте рецензії, теги та нотатки команди, формуйте наступні добірки за рекомендаціями.'],
+    ];
+  @endphp
+  <section id="workflow" class="space-y-8" data-animate>
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between" data-animate data-animate-delay="100">
+      <div class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Процес роботи</p>
+        <h2 class="text-3xl font-semibold text-foreground">Від пошуку вправ до аналітики — за один потік</h2>
+        <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Gramlyze структурує робочий день викладача: ви не губитеся між Google-доками і таблицями, а працюєте в єдиній системі.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- 4) PRESENT PERFECT CONTINUOUS -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Present Perfect Continuous — Теперішній доконано-тривалий</h2>
-    <p class="gw-sub">Дія триває від минулого до тепер; акцент на тривалості/слідах.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Почалось раніше, триває досі.</li>
-          <li>Пояснюємо сліди дії (втома, безлад).</li>
-          <li>Питання <em>How long...?</em></li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">I’ve been studying for 3 hours.</div><div class="gw-ua">Я вчуся вже 3 години.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + have/has been + V-ing</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + have/has not been + V-ing</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Have/Has + [S] + been + V-ing?</pre>
-      </div>
-      <div class="gw-box">
-        <h3>Маркери</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">for</span><span class="gw-chip">since</span><span class="gw-chip">how long</span>
-          <span class="gw-chip">lately</span><span class="gw-chip">recently</span>
+    <div class="md:hidden" data-animate data-animate-delay="160">
+      <div class="relative" data-slider>
+        <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 pl-2" data-slider-track>
+          @foreach ($workflow as $item)
+            <article class="group relative min-w-[85%] basis-[85%] overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft">
+              <div class="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/10"></div>
+              <div class="relative flex items-center gap-4">
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-lg font-semibold text-primary-foreground">{{ $item['step'] }}</span>
+                <div>
+                  <h3 class="text-lg font-semibold text-foreground">{{ $item['title'] }}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{{ $item['description'] }}</p>
+                </div>
+              </div>
+            </article>
+          @endforeach
+        </div>
+        <div class="mt-2 flex items-center justify-between pr-2">
+          <button type="button" data-slider-prev aria-label="Попередній слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">‹</button>
+          <div class="flex items-center gap-2" data-slider-dots></div>
+          <button type="button" data-slider-next aria-label="Наступний слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">›</button>
         </div>
       </div>
     </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">She hasn’t been sleeping well lately.</span> <span class="gw-ua">Вона останнім часом погано спить.</span></li>
-          <li><span class="gw-en">Have you been working here since May?</span> <span class="gw-ua">Працюєш тут з травня?</span></li>
-        </ul>
+    <ol class="hidden gap-6 md:grid md:grid-cols-2" data-animate data-animate-delay="220">
+      @foreach ($workflow as $item)
+        <li class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:border-primary/60 hover:shadow-xl">
+          <div class="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/10 transition group-hover:scale-150"></div>
+          <div class="relative flex items-center gap-4">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-lg font-semibold text-primary-foreground">{{ $item['step'] }}</span>
+            <div>
+              <h3 class="text-lg font-semibold text-foreground">{{ $item['title'] }}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{{ $item['description'] }}</p>
+            </div>
+          </div>
+        </li>
+      @endforeach
+    </ol>
+  </section>
+
+  <!-- AI TOOLKIT -->
+  @php
+    $aiToolkit = [
+      ['title' => 'Пояснення відповідей', 'description' => 'AI формує коротке пояснення після кожної вправи та зберігає його у картці студента.', 'icon' => 'M13 16h-1v-4h-1m1-4h.01M12 6a9 9 0 11-9 9 9 9 0 019-9z'],
+      ['title' => 'Автоматичні підказки', 'description' => 'Під час тесту студент може отримати контекстні підказки й не втратити темп.', 'icon' => 'M4.5 12.75l6 6 9-13.5'],
+      ['title' => 'Визначення рівня', 'description' => 'Після проходження тесту Gramlyze пропонує рівень CEFR і тему для повторення.', 'icon' => 'M12 8c-1.657 0-3 1.343-3 3 0 1.023.512 1.943 1.294 2.5l-1.36 3.543A1 1 0 009.868 18h4.264a1 1 0 00.934-1.457l-1.36-3.043A2.999 2.999 0 0015 11c0-1.657-1.343-3-3-3z'],
+      ['title' => 'Рецензії запитань', 'description' => 'Зберігайте варіанти, помилки, коментарі ШІ і робіть на їх основі наступні плани.', 'icon' => 'M7 8h10M7 12h4m-4 4h6M5 5a2 2 0 012-2h10a2 2 0 012 2v14l-4-2-4 2-4-2-4 2z'],
+    ];
+  @endphp
+  <section id="ai-toolkit" class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-background via-primary/5 to-secondary/10 p-10 shadow-soft md:p-16" data-animate>
+    <div class="space-y-8">
+      <div class="space-y-2" data-animate data-animate-delay="100">
+        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">AI Toolkit</p>
+        <h2 class="text-3xl font-semibold text-foreground">ШІ як асистент, а не заміна викладача</h2>
+        <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Кожна функція допомагає зробити заняття змістовнішим: Gramlyze аналізує, пропонує та фіксує результати, але рішення ухвалює викладач.</p>
       </div>
-      <div class="gw-box">
-        <h3>Нотатка</h3>
-        <p class="gw-ua">Якщо важливіший результат ніж тривалість — дивись Present Perfect.</p>
+      <div class="md:hidden" data-animate data-animate-delay="160">
+        <div class="relative" data-slider>
+          <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 pl-2" data-slider-track>
+            @foreach ($aiToolkit as $tool)
+              <article class="group relative min-w-[85%] basis-[85%] overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft">
+                <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/10"></div>
+                <div class="relative space-y-4">
+                  <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $tool['icon'] }}" />
+                    </svg>
+                  </span>
+                  <h3 class="text-lg font-semibold text-foreground">{{ $tool['title'] }}</h3>
+                  <p class="text-sm leading-relaxed text-muted-foreground">{{ $tool['description'] }}</p>
+                </div>
+              </article>
+            @endforeach
+          </div>
+          <div class="mt-2 flex items-center justify-between pr-2">
+            <button type="button" data-slider-prev aria-label="Попередній слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">‹</button>
+            <div class="flex items-center gap-2" data-slider-dots></div>
+            <button type="button" data-slider-next aria-label="Наступний слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">›</button>
+          </div>
+        </div>
+      </div>
+      <div class="hidden gap-6 md:grid md:grid-cols-2" data-animate data-animate-delay="220">
+        @foreach ($aiToolkit as $tool)
+          <article class="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-soft transition hover:-translate-y-2 hover:border-primary/60 hover:shadow-xl">
+            <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/10 transition group-hover:scale-150"></div>
+            <div class="relative space-y-4">
+              <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $tool['icon'] }}" />
+                </svg>
+              </span>
+              <h3 class="text-lg font-semibold text-foreground">{{ $tool['title'] }}</h3>
+              <p class="text-sm leading-relaxed text-muted-foreground">{{ $tool['description'] }}</p>
+            </div>
+          </article>
+        @endforeach
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 5) PAST SIMPLE -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Past Simple — Минулий простий</h2>
-    <p class="gw-sub">Завершена дія в минулому з конкретним часом/контекстом.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Факт у минулому (yesterday, last week, in 2019).</li>
-          <li>Послідовність минулих подій.</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">We moved in 2019.</div><div class="gw-ua">Ми переїхали у 2019.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + V2 / was, were</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + did not + V1 / was, were not</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Did + [S] + V1? / Was/Were + [S] ...?</pre>
-      </div>
-      <div class="gw-box">
-        <h3>Маркери</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">yesterday</span><span class="gw-chip">last week</span><span class="gw-chip">in 2019</span><span class="gw-chip">ago</span>
+  <!-- TEAM USE -->
+  @php
+    $teamUseCases = [
+      ['title' => 'Індивідуальні заняття', 'description' => 'Готуйте персональні плани з адаптивними рівнями складності, зберігайте прогрес і нотатки для кожного студента.', 'color' => 'primary'],
+      ['title' => 'Групові курси', 'description' => 'Організуйте бібліотеку занять для групи, діліться тестами через загальну базу, аналізуйте типові помилки.', 'color' => 'secondary'],
+      ['title' => 'Команди викладачів', 'description' => 'Спільні теги, історія змін, швидке дублювання курсів та централізований банк матеріалів.', 'color' => 'accent'],
+    ];
+  @endphp
+  <section id="team-collaboration" class="space-y-8" data-animate>
+    <div class="space-y-2" data-animate data-animate-delay="100">
+      <p class="text-xs font-semibold uppercase tracking-[0.35em] text-primary">Сценарії використання</p>
+      <h2 class="text-3xl font-semibold text-foreground">Команда отримує спільний простір роботи</h2>
+      <p class="max-w-2xl text-sm leading-relaxed text-muted-foreground">Підключіть кілька викладачів, діліться шаблонами, відстежуйте прогрес груп — Gramlyze підтримує масштабування студій та онлайн-шкіл.</p>
+    </div>
+    <div class="md:hidden" data-animate data-animate-delay="160">
+      <div class="relative" data-slider>
+        <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 pl-2" data-slider-track>
+          @foreach ($teamUseCases as $case)
+            <article class="relative min-w-[80%] basis-[80%] rounded-3xl border border-border/70 bg-card p-6 shadow-soft">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-{{ $case['color'] }}/10 text-{{ $case['color'] }}">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h4a4 4 0 014 4v2M9 7a4 4 0 118 0 4 4 0 01-8 0zm-6 10v-2a4 4 0 014-4h.01M3 7a4 4 0 108 0 4 4 0 00-8 0z" />
+                </svg>
+              </span>
+              <h3 class="mt-4 text-lg font-semibold text-foreground">{{ $case['title'] }}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{{ $case['description'] }}</p>
+            </article>
+          @endforeach
+        </div>
+        <div class="mt-2 flex items-center justify-between pr-2">
+          <button type="button" data-slider-prev aria-label="Попередній слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">‹</button>
+          <div class="flex items-center gap-2" data-slider-dots></div>
+          <button type="button" data-slider-next aria-label="Наступний слайд" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-sm font-medium text-muted-foreground transition disabled:opacity-40">›</button>
         </div>
       </div>
     </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">He didn’t call yesterday.</span> <span class="gw-ua">Він учора не подзвонив.</span></li>
-          <li><span class="gw-en">Did you enjoy the film?</span> <span class="gw-ua">Фільм сподобався?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Нотатка</h3>
-        <p class="gw-ua">Регулярні — <em>-ed</em>; неправильні — форми V2 з таблиці.</p>
-      </div>
+    <div class="hidden gap-6 md:grid md:grid-cols-3" data-animate data-animate-delay="220">
+      @foreach ($teamUseCases as $case)
+        <article class="rounded-3xl border border-border/70 bg-card p-6 shadow-soft">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-{{ $case['color'] }}/10 text-{{ $case['color'] }}">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h4a4 4 0 014 4v2M9 7a4 4 0 118 0 4 4 0 01-8 0zm-6 10в-2a4 4 0 014-4h.01M3 7a4 4 0 108 0 4 4 0 00-8 0z" />
+            </svg>
+          </span>
+          <h3 class="mt-4 text-lg font-semibold text-foreground">{{ $case['title'] }}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{{ $case['description'] }}</p>
+        </article>
+      @endforeach
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 6) PAST CONTINUOUS -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Past Continuous — Минулий тривалий</h2>
-    <p class="gw-sub">Дія була у процесі в конкретний момент; часто її перервала коротка дія.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Фонова дія в певний час/момент у минулому.</li>
-          <li>Переривання: Past Continuous + Past Simple.</li>
-          <li>Паралельні довгі дії (while).</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">I was cooking when she arrived.</div><div class="gw-ua">Я готував, коли вона прийшла.</div></div>
+  <!-- CTA -->
+  <section class="overflow-hidden rounded-[2.5rem] border border-border/80 bg-gradient-to-br from-primary via-primary/80 to-secondary p-10 text-primary-foreground shadow-soft md:p-16" data-animate>
+    <div class="grid gap-10 md:grid-cols-[1.5fr_1fr] md:items-center">
+      <div class="space-y-6" data-animate data-animate-delay="100">
+        <h2 class="text-3xl font-semibold md:text-4xl">Готові протестувати Gramlyze з командою?</h2>
+        <p class="text-base leading-relaxed text-primary-foreground/90">
+          Долучіться до beta-доступу: ми допоможемо мігрувати існуючі матеріали, налаштуємо структуру тестів та дамо поради щодо інтеграції AI у ваші програми.
+        </p>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="mailto:hello@gramlyze.com" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-background/80">
+            Залишити заявку на доступ
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="{{ route('catalog-tests.cards') }}" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground/90 transition hover:bg-primary-foreground/10">
+            Переглянути демо-каталог
+          </a>
+        </div>
       </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + was/were + V-ing</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + was/were not + V-ing</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Was/Were + [S] + V-ing?</pre>
-      </div>
-      <div class="gw-box">
-        <h3>Маркери</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">while</span><span class="gw-chip">when</span><span class="gw-chip">at 6 pm</span><span class="gw-chip">all evening</span>
+      <div class="space-y-4 rounded-3xl border border-primary-foreground/40 bg-primary-foreground/10 p-6 text-sm text-primary-foreground" data-animate data-animate-delay="180">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-background text-primary font-semibold">1</span>
+          <div>
+            <p class="font-semibold">Виберіть формат роботи</p>
+            <p class="text-primary-foreground/80">Індивідуальні уроки, групи чи корпоративний формат.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-background text-primary font-semibold">2</span>
+          <div>
+            <p class="font-semibold">Міграція банку завдань</p>
+            <p class="text-primary-foreground/80">Імпорт ваших існуючих вправ або створення з нуля.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-background text-primary font-semibold">3</span>
+          <div>
+            <p class="font-semibold">Запуск навчальних потоків</p>
+            <p class="text-primary-foreground/80">Отримайте дашборд з прогресом та AI-рекомендаціями.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">They weren’t listening.</span> <span class="gw-ua">Вони не слухали.</span></li>
-          <li><span class="gw-en">What were you doing at 9 pm?</span> <span class="gw-ua">Що ти робив о 21:00?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Нотатка</h3>
-        <p class="gw-ua"><em>When</em> + Past Simple часто «обриває» тривалу дію.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 7) PAST PERFECT (аналог твоєї картки — скорочена версія) -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Past Perfect — Минулий доконаний</h2>
-    <p class="gw-sub">A сталося <b>до</b> B (обидва в минулому). A — Past Perfect, B — Past Simple.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Показати «раніше»: дія завершилась перед іншою минулою подією.</li>
-          <li>Часто з: before, after, by the time, already, when, until.</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">We had left before it rained.</div><div class="gw-ua">Ми пішли до того, як пішов дощ.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + had + V3</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + had not + V3</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Had + [S] + V3?</pre>
-      </div>
-    </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">She hadn’t seen him before that day.</span> <span class="gw-ua">Вона не бачила його до того дня.</span></li>
-          <li><span class="gw-en">Had you finished when he called?</span> <span class="gw-ua">Ти вже закінчив, коли він подзвонив?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Швидка пам’ятка</h3>
-        <div class="gw-hint"><div class="gw-emoji">🧠</div><div>A перед B → A: Past Perfect, B: Past Simple.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 8) PAST PERFECT CONTINUOUS -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Past Perfect Continuous — Минулий доконано-тривалий</h2>
-    <p class="gw-sub">Тривалість до іншої минулої події/моменту.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Дія тривала <em>до</em> B (минулої точки).</li>
-          <li>Причина стану в минулому (втома, мокрий тощо).</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">He had been waiting for 2 hours before the bus came.</div><div class="gw-ua">Він чекав 2 години, перш ніж автобус приїхав.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + had been + V-ing</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + had not been + V-ing</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Had + [S] + been + V-ing?</pre>
-      </div>
-    </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">They hadn’t been sleeping well for weeks.</span> <span class="gw-ua">Вони тижнями погано спали.</span></li>
-          <li><span class="gw-en">Had she been studying long before the exam?</span> <span class="gw-ua">Вона довго вчилася перед іспитом?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Маркер</h3>
-        <div class="gw-chips"><span class="gw-chip">for</span><span class="gw-chip">since</span><span class="gw-chip">before</span><span class="gw-chip">by the time</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 9) FUTURE SIMPLE (will) -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Future Simple — Майбутній простий (will)</h2>
-    <p class="gw-sub">Спонтанні рішення, обіцянки, прогнози-думки.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Спонтанне рішення зараз.</li>
-          <li>Обіцянки/пропозиції/відмови.</li>
-          <li>Прогнози на думці (I think, probably, maybe).</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">I’ll help you.</div><div class="gw-ua">Я допоможу тобі.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + will + V1</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + will not (won’t) + V1</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Will + [S] + V1?</pre>
-      </div>
-      <div class="gw-box">
-        <h3>Маркери</h3>
-        <div class="gw-chips">
-          <span class="gw-chip">I think</span><span class="gw-chip">probably</span><span class="gw-chip">maybe</span>
-          <span class="gw-chip">tomorrow</span><span class="gw-chip">next week</span>
-        </div>
-      </div>
-    </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">She won’t be late.</span> <span class="gw-ua">Вона не запізниться.</span></li>
-          <li><span class="gw-en">Will you come tomorrow?</span> <span class="gw-ua">Прийдеш завтра?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Нотатка</h3>
-        <p class="gw-ua">Плани/намір → частіше <b>be going to</b> або Present Continuous.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 10) FUTURE CONTINUOUS -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Future Continuous — Майбутній тривалий</h2>
-    <p class="gw-sub">Дія буде в процесі в конкретний момент у майбутньому.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Процес у майбутній точці часу.</li>
-          <li>Ввічливі питання про плани.</li>
-          <li>Нейтральні регулярні дії в майбутньому.</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">This time next week, I’ll be travelling.</div><div class="gw-ua">Цього часу наступного тижня я буду в дорозі.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + will be + V-ing</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + will not be + V-ing</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Will + [S] + be + V-ing?</pre>
-      </div>
-    </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">He won’t be working at 8 pm.</span> <span class="gw-ua">Він не працюватиме о 20:00.</span></li>
-          <li><span class="gw-en">Will you be using the car tonight?</span> <span class="gw-ua">Будеш користуватись авто ввечері?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Маркер</h3>
-        <div class="gw-chips"><span class="gw-chip">at this time tomorrow</span><span class="gw-chip">at 8 pm next Friday</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 11) FUTURE PERFECT -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Future Perfect — Майбутній доконаний</h2>
-    <p class="gw-sub">Дія буде завершена <b>до</b> певного моменту у майбутньому.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Завершення до дедлайну/майбутньої точки.</li>
-          <li>Прогнози щодо виконання до певного часу.</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">By Friday, I will have finished the project.</div><div class="gw-ua">До п’ятниці я закінчу проєкт.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + will have + V3</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + will not have + V3</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Will + [S] + have + V3?</pre>
-      </div>
-    </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">She won’t have arrived by noon.</span> <span class="gw-ua">Вона не приїде до полудня.</span></li>
-          <li><span class="gw-en">Will they have completed the task by then?</span> <span class="gw-ua">Виконають завдання до того часу?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Маркери</h3>
-        <div class="gw-chips"><span class="gw-chip">by Friday</span><span class="gw-chip">by 2030</span><span class="gw-chip">by the time</span><span class="gw-chip">before</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 12) FUTURE PERFECT CONTINUOUS -->
-<section class="grammar-card" lang="uk">
-  <header>
-    <h2 class="gw-title">Future Perfect Continuous — Майбутній доконано-тривалий</h2>
-    <p class="gw-sub">Скільки часу триватиме дія <b>до</b> майбутньої точки.</p>
-  </header>
-  <div class="gw-grid">
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Коли вживати?</h3>
-        <ul class="gw-list">
-          <li>Тривалість до певного моменту у майбутньому.</li>
-          <li>Очікуваний стан до того часу (втома/досвід).</li>
-        </ul>
-        <div class="gw-ex"><div class="gw-en">By 2026, I’ll have been living here for 10 years.</div><div class="gw-ua">До 2026 я житиму тут 10 років.</div></div>
-      </div>
-      <div class="gw-box">
-        <h3>Формула</h3>
-        <div class="gw-code-badge">Ствердження</div>
-        <pre class="gw-formula">[S] + will have been + V-ing</pre>
-        <div class="gw-code-badge">Заперечення</div>
-        <pre class="gw-formula">[S] + will not have been + V-ing</pre>
-        <div class="gw-code-badge">Питання</div>
-        <pre class="gw-formula">Will + [S] + have been + V-ing?</pre>
-      </div>
-    </div>
-    <div class="gw-col">
-      <div class="gw-box">
-        <h3>Приклади</h3>
-        <ul class="gw-list">
-          <li><span class="gw-en">He won’t have been studying for long by September.</span> <span class="gw-ua">До вересня він ще недовго навчатиметься.</span></li>
-          <li><span class="gw-en">Will you have been working here for a year by May?</span> <span class="gw-ua">До травня ти пропрацюєш тут рік?</span></li>
-        </ul>
-      </div>
-      <div class="gw-box">
-        <h3>Маркер</h3>
-        <div class="gw-chips"><span class="gw-chip">for</span><span class="gw-chip">since</span><span class="gw-chip">by then</span><span class="gw-chip">by the time</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <div class="text-center py-12">
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-6">English Test Hub</h1>
-        <p class="text-lg text-gray-600 mb-8">Improve your grammar, vocabulary and translation skills with quick tests.</p>
-        <a href="{{ route('words.test') }}" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">Start Training</a>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-        <div class="bg-white p-6 rounded-xl shadow text-center">
-            <h3 class="text-xl font-semibold mb-2">Words Test</h3>
-            <p class="text-gray-600 mb-4">Expand your vocabulary with random word quizzes.</p>
-            <a href="{{ route('words.test') }}" class="text-blue-600 hover:underline">Try it</a>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow text-center">
-            <h3 class="text-xl font-semibold mb-2">Translate Test</h3>
-            <p class="text-gray-600 mb-4">Practice translating sentences from English.</p>
-            <a href="{{ route('translate.test') }}" class="text-blue-600 hover:underline">Try it</a>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow text-center">
-            <h3 class="text-xl font-semibold mb-2">Grammar Tests</h3>
-            <p class="text-gray-600 mb-4">Create custom grammar tests for different tenses.</p>
-            <a href="{{ route('grammar-test') }}" class="text-blue-600 hover:underline">Try it</a>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow text-center">
-            <h3 class="text-xl font-semibold mb-2">Question Review</h3>
-            <p class="text-gray-600 mb-4">Fix mistakes by reviewing tricky questions.</p>
-            <a href="{{ route('question-review.index') }}" class="text-blue-600 hover:underline">Try it</a>
-        </div>
-    </div>
-
-    <div class="mt-12 text-center">
-        <a href="{{ route('saved-tests.cards') }}" class="inline-block bg-gray-200 text-gray-800 px-5 py-3 rounded-lg hover:bg-gray-300 transition">Browse saved tests</a>
-    </div>
+  </section>
+</div>
 @endsection

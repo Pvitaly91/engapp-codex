@@ -85,9 +85,13 @@
                         @endif
                         @php
                             $preferredView = data_get($test->filters, 'preferred_view');
-                            $testRoute = $preferredView === 'drag-drop'
-                                ? route('saved-test.js.drag-drop', $test->slug)
-                                : route('saved-test.js', $test->slug);
+                            if ($preferredView === 'drag-drop') {
+                                $testRoute = route('saved-test.js.drag-drop', $test->slug);
+                            } elseif ($preferredView === 'match') {
+                                $testRoute = route('saved-test.js.match', $test->slug);
+                            } else {
+                                $testRoute = route('saved-test.js', $test->slug);
+                            }
                         @endphp
                         <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>
                     </div>

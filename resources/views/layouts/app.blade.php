@@ -5,23 +5,49 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'English App')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        foreground: '#0f172a',
+                        muted: '#f8fafc',
+                        border: '#e2e8f0',
+                        background: '#ffffff',
+                        card: '#ffffff',
+                        'card-foreground': '#0f172a',
+                    },
+                    boxShadow: {
+                        soft: '0 20px 45px -20px rgba(15, 23, 42, 0.35)',
+                    },
+                },
+            },
+        };
+    </script>
     <style>
-        .text-base{
+        :root {
+            color-scheme: light;
+        }
+
+        .text-base {
             line-height: 2.2rem !important;
         }
+
         .test-description {
-            background-color: #fefce8; /* yellow-50 */
-            border-left: 4px solid #f59e0b; /* yellow-500 */
+            background-color: #fefce8;
+            border-left: 4px solid #f59e0b;
             padding: 1rem;
             border-radius: 0.5rem;
             margin-bottom: 1rem;
         }
+
         [x-cloak] {
             display: none !important;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @stack('head-scripts')
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
