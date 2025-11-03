@@ -119,36 +119,32 @@
   <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/80">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-20 md:flex-nowrap">
-        <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0">
-          <span class="relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent text-white shadow-soft">
-            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.5 7.75C5.5 5.12665 7.62665 3 10.25 3H13.25C16.1495 3 18.5 5.3505 18.5 8.25C18.5 11.1495 16.1495 13.5 13.25 13.5H11.75C10.2312 13.5 9 14.7312 9 16.25C9 17.7688 10.2312 19 11.75 19H15.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M5 19H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </span>
-          <div class="flex flex-col">
-            <span class="text-lg font-semibold tracking-tight">Gramlyze</span>
-            <span class="text-[0.65rem] font-medium uppercase tracking-[0.45em] text-muted-foreground">Language OS</span>
-          </div>
+        <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0" aria-label="Gramlyze">
+          <x-gramlyze-logo class="hidden md:inline-flex" />
+          <x-gramlyze-logo variant="compact" class="md:hidden" />
         </a>
-        <nav class="order-3 w-full flex flex-wrap items-center gap-4 text-sm font-medium md:order-none md:w-auto md:flex-nowrap md:gap-6">
+        <form action="{{ route('site.search') }}" method="GET" class="relative hidden md:block">
+          <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+          <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
+        </form>
+        <div class="flex items-center gap-2 md:hidden">
+          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">Пошук</span></button>
+          <button id="mobile-menu-toggle" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="primary-nav">
+            <span class="sr-only">Меню</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <nav id="primary-nav" class="order-3 hidden flex w-full flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium md:order-none md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:pt-0">
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Каталог</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">AI Toolkit</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">Командам</a>
         </nav>
-        <div class="flex items-center gap-3 order-2 ml-auto md:order-none md:ml-0">
-          <form action="{{ route('site.search') }}" method="GET" class="hidden md:block relative">
-            <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
-            <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
-          </form>
-          <a href="{{ route('login.show') }}" class="hidden items-center gap-2 rounded-2xl border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary md:inline-flex">Увійти</a>
-          <button id="mobile-search-btn" class="md:hidden rounded-xl border border-border p-2 text-sm">🔍</button>
-          <a href="{{ route('catalog-tests.cards') }}" class="inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-            Демо
-          </a>
-        </div>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
         <form action="{{ route('site.search') }}" method="GET" class="relative">
@@ -166,7 +162,7 @@
   <footer class="border-t border-border mt-10 py-6 text-sm">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-primary via-secondary to-accent text-xs font-semibold text-white shadow-soft">G</span>
+        <x-gramlyze-logo variant="compact" size="h-9 w-9" />
         <span>Gramlyze <span id="year"></span></span>
       </div>
       <div class="flex md:justify-end gap-4 text-sm">
@@ -191,8 +187,28 @@
     })();
 
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('mobile-search-btn')?.addEventListener('click', () => {
-      document.getElementById('mobile-search')?.classList.toggle('hidden');
+    const mobileSearchBtn = document.getElementById('mobile-search-btn');
+    const mobileSearchPanel = document.getElementById('mobile-search');
+    mobileSearchBtn?.addEventListener('click', () => {
+      const expanded = mobileSearchBtn.getAttribute('aria-expanded') === 'true';
+      mobileSearchBtn.setAttribute('aria-expanded', (!expanded).toString());
+      mobileSearchPanel?.classList.toggle('hidden', expanded);
+    });
+
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const primaryNav = document.getElementById('primary-nav');
+    mobileMenuToggle?.addEventListener('click', () => {
+      const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', (!expanded).toString());
+      primaryNav?.classList.toggle('hidden', expanded);
+    });
+    primaryNav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+          primaryNav.classList.add('hidden');
+        }
+      });
     });
 
     function setupPredictiveSearch(inputId, listId) {

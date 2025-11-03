@@ -82,6 +82,20 @@
             </li>
           </ul>
         </div>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div class="rounded-2xl border border-border/60 bg-background/60 p-4 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            <span class="text-[0.6rem] font-semibold text-primary">Основний логотип</span>
+            <div class="mt-3 flex justify-start">
+              <x-gramlyze-logo size="h-10 w-10" />
+            </div>
+          </div>
+          <div class="rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-4 text-xs uppercase tracking-[0.3em] text-primary">
+            <span class="text-[0.6rem] font-semibold">Альтернативний бейдж</span>
+            <div class="mt-3 flex justify-start">
+              <x-gramlyze-logo variant="badge" />
+            </div>
+          </div>
+        </div>
         <div class="grid gap-4 border-t border-border/60 pt-4 text-sm">
           <div class="flex items-center justify-between rounded-2xl border border-border/60 bg-background/70 px-4 py-3">
             <span class="font-semibold text-muted-foreground">Виділити тему</span>
