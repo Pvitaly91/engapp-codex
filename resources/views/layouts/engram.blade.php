@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>@yield('title', 'Engram — Вивчення англійської')</title>
-  <meta name="description" content="Короткі тести з англійської, проста теорія, прогрес та рекомендації." />
+  <title>@yield('title', 'Gramlyze — Платформа для викладачів англійської')</title>
+  <meta name="description" content="Gramlyze допомагає збирати тести, аналізувати відповіді та координувати команду викладачів англійської." />
 
   <!-- Google Font: Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -111,6 +111,38 @@
     html, body { height: 100%; }
     body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
     .container { max-width: 72rem; }
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition-delay: var(--animate-delay, 0s);
+    }
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-slider-track] {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    [data-slider-track]::-webkit-scrollbar {
+      display: none;
+    }
+    [data-slider-track] {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .slider-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background-color: hsla(var(--border), 0.7);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .slider-dot.is-active {
+      background-color: hsl(var(--primary));
+      transform: scale(1.1);
+    }
   </style>
 </head>
 
@@ -118,23 +150,33 @@
   <!-- HEADER / NAV -->
   <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/80">
     <div class="container mx-auto px-4">
-      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-16 md:flex-nowrap">
-        <div class="flex items-center gap-3 flex-shrink-0">
-          <div class="h-9 w-9 rounded-2xl bg-primary text-primary-foreground grid place-items-center font-bold">E</div>
-          <span class="text-lg font-semibold tracking-tight">Engram</span>
-          <span class="ml-2 inline-flex items-center rounded-lg bg-accent text-accent-foreground px-2 py-0.5 text-xs font-medium">beta</span>
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-20 md:flex-nowrap">
+        <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0" aria-label="Gramlyze">
+          <x-gramlyze-logo class="hidden md:inline-flex" />
+          <x-gramlyze-logo variant="compact" class="md:hidden" />
+        </a>
+        <form action="{{ route('site.search') }}" method="GET" class="relative hidden md:block">
+          <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+          <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
+        </form>
+        <div class="flex items-center gap-2 md:hidden">
+          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">Пошук</span></button>
+          <button id="mobile-menu-toggle" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="primary-nav">
+            <span class="sr-only">Меню</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+          </button>
         </div>
-        <nav class="order-3 w-full flex flex-wrap items-center gap-4 text-sm md:order-none md:w-auto md:flex-nowrap md:gap-6">
-          <a class="text-muted-foreground hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Тести</a>
-          <a class="text-muted-foreground hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+        <nav id="primary-nav" class="order-3 hidden flex w-full flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium md:order-none md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:pt-0">
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Каталог</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">AI Toolkit</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">Командам</a>
         </nav>
-        <div class="flex items-center gap-2 order-2 ml-auto md:order-none md:ml-0">
-          <form action="{{ route('site.search') }}" method="GET" class="hidden md:block relative">
-            <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
-            <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
-          </form>
-          <button id="mobile-search-btn" class="md:hidden rounded-xl border border-border p-2 text-sm">🔍</button>
-        </div>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
         <form action="{{ route('site.search') }}" method="GET" class="relative">
@@ -152,8 +194,8 @@
   <footer class="border-t border-border mt-10 py-6 text-sm">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <div class="h-6 w-6 rounded-md bg-primary text-primary-foreground grid place-items-center font-semibold text-xs">E</div>
-        <span>Engram <span id="year"></span></span>
+        <x-gramlyze-logo variant="compact" size="h-9 w-9" />
+        <span>Gramlyze <span id="year"></span></span>
       </div>
       <div class="flex md:justify-end gap-4 text-sm">
         <a class="text-muted-foreground hover:text-foreground" href="#">Політика</a>
@@ -177,8 +219,28 @@
     })();
 
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('mobile-search-btn')?.addEventListener('click', () => {
-      document.getElementById('mobile-search')?.classList.toggle('hidden');
+    const mobileSearchBtn = document.getElementById('mobile-search-btn');
+    const mobileSearchPanel = document.getElementById('mobile-search');
+    mobileSearchBtn?.addEventListener('click', () => {
+      const expanded = mobileSearchBtn.getAttribute('aria-expanded') === 'true';
+      mobileSearchBtn.setAttribute('aria-expanded', (!expanded).toString());
+      mobileSearchPanel?.classList.toggle('hidden', expanded);
+    });
+
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const primaryNav = document.getElementById('primary-nav');
+    mobileMenuToggle?.addEventListener('click', () => {
+      const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', (!expanded).toString());
+      primaryNav?.classList.toggle('hidden', expanded);
+    });
+    primaryNav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+          primaryNav.classList.add('hidden');
+        }
+      });
     });
 
     function setupPredictiveSearch(inputId, listId) {
@@ -206,6 +268,119 @@
     }
     setupPredictiveSearch('search-box', 'search-box-list');
     setupPredictiveSearch('search-box-mobile', 'search-box-mobile-list');
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+      const animateObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            animateObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('[data-animate]').forEach((el) => {
+        const delay = el.getAttribute('data-animate-delay');
+        if (delay) {
+          const milliseconds = parseInt(delay, 10);
+          if (!Number.isNaN(milliseconds)) {
+            el.style.setProperty('--animate-delay', `${milliseconds}ms`);
+          }
+        }
+        if (el.classList.contains('is-visible')) return;
+        animateObserver.observe(el);
+      });
+    } else {
+      document.querySelectorAll('[data-animate]').forEach((el) => el.classList.add('is-visible'));
+    }
+
+    function initSlider(slider) {
+      const track = slider.querySelector('[data-slider-track]');
+      if (!track) return;
+      const items = Array.from(track.children);
+      if (!items.length) return;
+      const prev = slider.querySelector('[data-slider-prev]');
+      const next = slider.querySelector('[data-slider-next]');
+      const dotsContainer = slider.querySelector('[data-slider-dots]');
+      if (items.length <= 1) {
+        prev?.classList.add('hidden');
+        next?.classList.add('hidden');
+        dotsContainer?.classList.add('hidden');
+        return;
+      }
+      let activeIndex = 0;
+
+      function scrollToIndex(index) {
+        const target = items[index];
+        if (!target) return;
+        const offset = target.offsetLeft - items[0].offsetLeft;
+        track.scrollTo({ left: offset, behavior: 'smooth' });
+      }
+
+      function updateControls() {
+        if (prev) prev.disabled = activeIndex === 0;
+        if (next) next.disabled = activeIndex === items.length - 1;
+        if (dotsContainer) {
+          dotsContainer.querySelectorAll('button').forEach((dot, idx) => {
+            dot.classList.toggle('is-active', idx === activeIndex);
+          });
+        }
+      }
+
+      let ticking = false;
+      track.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollLeft = track.scrollLeft + track.clientWidth / 2;
+            let newIndex = items.findIndex((item) => scrollLeft < item.offsetLeft - items[0].offsetLeft + item.clientWidth);
+            if (newIndex === -1) newIndex = items.length - 1;
+            if (newIndex !== activeIndex) {
+              activeIndex = newIndex;
+              updateControls();
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      if (prev) {
+        prev.addEventListener('click', () => {
+          activeIndex = Math.max(0, activeIndex - 1);
+          scrollToIndex(activeIndex);
+          updateControls();
+        });
+      }
+
+      if (next) {
+        next.addEventListener('click', () => {
+          activeIndex = Math.min(items.length - 1, activeIndex + 1);
+          scrollToIndex(activeIndex);
+          updateControls();
+        });
+      }
+
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        items.forEach((_item, idx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'slider-dot';
+          dot.setAttribute('aria-label', `Перейти до слайда ${idx + 1}`);
+          dot.addEventListener('click', () => {
+            activeIndex = idx;
+            scrollToIndex(activeIndex);
+            updateControls();
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      updateControls();
+    }
+
+    document.querySelectorAll('[data-slider]').forEach(initSlider);
   </script>
 
   @yield('scripts')
