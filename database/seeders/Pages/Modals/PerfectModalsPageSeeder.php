@@ -28,9 +28,10 @@ HTML,
             'blocks' => [
                 [
                     'column' => 'left',
-                    'heading' => 'Perfect modals: значення у минулому',
+                    'heading' => '1. PERFECT MODALS: повна мапа значень (у минулому)',
                     'css_class' => null,
                     'body' => <<<'HTML'
+<p>Perfect modals мають форму <strong>modal + have + V3</strong> і виражають висновки, оцінки та гіпотези про минуле, а також нереалізовані можливості та докори.</p>
 <table class="gw-table" aria-label="Perfect modals і значення">
 <thead>
 <tr>
@@ -53,7 +54,7 @@ HTML,
 <tr>
 <td><strong>should have + V3</strong></td>
 <td>Очікування або докір</td>
-<td><span class="gw-en">You should have told me.</span></td>
+<td><span class="gw-en">They should have arrived by now.</span> / <span class="gw-en">You should have told me.</span></td>
 </tr>
 <tr>
 <td><strong>may / might / could have + V3</strong></td>
@@ -87,7 +88,7 @@ HTML,
                 ],
                 [
                     'column' => 'left',
-                    'heading' => 'Тонкі нюанси perfect modals',
+                    'heading' => '1.2. «Міс-нюанси», які плутають',
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
@@ -114,18 +115,21 @@ HTML,
                 ],
                 [
                     'column' => 'left',
-                    'heading' => 'Додаткові форми та ступінь упевненості',
+                    'heading' => '1.3. Форми, про які часто забувають, та 1.4. Ступінь впевненості',
                     'css_class' => null,
                     'body' => <<<'HTML'
+<h4>Додаткові форми</h4>
 <ul class="gw-list">
-<li><strong>Perfect Continuous</strong>: <em>must / might / could / should have been V‑ing</em> — підкреслюють процес: <span class="gw-en">She must have been sleeping when I called.</span></li>
-<li><strong>Passive</strong>: <em>must / might / should have been done</em> — фокус на дії, а не на виконавці: <span class="gw-en">The documents must have been sent yesterday.</span></li>
-<li><strong>Питання</strong> можливі: <span class="gw-en">Could he have left?</span>, <span class="gw-en">Should I have told her?</span></li>
+<li><strong>Perfect Continuous</strong>: <em>must / might / could / should have been V‑ing</em> — акцент на процесі: <span class="gw-en">She must have been sleeping when I called.</span></li>
+<li><strong>Passive</strong>: <em>must / might / should have been done</em>: <span class="gw-en">The documents must have been sent yesterday.</span></li>
+<li><strong>Питання</strong>: <span class="gw-en">Could he have left?</span> / <span class="gw-en">Should I have told her?</span> — нормальні, хоч і рідші.</li>
 </ul>
+<h4>Ступінь впевненості (про минуле)</h4>
+<p><strong>will have / must have</strong> (висока) → <strong>should have</strong> (очікування) → <strong>may / might / could have</strong> (50/50) → <strong>can't / couldn't have</strong> (майже 0).</p>
 <table class="gw-table" aria-label="Ступінь впевненості perfect modals">
 <thead>
 <tr>
-<th>Висновок про минуле</th>
+<th>Рівень впевненості</th>
 <th>Приклад</th>
 </tr>
 </thead>
@@ -168,7 +172,7 @@ HTML,
                 ],
                 [
                     'column' => 'right',
-                    'heading' => 'Had better',
+                    'heading' => '2. HAD BETTER: кілька критичних деталей',
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
@@ -182,7 +186,7 @@ HTML,
                 ],
                 [
                     'column' => 'right',
-                    'heading' => 'Be supposed to',
+                    'heading' => '3. BE SUPPOSED TO: повний спектр',
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
@@ -199,7 +203,7 @@ HTML,
                 ],
                 [
                     'column' => 'right',
-                    'heading' => 'Mean / meant',
+                    'heading' => '4. MEAN / MEANT: добудовуємо систему',
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
@@ -215,19 +219,19 @@ HTML,
                 ],
                 [
                     'column' => 'right',
-                    'heading' => 'Ще корисні perfect інфінітиви',
+                    'heading' => '5. Додатково до «перфектного інфінітива» (без модалів)',
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>seem / appear to have + V3</strong>: <span class="gw-en">He seems to have left.</span></li>
 <li><strong>be likely / unlikely to have + V3</strong>: <span class="gw-en">They’re likely to have finished by now.</span></li>
-<li><strong>was / were to have + V3</strong> (формально): <span class="gw-en">We were to have met at noon, but it was cancelled.</span></li>
+<li><strong>was / were to have + V3</strong> (дуже формально): «мали (за планом) зробити, але…» <span class="gw-en">We were to have met at noon, but it was cancelled.</span></li>
 </ul>
 HTML,
                 ],
                 [
                     'column' => 'right',
-                    'heading' => 'Типові помилки та виправлення',
+                    'heading' => '6. Типові помилки → як виправити',
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
@@ -241,10 +245,10 @@ HTML,
                 ],
                 [
                     'column' => 'right',
-                    'heading' => 'Міні-вправи',
+                    'heading' => '7. Міні-вправи (з відповідями)',
                     'css_class' => null,
                     'body' => <<<'HTML'
-<h4>А. Обери варіант</h4>
+<h4>А. Вибери правильний варіант</h4>
 <ol class="gw-list">
 <li>I’m not sure where Anna is — she <strong>may have</strong> left early.</li>
 <li>They <strong>should have</strong> arrived by now — the flight landed at 3.</li>
@@ -252,7 +256,7 @@ HTML,
 <li>He <strong>must have</strong> been sleeping when you called — he never answers at 2 a.m.</li>
 <li>You <strong>’d better not</strong> be late again.</li>
 </ol>
-<h4>В. Переформулюй</h4>
+<h4>В. Переформулюй, зберігши зміст</h4>
 <ol class="gw-list" start="6">
 <li>Perhaps she finished the report. → She <strong>might / may have</strong> finished the report.</li>
 <li>I’m certain he didn’t see us. → He <strong>can’t / couldn’t have</strong> seen us.</li>
@@ -260,7 +264,7 @@ HTML,
 <li>It was a mistake that you told her. → You <strong>shouldn’t have</strong> told her.</li>
 <li>According to the schedule, the concert starts at 7. → The concert <strong>is supposed to</strong> start at 7.</li>
 </ol>
-<h4>С. Переклади</h4>
+<h4>С. Переклади коротко</h4>
 <ol class="gw-list" start="11">
 <li>He <strong>must have</strong> eaten already. (BrE також: He’ll have eaten already.)</li>
 <li>You <strong>’d better not</strong> argue with the teacher.</li>
