@@ -631,6 +631,12 @@ function renderConnections() {
         rightEl.style.minHeight = `${maxHeight}px`;
     });
 
+    // Force reflow if heights were adjusted, then draw lines
+    if (heightAdjustments.length > 0) {
+        // Force browser to apply height changes before drawing lines
+        void leftCol.offsetHeight;
+    }
+
     // Third pass: draw lines after heights are set
     matchState.connections.forEach(conn => {
         const leftEl = leftCards.get(conn.leftKey);
