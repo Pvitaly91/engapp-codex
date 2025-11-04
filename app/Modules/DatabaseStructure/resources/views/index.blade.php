@@ -188,17 +188,23 @@
       <div class="space-y-4" x-show="!globalSearch.loading && globalSearch.results.length > 0" x-cloak>
         <template x-for="result in globalSearch.results" :key="result.table">
           <div class="rounded-2xl border border-border/70 bg-card/70 p-4 shadow-soft/40">
-            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div 
+              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between cursor-pointer"
+              @click="toggleGlobalSearchResult(result)"
+            >
               <div>
                 <p class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Таблиця</p>
                 <h3 class="text-lg font-semibold text-foreground" x-text="result.table"></h3>
               </div>
-              <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                <i class="fa-solid fa-database mr-1"></i>
-                <span x-text="`${result.total} збігів`"></span>
-              </span>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  <i class="fa-solid fa-database mr-1"></i>
+                  <span x-text="`${result.total} збігів`"></span>
+                </span>
+                <i class="fa-solid fa-chevron-down text-muted-foreground transition-transform duration-200" :class="{ 'rotate-180': result.open }"></i>
+              </div>
             </div>
-            <div class="mt-4 space-y-3">
+            <div class="mt-4 space-y-3" x-show="result.open" x-collapse>
               <template x-for="(row, rowIndex) in result.rows" :key="`${result.table}-${rowIndex}`">
                 <div class="rounded-2xl border border-border/60 bg-background/70 p-4">
                   <dl class="grid gap-3 sm:grid-cols-2">
@@ -9089,7 +9095,11 @@
               return;
             }
 
-            this.globalSearch.results = Array.isArray(payload.results) ? payload.results : [];
+            this.globalSearch.results = Array.isArray(payload.results) 
+              ? payload.results
+                  .filter(result => result && typeof result === 'object')
+                  .map(result => ({ ...result, open: true }))
+              : [];
             this.globalSearch.completed = true;
           } catch (error) {
             if (this.globalSearch.requestId !== requestId) {
@@ -9112,6 +9122,11 @@
           this.globalSearch.completed = false;
           this.globalSearch.requestId = Date.now();
           this.globalSearch.loading = false;
+        },
+        toggleGlobalSearchResult(result) {
+          if (result && typeof result === 'object') {
+            result.open = !result.open;
+          }
         },
         highlightForeignRecordText(value) {
           const query =
