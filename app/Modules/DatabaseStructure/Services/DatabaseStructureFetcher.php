@@ -349,6 +349,83 @@ class DatabaseStructureFetcher
         ];
     }
 
+    public function searchKeywordAcrossTables(string $keyword, int $perTable = 5, int $maxTables = 50): array
+    {
+        $searchTerm = trim($keyword);
+
+        if ($searchTerm === '') {
+            return [];
+        }
+
+        $limitPerTable = max(1, $perTable);
+        $tableLimit = max(1, $maxTables);
+        $structure = $this->getStructure();
+
+        $results = [];
+        $processed = 0;
+
+        foreach ($structure as $tableInfo) {
+            if ($processed >= $tableLimit) {
+                break;
+            }
+
+            $tableName = $tableInfo['name'] ?? null;
+
+            if (!is_string($tableName) || $tableName === '') {
+                continue;
+            }
+
+            try {
+                $preview = $this->getPreview(
+                    $tableName,
+                    1,
+                    $limitPerTable,
+                    null,
+                    'asc',
+                    [],
+                    $searchTerm,
+                );
+            } catch (\Throwable) {
+                continue;
+            }
+
+            $total = (int) ($preview['total'] ?? 0);
+
+            if ($total === 0) {
+                continue;
+            }
+
+            $rows = array_map(function ($row) {
+                $normalized = [];
+
+                foreach ($row as $column => $value) {
+                    if ($column === '__display' && is_array($value)) {
+                        foreach ($value as $displayColumn => $displayValue) {
+                            $normalized[$displayColumn] = $this->convertValueForResponse($displayValue);
+                        }
+
+                        continue;
+                    }
+
+                    $normalized[$column] = $this->convertValueForResponse($value);
+                }
+
+                return $normalized;
+            }, $preview['rows'] ?? []);
+
+            $results[] = [
+                'table' => $tableName,
+                'total' => $total,
+                'rows' => $rows,
+                'columns' => $preview['columns'] ?? [],
+            ];
+
+            $processed++;
+        }
+
+        return $results;
+    }
+
     /**
      * @param array<int, array{column: string, value: mixed}> $identifiers
      */

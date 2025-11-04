@@ -16,6 +16,7 @@ use Database\Seeders\Pages\IrregularVerbs\IrregularVerbsPageSeeder;
 use Database\Seeders\Pages\Modals\CanCouldPageSeeder;
 use Database\Seeders\Pages\Modals\MayMightPageSeeder;
 use Database\Seeders\Pages\Modals\MustHaveToPageSeeder;
+use Database\Seeders\Pages\Modals\PerfectModalsPageSeeder;
 use Database\Seeders\Pages\Modals\NeedNeedToPageSeeder;
 use Database\Seeders\Pages\Modals\ShouldOughtToPageSeeder;
 use Database\Seeders\Pages\Pronouns\PronounsPageSeeder;
@@ -68,6 +69,7 @@ class GrammarPagesSeeder extends Seeder
         MustHaveToPageSeeder::class,
         ShouldOughtToPageSeeder::class,
         NeedNeedToPageSeeder::class,
+        PerfectModalsPageSeeder::class,
         PronounsPageSeeder::class,
         ThisThatTheseThosePageSeeder::class,
         HaveGotPageSeeder::class,

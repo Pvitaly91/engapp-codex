@@ -37,6 +37,7 @@
         'default' => route('database-structure.filters.default', ['table' => '__TABLE__', 'scope' => '__SCOPE__']),
         'destroy' => route('database-structure.filters.destroy', ['table' => '__TABLE__', 'scope' => '__SCOPE__', 'filter' => '__FILTER__']),
       ]),
+      @js(route('database-structure.keyword-search')),
       @js([
         'initialTab' => $currentTab,
         'standaloneTab' => $standaloneTab,
@@ -121,6 +122,113 @@
         </div>
       </div>
     </header>
+
+    <section class="rounded-3xl border border-border/70 bg-background/60 p-6 shadow-soft space-y-4">
+      <div class="flex flex-col gap-3 lg:flex-row lg:items-end">
+        <div class="flex-1 space-y-2">
+          <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Пошук за ключовим словом</label>
+          <div class="relative">
+            <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+              <i class="fa-solid fa-magnifying-glass text-sm"></i>
+            </span>
+            <input
+              type="search"
+              class="w-full rounded-2xl border border-input bg-background py-2 pl-10 pr-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              placeholder="Введіть слово для пошуку по всіх таблицях..."
+              x-model="globalSearch.keyword"
+              @keyup.enter="performGlobalKeywordSearch()"
+            />
+          </div>
+          <p class="text-[12px] text-muted-foreground">
+            Запит виконає пошук по всіх таблицях та стовпцях активної бази та покаже перші збіги.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground flex flex-col gap-1">
+            <span>К-сть записів на таблицю</span>
+            <select
+              class="rounded-xl border border-input bg-background px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+              x-model.number="globalSearch.limit"
+            >
+              <option value="3">3</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="globalSearch.loading || !(globalSearch.keyword && globalSearch.keyword.trim())"
+            @click="performGlobalKeywordSearch()"
+          >
+            <i class="fa-solid fa-search"></i>
+            Знайти
+          </button>
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary/60 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="globalSearch.loading && !globalSearch.keyword"
+            @click="clearGlobalKeywordSearch()"
+          >
+            <i class="fa-solid fa-rotate-left"></i>
+            Очистити
+          </button>
+        </div>
+      </div>
+      <template x-if="globalSearch.error">
+        <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-2 text-sm text-rose-600" x-text="globalSearch.error"></div>
+      </template>
+      <div
+        class="rounded-2xl border border-dashed border-border/60 bg-muted/30 px-4 py-3 text-sm text-muted-foreground"
+        x-show="globalSearch.loading"
+        x-cloak
+      >
+        Виконуємо пошук...
+      </div>
+      <div class="space-y-4" x-show="!globalSearch.loading && globalSearch.results.length > 0" x-cloak>
+        <template x-for="result in globalSearch.results" :key="result.table">
+          <div class="rounded-2xl border border-border/70 bg-card/70 p-4 shadow-soft/40">
+            <div 
+              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between cursor-pointer"
+              @click="toggleGlobalSearchResult(result)"
+            >
+              <div>
+                <p class="text-[12px] font-semibold uppercase tracking-wide text-muted-foreground">Таблиця</p>
+                <h3 class="text-lg font-semibold text-foreground" x-text="result.table"></h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  <i class="fa-solid fa-database mr-1"></i>
+                  <span x-text="`${result.total} збігів`"></span>
+                </span>
+                <i class="fa-solid fa-chevron-down text-muted-foreground transition-transform duration-200" :class="{ 'rotate-180': result.open }"></i>
+              </div>
+            </div>
+            <div class="mt-4 space-y-3" x-show="result.open" x-collapse>
+              <template x-for="(row, rowIndex) in result.rows" :key="`${result.table}-${rowIndex}`">
+                <div class="rounded-2xl border border-border/60 bg-background/70 p-4">
+                  <dl class="grid gap-3 sm:grid-cols-2">
+                    <template x-for="(entry, entryIndex) in globalSearchRowEntries(row)" :key="`${result.table}-${rowIndex}-${entry.key}-${entryIndex}`">
+                      <div>
+                        <dt class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" x-text="entry.key"></dt>
+                        <dd class="mt-1 text-sm text-foreground" x-html="highlightText(entry.value, globalSearch.keyword)"></dd>
+                      </div>
+                    </template>
+                  </dl>
+                </div>
+              </template>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div
+        class="rounded-2xl border border-dashed border-border/60 bg-muted/20 px-4 py-3 text-sm text-muted-foreground"
+        x-show="globalSearch.completed && !globalSearch.loading && globalSearch.results.length === 0"
+        x-cloak
+      >
+        Немає збігів для вказаного запиту.
+      </div>
+    </section>
 
     <template x-if="filteredTables.length === 0">
       <div class="rounded-3xl border border-dashed border-border/60 bg-muted/30 p-10 text-center text-sm text-muted-foreground">
@@ -2050,6 +2158,7 @@
       contentManagementRoutes,
       contentManagementSettings = {},
       filterRoutes = {},
+      keywordSearchRoute = '',
       viewOptions = {},
     ) {
       const normalizeFilterScope = (scope) => (scope === 'content' ? 'content' : 'records');
@@ -3273,6 +3382,16 @@
             { value: 'like', label: 'Містить (LIKE)' },
             { value: 'not like', label: 'Не містить (NOT LIKE)' },
           ],
+          keywordSearchRoute: typeof keywordSearchRoute === 'string' ? keywordSearchRoute : '',
+          globalSearch: {
+            keyword: '',
+            loading: false,
+            error: '',
+            results: [],
+            completed: false,
+            limit: 5,
+            requestId: 0,
+          },
           tables: normalizedTables,
           init() {
             this.syncBodyScrollLock();
@@ -8886,6 +9005,128 @@
         },
         highlightQuery(value) {
           return this.highlightText(value, this.query);
+        },
+        globalSearchRowEntries(row) {
+          if (!row || typeof row !== 'object') {
+            return [];
+          }
+
+          const entries = [];
+
+          Object.entries(row).forEach(([key, value]) => {
+            if (key === '__display' && value && typeof value === 'object') {
+              Object.entries(value).forEach(([displayKey, displayValue]) => {
+                entries.push({
+                  key: displayKey,
+                  value: this.formatCell(displayValue),
+                });
+              });
+
+              return;
+            }
+
+            if (typeof key === 'string' && key.startsWith('__')) {
+              return;
+            }
+
+            entries.push({
+              key,
+              value: this.formatCell(value),
+            });
+          });
+
+          return entries;
+        },
+        async performGlobalKeywordSearch() {
+          if (!this.keywordSearchRoute) {
+            this.globalSearch.error = 'Маршрут пошуку недоступний.';
+            return;
+          }
+
+          const keyword = typeof this.globalSearch.keyword === 'string' ? this.globalSearch.keyword.trim() : '';
+
+          if (!keyword) {
+            this.globalSearch.results = [];
+            this.globalSearch.error = '';
+            this.globalSearch.completed = false;
+            return;
+          }
+
+          const limit = Number(this.globalSearch.limit);
+          const perTable = Number.isFinite(limit) && limit > 0 ? Math.min(Math.trunc(limit), 25) : 5;
+          const requestId = Date.now();
+
+          this.globalSearch.requestId = requestId;
+          this.globalSearch.loading = true;
+          this.globalSearch.error = '';
+          this.globalSearch.completed = false;
+
+          const params = new URLSearchParams({
+            keyword,
+            per_table: String(perTable),
+          });
+
+          try {
+            const response = await fetch(`${this.keywordSearchRoute}?${params.toString()}`, {
+              headers: {
+                Accept: 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+              },
+            });
+
+            if (!response.ok) {
+              let message = response.statusText || 'Помилка запиту.';
+
+              try {
+                const payload = await response.json();
+                if (payload && typeof payload.message === 'string') {
+                  message = payload.message;
+                }
+              } catch (error) {
+                // ignore JSON parse errors
+              }
+
+              throw new Error(message);
+            }
+
+            const payload = await response.json();
+
+            if (this.globalSearch.requestId !== requestId) {
+              return;
+            }
+
+            this.globalSearch.results = Array.isArray(payload.results) 
+              ? payload.results
+                  .filter(result => result && typeof result === 'object')
+                  .map(result => ({ ...result, open: true }))
+              : [];
+            this.globalSearch.completed = true;
+          } catch (error) {
+            if (this.globalSearch.requestId !== requestId) {
+              return;
+            }
+
+            this.globalSearch.error = error && error.message ? error.message : 'Не вдалося виконати пошук.';
+            this.globalSearch.results = [];
+            this.globalSearch.completed = false;
+          } finally {
+            if (this.globalSearch.requestId === requestId) {
+              this.globalSearch.loading = false;
+            }
+          }
+        },
+        clearGlobalKeywordSearch() {
+          this.globalSearch.keyword = '';
+          this.globalSearch.results = [];
+          this.globalSearch.error = '';
+          this.globalSearch.completed = false;
+          this.globalSearch.requestId = Date.now();
+          this.globalSearch.loading = false;
+        },
+        toggleGlobalSearchResult(result) {
+          if (result && typeof result === 'object') {
+            result.open = !result.open;
+          }
         },
         highlightForeignRecordText(value) {
           const query =
