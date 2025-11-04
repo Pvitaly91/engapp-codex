@@ -82,7 +82,7 @@ class ModalDeductionPossibilityPracticeV22Dialogue1Seeder extends QuestionSeeder
             [
                 'id' => 3,
                 'speaker' => 'A',
-                'text' => "Yeah, sure... {a1} we play Monopoly? We {a2} call our neighbours.",
+                'text' => 'Yeah, sure... {a1} we play Monopoly? We {a2} call our neighbours.',
                 'answers' => [
                     [
                         'marker' => 'a1',
@@ -201,7 +201,7 @@ class ModalDeductionPossibilityPracticeV22Dialogue1Seeder extends QuestionSeeder
             $answers = collect($entry['answers'] ?? [])->map(function (array $answer) {
                 // Handle multiple correct answers separated by " / "
                 $correctAnswers = array_map('trim', explode('/', $answer['answer']));
-                
+
                 return [
                     'marker' => $answer['marker'],
                     'answer' => $correctAnswers[0],
@@ -226,16 +226,19 @@ class ModalDeductionPossibilityPracticeV22Dialogue1Seeder extends QuestionSeeder
 
             $answerMap = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
                 $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+
                 return [$answer['marker'] => $correctAnswers[0]];
             })->all();
-            
+
             $optionMarkers = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
                 $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+
                 return [$correctAnswers[0] => $answer['marker']];
             })->all();
-            
+
             $explanations = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
                 $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+
                 return [
                     $correctAnswers[0] => $answer['explanation'] ?? '',
                 ];

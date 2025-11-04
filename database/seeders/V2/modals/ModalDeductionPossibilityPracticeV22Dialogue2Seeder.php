@@ -90,7 +90,7 @@ class ModalDeductionPossibilityPracticeV22Dialogue2Seeder extends QuestionSeeder
             [
                 'id' => 4,
                 'speaker' => 'Ethan',
-                'text' => "Yeah, but you {a1} call him right away. You know how busy he is at the weekends...",
+                'text' => 'Yeah, but you {a1} call him right away. You know how busy he is at the weekends...',
                 'answers' => [
                     [
                         'marker' => 'a1',
@@ -127,14 +127,14 @@ class ModalDeductionPossibilityPracticeV22Dialogue2Seeder extends QuestionSeeder
             [
                 'id' => 6,
                 'speaker' => 'Ethan',
-                'text' => "Oh, sure!",
+                'text' => 'Oh, sure!',
                 'answers' => [],
                 'level' => 'A2',
             ],
             [
                 'id' => 7,
                 'speaker' => 'Ariel',
-                'text' => "Thanks! I {a1} be right back. Hey, you {a2} eat my biscuits, {a3} you?",
+                'text' => 'Thanks! I {a1} be right back. Hey, you {a2} eat my biscuits, {a3} you?',
                 'answers' => [
                     [
                         'marker' => 'a1',
@@ -173,7 +173,7 @@ class ModalDeductionPossibilityPracticeV22Dialogue2Seeder extends QuestionSeeder
             $answers = collect($entry['answers'] ?? [])->map(function (array $answer) {
                 // Handle multiple correct answers separated by " / "
                 $correctAnswers = array_map('trim', explode('/', $answer['answer']));
-                
+
                 return [
                     'marker' => $answer['marker'],
                     'answer' => $correctAnswers[0],
@@ -198,16 +198,19 @@ class ModalDeductionPossibilityPracticeV22Dialogue2Seeder extends QuestionSeeder
 
             $answerMap = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
                 $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+
                 return [$answer['marker'] => $correctAnswers[0]];
             })->all();
-            
+
             $optionMarkers = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
                 $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+
                 return [$correctAnswers[0] => $answer['marker']];
             })->all();
-            
+
             $explanations = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
                 $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+
                 return [
                     $correctAnswers[0] => $answer['explanation'] ?? '',
                 ];
