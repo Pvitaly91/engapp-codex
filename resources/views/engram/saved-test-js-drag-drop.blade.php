@@ -361,7 +361,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const sentence = line || '';
         const answersArray = Array.isArray(item.answers) ? item.answers : [];
         const answerMap = buildAnswerMap(item, answersArray);
-        const verbHintsMap = typeof item.verb_hints === 'object' && item.verb_hints !== null ? item.verb_hints : {};
+        const verbHintsMap = (typeof item.verb_hints === 'object' && item.verb_hints !== null && !Array.isArray(item.verb_hints)) ? item.verb_hints : {};
 
         const placeholderRegex = /\{a(\d+)\}/g;
         const segments = [];
@@ -1074,9 +1074,10 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         drop.dataset.questionIndex = String(questionIndex);
         drop.dataset.blankIndex = String(blankIndex);
         
-        if (verbHint && String(verbHint).trim() !== '') {
-            drop.dataset.verbHint = String(verbHint).trim();
-            drop.textContent = String(verbHint).trim();
+        const trimmedHint = String(verbHint).trim();
+        if (trimmedHint !== '') {
+            drop.dataset.verbHint = trimmedHint;
+            drop.textContent = trimmedHint;
         } else {
             drop.textContent = '_____';
         }
