@@ -591,6 +591,9 @@ function renderConnections() {
         card.classList.remove('connected', 'correct', 'incorrect', 'selected');
     });
 
+    // First pass: read heights and calculate, batch DOM reads
+    const heightAdjustments = [];
+
     matchState.connections.forEach(conn => {
         const leftEl = leftCards.get(conn.leftKey);
         const rightEl = rightCards.get(conn.rightKey);
@@ -612,14 +615,29 @@ function renderConnections() {
             }
         }
 
-        // Equalize heights of connected elements
+        // Batch read heights
         const leftHeight = leftEl.offsetHeight;
         const rightHeight = rightEl.offsetHeight;
         const maxHeight = Math.max(leftHeight, rightHeight);
         
         if (leftHeight !== rightHeight) {
-            leftEl.style.minHeight = `${maxHeight}px`;
-            rightEl.style.minHeight = `${maxHeight}px`;
+            heightAdjustments.push({ leftEl, rightEl, maxHeight });
+        }
+    });
+
+    // Second pass: apply height adjustments, batch DOM writes
+    heightAdjustments.forEach(({ leftEl, rightEl, maxHeight }) => {
+        leftEl.style.minHeight = `${maxHeight}px`;
+        rightEl.style.minHeight = `${maxHeight}px`;
+    });
+
+    // Third pass: draw lines after heights are set
+    matchState.connections.forEach(conn => {
+        const leftEl = leftCards.get(conn.leftKey);
+        const rightEl = rightCards.get(conn.rightKey);
+
+        if (!leftEl || !rightEl) {
+            return;
         }
 
         const { x: x1, y: y1 } = getCenter(leftEl);
