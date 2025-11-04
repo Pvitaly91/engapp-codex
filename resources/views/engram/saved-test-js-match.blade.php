@@ -563,6 +563,43 @@ function renderColumns() {
     });
 
     updateEmptyState();
+    
+    // Equalize heights of elements at the same row position
+    equalizeRowHeights();
+}
+
+function equalizeRowHeights() {
+    const leftCards = Array.from(leftCol.querySelectorAll('.match-card'));
+    const rightCards = Array.from(rightCol.querySelectorAll('.match-card'));
+    
+    // Reset heights first
+    leftCards.forEach(card => card.style.minHeight = '');
+    rightCards.forEach(card => card.style.minHeight = '');
+    
+    // Batch read heights
+    const heightPairs = [];
+    const maxCount = Math.max(leftCards.length, rightCards.length);
+    
+    for (let i = 0; i < maxCount; i++) {
+        const leftCard = leftCards[i];
+        const rightCard = rightCards[i];
+        
+        if (leftCard && rightCard) {
+            const leftHeight = leftCard.offsetHeight;
+            const rightHeight = rightCard.offsetHeight;
+            const maxHeight = Math.max(leftHeight, rightHeight);
+            
+            if (leftHeight !== rightHeight) {
+                heightPairs.push({ leftCard, rightCard, maxHeight });
+            }
+        }
+    }
+    
+    // Batch write heights
+    heightPairs.forEach(({ leftCard, rightCard, maxHeight }) => {
+        leftCard.style.minHeight = `${maxHeight}px`;
+        rightCard.style.minHeight = `${maxHeight}px`;
+    });
 }
 
 
@@ -581,18 +618,8 @@ function renderConnections() {
     const leftCards = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
     const rightCards = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
 
-    // Reset heights first
-    leftCards.forEach(card => {
-        card.style.minHeight = '';
-        card.classList.remove('connected', 'correct', 'incorrect', 'selected');
-    });
-    rightCards.forEach(card => {
-        card.style.minHeight = '';
-        card.classList.remove('connected', 'correct', 'incorrect', 'selected');
-    });
-
-    // First pass: read heights and calculate, batch DOM reads
-    const heightAdjustments = [];
+    leftCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
+    rightCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
 
     matchState.connections.forEach(conn => {
         const leftEl = leftCards.get(conn.leftKey);
@@ -615,37 +642,6 @@ function renderConnections() {
             }
         }
 
-        // Batch read heights
-        const leftHeight = leftEl.offsetHeight;
-        const rightHeight = rightEl.offsetHeight;
-        const maxHeight = Math.max(leftHeight, rightHeight);
-        
-        if (leftHeight !== rightHeight) {
-            heightAdjustments.push({ leftEl, rightEl, maxHeight });
-        }
-    });
-
-    // Second pass: apply height adjustments, batch DOM writes
-    heightAdjustments.forEach(({ leftEl, rightEl, maxHeight }) => {
-        leftEl.style.minHeight = `${maxHeight}px`;
-        rightEl.style.minHeight = `${maxHeight}px`;
-    });
-
-    // Force reflow if heights were adjusted, then draw lines
-    if (heightAdjustments.length > 0) {
-        // Force browser to apply height changes before drawing lines
-        void leftCol.offsetHeight;
-    }
-
-    // Third pass: draw lines after heights are set
-    matchState.connections.forEach(conn => {
-        const leftEl = leftCards.get(conn.leftKey);
-        const rightEl = rightCards.get(conn.rightKey);
-
-        if (!leftEl || !rightEl) {
-            return;
-        }
-
         const { x: x1, y: y1 } = getCenter(leftEl);
         const { x: x2, y: y2 } = getCenter(rightEl);
         const stroke = matchState.evaluated
@@ -655,6 +651,9 @@ function renderConnections() {
         line.dataset.conn = `${conn.leftKey}|${conn.rightKey}`;
         svg.appendChild(line);
     });
+    
+    // Re-equalize heights after adding classes that might affect height
+    equalizeRowHeights();
 }
 
 function getCenter(el) {
