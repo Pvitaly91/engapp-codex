@@ -38,6 +38,7 @@ class GrammarTestFilterService
         $selectedLevels = $filters['levels'];
         $selectedSources = $filters['sources'];
         $selectedSeederClasses = $filters['seeder_classes'];
+        $selectedQuestionTypes = $filters['question_types'];
         $randomizeFiltered = $filters['randomize_filtered'];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
@@ -88,6 +89,10 @@ class GrammarTestFilterService
 
             if (! empty($selectedSeederClasses)) {
                 $query->whereIn('seeder', $selectedSeederClasses);
+            }
+
+            if (! empty($selectedQuestionTypes) && Schema::hasColumn('questions', 'type')) {
+                $query->whereIn('type', $selectedQuestionTypes);
             }
 
             if (! empty($selectedSources) && $groupBy !== 'source_id') {
@@ -186,6 +191,9 @@ class GrammarTestFilterService
                 ->values()
             : collect();
         $seederSourceGroups = $this->seederSourceGroups();
+        $questionTypeOptions = Schema::hasColumn('questions', 'type')
+            ? Question::typeLabels()
+            : [];
 
         return [
             'categories' => $categories,
@@ -208,6 +216,7 @@ class GrammarTestFilterService
             'sources' => $sources,
             'selectedSources' => $selectedSources,
             'selectedSeederClasses' => $selectedSeederClasses,
+            'selectedQuestionTypes' => $selectedQuestionTypes,
             'autoTestName' => $autoTestName,
             'allTags' => $allTags,
             'selectedTags' => $selectedTags,
@@ -217,6 +226,7 @@ class GrammarTestFilterService
             'canRandomizeFiltered' => $canRandomizeFiltered,
             'seederClasses' => $seederClasses,
             'seederSourceGroups' => $seederSourceGroups,
+            'questionTypeOptions' => $questionTypeOptions,
             'normalizedFilters' => $filters,
         ];
     }
@@ -295,6 +305,7 @@ class GrammarTestFilterService
             'tags' => $tags,
             'sources' => $sources,
             'seeder_classes' => $seeders,
+            'question_types' => $this->stringArray(Arr::get($input, 'question_types', [])),
             'randomize_filtered' => $this->toBool(Arr::get($input, 'randomize_filtered', false)),
         ];
     }

@@ -9,6 +9,9 @@ use App\Models\QuestionHint;
 
 class Question extends Model
 {
+    public const TYPE_MATCH = '1';
+    public const TYPE_DIALOGUE = '2';
+
     protected $casts = [
         'flag' => 'integer',
     ];
@@ -26,7 +29,15 @@ class Question extends Model
         return $questionText;
     }
 
-    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder'];
+    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder', 'type'];
+
+    public static function typeLabels(): array
+    {
+        return [
+            self::TYPE_MATCH => 'Match (відповідність пар)',
+            self::TYPE_DIALOGUE => 'Dialogue (діалог)',
+        ];
+    }
 
     public function category()
     {

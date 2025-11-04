@@ -340,6 +340,26 @@
                     </div>
                 @endif
 
+                @if(!empty($questionTypeOptions))
+                    <div>
+                        <h2 class="text-sm font-semibold text-gray-700 mb-3">Тип питання</h2>
+                        <div class="flex flex-wrap gap-2">
+                            @foreach($questionTypeOptions as $value => $label)
+                                @php $typeId = 'question-type-' . md5($value); @endphp
+                                <div>
+                                    <input type="checkbox" name="question_types[]" value="{{ $value }}" id="{{ $typeId }}"
+                                           class="hidden peer"
+                                           {{ in_array((string) $value, $selectedQuestionTypes ?? [], true) ? 'checked' : '' }}>
+                                    <label for="{{ $typeId }}"
+                                           class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-indigo-600 peer-checked:text-white">
+                                        {{ $label }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
                 @if($tagGroups->isNotEmpty())
                     <div x-data="{ openTags: {{ $hasSelectedTags ? 'true' : 'false' }} }"
                          x-init="$store.tagSearch.setAllTags(@js($allTagNames))"
