@@ -1292,6 +1292,7 @@ class GrammarTestController extends Controller
         return array_merge($base, [
             'selectedCategories' => [],
             'selectedSeederClasses' => [],
+            'questionTypeOptions' => $base['questionTypeOptions'],
             'difficultyFrom' => $base['minDifficulty'],
             'difficultyTo' => $base['maxDifficulty'],
             'numQuestions' => 10,
@@ -1307,6 +1308,7 @@ class GrammarTestController extends Controller
             'selectedTags' => [],
             'selectedLevels' => [],
             'selectedSources' => [],
+            'selectedQuestionTypes' => [],
             'sources' => Source::orderBy('name')->get(),
             'autoTestName' => '',
             'randomizeFiltered' => false,
@@ -1344,6 +1346,9 @@ class GrammarTestController extends Controller
             'allTags' => $allTags,
             'levels' => $levels,
             'seederClasses' => $seederClasses,
+            'questionTypeOptions' => Schema::hasColumn('questions', 'type')
+                ? Question::typeLabels()
+                : [],
         ];
     }
 
