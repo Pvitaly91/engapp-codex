@@ -26,7 +26,7 @@ class Question extends Model
         return $questionText;
     }
 
-    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder'];
+    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder', 'type'];
 
     public function category()
     {
