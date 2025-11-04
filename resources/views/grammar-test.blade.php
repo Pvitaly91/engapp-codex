@@ -340,6 +340,25 @@
                     </div>
                 @endif
 
+                @if(isset($questionTypes) && count($questionTypes))
+                    <div>
+                        <h2 class="text-sm font-semibold text-gray-700 mb-3">Question Type</h2>
+                        <div class="flex flex-wrap gap-2">
+                            @foreach($questionTypes as $type)
+                                @php $typeId = 'type-' . md5($type); @endphp
+                                <div>
+                                    <input type="checkbox" name="types[]" value="{{ $type }}" id="{{ $typeId }}"
+                                           class="hidden peer"
+                                           {{ in_array($type, $selectedTypes ?? []) ? 'checked' : '' }}>
+                                    <label for="{{ $typeId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white">
+                                        Type {{ $type }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
                 @if($tagGroups->isNotEmpty())
                     <div x-data="{ openTags: {{ $hasSelectedTags ? 'true' : 'false' }} }"
                          x-init="$store.tagSearch.setAllTags(@js($allTagNames))"
@@ -659,6 +678,7 @@
                         'tags' => $selectedTags,
                         'sources' => $selectedSources,
                         'seeder_classes' => $selectedSeederClasses,
+                        'types' => $selectedTypes ?? [],
                         'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
                     ];
                 @endphp

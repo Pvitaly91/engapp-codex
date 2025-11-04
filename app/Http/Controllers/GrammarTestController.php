@@ -1307,6 +1307,7 @@ class GrammarTestController extends Controller
             'selectedTags' => [],
             'selectedLevels' => [],
             'selectedSources' => [],
+            'selectedTypes' => [],
             'sources' => Source::orderBy('name')->get(),
             'autoTestName' => '',
             'randomizeFiltered' => false,
@@ -1336,6 +1337,16 @@ class GrammarTestController extends Controller
                 ->values()
             : collect();
 
+        $questionTypes = Schema::hasColumn('questions', 'type')
+            ? Question::query()
+                ->select('type')
+                ->whereNotNull('type')
+                ->distinct()
+                ->orderBy('type')
+                ->pluck('type')
+                ->values()
+            : collect();
+
         return [
             'categories' => $categories,
             'minDifficulty' => $minDifficulty,
@@ -1344,6 +1355,7 @@ class GrammarTestController extends Controller
             'allTags' => $allTags,
             'levels' => $levels,
             'seederClasses' => $seederClasses,
+            'questionTypes' => $questionTypes,
         ];
     }
 
