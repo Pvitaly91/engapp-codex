@@ -357,6 +357,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const sentence = line || '';
         const answersArray = Array.isArray(item.answers) ? item.answers : [];
         const answerMap = buildAnswerMap(item, answersArray);
+        const verbHints = item && typeof item.verb_hints === 'object' && item.verb_hints !== null 
+            ? item.verb_hints 
+            : {};
 
         const placeholderRegex = /\{a(\d+)\}/g;
         const segments = [];
@@ -374,12 +377,14 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
             const marker = Number.isFinite(number) ? `a${number}` : `a${blanks.length + 1}`;
             const fallbackIndex = Number.isFinite(number) ? number - 1 : blanks.length;
             const answer = answerMap[marker] ?? answersArray[fallbackIndex] ?? '';
+            const verbHint = verbHints[marker] ?? '';
 
             const blankIndex = blanks.length;
             blanks.push({
                 marker,
                 answer,
                 normalized: normalize(answer),
+                verbHint,
             });
             segments.push({ type: 'blank', blankIndex });
 
@@ -403,10 +408,12 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
                         const blankIndex = blanks.length;
                         const marker = `a${blankIndex + 1}`;
                         const answer = answerMap[marker] ?? answersArray[blankIndex] ?? '';
+                        const verbHint = verbHints[marker] ?? '';
                         blanks.push({
                             marker,
                             answer,
                             normalized: normalize(answer),
+                            verbHint,
                         });
                         segments.push({ type: 'blank', blankIndex });
                     }
@@ -1059,12 +1066,14 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         selectedTokenWord = null;
     }
 
-    function createDropElement(questionIndex, blankIndex, totalBlanks) {
+    function createDropElement(questionIndex, blankIndex, totalBlanks, verbHint = '') {
         const drop = document.createElement('span');
         drop.className = 'drag-quiz__drop';
         drop.dataset.questionIndex = String(questionIndex);
         drop.dataset.blankIndex = String(blankIndex);
-        drop.textContent = '_____';
+        const placeholderText = verbHint ? String(verbHint).trim() : '_____';
+        drop.textContent = placeholderText;
+        drop.dataset.placeholder = placeholderText;
         drop.tabIndex = 0;
         const suffix = totalBlanks > 1 ? ` (${blankIndex + 1})` : '';
         drop.setAttribute('aria-label', `Drop zone ${questionIndex + 1}${suffix}`);
@@ -1117,7 +1126,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
                 }
 
                 if (segment.type === 'blank') {
-                    const drop = createDropElement(idx, segment.blankIndex, question.blanks.length);
+                    const blank = question.blanks[segment.blankIndex];
+                    const verbHint = blank ? blank.verbHint : '';
+                    const drop = createDropElement(idx, segment.blankIndex, question.blanks.length, verbHint);
                     sentence.appendChild(drop);
                 }
             });
@@ -1143,7 +1154,8 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const id = tokenEl.dataset.id || tokenEl.getAttribute('data-id');
         const word = tokenEl.dataset.word || tokenEl.textContent.trim();
 
-        drop.textContent = '_____';
+        const placeholderText = drop.dataset.placeholder || '_____';
+        drop.textContent = placeholderText;
         drop.classList.remove('is-filled', 'is-correct', 'is-wrong');
         drop.removeAttribute('data-token-id');
 
@@ -1267,7 +1279,8 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 
     function resetQuiz({ useShuffle = true } = {}) {
         tasksEl.querySelectorAll('.drag-quiz__drop').forEach((drop) => {
-            drop.textContent = '_____';
+            const placeholderText = drop.dataset.placeholder || '_____';
+            drop.textContent = placeholderText;
             drop.classList.remove('is-filled', 'is-correct', 'is-wrong');
             drop.removeAttribute('data-token-id');
         });
