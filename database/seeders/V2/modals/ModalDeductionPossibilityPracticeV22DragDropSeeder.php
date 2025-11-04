@@ -46,7 +46,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
         $questions = [
             [
                 'id' => 1,
-                'text' => 'Mike, (...) you mind not doing that?',
+                'text' => 'Mike, {a1} you mind not doing that?',
                 'correct' => 'would',
                 'verb_hint' => 'polite request',
                 'level' => 'B1',
@@ -55,7 +55,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 2,
-                'text' => 'I (...) speak six languages.',
+                'text' => 'I {a1} speak six languages.',
                 'correct' => 'can',
                 'verb_hint' => 'ability',
                 'level' => 'A2',
@@ -64,7 +64,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 3,
-                'text' => '"Why hasn\'t she arrived yet?" "She (...) be ill."',
+                'text' => '"Why hasn\'t she arrived yet?" "She {a1} be ill."',
                 'correct' => 'may / might',
                 'verb_hint' => 'possibility / uncertainty',
                 'level' => 'B1',
@@ -73,7 +73,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 4,
-                'text' => '(...) you please help me with these bags?',
+                'text' => '{a1} you please help me with these bags?',
                 'correct' => 'could / can / will',
                 'verb_hint' => 'polite request',
                 'level' => 'A2',
@@ -82,7 +82,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 5,
-                'text' => 'You (...) have told him the truth.',
+                'text' => 'You {a1} have told him the truth.',
                 'correct' => 'should / ought to',
                 'verb_hint' => 'past advice / regret',
                 'level' => 'B2',
@@ -91,7 +91,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 6,
-                'text' => 'You (...) bring animals into England.',
+                'text' => 'You {a1} bring animals into England.',
                 'correct' => "mustn't",
                 'verb_hint' => 'prohibition / strong negative',
                 'level' => 'B1',
@@ -100,7 +100,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 7,
-                'text' => 'The piano is so heavy. It (...) move.',
+                'text' => 'The piano is so heavy. It {a1} move.',
                 'correct' => "can't",
                 'verb_hint' => 'impossibility / inability',
                 'level' => 'B1',
@@ -109,7 +109,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 8,
-                'text' => '(...) we invite the Smiths for the party?',
+                'text' => '{a1} we invite the Smiths for the party?',
                 'correct' => 'shall',
                 'verb_hint' => 'suggestion / offer',
                 'level' => 'B1',
@@ -118,7 +118,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 9,
-                'text' => "I'm afraid I (...) go with you.",
+                'text' => "I'm afraid I {a1} go with you.",
                 'correct' => "can't",
                 'verb_hint' => 'inability / refusal',
                 'level' => 'A2',
@@ -127,7 +127,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 10,
-                'text' => 'My parents say I (...) eat so many sweets.',
+                'text' => 'My parents say I {a1} eat so many sweets.',
                 'correct' => "shouldn't",
                 'verb_hint' => 'advice / recommendation',
                 'level' => 'B1',
@@ -136,7 +136,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 11,
-                'text' => 'I have a wedding party at the weekend. I (...) buy a new dress and a pair of shoes.',
+                'text' => 'I have a wedding party at the weekend. I {a1} buy a new dress and a pair of shoes.',
                 'correct' => 'must',
                 'verb_hint' => 'necessity / strong obligation',
                 'level' => 'B1',
@@ -145,7 +145,7 @@ class ModalDeductionPossibilityPracticeV22DragDropSeeder extends QuestionSeeder
             ],
             [
                 'id' => 12,
-                'text' => 'I was wondering if I (...) ask you for a favour.',
+                'text' => 'I was wondering if I {a1} ask you for a favour.',
                 'correct' => 'could',
                 'verb_hint' => 'very polite request',
                 'level' => 'B2',
