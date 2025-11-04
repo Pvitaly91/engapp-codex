@@ -29,6 +29,8 @@ use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
 use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
 use Database\Seeders\V2\Modals\ModalObligationNecessityV2Seeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityV2Seeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22DialogueSeeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22MatchSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -126,6 +128,8 @@ class DatabaseSeeder extends Seeder
             FutureTensesPracticeV2Seeder::class,
             ModalObligationNecessityV2Seeder::class,
             ModalDeductionPossibilityV2Seeder::class,
+            ModalDeductionPossibilityPracticeV22MatchSeeder::class,
+            ModalDeductionPossibilityPracticeV22DialogueSeeder::class,
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
             SecondConditionalTestV2Seeder::class,
