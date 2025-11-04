@@ -52,3 +52,5 @@ Route::patch('/tables/{table}/filters/{scope}/default', [DatabaseStructureContro
 Route::delete('/tables/{table}/filters/{scope}/{filter}', [DatabaseStructureController::class, 'destroyFilter'])
     ->where(['table' => '[^/]+', 'scope' => 'records|content', 'filter' => '[^/]+'])
     ->name('filters.destroy');
+Route::get('/keyword-search', [DatabaseStructureController::class, 'keywordSearch'])
+    ->name('keyword-search');

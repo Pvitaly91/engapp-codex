@@ -573,6 +573,40 @@ class DatabaseStructureController
         }
     }
 
+    public function keywordSearch(Request $request): JsonResponse
+    {
+        $keyword = is_string($request->query('keyword'))
+            ? trim((string) $request->query('keyword'))
+            : '';
+
+        $perTable = (int) $request->query('per_table', 5);
+        $perTable = max(1, min($perTable, 25));
+
+        if ($keyword === '') {
+            return response()->json([
+                'keyword' => '',
+                'per_table' => $perTable,
+                'results' => [],
+            ]);
+        }
+
+        try {
+            $results = $this->fetcher->searchKeywordAcrossTables($keyword, $perTable);
+
+            return response()->json([
+                'keyword' => $keyword,
+                'per_table' => $perTable,
+                'results' => $results,
+            ]);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return response()->json([
+                'message' => __('Не вдалося виконати пошук.'),
+            ], 500);
+        }
+    }
+
     private function resolveFilterScope(string $scope): string
     {
         return $scope === 'content' ? 'content' : 'records';

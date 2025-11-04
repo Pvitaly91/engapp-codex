@@ -12,15 +12,36 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Temporary placeholder data for demo purposes
+        $latestTests = SavedGrammarTest::query()
+            ->withCount('questionLinks')
+            ->latest()
+            ->take(3)
+            ->get();
+
+        $featuredCategories = PageCategory::query()
+            ->withCount('pages')
+            ->orderBy('title')
+            ->take(4)
+            ->get();
+
+        $recentPages = Page::query()
+            ->with('category')
+            ->whereHas('category')
+            ->latest('updated_at')
+            ->take(4)
+            ->get();
+
         $stats = [
-            'tests' => 127,
-            'questions' => 3542,
-            'pages' => 89,
-            'tags' => 234,
+            'tests' => SavedGrammarTest::count(),
+            'questions' => Question::count(),
+            'pages' => Page::count(),
+            'tags' => Tag::count(),
         ];
 
         return view('home', [
+            'latestTests' => $latestTests,
+            'featuredCategories' => $featuredCategories,
+            'recentPages' => $recentPages,
             'stats' => $stats,
         ]);
     }
