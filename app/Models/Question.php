@@ -11,6 +11,7 @@ class Question extends Model
 {
     public const TYPE_MATCH = '1';
     public const TYPE_DIALOGUE = '2';
+    public const TYPE_DRAG_DROP = '3';
 
     protected $casts = [
         'flag' => 'integer',
@@ -36,6 +37,7 @@ class Question extends Model
         return [
             self::TYPE_MATCH => 'Match (відповідність пар)',
             self::TYPE_DIALOGUE => 'Dialogue (діалог)',
+            self::TYPE_DRAG_DROP => 'Drag & Drop (перетягування)',
         ];
     }
 
