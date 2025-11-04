@@ -176,11 +176,11 @@ HTML,
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
-<li>Форма: <strong>’d better + base</strong>, заперечення <strong>’d better not + base</strong>; без <em>to</em>.</li>
-<li>Значення: сильна порада + попередження про наслідки: <span class="gw-en">You’d better leave.</span></li>
-<li>Час: говоримо про теперішнє або майбутнє; минуле — рідкісний виняток.</li>
-<li>Питання звучать неприродно → використовуємо ствердження/заперечення.</li>
-<li><strong>Порівняння:</strong> <em>should</em> м’якше, <em>had better</em> — терміновіший тон.</li>
+<li><strong>Форма</strong>: <em>'d better + base</em>, <em>'d better not + base</em> (без <em>to</em>): <span class="gw-en">You'd better leave.</span> / <span class="gw-en">You'd better not be late.</span></li>
+<li>Значення: сильна порада з попередженням (негативні наслідки, якщо ні).</li>
+<li><strong>Час</strong>: про зараз/майбутнє; для минулого не вживаємо (<em>You'd better have…</em> — рідкісна спец-структура з відтінком вимоги, але не для базового вжитку).</li>
+<li><strong>Порівняння</strong>: <em>should</em> = м'якше; <em>had better</em> = «краще б негайно».</li>
+<li><strong>Питання</strong> — неприродні; зазвичай твердження/заперечення.</li>
 </ul>
 HTML,
                 ],
@@ -207,13 +207,13 @@ HTML,
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
-<li><strong>mean + -ing</strong> — наслідок: <span class="gw-en">Missing the bus means being late.</span></li>
+<li><strong>mean + -ing</strong> — мати наслідком/означати (як результат): <span class="gw-en">Missing the bus means being late.</span> / <span class="gw-en">It meant losing everything.</span></li>
 <li><strong>mean + to + V</strong> — мати намір: <span class="gw-en">I meant to call you.</span></li>
-<li><strong>be meant to + V</strong> ≈ <em>be supposed to</em>: <span class="gw-en">This course is meant to help beginners.</span></li>
+<li><strong>be meant to + V</strong> ≈ <em>be supposed to</em> / призначено/очікується: <span class="gw-en">This course is meant to help beginners.</span></li>
 <li><strong>mean for sb to + V</strong>: <span class="gw-en">I didn’t mean for you to see that.</span></li>
-<li><strong>mean + that-clause</strong>: <span class="gw-en">This means (that) we’ll need more time.</span></li>
-<li>Форми: <span class="gw-en">mean – meant – meant</span> (<span class="gw-ua">/miːn/ – /ment/ – /ment/</span>).</li>
-<li>Ідіома: <span class="gw-en">mean well</span> — «мати добрі наміри».</li>
+<li><strong>mean + (that) clause</strong>: <span class="gw-en">This means (that) we'll need more time.</span></li>
+<li><strong>Форми</strong>: <span class="gw-en">mean – meant – meant</span> (вимова <span class="gw-ua">/ment/</span> у 2-3 формах).</li>
+<li><strong>Ідіома</strong>: <span class="gw-en">mean well</span> — «мати добрі наміри»: <span class="gw-en">He meant well, but…</span></li>
 </ul>
 HTML,
                 ],
