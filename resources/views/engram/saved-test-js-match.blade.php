@@ -648,18 +648,14 @@ function renderConnections() {
             }
         }
 
-        // Only draw connection lines on desktop (screens >= 768px)
-        const isMobile = window.matchMedia('(max-width: 767px)').matches;
-        if (!isMobile) {
-            const { x: x1, y: y1 } = getCenter(leftEl);
-            const { x: x2, y: y2 } = getCenter(rightEl);
-            const stroke = matchState.evaluated
-                ? (conn.correct ? '#22c55e' : '#ef4444')
-                : '#0f172a';
-            const line = createLine(x1, y1, x2, y2, stroke);
-            line.dataset.conn = `${conn.leftKey}|${conn.rightKey}`;
-            svg.appendChild(line);
-        }
+        const { x: x1, y: y1 } = getCenter(leftEl);
+        const { x: x2, y: y2 } = getCenter(rightEl);
+        const stroke = matchState.evaluated
+            ? (conn.correct ? '#22c55e' : '#ef4444')
+            : '#0f172a';
+        const line = createLine(x1, y1, x2, y2, stroke);
+        line.dataset.conn = `${conn.leftKey}|${conn.rightKey}`;
+        svg.appendChild(line);
     });
     
     // Re-equalize heights after adding classes that might affect height
