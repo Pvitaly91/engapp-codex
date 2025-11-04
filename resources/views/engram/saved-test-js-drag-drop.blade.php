@@ -357,7 +357,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const sentence = line || '';
         const answersArray = Array.isArray(item.answers) ? item.answers : [];
         const answerMap = buildAnswerMap(item, answersArray);
-        const verbHints = item?.verb_hints && typeof item.verb_hints === 'object' && item.verb_hints !== null 
+        const verbHints = item?.verb_hints && typeof item.verb_hints === 'object' && item.verb_hints !== null && !Array.isArray(item.verb_hints)
             ? item.verb_hints 
             : {};
 
