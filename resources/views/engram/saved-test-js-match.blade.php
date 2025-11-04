@@ -71,6 +71,11 @@
         box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.25);
         background: #f0f9ff;
     }
+    .match-card.selected {
+        border-color: #8b5cf6;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.35);
+        background: #f5f3ff;
+    }
     .match-card.correct {
         background-color: #bbf7d0 !important;
         border-color: #22c55e !important;
@@ -95,6 +100,11 @@
         font-size: 0.875rem;
         font-weight: 700;
         margin-right: 10px;
+    }
+    @media (max-width: 767px) {
+        .match-card-label {
+            display: none;
+        }
     }
     .match-card-meta {
         margin-top: 6px;
@@ -137,6 +147,8 @@ const matchState = {
     evaluated: false,
     correct: 0,
 };
+
+let clickSelectedElement = null;
 
 const matchBoard = document.getElementById('match-board');
 const svg = document.getElementById('match-svg');
@@ -330,6 +342,14 @@ function attachItemEvents(el) {
         startConnection(el);
     });
 
+    el.addEventListener('click', (event) => {
+        if (!matchState.items.length) {
+            return;
+        }
+        event.preventDefault();
+        handleClickConnection(el);
+    });
+
     el.addEventListener('dblclick', () => {
         removeConnectionForElement(el);
     });
@@ -395,6 +415,47 @@ function handlePointerUp(event) {
     const rightEl = startIsLeft ? dropTarget : activeStart;
 
     activeStart = null;
+    applyConnection(leftEl.dataset.key, rightEl.dataset.key);
+}
+
+function handleClickConnection(el) {
+    if (!el) {
+        return;
+    }
+
+    // If no element is selected yet, select this one
+    if (!clickSelectedElement) {
+        clickSelectedElement = el;
+        el.classList.add('selected');
+        return;
+    }
+
+    // If clicking the same element, deselect it
+    if (clickSelectedElement === el) {
+        clickSelectedElement.classList.remove('selected');
+        clickSelectedElement = null;
+        return;
+    }
+
+    // Check if both elements are in different columns
+    const startIsLeft = clickSelectedElement.classList.contains('match-sentence');
+    const targetIsLeft = el.classList.contains('match-sentence');
+
+    // If both in the same column, switch selection
+    if (startIsLeft === targetIsLeft) {
+        clickSelectedElement.classList.remove('selected');
+        clickSelectedElement = el;
+        el.classList.add('selected');
+        return;
+    }
+
+    // Create connection between different columns
+    const leftEl = startIsLeft ? clickSelectedElement : el;
+    const rightEl = startIsLeft ? el : clickSelectedElement;
+
+    clickSelectedElement.classList.remove('selected');
+    clickSelectedElement = null;
+    
     applyConnection(leftEl.dataset.key, rightEl.dataset.key);
 }
 
@@ -510,13 +571,19 @@ function renderColumns() {
 function renderConnections() {
     svg.querySelectorAll('line[data-conn]').forEach(line => line.remove());
 
+    // Clear click selection
+    if (clickSelectedElement) {
+        clickSelectedElement.classList.remove('selected');
+        clickSelectedElement = null;
+    }
+
     const itemMap = getItemMap();
 
     const leftCards = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
     const rightCards = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
 
-    leftCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect'));
-    rightCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect'));
+    leftCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
+    rightCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
 
     matchState.connections.forEach(conn => {
         const leftEl = leftCards.get(conn.leftKey);
