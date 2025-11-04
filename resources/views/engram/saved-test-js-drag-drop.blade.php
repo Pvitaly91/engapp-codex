@@ -357,9 +357,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const sentence = line || '';
         const answersArray = Array.isArray(item.answers) ? item.answers : [];
         const answerMap = buildAnswerMap(item, answersArray);
-        const verbHints = item && typeof item.verb_hints === 'object' && item.verb_hints !== null 
-            ? item.verb_hints 
-            : {};
+        const verbHints = item?.verb_hints && typeof item.verb_hints === 'object' ? item.verb_hints : {};
 
         const placeholderRegex = /\{a(\d+)\}/g;
         const segments = [];
@@ -1071,7 +1069,8 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         drop.className = 'drag-quiz__drop';
         drop.dataset.questionIndex = String(questionIndex);
         drop.dataset.blankIndex = String(blankIndex);
-        const placeholderText = verbHint ? String(verbHint).trim() : '_____';
+        const trimmed = String(verbHint).trim();
+        const placeholderText = trimmed || '_____';
         drop.textContent = placeholderText;
         drop.dataset.placeholder = placeholderText;
         drop.tabIndex = 0;
