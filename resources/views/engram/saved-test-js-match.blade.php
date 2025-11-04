@@ -581,8 +581,15 @@ function renderConnections() {
     const leftCards = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
     const rightCards = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
 
-    leftCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
-    rightCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
+    // Reset heights first
+    leftCards.forEach(card => {
+        card.style.minHeight = '';
+        card.classList.remove('connected', 'correct', 'incorrect', 'selected');
+    });
+    rightCards.forEach(card => {
+        card.style.minHeight = '';
+        card.classList.remove('connected', 'correct', 'incorrect', 'selected');
+    });
 
     matchState.connections.forEach(conn => {
         const leftEl = leftCards.get(conn.leftKey);
@@ -603,6 +610,16 @@ function renderConnections() {
                 leftEl.classList.add('incorrect');
                 rightEl.classList.add('incorrect');
             }
+        }
+
+        // Equalize heights of connected elements
+        const leftHeight = leftEl.offsetHeight;
+        const rightHeight = rightEl.offsetHeight;
+        const maxHeight = Math.max(leftHeight, rightHeight);
+        
+        if (leftHeight !== rightHeight) {
+            leftEl.style.minHeight = `${maxHeight}px`;
+            rightEl.style.minHeight = `${maxHeight}px`;
         }
 
         const { x: x1, y: y1 } = getCenter(leftEl);
