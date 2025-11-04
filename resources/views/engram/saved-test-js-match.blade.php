@@ -360,6 +360,12 @@ function startConnection(el) {
         return;
     }
 
+    // Skip drag mode on mobile devices (< 768px)
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (isMobile) {
+        return;
+    }
+
     activeStart = el;
     const { x, y } = getCenter(el);
     tempLine = createLine(x, y, x, y, '#94a3b8');
@@ -642,14 +648,18 @@ function renderConnections() {
             }
         }
 
-        const { x: x1, y: y1 } = getCenter(leftEl);
-        const { x: x2, y: y2 } = getCenter(rightEl);
-        const stroke = matchState.evaluated
-            ? (conn.correct ? '#22c55e' : '#ef4444')
-            : '#0f172a';
-        const line = createLine(x1, y1, x2, y2, stroke);
-        line.dataset.conn = `${conn.leftKey}|${conn.rightKey}`;
-        svg.appendChild(line);
+        // Only draw connection lines on desktop (screens >= 768px)
+        const isMobile = window.matchMedia('(max-width: 767px)').matches;
+        if (!isMobile) {
+            const { x: x1, y: y1 } = getCenter(leftEl);
+            const { x: x2, y: y2 } = getCenter(rightEl);
+            const stroke = matchState.evaluated
+                ? (conn.correct ? '#22c55e' : '#ef4444')
+                : '#0f172a';
+            const line = createLine(x1, y1, x2, y2, stroke);
+            line.dataset.conn = `${conn.leftKey}|${conn.rightKey}`;
+            svg.appendChild(line);
+        }
     });
     
     // Re-equalize heights after adding classes that might affect height
