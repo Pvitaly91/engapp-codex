@@ -19,6 +19,15 @@ class ModalDeductionPossibilityPracticeV22Dialogue2Seeder extends QuestionSeeder
         'C2' => 5,
     ];
 
+    /**
+     * Parse answer string and return array of correct answers.
+     * Handles multiple answers separated by ' / '.
+     */
+    private function parseCorrectAnswers(string $answer): array
+    {
+        return array_map('trim', explode('/', $answer));
+    }
+
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Modal Deduction & Possibility Practice V2-2'])->id;
@@ -171,8 +180,7 @@ class ModalDeductionPossibilityPracticeV22Dialogue2Seeder extends QuestionSeeder
             $level = $entry['level'];
 
             $answers = collect($entry['answers'] ?? [])->map(function (array $answer) {
-                // Handle multiple correct answers separated by " / "
-                $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+                $correctAnswers = $this->parseCorrectAnswers($answer['answer']);
 
                 return [
                     'marker' => $answer['marker'],
@@ -197,19 +205,19 @@ class ModalDeductionPossibilityPracticeV22Dialogue2Seeder extends QuestionSeeder
             ];
 
             $answerMap = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
-                $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+                $correctAnswers = $this->parseCorrectAnswers($answer['answer']);
 
                 return [$answer['marker'] => $correctAnswers[0]];
             })->all();
 
             $optionMarkers = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
-                $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+                $correctAnswers = $this->parseCorrectAnswers($answer['answer']);
 
                 return [$correctAnswers[0] => $answer['marker']];
             })->all();
 
             $explanations = collect($entry['answers'] ?? [])->mapWithKeys(function ($answer) {
-                $correctAnswers = array_map('trim', explode('/', $answer['answer']));
+                $correctAnswers = $this->parseCorrectAnswers($answer['answer']);
 
                 return [
                     $correctAnswers[0] => $answer['explanation'] ?? '',
