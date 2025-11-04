@@ -455,7 +455,6 @@ function handleClickConnection(el) {
 
     clickSelectedElement.classList.remove('selected');
     clickSelectedElement = null;
-    
     applyConnection(leftEl.dataset.key, rightEl.dataset.key);
 }
 
