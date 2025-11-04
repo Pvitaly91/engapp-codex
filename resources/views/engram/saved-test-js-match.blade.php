@@ -27,7 +27,7 @@
         </h1>
     <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm" id="match-board">
         <svg id="match-svg" class="pointer-events-none absolute inset-0 h-full w-full"></svg>
-        <div class="grid gap-10 md:grid-cols-2" id="match-columns">
+        <div class="grid gap-4 sm:gap-6 md:gap-10 grid-cols-2" id="match-columns">
             <div class="space-y-3" id="match-left"></div>
             <div class="space-y-3" id="match-right"></div>
         </div>
