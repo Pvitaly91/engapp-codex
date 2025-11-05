@@ -293,7 +293,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
         ];
         
         $optionLower = mb_strtolower(trim($option));
-        $baseExplanation = $explanations[$optionLower] ?? "✅ «$option» правильно для даного контексту.";
+        $baseExplanation = $explanations[$optionLower] ?? "✅ «{$option}» правильно для даного контексту.";
         
         return $baseExplanation . "\nПриклад: *$example*";
     }
@@ -318,7 +318,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
         $optionLower = mb_strtolower(trim($option));
         $reason = $incorrectReasons[$optionLower] ?? 'не підходить за змістом';
         
-        return "❌ «$option» $reason.\nПравильна відповідь: *$example*";
+        return "❌ «{$option}» $reason.\nПравильна відповідь: *$example*";
     }
 
     private function getQuestionData(): array
