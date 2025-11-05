@@ -206,7 +206,22 @@
                                                         </div>
                                                         <div>
                                                             <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Теги') }}</dt>
-                                                            <dd>{{ $questionTags->isEmpty() ? __('Без тегів') : $questionTags->implode(', ') }}</dd>
+                                                            <dd>
+                                                                @if($questionTags->isEmpty())
+                                                                    {{ __('Без тегів') }}
+                                                                @else
+                                                                    <div class="flex flex-wrap gap-1.5 mt-1">
+                                                                        @foreach($questionTags as $tag)
+                                                                            <span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 text-xs font-medium">
+                                                                                {{ $tag['name'] }}
+                                                                                @if(filled($tag['category']))
+                                                                                    <span class="text-indigo-500">({{ $tag['category'] }})</span>
+                                                                                @endif
+                                                                            </span>
+                                                                        @endforeach
+                                                                    </div>
+                                                                @endif
+                                                            </dd>
                                                         </div>
                                                         <div>
                                                             <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wide">{{ __('Теми') }}</dt>
@@ -317,6 +332,79 @@
                         </div>
                     @endforeach
                 </div>
+
+                {{-- Tags Summary Block --}}
+                @php
+                    $tagsSummary = collect($preview['tagsSummary'] ?? []);
+                @endphp
+
+                @if($tagsSummary->isNotEmpty())
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('Усі теги в сидері') }}</h2>
+                        <p class="text-sm text-gray-500 mb-4">
+                            {{ __('Перелік усіх унікальних тегів, які присутні в цьому сидері. Нові теги будуть додані до бази даних під час виконання сидера.') }}
+                        </p>
+                        
+                        @php
+                            $newTags = $tagsSummary->where('is_new', true);
+                            $existingTags = $tagsSummary->where('is_new', false);
+                        @endphp
+
+                        <div class="space-y-4">
+                            @if($newTags->isNotEmpty())
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-green-100 text-green-800 text-xs font-medium">
+                                            {{ __('Нові') }}
+                                        </span>
+                                        <span>{{ trans_choice('{1} :count тег|[2,4] :count теги|[5,*] :count тегів', $newTags->count(), ['count' => $newTags->count()]) }}</span>
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($newTags as $tag)
+                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium">
+                                                <svg class="w-4 h-4 mr-1.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                                </svg>
+                                                {{ $tag['name'] }}
+                                                @if(filled($tag['category']))
+                                                    <span class="ml-1.5 text-xs text-green-600">({{ $tag['category'] }})</span>
+                                                @endif
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if($existingTags->isNotEmpty())
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-medium">
+                                            {{ __('Існуючі') }}
+                                        </span>
+                                        <span>{{ trans_choice('{1} :count тег|[2,4] :count теги|[5,*] :count тегів', $existingTags->count(), ['count' => $existingTags->count()]) }}</span>
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($existingTags as $tag)
+                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-800 text-sm font-medium">
+                                                <svg class="w-4 h-4 mr-1.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                                </svg>
+                                                {{ $tag['name'] }}
+                                                @if(filled($tag['category']))
+                                                    <span class="ml-1.5 text-xs text-blue-600">({{ $tag['category'] }})</span>
+                                                @endif
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+
+                        @if($newTags->isEmpty() && $existingTags->isEmpty())
+                            <p class="text-sm text-gray-500">{{ __('У цьому сидері немає тегів.') }}</p>
+                        @endif
+                    </div>
+                @endif
             @endif
         @elseif($previewType === 'page')
             <div class="bg-white shadow rounded-lg p-6 space-y-4">

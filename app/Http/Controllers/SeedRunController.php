@@ -589,6 +589,35 @@ class SeedRunController extends Controller
                     ];
                 })
                 ->values();
+
+            // Collect all unique tags from the preview questions
+            $allTags = $questions
+                ->flatMap(fn (Question $question) => $question->tags)
+                ->unique(fn ($tag) => $tag->name . '|' . ($tag->category ?? ''))
+                ->values();
+
+            // Get existing tags from database to compare
+            $existingTagNames = collect();
+            if (Schema::hasTable('tags')) {
+                $existingTagNames = \App\Models\Tag::query()
+                    ->pluck('name', 'id')
+                    ->flip();
+            }
+
+            // Categorize tags as new or existing
+            $tagsSummary = $allTags
+                ->map(function ($tag) use ($existingTagNames) {
+                    $isExisting = $existingTagNames->has($tag->name);
+                    
+                    return [
+                        'id' => $tag->id,
+                        'name' => $tag->name,
+                        'category' => $tag->category,
+                        'is_new' => !$isExisting,
+                    ];
+                })
+                ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)
+                ->values();
         } finally {
             DB::rollBack();
         }
@@ -597,6 +626,7 @@ class SeedRunController extends Controller
             'type' => 'questions',
             'questions' => $previewQuestions,
             'existingQuestionCount' => $existingQuestionCount,
+            'tagsSummary' => $tagsSummary,
         ];
     }
 
