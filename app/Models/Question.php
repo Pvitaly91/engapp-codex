@@ -3,16 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tag;
-use App\Models\QuestionVariant;
-use App\Models\QuestionHint;
 
 class Question extends Model
 {
+    public const TYPE_MATCH = '1';
+
+    public const TYPE_DIALOGUE = '2';
+
+    public const TYPE_DRAG_DROP = '3';
+
     protected $casts = [
         'flag' => 'integer',
     ];
-
 
     public function renderQuestionText(): string
     {
@@ -20,13 +22,22 @@ class Question extends Model
 
         foreach ($this->answers as $answer) {
             $replacement = $answer->option->option ?? $answer->answer;
-            $questionText = str_replace('{' . $answer->marker . '}', $replacement, $questionText);
+            $questionText = str_replace('{'.$answer->marker.'}', $replacement, $questionText);
         }
 
         return $questionText;
     }
 
-    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder'];
+    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder', 'type'];
+
+    public static function typeLabels(): array
+    {
+        return [
+            self::TYPE_MATCH => 'Match (відповідність пар)',
+            self::TYPE_DIALOGUE => 'Dialogue (діалог)',
+            self::TYPE_DRAG_DROP => 'Drag & Drop (перетягування)',
+        ];
+    }
 
     public function category()
     {

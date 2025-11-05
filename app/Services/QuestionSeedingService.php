@@ -116,6 +116,11 @@ class QuestionSeedingService
             $attributes['seeder'] = $seederClass;
         }
 
+        if (Schema::hasColumn('questions', 'type')) {
+            $type = $data['type'] ?? null;
+            $attributes['type'] = $type === null ? null : (string) $type;
+        }
+
         return $attributes;
     }
 

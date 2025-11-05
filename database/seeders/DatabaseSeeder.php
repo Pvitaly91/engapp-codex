@@ -5,30 +5,35 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
 use App\Support\Database\Seeder;
+use Database\Seeders\Ai\ConditionalsComprehensiveAiSeeder;
+use Database\Seeders\Ai\ConditionalsMixedPracticeCustomSeeder;
+use Database\Seeders\Ai\ConditionalsModalComprehensiveAiSeeder;
 use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
-use Database\Seeders\Ai\ConditionalsComprehensiveAiSeeder;
-use Database\Seeders\Ai\ConditionalsModalComprehensiveAiSeeder;
-use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\ModalVerbsComprehensiveAiSeeder;
 use Database\Seeders\Ai\ModalVerbsModalOnlyAiSeeder;
+use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
 use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
-use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
-use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
-use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
-use Database\Seeders\V2\FirstConditionalChooseABCV2Seeder;
-use Database\Seeders\V2\SecondConditionalTestV2Seeder;
 use Database\Seeders\V2\ConditionalsMixedPracticeV2Seeder;
-use Database\Seeders\Ai\ConditionalsMixedPracticeCustomSeeder;
-use Database\Seeders\V2\MixedConditionalsBridgePracticeV2Seeder;
 use Database\Seeders\V2\ConditionalsType1And2WorksheetV2Seeder;
 use Database\Seeders\V2\ConditionalsZeroToSecondWorksheetV2Seeder;
+use Database\Seeders\V2\FirstConditionalChooseABCV2Seeder;
+use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
+use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
-use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
-use Database\Seeders\V2\Modals\ModalObligationNecessityV2Seeder;
+use Database\Seeders\V2\MixedConditionalsBridgePracticeV2Seeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue1Seeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue2Seeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22DialogueSeeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22DragDropSeeder;
+use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22MatchSeeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityV2Seeder;
+use Database\Seeders\V2\Modals\ModalObligationNecessityV2Seeder;
+use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
+use Database\Seeders\V2\SecondConditionalTestV2Seeder;
+use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -126,6 +131,11 @@ class DatabaseSeeder extends Seeder
             FutureTensesPracticeV2Seeder::class,
             ModalObligationNecessityV2Seeder::class,
             ModalDeductionPossibilityV2Seeder::class,
+            ModalDeductionPossibilityPracticeV22MatchSeeder::class,
+            ModalDeductionPossibilityPracticeV22DialogueSeeder::class,
+            ModalDeductionPossibilityPracticeV22DragDropSeeder::class,
+            ModalDeductionPossibilityPracticeV22Dialogue1Seeder::class,
+            ModalDeductionPossibilityPracticeV22Dialogue2Seeder::class,
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
             SecondConditionalTestV2Seeder::class,
