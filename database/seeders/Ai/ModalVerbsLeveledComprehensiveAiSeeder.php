@@ -321,11 +321,6 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
         return "❌ «$option» $reason.\nПравильна відповідь: *$example*";
     }
 
-    private function formatExample(string $question, string $answer): string
-    {
-        return str_replace('{a1}', $answer, $question);
-    }
-
     private function getQuestionData(): array
     {
         return [
