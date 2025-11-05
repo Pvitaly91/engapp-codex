@@ -593,14 +593,16 @@ class SeedRunController extends Controller
             // Collect all unique tags from the preview questions
             $allTags = $questions
                 ->flatMap(fn (Question $question) => $question->tags)
-                ->unique(fn ($tag) => $tag->name . '|' . ($tag->category ?? ''))
+                ->unique(function ($tag) {
+                    return $tag->id ?? ($tag->name . "\x00" . ($tag->category ?? ''));
+                })
                 ->values();
 
             // Get existing tags from database to compare
             $existingTagNames = collect();
             if (Schema::hasTable('tags')) {
                 $existingTagNames = \App\Models\Tag::query()
-                    ->pluck('name', 'id')
+                    ->pluck('name')
                     ->flip();
             }
 

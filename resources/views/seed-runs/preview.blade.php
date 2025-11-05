@@ -399,10 +399,6 @@
                                 </div>
                             @endif
                         </div>
-
-                        @if($newTags->isEmpty() && $existingTags->isEmpty())
-                            <p class="text-sm text-gray-500">{{ __('У цьому сидері немає тегів.') }}</p>
-                        @endif
                     </div>
                 @endif
             @endif
