@@ -27,7 +27,7 @@
         </h1>
     <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm" id="match-board">
         <svg id="match-svg" class="pointer-events-none absolute inset-0 h-full w-full"></svg>
-        <div class="grid gap-10 md:grid-cols-2" id="match-columns">
+        <div class="grid gap-4 sm:gap-6 md:gap-10 grid-cols-2" id="match-columns">
             <div class="space-y-3" id="match-left"></div>
             <div class="space-y-3" id="match-right"></div>
         </div>
@@ -71,6 +71,11 @@
         box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.25);
         background: #f0f9ff;
     }
+    .match-card.selected {
+        border-color: #8b5cf6;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.35);
+        background: #f5f3ff;
+    }
     .match-card.correct {
         background-color: #bbf7d0 !important;
         border-color: #22c55e !important;
@@ -95,6 +100,11 @@
         font-size: 0.875rem;
         font-weight: 700;
         margin-right: 10px;
+    }
+    @media (max-width: 767px) {
+        .match-card-label {
+            display: none;
+        }
     }
     .match-card-meta {
         margin-top: 6px;
@@ -137,6 +147,8 @@ const matchState = {
     evaluated: false,
     correct: 0,
 };
+
+let clickSelectedElement = null;
 
 const matchBoard = document.getElementById('match-board');
 const svg = document.getElementById('match-svg');
@@ -330,6 +342,14 @@ function attachItemEvents(el) {
         startConnection(el);
     });
 
+    el.addEventListener('click', (event) => {
+        if (!matchState.items.length) {
+            return;
+        }
+        event.preventDefault();
+        handleClickConnection(el);
+    });
+
     el.addEventListener('dblclick', () => {
         removeConnectionForElement(el);
     });
@@ -337,6 +357,12 @@ function attachItemEvents(el) {
 
 function startConnection(el) {
     if (!el) {
+        return;
+    }
+
+    // Skip drag mode on mobile devices (< 768px)
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (isMobile) {
         return;
     }
 
@@ -395,6 +421,46 @@ function handlePointerUp(event) {
     const rightEl = startIsLeft ? dropTarget : activeStart;
 
     activeStart = null;
+    applyConnection(leftEl.dataset.key, rightEl.dataset.key);
+}
+
+function handleClickConnection(el) {
+    if (!el) {
+        return;
+    }
+
+    // If no element is selected yet, select this one
+    if (!clickSelectedElement) {
+        clickSelectedElement = el;
+        el.classList.add('selected');
+        return;
+    }
+
+    // If clicking the same element, deselect it
+    if (clickSelectedElement === el) {
+        clickSelectedElement.classList.remove('selected');
+        clickSelectedElement = null;
+        return;
+    }
+
+    // Check if both elements are in different columns
+    const startIsLeft = clickSelectedElement.classList.contains('match-sentence');
+    const targetIsLeft = el.classList.contains('match-sentence');
+
+    // If both in the same column, switch selection
+    if (startIsLeft === targetIsLeft) {
+        clickSelectedElement.classList.remove('selected');
+        clickSelectedElement = el;
+        el.classList.add('selected');
+        return;
+    }
+
+    // Create connection between different columns
+    const leftEl = startIsLeft ? clickSelectedElement : el;
+    const rightEl = startIsLeft ? el : clickSelectedElement;
+
+    clickSelectedElement.classList.remove('selected');
+    clickSelectedElement = null;
     applyConnection(leftEl.dataset.key, rightEl.dataset.key);
 }
 
@@ -503,6 +569,43 @@ function renderColumns() {
     });
 
     updateEmptyState();
+    
+    // Equalize heights of elements at the same row position
+    equalizeRowHeights();
+}
+
+function equalizeRowHeights() {
+    const leftCards = Array.from(leftCol.querySelectorAll('.match-card'));
+    const rightCards = Array.from(rightCol.querySelectorAll('.match-card'));
+    
+    // Reset heights first
+    leftCards.forEach(card => card.style.minHeight = '');
+    rightCards.forEach(card => card.style.minHeight = '');
+    
+    // Batch read heights
+    const heightPairs = [];
+    const maxCount = Math.max(leftCards.length, rightCards.length);
+    
+    for (let i = 0; i < maxCount; i++) {
+        const leftCard = leftCards[i];
+        const rightCard = rightCards[i];
+        
+        if (leftCard && rightCard) {
+            const leftHeight = leftCard.offsetHeight;
+            const rightHeight = rightCard.offsetHeight;
+            const maxHeight = Math.max(leftHeight, rightHeight);
+            
+            if (leftHeight !== rightHeight) {
+                heightPairs.push({ leftCard, rightCard, maxHeight });
+            }
+        }
+    }
+    
+    // Batch write heights
+    heightPairs.forEach(({ leftCard, rightCard, maxHeight }) => {
+        leftCard.style.minHeight = `${maxHeight}px`;
+        rightCard.style.minHeight = `${maxHeight}px`;
+    });
 }
 
 
@@ -510,13 +613,19 @@ function renderColumns() {
 function renderConnections() {
     svg.querySelectorAll('line[data-conn]').forEach(line => line.remove());
 
+    // Clear click selection
+    if (clickSelectedElement) {
+        clickSelectedElement.classList.remove('selected');
+        clickSelectedElement = null;
+    }
+
     const itemMap = getItemMap();
 
     const leftCards = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
     const rightCards = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
 
-    leftCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect'));
-    rightCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect'));
+    leftCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
+    rightCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
 
     matchState.connections.forEach(conn => {
         const leftEl = leftCards.get(conn.leftKey);
@@ -548,6 +657,9 @@ function renderConnections() {
         line.dataset.conn = `${conn.leftKey}|${conn.rightKey}`;
         svg.appendChild(line);
     });
+    
+    // Re-equalize heights after adding classes that might affect height
+    equalizeRowHeights();
 }
 
 function getCenter(el) {
