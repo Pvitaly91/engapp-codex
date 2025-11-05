@@ -330,7 +330,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
     {
         return [
             // -------------------------
-            // A1 — 12 питань
+            // A1 — 13 питань
             // -------------------------
 
             // Ability & Permission (can / can't)
