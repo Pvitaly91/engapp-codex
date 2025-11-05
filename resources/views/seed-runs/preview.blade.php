@@ -88,6 +88,90 @@
         </div>
 
         @if($previewType === 'questions')
+            {{-- Tags Summary Block - Moved to top and made collapsible --}}
+            @php
+                $tagsSummary = collect($preview['tagsSummary'] ?? []);
+            @endphp
+
+            @if($tagsSummary->isNotEmpty())
+                <div class="bg-white shadow rounded-lg overflow-hidden" data-tags-summary-section>
+                    <button type="button"
+                            class="w-full flex items-center justify-between gap-3 px-6 py-4 text-left transition hover:bg-slate-50"
+                            data-tags-summary-toggle
+                            aria-expanded="true">
+                        <div>
+                            <h2 class="text-lg font-semibold text-gray-800">{{ __('Усі теги в сидері') }}</h2>
+                            <p class="text-sm text-gray-500 mt-1">
+                                {{ __('Перелік усіх унікальних тегів, які присутні в цьому сидері. Нові теги будуть додані до бази даних під час виконання сидера.') }}
+                            </p>
+                        </div>
+                        <svg class="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200 rotate-180"
+                             viewBox="0 0 20 20"
+                             fill="currentColor"
+                             data-tags-summary-icon>
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <div class="border-t border-slate-200 px-6 py-4" data-tags-summary-content>
+                        @php
+                            $newTags = $tagsSummary->where('is_new', true);
+                            $existingTags = $tagsSummary->where('is_new', false);
+                        @endphp
+
+                        <div class="space-y-4">
+                            @if($newTags->isNotEmpty())
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-green-100 text-green-800 text-xs font-medium">
+                                            {{ __('Нові') }}
+                                        </span>
+                                        <span>{{ trans_choice('{1} :count тег|[2,4] :count теги|[5,*] :count тегів', $newTags->count(), ['count' => $newTags->count()]) }}</span>
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($newTags as $tag)
+                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium">
+                                                <svg class="w-4 h-4 mr-1.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                                </svg>
+                                                {{ $tag['name'] }}
+                                                @if(filled($tag['category']))
+                                                    <span class="ml-1.5 text-xs text-green-600">({{ $tag['category'] }})</span>
+                                                @endif
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if($existingTags->isNotEmpty())
+                                <div>
+                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-medium">
+                                            {{ __('Існуючі') }}
+                                        </span>
+                                        <span>{{ trans_choice('{1} :count тег|[2,4] :count теги|[5,*] :count тегів', $existingTags->count(), ['count' => $existingTags->count()]) }}</span>
+                                    </h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($existingTags as $tag)
+                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-800 text-sm font-medium">
+                                                <svg class="w-4 h-4 mr-1.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                                </svg>
+                                                {{ $tag['name'] }}
+                                                @if(filled($tag['category']))
+                                                    <span class="ml-1.5 text-xs text-blue-600">({{ $tag['category'] }})</span>
+                                                @endif
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endif
+
             @if($questionPreviews->isEmpty())
                 <div class="bg-white shadow rounded-lg p-6">
                     <p class="text-sm text-gray-500">
@@ -332,75 +416,6 @@
                         </div>
                     @endforeach
                 </div>
-
-                {{-- Tags Summary Block --}}
-                @php
-                    $tagsSummary = collect($preview['tagsSummary'] ?? []);
-                @endphp
-
-                @if($tagsSummary->isNotEmpty())
-                    <div class="bg-white shadow rounded-lg p-6">
-                        <h2 class="text-lg font-semibold text-gray-800 mb-4">{{ __('Усі теги в сидері') }}</h2>
-                        <p class="text-sm text-gray-500 mb-4">
-                            {{ __('Перелік усіх унікальних тегів, які присутні в цьому сидері. Нові теги будуть додані до бази даних під час виконання сидера.') }}
-                        </p>
-                        
-                        @php
-                            $newTags = $tagsSummary->where('is_new', true);
-                            $existingTags = $tagsSummary->where('is_new', false);
-                        @endphp
-
-                        <div class="space-y-4">
-                            @if($newTags->isNotEmpty())
-                                <div>
-                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
-                                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-green-100 text-green-800 text-xs font-medium">
-                                            {{ __('Нові') }}
-                                        </span>
-                                        <span>{{ trans_choice('{1} :count тег|[2,4] :count теги|[5,*] :count тегів', $newTags->count(), ['count' => $newTags->count()]) }}</span>
-                                    </h3>
-                                    <div class="flex flex-wrap gap-2">
-                                        @foreach($newTags as $tag)
-                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium">
-                                                <svg class="w-4 h-4 mr-1.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                                                </svg>
-                                                {{ $tag['name'] }}
-                                                @if(filled($tag['category']))
-                                                    <span class="ml-1.5 text-xs text-green-600">({{ $tag['category'] }})</span>
-                                                @endif
-                                            </span>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            @endif
-
-                            @if($existingTags->isNotEmpty())
-                                <div>
-                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
-                                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-medium">
-                                            {{ __('Існуючі') }}
-                                        </span>
-                                        <span>{{ trans_choice('{1} :count тег|[2,4] :count теги|[5,*] :count тегів', $existingTags->count(), ['count' => $existingTags->count()]) }}</span>
-                                    </h3>
-                                    <div class="flex flex-wrap gap-2">
-                                        @foreach($existingTags as $tag)
-                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-800 text-sm font-medium">
-                                                <svg class="w-4 h-4 mr-1.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                                </svg>
-                                                {{ $tag['name'] }}
-                                                @if(filled($tag['category']))
-                                                    <span class="ml-1.5 text-xs text-blue-600">({{ $tag['category'] }})</span>
-                                                @endif
-                                            </span>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                @endif
             @endif
         @elseif($previewType === 'page')
             <div class="bg-white shadow rounded-lg p-6 space-y-4">
@@ -490,6 +505,35 @@
 
             const content = container.querySelector('[data-source-content]');
             const icon = toggle.querySelector('[data-source-toggle-icon]');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                toggle.setAttribute('aria-expanded', 'false');
+                content?.classList.add('hidden');
+                icon?.classList.remove('rotate-180');
+            } else {
+                toggle.setAttribute('aria-expanded', 'true');
+                content?.classList.remove('hidden');
+                icon?.classList.add('rotate-180');
+            }
+        });
+
+        // Tags summary toggle
+        document.addEventListener('click', function (event) {
+            const toggle = event.target.closest('[data-tags-summary-toggle]');
+
+            if (!toggle) {
+                return;
+            }
+
+            const section = toggle.closest('[data-tags-summary-section]');
+
+            if (!section) {
+                return;
+            }
+
+            const content = section.querySelector('[data-tags-summary-content]');
+            const icon = toggle.querySelector('[data-tags-summary-icon]');
             const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
             if (isExpanded) {
