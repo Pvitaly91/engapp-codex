@@ -15,7 +15,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
         'B1' => 3,
         'B2' => 4,
         'C1' => 5,
-        'C2' => 5,
+        'C2' => 6,
     ];
 
     public function run(): void
@@ -177,29 +177,29 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
         $tags = [];
         $answerLower = mb_strtolower(trim($answer));
         
-        // Map modals to tag keys
+        // Map modals to tag keys - ordered by specificity (longer strings first)
         $modalMap = [
-            'can' => 'can_could',
             'can\'t' => 'can_could',
             'cannot' => 'can_could',
-            'could' => 'can_could',
             'couldn\'t' => 'can_could',
-            'may' => 'may_might',
+            'could' => 'can_could',
+            'can' => 'can_could',
             'may not' => 'may_might',
-            'might' => 'may_might',
             'might not' => 'may_might',
-            'must' => 'must_have_to',
+            'might' => 'may_might',
+            'may' => 'may_might',
             'mustn\'t' => 'must_have_to',
+            'must' => 'must_have_to',
             'have to' => 'must_have_to',
             'has to' => 'must_have_to',
             'had to' => 'must_have_to',
-            'should' => 'should_ought_to',
             'shouldn\'t' => 'should_ought_to',
+            'should' => 'should_ought_to',
             'ought to' => 'should_ought_to',
-            'will' => 'will_would',
             'won\'t' => 'will_would',
-            'would' => 'will_would',
             'wouldn\'t' => 'will_would',
+            'would' => 'will_would',
+            'will' => 'will_would',
             'shall' => 'shall',
         ];
         
