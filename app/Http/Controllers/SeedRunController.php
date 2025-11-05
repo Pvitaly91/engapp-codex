@@ -594,7 +594,8 @@ class SeedRunController extends Controller
             $allTags = $questions
                 ->flatMap(fn (Question $question) => $question->tags)
                 ->unique(function ($tag) {
-                    return $tag->id ?? ($tag->name . "\x00" . ($tag->category ?? ''));
+                    // Use ID if available, otherwise use name and category for uniqueness
+                    return $tag->id ?? ($tag->name . ':::' . ($tag->category ?? ''));
                 })
                 ->values();
 
