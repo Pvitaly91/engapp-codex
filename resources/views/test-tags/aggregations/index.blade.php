@@ -72,10 +72,15 @@
                                 required
                             >
                             <div id="main_tag_dropdown" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                                @foreach ($allTags as $tag)
-                                    <div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $tag->name }}">
-                                        {{ $tag->name }}
+                                @foreach ($tagsByCategory as $category => $tags)
+                                    <div class="px-3 py-2 bg-slate-100 text-xs font-semibold text-slate-600 sticky top-0">
+                                        {{ $category }}
                                     </div>
+                                    @foreach ($tags as $tag)
+                                        <div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $tag->name }}" data-category="{{ $category }}">
+                                            {{ $tag->name }}
+                                        </div>
+                                    @endforeach
                                 @endforeach
                             </div>
                         </div>
@@ -126,10 +131,15 @@
                                         required
                                     >
                                     <div class="tag-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                                        @foreach ($allTags as $tag)
-                                            <div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $tag->name }}">
-                                                {{ $tag->name }}
+                                        @foreach ($tagsByCategory as $category => $tags)
+                                            <div class="px-3 py-2 bg-slate-100 text-xs font-semibold text-slate-600 sticky top-0">
+                                                {{ $category }}
                                             </div>
+                                            @foreach ($tags as $tag)
+                                                <div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $tag->name }}" data-category="{{ $category }}">
+                                                    {{ $tag->name }}
+                                                </div>
+                                            @endforeach
                                         @endforeach
                                     </div>
                                 </div>
@@ -372,13 +382,32 @@
             const searchTerm = input.value.toLowerCase();
             let visibleCount = 0;
             
+            // Track which categories have visible items
+            const categoryVisibility = {};
+            
             options.forEach(option => {
                 const text = option.textContent.toLowerCase();
+                const category = option.dataset.category;
+                
                 if (text.includes(searchTerm)) {
                     option.classList.remove('hidden');
                     visibleCount++;
+                    if (category) {
+                        categoryVisibility[category] = true;
+                    }
                 } else {
                     option.classList.add('hidden');
+                }
+            });
+            
+            // Show/hide category headers based on whether they have visible items
+            const categoryHeaders = dropdown.querySelectorAll('.bg-slate-100');
+            categoryHeaders.forEach(header => {
+                const categoryName = header.textContent.trim();
+                if (categoryVisibility[categoryName]) {
+                    header.classList.remove('hidden');
+                } else {
+                    header.classList.add('hidden');
                 }
             });
             
@@ -404,7 +433,16 @@
 
         function addTagInput() {
             const container = document.getElementById('similar-tags-container');
-            const allTags = @json($allTags->pluck('name'));
+            const tagsByCategory = @json($tagsByCategory->map(function($tags) { return $tags->pluck('name'); }));
+            
+            // Build grouped HTML
+            let dropdownHTML = '';
+            Object.keys(tagsByCategory).forEach(category => {
+                dropdownHTML += `<div class="px-3 py-2 bg-slate-100 text-xs font-semibold text-slate-600 sticky top-0">${category}</div>`;
+                tagsByCategory[category].forEach(tag => {
+                    dropdownHTML += `<div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="${tag}" data-category="${category}">${tag}</div>`;
+                });
+            });
             
             const newInput = document.createElement('div');
             newInput.className = 'flex gap-2 tag-input-group';
@@ -419,7 +457,7 @@
                         required
                     >
                     <div class="tag-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                        ${allTags.map(tag => `<div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="${tag}">${tag}</div>`).join('')}
+                        ${dropdownHTML}
                     </div>
                 </div>
                 <button

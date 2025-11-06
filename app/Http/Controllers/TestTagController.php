@@ -514,6 +514,18 @@ class TestTagController extends Controller
     {
         $aggregations = $service->getAggregations();
         $allTags = Tag::orderBy('name')->get();
+        
+        // Group tags by category
+        $tagsByCategory = $allTags->groupBy(function ($tag) {
+            return $tag->category ?? 'Other';
+        })->sortKeys();
+        
+        // Move "Other" to the end if it exists
+        if ($tagsByCategory->has('Other')) {
+            $other = $tagsByCategory->pull('Other');
+            $tagsByCategory->put('Other', $other);
+        }
+        
         $categories = Tag::whereNotNull('category')
             ->distinct()
             ->pluck('category')
@@ -523,6 +535,7 @@ class TestTagController extends Controller
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
             'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
         ]);
     }
