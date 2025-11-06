@@ -88,20 +88,23 @@
                         <label for="category" class="block text-sm font-medium text-slate-700 mb-1">
                             Категорія (необов'язково)
                         </label>
-                        <input
-                            type="text"
-                            id="category"
-                            name="category"
-                            list="categories-list"
-                            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                            placeholder="Введіть категорію (наприклад: Tenses)"
-                            autocomplete="off"
-                        >
-                        <datalist id="categories-list">
-                            @foreach ($categories as $cat)
-                                <option value="{{ $cat }}">
-                            @endforeach
-                        </datalist>
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="category"
+                                name="category"
+                                class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="Почніть вводити для пошуку..."
+                                autocomplete="off"
+                            >
+                            <div id="category_dropdown" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                @foreach ($categories as $cat)
+                                    <div class="category-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $cat }}">
+                                        {{ $cat }}
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                         @error('category')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
@@ -228,6 +231,23 @@
                     Цей файл доступний у Git і може бути керований вручну або через цей інтерфейс.
                 </p>
             </section>
+
+            <section class="space-y-4">
+                <h2 class="text-xl font-semibold text-slate-800">JSON конфігурація</h2>
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-sm font-semibold text-slate-700">config/tags/aggregation.json</h3>
+                        <button
+                            type="button"
+                            onclick="copyJsonToClipboard()"
+                            class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                        >
+                            <i class="fa-solid fa-copy mr-2"></i>Копіювати
+                        </button>
+                    </div>
+                    <pre id="json-display" class="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs font-mono"><code>{{ json_encode(['aggregations' => $aggregations], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) }}</code></pre>
+                </div>
+            </section>
         </div>
     </div>
 
@@ -276,8 +296,46 @@
                 setupTagDropdown(mainTagInput, mainTagDropdown);
             }
             
+            // Category dropdown
+            const categoryInput = document.getElementById('category');
+            const categoryDropdown = document.getElementById('category_dropdown');
+            
+            if (categoryInput && categoryDropdown) {
+                setupCategoryDropdown(categoryInput, categoryDropdown);
+            }
+            
             // Similar tags dropdowns
             setupSimilarTagDropdowns();
+        }
+        
+        function setupCategoryDropdown(input, dropdown) {
+            const options = dropdown.querySelectorAll('.category-option');
+            
+            // Show dropdown on focus
+            input.addEventListener('focus', () => {
+                filterOptions(input, dropdown, options);
+                dropdown.classList.remove('hidden');
+            });
+            
+            // Filter on input
+            input.addEventListener('input', () => {
+                filterOptions(input, dropdown, options);
+            });
+            
+            // Select option on click
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    input.value = option.dataset.value;
+                    dropdown.classList.add('hidden');
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
         }
         
         function setupTagDropdown(input, dropdown) {
@@ -484,6 +542,28 @@
                 }
             });
         };
+
+        // Copy JSON to clipboard
+        function copyJsonToClipboard() {
+            const jsonDisplay = document.getElementById('json-display');
+            const text = jsonDisplay.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Show temporary success message
+                const button = event.target.closest('button');
+                const originalHtml = button.innerHTML;
+                button.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Скопійовано!';
+                button.classList.add('bg-green-50', 'text-green-700', 'border-green-300');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHtml;
+                    button.classList.remove('bg-green-50', 'text-green-700', 'border-green-300');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Не вдалося скопіювати в буфер обміну');
+            });
+        }
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
