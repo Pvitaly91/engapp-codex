@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use App\Models\Tag;
+use App\Services\ChatGPTService;
+use App\Services\GeminiService;
+use App\Services\TagAggregationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
-use Illuminate\Support\Str;
 
 class TestTagController extends Controller
 {
@@ -31,7 +35,7 @@ class TestTagController extends Controller
                 e($answerText)
             );
 
-            $questionText = str_replace('{' . $answer->marker . '}', $replacement, $questionText);
+            $questionText = str_replace('{'.$answer->marker.'}', $replacement, $questionText);
         }
 
         return nl2br($questionText);
@@ -42,11 +46,11 @@ class TestTagController extends Controller
         $parts = [];
 
         if (filled($question->difficulty)) {
-            $parts[] = 'Складність: ' . $question->difficulty;
+            $parts[] = 'Складність: '.$question->difficulty;
         }
 
         if (filled($question->level)) {
-            $parts[] = 'Рівень: ' . $question->level;
+            $parts[] = 'Рівень: '.$question->level;
         }
 
         if (empty($parts)) {
@@ -380,7 +384,7 @@ class TestTagController extends Controller
 
         $resolved = $this->normaliseCategoryParam($category);
 
-        if ($resolved !== null && !$categories->contains($resolved)) {
+        if ($resolved !== null && ! $categories->contains($resolved)) {
             abort(404);
         }
 
@@ -503,6 +507,168 @@ class TestTagController extends Controller
             return self::UNCATEGORIZED_KEY;
         }
 
-        return 'encoded:' . base64_encode($category);
+        return 'encoded:'.base64_encode($category);
+    }
+
+    public function aggregations(TagAggregationService $service): View
+    {
+        $aggregations = $service->getAggregations();
+        $allTags = Tag::orderBy('name')->get();
+        
+        // Group tags by category
+        $tagsByCategory = $allTags->groupBy(function ($tag) {
+            return $tag->category ?? 'Other';
+        })->sortKeys();
+        
+        // Move "Other" to the end if it exists
+        if ($tagsByCategory->has('Other')) {
+            $other = $tagsByCategory->pull('Other');
+            $tagsByCategory->put('Other', $other);
+        }
+        
+        $categories = Tag::whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->sort()
+            ->values();
+
+        return view('test-tags.aggregations.index', [
+            'aggregations' => $aggregations,
+            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function storeAggregation(Request $request, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'main_tag' => ['required', 'string', 'max:255'],
+            'similar_tags' => ['required', 'array', 'min:1'],
+            'similar_tags.*' => ['required', 'string', 'max:255'],
+            'category' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        $service->addAggregation(
+            $validated['main_tag'],
+            $validated['similar_tags'],
+            $validated['category'] ?? null
+        );
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Агрегацію тегів успішно створено.');
+    }
+
+    public function updateAggregation(Request $request, string $mainTag, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'similar_tags' => ['required', 'array', 'min:1'],
+            'similar_tags.*' => ['required', 'string', 'max:255'],
+            'category' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        $updated = $service->updateAggregation(
+            $mainTag,
+            $validated['similar_tags'],
+            $validated['category'] ?? null
+        );
+
+        if (! $updated) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Агрегацію не знайдено.');
+        }
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Агрегацію тегів успішно оновлено.');
+    }
+
+    public function destroyAggregation(string $mainTag, TagAggregationService $service): RedirectResponse
+    {
+        $service->removeAggregation($mainTag);
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Агрегацію тегів видалено.');
+    }
+
+    public function autoAggregations(GeminiService $gemini, TagAggregationService $service): RedirectResponse
+    {
+        $tags = Tag::orderBy('name')->get();
+
+        if ($tags->isEmpty()) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Немає тегів для агрегації.');
+        }
+
+        $tagNames = $tags->pluck('name')->toArray();
+        $tagCategories = $tags->pluck('category', 'name')->toArray();
+
+        try {
+            $suggestions = $gemini->suggestTagAggregations($tagNames);
+
+            $count = 0;
+            foreach ($suggestions as $suggestion) {
+                // Get category from the main tag
+                $category = $tagCategories[$suggestion['main_tag']] ?? null;
+                
+                $service->addAggregation(
+                    $suggestion['main_tag'],
+                    $suggestion['similar_tags'],
+                    $category
+                );
+                $count++;
+            }
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', "Автоматично створено агрегацій: {$count}.");
+        } catch (\Exception $e) {
+            Log::error('Gemini auto aggregation failed: '.$e->getMessage(), [
+                'exception' => $e,
+                'tags_count' => count($tagNames),
+            ]);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Помилка Gemini: '.$e->getMessage());
+        }
+    }
+
+    public function autoAggregationsChatGPT(ChatGPTService $chatGPT, TagAggregationService $service): RedirectResponse
+    {
+        $tags = Tag::orderBy('name')->get();
+
+        if ($tags->isEmpty()) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Немає тегів для агрегації.');
+        }
+
+        $tagNames = $tags->pluck('name')->toArray();
+        $tagCategories = $tags->pluck('category', 'name')->toArray();
+
+        try {
+            $suggestions = $chatGPT->suggestTagAggregations($tagNames);
+
+            $count = 0;
+            foreach ($suggestions as $suggestion) {
+                // Get category from the main tag
+                $category = $tagCategories[$suggestion['main_tag']] ?? null;
+                
+                $service->addAggregation(
+                    $suggestion['main_tag'],
+                    $suggestion['similar_tags'],
+                    $category
+                );
+                $count++;
+            }
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', "Автоматично створено агрегацій: {$count}.");
+        } catch (\Exception $e) {
+            Log::error('ChatGPT auto aggregation failed: '.$e->getMessage(), [
+                'exception' => $e,
+                'tags_count' => count($tagNames),
+            ]);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Помилка ChatGPT: '.$e->getMessage());
+        }
     }
 }
