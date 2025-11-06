@@ -152,6 +152,7 @@ Route::middleware('auth.admin')->group(function () {
             Route::prefix('aggregations')->name('aggregations.')->group(function () {
                 Route::get('/', [TestTagController::class, 'aggregations'])->name('index');
                 Route::post('/', [TestTagController::class, 'storeAggregation'])->name('store');
+                Route::post('/auto', [TestTagController::class, 'autoAggregations'])->name('auto');
                 Route::put('/{mainTag}', [TestTagController::class, 'updateAggregation'])->name('update');
                 Route::delete('/{mainTag}', [TestTagController::class, 'destroyAggregation'])->name('destroy');
             });

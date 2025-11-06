@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use App\Models\Tag;
+use App\Services\GeminiService;
 use App\Services\TagAggregationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
-use Illuminate\Support\Str;
 
 class TestTagController extends Controller
 {
@@ -32,7 +33,7 @@ class TestTagController extends Controller
                 e($answerText)
             );
 
-            $questionText = str_replace('{' . $answer->marker . '}', $replacement, $questionText);
+            $questionText = str_replace('{'.$answer->marker.'}', $replacement, $questionText);
         }
 
         return nl2br($questionText);
@@ -43,11 +44,11 @@ class TestTagController extends Controller
         $parts = [];
 
         if (filled($question->difficulty)) {
-            $parts[] = 'Складність: ' . $question->difficulty;
+            $parts[] = 'Складність: '.$question->difficulty;
         }
 
         if (filled($question->level)) {
-            $parts[] = 'Рівень: ' . $question->level;
+            $parts[] = 'Рівень: '.$question->level;
         }
 
         if (empty($parts)) {
@@ -381,7 +382,7 @@ class TestTagController extends Controller
 
         $resolved = $this->normaliseCategoryParam($category);
 
-        if ($resolved !== null && !$categories->contains($resolved)) {
+        if ($resolved !== null && ! $categories->contains($resolved)) {
             abort(404);
         }
 
@@ -504,7 +505,7 @@ class TestTagController extends Controller
             return self::UNCATEGORIZED_KEY;
         }
 
-        return 'encoded:' . base64_encode($category);
+        return 'encoded:'.base64_encode($category);
     }
 
     public function aggregations(TagAggregationService $service): View
@@ -547,7 +548,7 @@ class TestTagController extends Controller
             $validated['similar_tags']
         );
 
-        if (!$updated) {
+        if (! $updated) {
             return redirect()->route('test-tags.aggregations.index')
                 ->with('error', 'Агрегацію не знайдено.');
         }
@@ -562,5 +563,34 @@ class TestTagController extends Controller
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Агрегацію тегів видалено.');
+    }
+
+    public function autoAggregations(GeminiService $gemini, TagAggregationService $service): RedirectResponse
+    {
+        $tags = Tag::orderBy('name')->pluck('name')->toArray();
+
+        if (empty($tags)) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Немає тегів для агрегації.');
+        }
+
+        $suggestions = $gemini->suggestTagAggregations($tags);
+
+        if (empty($suggestions)) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Не вдалося отримати пропозиції для агрегації від Gemini.');
+        }
+
+        $count = 0;
+        foreach ($suggestions as $suggestion) {
+            $service->addAggregation(
+                $suggestion['main_tag'],
+                $suggestion['similar_tags']
+            );
+            $count++;
+        }
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', "Автоматично створено агрегацій: {$count}.");
     }
 }

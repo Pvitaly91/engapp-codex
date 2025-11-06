@@ -12,6 +12,15 @@
                         <p class="text-slate-500">Об'єднуйте схожі теги під одним головним тегом.</p>
                     </div>
                     <div class="flex flex-wrap gap-2">
+                        <form method="POST" action="{{ route('test-tags.aggregations.auto') }}" class="inline">
+                            @csrf
+                            <button
+                                type="submit"
+                                class="inline-flex items-center justify-center rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring"
+                            >
+                                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Автоматична агрегація (Gemini)
+                            </button>
+                        </form>
                         <a
                             href="{{ route('test-tags.index') }}"
                             class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring"
