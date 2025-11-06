@@ -95,7 +95,7 @@
                             @endforeach
                         </div>
                         @if($test->description)
-                            <div class="test-description text-sm mb-3">{{ \Illuminate\Support\Str::limit(strip_tags($test->description, 120)) }}</div>
+                            <div class="test-description text-sm mb-3">{{ \Illuminate\Support\Str::limit(strip_tags($test->description), 120) }}</div>
                         @endif
                         @php
                             $preferredView = data_get($test->filters, 'preferred_view');
