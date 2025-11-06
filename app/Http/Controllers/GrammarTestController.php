@@ -1334,9 +1334,34 @@ class GrammarTestController extends Controller
             ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
             ->values();
 
-        $tagModels = Tag::whereIn('name', $availableTags)->get();
-        $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')
-            ->map(fn($group) => $group->pluck('name')->sort()->values());
+        // Build category mapping for aggregated tags from aggregation config
+        $aggregatedTagCategories = [];
+        foreach ($aggregations as $aggregation) {
+            $mainTag = $aggregation['main_tag'];
+            $category = $aggregation['category'] ?? 'Other';
+            $aggregatedTagCategories[$mainTag] = $category;
+        }
+
+        // Group tags by category, using aggregation categories for main tags
+        $tagsByCategory = collect();
+        foreach ($availableTags as $tagName) {
+            if (isset($aggregatedTagCategories[$tagName])) {
+                // This is a main aggregated tag - use category from aggregation config
+                $category = $aggregatedTagCategories[$tagName];
+            } else {
+                // This is a regular tag - fetch from database
+                $tagModel = Tag::where('name', $tagName)->first();
+                $category = $tagModel?->category ?? 'Other';
+            }
+            
+            if (!$tagsByCategory->has($category)) {
+                $tagsByCategory->put($category, collect());
+            }
+            $tagsByCategory[$category]->push($tagName);
+        }
+        
+        // Sort tags within each category
+        $tagsByCategory = $tagsByCategory->map(fn($tags) => $tags->sort()->values());
 
         $tagsByCategory = $tagsByCategory->sortKeys();
         if ($tagsByCategory->has('Tenses')) {
