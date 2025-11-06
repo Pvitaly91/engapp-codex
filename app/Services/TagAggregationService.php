@@ -34,7 +34,7 @@ class TagAggregationService
         return File::put($this->configPath, $json) !== false;
     }
 
-    public function addAggregation(string $mainTag, array $similarTags): bool
+    public function addAggregation(string $mainTag, array $similarTags, ?string $category = null): bool
     {
         $aggregations = $this->getAggregations();
         
@@ -46,6 +46,10 @@ class TagAggregationService
                     $aggregation['similar_tags'] ?? [],
                     $similarTags
                 ));
+                // Update category if provided
+                if ($category !== null) {
+                    $aggregation['category'] = $category;
+                }
                 $exists = true;
                 break;
             }
@@ -55,6 +59,7 @@ class TagAggregationService
             $aggregations[] = [
                 'main_tag' => $mainTag,
                 'similar_tags' => array_unique($similarTags),
+                'category' => $category,
             ];
         }
         
@@ -72,13 +77,17 @@ class TagAggregationService
         return $this->saveAggregations(array_values($aggregations));
     }
 
-    public function updateAggregation(string $mainTag, array $similarTags): bool
+    public function updateAggregation(string $mainTag, array $similarTags, ?string $category = null): bool
     {
         $aggregations = $this->getAggregations();
         
         foreach ($aggregations as &$aggregation) {
             if ($aggregation['main_tag'] === $mainTag) {
                 $aggregation['similar_tags'] = array_unique($similarTags);
+                // Update category if provided
+                if ($category !== null) {
+                    $aggregation['category'] = $category;
+                }
                 return $this->saveAggregations($aggregations);
             }
         }

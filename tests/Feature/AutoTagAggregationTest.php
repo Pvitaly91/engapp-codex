@@ -80,8 +80,10 @@ class AutoTagAggregationTest extends TestCase
         $this->assertCount(2, $aggregations);
         $this->assertEquals('Present Simple', $aggregations[0]['main_tag']);
         $this->assertEquals(['Simple Present'], $aggregations[0]['similar_tags']);
+        $this->assertEquals('Tenses', $aggregations[0]['category']);
         $this->assertEquals('Past Simple', $aggregations[1]['main_tag']);
         $this->assertEquals(['Simple Past'], $aggregations[1]['similar_tags']);
+        $this->assertEquals('Tenses', $aggregations[1]['category']);
     }
 
     /** @test */

@@ -85,6 +85,29 @@
                     </div>
 
                     <div>
+                        <label for="category" class="block text-sm font-medium text-slate-700 mb-1">
+                            Категорія (необов'язково)
+                        </label>
+                        <input
+                            type="text"
+                            id="category"
+                            name="category"
+                            list="categories-list"
+                            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="Введіть категорію (наприклад: Tenses)"
+                            autocomplete="off"
+                        >
+                        <datalist id="categories-list">
+                            @foreach ($categories as $cat)
+                                <option value="{{ $cat }}">
+                            @endforeach
+                        </datalist>
+                        @error('category')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">
                             Схожі теги (по одному на рядок)
                         </label>
@@ -155,6 +178,13 @@
                                             {{ $aggregation['main_tag'] }}
                                         </h3>
                                         <p class="text-sm text-slate-500">Головний тег</p>
+                                        @if (!empty($aggregation['category']))
+                                            <p class="text-xs text-slate-400 mt-1">
+                                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">
+                                                    {{ $aggregation['category'] }}
+                                                </span>
+                                            </p>
+                                        @endif
                                     </div>
                                     <form
                                         action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"

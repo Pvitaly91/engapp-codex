@@ -514,10 +514,16 @@ class TestTagController extends Controller
     {
         $aggregations = $service->getAggregations();
         $allTags = Tag::orderBy('name')->get();
+        $categories = Tag::whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->sort()
+            ->values();
 
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
             'allTags' => $allTags,
+            'categories' => $categories,
         ]);
     }
 
@@ -527,11 +533,13 @@ class TestTagController extends Controller
             'main_tag' => ['required', 'string', 'max:255'],
             'similar_tags' => ['required', 'array', 'min:1'],
             'similar_tags.*' => ['required', 'string', 'max:255'],
+            'category' => ['nullable', 'string', 'max:255'],
         ]);
 
         $service->addAggregation(
             $validated['main_tag'],
-            $validated['similar_tags']
+            $validated['similar_tags'],
+            $validated['category'] ?? null
         );
 
         return redirect()->route('test-tags.aggregations.index')
@@ -543,11 +551,13 @@ class TestTagController extends Controller
         $validated = $request->validate([
             'similar_tags' => ['required', 'array', 'min:1'],
             'similar_tags.*' => ['required', 'string', 'max:255'],
+            'category' => ['nullable', 'string', 'max:255'],
         ]);
 
         $updated = $service->updateAggregation(
             $mainTag,
-            $validated['similar_tags']
+            $validated['similar_tags'],
+            $validated['category'] ?? null
         );
 
         if (! $updated) {
@@ -569,21 +579,28 @@ class TestTagController extends Controller
 
     public function autoAggregations(GeminiService $gemini, TagAggregationService $service): RedirectResponse
     {
-        $tags = Tag::orderBy('name')->pluck('name')->toArray();
+        $tags = Tag::orderBy('name')->get();
 
-        if (empty($tags)) {
+        if ($tags->isEmpty()) {
             return redirect()->route('test-tags.aggregations.index')
                 ->with('error', 'Немає тегів для агрегації.');
         }
 
+        $tagNames = $tags->pluck('name')->toArray();
+        $tagCategories = $tags->pluck('category', 'name')->toArray();
+
         try {
-            $suggestions = $gemini->suggestTagAggregations($tags);
+            $suggestions = $gemini->suggestTagAggregations($tagNames);
 
             $count = 0;
             foreach ($suggestions as $suggestion) {
+                // Get category from the main tag
+                $category = $tagCategories[$suggestion['main_tag']] ?? null;
+                
                 $service->addAggregation(
                     $suggestion['main_tag'],
-                    $suggestion['similar_tags']
+                    $suggestion['similar_tags'],
+                    $category
                 );
                 $count++;
             }
@@ -593,7 +610,7 @@ class TestTagController extends Controller
         } catch (\Exception $e) {
             Log::error('Gemini auto aggregation failed: '.$e->getMessage(), [
                 'exception' => $e,
-                'tags_count' => count($tags),
+                'tags_count' => count($tagNames),
             ]);
 
             return redirect()->route('test-tags.aggregations.index')
@@ -603,21 +620,28 @@ class TestTagController extends Controller
 
     public function autoAggregationsChatGPT(ChatGPTService $chatGPT, TagAggregationService $service): RedirectResponse
     {
-        $tags = Tag::orderBy('name')->pluck('name')->toArray();
+        $tags = Tag::orderBy('name')->get();
 
-        if (empty($tags)) {
+        if ($tags->isEmpty()) {
             return redirect()->route('test-tags.aggregations.index')
                 ->with('error', 'Немає тегів для агрегації.');
         }
 
+        $tagNames = $tags->pluck('name')->toArray();
+        $tagCategories = $tags->pluck('category', 'name')->toArray();
+
         try {
-            $suggestions = $chatGPT->suggestTagAggregations($tags);
+            $suggestions = $chatGPT->suggestTagAggregations($tagNames);
 
             $count = 0;
             foreach ($suggestions as $suggestion) {
+                // Get category from the main tag
+                $category = $tagCategories[$suggestion['main_tag']] ?? null;
+                
                 $service->addAggregation(
                     $suggestion['main_tag'],
-                    $suggestion['similar_tags']
+                    $suggestion['similar_tags'],
+                    $category
                 );
                 $count++;
             }
@@ -627,7 +651,7 @@ class TestTagController extends Controller
         } catch (\Exception $e) {
             Log::error('ChatGPT auto aggregation failed: '.$e->getMessage(), [
                 'exception' => $e,
-                'tags_count' => count($tags),
+                'tags_count' => count($tagNames),
             ]);
 
             return redirect()->route('test-tags.aggregations.index')
