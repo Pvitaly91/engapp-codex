@@ -579,14 +579,6 @@ class TestTagController extends Controller
         try {
             $suggestions = $gemini->suggestTagAggregations($tags);
 
-            if (empty($suggestions)) {
-                $errorMsg = 'Не вдалося отримати пропозиції для агрегації від Gemini. ';
-                $errorMsg .= 'Перевірте логи для деталей або спробуйте використати ChatGPT.';
-
-                return redirect()->route('test-tags.aggregations.index')
-                    ->with('error', $errorMsg);
-            }
-
             $count = 0;
             foreach ($suggestions as $suggestion) {
                 $service->addAggregation(
@@ -605,7 +597,7 @@ class TestTagController extends Controller
             ]);
 
             return redirect()->route('test-tags.aggregations.index')
-                ->with('error', 'Помилка при автоматичній агрегації через Gemini: '.$e->getMessage());
+                ->with('error', 'Помилка Gemini: '.$e->getMessage());
         }
     }
 
@@ -620,14 +612,6 @@ class TestTagController extends Controller
 
         try {
             $suggestions = $chatGPT->suggestTagAggregations($tags);
-
-            if (empty($suggestions)) {
-                $errorMsg = 'Не вдалося отримати пропозиції для агрегації від ChatGPT. ';
-                $errorMsg .= 'Перевірте логи для деталей або спробуйте використати Gemini.';
-
-                return redirect()->route('test-tags.aggregations.index')
-                    ->with('error', $errorMsg);
-            }
 
             $count = 0;
             foreach ($suggestions as $suggestion) {
@@ -647,7 +631,7 @@ class TestTagController extends Controller
             ]);
 
             return redirect()->route('test-tags.aggregations.index')
-                ->with('error', 'Помилка при автоматичній агрегації через ChatGPT: '.$e->getMessage());
+                ->with('error', 'Помилка ChatGPT: '.$e->getMessage());
         }
     }
 }

@@ -396,13 +396,16 @@ class ChatGPTService
     public function suggestTagAggregations(array $tags): array
     {
         if (empty($tags)) {
-            return [];
+            $error = 'Не передано жодного тегу для аналізу';
+            Log::warning('ChatGPT suggestTagAggregations: No tags provided');
+            throw new \RuntimeException($error);
         }
 
         $key = config('services.chatgpt.key');
         if (empty($key)) {
+            $error = 'Не налаштовано API ключ ChatGPT. Перевірте конфігурацію CHAT_GPT_API_KEY.';
             Log::warning('ChatGPT API key not configured');
-            return [];
+            throw new \RuntimeException($error);
         }
 
         $tagsList = implode(', ', $tags);
@@ -443,8 +446,9 @@ class ChatGPTService
             }
 
             if (! is_array($data)) {
+                $error = 'ChatGPT повернув некоректну відповідь (не JSON). Відповідь: '.substr($response, 0, 200).'...';
                 Log::warning('ChatGPT suggestTagAggregations returned invalid JSON: '.$response);
-                return [];
+                throw new \RuntimeException($error);
             }
 
             // Validate and filter the aggregations
@@ -478,11 +482,17 @@ class ChatGPTService
                 }
             }
 
+            if (empty($validAggregations)) {
+                $error = 'ChatGPT не знайшов схожих тегів для агрегації. Можливо, всі теги занадто різні або відповідь не містила валідних груп.';
+                Log::warning('ChatGPT suggestTagAggregations: No valid aggregations found');
+                throw new \RuntimeException($error);
+            }
+
             return $validAggregations;
         } catch (Exception $e) {
+            $error = 'Помилка ChatGPT API: '.$e->getMessage();
             Log::warning('ChatGPT suggestTagAggregations failed: '.$e->getMessage());
+            throw new \RuntimeException($error);
         }
-
-        return [];
     }
 }

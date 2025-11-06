@@ -155,8 +155,9 @@ class GeminiService
     public function suggestTagAggregations(array $tags): array
     {
         if (empty($tags)) {
+            $error = 'Не передано жодного тегу для аналізу';
             Log::warning('Gemini suggestTagAggregations: No tags provided');
-            return [];
+            throw new \RuntimeException($error);
         }
 
         $tagsList = implode(', ', $tags);
@@ -175,8 +176,9 @@ class GeminiService
 
         $response = $this->request($prompt);
         if (! $response) {
+            $error = 'Не отримано відповіді від Gemini API. Можливо, не налаштовано API ключ або досягнуто ліміт запитів.';
             Log::warning('Gemini suggestTagAggregations: No response from API');
-            return [];
+            throw new \RuntimeException($error);
         }
 
         // Try to parse JSON response
@@ -192,8 +194,9 @@ class GeminiService
         }
 
         if (! is_array($data)) {
+            $error = 'Gemini повернув некоректну відповідь (не JSON). Відповідь: '.substr($response, 0, 200).'...';
             Log::warning('Gemini suggestTagAggregations: Invalid JSON response', ['response' => substr($response, 0, 500)]);
-            return [];
+            throw new \RuntimeException($error);
         }
 
         // Validate and filter the aggregations
@@ -228,7 +231,9 @@ class GeminiService
         }
 
         if (empty($validAggregations)) {
+            $error = 'Gemini не знайшов схожих тегів для агрегації. Можливо, всі теги занадто різні або відповідь не містила валідних груп.';
             Log::warning('Gemini suggestTagAggregations: No valid aggregations found in response');
+            throw new \RuntimeException($error);
         }
 
         return $validAggregations;

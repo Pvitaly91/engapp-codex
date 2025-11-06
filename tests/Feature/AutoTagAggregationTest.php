@@ -104,7 +104,7 @@ class AutoTagAggregationTest extends TestCase
         $this->mock(GeminiService::class, function ($mock) {
             $mock->shouldReceive('suggestTagAggregations')
                 ->once()
-                ->andReturn([]);
+                ->andThrow(new \RuntimeException('Не отримано відповіді від Gemini API'));
         });
 
         $response = $this->withSession(['admin_authenticated' => true])
@@ -112,6 +112,32 @@ class AutoTagAggregationTest extends TestCase
 
         $response->assertRedirect('/admin/test-tags/aggregations');
         $response->assertSessionHas('error');
+        // Check that error message contains the detailed error
+        $this->assertStringContainsString('Gemini', session('error'));
+        $this->assertStringContainsString('Не отримано відповіді від Gemini API', session('error'));
+    }
+
+    /** @test */
+    public function auto_aggregation_chatgpt_returns_error_when_fails(): void
+    {
+        // Create sample tags
+        Tag::create(['name' => 'Present Simple', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
+
+        $this->mock(ChatGPTService::class, function ($mock) {
+            $mock->shouldReceive('suggestTagAggregations')
+                ->once()
+                ->andThrow(new \RuntimeException('Не налаштовано API ключ ChatGPT'));
+        });
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post('/admin/test-tags/aggregations/auto-chatgpt');
+
+        $response->assertRedirect('/admin/test-tags/aggregations');
+        $response->assertSessionHas('error');
+        // Check that error message contains the detailed error
+        $this->assertStringContainsString('ChatGPT', session('error'));
+        $this->assertStringContainsString('Не налаштовано API ключ ChatGPT', session('error'));
     }
 
     /** @test */
