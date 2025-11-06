@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use App\Models\Tag;
+use App\Services\TagAggregationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -504,5 +505,62 @@ class TestTagController extends Controller
         }
 
         return 'encoded:' . base64_encode($category);
+    }
+
+    public function aggregations(TagAggregationService $service): View
+    {
+        $aggregations = $service->getAggregations();
+        $allTags = Tag::orderBy('name')->get();
+
+        return view('test-tags.aggregations.index', [
+            'aggregations' => $aggregations,
+            'allTags' => $allTags,
+        ]);
+    }
+
+    public function storeAggregation(Request $request, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'main_tag' => ['required', 'string', 'max:255'],
+            'similar_tags' => ['required', 'array', 'min:1'],
+            'similar_tags.*' => ['required', 'string', 'max:255'],
+        ]);
+
+        $service->addAggregation(
+            $validated['main_tag'],
+            $validated['similar_tags']
+        );
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Агрегацію тегів успішно створено.');
+    }
+
+    public function updateAggregation(Request $request, string $mainTag, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'similar_tags' => ['required', 'array', 'min:1'],
+            'similar_tags.*' => ['required', 'string', 'max:255'],
+        ]);
+
+        $updated = $service->updateAggregation(
+            $mainTag,
+            $validated['similar_tags']
+        );
+
+        if (!$updated) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Агрегацію не знайдено.');
+        }
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Агрегацію тегів успішно оновлено.');
+    }
+
+    public function destroyAggregation(string $mainTag, TagAggregationService $service): RedirectResponse
+    {
+        $service->removeAggregation($mainTag);
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Агрегацію тегів видалено.');
     }
 }
