@@ -1317,10 +1317,14 @@ class GrammarTestController extends Controller
             $testQuestions = $questionIds->map(fn($id) => $questions[$id] ?? null)->filter();
             $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
             
-            // Map tags to their main tags if they're part of an aggregation
-            $aggregatedTagNames = $tagNames->map(function($tagName) use ($tagToMainTag) {
-                return $tagToMainTag[$tagName] ?? $tagName;
-            });
+            // Map tags to their main tags ONLY if they're part of an aggregation
+            // Filter out tags that are not in any aggregation
+            $aggregatedTagNames = $tagNames
+                ->map(function($tagName) use ($tagToMainTag) {
+                    // Only include tags that are in the aggregation map
+                    return isset($tagToMainTag[$tagName]) ? $tagToMainTag[$tagName] : null;
+                })
+                ->filter(); // Remove null values (non-aggregated tags)
             
             $test->tag_names = $aggregatedTagNames->unique()->values();
             $test->levels = $testQuestions->pluck('level')->unique()
@@ -1342,28 +1346,11 @@ class GrammarTestController extends Controller
             $aggregatedTagCategories[$mainTag] = $category;
         }
 
-        // Separate aggregated and non-aggregated tags
-        $nonAggregatedTags = [];
-        foreach ($availableTags as $tagName) {
-            if (!isset($aggregatedTagCategories[$tagName])) {
-                $nonAggregatedTags[] = $tagName;
-            }
-        }
-
-        // Fetch categories for non-aggregated tags in a single query
-        $nonAggregatedTagCategories = [];
-        if (!empty($nonAggregatedTags)) {
-            $tagModels = Tag::whereIn('name', $nonAggregatedTags)->get();
-            foreach ($tagModels as $tagModel) {
-                $nonAggregatedTagCategories[$tagModel->name] = $tagModel->category ?? 'Other';
-            }
-        }
-
-        // Group tags by category
+        // Group tags by category (all tags are now aggregated, so use config categories)
         $tagsByCategory = collect();
         foreach ($availableTags as $tagName) {
-            // Use aggregation category if available, otherwise use database category
-            $category = $aggregatedTagCategories[$tagName] ?? $nonAggregatedTagCategories[$tagName] ?? 'Other';
+            // All tags should be in the aggregation config at this point
+            $category = $aggregatedTagCategories[$tagName] ?? 'Other';
             
             if (!$tagsByCategory->has($category)) {
                 $tagsByCategory->put($category, collect());
