@@ -250,6 +250,26 @@ class TestTagController extends Controller
         return redirect()->route('test-tags.index')->with('status', 'Тег видалено.');
     }
 
+    public function destroyEmptyTags(): RedirectResponse
+    {
+        $emptyTags = Tag::query()
+            ->whereDoesntHave('questions')
+            ->get();
+
+        $count = $emptyTags->count();
+
+        foreach ($emptyTags as $tag) {
+            $tag->words()->detach();
+            $tag->delete();
+        }
+
+        $message = $count > 0
+            ? "Видалено тегів без питань: {$count}."
+            : 'Не знайдено тегів без питань.';
+
+        return redirect()->route('test-tags.index')->with('status', $message);
+    }
+
     public function questions(Tag $tag): JsonResponse
     {
         $questions = $tag->questions()

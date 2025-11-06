@@ -147,6 +147,7 @@ Route::middleware('auth.admin')->group(function () {
             Route::get('/', [TestTagController::class, 'index'])->name('index');
             Route::get('/create', [TestTagController::class, 'create'])->name('create');
             Route::post('/', [TestTagController::class, 'store'])->name('store');
+            Route::delete('/empty', [TestTagController::class, 'destroyEmptyTags'])->name('destroy-empty');
             Route::get('/categories/{category}/edit', [TestTagController::class, 'editCategory'])
                 ->where('category', '.*')
                 ->name('categories.edit');

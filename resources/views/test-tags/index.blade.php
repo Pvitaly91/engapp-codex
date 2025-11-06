@@ -12,6 +12,20 @@
                         <p class="text-slate-500">Переглядайте категорії та теги й переходьте до редагування за потреби.</p>
                     </div>
                     <div class="flex flex-wrap gap-2">
+                        <form
+                            action="{{ route('test-tags.destroy-empty') }}"
+                            method="POST"
+                            data-confirm="Видалити всі теги без питань?"
+                        >
+                            @csrf
+                            @method('DELETE')
+                            <button
+                                type="submit"
+                                class="inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring"
+                            >
+                                Видалити пусті теги
+                            </button>
+                        </form>
                         <a
                             href="{{ route('test-tags.create') }}"
                             class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
