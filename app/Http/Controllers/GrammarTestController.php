@@ -1342,17 +1342,28 @@ class GrammarTestController extends Controller
             $aggregatedTagCategories[$mainTag] = $category;
         }
 
-        // Group tags by category, using aggregation categories for main tags
+        // Separate aggregated and non-aggregated tags
+        $nonAggregatedTags = [];
+        foreach ($availableTags as $tagName) {
+            if (!isset($aggregatedTagCategories[$tagName])) {
+                $nonAggregatedTags[] = $tagName;
+            }
+        }
+
+        // Fetch categories for non-aggregated tags in a single query
+        $nonAggregatedTagCategories = [];
+        if (!empty($nonAggregatedTags)) {
+            $tagModels = Tag::whereIn('name', $nonAggregatedTags)->get();
+            foreach ($tagModels as $tagModel) {
+                $nonAggregatedTagCategories[$tagModel->name] = $tagModel->category ?? 'Other';
+            }
+        }
+
+        // Group tags by category
         $tagsByCategory = collect();
         foreach ($availableTags as $tagName) {
-            if (isset($aggregatedTagCategories[$tagName])) {
-                // This is a main aggregated tag - use category from aggregation config
-                $category = $aggregatedTagCategories[$tagName];
-            } else {
-                // This is a regular tag - fetch from database
-                $tagModel = Tag::where('name', $tagName)->first();
-                $category = $tagModel?->category ?? 'Other';
-            }
+            // Use aggregation category if available, otherwise use database category
+            $category = $aggregatedTagCategories[$tagName] ?? $nonAggregatedTagCategories[$tagName] ?? 'Other';
             
             if (!$tagsByCategory->has($category)) {
                 $tagsByCategory->put($category, collect());
