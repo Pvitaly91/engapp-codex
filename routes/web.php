@@ -153,6 +153,7 @@ Route::middleware('auth.admin')->group(function () {
                 Route::get('/', [TestTagController::class, 'aggregations'])->name('index');
                 Route::post('/', [TestTagController::class, 'storeAggregation'])->name('store');
                 Route::post('/auto', [TestTagController::class, 'autoAggregations'])->name('auto');
+                Route::post('/auto-chatgpt', [TestTagController::class, 'autoAggregationsChatGPT'])->name('auto-chatgpt');
                 Route::put('/{mainTag}', [TestTagController::class, 'updateAggregation'])->name('update');
                 Route::delete('/{mainTag}', [TestTagController::class, 'destroyAggregation'])->name('destroy');
             });

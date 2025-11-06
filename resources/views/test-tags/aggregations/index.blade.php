@@ -18,7 +18,16 @@
                                 type="submit"
                                 class="inline-flex items-center justify-center rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring"
                             >
-                                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Автоматична агрегація (Gemini)
+                                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Автогенерація (Gemini)
+                            </button>
+                        </form>
+                        <form method="POST" action="{{ route('test-tags.aggregations.auto-chatgpt') }}" class="inline">
+                            @csrf
+                            <button
+                                type="submit"
+                                class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                            >
+                                <i class="fa-solid fa-robot mr-2"></i>Автогенерація (ChatGPT)
                             </button>
                         </form>
                         <a
@@ -52,20 +61,24 @@
                         <label for="main_tag" class="block text-sm font-medium text-slate-700 mb-1">
                             Головний тег
                         </label>
-                        <input
-                            type="text"
-                            id="main_tag"
-                            name="main_tag"
-                            list="tags-list"
-                            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                            placeholder="Введіть назву головного тегу"
-                            required
-                        >
-                        <datalist id="tags-list">
-                            @foreach ($allTags as $tag)
-                                <option value="{{ $tag->name }}">
-                            @endforeach
-                        </datalist>
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="main_tag"
+                                name="main_tag"
+                                class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="Почніть вводити для пошуку..."
+                                autocomplete="off"
+                                required
+                            >
+                            <div id="main_tag_dropdown" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                @foreach ($allTags as $tag)
+                                    <div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $tag->name }}">
+                                        {{ $tag->name }}
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                         @error('main_tag')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
@@ -76,15 +89,24 @@
                             Схожі теги (по одному на рядок)
                         </label>
                         <div id="similar-tags-container" class="space-y-2">
-                            <div class="flex gap-2">
-                                <input
-                                    type="text"
-                                    name="similar_tags[]"
-                                    list="tags-list"
-                                    class="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                    placeholder="Введіть назву схожого тегу"
-                                    required
-                                >
+                            <div class="flex gap-2 tag-input-group">
+                                <div class="flex-1 relative">
+                                    <input
+                                        type="text"
+                                        name="similar_tags[]"
+                                        class="similar-tag-input w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                        placeholder="Почніть вводити для пошуку..."
+                                        autocomplete="off"
+                                        required
+                                    >
+                                    <div class="tag-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                                        @foreach ($allTags as $tag)
+                                            <div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $tag->name }}">
+                                                {{ $tag->name }}
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
                                 <button
                                     type="button"
                                     onclick="removeTagInput(this)"
@@ -214,19 +236,104 @@
 
 @push('scripts')
     <script>
+        // Tag dropdown functionality
+        function initTagDropdowns() {
+            // Main tag dropdown
+            const mainTagInput = document.getElementById('main_tag');
+            const mainTagDropdown = document.getElementById('main_tag_dropdown');
+            
+            if (mainTagInput && mainTagDropdown) {
+                setupTagDropdown(mainTagInput, mainTagDropdown);
+            }
+            
+            // Similar tags dropdowns
+            setupSimilarTagDropdowns();
+        }
+        
+        function setupTagDropdown(input, dropdown) {
+            const options = dropdown.querySelectorAll('.tag-option');
+            
+            // Show dropdown on focus
+            input.addEventListener('focus', () => {
+                filterOptions(input, dropdown, options);
+                dropdown.classList.remove('hidden');
+            });
+            
+            // Filter on input
+            input.addEventListener('input', () => {
+                filterOptions(input, dropdown, options);
+            });
+            
+            // Select option on click
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    input.value = option.dataset.value;
+                    dropdown.classList.add('hidden');
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        }
+        
+        function filterOptions(input, dropdown, options) {
+            const searchTerm = input.value.toLowerCase();
+            let visibleCount = 0;
+            
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    option.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    option.classList.add('hidden');
+                }
+            });
+            
+            // Show/hide dropdown based on visible options
+            if (visibleCount > 0) {
+                dropdown.classList.remove('hidden');
+            } else {
+                dropdown.classList.add('hidden');
+            }
+        }
+        
+        function setupSimilarTagDropdowns() {
+            const groups = document.querySelectorAll('.tag-input-group');
+            groups.forEach(group => {
+                const input = group.querySelector('.similar-tag-input');
+                const dropdown = group.querySelector('.tag-dropdown');
+                if (input && dropdown) {
+                    const options = dropdown.querySelectorAll('.tag-option');
+                    setupTagDropdown(input, dropdown);
+                }
+            });
+        }
+
         function addTagInput() {
             const container = document.getElementById('similar-tags-container');
+            const allTags = @json($allTags->pluck('name'));
+            
             const newInput = document.createElement('div');
-            newInput.className = 'flex gap-2';
+            newInput.className = 'flex gap-2 tag-input-group';
             newInput.innerHTML = `
-                <input
-                    type="text"
-                    name="similar_tags[]"
-                    list="tags-list"
-                    class="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    placeholder="Введіть назву схожого тегу"
-                    required
-                >
+                <div class="flex-1 relative">
+                    <input
+                        type="text"
+                        name="similar_tags[]"
+                        class="similar-tag-input w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        placeholder="Почніть вводити для пошуку..."
+                        autocomplete="off"
+                        required
+                    >
+                    <div class="tag-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                        ${allTags.map(tag => `<div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="${tag}">${tag}</div>`).join('')}
+                    </div>
+                </div>
                 <button
                     type="button"
                     onclick="removeTagInput(this)"
@@ -236,12 +343,18 @@
                 </button>
             `;
             container.appendChild(newInput);
+            
+            // Setup dropdown for the new input
+            const input = newInput.querySelector('.similar-tag-input');
+            const dropdown = newInput.querySelector('.tag-dropdown');
+            const options = dropdown.querySelectorAll('.tag-option');
+            setupTagDropdown(input, dropdown);
         }
 
         function removeTagInput(button) {
             const container = document.getElementById('similar-tags-container');
             if (container.children.length > 1) {
-                button.parentElement.remove();
+                button.closest('.tag-input-group').remove();
             }
         }
 
@@ -343,8 +456,12 @@
         };
 
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initAggregationConfirmation);
+            document.addEventListener('DOMContentLoaded', () => {
+                initTagDropdowns();
+                initAggregationConfirmation();
+            });
         } else {
+            initTagDropdowns();
             initAggregationConfirmation();
         }
     </script>

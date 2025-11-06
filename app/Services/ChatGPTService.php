@@ -392,4 +392,97 @@ class ChatGPTService
         $all = $this->generateGrammarQuestions($tenses, 1, $answersCount, $model, $refferance);
         return $all[0] ?? null;
     }
+
+    public function suggestTagAggregations(array $tags): array
+    {
+        if (empty($tags)) {
+            return [];
+        }
+
+        $key = config('services.chatgpt.key');
+        if (empty($key)) {
+            Log::warning('ChatGPT API key not configured');
+            return [];
+        }
+
+        $tagsList = implode(', ', $tags);
+        $prompt = "You are a grammar tag analyzer. Analyze the following list of English grammar tags and suggest aggregations.\n\n";
+        $prompt .= "Tags: {$tagsList}\n\n";
+        $prompt .= "Group similar or related tags together. For each group, identify:\n";
+        $prompt .= "1. A main_tag (the most general or commonly used tag in the group)\n";
+        $prompt .= "2. similar_tags (array of related tags that should be aggregated under the main tag)\n\n";
+        $prompt .= "Rules:\n";
+        $prompt .= "- Only group tags that are clearly related or synonyms\n";
+        $prompt .= "- Each tag should appear only once in the result\n";
+        $prompt .= "- Don't create aggregations for tags that are clearly distinct\n";
+        $prompt .= "- similar_tags should not include the main_tag itself\n\n";
+        $prompt .= "Respond strictly in JSON format as an array of objects:\n";
+        $prompt .= '[{"main_tag": "Present Simple", "similar_tags": ["Simple Present", "Present Tense"]}, ...]';
+
+        try {
+            $client = \OpenAI::client($key);
+            $result = $client->chat()->create([
+                'model' => 'gpt-5',
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+            ]);
+
+            $response = trim($result->choices[0]->message->content);
+
+            // Try to parse JSON response
+            $data = json_decode($response, true);
+            if (! is_array($data)) {
+                // Try to extract JSON from response
+                $start = strpos($response, '[');
+                $end = strrpos($response, ']');
+                if ($start !== false && $end !== false && $end > $start) {
+                    $json = substr($response, $start, $end - $start + 1);
+                    $data = json_decode($json, true);
+                }
+            }
+
+            if (! is_array($data)) {
+                Log::warning('ChatGPT suggestTagAggregations returned invalid JSON: '.$response);
+                return [];
+            }
+
+            // Validate and filter the aggregations
+            $validAggregations = [];
+            foreach ($data as $aggregation) {
+                if (
+                    ! is_array($aggregation) ||
+                    ! isset($aggregation['main_tag']) ||
+                    ! isset($aggregation['similar_tags']) ||
+                    ! is_array($aggregation['similar_tags']) ||
+                    empty($aggregation['similar_tags'])
+                ) {
+                    continue;
+                }
+
+                // Verify that all tags exist in the original list
+                $mainTag = $aggregation['main_tag'];
+                if (! in_array($mainTag, $tags)) {
+                    continue;
+                }
+
+                $similarTags = array_filter($aggregation['similar_tags'], function ($tag) use ($tags, $mainTag) {
+                    return in_array($tag, $tags) && $tag !== $mainTag;
+                });
+
+                if (! empty($similarTags)) {
+                    $validAggregations[] = [
+                        'main_tag' => $mainTag,
+                        'similar_tags' => array_values($similarTags),
+                    ];
+                }
+            }
+
+            return $validAggregations;
+        } catch (Exception $e) {
+            Log::warning('ChatGPT suggestTagAggregations failed: '.$e->getMessage());
+        }
+
+        return [];
+    }
 }

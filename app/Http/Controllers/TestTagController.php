@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use App\Models\Tag;
+use App\Services\ChatGPTService;
 use App\Services\GeminiService;
 use App\Services\TagAggregationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
@@ -574,23 +576,78 @@ class TestTagController extends Controller
                 ->with('error', 'Немає тегів для агрегації.');
         }
 
-        $suggestions = $gemini->suggestTagAggregations($tags);
+        try {
+            $suggestions = $gemini->suggestTagAggregations($tags);
 
-        if (empty($suggestions)) {
+            if (empty($suggestions)) {
+                $errorMsg = 'Не вдалося отримати пропозиції для агрегації від Gemini. ';
+                $errorMsg .= 'Перевірте логи для деталей або спробуйте використати ChatGPT.';
+
+                return redirect()->route('test-tags.aggregations.index')
+                    ->with('error', $errorMsg);
+            }
+
+            $count = 0;
+            foreach ($suggestions as $suggestion) {
+                $service->addAggregation(
+                    $suggestion['main_tag'],
+                    $suggestion['similar_tags']
+                );
+                $count++;
+            }
+
             return redirect()->route('test-tags.aggregations.index')
-                ->with('error', 'Не вдалося отримати пропозиції для агрегації від Gemini.');
+                ->with('status', "Автоматично створено агрегацій: {$count}.");
+        } catch (\Exception $e) {
+            Log::error('Gemini auto aggregation failed: '.$e->getMessage(), [
+                'exception' => $e,
+                'tags_count' => count($tags),
+            ]);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Помилка при автоматичній агрегації через Gemini: '.$e->getMessage());
+        }
+    }
+
+    public function autoAggregationsChatGPT(ChatGPTService $chatGPT, TagAggregationService $service): RedirectResponse
+    {
+        $tags = Tag::orderBy('name')->pluck('name')->toArray();
+
+        if (empty($tags)) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Немає тегів для агрегації.');
         }
 
-        $count = 0;
-        foreach ($suggestions as $suggestion) {
-            $service->addAggregation(
-                $suggestion['main_tag'],
-                $suggestion['similar_tags']
-            );
-            $count++;
-        }
+        try {
+            $suggestions = $chatGPT->suggestTagAggregations($tags);
 
-        return redirect()->route('test-tags.aggregations.index')
-            ->with('status', "Автоматично створено агрегацій: {$count}.");
+            if (empty($suggestions)) {
+                $errorMsg = 'Не вдалося отримати пропозиції для агрегації від ChatGPT. ';
+                $errorMsg .= 'Перевірте логи для деталей або спробуйте використати Gemini.';
+
+                return redirect()->route('test-tags.aggregations.index')
+                    ->with('error', $errorMsg);
+            }
+
+            $count = 0;
+            foreach ($suggestions as $suggestion) {
+                $service->addAggregation(
+                    $suggestion['main_tag'],
+                    $suggestion['similar_tags']
+                );
+                $count++;
+            }
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', "Автоматично створено агрегацій: {$count}.");
+        } catch (\Exception $e) {
+            Log::error('ChatGPT auto aggregation failed: '.$e->getMessage(), [
+                'exception' => $e,
+                'tags_count' => count($tags),
+            ]);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Помилка при автоматичній агрегації через ChatGPT: '.$e->getMessage());
+        }
     }
 }

@@ -155,6 +155,7 @@ class GeminiService
     public function suggestTagAggregations(array $tags): array
     {
         if (empty($tags)) {
+            Log::warning('Gemini suggestTagAggregations: No tags provided');
             return [];
         }
 
@@ -174,6 +175,7 @@ class GeminiService
 
         $response = $this->request($prompt);
         if (! $response) {
+            Log::warning('Gemini suggestTagAggregations: No response from API');
             return [];
         }
 
@@ -190,6 +192,7 @@ class GeminiService
         }
 
         if (! is_array($data)) {
+            Log::warning('Gemini suggestTagAggregations: Invalid JSON response', ['response' => substr($response, 0, 500)]);
             return [];
         }
 
@@ -222,6 +225,10 @@ class GeminiService
                     'similar_tags' => array_values($similarTags),
                 ];
             }
+        }
+
+        if (empty($validAggregations)) {
+            Log::warning('Gemini suggestTagAggregations: No valid aggregations found in response');
         }
 
         return $validAggregations;

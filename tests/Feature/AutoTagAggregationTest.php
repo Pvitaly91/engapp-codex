@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Tag;
+use App\Services\ChatGPTService;
 use App\Services\GeminiService;
 use App\Services\TagAggregationService;
 use Illuminate\Support\Facades\Artisan;
@@ -110,6 +111,40 @@ class AutoTagAggregationTest extends TestCase
             ->post('/admin/test-tags/aggregations/auto');
 
         $response->assertRedirect('/admin/test-tags/aggregations');
-        $response->assertSessionHas('error', 'Не вдалося отримати пропозиції для агрегації від Gemini.');
+        $response->assertSessionHas('error');
+    }
+
+    /** @test */
+    public function auto_aggregation_chatgpt_creates_aggregations(): void
+    {
+        // Create sample tags
+        Tag::create(['name' => 'Present Simple', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Simple Present', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
+
+        $this->mock(ChatGPTService::class, function ($mock) {
+            $mock->shouldReceive('suggestTagAggregations')
+                ->once()
+                ->andReturn([
+                    [
+                        'main_tag' => 'Present Simple',
+                        'similar_tags' => ['Simple Present'],
+                    ],
+                ]);
+        });
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post('/admin/test-tags/aggregations/auto-chatgpt');
+
+        $response->assertRedirect('/admin/test-tags/aggregations');
+        $response->assertSessionHas('status', 'Автоматично створено агрегацій: 1.');
+
+        // Verify aggregations were saved
+        $service = app(TagAggregationService::class);
+        $aggregations = $service->getAggregations();
+
+        $this->assertCount(1, $aggregations);
+        $this->assertEquals('Present Simple', $aggregations[0]['main_tag']);
+        $this->assertEquals(['Simple Present'], $aggregations[0]['similar_tags']);
     }
 }
