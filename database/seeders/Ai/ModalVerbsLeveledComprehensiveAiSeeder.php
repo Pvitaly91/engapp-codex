@@ -332,7 +332,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Ability & Permission',
-                'question' => ' I {a1} swim.',
+                'question' => 'Choose the best option: I {a1} swim.',
                 'options' => ['can', 'must', 'should', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'basic ability; very common, simple form',
@@ -340,7 +340,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Ability & Permission',
-                'question' => ' {a1} I sit here?',
+                'question' => 'Choose the best option: {a1} I sit here?',
                 'options' => ['Can', 'Must', 'Should', 'Have to'],
                 'answer_index' => 0,
                 'verb_hint' => 'informal asking for permission',
@@ -348,7 +348,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Ability & Permission',
-                'question' => ' She {a1} ride a bike.',
+                'question' => 'Choose the best option: She {a1} ride a bike.',
                 'options' => ['can', 'mustn\'t', 'shouldn\'t', 'has to'],
                 'answer_index' => 0,
                 'verb_hint' => 'ability; positive form',
@@ -358,7 +358,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Requests & Offers',
-                'question' => ' {a1} you help me, please?',
+                'question' => 'Choose the best option: {a1} you help me, please?',
                 'options' => ['Can', 'Must', 'Should', 'May'],
                 'answer_index' => 0,
                 'verb_hint' => 'simple polite request (not strong form)',
@@ -366,7 +366,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Requests & Offers',
-                'question' => ' {a1} I open the window?',
+                'question' => 'Choose the best option: {a1} I open the window?',
                 'options' => ['Can', 'Have to', 'Should', 'Must'],
                 'answer_index' => 0,
                 'verb_hint' => 'asking permission in a friendly way',
@@ -376,7 +376,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Advice',
-                'question' => ' You {a1} drink more water.',
+                'question' => 'Choose the best option: You {a1} drink more water.',
                 'options' => ['should', 'must', 'can', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'mild advice, not a rule',
@@ -384,7 +384,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Advice',
-                'question' => ' He {a1} see a doctor.',
+                'question' => 'Choose the best option: He {a1} see a doctor.',
                 'options' => ['should', 'can', 'may', 'might'],
                 'answer_index' => 0,
                 'verb_hint' => 'recommendation, not obligation',
@@ -394,7 +394,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Obligation & Prohibition',
-                'question' => ' You {a1} stop at a red light.',
+                'question' => 'Choose the best option: You {a1} stop at a red light.',
                 'options' => ['must', 'can', 'could', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'strong rule/necessity',
@@ -402,7 +402,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Obligation & Prohibition',
-                'question' => ' You {a1} smoke here.',
+                'question' => 'Choose the best option: You {a1} smoke here.',
                 'options' => ['mustn\'t', 'should', 'may', 'can'],
                 'answer_index' => 0,
                 'verb_hint' => 'prohibition; not allowed',
@@ -412,7 +412,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Possibility',
-                'question' => ' It {a1} rain later.',
+                'question' => 'Choose the best option: It {a1} rain later.',
                 'options' => ['may', 'must', 'should', 'can'],
                 'answer_index' => 0,
                 'verb_hint' => 'weak possibility about the future',
@@ -420,7 +420,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Possibility',
-                'question' => ' She {a1} be at home now.',
+                'question' => 'Choose the best option: She {a1} be at home now.',
                 'options' => ['might', 'mustn\'t', 'can', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'maybe true now, not certain',
@@ -430,7 +430,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Offers',
-                'question' => ' {a1} I carry your bag?',
+                'question' => 'Choose the best option: {a1} I carry your bag?',
                 'options' => ['Can', 'Must', 'Should', 'May not'],
                 'answer_index' => 0,
                 'verb_hint' => 'friendly offer, everyday English',
@@ -438,7 +438,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A1',
                 'theme' => 'Offers',
-                'question' => ' {a1} I help you with that?',
+                'question' => 'Choose the best option: {a1} I help you with that?',
                 'options' => ['Can', 'Have to', 'Must', 'Ought to'],
                 'answer_index' => 0,
                 'verb_hint' => 'simple offer of help',
@@ -453,7 +453,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Ability',
-                'question' => ' When I was ten, I {a1} run very fast.',
+                'question' => 'Choose the best option: When I was ten, I {a1} run very fast.',
                 'options' => ['could', 'can', 'must', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'past ability form',
@@ -461,7 +461,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Ability',
-                'question' => ' Sorry, I {a1} come tomorrow — I\'m busy.',
+                'question' => 'Choose the best option: Sorry, I {a1} come tomorrow — I\'m busy.',
                 'options' => ['can\'t', 'must', 'should', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'negative present ability/availability',
@@ -471,7 +471,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Permission',
-                'question' => ' {a1} I leave early today?',
+                'question' => 'Choose the best option: {a1} I leave early today?',
                 'options' => ['May', 'Must', 'Should', 'Have to'],
                 'answer_index' => 0,
                 'verb_hint' => 'more formal than a basic request',
@@ -479,7 +479,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Permission',
-                'question' => ' You {a1} use my laptop if you want.',
+                'question' => 'Choose the best option: You {a1} use my laptop if you want.',
                 'options' => ['can', 'must', 'shouldn\'t', 'ought to'],
                 'answer_index' => 0,
                 'verb_hint' => 'giving permission informally',
@@ -489,7 +489,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Advice',
-                'question' => ' You {a1} take a break if you feel tired.',
+                'question' => 'Choose the best option: You {a1} take a break if you feel tired.',
                 'options' => ['should', 'must', 'can', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'friendly recommendation',
@@ -497,7 +497,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Advice',
-                'question' => ' He {a1} eat so much sugar.',
+                'question' => 'Choose the best option: He {a1} eat so much sugar.',
                 'options' => ['shouldn\'t', 'mustn\'t', 'can\'t', 'may not'],
                 'answer_index' => 0,
                 'verb_hint' => 'soft advice not to do something',
@@ -507,7 +507,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Obligation & Necessity',
-                'question' => ' I {a1} finish this report by Friday.',
+                'question' => 'Choose the best option: I {a1} finish this report by Friday.',
                 'options' => ['have to', 'can', 'might', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'external requirement/deadline',
@@ -515,7 +515,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Obligation & Necessity',
-                'question' => ' You {a1} wear a helmet on a motorbike.',
+                'question' => 'Choose the best option: You {a1} wear a helmet on a motorbike.',
                 'options' => ['must', 'may', 'could', 'shouldn\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'strong rule, safety',
@@ -525,7 +525,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Possibility',
-                'question' => ' They {a1} arrive late because of traffic.',
+                'question' => 'Choose the best option: They {a1} arrive late because of traffic.',
                 'options' => ['might', 'must', 'should', 'have to'],
                 'answer_index' => 0,
                 'verb_hint' => 'uncertain future event',
@@ -533,7 +533,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Possibility',
-                'question' => ' It {a1} be cold tonight. Take a jacket.',
+                'question' => 'Choose the best option: It {a1} be cold tonight. Take a jacket.',
                 'options' => ['could', 'must', 'should', 'can\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'real possibility but not certain',
@@ -543,7 +543,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Requests',
-                'question' => ' {a1} you pass the salt, please?',
+                'question' => 'Choose the best option: {a1} you pass the salt, please?',
                 'options' => ['Could', 'Must', 'May', 'Should'],
                 'answer_index' => 0,
                 'verb_hint' => 'more polite than a basic request',
@@ -551,7 +551,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'A2',
                 'theme' => 'Requests',
-                'question' => ' {a1} you mind opening the door?',
+                'question' => 'Choose the best option: {a1} you mind opening the door?',
                 'options' => ['Would', 'Must', 'Can', 'Ought to'],
                 'answer_index' => 0,
                 'verb_hint' => 'very polite request starter',
@@ -566,7 +566,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Deduction (Present)',
-                'question' => ' The lights are off. They {a1} be at home.',
+                'question' => 'Choose the best option: The lights are off. They {a1} be at home.',
                 'options' => ['can\'t', 'must', 'should', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'negative strong deduction about now',
@@ -574,7 +574,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Deduction (Present)',
-                'question' => ' She studied all day. She {a1} be tired.',
+                'question' => 'Choose the best option: She studied all day. She {a1} be tired.',
                 'options' => ['must', 'might', 'can', 'shouldn\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'very probable conclusion now',
@@ -584,7 +584,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Obligation & Necessity',
-                'question' => ' We {a1} submit the application online.',
+                'question' => 'Choose the best option: We {a1} submit the application online.',
                 'options' => ['have to', 'might', 'could', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'required by rules/conditions',
@@ -592,7 +592,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Obligation & Necessity',
-                'question' => ' You {a1} bring your ID to the exam.',
+                'question' => 'Choose the best option: You {a1} bring your ID to the exam.',
                 'options' => ['must', 'may', 'could', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'non-negotiable requirement',
@@ -602,7 +602,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Advice & Criticism',
-                'question' => ' You {a1} back up your files regularly.',
+                'question' => 'Choose the best option: You {a1} back up your files regularly.',
                 'options' => ['should', 'mustn\'t', 'can\'t', 'may not'],
                 'answer_index' => 0,
                 'verb_hint' => 'good practice, recommendation',
@@ -610,7 +610,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Advice & Criticism',
-                'question' => ' He {a1} have spoken to her like that.',
+                'question' => 'Choose the best option: He {a1} have spoken to her like that.',
                 'options' => ['shouldn\'t', 'must', 'can', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'mild criticism about his action',
@@ -620,7 +620,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Possibility vs Ability',
-                'question' => ' We {a1} go hiking this weekend if the weather is good.',
+                'question' => 'Choose the best option: We {a1} go hiking this weekend if the weather is good.',
                 'options' => ['could', 'can', 'must', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'conditional possibility, not skill',
@@ -628,7 +628,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Possibility vs Ability',
-                'question' => ' She {a1} speak three languages.',
+                'question' => 'Choose the best option: She {a1} speak three languages.',
                 'options' => ['can', 'may', 'might', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'general ability, present',
@@ -638,7 +638,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Polite Requests',
-                'question' => ' {a1} you like some coffee?',
+                'question' => 'Choose the best option: {a1} you like some coffee?',
                 'options' => ['Would', 'Must', 'May', 'Should'],
                 'answer_index' => 0,
                 'verb_hint' => 'polite offer structure',
@@ -646,7 +646,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Polite Requests',
-                'question' => ' {a1} you possibly email me the details?',
+                'question' => 'Choose the best option: {a1} you possibly email me the details?',
                 'options' => ['Could', 'Must', 'Can\'t', 'Shouldn\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'polite/request with softener',
@@ -656,7 +656,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Ability',
-                'question' => ' I {a1} swim when I was five years old.',
+                'question' => 'Choose the best option: I {a1} swim when I was five years old.',
                 'options' => ['could', 'can', 'may', 'must'],
                 'answer_index' => 0,
                 'verb_hint' => 'past ability',
@@ -664,7 +664,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B1',
                 'theme' => 'Permission',
-                'question' => ' {a1} I borrow your pen?',
+                'question' => 'Choose the best option: {a1} I borrow your pen?',
                 'options' => ['May', 'Must', 'Should', 'Have to'],
                 'answer_index' => 0,
                 'verb_hint' => 'polite permission request',
@@ -679,7 +679,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Past Possibility',
-                'question' => ' We {a1} left earlier to avoid traffic.',
+                'question' => 'Choose the best option: We {a1} left earlier to avoid traffic.',
                 'options' => ['could have', 'must have', 'may', 'can\'t have'],
                 'answer_index' => 0,
                 'verb_hint' => 'missed chance in the past',
@@ -687,7 +687,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Past Criticism',
-                'question' => ' You {a1} told me about the change.',
+                'question' => 'Choose the best option: You {a1} told me about the change.',
                 'options' => ['should have', 'might have', 'must', 'can'],
                 'answer_index' => 0,
                 'verb_hint' => 'regret/criticism about past inaction',
@@ -697,7 +697,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Deduction (Past)',
-                'question' => ' The ground is wet. It {a1} rained last night.',
+                'question' => 'Choose the best option: The ground is wet. It {a1} rained last night.',
                 'options' => ['must have', 'should have', 'can\'t have', 'would have'],
                 'answer_index' => 0,
                 'verb_hint' => 'strong conclusion about the past',
@@ -705,7 +705,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Deduction (Past)',
-                'question' => ' He looks surprised — he {a1} known about it.',
+                'question' => 'Choose the best option: He looks surprised — he {a1} known about it.',
                 'options' => ['can\'t have', 'must have', 'should have', 'could have'],
                 'answer_index' => 0,
                 'verb_hint' => 'negative deduction about past knowledge',
@@ -715,7 +715,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Degrees of Probability',
-                'question' => ' They {a1} be late; the train is often delayed.',
+                'question' => 'Choose the best option: They {a1} be late; the train is often delayed.',
                 'options' => ['might', 'must', 'should', 'have to'],
                 'answer_index' => 0,
                 'verb_hint' => 'medium-low probability',
@@ -723,7 +723,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Degrees of Probability',
-                'question' => ' She studied all week; she {a1} pass the exam.',
+                'question' => 'Choose the best option: She studied all week; she {a1} pass the exam.',
                 'options' => ['should', 'might', 'can', 'may not'],
                 'answer_index' => 0,
                 'verb_hint' => 'expected positive outcome',
@@ -733,7 +733,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Necessity vs Obligation',
-                'question' => ' You {a1} show your passport at the border.',
+                'question' => 'Choose the best option: You {a1} show your passport at the border.',
                 'options' => ['have to', 'needn\'t', 'might', 'ought to'],
                 'answer_index' => 0,
                 'verb_hint' => 'external rule, not personal insistence',
@@ -741,7 +741,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Necessity vs Obligation',
-                'question' => ' You {a1} bring snacks; there will be food.',
+                'question' => 'Choose the best option: You {a1} bring snacks; there will be food.',
                 'options' => ['needn\'t', 'must', 'have to', 'should have'],
                 'answer_index' => 0,
                 'verb_hint' => 'no necessity required',
@@ -751,7 +751,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Habits & Hypotheticals',
-                'question' => ' When we were kids, we {a1} play outside for hours.',
+                'question' => 'Choose the best option: When we were kids, we {a1} play outside for hours.',
                 'options' => ['would', 'might', 'should', 'must'],
                 'answer_index' => 0,
                 'verb_hint' => 'past repeated habit (not used to)',
@@ -759,7 +759,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Habits & Hypotheticals',
-                'question' => ' I {a1} help if I had more time.',
+                'question' => 'Choose the best option: I {a1} help if I had more time.',
                 'options' => ['would', 'could have', 'must have', 'shouldn\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'imagined condition; polite willingness',
@@ -769,7 +769,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Advice',
-                'question' => ' You {a1} have checked the instructions before starting.',
+                'question' => 'Choose the best option: You {a1} have checked the instructions before starting.',
                 'options' => ['should', 'must', 'can', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'past advice/regret',
@@ -777,7 +777,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'B2',
                 'theme' => 'Ability',
-                'question' => ' By next year, I {a1} speak fluent Spanish.',
+                'question' => 'Choose the best option: By next year, I {a1} speak fluent Spanish.',
                 'options' => ['should', 'must', 'may', 'can'],
                 'answer_index' => 0,
                 'verb_hint' => 'future expectation/ability',
@@ -792,7 +792,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Subtle Deduction',
-                'question' => ' That {a1} be the new manager — everyone\'s greeting her.',
+                'question' => 'Choose the best option: That {a1} be the new manager — everyone\'s greeting her.',
                 'options' => ['must', 'might', 'can', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'highly likely present conclusion',
@@ -800,7 +800,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Subtle Deduction',
-                'question' => ' He {a1} forgotten your email; try resending.',
+                'question' => 'Choose the best option: He {a1} forgotten your email; try resending.',
                 'options' => ['might have', 'must have', 'could', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'uncertain past inference',
@@ -810,7 +810,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Nuanced Necessity',
-                'question' => ' You {a1} have brought flowers — but thank you!',
+                'question' => 'Choose the best option: You {a1} have brought flowers — but thank you!',
                 'options' => ['needn\'t', 'mustn\'t', 'can\'t', 'ought to'],
                 'answer_index' => 0,
                 'verb_hint' => 'lack of necessity (present)',
@@ -818,7 +818,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Nuanced Necessity',
-                'question' => ' We {a1} have rushed; the train was delayed anyway.',
+                'question' => 'Choose the best option: We {a1} have rushed; the train was delayed anyway.',
                 'options' => ['needn\'t', 'must', 'should', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'no necessity in hindsight',
@@ -828,7 +828,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Expectation',
-                'question' => ' You\'re {a1} to submit the form by midnight.',
+                'question' => 'Choose the best option: You\'re {a1} to submit the form by midnight.',
                 'options' => ['supposed', 'must', 'can', 'might'],
                 'answer_index' => 0,
                 'verb_hint' => 'expected/required by arrangement',
@@ -836,7 +836,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Formal Permission',
-                'question' => ' Candidates {a1} be accompanied by an adult.',
+                'question' => 'Choose the best option: Candidates {a1} be accompanied by an adult.',
                 'options' => ['may', 'can', 'should', 'might have'],
                 'answer_index' => 0,
                 'verb_hint' => 'formal allowance wording',
@@ -846,7 +846,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Politeness',
-                'question' => ' {a1} you be able to forward the document today?',
+                'question' => 'Choose the best option: {a1} you be able to forward the document today?',
                 'options' => ['Would', 'Must', 'Shall', 'Ought to'],
                 'answer_index' => 0,
                 'verb_hint' => 'elevated, deferential request opening',
@@ -854,7 +854,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Politeness',
-                'question' => ' {a1} I possibly have a look at your notes?',
+                'question' => 'Choose the best option: {a1} I possibly have a look at your notes?',
                 'options' => ['Might', 'Must', 'Should', 'Need to'],
                 'answer_index' => 0,
                 'verb_hint' => 'very polite, tentative permission request',
@@ -864,7 +864,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Speculation (Future)',
-                'question' => ' The plan {a1} work if we secure funding.',
+                'question' => 'Choose the best option: The plan {a1} work if we secure funding.',
                 'options' => ['could', 'mustn\'t', 'needn\'t', 'shouldn\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'realistic possibility without certainty',
@@ -872,7 +872,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Speculation (Future)',
-                'question' => ' She {a1} well decide to join us.',
+                'question' => 'Choose the best option: She {a1} well decide to join us.',
                 'options' => ['may', 'must', 'can\'t', 'ought to'],
                 'answer_index' => 0,
                 'verb_hint' => 'collocation with "well" for likelihood',
@@ -882,7 +882,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Deduction (Past)',
-                'question' => ' They {a1} have arrived by now; the flight landed an hour ago.',
+                'question' => 'Choose the best option: They {a1} have arrived by now; the flight landed an hour ago.',
                 'options' => ['should', 'might', 'can', 'would'],
                 'answer_index' => 0,
                 'verb_hint' => 'logical expectation about past',
@@ -890,7 +890,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C1',
                 'theme' => 'Obligation & Necessity',
-                'question' => ' All participants {a1} register before Friday.',
+                'question' => 'Choose the best option: All participants {a1} register before Friday.',
                 'options' => ['must', 'might', 'could', 'would'],
                 'answer_index' => 0,
                 'verb_hint' => 'formal requirement',
@@ -905,7 +905,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Advanced Deduction',
-                'question' => ' Given the evidence, the committee {a1} have reached a different conclusion.',
+                'question' => 'Choose the best option: Given the evidence, the committee {a1} have reached a different conclusion.',
                 'options' => ['could', 'must', 'should', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'counterfactual possibility in hindsight',
@@ -913,7 +913,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Advanced Deduction',
-                'question' => ' He {a1} be unaware of the latest findings; his argument ignores them.',
+                'question' => 'Choose the best option: He {a1} be unaware of the latest findings; his argument ignores them.',
                 'options' => ['must', 'might', 'can', 'should'],
                 'answer_index' => 0,
                 'verb_hint' => 'high-certainty present inference',
@@ -923,7 +923,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Epistemic vs Deontic',
-                'question' => ' You {a1} think this is obvious, but it isn\'t.',
+                'question' => 'Choose the best option: You {a1} think this is obvious, but it isn\'t.',
                 'options' => ['might', 'must', 'can\'t', 'shouldn\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'hedged opinion, low commitment',
@@ -931,7 +931,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Epistemic vs Deontic',
-                'question' => ' Researchers {a1} obtain consent before collecting data.',
+                'question' => 'Choose the best option: Researchers {a1} obtain consent before collecting data.',
                 'options' => ['must', 'may', 'might', 'could have'],
                 'answer_index' => 0,
                 'verb_hint' => 'non-negotiable ethical obligation',
@@ -941,7 +941,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Nuanced Necessity (Past)',
-                'question' => ' We {a1} have printed the reports; a digital copy was enough.',
+                'question' => 'Choose the best option: We {a1} have printed the reports; a digital copy was enough.',
                 'options' => ['needn\'t', 'mustn\'t', 'should have', 'could'],
                 'answer_index' => 0,
                 'verb_hint' => 'unnecessary action in retrospect',
@@ -949,7 +949,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Nuanced Necessity (Past)',
-                'question' => ' She {a1} have apologized; no harm was done.',
+                'question' => 'Choose the best option: She {a1} have apologized; no harm was done.',
                 'options' => ['needn\'t', 'should', 'must', 'might'],
                 'answer_index' => 0,
                 'verb_hint' => 'lack of obligation after the fact',
@@ -959,7 +959,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Register & Formality',
-                'question' => ' {a1} we proceed to the next item on the agenda?',
+                'question' => 'Choose the best option: {a1} we proceed to the next item on the agenda?',
                 'options' => ['Shall', 'Must', 'May', 'Should'],
                 'answer_index' => 0,
                 'verb_hint' => 'formal proposal/question in meetings',
@@ -967,7 +967,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Register & Formality',
-                'question' => ' Documents {a1} be submitted no later than Thursday.',
+                'question' => 'Choose the best option: Documents {a1} be submitted no later than Thursday.',
                 'options' => ['shall', 'might', 'could', 'should have'],
                 'answer_index' => 0,
                 'verb_hint' => 'formal requirement in official text',
@@ -977,7 +977,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Probability & Hedging',
-                'question' => ' The policy {a1} well face legal challenges.',
+                'question' => 'Choose the best option: The policy {a1} well face legal challenges.',
                 'options' => ['might', 'must', 'can\'t', 'shouldn\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'collocation signalling plausible likelihood',
@@ -985,7 +985,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Probability & Hedging',
-                'question' => ' This approach {a1} easily be adapted to other contexts.',
+                'question' => 'Choose the best option: This approach {a1} easily be adapted to other contexts.',
                 'options' => ['could', 'mustn\'t', 'may not', 'should have'],
                 'answer_index' => 0,
                 'verb_hint' => 'practical possibility with minimal effort',
@@ -995,7 +995,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Hypotheticals (Past)',
-                'question' => ' With better planning, they {a1} avoided the delay.',
+                'question' => 'Choose the best option: With better planning, they {a1} avoided the delay.',
                 'options' => ['could have', 'must have', 'should', 'may'],
                 'answer_index' => 0,
                 'verb_hint' => 'unrealized feasible past outcome',
@@ -1003,7 +1003,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             [
                 'level' => 'C2',
                 'theme' => 'Hypotheticals (Past)',
-                'question' => ' Had we known the risks, we {a1} chosen a different strategy.',
+                'question' => 'Choose the best option: Had we known the risks, we {a1} chosen a different strategy.',
                 'options' => ['might have', 'must', 'can\'t have', 'shouldn\'t'],
                 'answer_index' => 0,
                 'verb_hint' => 'counterfactual decision-making',
