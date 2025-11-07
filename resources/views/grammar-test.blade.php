@@ -136,6 +136,11 @@
                                                         }
                                                         $seederIsNew = $recentSeederClasses->contains($className);
                                                         $seederOrdinal = $recentSeederOrdinals->get($className);
+                                                        
+                                                        // Get execution time for this seeder
+                                                        $executionTime = isset($seederExecutionTimes) && $seederExecutionTimes->has($className) 
+                                                            ? \Illuminate\Support\Carbon::parse($seederExecutionTimes->get($className))
+                                                            : null;
                                                     @endphp
                                                     <div x-data="{
                                                             open: {{ $groupIsActive ? 'true' : 'false' }},
@@ -170,6 +175,11 @@
                                                                        class="h-4 w-4 text-blue-600 border-gray-300 rounded flex-shrink-0">
                                                                 <span class="flex min-w-0 flex-col text-left" title="{{ $displaySeederName }}">
                                                                     <span class="truncate">{{ $displaySeederName }}</span>
+                                                                    @if($executionTime)
+                                                                        <span class="text-[11px] text-gray-500 mt-0.5">
+                                                                            {{ $executionTime->format('d.m.Y H:i:s') }}
+                                                                        </span>
+                                                                    @endif
                                                                     @if($seederIsNew)
                                                                         <span class="mt-1 inline-flex text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
                                                                             Новий{{ !is_null($seederOrdinal) ? ' #' . $seederOrdinal : '' }}
@@ -242,6 +252,11 @@
                                         }
                                         $seederIsNew = $recentSeederClasses->contains($className);
                                         $seederOrdinal = $recentSeederOrdinals->get($className);
+                                        
+                                        // Get execution time for this seeder
+                                        $executionTime = isset($seederExecutionTimes) && $seederExecutionTimes->has($className) 
+                                            ? \Illuminate\Support\Carbon::parse($seederExecutionTimes->get($className))
+                                            : null;
                                     @endphp
                                     <div x-data="{
                                             open: {{ $groupIsActive ? 'true' : 'false' }},
@@ -276,6 +291,11 @@
                                                        class="h-4 w-4 text-blue-600 border-gray-300 rounded flex-shrink-0">
                                                 <span class="flex min-w-0 flex-col text-left" title="{{ $displaySeederName }}">
                                                     <span class="truncate">{{ $displaySeederName }}</span>
+                                                    @if($executionTime)
+                                                        <span class="text-[11px] text-gray-500 mt-0.5">
+                                                            {{ $executionTime->format('d.m.Y H:i:s') }}
+                                                        </span>
+                                                    @endif
                                                     @if($seederIsNew)
                                                         <span class="mt-1 inline-flex text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
                                                             Новий{{ !is_null($seederOrdinal) ? ' #' . $seederOrdinal : '' }}

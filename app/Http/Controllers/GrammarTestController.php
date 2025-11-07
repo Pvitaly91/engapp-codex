@@ -1678,18 +1678,25 @@ class GrammarTestController extends Controller
 
         // Get seeder execution dates from seed_runs table
         $seederGroupsByDate = collect();
+        $seederExecutionTimes = collect();
         if (Schema::hasTable('seed_runs') && 
             Schema::hasColumn('seed_runs', 'class_name') && 
             Schema::hasColumn('seed_runs', 'ran_at') &&
             Schema::hasColumn('questions', 'seeder')) {
             $seedRuns = DB::table('seed_runs')
                 ->orderByDesc('ran_at')
-                ->get()
-                ->groupBy(function ($run) {
-                    return Carbon::parse($run->ran_at)->format('Y-m-d');
-                });
+                ->get();
+            
+            // Build a map of seeder class name to execution time
+            foreach ($seedRuns as $run) {
+                $seederExecutionTimes->put($run->class_name, $run->ran_at);
+            }
+            
+            $groupedRuns = $seedRuns->groupBy(function ($run) {
+                return Carbon::parse($run->ran_at)->format('Y-m-d');
+            });
 
-            foreach ($seedRuns as $date => $runs) {
+            foreach ($groupedRuns as $date => $runs) {
                 $seederClassesForDate = $runs->pluck('class_name')->unique()->values();
                 
                 // Only include seeders that have questions
@@ -1711,6 +1718,7 @@ class GrammarTestController extends Controller
             'sourcesByCategory' => $sourcesByCategory,
             'seederSourceGroups' => $seederSourceGroups,
             'seederGroupsByDate' => $seederGroupsByDate,
+            'seederExecutionTimes' => $seederExecutionTimes,
             'recentTagIds' => $recentTagIds,
             'recentTagOrdinals' => $recentTagOrdinals,
             'recentCategoryIds' => $recentCategoryIds,
