@@ -10,8 +10,8 @@ use Database\Seeders\QuestionSeeder;
 /**
  * Comprehensive Modal Verbs Seeder with subthemes
  * Generates questions for Can/Could, May/Might, Must/Have to, Should/Ought to, Will/Would, Need/Needn't
- * 10 questions per subtheme with 6 questions per level (A1-C2)
- * Includes multi-gap questions for levels above A1
+ * 60 questions per subtheme with 10 questions per level (A1-C2)
+ * Includes multi-gap questions (2-3 gaps) for levels above A1
  */
 class ModalVerbsComprehensiveSubthemesAiSeeder extends QuestionSeeder
 {
@@ -486,7 +486,8 @@ class ModalVerbsComprehensiveSubthemesAiSeeder extends QuestionSeeder
     private function createMultiGapQuestion(string $level, string $subtheme, string $modals, string $concept, array $template, int $index): array
     {
         // Multi-gap question structure with different correct answers
-        $gaps = 2 + ($level === 'C2' ? 1 : 0); // 2 gaps for A2-C1, 3 for C2
+        // 2 gaps for A2-C1, 3 gaps for C2
+        $gaps = ($level === 'C2') ? 3 : 2;
         
         $parts = [];
         $correctAnswers = $this->getMultipleCorrectAnswers($level, $subtheme, $gaps);
@@ -563,6 +564,7 @@ class ModalVerbsComprehensiveSubthemesAiSeeder extends QuestionSeeder
 
     private function getCorrectAnswerForLevel(string $level, string $subtheme, array $template): string
     {
+        // Deterministic answer selection based on template type
         $answers = [
             'may_might' => ['may', 'might', 'may'],
             'must_have_to' => ['must', 'have to', 'must'],
@@ -572,21 +574,48 @@ class ModalVerbsComprehensiveSubthemesAiSeeder extends QuestionSeeder
         ];
         
         $subthemeAnswers = $answers[$subtheme] ?? $answers['may_might'];
-        return $subthemeAnswers[array_rand($subthemeAnswers)];
+        $templateType = $template['type'] ?? 'default';
+        
+        // Use template type to determine answer deterministically
+        $typeIndex = crc32($templateType) % count($subthemeAnswers);
+        return $subthemeAnswers[$typeIndex];
     }
 
     private function getMultipleCorrectAnswers(string $level, string $subtheme, int $count): array
     {
         $possibleAnswers = $this->getOptionsForLevel($level, $subtheme);
         $selected = [];
+        $maxAttempts = 20; // Prevent infinite loops
+        $attempts = 0;
         
-        for ($i = 0; $i < $count; $i++) {
-            $answer = $possibleAnswers[$i % count($possibleAnswers)];
+        for ($i = 0; $i < $count && $attempts < $maxAttempts; $i++) {
+            $index = ($i % count($possibleAnswers));
+            $answer = $possibleAnswers[$index];
+            
             // Ensure no duplicates
-            while (in_array($answer, $selected, true)) {
-                $answer = $possibleAnswers[($i + 1) % count($possibleAnswers)];
+            $loopAttempts = 0;
+            while (in_array($answer, $selected, true) && $loopAttempts < count($possibleAnswers)) {
+                $index = ($index + 1) % count($possibleAnswers);
+                $answer = $possibleAnswers[$index];
+                $loopAttempts++;
             }
-            $selected[] = $answer;
+            
+            if (!in_array($answer, $selected, true)) {
+                $selected[] = $answer;
+            }
+            $attempts++;
+        }
+        
+        // If we couldn't get enough unique answers, pad with remaining available options
+        while (count($selected) < $count && count($selected) < count($possibleAnswers)) {
+            foreach ($possibleAnswers as $answer) {
+                if (!in_array($answer, $selected, true)) {
+                    $selected[] = $answer;
+                    if (count($selected) >= $count) {
+                        break;
+                    }
+                }
+            }
         }
         
         return $selected;
