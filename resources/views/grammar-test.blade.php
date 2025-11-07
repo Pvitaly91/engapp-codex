@@ -112,7 +112,118 @@
                         @if($seederGroups->isEmpty())
                             <p class="text-sm text-gray-500">Немає доступних класів сидера.</p>
                         @else
-                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
+                            @if(isset($seederGroupsByDate) && $seederGroupsByDate->isNotEmpty())
+                                <div class="space-y-4">
+                                    @foreach($seederGroupsByDate as $date => $dateSeederClasses)
+                                        <div class="border border-gray-300 rounded-2xl p-3 bg-gray-50">
+                                            <h3 class="text-sm font-bold text-gray-800 mb-3">Дата виконання: {{ $date }}</h3>
+                                            <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
+                                                @foreach($seederGroups->whereIn('seeder', $dateSeederClasses->all()) as $group)
+                                                    @php
+                                                        $className = $group['seeder'];
+                                                        $seederSources = collect($group['sources'] ?? []);
+                                                        $seederIsSelected = in_array($className, $selectedSeederClasses, true);
+                                                        $seederSourceIds = $seederSources->pluck('id');
+                                                        $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
+                                                        $groupIsActive = $seederIsSelected || $seederHasSelectedSources;
+                                                        $seederInputId = 'seeder-' . md5($className);
+                                                        $displaySeederName = \Illuminate\Support\Str::after($className, 'Database\\Seeders\\');
+                                                        if ($displaySeederName === $className) {
+                                                            $displaySeederName = $className;
+                                                        }
+                                                        $seederIsNew = $recentSeederClasses->contains($className);
+                                                        $seederOrdinal = $recentSeederOrdinals->get($className);
+                                                    @endphp
+                                                    <div x-data="{
+                                                            open: {{ $groupIsActive ? 'true' : 'false' }},
+                                                            toggle(openState = undefined) {
+                                                                if (openState === undefined) {
+                                                                    this.open = !this.open;
+                                                                    return;
+                                                                }
+
+                                                                this.open = !!openState;
+                                                            }
+                                                        }"
+                                                         @toggle-all-seeder-sources.window="toggle($event.detail.open)"
+                                                         @class([
+                                                            'border rounded-2xl overflow-hidden transition',
+                                                            'border-gray-200' => ! $groupIsActive,
+                                                            'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
+                                                         ])
+                                                    >
+                                                        <div class="flex items-start justify-between gap-3 px-4 py-2 bg-gray-50 cursor-pointer"
+                                                             @click="toggle()"
+                                                        >
+                                                            <label for="{{ $seederInputId }}"
+                                                                   @class([
+                                                                        'flex flex-1 min-w-0 items-start gap-2 text-sm font-semibold text-gray-800 cursor-pointer',
+                                                                        'text-blue-800' => $seederIsSelected,
+                                                                   ])
+                                                                   @click.stop
+                                                            >
+                                                                <input type="checkbox" name="seeder_classes[]" value="{{ $className }}" id="{{ $seederInputId }}"
+                                                                       {{ $seederIsSelected ? 'checked' : '' }}
+                                                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded flex-shrink-0">
+                                                                <span class="flex min-w-0 flex-col text-left" title="{{ $displaySeederName }}">
+                                                                    <span class="truncate">{{ $displaySeederName }}</span>
+                                                                    @if($seederIsNew)
+                                                                        <span class="mt-1 inline-flex text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                                                            Новий{{ !is_null($seederOrdinal) ? ' #' . $seederOrdinal : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </span>
+                                                            </label>
+                                                            <button type="button"
+                                                                    class="inline-flex flex-shrink-0 items-center justify-center h-8 w-8 rounded-full text-gray-600 hover:bg-blue-100"
+                                                                    @click.stop="toggle()"
+                                                                    :aria-expanded="open.toString()"
+                                                                    aria-label="Перемкнути список джерел">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
+                                                            @if($seederSources->isEmpty())
+                                                                <p class="text-xs text-gray-500">Для цього сидера немає пов'язаних джерел.</p>
+                                                            @else
+                                                                <div class="flex flex-wrap gap-2">
+                                                                    @foreach($seederSources as $source)
+                                                                        @php
+                                                                            $sourceIsSelected = $selectedSourceCollection->contains($source->id);
+                                                                            $sourceIsNew = $recentSourceIds->contains($source->id);
+                                                                            $sourceOrdinal = $recentSourceOrdinals->get($source->id);
+                                                                        @endphp
+                                                                        <label @class([
+                                                                            'flex items-start gap-2 px-3 py-1 rounded-full border text-sm transition text-left',
+                                                                            'border-gray-200 bg-white hover:border-blue-300' => ! $sourceIsSelected,
+                                                                            'border-blue-400 bg-blue-50 shadow-sm' => $sourceIsSelected,
+                                                                        ])>
+                                                                            <input type="checkbox" name="sources[]" value="{{ $source->id }}"
+                                                                                   {{ $sourceIsSelected ? 'checked' : '' }}
+                                                                                   class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                                                            <span class="whitespace-normal break-words flex items-center gap-2 flex-wrap">
+                                                                                <span>{{ $source->name }} (ID: {{ $source->id }})</span>
+                                                                                @if($sourceIsNew)
+                                                                                    <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
+                                                                                        Новий{{ !is_null($sourceOrdinal) ? ' #' . $sourceOrdinal : '' }}
+                                                                                    </span>
+                                                                                @endif
+                                                                            </span>
+                                                                        </label>
+                                                                    @endforeach
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @else
+                                <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
                                 @foreach($seederGroups as $group)
                                     @php
                                         $className = $group['seeder'];
@@ -214,6 +325,7 @@
                                     </div>
                                 @endforeach
                             </div>
+                            @endif
                         @endif
                     </div>
                 </div>
@@ -440,6 +552,89 @@
                                                                 Новий{{ !is_null($tagOrdinal) ? ' #' . $tagOrdinal : '' }}
                                                             </span>
                                                         @endif
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
+                @if(isset($aggregatedTagsByCategory) && $aggregatedTagsByCategory->isNotEmpty())
+                    @php
+                        $selectedAggregatedTags = collect($selectedAggregatedTags ?? [])->all();
+                        $hasSelectedAggregatedTags = !empty($selectedAggregatedTags);
+                        $allAggregatedTagNames = $aggregatedTagsByCategory
+                            ->flatMap(fn ($tags) => $tags)
+                            ->filter(fn ($name) => filled($name))
+                            ->unique()
+                            ->values();
+                    @endphp
+                    <div x-data="{ openAggregatedTags: {{ $hasSelectedAggregatedTags ? 'true' : 'false' }} }"
+                         x-init="$store.aggregatedTagSearch.setAllTags(@js($allAggregatedTagNames))"
+                         @class([
+                            'space-y-3 border border-transparent rounded-2xl p-3',
+                            'border-blue-300 bg-blue-50' => $hasSelectedAggregatedTags,
+                         ])
+                    >
+                        <div class="flex items-center justify-between gap-3">
+                            <h2 class="text-sm font-semibold text-gray-700">Агреговані теги</h2>
+                            <button type="button" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition"
+                                    @click="openAggregatedTags = !openAggregatedTags">
+                                <span x-text="openAggregatedTags ? 'Згорнути' : 'Розгорнути'"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openAggregatedTags }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="space-y-3" x-show="openAggregatedTags" x-transition style="display: none;">
+                            <div class="relative">
+                                <input
+                                    type="search"
+                                    placeholder="Пошук агрегованих тегів..."
+                                    x-model.debounce.200ms="$store.aggregatedTagSearch.query"
+                                    class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    autocomplete="off"
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.9 14.32a6 6 0 111.414-1.414l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM14 9a5 5 0 11-10 0 5 5 0 0110 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p x-show="$store.aggregatedTagSearch.query && !$store.aggregatedTagSearch.hasResults()" x-cloak class="text-sm text-gray-500">Агреговані теги не знайдено.</p>
+                            @foreach($aggregatedTagsByCategory as $tagCategory => $tags)
+                                @php
+                                    $categoryTagNames = collect($tags);
+                                    $tagCategoryHasSelected = $categoryTagNames->intersect($selectedAggregatedTags)->isNotEmpty();
+                                @endphp
+                                <div x-data="{ open: {{ ($tagCategoryHasSelected || $loop->first) ? 'true' : 'false' }}, categoryTags: @js($categoryTagNames) }"
+                                     x-show="$store.aggregatedTagSearch.matchesAny(categoryTags)"
+                                     x-effect="if ($store.aggregatedTagSearch.normalized() && $store.aggregatedTagSearch.matchesAny(categoryTags)) { open = true }"
+                                     x-cloak
+                                     @class([
+                                        'border rounded-2xl overflow-hidden transition',
+                                        'border-gray-200' => ! $tagCategoryHasSelected,
+                                        'border-blue-400 shadow-sm bg-blue-50' => $tagCategoryHasSelected,
+                                     ])
+                                >
+                                    <button type="button" class="w-full flex items-center justify-between px-4 py-2 bg-gray-50 text-left font-semibold text-gray-800"
+                                            @click="open = !open">
+                                        <span>{{ $tagCategory }}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div x-show="open" x-transition style="display: none;" class="px-4 pb-4 pt-2">
+                                        <div class="flex flex-wrap gap-2">
+                                            @foreach($tags as $tagName)
+                                                @php $tagId = 'aggregated-tag-' . md5($tagName); @endphp
+                                                <div x-show="$store.aggregatedTagSearch.matches(@js($tagName))" x-cloak>
+                                                    <input type="checkbox" name="aggregated_tags[]" value="{{ $tagName }}" id="{{ $tagId }}" class="hidden peer"
+                                                           {{ in_array($tagName, $selectedAggregatedTags) ? 'checked' : '' }}>
+                                                    <label for="{{ $tagId }}" class="px-3 py-1 rounded-full border border-gray-200 cursor-pointer text-sm bg-gray-100 peer-checked:bg-blue-600 peer-checked:text-white flex items-center gap-2">
+                                                        <span>{{ $tagName }}</span>
                                                     </label>
                                                 </div>
                                             @endforeach
@@ -704,6 +899,44 @@
 <script>
 document.addEventListener('alpine:init', () => {
     Alpine.store('tagSearch', {
+        query: '',
+        all: [],
+        setAllTags(tags) {
+            this.all = Array.isArray(tags) ? tags : [];
+        },
+        normalized() {
+            return this.query.trim().toLowerCase();
+        },
+        matches(tagName) {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            return String(tagName || '').toLowerCase().includes(normalized);
+        },
+        matchesAny(tagNames) {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            return (Array.isArray(tagNames) ? tagNames : []).some(tag => this.matches(tag));
+        },
+        hasResults() {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            return this.matchesAny(this.all);
+        },
+    });
+
+    Alpine.store('aggregatedTagSearch', {
         query: '',
         all: [],
         setAllTags(tags) {

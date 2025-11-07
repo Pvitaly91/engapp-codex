@@ -1417,6 +1417,7 @@ class GrammarTestController extends Controller
             'onlyAiV2' => false,
             'questions' => collect(),
             'selectedTags' => [],
+            'selectedAggregatedTags' => [],
             'selectedLevels' => [],
             'selectedSources' => [],
             'selectedQuestionTypes' => [],
@@ -1647,11 +1648,66 @@ class GrammarTestController extends Controller
                 ->mapWithKeys(fn ($row, $index) => [$row->seeder => $index + 1]);
         }
 
+        // Get aggregated tags
+        $aggregations = $this->aggregationService->getAggregations();
+        
+        // Build aggregated tags by category
+        $aggregatedTagsByCategory = collect();
+        foreach ($aggregations as $aggregation) {
+            $mainTag = $aggregation['main_tag'];
+            $category = $aggregation['category'] ?? $otherLabel;
+            
+            if (!$aggregatedTagsByCategory->has($category)) {
+                $aggregatedTagsByCategory->put($category, collect());
+            }
+            $aggregatedTagsByCategory[$category]->push($mainTag);
+        }
+        
+        // Sort aggregated tags within each category
+        $aggregatedTagsByCategory = $aggregatedTagsByCategory->map(fn($tags) => $tags->sort()->values());
+        
+        $aggregatedTagsByCategory = $aggregatedTagsByCategory->sortKeys();
+        if ($aggregatedTagsByCategory->has('Tenses')) {
+            $tenses = $aggregatedTagsByCategory->pull('Tenses');
+            $aggregatedTagsByCategory = $aggregatedTagsByCategory->prepend($tenses, 'Tenses');
+        }
+        if ($aggregatedTagsByCategory->has($otherLabel)) {
+            $other = $aggregatedTagsByCategory->pull($otherLabel);
+            $aggregatedTagsByCategory->put($otherLabel, $other);
+        }
+
+        // Get seeder execution dates from seed_runs table
+        $seederGroupsByDate = collect();
+        if (Schema::hasTable('seed_runs') && Schema::hasColumn('questions', 'seeder')) {
+            $seedRuns = DB::table('seed_runs')
+                ->orderByDesc('ran_at')
+                ->get()
+                ->groupBy(function ($run) {
+                    return Carbon::parse($run->ran_at)->format('Y-m-d');
+                });
+
+            foreach ($seedRuns as $date => $runs) {
+                $seederClassesForDate = $runs->pluck('class_name')->unique()->values();
+                
+                // Only include seeders that have questions
+                $seedersWithQuestions = $seederSourceGroups
+                    ->pluck('seeder')
+                    ->intersect($seederClassesForDate)
+                    ->values();
+                
+                if ($seedersWithQuestions->isNotEmpty()) {
+                    $seederGroupsByDate->put($date, $seedersWithQuestions);
+                }
+            }
+        }
+
         return [
             'tagsByCategory' => $tagsByCategory,
+            'aggregatedTagsByCategory' => $aggregatedTagsByCategory,
             'categoriesDesc' => $categoriesDesc,
             'sourcesByCategory' => $sourcesByCategory,
             'seederSourceGroups' => $seederSourceGroups,
+            'seederGroupsByDate' => $seederGroupsByDate,
             'recentTagIds' => $recentTagIds,
             'recentTagOrdinals' => $recentTagOrdinals,
             'recentCategoryIds' => $recentCategoryIds,
