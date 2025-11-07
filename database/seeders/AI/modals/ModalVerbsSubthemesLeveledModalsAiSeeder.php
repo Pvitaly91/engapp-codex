@@ -2085,23 +2085,120 @@ class ModalVerbsSubthemesLeveledModalsAiSeeder extends QuestionSeeder
 
         foreach ($this->bankQuestions as $subKey => $questions) {
             foreach ($questions as $question) {
-                $entries[] = $question + ['subtheme' => $subKey, 'bucket' => 'bank'];
+                $entries[] = $this->normalizeEntry($question + ['subtheme' => $subKey, 'bucket' => 'bank']);
             }
         }
 
         foreach ($this->leveledQuestions as $subKey => $levels) {
             foreach ($levels as $level => $questions) {
                 foreach ($questions as $question) {
-                    $entries[] = $question + [
+                    $entries[] = $this->normalizeEntry($question + [
                         'subtheme' => $subKey,
                         'bucket' => 'leveled',
                         'level' => $level,
-                    ];
+                    ]);
                 }
             }
         }
 
         return $entries;
+    }
+
+    private function normalizeEntry(array $entry): array
+    {
+        if (!isset($entry['question'], $entry['answers']) || !is_array($entry['answers'])) {
+            return $entry;
+        }
+
+        $entry = $this->mergeAdjacentMarkers($entry);
+        $entry['options'] = array_values(array_unique(array_map('strval', $entry['options'] ?? [])));
+
+        return $entry;
+    }
+
+    private function mergeAdjacentMarkers(array $entry): array
+    {
+        $question = $entry['question'];
+        $answers = $entry['answers'];
+        $options = $entry['options'] ?? [];
+
+        $pattern = '/\{(a\d+)\}(\s+)\{(a\d+)\}/';
+
+        while (preg_match($pattern, $question, $matches)) {
+            $fullMatch = $matches[0];
+            $firstMarker = $matches[1];
+            $secondMarker = $matches[3];
+
+            if (!isset($answers[$firstMarker], $answers[$secondMarker])) {
+                $question = str_replace($fullMatch, '{' . $firstMarker . '}', $question);
+                continue;
+            }
+
+            $firstData = $answers[$firstMarker];
+            $secondData = $answers[$secondMarker];
+
+            $combinedValue = trim(($firstData['value'] ?? '') . ' ' . ($secondData['value'] ?? ''));
+            $combinedHint = $this->mergeHints($firstData['hint'] ?? null, $secondData['hint'] ?? null);
+
+            $answers[$firstMarker]['value'] = $combinedValue;
+            if ($combinedHint !== null) {
+                $answers[$firstMarker]['hint'] = $combinedHint;
+            }
+
+            unset($answers[$secondMarker]);
+
+            $options = $this->updateOptionsForMergedValues($options, $firstData['value'] ?? '', $secondData['value'] ?? '', $combinedValue);
+
+            $question = str_replace($fullMatch, '{' . $firstMarker . '}', $question);
+        }
+
+        $entry['question'] = preg_replace('/\s{2,}/', ' ', trim($question));
+        $entry['answers'] = $answers;
+        $entry['options'] = $options;
+
+        return $entry;
+    }
+
+    private function mergeHints(?string $first, ?string $second): ?string
+    {
+        if ($first === null) {
+            return $second;
+        }
+
+        if ($second === null) {
+            return $first;
+        }
+
+        if (strcasecmp($first, $second) === 0) {
+            return $first;
+        }
+
+        return $first . '; ' . $second;
+    }
+
+    private function updateOptionsForMergedValues(array $options, string $firstValue, string $secondValue, string $combinedValue): array
+    {
+        $normalized = [];
+        foreach ($options as $option) {
+            if (is_scalar($option)) {
+                $normalized[] = (string) $option;
+            }
+        }
+
+        $filtered = [];
+        foreach ($normalized as $option) {
+            if ($secondValue !== '' && strcasecmp($option, $secondValue) === 0) {
+                continue;
+            }
+
+            $filtered[] = $option;
+        }
+
+        if ($combinedValue !== '' && !in_array($combinedValue, $filtered, true)) {
+            $filtered[] = $combinedValue;
+        }
+
+        return array_values($filtered);
     }
 
     private function buildHintBlocks(string $subtheme, string $level, array $answers): array
