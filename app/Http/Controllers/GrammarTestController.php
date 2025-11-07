@@ -1678,7 +1678,10 @@ class GrammarTestController extends Controller
 
         // Get seeder execution dates from seed_runs table
         $seederGroupsByDate = collect();
-        if (Schema::hasTable('seed_runs') && Schema::hasColumn('questions', 'seeder')) {
+        if (Schema::hasTable('seed_runs') && 
+            Schema::hasColumn('seed_runs', 'class_name') && 
+            Schema::hasColumn('seed_runs', 'ran_at') &&
+            Schema::hasColumn('questions', 'seeder')) {
             $seedRuns = DB::table('seed_runs')
                 ->orderByDesc('ran_at')
                 ->get()
