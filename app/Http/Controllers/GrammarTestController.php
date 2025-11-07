@@ -1317,10 +1317,14 @@ class GrammarTestController extends Controller
             $testQuestions = $questionIds->map(fn($id) => $questions[$id] ?? null)->filter();
             $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
             
-            // Map tags to their main tags if they're part of an aggregation
-            $aggregatedTagNames = $tagNames->map(function($tagName) use ($tagToMainTag) {
-                return $tagToMainTag[$tagName] ?? $tagName;
-            });
+            // Map tags to their main tags ONLY if they're part of an aggregation
+            // Filter out tags that are not in any aggregation
+            $aggregatedTagNames = $tagNames
+                ->map(function($tagName) use ($tagToMainTag) {
+                    // Only include tags that are in the aggregation map
+                    return isset($tagToMainTag[$tagName]) ? $tagToMainTag[$tagName] : null;
+                })
+                ->filter(); // Remove null values (non-aggregated tags)
             
             $test->tag_names = $aggregatedTagNames->unique()->values();
             $test->levels = $testQuestions->pluck('level')->unique()
@@ -1334,9 +1338,28 @@ class GrammarTestController extends Controller
             ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
             ->values();
 
-        $tagModels = Tag::whereIn('name', $availableTags)->get();
-        $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')
-            ->map(fn($group) => $group->pluck('name')->sort()->values());
+        // Build category mapping for aggregated tags from aggregation config
+        $aggregatedTagCategories = [];
+        foreach ($aggregations as $aggregation) {
+            $mainTag = $aggregation['main_tag'];
+            $category = $aggregation['category'] ?? 'Other';
+            $aggregatedTagCategories[$mainTag] = $category;
+        }
+
+        // Group tags by category (all tags are now aggregated, so use config categories)
+        $tagsByCategory = collect();
+        foreach ($availableTags as $tagName) {
+            // All tags should be in the aggregation config at this point
+            $category = $aggregatedTagCategories[$tagName] ?? 'Other';
+            
+            if (!$tagsByCategory->has($category)) {
+                $tagsByCategory->put($category, collect());
+            }
+            $tagsByCategory[$category]->push($tagName);
+        }
+        
+        // Sort tags within each category
+        $tagsByCategory = $tagsByCategory->map(fn($tags) => $tags->sort()->values());
 
         $tagsByCategory = $tagsByCategory->sortKeys();
         if ($tagsByCategory->has('Tenses')) {
