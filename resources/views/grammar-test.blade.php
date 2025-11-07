@@ -115,10 +115,13 @@
                             @if(isset($seederGroupsByDate) && $seederGroupsByDate->isNotEmpty())
                                 <div class="space-y-4">
                                     @foreach($seederGroupsByDate as $date => $dateSeederClasses)
+                                        @php
+                                            $dateSeederGroups = $seederGroups->whereIn('seeder', $dateSeederClasses->all());
+                                        @endphp
                                         <div class="border border-gray-300 rounded-2xl p-3 bg-gray-50">
                                             <h3 class="text-sm font-bold text-gray-800 mb-3">Дата виконання: {{ $date }}</h3>
                                             <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
-                                                @foreach($seederGroups->whereIn('seeder', $dateSeederClasses->all()) as $group)
+                                                @foreach($dateSeederGroups as $group)
                                                     @php
                                                         $className = $group['seeder'];
                                                         $seederSources = collect($group['sources'] ?? []);

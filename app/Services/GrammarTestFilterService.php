@@ -117,18 +117,21 @@ class GrammarTestFilterService
             if (! empty($selectedAggregatedTags)) {
                 $aggregations = $this->aggregationService->getAggregations();
                 
+                // Build a lookup map for efficient tag expansion
+                $mainTagToSimilarTags = [];
+                foreach ($aggregations as $aggregation) {
+                    $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
+                }
+                
                 // Build a list of all tags that should be matched
                 $tagsToMatch = [];
                 foreach ($selectedAggregatedTags as $mainTag) {
                     // Add the main tag itself
                     $tagsToMatch[] = $mainTag;
                     
-                    // Add similar tags from the aggregation
-                    foreach ($aggregations as $aggregation) {
-                        if ($aggregation['main_tag'] === $mainTag) {
-                            $tagsToMatch = array_merge($tagsToMatch, $aggregation['similar_tags'] ?? []);
-                            break;
-                        }
+                    // Add similar tags from the lookup map
+                    if (isset($mainTagToSimilarTags[$mainTag])) {
+                        $tagsToMatch = array_merge($tagsToMatch, $mainTagToSimilarTags[$mainTag]);
                     }
                 }
                 
