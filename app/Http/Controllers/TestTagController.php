@@ -532,20 +532,8 @@ class TestTagController extends Controller
             ->sort()
             ->values();
 
-        // Group aggregations by category
-        $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
-            return $aggregation['category'] ?? 'Без категорії';
-        })->sortKeys();
-        
-        // Move "Без категорії" to the end if it exists
-        if ($aggregationsByCategory->has('Без категорії')) {
-            $uncategorized = $aggregationsByCategory->pull('Без категорії');
-            $aggregationsByCategory->put('Без категорії', $uncategorized);
-        }
-
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
-            'aggregationsByCategory' => $aggregationsByCategory,
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,

@@ -188,61 +188,44 @@
                     </p>
                 @else
                     <div class="space-y-4">
-                        @foreach ($aggregationsByCategory as $category => $categoryAggregations)
-                            <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-                                {{-- Category Header --}}
-                                <button
-                                    type="button"
-                                    onclick="toggleAggregationCategory('{{ $loop->index }}')"
-                                    class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-slate-50 transition-colors"
-                                >
-                                    <div class="flex items-center gap-3">
-                                        <i id="icon-{{ $loop->index }}" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
-                                        <div>
-                                            <h3 class="text-lg font-semibold text-slate-800">{{ $category }}</h3>
-                                            <p class="text-sm text-slate-500">{{ count($categoryAggregations) }} {{ count($categoryAggregations) === 1 ? 'агрегація' : 'агрегацій' }}</p>
-                                        </div>
+                        @foreach ($aggregations as $aggregation)
+                            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-slate-800">
+                                            {{ $aggregation['main_tag'] }}
+                                        </h3>
+                                        <p class="text-sm text-slate-500">Головний тег</p>
+                                        @if (!empty($aggregation['category']))
+                                            <p class="text-xs text-slate-400 mt-1">
+                                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">
+                                                    {{ $aggregation['category'] }}
+                                                </span>
+                                            </p>
+                                        @endif
                                     </div>
-                                </button>
-                                
-                                {{-- Category Content --}}
-                                <div id="category-{{ $loop->index }}" class="border-t border-slate-200">
-                                    <div class="p-4 space-y-4">
-                                        @foreach ($categoryAggregations as $aggregation)
-                                            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                                                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
-                                                    <div>
-                                                        <h4 class="text-base font-semibold text-slate-800">
-                                                            {{ $aggregation['main_tag'] }}
-                                                        </h4>
-                                                        <p class="text-xs text-slate-500">Головний тег</p>
-                                                    </div>
-                                                    <form
-                                                        action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
-                                                        method="POST"
-                                                        data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
-                                                    >
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button
-                                                            type="submit"
-                                                            class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
-                                                        >
-                                                            Видалити
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                                <div>
-                                                    <p class="text-xs font-medium text-slate-700 mb-2">Схожі теги:</p>
-                                                    <div class="flex flex-wrap gap-2">
-                                                        @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
-                                                            <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                                                                {{ $similarTag }}
-                                                            </span>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <form
+                                        action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
+                                        method="POST"
+                                        data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
+                                    >
+                                        @csrf
+                                        @method('DELETE')
+                                        <button
+                                            type="submit"
+                                            class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-sm font-medium text-red-600 hover:bg-red-50"
+                                        >
+                                            Видалити
+                                        </button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-slate-700 mb-2">Схожі теги:</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
+                                            <span class="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+                                                {{ $similarTag }}
+                                            </span>
                                         @endforeach
                                     </div>
                                 </div>
@@ -889,22 +872,6 @@
                 console.error('Failed to copy:', err);
                 alert('Не вдалося скопіювати в буфер обміну');
             });
-        }
-
-        // Toggle aggregation category visibility
-        function toggleAggregationCategory(index) {
-            const content = document.getElementById(`category-${index}`);
-            const icon = document.getElementById(`icon-${index}`);
-            
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.classList.remove('fa-chevron-right');
-                icon.classList.add('fa-chevron-down');
-            } else {
-                content.classList.add('hidden');
-                icon.classList.remove('fa-chevron-down');
-                icon.classList.add('fa-chevron-right');
-            }
         }
 
         // Toggle import form visibility
