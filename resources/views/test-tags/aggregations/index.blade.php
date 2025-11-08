@@ -182,47 +182,61 @@
                         Агрегації ще не створено.
                     </p>
                 @else
-                    <div class="space-y-4">
-                        @foreach ($aggregations as $aggregation)
-                            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
-                                    <div>
+                    <div class="space-y-3">
+                        @foreach ($aggregationsByCategory as $categoryName => $categoryAggregations)
+                            <div class="rounded-xl border border-slate-200 bg-white shadow-sm">
+                                <button
+                                    type="button"
+                                    onclick="toggleCategory(this)"
+                                    class="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 transition-colors rounded-t-xl"
+                                >
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-chevron-down transition-transform duration-200 text-slate-500 category-chevron"></i>
                                         <h3 class="text-lg font-semibold text-slate-800">
-                                            {{ $aggregation['main_tag'] }}
+                                            {{ $categoryName }}
                                         </h3>
-                                        <p class="text-sm text-slate-500">Головний тег</p>
-                                        @if (!empty($aggregation['category']))
-                                            <p class="text-xs text-slate-400 mt-1">
-                                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">
-                                                    {{ $aggregation['category'] }}
-                                                </span>
-                                            </p>
-                                        @endif
+                                        <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                                            {{ count($categoryAggregations) }}
+                                        </span>
                                     </div>
-                                    <form
-                                        action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
-                                        method="POST"
-                                        data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
-                                    >
-                                        @csrf
-                                        @method('DELETE')
-                                        <button
-                                            type="submit"
-                                            class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-sm font-medium text-red-600 hover:bg-red-50"
-                                        >
-                                            Видалити
-                                        </button>
-                                    </form>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium text-slate-700 mb-2">Схожі теги:</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
-                                            <span class="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
-                                                {{ $similarTag }}
-                                            </span>
-                                        @endforeach
-                                    </div>
+                                </button>
+                                <div class="category-content space-y-4 p-4 pt-0">
+                                    @foreach ($categoryAggregations as $aggregation)
+                                        <div class="rounded-lg border border-slate-200 bg-slate-50 p-5">
+                                            <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                                                <div>
+                                                    <h4 class="text-lg font-semibold text-slate-800">
+                                                        {{ $aggregation['main_tag'] }}
+                                                    </h4>
+                                                    <p class="text-sm text-slate-500">Головний тег</p>
+                                                </div>
+                                                <form
+                                                    action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
+                                                    method="POST"
+                                                    data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
+                                                >
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button
+                                                        type="submit"
+                                                        class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-sm font-medium text-red-600 hover:bg-red-50"
+                                                    >
+                                                        Видалити
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-medium text-slate-700 mb-2">Схожі теги:</p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
+                                                        <span class="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+                                                            {{ $similarTag }}
+                                                        </span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         @endforeach
@@ -580,6 +594,20 @@
                 }
             });
         };
+
+        // Toggle category collapse/expand
+        function toggleCategory(button) {
+            const content = button.nextElementSibling;
+            const chevron = button.querySelector('.category-chevron');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('hidden');
+                chevron.style.transform = 'rotate(-90deg)';
+            }
+        }
 
         // Copy JSON to clipboard
         function copyJsonToClipboard() {
