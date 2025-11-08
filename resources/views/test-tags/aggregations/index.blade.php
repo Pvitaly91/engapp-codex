@@ -672,14 +672,28 @@
             }
         }
 
+        // Auto-show import form if there's old input or errors
+        function autoShowImportForm() {
+            @if(old('json_data') || $errors->has('json_data'))
+                const container = document.getElementById('import-form-container');
+                const button = document.getElementById('toggle-import-btn');
+                if (container && button) {
+                    container.classList.remove('hidden');
+                    button.innerHTML = '<i class="fa-solid fa-chevron-up mr-2"></i>Сховати форму імпорту';
+                }
+            @endif
+        }
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 initTagDropdowns();
                 initAggregationConfirmation();
+                autoShowImportForm();
             });
         } else {
             initTagDropdowns();
             initAggregationConfirmation();
+            autoShowImportForm();
         }
     </script>
 @endpush
