@@ -672,6 +672,38 @@ class TestTagController extends Controller
         }
     }
 
+    public function generateAggregationPrompt(): JsonResponse
+    {
+        $tags = Tag::orderBy('name')->get();
+
+        if ($tags->isEmpty()) {
+            return response()->json([
+                'error' => 'Немає тегів для агрегації.',
+            ], 400);
+        }
+
+        $tagNames = $tags->pluck('name')->toArray();
+        $tagsList = implode(', ', $tagNames);
+
+        $prompt = "You are a grammar tag analyzer. Analyze the following list of English grammar tags and suggest aggregations.\n\n";
+        $prompt .= "Tags: {$tagsList}\n\n";
+        $prompt .= "Group similar or related tags together. For each group, identify:\n";
+        $prompt .= "1. A main_tag (the most general or commonly used tag in the group)\n";
+        $prompt .= "2. similar_tags (array of related tags that should be aggregated under the main tag)\n\n";
+        $prompt .= "Rules:\n";
+        $prompt .= "- Only group tags that are clearly related or synonyms\n";
+        $prompt .= "- Each tag should appear only once in the result\n";
+        $prompt .= "- Don't create aggregations for tags that are clearly distinct\n";
+        $prompt .= "- similar_tags should not include the main_tag itself\n\n";
+        $prompt .= "Respond strictly in JSON format as an array of objects:\n";
+        $prompt .= '[{"main_tag": "Present Simple", "similar_tags": ["Simple Present", "Present Tense"]}, ...]';
+
+        return response()->json([
+            'prompt' => $prompt,
+            'tags_count' => count($tagNames),
+        ]);
+    }
+
     public function importAggregations(Request $request, TagAggregationService $service): RedirectResponse
     {
         $validated = $request->validate([
