@@ -12,24 +12,6 @@
                         <p class="text-slate-500">Об'єднуйте схожі теги під одним головним тегом.</p>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <form method="POST" action="{{ route('test-tags.aggregations.auto') }}" class="inline">
-                            @csrf
-                            <button
-                                type="submit"
-                                class="inline-flex items-center justify-center rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring"
-                            >
-                                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Автогенерація (Gemini)
-                            </button>
-                        </form>
-                        <form method="POST" action="{{ route('test-tags.aggregations.auto-chatgpt') }}" class="inline">
-                            @csrf
-                            <button
-                                type="submit"
-                                class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
-                            >
-                                <i class="fa-solid fa-robot mr-2"></i>Автогенерація (ChatGPT)
-                            </button>
-                        </form>
                         <a
                             href="{{ route('test-tags.index') }}"
                             class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring"
@@ -51,6 +33,29 @@
                     {{ session('error') }}
                 </div>
             @endif
+
+            {{-- Tabs Navigation --}}
+            <div class="border-b border-slate-200">
+                <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                    <button
+                        onclick="switchTab('manual')"
+                        id="tab-manual"
+                        class="tab-button whitespace-nowrap border-b-2 border-blue-500 py-4 px-1 text-sm font-medium text-blue-600"
+                    >
+                        Ручне управління
+                    </button>
+                    <button
+                        onclick="switchTab('auto')"
+                        id="tab-auto"
+                        class="tab-button whitespace-nowrap border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700"
+                    >
+                        Автоматична агрегація
+                    </button>
+                </nav>
+            </div>
+
+            {{-- Manual Tab Content --}}
+            <div id="content-manual" class="tab-content space-y-8">
 
             <section class="space-y-4">
                 <h2 class="text-xl font-semibold text-slate-800">Створити нову агрегацію</h2>
@@ -313,6 +318,127 @@
                     </form>
                 </div>
             </section>
+            </div>
+            {{-- End Manual Tab Content --}}
+
+            {{-- Auto-Aggregation Tab Content --}}
+            <div id="content-auto" class="tab-content space-y-8 hidden">
+                <section class="space-y-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Автоматична агрегація тегів</h2>
+                    <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm space-y-6">
+                        {{-- Step 1: Generate Prompt --}}
+                        <div id="step-generate-prompt">
+                            <h3 class="text-lg font-medium text-slate-700 mb-3">Крок 1: Генерація промпту</h3>
+                            <p class="text-sm text-slate-600 mb-4">
+                                Спочатку згенеруйте промпт для AI, який можна скопіювати та використати в ChatGPT або Gemini.
+                            </p>
+                            <button
+                                type="button"
+                                onclick="generatePrompt()"
+                                id="btn-generate-prompt"
+                                class="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-700 focus:outline-none focus:ring"
+                            >
+                                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Згенерувати промпт
+                            </button>
+                        </div>
+
+                        {{-- Step 2: Display Prompt --}}
+                        <div id="step-display-prompt" class="hidden space-y-4">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-medium text-slate-700">Крок 2: Промпт для AI</h3>
+                                <button
+                                    type="button"
+                                    onclick="copyPromptToClipboard()"
+                                    class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                                >
+                                    <i class="fa-solid fa-copy mr-2"></i>Копіювати промпт
+                                </button>
+                            </div>
+                            <pre id="generated-prompt" class="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs font-mono whitespace-pre-wrap"></pre>
+                            <p class="text-sm text-slate-600">
+                                Скопіюйте цей промпт і використайте його в ChatGPT або Gemini, або продовжте автоматично через API.
+                            </p>
+                        </div>
+
+                        {{-- Step 3: Continue Options --}}
+                        <div id="step-continue" class="hidden space-y-4">
+                            <h3 class="text-lg font-medium text-slate-700">Крок 3: Продовження</h3>
+                            <p class="text-sm text-slate-600 mb-4">
+                                Виберіть спосіб продовження: використати API для автоматичної генерації або вставити готовий JSON.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-3">
+                                <form method="POST" action="{{ route('test-tags.aggregations.auto') }}" class="inline">
+                                    @csrf
+                                    <button
+                                        type="submit"
+                                        class="inline-flex items-center justify-center rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring"
+                                    >
+                                        <i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Автогенерація (Gemini API)
+                                    </button>
+                                </form>
+                                <form method="POST" action="{{ route('test-tags.aggregations.auto-chatgpt') }}" class="inline">
+                                    @csrf
+                                    <button
+                                        type="submit"
+                                        class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                                    >
+                                        <i class="fa-solid fa-robot mr-2"></i>Автогенерація (ChatGPT API)
+                                    </button>
+                                </form>
+                                <button
+                                    type="button"
+                                    onclick="togglePasteJson()"
+                                    class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring"
+                                >
+                                    <i class="fa-solid fa-paste mr-2"></i>Вставити готовий JSON
+                                </button>
+                            </div>
+
+                            {{-- Paste JSON Section --}}
+                            <div id="paste-json-section" class="hidden mt-4">
+                                <form method="POST" action="{{ route('test-tags.aggregations.import') }}" class="space-y-4 rounded-xl border border-slate-200 bg-slate-50 p-6">
+                                    @csrf
+                                    
+                                    <div>
+                                        <label for="json_data_auto" class="block text-sm font-medium text-slate-700 mb-1">
+                                            JSON дані від AI
+                                        </label>
+                                        <textarea
+                                            id="json_data_auto"
+                                            name="json_data"
+                                            rows="10"
+                                            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm font-mono focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                            placeholder='[{"main_tag": "Present Simple", "similar_tags": ["Simple Present", "Present Tense"]}, ...]'
+                                            required
+                                        ></textarea>
+                                        <p class="mt-1 text-xs text-slate-500">
+                                            Вставте JSON відповідь від ChatGPT або Gemini (масив агрегацій). Категорії будуть автоматично додані на основі головного тегу.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex justify-end gap-3">
+                                        <button
+                                            type="button"
+                                            onclick="togglePasteJson()"
+                                            class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                                        >
+                                            Скасувати
+                                        </button>
+                                        <button
+                                            type="submit"
+                                            class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                                        >
+                                            <i class="fa-solid fa-upload mr-2"></i>Імпортувати JSON
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            {{-- End Auto-Aggregation Tab Content --}}
         </div>
     </div>
 
@@ -536,6 +662,96 @@
             const container = document.getElementById('similar-tags-container');
             if (container.children.length > 1) {
                 button.closest('.tag-input-group').remove();
+            }
+        }
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Update tab buttons
+            const tabs = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => {
+                if (tab.id === `tab-${tabName}`) {
+                    tab.classList.remove('border-transparent', 'text-slate-500', 'hover:border-slate-300', 'hover:text-slate-700');
+                    tab.classList.add('border-blue-500', 'text-blue-600');
+                } else {
+                    tab.classList.remove('border-blue-500', 'text-blue-600');
+                    tab.classList.add('border-transparent', 'text-slate-500', 'hover:border-slate-300', 'hover:text-slate-700');
+                }
+            });
+
+            // Show/hide content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                if (content.id === `content-${tabName}`) {
+                    content.classList.remove('hidden');
+                } else {
+                    content.classList.add('hidden');
+                }
+            });
+        }
+
+        // Generate prompt for AI
+        function generatePrompt() {
+            const button = document.getElementById('btn-generate-prompt');
+            button.disabled = true;
+            button.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Генерація...';
+
+            // Get the prompt from the controller
+            fetch('{{ route("test-tags.aggregations.generate-prompt") }}', {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.prompt) {
+                    document.getElementById('generated-prompt').textContent = data.prompt;
+                    document.getElementById('step-display-prompt').classList.remove('hidden');
+                    document.getElementById('step-continue').classList.remove('hidden');
+                    button.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Промпт згенеровано';
+                } else {
+                    alert('Помилка генерації промпту');
+                    button.disabled = false;
+                    button.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Згенерувати промпт';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Помилка генерації промпту');
+                button.disabled = false;
+                button.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Згенерувати промпт';
+            });
+        }
+
+        // Copy prompt to clipboard
+        function copyPromptToClipboard() {
+            const promptText = document.getElementById('generated-prompt').textContent;
+            
+            navigator.clipboard.writeText(promptText).then(() => {
+                const button = event.target.closest('button');
+                const originalHtml = button.innerHTML;
+                button.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Скопійовано!';
+                button.classList.add('bg-green-50', 'text-green-700', 'border-green-300');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHtml;
+                    button.classList.remove('bg-green-50', 'text-green-700', 'border-green-300');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Не вдалося скопіювати в буфер обміну');
+            });
+        }
+
+        // Toggle paste JSON section
+        function togglePasteJson() {
+            const section = document.getElementById('paste-json-section');
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+            } else {
+                section.classList.add('hidden');
             }
         }
 

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Tag;
 use App\Services\TagAggregationService;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
@@ -224,5 +225,123 @@ class ImportTagAggregationTest extends TestCase
 
         $this->assertCount(1, $aggregations);
         $this->assertEquals('New Tag', $aggregations[0]['main_tag']);
+    }
+
+    /** @test */
+    public function generate_prompt_returns_valid_prompt(): void
+    {
+        // Create sample tags
+        Tag::create(['name' => 'Present Simple', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->getJson('/admin/test-tags/aggregations/generate-prompt');
+
+        $response->assertStatus(200);
+        $response->assertJsonStructure(['prompt', 'tags_count']);
+        
+        $data = $response->json();
+        $this->assertStringContainsString('Present Simple', $data['prompt']);
+        $this->assertStringContainsString('Past Simple', $data['prompt']);
+        $this->assertStringContainsString('main_tag', $data['prompt']);
+        $this->assertStringContainsString('similar_tags', $data['prompt']);
+        $this->assertEquals(2, $data['tags_count']);
+    }
+
+    /** @test */
+    public function generate_prompt_returns_error_when_no_tags(): void
+    {
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->getJson('/admin/test-tags/aggregations/generate-prompt');
+
+        $response->assertStatus(400);
+        $response->assertJsonStructure(['error']);
+    }
+
+    /** @test */
+    public function import_aggregations_accepts_api_format_without_wrapper(): void
+    {
+        // Create tags with categories
+        Tag::create(['name' => 'Present Simple', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Simple Present', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
+
+        // API format - direct array without wrapper
+        $jsonData = json_encode([
+            [
+                'main_tag' => 'Present Simple',
+                'similar_tags' => ['Simple Present'],
+            ],
+            [
+                'main_tag' => 'Past Simple',
+                'similar_tags' => ['Simple Past'],
+            ],
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post('/admin/test-tags/aggregations/import', [
+                'json_data' => $jsonData,
+            ]);
+
+        $response->assertRedirect('/admin/test-tags/aggregations');
+        $response->assertSessionHas('status');
+
+        // Verify aggregations were saved with auto-assigned categories
+        $service = app(TagAggregationService::class);
+        $aggregations = $service->getAggregations();
+
+        $this->assertCount(2, $aggregations);
+        $this->assertEquals('Present Simple', $aggregations[0]['main_tag']);
+        $this->assertEquals('Tenses', $aggregations[0]['category']); // Auto-assigned from tag
+    }
+
+    /** @test */
+    public function import_aggregations_auto_assigns_category_from_main_tag(): void
+    {
+        // Create tags with categories
+        Tag::create(['name' => 'Present Simple', 'category' => 'Grammar']);
+        Tag::create(['name' => 'Simple Present', 'category' => 'Grammar']);
+
+        // Wrapped format without category
+        $jsonData = json_encode([
+            'aggregations' => [
+                [
+                    'main_tag' => 'Present Simple',
+                    'similar_tags' => ['Simple Present'],
+                ],
+            ],
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post('/admin/test-tags/aggregations/import', [
+                'json_data' => $jsonData,
+            ]);
+
+        $response->assertRedirect('/admin/test-tags/aggregations');
+        $response->assertSessionHas('status');
+
+        // Verify category was auto-assigned
+        $service = app(TagAggregationService::class);
+        $aggregations = $service->getAggregations();
+
+        $this->assertCount(1, $aggregations);
+        $this->assertEquals('Grammar', $aggregations[0]['category']);
+    }
+
+    /** @test */
+    public function import_aggregations_returns_error_for_invalid_array_format(): void
+    {
+        $jsonData = json_encode([
+            'invalid' => 'format'
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->post('/admin/test-tags/aggregations/import', [
+                'json_data' => $jsonData,
+            ]);
+
+        $response->assertRedirect('/admin/test-tags/aggregations');
+        $response->assertSessionHas('error');
+        $this->assertStringContainsString('масив', session('error'));
     }
 }
