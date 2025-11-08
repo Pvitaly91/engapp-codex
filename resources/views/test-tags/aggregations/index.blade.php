@@ -298,6 +298,49 @@
                 @endif
             </section>
 
+            <section class="space-y-4">
+                <h2 class="text-xl font-semibold text-slate-800">Неагреговані теги</h2>
+                @if ($nonAggregatedTags->isEmpty())
+                    <p class="text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">
+                        Всі теги вже агреговані.
+                    </p>
+                @else
+                    <div class="space-y-4">
+                        @foreach ($nonAggregatedByCategory as $category => $tags)
+                            <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                                {{-- Category Header --}}
+                                <div class="flex items-center justify-between px-6 py-4 bg-slate-50">
+                                    <button
+                                        type="button"
+                                        onclick="toggleNonAggregatedCategory('{{ $loop->index }}')"
+                                        class="flex items-center gap-3 flex-1 text-left hover:opacity-80 transition-opacity"
+                                    >
+                                        <i id="non-agg-icon-{{ $loop->index }}" class="fa-solid fa-chevron-right text-slate-400 transition-transform"></i>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-slate-800">{{ $category }}</h3>
+                                            <p class="text-sm text-slate-500">{{ count($tags) }} {{ count($tags) === 1 ? 'тег' : 'тегів' }}</p>
+                                        </div>
+                                    </button>
+                                </div>
+                                
+                                {{-- Category Content --}}
+                                <div id="non-agg-category-{{ $loop->index }}" class="border-t border-slate-200 hidden">
+                                    <div class="p-4">
+                                        <div class="flex flex-wrap gap-2">
+                                            @foreach ($tags as $tag)
+                                                <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 border border-slate-300">
+                                                    {{ $tag->name }}
+                                                </span>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+            </section>
+
             <section class="rounded-xl border border-blue-200 bg-blue-50 p-6">
                 <h3 class="text-lg font-semibold text-blue-900 mb-2">
                     <i class="fa-solid fa-circle-info mr-2"></i>Інформація про файл конфігурації
@@ -311,19 +354,31 @@
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-xl font-semibold text-slate-800">JSON конфігурація</h2>
-                <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-sm font-semibold text-slate-700">config/tags/aggregation.json</h3>
-                        <button
-                            type="button"
-                            onclick="copyJsonToClipboard()"
-                            class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
-                        >
-                            <i class="fa-solid fa-copy mr-2"></i>Копіювати
-                        </button>
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-slate-800">JSON конфігурація</h2>
+                    <button
+                        type="button"
+                        onclick="toggleJsonConfig()"
+                        id="toggle-json-btn"
+                        class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        <i class="fa-solid fa-chevron-down mr-2"></i>Показати JSON
+                    </button>
+                </div>
+                <div id="json-config-container" class="hidden">
+                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-sm font-semibold text-slate-700">config/tags/aggregation.json</h3>
+                            <button
+                                type="button"
+                                onclick="copyJsonToClipboard()"
+                                class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                            >
+                                <i class="fa-solid fa-copy mr-2"></i>Копіювати
+                            </button>
+                        </div>
+                        <pre id="json-display" class="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs font-mono"><code>{{ json_encode(['aggregations' => $aggregations], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) }}</code></pre>
                     </div>
-                    <pre id="json-display" class="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-xs font-mono"><code>{{ json_encode(['aggregations' => $aggregations], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) }}</code></pre>
                 </div>
             </section>
 
@@ -1351,6 +1406,36 @@
             const modal = document.getElementById('edit-category-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex', 'items-center', 'justify-center');
+        }
+
+        // Toggle non-aggregated category visibility
+        function toggleNonAggregatedCategory(index) {
+            const content = document.getElementById(`non-agg-category-${index}`);
+            const icon = document.getElementById(`non-agg-icon-${index}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-right');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-right');
+            }
+        }
+
+        // Toggle JSON configuration visibility
+        function toggleJsonConfig() {
+            const container = document.getElementById('json-config-container');
+            const button = document.getElementById('toggle-json-btn');
+            
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                button.innerHTML = '<i class="fa-solid fa-chevron-up mr-2"></i>Сховати JSON';
+            } else {
+                container.classList.add('hidden');
+                button.innerHTML = '<i class="fa-solid fa-chevron-down mr-2"></i>Показати JSON';
+            }
         }
 
         if (document.readyState === 'loading') {

@@ -514,18 +514,42 @@ class TestTagController extends Controller
     {
         $aggregations = $service->getAggregations();
         $allTags = Tag::orderBy('name')->get();
-        
+
+        // Collect all aggregated tag names (main tags and similar tags)
+        $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
+            return array_merge(
+                [$aggregation['main_tag']],
+                $aggregation['similar_tags'] ?? []
+            );
+        })->unique()->values();
+
+        // Filter tags that are NOT in any aggregation
+        $nonAggregatedTags = $allTags->reject(function ($tag) use ($aggregatedTagNames) {
+            return $aggregatedTagNames->contains($tag->name);
+        });
+
+        // Group non-aggregated tags by category
+        $nonAggregatedByCategory = $nonAggregatedTags->groupBy(function ($tag) {
+            return $tag->category ?: 'Без категорії';
+        })->sortKeys();
+
+        // Move "Без категорії" to the end if it exists
+        if ($nonAggregatedByCategory->has('Без категорії')) {
+            $uncategorized = $nonAggregatedByCategory->pull('Без категорії');
+            $nonAggregatedByCategory->put('Без категорії', $uncategorized);
+        }
+
         // Group tags by category
         $tagsByCategory = $allTags->groupBy(function ($tag) {
             return $tag->category ?? 'Other';
         })->sortKeys();
-        
+
         // Move "Other" to the end if it exists
         if ($tagsByCategory->has('Other')) {
             $other = $tagsByCategory->pull('Other');
             $tagsByCategory->put('Other', $other);
         }
-        
+
         $categories = Tag::whereNotNull('category')
             ->distinct()
             ->pluck('category')
@@ -536,7 +560,7 @@ class TestTagController extends Controller
         $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
             return $aggregation['category'] ?? 'Без категорії';
         })->sortKeys();
-        
+
         // Move "Без категорії" to the end if it exists
         if ($aggregationsByCategory->has('Без категорії')) {
             $uncategorized = $aggregationsByCategory->pull('Без категорії');
@@ -546,6 +570,8 @@ class TestTagController extends Controller
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
             'aggregationsByCategory' => $aggregationsByCategory,
+            'nonAggregatedTags' => $nonAggregatedTags,
+            'nonAggregatedByCategory' => $nonAggregatedByCategory,
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
@@ -557,18 +583,42 @@ class TestTagController extends Controller
     {
         $aggregations = $service->getAggregations();
         $allTags = Tag::orderBy('name')->get();
-        
+
+        // Collect all aggregated tag names (main tags and similar tags)
+        $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
+            return array_merge(
+                [$aggregation['main_tag']],
+                $aggregation['similar_tags'] ?? []
+            );
+        })->unique()->values();
+
+        // Filter tags that are NOT in any aggregation
+        $nonAggregatedTags = $allTags->reject(function ($tag) use ($aggregatedTagNames) {
+            return $aggregatedTagNames->contains($tag->name);
+        });
+
+        // Group non-aggregated tags by category
+        $nonAggregatedByCategory = $nonAggregatedTags->groupBy(function ($tag) {
+            return $tag->category ?: 'Без категорії';
+        })->sortKeys();
+
+        // Move "Без категорії" to the end if it exists
+        if ($nonAggregatedByCategory->has('Без категорії')) {
+            $uncategorized = $nonAggregatedByCategory->pull('Без категорії');
+            $nonAggregatedByCategory->put('Без категорії', $uncategorized);
+        }
+
         // Group tags by category
         $tagsByCategory = $allTags->groupBy(function ($tag) {
             return $tag->category ?? 'Other';
         })->sortKeys();
-        
+
         // Move "Other" to the end if it exists
         if ($tagsByCategory->has('Other')) {
             $other = $tagsByCategory->pull('Other');
             $tagsByCategory->put('Other', $other);
         }
-        
+
         $categories = Tag::whereNotNull('category')
             ->distinct()
             ->pluck('category')
@@ -579,7 +629,7 @@ class TestTagController extends Controller
         $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
             return $aggregation['category'] ?? 'Без категорії';
         })->sortKeys();
-        
+
         // Move "Без категорії" to the end if it exists
         if ($aggregationsByCategory->has('Без категорії')) {
             $uncategorized = $aggregationsByCategory->pull('Без категорії');
@@ -589,6 +639,8 @@ class TestTagController extends Controller
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
             'aggregationsByCategory' => $aggregationsByCategory,
+            'nonAggregatedTags' => $nonAggregatedTags,
+            'nonAggregatedByCategory' => $nonAggregatedByCategory,
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
@@ -665,7 +717,7 @@ class TestTagController extends Controller
             foreach ($suggestions as $suggestion) {
                 // Get category from the main tag
                 $category = $tagCategories[$suggestion['main_tag']] ?? null;
-                
+
                 $service->addAggregation(
                     $suggestion['main_tag'],
                     $suggestion['similar_tags'],
@@ -706,7 +758,7 @@ class TestTagController extends Controller
             foreach ($suggestions as $suggestion) {
                 // Get category from the main tag
                 $category = $tagCategories[$suggestion['main_tag']] ?? null;
-                
+
                 $service->addAggregation(
                     $suggestion['main_tag'],
                     $suggestion['similar_tags'],
@@ -771,7 +823,7 @@ class TestTagController extends Controller
             $data = json_decode($validated['json_data'], true);
 
             if (json_last_error() !== JSON_ERROR_NONE) {
-                throw new \InvalidArgumentException('Невалідний JSON формат: ' . json_last_error_msg());
+                throw new \InvalidArgumentException('Невалідний JSON формат: '.json_last_error_msg());
             }
 
             // Support both formats:
@@ -797,21 +849,21 @@ class TestTagController extends Controller
 
             // Validate and enrich each aggregation structure
             foreach ($aggregations as $index => &$aggregation) {
-                if (!isset($aggregation['main_tag']) || !is_string($aggregation['main_tag'])) {
+                if (! isset($aggregation['main_tag']) || ! is_string($aggregation['main_tag'])) {
                     throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'main_tag'");
                 }
 
-                if (!isset($aggregation['similar_tags']) || !is_array($aggregation['similar_tags'])) {
+                if (! isset($aggregation['similar_tags']) || ! is_array($aggregation['similar_tags'])) {
                     throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'similar_tags'");
                 }
 
                 // Auto-assign category from main_tag if not provided
-                if (!isset($aggregation['category']) || $aggregation['category'] === null) {
+                if (! isset($aggregation['category']) || $aggregation['category'] === null) {
                     $aggregation['category'] = $tagCategories[$aggregation['main_tag']] ?? null;
                 }
 
                 // Validate category if provided
-                if (isset($aggregation['category']) && !is_string($aggregation['category']) && $aggregation['category'] !== null) {
+                if (isset($aggregation['category']) && ! is_string($aggregation['category']) && $aggregation['category'] !== null) {
                     throw new \InvalidArgumentException("Агрегація #{$index} містить невалідне поле 'category'");
                 }
             }
@@ -820,18 +872,18 @@ class TestTagController extends Controller
             $service->saveAggregations($aggregations);
 
             return redirect()->route('test-tags.aggregations.index')
-                ->with('status', 'JSON успішно імпортовано. Збережено агрегацій: ' . count($aggregations) . '.');
+                ->with('status', 'JSON успішно імпортовано. Збережено агрегацій: '.count($aggregations).'.');
         } catch (\InvalidArgumentException $e) {
             return redirect()->route('test-tags.aggregations.index')
                 ->with('error', $e->getMessage())
                 ->withInput();
         } catch (\Exception $e) {
-            Log::error('Import aggregations failed: ' . $e->getMessage(), [
+            Log::error('Import aggregations failed: '.$e->getMessage(), [
                 'exception' => $e,
             ]);
 
             return redirect()->route('test-tags.aggregations.index')
-                ->with('error', 'Помилка імпорту: ' . $e->getMessage())
+                ->with('error', 'Помилка імпорту: '.$e->getMessage())
                 ->withInput();
         }
     }
@@ -855,6 +907,7 @@ class TestTagController extends Controller
 
         if ($updated) {
             $service->saveAggregations($aggregations);
+
             return redirect()->route('test-tags.aggregations.index')
                 ->with('status', 'Категорію успішно оновлено.');
         }
@@ -866,7 +919,7 @@ class TestTagController extends Controller
     public function destroyAggregationCategory(string $category, TagAggregationService $service): RedirectResponse
     {
         $aggregations = $service->getAggregations();
-        
+
         // Filter out all aggregations from this category
         $aggregations = array_filter($aggregations, function ($aggregation) use ($category) {
             return ($aggregation['category'] ?? '') !== $category;
