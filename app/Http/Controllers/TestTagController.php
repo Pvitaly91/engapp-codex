@@ -549,6 +549,50 @@ class TestTagController extends Controller
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
+            'isAutoPage' => false,
+        ]);
+    }
+
+    public function autoAggregationsPage(TagAggregationService $service): View
+    {
+        $aggregations = $service->getAggregations();
+        $allTags = Tag::orderBy('name')->get();
+        
+        // Group tags by category
+        $tagsByCategory = $allTags->groupBy(function ($tag) {
+            return $tag->category ?? 'Other';
+        })->sortKeys();
+        
+        // Move "Other" to the end if it exists
+        if ($tagsByCategory->has('Other')) {
+            $other = $tagsByCategory->pull('Other');
+            $tagsByCategory->put('Other', $other);
+        }
+        
+        $categories = Tag::whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->sort()
+            ->values();
+
+        // Group aggregations by category
+        $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
+            return $aggregation['category'] ?? 'Без категорії';
+        })->sortKeys();
+        
+        // Move "Без категорії" to the end if it exists
+        if ($aggregationsByCategory->has('Без категорії')) {
+            $uncategorized = $aggregationsByCategory->pull('Без категорії');
+            $aggregationsByCategory->put('Без категорії', $uncategorized);
+        }
+
+        return view('test-tags.aggregations.index', [
+            'aggregations' => $aggregations,
+            'aggregationsByCategory' => $aggregationsByCategory,
+            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
+            'categories' => $categories,
+            'isAutoPage' => true,
         ]);
     }
 
@@ -790,5 +834,47 @@ class TestTagController extends Controller
                 ->with('error', 'Помилка імпорту: ' . $e->getMessage())
                 ->withInput();
         }
+    }
+
+    public function updateAggregationCategory(Request $request, string $category, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'new_name' => ['required', 'string', 'max:255'],
+        ]);
+
+        $newName = trim($validated['new_name']);
+        $aggregations = $service->getAggregations();
+        $updated = false;
+
+        foreach ($aggregations as &$aggregation) {
+            if (($aggregation['category'] ?? '') === $category) {
+                $aggregation['category'] = $newName;
+                $updated = true;
+            }
+        }
+
+        if ($updated) {
+            $service->saveAggregations($aggregations);
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', 'Категорію успішно оновлено.');
+        }
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('error', 'Категорію не знайдено.');
+    }
+
+    public function destroyAggregationCategory(string $category, TagAggregationService $service): RedirectResponse
+    {
+        $aggregations = $service->getAggregations();
+        
+        // Filter out all aggregations from this category
+        $aggregations = array_filter($aggregations, function ($aggregation) use ($category) {
+            return ($aggregation['category'] ?? '') !== $category;
+        });
+
+        $service->saveAggregations(array_values($aggregations));
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Категорію та всі її агрегації видалено.');
     }
 }
