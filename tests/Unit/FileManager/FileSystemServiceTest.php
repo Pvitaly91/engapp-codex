@@ -12,7 +12,7 @@ class FileSystemServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->service = new FileSystemService();
+        $this->service = new FileSystemService;
     }
 
     public function test_format_file_size_returns_correct_format(): void
@@ -45,18 +45,18 @@ class FileSystemServiceTest extends TestCase
     public function test_get_file_tree_filters_excluded_directories(): void
     {
         $tree = $this->service->getFileTree('');
-        
+
         // Check that excluded directories are not in the tree
         $directoryNames = array_column(
-            array_filter($tree, fn($item) => $item['type'] === 'directory'),
+            array_filter($tree, fn ($item) => $item['type'] === 'directory'),
             'name'
         );
-        
+
         // These directories should be excluded by default
         $excludedDirs = ['vendor', 'node_modules', '.git'];
-        
+
         foreach ($excludedDirs as $excludedDir) {
-            $this->assertNotContains($excludedDir, $directoryNames, 
+            $this->assertNotContains($excludedDir, $directoryNames,
                 "Excluded directory '{$excludedDir}' should not be in the tree");
         }
     }
@@ -76,7 +76,7 @@ class FileSystemServiceTest extends TestCase
     public function test_get_file_tree_structure_is_valid(): void
     {
         $tree = $this->service->getFileTree('');
-        
+
         foreach ($tree as $item) {
             $this->assertArrayHasKey('name', $item);
             $this->assertArrayHasKey('path', $item);
@@ -84,9 +84,9 @@ class FileSystemServiceTest extends TestCase
             $this->assertArrayHasKey('modified', $item);
             $this->assertArrayHasKey('readable', $item);
             $this->assertArrayHasKey('writable', $item);
-            
+
             $this->assertContains($item['type'], ['file', 'directory']);
-            
+
             if ($item['type'] === 'file') {
                 $this->assertArrayHasKey('size', $item);
                 $this->assertArrayHasKey('extension', $item);

@@ -22,7 +22,7 @@ class FileManagerController extends Controller
     public function index(): View
     {
         $basePath = $this->fileSystemService->getBasePath();
-        
+
         return view('file-manager::index', [
             'basePath' => $basePath,
         ]);
@@ -35,7 +35,7 @@ class FileManagerController extends Controller
     {
         $path = $request->input('path', '');
         $tree = $this->fileSystemService->getFileTree($path);
-        
+
         return response()->json([
             'success' => true,
             'path' => $path,
@@ -49,7 +49,7 @@ class FileManagerController extends Controller
     public function info(Request $request): JsonResponse
     {
         $path = $request->input('path', '');
-        
+
         if (empty($path)) {
             return response()->json([
                 'success' => false,
@@ -58,8 +58,8 @@ class FileManagerController extends Controller
         }
 
         $info = $this->fileSystemService->getFileInfo($path);
-        
-        if (!$info) {
+
+        if (! $info) {
             return response()->json([
                 'success' => false,
                 'error' => 'File not found or access denied',
@@ -82,7 +82,7 @@ class FileManagerController extends Controller
      */
     public function preview(Request $request): JsonResponse
     {
-        if (!config('file-manager.allow_preview', true)) {
+        if (! config('file-manager.allow_preview', true)) {
             return response()->json([
                 'success' => false,
                 'error' => 'File preview is disabled',
@@ -90,7 +90,7 @@ class FileManagerController extends Controller
         }
 
         $path = $request->input('path', '');
-        
+
         if (empty($path)) {
             return response()->json([
                 'success' => false,
@@ -99,8 +99,8 @@ class FileManagerController extends Controller
         }
 
         $content = $this->fileSystemService->getFileContent($path);
-        
-        if (!$content) {
+
+        if (! $content) {
             return response()->json([
                 'success' => false,
                 'error' => 'File not found or access denied',
@@ -127,7 +127,7 @@ class FileManagerController extends Controller
      */
     public function download(Request $request): Response|JsonResponse
     {
-        if (!config('file-manager.allow_download', true)) {
+        if (! config('file-manager.allow_download', true)) {
             return response()->json([
                 'success' => false,
                 'error' => 'File download is disabled',
@@ -135,7 +135,7 @@ class FileManagerController extends Controller
         }
 
         $path = $request->input('path', '');
-        
+
         if (empty($path)) {
             return response()->json([
                 'success' => false,
@@ -144,16 +144,16 @@ class FileManagerController extends Controller
         }
 
         $info = $this->fileSystemService->getFileInfo($path);
-        
-        if (!$info || $info['type'] !== 'file') {
+
+        if (! $info || $info['type'] !== 'file') {
             return response()->json([
                 'success' => false,
                 'error' => 'File not found or access denied',
             ], 404);
         }
 
-        $fullPath = $this->fileSystemService->getBasePath() . '/' . $path;
-        
+        $fullPath = $this->fileSystemService->getBasePath().'/'.$path;
+
         return FacadeResponse::download($fullPath, $info['name']);
     }
 }

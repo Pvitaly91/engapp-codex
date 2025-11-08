@@ -7,16 +7,18 @@ use Illuminate\Support\Facades\File;
 class FileSystemService
 {
     protected string $basePath;
+
     protected array $excludedDirectories;
+
     protected array $excludedExtensions;
 
     public function __construct()
     {
         $configBasePath = config('file-manager.base_path', '');
-        $this->basePath = $configBasePath 
-            ? base_path($configBasePath) 
+        $this->basePath = $configBasePath
+            ? base_path($configBasePath)
             : base_path();
-        
+
         $this->excludedDirectories = config('file-manager.excluded_directories', []);
         $this->excludedExtensions = config('file-manager.excluded_extensions', []);
     }
@@ -26,9 +28,9 @@ class FileSystemService
      */
     public function getFileTree(?string $path = null): array
     {
-        $fullPath = $path ? $this->basePath . '/' . $path : $this->basePath;
-        
-        if (!$this->isValidPath($fullPath)) {
+        $fullPath = $path ? $this->basePath.'/'.$path : $this->basePath;
+
+        if (! $this->isValidPath($fullPath)) {
             return [];
         }
 
@@ -40,7 +42,7 @@ class FileSystemService
      */
     protected function buildTree(string $fullPath, string $relativePath): array
     {
-        if (!is_dir($fullPath) || !is_readable($fullPath)) {
+        if (! is_dir($fullPath) || ! is_readable($fullPath)) {
             return [];
         }
 
@@ -56,8 +58,8 @@ class FileSystemService
                 continue;
             }
 
-            $entryFullPath = $fullPath . '/' . $entry;
-            $entryRelativePath = $relativePath ? $relativePath . '/' . $entry : $entry;
+            $entryFullPath = $fullPath.'/'.$entry;
+            $entryRelativePath = $relativePath ? $relativePath.'/'.$entry : $entry;
 
             // Skip excluded directories
             if (is_dir($entryFullPath) && $this->isExcludedDirectory($entry)) {
@@ -92,6 +94,7 @@ class FileSystemService
             if ($a['type'] === $b['type']) {
                 return strcasecmp($a['name'], $b['name']);
             }
+
             return $a['type'] === 'directory' ? -1 : 1;
         });
 
@@ -103,9 +106,9 @@ class FileSystemService
      */
     public function getFileContent(string $path): ?array
     {
-        $fullPath = $this->basePath . '/' . $path;
-        
-        if (!$this->isValidPath($fullPath) || !is_file($fullPath)) {
+        $fullPath = $this->basePath.'/'.$path;
+
+        if (! $this->isValidPath($fullPath) || ! is_file($fullPath)) {
             return null;
         }
 
@@ -121,7 +124,7 @@ class FileSystemService
         }
 
         $content = file_get_contents($fullPath);
-        
+
         return [
             'path' => $path,
             'name' => basename($path),
@@ -137,13 +140,13 @@ class FileSystemService
      */
     public function getFileInfo(string $path): ?array
     {
-        $fullPath = $this->basePath . '/' . $path;
-        
-        if (!$this->isValidPath($fullPath)) {
+        $fullPath = $this->basePath.'/'.$path;
+
+        if (! $this->isValidPath($fullPath)) {
             return null;
         }
 
-        if (!file_exists($fullPath)) {
+        if (! file_exists($fullPath)) {
             return null;
         }
 
@@ -173,8 +176,8 @@ class FileSystemService
     {
         $realPath = realpath($path);
         $realBasePath = realpath($this->basePath);
-        
-        if (!$realPath || !$realBasePath) {
+
+        if (! $realPath || ! $realBasePath) {
             return false;
         }
 
@@ -196,7 +199,8 @@ class FileSystemService
     protected function isExcludedExtension(string $filename): bool
     {
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
-        return in_array('.' . $extension, $this->excludedExtensions);
+
+        return in_array('.'.$extension, $this->excludedExtensions);
     }
 
     /**
@@ -205,13 +209,13 @@ class FileSystemService
     protected function isTextFile(string $path): bool
     {
         $mimeType = mime_content_type($path);
-        
-        if (!$mimeType) {
+
+        if (! $mimeType) {
             return false;
         }
 
         // Check for common text mime types
-        return str_starts_with($mimeType, 'text/') || 
+        return str_starts_with($mimeType, 'text/') ||
                in_array($mimeType, [
                    'application/json',
                    'application/xml',
@@ -231,12 +235,12 @@ class FileSystemService
         }
 
         $units = ['B', 'KB', 'MB', 'GB', 'TB'];
-        
+
         for ($i = 0; $bytes >= 1024 && $i < count($units) - 1; $i++) {
             $bytes /= 1024;
         }
-        
-        return round($bytes, 2) . ' ' . $units[$i];
+
+        return round($bytes, 2).' '.$units[$i];
     }
 
     /**
