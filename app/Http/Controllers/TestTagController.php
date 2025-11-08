@@ -671,4 +671,59 @@ class TestTagController extends Controller
                 ->with('error', 'Помилка ChatGPT: '.$e->getMessage());
         }
     }
+
+    public function importAggregations(Request $request, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'json_data' => ['required', 'string'],
+        ]);
+
+        try {
+            $data = json_decode($validated['json_data'], true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                throw new \InvalidArgumentException('Невалідний JSON формат: ' . json_last_error_msg());
+            }
+
+            if (!isset($data['aggregations']) || !is_array($data['aggregations'])) {
+                throw new \InvalidArgumentException('JSON має містити поле "aggregations" з масивом агрегацій');
+            }
+
+            $aggregations = $data['aggregations'];
+
+            // Validate each aggregation structure
+            foreach ($aggregations as $index => $aggregation) {
+                if (!isset($aggregation['main_tag']) || !is_string($aggregation['main_tag'])) {
+                    throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'main_tag'");
+                }
+
+                if (!isset($aggregation['similar_tags']) || !is_array($aggregation['similar_tags'])) {
+                    throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'similar_tags'");
+                }
+
+                // Category is optional
+                if (isset($aggregation['category']) && !is_string($aggregation['category']) && $aggregation['category'] !== null) {
+                    throw new \InvalidArgumentException("Агрегація #{$index} містить невалідне поле 'category'");
+                }
+            }
+
+            // Save the aggregations
+            $service->saveAggregations($aggregations);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', 'JSON успішно імпортовано. Збережено агрегацій: ' . count($aggregations) . '.');
+        } catch (\InvalidArgumentException $e) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', $e->getMessage())
+                ->withInput();
+        } catch (\Exception $e) {
+            Log::error('Import aggregations failed: ' . $e->getMessage(), [
+                'exception' => $e,
+            ]);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Помилка імпорту: ' . $e->getMessage())
+                ->withInput();
+        }
+    }
 }
