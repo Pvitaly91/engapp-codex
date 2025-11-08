@@ -202,53 +202,88 @@
                         @foreach ($aggregationsByCategory as $category => $categoryAggregations)
                             <div class="aggregation-category-block rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden" data-category="{{ strtolower($category) }}" data-tags="{{ strtolower(implode(' ', collect($categoryAggregations)->flatMap(fn($a) => array_merge([$a['main_tag']], $a['similar_tags'] ?? []))->toArray())) }}">
                                 {{-- Category Header --}}
-                                <button
-                                    type="button"
-                                    onclick="toggleAggregationCategory('{{ $loop->index }}')"
-                                    class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-slate-50 transition-colors"
-                                >
-                                    <div class="flex items-center gap-3">
+                                <div class="flex items-center justify-between px-6 py-4 bg-slate-50">
+                                    <button
+                                        type="button"
+                                        onclick="toggleAggregationCategory('{{ $loop->index }}')"
+                                        class="flex items-center gap-3 flex-1 text-left hover:opacity-80 transition-opacity"
+                                    >
                                         <i id="icon-{{ $loop->index }}" class="fa-solid fa-chevron-right text-slate-400 transition-transform"></i>
                                         <div>
-                                            <h3 class="text-lg font-semibold text-slate-800">{{ $category }}</h3>
+                                            <h3 class="text-lg font-semibold text-slate-800 category-name">{{ $category }}</h3>
                                             <p class="text-sm text-slate-500">{{ count($categoryAggregations) }} {{ count($categoryAggregations) === 1 ? 'агрегація' : 'агрегацій' }}</p>
                                         </div>
+                                    </button>
+                                    <div class="flex gap-2">
+                                        <button
+                                            type="button"
+                                            onclick="editCategoryName('{{ $loop->index }}', '{{ addslashes($category) }}')"
+                                            class="inline-flex items-center rounded-lg border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-white"
+                                            title="Редагувати категорію"
+                                        >
+                                            <i class="fa-solid fa-edit"></i>
+                                        </button>
+                                        <form
+                                            action="{{ route('test-tags.aggregations.destroy-category', ['category' => urlencode($category)]) }}"
+                                            method="POST"
+                                            data-confirm="Видалити категорію «{{ $category }}» та всі її агрегації?"
+                                            class="inline"
+                                        >
+                                            @csrf
+                                            @method('DELETE')
+                                            <button
+                                                type="submit"
+                                                class="inline-flex items-center rounded-lg border border-red-200 px-2 py-1 text-xs font-medium text-red-600 hover:bg-red-50"
+                                                title="Видалити категорію"
+                                            >
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </div>
-                                </button>
+                                </div>
                                 
                                 {{-- Category Content --}}
                                 <div id="category-{{ $loop->index }}" class="border-t border-slate-200 hidden">
                                     <div class="p-4 space-y-4">
                                         @foreach ($categoryAggregations as $aggregation)
-                                            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                                            <div class="rounded-lg border border-slate-200 bg-white p-4" data-main-tag="{{ strtolower($aggregation['main_tag']) }}">
                                                 <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
-                                                    <div>
-                                                        <h4 class="text-base font-semibold text-slate-800">
+                                                    <div class="flex-1">
+                                                        <h4 class="text-base font-semibold text-slate-800 main-tag-text">
                                                             {{ $aggregation['main_tag'] }}
                                                         </h4>
                                                         <p class="text-xs text-slate-500">Головний тег</p>
                                                     </div>
-                                                    <form
-                                                        action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
-                                                        method="POST"
-                                                        data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
-                                                    >
-                                                        @csrf
-                                                        @method('DELETE')
+                                                    <div class="flex gap-2">
                                                         <button
-                                                            type="submit"
-                                                            class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
+                                                            type="button"
+                                                            onclick="editAggregation('{{ addslashes($aggregation['main_tag']) }}', {{ json_encode($aggregation['similar_tags'] ?? []) }}, '{{ addslashes($aggregation['category'] ?? '') }}')"
+                                                            class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
                                                         >
-                                                            Видалити
+                                                            <i class="fa-solid fa-edit mr-1"></i>Редагувати
                                                         </button>
-                                                    </form>
+                                                        <form
+                                                            action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
+                                                            method="POST"
+                                                            data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
+                                                        >
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button
+                                                                type="submit"
+                                                                class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
+                                                            >
+                                                                <i class="fa-solid fa-trash mr-1"></i>Видалити
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                                 <div>
                                                     <p class="text-xs font-medium text-slate-700 mb-2">Схожі теги:</p>
-                                                    <div class="flex flex-wrap gap-2">
+                                                    <div class="flex flex-wrap gap-2 similar-tags-container">
                                                         @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
-                                                            <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                                                                {{ $similarTag }}
+                                                            <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge" data-tag="{{ strtolower($similarTag) }}">
+                                                                <span class="similar-tag-text">{{ $similarTag }}</span>
                                                             </span>
                                                         @endforeach
                                                     </div>
@@ -504,6 +539,154 @@
             </div>
         </div>
     </div>
+
+    {{-- Edit Aggregation Modal --}}
+    <div
+        id="edit-aggregation-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeEditModal()"></div>
+        <div class="relative w-full max-w-2xl mx-4 rounded-xl bg-white shadow-xl max-h-[90vh] overflow-y-auto">
+            <form id="edit-aggregation-form" method="POST" class="p-6 space-y-4">
+                @csrf
+                @method('PUT')
+                
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Редагувати агрегацію</h2>
+                    <button type="button" onclick="closeEditModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <input type="hidden" id="edit-main-tag-original" name="original_main_tag">
+
+                <div>
+                    <label for="edit-main-tag" class="block text-sm font-medium text-slate-700 mb-1">
+                        Головний тег
+                    </label>
+                    <input
+                        type="text"
+                        id="edit-main-tag"
+                        name="main_tag"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        required
+                        readonly
+                    >
+                </div>
+
+                <div>
+                    <label for="edit-category" class="block text-sm font-medium text-slate-700 mb-1">
+                        Категорія
+                    </label>
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="edit-category"
+                            name="category"
+                            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="Почніть вводити для пошуку..."
+                            autocomplete="off"
+                        >
+                        <div id="edit-category-dropdown" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                            @foreach ($categories as $cat)
+                                <div class="category-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $cat }}">
+                                    {{ $cat }}
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">
+                        Схожі теги
+                    </label>
+                    <div id="edit-similar-tags-container" class="space-y-2">
+                        <!-- Similar tags will be populated here -->
+                    </div>
+                    <button
+                        type="button"
+                        onclick="addEditTagInput()"
+                        class="mt-2 inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        + Додати тег
+                    </button>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeEditModal()"
+                        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                    >
+                        Зберегти зміни
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- Edit Category Modal --}}
+    <div
+        id="edit-category-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeCategoryEditModal()"></div>
+        <div class="relative w-full max-w-md mx-4 rounded-xl bg-white shadow-xl">
+            <form id="edit-category-form" method="POST" class="p-6 space-y-4">
+                @csrf
+                @method('PUT')
+                
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Редагувати категорію</h2>
+                    <button type="button" onclick="closeCategoryEditModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <input type="hidden" id="category-original-name" name="original_name">
+
+                <div>
+                    <label for="category-new-name" class="block text-sm font-medium text-slate-700 mb-1">
+                        Нова назва категорії
+                    </label>
+                    <input
+                        type="text"
+                        id="category-new-name"
+                        name="new_name"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        required
+                    >
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeCategoryEditModal()"
+                        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                    >
+                        Зберегти
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
@@ -696,7 +879,7 @@
             }
         }
 
-        // Real-time search for aggregations
+        // Real-time search for aggregations with highlighting and auto-expand
         function initAggregationsSearch() {
             const searchInput = document.getElementById('search-aggregations');
             if (!searchInput) return;
@@ -705,14 +888,60 @@
                 const searchTerm = this.value.toLowerCase().trim();
                 const categoryBlocks = document.querySelectorAll('.aggregation-category-block');
 
-                categoryBlocks.forEach(block => {
+                // Remove all highlights first
+                removeAllHighlights();
+
+                categoryBlocks.forEach((block, index) => {
                     const category = block.dataset.category || '';
                     const tags = block.dataset.tags || '';
                     
-                    const matches = category.includes(searchTerm) || tags.includes(searchTerm);
+                    const categoryMatches = searchTerm && category.includes(searchTerm);
+                    const tagsMatch = searchTerm && tags.includes(searchTerm);
+                    const matches = categoryMatches || tagsMatch;
                     
                     if (matches || searchTerm === '') {
                         block.classList.remove('hidden');
+                        
+                        // Highlight matches if search term is present
+                        if (searchTerm) {
+                            // Highlight category name
+                            if (categoryMatches) {
+                                const categoryNameEl = block.querySelector('.category-name');
+                                if (categoryNameEl) {
+                                    highlightText(categoryNameEl, searchTerm);
+                                }
+                            }
+                            
+                            // Highlight main tags and similar tags
+                            if (tagsMatch) {
+                                // Auto-expand the category to show matched tags
+                                const categoryContent = document.getElementById(`category-${index}`);
+                                const icon = document.getElementById(`icon-${index}`);
+                                if (categoryContent && categoryContent.classList.contains('hidden')) {
+                                    categoryContent.classList.remove('hidden');
+                                    if (icon) {
+                                        icon.classList.remove('fa-chevron-right');
+                                        icon.classList.add('fa-chevron-down');
+                                    }
+                                }
+                                
+                                // Highlight matching tags
+                                const mainTagEls = block.querySelectorAll('.main-tag-text');
+                                const similarTagEls = block.querySelectorAll('.similar-tag-text');
+                                
+                                mainTagEls.forEach(el => {
+                                    if (el.textContent.toLowerCase().includes(searchTerm)) {
+                                        highlightText(el, searchTerm);
+                                    }
+                                });
+                                
+                                similarTagEls.forEach(el => {
+                                    if (el.textContent.toLowerCase().includes(searchTerm)) {
+                                        highlightText(el, searchTerm);
+                                    }
+                                });
+                            }
+                        }
                     } else {
                         block.classList.add('hidden');
                     }
@@ -734,6 +963,38 @@
                     noResultsMsg.remove();
                 }
             });
+        }
+
+        // Highlight matching text
+        function highlightText(element, searchTerm) {
+            const text = element.textContent;
+            const lowerText = text.toLowerCase();
+            const lowerSearch = searchTerm.toLowerCase();
+            const index = lowerText.indexOf(lowerSearch);
+            
+            if (index !== -1) {
+                const before = text.substring(0, index);
+                const match = text.substring(index, index + searchTerm.length);
+                const after = text.substring(index + searchTerm.length);
+                
+                element.innerHTML = `${escapeHtml(before)}<mark class="bg-yellow-200 px-1 rounded">${escapeHtml(match)}</mark>${escapeHtml(after)}`;
+            }
+        }
+
+        // Remove all highlights
+        function removeAllHighlights() {
+            document.querySelectorAll('.category-name, .main-tag-text, .similar-tag-text').forEach(el => {
+                if (el.querySelector('mark')) {
+                    el.textContent = el.textContent; // Reset to plain text
+                }
+            });
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
         // Generate prompt for AI
@@ -960,6 +1221,136 @@
                     button.innerHTML = '<i class="fa-solid fa-chevron-up mr-2"></i>Сховати форму імпорту';
                 }
             @endif
+        }
+
+        // Edit aggregation modal functions
+        function editAggregation(mainTag, similarTags, category) {
+            const modal = document.getElementById('edit-aggregation-modal');
+            const form = document.getElementById('edit-aggregation-form');
+            
+            // Set form action
+            form.action = `{{ route('test-tags.aggregations.index') }}/${encodeURIComponent(mainTag)}`;
+            
+            // Set main tag (readonly)
+            document.getElementById('edit-main-tag').value = mainTag;
+            document.getElementById('edit-main-tag-original').value = mainTag;
+            
+            // Set category
+            document.getElementById('edit-category').value = category || '';
+            
+            // Populate similar tags
+            const container = document.getElementById('edit-similar-tags-container');
+            container.innerHTML = '';
+            
+            const tagsByCategory = @json($tagsByCategory->map(function($tags) { return $tags->pluck('name'); }));
+            
+            similarTags.forEach(tag => {
+                addEditTagInputWithValue(tag, tagsByCategory);
+            });
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex', 'items-center', 'justify-center');
+            
+            // Setup category dropdown
+            setupEditCategoryDropdown();
+        }
+
+        function closeEditModal() {
+            const modal = document.getElementById('edit-aggregation-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex', 'items-center', 'justify-center');
+        }
+
+        function addEditTagInput() {
+            const tagsByCategory = @json($tagsByCategory->map(function($tags) { return $tags->pluck('name'); }));
+            addEditTagInputWithValue('', tagsByCategory);
+        }
+
+        function addEditTagInputWithValue(value, tagsByCategory) {
+            const container = document.getElementById('edit-similar-tags-container');
+            
+            // Build grouped HTML
+            let dropdownHTML = '';
+            Object.keys(tagsByCategory).forEach(category => {
+                dropdownHTML += `<div class="px-3 py-2 bg-slate-100 text-xs font-semibold text-slate-600 sticky top-0">${category}</div>`;
+                tagsByCategory[category].forEach(tag => {
+                    dropdownHTML += `<div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="${tag}" data-category="${category}">${tag}</div>`;
+                });
+            });
+            
+            const newInput = document.createElement('div');
+            newInput.className = 'flex gap-2 edit-tag-input-group';
+            newInput.innerHTML = `
+                <div class="flex-1 relative">
+                    <input
+                        type="text"
+                        name="similar_tags[]"
+                        class="edit-similar-tag-input w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        placeholder="Почніть вводити для пошуку..."
+                        autocomplete="off"
+                        value="${value}"
+                        required
+                    >
+                    <div class="edit-tag-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                        ${dropdownHTML}
+                    </div>
+                </div>
+                <button
+                    type="button"
+                    onclick="removeEditTagInput(this)"
+                    class="rounded-lg border border-red-200 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50"
+                >
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            `;
+            container.appendChild(newInput);
+            
+            // Setup dropdown for the new input
+            const input = newInput.querySelector('.edit-similar-tag-input');
+            const dropdown = newInput.querySelector('.edit-tag-dropdown');
+            setupTagDropdown(input, dropdown);
+        }
+
+        function removeEditTagInput(button) {
+            const container = document.getElementById('edit-similar-tags-container');
+            if (container.children.length > 1) {
+                button.closest('.edit-tag-input-group').remove();
+            } else {
+                // Don't allow removing the last tag
+                alert('Необхідно залишити хоча б один схожий тег.');
+            }
+        }
+
+        function setupEditCategoryDropdown() {
+            const input = document.getElementById('edit-category');
+            const dropdown = document.getElementById('edit-category-dropdown');
+            if (input && dropdown) {
+                setupCategoryDropdown(input, dropdown);
+            }
+        }
+
+        // Edit category name modal functions
+        function editCategoryName(categoryIndex, categoryName) {
+            const modal = document.getElementById('edit-category-modal');
+            const form = document.getElementById('edit-category-form');
+            
+            // Set form action
+            form.action = `{{ route('test-tags.aggregations.index') }}/category/${encodeURIComponent(categoryName)}`;
+            
+            // Set category name
+            document.getElementById('category-original-name').value = categoryName;
+            document.getElementById('category-new-name').value = categoryName;
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex', 'items-center', 'justify-center');
+        }
+
+        function closeCategoryEditModal() {
+            const modal = document.getElementById('edit-category-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex', 'items-center', 'justify-center');
         }
 
         if (document.readyState === 'loading') {

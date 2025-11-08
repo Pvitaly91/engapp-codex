@@ -835,4 +835,46 @@ class TestTagController extends Controller
                 ->withInput();
         }
     }
+
+    public function updateAggregationCategory(Request $request, string $category, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'new_name' => ['required', 'string', 'max:255'],
+        ]);
+
+        $newName = trim($validated['new_name']);
+        $aggregations = $service->getAggregations();
+        $updated = false;
+
+        foreach ($aggregations as &$aggregation) {
+            if (($aggregation['category'] ?? '') === $category) {
+                $aggregation['category'] = $newName;
+                $updated = true;
+            }
+        }
+
+        if ($updated) {
+            $service->saveAggregations($aggregations);
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', 'Категорію успішно оновлено.');
+        }
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('error', 'Категорію не знайдено.');
+    }
+
+    public function destroyAggregationCategory(string $category, TagAggregationService $service): RedirectResponse
+    {
+        $aggregations = $service->getAggregations();
+        
+        // Filter out all aggregations from this category
+        $aggregations = array_filter($aggregations, function ($aggregation) use ($category) {
+            return ($aggregation['category'] ?? '') !== $category;
+        });
+
+        $service->saveAggregations(array_values($aggregations));
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Категорію та всі її агрегації видалено.');
+    }
 }

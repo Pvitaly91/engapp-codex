@@ -160,6 +160,8 @@ Route::middleware('auth.admin')->group(function () {
                 Route::post('/import', [TestTagController::class, 'importAggregations'])->name('import');
                 Route::put('/{mainTag}', [TestTagController::class, 'updateAggregation'])->name('update');
                 Route::delete('/{mainTag}', [TestTagController::class, 'destroyAggregation'])->name('destroy');
+                Route::put('/category/{category}', [TestTagController::class, 'updateAggregationCategory'])->name('update-category');
+                Route::delete('/category/{category}', [TestTagController::class, 'destroyAggregationCategory'])->name('destroy-category');
             });
             
             Route::get('/categories/{category}/edit', [TestTagController::class, 'editCategory'])
