@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Tag;
 use App\Services\TagAggregationService;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
@@ -224,5 +225,36 @@ class ImportTagAggregationTest extends TestCase
 
         $this->assertCount(1, $aggregations);
         $this->assertEquals('New Tag', $aggregations[0]['main_tag']);
+    }
+
+    /** @test */
+    public function generate_prompt_returns_valid_prompt(): void
+    {
+        // Create sample tags
+        Tag::create(['name' => 'Present Simple', 'category' => 'Tenses']);
+        Tag::create(['name' => 'Past Simple', 'category' => 'Tenses']);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->getJson('/admin/test-tags/aggregations/generate-prompt');
+
+        $response->assertStatus(200);
+        $response->assertJsonStructure(['prompt', 'tags_count']);
+        
+        $data = $response->json();
+        $this->assertStringContainsString('Present Simple', $data['prompt']);
+        $this->assertStringContainsString('Past Simple', $data['prompt']);
+        $this->assertStringContainsString('main_tag', $data['prompt']);
+        $this->assertStringContainsString('similar_tags', $data['prompt']);
+        $this->assertEquals(2, $data['tags_count']);
+    }
+
+    /** @test */
+    public function generate_prompt_returns_error_when_no_tags(): void
+    {
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->getJson('/admin/test-tags/aggregations/generate-prompt');
+
+        $response->assertStatus(400);
+        $response->assertJsonStructure(['error']);
     }
 }
