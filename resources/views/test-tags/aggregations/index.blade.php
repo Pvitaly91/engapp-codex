@@ -179,7 +179,7 @@
                 </form>
             </section>
 
-            <section class="space-y-4">
+            <section class="space-y-4" id="aggregations-section">
                 <div class="flex items-center justify-between gap-4">
                     <h2 class="text-xl font-semibold text-slate-800">Існуючі агрегації</h2>
                     @if (!empty($aggregations))
@@ -303,7 +303,7 @@
                 @endif
             </section>
 
-            <section class="space-y-4">
+            <section class="space-y-4" id="non-aggregated-section">
                 <div class="flex items-center justify-between gap-4">
                     <h2 class="text-xl font-semibold text-slate-800">Неагреговані теги</h2>
                     @if (!$nonAggregatedTags->isEmpty())
@@ -1467,12 +1467,32 @@
             const button = document.getElementById('toggle-drag-mode-btn');
             const nonAggregatedTags = document.querySelectorAll('.non-aggregated-tag');
             const dropZones = document.querySelectorAll('.aggregation-drop-zone');
+            const aggregationsSection = document.getElementById('aggregations-section');
+            const nonAggregatedSection = document.getElementById('non-aggregated-section');
             
             if (isDragDropMode) {
                 // Enable drag mode
                 button.innerHTML = '<i class="fa-solid fa-times mr-2"></i>Вимкнути Drag & Drop';
                 button.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
                 button.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                
+                // Create wrapper and arrange sections side by side
+                if (aggregationsSection && nonAggregatedSection && !document.getElementById('drag-drop-wrapper')) {
+                    const wrapper = document.createElement('div');
+                    wrapper.id = 'drag-drop-wrapper';
+                    wrapper.className = 'grid grid-cols-1 lg:grid-cols-2 gap-6';
+                    
+                    // Insert wrapper before aggregations section
+                    aggregationsSection.parentNode.insertBefore(wrapper, aggregationsSection);
+                    
+                    // Move both sections into wrapper
+                    wrapper.appendChild(aggregationsSection);
+                    wrapper.appendChild(nonAggregatedSection);
+                    
+                    // Update section classes for better layout in side-by-side mode
+                    aggregationsSection.classList.add('drag-drop-active');
+                    nonAggregatedSection.classList.add('drag-drop-active');
+                }
                 
                 // Make non-aggregated tags draggable
                 nonAggregatedTags.forEach(tag => {
@@ -1489,11 +1509,53 @@
                     zone.addEventListener('dragleave', handleDragLeave);
                     zone.classList.add('transition-colors');
                 });
+                
+                // Auto-expand all categories for easier dragging
+                document.querySelectorAll('[id^="category-"]').forEach(el => {
+                    if (el.classList.contains('hidden')) {
+                        const index = el.id.replace('category-', '');
+                        const icon = document.getElementById('icon-' + index);
+                        if (icon) {
+                            el.classList.remove('hidden');
+                            icon.classList.remove('fa-chevron-right');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    }
+                });
+                
+                document.querySelectorAll('[id^="non-agg-category-"]').forEach(el => {
+                    if (el.classList.contains('hidden')) {
+                        const index = el.id.replace('non-agg-category-', '');
+                        const icon = document.getElementById('non-agg-icon-' + index);
+                        if (icon) {
+                            el.classList.remove('hidden');
+                            icon.classList.remove('fa-chevron-right');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    }
+                });
             } else {
                 // Disable drag mode
                 button.innerHTML = '<i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop';
                 button.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
                 button.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                
+                // Restore original layout
+                const wrapper = document.getElementById('drag-drop-wrapper');
+                if (wrapper && aggregationsSection && nonAggregatedSection) {
+                    const parent = wrapper.parentNode;
+                    
+                    // Move sections back to parent
+                    parent.insertBefore(aggregationsSection, wrapper);
+                    parent.insertBefore(nonAggregatedSection, wrapper);
+                    
+                    // Remove wrapper
+                    wrapper.remove();
+                    
+                    // Remove drag-drop classes
+                    aggregationsSection.classList.remove('drag-drop-active');
+                    nonAggregatedSection.classList.remove('drag-drop-active');
+                }
                 
                 // Remove draggable from tags
                 nonAggregatedTags.forEach(tag => {
@@ -1571,51 +1633,51 @@
             button.disabled = true;
             button.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Додавання...';
             
-            // Get current aggregations and update
-            fetch('{{ route("test-tags.aggregations.index") }}', {
-                method: 'GET',
+            // Parse current aggregations from the page
+            const aggregations = @json($aggregations);
+            
+            // Find the aggregation and add the tag
+            const aggregation = aggregations.find(a => a.main_tag === mainTag);
+            if (!aggregation) {
+                alert('Агрегацію не знайдено');
+                button.disabled = false;
+                button.innerHTML = originalText;
+                return;
+            }
+            
+            if (!aggregation.similar_tags) {
+                aggregation.similar_tags = [];
+            }
+            if (!aggregation.similar_tags.includes(tagName)) {
+                aggregation.similar_tags.push(tagName);
+            }
+            
+            // Construct the correct URL using Laravel route
+            const updateUrl = '{{ route("test-tags.aggregations.update", ["mainTag" => "MAIN_TAG_PLACEHOLDER"]) }}'.replace('MAIN_TAG_PLACEHOLDER', encodeURIComponent(mainTag));
+            
+            // Send update request
+            fetch(updateUrl, {
+                method: 'PUT',
                 headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Content-Type': 'application/json',
                     'X-Requested-With': 'XMLHttpRequest',
                     'Accept': 'application/json'
-                }
-            })
-            .then(response => response.text())
-            .then(() => {
-                // Parse current aggregations from the page
-                const aggregations = @json($aggregations);
-                
-                // Find the aggregation and add the tag
-                const aggregation = aggregations.find(a => a.main_tag === mainTag);
-                if (aggregation) {
-                    if (!aggregation.similar_tags) {
-                        aggregation.similar_tags = [];
-                    }
-                    if (!aggregation.similar_tags.includes(tagName)) {
-                        aggregation.similar_tags.push(tagName);
-                    }
-                }
-                
-                // Send update request
-                return fetch(`{{ route("test-tags.aggregations.index") }}/${encodeURIComponent(mainTag)}`, {
-                    method: 'PUT',
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                        'Content-Type': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        similar_tags: aggregation.similar_tags,
-                        category: category
-                    })
-                });
+                },
+                body: JSON.stringify({
+                    similar_tags: aggregation.similar_tags,
+                    category: category
+                })
             })
             .then(response => {
                 if (response.ok) {
                     // Reload page to show updated aggregations
                     window.location.reload();
                 } else {
-                    throw new Error('Помилка оновлення агрегації');
+                    return response.text().then(text => {
+                        console.error('Server response:', text);
+                        throw new Error('Помилка оновлення агрегації (статус: ' + response.status + ')');
+                    });
                 }
             })
             .catch(error => {
