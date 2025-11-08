@@ -1485,13 +1485,20 @@
                     // Insert wrapper before aggregations section
                     aggregationsSection.parentNode.insertBefore(wrapper, aggregationsSection);
                     
-                    // Move both sections into wrapper
-                    wrapper.appendChild(aggregationsSection);
+                    // Move both sections into wrapper - NON-AGGREGATED ON LEFT, AGGREGATIONS ON RIGHT
                     wrapper.appendChild(nonAggregatedSection);
+                    wrapper.appendChild(aggregationsSection);
                     
                     // Update section classes for better layout in side-by-side mode
+                    // Add max height and scroll to aggregations section (right column)
                     aggregationsSection.classList.add('drag-drop-active');
                     nonAggregatedSection.classList.add('drag-drop-active');
+                    
+                    // Add sticky positioning and scroll to right column
+                    aggregationsSection.style.maxHeight = '80vh';
+                    aggregationsSection.style.overflowY = 'auto';
+                    aggregationsSection.style.position = 'sticky';
+                    aggregationsSection.style.top = '20px';
                 }
                 
                 // Make non-aggregated tags draggable
@@ -1545,16 +1552,20 @@
                 if (wrapper && aggregationsSection && nonAggregatedSection) {
                     const parent = wrapper.parentNode;
                     
-                    // Move sections back to parent
+                    // Move sections back to parent in original order (aggregations first, then non-aggregated)
                     parent.insertBefore(aggregationsSection, wrapper);
                     parent.insertBefore(nonAggregatedSection, wrapper);
                     
                     // Remove wrapper
                     wrapper.remove();
                     
-                    // Remove drag-drop classes
+                    // Remove drag-drop classes and inline styles
                     aggregationsSection.classList.remove('drag-drop-active');
                     nonAggregatedSection.classList.remove('drag-drop-active');
+                    aggregationsSection.style.maxHeight = '';
+                    aggregationsSection.style.overflowY = '';
+                    aggregationsSection.style.position = '';
+                    aggregationsSection.style.top = '';
                 }
                 
                 // Remove draggable from tags
@@ -1653,7 +1664,8 @@
             }
             
             // Construct the correct URL using Laravel route
-            const updateUrl = '{{ route("test-tags.aggregations.update", ["mainTag" => "MAIN_TAG_PLACEHOLDER"]) }}'.replace('MAIN_TAG_PLACEHOLDER', encodeURIComponent(mainTag));
+            // Don't use encodeURIComponent on the mainTag as Laravel expects the raw tag name
+            const updateUrl = '{{ route("test-tags.aggregations.update", ["mainTag" => "MAIN_TAG_PLACEHOLDER"]) }}'.replace('MAIN_TAG_PLACEHOLDER', mainTag);
             
             // Send update request
             fetch(updateUrl, {
