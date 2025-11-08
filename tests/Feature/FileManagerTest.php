@@ -8,13 +8,13 @@ class FileManagerTest extends TestCase
 {
     public function test_file_manager_service_can_get_directory_tree(): void
     {
-        $service = new \App\Modules\FileManager\Services\FileManagerService();
-        
+        $service = new \App\Modules\FileManager\Services\FileManagerService;
+
         $result = $service->getDirectoryTree();
-        
+
         $this->assertIsArray($result);
         $this->assertNotEmpty($result);
-        
+
         // Verify structure of items
         foreach ($result as $item) {
             $this->assertArrayHasKey('name', $item);
@@ -26,10 +26,10 @@ class FileManagerTest extends TestCase
 
     public function test_file_manager_service_can_get_statistics(): void
     {
-        $service = new \App\Modules\FileManager\Services\FileManagerService();
-        
+        $service = new \App\Modules\FileManager\Services\FileManagerService;
+
         $stats = $service->getStatistics();
-        
+
         $this->assertIsArray($stats);
         $this->assertArrayHasKey('directories', $stats);
         $this->assertArrayHasKey('files', $stats);
@@ -41,13 +41,13 @@ class FileManagerTest extends TestCase
 
     public function test_file_manager_service_can_get_breadcrumbs(): void
     {
-        $service = new \App\Modules\FileManager\Services\FileManagerService();
-        
+        $service = new \App\Modules\FileManager\Services\FileManagerService;
+
         // Test root breadcrumb
         $breadcrumbs = $service->getBreadcrumbs(null);
         $this->assertCount(1, $breadcrumbs);
         $this->assertEquals('Root', $breadcrumbs[0]['name']);
-        
+
         // Test nested path breadcrumbs
         $breadcrumbs = $service->getBreadcrumbs('app/Modules');
         $this->assertGreaterThan(1, count($breadcrumbs));
@@ -56,8 +56,8 @@ class FileManagerTest extends TestCase
 
     public function test_file_manager_service_prevents_directory_traversal(): void
     {
-        $service = new \App\Modules\FileManager\Services\FileManagerService();
-        
+        $service = new \App\Modules\FileManager\Services\FileManagerService;
+
         // Attempt directory traversal
         $this->expectException(\RuntimeException::class);
         $service->getDirectoryTree('../../../etc');
@@ -65,11 +65,11 @@ class FileManagerTest extends TestCase
 
     public function test_file_manager_service_can_read_file_content(): void
     {
-        $service = new \App\Modules\FileManager\Services\FileManagerService();
-        
+        $service = new \App\Modules\FileManager\Services\FileManagerService;
+
         // Test reading composer.json which should exist
         $fileData = $service->getFileContent('composer.json');
-        
+
         $this->assertIsArray($fileData);
         $this->assertArrayHasKey('name', $fileData);
         $this->assertArrayHasKey('content', $fileData);
@@ -79,10 +79,10 @@ class FileManagerTest extends TestCase
 
     public function test_file_manager_hides_configured_paths(): void
     {
-        $service = new \App\Modules\FileManager\Services\FileManagerService();
-        
+        $service = new \App\Modules\FileManager\Services\FileManagerService;
+
         $items = $service->getDirectoryTree();
-        
+
         // Check that vendor and node_modules are hidden
         $names = array_column($items, 'name');
         $this->assertNotContains('vendor', $names);
@@ -92,10 +92,10 @@ class FileManagerTest extends TestCase
 
     public function test_file_manager_root_path_is_set(): void
     {
-        $service = new \App\Modules\FileManager\Services\FileManagerService();
-        
+        $service = new \App\Modules\FileManager\Services\FileManagerService;
+
         $rootPath = $service->getRootPath();
-        
+
         $this->assertNotEmpty($rootPath);
         $this->assertEquals(base_path(), $rootPath);
     }

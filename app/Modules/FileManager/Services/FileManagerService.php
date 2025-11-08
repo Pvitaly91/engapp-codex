@@ -8,8 +8,11 @@ use RuntimeException;
 class FileManagerService
 {
     private string $rootPath;
+
     private array $hiddenPaths;
+
     private int $maxPreviewSize;
+
     private array $previewExtensions;
 
     public function __construct()
@@ -26,17 +29,17 @@ class FileManagerService
     public function getDirectoryTree(?string $path = null): array
     {
         $fullPath = $this->buildFullPath($path);
-        
-        if (!File::isDirectory($fullPath)) {
+
+        if (! File::isDirectory($fullPath)) {
             throw new RuntimeException('Path is not a directory');
         }
 
         $items = [];
         $entries = File::directories($fullPath);
-        
+
         foreach ($entries as $directory) {
             $relativePath = $this->getRelativePath($directory);
-            
+
             if ($this->isHidden($relativePath)) {
                 continue;
             }
@@ -51,10 +54,10 @@ class FileManagerService
         }
 
         $files = File::files($fullPath);
-        
+
         foreach ($files as $file) {
             $relativePath = $this->getRelativePath($file->getPathname());
-            
+
             if ($this->isHidden($relativePath)) {
                 continue;
             }
@@ -78,19 +81,19 @@ class FileManagerService
     public function getFileContent(string $path): array
     {
         $fullPath = $this->buildFullPath($path);
-        
-        if (!File::exists($fullPath)) {
+
+        if (! File::exists($fullPath)) {
             throw new RuntimeException('File not found');
         }
 
-        if (!File::isFile($fullPath)) {
+        if (! File::isFile($fullPath)) {
             throw new RuntimeException('Path is not a file');
         }
 
         $size = File::size($fullPath);
         $extension = pathinfo($fullPath, PATHINFO_EXTENSION);
-        
-        $canPreview = $size <= $this->maxPreviewSize 
+
+        $canPreview = $size <= $this->maxPreviewSize
             && in_array($extension, $this->previewExtensions);
 
         $content = null;
@@ -122,7 +125,7 @@ class FileManagerService
             ['name' => 'Root', 'path' => ''],
         ];
 
-        if (!$path) {
+        if (! $path) {
             return $breadcrumbs;
         }
 
@@ -133,8 +136,8 @@ class FileManagerService
             if ($part === '') {
                 continue;
             }
-            
-            $currentPath .= '/' . $part;
+
+            $currentPath .= '/'.$part;
             $breadcrumbs[] = [
                 'name' => $part,
                 'path' => ltrim($currentPath, '/'),
@@ -149,15 +152,15 @@ class FileManagerService
      */
     private function buildFullPath(?string $path = null): string
     {
-        if (!$path) {
+        if (! $path) {
             return $this->rootPath;
         }
 
         // Prevent directory traversal attacks
         $path = str_replace(['..', "\0"], '', $path);
         $path = ltrim($path, '/');
-        
-        return $this->rootPath . '/' . $path;
+
+        return $this->rootPath.'/'.$path;
     }
 
     /**
@@ -165,7 +168,7 @@ class FileManagerService
      */
     private function getRelativePath(string $fullPath): string
     {
-        return str_replace($this->rootPath . '/', '', $fullPath);
+        return str_replace($this->rootPath.'/', '', $fullPath);
     }
 
     /**
@@ -196,8 +199,8 @@ class FileManagerService
     public function getStatistics(?string $path = null): array
     {
         $fullPath = $this->buildFullPath($path);
-        
-        if (!File::isDirectory($fullPath)) {
+
+        if (! File::isDirectory($fullPath)) {
             throw new RuntimeException('Path is not a directory');
         }
 
@@ -207,14 +210,14 @@ class FileManagerService
 
         foreach (File::directories($fullPath) as $directory) {
             $relativePath = $this->getRelativePath($directory);
-            if (!$this->isHidden($relativePath)) {
+            if (! $this->isHidden($relativePath)) {
                 $directories++;
             }
         }
 
         foreach (File::files($fullPath) as $file) {
             $relativePath = $this->getRelativePath($file->getPathname());
-            if (!$this->isHidden($relativePath)) {
+            if (! $this->isHidden($relativePath)) {
                 $files++;
                 $totalSize += $file->getSize();
             }

@@ -12,8 +12,7 @@ class FileManagerController
 {
     public function __construct(
         private FileManagerService $fileManagerService
-    ) {
-    }
+    ) {}
 
     /**
      * Display the file manager interface
@@ -21,7 +20,7 @@ class FileManagerController
     public function index(Request $request): View|ViewFactory
     {
         $path = $request->query('path', '');
-        
+
         try {
             $items = $this->fileManagerService->getDirectoryTree($path);
             $breadcrumbs = $this->fileManagerService->getBreadcrumbs($path);
@@ -78,8 +77,8 @@ class FileManagerController
     {
         try {
             $path = $request->query('path', '');
-            
-            if (!$path) {
+
+            if (! $path) {
                 throw new \RuntimeException('File path is required');
             }
 
