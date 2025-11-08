@@ -103,6 +103,7 @@
                     </div>
                     <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
                     <a href="{{ route('database-structure.index') }}" class="hover:text-blue-500 transition">Структура БД</a>
+                    <a href="{{ route('file-manager.index') }}" class="hover:text-blue-500 transition">Файловий менеджер</a>
                     <div
                         x-data="{ open: false }"
                         class="relative"
