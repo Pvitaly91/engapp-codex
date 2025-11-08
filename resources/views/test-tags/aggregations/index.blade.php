@@ -409,11 +409,11 @@
                                             name="json_data"
                                             rows="10"
                                             class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm font-mono focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                            placeholder='{"aggregations": [{"main_tag": "Example", "similar_tags": ["tag1", "tag2"], "category": "Category"}]}'
+                                            placeholder='[{"main_tag": "Present Simple", "similar_tags": ["Simple Present", "Present Tense"]}, ...]'
                                             required
                                         ></textarea>
                                         <p class="mt-1 text-xs text-slate-500">
-                                            Вставте JSON відповідь від ChatGPT або Gemini у форматі: <code class="bg-slate-100 px-1 py-0.5 rounded">{"aggregations": [...]}</code>
+                                            Вставте JSON відповідь від ChatGPT або Gemini (масив агрегацій). Категорії будуть автоматично додані на основі головного тегу.
                                         </p>
                                     </div>
 

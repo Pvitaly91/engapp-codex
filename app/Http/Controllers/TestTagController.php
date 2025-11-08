@@ -694,7 +694,8 @@ class TestTagController extends Controller
         $prompt .= "- Only group tags that are clearly related or synonyms\n";
         $prompt .= "- Each tag should appear only once in the result\n";
         $prompt .= "- Don't create aggregations for tags that are clearly distinct\n";
-        $prompt .= "- similar_tags should not include the main_tag itself\n\n";
+        $prompt .= "- similar_tags should not include the main_tag itself\n";
+        $prompt .= "- DO NOT include category field, it will be added automatically\n\n";
         $prompt .= "Respond strictly in JSON format as an array of objects:\n";
         $prompt .= '[{"main_tag": "Present Simple", "similar_tags": ["Simple Present", "Present Tense"]}, ...]';
 
@@ -717,14 +718,29 @@ class TestTagController extends Controller
                 throw new \InvalidArgumentException('Невалідний JSON формат: ' . json_last_error_msg());
             }
 
-            if (!isset($data['aggregations']) || !is_array($data['aggregations'])) {
-                throw new \InvalidArgumentException('JSON має містити поле "aggregations" з масивом агрегацій');
+            // Support both formats:
+            // 1. API format: [{main_tag: "...", similar_tags: [...]}, ...]
+            // 2. Wrapped format: {aggregations: [{...}]}
+            $aggregations = null;
+            if (is_array($data)) {
+                if (isset($data['aggregations']) && is_array($data['aggregations'])) {
+                    // Wrapped format
+                    $aggregations = $data['aggregations'];
+                } elseif (isset($data[0]) && isset($data[0]['main_tag'])) {
+                    // Direct array format (API response)
+                    $aggregations = $data;
+                }
             }
 
-            $aggregations = $data['aggregations'];
+            if ($aggregations === null) {
+                throw new \InvalidArgumentException('JSON має бути масивом агрегацій [{main_tag: "...", similar_tags: [...]}] або об\'єктом з полем "aggregations"');
+            }
 
-            // Validate each aggregation structure
-            foreach ($aggregations as $index => $aggregation) {
+            // Get tag categories for auto-assignment
+            $tagCategories = Tag::pluck('category', 'name')->toArray();
+
+            // Validate and enrich each aggregation structure
+            foreach ($aggregations as $index => &$aggregation) {
                 if (!isset($aggregation['main_tag']) || !is_string($aggregation['main_tag'])) {
                     throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'main_tag'");
                 }
@@ -733,7 +749,12 @@ class TestTagController extends Controller
                     throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'similar_tags'");
                 }
 
-                // Category is optional
+                // Auto-assign category from main_tag if not provided
+                if (!isset($aggregation['category']) || $aggregation['category'] === null) {
+                    $aggregation['category'] = $tagCategories[$aggregation['main_tag']] ?? null;
+                }
+
+                // Validate category if provided
                 if (isset($aggregation['category']) && !is_string($aggregation['category']) && $aggregation['category'] !== null) {
                     throw new \InvalidArgumentException("Агрегація #{$index} містить невалідне поле 'category'");
                 }
