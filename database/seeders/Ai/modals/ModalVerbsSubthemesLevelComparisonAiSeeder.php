@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\AI\modals;
+namespace Database\Seeders\Ai\modals;
 
 use App\Models\Category;
 use App\Models\Source;
