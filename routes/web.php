@@ -152,6 +152,7 @@ Route::middleware('auth.admin')->group(function () {
             
             Route::prefix('aggregations')->name('aggregations.')->group(function () {
                 Route::get('/', [TestTagController::class, 'aggregations'])->name('index');
+                Route::get('/auto', [TestTagController::class, 'autoAggregationsPage'])->name('auto-page');
                 Route::post('/', [TestTagController::class, 'storeAggregation'])->name('store');
                 Route::get('/generate-prompt', [TestTagController::class, 'generateAggregationPrompt'])->name('generate-prompt');
                 Route::post('/auto', [TestTagController::class, 'autoAggregations'])->name('auto');

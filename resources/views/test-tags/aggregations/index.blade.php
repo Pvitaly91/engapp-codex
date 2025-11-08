@@ -37,24 +37,23 @@
             {{-- Tabs Navigation --}}
             <div class="border-b border-slate-200">
                 <nav class="-mb-px flex space-x-8" aria-label="Tabs">
-                    <button
-                        onclick="switchTab('manual')"
-                        id="tab-manual"
-                        class="tab-button whitespace-nowrap border-b-2 border-blue-500 py-4 px-1 text-sm font-medium text-blue-600"
+                    <a
+                        href="{{ route('test-tags.aggregations.index') }}"
+                        class="whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium {{ !$isAutoPage ? 'border-blue-500 text-blue-600' : 'border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700' }}"
                     >
                         Ручне управління
-                    </button>
-                    <button
-                        onclick="switchTab('auto')"
-                        id="tab-auto"
-                        class="tab-button whitespace-nowrap border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700"
+                    </a>
+                    <a
+                        href="{{ route('test-tags.aggregations.auto-page') }}"
+                        class="whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium {{ $isAutoPage ? 'border-blue-500 text-blue-600' : 'border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700' }}"
                     >
                         Автоматична агрегація
-                    </button>
+                    </a>
                 </nav>
             </div>
 
             {{-- Manual Tab Content --}}
+            @if(!$isAutoPage)
             <div id="content-manual" class="tab-content space-y-8">
 
             <section class="space-y-4">
@@ -181,15 +180,27 @@
             </section>
 
             <section class="space-y-4">
-                <h2 class="text-xl font-semibold text-slate-800">Існуючі агрегації</h2>
+                <div class="flex items-center justify-between gap-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Існуючі агрегації</h2>
+                    @if (!empty($aggregations))
+                        <div class="flex-1 max-w-md">
+                            <input
+                                type="text"
+                                id="search-aggregations"
+                                class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="Пошук по категоріям та тегам..."
+                            >
+                        </div>
+                    @endif
+                </div>
                 @if (empty($aggregations))
                     <p class="text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">
                         Агрегації ще не створено.
                     </p>
                 @else
-                    <div class="space-y-4">
+                    <div class="space-y-4" id="aggregations-list">
                         @foreach ($aggregationsByCategory as $category => $categoryAggregations)
-                            <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                            <div class="aggregation-category-block rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden" data-category="{{ strtolower($category) }}" data-tags="{{ strtolower(implode(' ', collect($categoryAggregations)->flatMap(fn($a) => array_merge([$a['main_tag']], $a['similar_tags'] ?? []))->toArray())) }}">
                                 {{-- Category Header --}}
                                 <button
                                     type="button"
@@ -197,7 +208,7 @@
                                     class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-slate-50 transition-colors"
                                 >
                                     <div class="flex items-center gap-3">
-                                        <i id="icon-{{ $loop->index }}" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                                        <i id="icon-{{ $loop->index }}" class="fa-solid fa-chevron-right text-slate-400 transition-transform"></i>
                                         <div>
                                             <h3 class="text-lg font-semibold text-slate-800">{{ $category }}</h3>
                                             <p class="text-sm text-slate-500">{{ count($categoryAggregations) }} {{ count($categoryAggregations) === 1 ? 'агрегація' : 'агрегацій' }}</p>
@@ -206,7 +217,7 @@
                                 </button>
                                 
                                 {{-- Category Content --}}
-                                <div id="category-{{ $loop->index }}" class="border-t border-slate-200">
+                                <div id="category-{{ $loop->index }}" class="border-t border-slate-200 hidden">
                                     <div class="p-4 space-y-4">
                                         @foreach ($categoryAggregations as $aggregation)
                                             <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
@@ -336,10 +347,12 @@
                 </div>
             </section>
             </div>
+            @endif
             {{-- End Manual Tab Content --}}
 
             {{-- Auto-Aggregation Tab Content --}}
-            <div id="content-auto" class="tab-content space-y-8 hidden">
+            @if($isAutoPage)
+            <div id="content-auto" class="tab-content space-y-8">
                 <section class="space-y-4">
                     <h2 class="text-xl font-semibold text-slate-800">Автоматична агрегація тегів</h2>
                     <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm space-y-6">
@@ -455,6 +468,7 @@
                     </div>
                 </section>
             </div>
+            @endif
             {{-- End Auto-Aggregation Tab Content --}}
         </div>
     </div>
@@ -682,27 +696,42 @@
             }
         }
 
-        // Tab switching
-        function switchTab(tabName) {
-            // Update tab buttons
-            const tabs = document.querySelectorAll('.tab-button');
-            tabs.forEach(tab => {
-                if (tab.id === `tab-${tabName}`) {
-                    tab.classList.remove('border-transparent', 'text-slate-500', 'hover:border-slate-300', 'hover:text-slate-700');
-                    tab.classList.add('border-blue-500', 'text-blue-600');
-                } else {
-                    tab.classList.remove('border-blue-500', 'text-blue-600');
-                    tab.classList.add('border-transparent', 'text-slate-500', 'hover:border-slate-300', 'hover:text-slate-700');
-                }
-            });
+        // Real-time search for aggregations
+        function initAggregationsSearch() {
+            const searchInput = document.getElementById('search-aggregations');
+            if (!searchInput) return;
 
-            // Show/hide content
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                if (content.id === `content-${tabName}`) {
-                    content.classList.remove('hidden');
-                } else {
-                    content.classList.add('hidden');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                const categoryBlocks = document.querySelectorAll('.aggregation-category-block');
+
+                categoryBlocks.forEach(block => {
+                    const category = block.dataset.category || '';
+                    const tags = block.dataset.tags || '';
+                    
+                    const matches = category.includes(searchTerm) || tags.includes(searchTerm);
+                    
+                    if (matches || searchTerm === '') {
+                        block.classList.remove('hidden');
+                    } else {
+                        block.classList.add('hidden');
+                    }
+                });
+
+                // Show "no results" message if needed
+                const visibleBlocks = document.querySelectorAll('.aggregation-category-block:not(.hidden)');
+                let noResultsMsg = document.getElementById('no-aggregations-results');
+                
+                if (visibleBlocks.length === 0 && searchTerm !== '') {
+                    if (!noResultsMsg) {
+                        noResultsMsg = document.createElement('div');
+                        noResultsMsg.id = 'no-aggregations-results';
+                        noResultsMsg.className = 'text-sm text-slate-500 text-center py-8 rounded-xl border border-slate-200 bg-white';
+                        noResultsMsg.textContent = 'Нічого не знайдено за вашим запитом.';
+                        document.getElementById('aggregations-list').appendChild(noResultsMsg);
+                    }
+                } else if (noResultsMsg) {
+                    noResultsMsg.remove();
                 }
             });
         }
@@ -938,11 +967,13 @@
                 initTagDropdowns();
                 initAggregationConfirmation();
                 autoShowImportForm();
+                initAggregationsSearch();
             });
         } else {
             initTagDropdowns();
             initAggregationConfirmation();
             autoShowImportForm();
+            initAggregationsSearch();
         }
     </script>
 @endpush

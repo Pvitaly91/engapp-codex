@@ -549,6 +549,50 @@ class TestTagController extends Controller
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
+            'isAutoPage' => false,
+        ]);
+    }
+
+    public function autoAggregationsPage(TagAggregationService $service): View
+    {
+        $aggregations = $service->getAggregations();
+        $allTags = Tag::orderBy('name')->get();
+        
+        // Group tags by category
+        $tagsByCategory = $allTags->groupBy(function ($tag) {
+            return $tag->category ?? 'Other';
+        })->sortKeys();
+        
+        // Move "Other" to the end if it exists
+        if ($tagsByCategory->has('Other')) {
+            $other = $tagsByCategory->pull('Other');
+            $tagsByCategory->put('Other', $other);
+        }
+        
+        $categories = Tag::whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->sort()
+            ->values();
+
+        // Group aggregations by category
+        $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
+            return $aggregation['category'] ?? 'Без категорії';
+        })->sortKeys();
+        
+        // Move "Без категорії" to the end if it exists
+        if ($aggregationsByCategory->has('Без категорії')) {
+            $uncategorized = $aggregationsByCategory->pull('Без категорії');
+            $aggregationsByCategory->put('Без категорії', $uncategorized);
+        }
+
+        return view('test-tags.aggregations.index', [
+            'aggregations' => $aggregations,
+            'aggregationsByCategory' => $aggregationsByCategory,
+            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
+            'categories' => $categories,
+            'isAutoPage' => true,
         ]);
     }
 
