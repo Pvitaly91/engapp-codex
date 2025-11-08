@@ -161,6 +161,7 @@ return [
          */
 
         App\Modules\GitDeployment\GitDeploymentServiceProvider::class,
+        App\Modules\FileManager\FileManagerServiceProvider::class,
 
         /*
          * Application Service Providers...
