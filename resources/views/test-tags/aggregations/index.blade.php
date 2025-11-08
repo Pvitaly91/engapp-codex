@@ -763,6 +763,79 @@
             </form>
         </div>
     </div>
+
+    {{-- Drag-Drop Confirmation Modal --}}
+    <div
+        id="drag-drop-confirm-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeDragDropConfirmModal()"></div>
+        <div class="relative w-full max-w-md mx-4 rounded-xl bg-white shadow-xl">
+            <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Підтвердження</h2>
+                    <button type="button" onclick="closeDragDropConfirmModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <p class="text-sm text-slate-600" id="drag-drop-confirm-message"></p>
+
+                <div class="flex justify-end gap-3 pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeDragDropConfirmModal()"
+                        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        type="button"
+                        id="drag-drop-confirm-accept"
+                        class="inline-flex items-center justify-center rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-green-700 focus:outline-none focus:ring"
+                    >
+                        Підтвердити
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Drag-Drop Error Modal --}}
+    <div
+        id="drag-drop-error-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeDragDropErrorModal()"></div>
+        <div class="relative w-full max-w-md mx-4 rounded-xl bg-white shadow-xl">
+            <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800 text-red-600">
+                        <i class="fa-solid fa-exclamation-triangle mr-2"></i>Помилка
+                    </h2>
+                    <button type="button" onclick="closeDragDropErrorModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <p class="text-sm text-slate-600" id="drag-drop-error-message"></p>
+
+                <div class="flex justify-end pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeDragDropErrorModal()"
+                        class="inline-flex items-center justify-center rounded-lg bg-slate-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-slate-700 focus:outline-none focus:ring"
+                    >
+                        Закрити
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
@@ -1628,10 +1701,11 @@
                 const mainTag = dropZone.dataset.mainTagExact;
                 const category = dropZone.dataset.category;
                 
-                // Confirm before adding
-                if (confirm(`Додати тег "${tagName}" до агрегації "${mainTag}"?`)) {
-                    addTagToAggregation(tagName, mainTag, category);
-                }
+                // Show confirmation modal
+                showDragDropConfirmModal(
+                    `Додати тег "${tagName}" до агрегації "${mainTag}"?`,
+                    () => addTagToAggregation(tagName, mainTag, category)
+                );
             }
             
             return false;
@@ -1650,7 +1724,7 @@
             // Find the aggregation and add the tag
             const aggregation = aggregations.find(a => a.main_tag === mainTag);
             if (!aggregation) {
-                alert('Агрегацію не знайдено');
+                showDragDropErrorModal('Агрегацію не знайдено');
                 button.disabled = false;
                 button.innerHTML = originalText;
                 return;
@@ -1663,9 +1737,9 @@
                 aggregation.similar_tags.push(tagName);
             }
             
-            // Construct the correct URL using Laravel route
-            // Don't use encodeURIComponent on the mainTag as Laravel expects the raw tag name
-            const updateUrl = '{{ route("test-tags.aggregations.update", ["mainTag" => "MAIN_TAG_PLACEHOLDER"]) }}'.replace('MAIN_TAG_PLACEHOLDER', mainTag);
+            // Construct the correct URL - use the base route and properly encode the mainTag
+            const baseUrl = '{{ route("test-tags.aggregations.index") }}';
+            const updateUrl = baseUrl + '/' + encodeURIComponent(mainTag);
             
             // Send update request
             fetch(updateUrl, {
@@ -1688,17 +1762,74 @@
                 } else {
                     return response.text().then(text => {
                         console.error('Server response:', text);
+                        console.error('Request URL:', updateUrl);
                         throw new Error('Помилка оновлення агрегації (статус: ' + response.status + ')');
                     });
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Помилка при додаванні тегу до агрегації: ' + error.message);
+                showDragDropErrorModal('Помилка при додаванні тегу до агрегації: ' + error.message);
                 button.disabled = false;
                 button.innerHTML = originalText;
             });
         }
+
+        // Drag-Drop Modal Functions
+        let dragDropConfirmCallback = null;
+
+        function showDragDropConfirmModal(message, onConfirm) {
+            const modal = document.getElementById('drag-drop-confirm-modal');
+            const messageEl = document.getElementById('drag-drop-confirm-message');
+            
+            if (modal && messageEl) {
+                messageEl.textContent = message;
+                dragDropConfirmCallback = onConfirm;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex', 'items-center', 'justify-center');
+            }
+        }
+
+        function closeDragDropConfirmModal() {
+            const modal = document.getElementById('drag-drop-confirm-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'items-center', 'justify-center');
+                dragDropConfirmCallback = null;
+            }
+        }
+
+        function showDragDropErrorModal(message) {
+            const modal = document.getElementById('drag-drop-error-modal');
+            const messageEl = document.getElementById('drag-drop-error-message');
+            
+            if (modal && messageEl) {
+                messageEl.textContent = message;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex', 'items-center', 'justify-center');
+            }
+        }
+
+        function closeDragDropErrorModal() {
+            const modal = document.getElementById('drag-drop-error-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'items-center', 'justify-center');
+            }
+        }
+
+        // Setup confirm modal accept button
+        document.addEventListener('DOMContentLoaded', () => {
+            const acceptBtn = document.getElementById('drag-drop-confirm-accept');
+            if (acceptBtn) {
+                acceptBtn.addEventListener('click', () => {
+                    if (dragDropConfirmCallback) {
+                        dragDropConfirmCallback();
+                    }
+                    closeDragDropConfirmModal();
+                });
+            }
+        });
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
