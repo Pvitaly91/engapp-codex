@@ -179,7 +179,7 @@
                 </form>
             </section>
 
-            <section class="space-y-4">
+            <section class="space-y-4" id="aggregations-section">
                 <div class="flex items-center justify-between gap-4">
                     <h2 class="text-xl font-semibold text-slate-800">Існуючі агрегації</h2>
                     @if (!empty($aggregations))
@@ -246,7 +246,12 @@
                                 <div id="category-{{ $loop->index }}" class="border-t border-slate-200 hidden">
                                     <div class="p-4 space-y-4">
                                         @foreach ($categoryAggregations as $aggregation)
-                                            <div class="rounded-lg border border-slate-200 bg-white p-4" data-main-tag="{{ strtolower($aggregation['main_tag']) }}">
+                                            <div 
+                                                class="rounded-lg border border-slate-200 bg-white p-4 aggregation-drop-zone" 
+                                                data-main-tag="{{ strtolower($aggregation['main_tag']) }}"
+                                                data-main-tag-exact="{{ $aggregation['main_tag'] }}"
+                                                data-category="{{ $aggregation['category'] ?? '' }}"
+                                            >
                                                 <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
                                                     <div class="flex-1">
                                                         <h4 class="text-base font-semibold text-slate-800 main-tag-text">
@@ -298,8 +303,20 @@
                 @endif
             </section>
 
-            <section class="space-y-4">
-                <h2 class="text-xl font-semibold text-slate-800">Неагреговані теги</h2>
+            <section class="space-y-4" id="non-aggregated-section">
+                <div class="flex items-center justify-between gap-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Неагреговані теги</h2>
+                    @if (!$nonAggregatedTags->isEmpty())
+                        <button
+                            type="button"
+                            id="toggle-drag-mode-btn"
+                            onclick="toggleDragDropMode()"
+                            class="inline-flex items-center rounded-lg border border-purple-300 bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100 focus:outline-none focus:ring"
+                        >
+                            <i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop
+                        </button>
+                    @endif
+                </div>
                 @if ($nonAggregatedTags->isEmpty())
                     <p class="text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">
                         Всі теги вже агреговані.
@@ -328,7 +345,11 @@
                                     <div class="p-4">
                                         <div class="flex flex-wrap gap-2">
                                             @foreach ($tags as $tag)
-                                                <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 border border-slate-300">
+                                                <span 
+                                                    class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 border border-slate-300 non-aggregated-tag"
+                                                    data-tag-name="{{ $tag->name }}"
+                                                    data-tag-category="{{ $tag->category }}"
+                                                >
                                                     {{ $tag->name }}
                                                 </span>
                                             @endforeach
@@ -740,6 +761,79 @@
                     </button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    {{-- Drag-Drop Confirmation Modal --}}
+    <div
+        id="drag-drop-confirm-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeDragDropConfirmModal()"></div>
+        <div class="relative w-full max-w-md mx-4 rounded-xl bg-white shadow-xl">
+            <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Підтвердження</h2>
+                    <button type="button" onclick="closeDragDropConfirmModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <p class="text-sm text-slate-600" id="drag-drop-confirm-message"></p>
+
+                <div class="flex justify-end gap-3 pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeDragDropConfirmModal()"
+                        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        type="button"
+                        id="drag-drop-confirm-accept"
+                        class="inline-flex items-center justify-center rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-green-700 focus:outline-none focus:ring"
+                    >
+                        Підтвердити
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Drag-Drop Error Modal --}}
+    <div
+        id="drag-drop-error-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeDragDropErrorModal()"></div>
+        <div class="relative w-full max-w-md mx-4 rounded-xl bg-white shadow-xl">
+            <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800 text-red-600">
+                        <i class="fa-solid fa-exclamation-triangle mr-2"></i>Помилка
+                    </h2>
+                    <button type="button" onclick="closeDragDropErrorModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <p class="text-sm text-slate-600" id="drag-drop-error-message"></p>
+
+                <div class="flex justify-end pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeDragDropErrorModal()"
+                        class="inline-flex items-center justify-center rounded-lg bg-slate-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-slate-700 focus:outline-none focus:ring"
+                    >
+                        Закрити
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -1437,6 +1531,305 @@
                 button.innerHTML = '<i class="fa-solid fa-chevron-down mr-2"></i>Показати JSON';
             }
         }
+
+        // Drag and Drop Mode
+        let isDragDropMode = false;
+
+        function toggleDragDropMode() {
+            isDragDropMode = !isDragDropMode;
+            const button = document.getElementById('toggle-drag-mode-btn');
+            const nonAggregatedTags = document.querySelectorAll('.non-aggregated-tag');
+            const dropZones = document.querySelectorAll('.aggregation-drop-zone');
+            const aggregationsSection = document.getElementById('aggregations-section');
+            const nonAggregatedSection = document.getElementById('non-aggregated-section');
+            
+            if (isDragDropMode) {
+                // Enable drag mode
+                button.innerHTML = '<i class="fa-solid fa-times mr-2"></i>Вимкнути Drag & Drop';
+                button.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                button.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                
+                // Create wrapper and arrange sections side by side
+                if (aggregationsSection && nonAggregatedSection && !document.getElementById('drag-drop-wrapper')) {
+                    const wrapper = document.createElement('div');
+                    wrapper.id = 'drag-drop-wrapper';
+                    wrapper.className = 'grid grid-cols-1 lg:grid-cols-2 gap-6';
+                    
+                    // Insert wrapper before aggregations section
+                    aggregationsSection.parentNode.insertBefore(wrapper, aggregationsSection);
+                    
+                    // Move both sections into wrapper - NON-AGGREGATED ON LEFT, AGGREGATIONS ON RIGHT
+                    wrapper.appendChild(nonAggregatedSection);
+                    wrapper.appendChild(aggregationsSection);
+                    
+                    // Update section classes for better layout in side-by-side mode
+                    // Add max height and scroll to aggregations section (right column)
+                    aggregationsSection.classList.add('drag-drop-active');
+                    nonAggregatedSection.classList.add('drag-drop-active');
+                    
+                    // Add sticky positioning and scroll to right column
+                    aggregationsSection.style.maxHeight = '80vh';
+                    aggregationsSection.style.overflowY = 'auto';
+                    aggregationsSection.style.position = 'sticky';
+                    aggregationsSection.style.top = '20px';
+                }
+                
+                // Make non-aggregated tags draggable
+                nonAggregatedTags.forEach(tag => {
+                    tag.setAttribute('draggable', 'true');
+                    tag.classList.add('cursor-move', 'hover:shadow-lg', 'transition-shadow');
+                    tag.addEventListener('dragstart', handleDragStart);
+                    tag.addEventListener('dragend', handleDragEnd);
+                });
+                
+                // Make aggregation zones droppable
+                dropZones.forEach(zone => {
+                    zone.addEventListener('dragover', handleDragOver);
+                    zone.addEventListener('drop', handleDrop);
+                    zone.addEventListener('dragleave', handleDragLeave);
+                    zone.classList.add('transition-colors');
+                });
+                
+                // Auto-expand all categories for easier dragging
+                document.querySelectorAll('[id^="category-"]').forEach(el => {
+                    if (el.classList.contains('hidden')) {
+                        const index = el.id.replace('category-', '');
+                        const icon = document.getElementById('icon-' + index);
+                        if (icon) {
+                            el.classList.remove('hidden');
+                            icon.classList.remove('fa-chevron-right');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    }
+                });
+                
+                document.querySelectorAll('[id^="non-agg-category-"]').forEach(el => {
+                    if (el.classList.contains('hidden')) {
+                        const index = el.id.replace('non-agg-category-', '');
+                        const icon = document.getElementById('non-agg-icon-' + index);
+                        if (icon) {
+                            el.classList.remove('hidden');
+                            icon.classList.remove('fa-chevron-right');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    }
+                });
+            } else {
+                // Disable drag mode
+                button.innerHTML = '<i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop';
+                button.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                button.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                
+                // Restore original layout
+                const wrapper = document.getElementById('drag-drop-wrapper');
+                if (wrapper && aggregationsSection && nonAggregatedSection) {
+                    const parent = wrapper.parentNode;
+                    
+                    // Move sections back to parent in original order (aggregations first, then non-aggregated)
+                    parent.insertBefore(aggregationsSection, wrapper);
+                    parent.insertBefore(nonAggregatedSection, wrapper);
+                    
+                    // Remove wrapper
+                    wrapper.remove();
+                    
+                    // Remove drag-drop classes and inline styles
+                    aggregationsSection.classList.remove('drag-drop-active');
+                    nonAggregatedSection.classList.remove('drag-drop-active');
+                    aggregationsSection.style.maxHeight = '';
+                    aggregationsSection.style.overflowY = '';
+                    aggregationsSection.style.position = '';
+                    aggregationsSection.style.top = '';
+                }
+                
+                // Remove draggable from tags
+                nonAggregatedTags.forEach(tag => {
+                    tag.removeAttribute('draggable');
+                    tag.classList.remove('cursor-move', 'hover:shadow-lg', 'transition-shadow');
+                    tag.removeEventListener('dragstart', handleDragStart);
+                    tag.removeEventListener('dragend', handleDragEnd);
+                });
+                
+                // Remove droppable from zones
+                dropZones.forEach(zone => {
+                    zone.removeEventListener('dragover', handleDragOver);
+                    zone.removeEventListener('drop', handleDrop);
+                    zone.removeEventListener('dragleave', handleDragLeave);
+                    zone.classList.remove('transition-colors', 'border-green-400', 'bg-green-50');
+                });
+            }
+        }
+
+        let draggedTag = null;
+
+        function handleDragStart(e) {
+            draggedTag = e.target;
+            e.target.classList.add('opacity-50');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', e.target.innerHTML);
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('opacity-50');
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'move';
+            
+            // Highlight drop zone
+            e.currentTarget.classList.add('border-green-400', 'bg-green-50');
+            return false;
+        }
+
+        function handleDragLeave(e) {
+            e.currentTarget.classList.remove('border-green-400', 'bg-green-50');
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+            e.preventDefault();
+            
+            const dropZone = e.currentTarget;
+            dropZone.classList.remove('border-green-400', 'bg-green-50');
+            
+            if (draggedTag) {
+                const tagName = draggedTag.dataset.tagName;
+                const mainTag = dropZone.dataset.mainTagExact;
+                const category = dropZone.dataset.category;
+                
+                // Show confirmation modal
+                showDragDropConfirmModal(
+                    `Додати тег "${tagName}" до агрегації "${mainTag}"?`,
+                    () => addTagToAggregation(tagName, mainTag, category)
+                );
+            }
+            
+            return false;
+        }
+
+        function addTagToAggregation(tagName, mainTag, category) {
+            // Show loading indicator
+            const button = document.getElementById('toggle-drag-mode-btn');
+            const originalText = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Додавання...';
+            
+            // Parse current aggregations from the page
+            const aggregations = @json($aggregations);
+            
+            // Find the aggregation and add the tag
+            const aggregation = aggregations.find(a => a.main_tag === mainTag);
+            if (!aggregation) {
+                showDragDropErrorModal('Агрегацію не знайдено');
+                button.disabled = false;
+                button.innerHTML = originalText;
+                return;
+            }
+            
+            if (!aggregation.similar_tags) {
+                aggregation.similar_tags = [];
+            }
+            if (!aggregation.similar_tags.includes(tagName)) {
+                aggregation.similar_tags.push(tagName);
+            }
+            
+            // Construct the correct URL - use the base route and properly encode the mainTag
+            const baseUrl = '{{ route("test-tags.aggregations.index") }}';
+            const updateUrl = baseUrl + '/' + encodeURIComponent(mainTag);
+            
+            // Send update request
+            fetch(updateUrl, {
+                method: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    similar_tags: aggregation.similar_tags,
+                    category: category
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Reload page to show updated aggregations
+                    window.location.reload();
+                } else {
+                    return response.text().then(text => {
+                        console.error('Server response:', text);
+                        console.error('Request URL:', updateUrl);
+                        throw new Error('Помилка оновлення агрегації (статус: ' + response.status + ')');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showDragDropErrorModal('Помилка при додаванні тегу до агрегації: ' + error.message);
+                button.disabled = false;
+                button.innerHTML = originalText;
+            });
+        }
+
+        // Drag-Drop Modal Functions
+        let dragDropConfirmCallback = null;
+
+        function showDragDropConfirmModal(message, onConfirm) {
+            const modal = document.getElementById('drag-drop-confirm-modal');
+            const messageEl = document.getElementById('drag-drop-confirm-message');
+            
+            if (modal && messageEl) {
+                messageEl.textContent = message;
+                dragDropConfirmCallback = onConfirm;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex', 'items-center', 'justify-center');
+            }
+        }
+
+        function closeDragDropConfirmModal() {
+            const modal = document.getElementById('drag-drop-confirm-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'items-center', 'justify-center');
+                dragDropConfirmCallback = null;
+            }
+        }
+
+        function showDragDropErrorModal(message) {
+            const modal = document.getElementById('drag-drop-error-modal');
+            const messageEl = document.getElementById('drag-drop-error-message');
+            
+            if (modal && messageEl) {
+                messageEl.textContent = message;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex', 'items-center', 'justify-center');
+            }
+        }
+
+        function closeDragDropErrorModal() {
+            const modal = document.getElementById('drag-drop-error-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'items-center', 'justify-center');
+            }
+        }
+
+        // Setup confirm modal accept button
+        document.addEventListener('DOMContentLoaded', () => {
+            const acceptBtn = document.getElementById('drag-drop-confirm-accept');
+            if (acceptBtn) {
+                acceptBtn.addEventListener('click', () => {
+                    if (dragDropConfirmCallback) {
+                        dragDropConfirmCallback();
+                    }
+                    closeDragDropConfirmModal();
+                });
+            }
+        });
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
