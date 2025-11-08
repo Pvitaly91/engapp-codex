@@ -514,29 +514,137 @@ class TestTagController extends Controller
     {
         $aggregations = $service->getAggregations();
         $allTags = Tag::orderBy('name')->get();
-        
+
+        // Collect all aggregated tag names (main tags and similar tags)
+        $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
+            return array_merge(
+                [$aggregation['main_tag']],
+                $aggregation['similar_tags'] ?? []
+            );
+        })->unique()->values();
+
+        // Filter tags that are NOT in any aggregation
+        $nonAggregatedTags = $allTags->reject(function ($tag) use ($aggregatedTagNames) {
+            return $aggregatedTagNames->contains($tag->name);
+        });
+
+        // Group non-aggregated tags by category
+        $nonAggregatedByCategory = $nonAggregatedTags->groupBy(function ($tag) {
+            return $tag->category ?: 'Без категорії';
+        })->sortKeys();
+
+        // Move "Без категорії" to the end if it exists
+        if ($nonAggregatedByCategory->has('Без категорії')) {
+            $uncategorized = $nonAggregatedByCategory->pull('Без категорії');
+            $nonAggregatedByCategory->put('Без категорії', $uncategorized);
+        }
+
         // Group tags by category
         $tagsByCategory = $allTags->groupBy(function ($tag) {
             return $tag->category ?? 'Other';
         })->sortKeys();
-        
+
         // Move "Other" to the end if it exists
         if ($tagsByCategory->has('Other')) {
             $other = $tagsByCategory->pull('Other');
             $tagsByCategory->put('Other', $other);
         }
-        
+
         $categories = Tag::whereNotNull('category')
             ->distinct()
             ->pluck('category')
             ->sort()
             ->values();
 
+        // Group aggregations by category
+        $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
+            return $aggregation['category'] ?? 'Без категорії';
+        })->sortKeys();
+
+        // Move "Без категорії" to the end if it exists
+        if ($aggregationsByCategory->has('Без категорії')) {
+            $uncategorized = $aggregationsByCategory->pull('Без категорії');
+            $aggregationsByCategory->put('Без категорії', $uncategorized);
+        }
+
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
+            'aggregationsByCategory' => $aggregationsByCategory,
+            'nonAggregatedTags' => $nonAggregatedTags,
+            'nonAggregatedByCategory' => $nonAggregatedByCategory,
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
+            'isAutoPage' => false,
+        ]);
+    }
+
+    public function autoAggregationsPage(TagAggregationService $service): View
+    {
+        $aggregations = $service->getAggregations();
+        $allTags = Tag::orderBy('name')->get();
+
+        // Collect all aggregated tag names (main tags and similar tags)
+        $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
+            return array_merge(
+                [$aggregation['main_tag']],
+                $aggregation['similar_tags'] ?? []
+            );
+        })->unique()->values();
+
+        // Filter tags that are NOT in any aggregation
+        $nonAggregatedTags = $allTags->reject(function ($tag) use ($aggregatedTagNames) {
+            return $aggregatedTagNames->contains($tag->name);
+        });
+
+        // Group non-aggregated tags by category
+        $nonAggregatedByCategory = $nonAggregatedTags->groupBy(function ($tag) {
+            return $tag->category ?: 'Без категорії';
+        })->sortKeys();
+
+        // Move "Без категорії" to the end if it exists
+        if ($nonAggregatedByCategory->has('Без категорії')) {
+            $uncategorized = $nonAggregatedByCategory->pull('Без категорії');
+            $nonAggregatedByCategory->put('Без категорії', $uncategorized);
+        }
+
+        // Group tags by category
+        $tagsByCategory = $allTags->groupBy(function ($tag) {
+            return $tag->category ?? 'Other';
+        })->sortKeys();
+
+        // Move "Other" to the end if it exists
+        if ($tagsByCategory->has('Other')) {
+            $other = $tagsByCategory->pull('Other');
+            $tagsByCategory->put('Other', $other);
+        }
+
+        $categories = Tag::whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->sort()
+            ->values();
+
+        // Group aggregations by category
+        $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
+            return $aggregation['category'] ?? 'Без категорії';
+        })->sortKeys();
+
+        // Move "Без категорії" to the end if it exists
+        if ($aggregationsByCategory->has('Без категорії')) {
+            $uncategorized = $aggregationsByCategory->pull('Без категорії');
+            $aggregationsByCategory->put('Без категорії', $uncategorized);
+        }
+
+        return view('test-tags.aggregations.index', [
+            'aggregations' => $aggregations,
+            'aggregationsByCategory' => $aggregationsByCategory,
+            'nonAggregatedTags' => $nonAggregatedTags,
+            'nonAggregatedByCategory' => $nonAggregatedByCategory,
+            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
+            'categories' => $categories,
+            'isAutoPage' => true,
         ]);
     }
 
@@ -609,7 +717,7 @@ class TestTagController extends Controller
             foreach ($suggestions as $suggestion) {
                 // Get category from the main tag
                 $category = $tagCategories[$suggestion['main_tag']] ?? null;
-                
+
                 $service->addAggregation(
                     $suggestion['main_tag'],
                     $suggestion['similar_tags'],
@@ -650,7 +758,7 @@ class TestTagController extends Controller
             foreach ($suggestions as $suggestion) {
                 // Get category from the main tag
                 $category = $tagCategories[$suggestion['main_tag']] ?? null;
-                
+
                 $service->addAggregation(
                     $suggestion['main_tag'],
                     $suggestion['similar_tags'],
@@ -670,5 +778,156 @@ class TestTagController extends Controller
             return redirect()->route('test-tags.aggregations.index')
                 ->with('error', 'Помилка ChatGPT: '.$e->getMessage());
         }
+    }
+
+    public function generateAggregationPrompt(): JsonResponse
+    {
+        $tags = Tag::orderBy('name')->get();
+
+        if ($tags->isEmpty()) {
+            return response()->json([
+                'error' => 'Немає тегів для агрегації.',
+            ], 400);
+        }
+
+        $tagNames = $tags->pluck('name')->toArray();
+        $tagsList = implode(', ', $tagNames);
+
+        $prompt = "You are a grammar tag analyzer. Analyze the following list of English grammar tags and suggest aggregations.\n\n";
+        $prompt .= "Tags: {$tagsList}\n\n";
+        $prompt .= "Group similar or related tags together. For each group, identify:\n";
+        $prompt .= "1. A main_tag (the most general or commonly used tag in the group)\n";
+        $prompt .= "2. similar_tags (array of related tags that should be aggregated under the main tag)\n\n";
+        $prompt .= "Rules:\n";
+        $prompt .= "- Only group tags that are clearly related or synonyms\n";
+        $prompt .= "- Each tag should appear only once in the result\n";
+        $prompt .= "- Don't create aggregations for tags that are clearly distinct\n";
+        $prompt .= "- similar_tags should not include the main_tag itself\n";
+        $prompt .= "- DO NOT include category field, it will be added automatically\n\n";
+        $prompt .= "Respond strictly in JSON format as an array of objects:\n";
+        $prompt .= '[{"main_tag": "Present Simple", "similar_tags": ["Simple Present", "Present Tense"]}, ...]';
+
+        return response()->json([
+            'prompt' => $prompt,
+            'tags_count' => count($tagNames),
+        ]);
+    }
+
+    public function importAggregations(Request $request, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'json_data' => ['required', 'string'],
+        ]);
+
+        try {
+            $data = json_decode($validated['json_data'], true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                throw new \InvalidArgumentException('Невалідний JSON формат: '.json_last_error_msg());
+            }
+
+            // Support both formats:
+            // 1. API format: [{main_tag: "...", similar_tags: [...]}, ...]
+            // 2. Wrapped format: {aggregations: [{...}]}
+            $aggregations = null;
+            if (is_array($data)) {
+                if (isset($data['aggregations']) && is_array($data['aggregations'])) {
+                    // Wrapped format
+                    $aggregations = $data['aggregations'];
+                } elseif (isset($data[0]) && isset($data[0]['main_tag'])) {
+                    // Direct array format (API response)
+                    $aggregations = $data;
+                }
+            }
+
+            if ($aggregations === null) {
+                throw new \InvalidArgumentException('JSON має бути масивом агрегацій [{main_tag: "...", similar_tags: [...]}] або об\'єктом з полем "aggregations"');
+            }
+
+            // Get tag categories for auto-assignment
+            $tagCategories = Tag::pluck('category', 'name')->toArray();
+
+            // Validate and enrich each aggregation structure
+            foreach ($aggregations as $index => &$aggregation) {
+                if (! isset($aggregation['main_tag']) || ! is_string($aggregation['main_tag'])) {
+                    throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'main_tag'");
+                }
+
+                if (! isset($aggregation['similar_tags']) || ! is_array($aggregation['similar_tags'])) {
+                    throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'similar_tags'");
+                }
+
+                // Auto-assign category from main_tag if not provided
+                if (! isset($aggregation['category']) || $aggregation['category'] === null) {
+                    $aggregation['category'] = $tagCategories[$aggregation['main_tag']] ?? null;
+                }
+
+                // Validate category if provided
+                if (isset($aggregation['category']) && ! is_string($aggregation['category']) && $aggregation['category'] !== null) {
+                    throw new \InvalidArgumentException("Агрегація #{$index} містить невалідне поле 'category'");
+                }
+            }
+
+            // Save the aggregations
+            $service->saveAggregations($aggregations);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', 'JSON успішно імпортовано. Збережено агрегацій: '.count($aggregations).'.');
+        } catch (\InvalidArgumentException $e) {
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', $e->getMessage())
+                ->withInput();
+        } catch (\Exception $e) {
+            Log::error('Import aggregations failed: '.$e->getMessage(), [
+                'exception' => $e,
+            ]);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('error', 'Помилка імпорту: '.$e->getMessage())
+                ->withInput();
+        }
+    }
+
+    public function updateAggregationCategory(Request $request, string $category, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'new_name' => ['required', 'string', 'max:255'],
+        ]);
+
+        $newName = trim($validated['new_name']);
+        $aggregations = $service->getAggregations();
+        $updated = false;
+
+        foreach ($aggregations as &$aggregation) {
+            if (($aggregation['category'] ?? '') === $category) {
+                $aggregation['category'] = $newName;
+                $updated = true;
+            }
+        }
+
+        if ($updated) {
+            $service->saveAggregations($aggregations);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', 'Категорію успішно оновлено.');
+        }
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('error', 'Категорію не знайдено.');
+    }
+
+    public function destroyAggregationCategory(string $category, TagAggregationService $service): RedirectResponse
+    {
+        $aggregations = $service->getAggregations();
+
+        // Filter out all aggregations from this category
+        $aggregations = array_filter($aggregations, function ($aggregation) use ($category) {
+            return ($aggregation['category'] ?? '') !== $category;
+        });
+
+        $service->saveAggregations(array_values($aggregations));
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Категорію та всі її агрегації видалено.');
     }
 }
