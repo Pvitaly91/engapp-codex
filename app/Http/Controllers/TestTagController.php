@@ -728,6 +728,46 @@ class TestTagController extends Controller
             ->with('status', 'Агрегацію тегів видалено.');
     }
 
+    public function removeSimilarTag(Request $request, string $mainTag, string $similarTag, TagAggregationService $service): JsonResponse
+    {
+        $aggregations = $service->getAggregations();
+        $aggregation = collect($aggregations)->firstWhere('main_tag', $mainTag);
+
+        if (! $aggregation) {
+            return response()->json([
+                'message' => 'Агрегацію не знайдено.',
+            ], 404);
+        }
+
+        $similarTags = $aggregation['similar_tags'] ?? [];
+        $similarTags = array_values(array_filter($similarTags, fn ($tag) => $tag !== $similarTag));
+
+        if (count($similarTags) === 0) {
+            return response()->json([
+                'message' => 'Не можна видалити останній схожий тег. Видаліть всю агрегацію замість цього.',
+            ], 422);
+        }
+
+        $updated = $service->updateAggregation(
+            $mainTag,
+            $similarTags,
+            $aggregation['category'] ?? null
+        );
+
+        if (! $updated) {
+            return response()->json([
+                'message' => 'Не вдалося оновити агрегацію.',
+            ], 500);
+        }
+
+        return response()->json([
+            'message' => 'Тег видалено з агрегації.',
+            'main_tag' => $mainTag,
+            'similar_tags' => $similarTags,
+            'removed_tag' => $similarTag,
+        ]);
+    }
+
     public function autoAggregations(GeminiService $gemini, TagAggregationService $service): RedirectResponse
     {
         $tags = Tag::orderBy('name')->get();
