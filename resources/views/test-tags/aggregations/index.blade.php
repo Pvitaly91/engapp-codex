@@ -262,7 +262,7 @@
                                                     <div class="flex gap-2">
                                                         <button
                                                             type="button"
-                                                            onclick="editAggregation('{{ addslashes($aggregation['main_tag']) }}', {{ json_encode($aggregation['similar_tags'] ?? []) }}, '{{ addslashes($aggregation['category'] ?? '') }}')"
+                                                            onclick="openEditAggregationModal(this)"
                                                             class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
                                                         >
                                                             <i class="fa-solid fa-edit mr-1"></i>Редагувати
@@ -1377,6 +1377,26 @@
                     button.innerHTML = '<i class="fa-solid fa-chevron-up mr-2"></i>Сховати форму імпорту';
                 }
             @endif
+        }
+
+        function openEditAggregationModal(button) {
+            if (!button) {
+                return;
+            }
+
+            const dropZone = button.closest('.aggregation-drop-zone');
+            if (!dropZone) {
+                return;
+            }
+
+            const mainTag = dropZone.dataset.mainTagExact || dropZone.dataset.mainTag || '';
+            const category = dropZone.dataset.category || '';
+
+            const similarTags = Array.from(dropZone.querySelectorAll('.similar-tag-text'))
+                .map((element) => element.textContent.trim())
+                .filter((tag) => tag.length > 0);
+
+            editAggregation(mainTag, similarTags, category);
         }
 
         // Edit aggregation modal functions
