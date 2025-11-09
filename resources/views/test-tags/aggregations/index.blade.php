@@ -322,7 +322,7 @@
                         Всі теги вже агреговані.
                     </p>
                 @else
-                    <div class="space-y-4">
+                    <div class="space-y-4" id="non-aggregated-list">
                         @foreach ($nonAggregatedByCategory as $category => $tags)
                             <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
                                 {{-- Category Header --}}
@@ -335,7 +335,7 @@
                                         <i id="non-agg-icon-{{ $loop->index }}" class="fa-solid fa-chevron-right text-slate-400 transition-transform"></i>
                                         <div>
                                             <h3 class="text-lg font-semibold text-slate-800">{{ $category }}</h3>
-                                            <p class="text-sm text-slate-500">{{ count($tags) }} {{ count($tags) === 1 ? 'тег' : 'тегів' }}</p>
+                                            <p class="text-sm text-slate-500 non-aggregated-count">{{ count($tags) }} {{ count($tags) === 1 ? 'тег' : 'тегів' }}</p>
                                         </div>
                                     </button>
                                 </div>
@@ -360,6 +360,9 @@
                         @endforeach
                     </div>
                 @endif
+                <p id="all-tags-aggregated-message" class="hidden text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">
+                    Всі теги вже агреговані.
+                </p>
             </section>
 
             <section class="rounded-xl border border-blue-200 bg-blue-50 p-6">
@@ -840,6 +843,10 @@
 
 @push('scripts')
     <script>
+        const DRAG_TOGGLE_DEFAULT_HTML = '<i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop';
+        const DRAG_TOGGLE_ACTIVE_HTML = '<i class="fa-solid fa-times mr-2"></i>Вимкнути Drag & Drop';
+        const DRAG_TOGGLE_LOADING_HTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Додавання...';
+
         // Tag dropdown functionality
         function initTagDropdowns() {
             // Main tag dropdown
@@ -1545,7 +1552,7 @@
             
             if (isDragDropMode) {
                 // Enable drag mode
-                button.innerHTML = '<i class="fa-solid fa-times mr-2"></i>Вимкнути Drag & Drop';
+                button.innerHTML = DRAG_TOGGLE_ACTIVE_HTML;
                 button.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
                 button.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
                 
@@ -1616,7 +1623,7 @@
                 });
             } else {
                 // Disable drag mode
-                button.innerHTML = '<i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop';
+                button.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
                 button.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
                 button.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
                 
@@ -1692,59 +1699,64 @@
                 e.stopPropagation();
             }
             e.preventDefault();
-            
+
             const dropZone = e.currentTarget;
             dropZone.classList.remove('border-green-400', 'bg-green-50');
-            
+
             if (draggedTag) {
                 const tagName = draggedTag.dataset.tagName;
                 const mainTag = dropZone.dataset.mainTagExact;
                 const category = dropZone.dataset.category;
-                
+
                 // Show confirmation modal
                 showDragDropConfirmModal(
                     `Додати тег "${tagName}" до агрегації "${mainTag}"?`,
-                    () => addTagToAggregation(tagName, mainTag, category)
+                    () => addTagToAggregation(tagName, mainTag, category, dropZone)
                 );
             }
-            
+
             return false;
         }
 
-        function addTagToAggregation(tagName, mainTag, category) {
+        function addTagToAggregation(tagName, mainTag, category, dropZone) {
             // Show loading indicator
             const button = document.getElementById('toggle-drag-mode-btn');
-            const originalText = button.innerHTML;
-            button.disabled = true;
-            button.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Додавання...';
-            
+
+            if (button) {
+                button.disabled = true;
+                button.innerHTML = DRAG_TOGGLE_LOADING_HTML;
+            }
+
             // Parse current aggregations from the page
             const aggregations = @json($aggregations);
-            
+
             // Find the aggregation and add the tag
             const aggregation = aggregations.find(a => a.main_tag === mainTag);
             if (!aggregation) {
                 showDragDropErrorModal('Агрегацію не знайдено');
-                button.disabled = false;
-                button.innerHTML = originalText;
+                if (button) {
+                    button.disabled = false;
+                    button.innerHTML = isDragDropMode ? DRAG_TOGGLE_ACTIVE_HTML : DRAG_TOGGLE_DEFAULT_HTML;
+                    button.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
                 return;
             }
-            
+
             if (!aggregation.similar_tags) {
                 aggregation.similar_tags = [];
             }
             if (!aggregation.similar_tags.includes(tagName)) {
                 aggregation.similar_tags.push(tagName);
             }
-            
+
             // Construct the correct URL using Laravel route helper
             const updateUrl = '{{ route("test-tags.aggregations.update", ["mainTag" => "__MAIN_TAG__"]) }}'.replace('__MAIN_TAG__', encodeURIComponent(mainTag));
-            
+
             // Debug logging
             console.log('Adding tag to aggregation:', tagName);
             console.log('Main tag:', mainTag);
             console.log('Generated URL:', updateUrl);
-            
+
             // Send update request
             fetch(updateUrl, {
                 method: 'PUT',
@@ -1761,22 +1773,177 @@
             })
             .then(response => {
                 if (response.ok) {
-                    // Reload page to show updated aggregations
-                    window.location.reload();
-                } else {
-                    return response.text().then(text => {
-                        console.error('Server response:', text);
-                        console.error('Request URL:', updateUrl);
-                        throw new Error('Помилка оновлення агрегації (статус: ' + response.status + ')');
-                    });
+                    return response.json();
                 }
+
+                return response.text().then(text => {
+                    console.error('Server response:', text);
+                    console.error('Request URL:', updateUrl);
+                    throw new Error('Помилка оновлення агрегації (статус: ' + response.status + ')');
+                });
+            })
+            .then(data => {
+                if (dropZone) {
+                    updateAggregationDropZone(dropZone, data.similar_tags ?? aggregation.similar_tags ?? [], mainTag, data.category ?? category ?? null);
+                }
+
+                removeTagFromNonAggregated(tagName);
+                updateAggregationJson(mainTag, data.similar_tags ?? aggregation.similar_tags ?? [], data.category ?? category ?? null);
+
+                if (button) {
+                    const remainingTags = document.querySelectorAll('.non-aggregated-tag').length;
+
+                    if (remainingTags === 0) {
+                        button.disabled = true;
+                        button.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
+                        button.classList.add('opacity-50', 'cursor-not-allowed');
+                    } else {
+                        button.disabled = false;
+                        button.innerHTML = isDragDropMode ? DRAG_TOGGLE_ACTIVE_HTML : DRAG_TOGGLE_DEFAULT_HTML;
+                        button.classList.remove('opacity-50', 'cursor-not-allowed');
+                    }
+                }
+
+                draggedTag = null;
             })
             .catch(error => {
                 console.error('Error:', error);
                 showDragDropErrorModal('Помилка при додаванні тегу до агрегації: ' + error.message);
-                button.disabled = false;
-                button.innerHTML = originalText;
+                if (button) {
+                    button.disabled = false;
+                    button.innerHTML = isDragDropMode ? DRAG_TOGGLE_ACTIVE_HTML : DRAG_TOGGLE_DEFAULT_HTML;
+                    button.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
             });
+        }
+
+        function updateAggregationDropZone(dropZone, similarTags, mainTag, category) {
+            const container = dropZone.querySelector('.similar-tags-container');
+
+            if (!container) {
+                return;
+            }
+
+            container.innerHTML = '';
+            similarTags.forEach(tag => {
+                const badge = document.createElement('span');
+                badge.className = 'inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge';
+                badge.dataset.tag = tag.toLowerCase();
+
+                const textSpan = document.createElement('span');
+                textSpan.className = 'similar-tag-text';
+                textSpan.textContent = tag;
+
+                badge.appendChild(textSpan);
+                container.appendChild(badge);
+            });
+
+            dropZone.dataset.category = category ?? '';
+
+            const categoryBlock = dropZone.closest('.aggregation-category-block');
+            if (categoryBlock) {
+                const tagsSet = new Set();
+                const existing = (categoryBlock.dataset.tags || '').split(' ').filter(Boolean);
+                existing.forEach(value => tagsSet.add(value));
+                tagsSet.add((dropZone.dataset.mainTag || mainTag || '').toLowerCase());
+                similarTags.forEach(tag => tagsSet.add(tag.toLowerCase()));
+                categoryBlock.dataset.tags = Array.from(tagsSet).join(' ');
+            }
+
+            dropZone.classList.add('border-green-400', 'bg-green-50');
+            setTimeout(() => {
+                dropZone.classList.remove('border-green-400', 'bg-green-50');
+            }, 1200);
+        }
+
+        function removeTagFromNonAggregated(tagName) {
+            const normalizedTag = tagName.toLowerCase();
+            const tagElements = Array.from(document.querySelectorAll('.non-aggregated-tag'));
+            const target = tagElements.find(el => (el.dataset.tagName || '').toLowerCase() === normalizedTag);
+
+            if (!target) {
+                return;
+            }
+
+            const categoryWrapper = target.closest('.rounded-xl.border.border-slate-200.bg-white.shadow-sm');
+            target.remove();
+
+            if (categoryWrapper) {
+                const remaining = categoryWrapper.querySelectorAll('.non-aggregated-tag').length;
+                const countEl = categoryWrapper.querySelector('.non-aggregated-count');
+
+                if (countEl) {
+                    countEl.textContent = `${remaining} ${formatTagCount(remaining)}`;
+                }
+
+                if (remaining === 0) {
+                    const tagsContainer = categoryWrapper.querySelector('.flex.flex-wrap.gap-2');
+                    if (tagsContainer) {
+                        tagsContainer.innerHTML = '<p class="text-sm text-slate-500">У цій категорії немає тегів.</p>';
+                    }
+                }
+            }
+
+            updateGlobalNonAggregatedState();
+        }
+
+        function updateAggregationJson(mainTag, similarTags, category) {
+            const jsonDisplay = document.getElementById('json-display');
+
+            if (!jsonDisplay) {
+                return;
+            }
+
+            try {
+                const current = JSON.parse(jsonDisplay.textContent || '{}');
+                if (!current.aggregations || !Array.isArray(current.aggregations)) {
+                    return;
+                }
+
+                const aggregation = current.aggregations.find(item => item.main_tag === mainTag);
+                if (!aggregation) {
+                    return;
+                }
+
+                aggregation.similar_tags = Array.isArray(similarTags) ? similarTags : [];
+                aggregation.category = category ?? null;
+
+                jsonDisplay.textContent = JSON.stringify(current, null, 4);
+            } catch (error) {
+                console.warn('Не вдалося оновити JSON у інтерфейсі.', error);
+            }
+        }
+
+        function updateGlobalNonAggregatedState() {
+            const remaining = document.querySelectorAll('.non-aggregated-tag').length;
+            const list = document.getElementById('non-aggregated-list');
+            const message = document.getElementById('all-tags-aggregated-message');
+            const button = document.getElementById('toggle-drag-mode-btn');
+
+            if (remaining === 0 && typeof isDragDropMode !== 'undefined' && isDragDropMode) {
+                toggleDragDropMode();
+            }
+
+            if (list) {
+                list.classList.toggle('hidden', remaining === 0);
+            }
+
+            if (message) {
+                message.classList.toggle('hidden', remaining !== 0);
+            }
+
+            if (button) {
+                button.disabled = remaining === 0;
+                button.classList.toggle('opacity-50', remaining === 0);
+                button.classList.toggle('cursor-not-allowed', remaining === 0);
+                if (remaining === 0 || !isDragDropMode) {
+                    button.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
+                }
+            }
+        }
+
+        function formatTagCount(count) {
+            return count === 1 ? 'тег' : 'тегів';
         }
 
         // Drag-Drop Modal Functions
