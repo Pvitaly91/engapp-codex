@@ -2071,6 +2071,136 @@
             }
         });
 
+        // Remove similar tag from aggregation via AJAX
+        async function removeSimilarTagFromAggregation(button) {
+            if (!button) {
+                return;
+            }
+
+            const similarTag = button.dataset.similarTag;
+            const mainTag = button.dataset.mainTag;
+
+            if (!similarTag || !mainTag) {
+                console.error('Missing tag data');
+                return;
+            }
+
+            // Show confirmation
+            if (!confirm(`Видалити тег "${similarTag}" з агрегації "${mainTag}"?`)) {
+                return;
+            }
+
+            const badge = button.closest('.similar-tag-badge');
+            if (!badge) {
+                return;
+            }
+
+            // Disable button and show loading state
+            button.disabled = true;
+            button.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i>';
+
+            try {
+                const url = '{{ route("test-tags.aggregations.remove-similar-tag", ["mainTag" => "__MAIN_TAG__", "similarTag" => "__SIMILAR_TAG__"]) }}'
+                    .replace('__MAIN_TAG__', encodeURIComponent(mainTag))
+                    .replace('__SIMILAR_TAG__', encodeURIComponent(similarTag));
+
+                const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+                if (!csrfTokenMeta) {
+                    throw new Error('CSRF токен не знайдено');
+                }
+
+                const response = await fetch(url, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfTokenMeta.content,
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    let errorMessage = 'Помилка видалення тегу';
+                    try {
+                        const errorData = await response.json();
+                        if (errorData && errorData.message) {
+                            errorMessage = errorData.message;
+                        }
+                    } catch (e) {
+                        // Ignore parse error
+                    }
+                    throw new Error(errorMessage);
+                }
+
+                const data = await response.json();
+
+                // Remove the badge from the UI
+                badge.classList.add('opacity-0', 'transition-opacity');
+                setTimeout(() => {
+                    badge.remove();
+
+                    // Update the similar tags container
+                    const container = badge.parentElement;
+                    if (container && container.children.length === 0) {
+                        container.innerHTML = '<p class="text-sm text-slate-500">Немає схожих тегів.</p>';
+                    }
+
+                    // Update JSON display if present
+                    updateAggregationJsonAfterRemoval(mainTag, data.similar_tags);
+
+                    // Update current aggregations data
+                    if (Array.isArray(currentAggregations)) {
+                        const aggregation = currentAggregations.find(a => a.main_tag === mainTag);
+                        if (aggregation) {
+                            aggregation.similar_tags = data.similar_tags;
+                        }
+                    }
+
+                    // Show success message (optional - could use a toast notification)
+                    console.log(data.message);
+                }, 300);
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Помилка: ' + error.message);
+                button.disabled = false;
+                button.innerHTML = '<i class="fa-solid fa-times text-xs"></i>';
+            }
+        }
+
+        function updateAggregationJsonAfterRemoval(mainTag, similarTags) {
+            const jsonDisplay = document.getElementById('json-display');
+            if (!jsonDisplay) {
+                return;
+            }
+
+            try {
+                const codeBlock = jsonDisplay.querySelector('code');
+                const textContent = codeBlock ? codeBlock.textContent : jsonDisplay.textContent;
+                const current = JSON.parse(textContent || '{}');
+                
+                if (!current.aggregations || !Array.isArray(current.aggregations)) {
+                    return;
+                }
+
+                const aggregation = current.aggregations.find(item => item.main_tag === mainTag);
+                if (!aggregation) {
+                    return;
+                }
+
+                aggregation.similar_tags = Array.isArray(similarTags) ? similarTags : [];
+
+                const newJson = JSON.stringify(current, null, 4);
+                if (codeBlock) {
+                    codeBlock.textContent = newJson;
+                } else {
+                    jsonDisplay.textContent = newJson;
+                }
+            } catch (error) {
+                console.warn('Не вдалося оновити JSON у інтерфейсі.', error);
+            }
+        }
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 initTagDropdowns();

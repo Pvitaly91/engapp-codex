@@ -110,8 +110,18 @@
                                         <p class="text-xs font-medium text-slate-700 mb-2">Схожі теги:</p>
                                         <div class="flex flex-wrap gap-2 similar-tags-container">
                                             @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
-                                                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge" data-tag="{{ strtolower($similarTag) }}">
+                                                <span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge" data-tag="{{ strtolower($similarTag) }}" data-tag-name="{{ $similarTag }}">
                                                     <span class="similar-tag-text">{{ $similarTag }}</span>
+                                                    <button
+                                                        type="button"
+                                                        onclick="removeSimilarTagFromAggregation(this)"
+                                                        class="ml-1 hover:text-red-600 transition-colors"
+                                                        title="Видалити тег"
+                                                        data-similar-tag="{{ $similarTag }}"
+                                                        data-main-tag="{{ $aggregation['main_tag'] }}"
+                                                    >
+                                                        <i class="fa-solid fa-times text-xs"></i>
+                                                    </button>
                                                 </span>
                                             @endforeach
                                         </div>

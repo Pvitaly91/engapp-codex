@@ -164,6 +164,10 @@ Route::middleware('auth.admin')->group(function () {
                 Route::delete('/{mainTag}', [TestTagController::class, 'destroyAggregation'])
                     ->where('mainTag', '.*')
                     ->name('destroy');
+                Route::delete('/{mainTag}/similar-tags/{similarTag}', [TestTagController::class, 'removeSimilarTag'])
+                    ->where('mainTag', '.*')
+                    ->where('similarTag', '.*')
+                    ->name('remove-similar-tag');
                 Route::put('/category/{category}', [TestTagController::class, 'updateAggregationCategory'])->name('update-category');
                 Route::delete('/category/{category}', [TestTagController::class, 'destroyAggregationCategory'])->name('destroy-category');
             });
