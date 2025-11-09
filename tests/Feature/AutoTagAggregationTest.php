@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\Tag;
+use App\Modules\TagAggregation\Services\TagAggregationService;
 use App\Services\ChatGPTService;
 use App\Services\GeminiService;
-use App\Services\TagAggregationService;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Tests\TestCase;
@@ -25,11 +25,14 @@ class AutoTagAggregationTest extends TestCase
             Artisan::call('migrate', ['--path' => 'database/migrations/'.$file]);
         }
 
-        // Ensure the config directory exists
+        // Ensure the config directory exists and clear any existing aggregations
         $configDir = base_path('config/tags');
         if (! File::exists($configDir)) {
             File::makeDirectory($configDir, 0755, true);
         }
+        
+        $configPath = base_path('config/tags/aggregation.json');
+        File::put($configPath, json_encode(['aggregations' => []], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 
     protected function tearDown(): void

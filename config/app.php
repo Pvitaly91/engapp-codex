@@ -161,6 +161,7 @@ return [
          */
 
         App\Modules\GitDeployment\GitDeploymentServiceProvider::class,
+        App\Modules\TagAggregation\TagAggregationServiceProvider::class,
 
         /*
          * Application Service Providers...
