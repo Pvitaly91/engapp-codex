@@ -1415,6 +1415,13 @@
                 initAggregationsSearch();
                 initNonAggregatedSearch();
                 updateGlobalNonAggregatedState();
+                
+                // Restore drag & drop mode if it was active before refresh
+                if (isDragDropMode) {
+                    // Reset the flag and call toggle to reactivate drag & drop mode
+                    isDragDropMode = false;
+                    toggleDragDropMode();
+                }
             } catch (error) {
                 console.warn('Failed to refresh sections:', error);
             }
