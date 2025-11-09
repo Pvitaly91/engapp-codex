@@ -179,191 +179,15 @@
                 </form>
             </section>
 
-            <section class="space-y-4" id="aggregations-section">
-                <div class="flex items-center justify-between gap-4">
-                    <h2 class="text-xl font-semibold text-slate-800">Існуючі агрегації</h2>
-                    @if (!empty($aggregations))
-                        <div class="flex-1 max-w-md">
-                            <input
-                                type="text"
-                                id="search-aggregations"
-                                class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                placeholder="Пошук по категоріям та тегам..."
-                            >
-                        </div>
-                    @endif
-                </div>
-                @if (empty($aggregations))
-                    <p class="text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">
-                        Агрегації ще не створено.
-                    </p>
-                @else
-                    <div class="space-y-4" id="aggregations-list">
-                        @foreach ($aggregationsByCategory as $category => $categoryAggregations)
-                            <div class="aggregation-category-block rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden" data-category="{{ strtolower($category) }}" data-tags="{{ strtolower(implode(' ', collect($categoryAggregations)->flatMap(fn($a) => array_merge([$a['main_tag']], $a['similar_tags'] ?? []))->toArray())) }}">
-                                {{-- Category Header --}}
-                                <div class="flex items-center justify-between px-6 py-4 bg-slate-50">
-                                    <button
-                                        type="button"
-                                        onclick="toggleAggregationCategory('{{ $loop->index }}')"
-                                        class="flex items-center gap-3 flex-1 text-left hover:opacity-80 transition-opacity"
-                                    >
-                                        <i id="icon-{{ $loop->index }}" class="fa-solid fa-chevron-right text-slate-400 transition-transform"></i>
-                                        <div>
-                                            <h3 class="text-lg font-semibold text-slate-800 category-name">{{ $category }}</h3>
-                                            <p class="text-sm text-slate-500">{{ count($categoryAggregations) }} {{ count($categoryAggregations) === 1 ? 'агрегація' : 'агрегацій' }}</p>
-                                        </div>
-                                    </button>
-                                    <div class="flex gap-2">
-                                        <button
-                                            type="button"
-                                            onclick="editCategoryName('{{ $loop->index }}', '{{ addslashes($category) }}')"
-                                            class="inline-flex items-center rounded-lg border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-white"
-                                            title="Редагувати категорію"
-                                        >
-                                            <i class="fa-solid fa-edit"></i>
-                                        </button>
-                                        <form
-                                            action="{{ route('test-tags.aggregations.destroy-category', ['category' => urlencode($category)]) }}"
-                                            method="POST"
-                                            data-confirm="Видалити категорію «{{ $category }}» та всі її агрегації?"
-                                            class="inline"
-                                        >
-                                            @csrf
-                                            @method('DELETE')
-                                            <button
-                                                type="submit"
-                                                class="inline-flex items-center rounded-lg border border-red-200 px-2 py-1 text-xs font-medium text-red-600 hover:bg-red-50"
-                                                title="Видалити категорію"
-                                            >
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                
-                                {{-- Category Content --}}
-                                <div id="category-{{ $loop->index }}" class="border-t border-slate-200 hidden">
-                                    <div class="p-4 space-y-4">
-                                        @foreach ($categoryAggregations as $aggregation)
-                                            <div 
-                                                class="rounded-lg border border-slate-200 bg-white p-4 aggregation-drop-zone" 
-                                                data-main-tag="{{ strtolower($aggregation['main_tag']) }}"
-                                                data-main-tag-exact="{{ $aggregation['main_tag'] }}"
-                                                data-category="{{ $aggregation['category'] ?? '' }}"
-                                            >
-                                                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
-                                                    <div class="flex-1">
-                                                        <h4 class="text-base font-semibold text-slate-800 main-tag-text">
-                                                            {{ $aggregation['main_tag'] }}
-                                                        </h4>
-                                                        <p class="text-xs text-slate-500">Головний тег</p>
-                                                    </div>
-                                                    <div class="flex gap-2">
-                                                        <button
-                                                            type="button"
-                                                            onclick="openEditAggregationModal(this)"
-                                                            class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
-                                                        >
-                                                            <i class="fa-solid fa-edit mr-1"></i>Редагувати
-                                                        </button>
-                                                        <form
-                                                            action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
-                                                            method="POST"
-                                                            data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
-                                                        >
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button
-                                                                type="submit"
-                                                                class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
-                                                            >
-                                                                <i class="fa-solid fa-trash mr-1"></i>Видалити
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <p class="text-xs font-medium text-slate-700 mb-2">Схожі теги:</p>
-                                                    <div class="flex flex-wrap gap-2 similar-tags-container">
-                                                        @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
-                                                            <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge" data-tag="{{ strtolower($similarTag) }}">
-                                                                <span class="similar-tag-text">{{ $similarTag }}</span>
-                                                            </span>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
-            </section>
+            @include('test-tags.aggregations.partials.aggregations-section', [
+                'aggregations' => $aggregations,
+                'aggregationsByCategory' => $aggregationsByCategory,
+            ])
 
-            <section class="space-y-4" id="non-aggregated-section">
-                <div class="flex items-center justify-between gap-4">
-                    <h2 class="text-xl font-semibold text-slate-800">Неагреговані теги</h2>
-                    @if (!$nonAggregatedTags->isEmpty())
-                        <button
-                            type="button"
-                            id="toggle-drag-mode-btn"
-                            onclick="toggleDragDropMode()"
-                            class="inline-flex items-center rounded-lg border border-purple-300 bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100 focus:outline-none focus:ring"
-                        >
-                            <i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop
-                        </button>
-                    @endif
-                </div>
-                @if ($nonAggregatedTags->isEmpty())
-                    <p class="text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">
-                        Всі теги вже агреговані.
-                    </p>
-                @else
-                    <div class="space-y-4" id="non-aggregated-list">
-                        @foreach ($nonAggregatedByCategory as $category => $tags)
-                            <div class="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-                                {{-- Category Header --}}
-                                <div class="flex items-center justify-between px-6 py-4 bg-slate-50">
-                                    <button
-                                        type="button"
-                                        onclick="toggleNonAggregatedCategory('{{ $loop->index }}')"
-                                        class="flex items-center gap-3 flex-1 text-left hover:opacity-80 transition-opacity"
-                                    >
-                                        <i id="non-agg-icon-{{ $loop->index }}" class="fa-solid fa-chevron-right text-slate-400 transition-transform"></i>
-                                        <div>
-                                            <h3 class="text-lg font-semibold text-slate-800">{{ $category }}</h3>
-                                            <p class="text-sm text-slate-500 non-aggregated-count">{{ count($tags) }} {{ count($tags) === 1 ? 'тег' : 'тегів' }}</p>
-                                        </div>
-                                    </button>
-                                </div>
-                                
-                                {{-- Category Content --}}
-                                <div id="non-agg-category-{{ $loop->index }}" class="border-t border-slate-200 hidden">
-                                    <div class="p-4">
-                                        <div class="flex flex-wrap gap-2">
-                                            @foreach ($tags as $tag)
-                                                <span 
-                                                    class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 border border-slate-300 non-aggregated-tag"
-                                                    data-tag-name="{{ $tag->name }}"
-                                                    data-tag-category="{{ $tag->category }}"
-                                                >
-                                                    {{ $tag->name }}
-                                                </span>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
-                <p id="all-tags-aggregated-message" class="hidden text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">
-                    Всі теги вже агреговані.
-                </p>
-            </section>
+            @include('test-tags.aggregations.partials.non-aggregated-section', [
+                'nonAggregatedTags' => $nonAggregatedTags,
+                'nonAggregatedByCategory' => $nonAggregatedByCategory,
+            ])
 
             <section class="rounded-xl border border-blue-200 bg-blue-50 p-6">
                 <h3 class="text-lg font-semibold text-blue-900 mb-2">
@@ -639,6 +463,8 @@
                     </button>
                 </div>
 
+                <div id="edit-aggregation-error" class="hidden rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"></div>
+
                 <input type="hidden" id="edit-main-tag-original" name="original_main_tag">
 
                 <div>
@@ -846,6 +672,10 @@
         const DRAG_TOGGLE_DEFAULT_HTML = '<i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop';
         const DRAG_TOGGLE_ACTIVE_HTML = '<i class="fa-solid fa-times mr-2"></i>Вимкнути Drag & Drop';
         const DRAG_TOGGLE_LOADING_HTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Додавання...';
+
+        let currentAggregations = @json($aggregations);
+        let currentEditDropZone = null;
+        let currentEditState = null;
 
         // Tag dropdown functionality
         function initTagDropdowns() {
@@ -1229,6 +1059,10 @@
 
             if (!modal || !messageTarget || !acceptButton || !cancelButton) {
                 forms.forEach((form) => {
+                    if (form.dataset.confirmListenerAttached === 'true') {
+                        return;
+                    }
+
                     form.addEventListener('submit', (event) => {
                         if (form.dataset.confirmed === 'true') {
                             form.dataset.confirmed = '';
@@ -1240,6 +1074,8 @@
                             event.preventDefault();
                         }
                     });
+
+                    form.dataset.confirmListenerAttached = 'true';
                 });
 
                 return;
@@ -1283,7 +1119,12 @@
             };
 
             forms.forEach((form) => {
+                if (form.dataset.confirmListenerAttached === 'true') {
+                    return;
+                }
+
                 form.addEventListener('submit', handleFormSubmit);
+                form.dataset.confirmListenerAttached = 'true';
             });
 
             acceptButton.addEventListener('click', () => {
@@ -1396,6 +1237,19 @@
                 .map((element) => element.textContent.trim())
                 .filter((tag) => tag.length > 0);
 
+            const errorBox = document.getElementById('edit-aggregation-error');
+            if (errorBox) {
+                errorBox.classList.add('hidden');
+                errorBox.textContent = '';
+            }
+
+            currentEditDropZone = dropZone;
+            currentEditState = {
+                mainTag,
+                category: category || '',
+                similarTags: [...similarTags],
+            };
+
             editAggregation(mainTag, similarTags, category);
         }
 
@@ -1434,8 +1288,191 @@
 
         function closeEditModal() {
             const modal = document.getElementById('edit-aggregation-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex', 'items-center', 'justify-center');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'items-center', 'justify-center');
+            }
+
+            currentEditDropZone = null;
+            currentEditState = null;
+
+            const errorBox = document.getElementById('edit-aggregation-error');
+            if (errorBox) {
+                errorBox.classList.add('hidden');
+                errorBox.textContent = '';
+            }
+        }
+
+        function showEditAggregationError(message) {
+            const errorBox = document.getElementById('edit-aggregation-error');
+
+            if (errorBox) {
+                errorBox.textContent = message;
+                errorBox.classList.remove('hidden');
+            } else {
+                window.alert(message);
+            }
+        }
+
+        function setupEditAggregationForm() {
+            const form = document.getElementById('edit-aggregation-form');
+
+            if (!form || form.dataset.ajaxBound === 'true') {
+                return;
+            }
+
+            form.addEventListener('submit', handleEditAggregationSubmit);
+            form.dataset.ajaxBound = 'true';
+        }
+
+        async function handleEditAggregationSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const errorBox = document.getElementById('edit-aggregation-error');
+
+            if (errorBox) {
+                errorBox.classList.add('hidden');
+                errorBox.textContent = '';
+            }
+
+            const similarTagInputs = form.querySelectorAll('input[name="similar_tags[]"]');
+            const similarTags = Array.from(similarTagInputs)
+                .map(input => input.value.trim())
+                .filter(value => value.length > 0);
+
+            if (similarTags.length === 0) {
+                showEditAggregationError('Додайте принаймні один тег.');
+                return;
+            }
+
+            const categoryInput = document.getElementById('edit-category');
+            const categoryValue = categoryInput ? categoryInput.value.trim() : '';
+            const payload = {
+                similar_tags: similarTags,
+                category: categoryValue === '' ? null : categoryValue,
+            };
+
+            const action = form.getAttribute('action');
+            if (!action) {
+                showEditAggregationError('Не вдалося визначити адресу для збереження агрегації.');
+                return;
+            }
+
+            const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfTokenMeta) {
+                showEditAggregationError('CSRF токен не знайдено. Оновіть сторінку та спробуйте ще раз.');
+                return;
+            }
+
+            const originalButtonHtml = submitButton ? submitButton.innerHTML : '';
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Збереження...';
+            }
+
+            try {
+                const response = await fetch(action, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': csrfTokenMeta.content,
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!response.ok) {
+                    let errorMessage = 'Не вдалося зберегти агрегацію.';
+
+                    try {
+                        const errorData = await response.json();
+                        if (errorData && errorData.message) {
+                            errorMessage = errorData.message;
+                        }
+                    } catch (parseError) {
+                        const text = await response.text();
+                        if (text) {
+                            errorMessage = text;
+                        }
+                    }
+
+                    throw new Error(errorMessage);
+                }
+
+                await response.json();
+
+                await refreshAggregationSections();
+                closeEditModal();
+            } catch (error) {
+                console.error('Edit aggregation failed:', error);
+                showEditAggregationError(error.message || 'Не вдалося зберегти агрегацію.');
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonHtml;
+                }
+            }
+        }
+
+        async function refreshAggregationSections() {
+            if (typeof isDragDropMode !== 'undefined' && isDragDropMode) {
+                toggleDragDropMode();
+            }
+
+            const url = new URL('{{ route('test-tags.aggregations.index') }}', window.location.origin);
+            url.searchParams.set('_', Date.now().toString());
+
+            const response = await fetch(url.toString(), {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Не вдалося оновити дані після збереження.');
+            }
+
+            const payload = await response.json();
+
+            if (payload.aggregations_html) {
+                const aggregationsSection = document.getElementById('aggregations-section');
+                if (aggregationsSection) {
+                    aggregationsSection.outerHTML = payload.aggregations_html;
+                }
+            }
+
+            if (payload.non_aggregated_html) {
+                const nonAggregatedSection = document.getElementById('non-aggregated-section');
+                if (nonAggregatedSection) {
+                    nonAggregatedSection.outerHTML = payload.non_aggregated_html;
+                }
+            }
+
+            if (payload.json) {
+                const jsonDisplay = document.getElementById('json-display');
+                if (jsonDisplay) {
+                    const codeBlock = jsonDisplay.querySelector('code');
+                    if (codeBlock) {
+                        codeBlock.textContent = payload.json;
+                    } else {
+                        jsonDisplay.textContent = payload.json;
+                    }
+                }
+            }
+
+            if (Array.isArray(payload.aggregations)) {
+                currentAggregations = payload.aggregations;
+            }
+
+            initAggregationConfirmation();
+            initAggregationsSearch();
+            updateGlobalNonAggregatedState();
+            setupEditAggregationForm();
         }
 
         function addEditTagInput() {
@@ -1748,7 +1785,7 @@
             }
 
             // Parse current aggregations from the page
-            const aggregations = @json($aggregations);
+            const aggregations = Array.isArray(currentAggregations) ? currentAggregations : [];
 
             // Find the aggregation and add the tag
             const aggregation = aggregations.find(a => a.main_tag === mainTag);
@@ -1809,6 +1846,18 @@
 
                 removeTagFromNonAggregated(tagName);
                 updateAggregationJson(mainTag, data.similar_tags ?? aggregation.similar_tags ?? [], data.category ?? category ?? null);
+
+                const updatedAggregation = aggregations.find(a => a.main_tag === mainTag);
+                if (updatedAggregation) {
+                    updatedAggregation.similar_tags = Array.isArray(data.similar_tags)
+                        ? data.similar_tags
+                        : (aggregation.similar_tags ?? []);
+                    if (Object.prototype.hasOwnProperty.call(data, 'category')) {
+                        updatedAggregation.category = data.category;
+                    } else if (category !== undefined) {
+                        updatedAggregation.category = category ?? null;
+                    }
+                }
 
                 if (button) {
                     const remainingTags = document.querySelectorAll('.non-aggregated-tag').length;
@@ -2028,12 +2077,14 @@
                 initAggregationConfirmation();
                 autoShowImportForm();
                 initAggregationsSearch();
+                setupEditAggregationForm();
             });
         } else {
             initTagDropdowns();
             initAggregationConfirmation();
             autoShowImportForm();
             initAggregationsSearch();
+            setupEditAggregationForm();
         }
     </script>
 @endpush
