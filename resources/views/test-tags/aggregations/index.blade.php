@@ -1740,6 +1740,11 @@
             // Construct the correct URL using Laravel route helper
             const updateUrl = '{{ route("test-tags.aggregations.update", ["mainTag" => "__MAIN_TAG__"]) }}'.replace('__MAIN_TAG__', encodeURIComponent(mainTag));
             
+            // Debug logging
+            console.log('Adding tag to aggregation:', tagName);
+            console.log('Main tag:', mainTag);
+            console.log('Generated URL:', updateUrl);
+            
             // Send update request
             fetch(updateUrl, {
                 method: 'PUT',
