@@ -40,6 +40,14 @@
                         <div class="flex items-center gap-2">
                             <button
                                 type="button"
+                                onclick="openCreateAggregationModal('{{ addslashes($category) }}')"
+                                class="create-aggregation-btn hidden inline-flex items-center rounded-lg border border-green-300 bg-green-50 px-2 py-1 text-xs font-medium text-green-700 hover:bg-green-100"
+                                title="Створити агрегацію"
+                            >
+                                <i class="fa-solid fa-plus mr-1"></i>Агрегація
+                            </button>
+                            <button
+                                type="button"
                                 onclick="editCategoryName('{{ $loop->index }}', '{{ addslashes($category) }}')"
                                 class="inline-flex items-center rounded-lg border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-white"
                                 title="Редагувати категорію"
