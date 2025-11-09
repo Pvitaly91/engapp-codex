@@ -684,6 +684,9 @@ class TestTagController extends Controller
 
     public function updateAggregation(Request $request, string $mainTag, TagAggregationService $service): JsonResponse|RedirectResponse
     {
+        // Decode the main tag parameter (it comes URL-encoded from the route)
+        $mainTag = urldecode($mainTag);
+        
         $validated = $request->validate([
             'similar_tags' => ['required', 'array', 'min:1'],
             'similar_tags.*' => ['required', 'string', 'max:255'],
@@ -722,6 +725,9 @@ class TestTagController extends Controller
 
     public function destroyAggregation(Request $request, string $mainTag, TagAggregationService $service): JsonResponse|RedirectResponse
     {
+        // Decode the main tag parameter (it comes URL-encoded from the route)
+        $mainTag = urldecode($mainTag);
+        
         $service->removeAggregation($mainTag);
 
         if ($request->expectsJson()) {
