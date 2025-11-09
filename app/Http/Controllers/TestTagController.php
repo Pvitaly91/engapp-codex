@@ -546,10 +546,12 @@ class TestTagController extends Controller
 
         // Collect all aggregated tag names (main tags and similar tags)
         $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
-            return array_merge(
-                [$aggregation['main_tag']],
-                $aggregation['similar_tags'] ?? []
-            );
+            $tags = [$aggregation['main_tag']];
+            foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
+                // Handle both old format (string) and new format (array with 'tag' key)
+                $tags[] = is_array($similarTag) ? $similarTag['tag'] : $similarTag;
+            }
+            return $tags;
         })->unique()->values();
 
         // Filter tags that are NOT in any aggregation
@@ -636,10 +638,12 @@ class TestTagController extends Controller
 
         // Collect all aggregated tag names (main tags and similar tags)
         $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
-            return array_merge(
-                [$aggregation['main_tag']],
-                $aggregation['similar_tags'] ?? []
-            );
+            $tags = [$aggregation['main_tag']];
+            foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
+                // Handle both old format (string) and new format (array with 'tag' key)
+                $tags[] = is_array($similarTag) ? $similarTag['tag'] : $similarTag;
+            }
+            return $tags;
         })->unique()->values();
 
         // Filter tags that are NOT in any aggregation

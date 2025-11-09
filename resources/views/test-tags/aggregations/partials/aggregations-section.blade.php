@@ -44,7 +44,13 @@
                 <div
                     class="aggregation-category-block rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden"
                     data-category="{{ strtolower($category) }}"
-                    data-tags="{{ strtolower(implode(' ', collect($categoryAggregations)->flatMap(fn($a) => array_merge([$a['main_tag']], $a['similar_tags'] ?? []))->toArray())) }}"
+                    data-tags="{{ strtolower(implode(' ', collect($categoryAggregations)->flatMap(function($a) {
+                        $tags = [$a['main_tag']];
+                        foreach ($a['similar_tags'] ?? [] as $st) {
+                            $tags[] = is_array($st) ? $st['tag'] : $st;
+                        }
+                        return $tags;
+                    })->toArray())) }}"
                 >
                     {{-- Category Header --}}
                     <div class="flex items-center justify-between px-6 py-4 bg-slate-50">
@@ -140,8 +146,11 @@
                                         <p class="text-xs font-medium text-slate-700 mb-2">Схожі теги:</p>
                                         <div class="flex flex-wrap gap-2 similar-tags-container">
                                             @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
-                                                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge" data-tag="{{ strtolower($similarTag) }}">
-                                                    <span class="similar-tag-text">{{ $similarTag }}</span>
+                                                @php
+                                                    $tagName = is_array($similarTag) ? $similarTag['tag'] : $similarTag;
+                                                @endphp
+                                                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge" data-tag="{{ strtolower($tagName) }}">
+                                                    <span class="similar-tag-text">{{ $tagName }}</span>
                                                 </span>
                                             @endforeach
                                         </div>
