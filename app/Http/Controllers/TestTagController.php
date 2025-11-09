@@ -720,9 +720,16 @@ class TestTagController extends Controller
             ->with('status', 'Агрегацію тегів успішно оновлено.');
     }
 
-    public function destroyAggregation(string $mainTag, TagAggregationService $service): RedirectResponse
+    public function destroyAggregation(Request $request, string $mainTag, TagAggregationService $service): JsonResponse|RedirectResponse
     {
         $service->removeAggregation($mainTag);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Агрегацію тегів видалено.',
+                'main_tag' => $mainTag,
+            ]);
+        }
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Агрегацію тегів видалено.');
