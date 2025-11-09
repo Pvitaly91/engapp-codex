@@ -1378,7 +1378,7 @@
             const form = document.getElementById('edit-aggregation-form');
             
             // Set form action
-            form.action = `{{ route('test-tags.aggregations.index') }}/${encodeURIComponent(mainTag)}`;
+            form.action = '{{ route("test-tags.aggregations.update", ["mainTag" => "__MAIN_TAG__"]) }}'.replace('__MAIN_TAG__', encodeURIComponent(mainTag));
             
             // Set main tag (readonly)
             document.getElementById('edit-main-tag').value = mainTag;
@@ -1485,7 +1485,7 @@
             const form = document.getElementById('edit-category-form');
             
             // Set form action
-            form.action = `{{ route('test-tags.aggregations.index') }}/category/${encodeURIComponent(categoryName)}`;
+            form.action = '{{ route("test-tags.aggregations.update-category", ["category" => "__CATEGORY__"]) }}'.replace('__CATEGORY__', encodeURIComponent(categoryName));
             
             // Set category name
             document.getElementById('category-original-name').value = categoryName;
@@ -1737,9 +1737,8 @@
                 aggregation.similar_tags.push(tagName);
             }
             
-            // Construct the correct URL - use the base route and properly encode the mainTag
-            const baseUrl = '{{ route("test-tags.aggregations.index") }}';
-            const updateUrl = baseUrl + '/' + encodeURIComponent(mainTag);
+            // Construct the correct URL using Laravel route helper
+            const updateUrl = '{{ route("test-tags.aggregations.update", ["mainTag" => "__MAIN_TAG__"]) }}'.replace('__MAIN_TAG__', encodeURIComponent(mainTag));
             
             // Send update request
             fetch(updateUrl, {
