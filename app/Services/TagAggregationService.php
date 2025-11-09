@@ -25,9 +25,30 @@ class TagAggregationService
         return $data['aggregations'] ?? [];
     }
 
+    public function getCategoryCreationTimes(): array
+    {
+        if (!File::exists($this->configPath)) {
+            return [];
+        }
+
+        $content = File::get($this->configPath);
+        $data = json_decode($content, true);
+
+        return $data['category_created_at'] ?? [];
+    }
+
     public function saveAggregations(array $aggregations): bool
     {
-        $data = ['aggregations' => $aggregations];
+        $categoryCreationTimes = $this->getCategoryCreationTimes();
+        return $this->saveAggregationsWithMetadata($aggregations, $categoryCreationTimes);
+    }
+
+    private function saveAggregationsWithMetadata(array $aggregations, array $categoryCreationTimes): bool
+    {
+        $data = [
+            'aggregations' => $aggregations,
+            'category_created_at' => $categoryCreationTimes,
+        ];
         
         $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         
@@ -37,6 +58,7 @@ class TagAggregationService
     public function addAggregation(string $mainTag, array $similarTags, ?string $category = null): bool
     {
         $aggregations = $this->getAggregations();
+        $categoryCreationTimes = $this->getCategoryCreationTimes();
         
         // Check if main tag already exists in aggregations
         $exists = false;
@@ -49,6 +71,10 @@ class TagAggregationService
                 // Update category if provided
                 if ($category !== null) {
                     $aggregation['category'] = $category;
+                    // Track category creation time if it's a new category
+                    if (!isset($categoryCreationTimes[$category])) {
+                        $categoryCreationTimes[$category] = now()->toIso8601String();
+                    }
                 }
                 $exists = true;
                 break;
@@ -56,14 +82,23 @@ class TagAggregationService
         }
         
         if (!$exists) {
-            $aggregations[] = [
+            $newAggregation = [
                 'main_tag' => $mainTag,
                 'similar_tags' => array_unique($similarTags),
                 'category' => $category,
+                'created_at' => now()->toIso8601String(),
             ];
+            
+            // Add to beginning of array to show newest first
+            array_unshift($aggregations, $newAggregation);
+            
+            // Track category creation time if it's a new category
+            if ($category && !isset($categoryCreationTimes[$category])) {
+                $categoryCreationTimes[$category] = now()->toIso8601String();
+            }
         }
         
-        return $this->saveAggregations($aggregations);
+        return $this->saveAggregationsWithMetadata($aggregations, $categoryCreationTimes);
     }
 
     public function removeAggregation(string $mainTag): bool

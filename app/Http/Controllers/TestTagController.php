@@ -585,16 +585,22 @@ class TestTagController extends Controller
             ->sort()
             ->values();
 
+        // Get category creation times for sorting
+        $categoryCreationTimes = $service->getCategoryCreationTimes();
+        
         // Group aggregations by category
         $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
             return $aggregation['category'] ?? 'Без категорії';
-        })->sortKeys();
+        });
 
-        // Move "Без категорії" to the end if it exists
-        if ($aggregationsByCategory->has('Без категорії')) {
-            $uncategorized = $aggregationsByCategory->pull('Без категорії');
-            $aggregationsByCategory->put('Без категорії', $uncategorized);
-        }
+        // Sort categories by creation time (newest first)
+        $aggregationsByCategory = $aggregationsByCategory->sortByDesc(function ($items, $category) use ($categoryCreationTimes) {
+            // "Без категорії" should be last
+            if ($category === 'Без категорії') {
+                return '1970-01-01'; // Very old date to ensure it's last
+            }
+            return $categoryCreationTimes[$category] ?? '2000-01-01'; // Default old date for categories without timestamp
+        });
 
         if ($request->expectsJson()) {
             return response()->json([
@@ -669,16 +675,22 @@ class TestTagController extends Controller
             ->sort()
             ->values();
 
+        // Get category creation times for sorting
+        $categoryCreationTimes = $service->getCategoryCreationTimes();
+        
         // Group aggregations by category
         $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
             return $aggregation['category'] ?? 'Без категорії';
-        })->sortKeys();
+        });
 
-        // Move "Без категорії" to the end if it exists
-        if ($aggregationsByCategory->has('Без категорії')) {
-            $uncategorized = $aggregationsByCategory->pull('Без категорії');
-            $aggregationsByCategory->put('Без категорії', $uncategorized);
-        }
+        // Sort categories by creation time (newest first)
+        $aggregationsByCategory = $aggregationsByCategory->sortByDesc(function ($items, $category) use ($categoryCreationTimes) {
+            // "Без категорії" should be last
+            if ($category === 'Без категорії') {
+                return '1970-01-01'; // Very old date to ensure it's last
+            }
+            return $categoryCreationTimes[$category] ?? '2000-01-01'; // Default old date for categories without timestamp
+        });
 
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
