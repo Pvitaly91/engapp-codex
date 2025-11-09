@@ -510,7 +510,7 @@ class TestTagController extends Controller
         return 'encoded:'.base64_encode($category);
     }
 
-    public function aggregations(TagAggregationService $service): View
+    public function aggregations(Request $request, TagAggregationService $service): View|JsonResponse
     {
         $aggregations = $service->getAggregations();
         $allTags = Tag::orderBy('name')->get();
@@ -565,6 +565,21 @@ class TestTagController extends Controller
         if ($aggregationsByCategory->has('Без категорії')) {
             $uncategorized = $aggregationsByCategory->pull('Без категорії');
             $aggregationsByCategory->put('Без категорії', $uncategorized);
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'aggregations_html' => view('test-tags.aggregations.partials.aggregations-section', [
+                    'aggregations' => $aggregations,
+                    'aggregationsByCategory' => $aggregationsByCategory,
+                ])->render(),
+                'non_aggregated_html' => view('test-tags.aggregations.partials.non-aggregated-section', [
+                    'nonAggregatedTags' => $nonAggregatedTags,
+                    'nonAggregatedByCategory' => $nonAggregatedByCategory,
+                ])->render(),
+                'aggregations' => $aggregations,
+                'json' => json_encode(['aggregations' => $aggregations], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+            ]);
         }
 
         return view('test-tags.aggregations.index', [
@@ -667,7 +682,7 @@ class TestTagController extends Controller
             ->with('status', 'Агрегацію тегів успішно створено.');
     }
 
-    public function updateAggregation(Request $request, string $mainTag, TagAggregationService $service): RedirectResponse
+    public function updateAggregation(Request $request, string $mainTag, TagAggregationService $service): JsonResponse|RedirectResponse
     {
         $validated = $request->validate([
             'similar_tags' => ['required', 'array', 'min:1'],
@@ -682,8 +697,23 @@ class TestTagController extends Controller
         );
 
         if (! $updated) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'message' => 'Агрегацію не знайдено.',
+                ], 404);
+            }
+
             return redirect()->route('test-tags.aggregations.index')
                 ->with('error', 'Агрегацію не знайдено.');
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Агрегацію тегів успішно оновлено.',
+                'main_tag' => $mainTag,
+                'similar_tags' => array_values($validated['similar_tags']),
+                'category' => $validated['category'] ?? null,
+            ]);
         }
 
         return redirect()->route('test-tags.aggregations.index')
