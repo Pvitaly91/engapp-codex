@@ -1048,6 +1048,149 @@
             }
         }
 
+        const submitFormViaAjax = async (form) => {
+            const url = form.action;
+            const method = form.querySelector('input[name="_method"]')?.value || 'POST';
+            const csrfToken = form.querySelector('input[name="_token"]')?.value;
+
+            if (!url || !csrfToken) {
+                showStatusMessage('Помилка: не вдалося відправити запит.', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Виникла помилка під час видалення.');
+                }
+
+                // Show success message
+                showStatusMessage(data.message, 'success');
+
+                // Remove the deleted element from DOM
+                removeDeletedElement(form);
+
+                // Refresh aggregation sections to update the display
+                await refreshAggregationSectionsAfterDelete();
+            } catch (error) {
+                console.error('Delete error:', error);
+                showStatusMessage(error.message || 'Виникла помилка під час видалення.', 'error');
+            }
+        };
+
+        const showStatusMessage = (message, type = 'success') => {
+            // Remove any existing messages
+            const existingMessages = document.querySelectorAll('.status-message-ajax');
+            existingMessages.forEach(msg => msg.remove());
+
+            // Create new message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `status-message-ajax rounded-lg border px-4 py-3 text-sm mb-4 ${
+                type === 'success' 
+                    ? 'border-emerald-200 bg-emerald-50 text-emerald-700' 
+                    : 'border-red-200 bg-red-50 text-red-700'
+            }`;
+            messageDiv.textContent = message;
+
+            // Insert at the top of the content area
+            const contentArea = document.querySelector('.mx-auto.flex.max-w-5xl.flex-col.gap-8');
+            if (contentArea) {
+                const header = contentArea.querySelector('header');
+                if (header) {
+                    header.insertAdjacentElement('afterend', messageDiv);
+                } else {
+                    contentArea.insertBefore(messageDiv, contentArea.firstChild);
+                }
+            }
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        };
+
+        const removeDeletedElement = (form) => {
+            // Find the closest aggregation or category container
+            const aggregationItem = form.closest('.aggregation-drop-zone');
+            const categoryBlock = form.closest('.aggregation-category-block');
+
+            if (aggregationItem && !form.closest('[data-confirm*="категорію"]')) {
+                // Removing a single aggregation
+                aggregationItem.remove();
+                
+                // Check if category is now empty
+                if (categoryBlock) {
+                    const remainingAggregations = categoryBlock.querySelectorAll('.aggregation-drop-zone');
+                    if (remainingAggregations.length === 0) {
+                        categoryBlock.remove();
+                    }
+                }
+            } else if (categoryBlock) {
+                // Removing an entire category
+                categoryBlock.remove();
+            }
+        };
+
+        const refreshAggregationSectionsAfterDelete = async () => {
+            // After deletion, refresh to update non-aggregated tags section
+            try {
+                const url = new URL('{{ route('test-tags.aggregations.index') }}', window.location.origin);
+                url.searchParams.set('_', Date.now().toString());
+
+                const response = await fetch(url.toString(), {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    return;
+                }
+
+                const payload = await response.json();
+
+                if (payload.non_aggregated_html) {
+                    const nonAggregatedSection = document.getElementById('non-aggregated-section');
+                    if (nonAggregatedSection) {
+                        nonAggregatedSection.outerHTML = payload.non_aggregated_html;
+                    }
+                }
+
+                if (payload.json) {
+                    const jsonDisplay = document.getElementById('json-display');
+                    if (jsonDisplay) {
+                        const codeBlock = jsonDisplay.querySelector('code');
+                        if (codeBlock) {
+                            codeBlock.textContent = payload.json;
+                        } else {
+                            jsonDisplay.textContent = payload.json;
+                        }
+                    }
+                }
+
+                if (Array.isArray(payload.aggregations)) {
+                    currentAggregations = payload.aggregations;
+                }
+
+                // Reinitialize event handlers
+                initAggregationConfirmation();
+                updateGlobalNonAggregatedState();
+            } catch (error) {
+                console.warn('Failed to refresh sections:', error);
+            }
+        };
+
         // Confirmation modal logic (similar to test-tags index page)
         const initAggregationConfirmation = () => {
             const modal = document.getElementById('aggregation-confirmation-modal');
@@ -1127,16 +1270,17 @@
                 form.dataset.confirmListenerAttached = 'true';
             });
 
-            acceptButton.addEventListener('click', () => {
+            acceptButton.addEventListener('click', async () => {
                 if (!pendingForm) {
                     closeModal();
                     return;
                 }
 
                 const formToSubmit = pendingForm;
-                formToSubmit.dataset.confirmed = 'true';
                 closeModal(false);
-                formToSubmit.requestSubmit();
+                
+                // Submit via AJAX
+                await submitFormViaAjax(formToSubmit);
             });
 
             const cancelHandler = () => {

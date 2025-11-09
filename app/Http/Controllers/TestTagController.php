@@ -245,16 +245,23 @@ class TestTagController extends Controller
         return redirect()->route('test-tags.index')->with('status', 'Тег оновлено.');
     }
 
-    public function destroy(Tag $tag): RedirectResponse
+    public function destroy(Request $request, Tag $tag): RedirectResponse|JsonResponse
     {
         $tag->questions()->detach();
         $tag->words()->detach();
         $tag->delete();
 
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Тег видалено.',
+            ]);
+        }
+
         return redirect()->route('test-tags.index')->with('status', 'Тег видалено.');
     }
 
-    public function destroyEmptyTags(): RedirectResponse
+    public function destroyEmptyTags(Request $request): RedirectResponse|JsonResponse
     {
         $emptyTags = Tag::query()
             ->whereDoesntHave('questions')
@@ -270,6 +277,14 @@ class TestTagController extends Controller
         $message = $count > 0
             ? "Видалено тегів без питань: {$count}."
             : 'Не знайдено тегів без питань.';
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => $message,
+                'count' => $count,
+            ]);
+        }
 
         return redirect()->route('test-tags.index')->with('status', $message);
     }
@@ -449,7 +464,7 @@ class TestTagController extends Controller
         return redirect()->route('test-tags.index')->with('status', 'Категорію перейменовано.');
     }
 
-    public function destroyCategory(string $category): RedirectResponse
+    public function destroyCategory(Request $request, string $category): RedirectResponse|JsonResponse
     {
         $resolved = $this->normaliseCategoryParam($category);
 
@@ -464,6 +479,13 @@ class TestTagController extends Controller
             ->get();
 
         if ($tags->isEmpty()) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Категорію не знайдено.',
+                ], 404);
+            }
+
             return redirect()->route('test-tags.index')->with('error', 'Категорію не знайдено.');
         }
 
@@ -471,6 +493,13 @@ class TestTagController extends Controller
             $tag->questions()->detach();
             $tag->words()->detach();
             $tag->delete();
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Категорію та всі її теги видалено.',
+            ]);
         }
 
         return redirect()->route('test-tags.index')->with('status', 'Категорію та всі її теги видалено.');
@@ -720,9 +749,16 @@ class TestTagController extends Controller
             ->with('status', 'Агрегацію тегів успішно оновлено.');
     }
 
-    public function destroyAggregation(string $mainTag, TagAggregationService $service): RedirectResponse
+    public function destroyAggregation(Request $request, string $mainTag, TagAggregationService $service): RedirectResponse|JsonResponse
     {
         $service->removeAggregation($mainTag);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Агрегацію тегів видалено.',
+            ]);
+        }
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Агрегацію тегів видалено.');
@@ -946,7 +982,7 @@ class TestTagController extends Controller
             ->with('error', 'Категорію не знайдено.');
     }
 
-    public function destroyAggregationCategory(string $category, TagAggregationService $service): RedirectResponse
+    public function destroyAggregationCategory(Request $request, string $category, TagAggregationService $service): RedirectResponse|JsonResponse
     {
         $aggregations = $service->getAggregations();
 
@@ -956,6 +992,13 @@ class TestTagController extends Controller
         });
 
         $service->saveAggregations(array_values($aggregations));
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Категорію та всі її агрегації видалено.',
+            ]);
+        }
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Категорію та всі її агрегації видалено.');
