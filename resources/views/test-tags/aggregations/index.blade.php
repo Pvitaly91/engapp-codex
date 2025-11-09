@@ -1360,7 +1360,7 @@
         };
 
         const refreshAggregationSectionsAfterDelete = async () => {
-            // After deletion, refresh to update non-aggregated tags section
+            // After deletion or creation, refresh to update both aggregations and non-aggregated tags sections
             try {
                 const url = new URL('{{ route('test-tags.aggregations.index') }}', window.location.origin);
                 url.searchParams.set('_', Date.now().toString());
@@ -1378,6 +1378,15 @@
 
                 const payload = await response.json();
 
+                // Update aggregations section
+                if (payload.aggregations_html) {
+                    const aggregationsSection = document.getElementById('aggregations-section');
+                    if (aggregationsSection) {
+                        aggregationsSection.outerHTML = payload.aggregations_html;
+                    }
+                }
+
+                // Update non-aggregated tags section
                 if (payload.non_aggregated_html) {
                     const nonAggregatedSection = document.getElementById('non-aggregated-section');
                     if (nonAggregatedSection) {
@@ -1401,8 +1410,10 @@
                     currentAggregations = payload.aggregations;
                 }
 
-                // Reinitialize event handlers
+                // Reinitialize event handlers after DOM update
                 initAggregationConfirmation();
+                initAggregationsSearch();
+                initNonAggregatedSearch();
                 updateGlobalNonAggregatedState();
             } catch (error) {
                 console.warn('Failed to refresh sections:', error);
