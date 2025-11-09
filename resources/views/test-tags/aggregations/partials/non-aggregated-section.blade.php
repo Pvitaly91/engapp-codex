@@ -3,6 +3,26 @@
         <h2 class="text-xl font-semibold text-slate-800">Неагреговані теги</h2>
         @if (!$nonAggregatedTags->isEmpty())
             <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1 mr-2">
+                    <button
+                        type="button"
+                        id="expand-all-non-aggregated-btn"
+                        onclick="expandAllNonAggregated()"
+                        class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                        title="Розгорнути всі"
+                    >
+                        <i class="fa-solid fa-chevron-down mr-1"></i>Всі
+                    </button>
+                    <button
+                        type="button"
+                        id="collapse-all-non-aggregated-btn"
+                        onclick="collapseAllNonAggregated()"
+                        class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                        title="Згорнути всі"
+                    >
+                        <i class="fa-solid fa-chevron-up mr-1"></i>Всі
+                    </button>
+                </div>
                 <button
                     type="button"
                     id="create-category-btn"

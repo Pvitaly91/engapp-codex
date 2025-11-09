@@ -1865,6 +1865,66 @@
             }
         }
 
+        // Expand all aggregation categories
+        function expandAllAggregations() {
+            document.querySelectorAll('[id^="category-"]').forEach(el => {
+                if (!el.id.startsWith('category-new-name') && el.classList.contains('hidden')) {
+                    const index = el.id.replace('category-', '');
+                    const icon = document.getElementById('icon-' + index);
+                    if (icon) {
+                        el.classList.remove('hidden');
+                        icon.classList.remove('fa-chevron-right');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        }
+
+        // Collapse all aggregation categories
+        function collapseAllAggregations() {
+            document.querySelectorAll('[id^="category-"]').forEach(el => {
+                if (!el.id.startsWith('category-new-name') && !el.classList.contains('hidden')) {
+                    const index = el.id.replace('category-', '');
+                    const icon = document.getElementById('icon-' + index);
+                    if (icon) {
+                        el.classList.add('hidden');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-right');
+                    }
+                }
+            });
+        }
+
+        // Expand all non-aggregated categories
+        function expandAllNonAggregated() {
+            document.querySelectorAll('[id^="non-agg-category-"]').forEach(el => {
+                if (el.classList.contains('hidden')) {
+                    const index = el.id.replace('non-agg-category-', '');
+                    const icon = document.getElementById('non-agg-icon-' + index);
+                    if (icon) {
+                        el.classList.remove('hidden');
+                        icon.classList.remove('fa-chevron-right');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        }
+
+        // Collapse all non-aggregated categories
+        function collapseAllNonAggregated() {
+            document.querySelectorAll('[id^="non-agg-category-"]').forEach(el => {
+                if (!el.classList.contains('hidden')) {
+                    const index = el.id.replace('non-agg-category-', '');
+                    const icon = document.getElementById('non-agg-icon-' + index);
+                    if (icon) {
+                        el.classList.add('hidden');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-right');
+                    }
+                }
+            });
+        }
+
         // Toggle JSON configuration visibility
         function toggleJsonConfig() {
             const container = document.getElementById('json-config-container');
@@ -2548,14 +2608,16 @@
                 const aggregationsList = document.getElementById('aggregations-list');
                 if (aggregationsList) {
                     const categoryBlock = document.createElement('div');
-                    categoryBlock.className = 'aggregation-category-block rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden';
+                    // Add empty category highlighting with yellow border
+                    categoryBlock.className = 'aggregation-category-block rounded-xl border-2 border-yellow-400 bg-yellow-50 shadow-sm overflow-hidden empty-category';
                     categoryBlock.dataset.category = categoryName.toLowerCase();
                     categoryBlock.dataset.tags = '';
+                    categoryBlock.dataset.isEmpty = 'true';
                     
                     const index = document.querySelectorAll('.aggregation-category-block').length;
                     
                     categoryBlock.innerHTML = `
-                        <div class="flex items-center justify-between px-6 py-4 bg-slate-50">
+                        <div class="flex items-center justify-between px-6 py-4 bg-yellow-100">
                             <button
                                 type="button"
                                 onclick="toggleAggregationCategory('${index}')"
@@ -2564,7 +2626,7 @@
                                 <i id="icon-${index}" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
                                 <div>
                                     <h3 class="text-lg font-semibold text-slate-800 category-name">${categoryName}</h3>
-                                    <p class="text-sm text-slate-500">0 агрегацій</p>
+                                    <p class="text-sm text-amber-700 font-medium">0 агрегацій (порожня категорія)</p>
                                 </div>
                             </button>
                             <div class="flex items-center gap-2">
@@ -2586,25 +2648,20 @@
                                 </button>
                             </div>
                         </div>
-                        <div id="category-${index}" class="border-t border-slate-200">
+                        <div id="category-${index}" class="border-t border-yellow-300">
                             <div class="p-4 space-y-4">
-                                <p class="text-sm text-slate-500 text-center">Ця категорія порожня. Додайте агрегації.</p>
+                                <p class="text-sm text-amber-700 text-center font-medium">
+                                    <i class="fa-solid fa-exclamation-triangle mr-2"></i>Ця категорія порожня. Додайте агрегації.
+                                </p>
                             </div>
                         </div>
                     `;
                     
-                    // Insert the new category (sorted alphabetically)
-                    const categories = Array.from(document.querySelectorAll('.aggregation-category-block'));
-                    let inserted = false;
-                    for (const cat of categories) {
-                        const catName = cat.querySelector('.category-name').textContent.trim();
-                        if (categoryName.localeCompare(catName, 'uk') < 0) {
-                            cat.parentNode.insertBefore(categoryBlock, cat);
-                            inserted = true;
-                            break;
-                        }
-                    }
-                    if (!inserted) {
+                    // Insert the new category at the TOP (before all other categories)
+                    const firstCategory = aggregationsList.querySelector('.aggregation-category-block');
+                    if (firstCategory) {
+                        aggregationsList.insertBefore(categoryBlock, firstCategory);
+                    } else {
                         aggregationsList.appendChild(categoryBlock);
                     }
                 }

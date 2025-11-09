@@ -2,13 +2,35 @@
     <div class="flex items-center justify-between gap-4">
         <h2 class="text-xl font-semibold text-slate-800">Існуючі агрегації</h2>
         @if (!empty($aggregations))
-            <div class="flex-1 max-w-md">
-                <input
-                    type="text"
-                    id="search-aggregations"
-                    class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    placeholder="Пошук по категоріям та тегам..."
-                >
+            <div class="flex items-center gap-2 flex-1 justify-end">
+                <div class="flex-1 max-w-md">
+                    <input
+                        type="text"
+                        id="search-aggregations"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        placeholder="Пошук по категоріям та тегам..."
+                    >
+                </div>
+                <div class="flex items-center gap-1">
+                    <button
+                        type="button"
+                        id="expand-all-aggregations-btn"
+                        onclick="expandAllAggregations()"
+                        class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                        title="Розгорнути всі"
+                    >
+                        <i class="fa-solid fa-chevron-down mr-1"></i>Всі
+                    </button>
+                    <button
+                        type="button"
+                        id="collapse-all-aggregations-btn"
+                        onclick="collapseAllAggregations()"
+                        class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                        title="Згорнути всі"
+                    >
+                        <i class="fa-solid fa-chevron-up mr-1"></i>Всі
+                    </button>
+                </div>
             </div>
         @endif
     </div>
