@@ -90,20 +90,14 @@
                                             >
                                                 <i class="fa-solid fa-edit mr-1"></i>Редагувати
                                             </button>
-                                            <form
-                                                action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
-                                                method="POST"
-                                                data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
+                                            <button
+                                                type="button"
+                                                onclick="deleteAggregation(this, '{{ addslashes($aggregation['main_tag']) }}')"
+                                                class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
+                                                data-main-tag="{{ $aggregation['main_tag'] }}"
                                             >
-                                                @csrf
-                                                @method('DELETE')
-                                                <button
-                                                    type="submit"
-                                                    class="inline-flex items-center rounded-lg border border-red-200 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
-                                                >
-                                                    <i class="fa-solid fa-trash mr-1"></i>Видалити
-                                                </button>
-                                            </form>
+                                                <i class="fa-solid fa-trash mr-1"></i>Видалити
+                                            </button>
                                         </div>
                                     </div>
                                     <div>

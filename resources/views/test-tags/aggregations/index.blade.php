@@ -1253,6 +1253,92 @@
             editAggregation(mainTag, similarTags, category);
         }
 
+        // Delete aggregation with AJAX
+        async function deleteAggregation(button, mainTag) {
+            // Show confirmation
+            if (!confirm(`Видалити агрегацію для тегу «${mainTag}»?`)) {
+                return;
+            }
+
+            const originalHtml = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i>Видалення...';
+
+            try {
+                const url = '{{ route("test-tags.aggregations.destroy", ["mainTag" => "__MAIN_TAG__"]) }}'.replace('__MAIN_TAG__', encodeURIComponent(mainTag));
+                const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+                
+                if (!csrfTokenMeta) {
+                    throw new Error('CSRF токен не знайдено');
+                }
+
+                const response = await fetch(url, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfTokenMeta.content,
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ message: 'Помилка видалення' }));
+                    throw new Error(errorData.message || 'Не вдалося видалити агрегацію');
+                }
+
+                const data = await response.json();
+
+                // Remove the aggregation from the DOM
+                const dropZone = button.closest('.aggregation-drop-zone');
+                if (dropZone) {
+                    dropZone.remove();
+                }
+
+                // Check if the category is now empty
+                const categoryBlock = button.closest('.aggregation-category-block');
+                if (categoryBlock) {
+                    const remainingAggregations = categoryBlock.querySelectorAll('.aggregation-drop-zone').length;
+                    if (remainingAggregations === 0) {
+                        categoryBlock.remove();
+                    }
+                }
+
+                // Check if all aggregations are gone
+                const allAggregations = document.querySelectorAll('.aggregation-drop-zone').length;
+                if (allAggregations === 0) {
+                    const aggregationsList = document.getElementById('aggregations-list');
+                    if (aggregationsList) {
+                        aggregationsList.innerHTML = '<p class="text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">Агрегації ще не створено.</p>';
+                    }
+                }
+
+                // Update the JSON display
+                if (Array.isArray(currentAggregations)) {
+                    currentAggregations = currentAggregations.filter(a => a.main_tag !== mainTag);
+                    const jsonDisplay = document.getElementById('json-display');
+                    if (jsonDisplay) {
+                        const codeBlock = jsonDisplay.querySelector('code');
+                        const jsonContent = JSON.stringify({ aggregations: currentAggregations }, null, 4);
+                        if (codeBlock) {
+                            codeBlock.textContent = jsonContent;
+                        } else {
+                            jsonDisplay.textContent = jsonContent;
+                        }
+                    }
+                }
+
+                // Show success message (optional)
+                console.log(data.message || 'Агрегацію видалено');
+
+            } catch (error) {
+                console.error('Delete aggregation failed:', error);
+                alert(error.message || 'Не вдалося видалити агрегацію');
+                button.disabled = false;
+                button.innerHTML = originalHtml;
+            }
+        }
+
         // Edit aggregation modal functions
         function editAggregation(mainTag, similarTags, category) {
             const modal = document.getElementById('edit-aggregation-modal');

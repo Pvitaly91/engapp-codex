@@ -684,6 +684,9 @@ class TestTagController extends Controller
 
     public function updateAggregation(Request $request, string $mainTag, TagAggregationService $service): JsonResponse|RedirectResponse
     {
+        // Decode the main tag parameter (it comes URL-encoded from the route)
+        $mainTag = urldecode($mainTag);
+        
         $validated = $request->validate([
             'similar_tags' => ['required', 'array', 'min:1'],
             'similar_tags.*' => ['required', 'string', 'max:255'],
@@ -720,9 +723,19 @@ class TestTagController extends Controller
             ->with('status', 'Агрегацію тегів успішно оновлено.');
     }
 
-    public function destroyAggregation(string $mainTag, TagAggregationService $service): RedirectResponse
+    public function destroyAggregation(Request $request, string $mainTag, TagAggregationService $service): JsonResponse|RedirectResponse
     {
+        // Decode the main tag parameter (it comes URL-encoded from the route)
+        $mainTag = urldecode($mainTag);
+        
         $service->removeAggregation($mainTag);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Агрегацію тегів видалено.',
+                'main_tag' => $mainTag,
+            ]);
+        }
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Агрегацію тегів видалено.');
