@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\TagAggregation\Services;
 
 use Illuminate\Support\Facades\File;
 

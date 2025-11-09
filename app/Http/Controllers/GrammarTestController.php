@@ -19,7 +19,7 @@ use App\Services\QuestionVariantService;
 use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
 use App\Services\SavedTestResolver;
-use App\Services\TagAggregationService;
+use App\Modules\TagAggregation\Services\TagAggregationService;
 use App\Models\QuestionHint;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use App\Models\Tag;
+use App\Modules\TagAggregation\Services\TagAggregationService;
 use App\Services\ChatGPTService;
 use App\Services\GeminiService;
-use App\Services\TagAggregationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
