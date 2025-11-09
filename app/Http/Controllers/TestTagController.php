@@ -720,9 +720,16 @@ class TestTagController extends Controller
             ->with('status', 'Агрегацію тегів успішно оновлено.');
     }
 
-    public function destroyAggregation(string $mainTag, TagAggregationService $service): RedirectResponse
+    public function destroyAggregation(string $mainTag, TagAggregationService $service, Request $request): RedirectResponse|JsonResponse
     {
         $service->removeAggregation($mainTag);
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Агрегацію тегів видалено.',
+            ]);
+        }
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Агрегацію тегів видалено.');
@@ -946,7 +953,7 @@ class TestTagController extends Controller
             ->with('error', 'Категорію не знайдено.');
     }
 
-    public function destroyAggregationCategory(string $category, TagAggregationService $service): RedirectResponse
+    public function destroyAggregationCategory(string $category, TagAggregationService $service, Request $request): RedirectResponse|JsonResponse
     {
         $aggregations = $service->getAggregations();
 
@@ -956,6 +963,13 @@ class TestTagController extends Controller
         });
 
         $service->saveAggregations(array_values($aggregations));
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Категорію та всі її агрегації видалено.',
+            ]);
+        }
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Категорію та всі її агрегації видалено.');

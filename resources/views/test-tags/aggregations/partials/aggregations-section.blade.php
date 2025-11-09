@@ -50,6 +50,7 @@
                                 action="{{ route('test-tags.aggregations.destroy-category', ['category' => urlencode($category)]) }}"
                                 method="POST"
                                 data-confirm="Видалити категорію «{{ $category }}» та всі її агрегації?"
+                                data-ajax-delete-category
                                 class="inline"
                             >
                                 @csrf
@@ -94,6 +95,7 @@
                                                 action="{{ route('test-tags.aggregations.destroy', ['mainTag' => $aggregation['main_tag']]) }}"
                                                 method="POST"
                                                 data-confirm="Видалити агрегацію для тегу «{{ $aggregation['main_tag'] }}»?"
+                                                data-ajax-delete-aggregation
                                             >
                                                 @csrf
                                                 @method('DELETE')

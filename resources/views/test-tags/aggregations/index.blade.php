@@ -1473,6 +1473,7 @@
             initAggregationsSearch();
             updateGlobalNonAggregatedState();
             setupEditAggregationForm();
+            setupAjaxDeleteHandlers();
         }
 
         function addEditTagInput() {
@@ -2071,6 +2072,168 @@
             }
         });
 
+        // AJAX Delete Functions
+        function setupAjaxDeleteHandlers() {
+            // Handle aggregation deletion
+            document.querySelectorAll('[data-ajax-delete-aggregation]').forEach(form => {
+                if (form.dataset.ajaxBound === 'true') return;
+                
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const confirmMessage = this.dataset.confirm || 'Підтвердіть видалення';
+                    if (!confirm(confirmMessage)) {
+                        return;
+                    }
+                    
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalHtml = submitButton ? submitButton.innerHTML : '';
+                    
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i>Видалення...';
+                    }
+                    
+                    try {
+                        const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+                        const response = await fetch(this.action, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': csrfTokenMeta.content,
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'Accept': 'application/json',
+                            }
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error('Помилка видалення агрегації');
+                        }
+                        
+                        const data = await response.json();
+                        
+                        // Remove the aggregation from UI
+                        const dropZone = this.closest('.aggregation-drop-zone');
+                        if (dropZone) {
+                            dropZone.remove();
+                        }
+                        
+                        // Check if category is now empty and remove it
+                        const categoryBlock = this.closest('.aggregation-category-block');
+                        if (categoryBlock) {
+                            const remainingAggregations = categoryBlock.querySelectorAll('.aggregation-drop-zone').length;
+                            if (remainingAggregations === 0) {
+                                categoryBlock.remove();
+                            }
+                        }
+                        
+                        // Show success message
+                        showTemporaryMessage(data.message || 'Агрегацію видалено', 'success');
+                        
+                        // Refresh sections to update data
+                        await refreshAggregationSections();
+                        
+                    } catch (error) {
+                        console.error('Delete error:', error);
+                        showTemporaryMessage(error.message || 'Помилка видалення', 'error');
+                        
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalHtml;
+                        }
+                    }
+                });
+                
+                form.dataset.ajaxBound = 'true';
+            });
+            
+            // Handle category deletion
+            document.querySelectorAll('[data-ajax-delete-category]').forEach(form => {
+                if (form.dataset.ajaxBound === 'true') return;
+                
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const confirmMessage = this.dataset.confirm || 'Підтвердіть видалення';
+                    if (!confirm(confirmMessage)) {
+                        return;
+                    }
+                    
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalHtml = submitButton ? submitButton.innerHTML : '';
+                    
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+                    }
+                    
+                    try {
+                        const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+                        const response = await fetch(this.action, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': csrfTokenMeta.content,
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'Accept': 'application/json',
+                            }
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error('Помилка видалення категорії');
+                        }
+                        
+                        const data = await response.json();
+                        
+                        // Remove the category block from UI
+                        const categoryBlock = this.closest('.aggregation-category-block');
+                        if (categoryBlock) {
+                            categoryBlock.remove();
+                        }
+                        
+                        // Show success message
+                        showTemporaryMessage(data.message || 'Категорію видалено', 'success');
+                        
+                        // Refresh sections to update data
+                        await refreshAggregationSections();
+                        
+                    } catch (error) {
+                        console.error('Delete error:', error);
+                        showTemporaryMessage(error.message || 'Помилка видалення', 'error');
+                        
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalHtml;
+                        }
+                    }
+                });
+                
+                form.dataset.ajaxBound = 'true';
+            });
+        }
+        
+        function showTemporaryMessage(message, type = 'success') {
+            const container = document.querySelector('.mx-auto.flex.max-w-5xl.flex-col.gap-8');
+            if (!container) return;
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'success' 
+                ? 'rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700'
+                : 'rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700';
+            messageDiv.textContent = message;
+            
+            // Insert after header
+            const header = container.querySelector('header');
+            if (header && header.nextSibling) {
+                container.insertBefore(messageDiv, header.nextSibling);
+            } else {
+                container.insertBefore(messageDiv, container.firstChild);
+            }
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 initTagDropdowns();
@@ -2078,6 +2241,7 @@
                 autoShowImportForm();
                 initAggregationsSearch();
                 setupEditAggregationForm();
+                setupAjaxDeleteHandlers();
             });
         } else {
             initTagDropdowns();
@@ -2085,6 +2249,7 @@
             autoShowImportForm();
             initAggregationsSearch();
             setupEditAggregationForm();
+            setupAjaxDeleteHandlers();
         }
     </script>
 @endpush

@@ -158,14 +158,16 @@ Route::middleware('auth.admin')->group(function () {
                 Route::post('/auto', [TestTagController::class, 'autoAggregations'])->name('auto');
                 Route::post('/auto-chatgpt', [TestTagController::class, 'autoAggregationsChatGPT'])->name('auto-chatgpt');
                 Route::post('/import', [TestTagController::class, 'importAggregations'])->name('import');
+                // Category routes must come before wildcard mainTag routes to avoid conflicts
+                Route::put('/category/{category}', [TestTagController::class, 'updateAggregationCategory'])->name('update-category');
+                Route::delete('/category/{category}', [TestTagController::class, 'destroyAggregationCategory'])->name('destroy-category');
+                // Wildcard routes for mainTag should come last
                 Route::put('/{mainTag}', [TestTagController::class, 'updateAggregation'])
                     ->where('mainTag', '.*')
                     ->name('update');
                 Route::delete('/{mainTag}', [TestTagController::class, 'destroyAggregation'])
                     ->where('mainTag', '.*')
                     ->name('destroy');
-                Route::put('/category/{category}', [TestTagController::class, 'updateAggregationCategory'])->name('update-category');
-                Route::delete('/category/{category}', [TestTagController::class, 'destroyAggregationCategory'])->name('destroy-category');
             });
             
             Route::get('/categories/{category}/edit', [TestTagController::class, 'editCategory'])
