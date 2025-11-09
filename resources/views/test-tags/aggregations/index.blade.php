@@ -1108,7 +1108,7 @@
 
         // Remove all highlights
         function removeAllHighlights() {
-            document.querySelectorAll('.category-name, .main-tag-text, .similar-tag-text').forEach(el => {
+            document.querySelectorAll('.category-name, .main-tag-text, .similar-tag-text, .non-agg-category-name, .non-aggregated-tag').forEach(el => {
                 if (el.querySelector('mark')) {
                     el.textContent = el.textContent; // Reset to plain text
                 }
@@ -1120,6 +1120,85 @@
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        // Search for non-aggregated tags
+        function initNonAggregatedSearch() {
+            const searchInput = document.getElementById('search-non-aggregated');
+            if (!searchInput) return;
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                const categoryBlocks = document.querySelectorAll('.non-aggregated-category-block');
+
+                // Remove all highlights first
+                removeAllHighlights();
+
+                categoryBlocks.forEach((block, index) => {
+                    const category = block.dataset.category || '';
+                    const tags = block.dataset.tags || '';
+                    
+                    const categoryMatches = searchTerm && category.includes(searchTerm);
+                    const tagsMatch = searchTerm && tags.includes(searchTerm);
+                    const matches = categoryMatches || tagsMatch;
+                    
+                    if (matches || searchTerm === '') {
+                        block.classList.remove('hidden');
+                        
+                        // Highlight matches if search term is present
+                        if (searchTerm) {
+                            // Highlight category name
+                            if (categoryMatches) {
+                                const categoryNameEl = block.querySelector('.non-agg-category-name');
+                                if (categoryNameEl) {
+                                    highlightText(categoryNameEl, searchTerm);
+                                }
+                            }
+                            
+                            // Highlight tags
+                            if (tagsMatch) {
+                                // Auto-expand the category to show matched tags
+                                const categoryContent = document.getElementById(`non-agg-category-${index}`);
+                                const icon = document.getElementById(`non-agg-icon-${index}`);
+                                if (categoryContent && categoryContent.classList.contains('hidden')) {
+                                    categoryContent.classList.remove('hidden');
+                                    if (icon) {
+                                        icon.classList.remove('fa-chevron-right');
+                                        icon.classList.add('fa-chevron-down');
+                                    }
+                                }
+                                
+                                // Highlight matching tags
+                                const tagEls = block.querySelectorAll('.non-aggregated-tag');
+                                
+                                tagEls.forEach(el => {
+                                    if (el.textContent.toLowerCase().includes(searchTerm)) {
+                                        highlightText(el, searchTerm);
+                                    }
+                                });
+                            }
+                        }
+                    } else {
+                        block.classList.add('hidden');
+                    }
+                });
+
+                // Show "no results" message if needed
+                const visibleBlocks = document.querySelectorAll('.non-aggregated-category-block:not(.hidden)');
+                let noResultsMsg = document.getElementById('no-non-aggregated-results');
+                
+                if (visibleBlocks.length === 0 && searchTerm !== '') {
+                    if (!noResultsMsg) {
+                        noResultsMsg = document.createElement('div');
+                        noResultsMsg.id = 'no-non-aggregated-results';
+                        noResultsMsg.className = 'text-sm text-slate-500 text-center py-8 rounded-xl border border-slate-200 bg-white';
+                        noResultsMsg.textContent = 'Нічого не знайдено за вашим запитом.';
+                        document.getElementById('non-aggregated-list').appendChild(noResultsMsg);
+                    }
+                } else if (noResultsMsg) {
+                    noResultsMsg.remove();
+                }
+            });
         }
 
         // Generate prompt for AI
@@ -2478,6 +2557,83 @@
             modal.classList.remove('flex', 'items-center', 'justify-center');
         }
 
+        function setupCreateAggregationFormSubmit() {
+            const form = document.getElementById('create-aggregation-form');
+            
+            if (!form || form.dataset.ajaxBound === 'true') {
+                return;
+            }
+            
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                
+                const errorBox = document.getElementById('create-aggregation-error');
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton ? submitButton.innerHTML : '';
+                
+                if (errorBox) {
+                    errorBox.classList.add('hidden');
+                    errorBox.textContent = '';
+                }
+                
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Збереження...';
+                }
+                
+                try {
+                    const formData = new FormData(form);
+                    const csrfToken = formData.get('_token');
+                    
+                    const payload = {
+                        main_tag: formData.get('main_tag'),
+                        similar_tags: formData.getAll('similar_tags[]'),
+                        category: formData.get('category')
+                    };
+                    
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(data.message || 'Помилка при створенні агрегації.');
+                    }
+                    
+                    // Show success message
+                    showStatusMessage(data.message || 'Агрегацію успішно створено.', 'success');
+                    
+                    // Close modal
+                    closeCreateAggregationModal();
+                    
+                    // Refresh aggregation sections
+                    await refreshAggregationSectionsAfterDelete();
+                    
+                } catch (error) {
+                    console.error('Create aggregation error:', error);
+                    if (errorBox) {
+                        errorBox.textContent = error.message || 'Виникла помилка при створенні агрегації.';
+                        errorBox.classList.remove('hidden');
+                    }
+                } finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                    }
+                }
+            });
+            
+            form.dataset.ajaxBound = 'true';
+        }
+
         function setupCreateMainTagDropdown() {
             const input = document.getElementById('create-main-tag');
             const dropdown = document.getElementById('create-main-tag-dropdown');
@@ -2680,14 +2836,18 @@
                 initAggregationConfirmation();
                 autoShowImportForm();
                 initAggregationsSearch();
+                initNonAggregatedSearch();
                 setupEditAggregationForm();
+                setupCreateAggregationFormSubmit();
             });
         } else {
             initTagDropdowns();
             initAggregationConfirmation();
             autoShowImportForm();
             initAggregationsSearch();
+            initNonAggregatedSearch();
             setupEditAggregationForm();
+            setupCreateAggregationFormSubmit();
         }
     </script>
 @endpush
