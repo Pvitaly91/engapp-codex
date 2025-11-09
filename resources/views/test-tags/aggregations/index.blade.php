@@ -593,6 +593,145 @@
         </div>
     </div>
 
+    {{-- Create Aggregation Modal --}}
+    <div
+        id="create-aggregation-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeCreateAggregationModal()"></div>
+        <div class="relative w-full max-w-2xl mx-4 rounded-xl bg-white shadow-xl max-h-[90vh] overflow-y-auto">
+            <form id="create-aggregation-form" method="POST" action="{{ route('test-tags.aggregations.store') }}" class="p-6 space-y-4">
+                @csrf
+                
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Створити агрегацію</h2>
+                    <button type="button" onclick="closeCreateAggregationModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="create-aggregation-error" class="hidden rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"></div>
+
+                <input type="hidden" id="create-aggregation-category" name="category">
+
+                <div>
+                    <label for="create-main-tag" class="block text-sm font-medium text-slate-700 mb-1">
+                        Головний тег
+                    </label>
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="create-main-tag"
+                            name="main_tag"
+                            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="Почніть вводити для пошуку..."
+                            autocomplete="off"
+                            required
+                        >
+                        <div id="create-main-tag-dropdown" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                            @foreach ($tagsByCategory as $cat => $tags)
+                                <div class="px-3 py-2 bg-slate-100 text-xs font-semibold text-slate-600 sticky top-0">
+                                    {{ $cat }}
+                                </div>
+                                @foreach ($tags as $tag)
+                                    <div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $tag->name }}" data-category="{{ $cat }}">
+                                        {{ $tag->name }}
+                                    </div>
+                                @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">
+                        Схожі теги
+                    </label>
+                    <div id="create-similar-tags-container" class="space-y-2">
+                        <!-- Similar tags will be populated here -->
+                    </div>
+                    <button
+                        type="button"
+                        onclick="addCreateTagInput()"
+                        class="mt-2 inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        + Додати тег
+                    </button>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeCreateAggregationModal()"
+                        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                    >
+                        Створити
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- Create Category Modal --}}
+    <div
+        id="create-category-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeCreateCategoryModal()"></div>
+        <div class="relative w-full max-w-md mx-4 rounded-xl bg-white shadow-xl">
+            <div id="create-category-content" class="p-6 space-y-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Створити категорію</h2>
+                    <button type="button" onclick="closeCreateCategoryModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="create-category-error" class="hidden rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"></div>
+
+                <div>
+                    <label for="new-category-name" class="block text-sm font-medium text-slate-700 mb-1">
+                        Назва категорії
+                    </label>
+                    <input
+                        type="text"
+                        id="new-category-name"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        placeholder="Введіть назву категорії..."
+                        required
+                    >
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeCreateCategoryModal()"
+                        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        type="button"
+                        onclick="submitCreateCategory()"
+                        class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                    >
+                        Створити
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{-- Drag-Drop Confirmation Modal --}}
     <div
         id="drag-drop-confirm-modal"
@@ -1726,6 +1865,66 @@
             }
         }
 
+        // Expand all aggregation categories
+        function expandAllAggregations() {
+            document.querySelectorAll('[id^="category-"]').forEach(el => {
+                if (!el.id.startsWith('category-new-name') && el.classList.contains('hidden')) {
+                    const index = el.id.replace('category-', '');
+                    const icon = document.getElementById('icon-' + index);
+                    if (icon) {
+                        el.classList.remove('hidden');
+                        icon.classList.remove('fa-chevron-right');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        }
+
+        // Collapse all aggregation categories
+        function collapseAllAggregations() {
+            document.querySelectorAll('[id^="category-"]').forEach(el => {
+                if (!el.id.startsWith('category-new-name') && !el.classList.contains('hidden')) {
+                    const index = el.id.replace('category-', '');
+                    const icon = document.getElementById('icon-' + index);
+                    if (icon) {
+                        el.classList.add('hidden');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-right');
+                    }
+                }
+            });
+        }
+
+        // Expand all non-aggregated categories
+        function expandAllNonAggregated() {
+            document.querySelectorAll('[id^="non-agg-category-"]').forEach(el => {
+                if (el.classList.contains('hidden')) {
+                    const index = el.id.replace('non-agg-category-', '');
+                    const icon = document.getElementById('non-agg-icon-' + index);
+                    if (icon) {
+                        el.classList.remove('hidden');
+                        icon.classList.remove('fa-chevron-right');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        }
+
+        // Collapse all non-aggregated categories
+        function collapseAllNonAggregated() {
+            document.querySelectorAll('[id^="non-agg-category-"]').forEach(el => {
+                if (!el.classList.contains('hidden')) {
+                    const index = el.id.replace('non-agg-category-', '');
+                    const icon = document.getElementById('non-agg-icon-' + index);
+                    if (icon) {
+                        el.classList.add('hidden');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-right');
+                    }
+                }
+            });
+        }
+
         // Toggle JSON configuration visibility
         function toggleJsonConfig() {
             const container = document.getElementById('json-config-container');
@@ -1822,6 +2021,17 @@
                         }
                     }
                 });
+                
+                // Show create aggregation buttons in drag mode
+                document.querySelectorAll('.create-aggregation-btn').forEach(btn => {
+                    btn.classList.remove('hidden');
+                });
+                
+                // Show create category button in drag mode
+                const createCategoryBtn = document.getElementById('create-category-btn');
+                if (createCategoryBtn) {
+                    createCategoryBtn.classList.remove('hidden');
+                }
             } else {
                 // Disable drag mode
                 button.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
@@ -1864,6 +2074,17 @@
                     zone.removeEventListener('dragleave', handleDragLeave);
                     zone.classList.remove('transition-colors', 'border-green-400', 'bg-green-50');
                 });
+                
+                // Hide create aggregation buttons when not in drag mode
+                document.querySelectorAll('.create-aggregation-btn').forEach(btn => {
+                    btn.classList.add('hidden');
+                });
+                
+                // Hide create category button when not in drag mode
+                const createCategoryBtn = document.getElementById('create-category-btn');
+                if (createCategoryBtn) {
+                    createCategoryBtn.classList.add('hidden');
+                }
             }
         }
 
@@ -2214,6 +2435,244 @@
                 });
             }
         });
+
+        // Create Aggregation Modal Functions
+        function openCreateAggregationModal(category) {
+            const modal = document.getElementById('create-aggregation-modal');
+            const form = document.getElementById('create-aggregation-form');
+            const categoryInput = document.getElementById('create-aggregation-category');
+            const mainTagInput = document.getElementById('create-main-tag');
+            const container = document.getElementById('create-similar-tags-container');
+            
+            // Set the category
+            categoryInput.value = category;
+            
+            // Clear previous inputs
+            mainTagInput.value = '';
+            container.innerHTML = '';
+            
+            // Add one empty similar tag input
+            addCreateTagInput();
+            
+            // Clear error
+            const errorBox = document.getElementById('create-aggregation-error');
+            if (errorBox) {
+                errorBox.classList.add('hidden');
+                errorBox.textContent = '';
+            }
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex', 'items-center', 'justify-center');
+            
+            // Setup dropdowns
+            setupCreateMainTagDropdown();
+            
+            // Focus on main tag input
+            mainTagInput.focus();
+        }
+
+        function closeCreateAggregationModal() {
+            const modal = document.getElementById('create-aggregation-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex', 'items-center', 'justify-center');
+        }
+
+        function setupCreateMainTagDropdown() {
+            const input = document.getElementById('create-main-tag');
+            const dropdown = document.getElementById('create-main-tag-dropdown');
+            
+            if (input && dropdown) {
+                setupTagDropdown(input, dropdown);
+            }
+        }
+
+        function addCreateTagInput() {
+            const container = document.getElementById('create-similar-tags-container');
+            const tagsByCategory = @json($tagsByCategory->map(function($tags) { return $tags->pluck('name'); }));
+            
+            // Build grouped HTML
+            let dropdownHTML = '';
+            Object.keys(tagsByCategory).forEach(category => {
+                dropdownHTML += `<div class="px-3 py-2 bg-slate-100 text-xs font-semibold text-slate-600 sticky top-0">${category}</div>`;
+                tagsByCategory[category].forEach(tag => {
+                    dropdownHTML += `<div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="${tag}" data-category="${category}">${tag}</div>`;
+                });
+            });
+            
+            const newInput = document.createElement('div');
+            newInput.className = 'flex gap-2 create-tag-input-group';
+            newInput.innerHTML = `
+                <div class="flex-1 relative">
+                    <input
+                        type="text"
+                        name="similar_tags[]"
+                        class="create-similar-tag-input w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        placeholder="Почніть вводити для пошуку..."
+                        autocomplete="off"
+                        required
+                    >
+                    <div class="create-tag-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                        ${dropdownHTML}
+                    </div>
+                </div>
+                <button
+                    type="button"
+                    onclick="removeCreateTagInput(this)"
+                    class="rounded-lg border border-red-200 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50"
+                >
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            `;
+            container.appendChild(newInput);
+            
+            // Setup dropdown for the new input
+            const input = newInput.querySelector('.create-similar-tag-input');
+            const dropdown = newInput.querySelector('.create-tag-dropdown');
+            setupTagDropdown(input, dropdown);
+        }
+
+        function removeCreateTagInput(button) {
+            const container = document.getElementById('create-similar-tags-container');
+            if (container.children.length > 1) {
+                button.closest('.create-tag-input-group').remove();
+            } else {
+                alert('Необхідно залишити хоча б один схожий тег.');
+            }
+        }
+
+        // Create Category Modal Functions
+        function openCreateCategoryModal() {
+            const modal = document.getElementById('create-category-modal');
+            const input = document.getElementById('new-category-name');
+            const errorBox = document.getElementById('create-category-error');
+            
+            // Clear previous input
+            input.value = '';
+            
+            // Clear error
+            if (errorBox) {
+                errorBox.classList.add('hidden');
+                errorBox.textContent = '';
+            }
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex', 'items-center', 'justify-center');
+            
+            // Focus on input
+            input.focus();
+        }
+
+        function closeCreateCategoryModal() {
+            const modal = document.getElementById('create-category-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex', 'items-center', 'justify-center');
+        }
+
+        async function submitCreateCategory() {
+            const input = document.getElementById('new-category-name');
+            const errorBox = document.getElementById('create-category-error');
+            const categoryName = input.value.trim();
+            
+            if (!categoryName) {
+                if (errorBox) {
+                    errorBox.textContent = 'Введіть назву категорії.';
+                    errorBox.classList.remove('hidden');
+                }
+                return;
+            }
+            
+            // Check if category already exists
+            const existingCategories = Array.from(document.querySelectorAll('.aggregation-category-block .category-name'))
+                .map(el => el.textContent.trim().toLowerCase());
+            
+            if (existingCategories.includes(categoryName.toLowerCase())) {
+                if (errorBox) {
+                    errorBox.textContent = 'Категорія з такою назвою вже існує.';
+                    errorBox.classList.remove('hidden');
+                }
+                return;
+            }
+            
+            // Create an empty aggregation with the new category
+            // We'll create a placeholder aggregation that will be displayed
+            try {
+                // Show success message
+                showStatusMessage(`Категорію "${categoryName}" створено. Тепер ви можете додати до неї агрегації.`, 'success');
+                
+                // Close modal
+                closeCreateCategoryModal();
+                
+                // Add the category to the UI by creating a minimal structure
+                const aggregationsList = document.getElementById('aggregations-list');
+                if (aggregationsList) {
+                    const categoryBlock = document.createElement('div');
+                    // Add empty category highlighting with yellow border
+                    categoryBlock.className = 'aggregation-category-block rounded-xl border-2 border-yellow-400 bg-yellow-50 shadow-sm overflow-hidden empty-category';
+                    categoryBlock.dataset.category = categoryName.toLowerCase();
+                    categoryBlock.dataset.tags = '';
+                    categoryBlock.dataset.isEmpty = 'true';
+                    
+                    const index = document.querySelectorAll('.aggregation-category-block').length;
+                    
+                    categoryBlock.innerHTML = `
+                        <div class="flex items-center justify-between px-6 py-4 bg-yellow-100">
+                            <button
+                                type="button"
+                                onclick="toggleAggregationCategory('${index}')"
+                                class="flex items-center gap-3 flex-1 text-left hover:opacity-80 transition-opacity"
+                            >
+                                <i id="icon-${index}" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-slate-800 category-name">${categoryName}</h3>
+                                    <p class="text-sm text-amber-700 font-medium">0 агрегацій (порожня категорія)</p>
+                                </div>
+                            </button>
+                            <div class="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    onclick="openCreateAggregationModal('${categoryName.replace(/'/g, "\\'")}')"
+                                    class="create-aggregation-btn ${isDragDropMode ? '' : 'hidden'} inline-flex items-center rounded-lg border border-green-300 bg-green-50 px-2 py-1 text-xs font-medium text-green-700 hover:bg-green-100"
+                                    title="Створити агрегацію"
+                                >
+                                    <i class="fa-solid fa-plus mr-1"></i>Агрегація
+                                </button>
+                                <button
+                                    type="button"
+                                    onclick="editCategoryName('${index}', '${categoryName.replace(/'/g, "\\'")}')"
+                                    class="inline-flex items-center rounded-lg border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-white"
+                                    title="Редагувати категорію"
+                                >
+                                    <i class="fa-solid fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="category-${index}" class="border-t border-yellow-300">
+                            <div class="p-4 space-y-4">
+                                <p class="text-sm text-amber-700 text-center font-medium">
+                                    <i class="fa-solid fa-exclamation-triangle mr-2"></i>Ця категорія порожня. Додайте агрегації.
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Insert the new category at the TOP (before all other categories)
+                    const firstCategory = aggregationsList.querySelector('.aggregation-category-block');
+                    if (firstCategory) {
+                        aggregationsList.insertBefore(categoryBlock, firstCategory);
+                    } else {
+                        aggregationsList.appendChild(categoryBlock);
+                    }
+                }
+            } catch (error) {
+                console.error('Create category error:', error);
+                if (errorBox) {
+                    errorBox.textContent = 'Виникла помилка при створенні категорії.';
+                    errorBox.classList.remove('hidden');
+                }
+            }
+        }
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
