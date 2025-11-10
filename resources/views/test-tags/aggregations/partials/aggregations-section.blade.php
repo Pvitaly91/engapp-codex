@@ -120,6 +120,9 @@
                                         <div class="flex-1">
                                             <h4 class="text-base font-semibold text-slate-800 main-tag-text">
                                                 {{ $aggregation['main_tag'] }}
+                                                @if (isset($aggregation['main_tag_created_at']))
+                                                    <span class="text-xs font-normal text-slate-500 ml-2">{{ \Carbon\Carbon::parse($aggregation['main_tag_created_at'])->format('d.m.Y H:i') }}</span>
+                                                @endif
                                             </h4>
                                             <p class="text-xs text-slate-500">Головний тег</p>
                                         </div>
