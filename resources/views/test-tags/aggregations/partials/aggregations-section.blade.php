@@ -62,7 +62,12 @@
                             <i id="icon-{{ $loop->index }}" class="fa-solid fa-chevron-right text-slate-400 transition-transform"></i>
                             <div>
                                 <h3 class="text-lg font-semibold text-slate-800 category-name">{{ $category }}</h3>
-                                <p class="text-sm text-slate-500">{{ count($categoryAggregations) }} {{ count($categoryAggregations) === 1 ? 'агрегація' : 'агрегацій' }}</p>
+                                <p class="text-sm text-slate-500">
+                                    {{ count($categoryAggregations) }} {{ count($categoryAggregations) === 1 ? 'агрегація' : 'агрегацій' }}
+                                    @if (isset($categoryCreatedAt[$category]))
+                                        <span class="text-slate-400">• {{ \Carbon\Carbon::parse($categoryCreatedAt[$category])->format('d.m.Y H:i') }}</span>
+                                    @endif
+                                </p>
                             </div>
                         </button>
                         <div class="flex items-center gap-2">
@@ -148,9 +153,13 @@
                                             @foreach ($aggregation['similar_tags'] ?? [] as $similarTag)
                                                 @php
                                                     $tagName = is_array($similarTag) ? $similarTag['tag'] : $similarTag;
+                                                    $addedAt = is_array($similarTag) && isset($similarTag['added_at']) ? $similarTag['added_at'] : null;
                                                 @endphp
-                                                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge" data-tag="{{ strtolower($tagName) }}">
+                                                <span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 similar-tag-badge" data-tag="{{ strtolower($tagName) }}">
                                                     <span class="similar-tag-text">{{ $tagName }}</span>
+                                                    @if ($addedAt)
+                                                        <span class="text-blue-600 opacity-70 text-[10px]">{{ \Carbon\Carbon::parse($addedAt)->format('d.m.Y') }}</span>
+                                                    @endif
                                                 </span>
                                             @endforeach
                                         </div>
