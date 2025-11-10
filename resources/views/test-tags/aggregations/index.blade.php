@@ -179,6 +179,20 @@
                 </form>
             </section>
 
+            {{-- Drag & Drop Mode Toggle --}}
+            @if (!$nonAggregatedTags->isEmpty())
+                <div class="flex justify-end">
+                    <button
+                        type="button"
+                        id="toggle-drag-mode-btn-top"
+                        onclick="toggleDragDropMode()"
+                        class="inline-flex items-center rounded-lg border border-purple-300 bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100 focus:outline-none focus:ring"
+                    >
+                        <i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop
+                    </button>
+                </div>
+            @endif
+
             @include('test-tags.aggregations.partials.aggregations-section', [
                 'aggregations' => $aggregations,
                 'aggregationsByCategory' => $aggregationsByCategory,
@@ -2042,6 +2056,7 @@
         function toggleDragDropMode() {
             isDragDropMode = !isDragDropMode;
             const button = document.getElementById('toggle-drag-mode-btn');
+            const buttonTop = document.getElementById('toggle-drag-mode-btn-top');
             const nonAggregatedTags = document.querySelectorAll('.non-aggregated-tag');
             const dropZones = document.querySelectorAll('.aggregation-drop-zone');
             const aggregationsSection = document.getElementById('aggregations-section');
@@ -2052,6 +2067,13 @@
                 button.innerHTML = DRAG_TOGGLE_ACTIVE_HTML;
                 button.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
                 button.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                
+                // Update top button too
+                if (buttonTop) {
+                    buttonTop.innerHTML = DRAG_TOGGLE_ACTIVE_HTML;
+                    buttonTop.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                    buttonTop.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                }
                 
                 // Create wrapper and arrange sections side by side
                 if (aggregationsSection && nonAggregatedSection && !document.getElementById('drag-drop-wrapper')) {
@@ -2134,6 +2156,13 @@
                 button.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
                 button.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
                 button.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                
+                // Update top button too
+                if (buttonTop) {
+                    buttonTop.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
+                    buttonTop.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                    buttonTop.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                }
                 
                 // Restore original layout
                 const wrapper = document.getElementById('drag-drop-wrapper');

@@ -546,10 +546,12 @@ class TestTagController extends Controller
 
         // Collect all aggregated tag names (main tags and similar tags)
         $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
-            return array_merge(
-                [$aggregation['main_tag']],
-                $aggregation['similar_tags'] ?? []
-            );
+            $tags = [$aggregation['main_tag']];
+            foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
+                // Handle both old format (string) and new format (array with 'tag' key)
+                $tags[] = is_array($similarTag) ? $similarTag['tag'] : $similarTag;
+            }
+            return $tags;
         })->unique()->values();
 
         // Filter tags that are NOT in any aggregation
@@ -585,16 +587,22 @@ class TestTagController extends Controller
             ->sort()
             ->values();
 
+        // Get category creation times for sorting
+        $categoryCreationTimes = $service->getCategoryCreationTimes();
+        
         // Group aggregations by category
         $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
             return $aggregation['category'] ?? 'Без категорії';
-        })->sortKeys();
+        });
 
-        // Move "Без категорії" to the end if it exists
-        if ($aggregationsByCategory->has('Без категорії')) {
-            $uncategorized = $aggregationsByCategory->pull('Без категорії');
-            $aggregationsByCategory->put('Без категорії', $uncategorized);
-        }
+        // Sort categories by creation time (newest first)
+        $aggregationsByCategory = $aggregationsByCategory->sortByDesc(function ($items, $category) use ($categoryCreationTimes) {
+            // "Без категорії" should be last
+            if ($category === 'Без категорії') {
+                return '1970-01-01'; // Very old date to ensure it's last
+            }
+            return $categoryCreationTimes[$category] ?? '2000-01-01'; // Default old date for categories without timestamp
+        });
 
         if ($request->expectsJson()) {
             return response()->json([
@@ -630,10 +638,12 @@ class TestTagController extends Controller
 
         // Collect all aggregated tag names (main tags and similar tags)
         $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
-            return array_merge(
-                [$aggregation['main_tag']],
-                $aggregation['similar_tags'] ?? []
-            );
+            $tags = [$aggregation['main_tag']];
+            foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
+                // Handle both old format (string) and new format (array with 'tag' key)
+                $tags[] = is_array($similarTag) ? $similarTag['tag'] : $similarTag;
+            }
+            return $tags;
         })->unique()->values();
 
         // Filter tags that are NOT in any aggregation
@@ -669,16 +679,22 @@ class TestTagController extends Controller
             ->sort()
             ->values();
 
+        // Get category creation times for sorting
+        $categoryCreationTimes = $service->getCategoryCreationTimes();
+        
         // Group aggregations by category
         $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
             return $aggregation['category'] ?? 'Без категорії';
-        })->sortKeys();
+        });
 
-        // Move "Без категорії" to the end if it exists
-        if ($aggregationsByCategory->has('Без категорії')) {
-            $uncategorized = $aggregationsByCategory->pull('Без категорії');
-            $aggregationsByCategory->put('Без категорії', $uncategorized);
-        }
+        // Sort categories by creation time (newest first)
+        $aggregationsByCategory = $aggregationsByCategory->sortByDesc(function ($items, $category) use ($categoryCreationTimes) {
+            // "Без категорії" should be last
+            if ($category === 'Без категорії') {
+                return '1970-01-01'; // Very old date to ensure it's last
+            }
+            return $categoryCreationTimes[$category] ?? '2000-01-01'; // Default old date for categories without timestamp
+        });
 
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
