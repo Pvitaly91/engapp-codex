@@ -171,6 +171,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Modules\DatabaseStructure\DatabaseStructureServiceProvider::class,
+        App\Modules\FileManager\FileManagerServiceProvider::class,
     ])->toArray(),
 
     /*

@@ -245,16 +245,23 @@ class TestTagController extends Controller
         return redirect()->route('test-tags.index')->with('status', 'Тег оновлено.');
     }
 
-    public function destroy(Tag $tag): RedirectResponse
+    public function destroy(Request $request, Tag $tag): RedirectResponse|JsonResponse
     {
         $tag->questions()->detach();
         $tag->words()->detach();
         $tag->delete();
 
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Тег видалено.',
+            ]);
+        }
+
         return redirect()->route('test-tags.index')->with('status', 'Тег видалено.');
     }
 
-    public function destroyEmptyTags(): RedirectResponse
+    public function destroyEmptyTags(Request $request): RedirectResponse|JsonResponse
     {
         $emptyTags = Tag::query()
             ->whereDoesntHave('questions')
@@ -270,6 +277,14 @@ class TestTagController extends Controller
         $message = $count > 0
             ? "Видалено тегів без питань: {$count}."
             : 'Не знайдено тегів без питань.';
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => $message,
+                'count' => $count,
+            ]);
+        }
 
         return redirect()->route('test-tags.index')->with('status', $message);
     }
@@ -449,7 +464,7 @@ class TestTagController extends Controller
         return redirect()->route('test-tags.index')->with('status', 'Категорію перейменовано.');
     }
 
-    public function destroyCategory(string $category): RedirectResponse
+    public function destroyCategory(Request $request, string $category): RedirectResponse|JsonResponse
     {
         $resolved = $this->normaliseCategoryParam($category);
 
@@ -464,6 +479,13 @@ class TestTagController extends Controller
             ->get();
 
         if ($tags->isEmpty()) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Категорію не знайдено.',
+                ], 404);
+            }
+
             return redirect()->route('test-tags.index')->with('error', 'Категорію не знайдено.');
         }
 
@@ -471,6 +493,13 @@ class TestTagController extends Controller
             $tag->questions()->detach();
             $tag->words()->detach();
             $tag->delete();
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Категорію та всі її теги видалено.',
+            ]);
         }
 
         return redirect()->route('test-tags.index')->with('status', 'Категорію та всі її теги видалено.');
@@ -510,33 +539,175 @@ class TestTagController extends Controller
         return 'encoded:'.base64_encode($category);
     }
 
-    public function aggregations(TagAggregationService $service): View
+    public function aggregations(Request $request, TagAggregationService $service): View|JsonResponse
     {
         $aggregations = $service->getAggregations();
         $allTags = Tag::orderBy('name')->get();
-        
+
+        // Collect all aggregated tag names (main tags and similar tags)
+        $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
+            $tags = [$aggregation['main_tag']];
+            foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
+                // Handle both old format (string) and new format (array with 'tag' key)
+                $tags[] = is_array($similarTag) ? $similarTag['tag'] : $similarTag;
+            }
+            return $tags;
+        })->unique()->values();
+
+        // Filter tags that are NOT in any aggregation
+        $nonAggregatedTags = $allTags->reject(function ($tag) use ($aggregatedTagNames) {
+            return $aggregatedTagNames->contains($tag->name);
+        });
+
+        // Group non-aggregated tags by category
+        $nonAggregatedByCategory = $nonAggregatedTags->groupBy(function ($tag) {
+            return $tag->category ?: 'Без категорії';
+        })->sortKeys();
+
+        // Move "Без категорії" to the end if it exists
+        if ($nonAggregatedByCategory->has('Без категорії')) {
+            $uncategorized = $nonAggregatedByCategory->pull('Без категорії');
+            $nonAggregatedByCategory->put('Без категорії', $uncategorized);
+        }
+
         // Group tags by category
         $tagsByCategory = $allTags->groupBy(function ($tag) {
             return $tag->category ?? 'Other';
         })->sortKeys();
-        
+
         // Move "Other" to the end if it exists
         if ($tagsByCategory->has('Other')) {
             $other = $tagsByCategory->pull('Other');
             $tagsByCategory->put('Other', $other);
         }
-        
+
         $categories = Tag::whereNotNull('category')
             ->distinct()
             ->pluck('category')
             ->sort()
             ->values();
 
+        // Get category creation times for sorting
+        $categoryCreationTimes = $service->getCategoryCreationTimes();
+        
+        // Group aggregations by category
+        $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
+            return $aggregation['category'] ?? 'Без категорії';
+        });
+
+        // Sort categories by creation time (newest first)
+        $aggregationsByCategory = $aggregationsByCategory->sortByDesc(function ($items, $category) use ($categoryCreationTimes) {
+            // "Без категорії" should be last
+            if ($category === 'Без категорії') {
+                return '1970-01-01'; // Very old date to ensure it's last
+            }
+            return $categoryCreationTimes[$category] ?? '2000-01-01'; // Default old date for categories without timestamp
+        });
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'aggregations_html' => view('test-tags.aggregations.partials.aggregations-section', [
+                    'aggregations' => $aggregations,
+                    'aggregationsByCategory' => $aggregationsByCategory,
+                    'categoryCreatedAt' => $categoryCreationTimes,
+                ])->render(),
+                'non_aggregated_html' => view('test-tags.aggregations.partials.non-aggregated-section', [
+                    'nonAggregatedTags' => $nonAggregatedTags,
+                    'nonAggregatedByCategory' => $nonAggregatedByCategory,
+                ])->render(),
+                'aggregations' => $aggregations,
+                'json' => json_encode(['aggregations' => $aggregations], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+            ]);
+        }
+
         return view('test-tags.aggregations.index', [
             'aggregations' => $aggregations,
+            'aggregationsByCategory' => $aggregationsByCategory,
+            'nonAggregatedTags' => $nonAggregatedTags,
+            'nonAggregatedByCategory' => $nonAggregatedByCategory,
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
+            'categoryCreatedAt' => $categoryCreationTimes,
+            'isAutoPage' => false,
+        ]);
+    }
+
+    public function autoAggregationsPage(TagAggregationService $service): View
+    {
+        $aggregations = $service->getAggregations();
+        $allTags = Tag::orderBy('name')->get();
+
+        // Collect all aggregated tag names (main tags and similar tags)
+        $aggregatedTagNames = collect($aggregations)->flatMap(function ($aggregation) {
+            $tags = [$aggregation['main_tag']];
+            foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
+                // Handle both old format (string) and new format (array with 'tag' key)
+                $tags[] = is_array($similarTag) ? $similarTag['tag'] : $similarTag;
+            }
+            return $tags;
+        })->unique()->values();
+
+        // Filter tags that are NOT in any aggregation
+        $nonAggregatedTags = $allTags->reject(function ($tag) use ($aggregatedTagNames) {
+            return $aggregatedTagNames->contains($tag->name);
+        });
+
+        // Group non-aggregated tags by category
+        $nonAggregatedByCategory = $nonAggregatedTags->groupBy(function ($tag) {
+            return $tag->category ?: 'Без категорії';
+        })->sortKeys();
+
+        // Move "Без категорії" to the end if it exists
+        if ($nonAggregatedByCategory->has('Без категорії')) {
+            $uncategorized = $nonAggregatedByCategory->pull('Без категорії');
+            $nonAggregatedByCategory->put('Без категорії', $uncategorized);
+        }
+
+        // Group tags by category
+        $tagsByCategory = $allTags->groupBy(function ($tag) {
+            return $tag->category ?? 'Other';
+        })->sortKeys();
+
+        // Move "Other" to the end if it exists
+        if ($tagsByCategory->has('Other')) {
+            $other = $tagsByCategory->pull('Other');
+            $tagsByCategory->put('Other', $other);
+        }
+
+        $categories = Tag::whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->sort()
+            ->values();
+
+        // Get category creation times for sorting
+        $categoryCreationTimes = $service->getCategoryCreationTimes();
+        
+        // Group aggregations by category
+        $aggregationsByCategory = collect($aggregations)->groupBy(function ($aggregation) {
+            return $aggregation['category'] ?? 'Без категорії';
+        });
+
+        // Sort categories by creation time (newest first)
+        $aggregationsByCategory = $aggregationsByCategory->sortByDesc(function ($items, $category) use ($categoryCreationTimes) {
+            // "Без категорії" should be last
+            if ($category === 'Без категорії') {
+                return '1970-01-01'; // Very old date to ensure it's last
+            }
+            return $categoryCreationTimes[$category] ?? '2000-01-01'; // Default old date for categories without timestamp
+        });
+
+        return view('test-tags.aggregations.index', [
+            'aggregations' => $aggregations,
+            'aggregationsByCategory' => $aggregationsByCategory,
+            'nonAggregatedTags' => $nonAggregatedTags,
+            'nonAggregatedByCategory' => $nonAggregatedByCategory,
+            'allTags' => $allTags,
+            'tagsByCategory' => $tagsByCategory,
+            'categories' => $categories,
+            'categoryCreatedAt' => $categoryCreationTimes,
+            'isAutoPage' => true,
         ]);
     }
 
@@ -559,7 +730,7 @@ class TestTagController extends Controller
             ->with('status', 'Агрегацію тегів успішно створено.');
     }
 
-    public function updateAggregation(Request $request, string $mainTag, TagAggregationService $service): RedirectResponse
+    public function updateAggregation(Request $request, string $mainTag, TagAggregationService $service): JsonResponse|RedirectResponse
     {
         $validated = $request->validate([
             'similar_tags' => ['required', 'array', 'min:1'],
@@ -574,17 +745,39 @@ class TestTagController extends Controller
         );
 
         if (! $updated) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'message' => 'Агрегацію не знайдено.',
+                ], 404);
+            }
+
             return redirect()->route('test-tags.aggregations.index')
                 ->with('error', 'Агрегацію не знайдено.');
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Агрегацію тегів успішно оновлено.',
+                'main_tag' => $mainTag,
+                'similar_tags' => array_values($validated['similar_tags']),
+                'category' => $validated['category'] ?? null,
+            ]);
         }
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Агрегацію тегів успішно оновлено.');
     }
 
-    public function destroyAggregation(string $mainTag, TagAggregationService $service): RedirectResponse
+    public function destroyAggregation(Request $request, string $mainTag, TagAggregationService $service): RedirectResponse|JsonResponse
     {
         $service->removeAggregation($mainTag);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Агрегацію тегів видалено.',
+            ]);
+        }
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Агрегацію тегів видалено.');
@@ -609,7 +802,7 @@ class TestTagController extends Controller
             foreach ($suggestions as $suggestion) {
                 // Get category from the main tag
                 $category = $tagCategories[$suggestion['main_tag']] ?? null;
-                
+
                 $service->addAggregation(
                     $suggestion['main_tag'],
                     $suggestion['similar_tags'],
@@ -650,7 +843,7 @@ class TestTagController extends Controller
             foreach ($suggestions as $suggestion) {
                 // Get category from the main tag
                 $category = $tagCategories[$suggestion['main_tag']] ?? null;
-                
+
                 $service->addAggregation(
                     $suggestion['main_tag'],
                     $suggestion['similar_tags'],
@@ -715,7 +908,7 @@ class TestTagController extends Controller
             $data = json_decode($validated['json_data'], true);
 
             if (json_last_error() !== JSON_ERROR_NONE) {
-                throw new \InvalidArgumentException('Невалідний JSON формат: ' . json_last_error_msg());
+                throw new \InvalidArgumentException('Невалідний JSON формат: '.json_last_error_msg());
             }
 
             // Support both formats:
@@ -741,21 +934,21 @@ class TestTagController extends Controller
 
             // Validate and enrich each aggregation structure
             foreach ($aggregations as $index => &$aggregation) {
-                if (!isset($aggregation['main_tag']) || !is_string($aggregation['main_tag'])) {
+                if (! isset($aggregation['main_tag']) || ! is_string($aggregation['main_tag'])) {
                     throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'main_tag'");
                 }
 
-                if (!isset($aggregation['similar_tags']) || !is_array($aggregation['similar_tags'])) {
+                if (! isset($aggregation['similar_tags']) || ! is_array($aggregation['similar_tags'])) {
                     throw new \InvalidArgumentException("Агрегація #{$index} не містить валідного поля 'similar_tags'");
                 }
 
                 // Auto-assign category from main_tag if not provided
-                if (!isset($aggregation['category']) || $aggregation['category'] === null) {
+                if (! isset($aggregation['category']) || $aggregation['category'] === null) {
                     $aggregation['category'] = $tagCategories[$aggregation['main_tag']] ?? null;
                 }
 
                 // Validate category if provided
-                if (isset($aggregation['category']) && !is_string($aggregation['category']) && $aggregation['category'] !== null) {
+                if (isset($aggregation['category']) && ! is_string($aggregation['category']) && $aggregation['category'] !== null) {
                     throw new \InvalidArgumentException("Агрегація #{$index} містить невалідне поле 'category'");
                 }
             }
@@ -764,19 +957,69 @@ class TestTagController extends Controller
             $service->saveAggregations($aggregations);
 
             return redirect()->route('test-tags.aggregations.index')
-                ->with('status', 'JSON успішно імпортовано. Збережено агрегацій: ' . count($aggregations) . '.');
+                ->with('status', 'JSON успішно імпортовано. Збережено агрегацій: '.count($aggregations).'.');
         } catch (\InvalidArgumentException $e) {
             return redirect()->route('test-tags.aggregations.index')
                 ->with('error', $e->getMessage())
                 ->withInput();
         } catch (\Exception $e) {
-            Log::error('Import aggregations failed: ' . $e->getMessage(), [
+            Log::error('Import aggregations failed: '.$e->getMessage(), [
                 'exception' => $e,
             ]);
 
             return redirect()->route('test-tags.aggregations.index')
-                ->with('error', 'Помилка імпорту: ' . $e->getMessage())
+                ->with('error', 'Помилка імпорту: '.$e->getMessage())
                 ->withInput();
         }
+    }
+
+    public function updateAggregationCategory(Request $request, string $category, TagAggregationService $service): RedirectResponse
+    {
+        $validated = $request->validate([
+            'new_name' => ['required', 'string', 'max:255'],
+        ]);
+
+        $newName = trim($validated['new_name']);
+        $aggregations = $service->getAggregations();
+        $updated = false;
+
+        foreach ($aggregations as &$aggregation) {
+            if (($aggregation['category'] ?? '') === $category) {
+                $aggregation['category'] = $newName;
+                $updated = true;
+            }
+        }
+
+        if ($updated) {
+            $service->saveAggregations($aggregations);
+
+            return redirect()->route('test-tags.aggregations.index')
+                ->with('status', 'Категорію успішно оновлено.');
+        }
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('error', 'Категорію не знайдено.');
+    }
+
+    public function destroyAggregationCategory(Request $request, string $category, TagAggregationService $service): RedirectResponse|JsonResponse
+    {
+        $aggregations = $service->getAggregations();
+
+        // Filter out all aggregations from this category
+        $aggregations = array_filter($aggregations, function ($aggregation) use ($category) {
+            return ($aggregation['category'] ?? '') !== $category;
+        });
+
+        $service->saveAggregations(array_values($aggregations));
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Категорію та всі її агрегації видалено.',
+            ]);
+        }
+
+        return redirect()->route('test-tags.aggregations.index')
+            ->with('status', 'Категорію та всі її агрегації видалено.');
     }
 }
