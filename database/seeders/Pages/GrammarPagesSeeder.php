@@ -22,6 +22,7 @@ use Database\Seeders\Pages\Modals\ShouldOughtToPageSeeder;
 use Database\Seeders\Pages\Pronouns\PronounsPageSeeder;
 use Database\Seeders\Pages\Questions\QuestionFormsPageSeeder;
 use Database\Seeders\Pages\Questions\ShortAnswersPageSeeder;
+use Database\Seeders\Pages\Structures\ContractionsPageSeeder;
 use Database\Seeders\Pages\Structures\DoDoesIsArePageSeeder;
 use Database\Seeders\Pages\Structures\ThereIsThereArePageSeeder;
 use Database\Seeders\Pages\Structures\VerbToBePageSeeder;
@@ -76,6 +77,7 @@ class GrammarPagesSeeder extends Seeder
         IrregularVerbsPageSeeder::class,
         QuestionFormsPageSeeder::class,
         ShortAnswersPageSeeder::class,
+        ContractionsPageSeeder::class,
         VerbToBePageSeeder::class,
         DoDoesIsArePageSeeder::class,
         ThereIsThereArePageSeeder::class,
