@@ -34,26 +34,6 @@
             </div>
         @endif
     </div>
-    @if (!$nonAggregatedTags->isEmpty())
-        <div class="flex items-center gap-2 justify-end">
-            <button
-                type="button"
-                id="create-category-btn"
-                onclick="openCreateCategoryModal()"
-                class="hidden inline-flex items-center rounded-lg border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 focus:outline-none focus:ring"
-            >
-                <i class="fa-solid fa-plus mr-2"></i>Створити категорію
-            </button>
-            <button
-                type="button"
-                id="toggle-drag-mode-btn"
-                onclick="toggleDragDropMode()"
-                class="inline-flex items-center rounded-lg border border-purple-300 bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100 focus:outline-none focus:ring"
-            >
-                <i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop
-            </button>
-        </div>
-    @endif
     @if ($nonAggregatedTags->isEmpty())
         <p class="text-sm text-slate-500 rounded-xl border border-slate-200 bg-white p-6">
             Всі теги вже агреговані.

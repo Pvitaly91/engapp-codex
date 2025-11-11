@@ -609,6 +609,7 @@ class TestTagController extends Controller
                 'aggregations_html' => view('test-tags.aggregations.partials.aggregations-section', [
                     'aggregations' => $aggregations,
                     'aggregationsByCategory' => $aggregationsByCategory,
+                    'categoryCreatedAt' => $categoryCreationTimes,
                 ])->render(),
                 'non_aggregated_html' => view('test-tags.aggregations.partials.non-aggregated-section', [
                     'nonAggregatedTags' => $nonAggregatedTags,
@@ -627,6 +628,7 @@ class TestTagController extends Controller
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
+            'categoryCreatedAt' => $categoryCreationTimes,
             'isAutoPage' => false,
         ]);
     }
@@ -704,6 +706,7 @@ class TestTagController extends Controller
             'allTags' => $allTags,
             'tagsByCategory' => $tagsByCategory,
             'categories' => $categories,
+            'categoryCreatedAt' => $categoryCreationTimes,
             'isAutoPage' => true,
         ]);
     }

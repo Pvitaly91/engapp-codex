@@ -181,7 +181,15 @@
 
             {{-- Drag & Drop Mode Toggle --}}
             @if (!$nonAggregatedTags->isEmpty())
-                <div class="flex justify-end">
+                <div class="flex justify-end gap-2">
+                    <button
+                        type="button"
+                        id="create-category-btn"
+                        onclick="openCreateCategoryModal()"
+                        class="hidden inline-flex items-center rounded-lg border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 focus:outline-none focus:ring"
+                    >
+                        <i class="fa-solid fa-plus mr-2"></i>Створити категорію
+                    </button>
                     <button
                         type="button"
                         id="toggle-drag-mode-btn-top"
@@ -196,6 +204,7 @@
             @include('test-tags.aggregations.partials.aggregations-section', [
                 'aggregations' => $aggregations,
                 'aggregationsByCategory' => $aggregationsByCategory,
+                'categoryCreatedAt' => $categoryCreatedAt ?? [],
             ])
 
             @include('test-tags.aggregations.partials.non-aggregated-section', [
@@ -2055,8 +2064,8 @@
 
         function toggleDragDropMode() {
             isDragDropMode = !isDragDropMode;
-            const button = document.getElementById('toggle-drag-mode-btn');
             const buttonTop = document.getElementById('toggle-drag-mode-btn-top');
+            const createCategoryBtn = document.getElementById('create-category-btn');
             const nonAggregatedTags = document.querySelectorAll('.non-aggregated-tag');
             const dropZones = document.querySelectorAll('.aggregation-drop-zone');
             const aggregationsSection = document.getElementById('aggregations-section');
@@ -2064,15 +2073,15 @@
             
             if (isDragDropMode) {
                 // Enable drag mode
-                button.innerHTML = DRAG_TOGGLE_ACTIVE_HTML;
-                button.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
-                button.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
-                
-                // Update top button too
                 if (buttonTop) {
                     buttonTop.innerHTML = DRAG_TOGGLE_ACTIVE_HTML;
                     buttonTop.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
                     buttonTop.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                }
+                
+                // Show create category button
+                if (createCategoryBtn) {
+                    createCategoryBtn.classList.remove('hidden');
                 }
                 
                 // Create wrapper and arrange sections side by side
@@ -2145,23 +2154,17 @@
                 document.querySelectorAll('.create-aggregation-btn').forEach(btn => {
                     btn.classList.remove('hidden');
                 });
-                
-                // Show create category button in drag mode
-                const createCategoryBtn = document.getElementById('create-category-btn');
-                if (createCategoryBtn) {
-                    createCategoryBtn.classList.remove('hidden');
-                }
             } else {
                 // Disable drag mode
-                button.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
-                button.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
-                button.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
-                
-                // Update top button too
                 if (buttonTop) {
                     buttonTop.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
                     buttonTop.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
                     buttonTop.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                }
+                
+                // Hide create category button
+                if (createCategoryBtn) {
+                    createCategoryBtn.classList.add('hidden');
                 }
                 
                 // Restore original layout
@@ -2205,12 +2208,6 @@
                 document.querySelectorAll('.create-aggregation-btn').forEach(btn => {
                     btn.classList.add('hidden');
                 });
-                
-                // Hide create category button when not in drag mode
-                const createCategoryBtn = document.getElementById('create-category-btn');
-                if (createCategoryBtn) {
-                    createCategoryBtn.classList.add('hidden');
-                }
             }
         }
 
