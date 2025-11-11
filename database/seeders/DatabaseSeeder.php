@@ -14,7 +14,7 @@ use Database\Seeders\Ai\ModalVerbsComprehensiveAiSeeder;
 use Database\Seeders\Ai\ModalVerbsModalOnlyAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
-use Database\Seeders\ContractionsMatchSeeder;
+use Database\Seeders\Ai\ContractionsMatchSeeder;
 use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\ConditionalsMixedPracticeV2Seeder;

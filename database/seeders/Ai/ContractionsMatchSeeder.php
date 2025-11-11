@@ -1,12 +1,13 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Ai;
 
 use App\Models\Category;
 use App\Models\Question;
 use App\Models\Source;
 use App\Models\Tag;
 use App\Models\Test;
+use Database\Seeders\QuestionSeeder;
 
 class ContractionsMatchSeeder extends QuestionSeeder
 {
@@ -98,7 +99,7 @@ class ContractionsMatchSeeder extends QuestionSeeder
                 'category_id' => $categoryId,
                 'difficulty' => 2,
                 'source_id' => $sourceId,
-                'flag' => 0,
+                'flag' => 2,
                 'level' => 'A2',
                 'tag_ids' => [$tagId],
                 'answers' => [
@@ -109,7 +110,7 @@ class ContractionsMatchSeeder extends QuestionSeeder
                 ],
                 'options' => $options,
                 'variants' => [$questionText],
-                'type' => Question::TYPE_MATCH,
+                'type' => 2,
             ];
 
             $meta[] = [
