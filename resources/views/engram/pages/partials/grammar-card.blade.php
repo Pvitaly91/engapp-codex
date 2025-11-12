@@ -9,21 +9,7 @@
     </header>
 
     <div class="flex flex-col lg:flex-row gap-6">
-        @php
-            $imagePath = null;
-            
-            // Check if page has an image
-            if (!empty($page->img)) {
-                // Check in /public/uploads first
-                if (file_exists(public_path($page->img))) {
-                    $imagePath = $page->img;
-                }
-                // Then check in /frontend/web/uploads
-                elseif (file_exists(base_path('frontend/web/uploads/' . basename($page->img)))) {
-                    $imagePath = '/frontend/web/uploads/' . basename($page->img);
-                }
-            }
-        @endphp
+        @php($imagePath = $page->getImagePath())
         
         @if($imagePath)
             <div class="lg:w-1/4 flex-shrink-0">

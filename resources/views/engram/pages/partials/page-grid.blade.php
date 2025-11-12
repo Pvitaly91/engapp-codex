@@ -3,27 +3,7 @@
 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     @foreach($pages as $page)
         <a href="{{ $categorySlug ? route('pages.show', [$categorySlug, $page->slug]) : '#' }}" class="block p-4 bg-card text-card-foreground rounded-xl shadow-soft hover:bg-muted">
-            @php
-                $iconPath = null;
-                $defaultIcon = '/img/catalog/ico45.png';
-                
-                // Check if page has a custom icon
-                if (!empty($page->img)) {
-                    // Check in /public/uploads first
-                    if (file_exists(public_path($page->img))) {
-                        $iconPath = $page->img;
-                    }
-                    // Then check in /frontend/web/uploads
-                    elseif (file_exists(base_path('frontend/web/uploads/' . basename($page->img)))) {
-                        $iconPath = '/frontend/web/uploads/' . basename($page->img);
-                    }
-                }
-                
-                // Use default icon if no custom icon found
-                if (!$iconPath && file_exists(public_path($defaultIcon))) {
-                    $iconPath = $defaultIcon;
-                }
-            @endphp
+            @php($iconPath = $page->getIconPath())
             
             @if($iconPath)
                 <div class="mb-3">

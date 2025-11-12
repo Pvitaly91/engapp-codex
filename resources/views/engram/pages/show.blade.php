@@ -117,23 +117,9 @@
                         <div class="overflow-x-auto pb-4">
                             <div class="flex gap-4" id="our-works-slider">
                                 @foreach($categoryPages as $workPage)
-                                    @php
-                                        $workImagePath = null;
-                                        
-                                        // Check if work page has an image
-                                        if (!empty($workPage->img)) {
-                                            // Check in /public/uploads first
-                                            if (file_exists(public_path($workPage->img))) {
-                                                $workImagePath = $workPage->img;
-                                            }
-                                            // Then check in /frontend/web/uploads
-                                            elseif (file_exists(base_path('frontend/web/uploads/' . basename($workPage->img)))) {
-                                                $workImagePath = '/frontend/web/uploads/' . basename($workPage->img);
-                                            }
-                                        }
-                                    @endphp
-                                    
                                     <a href="{{ route('pages.show', [$selectedCategory->slug, $workPage->slug]) }}" class="flex-none w-64 bg-card rounded-xl shadow-soft overflow-hidden hover:shadow-lg transition">
+                                        @php($workImagePath = $workPage->getImagePath())
+                                        
                                         @if($workImagePath)
                                             <img src="{{ $workImagePath }}" alt="{{ $workPage->title }}" class="w-full h-40 object-cover">
                                         @else
