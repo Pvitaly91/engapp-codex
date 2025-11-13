@@ -45,6 +45,26 @@ class PageCategoryManagementTest extends TestCase
             $table->text('text')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('text_blocks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('page_id')
+                ->nullable()
+                ->constrained('pages')
+                ->cascadeOnDelete();
+            $table->foreignId('page_category_id')
+                ->nullable()
+                ->constrained('page_categories')
+                ->cascadeOnDelete();
+            $table->string('locale', 8)->default('uk');
+            $table->string('type', 32)->default('box');
+            $table->string('column', 32)->nullable();
+            $table->string('heading')->nullable();
+            $table->string('css_class')->nullable();
+            $table->unsignedInteger('sort_order')->default(0);
+            $table->longText('body')->nullable();
+            $table->timestamps();
+        });
     }
 
     protected function tearDown(): void
@@ -203,6 +223,75 @@ class PageCategoryManagementTest extends TestCase
         $this->assertDatabaseHas('page_categories', ['id' => $filled->id]);
         $this->assertDatabaseMissing('page_categories', ['id' => $emptyOne->id]);
         $this->assertDatabaseMissing('page_categories', ['id' => $emptyTwo->id]);
+    }
+
+    public function test_admin_can_view_category_description_blocks(): void
+    {
+        $category = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'uk',
+        ]);
+
+        $response = $this->withSession($this->adminSession())
+            ->get(route('pages.manage.categories.blocks.index', $category));
+
+        $response->assertOk();
+    }
+
+    public function test_admin_can_store_category_description_block(): void
+    {
+        $category = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'uk',
+        ]);
+
+        $response = $this->withSession($this->adminSession())
+            ->post(route('pages.manage.categories.blocks.store', $category), [
+                'locale' => 'uk',
+                'type' => 'box',
+                'column' => 'left',
+                'heading' => 'Intro',
+                'sort_order' => 10,
+                'body' => '<p>About grammar</p>',
+            ]);
+
+        $response->assertRedirect(route('pages.manage.categories.blocks.index', $category));
+
+        $this->assertDatabaseHas('text_blocks', [
+            'page_category_id' => $category->id,
+            'heading' => 'Intro',
+        ]);
+    }
+
+    public function test_category_block_edit_form_returns_not_found_for_foreign_category(): void
+    {
+        $category = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'uk',
+        ]);
+
+        $other = PageCategory::create([
+            'title' => 'Vocabulary',
+            'slug' => 'vocabulary',
+            'language' => 'uk',
+        ]);
+
+        $block = $category->textBlocks()->create([
+            'locale' => 'uk',
+            'type' => 'box',
+            'column' => 'left',
+            'heading' => 'Intro',
+            'sort_order' => 10,
+            'body' => '<p>Intro</p>',
+        ]);
+
+        $response = $this->withSession($this->adminSession())
+            ->get(route('pages.manage.categories.blocks.edit', [$other, $block]));
+
+        $response->assertNotFound();
     }
 
     private function adminSession(): array
