@@ -31,24 +31,27 @@ abstract class PageCategoryDescriptionSeeder extends Seeder
     {
         $slug = $this->slug();
         $description = $this->description();
-        $categoryOverrides = array_filter($this->category(), fn ($value) => $value !== null);
+      
 
-        $categoryConfig = array_merge([
+        $categoryConfig = [
             'slug' => $slug,
             'title' => $description['title'] ?? $slug,
             'language' => $description['locale'] ?? 'uk',
-        ], $categoryOverrides);
+        ];
 
         $language = $categoryConfig['language']
             ?? $categoryConfig['locale']
             ?? $description['locale']
             ?? 'uk';
 
+        $categoryData = $this->category();
+       
+
         $category = PageCategory::updateOrCreate(
-            ['slug' => $categoryConfig['slug']],
+            ['slug' => (isset($categoryData['slug'])) ? $categoryData['slug']  : $slug],
             [
-                'title' => $categoryConfig['title'] ?? $description['title'] ?? $slug,
-                'language' => $language,
+                'title' => (isset($categoryData['title'])) ? $categoryData['title']  : $description['title'],
+                'language' => (isset($categoryData['language'])) ? $categoryData['language']  :$categoryConfig['language'],
             ]
         );
 
