@@ -9,6 +9,7 @@ use App\Models\QuestionHint;
 use App\Models\TextBlock;
 use App\Services\QuestionDeletionService;
 use Database\Seeders\Pages\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
+use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
 use Database\Seeders\QuestionSeeder as QuestionSeederBase;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -465,6 +466,10 @@ class SeedRunController extends Controller
             return $this->buildPageSeederPreview($className);
         }
 
+        if (is_subclass_of($className, PageCategoryDescriptionSeederBase::class)) {
+            return $this->buildCategorySeederPreview($className);
+        }
+
         throw new \RuntimeException(__('Сидер :class не підтримує попередній перегляд.', ['class' => $className]));
     }
 
@@ -734,6 +739,89 @@ class SeedRunController extends Controller
             'questions' => collect(),
             'existingQuestionCount' => null,
             'page' => $pageMeta,
+        ];
+    }
+
+    protected function buildCategorySeederPreview(string $className): array
+    {
+        DB::beginTransaction();
+
+        try {
+            $seeder = app($className);
+
+            if (! method_exists($seeder, 'run')) {
+                throw new \RuntimeException(__('Сидер :class не підтримує попередній перегляд.', ['class' => $className]));
+            }
+
+            if (! $seeder instanceof PageCategoryDescriptionSeederBase) {
+                throw new \RuntimeException(__('Сидер :class не підтримує попередній перегляд категорії.', ['class' => $className]));
+            }
+
+            $seeder->run();
+
+            $category = PageCategory::query()
+                ->with(['textBlocks', 'pages' => fn ($query) => $query->orderBy('title')])
+                ->where('slug', $seeder->previewCategorySlug())
+                ->first();
+
+            if (! $category) {
+                throw new \RuntimeException(__('Сидер не створює опис категорії для попереднього перегляду.'));
+            }
+
+            $blocks = $category->textBlocks ?? collect();
+            $subtitleBlock = $blocks->firstWhere(fn (TextBlock $block) => $block->type === 'subtitle');
+            $columns = [
+                'left' => $blocks->filter(fn (TextBlock $block) => $block->column === 'left'),
+                'right' => $blocks->filter(fn (TextBlock $block) => $block->column === 'right'),
+            ];
+
+            $locale = $subtitleBlock->locale
+                ?? ($blocks->first()?->locale)
+                ?? app()->getLocale()
+                ?? 'uk';
+
+            $categories = PageCategory::query()
+                ->withCount('pages')
+                ->orderBy('title')
+                ->get();
+
+            $categoryPages = $category->pages ?? collect();
+
+            $categoryDescription = [
+                'blocks' => $blocks,
+                'subtitleBlock' => $subtitleBlock,
+                'columns' => $columns,
+                'locale' => $locale,
+                'hasBlocks' => $blocks->isNotEmpty(),
+            ];
+
+            $viewData = [
+                'categories' => $categories,
+                'selectedCategory' => $category,
+                'categoryPages' => $categoryPages,
+                'categoryDescription' => $categoryDescription,
+            ];
+
+            $categoryHtml = view('engram.pages.index', $viewData)->render();
+
+            $categoryMeta = [
+                'title' => $category->title,
+                'slug' => $category->slug,
+                'locale' => $locale,
+                'page_count' => $categoryPages->count(),
+                'text_block_count' => $blocks->count(),
+                'url' => route('pages.category', $category->slug),
+                'html' => $categoryHtml,
+            ];
+        } finally {
+            DB::rollBack();
+        }
+
+        return [
+            'type' => 'category',
+            'questions' => collect(),
+            'existingQuestionCount' => null,
+            'category' => $categoryMeta,
         ];
     }
 

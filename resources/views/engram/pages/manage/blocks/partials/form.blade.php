@@ -1,6 +1,11 @@
 @php
     $columnValue = old('column', $block->column);
     $bodyFieldId = 'block-body-editor';
+    $entityTitle = $entityTitle ?? '';
+    $contextLabel = $contextLabel ?? 'Сторінка';
+    $backUrl = $backUrl ?? url()->previous();
+    $backLabel = $backLabel ?? '← Назад';
+    $cancelUrl = $cancelUrl ?? $backUrl;
 @endphp
 
 @once
@@ -21,7 +26,7 @@
             <h1 class="text-2xl font-semibold">{{ $heading }}</h1>
             <p class="text-sm text-gray-500">{{ $description }}</p>
         </div>
-        <a href="{{ route('pages.manage.edit', $page) }}" class="inline-flex items-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">← До блоків сторінки</a>
+        <a href="{{ $backUrl }}" class="inline-flex items-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">{{ $backLabel }}</a>
     </div>
 
     @if ($errors->any())
@@ -44,7 +49,7 @@
         <section class="space-y-6 rounded-2xl border border-gray-200 bg-white p-6 shadow">
             <header class="space-y-1">
                 <h2 class="text-xl font-semibold">Дані блока</h2>
-                <p class="text-sm text-gray-500">Сторінка: <span class="font-medium text-gray-700">{{ $page->title }}</span></p>
+                <p class="text-sm text-gray-500">{{ $contextLabel }}: <span class="font-medium text-gray-700">{{ $entityTitle }}</span></p>
             </header>
 
             <div class="grid gap-6 md:grid-cols-2">
@@ -85,7 +90,7 @@
         </section>
 
         <div class="flex items-center justify-end gap-3">
-            <a href="{{ route('pages.manage.edit', $page) }}" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">Скасувати</a>
+            <a href="{{ $cancelUrl }}" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">Скасувати</a>
             <button type="submit" class="rounded-xl bg-blue-600 px-6 py-2 text-sm font-semibold text-white hover:bg-blue-700">
                 {{ $submitLabel }}
             </button>
