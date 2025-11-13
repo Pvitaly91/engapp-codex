@@ -16,26 +16,27 @@
         @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
 
         <section class="space-y-6">
-            <header class="space-y-2">
-                <h1 class="text-3xl font-semibold tracking-tight">{{ optional($selectedCategory)->title ?? 'Теорія' }}</h1>
-                <p class="text-sm text-muted-foreground">
-                    @if ($selectedCategory)
-                        Матеріали розділу «{{ $selectedCategory->title }}».
-                    @else
-                        Виберіть категорію, щоб переглянути сторінки теорії.
-                    @endif
-                </p>
-            </header>
+            
 
             @if ($selectedCategory && ($categoryDescription['hasBlocks'] ?? false))
-                <div class="rounded-2xl border border-border/80 bg-card p-4 shadow-soft">
+            
                     @include('engram.pages.partials.grammar-card', [
                         'page' => $selectedCategory,
                         'subtitleBlock' => $categoryDescription['subtitleBlock'] ?? null,
                         'columns' => $categoryDescription['columns'] ?? [],
                         'locale' => $categoryDescription['locale'] ?? app()->getLocale(),
                     ])
-                </div>
+            @else
+                <header class="space-y-2">
+                    <h1 class="text-3xl font-semibold tracking-tight">{{ optional($selectedCategory)->title ?? 'Теорія' }}</h1>
+                    <p class="text-sm text-muted-foreground">
+                        @if ($selectedCategory)
+                            Матеріали розділу «{{ $selectedCategory->title }}».
+                        @else
+                            Виберіть категорію, щоб переглянути сторінки теорії.
+                        @endif
+                    </p>
+                </header>
             @endif
 
             @if ($categoryPages->isNotEmpty())
