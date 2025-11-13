@@ -14,7 +14,9 @@ use Database\Seeders\Ai\ModalVerbsComprehensiveAiSeeder;
 use Database\Seeders\Ai\ModalVerbsModalOnlyAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
+use Database\Seeders\Ai\ContractionsMatchSeeder;
 use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
+use Database\Seeders\Pages\Articles\SomeAnyCategorySeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\ConditionalsMixedPracticeV2Seeder;
 use Database\Seeders\V2\ConditionalsType1And2WorksheetV2Seeder;
@@ -136,11 +138,11 @@ class DatabaseSeeder extends Seeder
             ModalDeductionPossibilityPracticeV22DragDropSeeder::class,
             ModalDeductionPossibilityPracticeV22Dialogue1Seeder::class,
             ModalDeductionPossibilityPracticeV22Dialogue2Seeder::class,
+            ContractionsMatchSeeder::class,
             FirstConditionalPracticeV2Seeder::class,
             FirstConditionalChooseABCV2Seeder::class,
             SecondConditionalTestV2Seeder::class,
             ThirdConditionalPracticeV2Seeder::class,
-            GrammarPagesSeeder::class,
             FirstConditionalAiFormsV2Seeder::class,
             FirstConditionalChooseABCAiSeeder::class,
             IrregularVerbsSeeder::class,
@@ -160,7 +162,8 @@ class DatabaseSeeder extends Seeder
             ModalVerbsComprehensiveAiSeeder::class,
             ModalVerbsModalOnlyAiSeeder::class,
             QuestionWordsDragDropSeeder::class,
-
+            SomeAnyCategorySeeder::class,
+            GrammarPagesSeeder::class,
         ]);
     }
 }

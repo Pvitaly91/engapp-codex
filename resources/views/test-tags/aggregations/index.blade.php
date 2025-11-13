@@ -179,9 +179,32 @@
                 </form>
             </section>
 
+            {{-- Drag & Drop Mode Toggle --}}
+            @if (!$nonAggregatedTags->isEmpty())
+                <div class="flex justify-end gap-2">
+                    <button
+                        type="button"
+                        id="create-category-btn"
+                        onclick="openCreateCategoryModal()"
+                        class="hidden inline-flex items-center rounded-lg border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100 focus:outline-none focus:ring"
+                    >
+                        <i class="fa-solid fa-plus mr-2"></i>Створити категорію
+                    </button>
+                    <button
+                        type="button"
+                        id="toggle-drag-mode-btn-top"
+                        onclick="toggleDragDropMode()"
+                        class="inline-flex items-center rounded-lg border border-purple-300 bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100 focus:outline-none focus:ring"
+                    >
+                        <i class="fa-solid fa-hand-pointer mr-2"></i>Увімкнути Drag & Drop
+                    </button>
+                </div>
+            @endif
+
             @include('test-tags.aggregations.partials.aggregations-section', [
                 'aggregations' => $aggregations,
                 'aggregationsByCategory' => $aggregationsByCategory,
+                'categoryCreatedAt' => $categoryCreatedAt ?? [],
             ])
 
             @include('test-tags.aggregations.partials.non-aggregated-section', [
@@ -593,6 +616,145 @@
         </div>
     </div>
 
+    {{-- Create Aggregation Modal --}}
+    <div
+        id="create-aggregation-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeCreateAggregationModal()"></div>
+        <div class="relative w-full max-w-2xl mx-4 rounded-xl bg-white shadow-xl max-h-[90vh] overflow-y-auto">
+            <form id="create-aggregation-form" method="POST" action="{{ route('test-tags.aggregations.store') }}" class="p-6 space-y-4">
+                @csrf
+                
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Створити агрегацію</h2>
+                    <button type="button" onclick="closeCreateAggregationModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="create-aggregation-error" class="hidden rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"></div>
+
+                <input type="hidden" id="create-aggregation-category" name="category">
+
+                <div>
+                    <label for="create-main-tag" class="block text-sm font-medium text-slate-700 mb-1">
+                        Головний тег
+                    </label>
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="create-main-tag"
+                            name="main_tag"
+                            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="Почніть вводити для пошуку..."
+                            autocomplete="off"
+                            required
+                        >
+                        <div id="create-main-tag-dropdown" class="hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                            @foreach ($tagsByCategory as $cat => $tags)
+                                <div class="px-3 py-2 bg-slate-100 text-xs font-semibold text-slate-600 sticky top-0">
+                                    {{ $cat }}
+                                </div>
+                                @foreach ($tags as $tag)
+                                    <div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="{{ $tag->name }}" data-category="{{ $cat }}">
+                                        {{ $tag->name }}
+                                    </div>
+                                @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">
+                        Схожі теги
+                    </label>
+                    <div id="create-similar-tags-container" class="space-y-2">
+                        <!-- Similar tags will be populated here -->
+                    </div>
+                    <button
+                        type="button"
+                        onclick="addCreateTagInput()"
+                        class="mt-2 inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        + Додати тег
+                    </button>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeCreateAggregationModal()"
+                        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                    >
+                        Створити
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- Create Category Modal --}}
+    <div
+        id="create-category-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+    >
+        <div class="absolute inset-0 bg-slate-900/50" onclick="closeCreateCategoryModal()"></div>
+        <div class="relative w-full max-w-md mx-4 rounded-xl bg-white shadow-xl">
+            <div id="create-category-content" class="p-6 space-y-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-slate-800">Створити категорію</h2>
+                    <button type="button" onclick="closeCreateCategoryModal()" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="create-category-error" class="hidden rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"></div>
+
+                <div>
+                    <label for="new-category-name" class="block text-sm font-medium text-slate-700 mb-1">
+                        Назва категорії
+                    </label>
+                    <input
+                        type="text"
+                        id="new-category-name"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        placeholder="Введіть назву категорії..."
+                        required
+                    >
+                </div>
+
+                <div class="flex justify-end gap-3 pt-4 border-t">
+                    <button
+                        type="button"
+                        onclick="closeCreateCategoryModal()"
+                        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    >
+                        Скасувати
+                    </button>
+                    <button
+                        type="button"
+                        onclick="submitCreateCategory()"
+                        class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring"
+                    >
+                        Створити
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{-- Drag-Drop Confirmation Modal --}}
     <div
         id="drag-drop-confirm-modal"
@@ -969,7 +1131,7 @@
 
         // Remove all highlights
         function removeAllHighlights() {
-            document.querySelectorAll('.category-name, .main-tag-text, .similar-tag-text').forEach(el => {
+            document.querySelectorAll('.category-name, .main-tag-text, .similar-tag-text, .non-agg-category-name, .non-aggregated-tag').forEach(el => {
                 if (el.querySelector('mark')) {
                     el.textContent = el.textContent; // Reset to plain text
                 }
@@ -981,6 +1143,85 @@
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        // Search for non-aggregated tags
+        function initNonAggregatedSearch() {
+            const searchInput = document.getElementById('search-non-aggregated');
+            if (!searchInput) return;
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                const categoryBlocks = document.querySelectorAll('.non-aggregated-category-block');
+
+                // Remove all highlights first
+                removeAllHighlights();
+
+                categoryBlocks.forEach((block, index) => {
+                    const category = block.dataset.category || '';
+                    const tags = block.dataset.tags || '';
+                    
+                    const categoryMatches = searchTerm && category.includes(searchTerm);
+                    const tagsMatch = searchTerm && tags.includes(searchTerm);
+                    const matches = categoryMatches || tagsMatch;
+                    
+                    if (matches || searchTerm === '') {
+                        block.classList.remove('hidden');
+                        
+                        // Highlight matches if search term is present
+                        if (searchTerm) {
+                            // Highlight category name
+                            if (categoryMatches) {
+                                const categoryNameEl = block.querySelector('.non-agg-category-name');
+                                if (categoryNameEl) {
+                                    highlightText(categoryNameEl, searchTerm);
+                                }
+                            }
+                            
+                            // Highlight tags
+                            if (tagsMatch) {
+                                // Auto-expand the category to show matched tags
+                                const categoryContent = document.getElementById(`non-agg-category-${index}`);
+                                const icon = document.getElementById(`non-agg-icon-${index}`);
+                                if (categoryContent && categoryContent.classList.contains('hidden')) {
+                                    categoryContent.classList.remove('hidden');
+                                    if (icon) {
+                                        icon.classList.remove('fa-chevron-right');
+                                        icon.classList.add('fa-chevron-down');
+                                    }
+                                }
+                                
+                                // Highlight matching tags
+                                const tagEls = block.querySelectorAll('.non-aggregated-tag');
+                                
+                                tagEls.forEach(el => {
+                                    if (el.textContent.toLowerCase().includes(searchTerm)) {
+                                        highlightText(el, searchTerm);
+                                    }
+                                });
+                            }
+                        }
+                    } else {
+                        block.classList.add('hidden');
+                    }
+                });
+
+                // Show "no results" message if needed
+                const visibleBlocks = document.querySelectorAll('.non-aggregated-category-block:not(.hidden)');
+                let noResultsMsg = document.getElementById('no-non-aggregated-results');
+                
+                if (visibleBlocks.length === 0 && searchTerm !== '') {
+                    if (!noResultsMsg) {
+                        noResultsMsg = document.createElement('div');
+                        noResultsMsg.id = 'no-non-aggregated-results';
+                        noResultsMsg.className = 'text-sm text-slate-500 text-center py-8 rounded-xl border border-slate-200 bg-white';
+                        noResultsMsg.textContent = 'Нічого не знайдено за вашим запитом.';
+                        document.getElementById('non-aggregated-list').appendChild(noResultsMsg);
+                    }
+                } else if (noResultsMsg) {
+                    noResultsMsg.remove();
+                }
+            });
         }
 
         // Generate prompt for AI
@@ -1047,6 +1288,167 @@
                 section.classList.add('hidden');
             }
         }
+
+        const submitFormViaAjax = async (form) => {
+            const url = form.action;
+            const method = form.querySelector('input[name="_method"]')?.value || 'POST';
+            const csrfToken = form.querySelector('input[name="_token"]')?.value;
+
+            if (!url || !csrfToken) {
+                showStatusMessage('Помилка: не вдалося відправити запит.', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Виникла помилка під час видалення.');
+                }
+
+                // Show success message
+                showStatusMessage(data.message, 'success');
+
+                // Remove the deleted element from DOM
+                removeDeletedElement(form);
+
+                // Refresh aggregation sections to update the display
+                await refreshAggregationSectionsAfterDelete();
+            } catch (error) {
+                console.error('Delete error:', error);
+                showStatusMessage(error.message || 'Виникла помилка під час видалення.', 'error');
+            }
+        };
+
+        const showStatusMessage = (message, type = 'success') => {
+            // Remove any existing messages
+            const existingMessages = document.querySelectorAll('.status-message-ajax');
+            existingMessages.forEach(msg => msg.remove());
+
+            // Create new message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `status-message-ajax rounded-lg border px-4 py-3 text-sm mb-4 ${
+                type === 'success' 
+                    ? 'border-emerald-200 bg-emerald-50 text-emerald-700' 
+                    : 'border-red-200 bg-red-50 text-red-700'
+            }`;
+            messageDiv.textContent = message;
+
+            // Insert at the top of the content area
+            const contentArea = document.querySelector('.mx-auto.flex.max-w-5xl.flex-col.gap-8');
+            if (contentArea) {
+                const header = contentArea.querySelector('header');
+                if (header) {
+                    header.insertAdjacentElement('afterend', messageDiv);
+                } else {
+                    contentArea.insertBefore(messageDiv, contentArea.firstChild);
+                }
+            }
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        };
+
+        const removeDeletedElement = (form) => {
+            // Find the closest aggregation or category container
+            const aggregationItem = form.closest('.aggregation-drop-zone');
+            const categoryBlock = form.closest('.aggregation-category-block');
+
+            if (aggregationItem && !form.closest('[data-confirm*="категорію"]')) {
+                // Removing a single aggregation
+                aggregationItem.remove();
+                
+                // Check if category is now empty
+                if (categoryBlock) {
+                    const remainingAggregations = categoryBlock.querySelectorAll('.aggregation-drop-zone');
+                    if (remainingAggregations.length === 0) {
+                        categoryBlock.remove();
+                    }
+                }
+            } else if (categoryBlock) {
+                // Removing an entire category
+                categoryBlock.remove();
+            }
+        };
+
+        const refreshAggregationSectionsAfterDelete = async () => {
+            // After deletion or creation, refresh to update both aggregations and non-aggregated tags sections
+            try {
+                const url = new URL('{{ route('test-tags.aggregations.index') }}', window.location.origin);
+                url.searchParams.set('_', Date.now().toString());
+
+                const response = await fetch(url.toString(), {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    return;
+                }
+
+                const payload = await response.json();
+
+                // Update aggregations section
+                if (payload.aggregations_html) {
+                    const aggregationsSection = document.getElementById('aggregations-section');
+                    if (aggregationsSection) {
+                        aggregationsSection.outerHTML = payload.aggregations_html;
+                    }
+                }
+
+                // Update non-aggregated tags section
+                if (payload.non_aggregated_html) {
+                    const nonAggregatedSection = document.getElementById('non-aggregated-section');
+                    if (nonAggregatedSection) {
+                        nonAggregatedSection.outerHTML = payload.non_aggregated_html;
+                    }
+                }
+
+                if (payload.json) {
+                    const jsonDisplay = document.getElementById('json-display');
+                    if (jsonDisplay) {
+                        const codeBlock = jsonDisplay.querySelector('code');
+                        if (codeBlock) {
+                            codeBlock.textContent = payload.json;
+                        } else {
+                            jsonDisplay.textContent = payload.json;
+                        }
+                    }
+                }
+
+                if (Array.isArray(payload.aggregations)) {
+                    currentAggregations = payload.aggregations;
+                }
+
+                // Reinitialize event handlers after DOM update
+                initAggregationConfirmation();
+                initAggregationsSearch();
+                initNonAggregatedSearch();
+                updateGlobalNonAggregatedState();
+                
+                // Restore drag & drop mode if it was active before refresh
+                if (isDragDropMode) {
+                    // Reset the flag and call toggle to reactivate drag & drop mode
+                    isDragDropMode = false;
+                    toggleDragDropMode();
+                }
+            } catch (error) {
+                console.warn('Failed to refresh sections:', error);
+            }
+        };
 
         // Confirmation modal logic (similar to test-tags index page)
         const initAggregationConfirmation = () => {
@@ -1127,16 +1529,17 @@
                 form.dataset.confirmListenerAttached = 'true';
             });
 
-            acceptButton.addEventListener('click', () => {
+            acceptButton.addEventListener('click', async () => {
                 if (!pendingForm) {
                     closeModal();
                     return;
                 }
 
                 const formToSubmit = pendingForm;
-                formToSubmit.dataset.confirmed = 'true';
                 closeModal(false);
-                formToSubmit.requestSubmit();
+                
+                // Submit via AJAX
+                await submitFormViaAjax(formToSubmit);
             });
 
             const cancelHandler = () => {
@@ -1582,6 +1985,66 @@
             }
         }
 
+        // Expand all aggregation categories
+        function expandAllAggregations() {
+            document.querySelectorAll('[id^="category-"]').forEach(el => {
+                if (!el.id.startsWith('category-new-name') && el.classList.contains('hidden')) {
+                    const index = el.id.replace('category-', '');
+                    const icon = document.getElementById('icon-' + index);
+                    if (icon) {
+                        el.classList.remove('hidden');
+                        icon.classList.remove('fa-chevron-right');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        }
+
+        // Collapse all aggregation categories
+        function collapseAllAggregations() {
+            document.querySelectorAll('[id^="category-"]').forEach(el => {
+                if (!el.id.startsWith('category-new-name') && !el.classList.contains('hidden')) {
+                    const index = el.id.replace('category-', '');
+                    const icon = document.getElementById('icon-' + index);
+                    if (icon) {
+                        el.classList.add('hidden');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-right');
+                    }
+                }
+            });
+        }
+
+        // Expand all non-aggregated categories
+        function expandAllNonAggregated() {
+            document.querySelectorAll('[id^="non-agg-category-"]').forEach(el => {
+                if (el.classList.contains('hidden')) {
+                    const index = el.id.replace('non-agg-category-', '');
+                    const icon = document.getElementById('non-agg-icon-' + index);
+                    if (icon) {
+                        el.classList.remove('hidden');
+                        icon.classList.remove('fa-chevron-right');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        }
+
+        // Collapse all non-aggregated categories
+        function collapseAllNonAggregated() {
+            document.querySelectorAll('[id^="non-agg-category-"]').forEach(el => {
+                if (!el.classList.contains('hidden')) {
+                    const index = el.id.replace('non-agg-category-', '');
+                    const icon = document.getElementById('non-agg-icon-' + index);
+                    if (icon) {
+                        el.classList.add('hidden');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-right');
+                    }
+                }
+            });
+        }
+
         // Toggle JSON configuration visibility
         function toggleJsonConfig() {
             const container = document.getElementById('json-config-container');
@@ -1601,7 +2064,8 @@
 
         function toggleDragDropMode() {
             isDragDropMode = !isDragDropMode;
-            const button = document.getElementById('toggle-drag-mode-btn');
+            const buttonTop = document.getElementById('toggle-drag-mode-btn-top');
+            const createCategoryBtn = document.getElementById('create-category-btn');
             const nonAggregatedTags = document.querySelectorAll('.non-aggregated-tag');
             const dropZones = document.querySelectorAll('.aggregation-drop-zone');
             const aggregationsSection = document.getElementById('aggregations-section');
@@ -1609,9 +2073,16 @@
             
             if (isDragDropMode) {
                 // Enable drag mode
-                button.innerHTML = DRAG_TOGGLE_ACTIVE_HTML;
-                button.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
-                button.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                if (buttonTop) {
+                    buttonTop.innerHTML = DRAG_TOGGLE_ACTIVE_HTML;
+                    buttonTop.classList.remove('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                    buttonTop.classList.add('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                }
+                
+                // Show create category button
+                if (createCategoryBtn) {
+                    createCategoryBtn.classList.remove('hidden');
+                }
                 
                 // Create wrapper and arrange sections side by side
                 if (aggregationsSection && nonAggregatedSection && !document.getElementById('drag-drop-wrapper')) {
@@ -1678,11 +2149,23 @@
                         }
                     }
                 });
+                
+                // Show create aggregation buttons in drag mode
+                document.querySelectorAll('.create-aggregation-btn').forEach(btn => {
+                    btn.classList.remove('hidden');
+                });
             } else {
                 // Disable drag mode
-                button.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
-                button.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
-                button.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                if (buttonTop) {
+                    buttonTop.innerHTML = DRAG_TOGGLE_DEFAULT_HTML;
+                    buttonTop.classList.remove('border-red-300', 'bg-red-50', 'text-red-700', 'hover:bg-red-100');
+                    buttonTop.classList.add('border-purple-300', 'bg-purple-50', 'text-purple-700', 'hover:bg-purple-100');
+                }
+                
+                // Hide create category button
+                if (createCategoryBtn) {
+                    createCategoryBtn.classList.add('hidden');
+                }
                 
                 // Restore original layout
                 const wrapper = document.getElementById('drag-drop-wrapper');
@@ -1719,6 +2202,11 @@
                     zone.removeEventListener('drop', handleDrop);
                     zone.removeEventListener('dragleave', handleDragLeave);
                     zone.classList.remove('transition-colors', 'border-green-400', 'bg-green-50');
+                });
+                
+                // Hide create aggregation buttons when not in drag mode
+                document.querySelectorAll('.create-aggregation-btn').forEach(btn => {
+                    btn.classList.add('hidden');
                 });
             }
         }
@@ -2071,20 +2559,339 @@
             }
         });
 
+        // Create Aggregation Modal Functions
+        function openCreateAggregationModal(category) {
+            const modal = document.getElementById('create-aggregation-modal');
+            const form = document.getElementById('create-aggregation-form');
+            const categoryInput = document.getElementById('create-aggregation-category');
+            const mainTagInput = document.getElementById('create-main-tag');
+            const container = document.getElementById('create-similar-tags-container');
+            
+            // Set the category
+            categoryInput.value = category;
+            
+            // Clear previous inputs
+            mainTagInput.value = '';
+            container.innerHTML = '';
+            
+            // Add one empty similar tag input
+            addCreateTagInput();
+            
+            // Clear error
+            const errorBox = document.getElementById('create-aggregation-error');
+            if (errorBox) {
+                errorBox.classList.add('hidden');
+                errorBox.textContent = '';
+            }
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex', 'items-center', 'justify-center');
+            
+            // Setup dropdowns
+            setupCreateMainTagDropdown();
+            
+            // Focus on main tag input
+            mainTagInput.focus();
+        }
+
+        function closeCreateAggregationModal() {
+            const modal = document.getElementById('create-aggregation-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex', 'items-center', 'justify-center');
+        }
+
+        function setupCreateAggregationFormSubmit() {
+            const form = document.getElementById('create-aggregation-form');
+            
+            if (!form || form.dataset.ajaxBound === 'true') {
+                return;
+            }
+            
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                
+                const errorBox = document.getElementById('create-aggregation-error');
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton ? submitButton.innerHTML : '';
+                
+                if (errorBox) {
+                    errorBox.classList.add('hidden');
+                    errorBox.textContent = '';
+                }
+                
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Збереження...';
+                }
+                
+                try {
+                    const formData = new FormData(form);
+                    const csrfToken = formData.get('_token');
+                    
+                    const payload = {
+                        main_tag: formData.get('main_tag'),
+                        similar_tags: formData.getAll('similar_tags[]'),
+                        category: formData.get('category')
+                    };
+                    
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(data.message || 'Помилка при створенні агрегації.');
+                    }
+                    
+                    // Show success message
+                    showStatusMessage(data.message || 'Агрегацію успішно створено.', 'success');
+                    
+                    // Close modal
+                    closeCreateAggregationModal();
+                    
+                    // Refresh aggregation sections
+                    await refreshAggregationSectionsAfterDelete();
+                    
+                } catch (error) {
+                    console.error('Create aggregation error:', error);
+                    if (errorBox) {
+                        errorBox.textContent = error.message || 'Виникла помилка при створенні агрегації.';
+                        errorBox.classList.remove('hidden');
+                    }
+                } finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                    }
+                }
+            });
+            
+            form.dataset.ajaxBound = 'true';
+        }
+
+        function setupCreateMainTagDropdown() {
+            const input = document.getElementById('create-main-tag');
+            const dropdown = document.getElementById('create-main-tag-dropdown');
+            
+            if (input && dropdown) {
+                setupTagDropdown(input, dropdown);
+            }
+        }
+
+        function addCreateTagInput() {
+            const container = document.getElementById('create-similar-tags-container');
+            const tagsByCategory = @json($tagsByCategory->map(function($tags) { return $tags->pluck('name'); }));
+            
+            // Build grouped HTML
+            let dropdownHTML = '';
+            Object.keys(tagsByCategory).forEach(category => {
+                dropdownHTML += `<div class="px-3 py-2 bg-slate-100 text-xs font-semibold text-slate-600 sticky top-0">${category}</div>`;
+                tagsByCategory[category].forEach(tag => {
+                    dropdownHTML += `<div class="tag-option px-3 py-2 cursor-pointer hover:bg-blue-50 text-sm" data-value="${tag}" data-category="${category}">${tag}</div>`;
+                });
+            });
+            
+            const newInput = document.createElement('div');
+            newInput.className = 'flex gap-2 create-tag-input-group';
+            newInput.innerHTML = `
+                <div class="flex-1 relative">
+                    <input
+                        type="text"
+                        name="similar_tags[]"
+                        class="create-similar-tag-input w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        placeholder="Почніть вводити для пошуку..."
+                        autocomplete="off"
+                        required
+                    >
+                    <div class="create-tag-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-slate-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                        ${dropdownHTML}
+                    </div>
+                </div>
+                <button
+                    type="button"
+                    onclick="removeCreateTagInput(this)"
+                    class="rounded-lg border border-red-200 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50"
+                >
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            `;
+            container.appendChild(newInput);
+            
+            // Setup dropdown for the new input
+            const input = newInput.querySelector('.create-similar-tag-input');
+            const dropdown = newInput.querySelector('.create-tag-dropdown');
+            setupTagDropdown(input, dropdown);
+        }
+
+        function removeCreateTagInput(button) {
+            const container = document.getElementById('create-similar-tags-container');
+            if (container.children.length > 1) {
+                button.closest('.create-tag-input-group').remove();
+            } else {
+                alert('Необхідно залишити хоча б один схожий тег.');
+            }
+        }
+
+        // Create Category Modal Functions
+        function openCreateCategoryModal() {
+            const modal = document.getElementById('create-category-modal');
+            const input = document.getElementById('new-category-name');
+            const errorBox = document.getElementById('create-category-error');
+            
+            // Clear previous input
+            input.value = '';
+            
+            // Clear error
+            if (errorBox) {
+                errorBox.classList.add('hidden');
+                errorBox.textContent = '';
+            }
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex', 'items-center', 'justify-center');
+            
+            // Focus on input
+            input.focus();
+        }
+
+        function closeCreateCategoryModal() {
+            const modal = document.getElementById('create-category-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex', 'items-center', 'justify-center');
+        }
+
+        async function submitCreateCategory() {
+            const input = document.getElementById('new-category-name');
+            const errorBox = document.getElementById('create-category-error');
+            const categoryName = input.value.trim();
+            
+            if (!categoryName) {
+                if (errorBox) {
+                    errorBox.textContent = 'Введіть назву категорії.';
+                    errorBox.classList.remove('hidden');
+                }
+                return;
+            }
+            
+            // Check if category already exists
+            const existingCategories = Array.from(document.querySelectorAll('.aggregation-category-block .category-name'))
+                .map(el => el.textContent.trim().toLowerCase());
+            
+            if (existingCategories.includes(categoryName.toLowerCase())) {
+                if (errorBox) {
+                    errorBox.textContent = 'Категорія з такою назвою вже існує.';
+                    errorBox.classList.remove('hidden');
+                }
+                return;
+            }
+            
+            // Create an empty aggregation with the new category
+            // We'll create a placeholder aggregation that will be displayed
+            try {
+                // Show success message
+                showStatusMessage(`Категорію "${categoryName}" створено. Тепер ви можете додати до неї агрегації.`, 'success');
+                
+                // Close modal
+                closeCreateCategoryModal();
+                
+                // Add the category to the UI by creating a minimal structure
+                const aggregationsList = document.getElementById('aggregations-list');
+                if (aggregationsList) {
+                    const categoryBlock = document.createElement('div');
+                    // Add empty category highlighting with yellow border
+                    categoryBlock.className = 'aggregation-category-block rounded-xl border-2 border-yellow-400 bg-yellow-50 shadow-sm overflow-hidden empty-category';
+                    categoryBlock.dataset.category = categoryName.toLowerCase();
+                    categoryBlock.dataset.tags = '';
+                    categoryBlock.dataset.isEmpty = 'true';
+                    
+                    const index = document.querySelectorAll('.aggregation-category-block').length;
+                    
+                    categoryBlock.innerHTML = `
+                        <div class="flex items-center justify-between px-6 py-4 bg-yellow-100">
+                            <button
+                                type="button"
+                                onclick="toggleAggregationCategory('${index}')"
+                                class="flex items-center gap-3 flex-1 text-left hover:opacity-80 transition-opacity"
+                            >
+                                <i id="icon-${index}" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-slate-800 category-name">${categoryName}</h3>
+                                    <p class="text-sm text-amber-700 font-medium">0 агрегацій (порожня категорія)</p>
+                                </div>
+                            </button>
+                            <div class="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    onclick="openCreateAggregationModal('${categoryName.replace(/'/g, "\\'")}')"
+                                    class="create-aggregation-btn ${isDragDropMode ? '' : 'hidden'} inline-flex items-center rounded-lg border border-green-300 bg-green-50 px-2 py-1 text-xs font-medium text-green-700 hover:bg-green-100"
+                                    title="Створити агрегацію"
+                                >
+                                    <i class="fa-solid fa-plus mr-1"></i>Агрегація
+                                </button>
+                                <button
+                                    type="button"
+                                    onclick="editCategoryName('${index}', '${categoryName.replace(/'/g, "\\'")}')"
+                                    class="inline-flex items-center rounded-lg border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-white"
+                                    title="Редагувати категорію"
+                                >
+                                    <i class="fa-solid fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="category-${index}" class="border-t border-yellow-300">
+                            <div class="p-4 space-y-4">
+                                <p class="text-sm text-amber-700 text-center font-medium">
+                                    <i class="fa-solid fa-exclamation-triangle mr-2"></i>Ця категорія порожня. Додайте агрегації.
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Insert the new category at the TOP (before all other categories)
+                    const firstCategory = aggregationsList.querySelector('.aggregation-category-block');
+                    if (firstCategory) {
+                        aggregationsList.insertBefore(categoryBlock, firstCategory);
+                    } else {
+                        aggregationsList.appendChild(categoryBlock);
+                    }
+                }
+            } catch (error) {
+                console.error('Create category error:', error);
+                if (errorBox) {
+                    errorBox.textContent = 'Виникла помилка при створенні категорії.';
+                    errorBox.classList.remove('hidden');
+                }
+            }
+        }
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 initTagDropdowns();
                 initAggregationConfirmation();
                 autoShowImportForm();
                 initAggregationsSearch();
+                initNonAggregatedSearch();
                 setupEditAggregationForm();
+                setupCreateAggregationFormSubmit();
             });
         } else {
             initTagDropdowns();
             initAggregationConfirmation();
             autoShowImportForm();
             initAggregationsSearch();
+            initNonAggregatedSearch();
             setupEditAggregationForm();
+            setupCreateAggregationFormSubmit();
         }
     </script>
 @endpush

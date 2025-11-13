@@ -214,6 +214,116 @@
 
 @push('scripts')
     <script>
+        const submitFormViaAjax = async (form) => {
+            const url = form.action;
+            const method = form.querySelector('input[name="_method"]')?.value || 'POST';
+            const csrfToken = form.querySelector('input[name="_token"]')?.value;
+
+            if (!url || !csrfToken) {
+                showStatusMessage('Помилка: не вдалося відправити запит.', 'error');
+                return;
+            }
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Виникла помилка під час видалення.');
+                }
+
+                // Show success message
+                showStatusMessage(data.message, 'success');
+
+                // Remove the deleted element from DOM
+                removeDeletedElement(form);
+
+                // Update counts if needed
+                updateTagCounts();
+            } catch (error) {
+                console.error('Delete error:', error);
+                showStatusMessage(error.message || 'Виникла помилка під час видалення.', 'error');
+            }
+        };
+
+        const showStatusMessage = (message, type = 'success') => {
+            // Remove any existing messages
+            const existingMessages = document.querySelectorAll('.status-message-ajax');
+            existingMessages.forEach(msg => msg.remove());
+
+            // Create new message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `status-message-ajax rounded-lg border px-4 py-3 text-sm mb-4 ${
+                type === 'success' 
+                    ? 'border-emerald-200 bg-emerald-50 text-emerald-700' 
+                    : 'border-red-200 bg-red-50 text-red-700'
+            }`;
+            messageDiv.textContent = message;
+
+            // Insert at the top of the content area
+            const contentArea = document.querySelector('.mx-auto.flex.max-w-5xl.flex-col.gap-8');
+            if (contentArea) {
+                const header = contentArea.querySelector('header');
+                if (header) {
+                    header.insertAdjacentElement('afterend', messageDiv);
+                } else {
+                    contentArea.insertBefore(messageDiv, contentArea.firstChild);
+                }
+            }
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        };
+
+        const removeDeletedElement = (form) => {
+            // Find the closest tag or category container
+            const tagItem = form.closest('li');
+            const categoryBlock = form.closest('.space-y-3.rounded-xl.border');
+
+            if (tagItem) {
+                // Removing a tag
+                tagItem.remove();
+            } else if (categoryBlock) {
+                // Removing a category
+                categoryBlock.remove();
+            }
+        };
+
+        const updateTagCounts = () => {
+            // Update total tags count
+            const totalTagsElement = document.querySelector('p.text-sm.text-slate-400');
+            if (totalTagsElement) {
+                const tagItems = document.querySelectorAll('li [data-tag-load]');
+                totalTagsElement.textContent = `Всього тегів: ${tagItems.length}`;
+            }
+
+            // Update category counts
+            document.querySelectorAll('.space-y-3.rounded-xl.border').forEach(categoryBlock => {
+                const tagsInCategory = categoryBlock.querySelectorAll('li [data-tag-load]').length;
+                const countElement = categoryBlock.querySelector('.block.text-sm');
+                if (countElement) {
+                    const countText = tagsInCategory === 0 
+                        ? 'Немає тегів'
+                        : tagsInCategory === 1 
+                        ? '1 тег'
+                        : tagsInCategory >= 2 && tagsInCategory <= 4
+                        ? `${tagsInCategory} теги`
+                        : `${tagsInCategory} тегів`;
+                    countElement.textContent = countText;
+                }
+            });
+        };
+
         const initTestTagDeletionConfirmation = () => {
             const modal = document.getElementById('test-tag-confirmation-modal');
             const messageTarget = modal ? modal.querySelector('[data-confirm-message]') : null;
@@ -281,16 +391,17 @@
                 form.addEventListener('submit', handleFormSubmit);
             });
 
-            acceptButton.addEventListener('click', () => {
+            acceptButton.addEventListener('click', async () => {
                 if (!pendingForm) {
                     closeModal();
                     return;
                 }
 
                 const formToSubmit = pendingForm;
-                formToSubmit.dataset.confirmed = 'true';
                 closeModal(false);
-                formToSubmit.requestSubmit();
+                
+                // Submit via AJAX
+                await submitFormViaAjax(formToSubmit);
             });
 
             const cancelHandler = () => {

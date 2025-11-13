@@ -48,7 +48,14 @@ class PageBlockManagementTest extends TestCase
 
         Schema::create('text_blocks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('page_id')->constrained('pages')->cascadeOnDelete();
+            $table->foreignId('page_id')
+                ->nullable()
+                ->constrained('pages')
+                ->cascadeOnDelete();
+            $table->foreignId('page_category_id')
+                ->nullable()
+                ->constrained('page_categories')
+                ->cascadeOnDelete();
             $table->string('locale', 8)->default('uk');
             $table->string('type', 32)->default('box');
             $table->string('column', 32)->nullable();

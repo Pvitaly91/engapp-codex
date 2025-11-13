@@ -103,12 +103,25 @@ Route::middleware('auth.admin')->group(function () {
                 ->name('destroy');
             Route::post('/categories', [PageManageController::class, 'storeCategory'])->name('categories.store');
             Route::put('/categories/{category}', [PageManageController::class, 'updateCategory'])
-                ->whereNumber('category')
                 ->name('categories.update');
             Route::delete('/categories/{category}', [PageManageController::class, 'destroyCategory'])
-                ->whereNumber('category')
                 ->name('categories.destroy');
             Route::delete('/categories-empty', [PageManageController::class, 'destroyEmptyCategories'])->name('categories.destroy-empty');
+            Route::get('/categories/{category}/blocks', [PageManageController::class, 'categoryBlocks'])
+                ->name('categories.blocks.index');
+            Route::get('/categories/{category}/blocks/create', [PageManageController::class, 'createCategoryBlock'])
+                ->name('categories.blocks.create');
+            Route::post('/categories/{category}/blocks', [PageManageController::class, 'storeCategoryBlock'])
+                ->name('categories.blocks.store');
+            Route::get('/categories/{category}/blocks/{block}/edit', [PageManageController::class, 'editCategoryBlock'])
+                ->whereNumber('block')
+                ->name('categories.blocks.edit');
+            Route::put('/categories/{category}/blocks/{block}', [PageManageController::class, 'updateCategoryBlock'])
+                ->whereNumber('block')
+                ->name('categories.blocks.update');
+            Route::delete('/categories/{category}/blocks/{block}', [PageManageController::class, 'destroyCategoryBlock'])
+                ->whereNumber('block')
+                ->name('categories.blocks.destroy');
             Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])
                 ->whereNumber('page')
                 ->name('blocks.create');

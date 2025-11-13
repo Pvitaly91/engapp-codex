@@ -22,4 +22,11 @@ class PageCategory extends Model
     {
         return $this->hasMany(Page::class);
     }
+
+    public function textBlocks(): HasMany
+    {
+        return $this->hasMany(TextBlock::class, 'page_category_id')
+            ->orderBy('sort_order')
+            ->orderBy('id');
+    }
 }

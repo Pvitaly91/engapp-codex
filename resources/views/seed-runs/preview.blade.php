@@ -7,7 +7,11 @@
         use Illuminate\Support\Str;
 
         $previewType = $preview['type'] ?? 'questions';
-        $previewTypeLabel = $previewType === 'page' ? __('Сторінка') : __('Питання');
+        $previewTypeLabel = match ($previewType) {
+            'page' => __('Сторінка'),
+            'category' => __('Категорія'),
+            default => __('Питання'),
+        };
         $questionPreviews = $preview['questions'] ?? collect();
 
         if (! $questionPreviews instanceof \Illuminate\Support\Collection) {
@@ -16,6 +20,7 @@
 
         $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
+        $categoryPreview = $previewType === 'category' ? ($preview['category'] ?? null) : null;
     @endphp
 
     <div class="max-w-5xl mx-auto space-y-6">
@@ -24,9 +29,11 @@
                 <div>
                     <h1 class="text-2xl font-semibold text-gray-800">{{ __('Попередній перегляд сидера') }}</h1>
                     <p class="text-sm text-gray-500">
-                        {{ $previewType === 'page'
-                            ? __('Переконайтеся, що сторінка виглядає коректно, перш ніж запускати сидер.')
-                            : __('Переконайтеся, що питання та пов’язані дані виглядають коректно, перш ніж запускати сидер.') }}
+                        {{ match ($previewType) {
+                            'page' => __('Переконайтеся, що сторінка виглядає коректно, перш ніж запускати сидер.'),
+                            'category' => __('Переконайтеся, що опис категорії виглядає коректно, перш ніж запускати сидер.'),
+                            default => __('Переконайтеся, що питання та пов’язані дані виглядають коректно, перш ніж запускати сидер.'),
+                        } }}
                     </p>
                 </div>
                 <div class="flex items-center gap-2">
@@ -76,6 +83,15 @@
                     <div>
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('URL сторінки') }}</dt>
                         <dd>{{ $pagePreview['url'] ?? __('Немає посилання') }}</dd>
+                    </div>
+                @elseif($previewType === 'category' && $categoryPreview)
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Категорія') }}</dt>
+                        <dd>{{ $categoryPreview['title'] ?? __('Без назви') }}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('URL категорії') }}</dt>
+                        <dd>{{ $categoryPreview['url'] ?? __('Немає посилання') }}</dd>
                     </div>
                 @endif
             </dl>
@@ -440,6 +456,32 @@
                 @else
                     <div class="rounded border border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-sm text-gray-500">
                         {{ __('Сидер не надав HTML для попереднього перегляду.') }}
+                    </div>
+                @endif
+            </div>
+        @elseif($previewType === 'category')
+            <div class="bg-white shadow rounded-lg p-6 space-y-4">
+                <h2 class="text-lg font-semibold text-gray-800">{{ __('Попередній перегляд категорії') }}</h2>
+                <p class="text-sm text-gray-500">
+                    {{ __('Нижче відображено HTML опису категорії. Переконайтеся, що блоки та сторінки відображаються коректно.') }}
+                </p>
+
+                @if($categoryPreview && ! empty($categoryPreview['html']))
+                    <div
+                        class="border border-gray-200 rounded-lg overflow-hidden"
+                        data-page-preview
+                        data-page-preview-html="{{ base64_encode($categoryPreview['html']) }}"
+                    >
+                        <iframe
+                            class="w-full"
+                            style="min-height: 900px;"
+                            data-page-preview-frame
+                            loading="lazy"
+                        ></iframe>
+                    </div>
+                @else
+                    <div class="rounded border border-dashed border-gray-300 bg-gray-50 px-4 py-6 text-sm text-gray-500">
+                        {{ __('Сидер не надав HTML для попереднього перегляду категорії.') }}
                     </div>
                 @endif
             </div>

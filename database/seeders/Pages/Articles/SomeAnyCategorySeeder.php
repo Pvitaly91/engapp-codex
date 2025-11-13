@@ -2,14 +2,12 @@
 
 namespace Database\Seeders\Pages\Articles;
 
-class SomeAnyPageSeeder extends ArticlePageSeeder
-{
-    protected function slug(): string
-    {
-        return 'some-any';
-    }
+use Database\Seeders\Pages\Articles\Concerns\SomeAnyContent;
+use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder;
 
-    protected function page(): array
+class SomeAnyCategorySeeder extends PageCategoryDescriptionSeeder
+{
+    protected function someAnyContent(): array
     {
         return [
             'title' => 'Some / Any — Кількість у ствердженні та запереченні',
@@ -119,6 +117,25 @@ HTML,
 HTML,
                 ],
             ],
+        ];
+    }
+
+    protected function slug(): string
+    {
+        return 'some-any';
+    }
+
+    protected function description(): array
+    {
+        return $this->someAnyContent();
+    }
+
+    protected function category(): array
+    {
+        return [
+            'slug' => 'some-any',
+            'title' => 'Some / Any',
+            'language' => 'uk',
         ];
     }
 }
