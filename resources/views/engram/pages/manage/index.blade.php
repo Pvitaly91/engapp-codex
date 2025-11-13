@@ -177,6 +177,7 @@
                                         </header>
 
                                         <div class="flex flex-col gap-2 sm:flex-row sm:justify-end sm:gap-3">
+                                            <a href="{{ route('pages.manage.categories.blocks.index', $category) }}" class="inline-flex items-center justify-center rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-100">Опис</a>
                                             <a href="{{ route('pages.manage.index', ['tab' => 'categories', 'edit' => $category->id]) }}" class="inline-flex items-center justify-center rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">Редагувати</a>
                                             <form action="{{ route('pages.manage.categories.destroy', $category) }}" method="POST" onsubmit="return confirm('Видалити категорію?');" class="inline-flex">
                                                 @csrf
@@ -213,6 +214,7 @@
                                                     <td class="px-4 py-3 text-gray-600">{{ $category->pages_count }}</td>
                                                     <td class="px-4 py-3">
                                                         <div class="flex justify-end gap-2">
+                                                            <a href="{{ route('pages.manage.categories.blocks.index', $category) }}" class="rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm text-indigo-700 hover:bg-indigo-100">Опис</a>
                                                             <a href="{{ route('pages.manage.index', ['tab' => 'categories', 'edit' => $category->id]) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
                                                             <form action="{{ route('pages.manage.categories.destroy', $category) }}" method="POST" onsubmit="return confirm('Видалити категорію?');">
                                                                 @csrf

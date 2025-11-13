@@ -105,7 +105,7 @@
                                                class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
                                                data-bulk-delete-checkbox
                                                data-bulk-scope="pending">
-                                        <label for="{{ $pendingCheckboxId }}" class="text-sm font-mono text-gray-700 break-all cursor-pointer">
+                                        <label for="{{ $pendingCheckboxId }}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
                                             @if(!empty($pendingSeeder->display_class_namespace))
                                                 <span class="text-gray-500">{{ $pendingSeeder->display_class_namespace }}</span>
                                                 <span class="text-gray-400">\</span>
