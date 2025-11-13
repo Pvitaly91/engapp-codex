@@ -13,6 +13,8 @@
             'showCategoryPagesNav' => false,
         ])
 
+        @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
+
         <section class="space-y-6">
             <header class="space-y-2">
                 <h1 class="text-3xl font-semibold tracking-tight">{{ optional($selectedCategory)->title ?? 'Теорія' }}</h1>
@@ -24,6 +26,17 @@
                     @endif
                 </p>
             </header>
+
+            @if ($selectedCategory && ($categoryDescription['hasBlocks'] ?? false))
+                <div class="rounded-2xl border border-border/80 bg-card p-4 shadow-soft">
+                    @include('engram.pages.partials.grammar-card', [
+                        'page' => $selectedCategory,
+                        'subtitleBlock' => $categoryDescription['subtitleBlock'] ?? null,
+                        'columns' => $categoryDescription['columns'] ?? [],
+                        'locale' => $categoryDescription['locale'] ?? app()->getLocale(),
+                    ])
+                </div>
+            @endif
 
             @if ($categoryPages->isNotEmpty())
                 @include('engram.pages.partials.page-grid', [
