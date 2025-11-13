@@ -103,31 +103,23 @@ Route::middleware('auth.admin')->group(function () {
                 ->name('destroy');
             Route::post('/categories', [PageManageController::class, 'storeCategory'])->name('categories.store');
             Route::put('/categories/{category}', [PageManageController::class, 'updateCategory'])
-                ->whereNumber('category')
                 ->name('categories.update');
             Route::delete('/categories/{category}', [PageManageController::class, 'destroyCategory'])
-                ->whereNumber('category')
                 ->name('categories.destroy');
             Route::delete('/categories-empty', [PageManageController::class, 'destroyEmptyCategories'])->name('categories.destroy-empty');
             Route::get('/categories/{category}/blocks', [PageManageController::class, 'categoryBlocks'])
-                ->whereNumber('category')
                 ->name('categories.blocks.index');
             Route::get('/categories/{category}/blocks/create', [PageManageController::class, 'createCategoryBlock'])
-                ->whereNumber('category')
                 ->name('categories.blocks.create');
             Route::post('/categories/{category}/blocks', [PageManageController::class, 'storeCategoryBlock'])
-                ->whereNumber('category')
                 ->name('categories.blocks.store');
             Route::get('/categories/{category}/blocks/{block}/edit', [PageManageController::class, 'editCategoryBlock'])
-                ->whereNumber('category')
                 ->whereNumber('block')
                 ->name('categories.blocks.edit');
             Route::put('/categories/{category}/blocks/{block}', [PageManageController::class, 'updateCategoryBlock'])
-                ->whereNumber('category')
                 ->whereNumber('block')
                 ->name('categories.blocks.update');
             Route::delete('/categories/{category}/blocks/{block}', [PageManageController::class, 'destroyCategoryBlock'])
-                ->whereNumber('category')
                 ->whereNumber('block')
                 ->name('categories.blocks.destroy');
             Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])
