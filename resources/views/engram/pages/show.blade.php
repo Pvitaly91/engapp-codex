@@ -109,6 +109,37 @@
                 'columns' => $columns ?? [],
                 'locale' => $locale ?? app()->getLocale(),
             ])
+            
+            @if($categoryPages && $categoryPages->isNotEmpty())
+                <div class="mt-8">
+                    <h3 class="text-2xl font-semibold mb-4">Наші роботи</h3>
+                    <div class="relative">
+                        <div class="overflow-x-auto pb-4">
+                            <div class="flex gap-4" id="our-works-slider">
+                                @foreach($categoryPages as $workPage)
+                                    <a href="{{ route('pages.show', [$selectedCategory->slug, $workPage->slug]) }}" class="flex-none w-64 bg-card rounded-xl shadow-soft overflow-hidden hover:shadow-lg transition">
+                                        @php($workImagePath = $workPage->getImagePath())
+                                        
+                                        @if($workImagePath)
+                                            <img src="{{ $workImagePath }}" alt="{{ $workPage->title }}" class="w-full h-40 object-cover">
+                                        @else
+                                            <div class="w-full h-40 bg-muted flex items-center justify-center">
+                                                <span class="text-muted-foreground">No image</span>
+                                            </div>
+                                        @endif
+                                        <div class="p-4">
+                                            <h4 class="font-semibold">{{ $workPage->title }}</h4>
+                                            @if(!empty($workPage->text))
+                                                <p class="mt-2 text-sm text-muted-foreground line-clamp-2">{{ $workPage->text }}</p>
+                                            @endif
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </article>
     </div>
 @endsection
