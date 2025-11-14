@@ -172,6 +172,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Modules\DatabaseStructure\DatabaseStructureServiceProvider::class,
         App\Modules\FileManager\FileManagerServiceProvider::class,
+        App\Modules\MigrationManager\MigrationManagerServiceProvider::class,
         App\Modules\PageManager\PageManagerServiceProvider::class,
     ])->toArray(),
 
