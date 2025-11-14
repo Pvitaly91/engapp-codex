@@ -3,7 +3,7 @@
 @section('title', 'Редагувати опис категорії — ' . $category->title)
 
 @section('content')
-    @include('engram.pages.manage.blocks.partials.form', [
+    @include('page-manager::blocks.partials.form', [
         'heading' => 'Редагувати блок опису',
         'description' => 'Оновіть блок для категорії «' . $category->title . '».',
         'formAction' => route('pages.manage.categories.blocks.update', [$category, $block]),

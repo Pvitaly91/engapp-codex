@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mx-auto max-w-6xl space-y-8">
-        @include('engram.pages.manage.partials.form', [
+        @include('page-manager::partials.form', [
             'heading' => 'Редагування: ' . $page->title,
             'description' => 'Оновіть основні дані сторінки. Нижче ви можете керувати блоками контенту.',
             'formAction' => route('pages.manage.update', $page),

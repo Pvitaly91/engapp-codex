@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Modules\PageManager\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\TextBlock;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Validation\Rule;
 
-class PageManageController extends Controller
+class PageManagerController extends Controller
 {
     public function index(Request $request)
     {
@@ -34,7 +35,7 @@ class PageManageController extends Controller
             $editingCategory = $categories->firstWhere('id', $categoryId);
         }
 
-        return view('engram.pages.manage.index', [
+        return view('page-manager::index', [
             'pages' => $pages,
             'categories' => $categories,
             'activeTab' => $activeTab,
@@ -47,7 +48,7 @@ class PageManageController extends Controller
         $page = new Page();
         $categories = $this->categories();
 
-        return view('engram.pages.manage.create', [
+        return view('page-manager::create', [
             'page' => $page,
             'categories' => $categories,
         ]);
@@ -77,7 +78,7 @@ class PageManageController extends Controller
             ->get();
         $categories = $this->categories();
 
-        return view('engram.pages.manage.edit', [
+        return view('page-manager::edit', [
             'page' => $page,
             'blocks' => $blocks,
             'categories' => $categories,
@@ -201,7 +202,7 @@ class PageManageController extends Controller
 
         $block = new TextBlock($defaults);
 
-        return view('engram.pages.manage.blocks.create', [
+        return view('page-manager::blocks.create', [
             'page' => $page,
             'block' => $block,
         ]);
@@ -222,7 +223,7 @@ class PageManageController extends Controller
     {
         $this->ensureBlockBelongsToPage($page, $block);
 
-        return view('engram.pages.manage.blocks.edit', [
+        return view('page-manager::blocks.edit', [
             'page' => $page,
             'block' => $block,
         ]);
@@ -256,7 +257,7 @@ class PageManageController extends Controller
     {
         $blocks = $category->textBlocks()->get();
 
-        return view('engram.pages.manage.categories.blocks.index', [
+        return view('page-manager::categories.blocks.index', [
             'category' => $category,
             'blocks' => $blocks,
         ]);
@@ -273,7 +274,7 @@ class PageManageController extends Controller
 
         $block = new TextBlock($defaults);
 
-        return view('engram.pages.manage.categories.blocks.create', [
+        return view('page-manager::categories.blocks.create', [
             'category' => $category,
             'block' => $block,
         ]);
@@ -294,7 +295,7 @@ class PageManageController extends Controller
     {
         $this->ensureBlockBelongsToCategory($category, $block);
 
-        return view('engram.pages.manage.categories.blocks.edit', [
+        return view('page-manager::categories.blocks.edit', [
             'category' => $category,
             'block' => $block,
         ]);

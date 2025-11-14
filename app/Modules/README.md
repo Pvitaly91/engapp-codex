@@ -32,3 +32,20 @@
 - Ви повинні побачити перелік таблиць з можливістю переглянути стовпці та фільтрувати їх за назвою.
 
 Після виконання цих кроків модуль буде готовий до роботи в іншому Laravel-проєкті.
+
+## Модуль "PageManager"
+
+Модуль виносить інтерфейс керування сторінками `/admin/pages/manage` в окрему директорію `app/Modules/PageManager`.
+
+### Як встановити
+1. Скопіюйте папку `app/Modules/PageManager` у ваш застосунок.
+2. Додайте `App\Modules\PageManager\PageManagerServiceProvider::class` у масив `providers` файлу `config/app.php`.
+3. Запустіть `php artisan migrate`, щоб застосувати вбудовані міграції (`pages`, `page_categories`, `text_blocks`). За потреби опублікуйте їх командою `php artisan vendor:publish --tag=page-manager-migrations`.
+4. За потреби опублікуйте конфіг/шаблони:
+   ```bash
+   php artisan vendor:publish --tag=page-manager-config
+   php artisan vendor:publish --tag=page-manager-views
+   ```
+5. Налаштуйте доступи (middleware `auth.admin`) і навігацію адмінки на маршрут `pages.manage.index`.
+
+Детальніша інструкція розміщена у `app/Modules/PageManager/README.md`.
