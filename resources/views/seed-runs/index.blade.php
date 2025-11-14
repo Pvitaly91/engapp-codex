@@ -179,24 +179,38 @@
                 </div>
 
                 <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
-                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                    <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between mb-4">
                         <h2 class="text-xl font-semibold text-gray-800">Виконані сидери</h2>
-                        @if($executedSeederHierarchy->isNotEmpty())
-                            <button type="submit"
-                                    form="executed-bulk-delete-form"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                                    data-bulk-delete-button
-                                    data-bulk-scope="executed"
-                                    disabled>
-                                <i class="fa-solid fa-trash-can"></i>
-                                Видалити вибрані файли
-                            </button>
-                        @endif
+                        <div class="flex flex-col gap-3 w-full sm:flex-row sm:items-center sm:justify-end">
+                            <div class="relative w-full sm:max-w-xs">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 pointer-events-none">
+                                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                                </span>
+                                <input type="search"
+                                       class="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                       placeholder="Пошук сидера…"
+                                       aria-label="Пошук виконаного сидера"
+                                       autocomplete="off"
+                                       data-executed-search-input
+                                       @if($executedSeederHierarchy->isEmpty()) disabled @endif>
+                            </div>
+                            @if($executedSeederHierarchy->isNotEmpty())
+                                <button type="submit"
+                                        form="executed-bulk-delete-form"
+                                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                        data-bulk-delete-button
+                                        data-bulk-scope="executed"
+                                        disabled>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    Видалити вибрані файли
+                                </button>
+                            @endif
+                        </div>
                     </div>
                     @if($executedSeederHierarchy->isEmpty())
                         <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
                     @else
-                        <div class="space-y-4">
+                        <div class="space-y-4" data-executed-nodes>
                             @foreach($executedSeederHierarchy as $node)
                                 @include('seed-runs.partials.executed-node', [
                                     'node' => $node,
@@ -205,6 +219,9 @@
                                 ])
                             @endforeach
                         </div>
+                        <p class="text-sm text-slate-500 hidden" data-executed-search-empty>
+                            Сидери з такою назвою не знайдено.
+                        </p>
                     @endif
                 </div>
             </div>
@@ -296,6 +313,17 @@
         #seeder-file-modal .CodeMirror.cm-editor-disabled .CodeMirror-cursor {
             display: none !important;
         }
+
+        .hidden-by-search {
+            display: none !important;
+        }
+
+        [data-seeder-name] mark {
+            background-color: #fef3c7;
+            color: inherit;
+            padding: 0 0.1rem;
+            border-radius: 0.125rem;
+        }
     </style>
 
     <script>
@@ -318,6 +346,10 @@
             const fileModalPath = fileModal ? fileModal.querySelector('[data-file-path]') : null;
             const fileModalUpdatedAt = fileModal ? fileModal.querySelector('[data-file-updated-at]') : null;
             const fileModalStatus = fileModal ? fileModal.querySelector('[data-file-status]') : null;
+            const executedSearchInput = document.querySelector('[data-executed-search-input]');
+            const executedNodesContainer = document.querySelector('[data-executed-nodes]');
+            const executedSearchEmptyState = document.querySelector('[data-executed-search-empty]');
+            const hiddenBySearchClass = 'hidden-by-search';
             const fileModalSaveButton = fileModal ? fileModal.querySelector('[data-file-save-button]') : null;
             const fileModalCloseButtons = fileModal ? fileModal.querySelectorAll('[data-file-close]') : [];
             const fileModalSavingMessage = @json(__('Збереження файлу…'));
@@ -493,6 +525,91 @@
 
                 return (fileModalUpdatedAtTemplate || '').replace(':timestamp', timestamp);
             };
+
+            const ensureOriginalText = function (element) {
+                if (!element) {
+                    return '';
+                }
+
+                if (!element.dataset.originalName) {
+                    element.dataset.originalName = element.textContent || '';
+                }
+
+                return element.dataset.originalName;
+            };
+
+            const escapeSearchRegExp = function (value) {
+                const text = typeof value === 'string' ? value : String(value || '');
+
+                return text.replace(/[.*+?^${}()|[\]\\]/g, '\$&');
+            };
+
+            const highlightSearchMatch = function (element, query) {
+                if (!element) {
+                    return;
+                }
+
+                const originalName = ensureOriginalText(element);
+
+                if (!query) {
+                    element.innerHTML = originalName;
+                    return;
+                }
+
+                const pattern = new RegExp('(' + escapeSearchRegExp(query) + ')', 'ig');
+                element.innerHTML = originalName.replace(pattern, '<mark>$1</mark>');
+            };
+
+            const expandFolderForSearchMatch = function (folderNode) {
+                if (!folderNode) {
+                    return;
+                }
+
+                const folderButton = folderNode.querySelector('[data-folder-toggle]');
+
+                if (!folderButton) {
+                    return;
+                }
+
+                if (folderButton.getAttribute('aria-expanded') === 'true') {
+                    return;
+                }
+
+                folderNode.dataset.expandedBySearch = 'true';
+                handleFolderToggle(folderButton);
+            };
+
+            const collapseFoldersExpandedBySearch = function () {
+                if (!executedNodesContainer) {
+                    return;
+                }
+
+                const expandedFolders = executedNodesContainer.querySelectorAll('[data-folder-node][data-expanded-by-search="true"]');
+
+                expandedFolders.forEach(function (folderNode) {
+                    const folderButton = folderNode.querySelector('[data-folder-toggle]');
+
+                    if (folderButton && folderButton.getAttribute('aria-expanded') === 'true') {
+                        handleFolderToggle(folderButton);
+                    }
+
+                    delete folderNode.dataset.expandedBySearch;
+                });
+            };
+
+            const toggleSearchVisibility = function (element, shouldHide) {
+                if (!element) {
+                    return;
+                }
+
+                if (shouldHide) {
+                    element.classList.add(hiddenBySearchClass);
+                } else {
+                    element.classList.remove(hiddenBySearchClass);
+                }
+            };
+
+            
 
             const closeFileModal = function () {
                 if (!fileModal) {
@@ -840,6 +957,226 @@
             };
 
             updateAllBulkButtonStates();
+
+            const folderLoadingPromises = new WeakMap();
+
+            const loadFolderChildrenContent = function (folderNode, options = {}) {
+                if (!folderNode) {
+                    return Promise.resolve(false);
+                }
+
+                const loadedState = folderNode.dataset.loaded || '';
+
+                if (loadedState === 'true') {
+                    return Promise.resolve(false);
+                }
+
+                if (folderLoadingPromises.has(folderNode)) {
+                    return folderLoadingPromises.get(folderNode);
+                }
+
+                const children = folderNode.querySelector('[data-folder-children]');
+                const contentTarget = children
+                    ? children.querySelector('[data-folder-children-content]') || children
+                    : null;
+                const button = folderNode.querySelector('[data-folder-toggle]');
+
+                if (!children || !contentTarget || !button) {
+                    return Promise.resolve(false);
+                }
+
+                const baseUrl = button.dataset.loadUrl;
+
+                if (!baseUrl) {
+                    return Promise.resolve(false);
+                }
+
+                const showLoadingMessage = options.showLoading !== false;
+
+                const loadPromise = (async function () {
+                    folderNode.dataset.loaded = 'loading';
+
+                    if (showLoadingMessage) {
+                        contentTarget.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
+                    }
+
+                    const depth = children.dataset.depth || '0';
+                    const path = button.dataset.folderPath || '';
+                    const params = new URLSearchParams({
+                        path: path,
+                        depth: depth,
+                    });
+
+                    try {
+                        const response = await fetch(baseUrl + '?' + params.toString(), {
+                            headers: {
+                                'Accept': 'application/json',
+                            },
+                        });
+
+                        const payload = await response.json().catch(function () {
+                            return null;
+                        });
+
+                        if (!response.ok) {
+                            const message = payload && typeof payload.message === 'string'
+                                ? payload.message
+                                : 'Не вдалося завантажити вміст папки.';
+                            throw new Error(message);
+                        }
+
+                        contentTarget.innerHTML = payload && typeof payload.html === 'string'
+                            ? payload.html
+                            : '';
+                        folderNode.dataset.loaded = 'true';
+                        updateAllBulkButtonStates();
+                        children.querySelectorAll('[data-delete-with-questions-toggle]').forEach(function (toggle) {
+                            syncDeleteWithQuestionsInputs(toggle.dataset.className || '', toggle.checked);
+                        });
+
+                        return true;
+                    } catch (error) {
+                        const message = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : 'Не вдалося завантажити вміст папки.';
+
+                        contentTarget.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
+                        folderNode.dataset.loaded = 'error';
+                        showFeedback(message, 'error');
+
+                        return false;
+                    } finally {
+                        folderLoadingPromises.delete(folderNode);
+                    }
+                })();
+
+                folderLoadingPromises.set(folderNode, loadPromise);
+
+                return loadPromise;
+            };
+
+            const ensureAllFoldersLoadedForSearch = function () {
+                if (!executedNodesContainer) {
+                    return Promise.resolve(false);
+                }
+
+                const foldersNeedingLoad = Array.from(executedNodesContainer.querySelectorAll('[data-folder-node]')).filter(function (folderNode) {
+                    return (folderNode.dataset.loaded || '') !== 'true';
+                });
+
+                if (!foldersNeedingLoad.length) {
+                    return Promise.resolve(false);
+                }
+
+                return Promise.all(foldersNeedingLoad.map(function (folderNode) {
+                    return loadFolderChildrenContent(folderNode, { showLoading: false });
+                })).then(function (results) {
+                    return results.some(function (result) {
+                        return !!result;
+                    });
+                });
+            };
+
+            const applyExecutedSeederSearch = function () {
+                if (!executedNodesContainer) {
+                    return;
+                }
+
+                const query = executedSearchInput ? (executedSearchInput.value || '').trim() : '';
+                const normalizedQuery = query.toLowerCase();
+                let matchCount = 0;
+
+                if (normalizedQuery) {
+                    ensureAllFoldersLoadedForSearch().then(function (loadedAny) {
+                        if (loadedAny) {
+                            applyExecutedSeederSearch();
+                        }
+                    });
+                } else {
+                    collapseFoldersExpandedBySearch();
+                }
+
+                const seederNodes = executedNodesContainer.querySelectorAll('[data-seeder-node]');
+
+                seederNodes.forEach(function (node) {
+                    const nameElement = node.querySelector('[data-seeder-name]');
+
+                    if (!nameElement) {
+                        toggleSearchVisibility(node, normalizedQuery.length > 0);
+                        return;
+                    }
+
+                    if (!normalizedQuery) {
+                        highlightSearchMatch(nameElement, '');
+                        toggleSearchVisibility(node, false);
+                        return;
+                    }
+
+                    const originalName = ensureOriginalText(nameElement);
+
+                    if (originalName.toLowerCase().indexOf(normalizedQuery) !== -1) {
+                        matchCount += 1;
+                        highlightSearchMatch(nameElement, query);
+                        toggleSearchVisibility(node, false);
+                    } else {
+                        highlightSearchMatch(nameElement, '');
+                        toggleSearchVisibility(node, true);
+                    }
+                });
+
+                const folderNodes = Array.from(executedNodesContainer.querySelectorAll('[data-folder-node]'));
+
+                folderNodes.sort(function (a, b) {
+                    const depthA = parseInt(a.dataset.depth || '0', 10) || 0;
+                    const depthB = parseInt(b.dataset.depth || '0', 10) || 0;
+
+                    return depthB - depthA;
+                });
+
+                folderNodes.forEach(function (folderNode) {
+                    const folderNameElement = folderNode.querySelector('[data-folder-name]');
+                    const folderOriginalName = folderNameElement ? ensureOriginalText(folderNameElement) : '';
+
+                    if (!normalizedQuery) {
+                        if (folderNameElement) {
+                            highlightSearchMatch(folderNameElement, '');
+                        }
+
+                        toggleSearchVisibility(folderNode, false);
+                        return;
+                    }
+
+                    let folderNameMatches = false;
+
+                    if (folderOriginalName && folderOriginalName.toLowerCase().indexOf(normalizedQuery) !== -1) {
+                        folderNameMatches = true;
+                        matchCount += 1;
+                        if (folderNameElement) {
+                            highlightSearchMatch(folderNameElement, query);
+                        }
+                    } else if (folderNameElement) {
+                        highlightSearchMatch(folderNameElement, '');
+                    }
+
+                    const hasVisibleSeeder = folderNode.querySelector('[data-seeder-node]:not(.' + hiddenBySearchClass + ')');
+                    const hasVisibleFolder = folderNode.querySelector('[data-folder-node]:not(.' + hiddenBySearchClass + ')');
+                    const shouldHide = !folderNameMatches && !hasVisibleSeeder && !hasVisibleFolder;
+
+                    toggleSearchVisibility(folderNode, shouldHide);
+
+                    if (!shouldHide && !folderNameMatches) {
+                        expandFolderForSearchMatch(folderNode);
+                    }
+                });
+
+                if (executedSearchEmptyState) {
+                    if (normalizedQuery && matchCount === 0) {
+                        executedSearchEmptyState.classList.remove('hidden');
+                    } else {
+                        executedSearchEmptyState.classList.add('hidden');
+                    }
+                }
+            };
 
             const confirmationModal = document.getElementById('seed-run-confirmation-modal');
             const confirmationMessage = confirmationModal ? confirmationModal.querySelector('[data-confirm-message]') : null;
@@ -1235,60 +1572,10 @@
 
                 children.classList.remove('hidden');
 
-                if (folderNode.dataset.loaded === 'true') {
-                    return;
-                }
+                const loaded = await loadFolderChildrenContent(folderNode, { showLoading: true });
 
-                const baseUrl = button.dataset.loadUrl;
-
-                if (!baseUrl) {
-                    return;
-                }
-
-                folderNode.dataset.loaded = 'loading';
-                const depth = children.dataset.depth || '0';
-                const path = button.dataset.folderPath || '';
-                const params = new URLSearchParams({
-                    path: path,
-                    depth: depth,
-                });
-
-                contentTarget.innerHTML = '<p class="text-xs text-gray-500">Завантаження…</p>';
-
-                try {
-                    const response = await fetch(baseUrl + '?' + params.toString(), {
-                        headers: {
-                            'Accept': 'application/json',
-                        },
-                    });
-
-                    const payload = await response.json().catch(function () {
-                        return null;
-                    });
-
-                    if (!response.ok) {
-                        const message = payload && typeof payload.message === 'string'
-                            ? payload.message
-                            : 'Не вдалося завантажити вміст папки.';
-                        throw new Error(message);
-                    }
-
-                    contentTarget.innerHTML = payload && typeof payload.html === 'string'
-                        ? payload.html
-                        : '';
-                    folderNode.dataset.loaded = 'true';
-                    updateAllBulkButtonStates();
-                    children.querySelectorAll('[data-delete-with-questions-toggle]').forEach(function (toggle) {
-                        syncDeleteWithQuestionsInputs(toggle.dataset.className || '', toggle.checked);
-                    });
-                } catch (error) {
-                    const message = error && typeof error.message === 'string' && error.message
-                        ? error.message
-                        : 'Не вдалося завантажити вміст папки.';
-
-                    contentTarget.innerHTML = '<p class="text-xs text-red-600">' + message + '</p>';
-                    folderNode.dataset.loaded = 'error';
-                    showFeedback(message, 'error');
+                if (loaded) {
+                    applyExecutedSeederSearch();
                 }
             };
 
@@ -1770,6 +2057,18 @@
                     }
                 }
             });
+
+            if (executedSearchInput) {
+                executedSearchInput.addEventListener('input', function () {
+                    applyExecutedSeederSearch();
+                });
+
+                executedSearchInput.addEventListener('search', function () {
+                    applyExecutedSeederSearch();
+                });
+            }
+
+            applyExecutedSeederSearch();
         });
     </script>
 @endsection
