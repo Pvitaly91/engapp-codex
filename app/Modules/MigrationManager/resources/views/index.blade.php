@@ -115,5 +115,47 @@
         @endif
       </div>
     </section>
+
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">Всі виконані міграції</h2>
+          <p class="text-sm text-muted-foreground">Список записів у таблиці <code>migrations</code> з можливістю видалення окремих рядків.</p>
+        </div>
+        @if($executedMigrations->isEmpty())
+          <p class="text-sm text-muted-foreground">Таблиця міграцій порожня.</p>
+        @else
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-border/70 text-sm">
+              <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
+                <tr>
+                  <th class="px-4 py-3">Назва</th>
+                  <th class="px-4 py-3">Партія</th>
+                  <th class="px-4 py-3 text-right">Дії</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60 bg-background/60">
+                @foreach($executedMigrations as $migration)
+                  <tr>
+                    <td class="px-4 py-3 font-medium">{{ $migration->migration }}</td>
+                    <td class="px-4 py-3">#{{ $migration->batch }}</td>
+                    <td class="px-4 py-3">
+                      <form method="POST" action="{{ route('migrations.destroy', $migration->migration) }}" class="flex justify-end" onsubmit="return confirm('Видалити запис про міграцію?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="inline-flex items-center rounded-xl bg-destructive/80 px-3 py-1 text-xs font-semibold text-destructive-foreground shadow-soft hover:bg-destructive">
+                          <i class="fa-solid fa-trash mr-2"></i>
+                          Видалити
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        @endif
+      </div>
+    </section>
   </div>
 @endsection

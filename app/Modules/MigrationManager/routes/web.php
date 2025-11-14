@@ -10,4 +10,5 @@ Route::middleware(config('migration-manager.middleware', ['web', 'auth.admin']))
         Route::get('/', [MigrationController::class, 'index'])->name('index');
         Route::post('/run', [MigrationController::class, 'run'])->name('run');
         Route::post('/rollback', [MigrationController::class, 'rollback'])->name('rollback');
+        Route::delete('/records/{migration}', [MigrationController::class, 'destroy'])->name('destroy');
     });

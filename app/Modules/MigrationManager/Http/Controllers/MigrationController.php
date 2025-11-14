@@ -42,12 +42,18 @@ class MigrationController extends Controller
                 ->get();
         }
 
+        $executedMigrations = DB::table('migrations')
+            ->orderBy('batch')
+            ->orderBy('migration')
+            ->get();
+
         $feedback = session('migrations');
 
         return view('migration-manager::index', [
             'pendingMigrations' => $pendingMigrations,
             'lastBatch' => $lastBatchMigrations,
             'feedback' => $feedback,
+            'executedMigrations' => $executedMigrations,
         ]);
     }
 
@@ -80,6 +86,23 @@ class MigrationController extends Controller
                 : 'Команда rollback завершилася з помилкою.';
 
             return $this->redirectWithFeedback($status, $message, $output);
+        } catch (\Throwable $exception) {
+            return $this->redirectWithFeedback('error', $exception->getMessage(), '');
+        }
+    }
+
+    public function destroy(string $migration): RedirectResponse
+    {
+        try {
+            $deleted = DB::table('migrations')
+                ->where('migration', $migration)
+                ->delete();
+
+            if ($deleted === 0) {
+                return $this->redirectWithFeedback('error', 'Запис міграції не знайдено.', '');
+            }
+
+            return $this->redirectWithFeedback('success', 'Запис про міграцію видалено.', '');
         } catch (\Throwable $exception) {
             return $this->redirectWithFeedback('error', $exception->getMessage(), '');
         }
