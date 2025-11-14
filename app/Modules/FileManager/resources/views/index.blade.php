@@ -374,6 +374,7 @@ function fileManager(initialPath = '', initialSelection = '') {
         previewLoading: false,
         previewError: null,
         previewLanguage: 'language-plaintext',
+        previewNeedsHighlight: false,
         showEditor: false,
         editorData: {},
         editorLoading: false,
@@ -382,6 +383,7 @@ function fileManager(initialPath = '', initialSelection = '') {
         editorContent: '',
         editorSaving: false,
         editorInstance: null,
+        editorNeedsMount: false,
         pathHistory: [],
         pendingSelection: null,
 
@@ -458,6 +460,7 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.previewLoading = true;
             this.previewError = null;
             this.previewData = {};
+            this.previewNeedsHighlight = false;
 
             try {
                 const response = await fetch(`{{ route('file-manager.preview') }}?path=${encodeURIComponent(path)}`);
@@ -467,11 +470,7 @@ function fileManager(initialPath = '', initialSelection = '') {
                     this.previewData = data.content;
                     const extension = this.getExtensionFromPath(this.previewData.path || path);
                     this.previewLanguage = this.getHighlightClass(extension);
-                    this.$nextTick(() => {
-                        if (window.hljs && this.$refs.previewCode) {
-                            window.hljs.highlightElement(this.$refs.previewCode);
-                        }
-                    });
+                    this.previewNeedsHighlight = !!this.previewData.is_text;
                 } else {
                     this.previewError = data.error || 'Помилка завантаження';
                 }
@@ -480,6 +479,14 @@ function fileManager(initialPath = '', initialSelection = '') {
                 console.error(e);
             } finally {
                 this.previewLoading = false;
+                if (this.previewNeedsHighlight) {
+                    this.$nextTick(() => {
+                        if (window.hljs && this.$refs.previewCode) {
+                            window.hljs.highlightElement(this.$refs.previewCode);
+                        }
+                        this.previewNeedsHighlight = false;
+                    });
+                }
             }
         },
 
@@ -491,6 +498,7 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.editorContent = '';
             this.editorData = {};
             this.destroyEditor();
+            this.editorNeedsMount = false;
 
             try {
                 const response = await fetch(`{{ route('file-manager.preview') }}?path=${encodeURIComponent(path)}`);
@@ -512,18 +520,26 @@ function fileManager(initialPath = '', initialSelection = '') {
                     extension: this.getExtensionFromPath(data.content.path),
                 };
                 this.editorContent = data.content.content || '';
-
-                this.$nextTick(() => this.mountEditor());
+                this.editorNeedsMount = true;
             } catch (e) {
                 this.editorError = 'Помилка з\'єднання з сервером';
                 console.error(e);
             } finally {
                 this.editorLoading = false;
+                if (this.editorNeedsMount && !this.editorError) {
+                    this.$nextTick(() => this.mountEditor());
+                }
             }
         },
 
         mountEditor() {
+            if (!this.editorNeedsMount) {
+                return;
+            }
+
             if (!window.CodeMirror || !this.$refs.editorTextarea) {
+                // Re-attempt initialization shortly if dependencies are not ready yet
+                setTimeout(() => this.mountEditor(), 100);
                 return;
             }
 
@@ -536,6 +552,7 @@ function fileManager(initialPath = '', initialSelection = '') {
             });
             this.editorInstance.setValue(this.editorContent);
             this.editorInstance.focus();
+            this.editorNeedsMount = false;
         },
 
         destroyEditor() {
@@ -543,6 +560,7 @@ function fileManager(initialPath = '', initialSelection = '') {
                 this.editorInstance.toTextArea();
                 this.editorInstance = null;
             }
+            this.editorNeedsMount = false;
         },
 
         closeEditor() {
