@@ -26,7 +26,7 @@
                           clip-rule="evenodd" />
                 </svg>
                 <i class="fa-solid fa-folder-tree text-slate-500"></i>
-                <span>{{ $node['name'] }}</span>
+                <span data-folder-name>{{ $node['name'] }}</span>
                 <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
             </button>
         </div>

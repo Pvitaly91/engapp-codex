@@ -526,7 +526,7 @@
                 return (fileModalUpdatedAtTemplate || '').replace(':timestamp', timestamp);
             };
 
-            const ensureSeederOriginalName = function (element) {
+            const ensureOriginalText = function (element) {
                 if (!element) {
                     return '';
                 }
@@ -544,12 +544,12 @@
                 return text.replace(/[.*+?^${}()|[\]\\]/g, '\$&');
             };
 
-            const highlightSeederName = function (element, query) {
+            const highlightSearchMatch = function (element, query) {
                 if (!element) {
                     return;
                 }
 
-                const originalName = ensureSeederOriginalName(element);
+                const originalName = ensureOriginalText(element);
 
                 if (!query) {
                     element.innerHTML = originalName;
@@ -558,6 +558,43 @@
 
                 const pattern = new RegExp('(' + escapeSearchRegExp(query) + ')', 'ig');
                 element.innerHTML = originalName.replace(pattern, '<mark>$1</mark>');
+            };
+
+            const expandFolderForSearchMatch = function (folderNode) {
+                if (!folderNode) {
+                    return;
+                }
+
+                const folderButton = folderNode.querySelector('[data-folder-toggle]');
+
+                if (!folderButton) {
+                    return;
+                }
+
+                if (folderButton.getAttribute('aria-expanded') === 'true') {
+                    return;
+                }
+
+                folderNode.dataset.expandedBySearch = 'true';
+                handleFolderToggle(folderButton);
+            };
+
+            const collapseFoldersExpandedBySearch = function () {
+                if (!executedNodesContainer) {
+                    return;
+                }
+
+                const expandedFolders = executedNodesContainer.querySelectorAll('[data-folder-node][data-expanded-by-search="true"]');
+
+                expandedFolders.forEach(function (folderNode) {
+                    const folderButton = folderNode.querySelector('[data-folder-toggle]');
+
+                    if (folderButton && folderButton.getAttribute('aria-expanded') === 'true') {
+                        handleFolderToggle(folderButton);
+                    }
+
+                    delete folderNode.dataset.expandedBySearch;
+                });
             };
 
             const toggleSearchVisibility = function (element, shouldHide) {
@@ -581,6 +618,10 @@
                 const normalizedQuery = query.toLowerCase();
                 let matchCount = 0;
 
+                if (!normalizedQuery) {
+                    collapseFoldersExpandedBySearch();
+                }
+
                 const seederNodes = executedNodesContainer.querySelectorAll('[data-seeder-node]');
 
                 seederNodes.forEach(function (node) {
@@ -592,36 +633,66 @@
                     }
 
                     if (!normalizedQuery) {
-                        highlightSeederName(nameElement, '');
+                        highlightSearchMatch(nameElement, '');
                         toggleSearchVisibility(node, false);
                         return;
                     }
 
-                    const originalName = ensureSeederOriginalName(nameElement);
+                    const originalName = ensureOriginalText(nameElement);
 
                     if (originalName.toLowerCase().indexOf(normalizedQuery) !== -1) {
                         matchCount += 1;
-                        highlightSeederName(nameElement, query);
+                        highlightSearchMatch(nameElement, query);
                         toggleSearchVisibility(node, false);
                     } else {
-                        highlightSeederName(nameElement, '');
+                        highlightSearchMatch(nameElement, '');
                         toggleSearchVisibility(node, true);
                     }
                 });
 
-                const folderNodes = executedNodesContainer.querySelectorAll('[data-folder-node]');
+                const folderNodes = Array.from(executedNodesContainer.querySelectorAll('[data-folder-node]'));
+
+                folderNodes.sort(function (a, b) {
+                    const depthA = parseInt(a.dataset.depth || '0', 10) || 0;
+                    const depthB = parseInt(b.dataset.depth || '0', 10) || 0;
+
+                    return depthB - depthA;
+                });
 
                 folderNodes.forEach(function (folderNode) {
+                    const folderNameElement = folderNode.querySelector('[data-folder-name]');
+                    const folderOriginalName = folderNameElement ? ensureOriginalText(folderNameElement) : '';
+
                     if (!normalizedQuery) {
+                        if (folderNameElement) {
+                            highlightSearchMatch(folderNameElement, '');
+                        }
+
                         toggleSearchVisibility(folderNode, false);
                         return;
                     }
 
+                    let folderNameMatches = false;
+
+                    if (folderOriginalName && folderOriginalName.toLowerCase().indexOf(normalizedQuery) !== -1) {
+                        folderNameMatches = true;
+                        matchCount += 1;
+                        if (folderNameElement) {
+                            highlightSearchMatch(folderNameElement, query);
+                        }
+                    } else if (folderNameElement) {
+                        highlightSearchMatch(folderNameElement, '');
+                    }
+
                     const hasVisibleSeeder = folderNode.querySelector('[data-seeder-node]:not(.' + hiddenBySearchClass + ')');
                     const hasVisibleFolder = folderNode.querySelector('[data-folder-node]:not(.' + hiddenBySearchClass + ')');
-                    const shouldHide = !hasVisibleSeeder && !hasVisibleFolder;
+                    const shouldHide = !folderNameMatches && !hasVisibleSeeder && !hasVisibleFolder;
 
                     toggleSearchVisibility(folderNode, shouldHide);
+
+                    if (!shouldHide && !folderNameMatches) {
+                        expandFolderForSearchMatch(folderNode);
+                    }
                 });
 
                 if (executedSearchEmptyState) {
