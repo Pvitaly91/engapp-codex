@@ -3,7 +3,11 @@
 @section('title', 'Файловий менеджер')
 
 @section('content')
-<div class="container mx-auto px-4" x-data="fileManager(@js($initialPath ?? ''), @js($initialSelection ?? ''))">
+<div
+    class="container mx-auto px-4"
+    x-data="fileManager(@js($initialPath ?? ''), @js($initialSelection ?? ''))"
+    x-init="init()"
+>
     <div class="mb-6">
         <h1 class="text-3xl font-bold text-gray-800 mb-2">Файловий менеджер</h1>
         <p class="text-gray-600">Перегляд структури файлів та папок проекту</p>
