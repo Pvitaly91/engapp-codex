@@ -19,12 +19,16 @@ class FileManagerController extends Controller
     /**
      * Display the file manager interface
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         $basePath = $this->fileSystemService->getBasePath();
+        $initialPath = trim((string) $request->query('path', '')); 
+        $initialSelection = trim((string) $request->query('select', ''));
 
         return view('file-manager::index', [
             'basePath' => $basePath,
+            'initialPath' => $initialPath,
+            'initialSelection' => $initialSelection,
         ]);
     }
 

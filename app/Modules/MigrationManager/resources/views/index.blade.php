@@ -122,6 +122,38 @@
           <h2 class="text-2xl font-semibold">Всі виконані міграції</h2>
           <p class="text-sm text-muted-foreground">Список записів у таблиці <code>migrations</code> з можливістю видалення окремих рядків.</p>
         </div>
+        <form method="GET" action="{{ route('migrations.index') }}" class="grid gap-4 md:grid-cols-4">
+          <div class="md:col-span-2">
+            <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" for="migration-search">Пошук</label>
+            <input id="migration-search" type="text" name="search" value="{{ $search }}" placeholder="Назва міграції"
+                   class="mt-1 w-full rounded-2xl border border-border/70 bg-background/80 px-4 py-2 text-sm focus:border-primary focus:ring-0" />
+          </div>
+          <div>
+            <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" for="migration-sort">Сортувати за</label>
+            <select id="migration-sort" name="sort" class="mt-1 w-full rounded-2xl border border-border/70 bg-background/80 px-4 py-2 text-sm focus:border-primary focus:ring-0">
+              <option value="batch" @selected($sortField === 'batch')>Номер партії</option>
+              <option value="migration" @selected($sortField === 'migration')>Назва</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" for="migration-direction">Напрямок</label>
+            <select id="migration-direction" name="direction" class="mt-1 w-full rounded-2xl border border-border/70 bg-background/80 px-4 py-2 text-sm focus:border-primary focus:ring-0">
+              <option value="desc" @selected($sortDirection === 'desc')>Спадаюче</option>
+              <option value="asc" @selected($sortDirection === 'asc')>Зростаюче</option>
+            </select>
+          </div>
+          <div class="md:col-span-4 flex items-end justify-end">
+            <button type="submit" class="inline-flex items-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
+              <i class="fa-solid fa-filter mr-2"></i>
+              Застосувати
+            </button>
+            @if($search || $sortField !== 'batch' || $sortDirection !== 'desc')
+              <a href="{{ route('migrations.index') }}" class="ml-3 inline-flex items-center rounded-2xl border border-border/60 px-4 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground">
+                Скинути
+              </a>
+            @endif
+          </div>
+        </form>
         @if($executedMigrations->isEmpty())
           <p class="text-sm text-muted-foreground">Таблиця міграцій порожня.</p>
         @else
@@ -131,6 +163,9 @@
                 <tr>
                   <th class="px-4 py-3">Назва</th>
                   <th class="px-4 py-3">Партія</th>
+                  @if($fileManagerAvailable)
+                    <th class="px-4 py-3">Файл</th>
+                  @endif
                   <th class="px-4 py-3 text-right">Дії</th>
                 </tr>
               </thead>
@@ -139,6 +174,23 @@
                   <tr>
                     <td class="px-4 py-3 font-medium">{{ $migration->migration }}</td>
                     <td class="px-4 py-3">#{{ $migration->batch }}</td>
+                    @if($fileManagerAvailable)
+                      <td class="px-4 py-3 text-xs">
+                        @php($paths = $executedMigrationPaths[$migration->migration] ?? null)
+                        @if($paths)
+                          <div class="flex flex-col gap-1">
+                            <a href="{{ route('file-manager.index', array_filter(['path' => $paths['directory'] ?? null, 'select' => $paths['file'] ?? null], fn ($value) => $value !== null)) }}" class="text-primary hover:text-primary/80" target="_blank">
+                              Переглянути файл
+                            </a>
+                            <a href="{{ route('file-manager.index', ['path' => $paths['directory']]) }}" class="text-primary hover:text-primary/80" target="_blank">
+                              Відкрити папку
+                            </a>
+                          </div>
+                        @else
+                          <span class="text-muted-foreground">Файл відсутній</span>
+                        @endif
+                      </td>
+                    @endif
                     <td class="px-4 py-3">
                       <form method="POST" action="{{ route('migrations.destroy', $migration->migration) }}" class="flex justify-end" onsubmit="return confirm('Видалити запис про міграцію?');">
                         @csrf

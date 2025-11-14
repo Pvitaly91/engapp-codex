@@ -110,7 +110,7 @@ php artisan vendor:publish --tag=file-manager-views
 
 Модуль надає наступні endpoints:
 
-- `GET /admin/file-manager` - Головна сторінка файлового менеджера
+- `GET /admin/file-manager` - Головна сторінка файлового менеджера (параметри `path` і `select` дозволяють відкрити конкретну папку й одразу підсвітити файл)
 - `GET /admin/file-manager/tree?path={path}` - Отримати список файлів та папок
 - `GET /admin/file-manager/info?path={path}` - Отримати інформацію про файл/папку
 - `GET /admin/file-manager/preview?path={path}` - Отримати вміст текстового файлу
@@ -149,6 +149,17 @@ php artisan vendor:publish --tag=file-manager-views
 'allow_download' => false,
 'allow_preview' => false,
 ```
+
+## Глибокі посилання
+
+Файловий менеджер підтримує відкриття конкретної директорії або файлу за допомогою query-параметрів:
+
+- `path` — відносний шлях до папки, яку слід відкрити одразу після завантаження сторінки (наприклад, `database/migrations`).
+- `select` — відносний шлях до файлу, який потрібно виділити в списку (наприклад, `database/migrations/2023_01_01_000000_create_users_table.php`).
+
+Приклад лінку: `{{ route('file-manager.index', ['path' => 'database/migrations', 'select' => 'database/migrations/2023_01_01_000000_create_users_table.php']) }}`.
+
+Це дозволяє іншим модулям (наприклад, менеджеру міграцій) відкривати файловий менеджер вже в потрібному місці.
 
 ## Вимоги
 

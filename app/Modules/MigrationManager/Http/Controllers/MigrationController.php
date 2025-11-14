@@ -4,13 +4,16 @@ namespace App\Modules\MigrationManager\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 class MigrationController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
         $migrator = app('migrator');
 
@@ -42,10 +45,36 @@ class MigrationController extends Controller
                 ->get();
         }
 
-        $executedMigrations = DB::table('migrations')
-            ->orderBy('batch')
-            ->orderBy('migration')
+        $search = trim((string) $request->query('search', ''));
+        $sortField = $request->query('sort', 'batch');
+        $direction = $request->query('direction', 'desc');
+
+        $allowedSorts = ['migration', 'batch'];
+        if (! in_array($sortField, $allowedSorts, true)) {
+            $sortField = 'batch';
+        }
+
+        $direction = strtolower($direction) === 'asc' ? 'asc' : 'desc';
+
+        $executedQuery = DB::table('migrations');
+
+        if ($search !== '') {
+            $executedQuery->where('migration', 'like', '%'.$search.'%');
+        }
+
+        $executedMigrations = $executedQuery
+            ->orderBy($sortField, $direction)
+            ->orderBy($sortField === 'migration' ? 'batch' : 'migration')
             ->get();
+
+        $fileManagerAvailable = Route::has('file-manager.index');
+
+        $executedMigrationPaths = collect($migrationFiles)
+            ->mapWithKeys(fn ($path, $migration) => [$migration => [
+                'file' => $this->toRelativePath($path),
+                'directory' => $this->toRelativeDirectory($path),
+            ]])
+            ->all();
 
         $feedback = session('migrations');
 
@@ -54,6 +83,11 @@ class MigrationController extends Controller
             'lastBatch' => $lastBatchMigrations,
             'feedback' => $feedback,
             'executedMigrations' => $executedMigrations,
+            'search' => $search,
+            'sortField' => $sortField,
+            'sortDirection' => $direction,
+            'fileManagerAvailable' => $fileManagerAvailable,
+            'executedMigrationPaths' => $executedMigrationPaths,
         ]);
     }
 
@@ -117,5 +151,32 @@ class MigrationController extends Controller
                 'message' => $message,
                 'output' => $output,
             ]);
+    }
+
+    private function toRelativePath(string $absolutePath): string
+    {
+        $normalized = str_replace('\\', '/', $absolutePath);
+        $base = str_replace('\\', '/', base_path()).'/';
+
+        if (! Str::startsWith($normalized, $base)) {
+            return ltrim($normalized, '/');
+        }
+
+        return ltrim(Str::after($normalized, $base), '/');
+    }
+
+    private function toRelativeDirectory(string $absolutePath): string
+    {
+        $relative = $this->toRelativePath($absolutePath);
+        if ($relative === '') {
+            return '';
+        }
+        $directory = str_replace('\\', '/', dirname($relative));
+
+        if ($directory === '.' || $directory === DIRECTORY_SEPARATOR) {
+            return '';
+        }
+
+        return ltrim($directory, '/');
     }
 }
