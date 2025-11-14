@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Modules\MigrationManager\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 
@@ -43,7 +44,7 @@ class MigrationController extends Controller
 
         $feedback = session('migrations');
 
-        return view('migrations.index', [
+        return view('migration-manager::index', [
             'pendingMigrations' => $pendingMigrations,
             'lastBatch' => $lastBatchMigrations,
             'feedback' => $feedback,
