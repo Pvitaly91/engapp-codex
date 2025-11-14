@@ -360,6 +360,18 @@
 </div>
 
 <script>
+const FILE_MANAGER_CODEMIRROR_SOURCES = [
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js',
+];
+
 function fileManager(initialPath = '', initialSelection = '') {
     return {
         initialPath,
@@ -384,6 +396,9 @@ function fileManager(initialPath = '', initialSelection = '') {
         editorSaving: false,
         editorInstance: null,
         editorNeedsMount: false,
+        editorAssetsReady: !!window.CodeMirror,
+        editorAssetsPromise: null,
+        editorScriptSources: FILE_MANAGER_CODEMIRROR_SOURCES,
         pathHistory: [],
         pendingSelection: null,
 
@@ -514,6 +529,14 @@ function fileManager(initialPath = '', initialSelection = '') {
                     return;
                 }
 
+                try {
+                    await this.ensureEditorAssets();
+                } catch (assetError) {
+                    console.error(assetError);
+                    this.editorError = 'Не вдалося завантажити компоненти редактора';
+                    return;
+                }
+
                 this.editorData = {
                     path: data.content.path,
                     name: data.content.name,
@@ -553,6 +576,61 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.editorInstance.setValue(this.editorContent);
             this.editorInstance.focus();
             this.editorNeedsMount = false;
+        },
+
+        async ensureEditorAssets() {
+            if (this.editorAssetsReady && window.CodeMirror) {
+                return;
+            }
+
+            if (this.editorAssetsPromise) {
+                return this.editorAssetsPromise;
+            }
+
+            const scripts = this.editorScriptSources || [];
+            if (scripts.length === 0) {
+                this.editorAssetsReady = true;
+                return;
+            }
+
+            this.editorAssetsPromise = scripts
+                .reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve())
+                .then(() => {
+                    this.editorAssetsReady = true;
+                })
+                .catch(error => {
+                    this.editorAssetsPromise = null;
+                    throw error;
+                });
+
+            return this.editorAssetsPromise;
+        },
+
+        loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const existing = document.querySelector(`script[data-fm-src="${src}"]`);
+                if (existing) {
+                    if (existing.dataset.loaded === 'true') {
+                        resolve();
+                        return;
+                    }
+
+                    existing.addEventListener('load', () => resolve(), { once: true });
+                    existing.addEventListener('error', () => reject(new Error(`Не вдалося завантажити ${src}`)), { once: true });
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = src;
+                script.defer = true;
+                script.dataset.fmSrc = src;
+                script.onload = () => {
+                    script.dataset.loaded = 'true';
+                    resolve();
+                };
+                script.onerror = () => reject(new Error(`Не вдалося завантажити ${src}`));
+                document.head.appendChild(script);
+            });
         },
 
         destroyEditor() {
@@ -714,14 +792,5 @@ function fileManager(initialPath = '', initialSelection = '') {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" integrity="sha512-L56ZWRPcNI0YvrFica8FWHQrFMizxgxYkWwaP42gnikIze8ih/7nToYtL6vhfVqlhK/SXGEdq8np5xpoE2mR7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" integrity="sha512-6WtHb0CQOZgdKzac8AjtKoa6HgMHqmpYJv1nVbWcv16O3MHuvb6jVWeItPxX2VINeodIZ6Tn6PvxI6Bfq5lHvw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-hbDJW60Trw7P3cu6UytzszbmWzxubUoilKx2oyWZMhUlCT3VkOITkkpFmS6r30YIOCwRvDDDeWGPAHDLcGRIDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js" integrity="sha512-0GNsq4CPGK/c/pXHiY/VKwxLBzME2YkdE+5EYXPLkZX31lrT7xvFeoJEB6Digw1VE3DybMT0SqnX+0Gooy2cZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js" integrity="sha512-51nN3Wf9eKJeNEqXWiwxupCSvJzpuG1HsfrN7kYMva9n32CuWHa3gwxObn2ymlk/wEYBLETymFcpnSUsctNk6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js" integrity="sha512-IKh4j/wcgUp3NEPoPFcAckU4iigIvuXvYDn8ApX2HFqRSbuuSSMzdg3NofM8JrIoVNewc19hXtOD87mpy4V/mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js" integrity="sha512-L5/C/PObbIVdQydb9h9NP7VDaRao7IhiHBpjz2uVH54camzatoNgtrENcGukdxbYlR5c+3FihZlyDdc0AGJi/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js" integrity="sha512-N0eZZ+j9RnBbTK1Z4VBPakiobP6KyHR+Y6z+4PSJVpaz6RtWLpmjHtkobaN6D+PfYZ7RUTpujISiFDUFxIr05w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js" integrity="sha512-bHdWu3UwG+329xNXm/SuKD5Vac/mswHxZ34rnOG0r8QwMCKa2QW2LaxhUJW6QcgO5Kb/6VQwWi4KFOeFHrgb3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js" integrity="sha512-1t4bm/FYnGV8eK3opgDdGztqKqRR3YKHyCuXapnwXCfJOLLmObAun1vDLteA94ppIqhzyapMI2vlA38nSxrdbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js" integrity="sha512-EcXcQJuC4TiMQuuLHfoalGexiLRNvKcJsteVEh9UpAJZciV06P88eaJEqn3Ejj6+UeJ8V+RaH//RUW2KIiMzrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js" integrity="sha512-aZk9HDC11FXGeUXLEVXe3G5UpiRaY1oWXcnZ6+QcmGeXgnP9K/Y/xFd25tOfvtTDHkJ/xZ4wNG0Ax7AnCM1jZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 @endpush
