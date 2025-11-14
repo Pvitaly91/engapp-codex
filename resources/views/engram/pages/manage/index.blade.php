@@ -175,21 +175,45 @@
 
                             <div class="space-y-3 md:hidden">
                                 @forelse ($categories as $category)
-                                    <article class="space-y-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm" data-category-search-item>
+                                    @php
+                                        $categoryHiddenText = $category->textBlocks
+                                            ->map(function ($block) {
+                                                return trim(strip_tags(($block->heading ?? '') . ' ' . ($block->body ?? '')));
+                                            })
+                                            ->filter()
+                                            ->implode(' ');
+                                        $categorySearchText = collect([
+                                            $category->title,
+                                            $category->slug,
+                                            strtoupper($category->language),
+                                            $category->pages_count,
+                                            $categoryHiddenText,
+                                        ])
+                                            ->filter()
+                                            ->implode(' ');
+                                    @endphp
+                                    <article
+                                        class="space-y-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+                                        data-category-search-item
+                                        data-search-text="{{ \Illuminate\Support\Str::squish($categorySearchText) }}"
+                                        data-search-hidden="{{ \Illuminate\Support\Str::squish($categoryHiddenText) }}"
+                                    >
                                         <header class="flex flex-col gap-2">
-                                            <h3 class="text-base font-semibold text-gray-900">{{ $category->title }}</h3>
+                                            <h3 class="text-base font-semibold text-gray-900">
+                                                <span data-search-highlight>{{ $category->title }}</span>
+                                            </h3>
                                             <dl class="grid grid-cols-2 gap-3 text-xs text-gray-500">
                                                 <div>
                                                     <dt class="font-medium uppercase tracking-wide text-gray-400">Slug</dt>
-                                                    <dd class="text-sm text-gray-700">{{ $category->slug }}</dd>
+                                                    <dd class="text-sm text-gray-700" data-search-highlight>{{ $category->slug }}</dd>
                                                 </div>
                                                 <div>
                                                     <dt class="font-medium uppercase tracking-wide text-gray-400">Мова</dt>
-                                                    <dd class="text-sm text-gray-700">{{ strtoupper($category->language) }}</dd>
+                                                    <dd class="text-sm text-gray-700" data-search-highlight>{{ strtoupper($category->language) }}</dd>
                                                 </div>
                                                 <div>
                                                     <dt class="font-medium uppercase tracking-wide text-gray-400">Сторінок</dt>
-                                                    <dd class="text-sm text-gray-700">{{ $category->pages_count }}</dd>
+                                                    <dd class="text-sm text-gray-700" data-search-highlight>{{ $category->pages_count }}</dd>
                                                 </div>
                                             </dl>
                                         </header>
@@ -203,6 +227,7 @@
                                                 <button type="submit" class="inline-flex w-full items-center justify-center rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100">Видалити</button>
                                             </form>
                                         </div>
+                                        <p class="mt-1 text-xs text-gray-500 hidden" data-search-snippet></p>
                                     </article>
                                 @empty
                                     <div class="rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center text-sm text-gray-500">
@@ -230,11 +255,36 @@
                                         </thead>
                                         <tbody class="divide-y divide-gray-200">
                                             @forelse ($categories as $category)
-                                                <tr class="hover:bg-gray-50" data-category-search-item>
-                                                    <td class="px-4 py-3 font-medium text-gray-900">{{ $category->title }}</td>
-                                                    <td class="px-4 py-3 text-gray-600">{{ $category->slug }}</td>
-                                                    <td class="px-4 py-3 text-gray-600">{{ strtoupper($category->language) }}</td>
-                                                    <td class="px-4 py-3 text-gray-600">{{ $category->pages_count }}</td>
+                                                @php
+                                                    $categoryHiddenText = $category->textBlocks
+                                                        ->map(function ($block) {
+                                                            return trim(strip_tags(($block->heading ?? '') . ' ' . ($block->body ?? '')));
+                                                        })
+                                                        ->filter()
+                                                        ->implode(' ');
+                                                    $categorySearchText = collect([
+                                                        $category->title,
+                                                        $category->slug,
+                                                        strtoupper($category->language),
+                                                        $category->pages_count,
+                                                        $categoryHiddenText,
+                                                    ])
+                                                        ->filter()
+                                                        ->implode(' ');
+                                                @endphp
+                                                <tr
+                                                    class="hover:bg-gray-50"
+                                                    data-category-search-item
+                                                    data-search-text="{{ \Illuminate\Support\Str::squish($categorySearchText) }}"
+                                                    data-search-hidden="{{ \Illuminate\Support\Str::squish($categoryHiddenText) }}"
+                                                >
+                                                    <td class="px-4 py-3 font-medium text-gray-900">
+                                                        <span data-search-highlight>{{ $category->title }}</span>
+                                                        <div class="mt-1 text-xs text-gray-500 hidden" data-search-snippet></div>
+                                                    </td>
+                                                    <td class="px-4 py-3 text-gray-600" data-search-highlight>{{ $category->slug }}</td>
+                                                    <td class="px-4 py-3 text-gray-600" data-search-highlight>{{ strtoupper($category->language) }}</td>
+                                                    <td class="px-4 py-3 text-gray-600" data-search-highlight>{{ $category->pages_count }}</td>
                                                     <td class="px-4 py-3">
                                                         <div class="flex justify-end gap-2">
                                                             <a href="{{ route('pages.manage.categories.blocks.index', $category) }}" class="rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm text-indigo-700 hover:bg-indigo-100">Опис</a>
@@ -301,17 +351,44 @@
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 @forelse ($pages as $page)
-                                    <tr class="hover:bg-gray-50" data-pages-search-item>
+                                    @php
+                                        $pageHiddenText = collect([
+                                            strip_tags($page->text ?? ''),
+                                            $page->textBlocks->pluck('heading')->implode(' '),
+                                            $page->textBlocks->pluck('body')->map(fn ($body) => strip_tags($body ?? ''))->implode(' '),
+                                        ])
+                                            ->filter()
+                                            ->implode(' ');
+                                        $pageSearchText = collect([
+                                            $page->title,
+                                            $page->slug,
+                                            $page->category?->title,
+                                            $page->category?->slug,
+                                            $page->updated_at?->diffForHumans(),
+                                            $pageHiddenText,
+                                        ])
+                                            ->filter()
+                                            ->implode(' ');
+                                    @endphp
+                                    <tr
+                                        class="hover:bg-gray-50"
+                                        data-pages-search-item
+                                        data-search-text="{{ \Illuminate\Support\Str::squish($pageSearchText) }}"
+                                        data-search-hidden="{{ \Illuminate\Support\Str::squish($pageHiddenText) }}"
+                                    >
                                         <td class="px-4 py-3 font-medium">
                                             @if ($page->category)
-                                                <a href="{{ route('pages.show', [$page->category->slug, $page->slug]) }}" class="hover:underline" target="_blank" rel="noopener">{{ $page->title }}</a>
+                                                <a href="{{ route('pages.show', [$page->category->slug, $page->slug]) }}" class="hover:underline" target="_blank" rel="noopener">
+                                                    <span data-search-highlight>{{ $page->title }}</span>
+                                                </a>
                                             @else
-                                                {{ $page->title }}
+                                                <span data-search-highlight>{{ $page->title }}</span>
                                             @endif
+                                            <div class="mt-1 text-xs text-gray-500 hidden" data-search-snippet></div>
                                         </td>
-                                        <td class="px-4 py-3 text-gray-500">{{ $page->category?->title ?? '—' }}</td>
-                                        <td class="px-4 py-3 text-gray-500">{{ $page->slug }}</td>
-                                        <td class="px-4 py-3 text-gray-500">{{ $page->updated_at?->diffForHumans() }}</td>
+                                        <td class="px-4 py-3 text-gray-500" data-search-highlight>{{ $page->category?->title ?? '—' }}</td>
+                                        <td class="px-4 py-3 text-gray-500" data-search-highlight>{{ $page->slug }}</td>
+                                        <td class="px-4 py-3 text-gray-500" data-search-highlight>{{ $page->updated_at?->diffForHumans() }}</td>
                                         <td class="px-4 py-3">
                                             <div class="flex justify-end gap-2">
                                                 <a href="{{ route('pages.manage.edit', $page) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
@@ -379,7 +456,136 @@
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const normalizeSearchValue = (value) => value.toLowerCase().replace(/\s+/g, ' ').trim();
+            const HIGHLIGHT_CLASS = 'rounded bg-yellow-200 px-1 text-gray-900';
+
+            const normalizeSearchValue = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+            const escapeHtml = (value) =>
+                (value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+            const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\-]/g, '\$&');
+
+            const highlightString = (text, query) => {
+                const normalizedQuery = normalizeSearchValue(query);
+
+                if (!normalizedQuery.length) {
+                    return escapeHtml(text || '');
+                }
+
+                const safeText = text || '';
+                const queryPattern = normalizedQuery
+                    .split(' ')
+                    .filter(Boolean)
+                    .map((part) => escapeRegExp(part))
+                    .join('\\s+');
+
+                if (!queryPattern.length) {
+                    return escapeHtml(safeText);
+                }
+
+                const regex = new RegExp(queryPattern, 'gi');
+                let highlighted = '';
+                let lastIndex = 0;
+                let match;
+
+                while ((match = regex.exec(safeText)) !== null) {
+                    highlighted += escapeHtml(safeText.slice(lastIndex, match.index));
+                    highlighted += `<mark class="${HIGHLIGHT_CLASS}">${escapeHtml(match[0])}</mark>`;
+                    lastIndex = match.index + match[0].length;
+                }
+
+                highlighted += escapeHtml(safeText.slice(lastIndex));
+
+                return highlighted;
+            };
+
+            const buildSnippet = (text, query, radius = 80) => {
+                const normalizedQuery = normalizeSearchValue(query);
+
+                if (!normalizedQuery.length) {
+                    return '';
+                }
+
+                const safeText = text || '';
+                const lowerText = safeText.toLowerCase();
+                const matchIndex = lowerText.indexOf(normalizedQuery);
+
+                if (matchIndex === -1) {
+                    return '';
+                }
+
+                const start = Math.max(0, matchIndex - radius);
+                const end = Math.min(safeText.length, matchIndex + normalizedQuery.length + radius);
+                const snippet = safeText.slice(start, end).trim();
+                const prefix = start > 0 ? '&hellip;' : '';
+                const suffix = end < safeText.length ? '&hellip;' : '';
+
+                return `${prefix}${highlightString(snippet, query)}${suffix}`;
+            };
+
+            const updateHighlightsForItem = (item, rawQuery, normalizedQuery) => {
+                const targets = item.querySelectorAll('[data-search-highlight]');
+                let hasVisibleMatch = false;
+
+                targets.forEach((target) => {
+                    if (!target.dataset.searchOriginalText) {
+                        target.dataset.searchOriginalText = target.textContent.trim();
+                    }
+
+                    const originalText = target.dataset.searchOriginalText;
+
+                    if (!normalizedQuery.length) {
+                        target.textContent = originalText;
+                        return;
+                    }
+
+                    const normalizedOriginal = normalizeSearchValue(originalText);
+
+                    if (normalizedOriginal.includes(normalizedQuery)) {
+                        target.innerHTML = highlightString(originalText, rawQuery);
+                        hasVisibleMatch = true;
+                    } else {
+                        target.textContent = originalText;
+                    }
+                });
+
+                return hasVisibleMatch;
+            };
+
+            const updateSnippetForItem = (item, rawQuery, normalizedQuery, hasVisibleMatch) => {
+                const snippet = item.querySelector('[data-search-snippet]');
+
+                if (!snippet) {
+                    return false;
+                }
+
+                if (!normalizedQuery.length) {
+                    snippet.classList.add('hidden');
+                    snippet.textContent = '';
+                    return false;
+                }
+
+                const hiddenText = item.dataset.searchHidden || '';
+                const normalizedHidden = normalizeSearchValue(hiddenText);
+
+                if (!hiddenText || !normalizedHidden.includes(normalizedQuery) || hasVisibleMatch) {
+                    snippet.classList.add('hidden');
+                    snippet.textContent = '';
+                    return false;
+                }
+
+                const snippetContent = buildSnippet(hiddenText, rawQuery);
+
+                if (!snippetContent) {
+                    snippet.classList.add('hidden');
+                    snippet.textContent = '';
+                    return false;
+                }
+
+                snippet.innerHTML = snippetContent;
+                snippet.classList.remove('hidden');
+                return true;
+            };
 
             const setupLiveSearch = ({ inputSelector, itemSelector, emptySelector }) => {
                 const input = document.querySelector(inputSelector);
@@ -398,17 +604,21 @@
                 }
 
                 const applyFilter = () => {
-                    const query = normalizeSearchValue(input.value || '');
+                    const rawQuery = (input.value || '').trim();
+                    const normalizedQuery = normalizeSearchValue(rawQuery);
                     let visibleCount = 0;
 
                     items.forEach((item) => {
                         const text = normalizeSearchValue(item.dataset.searchText || item.textContent || '');
-                        const shouldShow = query === '' || text.includes(query);
+                        const shouldShow = normalizedQuery === '' || text.includes(normalizedQuery);
                         item.classList.toggle('hidden', !shouldShow);
 
                         if (shouldShow) {
                             visibleCount++;
                         }
+
+                        const hasVisibleMatch = updateHighlightsForItem(item, rawQuery, normalizedQuery);
+                        updateSnippetForItem(item, rawQuery, normalizedQuery, hasVisibleMatch);
                     });
 
                     if (emptyState) {
