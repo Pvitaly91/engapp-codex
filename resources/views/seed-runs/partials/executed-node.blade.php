@@ -26,7 +26,7 @@
                           clip-rule="evenodd" />
                 </svg>
                 <i class="fa-solid fa-folder-tree text-slate-500"></i>
-                <span>{{ $node['name'] }}</span>
+                <span data-folder-name>{{ $node['name'] }}</span>
                 <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
             </button>
         </div>
@@ -112,7 +112,7 @@
                             <div class="flex-1">
                                 <div class="font-mono text-sm text-gray-800 flex flex-wrap items-center gap-2">
                                     <label for="{{ $executedCheckboxId }}" class="cursor-pointer">
-                                        {{ $node['name'] }}
+                                        <span data-seeder-name>{{ $node['name'] }}</span>
                                     </label>
                                     @if($seedRunIsRecent)
                                         <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
