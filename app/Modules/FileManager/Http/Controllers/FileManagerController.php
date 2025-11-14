@@ -176,7 +176,45 @@ class FileManagerController extends Controller
         $fullPath = $this->fileSystemService->getBasePath().'/'.$path;
 
         return FacadeResponse::download($fullPath, $info['name']);
-}
+    }
+
+    /**
+     * Update file contents.
+     */
+    public function update(Request $request): JsonResponse
+    {
+        if (! config('file-manager.allow_edit', true)) {
+            return response()->json([
+                'success' => false,
+                'error' => 'File editing is disabled',
+            ], 403);
+        }
+
+        $path = $this->sanitizePath($request->input('path'));
+        $content = (string) $request->input('content', '');
+
+        if ($path === '') {
+            return response()->json([
+                'success' => false,
+                'error' => 'Path is required',
+            ], 400);
+        }
+
+        $result = $this->fileSystemService->updateFileContent($path, $content);
+
+        if (! $result['success']) {
+            return response()->json([
+                'success' => false,
+                'error' => $result['error'] ?? 'Не вдалося зберегти файл',
+            ], 400);
+        }
+
+        return response()->json([
+            'success' => true,
+            'size' => $result['size'] ?? null,
+            'message' => 'Файл успішно оновлено',
+        ]);
+    }
 
     private function resolveInitialTargets(string $initialPath, string $initialSelection): array
     {

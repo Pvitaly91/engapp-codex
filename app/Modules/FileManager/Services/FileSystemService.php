@@ -136,6 +136,34 @@ class FileSystemService
     }
 
     /**
+     * Update the contents of a file.
+     */
+    public function updateFileContent(string $path, string $content): array
+    {
+        $fullPath = $this->basePath.'/'.$path;
+
+        if (! $this->isValidPath($fullPath) || ! is_file($fullPath)) {
+            return ['success' => false, 'error' => 'Файл недоступний або не існує'];
+        }
+
+        if (! is_writable($fullPath)) {
+            return ['success' => false, 'error' => 'Немає прав на запис у файл'];
+        }
+
+        if (! $this->isTextFile($fullPath)) {
+            return ['success' => false, 'error' => 'Редагування доступне лише для текстових файлів'];
+        }
+
+        $bytes = file_put_contents($fullPath, $content, LOCK_EX);
+
+        if ($bytes === false) {
+            return ['success' => false, 'error' => 'Не вдалося зберегти файл'];
+        }
+
+        return ['success' => true, 'size' => $bytes];
+    }
+
+    /**
      * Get file information
      */
     public function getFileInfo(string $path): ?array
