@@ -16,12 +16,16 @@ class PageController extends Controller
         $categories = $this->categoryList();
         $selectedCategory = $categories->first();
 
-        $selectedCategory?->load(['pages' => fn ($query) => $query->orderBy('title')]);
+        $selectedCategory?->load([
+            'pages' => fn ($query) => $query->orderBy('title'),
+            'textBlocks',
+        ]);
 
         return view('engram.pages.index', [
             'categories' => $categories,
             'selectedCategory' => $selectedCategory,
             'categoryPages' => $selectedCategory?->pages ?? collect(),
+            'categoryDescription' => $this->categoryDescriptionData($selectedCategory),
         ]);
     }
 
@@ -31,12 +35,16 @@ class PageController extends Controller
     public function category(PageCategory $category)
     {
         $categories = $this->categoryList();
-        $category->load(['pages' => fn ($query) => $query->orderBy('title')]);
+        $category->load([
+            'pages' => fn ($query) => $query->orderBy('title'),
+            'textBlocks',
+        ]);
 
         return view('engram.pages.index', [
             'categories' => $categories,
             'selectedCategory' => $category,
             'categoryPages' => $category->pages,
+            'categoryDescription' => $this->categoryDescriptionData($category),
         ]);
     }
 
@@ -102,5 +110,42 @@ class PageController extends Controller
             ->withCount('pages')
             ->orderBy('title')
             ->get();
+    }
+
+    protected function categoryDescriptionData(?PageCategory $category): array
+    {
+        if (! $category) {
+            return [
+                'blocks' => collect(),
+                'subtitleBlock' => null,
+                'columns' => [
+                    'left' => collect(),
+                    'right' => collect(),
+                ],
+                'locale' => app()->getLocale() ?? 'uk',
+                'hasBlocks' => false,
+            ];
+        }
+
+        $blocks = $category->textBlocks ?? collect();
+        $subtitleBlock = $blocks->firstWhere(fn ($block) => $block->type === 'subtitle');
+
+        $columns = [
+            'left' => $blocks->filter(fn ($block) => $block->column === 'left'),
+            'right' => $blocks->filter(fn ($block) => $block->column === 'right'),
+        ];
+
+        $locale = $subtitleBlock->locale
+            ?? ($blocks->first()?->locale)
+            ?? app()->getLocale()
+            ?? 'uk';
+
+        return [
+            'blocks' => $blocks,
+            'subtitleBlock' => $subtitleBlock,
+            'columns' => $columns,
+            'locale' => $locale,
+            'hasBlocks' => $blocks->isNotEmpty(),
+        ];
     }
 }

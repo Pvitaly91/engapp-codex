@@ -14,12 +14,13 @@ class PageManageController extends Controller
     public function index(Request $request)
     {
         $pages = Page::query()
-            ->with('category')
+            ->with(['category', 'textBlocks'])
             ->orderBy('title')
             ->get();
 
         $categories = PageCategory::query()
             ->withCount('pages')
+            ->with('textBlocks')
             ->orderBy('title')
             ->get();
 
@@ -251,7 +252,89 @@ class PageManageController extends Controller
             ->with('status', 'Блок видалено.');
     }
 
+    public function categoryBlocks(PageCategory $category)
+    {
+        $blocks = $category->textBlocks()->get();
+
+        return view('engram.pages.manage.categories.blocks.index', [
+            'category' => $category,
+            'blocks' => $blocks,
+        ]);
+    }
+
+    public function createCategoryBlock(PageCategory $category)
+    {
+        $defaults = [
+            'locale' => app()->getLocale(),
+            'type' => 'box',
+            'column' => 'left',
+            'sort_order' => $this->nextCategorySortOrder($category),
+        ];
+
+        $block = new TextBlock($defaults);
+
+        return view('engram.pages.manage.categories.blocks.create', [
+            'category' => $category,
+            'block' => $block,
+        ]);
+    }
+
+    public function storeCategoryBlock(Request $request, PageCategory $category): RedirectResponse
+    {
+        $data = $this->validatedCategoryBlockData($request, $category);
+
+        $category->textBlocks()->create($data);
+
+        return redirect()
+            ->route('pages.manage.categories.blocks.index', $category)
+            ->with('status', 'Блок опису додано.');
+    }
+
+    public function editCategoryBlock(PageCategory $category, TextBlock $block)
+    {
+        $this->ensureBlockBelongsToCategory($category, $block);
+
+        return view('engram.pages.manage.categories.blocks.edit', [
+            'category' => $category,
+            'block' => $block,
+        ]);
+    }
+
+    public function updateCategoryBlock(Request $request, PageCategory $category, TextBlock $block): RedirectResponse
+    {
+        $this->ensureBlockBelongsToCategory($category, $block);
+
+        $data = $this->validatedCategoryBlockData($request, $category, $block);
+
+        $block->update($data);
+
+        return redirect()
+            ->route('pages.manage.categories.blocks.index', $category)
+            ->with('status', 'Блок опису оновлено.');
+    }
+
+    public function destroyCategoryBlock(PageCategory $category, TextBlock $block): RedirectResponse
+    {
+        $this->ensureBlockBelongsToCategory($category, $block);
+
+        $block->delete();
+
+        return redirect()
+            ->route('pages.manage.categories.blocks.index', $category)
+            ->with('status', 'Блок опису видалено.');
+    }
+
     protected function validatedBlockData(Request $request, Page $page, ?TextBlock $block = null): array
+    {
+        return $this->prepareBlockPayload($request, $block, fn () => $this->nextSortOrder($page));
+    }
+
+    protected function validatedCategoryBlockData(Request $request, PageCategory $category, ?TextBlock $block = null): array
+    {
+        return $this->prepareBlockPayload($request, $block, fn () => $this->nextCategorySortOrder($category));
+    }
+
+    protected function prepareBlockPayload(Request $request, ?TextBlock $block, callable $sortOrderResolver): array
     {
         $data = $request->validate([
             'locale' => ['nullable', 'string', 'max:8'],
@@ -281,7 +364,7 @@ class PageManageController extends Controller
         } elseif ($block) {
             $normalised['sort_order'] = (int) $block->sort_order;
         } else {
-            $normalised['sort_order'] = $this->nextSortOrder($page);
+            $normalised['sort_order'] = (int) call_user_func($sortOrderResolver);
         }
 
         if ($normalised['column'] === null && $normalised['type'] === 'subtitle') {
@@ -313,6 +396,13 @@ class PageManageController extends Controller
         return $currentMax + 10 ?: 10;
     }
 
+    protected function nextCategorySortOrder(PageCategory $category): int
+    {
+        $currentMax = (int) $category->textBlocks()->max('sort_order');
+
+        return $currentMax + 10 ?: 10;
+    }
+
     protected function categories()
     {
         return PageCategory::query()->orderBy('title')->get();
@@ -321,6 +411,13 @@ class PageManageController extends Controller
     protected function ensureBlockBelongsToPage(Page $page, TextBlock $block): void
     {
         if ((int) $block->page_id !== (int) $page->getKey()) {
+            abort(404);
+        }
+    }
+
+    protected function ensureBlockBelongsToCategory(PageCategory $category, TextBlock $block): void
+    {
+        if ((int) $block->page_category_id !== (int) $category->getKey()) {
             abort(404);
         }
     }

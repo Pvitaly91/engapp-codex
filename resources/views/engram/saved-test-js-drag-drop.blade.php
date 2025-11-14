@@ -254,6 +254,12 @@
     background: #fff;
     color: #64748b;
     transition: border-color 0.15s ease, background 0.15s ease;
+    font-size: 0.875rem;
+}
+.drag-quiz__drop[data-verb-hint]:not(.is-filled) {
+    color: #b91c1c;
+    font-weight: 600;
+    font-size: 0.75rem;
 }
 .drag-quiz__drop.is-hover {
     border-color: #60a5fa;
@@ -262,6 +268,8 @@
 .drag-quiz__drop.is-filled {
     border-style: solid;
     color: var(--quiz-text);
+    font-size: 0.875rem;
+    font-weight: normal;
 }
 .drag-quiz__drop.is-correct {
     border-color: var(--quiz-ok);
@@ -357,6 +365,7 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const sentence = line || '';
         const answersArray = Array.isArray(item.answers) ? item.answers : [];
         const answerMap = buildAnswerMap(item, answersArray);
+        const verbHints = item.verb_hints && typeof item.verb_hints === 'object' ? item.verb_hints : {};
 
         const placeholderRegex = /\{a(\d+)\}/g;
         const segments = [];
@@ -374,12 +383,14 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
             const marker = Number.isFinite(number) ? `a${number}` : `a${blanks.length + 1}`;
             const fallbackIndex = Number.isFinite(number) ? number - 1 : blanks.length;
             const answer = answerMap[marker] ?? answersArray[fallbackIndex] ?? '';
+            const verbHint = verbHints[marker] || '';
 
             const blankIndex = blanks.length;
             blanks.push({
                 marker,
                 answer,
                 normalized: normalize(answer),
+                verbHint,
             });
             segments.push({ type: 'blank', blankIndex });
 
@@ -403,10 +414,12 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
                         const blankIndex = blanks.length;
                         const marker = `a${blankIndex + 1}`;
                         const answer = answerMap[marker] ?? answersArray[blankIndex] ?? '';
+                        const verbHint = verbHints[marker] || '';
                         blanks.push({
                             marker,
                             answer,
                             normalized: normalize(answer),
+                            verbHint,
                         });
                         segments.push({ type: 'blank', blankIndex });
                     }
@@ -1059,12 +1072,20 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         selectedTokenWord = null;
     }
 
-    function createDropElement(questionIndex, blankIndex, totalBlanks) {
+    function createDropElement(questionIndex, blankIndex, totalBlanks, verbHint = '') {
         const drop = document.createElement('span');
         drop.className = 'drag-quiz__drop';
         drop.dataset.questionIndex = String(questionIndex);
         drop.dataset.blankIndex = String(blankIndex);
-        drop.textContent = '_____';
+        
+        // Display verb_hint if available, otherwise show default placeholder
+        if (verbHint && String(verbHint).trim()) {
+            drop.textContent = `(${verbHint})`;
+            drop.dataset.verbHint = verbHint;
+        } else {
+            drop.textContent = '_____';
+        }
+        
         drop.tabIndex = 0;
         const suffix = totalBlanks > 1 ? ` (${blankIndex + 1})` : '';
         drop.setAttribute('aria-label', `Drop zone ${questionIndex + 1}${suffix}`);
@@ -1117,7 +1138,9 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
                 }
 
                 if (segment.type === 'blank') {
-                    const drop = createDropElement(idx, segment.blankIndex, question.blanks.length);
+                    const blank = question.blanks[segment.blankIndex];
+                    const verbHint = blank ? blank.verbHint : '';
+                    const drop = createDropElement(idx, segment.blankIndex, question.blanks.length, verbHint);
                     sentence.appendChild(drop);
                 }
             });
@@ -1143,7 +1166,14 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
         const id = tokenEl.dataset.id || tokenEl.getAttribute('data-id');
         const word = tokenEl.dataset.word || tokenEl.textContent.trim();
 
-        drop.textContent = '_____';
+        // Restore original placeholder text (verb_hint or default)
+        const verbHint = drop.dataset.verbHint;
+        if (verbHint && String(verbHint).trim()) {
+            drop.textContent = `(${verbHint})`;
+        } else {
+            drop.textContent = '_____';
+        }
+        
         drop.classList.remove('is-filled', 'is-correct', 'is-wrong');
         drop.removeAttribute('data-token-id');
 
@@ -1267,7 +1297,13 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 
     function resetQuiz({ useShuffle = true } = {}) {
         tasksEl.querySelectorAll('.drag-quiz__drop').forEach((drop) => {
-            drop.textContent = '_____';
+            // Restore original placeholder text (verb_hint or default)
+            const verbHint = drop.dataset.verbHint;
+            if (verbHint && String(verbHint).trim()) {
+                drop.textContent = `(${verbHint})`;
+            } else {
+                drop.textContent = '_____';
+            }
             drop.classList.remove('is-filled', 'is-correct', 'is-wrong');
             drop.removeAttribute('data-token-id');
         });

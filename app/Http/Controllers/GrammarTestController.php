@@ -19,6 +19,7 @@ use App\Services\QuestionVariantService;
 use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
 use App\Services\SavedTestResolver;
+use App\Services\TagAggregationService;
 use App\Models\QuestionHint;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -50,6 +51,7 @@ class GrammarTestController extends Controller
         private SavedTestResolver $savedTestResolver,
         private GrammarTestFilterService $filterService,
         private QuestionDeletionService $questionDeletionService,
+        private TagAggregationService $aggregationService,
     )
     {
     }
@@ -1285,6 +1287,115 @@ class GrammarTestController extends Controller
         ]);
     }
 
+    public function catalogAggregated(Request $request)
+    {
+        $selectedTags = (array) $request->input('tags', []);
+        $selectedLevels = (array) $request->input('levels', []);
+
+        $tests = $this->allSavedTests();
+
+        $allQuestionIds = $tests->flatMap(fn($t) => $t->question_ids ?? [])->unique();
+        $questions = Question::with('tags')->whereIn('id', $allQuestionIds)->get()->keyBy('id');
+
+        // Get aggregations
+        $aggregations = $this->aggregationService->getAggregations();
+        
+        // Build a map of tag -> main tag (for aggregation)
+        $tagToMainTag = [];
+        foreach ($aggregations as $aggregation) {
+            $mainTag = $aggregation['main_tag'];
+            // Main tag maps to itself
+            $tagToMainTag[$mainTag] = $mainTag;
+            foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
+                $tagToMainTag[$similarTag] = $mainTag;
+            }
+        }
+
+        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        foreach ($tests as $test) {
+            $questionIds = collect($test->question_ids ?? []);
+            $testQuestions = $questionIds->map(fn($id) => $questions[$id] ?? null)->filter();
+            $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
+            
+            // Map tags to their main tags ONLY if they're part of an aggregation
+            // Filter out tags that are not in any aggregation
+            $aggregatedTagNames = $tagNames
+                ->map(function($tagName) use ($tagToMainTag) {
+                    // Only include tags that are in the aggregation map
+                    return isset($tagToMainTag[$tagName]) ? $tagToMainTag[$tagName] : null;
+                })
+                ->filter(); // Remove null values (non-aggregated tags)
+            
+            $test->tag_names = $aggregatedTagNames->unique()->values();
+            $test->levels = $testQuestions->pluck('level')->unique()
+                ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+                ->values();
+        }
+
+        $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
+        $availableLevels = $tests->flatMap(fn($t) => $t->levels)->unique()
+            ->filter()
+            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->values();
+
+        // Build category mapping for aggregated tags from aggregation config
+        $aggregatedTagCategories = [];
+        foreach ($aggregations as $aggregation) {
+            $mainTag = $aggregation['main_tag'];
+            $category = $aggregation['category'] ?? 'Other';
+            $aggregatedTagCategories[$mainTag] = $category;
+        }
+
+        // Group tags by category (all tags are now aggregated, so use config categories)
+        $tagsByCategory = collect();
+        foreach ($availableTags as $tagName) {
+            // All tags should be in the aggregation config at this point
+            $category = $aggregatedTagCategories[$tagName] ?? 'Other';
+            
+            if (!$tagsByCategory->has($category)) {
+                $tagsByCategory->put($category, collect());
+            }
+            $tagsByCategory[$category]->push($tagName);
+        }
+        
+        // Sort tags within each category
+        $tagsByCategory = $tagsByCategory->map(fn($tags) => $tags->sort()->values());
+
+        $tagsByCategory = $tagsByCategory->sortKeys();
+        if ($tagsByCategory->has('Tenses')) {
+            $tenses = $tagsByCategory->pull('Tenses');
+            $tagsByCategory = $tagsByCategory->prepend($tenses, 'Tenses');
+        }
+        if ($tagsByCategory->has('Other')) {
+            $other = $tagsByCategory->pull('Other');
+            $tagsByCategory->put('Other', $other);
+        }
+
+        if (!empty($selectedTags)) {
+            $tests = $tests->filter(function ($t) use ($selectedTags) {
+                return collect($selectedTags)
+                    ->every(fn($tag) => $t->tag_names->contains($tag));
+            })->values();
+        }
+        if (!empty($selectedLevels)) {
+            $tests = $tests->filter(function ($t) use ($selectedLevels) {
+                return collect($selectedLevels)->every(fn($lvl) => $t->levels->contains($lvl));
+            })->values();
+        }
+
+        return view('engram.catalog-tests-cards-aggregated', [
+            'tests' => $tests,
+            'tags' => $tagsByCategory,
+            'selectedTags' => $selectedTags,
+            'availableLevels' => $availableLevels,
+            'selectedLevels' => $selectedLevels,
+            'breadcrumbs' => [
+                ['label' => 'Home', 'url' => route('home')],
+                ['label' => 'Tests Catalog (Aggregated)'],
+            ],
+        ]);
+    }
+
     private function defaultFormState(): array
     {
         $base = $this->baseFormData();
@@ -1306,6 +1417,7 @@ class GrammarTestController extends Controller
             'onlyAiV2' => false,
             'questions' => collect(),
             'selectedTags' => [],
+            'selectedAggregatedTags' => [],
             'selectedLevels' => [],
             'selectedSources' => [],
             'selectedQuestionTypes' => [],
@@ -1536,11 +1648,77 @@ class GrammarTestController extends Controller
                 ->mapWithKeys(fn ($row, $index) => [$row->seeder => $index + 1]);
         }
 
+        // Get aggregated tags
+        $aggregations = $this->aggregationService->getAggregations();
+        
+        // Build aggregated tags by category
+        $aggregatedTagsByCategory = collect();
+        foreach ($aggregations as $aggregation) {
+            $mainTag = $aggregation['main_tag'];
+            $category = $aggregation['category'] ?? $otherLabel;
+            
+            if (!$aggregatedTagsByCategory->has($category)) {
+                $aggregatedTagsByCategory->put($category, collect());
+            }
+            $aggregatedTagsByCategory[$category]->push($mainTag);
+        }
+        
+        // Sort aggregated tags within each category
+        $aggregatedTagsByCategory = $aggregatedTagsByCategory->map(fn($tags) => $tags->sort()->values());
+        
+        $aggregatedTagsByCategory = $aggregatedTagsByCategory->sortKeys();
+        if ($aggregatedTagsByCategory->has('Tenses')) {
+            $tenses = $aggregatedTagsByCategory->pull('Tenses');
+            $aggregatedTagsByCategory = $aggregatedTagsByCategory->prepend($tenses, 'Tenses');
+        }
+        if ($aggregatedTagsByCategory->has($otherLabel)) {
+            $other = $aggregatedTagsByCategory->pull($otherLabel);
+            $aggregatedTagsByCategory->put($otherLabel, $other);
+        }
+
+        // Get seeder execution dates from seed_runs table
+        $seederGroupsByDate = collect();
+        $seederExecutionTimes = collect();
+        if (Schema::hasTable('seed_runs') && 
+            Schema::hasColumn('seed_runs', 'class_name') && 
+            Schema::hasColumn('seed_runs', 'ran_at') &&
+            Schema::hasColumn('questions', 'seeder')) {
+            $seedRuns = DB::table('seed_runs')
+                ->orderByDesc('ran_at')
+                ->get();
+            
+            // Build a map of seeder class name to execution time
+            foreach ($seedRuns as $run) {
+                $seederExecutionTimes->put($run->class_name, $run->ran_at);
+            }
+            
+            $groupedRuns = $seedRuns->groupBy(function ($run) {
+                return Carbon::parse($run->ran_at)->format('Y-m-d');
+            });
+
+            foreach ($groupedRuns as $date => $runs) {
+                $seederClassesForDate = $runs->pluck('class_name')->unique()->values();
+                
+                // Only include seeders that have questions
+                $seedersWithQuestions = $seederSourceGroups
+                    ->pluck('seeder')
+                    ->intersect($seederClassesForDate)
+                    ->values();
+                
+                if ($seedersWithQuestions->isNotEmpty()) {
+                    $seederGroupsByDate->put($date, $seedersWithQuestions);
+                }
+            }
+        }
+
         return [
             'tagsByCategory' => $tagsByCategory,
+            'aggregatedTagsByCategory' => $aggregatedTagsByCategory,
             'categoriesDesc' => $categoriesDesc,
             'sourcesByCategory' => $sourcesByCategory,
             'seederSourceGroups' => $seederSourceGroups,
+            'seederGroupsByDate' => $seederGroupsByDate,
+            'seederExecutionTimes' => $seederExecutionTimes,
             'recentTagIds' => $recentTagIds,
             'recentTagOrdinals' => $recentTagOrdinals,
             'recentCategoryIds' => $recentCategoryIds,

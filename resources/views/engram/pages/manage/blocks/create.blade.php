@@ -9,7 +9,11 @@
         'formAction' => route('pages.manage.blocks.store', $page),
         'formMethod' => 'POST',
         'submitLabel' => 'Створити блок',
-        'page' => $page,
         'block' => $block,
+        'entityTitle' => $page->title,
+        'contextLabel' => 'Сторінка',
+        'backUrl' => route('pages.manage.edit', $page),
+        'backLabel' => '← До блоків сторінки',
+        'cancelUrl' => route('pages.manage.edit', $page),
     ])
 @endsection

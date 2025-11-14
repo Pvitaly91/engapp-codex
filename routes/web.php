@@ -52,6 +52,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
     Route::get('/catalog-tests/cards', [GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
+    Route::get('/catalog/tests-cards', [GrammarTestController::class, 'catalogAggregated'])->name('catalog.tests-cards');
 
     Route::post('/test/{slug}/js/state', [GrammarTestController::class, 'storeSavedTestJsState'])->name('saved-test.js.state');
     Route::get('/test/{slug}/js/questions', [GrammarTestController::class, 'fetchSavedTestJsQuestions'])->name('saved-test.js.questions');
@@ -102,12 +103,25 @@ Route::middleware('auth.admin')->group(function () {
                 ->name('destroy');
             Route::post('/categories', [PageManageController::class, 'storeCategory'])->name('categories.store');
             Route::put('/categories/{category}', [PageManageController::class, 'updateCategory'])
-                ->whereNumber('category')
                 ->name('categories.update');
             Route::delete('/categories/{category}', [PageManageController::class, 'destroyCategory'])
-                ->whereNumber('category')
                 ->name('categories.destroy');
             Route::delete('/categories-empty', [PageManageController::class, 'destroyEmptyCategories'])->name('categories.destroy-empty');
+            Route::get('/categories/{category}/blocks', [PageManageController::class, 'categoryBlocks'])
+                ->name('categories.blocks.index');
+            Route::get('/categories/{category}/blocks/create', [PageManageController::class, 'createCategoryBlock'])
+                ->name('categories.blocks.create');
+            Route::post('/categories/{category}/blocks', [PageManageController::class, 'storeCategoryBlock'])
+                ->name('categories.blocks.store');
+            Route::get('/categories/{category}/blocks/{block}/edit', [PageManageController::class, 'editCategoryBlock'])
+                ->whereNumber('block')
+                ->name('categories.blocks.edit');
+            Route::put('/categories/{category}/blocks/{block}', [PageManageController::class, 'updateCategoryBlock'])
+                ->whereNumber('block')
+                ->name('categories.blocks.update');
+            Route::delete('/categories/{category}/blocks/{block}', [PageManageController::class, 'destroyCategoryBlock'])
+                ->whereNumber('block')
+                ->name('categories.blocks.destroy');
             Route::get('/{page}/blocks/create', [PageManageController::class, 'createBlock'])
                 ->whereNumber('page')
                 ->name('blocks.create');
@@ -147,6 +161,26 @@ Route::middleware('auth.admin')->group(function () {
             Route::get('/', [TestTagController::class, 'index'])->name('index');
             Route::get('/create', [TestTagController::class, 'create'])->name('create');
             Route::post('/', [TestTagController::class, 'store'])->name('store');
+            Route::delete('/empty', [TestTagController::class, 'destroyEmptyTags'])->name('destroy-empty');
+            
+            Route::prefix('aggregations')->name('aggregations.')->group(function () {
+                Route::get('/', [TestTagController::class, 'aggregations'])->name('index');
+                Route::get('/auto', [TestTagController::class, 'autoAggregationsPage'])->name('auto-page');
+                Route::post('/', [TestTagController::class, 'storeAggregation'])->name('store');
+                Route::get('/generate-prompt', [TestTagController::class, 'generateAggregationPrompt'])->name('generate-prompt');
+                Route::post('/auto', [TestTagController::class, 'autoAggregations'])->name('auto');
+                Route::post('/auto-chatgpt', [TestTagController::class, 'autoAggregationsChatGPT'])->name('auto-chatgpt');
+                Route::post('/import', [TestTagController::class, 'importAggregations'])->name('import');
+                Route::put('/{mainTag}', [TestTagController::class, 'updateAggregation'])
+                    ->where('mainTag', '.*')
+                    ->name('update');
+                Route::delete('/{mainTag}', [TestTagController::class, 'destroyAggregation'])
+                    ->where('mainTag', '.*')
+                    ->name('destroy');
+                Route::put('/category/{category}', [TestTagController::class, 'updateAggregationCategory'])->name('update-category');
+                Route::delete('/category/{category}', [TestTagController::class, 'destroyAggregationCategory'])->name('destroy-category');
+            });
+            
             Route::get('/categories/{category}/edit', [TestTagController::class, 'editCategory'])
                 ->where('category', '.*')
                 ->name('categories.edit');

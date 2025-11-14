@@ -26,7 +26,7 @@
                           clip-rule="evenodd" />
                 </svg>
                 <i class="fa-solid fa-folder-tree text-slate-500"></i>
-                <span>{{ $node['name'] }}</span>
+                <span data-folder-name>{{ $node['name'] }}</span>
                 <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
             </button>
         </div>
@@ -112,7 +112,7 @@
                             <div class="flex-1">
                                 <div class="font-mono text-sm text-gray-800 flex flex-wrap items-center gap-2">
                                     <label for="{{ $executedCheckboxId }}" class="cursor-pointer">
-                                        {{ $node['name'] }}
+                                        <span data-seeder-name>{{ $node['name'] }}</span>
                                     </label>
                                     @if($seedRunIsRecent)
                                         <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">
@@ -173,6 +173,11 @@
                                          data-seed-run-id="{{ $seedRun->id }}">
                                         <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap lg:items-start lg:justify-between lg:gap-3 xl:flex-nowrap" data-seeder-actions>
                                             <div class="flex flex-col sm:flex-row sm:flex-wrap gap-2 w-full sm:w-auto lg:flex-1 lg:min-w-0 xl:flex-nowrap xl:items-center">
+                                                <a href="{{ route('seed-runs.preview', ['class_name' => $seedRun->class_name]) }}"
+                                                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-purple-100 text-purple-700 text-xs font-medium rounded-md hover:bg-purple-200 transition">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                    Попередній перегляд
+                                                </a>
                                                 <button type="button"
                                                         class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
                                                         data-seeder-file-open
@@ -235,5 +240,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endif

@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Schema;
 
 class GrammarTestFilterService
 {
+    public function __construct(
+        private TagAggregationService $aggregationService
+    ) {
+    }
+
     public function prepare(array $input): array
     {
         $filters = $this->normalize($input);
@@ -35,6 +40,7 @@ class GrammarTestFilterService
         $includeAiV2 = $filters['include_ai_v2'];
         $onlyAiV2 = $filters['only_ai_v2'];
         $selectedTags = $filters['tags'];
+        $selectedAggregatedTags = $filters['aggregated_tags'];
         $selectedLevels = $filters['levels'];
         $selectedSources = $filters['sources'];
         $selectedSeederClasses = $filters['seeder_classes'];
@@ -42,7 +48,7 @@ class GrammarTestFilterService
         $randomizeFiltered = $filters['randomize_filtered'];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
-        if (! empty($selectedSeederClasses) || ! empty($selectedTags)) {
+        if (! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
             $groupBy = null;
             $groups = [null];
         } else {
@@ -105,6 +111,35 @@ class GrammarTestFilterService
 
             if (! empty($selectedTags)) {
                 $query->whereHas('tags', fn ($q) => $q->whereIn('name', $selectedTags));
+            }
+
+            // Handle aggregated tags filtering
+            if (! empty($selectedAggregatedTags)) {
+                $aggregations = $this->aggregationService->getAggregations();
+                
+                // Build a lookup map for efficient tag expansion
+                $mainTagToSimilarTags = [];
+                foreach ($aggregations as $aggregation) {
+                    $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
+                }
+                
+                // Build a list of all tags that should be matched
+                $tagsToMatch = [];
+                foreach ($selectedAggregatedTags as $mainTag) {
+                    // Add the main tag itself
+                    $tagsToMatch[] = $mainTag;
+                    
+                    // Add similar tags from the lookup map
+                    if (isset($mainTagToSimilarTags[$mainTag])) {
+                        $tagsToMatch = array_merge($tagsToMatch, $mainTagToSimilarTags[$mainTag]);
+                    }
+                }
+                
+                $tagsToMatch = array_unique($tagsToMatch);
+                
+                if (!empty($tagsToMatch)) {
+                    $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tagsToMatch));
+                }
             }
 
             $onlyFlags = [];
@@ -220,6 +255,7 @@ class GrammarTestFilterService
             'autoTestName' => $autoTestName,
             'allTags' => $allTags,
             'selectedTags' => $selectedTags,
+            'selectedAggregatedTags' => $selectedAggregatedTags,
             'levels' => $levels,
             'selectedLevels' => $selectedLevels,
             'randomizeFiltered' => $randomizeFiltered,
@@ -285,6 +321,7 @@ class GrammarTestFilterService
         $categories = $this->intArray(Arr::get($input, 'categories', []));
         $levels = $this->stringArray(Arr::get($input, 'levels', []));
         $tags = $this->stringArray(Arr::get($input, 'tags', []));
+        $aggregatedTags = $this->stringArray(Arr::get($input, 'aggregated_tags', []));
         $sources = $this->intArray(Arr::get($input, 'sources', []));
         $seeders = $this->stringArray(Arr::get($input, 'seeder_classes', []));
 
@@ -303,6 +340,7 @@ class GrammarTestFilterService
             'only_ai_v2' => $this->toBool(Arr::get($input, 'only_ai_v2', false)),
             'levels' => $levels,
             'tags' => $tags,
+            'aggregated_tags' => $aggregatedTags,
             'sources' => $sources,
             'seeder_classes' => $seeders,
             'question_types' => $this->stringArray(Arr::get($input, 'question_types', [])),
