@@ -39,7 +39,8 @@
     35 => 'App\\Providers\\RouteServiceProvider',
     36 => 'App\\Modules\\DatabaseStructure\\DatabaseStructureServiceProvider',
     37 => 'App\\Modules\\FileManager\\FileManagerServiceProvider',
-    38 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
+    38 => 'App\\Modules\\MigrationManager\\MigrationManagerServiceProvider',
+    39 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
   ),
   'eager' => 
   array (
@@ -66,7 +67,8 @@
     20 => 'App\\Providers\\RouteServiceProvider',
     21 => 'App\\Modules\\DatabaseStructure\\DatabaseStructureServiceProvider',
     22 => 'App\\Modules\\FileManager\\FileManagerServiceProvider',
-    23 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
+    23 => 'App\\Modules\\MigrationManager\\MigrationManagerServiceProvider',
+    24 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
   ),
   'deferred' => 
   array (

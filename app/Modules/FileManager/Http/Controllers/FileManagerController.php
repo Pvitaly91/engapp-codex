@@ -19,12 +19,21 @@ class FileManagerController extends Controller
     /**
      * Display the file manager interface
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         $basePath = $this->fileSystemService->getBasePath();
+        $requestedPath = $this->sanitizePath($request->query('path'));
+        $requestedSelection = $this->sanitizePath($request->query('select'));
+
+        [$initialPath, $initialSelection] = $this->resolveInitialTargets(
+            $requestedPath,
+            $requestedSelection
+        );
 
         return view('file-manager::index', [
             'basePath' => $basePath,
+            'initialPath' => $initialPath,
+            'initialSelection' => $initialSelection,
         ]);
     }
 
@@ -33,8 +42,20 @@ class FileManagerController extends Controller
      */
     public function tree(Request $request): JsonResponse
     {
-        $path = $request->input('path', '');
-        $tree = $this->fileSystemService->getFileTree($path);
+        $path = $this->sanitizePath($request->input('path', ''));
+
+        if ($path !== '') {
+            $info = $this->fileSystemService->getFileInfo($path);
+
+            if (! $info || $info['type'] !== 'directory') {
+                return response()->json([
+                    'success' => false,
+                    'error' => 'Запитувана директорія недоступна.',
+                ], 404);
+            }
+        }
+
+        $tree = $this->fileSystemService->getFileTree($path ?: null);
 
         return response()->json([
             'success' => true,
@@ -155,5 +176,50 @@ class FileManagerController extends Controller
         $fullPath = $this->fileSystemService->getBasePath().'/'.$path;
 
         return FacadeResponse::download($fullPath, $info['name']);
+}
+
+    private function resolveInitialTargets(string $initialPath, string $initialSelection): array
+    {
+        if ($initialPath !== '') {
+            $pathInfo = $this->fileSystemService->getFileInfo($initialPath);
+
+            if (! $pathInfo) {
+                $initialPath = '';
+            } elseif ($pathInfo['type'] === 'file') {
+                $initialSelection = $initialSelection ?: $initialPath;
+                $initialPath = $this->sanitizePath(dirname($initialPath));
+            }
+        }
+
+        if ($initialSelection !== '') {
+            $selectionInfo = $this->fileSystemService->getFileInfo($initialSelection);
+
+            if (! $selectionInfo) {
+                $initialSelection = '';
+            } elseif ($selectionInfo['type'] === 'directory' && $initialPath === '') {
+                $initialPath = $initialSelection;
+            } elseif ($initialPath === '' && $selectionInfo['type'] === 'file') {
+                $initialPath = $this->sanitizePath(dirname($initialSelection));
+            }
+        }
+
+        return [$initialPath, $initialSelection];
+    }
+
+    private function sanitizePath(?string $value): string
+    {
+        if ($value === null) {
+            return '';
+        }
+
+        $normalized = trim((string) $value);
+        $normalized = str_replace('\\', '/', $normalized);
+        $normalized = trim($normalized, '/');
+
+        if ($normalized === '.' || $normalized === '..') {
+            return '';
+        }
+
+        return $normalized;
     }
 }

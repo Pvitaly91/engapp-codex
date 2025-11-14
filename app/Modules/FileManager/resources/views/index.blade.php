@@ -3,7 +3,11 @@
 @section('title', 'Файловий менеджер')
 
 @section('content')
-<div class="container mx-auto px-4" x-data="fileManager()">
+<div
+    class="container mx-auto px-4"
+    x-data="fileManager(@js($initialPath ?? ''), @js($initialSelection ?? ''))"
+    x-init="init()"
+>
     <div class="mb-6">
         <h1 class="text-3xl font-bold text-gray-800 mb-2">Файловий менеджер</h1>
         <p class="text-gray-600">Перегляд структури файлів та папок проекту</p>
@@ -269,8 +273,10 @@
 </div>
 
 <script>
-function fileManager() {
+function fileManager(initialPath = '', initialSelection = '') {
     return {
+        initialPath,
+        initialSelection,
         currentPath: '',
         items: [],
         selectedItem: null,
@@ -281,9 +287,11 @@ function fileManager() {
         previewLoading: false,
         previewError: null,
         pathHistory: [],
+        pendingSelection: null,
 
         init() {
-            this.loadTree('');
+            this.pendingSelection = this.initialSelection || null;
+            this.loadTree(this.initialPath || '');
         },
 
         async loadTree(path) {
@@ -297,6 +305,13 @@ function fileManager() {
                 if (data.success) {
                     this.items = data.items;
                     this.currentPath = data.path;
+                    if (this.pendingSelection) {
+                        const match = this.items.find(item => item.path === this.pendingSelection);
+                        if (match) {
+                            this.selectedItem = match;
+                        }
+                        this.pendingSelection = null;
+                    }
                 } else {
                     this.error = data.error || 'Помилка завантаження';
                 }
@@ -316,12 +331,14 @@ function fileManager() {
             this.pathHistory.push(this.currentPath);
             this.loadTree(path);
             this.selectedItem = null;
+            this.pendingSelection = null;
         },
 
         navigateToRoot() {
             this.pathHistory = [];
             this.loadTree('');
             this.selectedItem = null;
+            this.pendingSelection = null;
         },
 
         goBack() {
@@ -329,12 +346,14 @@ function fileManager() {
                 const previousPath = this.pathHistory.pop();
                 this.loadTree(previousPath);
                 this.selectedItem = null;
+                this.pendingSelection = null;
             } else if (this.currentPath !== '') {
                 // Go to parent directory
                 const parts = this.currentPath.split('/');
                 parts.pop();
                 this.loadTree(parts.join('/'));
                 this.selectedItem = null;
+                this.pendingSelection = null;
             }
         },
 
