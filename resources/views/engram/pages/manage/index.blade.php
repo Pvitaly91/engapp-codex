@@ -129,35 +129,53 @@
                         </div>
 
                         <div class="space-y-4">
-                            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                                <div class="flex items-center gap-3">
-                                    <h2 class="text-lg font-semibold text-gray-900">Категорії сторінок</h2>
-                                    <span class="inline-flex w-fit items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
-                                        {{ $categories->count() }} всього
-                                    </span>
+                            <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                                <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                                    <div class="flex items-center gap-3">
+                                        <h2 class="text-lg font-semibold text-gray-900">Категорії сторінок</h2>
+                                        <span class="inline-flex w-fit items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                                            {{ $categories->count() }} всього
+                                        </span>
+                                    </div>
                                 </div>
-                                <form
-                                    action="{{ route('pages.manage.categories.destroy-empty') }}"
-                                    method="POST"
-                                    class="inline-flex"
-                                    data-empty-categories-form
-                                >
-                                    @csrf
-                                    @method('DELETE')
-                                    <button
-                                        type="button"
-                                        @if ($emptyCategoryCount === 0) disabled @endif
-                                        class="inline-flex items-center rounded-xl border border-red-200 bg-red-50 px-3 py-1 text-sm font-medium text-red-600 transition hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400"
-                                        data-empty-modal-trigger
+                                <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                                    <label class="relative block w-full sm:w-64">
+                                        <span class="sr-only">Пошук категорій</span>
+                                        <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
+                                            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                            </svg>
+                                        </span>
+                                        <input
+                                            type="search"
+                                            placeholder="Пошук категорій..."
+                                            class="w-full rounded-xl border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm text-gray-700 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                            data-category-search-input
+                                        />
+                                    </label>
+                                    <form
+                                        action="{{ route('pages.manage.categories.destroy-empty') }}"
+                                        method="POST"
+                                        class="inline-flex"
+                                        data-empty-categories-form
                                     >
-                                        Видалити порожні ({{ $emptyCategoryCount }})
-                                    </button>
-                                </form>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button
+                                            type="button"
+                                            @if ($emptyCategoryCount === 0) disabled @endif
+                                            class="inline-flex items-center rounded-xl border border-red-200 bg-red-50 px-3 py-1 text-sm font-medium text-red-600 transition hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-offset-1 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400"
+                                            data-empty-modal-trigger
+                                        >
+                                            Видалити порожні ({{ $emptyCategoryCount }})
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
 
                             <div class="space-y-3 md:hidden">
                                 @forelse ($categories as $category)
-                                    <article class="space-y-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+                                    <article class="space-y-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm" data-category-search-item>
                                         <header class="flex flex-col gap-2">
                                             <h3 class="text-base font-semibold text-gray-900">{{ $category->title }}</h3>
                                             <dl class="grid grid-cols-2 gap-3 text-xs text-gray-500">
@@ -191,6 +209,11 @@
                                         Ще немає категорій. Додайте першу категорію, щоб згрупувати сторінки.
                                     </div>
                                 @endforelse
+                                @if ($categories->isNotEmpty())
+                                    <div class="hidden rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center text-sm text-gray-500" data-category-search-empty>
+                                        Немає збігів для вибраного запиту.
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="hidden md:block">
@@ -207,7 +230,7 @@
                                         </thead>
                                         <tbody class="divide-y divide-gray-200">
                                             @forelse ($categories as $category)
-                                                <tr class="hover:bg-gray-50">
+                                                <tr class="hover:bg-gray-50" data-category-search-item>
                                                     <td class="px-4 py-3 font-medium text-gray-900">{{ $category->title }}</td>
                                                     <td class="px-4 py-3 text-gray-600">{{ $category->slug }}</td>
                                                     <td class="px-4 py-3 text-gray-600">{{ strtoupper($category->language) }}</td>
@@ -229,6 +252,11 @@
                                                     <td colspan="5" class="px-4 py-6 text-center text-gray-500">Ще немає категорій. Додайте першу категорію, щоб згрупувати сторінки.</td>
                                                 </tr>
                                             @endforelse
+                                            @if ($categories->isNotEmpty())
+                                                <tr class="hidden" data-category-search-empty>
+                                                    <td colspan="5" class="px-4 py-6 text-center text-gray-500">Немає збігів для вибраного запиту.</td>
+                                                </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -236,9 +264,33 @@
                         </div>
                     </div>
                 @else
-                    <div class="-mx-4 -my-3 overflow-x-auto sm:mx-0 sm:my-0">
-                        <table class="min-w-full divide-y divide-gray-200 text-sm">
-                            <thead class="bg-gray-50 text-gray-600">
+                    <div class="space-y-4">
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                            <div class="flex items-center gap-3">
+                                <h2 class="text-lg font-semibold text-gray-900">Усі сторінки</h2>
+                                <span class="inline-flex w-fit items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                                    {{ $pages->count() }} всього
+                                </span>
+                            </div>
+                            <label class="relative block w-full sm:w-72">
+                                <span class="sr-only">Пошук сторінок</span>
+                                <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
+                                    <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                    </svg>
+                                </span>
+                                <input
+                                    type="search"
+                                    placeholder="Пошук сторінок..."
+                                    class="w-full rounded-xl border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm text-gray-700 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    data-pages-search-input
+                                />
+                            </label>
+                        </div>
+
+                        <div class="-mx-4 -my-3 overflow-x-auto sm:mx-0 sm:my-0">
+                            <table class="min-w-full divide-y divide-gray-200 text-sm">
+                                <thead class="bg-gray-50 text-gray-600">
                                 <tr>
                                     <th class="px-4 py-3 text-left font-medium">Назва</th>
                                     <th class="px-4 py-3 text-left font-medium">Категорія</th>
@@ -249,7 +301,7 @@
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 @forelse ($pages as $page)
-                                    <tr class="hover:bg-gray-50">
+                                    <tr class="hover:bg-gray-50" data-pages-search-item>
                                         <td class="px-4 py-3 font-medium">
                                             @if ($page->category)
                                                 <a href="{{ route('pages.show', [$page->category->slug, $page->slug]) }}" class="hover:underline" target="_blank" rel="noopener">{{ $page->title }}</a>
@@ -276,8 +328,14 @@
                                         <td colspan="5" class="px-4 py-6 text-center text-gray-500">Ще немає сторінок. Створіть першу сторінку.</td>
                                     </tr>
                                 @endforelse
+                                @if ($pages->isNotEmpty())
+                                    <tr class="hidden" data-pages-search-empty>
+                                        <td colspan="5" class="px-4 py-6 text-center text-gray-500">Немає збігів для вибраного запиту.</td>
+                                    </tr>
+                                @endif
                             </tbody>
                         </table>
+                    </div>
                     </div>
                 @endif
             </div>
@@ -321,6 +379,59 @@
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const normalizeSearchValue = (value) => value.toLowerCase().replace(/\s+/g, ' ').trim();
+
+            const setupLiveSearch = ({ inputSelector, itemSelector, emptySelector }) => {
+                const input = document.querySelector(inputSelector);
+                if (!input) {
+                    return;
+                }
+
+                const items = Array.from(document.querySelectorAll(itemSelector));
+                const emptyState = emptySelector ? document.querySelector(emptySelector) : null;
+
+                if (!items.length) {
+                    input.disabled = true;
+                    input.classList.add('cursor-not-allowed', 'bg-gray-100', 'text-gray-400');
+                    input.placeholder = 'Немає даних для пошуку';
+                    return;
+                }
+
+                const applyFilter = () => {
+                    const query = normalizeSearchValue(input.value || '');
+                    let visibleCount = 0;
+
+                    items.forEach((item) => {
+                        const text = normalizeSearchValue(item.dataset.searchText || item.textContent || '');
+                        const shouldShow = query === '' || text.includes(query);
+                        item.classList.toggle('hidden', !shouldShow);
+
+                        if (shouldShow) {
+                            visibleCount++;
+                        }
+                    });
+
+                    if (emptyState) {
+                        emptyState.classList.toggle('hidden', visibleCount !== 0);
+                    }
+                };
+
+                input.addEventListener('input', applyFilter);
+                applyFilter();
+            };
+
+            setupLiveSearch({
+                inputSelector: '[data-category-search-input]',
+                itemSelector: '[data-category-search-item]',
+                emptySelector: '[data-category-search-empty]',
+            });
+
+            setupLiveSearch({
+                inputSelector: '[data-pages-search-input]',
+                itemSelector: '[data-pages-search-item]',
+                emptySelector: '[data-pages-search-empty]',
+            });
+
             const modal = document.getElementById('delete-empty-categories-modal');
             const form = document.querySelector('[data-empty-categories-form]');
 
