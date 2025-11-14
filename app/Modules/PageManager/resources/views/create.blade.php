@@ -3,7 +3,7 @@
 @section('title', 'Створити сторінку')
 
 @section('content')
-    @include('engram.pages.manage.partials.form', [
+    @include('page-manager::partials.form', [
         'heading' => 'Нова сторінка',
         'description' => 'Створіть структуру сторінки та додайте блоки контенту.',
         'formAction' => route('pages.manage.store'),
