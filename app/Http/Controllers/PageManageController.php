@@ -14,12 +14,13 @@ class PageManageController extends Controller
     public function index(Request $request)
     {
         $pages = Page::query()
-            ->with('category')
+            ->with(['category', 'textBlocks'])
             ->orderBy('title')
             ->get();
 
         $categories = PageCategory::query()
             ->withCount('pages')
+            ->with('textBlocks')
             ->orderBy('title')
             ->get();
 
