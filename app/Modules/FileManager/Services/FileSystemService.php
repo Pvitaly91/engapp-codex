@@ -104,7 +104,7 @@ class FileSystemService
     /**
      * Get file content
      */
-    public function getFileContent(string $path): ?array
+    public function getFileContent(string $path, bool $enforceSizeLimit = true): ?array
     {
         $fullPath = $this->basePath.'/'.$path;
 
@@ -115,7 +115,7 @@ class FileSystemService
         $maxSize = config('file-manager.max_file_display_size', 1048576);
         $size = filesize($fullPath);
 
-        if ($size > $maxSize) {
+        if ($enforceSizeLimit && $size > $maxSize) {
             return [
                 'error' => 'File is too large to display',
                 'size' => $size,

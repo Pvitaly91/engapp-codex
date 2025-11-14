@@ -387,6 +387,8 @@ function fileManager(initialPath = '', initialSelection = '') {
         previewError: null,
         previewLanguage: 'language-plaintext',
         previewNeedsHighlight: false,
+        previewHighlightAttempts: 0,
+        maxPreviewHighlightAttempts: 30,
         showEditor: false,
         editorData: {},
         editorLoading: false,
@@ -476,6 +478,7 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.previewError = null;
             this.previewData = {};
             this.previewNeedsHighlight = false;
+            this.previewHighlightAttempts = 0;
 
             try {
                 const response = await fetch(`{{ route('file-manager.preview') }}?path=${encodeURIComponent(path)}`);
@@ -495,14 +498,29 @@ function fileManager(initialPath = '', initialSelection = '') {
             } finally {
                 this.previewLoading = false;
                 if (this.previewNeedsHighlight) {
-                    this.$nextTick(() => {
-                        if (window.hljs && this.$refs.previewCode) {
-                            window.hljs.highlightElement(this.$refs.previewCode);
-                        }
-                        this.previewNeedsHighlight = false;
-                    });
+                    this.$nextTick(() => this.tryHighlightPreview());
                 }
             }
+        },
+
+        tryHighlightPreview() {
+            if (! this.previewNeedsHighlight) {
+                return;
+            }
+
+            if (window.hljs && this.$refs.previewCode) {
+                window.hljs.highlightElement(this.$refs.previewCode);
+                this.previewNeedsHighlight = false;
+                return;
+            }
+
+            if (this.previewHighlightAttempts >= this.maxPreviewHighlightAttempts) {
+                this.previewNeedsHighlight = false;
+                return;
+            }
+
+            this.previewHighlightAttempts++;
+            setTimeout(() => this.tryHighlightPreview(), 200);
         },
 
         async editFile(path) {
@@ -516,7 +534,7 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.editorNeedsMount = false;
 
             try {
-                const response = await fetch(`{{ route('file-manager.preview') }}?path=${encodeURIComponent(path)}`);
+                const response = await fetch(`{{ route('file-manager.content') }}?path=${encodeURIComponent(path)}`);
                 const data = await response.json();
 
                 if (!data.success) {
