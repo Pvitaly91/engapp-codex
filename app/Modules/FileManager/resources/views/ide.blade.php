@@ -11,17 +11,17 @@
     <div class="mb-6">
         <div class="flex items-center justify-between mb-2">
             <h1 class="text-3xl font-bold text-gray-800">Файловий менеджер - IDE режим</h1>
-            <div class="flex gap-2">
+            <div class="inline-flex rounded-lg border border-gray-300 bg-white p-1 shadow-sm">
                 <a 
                     href="{{ route('file-manager.index') }}" 
-                    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+                    class="px-4 py-2 text-gray-700 rounded-md font-medium hover:bg-gray-100 transition"
                 >
-                    <i class="fas fa-list mr-2"></i>Список
+                    <i class="fas fa-list mr-2"></i>Файловий менеджер
                 </a>
                 <button 
-                    class="px-4 py-2 bg-blue-600 text-white rounded cursor-default"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-md font-medium cursor-default"
                 >
-                    <i class="fas fa-code mr-2"></i>IDE
+                    <i class="fas fa-code mr-2"></i>IDE режим
                 </button>
             </div>
         </div>
