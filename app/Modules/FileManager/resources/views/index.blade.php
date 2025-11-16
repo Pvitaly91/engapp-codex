@@ -14,23 +14,28 @@
         <p class="text-sm text-gray-500 mt-1">Базова директорія: <code class="bg-gray-100 px-2 py-1 rounded">{{ $basePath }}</code></p>
     </div>
 
-    <!-- Tab Navigation -->
-    <div class="mb-4">
-        <div class="flex gap-2 border-b border-gray-200">
+    <!-- Mode Toggle Button -->
+    <div class="mb-4 flex items-center justify-between">
+        <div class="inline-flex rounded-lg border border-gray-300 bg-white p-1 shadow-sm">
             <button
                 @click="activeTab = 'list'"
-                :class="activeTab === 'list' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600 hover:text-gray-800'"
-                class="px-4 py-2 font-medium transition"
+                :class="activeTab === 'list' ? 'bg-blue-500 text-white shadow' : 'text-gray-700 hover:bg-gray-100'"
+                class="px-4 py-2 font-medium transition rounded-md flex items-center gap-2"
             >
-                <i class="fas fa-list mr-2"></i>Список файлів
+                <i class="fas fa-list"></i>
+                <span>Файловий менеджер</span>
             </button>
             <button
                 @click="activeTab = 'ide'"
-                :class="activeTab === 'ide' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600 hover:text-gray-800'"
-                class="px-4 py-2 font-medium transition"
+                :class="activeTab === 'ide' ? 'bg-blue-500 text-white shadow' : 'text-gray-700 hover:bg-gray-100'"
+                class="px-4 py-2 font-medium transition rounded-md flex items-center gap-2"
             >
-                <i class="fas fa-columns mr-2"></i>IDE перегляд
+                <i class="fas fa-code"></i>
+                <span>IDE режим</span>
             </button>
+        </div>
+        <div class="text-sm text-gray-600">
+            <span x-text="activeTab === 'list' ? 'Список файлів' : 'IDE перегляд'"></span>
         </div>
     </div>
 
