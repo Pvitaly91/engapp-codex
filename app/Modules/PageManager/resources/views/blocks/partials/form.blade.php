@@ -20,6 +20,70 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js" referrerpolicy="no-referrer"></script>
 @endonce
 
+<style>
+    .pm-code-editor {
+        position: relative;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .pm-code-highlight,
+    .pm-code-textarea {
+        box-sizing: border-box;
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 14px;
+        border-radius: 0.75rem;
+    }
+
+    .pm-code-highlight {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        overflow: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+        border: 1px solid #e5e7eb;
+        background: #f8fafc;
+        color: #0f172a;
+        pointer-events: none;
+    }
+
+    .pm-code-textarea {
+        position: relative;
+        width: 100%;
+        min-height: 24rem;
+        background: transparent;
+        color: transparent;
+        caret-color: #111827;
+        border: 1px solid #d1d5db;
+        resize: vertical;
+        overflow: auto;
+    }
+
+    .pm-code-textarea:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.16);
+    }
+
+    .pm-code-token-tag {
+        color: #2563eb;
+    }
+
+    .pm-code-token-attr {
+        color: #0f766e;
+    }
+
+    .pm-code-token-string {
+        color: #b45309;
+    }
+
+    .pm-code-token-comment {
+        color: #9ca3af;
+        font-style: italic;
+    }
+</style>
+
 <div class="mx-auto max-w-4xl space-y-6">
     <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -100,10 +164,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        if (typeof window.CodeMirror === 'undefined') {
-            return;
-        }
-
         var textarea = document.getElementById(@json($bodyFieldId));
 
         if (!textarea || textarea.dataset.codemirrorInitialized === '1') {
@@ -112,17 +172,88 @@
 
         textarea.dataset.codemirrorInitialized = '1';
 
-        var editor = window.CodeMirror.fromTextArea(textarea, {
-            mode: 'htmlmixed',
-            lineNumbers: true,
-            lineWrapping: true,
-            matchBrackets: true,
-            autoCloseBrackets: true,
-            autoCloseTags: true,
-            tabSize: 4,
-            indentUnit: 4,
-        });
+        if (typeof window.CodeMirror !== 'undefined') {
+            var editor = window.CodeMirror.fromTextArea(textarea, {
+                mode: 'htmlmixed',
+                lineNumbers: true,
+                lineWrapping: true,
+                matchBrackets: true,
+                autoCloseBrackets: true,
+                autoCloseTags: true,
+                tabSize: 4,
+                indentUnit: 4,
+            });
 
-        editor.setSize('100%', '24rem');
+            editor.setSize('100%', '24rem');
+
+            return;
+        }
+
+        var escapeHtml = function (value) {
+            return (value || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        };
+
+        var highlightHtml = function (value) {
+            var escaped = escapeHtml(value || '');
+
+            escaped = escaped.replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="pm-code-token-comment">$1</span>');
+
+            escaped = escaped.replace(/(&lt;\/?[a-zA-Z0-9-]+)([^&]*?)(\/?&gt;)/g, function (match, open, attrs, close) {
+                var highlightedAttrs = attrs.replace(/([a-zA-Z_:][a-zA-Z0-9_:\-]*)(\s*=\s*)("[^"]*"|'[^']*'|[^\s"'>]+)?/g, function (
+                    _,
+                    name,
+                    eq,
+                    val
+                ) {
+                    var cleanedValue = val || '';
+
+                    return '<span class="pm-code-token-attr">' + name + '</span>' + (eq || '') + (cleanedValue
+                        ? '<span class="pm-code-token-string">' + cleanedValue + '</span>'
+                        : '');
+                });
+
+                return '<span class="pm-code-token-tag">' + open + '</span>' + highlightedAttrs + '<span class="pm-code-token-tag">' + close + '</span>';
+            });
+
+            return escaped;
+        };
+
+        var wrapWithFallbackEditor = function (textareaEl) {
+            var wrapper = document.createElement('div');
+            wrapper.className = 'pm-code-editor';
+
+            var highlight = document.createElement('pre');
+            highlight.className = 'pm-code-highlight';
+            highlight.setAttribute('aria-hidden', 'true');
+
+            var code = document.createElement('code');
+            highlight.appendChild(code);
+
+            var parent = textareaEl.parentNode;
+            parent.insertBefore(wrapper, textareaEl);
+            wrapper.appendChild(highlight);
+            wrapper.appendChild(textareaEl);
+
+            textareaEl.classList.add('pm-code-textarea');
+
+            var sync = function () {
+                code.innerHTML = highlightHtml(textareaEl.value || '');
+                highlight.scrollTop = textareaEl.scrollTop;
+                highlight.scrollLeft = textareaEl.scrollLeft;
+            };
+
+            textareaEl.addEventListener('input', sync);
+            textareaEl.addEventListener('scroll', function () {
+                highlight.scrollTop = textareaEl.scrollTop;
+                highlight.scrollLeft = textareaEl.scrollLeft;
+            });
+
+            sync();
+        };
+
+        wrapWithFallbackEditor(textarea);
     });
 </script>
