@@ -573,6 +573,13 @@
 @endphp
 
 <script>
+if (!window.Alpine) {
+    const alpineFallback = document.createElement('script');
+    alpineFallback.src = "{{ route('file-manager.asset', ['path' => 'alpinejs/alpine.min.js']) }}";
+    alpineFallback.defer = true;
+    document.head.appendChild(alpineFallback);
+}
+
 const FILE_MANAGER_CODEMIRROR_SOURCES = {!! json_encode($codeMirrorSources) !!};
 const FILE_MANAGER_HIGHLIGHT_STYLE = {!! json_encode($highlightStyle) !!};
 const FILE_MANAGER_HIGHLIGHT_SCRIPT = {!! json_encode($highlightScript) !!};
