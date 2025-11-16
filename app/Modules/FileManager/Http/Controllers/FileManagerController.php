@@ -372,7 +372,7 @@ class FileManagerController extends Controller
             $response = Http::timeout(10)->get($asset['source']);
 
             if (! $response->successful()) {
-                \Log::error('Failed to fetch asset from CDN', [
+                Log::error('Failed to fetch asset from CDN', [
                     'path' => $relativePath,
                     'source' => $asset['source'],
                     'status' => $response->status()
@@ -387,7 +387,7 @@ class FileManagerController extends Controller
                 'Content-Type' => $asset['type'],
             ]);
         } catch (\Throwable $exception) {
-            \Log::error('Asset loading exception', [
+            Log::error('Asset loading exception', [
                 'path' => $path,
                 'error' => $exception->getMessage(),
                 'trace' => $exception->getTraceAsString()
