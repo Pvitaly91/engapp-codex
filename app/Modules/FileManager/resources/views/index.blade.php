@@ -104,7 +104,7 @@
                                 <!-- Actions -->
                                 <div class="flex gap-1">
                                     <template x-if="item.type === 'directory'">
-                                        <button 
+                                        <button
                                             @click.stop="navigateToPath(item.path)"
                                             class="p-1 text-blue-600 hover:bg-blue-100 rounded"
                                             title="Відкрити"
@@ -113,7 +113,7 @@
                                         </button>
                                     </template>
                                     <template x-if="item.type === 'file'">
-                                        <button 
+                                        <button
                                             @click.stop="previewFile(item.path)"
                                             class="p-1 text-green-600 hover:bg-green-100 rounded"
                                             title="Переглянути"
@@ -121,8 +121,17 @@
                                             <i class="fas fa-eye"></i>
                                         </button>
                                     </template>
+                                    <template x-if="item.type === 'file' && item.writable">
+                                        <button
+                                            @click.stop="editFile(item.path)"
+                                            class="p-1 text-orange-600 hover:bg-orange-100 rounded"
+                                            title="Редагувати"
+                                        >
+                                            <i class="fas fa-pen-to-square"></i>
+                                        </button>
+                                    </template>
                                     <template x-if="item.type === 'file'">
-                                        <button 
+                                        <button
                                             @click.stop="downloadFile(item.path)"
                                             class="p-1 text-purple-600 hover:bg-purple-100 rounded"
                                             title="Завантажити"
@@ -200,6 +209,16 @@
                                     </span>
                                 </div>
                             </div>
+                            <template x-if="selectedItem.type === 'file' && selectedItem.writable">
+                                <div class="pt-2">
+                                    <button
+                                        @click="editFile(selectedItem.path)"
+                                        class="w-full px-3 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
+                                    >
+                                        <i class="fas fa-pen-to-square mr-2"></i>Редагувати файл
+                                    </button>
+                                </div>
+                            </template>
                         </div>
                     </template>
                 </div>
@@ -243,7 +262,7 @@
                 </template>
                 
                 <template x-if="!previewLoading && !previewError && previewData.is_text">
-                    <pre class="bg-gray-50 p-4 rounded overflow-x-auto text-sm"><code x-text="previewData.content"></code></pre>
+                    <pre class="bg-gray-50 p-4 rounded overflow-x-auto text-sm"><code x-ref="previewCode" :class="previewLanguage" x-text="previewData.content"></code></pre>
                 </template>
                 
                 <template x-if="!previewLoading && !previewError && !previewData.is_text">
@@ -270,9 +289,89 @@
             </div>
         </div>
     </div>
+
+    <!-- Editor Modal -->
+    <div
+        x-show="showEditor"
+        x-cloak
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+        @click.self="closeEditor()"
+    >
+        <div class="bg-white rounded-lg shadow-xl max-w-5xl w-full max-h-[95vh] flex flex-col">
+            <div class="p-4 border-b flex items-center justify-between">
+                <h3 class="text-lg font-semibold text-gray-800">
+                    <i class="fas fa-pen-to-square mr-2"></i>
+                    <span x-text="editorData.name || 'Редагування файлу'"></span>
+                </h3>
+                <button
+                    @click="closeEditor()"
+                    class="text-gray-500 hover:text-gray-700"
+                >
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-4 flex-1 flex flex-col">
+                <template x-if="editorLoading">
+                    <div class="text-center py-8">
+                        <i class="fas fa-spinner fa-spin text-4xl text-blue-500"></i>
+                        <p class="text-gray-600 mt-2">Завантаження файлу...</p>
+                    </div>
+                </template>
+
+                <template x-if="!editorLoading && editorError">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        <span x-text="editorError"></span>
+                    </div>
+                </template>
+
+                <template x-if="!editorLoading && !editorError">
+                    <div class="flex-1 flex flex-col">
+                        <div class="text-sm text-gray-500 mb-2 flex flex-wrap gap-4">
+                            <span>Шлях: <code class="font-mono" x-text="editorData.path"></code></span>
+                            <span>Розширення: <code x-text="editorData.extension || '—'"></code></span>
+                            <span class="text-green-600" x-show="editorMessage" x-text="editorMessage"></span>
+                        </div>
+                        <textarea x-ref="editorTextarea" class="hidden" x-model="editorContent"></textarea>
+                        <div x-show="!editorInstance" class="text-center text-gray-500 py-4">
+                            <p>Ініціалізація редактора...</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="p-4 border-t bg-gray-50 flex justify-end gap-2">
+                <button
+                    @click="saveFile()"
+                    :disabled="editorSaving || editorLoading || !!editorError"
+                    class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    <i class="fas fa-save mr-2"></i>
+                    <span x-text="editorSaving ? 'Збереження...' : 'Зберегти'"></span>
+                </button>
+                <button
+                    @click="closeEditor()"
+                    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+                >
+                    Скасувати
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
+const FILE_MANAGER_CODEMIRROR_SOURCES = [
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js',
+];
+
 function fileManager(initialPath = '', initialSelection = '') {
     return {
         initialPath,
@@ -286,6 +385,22 @@ function fileManager(initialPath = '', initialSelection = '') {
         previewData: {},
         previewLoading: false,
         previewError: null,
+        previewLanguage: 'language-plaintext',
+        previewNeedsHighlight: false,
+        previewHighlightAttempts: 0,
+        maxPreviewHighlightAttempts: 30,
+        showEditor: false,
+        editorData: {},
+        editorLoading: false,
+        editorError: null,
+        editorMessage: null,
+        editorContent: '',
+        editorSaving: false,
+        editorInstance: null,
+        editorNeedsMount: false,
+        editorAssetsReady: !!window.CodeMirror,
+        editorAssetsPromise: null,
+        editorScriptSources: FILE_MANAGER_CODEMIRROR_SOURCES,
         pathHistory: [],
         pendingSelection: null,
 
@@ -362,13 +477,18 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.previewLoading = true;
             this.previewError = null;
             this.previewData = {};
-            
+            this.previewNeedsHighlight = false;
+            this.previewHighlightAttempts = 0;
+
             try {
                 const response = await fetch(`{{ route('file-manager.preview') }}?path=${encodeURIComponent(path)}`);
                 const data = await response.json();
-                
+
                 if (data.success) {
                     this.previewData = data.content;
+                    const extension = this.getExtensionFromPath(this.previewData.path || path);
+                    this.previewLanguage = this.getHighlightClass(extension);
+                    this.previewNeedsHighlight = !!this.previewData.is_text;
                 } else {
                     this.previewError = data.error || 'Помилка завантаження';
                 }
@@ -377,6 +497,212 @@ function fileManager(initialPath = '', initialSelection = '') {
                 console.error(e);
             } finally {
                 this.previewLoading = false;
+                if (this.previewNeedsHighlight) {
+                    this.$nextTick(() => this.tryHighlightPreview());
+                }
+            }
+        },
+
+        tryHighlightPreview() {
+            if (! this.previewNeedsHighlight) {
+                return;
+            }
+
+            if (window.hljs && this.$refs.previewCode) {
+                window.hljs.highlightElement(this.$refs.previewCode);
+                this.previewNeedsHighlight = false;
+                return;
+            }
+
+            if (this.previewHighlightAttempts >= this.maxPreviewHighlightAttempts) {
+                this.previewNeedsHighlight = false;
+                return;
+            }
+
+            this.previewHighlightAttempts++;
+            setTimeout(() => this.tryHighlightPreview(), 200);
+        },
+
+        async editFile(path) {
+            this.showEditor = true;
+            this.editorLoading = true;
+            this.editorError = null;
+            this.editorMessage = null;
+            this.editorContent = '';
+            this.editorData = {};
+            this.destroyEditor();
+            this.editorNeedsMount = false;
+
+            try {
+                const response = await fetch(`{{ route('file-manager.content') }}?path=${encodeURIComponent(path)}`);
+                const data = await response.json();
+
+                if (!data.success) {
+                    this.editorError = data.error || 'Не вдалося завантажити файл';
+                    return;
+                }
+
+                if (!data.content.is_text) {
+                    this.editorError = 'Цей файл не можна редагувати онлайн';
+                    return;
+                }
+
+                try {
+                    await this.ensureEditorAssets();
+                } catch (assetError) {
+                    console.error(assetError);
+                    this.editorError = 'Не вдалося завантажити компоненти редактора';
+                    return;
+                }
+
+                this.editorData = {
+                    path: data.content.path,
+                    name: data.content.name,
+                    extension: this.getExtensionFromPath(data.content.path),
+                };
+                this.editorContent = data.content.content || '';
+                this.editorNeedsMount = true;
+            } catch (e) {
+                this.editorError = 'Помилка з\'єднання з сервером';
+                console.error(e);
+            } finally {
+                this.editorLoading = false;
+                if (this.editorNeedsMount && !this.editorError) {
+                    this.$nextTick(() => this.mountEditor());
+                }
+            }
+        },
+
+        mountEditor() {
+            if (!this.editorNeedsMount) {
+                return;
+            }
+
+            if (!window.CodeMirror || !this.$refs.editorTextarea) {
+                // Re-attempt initialization shortly if dependencies are not ready yet
+                setTimeout(() => this.mountEditor(), 100);
+                return;
+            }
+
+            this.editorInstance = CodeMirror.fromTextArea(this.$refs.editorTextarea, {
+                lineNumbers: true,
+                tabSize: 4,
+                indentUnit: 4,
+                mode: this.getEditorMode(this.editorData.extension),
+                lineWrapping: true,
+            });
+            this.editorInstance.setValue(this.editorContent);
+            this.editorInstance.focus();
+            this.editorNeedsMount = false;
+        },
+
+        async ensureEditorAssets() {
+            if (this.editorAssetsReady && window.CodeMirror) {
+                return;
+            }
+
+            if (this.editorAssetsPromise) {
+                return this.editorAssetsPromise;
+            }
+
+            const scripts = this.editorScriptSources || [];
+            if (scripts.length === 0) {
+                this.editorAssetsReady = true;
+                return;
+            }
+
+            this.editorAssetsPromise = scripts
+                .reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve())
+                .then(() => {
+                    this.editorAssetsReady = true;
+                })
+                .catch(error => {
+                    this.editorAssetsPromise = null;
+                    throw error;
+                });
+
+            return this.editorAssetsPromise;
+        },
+
+        loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const existing = document.querySelector(`script[data-fm-src="${src}"]`);
+                if (existing) {
+                    if (existing.dataset.loaded === 'true') {
+                        resolve();
+                        return;
+                    }
+
+                    existing.addEventListener('load', () => resolve(), { once: true });
+                    existing.addEventListener('error', () => reject(new Error(`Не вдалося завантажити ${src}`)), { once: true });
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = src;
+                script.defer = true;
+                script.dataset.fmSrc = src;
+                script.onload = () => {
+                    script.dataset.loaded = 'true';
+                    resolve();
+                };
+                script.onerror = () => reject(new Error(`Не вдалося завантажити ${src}`));
+                document.head.appendChild(script);
+            });
+        },
+
+        destroyEditor() {
+            if (this.editorInstance) {
+                this.editorInstance.toTextArea();
+                this.editorInstance = null;
+            }
+            this.editorNeedsMount = false;
+        },
+
+        closeEditor() {
+            this.showEditor = false;
+            this.editorMessage = null;
+            this.editorError = null;
+            this.destroyEditor();
+        },
+
+        async saveFile() {
+            if (!this.editorData.path) {
+                return;
+            }
+
+            this.editorSaving = true;
+            this.editorMessage = null;
+            const payload = {
+                path: this.editorData.path,
+                content: this.editorInstance ? this.editorInstance.getValue() : this.editorContent,
+            };
+
+            try {
+                const response = await fetch(`{{ route('file-manager.update') }}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': this.getCsrfToken(),
+                    },
+                    body: JSON.stringify(payload),
+                });
+                const data = await response.json();
+
+                if (!data.success) {
+                    this.editorError = data.error || 'Помилка збереження файлу';
+                    return;
+                }
+
+                this.editorMessage = 'Файл збережено (' + (data.size || payload.content.length) + ' байт)';
+                this.editorError = null;
+                this.loadTree(this.currentPath);
+            } catch (e) {
+                this.editorError = 'Помилка з\'єднання з сервером';
+                console.error(e);
+            } finally {
+                this.editorSaving = false;
             }
         },
 
@@ -424,14 +750,65 @@ function fileManager(initialPath = '', initialSelection = '') {
                 'tar': 'fa-file-archive text-gray-700',
                 'gz': 'fa-file-archive text-gray-700',
             };
-            
+
             return iconMap[ext] || 'text-gray-500';
-        }
+        },
+
+        getCsrfToken() {
+            return document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+        },
+
+        getExtensionFromPath(path = '') {
+            if (!path || !path.includes('.')) {
+                return '';
+            }
+
+            return path.split('.').pop().toLowerCase();
+        },
+
+        getHighlightClass(extension) {
+            const map = {
+                'php': 'language-php',
+                'js': 'language-javascript',
+                'ts': 'language-typescript',
+                'json': 'language-json',
+                'html': 'language-xml',
+                'vue': 'language-xml',
+                'css': 'language-css',
+                'scss': 'language-css',
+                'md': 'language-markdown',
+                'sh': 'language-bash',
+                'xml': 'language-xml',
+            };
+
+            return map[extension] || 'language-plaintext';
+        },
+
+        getEditorMode(extension) {
+            const map = {
+                'php': 'application/x-httpd-php',
+                'js': 'javascript',
+                'ts': 'javascript',
+                'json': 'application/json',
+                'html': 'htmlmixed',
+                'vue': 'htmlmixed',
+                'css': 'css',
+                'scss': 'css',
+                'md': 'markdown',
+                'sh': 'shell',
+                'sql': 'sql',
+            };
+
+            return map[extension] || 'text/plain';
+        },
     };
 }
 </script>
 @endsection
 
 @push('head-scripts')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" integrity="sha512-L56ZWRPcNI0YvrFica8FWHQrFMizxgxYkWwaP42gnikIze8ih/7nToYtL6vhfVqlhK/SXGEdq8np5xpoE2mR7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" integrity="sha512-6WtHb0CQOZgdKzac8AjtKoa6HgMHqmpYJv1nVbWcv16O3MHuvb6jVWeItPxX2VINeodIZ6Tn6PvxI6Bfq5lHvw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-hbDJW60Trw7P3cu6UytzszbmWzxubUoilKx2oyWZMhUlCT3VkOITkkpFmS6r30YIOCwRvDDDeWGPAHDLcGRIDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 @endpush

@@ -144,6 +144,56 @@ class FileManagerController extends Controller
     }
 
     /**
+     * Load full file contents for editing without preview size limits.
+     */
+    public function content(Request $request): JsonResponse
+    {
+        if (! config('file-manager.allow_edit', true)) {
+            return response()->json([
+                'success' => false,
+                'error' => 'File editing is disabled',
+            ], 403);
+        }
+
+        $path = $this->sanitizePath($request->input('path', ''));
+
+        if ($path === '') {
+            return response()->json([
+                'success' => false,
+                'error' => 'Path is required',
+            ], 400);
+        }
+
+        $content = $this->fileSystemService->getFileContent($path, false);
+
+        if (! $content) {
+            return response()->json([
+                'success' => false,
+                'error' => 'File not found or access denied',
+            ], 404);
+        }
+
+        if (isset($content['error'])) {
+            return response()->json([
+                'success' => false,
+                'error' => $content['error'],
+            ], 400);
+        }
+
+        if (! ($content['is_text'] ?? false)) {
+            return response()->json([
+                'success' => false,
+                'error' => 'Цей файл не можна редагувати онлайн',
+            ], 400);
+        }
+
+        return response()->json([
+            'success' => true,
+            'content' => $content,
+        ]);
+    }
+
+    /**
      * Download file
      */
     public function download(Request $request): Response|JsonResponse
@@ -176,7 +226,45 @@ class FileManagerController extends Controller
         $fullPath = $this->fileSystemService->getBasePath().'/'.$path;
 
         return FacadeResponse::download($fullPath, $info['name']);
-}
+    }
+
+    /**
+     * Update file contents.
+     */
+    public function update(Request $request): JsonResponse
+    {
+        if (! config('file-manager.allow_edit', true)) {
+            return response()->json([
+                'success' => false,
+                'error' => 'File editing is disabled',
+            ], 403);
+        }
+
+        $path = $this->sanitizePath($request->input('path'));
+        $content = (string) $request->input('content', '');
+
+        if ($path === '') {
+            return response()->json([
+                'success' => false,
+                'error' => 'Path is required',
+            ], 400);
+        }
+
+        $result = $this->fileSystemService->updateFileContent($path, $content);
+
+        if (! $result['success']) {
+            return response()->json([
+                'success' => false,
+                'error' => $result['error'] ?? 'Не вдалося зберегти файл',
+            ], 400);
+        }
+
+        return response()->json([
+            'success' => true,
+            'size' => $result['size'] ?? null,
+            'message' => 'Файл успішно оновлено',
+        ]);
+    }
 
     private function resolveInitialTargets(string $initialPath, string $initialSelection): array
     {
