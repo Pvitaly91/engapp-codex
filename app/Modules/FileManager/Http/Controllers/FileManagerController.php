@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response as FacadeResponse;
 use Illuminate\View\View;
 
@@ -352,26 +353,31 @@ class FileManagerController extends Controller
 
     public function asset(string $path): Response
     {
-        $relativePath = $this->sanitizePath($path);
-
-        if ($relativePath === '' || ! isset(self::ASSET_SOURCES[$relativePath])) {
-            abort(404);
-        }
-
-        $asset = self::ASSET_SOURCES[$relativePath];
-        $localPath = storage_path('app/file-manager-assets/'.$relativePath);
-
-        if (File::exists($localPath)) {
-            return FacadeResponse::file($localPath, [
-                'Content-Type' => $asset['type'],
-            ]);
-        }
-
         try {
+            $relativePath = $this->sanitizePath($path);
+
+            if ($relativePath === '' || ! isset(self::ASSET_SOURCES[$relativePath])) {
+                return FacadeResponse::make('Asset not found: ' . $path, 404);
+            }
+
+            $asset = self::ASSET_SOURCES[$relativePath];
+            $localPath = storage_path('app/file-manager-assets/'.$relativePath);
+
+            if (File::exists($localPath)) {
+                return FacadeResponse::file($localPath, [
+                    'Content-Type' => $asset['type'],
+                ]);
+            }
+
             $response = Http::timeout(10)->get($asset['source']);
 
             if (! $response->successful()) {
-                return FacadeResponse::make('Не вдалося отримати ресурс', 502);
+                \Log::error('Failed to fetch asset from CDN', [
+                    'path' => $relativePath,
+                    'source' => $asset['source'],
+                    'status' => $response->status()
+                ]);
+                return FacadeResponse::make('Не вдалося отримати ресурс з CDN', 502);
             }
 
             File::ensureDirectoryExists(dirname($localPath));
@@ -381,7 +387,12 @@ class FileManagerController extends Controller
                 'Content-Type' => $asset['type'],
             ]);
         } catch (\Throwable $exception) {
-            return FacadeResponse::make('Не вдалося отримати ресурс', 502);
+            \Log::error('Asset loading exception', [
+                'path' => $path,
+                'error' => $exception->getMessage(),
+                'trace' => $exception->getTraceAsString()
+            ]);
+            return FacadeResponse::make('Помилка завантаження ресурсу: ' . $exception->getMessage(), 500);
         }
     }
 
