@@ -332,8 +332,15 @@
                             <span>Розширення: <code x-text="editorData.extension || '—'"></code></span>
                             <span class="text-green-600" x-show="editorMessage" x-text="editorMessage"></span>
                         </div>
-                        <textarea x-ref="editorTextarea" class="hidden" x-model="editorContent"></textarea>
-                        <div x-show="!editorInstance" class="text-center text-gray-500 py-4">
+                        <div x-show="editorFallback" class="text-sm text-amber-600 mb-2">
+                            Використовується базовий редактор без підсвітки через недоступність CodeMirror.
+                        </div>
+                        <textarea
+                            x-ref="editorTextarea"
+                            x-model="editorContent"
+                            :class="editorFallback ? 'w-full h-96 border rounded p-3 font-mono text-sm' : 'hidden'"
+                        ></textarea>
+                        <div x-show="!editorInstance && !editorFallback" class="text-center text-gray-500 py-4">
                             <p>Ініціалізація редактора...</p>
                         </div>
                     </div>
@@ -398,6 +405,9 @@ function fileManager(initialPath = '', initialSelection = '') {
         editorSaving: false,
         editorInstance: null,
         editorNeedsMount: false,
+        editorFallback: false,
+        editorMountAttempts: 0,
+        maxEditorMountAttempts: 50,
         editorAssetsReady: !!window.CodeMirror,
         editorAssetsPromise: null,
         editorScriptSources: FILE_MANAGER_CODEMIRROR_SOURCES,
@@ -532,6 +542,8 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.editorData = {};
             this.destroyEditor();
             this.editorNeedsMount = false;
+            this.editorFallback = false;
+            this.editorMountAttempts = 0;
 
             try {
                 const response = await fetch(`{{ route('file-manager.content') }}?path=${encodeURIComponent(path)}`);
@@ -551,8 +563,8 @@ function fileManager(initialPath = '', initialSelection = '') {
                     await this.ensureEditorAssets();
                 } catch (assetError) {
                     console.error(assetError);
-                    this.editorError = 'Не вдалося завантажити компоненти редактора';
-                    return;
+                    this.editorFallback = true;
+                    this.editorMessage = 'CodeMirror недоступний, використовується простий редактор';
                 }
 
                 this.editorData = {
@@ -561,7 +573,7 @@ function fileManager(initialPath = '', initialSelection = '') {
                     extension: this.getExtensionFromPath(data.content.path),
                 };
                 this.editorContent = data.content.content || '';
-                this.editorNeedsMount = true;
+                this.editorNeedsMount = !this.editorFallback;
             } catch (e) {
                 this.editorError = 'Помилка з\'єднання з сервером';
                 console.error(e);
@@ -574,9 +586,23 @@ function fileManager(initialPath = '', initialSelection = '') {
         },
 
         mountEditor() {
+            if (this.editorFallback) {
+                this.editorNeedsMount = false;
+                return;
+            }
+
             if (!this.editorNeedsMount) {
                 return;
             }
+
+            if (this.editorMountAttempts >= this.maxEditorMountAttempts) {
+                this.editorMessage = 'Не вдалося ініціалізувати CodeMirror, використовується простий редактор';
+                this.editorFallback = true;
+                this.editorNeedsMount = false;
+                return;
+            }
+
+            this.editorMountAttempts++;
 
             if (!window.CodeMirror || !this.$refs.editorTextarea) {
                 // Re-attempt initialization shortly if dependencies are not ready yet
@@ -584,16 +610,24 @@ function fileManager(initialPath = '', initialSelection = '') {
                 return;
             }
 
-            this.editorInstance = CodeMirror.fromTextArea(this.$refs.editorTextarea, {
-                lineNumbers: true,
-                tabSize: 4,
-                indentUnit: 4,
-                mode: this.getEditorMode(this.editorData.extension),
-                lineWrapping: true,
-            });
-            this.editorInstance.setValue(this.editorContent);
-            this.editorInstance.focus();
-            this.editorNeedsMount = false;
+            try {
+                this.editorInstance = CodeMirror.fromTextArea(this.$refs.editorTextarea, {
+                    lineNumbers: true,
+                    tabSize: 4,
+                    indentUnit: 4,
+                    mode: this.getEditorMode(this.editorData.extension),
+                    lineWrapping: true,
+                });
+                this.editorInstance.setValue(this.editorContent);
+                this.editorInstance.focus();
+                this.editorNeedsMount = false;
+                this.editorMessage = null;
+            } catch (initError) {
+                console.error(initError);
+                this.editorMessage = 'Не вдалося ініціалізувати CodeMirror, використовується простий редактор';
+                this.editorFallback = true;
+                this.editorNeedsMount = false;
+            }
         },
 
         async ensureEditorAssets() {
@@ -614,6 +648,9 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.editorAssetsPromise = scripts
                 .reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve())
                 .then(() => {
+                    if (!window.CodeMirror) {
+                        throw new Error('CodeMirror глобальний об\'єкт недоступний після завантаження');
+                    }
                     this.editorAssetsReady = true;
                 })
                 .catch(error => {
