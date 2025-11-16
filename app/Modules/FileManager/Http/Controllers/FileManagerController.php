@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response as FacadeResponse;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\Response as BaseResponse;
 
 class FileManagerController extends Controller
 {
@@ -351,7 +353,7 @@ class FileManagerController extends Controller
         ]);
     }
 
-    public function asset(string $path): Response
+    public function asset(string $path): Response|BinaryFileResponse
     {
         try {
             $relativePath = $this->sanitizePath($path);
