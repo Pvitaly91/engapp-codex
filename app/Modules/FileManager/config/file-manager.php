@@ -32,4 +32,7 @@ return [
 
     // Enable file content preview
     'allow_preview' => true,
+
+    // Enable in-browser editing for writable text files
+    'allow_edit' => true,
 ];

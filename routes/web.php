@@ -5,7 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatGPTExplanationController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MigrationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionAnswerController;
 use App\Http\Controllers\QuestionController;
@@ -82,10 +81,6 @@ Route::middleware('auth.admin')->group(function () {
         })->name('setlocale');
 
         Route::get('/train/{topic?}', [TrainController::class, 'index'])->name('train');
-
-        Route::get('/migrations', [MigrationController::class, 'index'])->name('migrations.index');
-        Route::post('/migrations/run', [MigrationController::class, 'run'])->name('migrations.run');
-        Route::post('/migrations/rollback', [MigrationController::class, 'rollback'])->name('migrations.rollback');
 
         Route::get('/words/test', [WordsTestController::class, 'index'])->name('words.test');
         Route::post('/words/test/check', [WordsTestController::class, 'check'])->name('words.test.check');
