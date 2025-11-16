@@ -574,7 +574,6 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
 
                 const script = document.createElement('script');
                 script.src = src;
-                script.defer = true;
                 script.dataset.fmSrc = src;
                 script.onload = () => {
                     script.dataset.loaded = 'true';
