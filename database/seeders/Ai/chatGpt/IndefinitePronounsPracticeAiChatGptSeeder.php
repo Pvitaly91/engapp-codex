@@ -55,6 +55,10 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
         $meta = [];
 
         foreach ($questions as $index => $entry) {
+            if (! is_array($entry) || ! isset($entry['answers'], $entry['options'])) {
+                continue;
+            }
+
             $answers = [];
             foreach ($entry['answers'] as $marker => $answer) {
                 $answers[] = [
