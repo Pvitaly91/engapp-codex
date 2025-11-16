@@ -59,6 +59,8 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
                 continue;
             }
 
+            $entry = $this->applyDefaultSupports($entry);
+
             $answers = [];
             foreach ($entry['answers'] as $marker => $answer) {
                 $answers[] = [
@@ -379,6 +381,81 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
         }
 
         return $entries;
+    }
+
+    private function applyDefaultSupports(array $entry): array
+    {
+        $entry['hints'] = $entry['hints'] ?? [];
+        $entry['explanations'] = $entry['explanations'] ?? [];
+
+        foreach ($entry['answers'] as $marker => $answer) {
+            if (! isset($entry['hints'][$marker])) {
+                $entry['hints'][$marker] = $this->defaultHintForAnswer((string) $answer, $entry['source'] ?? 'question');
+            }
+
+            if (! isset($entry['explanations'][$marker])) {
+                $entry['explanations'][$marker] = $this->buildDefaultExplanations(
+                    (string) $answer,
+                    $entry['options'][$marker] ?? [],
+                    $entry['source'] ?? 'question'
+                );
+            }
+        }
+
+        return $entry;
+    }
+
+    private function defaultHintForAnswer(string $answer, string $source): string
+    {
+        $family = $this->pronounFamily($answer);
+
+        return match ($family) {
+            'any' => 'Any/anything/anyone — заперечення та запитання, часто після not або допоміжних дієслів.',
+            'some' => 'Some/something/someone — ствердження, пропозиції або ввічливі прохання.',
+            'no' => 'No one/nothing/nobody — заперечення без окремого not, показує повну відсутність.',
+            'every' => 'Everyone/everything — охоплює всіх або все без винятку.',
+            default => $source === 'negative'
+                ? 'У запереченнях уникайте дублювання not і вибирайте форму з any або no.'
+                : 'Оберіть займенник відповідно до контексту (запитання/ствердження/повна відсутність).',
+        };
+    }
+
+    private function buildDefaultExplanations(string $answer, array $options, string $source): array
+    {
+        $family = $this->pronounFamily($answer);
+        $messages = [];
+
+        foreach ($options as $option) {
+            if ($option === $answer) {
+                continue;
+            }
+
+            $optionFamily = $this->pronounFamily((string) $option);
+            $messages[$option] = match ($optionFamily) {
+                'any' => 'Any використовується у запитаннях і запереченнях; тут контекст може вимагати іншої групи.',
+                'some' => 'Some більше пасує ствердженням чи пропозиціям, тому не виражає браку/питання достатньо чітко.',
+                'no' => 'No-композити вже містять заперечення, тож їх не поєднують з not у тій же частині речення.',
+                'every' => 'Every означає «кожен/усе» і не підкреслює вибір чи відсутність, тому не збігається з контекстом.',
+                default => $source === 'future'
+                    ? 'У майбутньому часі зверніть увагу, чи ви питаєте/заперечуєте, і доберіть відповідний займенник.'
+                    : 'Доберіть форму, що відповідає наявності/відсутності та типу речення (ствердження, питання, заперечення).',
+            };
+        }
+
+        return $messages;
+    }
+
+    private function pronounFamily(string $value): string
+    {
+        $lower = strtolower($value);
+
+        return match (true) {
+            str_starts_with($lower, 'any') => 'any',
+            str_starts_with($lower, 'some') => 'some',
+            str_starts_with($lower, 'no') => 'no',
+            str_starts_with($lower, 'every') => 'every',
+            default => 'other',
+        };
     }
 
     private function flattenOptions(array $optionSets): array
