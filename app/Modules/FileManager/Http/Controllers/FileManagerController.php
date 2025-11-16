@@ -69,9 +69,15 @@ class FileManagerController extends Controller
         ],
     ];
 
-    public function __construct(
-        protected FileSystemService $fileSystemService
-    ) {}
+    /**
+     * @var FileSystemService
+     */
+    protected $fileSystemService;
+
+    public function __construct(FileSystemService $fileSystemService)
+    {
+        $this->fileSystemService = $fileSystemService;
+    }
 
     /**
      * Display the file manager interface
