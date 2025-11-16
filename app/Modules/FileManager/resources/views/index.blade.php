@@ -373,20 +373,27 @@
     </div>
 </div>
 
+@php
+    $codeMirrorSources = array(
+        route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/php/php.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/css/css.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/htmlmixed/htmlmixed.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/markdown/markdown.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/sql/sql.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/shell/shell.min.js']),
+    );
+
+    $highlightStyle = route('file-manager.asset', ['path' => 'highlightjs/github-dark.min.css']);
+    $highlightScript = route('file-manager.asset', ['path' => 'highlightjs/highlight.min.js']);
+@endphp
+
 <script>
-const FILE_MANAGER_CODEMIRROR_SOURCES = @json([
-    route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
-    route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
-    route('file-manager.asset', ['path' => 'codemirror/mode/php/php.min.js']),
-    route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
-    route('file-manager.asset', ['path' => 'codemirror/mode/css/css.min.js']),
-    route('file-manager.asset', ['path' => 'codemirror/mode/htmlmixed/htmlmixed.min.js']),
-    route('file-manager.asset', ['path' => 'codemirror/mode/markdown/markdown.min.js']),
-    route('file-manager.asset', ['path' => 'codemirror/mode/sql/sql.min.js']),
-    route('file-manager.asset', ['path' => 'codemirror/mode/shell/shell.min.js']),
-]);
-const FILE_MANAGER_HIGHLIGHT_STYLE = @json(route('file-manager.asset', ['path' => 'highlightjs/github-dark.min.css']));
-const FILE_MANAGER_HIGHLIGHT_SCRIPT = @json(route('file-manager.asset', ['path' => 'highlightjs/highlight.min.js']));
+const FILE_MANAGER_CODEMIRROR_SOURCES = {!! json_encode($codeMirrorSources) !!};
+const FILE_MANAGER_HIGHLIGHT_STYLE = {!! json_encode($highlightStyle) !!};
+const FILE_MANAGER_HIGHLIGHT_SCRIPT = {!! json_encode($highlightScript) !!};
 
 function fileManager(initialPath = '', initialSelection = '') {
     return {
