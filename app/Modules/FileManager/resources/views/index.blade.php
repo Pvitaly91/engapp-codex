@@ -93,7 +93,12 @@
                                 
                                 <!-- Name -->
                                 <div class="flex-1">
-                                    <span class="font-medium" x-text="item.name"></span>
+                                    <span
+                                        class="font-medium"
+                                        x-text="item.name"
+                                        @click.stop="if (item.type === 'directory') navigateToPath(item.path)"
+                                        :class="{ 'cursor-pointer text-blue-700 hover:underline': item.type === 'directory' }"
+                                    ></span>
                                 </div>
 
                                 <!-- Size -->
@@ -310,7 +315,7 @@
                     <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
-            <div class="p-4 flex-1 flex flex-col">
+            <div class="p-4 flex-1 flex flex-col overflow-hidden max-h-[80vh]">
                 <template x-if="editorLoading">
                     <div class="text-center py-8">
                         <i class="fas fa-spinner fa-spin text-4xl text-blue-500"></i>
@@ -326,7 +331,7 @@
                 </template>
 
                 <template x-if="!editorLoading && !editorError">
-                    <div class="flex-1 flex flex-col">
+                    <div class="flex-1 flex flex-col overflow-hidden">
                         <div class="text-sm text-gray-500 mb-2 flex flex-wrap gap-4">
                             <span>Шлях: <code class="font-mono" x-text="editorData.path"></code></span>
                             <span>Розширення: <code x-text="editorData.extension || '—'"></code></span>
@@ -335,11 +340,13 @@
                         <div x-show="editorFallback" class="text-sm text-amber-600 mb-2">
                             Використовується базовий редактор без підсвітки через недоступність CodeMirror.
                         </div>
-                        <textarea
-                            x-ref="editorTextarea"
-                            x-model="editorContent"
-                            :class="editorFallback ? 'w-full h-96 border rounded p-3 font-mono text-sm' : 'hidden'"
-                        ></textarea>
+                        <div class="flex-1 overflow-hidden">
+                            <textarea
+                                x-ref="editorTextarea"
+                                x-model="editorContent"
+                                :class="editorFallback ? 'w-full max-h-[70vh] min-h-[300px] border rounded p-3 font-mono text-sm overflow-auto' : 'hidden'"
+                            ></textarea>
+                        </div>
                         <div x-show="!editorInstance && !editorFallback" class="text-center text-gray-500 py-4">
                             <p>Ініціалізація редактора...</p>
                         </div>
@@ -618,6 +625,8 @@ function fileManager(initialPath = '', initialSelection = '') {
                     mode: this.getEditorMode(this.editorData.extension),
                     lineWrapping: true,
                 });
+                const editorHeight = Math.min(Math.max(window.innerHeight * 0.7, 320), 900);
+                this.editorInstance.setSize('100%', editorHeight + 'px');
                 this.editorInstance.setValue(this.editorContent);
                 this.editorInstance.focus();
                 this.editorNeedsMount = false;
