@@ -334,7 +334,12 @@ class FileManagerController extends Controller
         $relativePath = $this->sanitizePath($path);
 
         if ($relativePath === '' || ! isset(self::ASSET_SOURCES[$relativePath])) {
-            abort(404);
+            \Log::error('File Manager Asset not found', [
+                'original_path' => $path,
+                'sanitized_path' => $relativePath,
+                'available_assets' => array_keys(self::ASSET_SOURCES),
+            ]);
+            abort(404, 'Asset not found: ' . $relativePath);
         }
 
         $asset = self::ASSET_SOURCES[$relativePath];
@@ -350,6 +355,11 @@ class FileManagerController extends Controller
             $response = Http::timeout(10)->get($asset['source']);
 
             if (! $response->successful()) {
+                \Log::error('Failed to fetch asset from CDN', [
+                    'path' => $relativePath,
+                    'source' => $asset['source'],
+                    'status' => $response->status(),
+                ]);
                 return FacadeResponse::make('Не вдалося отримати ресурс', 502);
             }
 
@@ -360,7 +370,12 @@ class FileManagerController extends Controller
                 'Content-Type' => $asset['type'],
             ]);
         } catch (\Throwable $exception) {
-            return FacadeResponse::make('Не вдалося отримати ресурс', 502);
+            \Log::error('Exception while fetching asset', [
+                'path' => $relativePath,
+                'error' => $exception->getMessage(),
+                'trace' => $exception->getTraceAsString(),
+            ]);
+            return FacadeResponse::make('Не вдалося отримати ресурс: ' . $exception->getMessage(), 502);
         }
     }
 
