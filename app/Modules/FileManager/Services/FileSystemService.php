@@ -104,7 +104,7 @@ class FileSystemService
     /**
      * Get file content
      */
-    public function getFileContent(string $path): ?array
+    public function getFileContent(string $path, bool $enforceSizeLimit = true): ?array
     {
         $fullPath = $this->basePath.'/'.$path;
 
@@ -115,7 +115,7 @@ class FileSystemService
         $maxSize = config('file-manager.max_file_display_size', 1048576);
         $size = filesize($fullPath);
 
-        if ($size > $maxSize) {
+        if ($enforceSizeLimit && $size > $maxSize) {
             return [
                 'error' => 'File is too large to display',
                 'size' => $size,
@@ -133,6 +133,34 @@ class FileSystemService
             'mime_type' => mime_content_type($fullPath),
             'is_text' => $this->isTextFile($fullPath),
         ];
+    }
+
+    /**
+     * Update the contents of a file.
+     */
+    public function updateFileContent(string $path, string $content): array
+    {
+        $fullPath = $this->basePath.'/'.$path;
+
+        if (! $this->isValidPath($fullPath) || ! is_file($fullPath)) {
+            return ['success' => false, 'error' => 'Файл недоступний або не існує'];
+        }
+
+        if (! is_writable($fullPath)) {
+            return ['success' => false, 'error' => 'Немає прав на запис у файл'];
+        }
+
+        if (! $this->isTextFile($fullPath)) {
+            return ['success' => false, 'error' => 'Редагування доступне лише для текстових файлів'];
+        }
+
+        $bytes = file_put_contents($fullPath, $content, LOCK_EX);
+
+        if ($bytes === false) {
+            return ['success' => false, 'error' => 'Не вдалося зберегти файл'];
+        }
+
+        return ['success' => true, 'size' => $bytes];
     }
 
     /**
