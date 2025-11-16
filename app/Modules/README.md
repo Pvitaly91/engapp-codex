@@ -49,3 +49,20 @@
 5. Налаштуйте доступи (middleware `auth.admin`) і навігацію адмінки на маршрут `pages.manage.index`.
 
 Детальніша інструкція розміщена у `app/Modules/PageManager/README.md`.
+
+## Модуль "MigrationManager"
+
+Модуль дозволяє запускати всі доступні міграції та відкатувати останню партію прямо з адмін-панелі за адресою `/admin/migrations`.
+
+### Як встановити
+1. Скопіюйте папку `app/Modules/MigrationManager` у ваш застосунок.
+2. Додайте `App\Modules\MigrationManager\MigrationManagerServiceProvider::class` до масиву `providers` файлу `config/app.php`.
+3. (Опційно) опублікуйте конфіг та шаблони командами
+   ```bash
+   php artisan vendor:publish --tag=migration-manager-config
+   php artisan vendor:publish --tag=migration-manager-views
+   ```
+   Після цього файл `config/migration-manager.php` дозволить змінити префікс маршруту та middleware.
+4. Додайте посилання у меню адмінки на маршрут `migrations.index` (типово `/admin/migrations`).
+
+Більше деталей — у `app/Modules/MigrationManager/README.md`.
