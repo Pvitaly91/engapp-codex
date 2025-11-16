@@ -658,8 +658,13 @@ function fileManager(initialPath = '', initialSelection = '') {
                 return;
             }
 
-            if (this.previewHighlightAttempts >= this.maxPreviewHighlightAttempts) {
+            // Apply the lightweight highlighter immediately so the user always sees syntax colors
+            // even if Highlight.js never loads (CSP, offline, or CDN outage).
+            if (this.previewHighlightAttempts === 0) {
                 this.applyPreviewFallbackHighlight();
+            }
+
+            if (this.previewHighlightAttempts >= this.maxPreviewHighlightAttempts) {
                 this.previewNeedsHighlight = false;
                 return;
             }
