@@ -374,17 +374,19 @@
 </div>
 
 <script>
-const FILE_MANAGER_CODEMIRROR_SOURCES = [
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js',
-];
+const FILE_MANAGER_CODEMIRROR_SOURCES = @json([
+    route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
+    route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
+    route('file-manager.asset', ['path' => 'codemirror/mode/php/php.min.js']),
+    route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
+    route('file-manager.asset', ['path' => 'codemirror/mode/css/css.min.js']),
+    route('file-manager.asset', ['path' => 'codemirror/mode/htmlmixed/htmlmixed.min.js']),
+    route('file-manager.asset', ['path' => 'codemirror/mode/markdown/markdown.min.js']),
+    route('file-manager.asset', ['path' => 'codemirror/mode/sql/sql.min.js']),
+    route('file-manager.asset', ['path' => 'codemirror/mode/shell/shell.min.js']),
+]);
+const FILE_MANAGER_HIGHLIGHT_STYLE = @json(route('file-manager.asset', ['path' => 'highlightjs/github-dark.min.css']));
+const FILE_MANAGER_HIGHLIGHT_SCRIPT = @json(route('file-manager.asset', ['path' => 'highlightjs/highlight.min.js']));
 
 function fileManager(initialPath = '', initialSelection = '') {
     return {
@@ -566,21 +568,22 @@ function fileManager(initialPath = '', initialSelection = '') {
                     return;
                 }
 
-                try {
-                    await this.ensureEditorAssets();
-                } catch (assetError) {
-                    console.error(assetError);
-                    this.editorFallback = true;
-                    this.editorMessage = 'CodeMirror недоступний, використовується простий редактор';
-                }
-
                 this.editorData = {
                     path: data.content.path,
                     name: data.content.name,
                     extension: this.getExtensionFromPath(data.content.path),
                 };
                 this.editorContent = data.content.content || '';
-                this.editorNeedsMount = !this.editorFallback;
+
+                try {
+                    await this.ensureEditorAssets();
+                    this.editorNeedsMount = true;
+                } catch (assetError) {
+                    console.error(assetError);
+                    this.editorFallback = true;
+                    this.editorMessage = 'CodeMirror недоступний, використовується простий редактор';
+                    this.editorNeedsMount = false;
+                }
             } catch (e) {
                 this.editorError = 'Помилка з\'єднання з сервером';
                 console.error(e);
@@ -654,8 +657,14 @@ function fileManager(initialPath = '', initialSelection = '') {
                 return;
             }
 
-            this.editorAssetsPromise = scripts
-                .reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve())
+            const loadChain = scripts.reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve());
+            const timeoutMs = 8000;
+            const timeout = new Promise((_, reject) => setTimeout(
+                () => reject(new Error('Перевищено час очікування завантаження редактора')),
+                timeoutMs,
+            ));
+
+            this.editorAssetsPromise = Promise.race([loadChain, timeout])
                 .then(() => {
                     if (!window.CodeMirror) {
                         throw new Error('CodeMirror глобальний об\'єкт недоступний після завантаження');
@@ -853,8 +862,8 @@ function fileManager(initialPath = '', initialSelection = '') {
 @endsection
 
 @push('head-scripts')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" integrity="sha512-L56ZWRPcNI0YvrFica8FWHQrFMizxgxYkWwaP42gnikIze8ih/7nToYtL6vhfVqlhK/SXGEdq8np5xpoE2mR7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" integrity="sha512-6WtHb0CQOZgdKzac8AjtKoa6HgMHqmpYJv1nVbWcv16O3MHuvb6jVWeItPxX2VINeodIZ6Tn6PvxI6Bfq5lHvw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-hbDJW60Trw7P3cu6UytzszbmWzxubUoilKx2oyWZMhUlCT3VkOITkkpFmS6r30YIOCwRvDDDeWGPAHDLcGRIDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="{{ route('file-manager.asset', ['path' => 'highlightjs/github-dark.min.css']) }}" />
+<link rel="stylesheet" href="{{ route('file-manager.asset', ['path' => 'codemirror/codemirror.min.css']) }}" />
+<script defer src="{{ route('file-manager.asset', ['path' => 'highlightjs/highlight.min.js']) }}"></script>
+<script defer src="{{ route('file-manager.asset', ['path' => 'alpinejs/alpine.min.js']) }}"></script>
 @endpush
