@@ -5,7 +5,11 @@
 @section('content')
 <div
     class="container mx-auto px-4"
-    x-data="fileManager(@js($initialPath ?? ''), @js($initialSelection ?? ''))"
+    x-data="fileManager(
+        @js($initialPath ?? ''),
+        @js($initialSelection ?? ''),
+        @js($initialItems ?? [])
+    )"
     x-init="init()"
 >
     <div class="mb-6 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
@@ -684,13 +688,14 @@ function setCaretIndex(node, index) {
     }
 }
 
-function fileManager(initialPath = '', initialSelection = '') {
+function fileManager(initialPath = '', initialSelection = '', initialItems = []) {
     return {
         initialPath,
         initialSelection,
+        initialItems,
         activeView: 'list',
-        currentPath: '',
-        items: [],
+        currentPath: initialItems && initialItems.length ? initialPath : '',
+        items: initialItems || [],
         selectedItem: null,
         loading: false,
         error: null,
@@ -738,7 +743,13 @@ function fileManager(initialPath = '', initialSelection = '') {
 
         init() {
             this.pendingSelection = this.initialSelection || null;
-            this.loadTree(this.initialPath || '');
+
+            if (!this.items.length) {
+                this.loadTree(this.initialPath || '');
+                return;
+            }
+
+            this.$nextTick(() => this.loadTree(this.initialPath || ''));
         },
 
         setView(view) {

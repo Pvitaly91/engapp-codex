@@ -93,10 +93,13 @@ class FileManagerController extends Controller
             $requestedSelection
         );
 
+        $initialItems = $this->fileSystemService->getFileTree($initialPath ?: null);
+
         return view('file-manager::index', [
             'basePath' => $basePath,
             'initialPath' => $initialPath,
             'initialSelection' => $initialSelection,
+            'initialItems' => $initialItems,
         ]);
     }
 
