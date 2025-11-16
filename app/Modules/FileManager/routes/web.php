@@ -4,6 +4,7 @@ use App\Modules\FileManager\Http\Controllers\FileManagerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FileManagerController::class, 'index'])->name('index');
+Route::get('/ide', [FileManagerController::class, 'ide'])->name('ide');
 Route::get('/assets/{path}', [FileManagerController::class, 'asset'])
     ->where('path', '.*')
     ->name('asset');
