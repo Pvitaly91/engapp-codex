@@ -93,7 +93,12 @@
                                 
                                 <!-- Name -->
                                 <div class="flex-1">
-                                    <span class="font-medium" x-text="item.name"></span>
+                                    <span
+                                        class="font-medium"
+                                        x-text="item.name"
+                                        @click.stop="if (item.type === 'directory') navigateToPath(item.path)"
+                                        :class="{ 'cursor-pointer text-blue-700 hover:underline': item.type === 'directory' }"
+                                    ></span>
                                 </div>
 
                                 <!-- Size -->
@@ -310,7 +315,7 @@
                     <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
-            <div class="p-4 flex-1 flex flex-col">
+            <div class="p-4 flex-1 flex flex-col overflow-hidden max-h-[80vh]">
                 <template x-if="editorLoading">
                     <div class="text-center py-8">
                         <i class="fas fa-spinner fa-spin text-4xl text-blue-500"></i>
@@ -326,14 +331,30 @@
                 </template>
 
                 <template x-if="!editorLoading && !editorError">
-                    <div class="flex-1 flex flex-col">
+                    <div class="flex-1 flex flex-col overflow-hidden">
                         <div class="text-sm text-gray-500 mb-2 flex flex-wrap gap-4">
                             <span>Шлях: <code class="font-mono" x-text="editorData.path"></code></span>
                             <span>Розширення: <code x-text="editorData.extension || '—'"></code></span>
                             <span class="text-green-600" x-show="editorMessage" x-text="editorMessage"></span>
                         </div>
-                        <textarea x-ref="editorTextarea" class="hidden" x-model="editorContent"></textarea>
-                        <div x-show="!editorInstance" class="text-center text-gray-500 py-4">
+                        <div x-show="editorFallback" class="text-sm text-amber-600 mb-2">
+                            Використовується легкий офлайн-редактор з базовою підсвіткою замість CodeMirror.
+                        </div>
+                        <div class="flex-1 overflow-hidden relative">
+                            <textarea
+                                x-ref="editorTextarea"
+                                x-model="editorContent"
+                                :class="editorFallback ? 'hidden' : 'opacity-0 absolute inset-0 h-0 w-0'"
+                            ></textarea>
+                            <div
+                                x-show="editorFallback"
+                                x-ref="liteEditor"
+                                class="fm-lite-editor max-h-[70vh] min-h-[300px]"
+                                contenteditable="true"
+                                @input="handleLiteInput"
+                            ></div>
+                        </div>
+                        <div x-show="!editorInstance && !editorFallback" class="text-center text-gray-500 py-4">
                             <p>Ініціалізація редактора...</p>
                         </div>
                     </div>
@@ -359,18 +380,138 @@
     </div>
 </div>
 
+@php
+    $codeMirrorSources = array(
+        route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/php/php.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/css/css.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/htmlmixed/htmlmixed.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/markdown/markdown.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/sql/sql.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/shell/shell.min.js']),
+    );
+
+    $highlightStyle = route('file-manager.asset', ['path' => 'highlightjs/github-dark.min.css']);
+    $highlightScript = route('file-manager.asset', ['path' => 'highlightjs/highlight.min.js']);
+@endphp
+
 <script>
-const FILE_MANAGER_CODEMIRROR_SOURCES = [
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js',
-];
+const FILE_MANAGER_CODEMIRROR_SOURCES = {!! json_encode($codeMirrorSources) !!};
+const FILE_MANAGER_HIGHLIGHT_STYLE = {!! json_encode($highlightStyle) !!};
+const FILE_MANAGER_HIGHLIGHT_SCRIPT = {!! json_encode($highlightScript) !!};
+
+const FILE_MANAGER_FALLBACK_KEYWORDS = {
+    php: ['function', 'class', 'public', 'protected', 'private', 'return', 'if', 'else', 'elseif', 'foreach', 'for', 'while', 'switch', 'case', 'default', 'break', 'continue', 'try', 'catch', 'finally', 'new', 'use', 'namespace', 'extends', 'implements', 'static', 'self', 'parent', 'echo', 'null', 'true', 'false'],
+    js: ['function', 'const', 'let', 'var', 'return', 'if', 'else', 'for', 'while', 'switch', 'case', 'default', 'break', 'continue', 'try', 'catch', 'finally', 'class', 'extends', 'new', 'import', 'from', 'export', 'null', 'true', 'false'],
+    ts: ['function', 'const', 'let', 'var', 'return', 'if', 'else', 'for', 'while', 'switch', 'case', 'default', 'break', 'continue', 'try', 'catch', 'finally', 'class', 'extends', 'new', 'import', 'from', 'export', 'type', 'interface', 'implements', 'public', 'private', 'protected', 'readonly', 'null', 'true', 'false'],
+    css: ['color', 'background', 'display', 'flex', 'grid', 'position', 'absolute', 'relative', 'font', 'padding', 'margin', 'border'],
+    sql: ['select', 'insert', 'update', 'delete', 'from', 'where', 'join', 'left', 'right', 'inner', 'outer', 'group', 'by', 'order', 'limit', 'values', 'into', 'create', 'table', 'drop', 'alter'],
+};
+
+function escapeHtmlSafe(value) {
+    return (value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function highlightWithFallback(code, extension) {
+    const text = typeof code === 'string' ? code : '';
+    const patterns = [
+        { regex: /\/\*[\s\S]*?\*\//g, className: 'comment' },
+        { regex: /(^|[^:])\/\/.*$/gm, className: 'comment' },
+        { regex: /#.*$/gm, className: 'comment' },
+        { regex: /'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"/g, className: 'string' },
+        { regex: /\b\d+(?:\.\d+)?\b/g, className: 'number' },
+    ];
+
+    const keywordList = FILE_MANAGER_FALLBACK_KEYWORDS[extension] || [];
+    if (keywordList.length) {
+        const keywordRegex = new RegExp(`\\b(${keywordList.join('|')})\\b`, 'gi');
+        patterns.push({ regex: keywordRegex, className: 'keyword' });
+    }
+
+    const matches = [];
+    patterns.forEach(pattern => {
+        let match;
+        while ((match = pattern.regex.exec(text)) !== null) {
+            matches.push({
+                start: match.index,
+                end: match.index + match[0].length,
+                className: pattern.className,
+                value: match[0],
+            });
+        }
+    });
+
+    matches.sort((a, b) => a.start - b.start || a.end - b.end);
+
+    let cursor = 0;
+    let result = '';
+    matches.forEach(match => {
+        if (match.start < cursor) {
+            return;
+        }
+
+        result += escapeHtmlSafe(text.slice(cursor, match.start));
+        result += `<span class="fm-token fm-${match.className}">${escapeHtmlSafe(match.value)}</span>`;
+        cursor = match.end;
+    });
+
+    result += escapeHtmlSafe(text.slice(cursor));
+    return result || '<span class="fm-token">&nbsp;</span>';
+}
+
+function getCaretIndex(node) {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) {
+        return 0;
+    }
+
+    const range = selection.getRangeAt(0);
+    const preRange = range.cloneRange();
+    preRange.selectNodeContents(node);
+    preRange.setEnd(range.endContainer, range.endOffset);
+    return preRange.toString().length;
+}
+
+function setCaretIndex(node, index) {
+    const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null);
+    let currentIndex = 0;
+    let targetNode = null;
+    let targetOffset = 0;
+
+    while (walker.nextNode()) {
+        const textNode = walker.currentNode;
+        const nextIndex = currentIndex + textNode.textContent.length;
+
+        if (index <= nextIndex) {
+            targetNode = textNode;
+            targetOffset = index - currentIndex;
+            break;
+        }
+
+        currentIndex = nextIndex;
+    }
+
+    if (!targetNode) {
+        targetNode = node;
+        targetOffset = node.childNodes.length;
+    }
+
+    const range = document.createRange();
+    range.setStart(targetNode, targetOffset);
+    range.collapse(true);
+
+    const selection = window.getSelection();
+    if (selection) {
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+}
 
 function fileManager(initialPath = '', initialSelection = '') {
     return {
@@ -398,6 +539,9 @@ function fileManager(initialPath = '', initialSelection = '') {
         editorSaving: false,
         editorInstance: null,
         editorNeedsMount: false,
+        editorFallback: false,
+        editorMountAttempts: 0,
+        maxEditorMountAttempts: 50,
         editorAssetsReady: !!window.CodeMirror,
         editorAssetsPromise: null,
         editorScriptSources: FILE_MANAGER_CODEMIRROR_SOURCES,
@@ -514,6 +658,12 @@ function fileManager(initialPath = '', initialSelection = '') {
                 return;
             }
 
+            // Apply the lightweight highlighter immediately so the user always sees syntax colors
+            // even if Highlight.js never loads (CSP, offline, or CDN outage).
+            if (this.previewHighlightAttempts === 0) {
+                this.applyPreviewFallbackHighlight();
+            }
+
             if (this.previewHighlightAttempts >= this.maxPreviewHighlightAttempts) {
                 this.previewNeedsHighlight = false;
                 return;
@@ -532,6 +682,8 @@ function fileManager(initialPath = '', initialSelection = '') {
             this.editorData = {};
             this.destroyEditor();
             this.editorNeedsMount = false;
+            this.editorFallback = false;
+            this.editorMountAttempts = 0;
 
             try {
                 const response = await fetch(`{{ route('file-manager.content') }}?path=${encodeURIComponent(path)}`);
@@ -547,21 +699,23 @@ function fileManager(initialPath = '', initialSelection = '') {
                     return;
                 }
 
-                try {
-                    await this.ensureEditorAssets();
-                } catch (assetError) {
-                    console.error(assetError);
-                    this.editorError = 'Не вдалося завантажити компоненти редактора';
-                    return;
-                }
-
                 this.editorData = {
                     path: data.content.path,
                     name: data.content.name,
                     extension: this.getExtensionFromPath(data.content.path),
                 };
                 this.editorContent = data.content.content || '';
-                this.editorNeedsMount = true;
+
+                try {
+                    await this.ensureEditorAssets();
+                    this.editorNeedsMount = true;
+                } catch (assetError) {
+                    console.error(assetError);
+                    this.editorFallback = true;
+                    this.editorMessage = 'CodeMirror недоступний, вмикається офлайн-редактор';
+                    this.editorNeedsMount = false;
+                    this.$nextTick(() => this.mountLiteEditor());
+                }
             } catch (e) {
                 this.editorError = 'Помилка з\'єднання з сервером';
                 console.error(e);
@@ -569,14 +723,41 @@ function fileManager(initialPath = '', initialSelection = '') {
                 this.editorLoading = false;
                 if (this.editorNeedsMount && !this.editorError) {
                     this.$nextTick(() => this.mountEditor());
+                } else if (this.editorFallback) {
+                    this.$nextTick(() => this.mountLiteEditor());
                 }
             }
         },
 
+        applyPreviewFallbackHighlight() {
+            if (!this.$refs.previewCode || !this.previewData?.content) {
+                return;
+            }
+
+            this.$refs.previewCode.innerHTML = highlightWithFallback(
+                this.previewData.content,
+                this.getExtensionFromPath(this.previewData.path || ''),
+            );
+        },
+
         mountEditor() {
+            if (this.editorFallback) {
+                this.editorNeedsMount = false;
+                return;
+            }
+
             if (!this.editorNeedsMount) {
                 return;
             }
+
+            if (this.editorMountAttempts >= this.maxEditorMountAttempts) {
+                this.editorMessage = 'Не вдалося ініціалізувати CodeMirror, використовується простий редактор';
+                this.editorFallback = true;
+                this.editorNeedsMount = false;
+                return;
+            }
+
+            this.editorMountAttempts++;
 
             if (!window.CodeMirror || !this.$refs.editorTextarea) {
                 // Re-attempt initialization shortly if dependencies are not ready yet
@@ -584,16 +765,27 @@ function fileManager(initialPath = '', initialSelection = '') {
                 return;
             }
 
-            this.editorInstance = CodeMirror.fromTextArea(this.$refs.editorTextarea, {
-                lineNumbers: true,
-                tabSize: 4,
-                indentUnit: 4,
-                mode: this.getEditorMode(this.editorData.extension),
-                lineWrapping: true,
-            });
-            this.editorInstance.setValue(this.editorContent);
-            this.editorInstance.focus();
-            this.editorNeedsMount = false;
+            try {
+                this.editorInstance = CodeMirror.fromTextArea(this.$refs.editorTextarea, {
+                    lineNumbers: true,
+                    tabSize: 4,
+                    indentUnit: 4,
+                    mode: this.getEditorMode(this.editorData.extension),
+                    lineWrapping: true,
+                });
+                const editorHeight = Math.min(Math.max(window.innerHeight * 0.7, 320), 900);
+                this.editorInstance.setSize('100%', editorHeight + 'px');
+                this.editorInstance.setValue(this.editorContent);
+                this.editorInstance.focus();
+                this.editorNeedsMount = false;
+                this.editorMessage = null;
+            } catch (initError) {
+                console.error(initError);
+                this.editorMessage = 'Не вдалося ініціалізувати CodeMirror, вмикається офлайн-редактор';
+                this.editorFallback = true;
+                this.editorNeedsMount = false;
+                this.$nextTick(() => this.mountLiteEditor());
+            }
         },
 
         async ensureEditorAssets() {
@@ -611,9 +803,18 @@ function fileManager(initialPath = '', initialSelection = '') {
                 return;
             }
 
-            this.editorAssetsPromise = scripts
-                .reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve())
+            const loadChain = scripts.reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve());
+            const timeoutMs = 8000;
+            const timeout = new Promise((_, reject) => setTimeout(
+                () => reject(new Error('Перевищено час очікування завантаження редактора')),
+                timeoutMs,
+            ));
+
+            this.editorAssetsPromise = Promise.race([loadChain, timeout])
                 .then(() => {
+                    if (!window.CodeMirror) {
+                        throw new Error('CodeMirror глобальний об\'єкт недоступний після завантаження');
+                    }
                     this.editorAssetsReady = true;
                 })
                 .catch(error => {
@@ -704,6 +905,30 @@ function fileManager(initialPath = '', initialSelection = '') {
             } finally {
                 this.editorSaving = false;
             }
+        },
+
+        handleLiteInput(event) {
+            this.editorContent = event.target.innerText;
+            this.refreshLiteHighlight();
+        },
+
+        mountLiteEditor() {
+            if (!this.$refs.liteEditor) {
+                return;
+            }
+
+            this.$refs.liteEditor.innerText = this.editorContent;
+            this.refreshLiteHighlight();
+        },
+
+        refreshLiteHighlight() {
+            if (!this.editorFallback || !this.$refs.liteEditor) {
+                return;
+            }
+
+            const caret = getCaretIndex(this.$refs.liteEditor);
+            this.$refs.liteEditor.innerHTML = highlightWithFallback(this.editorContent, this.editorData.extension);
+            setCaretIndex(this.$refs.liteEditor, caret);
         },
 
         downloadFile(path) {
@@ -804,11 +1029,44 @@ function fileManager(initialPath = '', initialSelection = '') {
     };
 }
 </script>
+@push('styles')
+<style>
+    .fm-lite-editor {
+        font-family: 'Fira Code', 'Source Code Pro', monospace;
+        background: #0f172a;
+        color: #e5e7eb;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 12px;
+        overflow: auto;
+        white-space: pre;
+        outline: none;
+    }
+
+    .fm-token.keyword {
+        color: #c084fc;
+        font-weight: 600;
+    }
+
+    .fm-token.string {
+        color: #34d399;
+    }
+
+    .fm-token.comment {
+        color: #9ca3af;
+        font-style: italic;
+    }
+
+    .fm-token.number {
+        color: #fbbf24;
+    }
+</style>
+@endpush
 @endsection
 
 @push('head-scripts')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" integrity="sha512-L56ZWRPcNI0YvrFica8FWHQrFMizxgxYkWwaP42gnikIze8ih/7nToYtL6vhfVqlhK/SXGEdq8np5xpoE2mR7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" integrity="sha512-6WtHb0CQOZgdKzac8AjtKoa6HgMHqmpYJv1nVbWcv16O3MHuvb6jVWeItPxX2VINeodIZ6Tn6PvxI6Bfq5lHvw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-hbDJW60Trw7P3cu6UytzszbmWzxubUoilKx2oyWZMhUlCT3VkOITkkpFmS6r30YIOCwRvDDDeWGPAHDLcGRIDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="{{ route('file-manager.asset', ['path' => 'highlightjs/github-dark.min.css']) }}" />
+<link rel="stylesheet" href="{{ route('file-manager.asset', ['path' => 'codemirror/codemirror.min.css']) }}" />
+<script defer src="{{ route('file-manager.asset', ['path' => 'highlightjs/highlight.min.js']) }}"></script>
+<script defer src="{{ route('file-manager.asset', ['path' => 'alpinejs/alpine.min.js']) }}"></script>
 @endpush

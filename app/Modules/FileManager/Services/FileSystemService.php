@@ -6,11 +6,14 @@ use Illuminate\Support\Facades\File;
 
 class FileSystemService
 {
-    protected string $basePath;
+    /** @var string */
+    protected $basePath;
 
-    protected array $excludedDirectories;
+    /** @var array */
+    protected $excludedDirectories;
 
-    protected array $excludedExtensions;
+    /** @var array */
+    protected $excludedExtensions;
 
     public function __construct()
     {

@@ -7,14 +7,77 @@ use App\Modules\FileManager\Services\FileSystemService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Response as FacadeResponse;
 use Illuminate\View\View;
 
 class FileManagerController extends Controller
 {
-    public function __construct(
-        protected FileSystemService $fileSystemService
-    ) {}
+    private const ASSET_SOURCES = [
+        'highlightjs/highlight.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js',
+        ],
+        'highlightjs/github-dark.min.css' => [
+            'type' => 'text/css',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css',
+        ],
+        'alpinejs/alpine.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js',
+        ],
+        'codemirror/codemirror.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js',
+        ],
+        'codemirror/codemirror.min.css' => [
+            'type' => 'text/css',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css',
+        ],
+        'codemirror/mode/javascript/javascript.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js',
+        ],
+        'codemirror/mode/php/php.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js',
+        ],
+        'codemirror/mode/xml/xml.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js',
+        ],
+        'codemirror/mode/css/css.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js',
+        ],
+        'codemirror/mode/htmlmixed/htmlmixed.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js',
+        ],
+        'codemirror/mode/markdown/markdown.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js',
+        ],
+        'codemirror/mode/sql/sql.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js',
+        ],
+        'codemirror/mode/shell/shell.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js',
+        ],
+    ];
+
+    /**
+     * @var FileSystemService
+     */
+    protected $fileSystemService;
+
+    public function __construct(FileSystemService $fileSystemService)
+    {
+        $this->fileSystemService = $fileSystemService;
+    }
 
     /**
      * Display the file manager interface
@@ -264,6 +327,41 @@ class FileManagerController extends Controller
             'size' => $result['size'] ?? null,
             'message' => 'Файл успішно оновлено',
         ]);
+    }
+
+    public function asset(string $path): Response
+    {
+        $relativePath = $this->sanitizePath($path);
+
+        if ($relativePath === '' || ! isset(self::ASSET_SOURCES[$relativePath])) {
+            abort(404);
+        }
+
+        $asset = self::ASSET_SOURCES[$relativePath];
+        $localPath = storage_path('app/file-manager-assets/'.$relativePath);
+
+        if (File::exists($localPath)) {
+            return FacadeResponse::file($localPath, [
+                'Content-Type' => $asset['type'],
+            ]);
+        }
+
+        try {
+            $response = Http::timeout(10)->get($asset['source']);
+
+            if (! $response->successful()) {
+                return FacadeResponse::make('Не вдалося отримати ресурс', 502);
+            }
+
+            File::ensureDirectoryExists(dirname($localPath));
+            File::put($localPath, $response->body());
+
+            return FacadeResponse::make($response->body(), 200, [
+                'Content-Type' => $asset['type'],
+            ]);
+        } catch (\Throwable $exception) {
+            return FacadeResponse::make('Не вдалося отримати ресурс', 502);
+        }
     }
 
     private function resolveInitialTargets(string $initialPath, string $initialSelection): array
