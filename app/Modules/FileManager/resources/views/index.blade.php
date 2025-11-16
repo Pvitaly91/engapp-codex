@@ -63,6 +63,20 @@
             >
                 <i class="fas fa-sync-alt"></i>
             </button>
+            
+            <!-- View Mode Toggle -->
+            <div class="flex items-center gap-2 ml-4 pl-4 border-l border-gray-300">
+                <span class="text-xs text-gray-600 font-medium">Режим:</span>
+                <button 
+                    @click="activeView = activeView === 'browser' ? 'ide' : 'browser'"
+                    class="relative inline-flex items-center gap-2 px-3 py-1 rounded-full transition-all"
+                    :class="activeView === 'ide' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+                    :title="activeView === 'ide' ? 'Перемкнути на Браузер файлів' : 'Перемкнути на IDE режим'"
+                >
+                    <i class="fas" :class="activeView === 'ide' ? 'fa-code' : 'fa-th-large'"></i>
+                    <span class="text-xs font-medium" x-text="activeView === 'ide' ? 'IDE' : 'Браузер'"></span>
+                </button>
+            </div>
         </div>
     </div>
 
