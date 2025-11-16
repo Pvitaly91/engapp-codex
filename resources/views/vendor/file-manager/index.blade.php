@@ -275,13 +275,13 @@
                 </div>
 
                 <!-- Error -->
-                <div x-show="error" x-cloak class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded text-sm">
+                <div x-show="error" class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded text-sm">
                     <i class="fas fa-exclamation-circle mr-1"></i>
                     <span x-text="error"></span>
                 </div>
 
                 <!-- File Tree -->
-                <div x-show="!loading && !error" x-cloak class="space-y-0.5">
+                <div x-show="!loading && !error" class="space-y-0.5">
                     <template x-if="items.length === 0">
                         <p class="text-gray-500 text-center py-8 text-sm">Папка порожня</p>
                     </template>
