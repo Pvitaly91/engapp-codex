@@ -29,7 +29,7 @@ class FileSystemService
     /**
      * Get the file tree structure starting from a given path
      */
-    public function getFileTree(?string $path = null): array
+    public function getFileTree(?string $path = null, bool $recursive = false): array
     {
         $fullPath = $path ? $this->basePath.'/'.$path : $this->basePath;
 
@@ -37,13 +37,13 @@ class FileSystemService
             return [];
         }
 
-        return $this->buildTree($fullPath, $path ?? '');
+        return $this->buildTree($fullPath, $path ?? '', $recursive);
     }
 
     /**
      * Build tree structure recursively
      */
-    protected function buildTree(string $fullPath, string $relativePath): array
+    protected function buildTree(string $fullPath, string $relativePath, bool $recursive): array
     {
         if (! is_dir($fullPath) || ! is_readable($fullPath)) {
             return [];
@@ -88,6 +88,10 @@ class FileSystemService
                 $item['extension'] = pathinfo($entry, PATHINFO_EXTENSION);
                 $item['mime_type'] = mime_content_type($entryFullPath) ?: 'application/octet-stream';
             }
+
+            $item['children'] = $item['type'] === 'directory' && $recursive
+                ? $this->buildTree($entryFullPath, $entryRelativePath, $recursive)
+                : [];
 
             $items[] = $item;
         }
