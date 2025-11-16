@@ -501,11 +501,21 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
             }
 
             try {
+                const mode = this.getEditorMode(this.editorData.extension);
+                
+                // Verify mode dependencies are loaded
+                if (mode === 'application/x-httpd-php' && (!window.CodeMirror.modes.htmlmixed || !window.CodeMirror.modes.xml)) {
+                    console.error('PHP mode dependencies not loaded, falling back to lite editor');
+                    this.editorFallback = true;
+                    this.$nextTick(() => this.mountLiteEditor());
+                    return;
+                }
+                
                 this.editorInstance = CodeMirror.fromTextArea(this.$refs.editorTextarea, {
                     lineNumbers: true,
                     tabSize: 4,
                     indentUnit: 4,
-                    mode: this.getEditorMode(this.editorData.extension),
+                    mode: mode,
                     lineWrapping: true,
                 });
                 this.editorInstance.setSize('100%', '100%');
@@ -515,7 +525,7 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
                 });
                 this.editorInstance.focus();
             } catch (initError) {
-                console.error(initError);
+                console.error('CodeMirror initialization error:', initError);
                 this.editorFallback = true;
                 this.$nextTick(() => this.mountLiteEditor());
             }
