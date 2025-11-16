@@ -8,10 +8,19 @@
     x-data="fileManager(@js($initialPath ?? ''), @js($initialSelection ?? ''))"
     x-init="init()"
 >
-    <div class="mb-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">Файловий менеджер</h1>
-        <p class="text-gray-600">Перегляд структури файлів та папок проекту</p>
-        <p class="text-sm text-gray-500 mt-1">Базова директорія: <code class="bg-gray-100 px-2 py-1 rounded">{{ $basePath }}</code></p>
+    <div class="mb-6 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Файловий менеджер</h1>
+            <p class="text-gray-600">Перегляд структури файлів та папок проекту</p>
+            <p class="text-sm text-gray-500 mt-1">Базова директорія: <code class="bg-gray-100 px-2 py-1 rounded">{{ $basePath }}</code></p>
+        </div>
+        <button
+            @click="setView(activeView === 'list' ? 'ide' : 'list')"
+            class="self-start inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+        >
+            <i class="fas" :class="activeView === 'list' ? 'fa-code' : 'fa-folder-open'"></i>
+            <span x-text="activeView === 'list' ? 'Перейти до IDE режиму' : 'Повернутися до файлового менеджера'"></span>
+        </button>
     </div>
 
     <div class="bg-white rounded-lg shadow mb-4">
