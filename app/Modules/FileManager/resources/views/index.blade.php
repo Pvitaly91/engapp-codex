@@ -9,7 +9,22 @@
     x-init="init()"
 >
     <div class="mb-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">Файловий менеджер</h1>
+        <div class="flex items-center justify-between mb-2">
+            <h1 class="text-3xl font-bold text-gray-800">Файловий менеджер</h1>
+            <div class="flex gap-2">
+                <button 
+                    class="px-4 py-2 bg-blue-600 text-white rounded cursor-default"
+                >
+                    <i class="fas fa-list mr-2"></i>Список
+                </button>
+                <a 
+                    href="{{ route('file-manager.ide') }}" 
+                    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+                >
+                    <i class="fas fa-code mr-2"></i>IDE
+                </a>
+            </div>
+        </div>
         <p class="text-gray-600">Перегляд структури файлів та папок проекту</p>
         <p class="text-sm text-gray-500 mt-1">Базова директорія: <code class="bg-gray-100 px-2 py-1 rounded">{{ $basePath }}</code></p>
     </div>

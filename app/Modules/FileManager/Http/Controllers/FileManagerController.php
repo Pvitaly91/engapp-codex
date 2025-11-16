@@ -101,6 +101,27 @@ class FileManagerController extends Controller
     }
 
     /**
+     * Display the IDE-style file manager interface
+     */
+    public function ide(Request $request): View
+    {
+        $basePath = $this->fileSystemService->getBasePath();
+        $requestedPath = $this->sanitizePath($request->query('path'));
+        $requestedSelection = $this->sanitizePath($request->query('select'));
+
+        [$initialPath, $initialSelection] = $this->resolveInitialTargets(
+            $requestedPath,
+            $requestedSelection
+        );
+
+        return view('file-manager::ide', [
+            'basePath' => $basePath,
+            'initialPath' => $initialPath,
+            'initialSelection' => $initialSelection,
+        ]);
+    }
+
+    /**
      * Get file tree structure
      */
     public function tree(Request $request): JsonResponse
