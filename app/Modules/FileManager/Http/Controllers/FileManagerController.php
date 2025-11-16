@@ -93,10 +93,13 @@ class FileManagerController extends Controller
             $requestedSelection
         );
 
+        $initialItems = $this->fileSystemService->getFileTree($initialPath ?: null);
+
         return view('file-manager::index', [
             'basePath' => $basePath,
             'initialPath' => $initialPath,
             'initialSelection' => $initialSelection,
+            'initialItems' => $initialItems,
         ]);
     }
 
@@ -106,6 +109,7 @@ class FileManagerController extends Controller
     public function tree(Request $request): JsonResponse
     {
         $path = $this->sanitizePath($request->input('path', ''));
+        $recursive = $request->boolean('recursive', false);
 
         if ($path !== '') {
             $info = $this->fileSystemService->getFileInfo($path);
@@ -118,7 +122,7 @@ class FileManagerController extends Controller
             }
         }
 
-        $tree = $this->fileSystemService->getFileTree($path ?: null);
+        $tree = $this->fileSystemService->getFileTree($path ?: null, $recursive);
 
         return response()->json([
             'success' => true,
