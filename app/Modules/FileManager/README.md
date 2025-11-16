@@ -71,7 +71,7 @@ php artisan vendor:publish --tag=file-manager-views
 
 ### 6. (Опційно) Дозвольте завантаження залежностей редактора
 
-CodeMirror, Highlight.js та Alpine.js тепер завантажуються з вашого ж домену через проксі-ендпоінт `/admin/file-manager/assets/{path}` і кешуються у `storage/app/file-manager-assets`. Переконайтеся, що сервер має доступ до мережі при першому запиті, або покладіть потрібні файли у цю директорію заздалегідь (шлях повинен збігатися з відносним `path` з таблиці нижче: `highlightjs/highlight.min.js`, `codemirror/codemirror.min.js`, `alpinejs/alpine.min.js` тощо).
+CodeMirror, Highlight.js та Alpine.js тепер завантажуються з вашого ж домену через проксі-ендпоінт `/admin/file-manager/assets/{path}` і кешуються у `storage/app/file-manager-assets`. Переконайтеся, що сервер має доступ до мережі при першому запиті, або покладіть потрібні файли у цю директорію заздалегідь (шлях повинен збігатися з відносним `path` з таблиці нижче: `highlightjs/highlight.min.js`, `codemirror/codemirror.min.js`, `alpinejs/alpine.min.js` тощо). Якщо зовнішні скрипти все одно недоступні, модуль автоматично перемкнеться на вбудований легкий редактор із базовою підсвіткою синтаксису та продовжить роботу без CDN.
 
 ### 7. Перевірте доступність сторінки
 

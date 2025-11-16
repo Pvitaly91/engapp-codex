@@ -338,14 +338,21 @@
                             <span class="text-green-600" x-show="editorMessage" x-text="editorMessage"></span>
                         </div>
                         <div x-show="editorFallback" class="text-sm text-amber-600 mb-2">
-                            Використовується базовий редактор без підсвітки через недоступність CodeMirror.
+                            Використовується легкий офлайн-редактор з базовою підсвіткою замість CodeMirror.
                         </div>
-                        <div class="flex-1 overflow-hidden">
+                        <div class="flex-1 overflow-hidden relative">
                             <textarea
                                 x-ref="editorTextarea"
                                 x-model="editorContent"
-                                :class="editorFallback ? 'w-full max-h-[70vh] min-h-[300px] border rounded p-3 font-mono text-sm overflow-auto' : 'hidden'"
+                                :class="editorFallback ? 'hidden' : 'opacity-0 absolute inset-0 h-0 w-0'"
                             ></textarea>
+                            <div
+                                x-show="editorFallback"
+                                x-ref="liteEditor"
+                                class="fm-lite-editor max-h-[70vh] min-h-[300px]"
+                                contenteditable="true"
+                                @input="handleLiteInput"
+                            ></div>
                         </div>
                         <div x-show="!editorInstance && !editorFallback" class="text-center text-gray-500 py-4">
                             <p>Ініціалізація редактора...</p>
@@ -394,6 +401,117 @@
 const FILE_MANAGER_CODEMIRROR_SOURCES = {!! json_encode($codeMirrorSources) !!};
 const FILE_MANAGER_HIGHLIGHT_STYLE = {!! json_encode($highlightStyle) !!};
 const FILE_MANAGER_HIGHLIGHT_SCRIPT = {!! json_encode($highlightScript) !!};
+
+const FILE_MANAGER_FALLBACK_KEYWORDS = {
+    php: ['function', 'class', 'public', 'protected', 'private', 'return', 'if', 'else', 'elseif', 'foreach', 'for', 'while', 'switch', 'case', 'default', 'break', 'continue', 'try', 'catch', 'finally', 'new', 'use', 'namespace', 'extends', 'implements', 'static', 'self', 'parent', 'echo', 'null', 'true', 'false'],
+    js: ['function', 'const', 'let', 'var', 'return', 'if', 'else', 'for', 'while', 'switch', 'case', 'default', 'break', 'continue', 'try', 'catch', 'finally', 'class', 'extends', 'new', 'import', 'from', 'export', 'null', 'true', 'false'],
+    ts: ['function', 'const', 'let', 'var', 'return', 'if', 'else', 'for', 'while', 'switch', 'case', 'default', 'break', 'continue', 'try', 'catch', 'finally', 'class', 'extends', 'new', 'import', 'from', 'export', 'type', 'interface', 'implements', 'public', 'private', 'protected', 'readonly', 'null', 'true', 'false'],
+    css: ['color', 'background', 'display', 'flex', 'grid', 'position', 'absolute', 'relative', 'font', 'padding', 'margin', 'border'],
+    sql: ['select', 'insert', 'update', 'delete', 'from', 'where', 'join', 'left', 'right', 'inner', 'outer', 'group', 'by', 'order', 'limit', 'values', 'into', 'create', 'table', 'drop', 'alter'],
+};
+
+function escapeHtmlSafe(value) {
+    return (value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function highlightWithFallback(code, extension) {
+    const text = typeof code === 'string' ? code : '';
+    const patterns = [
+        { regex: /\/\*[\s\S]*?\*\//g, className: 'comment' },
+        { regex: /(^|[^:])\/\/.*$/gm, className: 'comment' },
+        { regex: /#.*$/gm, className: 'comment' },
+        { regex: /'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"/g, className: 'string' },
+        { regex: /\b\d+(?:\.\d+)?\b/g, className: 'number' },
+    ];
+
+    const keywordList = FILE_MANAGER_FALLBACK_KEYWORDS[extension] || [];
+    if (keywordList.length) {
+        const keywordRegex = new RegExp(`\\b(${keywordList.join('|')})\\b`, 'gi');
+        patterns.push({ regex: keywordRegex, className: 'keyword' });
+    }
+
+    const matches = [];
+    patterns.forEach(pattern => {
+        let match;
+        while ((match = pattern.regex.exec(text)) !== null) {
+            matches.push({
+                start: match.index,
+                end: match.index + match[0].length,
+                className: pattern.className,
+                value: match[0],
+            });
+        }
+    });
+
+    matches.sort((a, b) => a.start - b.start || a.end - b.end);
+
+    let cursor = 0;
+    let result = '';
+    matches.forEach(match => {
+        if (match.start < cursor) {
+            return;
+        }
+
+        result += escapeHtmlSafe(text.slice(cursor, match.start));
+        result += `<span class="fm-token fm-${match.className}">${escapeHtmlSafe(match.value)}</span>`;
+        cursor = match.end;
+    });
+
+    result += escapeHtmlSafe(text.slice(cursor));
+    return result || '<span class="fm-token">&nbsp;</span>';
+}
+
+function getCaretIndex(node) {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) {
+        return 0;
+    }
+
+    const range = selection.getRangeAt(0);
+    const preRange = range.cloneRange();
+    preRange.selectNodeContents(node);
+    preRange.setEnd(range.endContainer, range.endOffset);
+    return preRange.toString().length;
+}
+
+function setCaretIndex(node, index) {
+    const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null);
+    let currentIndex = 0;
+    let targetNode = null;
+    let targetOffset = 0;
+
+    while (walker.nextNode()) {
+        const textNode = walker.currentNode;
+        const nextIndex = currentIndex + textNode.textContent.length;
+
+        if (index <= nextIndex) {
+            targetNode = textNode;
+            targetOffset = index - currentIndex;
+            break;
+        }
+
+        currentIndex = nextIndex;
+    }
+
+    if (!targetNode) {
+        targetNode = node;
+        targetOffset = node.childNodes.length;
+    }
+
+    const range = document.createRange();
+    range.setStart(targetNode, targetOffset);
+    range.collapse(true);
+
+    const selection = window.getSelection();
+    if (selection) {
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+}
 
 function fileManager(initialPath = '', initialSelection = '') {
     return {
@@ -541,6 +659,7 @@ function fileManager(initialPath = '', initialSelection = '') {
             }
 
             if (this.previewHighlightAttempts >= this.maxPreviewHighlightAttempts) {
+                this.applyPreviewFallbackHighlight();
                 this.previewNeedsHighlight = false;
                 return;
             }
@@ -588,8 +707,9 @@ function fileManager(initialPath = '', initialSelection = '') {
                 } catch (assetError) {
                     console.error(assetError);
                     this.editorFallback = true;
-                    this.editorMessage = 'CodeMirror недоступний, використовується простий редактор';
+                    this.editorMessage = 'CodeMirror недоступний, вмикається офлайн-редактор';
                     this.editorNeedsMount = false;
+                    this.$nextTick(() => this.mountLiteEditor());
                 }
             } catch (e) {
                 this.editorError = 'Помилка з\'єднання з сервером';
@@ -598,8 +718,21 @@ function fileManager(initialPath = '', initialSelection = '') {
                 this.editorLoading = false;
                 if (this.editorNeedsMount && !this.editorError) {
                     this.$nextTick(() => this.mountEditor());
+                } else if (this.editorFallback) {
+                    this.$nextTick(() => this.mountLiteEditor());
                 }
             }
+        },
+
+        applyPreviewFallbackHighlight() {
+            if (!this.$refs.previewCode || !this.previewData?.content) {
+                return;
+            }
+
+            this.$refs.previewCode.innerHTML = highlightWithFallback(
+                this.previewData.content,
+                this.getExtensionFromPath(this.previewData.path || ''),
+            );
         },
 
         mountEditor() {
@@ -643,9 +776,10 @@ function fileManager(initialPath = '', initialSelection = '') {
                 this.editorMessage = null;
             } catch (initError) {
                 console.error(initError);
-                this.editorMessage = 'Не вдалося ініціалізувати CodeMirror, використовується простий редактор';
+                this.editorMessage = 'Не вдалося ініціалізувати CodeMirror, вмикається офлайн-редактор';
                 this.editorFallback = true;
                 this.editorNeedsMount = false;
+                this.$nextTick(() => this.mountLiteEditor());
             }
         },
 
@@ -768,6 +902,30 @@ function fileManager(initialPath = '', initialSelection = '') {
             }
         },
 
+        handleLiteInput(event) {
+            this.editorContent = event.target.innerText;
+            this.refreshLiteHighlight();
+        },
+
+        mountLiteEditor() {
+            if (!this.$refs.liteEditor) {
+                return;
+            }
+
+            this.$refs.liteEditor.innerText = this.editorContent;
+            this.refreshLiteHighlight();
+        },
+
+        refreshLiteHighlight() {
+            if (!this.editorFallback || !this.$refs.liteEditor) {
+                return;
+            }
+
+            const caret = getCaretIndex(this.$refs.liteEditor);
+            this.$refs.liteEditor.innerHTML = highlightWithFallback(this.editorContent, this.editorData.extension);
+            setCaretIndex(this.$refs.liteEditor, caret);
+        },
+
         downloadFile(path) {
             window.location.href = `{{ route('file-manager.download') }}?path=${encodeURIComponent(path)}`;
         },
@@ -866,6 +1024,39 @@ function fileManager(initialPath = '', initialSelection = '') {
     };
 }
 </script>
+@push('styles')
+<style>
+    .fm-lite-editor {
+        font-family: 'Fira Code', 'Source Code Pro', monospace;
+        background: #0f172a;
+        color: #e5e7eb;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 12px;
+        overflow: auto;
+        white-space: pre;
+        outline: none;
+    }
+
+    .fm-token.keyword {
+        color: #c084fc;
+        font-weight: 600;
+    }
+
+    .fm-token.string {
+        color: #34d399;
+    }
+
+    .fm-token.comment {
+        color: #9ca3af;
+        font-style: italic;
+    }
+
+    .fm-token.number {
+        color: #fbbf24;
+    }
+</style>
+@endpush
 @endsection
 
 @push('head-scripts')
