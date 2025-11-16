@@ -8,17 +8,45 @@
     x-data="fileManager(@js($initialPath ?? ''), @js($initialSelection ?? ''))"
     x-init="init()"
 >
-    <div class="mb-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">Файловий менеджер</h1>
-        <p class="text-gray-600">Перегляд структури файлів та папок проекту</p>
-        <p class="text-sm text-gray-500 mt-1">Базова директорія: <code class="bg-gray-100 px-2 py-1 rounded">{{ $basePath }}</code></p>
+    <div class="mb-6 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Файловий менеджер</h1>
+            <p class="text-gray-600">Перегляд структури файлів та папок проекту</p>
+            <p class="text-sm text-gray-500 mt-1">Базова директорія: <code class="bg-gray-100 px-2 py-1 rounded">{{ $basePath }}</code></p>
+        </div>
+        <button
+            @click="setView(activeView === 'list' ? 'ide' : 'list')"
+            class="self-start inline-flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+        >
+            <i class="fas" :class="activeView === 'list' ? 'fa-code' : 'fa-folder-open'"></i>
+            <span x-text="activeView === 'list' ? 'Перейти до IDE режиму' : 'Повернутися до файлового менеджера'"></span>
+        </button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow mb-4">
+        <div class="flex">
+            <button
+                class="flex-1 px-4 py-3 text-center font-semibold border-b-2"
+                :class="activeView === 'list' ? 'border-blue-500 text-blue-700 bg-blue-50' : 'border-transparent text-gray-600 hover:bg-gray-50'"
+                @click="setView('list')"
+            >
+                <i class="fas fa-list mr-2"></i>Список файлів
+            </button>
+            <button
+                class="flex-1 px-4 py-3 text-center font-semibold border-b-2"
+                :class="activeView === 'ide' ? 'border-blue-500 text-blue-700 bg-blue-50' : 'border-transparent text-gray-600 hover:bg-gray-50'"
+                @click="setView('ide')"
+            >
+                <i class="fas fa-code-branch mr-2"></i>IDE режим
+            </button>
+        </div>
     </div>
 
     <!-- Navigation Bar -->
-    <div class="bg-white rounded-lg shadow mb-4 p-4">
+    <div class="bg-white rounded-lg shadow mb-4 p-4" x-show="activeView === 'list'" x-cloak>
         <div class="flex items-center gap-2 text-sm">
-            <button 
-                @click="navigateToRoot()" 
+            <button
+                @click="navigateToRoot()"
                 class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
                 title="Кореневий каталог"
             >
@@ -46,7 +74,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4" x-show="activeView === 'list'" x-cloak>
         <!-- File Tree Panel -->
         <div class="lg:col-span-2">
             <div class="bg-white rounded-lg shadow">
@@ -378,6 +406,149 @@
             </div>
         </div>
     </div>
+
+    <div x-show="activeView === 'ide'" x-cloak class="bg-white rounded-lg shadow">
+        <div class="grid grid-cols-1 lg:grid-cols-4">
+            <div class="lg:col-span-1 border-r bg-gray-50 p-4 rounded-l-lg">
+                <div class="flex items-center justify-between mb-3">
+                    <div>
+                        <h2 class="text-lg font-semibold text-gray-800">Файли</h2>
+                        <p class="text-sm text-gray-500">Дерево проекту</p>
+                    </div>
+                    <button
+                        @click="loadIdeTree()"
+                        class="text-gray-600 hover:text-blue-600"
+                        title="Оновити дерево"
+                    >
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+
+                <template x-if="ideTreeLoading">
+                    <div class="text-center py-6 text-gray-500">
+                        <i class="fas fa-spinner fa-spin text-blue-500 mr-2"></i> Завантаження дерева...
+                    </div>
+                </template>
+
+                <template x-if="ideTreeError">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded text-sm">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        <span x-text="ideTreeError"></span>
+                    </div>
+                </template>
+
+                <template x-if="!ideTreeLoading && !ideTreeError && getVisibleIdeNodes().length === 0">
+                    <p class="text-gray-500 text-sm">Дерево порожнє або недоступне.</p>
+                </template>
+
+                <div class="space-y-1 max-h-[70vh] overflow-auto" x-show="!ideTreeLoading && !ideTreeError">
+                    <template x-for="entry in getVisibleIdeNodes()" :key="entry.node.path">
+                        <div
+                            class="flex items-center gap-2 p-2 rounded cursor-pointer hover:bg-blue-50 transition"
+                            :class="{ 'bg-blue-100': ideSelectedPath === entry.node.path }"
+                            @click="handleIdeSelection(entry.node)"
+                        >
+                            <div class="flex items-center" :style="`padding-left: ${entry.depth * 12}px`">
+                                <button
+                                    x-show="entry.node.type === 'directory'"
+                                    class="w-6 text-left text-gray-600 hover:text-gray-800"
+                                    @click.stop="toggleIdeDirectory(entry.node)"
+                                >
+                                    <i class="fas" :class="entry.node.expanded ? 'fa-caret-down' : 'fa-caret-right'"></i>
+                                </button>
+                                <span x-show="entry.node.type !== 'directory'" class="w-6"></span>
+                            </div>
+                            <div class="w-6 text-center">
+                                <template x-if="entry.node.type === 'directory'">
+                                    <i class="fas fa-folder text-yellow-500"></i>
+                                </template>
+                                <template x-if="entry.node.type === 'file'">
+                                    <i class="fas fa-file" :class="getFileIcon(entry.node)"></i>
+                                </template>
+                            </div>
+                            <div class="flex-1 truncate" :title="entry.node.name" x-text="entry.node.name"></div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <div>
+                        <h2 class="text-xl font-semibold text-gray-800">Редактор</h2>
+                        <p class="text-sm text-gray-500" x-text="ideEditorData.path ? ideEditorData.path : 'Оберіть файл для редагування'"></p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            @click="saveIdeFile()"
+                            :disabled="!ideEditorData.path || ideEditorSaving || ideFileLoading || ideFileError"
+                            class="px-3 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            <i class="fas fa-save mr-2"></i>
+                            <span x-text="ideEditorSaving ? 'Збереження...' : 'Зберегти'"></span>
+                        </button>
+                        <button
+                            @click="reloadIdeFile()"
+                            :disabled="!ideEditorData.path || ideFileLoading"
+                            class="px-3 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            <i class="fas fa-rotate-right mr-2"></i>Перезавантажити
+                        </button>
+                    </div>
+                </div>
+
+                <template x-if="ideFileError">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-3">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        <span x-text="ideFileError"></span>
+                    </div>
+                </template>
+
+                <div class="border rounded-lg bg-gray-50 relative overflow-hidden min-h-[320px]">
+                    <template x-if="!ideEditorData.path">
+                        <div class="p-6 text-gray-500 text-center">
+                            <i class="fas fa-arrow-left text-2xl mb-2"></i>
+                            <p>Виберіть файл у дереві зліва, щоб почати редагування.</p>
+                        </div>
+                    </template>
+
+                    <template x-if="ideFileLoading">
+                        <div class="absolute inset-0 bg-white bg-opacity-70 flex items-center justify-center z-10">
+                            <div class="text-center">
+                                <i class="fas fa-spinner fa-spin text-3xl text-blue-500"></i>
+                                <p class="text-gray-600 mt-2">Завантаження файлу...</p>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template x-if="ideEditorData.path && !ideFileError">
+                        <div class="p-4">
+                            <textarea
+                                x-ref="ideEditorTextarea"
+                                x-model="ideEditorContent"
+                                class="hidden"
+                            ></textarea>
+                            <div
+                                x-show="ideEditorFallback"
+                                x-ref="ideLiteEditor"
+                                class="fm-lite-editor max-h-[70vh] min-h-[320px]"
+                                contenteditable="true"
+                                @input="handleIdeLiteInput"
+                            ></div>
+                            <div x-show="!ideEditorInstance && !ideEditorFallback" class="text-center text-gray-500 py-6">
+                                <p>Ініціалізація редактора...</p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="mt-3 text-sm text-gray-600 flex items-center gap-4">
+                    <span class="text-green-600" x-show="ideFileMessage" x-text="ideFileMessage"></span>
+                    <span class="text-amber-600" x-show="ideEditorFallback">Активовано офлайн-редактор із базовою підсвіткою.</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @php
@@ -517,6 +688,7 @@ function fileManager(initialPath = '', initialSelection = '') {
     return {
         initialPath,
         initialSelection,
+        activeView: 'list',
         currentPath: '',
         items: [],
         selectedItem: null,
@@ -547,10 +719,104 @@ function fileManager(initialPath = '', initialSelection = '') {
         editorScriptSources: FILE_MANAGER_CODEMIRROR_SOURCES,
         pathHistory: [],
         pendingSelection: null,
+        ideTree: [],
+        ideTreeLoading: false,
+        ideTreeError: null,
+        ideTreeInitialized: false,
+        ideSelectedPath: '',
+        ideFileLoading: false,
+        ideFileError: null,
+        ideFileMessage: null,
+        ideEditorContent: '',
+        ideEditorData: {},
+        ideEditorInstance: null,
+        ideEditorNeedsMount: false,
+        ideEditorFallback: false,
+        ideEditorMountAttempts: 0,
+        ideMaxEditorMountAttempts: 50,
+        ideEditorSaving: false,
 
         init() {
             this.pendingSelection = this.initialSelection || null;
             this.loadTree(this.initialPath || '');
+        },
+
+        setView(view) {
+            this.activeView = view;
+
+            if (view === 'ide' && !this.ideTreeInitialized) {
+                this.loadIdeTree();
+            }
+        },
+
+        async loadIdeTree() {
+            this.ideTreeLoading = true;
+            this.ideTreeError = null;
+
+            try {
+                const response = await fetch(`{{ route('file-manager.tree') }}?recursive=1`);
+                const data = await response.json();
+
+                if (data.success) {
+                    this.ideTree = this.decorateIdeTree(data.items || []);
+                    this.ideTreeInitialized = true;
+                } else {
+                    this.ideTreeError = data.error || 'Не вдалося завантажити дерево файлів';
+                }
+            } catch (e) {
+                this.ideTreeError = 'Помилка з\\'єднання з сервером';
+                console.error(e);
+            } finally {
+                this.ideTreeLoading = false;
+            }
+        },
+
+        decorateIdeTree(items = []) {
+            return (items || []).map(item => ({
+                ...item,
+                children: this.decorateIdeTree(item.children || []),
+                expanded: false,
+            }));
+        },
+
+        getVisibleIdeNodes() {
+            const result = [];
+            const traverse = (nodes, depth = 0) => {
+                (nodes || []).forEach(node => {
+                    result.push({ node, depth });
+                    if (node.type === 'directory' && node.expanded && node.children?.length) {
+                        traverse(node.children, depth + 1);
+                    }
+                });
+            };
+
+            traverse(this.ideTree);
+            return result;
+        },
+
+        toggleIdeDirectory(node) {
+            if (node.type !== 'directory') {
+                return;
+            }
+
+            node.expanded = !node.expanded;
+        },
+
+        handleIdeSelection(node) {
+            this.ideSelectedPath = node.path;
+            this.ideFileMessage = null;
+            this.ideFileError = null;
+
+            if (node.type === 'directory') {
+                this.destroyIdeEditor();
+                this.ideEditorData = {};
+                this.ideEditorContent = '';
+                this.ideEditorFallback = false;
+                this.toggleIdeDirectory(node);
+                return;
+            }
+
+            this.openIdeFile(node.path);
         },
 
         async loadTree(path) {
@@ -727,6 +993,194 @@ function fileManager(initialPath = '', initialSelection = '') {
                     this.$nextTick(() => this.mountLiteEditor());
                 }
             }
+        },
+
+        async openIdeFile(path) {
+            this.ideSelectedPath = path;
+            this.ideFileLoading = true;
+            this.ideFileError = null;
+            this.ideFileMessage = null;
+            this.ideEditorContent = '';
+            this.ideEditorData = {};
+            this.destroyIdeEditor();
+            this.ideEditorNeedsMount = false;
+            this.ideEditorFallback = false;
+            this.ideEditorMountAttempts = 0;
+
+            try {
+                const response = await fetch(`{{ route('file-manager.content') }}?path=${encodeURIComponent(path)}`);
+                const data = await response.json();
+
+                if (!data.success) {
+                    this.ideFileError = data.error || 'Не вдалося завантажити файл';
+                    return;
+                }
+
+                if (!data.content.is_text) {
+                    this.ideFileError = 'Цей файл не можна редагувати онлайн';
+                    return;
+                }
+
+                this.ideEditorData = {
+                    path: data.content.path,
+                    name: data.content.name,
+                    extension: this.getExtensionFromPath(data.content.path),
+                };
+                this.ideEditorContent = data.content.content || '';
+
+                try {
+                    await this.ensureEditorAssets();
+                    this.ideEditorNeedsMount = true;
+                } catch (assetError) {
+                    console.error(assetError);
+                    this.ideEditorFallback = true;
+                    this.ideFileMessage = 'CodeMirror недоступний, використовується офлайн-редактор';
+                    this.ideEditorNeedsMount = false;
+                    this.$nextTick(() => this.mountIdeLiteEditor());
+                }
+            } catch (e) {
+                this.ideFileError = 'Помилка з\\'єднання з сервером';
+                console.error(e);
+            } finally {
+                this.ideFileLoading = false;
+                if (this.ideEditorNeedsMount && !this.ideFileError) {
+                    this.$nextTick(() => this.mountIdeEditor());
+                } else if (this.ideEditorFallback) {
+                    this.$nextTick(() => this.mountIdeLiteEditor());
+                }
+            }
+        },
+
+        reloadIdeFile() {
+            if (this.ideEditorData.path) {
+                this.openIdeFile(this.ideEditorData.path);
+            }
+        },
+
+        mountIdeEditor() {
+            if (this.ideEditorFallback) {
+                this.ideEditorNeedsMount = false;
+                return;
+            }
+
+            if (!this.ideEditorNeedsMount) {
+                return;
+            }
+
+            if (this.ideEditorMountAttempts >= this.ideMaxEditorMountAttempts) {
+                this.ideEditorFallback = true;
+                this.ideEditorNeedsMount = false;
+                this.ideFileMessage = 'Не вдалося ініціалізувати CodeMirror, використовується легкий редактор';
+                this.$nextTick(() => this.mountIdeLiteEditor());
+                return;
+            }
+
+            this.ideEditorMountAttempts++;
+
+            if (!window.CodeMirror || !this.$refs.ideEditorTextarea) {
+                setTimeout(() => this.mountIdeEditor(), 100);
+                return;
+            }
+
+            try {
+                this.ideEditorInstance = CodeMirror.fromTextArea(this.$refs.ideEditorTextarea, {
+                    lineNumbers: true,
+                    tabSize: 4,
+                    indentUnit: 4,
+                    mode: this.getEditorMode(this.ideEditorData.extension),
+                    lineWrapping: true,
+                });
+                const editorHeight = Math.min(Math.max(window.innerHeight * 0.65, 320), 900);
+                this.ideEditorInstance.setSize('100%', editorHeight + 'px');
+                this.ideEditorInstance.setValue(this.ideEditorContent);
+                this.ideEditorInstance.focus();
+                this.ideEditorNeedsMount = false;
+                this.ideFileMessage = null;
+            } catch (initError) {
+                console.error(initError);
+                this.ideEditorFallback = true;
+                this.ideEditorNeedsMount = false;
+                this.ideFileMessage = 'Не вдалося ініціалізувати CodeMirror, вмикається офлайн-редактор';
+                this.$nextTick(() => this.mountIdeLiteEditor());
+            }
+        },
+
+        destroyIdeEditor() {
+            if (this.ideEditorInstance) {
+                this.ideEditorInstance.toTextArea();
+                this.ideEditorInstance = null;
+            }
+
+            this.ideEditorNeedsMount = false;
+        },
+
+        async saveIdeFile() {
+            if (!this.ideEditorData.path) {
+                return;
+            }
+
+            this.ideEditorSaving = true;
+            this.ideFileError = null;
+            this.ideFileMessage = null;
+
+            const payload = {
+                path: this.ideEditorData.path,
+                content: this.ideEditorInstance ? this.ideEditorInstance.getValue() : this.ideEditorContent,
+            };
+
+            try {
+                const response = await fetch(`{{ route('file-manager.update') }}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': this.getCsrfToken(),
+                    },
+                    body: JSON.stringify(payload),
+                });
+                const data = await response.json();
+
+                if (!data.success) {
+                    this.ideFileError = data.error || 'Помилка збереження файлу';
+                    return;
+                }
+
+                this.ideFileMessage = 'Файл збережено (' + (data.size || payload.content.length) + ' байт)';
+                this.ideFileError = null;
+                this.loadTree(this.currentPath);
+            } catch (e) {
+                this.ideFileError = 'Помилка з\\'єднання з сервером';
+                console.error(e);
+            } finally {
+                this.ideEditorSaving = false;
+            }
+        },
+
+        handleIdeLiteInput(event) {
+            this.ideEditorContent = event.target.innerText;
+            this.refreshIdeLiteHighlight();
+        },
+
+        refreshIdeLiteHighlight() {
+            if (!this.ideEditorFallback || !this.$refs.ideLiteEditor) {
+                return;
+            }
+
+            const caret = getCaretIndex(this.$refs.ideLiteEditor);
+            this.$refs.ideLiteEditor.innerHTML = highlightWithFallback(
+                this.ideEditorContent,
+                this.getExtensionFromPath(this.ideEditorData.path || ''),
+            );
+            setCaretIndex(this.$refs.ideLiteEditor, caret);
+        },
+
+        mountIdeLiteEditor() {
+            if (!this.$refs.ideLiteEditor) {
+                return;
+            }
+
+            this.$refs.ideLiteEditor.innerText = this.ideEditorContent;
+            this.refreshIdeLiteHighlight();
         },
 
         applyPreviewFallbackHighlight() {
