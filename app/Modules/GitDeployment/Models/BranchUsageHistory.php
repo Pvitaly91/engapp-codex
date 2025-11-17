@@ -9,6 +9,8 @@ class BranchUsageHistory extends Model
 {
     use HasFactory;
 
+    protected $table = 'branch_usage_history';
+
     protected $fillable = [
         'branch_name',
         'action',
