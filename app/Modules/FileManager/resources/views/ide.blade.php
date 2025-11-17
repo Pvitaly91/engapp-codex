@@ -199,6 +199,7 @@
 @php
     $codeMirrorSources = array(
         route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/addon/mode/multiplex.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/clike/clike.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
