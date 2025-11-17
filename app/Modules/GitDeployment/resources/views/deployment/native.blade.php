@@ -114,7 +114,7 @@
               <tbody class="divide-y divide-border/60 bg-background/60">
                 @foreach($recentUsage as $usage)
                   <tr>
-                    <td class="px-4 py-3 font-medium">{{ $usage->name }}</td>
+                    <td class="px-4 py-3 font-medium">{{ $usage->branch_name }}</td>
                     <td class="px-4 py-3">
                       @php
                         $actionLabels = [

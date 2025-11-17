@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use App\Modules\GitDeployment\Models\BackupBranch;
+use App\Modules\GitDeployment\Models\BranchUsageHistory;
 use Symfony\Component\Process\Process;
 
 class DeploymentController extends BaseController
@@ -32,7 +33,7 @@ class DeploymentController extends BaseController
             ? trim($branchProcess->getOutput())
             : null;
 
-        $recentUsage = BackupBranch::getRecentUsage(10);
+        $recentUsage = BranchUsageHistory::getRecentUsage(10);
 
         return view('git-deployment::deployment.index', [
             'backups' => $backups,
@@ -97,7 +98,7 @@ class DeploymentController extends BaseController
         }
 
         // Track branch usage
-        BackupBranch::trackUsage(
+        BranchUsageHistory::trackUsage(
             $branch,
             'deploy',
             'Оновлення сайту до останнього стану гілки'
@@ -141,7 +142,7 @@ class DeploymentController extends BaseController
         $currentBranch = trim($currentBranchProcess->getOutput());
 
         // Track branch usage
-        BackupBranch::trackUsage(
+        BranchUsageHistory::trackUsage(
             $branch,
             'push',
             "Пуш поточного стану на віддалену гілку з {$currentBranch}"
@@ -329,7 +330,7 @@ class DeploymentController extends BaseController
         }
 
         // Track branch usage
-        BackupBranch::trackUsage(
+        BranchUsageHistory::trackUsage(
             $branchName,
             'create_and_push',
             'Швидке створення та пуш гілки з поточним станом сайту'

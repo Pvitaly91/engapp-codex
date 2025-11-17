@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use App\Modules\GitDeployment\Models\BackupBranch;
+use App\Modules\GitDeployment\Models\BranchUsageHistory;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
 
 class NativeDeploymentController extends BaseController
@@ -27,7 +28,7 @@ class NativeDeploymentController extends BaseController
             ->orderByDesc('created_at')
             ->get();
 
-        $recentUsage = BackupBranch::getRecentUsage(10);
+        $recentUsage = BranchUsageHistory::getRecentUsage(10);
 
         return view('git-deployment::deployment.native', [
             'backups' => $backups,
@@ -52,7 +53,7 @@ class NativeDeploymentController extends BaseController
         }
 
         // Track branch usage
-        BackupBranch::trackUsage(
+        BranchUsageHistory::trackUsage(
             $sanitized,
             'deploy',
             'Оновлення сайту до останнього стану гілки через GitHub API'
@@ -73,7 +74,7 @@ class NativeDeploymentController extends BaseController
         }
 
         // Track branch usage
-        BackupBranch::trackUsage(
+        BranchUsageHistory::trackUsage(
             $sanitized,
             'push',
             'Пуш поточного стану на віддалену гілку через GitHub API'
@@ -160,7 +161,7 @@ class NativeDeploymentController extends BaseController
         }
 
         // Track branch usage
-        BackupBranch::trackUsage(
+        BranchUsageHistory::trackUsage(
             $sanitized,
             'create_and_push',
             'Швидке створення та пуш гілки з поточним станом сайту через GitHub API'
