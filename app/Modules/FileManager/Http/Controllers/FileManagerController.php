@@ -42,6 +42,10 @@ class FileManagerController extends Controller
             'type' => 'application/javascript',
             'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js',
         ],
+        'codemirror/mode/clike/clike.min.js' => [
+            'type' => 'application/javascript',
+            'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js',
+        ],
         'codemirror/mode/php/php.min.js' => [
             'type' => 'application/javascript',
             'source' => 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/php/php.min.js',

@@ -199,8 +199,9 @@
 @php
     $codeMirrorSources = array(
         route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
-        route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/clike/clike.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/css/css.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/htmlmixed/htmlmixed.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/php/php.min.js']),
