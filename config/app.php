@@ -161,6 +161,7 @@ return [
          */
 
         App\Modules\GitDeployment\GitDeploymentServiceProvider::class,
+        App\Modules\ArtisanCommands\ArtisanCommandsServiceProvider::class,
 
         /*
          * Application Service Providers...
