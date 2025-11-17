@@ -170,6 +170,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Modules\ArtisanManager\ArtisanManagerServiceProvider::class,
         App\Modules\DatabaseStructure\DatabaseStructureServiceProvider::class,
         App\Modules\FileManager\FileManagerServiceProvider::class,
         App\Modules\MigrationManager\MigrationManagerServiceProvider::class,
