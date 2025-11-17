@@ -81,37 +81,12 @@
                     </div>
 
                     <!-- Tree Items -->
-                    <div x-show="!loading && !error" x-cloak class="space-y-1">
+                    <div x-show="!loading && !error" x-cloak class="space-y-0.5">
                         <template x-if="items.length === 0">
                             <p class="text-gray-500 text-center py-8 text-sm">Папка порожня</p>
                         </template>
                         
-                        <template x-for="item in items" :key="item.path">
-                            <div 
-                                class="flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer transition text-sm"
-                                :class="{ 
-                                    'bg-blue-100 text-blue-800': selectedItem && selectedItem.path === item.path,
-                                    'hover:bg-gray-100': !selectedItem || selectedItem.path !== item.path
-                                }"
-                                @click="selectItem(item)"
-                                @dblclick="handleDoubleClick(item)"
-                            >
-                                <!-- Icon -->
-                                <div class="w-5 text-center flex-shrink-0">
-                                    <template x-if="item.type === 'directory'">
-                                        <i class="fas fa-folder text-yellow-500"></i>
-                                    </template>
-                                    <template x-if="item.type === 'file'">
-                                        <i class="fas fa-file text-gray-500" :class="getFileIcon(item)"></i>
-                                    </template>
-                                </div>
-                                
-                                <!-- Name -->
-                                <div class="flex-1 truncate" :title="item.name">
-                                    <span x-text="item.name"></span>
-                                </div>
-                            </div>
-                        </template>
+                        <div x-ref="treeContainer"></div>
                     </div>
                 </div>
             </div>
@@ -166,7 +141,7 @@
                             <div class="text-center">
                                 <i class="fas fa-folder-open text-6xl mb-4"></i>
                                 <p class="text-lg">Немає відкритого файлу</p>
-                                <p class="text-sm mt-2">Двічі клікніть на файл в дереві для його відкриття</p>
+                                <p class="text-sm mt-2">Клікніть на файл в дереві для його відкриття</p>
                             </div>
                         </div>
                     </template>
@@ -225,10 +200,10 @@
     $codeMirrorSources = array(
         route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
-        route('file-manager.asset', ['path' => 'codemirror/mode/php/php.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/css/css.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/htmlmixed/htmlmixed.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/php/php.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/markdown/markdown.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/sql/sql.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/shell/shell.min.js']),
@@ -391,9 +366,15 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
                 const data = await response.json();
                 
                 if (data.success) {
-                    this.items = data.items;
+                    this.items = data.items.map(item => ({
+                        ...item,
+                        expanded: false,
+                        children: null,
+                        loading: false,
+                    }));
                     this.currentPath = data.path;
                     this.updateCanGoBack();
+                    this.$nextTick(() => this.renderTree());
                 } else {
                     this.error = data.error || 'Помилка завантаження';
                 }
@@ -405,15 +386,125 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
             }
         },
 
-        selectItem(item) {
-            this.selectedItem = item;
+        renderTree() {
+            if (!this.$refs.treeContainer) return;
+            this.$refs.treeContainer.innerHTML = '';
+            this.items.forEach(item => {
+                this.$refs.treeContainer.appendChild(this.createTreeNode(item, 0));
+            });
         },
 
-        handleDoubleClick(item) {
+        createTreeNode(item, level) {
+            const container = document.createElement('div');
+            container.className = 'tree-node-container';
+            
+            // Main item row
+            const row = document.createElement('div');
+            row.className = 'flex items-center gap-1 px-2 py-1.5 rounded cursor-pointer transition text-sm hover:bg-gray-100';
+            row.style.marginLeft = (level * 16) + 'px';
+            
+            if (this.selectedItem && this.selectedItem.path === item.path) {
+                row.classList.add('bg-blue-100', 'text-blue-800');
+                row.classList.remove('hover:bg-gray-100');
+            }
+            
+            // Expand/collapse icon
+            const expandIcon = document.createElement('div');
+            expandIcon.className = 'w-4 text-center flex-shrink-0';
             if (item.type === 'directory') {
-                this.navigateToPath(item.path);
+                const icon = document.createElement('i');
+                icon.className = 'fas text-gray-500 text-xs ' + (item.expanded ? 'fa-chevron-down' : 'fa-chevron-right');
+                icon.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.toggleFolder(item).then(() => this.renderTree());
+                });
+                expandIcon.appendChild(icon);
+            }
+            row.appendChild(expandIcon);
+            
+            // File/folder icon
+            const iconContainer = document.createElement('div');
+            iconContainer.className = 'w-5 text-center flex-shrink-0';
+            const icon = document.createElement('i');
+            if (item.type === 'directory') {
+                icon.className = 'fas text-yellow-500 ' + (item.expanded ? 'fa-folder-open' : 'fa-folder');
+            } else {
+                icon.className = 'fas fa-file text-gray-500 ' + this.getFileIcon(item);
+            }
+            iconContainer.appendChild(icon);
+            row.appendChild(iconContainer);
+            
+            // Name
+            const nameDiv = document.createElement('div');
+            nameDiv.className = 'flex-1 truncate';
+            nameDiv.title = item.name;
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = item.name;
+            nameDiv.appendChild(nameSpan);
+            row.appendChild(nameDiv);
+            
+            // Click handler
+            row.addEventListener('click', () => {
+                this.handleItemClick(item);
+            });
+            
+            container.appendChild(row);
+            
+            // Children container
+            if (item.type === 'directory' && item.expanded && item.children) {
+                const childrenContainer = document.createElement('div');
+                childrenContainer.className = 'mt-0.5 space-y-0.5';
+                item.children.forEach(child => {
+                    childrenContainer.appendChild(this.createTreeNode(child, level + 1));
+                });
+                container.appendChild(childrenContainer);
+            }
+            
+            return container;
+        },
+
+        selectItem(item) {
+            this.selectedItem = item;
+            this.renderTree(); // Re-render to update selection highlighting
+        },
+
+        handleItemClick(item) {
+            this.selectItem(item);
+            if (item.type === 'directory') {
+                this.toggleFolder(item).then(() => this.renderTree());
             } else if (item.type === 'file') {
                 this.openFile(item.path);
+            }
+        },
+
+        async toggleFolder(item) {
+            if (item.type !== 'directory') {
+                return;
+            }
+
+            // Toggle expanded state
+            item.expanded = !item.expanded;
+
+            // Load children if not loaded yet
+            if (item.expanded && !item.children) {
+                item.loading = true;
+                try {
+                    const response = await fetch(`{{ route('file-manager.tree') }}?path=${encodeURIComponent(item.path)}`);
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        item.children = data.items.map(child => ({
+                            ...child,
+                            expanded: false,
+                            children: null,
+                            loading: false,
+                        }));
+                    }
+                } catch (e) {
+                    console.error('Failed to load folder contents:', e);
+                } finally {
+                    item.loading = false;
+                }
             }
         },
 
@@ -502,14 +593,6 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
 
             try {
                 const mode = this.getEditorMode(this.editorData.extension);
-                
-                // Verify mode dependencies are loaded
-                if (mode === 'application/x-httpd-php' && (!window.CodeMirror.modes.htmlmixed || !window.CodeMirror.modes.xml)) {
-                    console.error('PHP mode dependencies not loaded, falling back to lite editor');
-                    this.editorFallback = true;
-                    this.$nextTick(() => this.mountLiteEditor());
-                    return;
-                }
                 
                 this.editorInstance = CodeMirror.fromTextArea(this.$refs.editorTextarea, {
                     lineNumbers: true,
