@@ -632,14 +632,44 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
             }
 
             const [coreScript, ...modeScripts] = scripts;
+            
+            // Separate scripts by their dependencies
+            // PHP mode depends on htmlmixed, which depends on xml, javascript, css
+            const htmlmixedScripts = modeScripts.filter(src => src.includes('/htmlmixed/'));
             const phpScripts = modeScripts.filter(src => src.includes('/php/'));
-            const dependencyScripts = modeScripts.filter(src => !phpScripts.includes(src));
+            const htmlmixedDeps = modeScripts.filter(src => 
+                src.includes('/xml/') || 
+                src.includes('/javascript/') || 
+                src.includes('/css/') ||
+                src.includes('/clike/')
+            );
+            const otherScripts = modeScripts.filter(src => 
+                !htmlmixedScripts.includes(src) && 
+                !phpScripts.includes(src) && 
+                !htmlmixedDeps.includes(src) &&
+                !src.includes('/multiplex/')
+            );
+            const multiplexScripts = modeScripts.filter(src => src.includes('/multiplex/'));
             const timeoutMs = 15000;
 
             const loadAll = async () => {
+                // 1. Load CodeMirror core
                 await this.loadScript(coreScript);
-                await Promise.all(dependencyScripts.map(src => this.loadScript(src)));
+                
+                // 2. Load multiplex addon (needed by PHP mode)
+                await Promise.all(multiplexScripts.map(src => this.loadScript(src)));
+                
+                // 3. Load htmlmixed dependencies in parallel (xml, javascript, css, clike)
+                await Promise.all(htmlmixedDeps.map(src => this.loadScript(src)));
+                
+                // 4. Load htmlmixed after its dependencies
+                await Promise.all(htmlmixedScripts.map(src => this.loadScript(src)));
+                
+                // 5. Load PHP mode after htmlmixed is ready
                 await Promise.all(phpScripts.map(src => this.loadScript(src)));
+                
+                // 6. Load remaining independent modes
+                await Promise.all(otherScripts.map(src => this.loadScript(src)));
 
                 if (!window.CodeMirror) {
                     throw new Error('CodeMirror глобальний об\'єкт недоступний після завантаження');
