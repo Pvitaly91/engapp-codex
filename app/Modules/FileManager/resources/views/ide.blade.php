@@ -199,8 +199,10 @@
 @php
     $codeMirrorSources = array(
         route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
-        route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/addon/mode/multiplex.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/clike/clike.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/css/css.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/htmlmixed/htmlmixed.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/php/php.min.js']),
@@ -629,20 +631,29 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
                 return;
             }
 
-            const loadChain = scripts.reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve());
-            const timeoutMs = 8000;
+            const [coreScript, ...modeScripts] = scripts;
+            const phpScripts = modeScripts.filter(src => src.includes('/php/'));
+            const dependencyScripts = modeScripts.filter(src => !phpScripts.includes(src));
+            const timeoutMs = 15000;
+
+            const loadAll = async () => {
+                await this.loadScript(coreScript);
+                await Promise.all(dependencyScripts.map(src => this.loadScript(src)));
+                await Promise.all(phpScripts.map(src => this.loadScript(src)));
+
+                if (!window.CodeMirror) {
+                    throw new Error('CodeMirror глобальний об\'єкт недоступний після завантаження');
+                }
+
+                this.editorAssetsReady = true;
+            };
+
             const timeout = new Promise((_, reject) => setTimeout(
                 () => reject(new Error('Перевищено час очікування завантаження редактора')),
                 timeoutMs,
             ));
 
-            this.editorAssetsPromise = Promise.race([loadChain, timeout])
-                .then(() => {
-                    if (!window.CodeMirror) {
-                        throw new Error('CodeMirror глобальний об\'єкт недоступний після завантаження');
-                    }
-                    this.editorAssetsReady = true;
-                })
+            this.editorAssetsPromise = Promise.race([loadAll(), timeout])
                 .catch(error => {
                     this.editorAssetsPromise = null;
                     throw error;
