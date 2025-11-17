@@ -1,5 +1,21 @@
 # Інструкція з встановлення модулів `app/Modules`
 
+## Модуль "ArtisanManager"
+
+Модуль для виконання Artisan команд через веб-інтерфейс. Дозволяє очищати кеші, оптимізувати додаток та виконувати інші поширені команди безпосередньо з адмін-панелі.
+
+### Як встановити
+1. Скопіюйте папку `app/Modules/ArtisanManager` у ваш застосунок.
+2. Додайте `App\Modules\ArtisanManager\ArtisanManagerServiceProvider::class` у масив `providers` файлу `config/app.php`.
+3. За потреби опублікуйте конфіг/шаблони:
+   ```bash
+   php artisan vendor:publish --tag=artisan-manager-config
+   php artisan vendor:publish --tag=artisan-manager-views
+   ```
+4. Налаштуйте доступи (middleware `auth.admin`) і навігацію адмінки на маршрут `artisan.index` (типово `/admin/artisan`).
+
+Детальніша інструкція розміщена у `app/Modules/ArtisanManager/README.md`.
+
 ## Модуль "DatabaseStructure"
 Цей модуль додає в адмін-панель сторінку для перегляду структури бази даних (таблиці, стовпці, типи та інші метадані). Нижче наведено кроки для підключення модуля до будь-якого Laravel-проєкту.
 
