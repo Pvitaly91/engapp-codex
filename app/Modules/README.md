@@ -1,5 +1,22 @@
 # Інструкція з встановлення модулів `app/Modules`
 
+## Модуль "ArtisanCommands"
+Цей модуль додає веб-інтерфейс для виконання Laravel Artisan команд через адмін-панель. Він надає зручний спосіб керувати кешем, оптимізацією та обслуговуванням додатку без доступу до командного рядка.
+
+### Функціональність
+- **Очистка кешу**: cache:clear, config:clear, route:clear, view:clear, optimize:clear
+- **Оптимізація**: config:cache, route:cache, view:cache, optimize
+- **Обслуговування**: storage:link, queue:restart
+
+### Встановлення
+1. Скопіюйте директорію `app/Modules/ArtisanCommands` у свій Laravel-проєкт
+2. Зареєструйте `App\Modules\ArtisanCommands\ArtisanCommandsServiceProvider::class` у `config/app.php`
+3. Переконайтеся, що існує middleware `auth.admin` або змініть його в конфігурації
+4. Додайте посилання на маршрут `artisan-commands.index` у навігацію (`/admin/artisan-commands`)
+5. (Опціонально) Опублікуйте конфігурацію: `php artisan vendor:publish --tag=artisan-commands-config`
+
+Детальні інструкції дивіться у `app/Modules/ArtisanCommands/README.md`.
+
 ## Модуль "DatabaseStructure"
 Цей модуль додає в адмін-панель сторінку для перегляду структури бази даних (таблиці, стовпці, типи та інші метадані). Нижче наведено кроки для підключення модуля до будь-якого Laravel-проєкту.
 
