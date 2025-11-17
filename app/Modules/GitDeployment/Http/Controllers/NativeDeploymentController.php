@@ -27,6 +27,8 @@ class NativeDeploymentController extends BaseController
             ->orderByDesc('created_at')
             ->get();
 
+        $recentUsage = BackupBranch::getRecentUsage(10);
+
         return view('git-deployment::deployment.native', [
             'backups' => $backups,
             'feedback' => $feedback,
@@ -34,6 +36,7 @@ class NativeDeploymentController extends BaseController
             'currentBranch' => $this->deployment->currentBranch(),
             'currentCommit' => $this->deployment->headCommit(),
             'supportsShell' => $this->supportsShellCommands(),
+            'recentUsage' => $recentUsage,
         ]);
     }
 
@@ -48,6 +51,13 @@ class NativeDeploymentController extends BaseController
             return $this->redirectWithFeedback('error', $throwable->getMessage(), [], $sanitized);
         }
 
+        // Track branch usage
+        BackupBranch::trackUsage(
+            $sanitized,
+            'deploy',
+            'Оновлення сайту до останнього стану гілки через GitHub API'
+        );
+
         return $this->redirectWithFeedback('success', $result['message'], $result['logs'], $sanitized);
     }
 
@@ -61,6 +71,13 @@ class NativeDeploymentController extends BaseController
         } catch (\Throwable $throwable) {
             return $this->redirectWithFeedback('error', $throwable->getMessage(), [], $sanitized);
         }
+
+        // Track branch usage
+        BackupBranch::trackUsage(
+            $sanitized,
+            'push',
+            'Пуш поточного стану на віддалену гілку через GitHub API'
+        );
 
         return $this->redirectWithFeedback('success', $result['message'], $result['logs'], $sanitized);
     }
@@ -114,6 +131,56 @@ class NativeDeploymentController extends BaseController
         $backupBranch->forceFill(['pushed_at' => now()])->save();
 
         return $this->redirectWithFeedback('success', $result['message'], $result['logs'], null);
+    }
+
+    public function createAndPushBranch(Request $request): RedirectResponse
+    {
+        $branchName = $request->input('quick_branch_name', '');
+        $sanitized = $this->sanitizeBranchName($branchName);
+
+        if ($sanitized === '') {
+            return $this->redirectWithFeedback('error', 'Вкажіть коректну назву гілки.', [], null);
+        }
+
+        $currentCommit = $this->deployment->headCommit();
+        if (! $currentCommit) {
+            return $this->redirectWithFeedback('error', 'Не вдалося визначити поточний коміт.', [], null);
+        }
+
+        try {
+            // Create branch if it doesn't exist
+            $createResult = $this->deployment->createBranch($sanitized, 'current');
+            $logs = $createResult['logs'];
+
+            // Push branch to remote
+            $pushResult = $this->deployment->pushBranch($sanitized);
+            $logs = array_merge($logs, $pushResult['logs']);
+        } catch (\Throwable $throwable) {
+            return $this->redirectWithFeedback('error', $throwable->getMessage(), [], null);
+        }
+
+        // Track branch usage
+        BackupBranch::trackUsage(
+            $sanitized,
+            'create_and_push',
+            'Швидке створення та пуш гілки з поточним станом сайту через GitHub API'
+        );
+
+        // Update or create backup branch record
+        BackupBranch::updateOrCreate(
+            ['name' => $sanitized],
+            [
+                'commit_hash' => $currentCommit,
+                'pushed_at' => now(),
+            ]
+        );
+
+        return $this->redirectWithFeedback(
+            'success',
+            "Гілку {$sanitized} успішно створено та запушено на віддалений репозиторій через GitHub API.",
+            $logs,
+            null
+        );
     }
 
     private function redirectWithFeedback(string $status, string $message, array $logs, ?string $branch): RedirectResponse

@@ -103,6 +103,54 @@
       </div>
     @endif
 
+    @if($recentUsage->isNotEmpty())
+      <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+        <div class="space-y-4 p-6">
+          <h2 class="text-2xl font-semibold">Історія використання гілок</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-border/70 text-sm">
+              <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
+                <tr>
+                  <th class="px-4 py-3">Гілка</th>
+                  <th class="px-4 py-3">Дія</th>
+                  <th class="px-4 py-3">Опис</th>
+                  <th class="px-4 py-3">Час використання</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60 bg-background/60">
+                @foreach($recentUsage as $usage)
+                  <tr>
+                    <td class="px-4 py-3 font-medium">{{ $usage->name }}</td>
+                    <td class="px-4 py-3">
+                      @php
+                        $actionLabels = [
+                          'deploy' => 'Оновлення',
+                          'push' => 'Пуш',
+                          'create_and_push' => 'Створення та пуш',
+                          'backup' => 'Резервна копія',
+                        ];
+                        $actionColors = [
+                          'deploy' => 'bg-red-100 text-red-700',
+                          'push' => 'bg-emerald-100 text-emerald-700',
+                          'create_and_push' => 'bg-blue-100 text-blue-700',
+                          'backup' => 'bg-amber-100 text-amber-700',
+                        ];
+                      @endphp
+                      <span @class(['inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold', $actionColors[$usage->action] ?? 'bg-muted text-foreground'])>
+                        {{ $actionLabels[$usage->action] ?? $usage->action }}
+                      </span>
+                    </td>
+                    <td class="px-4 py-3 text-xs text-muted-foreground">{{ $usage->description ?? '—' }}</td>
+                    <td class="px-4 py-3 text-xs">{{ $usage->used_at ? $usage->used_at->format('d.m.Y H:i:s') : '—' }}</td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    @endif
+
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
@@ -128,7 +176,29 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">2. Запушити поточний стан</h2>
+          <h2 class="text-2xl font-semibold">2. Швидке створення та пуш гілки</h2>
+          <p class="text-sm text-muted-foreground">Введіть назву гілки. Якщо її не існує, вона буде створена автоматично. Поточний стан сайту буде запушено на віддалений репозиторій.</p>
+        </div>
+        <form method="POST" action="{{ route('deployment.quick-branch') }}" class="space-y-4">
+          @csrf
+          <label class="block text-sm font-medium" for="quick-branch-name">Назва гілки</label>
+          <div class="relative">
+            <input id="quick-branch-name" type="text" name="quick_branch_name" placeholder="feature/my-feature" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" required />
+            <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-blue-600/90">Створити та запушити</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">3. Запушити поточний стан</h2>
           <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
           <div class="mt-3 rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs text-muted-foreground">
             <p class="font-semibold text-foreground">Команди, які буде виконано:</p>
@@ -160,7 +230,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
+          <h2 class="text-2xl font-semibold">4. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
         </div>
         <div class="rounded-2xl border border-border/70 bg-muted/40 p-4 text-sm text-muted-foreground">
@@ -211,7 +281,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">4. Керування резервними гілками</h2>
+          <h2 class="text-2xl font-semibold">5. Керування резервними гілками</h2>
           <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub, щоб зберегти віддалену копію.</p>
         </div>
         @if($backupBranches->isEmpty())
@@ -280,7 +350,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">5. Відкотити зміни</h2>
+          <h2 class="text-2xl font-semibold">6. Відкотити зміни</h2>
           <p class="text-sm text-muted-foreground">Якщо після оновлення з’явилися проблеми, можна повернути сайт до збереженого стану. Виберіть потрібний коміт зі списку нижче.</p>
         </div>
         @if(count($backups) === 0)

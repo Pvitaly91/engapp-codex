@@ -133,6 +133,7 @@
                                 <a href="{{ route('deployment.native.index') }}" class="block px-4 py-2 hover:bg-blue-50">API режим</a>
                             @endif
                             <a href="{{ route('migrations.index') }}" class="block px-4 py-2 hover:bg-blue-50">Міграції</a>
+                            <a href="{{ route('artisan.index') }}" class="block px-4 py-2 hover:bg-blue-50">Artisan команди</a>
                         </div>
                     </div>
                     <a href="{{ route('home') }}" class="hover:text-blue-500 transition">До публічної частини</a>
@@ -187,6 +188,7 @@
                             <a href="{{ route('deployment.native.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">API режим</a>
                         @endif
                         <a href="{{ route('migrations.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Міграції</a>
+                        <a href="{{ route('artisan.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Artisan команди</a>
                     </div>
                 </div>
                 <a href="{{ route('home') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">До публічної частини</a>
