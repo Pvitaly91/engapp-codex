@@ -57,14 +57,18 @@
         'border-destructive/40 bg-destructive/10 text-destructive-foreground' => $feedback['status'] === 'error',
       ])>
         <div class="font-medium">
-          @if($highlightSuccessfulUpdate)
-            <span class="inline-flex items-center gap-2 rounded-xl bg-success/20 px-3 py-2 text-success">
-              <span class="inline-flex h-2.5 w-2.5 rounded-full bg-success"></span>
+          @if($feedback['status'] === 'success')
+            <span class="inline-flex items-center gap-2 rounded-xl bg-green-100 px-3 py-2 text-green-700">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
               {{ $feedback['message'] }}
             </span>
-          @elseif($highlightShellUnavailable)
-            <span class="inline-flex items-center gap-2 rounded-xl bg-destructive/15 px-3 py-2 text-destructive-foreground">
-              <span class="inline-flex h-2.5 w-2.5 rounded-full bg-destructive"></span>
+          @elseif($feedback['status'] === 'error')
+            <span class="inline-flex items-center gap-2 rounded-xl bg-red-100 px-3 py-2 text-red-700">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
               {{ $feedback['message'] }}
             </span>
           @else
@@ -103,6 +107,67 @@
       </div>
     @endif
 
+    @if($recentUsage->isNotEmpty())
+      <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+        <div class="space-y-4 p-6">
+          <h2 class="text-2xl font-semibold">Історія використання гілок</h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-border/70 text-sm">
+              <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
+                <tr>
+                  <th class="px-4 py-3">Гілка</th>
+                  <th class="px-4 py-3">Дія</th>
+                  <th class="px-4 py-3">Опис</th>
+                  <th class="px-4 py-3">Час використання</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60 bg-background/60">
+                @foreach($recentUsage as $usage)
+                  <tr>
+                    <td class="px-4 py-3 font-medium">
+                      <button
+                        type="button"
+                        onclick="copyBranchName(this, '{{ $usage->branch_name }}')"
+                        class="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-left font-medium text-foreground transition hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background cursor-pointer"
+                        title="Натисніть, щоб скопіювати назву гілки"
+                      >
+                        <span class="branch-name-text">{{ $usage->branch_name }}</span>
+                        <svg class="h-4 w-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        <span class="copy-success hidden text-xs font-semibold text-success">Скопійовано!</span>
+                      </button>
+                    </td>
+                    <td class="px-4 py-3">
+                      @php
+                        $actionLabels = [
+                          'deploy' => 'Оновлення',
+                          'push' => 'Пуш',
+                          'create_and_push' => 'Створення та пуш',
+                          'backup' => 'Резервна копія',
+                        ];
+                        $actionColors = [
+                          'deploy' => 'bg-red-100 text-red-700',
+                          'push' => 'bg-emerald-100 text-emerald-700',
+                          'create_and_push' => 'bg-blue-100 text-blue-700',
+                          'backup' => 'bg-amber-100 text-amber-700',
+                        ];
+                      @endphp
+                      <span @class(['inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold', $actionColors[$usage->action] ?? 'bg-muted text-foreground'])>
+                        {{ $actionLabels[$usage->action] ?? $usage->action }}
+                      </span>
+                    </td>
+                    <td class="px-4 py-3 text-xs text-muted-foreground">{{ $usage->description ?? '—' }}</td>
+                    <td class="px-4 py-3 text-xs">{{ $usage->used_at ? $usage->used_at->format('d.m.Y H:i:s') : '—' }}</td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    @endif
+
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
@@ -128,7 +193,29 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">2. Запушити поточний стан</h2>
+          <h2 class="text-2xl font-semibold">2. Швидке створення та пуш гілки</h2>
+          <p class="text-sm text-muted-foreground">Введіть назву гілки. Якщо її не існує, вона буде створена автоматично. Поточний стан сайту буде запушено на віддалений репозиторій.</p>
+        </div>
+        <form method="POST" action="{{ route('deployment.quick-branch') }}" class="space-y-4">
+          @csrf
+          <label class="block text-sm font-medium" for="quick-branch-name">Назва гілки</label>
+          <div class="relative">
+            <input id="quick-branch-name" type="text" name="quick_branch_name" placeholder="feature/my-feature" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" required />
+            <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-blue-600/90">Створити та запушити</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">3. Запушити поточний стан</h2>
           <p class="text-sm text-muted-foreground">Виконайте <code>git push</code>, щоб надіслати поточний коміт на потрібну віддалену гілку (за замовчуванням <code>master</code>).</p>
           <div class="mt-3 rounded-2xl border border-border/70 bg-muted/30 p-4 text-xs text-muted-foreground">
             <p class="font-semibold text-foreground">Команди, які буде виконано:</p>
@@ -160,7 +247,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">3. Створити резервну гілку</h2>
+          <h2 class="text-2xl font-semibold">4. Створити резервну гілку</h2>
           <p class="text-sm text-muted-foreground">За потреби можна зробити окрему гілку з поточного стану або одного з резервних комітів, щоб зберегти стабільну версію перед великими оновленнями.</p>
         </div>
         <div class="rounded-2xl border border-border/70 bg-muted/40 p-4 text-sm text-muted-foreground">
@@ -211,7 +298,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">4. Керування резервними гілками</h2>
+          <h2 class="text-2xl font-semibold">5. Керування резервними гілками</h2>
           <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub, щоб зберегти віддалену копію.</p>
         </div>
         @if($backupBranches->isEmpty())
@@ -280,7 +367,7 @@
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
         <div>
-          <h2 class="text-2xl font-semibold">5. Відкотити зміни</h2>
+          <h2 class="text-2xl font-semibold">6. Відкотити зміни</h2>
           <p class="text-sm text-muted-foreground">Якщо після оновлення з’явилися проблеми, можна повернути сайт до збереженого стану. Виберіть потрібний коміт зі списку нижче.</p>
         </div>
         @if(count($backups) === 0)
@@ -317,4 +404,51 @@
   </div>
 
   @include('git-deployment::deployment.partials.backup-branch-copy-script')
+
+  @push('scripts')
+    <script>
+      function copyBranchName(button, branchName) {
+        if (!button || !branchName) return;
+
+        const copyText = () => {
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            return navigator.clipboard.writeText(branchName);
+          }
+          // Fallback for older browsers
+          const textarea = document.createElement('textarea');
+          textarea.value = branchName;
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            return Promise.resolve();
+          } catch (err) {
+            document.body.removeChild(textarea);
+            return Promise.reject(err);
+          }
+        };
+
+        const successSpan = button.querySelector('.copy-success');
+        const nameSpan = button.querySelector('.branch-name-text');
+
+        copyText()
+          .then(() => {
+            if (successSpan && nameSpan) {
+              nameSpan.classList.add('hidden');
+              successSpan.classList.remove('hidden');
+              setTimeout(() => {
+                nameSpan.classList.remove('hidden');
+                successSpan.classList.add('hidden');
+              }, 2000);
+            }
+          })
+          .catch(() => {
+            alert('Не вдалося скопіювати. Спробуйте ще раз.');
+          });
+      }
+    </script>
+  @endpush
 @endsection

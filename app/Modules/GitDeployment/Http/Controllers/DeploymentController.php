@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use App\Modules\GitDeployment\Models\BackupBranch;
+use App\Modules\GitDeployment\Models\BranchUsageHistory;
 use Symfony\Component\Process\Process;
 
 class DeploymentController extends BaseController
@@ -32,12 +33,15 @@ class DeploymentController extends BaseController
             ? trim($branchProcess->getOutput())
             : null;
 
+        $recentUsage = BranchUsageHistory::getRecentUsage(10);
+
         return view('git-deployment::deployment.index', [
             'backups' => $backups,
             'feedback' => $feedback,
             'backupBranches' => $backupBranches,
             'currentBranch' => $currentBranch,
             'supportsShell' => $this->supportsShellCommands(),
+            'recentUsage' => $recentUsage,
         ]);
     }
 
@@ -93,6 +97,13 @@ class DeploymentController extends BaseController
             return $this->redirectWithFeedback('error', 'Не вдалося видалити локальні файли, яких немає в репозиторії.', $commandsOutput);
         }
 
+        // Track branch usage
+        BranchUsageHistory::trackUsage(
+            $branch,
+            'deploy',
+            'Оновлення сайту до останнього стану гілки'
+        );
+
         $message = 'Сайт успішно оновлено до останнього стану гілки.';
         if (! $backupStored) {
             $message .= ' Увага: резервну копію не збережено.';
@@ -129,6 +140,13 @@ class DeploymentController extends BaseController
         }
 
         $currentBranch = trim($currentBranchProcess->getOutput());
+
+        // Track branch usage
+        BranchUsageHistory::trackUsage(
+            $branch,
+            'push',
+            "Пуш поточного стану на віддалену гілку з {$currentBranch}"
+        );
 
         return $this->redirectWithFeedback(
             'success',
@@ -259,6 +277,80 @@ class DeploymentController extends BaseController
         $backupBranch->forceFill(['pushed_at' => now()])->save();
 
         return $this->redirectWithFeedback('success', 'Резервну гілку надіслано на віддалений репозиторій.', $commandsOutput);
+    }
+
+    public function createAndPushBranch(Request $request): RedirectResponse
+    {
+        $branchName = Str::of($request->input('quick_branch_name', ''))->trim()->value();
+        $branchName = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branchName);
+
+        if ($redirect = $this->redirectIfShellUnavailable($branchName ?: null)) {
+            return $redirect;
+        }
+
+        if ($branchName === '') {
+            return $this->redirectWithFeedback('error', 'Вкажіть коректну назву гілки.', []);
+        }
+
+        $repoPath = base_path();
+        $commandsOutput = [];
+
+        // Get current commit
+        $revParseProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
+        $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $revParseProcess);
+
+        if (! $revParseProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося визначити поточний коміт.', $commandsOutput);
+        }
+
+        $currentCommit = trim($revParseProcess->getOutput());
+
+        // Check if branch exists locally
+        $branchListProcess = $this->runCommand(['git', 'branch', '--list', $branchName], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git branch --list {$branchName}", $branchListProcess);
+
+        $branchExists = trim($branchListProcess->getOutput()) !== '';
+
+        if (! $branchExists) {
+            // Create branch
+            $createProcess = $this->runCommand(['git', 'branch', $branchName, $currentCommit], $repoPath);
+            $commandsOutput[] = $this->formatProcess("git branch {$branchName} {$currentCommit}", $createProcess);
+
+            if (! $createProcess->isSuccessful()) {
+                return $this->redirectWithFeedback('error', 'Не вдалося створити гілку.', $commandsOutput);
+            }
+        }
+
+        // Push branch to remote
+        $pushProcess = $this->runCommand(['git', 'push', '--force', 'origin', $branchName], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git push --force origin {$branchName}", $pushProcess);
+
+        if (! $pushProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося запушити гілку на віддалений репозиторій.', $commandsOutput);
+        }
+
+        // Track branch usage
+        BranchUsageHistory::trackUsage(
+            $branchName,
+            'create_and_push',
+            'Швидке створення та пуш гілки з поточним станом сайту'
+        );
+
+        // Update or create backup branch record
+        BackupBranch::updateOrCreate(
+            ['name' => $branchName],
+            [
+                'commit_hash' => $currentCommit,
+                'pushed_at' => now(),
+            ]
+        );
+
+        $action = $branchExists ? 'оновлено та запушено' : 'створено та запушено';
+        return $this->redirectWithFeedback(
+            'success',
+            "Гілку {$branchName} успішно {$action} на віддалений репозиторій.",
+            $commandsOutput
+        );
     }
 
     private function redirectWithFeedback(string $status, string $message, array $commandsOutput): RedirectResponse
