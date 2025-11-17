@@ -608,6 +608,14 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
                 this.editorInstance.on('change', () => {
                     this.editorModified = true;
                 });
+                
+                // Refresh CodeMirror after a short delay to ensure proper rendering
+                setTimeout(() => {
+                    if (this.editorInstance) {
+                        this.editorInstance.refresh();
+                    }
+                }, 100);
+                
                 this.editorInstance.focus();
             } catch (initError) {
                 console.error('CodeMirror initialization error:', initError);
@@ -662,8 +670,14 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
                 // 3. Load htmlmixed dependencies in parallel (xml, javascript, css, clike)
                 await Promise.all(htmlmixedDeps.map(src => this.loadScript(src)));
                 
+                // Small delay to ensure mode definitions are registered
+                await new Promise(resolve => setTimeout(resolve, 50));
+                
                 // 4. Load htmlmixed after its dependencies
                 await Promise.all(htmlmixedScripts.map(src => this.loadScript(src)));
+                
+                // Small delay to ensure htmlmixed mode is registered
+                await new Promise(resolve => setTimeout(resolve, 50));
                 
                 // 5. Load PHP mode after htmlmixed is ready
                 await Promise.all(phpScripts.map(src => this.loadScript(src)));
