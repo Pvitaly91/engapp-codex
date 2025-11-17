@@ -21,6 +21,11 @@ class ArtisanManagerTest extends TestCase
             \Illuminate\Support\Facades\Route::has('artisan.execute'),
             'The artisan.execute route should exist'
         );
+
+        $this->assertTrue(
+            \Illuminate\Support\Facades\Route::has('artisan.clear-all-caches'),
+            'The artisan.clear-all-caches route should exist'
+        );
     }
 
     /**

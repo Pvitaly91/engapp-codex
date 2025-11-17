@@ -117,6 +117,48 @@ class ArtisanManagerController extends Controller
         }
     }
 
+    public function clearAllCaches(): RedirectResponse
+    {
+        $cacheCommands = ['cache_clear', 'config_clear', 'route_clear', 'view_clear'];
+        $enabledCommands = config('artisan-manager.enabled_commands', array_keys($this->commands));
+        $outputs = [];
+        $hasErrors = false;
+
+        foreach ($cacheCommands as $commandKey) {
+            if (! in_array($commandKey, $enabledCommands, true) || ! isset($this->commands[$commandKey])) {
+                continue;
+            }
+
+            $commandData = $this->commands[$commandKey];
+
+            try {
+                $exitCode = Artisan::call($commandData['artisan_command']);
+                $output = trim(Artisan::output());
+
+                if ($exitCode === 0) {
+                    $outputs[] = "✓ {$commandData['artisan_command']}: успішно";
+                } else {
+                    $outputs[] = "✗ {$commandData['artisan_command']}: помилка";
+                    $hasErrors = true;
+                }
+
+                if ($output) {
+                    $outputs[] = $output;
+                }
+            } catch (\Throwable $exception) {
+                $outputs[] = "✗ {$commandData['artisan_command']}: {$exception->getMessage()}";
+                $hasErrors = true;
+            }
+        }
+
+        $status = $hasErrors ? 'error' : 'success';
+        $message = $hasErrors
+            ? 'Деякі команди очищення кешу завершилися з помилками.'
+            : 'Всі кеші успішно очищено.';
+
+        return $this->redirectWithFeedback($status, $message, implode("\n", $outputs));
+    }
+
     private function redirectWithFeedback(string $status, string $message, string $output): RedirectResponse
     {
         return redirect()

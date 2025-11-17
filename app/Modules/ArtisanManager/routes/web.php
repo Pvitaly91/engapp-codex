@@ -9,4 +9,5 @@ Route::middleware(config('artisan-manager.middleware', ['web', 'auth.admin']))
     ->group(function () {
         Route::get('/', [ArtisanManagerController::class, 'index'])->name('index');
         Route::post('/execute/{command}', [ArtisanManagerController::class, 'execute'])->name('execute');
+        Route::post('/clear-all-caches', [ArtisanManagerController::class, 'clearAllCaches'])->name('clear-all-caches');
     });
