@@ -66,3 +66,20 @@
 4. Додайте посилання у меню адмінки на маршрут `migrations.index` (типово `/admin/migrations`).
 
 Більше деталей — у `app/Modules/MigrationManager/README.md`.
+
+## Модуль "ArtisanManager"
+
+Модуль дозволяє виконувати найпоширеніші команди Laravel Artisan (очищення кешів, оптимізація тощо) безпосередньо з адмін-панелі за адресою `/admin/artisan`.
+
+### Як встановити
+1. Скопіюйте папку `app/Modules/ArtisanManager` у ваш застосунок.
+2. Додайте `App\Modules\ArtisanManager\ArtisanManagerServiceProvider::class` до масиву `providers` файлу `config/app.php`.
+3. (Опційно) опублікуйте конфіг та шаблони командами
+   ```bash
+   php artisan vendor:publish --tag=artisan-manager-config
+   php artisan vendor:publish --tag=artisan-manager-views
+   ```
+   Після цього файл `config/artisan-manager.php` дозволить змінити префікс маршруту та middleware.
+4. Додайте посилання у меню адмінки на маршрут `artisan.index` (типово `/admin/artisan`).
+
+Більше деталей — у `app/Modules/ArtisanManager/README.md`.
