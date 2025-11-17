@@ -66,3 +66,16 @@
 4. Додайте посилання у меню адмінки на маршрут `migrations.index` (типово `/admin/migrations`).
 
 Більше деталей — у `app/Modules/MigrationManager/README.md`.
+
+## Модуль "ArtisanToolkit"
+
+Панель у адмінці для запуску типових команд `php artisan` (очистка кешів, скидання оптимізацій, перезапуск черг тощо) через кнопки.
+
+### Як встановити
+
+1. Скопіюйте папку `app/Modules/ArtisanToolkit` у ваш застосунок.
+2. Додайте `App\Modules\ArtisanToolkit\ArtisanToolkitServiceProvider::class` у масив `providers` файлу `config/app.php`.
+3. (Опційно) опублікуйте конфіг/шаблони: `php artisan vendor:publish --tag=artisan-toolkit-config` та `php artisan vendor:publish --tag=artisan-toolkit-views`.
+4. Додайте посилання у меню адмінки на маршрут `artisan-toolkit.index` (типово `/admin/artisan`).
+
+Деталі — у `app/Modules/ArtisanToolkit/README.md`.
