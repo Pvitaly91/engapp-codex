@@ -450,17 +450,17 @@ class IndefinitePronounsPracticeV2Seeder extends QuestionSeeder
                 'options' => [
                     'a1' => ['somebody', 'anybody', 'nobody'],
                 ],
-                'answers' => ['a1' => 'nobody'],
+                'answers' => ['a1' => 'anybody'],
                 'level' => 'A2',
                 'source' => 'page2',
                 'hints' => [
-                    'a1' => 'Щоб підкреслити відсутність людей, уживаємо **nobody**.',
+                    'a1' => 'Після заперечення "doesn\'t have" використовуємо **anybody**.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'somebody' => '❌ *Somebody* означає, що хтось є.',
-                        'anybody' => '❌ *Anybody* звучить нейтрально, але не дає категоричного «нікого».',
-                        'nobody' => '✅ **Nobody** найкраще описує самотність.',
+                        'somebody' => '❌ *Somebody* означає, що хтось є, що суперечить запереченню.',
+                        'anybody' => '✅ **Anybody** правильно поєднується з "doesn\'t have" для вираження самотності.',
+                        'nobody' => '❌ *Nobody* створює подвійне заперечення з "doesn\'t have".',
                     ],
                 ],
             ],
@@ -507,17 +507,17 @@ class IndefinitePronounsPracticeV2Seeder extends QuestionSeeder
                 'options' => [
                     'a1' => ['anyone', 'no one', 'everyone'],
                 ],
-                'answers' => ['a1' => 'no one'],
+                'answers' => ['a1' => 'everyone'],
                 'level' => 'A2',
                 'source' => 'page2',
                 'hints' => [
-                    'a1' => 'Вона тримала секрет при собі → **no one**.',
+                    'a1' => 'Фраза "Now we all know" означає, що вона розповіла всім → **everyone**.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'anyone' => '❌ *Anyone* означало б, що вона комусь сказала.',
-                        'no one' => '✅ **No one** підкреслює, що вона нікому не розповідала.',
-                        'everyone' => '❌ *Everyone* суперечить ідеї секрету.',
+                        'anyone' => '❌ *Anyone* звучить невизначено, а контекст говорить про «всіх».',
+                        'no one' => '❌ *No one* суперечить твердженню "Now we all know".',
+                        'everyone' => '✅ **Everyone** логічно пояснює, чому всі тепер знають.',
                     ],
                 ],
             ],
@@ -717,23 +717,23 @@ class IndefinitePronounsPracticeV2Seeder extends QuestionSeeder
                     'a1' => ['anyone', 'someone', 'no one'],
                     'a2' => ['anyone', 'someone', 'no one'],
                 ],
-                'answers' => ['a1' => 'anyone', 'a2' => 'no one'],
+                'answers' => ['a1' => 'someone', 'a2' => 'anyone'],
                 'level' => 'A2',
                 'source' => 'page3',
                 'hints' => [
-                    'a1' => 'Поліція мала підозру без конкретної особи → **anyone**.',
-                    'a2' => 'Насправді нікого не знайшли → **no one**.',
+                    'a1' => 'Поліція думала, що хтось ховається → потрібне **someone**.',
+                    'a2' => 'Після заперечення "did not find" використовуємо **anyone**.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'anyone' => '✅ **Anyone** показує, що підозра була невизначеною.',
-                        'someone' => '❌ *Someone* натякав би на конкретну людину.',
+                        'anyone' => '❌ *Anyone* частіше для питань, а тут ствердження про підозру.',
+                        'someone' => '✅ **Someone** підходить для ствердження, що поліція думала про конкретну людину.',
                         'no one' => '❌ *No one* суперечить припущенню поліції.',
                     ],
                     'a2' => [
-                        'anyone' => '❌ *Anyone* не передає результат «нікого не знайдено».',
+                        'anyone' => '✅ **Anyone** правильно використовується після заперечення "did not find".',
                         'someone' => '❌ *Someone* означало б, що когось знайшли.',
-                        'no one' => '✅ **No one** влучно описує підсумок пошуків.',
+                        'no one' => '❌ *No one* створює подвійне заперечення з "did not find".',
                     ],
                 ],
             ],
