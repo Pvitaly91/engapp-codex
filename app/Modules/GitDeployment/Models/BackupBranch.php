@@ -28,15 +28,17 @@ class BackupBranch extends Model
      */
     public static function trackUsage(string $branchName, string $action, ?string $description = null): void
     {
-        static::updateOrCreate(
-            ['name' => $branchName],
-            [
-                'commit_hash' => '',
-                'action' => $action,
-                'description' => $description,
-                'used_at' => now(),
-            ]
-        );
+        $branch = static::firstOrNew(['name' => $branchName]);
+        
+        // Only set commit_hash if it's a new record and empty
+        if (! $branch->exists && empty($branch->commit_hash)) {
+            $branch->commit_hash = '';
+        }
+        
+        $branch->action = $action;
+        $branch->description = $description;
+        $branch->used_at = now();
+        $branch->save();
     }
 
     /**
