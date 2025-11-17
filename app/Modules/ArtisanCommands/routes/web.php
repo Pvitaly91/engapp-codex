@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Modules\ArtisanCommands\Http\Controllers\ArtisanCommandsController;
+use Illuminate\Support\Facades\Route;
 
 Route::middleware(config('artisan-commands.middleware', ['web', 'auth.admin']))
     ->prefix(config('artisan-commands.route_prefix', 'admin/artisan-commands'))

@@ -16,7 +16,7 @@ class ArtisanCommandsController extends Controller
     public function index(): View
     {
         $commands = config('artisan-commands.commands', []);
-        
+
         return view('artisan-commands::index', compact('commands'));
     }
 
@@ -32,7 +32,7 @@ class ArtisanCommandsController extends Controller
         $commandKey = $request->input('command');
         $command = $this->findCommand($commandKey);
 
-        if (!$command) {
+        if (! $command) {
             return response()->json([
                 'success' => false,
                 'message' => 'Команду не знайдено',
@@ -46,8 +46,8 @@ class ArtisanCommandsController extends Controller
 
             return response()->json([
                 'success' => $exitCode === 0,
-                'message' => $exitCode === 0 
-                    ? 'Команду успішно виконано' 
+                'message' => $exitCode === 0
+                    ? 'Команду успішно виконано'
                     : 'Помилка виконання команди',
                 'output' => $output,
                 'exit_code' => $exitCode,
@@ -56,7 +56,7 @@ class ArtisanCommandsController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Помилка виконання: ' . $e->getMessage(),
+                'message' => 'Помилка виконання: '.$e->getMessage(),
                 'output' => '',
                 'exit_code' => 1,
             ], 500);
@@ -69,7 +69,7 @@ class ArtisanCommandsController extends Controller
     private function findCommand(string $key): ?array
     {
         $allCommands = config('artisan-commands.commands', []);
-        
+
         foreach ($allCommands as $category => $commands) {
             foreach ($commands as $command) {
                 if ($command['key'] === $key) {
@@ -77,7 +77,7 @@ class ArtisanCommandsController extends Controller
                 }
             }
         }
-        
+
         return null;
     }
 }
