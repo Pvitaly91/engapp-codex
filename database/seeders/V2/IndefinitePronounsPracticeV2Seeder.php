@@ -450,17 +450,17 @@ class IndefinitePronounsPracticeV2Seeder extends QuestionSeeder
                 'options' => [
                     'a1' => ['somebody', 'anybody', 'nobody'],
                 ],
-                'answers' => ['a1' => 'nobody'],
+                'answers' => ['a1' => 'anybody'],
                 'level' => 'A2',
                 'source' => 'page2',
                 'hints' => [
-                    'a1' => 'Щоб підкреслити відсутність людей, уживаємо **nobody**.',
+                    'a1' => 'Після "doesn\'t have" потрібне any-слово → **anybody**.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'somebody' => '❌ *Somebody* означає, що хтось є.',
-                        'anybody' => '❌ *Anybody* звучить нейтрально, але не дає категоричного «нікого».',
-                        'nobody' => '✅ **Nobody** найкраще описує самотність.',
+                        'somebody' => '❌ *Somebody* звучить як ствердження, а не як заперечення.',
+                        'anybody' => '✅ **Anybody** правильно поєднується з заперечним "doesn\'t have".',
+                        'nobody' => '❌ *Nobody* створило б подвійну негативну конструкцію ("doesn\'t have nobody").',
                     ],
                 ],
             ],
@@ -507,17 +507,17 @@ class IndefinitePronounsPracticeV2Seeder extends QuestionSeeder
                 'options' => [
                     'a1' => ['anyone', 'no one', 'everyone'],
                 ],
-                'answers' => ['a1' => 'no one'],
+                'answers' => ['a1' => 'everyone'],
                 'level' => 'A2',
                 'source' => 'page2',
                 'hints' => [
-                    'a1' => 'Вона тримала секрет при собі → **no one**.',
+                    'a1' => 'Якщо «тепер всі знають», значить вона всім розповіла → **everyone**.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'anyone' => '❌ *Anyone* означало б, що вона комусь сказала.',
-                        'no one' => '✅ **No one** підкреслює, що вона нікому не розповідала.',
-                        'everyone' => '❌ *Everyone* суперечить ідеї секрету.',
+                        'anyone' => '❌ *Anyone* звучить невизначено і не передає «всім».',
+                        'no one' => '❌ *No one* суперечить фразі «Now we all know» (тепер всі знають).',
+                        'everyone' => '✅ **Everyone** логічно поєднується з тим, що всі дізналися.',
                     ],
                 ],
             ],
@@ -602,17 +602,17 @@ class IndefinitePronounsPracticeV2Seeder extends QuestionSeeder
                 'options' => [
                     'a1' => ['anyone', 'someone', 'everyone'],
                 ],
-                'answers' => ['a1' => 'anyone'],
+                'answers' => ['a1' => 'everyone'],
                 'level' => 'A2',
                 'source' => 'page3',
                 'hints' => [
-                    'a1' => 'Заперечення *don\'t know* + загальне посилання → **anyone**.',
+                    'a1' => 'Фраза «але я знаю більшість» означає, що не всіх знаю → **everyone**.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'anyone' => '✅ **Anyone** показує, що не вистачає знайомств із рештою людей.',
-                        'someone' => '❌ *Someone* означало б, що невідома лише одна людина.',
-                        'everyone' => '❌ *Everyone* говорить про всіх, а тут потрібна група «ще незнайомих».',
+                        'anyone' => '❌ *Anyone* означало б «нікого не знаю», а це суперечить «знаю більшість».',
+                        'someone' => '❌ *Someone* означає лише одну людину, а не групу незнайомих.',
+                        'everyone' => '✅ **Everyone** логічно: «не знаю всіх, але знаю більшість».',
                     ],
                 ],
             ],
