@@ -53,6 +53,8 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
 
         $structureTagId = Tag::firstOrCreate(['name' => 'First Conditional Clause Completion'], ['category' => 'English Grammar Structure'])->id;
 
+        $fixedTagId = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status'])->id;
+
         $patternConfig = [
             'question_present' => [
                 'section' => 'question_present',
@@ -106,55 +108,55 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
 
         $entries = [
             // A1
-            $this->entry('A1', 'question_present', 'If Mia finishes her homework now, {a1} she watch cartoons?', 'will', ['will', 'does', 'would'], 'result', 'will + base verb — she', 'watch', 'she'),
-            $this->entry('A1', 'question_present', 'If the bus arrives on time today, {a1} we leave for the zoo early?', 'will', ['will', 'are', 'shall'], 'result', 'will + base verb — we', 'leave', 'we'),
-            $this->entry('A1', 'question_present', 'If you pack your bag before dinner, {a1} you join us for the game?', 'will', ['will', 'do', 'can'], 'result', 'will + base verb — you', 'join', 'you'),
-            $this->entry('A1', 'question_present', 'If Leo finds his keys in the hall, {a1} he open the garage?', 'will', ['will', 'does', 'has'], 'result', 'will + base verb — he', 'open', 'he'),
+            $this->entry('A1', 'question_present', 'If Mia finishes her homework now, {a1} she watch cartoons?', 'will', ['will', 'does', 'would'], 'result', 'question about result', 'watch', 'she'),
+            $this->entry('A1', 'question_present', 'If the bus arrives on time today, {a1} we leave for the zoo early?', 'will', ['will', 'are', 'shall'], 'result', 'question about result', 'leave', 'we'),
+            $this->entry('A1', 'question_present', 'If you pack your bag before dinner, {a1} you join us for the game?', 'will', ['will', 'do', 'can'], 'result', 'question about result', 'join', 'you'),
+            $this->entry('A1', 'question_present', 'If Leo finds his keys in the hall, {a1} he open the garage?', 'will', ['will', 'does', 'has'], 'result', 'question about result', 'open', 'he'),
 
-            $this->entry('A1', 'question_past', 'If you remember yesterday\'s song, {a1} you sing it for us?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — you', 'sing', 'you'),
-            $this->entry('A1', 'question_past', 'If Sara checks last night\'s homework, {a1} she explain the answer?', 'will', ['will', 'would', 'does'], 'result', 'will + base verb — she', 'explain', 'she'),
-            $this->entry('A1', 'question_past', 'If the boys think about last weekend\'s game, {a1} they try a new tactic?', 'will', ['will', 'would', 'were'], 'result', 'will + base verb — they', 'try', 'they'),
-            $this->entry('A1', 'question_past', 'If grandma finds the recipe from yesterday, {a1} she bake the pie again?', 'will', ['will', 'shall', 'did'], 'result', 'will + base verb — she', 'bake', 'she'),
+            $this->entry('A1', 'question_past', 'If you remember yesterday\'s song, {a1} you sing it for us?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'sing', 'you'),
+            $this->entry('A1', 'question_past', 'If Sara checks last night\'s homework, {a1} she explain the answer?', 'will', ['will', 'would', 'does'], 'result', 'question about result', 'explain', 'she'),
+            $this->entry('A1', 'question_past', 'If the boys think about last weekend\'s game, {a1} they try a new tactic?', 'will', ['will', 'would', 'were'], 'result', 'question about result', 'try', 'they'),
+            $this->entry('A1', 'question_past', 'If grandma finds the recipe from yesterday, {a1} she bake the pie again?', 'will', ['will', 'shall', 'did'], 'result', 'question about result', 'bake', 'she'),
 
-            $this->entry('A1', 'question_future', 'If the weather stays warm tomorrow, {a1} we have a picnic?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'have', 'we'),
-            $this->entry('A1', 'question_future', 'If you finish packing tonight, {a1} you leave with us in the morning?', 'will', ['will', 'can', 'do'], 'result', 'will + base verb — you', 'leave', 'you'),
-            $this->entry('A1', 'question_future', 'If the coach calls later, {a1} he pick you up?', 'will', ['will', 'would', 'does'], 'result', 'will + base verb — he', 'pick', 'he'),
-            $this->entry('A1', 'question_future', 'If Mia chooses the movie for tomorrow, {a1} we watch it together?', 'will', ['will', 'shall', 'are'], 'result', 'will + base verb — we', 'watch', 'we'),
+            $this->entry('A1', 'question_future', 'If the weather stays warm tomorrow, {a1} we have a picnic?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'have', 'we'),
+            $this->entry('A1', 'question_future', 'If you finish packing tonight, {a1} you leave with us in the morning?', 'will', ['will', 'can', 'do'], 'result', 'question about result', 'leave', 'you'),
+            $this->entry('A1', 'question_future', 'If the coach calls later, {a1} he pick you up?', 'will', ['will', 'would', 'does'], 'result', 'question about result', 'pick', 'he'),
+            $this->entry('A1', 'question_future', 'If Mia chooses the movie for tomorrow, {a1} we watch it together?', 'will', ['will', 'shall', 'are'], 'result', 'question about result', 'watch', 'we'),
 
-            $this->entry('A1', 'negative_present', 'If Tom {a1} finish his chores, he won\'t get dessert.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — he', 'finish', 'he'),
-            $this->entry('A1', 'negative_present', 'If we {a1} bring our tickets, the guard won\'t let us in.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'bring', 'we'),
-            $this->entry('A1', 'negative_present', 'If the soup tastes bland, we {a1} add more salt.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'add', 'we'),
-            $this->entry('A1', 'negative_present', 'If the puppy chews the shoes again, dad {a1} buy new ones.', "won't", ["won't", 'will', 'can'], 'result', 'will not + base verb — he', 'buy', 'he'),
+            $this->entry('A1', 'negative_present', 'If Tom {a1} finish his chores, he won\'t get dessert.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'negation in if-clause', 'finish', 'he'),
+            $this->entry('A1', 'negative_present', 'If we {a1} bring our tickets, the guard won\'t let us in.', "don't", ["don't", "doesn't", 'did'], 'condition', 'negation in if-clause', 'bring', 'we'),
+            $this->entry('A1', 'negative_present', 'If the soup tastes bland, we {a1} add more salt.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'add', 'we'),
+            $this->entry('A1', 'negative_present', 'If the puppy chews the shoes again, dad {a1} buy new ones.', "won't", ["won't", 'will', 'can'], 'result', 'negative result', 'buy', 'he'),
 
-            $this->entry('A1', 'negative_past', 'If Lena {a1} clean yesterday\'s spill, the stain won\'t come out.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'clean', 'she'),
-            $this->entry('A1', 'negative_past', 'If the twins {a1} finish last night\'s project, they won\'t present today.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'finish', 'they'),
-            $this->entry('A1', 'negative_past', 'If you forget yesterday\'s promise, your friend {a1} trust you.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'trust', 'they'),
-            $this->entry('A1', 'negative_past', 'If the coach repeats last week\'s mistake, the team {a1} win tonight.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'win', 'they'),
+            $this->entry('A1', 'negative_past', 'If Lena {a1} clean yesterday\'s spill, the stain won\'t come out.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'negation in if-clause', 'clean', 'she'),
+            $this->entry('A1', 'negative_past', 'If the twins {a1} finish last night\'s project, they won\'t present today.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'negation in if-clause', 'finish', 'they'),
+            $this->entry('A1', 'negative_past', 'If you forget yesterday\'s promise, your friend {a1} trust you.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'trust', 'they'),
+            $this->entry('A1', 'negative_past', 'If the coach repeats last week\'s mistake, the team {a1} win tonight.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'win', 'they'),
 
-            $this->entry('A1', 'negative_future', 'If you {a1} set an alarm for tomorrow, you won\'t wake up on time.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'set', 'you'),
-            $this->entry('A1', 'negative_future', 'If the kids {a1} pack their bags tonight, they won\'t join the trip.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'pack', 'they'),
-            $this->entry('A1', 'negative_future', 'If the weather turns stormy tomorrow, we {a1} start the hike.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'start', 'we'),
-            $this->entry('A1', 'negative_future', 'If Nora forgets to book the tickets tonight, they {a1} travel on Friday.', "won't", ["won't", 'will', 'shall'], 'result', 'will not + base verb — they', 'travel', 'they'),
+            $this->entry('A1', 'negative_future', 'If you {a1} set an alarm for tomorrow, you won\'t wake up on time.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'set', 'you'),
+            $this->entry('A1', 'negative_future', 'If the kids {a1} pack their bags tonight, they won\'t join the trip.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'pack', 'they'),
+            $this->entry('A1', 'negative_future', 'If the weather turns stormy tomorrow, we {a1} start the hike.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'start', 'we'),
+            $this->entry('A1', 'negative_future', 'If Nora forgets to book the tickets tonight, they {a1} travel on Friday.', "won't", ["won't", 'will', 'shall'], 'result', 'negative result', 'travel', 'they'),
 
             // A2
-            $this->entry('A2', 'question_present', 'If Maria tidies her desk this afternoon, {a1} she start the new project?', 'will', ['will', 'does', 'would'], 'result', 'will + base verb — she', 'start', 'she'),
-            $this->entry('A2', 'question_present', 'If the neighbours close their windows now, {a1} they keep the noise out?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'keep', 'they'),
-            $this->entry('A2', 'question_present', 'If you organise the files before lunch, {a1} you send the report?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'send', 'you'),
-            $this->entry('A2', 'question_present', 'If the printer works again, {a1} we print the posters today?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'print', 'we'),
+            $this->entry('A2', 'question_present', 'If Maria tidies her desk this afternoon, {a1} she start the new project?', 'will', ['will', 'does', 'would'], 'result', 'question about result', 'start', 'she'),
+            $this->entry('A2', 'question_present', 'If the neighbours close their windows now, {a1} they keep the noise out?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'keep', 'they'),
+            $this->entry('A2', 'question_present', 'If you organise the files before lunch, {a1} you send the report?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'send', 'you'),
+            $this->entry('A2', 'question_present', 'If the printer works again, {a1} we print the posters today?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'print', 'we'),
 
-            $this->entry('A2', 'question_past', 'If Lena reviews yesterday\'s notes, {a1} she answer the tricky question?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — she', 'answer', 'she'),
-            $this->entry('A2', 'question_past', 'If your brother recalls last night\'s conversation, {a1} he change his mind?', 'will', ['will', 'would', 'was'], 'result', 'will + base verb — he', 'change', 'he'),
-            $this->entry('A2', 'question_past', 'If the volunteers check last week\'s list, {a1} they invite everyone?', 'will', ['will', 'would', 'were'], 'result', 'will + base verb — they', 'invite', 'they'),
-            $this->entry('A2', 'question_past', 'If the chef finds last year\'s recipe, {a1} he cook the holiday dish?', 'will', ['will', 'would', 'has'], 'result', 'will + base verb — he', 'cook', 'he'),
+            $this->entry('A2', 'question_past', 'If Lena reviews yesterday\'s notes, {a1} she answer the tricky question?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'answer', 'she'),
+            $this->entry('A2', 'question_past', 'If your brother recalls last night\'s conversation, {a1} he change his mind?', 'will', ['will', 'would', 'was'], 'result', 'question about result', 'change', 'he'),
+            $this->entry('A2', 'question_past', 'If the volunteers check last week\'s list, {a1} they invite everyone?', 'will', ['will', 'would', 'were'], 'result', 'question about result', 'invite', 'they'),
+            $this->entry('A2', 'question_past', 'If the chef finds last year\'s recipe, {a1} he cook the holiday dish?', 'will', ['will', 'would', 'has'], 'result', 'question about result', 'cook', 'he'),
 
-            $this->entry('A2', 'question_future', 'If the ferry arrives early tomorrow, {a1} we board right away?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'board', 'we'),
-            $this->entry('A2', 'question_future', 'If you finish the draft tonight, {a1} you send it to the client in the morning?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'send', 'you'),
-            $this->entry('A2', 'question_future', 'If the team secures funding next month, {a1} they expand the workshop?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'expand', 'they'),
-            $this->entry('A2', 'question_future', 'If Mira books the hall for Saturday, {a1} we host the event there?', 'will', ['will', 'shall', 'would'], 'result', 'will + base verb — we', 'host', 'we'),
+            $this->entry('A2', 'question_future', 'If the ferry arrives early tomorrow, {a1} we board right away?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'board', 'we'),
+            $this->entry('A2', 'question_future', 'If you finish the draft tonight, {a1} you send it to the client in the morning?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'send', 'you'),
+            $this->entry('A2', 'question_future', 'If the team secures funding next month, {a1} they expand the workshop?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'expand', 'they'),
+            $this->entry('A2', 'question_future', 'If Mira books the hall for Saturday, {a1} we host the event there?', 'will', ['will', 'shall', 'would'], 'result', 'question about result', 'host', 'we'),
 
-            $this->entry('A2', 'negative_present', 'If Daniel {a1} follow the instructions, the device won\'t start properly.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — he', 'follow', 'he'),
-            $this->entry('A2', 'negative_present', 'If we {a1} water the garden regularly, the plants won\'t thrive.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'water', 'we'),
-            $this->entry('A2', 'negative_present', 'If the train is delayed again, we {a1} catch the opening ceremony.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'catch', 'we'),
+            $this->entry('A2', 'negative_present', 'If Daniel {a1} follow the instructions, the device won\'t start properly.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'negation in if-clause', 'follow', 'he'),
+            $this->entry('A2', 'negative_present', 'If we {a1} water the garden regularly, the plants won\'t thrive.', "don't", ["don't", "doesn't", 'did'], 'condition', 'negation in if-clause', 'water', 'we'),
+            $this->entry('A2', 'negative_present', 'If the train is delayed again, we {a1} catch the opening ceremony.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'catch', 'we'),
             $this->entry(
                 'A2',
                 'negative_present',
@@ -165,14 +167,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (staff)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'serve', 'a2' => 'earn'],
                 ['a1' => 'they', 'a2' => 'they (the staff)']
             ),
 
-            $this->entry('A2', 'negative_past', 'If Emma {a1} review last week\'s grammar, she won\'t feel confident.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'review', 'she'),
-            $this->entry('A2', 'negative_past', 'If the players {a1} learn from yesterday\'s loss, they won\'t improve.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'learn', 'they'),
-            $this->entry('A2', 'negative_past', 'If you ignore yesterday\'s warning, the manager {a1} trust your judgement.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'trust', 'they'),
+            $this->entry('A2', 'negative_past', 'If Emma {a1} review last week\'s grammar, she won\'t feel confident.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'negation in if-clause', 'review', 'she'),
+            $this->entry('A2', 'negative_past', 'If the players {a1} learn from yesterday\'s loss, they won\'t improve.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'negation in if-clause', 'learn', 'they'),
+            $this->entry('A2', 'negative_past', 'If you ignore yesterday\'s warning, the manager {a1} trust your judgement.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'trust', 'they'),
             $this->entry(
                 'A2',
                 'negative_past',
@@ -183,14 +185,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (sponsors)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'believe', 'a2' => 'renew'],
                 ['a1' => 'they', 'a2' => 'they (the sponsors)']
             ),
 
-            $this->entry('A2', 'negative_future', 'If you {a1} confirm the booking tonight, the venue won\'t hold the date.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'confirm', 'you'),
-            $this->entry('A2', 'negative_future', 'If the interns {a1} submit their forms tomorrow, they won\'t join the trip.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
-            $this->entry('A2', 'negative_future', 'If the weather turns stormy next weekend, we {a1} set up the stage outside.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'set', 'we'),
+            $this->entry('A2', 'negative_future', 'If you {a1} confirm the booking tonight, the venue won\'t hold the date.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'confirm', 'you'),
+            $this->entry('A2', 'negative_future', 'If the interns {a1} submit their forms tomorrow, they won\'t join the trip.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'submit', 'they'),
+            $this->entry('A2', 'negative_future', 'If the weather turns stormy next weekend, we {a1} set up the stage outside.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'set', 'we'),
             $this->entry(
                 'A2',
                 'negative_future',
@@ -201,30 +203,30 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — the crew'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'record', 'a2' => 'capture'],
                 ['a1' => 'they', 'a2' => 'they (the crew)']
             ),
 
             // B1
-            $this->entry('B1', 'question_present', 'If the marketing team finalises the budget today, {a1} they launch the campaign?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'launch', 'they'),
-            $this->entry('B1', 'question_present', 'If you update the spreadsheet before noon, {a1} you share it with finance?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'share', 'you'),
-            $this->entry('B1', 'question_present', 'If Carla arranges the meeting room now, {a1} she invite the partners?', 'will', ['will', 'does', 'would'], 'result', 'will + base verb — she', 'invite', 'she'),
-            $this->entry('B1', 'question_present', 'If the students submit their surveys this morning, {a1} we analyse the results today?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'analyse', 'we'),
+            $this->entry('B1', 'question_present', 'If the marketing team finalises the budget today, {a1} they launch the campaign?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'launch', 'they'),
+            $this->entry('B1', 'question_present', 'If you update the spreadsheet before noon, {a1} you share it with finance?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'share', 'you'),
+            $this->entry('B1', 'question_present', 'If Carla arranges the meeting room now, {a1} she invite the partners?', 'will', ['will', 'does', 'would'], 'result', 'question about result', 'invite', 'she'),
+            $this->entry('B1', 'question_present', 'If the students submit their surveys this morning, {a1} we analyse the results today?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'analyse', 'we'),
 
-            $this->entry('B1', 'question_past', 'If the analysts review last quarter\'s data, {a1} they present new conclusions?', 'will', ['will', 'would', 'were'], 'result', 'will + base verb — they', 'present', 'they'),
-            $this->entry('B1', 'question_past', 'If your mentor remembers yesterday\'s discussion, {a1} he adjust the plan?', 'will', ['will', 'would', 'was'], 'result', 'will + base verb — he', 'adjust', 'he'),
-            $this->entry('B1', 'question_past', 'If the committee rereads last year\'s report, {a1} it adopt the recommendations?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — it', 'adopt', 'it'),
-            $this->entry('B1', 'question_past', 'If the lawyer recalls the previous case, {a1} she use it in court?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — she', 'use', 'she'),
+            $this->entry('B1', 'question_past', 'If the analysts review last quarter\'s data, {a1} they present new conclusions?', 'will', ['will', 'would', 'were'], 'result', 'question about result', 'present', 'they'),
+            $this->entry('B1', 'question_past', 'If your mentor remembers yesterday\'s discussion, {a1} he adjust the plan?', 'will', ['will', 'would', 'was'], 'result', 'question about result', 'adjust', 'he'),
+            $this->entry('B1', 'question_past', 'If the committee rereads last year\'s report, {a1} it adopt the recommendations?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'adopt', 'it'),
+            $this->entry('B1', 'question_past', 'If the lawyer recalls the previous case, {a1} she use it in court?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'use', 'she'),
 
-            $this->entry('B1', 'question_future', 'If the supplier ships the parts next week, {a1} we begin assembly on Monday?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'begin', 'we'),
-            $this->entry('B1', 'question_future', 'If you complete the proposal tonight, {a1} you present it tomorrow?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'present', 'you'),
-            $this->entry('B1', 'question_future', 'If the city approves the permit next month, {a1} they open the new park?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'open', 'they'),
-            $this->entry('B1', 'question_future', 'If Jared books the flights this evening, {a1} we travel together on Friday?', 'will', ['will', 'would', 'shall'], 'result', 'will + base verb — we', 'travel', 'we'),
+            $this->entry('B1', 'question_future', 'If the supplier ships the parts next week, {a1} we begin assembly on Monday?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'begin', 'we'),
+            $this->entry('B1', 'question_future', 'If you complete the proposal tonight, {a1} you present it tomorrow?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'present', 'you'),
+            $this->entry('B1', 'question_future', 'If the city approves the permit next month, {a1} they open the new park?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'open', 'they'),
+            $this->entry('B1', 'question_future', 'If Jared books the flights this evening, {a1} we travel together on Friday?', 'will', ['will', 'would', 'shall'], 'result', 'question about result', 'travel', 'we'),
 
-            $this->entry('B1', 'negative_present', 'If the engineer {a1} test the update, the app won\'t run smoothly.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — he', 'test', 'he'),
-            $this->entry('B1', 'negative_present', 'If we {a1} follow the brief precisely, the client won\'t approve it.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'follow', 'we'),
-            $this->entry('B1', 'negative_present', 'If the courier arrives late again, we {a1} deliver on schedule.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'deliver', 'we'),
+            $this->entry('B1', 'negative_present', 'If the engineer {a1} test the update, the app won\'t run smoothly.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'negation in if-clause', 'test', 'he'),
+            $this->entry('B1', 'negative_present', 'If we {a1} follow the brief precisely, the client won\'t approve it.', "don't", ["don't", "doesn't", 'did'], 'condition', 'negation in if-clause', 'follow', 'we'),
+            $this->entry('B1', 'negative_present', 'If the courier arrives late again, we {a1} deliver on schedule.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'deliver', 'we'),
             $this->entry(
                 'B1',
                 'negative_present',
@@ -235,14 +237,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (organisers)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'attract', 'a2' => 'book'],
                 ['a1' => 'they', 'a2' => 'they (organisers)']
             ),
 
-            $this->entry('B1', 'negative_past', 'If Morgan {a1} review last week\'s draft, she won\'t spot the typo.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'review', 'she'),
-            $this->entry('B1', 'negative_past', 'If the trainees {a1} practise after yesterday\'s feedback, they won\'t improve.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'practise', 'they'),
-            $this->entry('B1', 'negative_past', 'If you ignore last year\'s audit, the board {a1} trust your forecast.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'trust', 'they'),
+            $this->entry('B1', 'negative_past', 'If Morgan {a1} review last week\'s draft, she won\'t spot the typo.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'negation in if-clause', 'review', 'she'),
+            $this->entry('B1', 'negative_past', 'If the trainees {a1} practise after yesterday\'s feedback, they won\'t improve.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'negation in if-clause', 'practise', 'they'),
+            $this->entry('B1', 'negative_past', 'If you ignore last year\'s audit, the board {a1} trust your forecast.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'trust', 'they'),
             $this->entry(
                 'B1',
                 'negative_past',
@@ -253,14 +255,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (advertisers)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'believe', 'a2' => 'renew'],
                 ['a1' => 'they', 'a2' => 'they (advertisers)']
             ),
 
-            $this->entry('B1', 'negative_future', 'If you {a1} secure the sponsorship by Friday, the festival won\'t cover costs.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'secure', 'you'),
-            $this->entry('B1', 'negative_future', 'If the designers {a1} submit concepts tomorrow, they won\'t join the shortlist.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
-            $this->entry('B1', 'negative_future', 'If the forecast predicts storms next week, we {a1} schedule outdoor sessions.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'schedule', 'we'),
+            $this->entry('B1', 'negative_future', 'If you {a1} secure the sponsorship by Friday, the festival won\'t cover costs.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'secure', 'you'),
+            $this->entry('B1', 'negative_future', 'If the designers {a1} submit concepts tomorrow, they won\'t join the shortlist.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'submit', 'they'),
+            $this->entry('B1', 'negative_future', 'If the forecast predicts storms next week, we {a1} schedule outdoor sessions.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'schedule', 'we'),
             $this->entry(
                 'B1',
                 'negative_future',
@@ -271,30 +273,30 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — the team'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'keep', 'a2' => 'trust'],
                 ['a1' => 'they', 'a2' => 'they (the team)']
             ),
 
             // B2
-            $this->entry('B2', 'question_present', 'If the board approves the revised timeline today, {a1} they announce the merger?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'announce', 'they'),
-            $this->entry('B2', 'question_present', 'If you reconcile the figures before lunch, {a1} you forward the summary to stakeholders?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'forward', 'you'),
-            $this->entry('B2', 'question_present', 'If Elena coordinates the mentors this morning, {a1} she invite the scholarship winners?', 'will', ['will', 'does', 'would'], 'result', 'will + base verb — she', 'invite', 'she'),
-            $this->entry('B2', 'question_present', 'If the consultants validate the model now, {a1} we implement the new policy?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'implement', 'we'),
+            $this->entry('B2', 'question_present', 'If the board approves the revised timeline today, {a1} they announce the merger?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'announce', 'they'),
+            $this->entry('B2', 'question_present', 'If you reconcile the figures before lunch, {a1} you forward the summary to stakeholders?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'forward', 'you'),
+            $this->entry('B2', 'question_present', 'If Elena coordinates the mentors this morning, {a1} she invite the scholarship winners?', 'will', ['will', 'does', 'would'], 'result', 'question about result', 'invite', 'she'),
+            $this->entry('B2', 'question_present', 'If the consultants validate the model now, {a1} we implement the new policy?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'implement', 'we'),
 
-            $this->entry('B2', 'question_past', 'If the auditors reassess last year\'s discrepancies, {a1} they propose sanctions?', 'will', ['will', 'would', 'were'], 'result', 'will + base verb — they', 'propose', 'they'),
-            $this->entry('B2', 'question_past', 'If your lead remembers yesterday\'s negotiation, {a1} he reopen the offer?', 'will', ['will', 'would', 'was'], 'result', 'will + base verb — he', 'reopen', 'he'),
-            $this->entry('B2', 'question_past', 'If the task force reviews last quarter\'s failures, {a1} it adjust the rollout?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — it', 'adjust', 'it'),
-            $this->entry('B2', 'question_past', 'If the researcher revisits previous trials, {a1} she publish new findings?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — she', 'publish', 'she'),
+            $this->entry('B2', 'question_past', 'If the auditors reassess last year\'s discrepancies, {a1} they propose sanctions?', 'will', ['will', 'would', 'were'], 'result', 'question about result', 'propose', 'they'),
+            $this->entry('B2', 'question_past', 'If your lead remembers yesterday\'s negotiation, {a1} he reopen the offer?', 'will', ['will', 'would', 'was'], 'result', 'question about result', 'reopen', 'he'),
+            $this->entry('B2', 'question_past', 'If the task force reviews last quarter\'s failures, {a1} it adjust the rollout?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'adjust', 'it'),
+            $this->entry('B2', 'question_past', 'If the researcher revisits previous trials, {a1} she publish new findings?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'publish', 'she'),
 
-            $this->entry('B2', 'question_future', 'If the investors sign next week, {a1} we expand into the new region?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'expand', 'we'),
-            $this->entry('B2', 'question_future', 'If you deliver the prototype tomorrow, {a1} you demonstrate it at the expo?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'demonstrate', 'you'),
-            $this->entry('B2', 'question_future', 'If the agency approves the grant next month, {a1} they sponsor additional labs?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'sponsor', 'they'),
-            $this->entry('B2', 'question_future', 'If Victor locks in the keynote speaker tonight, {a1} we open registration on Monday?', 'will', ['will', 'would', 'shall'], 'result', 'will + base verb — we', 'open', 'we'),
+            $this->entry('B2', 'question_future', 'If the investors sign next week, {a1} we expand into the new region?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'expand', 'we'),
+            $this->entry('B2', 'question_future', 'If you deliver the prototype tomorrow, {a1} you demonstrate it at the expo?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'demonstrate', 'you'),
+            $this->entry('B2', 'question_future', 'If the agency approves the grant next month, {a1} they sponsor additional labs?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'sponsor', 'they'),
+            $this->entry('B2', 'question_future', 'If Victor locks in the keynote speaker tonight, {a1} we open registration on Monday?', 'will', ['will', 'would', 'shall'], 'result', 'question about result', 'open', 'we'),
 
-            $this->entry('B2', 'negative_present', 'If the architect {a1} check the structural report, the council won\'t issue permits.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — he', 'check', 'he'),
-            $this->entry('B2', 'negative_present', 'If we {a1} monitor compliance closely, regulators won\'t trust our audit.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'monitor', 'we'),
-            $this->entry('B2', 'negative_present', 'If the supplier misses today\'s cut-off, we {a1} meet the production target.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'meet', 'we'),
+            $this->entry('B2', 'negative_present', 'If the architect {a1} check the structural report, the council won\'t issue permits.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'negation in if-clause', 'check', 'he'),
+            $this->entry('B2', 'negative_present', 'If we {a1} monitor compliance closely, regulators won\'t trust our audit.', "don't", ["don't", "doesn't", 'did'], 'condition', 'negation in if-clause', 'monitor', 'we'),
+            $this->entry('B2', 'negative_present', 'If the supplier misses today\'s cut-off, we {a1} meet the production target.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'meet', 'we'),
             $this->entry(
                 'B2',
                 'negative_present',
@@ -305,14 +307,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (investors)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'launch', 'a2' => 'increase'],
                 ['a1' => 'they', 'a2' => 'they (investors)']
             ),
 
-            $this->entry('B2', 'negative_past', 'If Marisa {a1} document last week\'s incident, she won\'t defend her decision.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'document', 'she'),
-            $this->entry('B2', 'negative_past', 'If the analysts {a1} study yesterday\'s anomaly, they won\'t solve the pattern.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'study', 'they'),
-            $this->entry('B2', 'negative_past', 'If you dismiss last year\'s forecast, shareholders {a1} support your strategy.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'support', 'they'),
+            $this->entry('B2', 'negative_past', 'If Marisa {a1} document last week\'s incident, she won\'t defend her decision.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'negation in if-clause', 'document', 'she'),
+            $this->entry('B2', 'negative_past', 'If the analysts {a1} study yesterday\'s anomaly, they won\'t solve the pattern.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'negation in if-clause', 'study', 'they'),
+            $this->entry('B2', 'negative_past', 'If you dismiss last year\'s forecast, shareholders {a1} support your strategy.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'support', 'they'),
             $this->entry(
                 'B2',
                 'negative_past',
@@ -323,14 +325,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (donors)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'trust', 'a2' => 'renew'],
                 ['a1' => 'they', 'a2' => 'they (donors)']
             ),
 
-            $this->entry('B2', 'negative_future', 'If you {a1} secure the regulatory sign-off this week, the release won\'t happen.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'secure', 'you'),
-            $this->entry('B2', 'negative_future', 'If the developers {a1} submit patches tomorrow, they won\'t join the deployment.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
-            $this->entry('B2', 'negative_future', 'If the forecast warns of outages next month, we {a1} schedule the launch.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'schedule', 'we'),
+            $this->entry('B2', 'negative_future', 'If you {a1} secure the regulatory sign-off this week, the release won\'t happen.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'secure', 'you'),
+            $this->entry('B2', 'negative_future', 'If the developers {a1} submit patches tomorrow, they won\'t join the deployment.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'submit', 'they'),
+            $this->entry('B2', 'negative_future', 'If the forecast warns of outages next month, we {a1} schedule the launch.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'schedule', 'we'),
             $this->entry(
                 'B2',
                 'negative_future',
@@ -341,30 +343,30 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — the audience'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'cover', 'a2' => 'tune'],
                 ['a1' => 'they', 'a2' => 'they (the audience)']
             ),
 
             // C1
-            $this->entry('C1', 'question_present', 'If the negotiations conclude this morning, {a1} they unveil the joint statement?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'unveil', 'they'),
-            $this->entry('C1', 'question_present', 'If you consolidate the stakeholder feedback now, {a1} you circulate a revised draft?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'circulate', 'you'),
-            $this->entry('C1', 'question_present', 'If Helena moderates the panel today, {a1} she invite dissenting voices?', 'will', ['will', 'does', 'would'], 'result', 'will + base verb — she', 'invite', 'she'),
-            $this->entry('C1', 'question_present', 'If the committee tallies the votes immediately, {a1} we announce the decision publicly?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'announce', 'we'),
+            $this->entry('C1', 'question_present', 'If the negotiations conclude this morning, {a1} they unveil the joint statement?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'unveil', 'they'),
+            $this->entry('C1', 'question_present', 'If you consolidate the stakeholder feedback now, {a1} you circulate a revised draft?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'circulate', 'you'),
+            $this->entry('C1', 'question_present', 'If Helena moderates the panel today, {a1} she invite dissenting voices?', 'will', ['will', 'does', 'would'], 'result', 'question about result', 'invite', 'she'),
+            $this->entry('C1', 'question_present', 'If the committee tallies the votes immediately, {a1} we announce the decision publicly?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'announce', 'we'),
 
-            $this->entry('C1', 'question_past', 'If the diplomats revisited last year\'s accord, {a1} they propose amendments?', 'will', ['will', 'would', 'were'], 'result', 'will + base verb — they', 'propose', 'they'),
-            $this->entry('C1', 'question_past', 'If your advisor recalled yesterday\'s briefing, {a1} he adjust the strategy?', 'will', ['will', 'would', 'was'], 'result', 'will + base verb — he', 'adjust', 'he'),
-            $this->entry('C1', 'question_past', 'If the panel reviewed prior case law, {a1} it endorse the precedent?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — it', 'endorse', 'it'),
-            $this->entry('C1', 'question_past', 'If the scientist reexamined previous samples, {a1} she publish a correction?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — she', 'publish', 'she'),
+            $this->entry('C1', 'question_past', 'If the diplomats revisited last year\'s accord, {a1} they propose amendments?', 'will', ['will', 'would', 'were'], 'result', 'question about result', 'propose', 'they'),
+            $this->entry('C1', 'question_past', 'If your advisor recalled yesterday\'s briefing, {a1} he adjust the strategy?', 'will', ['will', 'would', 'was'], 'result', 'question about result', 'adjust', 'he'),
+            $this->entry('C1', 'question_past', 'If the panel reviewed prior case law, {a1} it endorse the precedent?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'endorse', 'it'),
+            $this->entry('C1', 'question_past', 'If the scientist reexamined previous samples, {a1} she publish a correction?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'publish', 'she'),
 
-            $this->entry('C1', 'question_future', 'If the parliament votes next week, {a1} we implement the new mandate?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'implement', 'we'),
-            $this->entry('C1', 'question_future', 'If you deliver the policy memo tomorrow, {a1} you brief the cabinet on Friday?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'brief', 'you'),
-            $this->entry('C1', 'question_future', 'If the consortium secures funding next quarter, {a1} they expand the research hub?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'expand', 'they'),
-            $this->entry('C1', 'question_future', 'If Marcus confirms the keynote tonight, {a1} we broadcast the agenda in the morning?', 'will', ['will', 'would', 'shall'], 'result', 'will + base verb — we', 'broadcast', 'we'),
+            $this->entry('C1', 'question_future', 'If the parliament votes next week, {a1} we implement the new mandate?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'implement', 'we'),
+            $this->entry('C1', 'question_future', 'If you deliver the policy memo tomorrow, {a1} you brief the cabinet on Friday?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'brief', 'you'),
+            $this->entry('C1', 'question_future', 'If the consortium secures funding next quarter, {a1} they expand the research hub?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'expand', 'they'),
+            $this->entry('C1', 'question_future', 'If Marcus confirms the keynote tonight, {a1} we broadcast the agenda in the morning?', 'will', ['will', 'would', 'shall'], 'result', 'question about result', 'broadcast', 'we'),
 
-            $this->entry('C1', 'negative_present', 'If the chairperson {a1} enforce the guidelines, the forum won\'t maintain order.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — she', 'enforce', 'she'),
-            $this->entry('C1', 'negative_present', 'If we {a1} scrutinise the data carefully, regulators won\'t accept the audit.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'scrutinise', 'we'),
-            $this->entry('C1', 'negative_present', 'If the syndicate misses today\'s deadline, we {a1} secure investor confidence.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'secure', 'we'),
+            $this->entry('C1', 'negative_present', 'If the chairperson {a1} enforce the guidelines, the forum won\'t maintain order.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'negation in if-clause', 'enforce', 'she'),
+            $this->entry('C1', 'negative_present', 'If we {a1} scrutinise the data carefully, regulators won\'t accept the audit.', "don't", ["don't", "doesn't", 'did'], 'condition', 'negation in if-clause', 'scrutinise', 'we'),
+            $this->entry('C1', 'negative_present', 'If the syndicate misses today\'s deadline, we {a1} secure investor confidence.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'secure', 'we'),
             $this->entry(
                 'C1',
                 'negative_present',
@@ -375,14 +377,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (patrons)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'draw', 'a2' => 'pledge'],
                 ['a1' => 'they', 'a2' => 'they (patrons)']
             ),
 
-            $this->entry('C1', 'negative_past', 'If Martina {a1} archive last week\'s testimony, she won\'t defend the committee\'s stance.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'archive', 'she'),
-            $this->entry('C1', 'negative_past', 'If the negotiators {a1} process yesterday\'s feedback, they won\'t adjust concessions.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'process', 'they'),
-            $this->entry('C1', 'negative_past', 'If you dismiss last year\'s audit, the ministry {a1} renew the license.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'renew', 'they'),
+            $this->entry('C1', 'negative_past', 'If Martina {a1} archive last week\'s testimony, she won\'t defend the committee\'s stance.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'negation in if-clause', 'archive', 'she'),
+            $this->entry('C1', 'negative_past', 'If the negotiators {a1} process yesterday\'s feedback, they won\'t adjust concessions.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'negation in if-clause', 'process', 'they'),
+            $this->entry('C1', 'negative_past', 'If you dismiss last year\'s audit, the ministry {a1} renew the license.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'renew', 'they'),
             $this->entry(
                 'C1',
                 'negative_past',
@@ -393,14 +395,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (sponsors)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'accept', 'a2' => 'renew'],
                 ['a1' => 'they', 'a2' => 'they (sponsors)']
             ),
 
-            $this->entry('C1', 'negative_future', 'If you {a1} finalise the compliance file tomorrow, the regulator won\'t sign off.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'finalise', 'you'),
-            $this->entry('C1', 'negative_future', 'If the delegates {a1} submit amendments next week, they won\'t influence the resolution.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
-            $this->entry('C1', 'negative_future', 'If the forecast signals disruptions next quarter, we {a1} deploy the new platform.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'deploy', 'we'),
+            $this->entry('C1', 'negative_future', 'If you {a1} finalise the compliance file tomorrow, the regulator won\'t sign off.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'finalise', 'you'),
+            $this->entry('C1', 'negative_future', 'If the delegates {a1} submit amendments next week, they won\'t influence the resolution.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'submit', 'they'),
+            $this->entry('C1', 'negative_future', 'If the forecast signals disruptions next quarter, we {a1} deploy the new platform.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'deploy', 'we'),
             $this->entry(
                 'C1',
                 'negative_future',
@@ -411,30 +413,30 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (partners)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'endorse', 'a2' => 'align'],
                 ['a1' => 'they', 'a2' => 'they (partners)']
             ),
 
             // C2
-            $this->entry('C2', 'question_present', 'If the commission aligns the draft this morning, {a1} they ratify the emergency protocol?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'ratify', 'they'),
-            $this->entry('C2', 'question_present', 'If you synthesise the testimonies now, {a1} you publish an interim finding?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'publish', 'you'),
-            $this->entry('C2', 'question_present', 'If Dr. Novak convenes the advisory board today, {a1} she invite dissenting scholars?', 'will', ['will', 'does', 'would'], 'result', 'will + base verb — she', 'invite', 'she'),
-            $this->entry('C2', 'question_present', 'If the tribunal tallies the objections immediately, {a1} we release the ruling at noon?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'release', 'we'),
+            $this->entry('C2', 'question_present', 'If the commission aligns the draft this morning, {a1} they ratify the emergency protocol?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'ratify', 'they'),
+            $this->entry('C2', 'question_present', 'If you synthesise the testimonies now, {a1} you publish an interim finding?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'publish', 'you'),
+            $this->entry('C2', 'question_present', 'If Dr. Novak convenes the advisory board today, {a1} she invite dissenting scholars?', 'will', ['will', 'does', 'would'], 'result', 'question about result', 'invite', 'she'),
+            $this->entry('C2', 'question_present', 'If the tribunal tallies the objections immediately, {a1} we release the ruling at noon?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'release', 'we'),
 
-            $this->entry('C2', 'question_past', 'If the envoys revisited last decade\'s accord, {a1} they propose a new framework?', 'will', ['will', 'would', 'were'], 'result', 'will + base verb — they', 'propose', 'they'),
-            $this->entry('C2', 'question_past', 'If your counsel recalled yesterday\'s deposition, {a1} he challenge the clause?', 'will', ['will', 'would', 'was'], 'result', 'will + base verb — he', 'challenge', 'he'),
-            $this->entry('C2', 'question_past', 'If the review board analysed prior jurisprudence, {a1} it endorse the sanction?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — it', 'endorse', 'it'),
-            $this->entry('C2', 'question_past', 'If the researcher reevaluated archived datasets, {a1} she publish a retraction?', 'will', ['will', 'would', 'did'], 'result', 'will + base verb — she', 'publish', 'she'),
+            $this->entry('C2', 'question_past', 'If the envoys revisited last decade\'s accord, {a1} they propose a new framework?', 'will', ['will', 'would', 'were'], 'result', 'question about result', 'propose', 'they'),
+            $this->entry('C2', 'question_past', 'If your counsel recalled yesterday\'s deposition, {a1} he challenge the clause?', 'will', ['will', 'would', 'was'], 'result', 'question about result', 'challenge', 'he'),
+            $this->entry('C2', 'question_past', 'If the review board analysed prior jurisprudence, {a1} it endorse the sanction?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'endorse', 'it'),
+            $this->entry('C2', 'question_past', 'If the researcher reevaluated archived datasets, {a1} she publish a retraction?', 'will', ['will', 'would', 'did'], 'result', 'question about result', 'publish', 'she'),
 
-            $this->entry('C2', 'question_future', 'If the legislature passes the motion next week, {a1} we enforce the revised charter?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — we', 'enforce', 'we'),
-            $this->entry('C2', 'question_future', 'If you deliver the white paper tomorrow, {a1} you brief the senate committee on Monday?', 'will', ['will', 'shall', 'do'], 'result', 'will + base verb — you', 'brief', 'you'),
-            $this->entry('C2', 'question_future', 'If the foundation secures endowment funding next quarter, {a1} they establish satellite centres?', 'will', ['will', 'would', 'are'], 'result', 'will + base verb — they', 'establish', 'they'),
-            $this->entry('C2', 'question_future', 'If Elias confirms the international delegation tonight, {a1} we broadcast the summit schedule?', 'will', ['will', 'would', 'shall'], 'result', 'will + base verb — we', 'broadcast', 'we'),
+            $this->entry('C2', 'question_future', 'If the legislature passes the motion next week, {a1} we enforce the revised charter?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'enforce', 'we'),
+            $this->entry('C2', 'question_future', 'If you deliver the white paper tomorrow, {a1} you brief the senate committee on Monday?', 'will', ['will', 'shall', 'do'], 'result', 'question about result', 'brief', 'you'),
+            $this->entry('C2', 'question_future', 'If the foundation secures endowment funding next quarter, {a1} they establish satellite centres?', 'will', ['will', 'would', 'are'], 'result', 'question about result', 'establish', 'they'),
+            $this->entry('C2', 'question_future', 'If Elias confirms the international delegation tonight, {a1} we broadcast the summit schedule?', 'will', ['will', 'would', 'shall'], 'result', 'question about result', 'broadcast', 'we'),
 
-            $this->entry('C2', 'negative_present', 'If the chair {a1} enforce procedural decorum, the chamber won\'t retain credibility.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'does not + base verb — she', 'enforce', 'she'),
-            $this->entry('C2', 'negative_present', 'If we {a1} interrogate the anomalies thoroughly, auditors won\'t accept the ledger.', "don't", ["don't", "doesn't", 'did'], 'condition', 'do not + base verb — we', 'interrogate', 'we'),
-            $this->entry('C2', 'negative_present', 'If the syndicate misses today\'s compliance filing, we {a1} regain regulatory trust.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'regain', 'we'),
+            $this->entry('C2', 'negative_present', 'If the chair {a1} enforce procedural decorum, the chamber won\'t retain credibility.', "doesn't", ["doesn't", "don't", "didn't"], 'condition', 'negation in if-clause', 'enforce', 'she'),
+            $this->entry('C2', 'negative_present', 'If we {a1} interrogate the anomalies thoroughly, auditors won\'t accept the ledger.', "don't", ["don't", "doesn't", 'did'], 'condition', 'negation in if-clause', 'interrogate', 'we'),
+            $this->entry('C2', 'negative_present', 'If the syndicate misses today\'s compliance filing, we {a1} regain regulatory trust.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'regain', 'we'),
             $this->entry(
                 'C2',
                 'negative_present',
@@ -445,14 +447,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (benefactors)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'attract', 'a2' => 'pledge'],
                 ['a1' => 'they', 'a2' => 'they (benefactors)']
             ),
 
-            $this->entry('C2', 'negative_past', 'If Mirella {a1} archive last week\'s testimony transcripts, she won\'t justify the verdict.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'does not + base verb — she', 'archive', 'she'),
-            $this->entry('C2', 'negative_past', 'If the mediators {a1} digest yesterday\'s concessions, they won\'t alter their mandate.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'do not + base verb — they', 'digest', 'they'),
-            $this->entry('C2', 'negative_past', 'If you disregard last year\'s injunction, the court {a1} approve your appeal.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — they', 'approve', 'they'),
+            $this->entry('C2', 'negative_past', 'If Mirella {a1} archive last week\'s testimony transcripts, she won\'t justify the verdict.', "doesn't", ["doesn't", "didn't", "don't"], 'condition', 'negation in if-clause', 'archive', 'she'),
+            $this->entry('C2', 'negative_past', 'If the mediators {a1} digest yesterday\'s concessions, they won\'t alter their mandate.', "don't", ["don't", "didn't", "doesn't"], 'condition', 'negation in if-clause', 'digest', 'they'),
+            $this->entry('C2', 'negative_past', 'If you disregard last year\'s injunction, the court {a1} approve your appeal.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'approve', 'they'),
             $this->entry(
                 'C2',
                 'negative_past',
@@ -463,14 +465,14 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (sponsors)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'trust', 'a2' => 'renew'],
                 ['a1' => 'they', 'a2' => 'they (sponsors)']
             ),
 
-            $this->entry('C2', 'negative_future', 'If you {a1} finalise the compliance annex tomorrow, the regulator won\'t clear the case.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — you', 'finalise', 'you'),
-            $this->entry('C2', 'negative_future', 'If the delegates {a1} submit revisions next session, they won\'t influence the treaty.', "don't", ["don't", "won't", "didn't"], 'condition', 'do not + base verb — they', 'submit', 'they'),
-            $this->entry('C2', 'negative_future', 'If the forecast signals supply shocks next quarter, we {a1} authorise the rollout.', "won't", ["won't", 'will', 'would'], 'result', 'will not + base verb — we', 'authorise', 'we'),
+            $this->entry('C2', 'negative_future', 'If you {a1} finalise the compliance annex tomorrow, the regulator won\'t clear the case.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'finalise', 'you'),
+            $this->entry('C2', 'negative_future', 'If the delegates {a1} submit revisions next session, they won\'t influence the treaty.', "don't", ["don't", "won't", "didn't"], 'condition', 'negation in if-clause', 'submit', 'they'),
+            $this->entry('C2', 'negative_future', 'If the forecast signals supply shocks next quarter, we {a1} authorise the rollout.', "won't", ["won't", 'will', 'would'], 'result', 'negative result', 'authorise', 'we'),
             $this->entry(
                 'C2',
                 'negative_future',
@@ -481,7 +483,7 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     'a2' => ['will not', 'might', 'would'],
                 ],
                 ['a1' => 'result', 'a2' => 'result'],
-                ['a1' => 'will not + base verb — they', 'a2' => 'will not + base verb — they (allies)'],
+                ['a1' => 'negative result', 'a2' => 'negative result'],
                 ['a1' => 'endorse', 'a2' => 'align'],
                 ['a1' => 'they', 'a2' => 'they (allies)']
             ),
@@ -572,6 +574,32 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
             }
 
             $tagIds[] = $structureTagId;
+            $tagIds[] = $fixedTagId;
+
+            // Add verb_hint change tag based on the pattern
+            $oldVerbHintTag = null;
+            $verbHintValue = $question['verb_hint'][array_key_first($question['verb_hint'])] ?? '';
+            
+            if ($verbHintValue === '(question about result)') {
+                $oldVerbHintTag = Tag::firstOrCreate(
+                    ['name' => 'old verb_hint: will + base verb → new verb_hint: question about result'],
+                    ['category' => 'Seeder Fix Notes']
+                )->id;
+            } elseif ($verbHintValue === '(negation in if-clause)') {
+                $oldVerbHintTag = Tag::firstOrCreate(
+                    ['name' => 'old verb_hint: do/does not + base verb → new verb_hint: negation in if-clause'],
+                    ['category' => 'Seeder Fix Notes']
+                )->id;
+            } elseif ($verbHintValue === '(negative result)') {
+                $oldVerbHintTag = Tag::firstOrCreate(
+                    ['name' => 'old verb_hint: will not + base verb → new verb_hint: negative result'],
+                    ['category' => 'Seeder Fix Notes']
+                )->id;
+            }
+            
+            if ($oldVerbHintTag !== null) {
+                $tagIds[] = $oldVerbHintTag;
+            }
 
             $items[] = [
                 'uuid' => $uuid,
