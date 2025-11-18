@@ -19,6 +19,7 @@ class ThereIsThereAreSeeder extends Seeder
         ])->id;
 
         $themeTag = Tag::firstOrCreate(['name' => 'There is/There are'], ['category' => 'Grammar']);
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed']);
 
         $phraseCategory = 'There is/There are details';
         $phraseTags = [
@@ -94,10 +95,12 @@ class ThereIsThereAreSeeder extends Seeder
                 'tag_ids' => [$phraseTags['there_arent']->id],
             ],
             [
-                'question' => 'I can\'t find my cell. {a1} it in your purse?',
-                'answers' => [['marker' => 'a1', 'answer' => 'Is there']],
-                'options' => ['Is there', 'Are there', 'There is'],
+                'question' => 'I can\'t find my cell. {a1} in your purse?',
+                'answers' => [['marker' => 'a1', 'answer' => 'Is it']],
+                'options' => ['Is it', 'Is there', 'Are there'],
                 'tag_ids' => [$phraseTags['is_there']->id],
+                'fixed' => true,
+                'error_tag' => 'Is there it -> Is it',
             ],
             [
                 'question' => 'I have cans of soda in the cooler, but {a1} bottles left.',
@@ -128,6 +131,17 @@ class ThereIsThereAreSeeder extends Seeder
             $d['flag']        = 0;
             $d['level']       = 'A1';
             $d['tag_ids']     = array_merge([$themeTag->id], $d['tag_ids']);
+            
+            // Add fixed tags if question was corrected
+            if (isset($d['fixed']) && $d['fixed']) {
+                $d['tag_ids'][] = $fixedTag->id;
+                if (isset($d['error_tag'])) {
+                    $errorTag = Tag::firstOrCreate(['name' => $d['error_tag']]);
+                    $d['tag_ids'][] = $errorTag->id;
+                    unset($d['error_tag']);
+                }
+                unset($d['fixed']);
+            }
 
             $items[] = $d;
         }
