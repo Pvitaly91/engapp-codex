@@ -49,6 +49,9 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
             ['category' => 'English Grammar Structure']
         )->id;
 
+        // Теги для виправлених питань
+        $fixedTagId = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status'])->id;
+
         $questions = $this->questionEntries();
 
         $items = [];
@@ -74,6 +77,22 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
 
             $uuid = $this->generateQuestionUuid($index + 1, $entry['question']);
 
+            $tagIds = [$themeTagId, $detailTagId, $structureTagId];
+            
+            // Додати теги для виправлених питань
+            if (!empty($entry['fixed'])) {
+                $tagIds[] = $fixedTagId;
+                
+                // Додати тег з інформацією про виправлення
+                if (!empty($entry['correction'])) {
+                    $correctionTagId = Tag::firstOrCreate(
+                        ['name' => $entry['correction']], 
+                        ['category' => 'Question Correction']
+                    )->id;
+                    $tagIds[] = $correctionTagId;
+                }
+            }
+
             $items[] = [
                 'uuid' => $uuid,
                 'question' => $entry['question'],
@@ -83,7 +102,7 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
                 'flag' => 2,
                 'type' => 0,
                 'level' => $entry['level'],
-                'tag_ids' => [$themeTagId, $detailTagId, $structureTagId],
+                'tag_ids' => $tagIds,
                 'answers' => $answers,
                 'options' => $options,
                 'variants' => [$entry['question']],
@@ -163,7 +182,7 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
                     ['question' => 'Is {a1} in the garden?', 'options' => ['a1' => ['anyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
                     ['question' => 'Do you have {a1} to ask?', 'options' => ['a1' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anything'], 'verb_hints' => ['a1' => null]],
                     ['question' => 'Is {a1} hungry?', 'options' => ['a1' => ['anyone', 'someone', 'everyone']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
-                    ['question' => 'Did {a1} call me?', 'options' => ['a1' => ['someone', 'anyone', 'no one']], 'answers' => ['a1' => 'someone'], 'verb_hints' => ['a1' => 'he/she']],
+                    ['question' => 'Did {a1} call me?', 'options' => ['a1' => ['someone', 'anyone', 'no one']], 'answers' => ['a1' => 'someone'], 'verb_hints' => ['a1' => null], 'fixed' => true, 'correction' => 'verb_hint: he/she -> null'],
                     ['question' => 'Can {a1} help me with this bag?', 'options' => ['a1' => ['anyone', 'someone', 'everyone']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
                     ['question' => 'Is there {a1} to read here?', 'options' => ['a1' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anything'], 'verb_hints' => ['a1' => null]],
                 ],
@@ -242,7 +261,7 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
                 ],
                 'question' => [
                     ['question' => 'Has {a1} raised {a2} objection during negotiations?', 'options' => ['a1' => ['anyone', 'someone', 'everyone'], 'a2' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anyone', 'a2' => 'anything'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                    ['question' => 'Is {a1} willing to mentor us, or is {a2} overloaded?', 'options' => ['a1' => ['someone', 'anyone', 'everyone'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'someone', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                    ['question' => 'Is {a1} willing to mentor us, or is {a2} overloaded?', 'options' => ['a1' => ['someone', 'anyone', 'everyone'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null], 'fixed' => true, 'correction' => 'someone -> anyone'],
                     ['question' => 'Did {a1} notice {a2} unusual about the report?', 'options' => ['a1' => ['anyone', 'someone', 'everyone'], 'a2' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anyone', 'a2' => 'anything'], 'verb_hints' => ['a1' => null, 'a2' => null]],
                     ['question' => 'Could {a1} confirm whether {a2} agreed to the timeline?', 'options' => ['a1' => ['someone', 'anyone', 'everyone'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'someone', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
                     ['question' => 'Will {a1} share {a2} data before the audit?', 'options' => ['a1' => ['anyone', 'someone', 'everyone'], 'a2' => ['something', 'anything', 'nothing']], 'answers' => ['a1' => 'someone', 'a2' => 'something'], 'verb_hints' => ['a1' => null, 'a2' => null]],
