@@ -85,6 +85,27 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             'Third Conditional' => Tag::firstOrCreate(['name' => 'Third Conditional'], ['category' => 'Conditional'])->id,
         ];
 
+        // Tags for fixed questions
+        $fixedTagId = Tag::firstOrCreate(
+            ['name' => 'fixed'],
+            ['category' => 'Quality Control']
+        )->id;
+
+        $fixTagIds = [
+            'allergic_cats_logic' => Tag::firstOrCreate(
+                ['name' => 'incorrect logic -> correct logic'],
+                ['category' => 'Fix Type']
+            )->id,
+            'city_noisy_answer' => Tag::firstOrCreate(
+                ['name' => "incorrect answer 'didn't stay' -> correct answer 'weren't'"],
+                ['category' => 'Fix Type']
+            )->id,
+            'city_noisy_hint' => Tag::firstOrCreate(
+                ['name' => "old verb_hint 'not stay' -> new verb_hint 'not be'"],
+                ['category' => 'Fix Type']
+            )->id,
+        ];
+
         $questions = $this->buildQuestionBank();
 
         $items = [];
@@ -127,6 +148,16 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
             foreach ($config['tense_labels'] as $tenseName) {
                 if (isset($tenseTagIds[$tenseName])) {
                     $tagIds[] = $tenseTagIds[$tenseName];
+                }
+            }
+
+            // Add fixed tags if this question was fixed
+            if (isset($question['fixed_tags']) && is_array($question['fixed_tags'])) {
+                $tagIds[] = $fixedTagId;
+                foreach ($question['fixed_tags'] as $fixTagKey) {
+                    if (isset($fixTagIds[$fixTagKey])) {
+                        $tagIds[] = $fixTagIds[$fixTagKey];
+                    }
                 }
             }
 
@@ -623,7 +654,7 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
                 ],
                 'present_negative' => [
                     [
-                        'question' => 'If I {a1} allergic to cats, I wouldn\'t keep one at home.',
+                        'question' => 'If I {a1} allergic to cats, I would keep one at home.',
                         'markers' => [
                             'a1' => [
                                 'answer' => "weren't",
@@ -631,6 +662,7 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
                                 'verb_hint' => 'not be',
                             ],
                         ],
+                        'fixed_tags' => ['allergic_cats_logic'],
                     ],
                     [
                         'question' => 'If they {a1} so stubborn, they wouldn\'t argue every day.',
@@ -646,11 +678,12 @@ class ConditionalsComprehensiveAiSeeder extends QuestionSeeder
                         'question' => 'If the city {a1} so noisy, we wouldn\'t need earplugs.',
                         'markers' => [
                             'a1' => [
-                                'answer' => "didn't stay",
-                                'options' => ["didn't stay", "doesn't stay", "wouldn't stay"],
-                                'verb_hint' => 'not stay',
+                                'answer' => "weren't",
+                                'options' => ["weren't", "wasn't", "hadn't been"],
+                                'verb_hint' => 'not be',
                             ],
                         ],
+                        'fixed_tags' => ['city_noisy_answer', 'city_noisy_hint'],
                     ],
                     [
                         'question' => 'If you {a1} so late, you wouldn\'t feel exhausted.',
