@@ -111,6 +111,16 @@ class ConditionalsType1And2WorksheetV2Seeder extends QuestionSeeder
             'Second Conditional' => Tag::firstOrCreate(['name' => 'Second Conditional'], ['category' => 'English Grammar Tense'])->id,
         ];
 
+        $fixedTagId = Tag::firstOrCreate(
+            ['name' => 'fixed'],
+            ['category' => 'Status']
+        )->id;
+
+        $tooTiredFixTagId = Tag::firstOrCreate(
+            ['name' => 'were -> weren\'t'],
+            ['category' => 'Fix Description']
+        )->id;
+
         $entries = $this->questionEntries();
 
         $items = [];
@@ -180,6 +190,12 @@ class ConditionalsType1And2WorksheetV2Seeder extends QuestionSeeder
                 if (isset($tenseTags[$tense])) {
                     $tagIds[] = $tenseTags[$tense];
                 }
+            }
+
+            // Add fixed tags for the "too tired" question
+            if (str_contains($entry['question'], 'too tired') && str_contains($entry['question'], 'cinema')) {
+                $tagIds[] = $fixedTagId;
+                $tagIds[] = $tooTiredFixTagId;
             }
 
             $uuid = $this->generateQuestionUuid($index + 1, $entry['question']);
@@ -395,13 +411,13 @@ class ConditionalsType1And2WorksheetV2Seeder extends QuestionSeeder
                         'type' => 'if_past_simple',
                         'subject' => 'I',
                         'verb' => 'be',
-                        'verb_hint' => 'be',
-                        'answer' => 'were',
+                        'verb_hint' => 'not be',
+                        'answer' => "weren't",
                         'options' => [
-                            ['value' => 'were', 'reason' => 'correct'],
-                            ['value' => 'was', 'reason' => 'was'],
-                            ['value' => 'am', 'reason' => 'present'],
-                            ['value' => 'would be', 'reason' => 'would'],
+                            ['value' => "weren't", 'reason' => 'correct'],
+                            ['value' => "wasn't", 'reason' => 'was'],
+                            ['value' => 'were', 'reason' => 'positive'],
+                            ['value' => "wouldn't be", 'reason' => 'would'],
                         ],
                     ],
                     'a2' => [
