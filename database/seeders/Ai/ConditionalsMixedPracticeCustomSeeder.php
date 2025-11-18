@@ -23,7 +23,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         'if_past_simple_mixed' => "Час: Mixed Conditional (present condition → past result).\nФормула: **if + Past Simple**.\nПояснення: умовна частина показує нереальний теперішній стан, тому дієслово «%verb%» вживаємо у Past Simple.\nПриклад: *%example%*",
         'if_past_simple_were' => "Час: Mixed Conditional (present condition → past result).\nФормула: **if + were** з усіма особами.\nПояснення: для умовного were використовуємо форму were навіть із I/he/she/it.\nПриклад: *%example%*",
         'result_would_present' => "Час: Mixed Conditional (past condition → present result).\nФормула: **would + base verb**.\nПояснення: головна частина описує теперішній наслідок, тому беремо would + початкову форму «%verb%».\nПриклад: *%example%*",
-        'result_would_present_negative' => "Час: Mixed Conditional (past condition → present результат).\nФормула: **would not + base verb**.\nПояснення: заперечення утворюємо через would not (wouldn't) + базову форму «%verb%».\nПриклад: *%example%*",
+        'result_would_present_negative' => "Час: Mixed Conditional (past condition → present result).\nФормула: **would not + base verb**.\nПояснення: заперечення утворюємо через would not (wouldn't) + базову форму «%verb%».\nПриклад: *%example%*",
         'result_would_present_question' => "Час: Mixed Conditional (past condition → present result).\nФормула: **would + subject + base verb**.\nПояснення: у запитанні ставимо would перед підметом і використовуємо базову форму «%verb%».\nПриклад: *%example%*",
         'result_would_have_past' => "Час: Mixed Conditional (present condition → past result).\nФормула: **would have + V3**.\nПояснення: результат у минулому передаємо через would have + третю форму дієслова «%verb%».\nПриклад: *%example%*",
         'result_would_have_negative' => "Час: Mixed Conditional (present condition → past result).\nФормула: **would not have + V3**.\nПояснення: для заперечення додаємо would not (wouldn't) перед have + V3 дієслова «%verb%».\nПриклад: *%example%*",
@@ -47,6 +47,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
         ],
         'if_past_simple_were' => [
             'correct' => "✅ «%option%» правильно: у нереальних умовах використовуємо were з усіма особами.\nПриклад: *%example%*",
+            'past_simple' => "❌ «%option%» — Past Simple was. У нереальних умовах потрібно were з усіма особами.\nПриклад: *%example%*",
             'present_simple' => "❌ «%option%» — Present Simple. Потрібно were для нереальної умови.\nПриклад: *%example%*",
             'past_perfect' => "❌ «%option%» — Past Perfect. У цьому типі потрібне лише were.\nПриклад: *%example%*",
             'modal_result' => "❌ «%option%» — частина головного речення з would. В if-клаузі вживаємо were.\nПриклад: *%example%*",
@@ -2032,7 +2033,7 @@ class ConditionalsMixedPracticeCustomSeeder extends QuestionSeeder
             ]
             : [
                 ['value' => $answer, 'reason' => 'correct'],
-                ['value' => 'was', 'reason' => 'present_simple'],
+                ['value' => 'was', 'reason' => 'past_simple'],
                 ['value' => 'had been', 'reason' => 'past_perfect'],
                 ['value' => 'would be', 'reason' => 'modal_result'],
             ];
