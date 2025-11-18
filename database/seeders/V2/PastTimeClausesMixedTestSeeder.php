@@ -35,6 +35,16 @@ class PastTimeClausesMixedTestSeeder extends QuestionSeeder
             'Past Continuous' => Tag::firstOrCreate(['name' => 'Past Continuous'], ['category' => 'Tenses'])->id,
         ];
 
+        $fixedTagId = Tag::firstOrCreate(
+            ['name' => 'fixed'],
+            ['category' => 'Status']
+        )->id;
+
+        $martinaFixTagId = Tag::firstOrCreate(
+            ['name' => 'made -> called'],
+            ['category' => 'Fix Description']
+        )->id;
+
         $levelDifficulty = [
             'A1' => 1,
             'A2' => 2,
@@ -107,13 +117,13 @@ class PastTimeClausesMixedTestSeeder extends QuestionSeeder
             ],
             [
                 'text' => 'As soon as Martina saw the fire, she _____ the fire department.',
-                'answer' => 'made',
-                'options' => ['made', 'had finished', 'has finished', 'was finished'],
+                'answer' => 'called',
+                'options' => ['called', 'had called', 'has called', 'was calling'],
                 'explanations' => [
-                    'made' => '✅ Past Simple. Подія відбулася одразу після того, як вона побачила вогонь.',
-                    'had finished' => '❌ Past Perfect. Не має сенсу.',
-                    'has finished' => '❌ Present Perfect. Подія відбулася у минулому.',
-                    'was finished' => '❌ Passive voice. Не підходить.',
+                    'called' => '✅ Past Simple. Подія відбулася одразу після того, як вона побачила вогонь.',
+                    'had called' => '❌ Past Perfect. Не має сенсу, дія відбулася після, а не до того, як вона побачила вогонь.',
+                    'has called' => '❌ Present Perfect. Подія відбулася у минулому.',
+                    'was calling' => '❌ Past Continuous. Тут потрібна коротка дія, а не процес.',
                 ],
                 'hint' => "Час: Past Simple.  \nФормула: **V2**.  \nПриклад: *As soon as he saw me, he smiled.*",
                 'tense' => 'Past Simple',
@@ -207,6 +217,12 @@ class PastTimeClausesMixedTestSeeder extends QuestionSeeder
 
             if (isset($detailTags[$question['detail_tag']])) {
                 $tagIds[] = $detailTags[$question['detail_tag']];
+            }
+
+            // Add fixed tags for the Martina question
+            if (str_contains($question['text'], 'Martina saw the fire')) {
+                $tagIds[] = $fixedTagId;
+                $tagIds[] = $martinaFixTagId;
             }
 
             $uuid = $this->generateQuestionUuid($index + 1, $questionText);
