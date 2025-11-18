@@ -354,6 +354,11 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
             ['category' => 'English Grammar Theme']
         )->id;
 
+        $fixedTagId = Tag::firstOrCreate(
+            ['name' => 'fixed'],
+            ['category' => 'Question Status']
+        )->id;
+
         $questions = $this->buildQuestionBank();
 
         $items = [];
@@ -413,6 +418,18 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
 
             $modalTagMatches = $this->determineModalTagIds($entry, $modalPairTagIds);
             $tagIds = array_values(array_unique(array_merge($tagIds, $modalTagMatches)));
+
+            // Add fix tags if present
+            if (isset($entry['fix_tags']) && is_array($entry['fix_tags'])) {
+                $tagIds[] = $fixedTagId;
+                foreach ($entry['fix_tags'] as $fixTagName) {
+                    $fixTag = Tag::firstOrCreate(
+                        ['name' => $fixTagName],
+                        ['category' => 'Fix Description']
+                    );
+                    $tagIds[] = $fixTag->id;
+                }
+            }
 
             $uuid = $this->generateQuestionUuid($level, $themeKey, $typeKey, $index + 1);
 
@@ -2941,7 +2958,7 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                     'theme' => 'deduction',
                     'type' => 'past',
                     'tense' => 'past',
-                    'question' => 'The negotiation team {a1} {a2} {a3} secured concessions overnight; the terms barely shifted.',
+                    'question' => 'The negotiation team {a1} {a2} {a3} concessions overnight; the terms barely shifted.',
                     'markers' => [
                         'a1' => [
                             'answer' => 'must not have',
@@ -2955,10 +2972,11 @@ class ModalVerbsComprehensiveAiSeeder extends QuestionSeeder
                         ],
                         'a3' => [
                             'answer' => 'won',
-                            'options' => ['won', 'altered', 'abandoned'],
+                            'options' => ['won', 'secured', 'abandoned'],
                             'verb_hint' => null,
                         ],
                     ],
+                    'fix_tags' => ['double verb removed -> single verb', 'won secured -> won'], // Fixed: removed duplicate verb "secured" from question
                 ],
                 [
                     'theme' => 'ability',
