@@ -35,6 +35,8 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
 
         $tenseTagId = Tag::firstOrCreate(['name' => 'First Conditional'], ['category' => 'Tenses'])->id;
 
+        $fixedTagId = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status'])->id;
+
         $levelDifficulty = [
             'A1' => 1,
             'A2' => 2,
@@ -44,7 +46,7 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
             'C2' => 5,
         ];
 
-        $dataPath = __DIR__ . '/data/first_conditional_ai_forms.json';
+        $dataPath = __DIR__.'/data/first_conditional_ai_forms.json';
         $json = file_get_contents($dataPath);
 
         if ($json === false) {
@@ -115,9 +117,47 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
                 );
             }
 
-            $tagIds = [$themeTagId, $structureTagId, $tenseTagId];
+            $tagIds = [$themeTagId, $structureTagId, $tenseTagId, $fixedTagId];
             foreach ($question['tense'] as $tenseName) {
                 $tagIds[] = Tag::firstOrCreate(['name' => $tenseName], ['category' => 'Tenses'])->id;
+            }
+
+            // Add verb_hint change tags
+            foreach ($verbHints as $marker => $hint) {
+                if ($hint !== null) {
+                    $verbHintChangeTag = null;
+
+                    if (str_contains($hint, 'negation needed')) {
+                        $verbHintChangeTag = Tag::firstOrCreate(
+                            ['name' => 'old verb_hint: (not verb) → new verb_hint: (negation needed)'],
+                            ['category' => 'Seeder Fix Notes']
+                        )->id;
+                    } elseif (str_contains($hint, 'perfect negation')) {
+                        $verbHintChangeTag = Tag::firstOrCreate(
+                            ['name' => 'old verb_hint: (not verb) → new verb_hint: (perfect negation)'],
+                            ['category' => 'Seeder Fix Notes']
+                        )->id;
+                    } elseif (str_contains($hint, 'future negation')) {
+                        $verbHintChangeTag = Tag::firstOrCreate(
+                            ['name' => 'old verb_hint: (verb) → new verb_hint: (future negation)'],
+                            ['category' => 'Seeder Fix Notes']
+                        )->id;
+                    } elseif (str_contains($hint, 'future form')) {
+                        $verbHintChangeTag = Tag::firstOrCreate(
+                            ['name' => 'old verb_hint: (verb) → new verb_hint: (future form)'],
+                            ['category' => 'Seeder Fix Notes']
+                        )->id;
+                    } elseif (str_contains($hint, 'simple form')) {
+                        $verbHintChangeTag = Tag::firstOrCreate(
+                            ['name' => 'old verb_hint: (verb) → new verb_hint: (simple form)'],
+                            ['category' => 'Seeder Fix Notes']
+                        )->id;
+                    }
+
+                    if ($verbHintChangeTag !== null) {
+                        $tagIds[] = $verbHintChangeTag;
+                    }
+                }
             }
 
             $uuid = $this->generateQuestionUuid($index + 1, $question['question']);
@@ -183,7 +223,7 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
 
     private function detectClauseType(string $question, string $marker): string
     {
-        $placeholder = '{' . $marker . '}';
+        $placeholder = '{'.$marker.'}';
         $position = mb_stripos($question, $placeholder);
 
         if ($position === false) {
@@ -207,10 +247,10 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
             : "Main clause → will/won't + V1 для результату.";
 
         if ($verbHint) {
-            $base .= ' Дієслово: ' . $verbHint . '.';
+            $base .= ' Дієслово: '.$verbHint.'.';
         }
 
-        return $base . ' Приклад: *' . $example . '*.';
+        return $base.' Приклад: *'.$example.'*.';
     }
 
     private function buildExplanationsForClause(string $clauseType, array $options, string $answer, string $example): array
@@ -230,10 +270,10 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
     private function buildCorrectExplanation(string $clauseType, string $answer, string $example): string
     {
         if ($clauseType === 'condition') {
-            return '✅ «' . $answer . '» — доречна форма теперішнього часу в частині з if. Приклад: *' . $example . '*.';
+            return '✅ «'.$answer.'» — доречна форма теперішнього часу в частині з if. Приклад: *'.$example.'*.';
         }
 
-        return '✅ «' . $answer . '» — правильна форма will/won\'t у головному реченні. Приклад: *' . $example . '*.';
+        return '✅ «'.$answer.'» — правильна форма will/won\'t у головному реченні. Приклад: *'.$example.'*.';
     }
 
     private function buildWrongExplanation(string $clauseType, string $option, string $answer, string $example): string
@@ -242,26 +282,26 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
 
         if ($clauseType === 'condition') {
             return match ($type) {
-                'future' => '❌ У підрядній частині першого умовного не вживаємо will/won\'t. Приклад: *' . $example . '*.',
-                'continuous' => '❌ If-clause вимагає просту форму, а не тривалий час. Правильний приклад: *' . $example . '*.',
-                'past' => '❌ Перший умовний використовує теперішні форми після if, не минулий час. Приклад: *' . $example . '*.',
-                'perfect' => '❌ Вживаємо без have + V3, якщо потрібно Present Simple. Орієнтуйся на приклад: *' . $example . '*.',
-                default => '❌ Спробуй просту теперішню форму в if-clause. Правильний приклад: *' . $example . '*.',
+                'future' => '❌ У підрядній частині першого умовного не вживаємо will/won\'t. Приклад: *'.$example.'*.',
+                'continuous' => '❌ If-clause вимагає просту форму, а не тривалий час. Правильний приклад: *'.$example.'*.',
+                'past' => '❌ Перший умовний використовує теперішні форми після if, не минулий час. Приклад: *'.$example.'*.',
+                'perfect' => '❌ Вживаємо без have + V3, якщо потрібно Present Simple. Орієнтуйся на приклад: *'.$example.'*.',
+                default => '❌ Спробуй просту теперішню форму в if-clause. Правильний приклад: *'.$example.'*.',
             };
         }
 
         if ($type === 'future' && $this->isFullNegativeVariant($option, $answer)) {
-            return '❌ «' . $option . '» граматично можливо, але потрібно коротка форма «' . $answer . '». Приклад: *' . $example . '*.';
+            return '❌ «'.$option.'» граматично можливо, але потрібно коротка форма «'.$answer.'». Приклад: *'.$example.'*.';
         }
 
         return match ($type) {
-            'future' => '❌ Варіант «' . $option . '» не відповідає моделі will/won\'t + V1. Подивись: *' . $example . '*.',
-            'continuous' => '❌ У головному реченні потрібна форма will + V1, а не тривалий час. Правильний приклад: *' . $example . '*.',
-            'do' => '❌ Заперечення з do/does не пасує; потрібна конструкція з will. Подивись на приклад: *' . $example . '*.',
-            'past' => '❌ Результат першого умовного будується через will, не минулий час. Приклад: *' . $example . '*.',
-            'perfect' => '❌ Не використовуй have + V3 у результаті; краще will + V1. Приклад: *' . $example . '*.',
-            'be_negative' => '❌ Краще вжити will/won\'t + be, як у прикладі: *' . $example . '*.',
-            default => '❌ Основне речення має містити will або won\'t. Орієнтуйся на приклад: *' . $example . '*.',
+            'future' => '❌ Варіант «'.$option.'» не відповідає моделі will/won\'t + V1. Подивись: *'.$example.'*.',
+            'continuous' => '❌ У головному реченні потрібна форма will + V1, а не тривалий час. Правильний приклад: *'.$example.'*.',
+            'do' => '❌ Заперечення з do/does не пасує; потрібна конструкція з will. Подивись на приклад: *'.$example.'*.',
+            'past' => '❌ Результат першого умовного будується через will, не минулий час. Приклад: *'.$example.'*.',
+            'perfect' => '❌ Не використовуй have + V3 у результаті; краще will + V1. Приклад: *'.$example.'*.',
+            'be_negative' => '❌ Краще вжити will/won\'t + be, як у прикладі: *'.$example.'*.',
+            default => '❌ Основне речення має містити will або won\'t. Орієнтуйся на приклад: *'.$example.'*.',
         };
     }
 
@@ -312,7 +352,7 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
     {
         $result = $question;
         foreach ($answers as $marker => $answer) {
-            $result = str_replace('{' . $marker . '}', $answer, $result);
+            $result = str_replace('{'.$marker.'}', $answer, $result);
         }
 
         $result = preg_replace('/\s+/', ' ', trim($result));
@@ -320,7 +360,7 @@ class FirstConditionalAiFormsV2Seeder extends QuestionSeeder
         $first = mb_substr($result, 0, 1, 'UTF-8');
         $rest = mb_substr($result, 1, null, 'UTF-8');
 
-        return mb_strtoupper($first, 'UTF-8') . $rest;
+        return mb_strtoupper($first, 'UTF-8').$rest;
     }
 
     private function normalizeValue(string $value): string
