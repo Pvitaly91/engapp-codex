@@ -195,6 +195,33 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
                     ['question' => 'There was {a1} to eat, so {a2} went hungry.', 'options' => ['a1' => ['anything', 'nothing', 'something'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'nothing', 'a2' => 'everyone'], 'verb_hints' => ['a1' => 'not', 'a2' => null]],
                     ['question' => "He can't see {a1} without his glasses.", 'options' => ['a1' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anything'], 'verb_hints' => ['a1' => 'not (he)']],
                 ],
+                'question' => [
+                    ['question' => 'Did {a1} leave {a2} for us?', 'options' => ['a1' => ['anyone', 'someone', 'no one'], 'a2' => ['something', 'anything', 'nothing']], 'answers' => ['a1' => 'anyone', 'a2' => 'anything'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                    ['question' => 'Is {a1} waiting outside, or did they all go?', 'options' => ['a1' => ['anyone', 'someone', 'everyone']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
+                    ['question' => 'Has {a1} seen my notebook, or is {a2} sure it is lost?', 'options' => ['a1' => ['anyone', 'someone', 'everyone'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                    ['question' => 'Could {a1} explain this rule to me?', 'options' => ['a1' => ['someone', 'anyone', 'everyone']], 'answers' => ['a1' => 'someone'], 'verb_hints' => ['a1' => null]],
+                    ['question' => 'Is there {a1} we should buy before the trip?', 'options' => ['a1' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anything'], 'verb_hints' => ['a1' => null]],
+                    ['question' => 'Were {a1} upset about the delay, or was {a2} calm?', 'options' => ['a1' => ['everyone', 'someone', 'no one'], 'a2' => ['someone', 'no one', 'anyone']], 'answers' => ['a1' => 'everyone', 'a2' => 'someone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                ],
+                'past' => [
+                    ['question' => 'Last weekend {a1} unusual happened, and {a2} talked about it.', 'options' => ['a1' => ['something', 'nothing', 'anything'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'something', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                    ['question' => '{a1} called while we were out, but {a2} left a note.', 'options' => ['a1' => ['someone', 'anyone', 'no one'], 'a2' => ['no one', 'someone', 'everyone']], 'answers' => ['a1' => 'someone', 'a2' => 'no one'], 'verb_hints' => ['a1' => null, 'a2' => 'not']],
+                    ['question' => 'There was {a1} left after the party; {a2} finished the snacks.', 'options' => ['a1' => ['nothing', 'anything', 'something'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'nothing', 'a2' => 'everyone'], 'verb_hints' => ['a1' => 'not', 'a2' => null]],
+                    ['question' => 'We met {a1} new on the trip and exchanged {a2} special.', 'options' => ['a1' => ['someone', 'anyone', 'no one'], 'a2' => ['something', 'anything', 'everything']], 'answers' => ['a1' => 'someone', 'a2' => 'something'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                ],
+                'present' => [
+                    ['question' => 'At lunch {a1} always tells {a2} funny.', 'options' => ['a1' => ['someone', 'anyone', 'everyone'], 'a2' => ['something', 'anything', 'nothing']], 'answers' => ['a1' => 'someone', 'a2' => 'something'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                    ['question' => 'There is {a1} in the inbox for you, but {a2} urgent.', 'options' => ['a1' => ['something', 'anything', 'nothing'], 'a2' => ['nothing', 'something', 'everything']], 'answers' => ['a1' => 'something', 'a2' => 'nothing'], 'verb_hints' => ['a1' => null, 'a2' => 'not']],
+                    ['question' => '{a1} expects honest answers, so {a2} breaks promises.', 'options' => ['a1' => ['everyone', 'someone', 'no one'], 'a2' => ['no one', 'someone', 'everyone']], 'answers' => ['a1' => 'everyone', 'a2' => 'no one'], 'verb_hints' => ['a1' => null, 'a2' => 'not']],
+                    ['question' => 'She never travels with {a1}; she prefers solo trips.', 'options' => ['a1' => ['anyone', 'someone', 'everyone']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => 'not (she)']],
+                ],
+                'future' => [
+                    ['question' => 'Tomorrow {a1} will check the reports, and {a2} else will rest.', 'options' => ['a1' => ['someone', 'anyone', 'everyone'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'someone', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                    ['question' => 'If {a1} calls, tell them we will arrive soon.', 'options' => ['a1' => ['anyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
+                    ['question' => "We won't leave {a1} behind this time.", 'options' => ['a1' => ['anyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => 'not (we)']],
+                    ['question' => 'Will {a1} have {a2} ready by Friday?', 'options' => ['a1' => ['anyone', 'someone', 'everyone'], 'a2' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anyone', 'a2' => 'anything'], 'verb_hints' => ['a1' => null, 'a2' => null]],
+                ],
+            ],
             'B1' => [
                 'negative' => [
                     ['question' => "I haven't shared {a1} of the draft because {a2} is final yet.", 'options' => ['a1' => ['anything', 'something', 'nothing'], 'a2' => ['nothing', 'something', 'everything']], 'answers' => ['a1' => 'anything', 'a2' => 'nothing'], 'verb_hints' => ['a1' => 'not (I)', 'a2' => 'not']],
@@ -367,33 +394,6 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
                     ['question' => 'If {a1} skips the colloquium, {a2} will synthesize the findings.', 'options' => ['a1' => ['anyone', 'someone', 'no one'], 'a2' => ['someone', 'everyone', 'no one']], 'answers' => ['a1' => 'anyone', 'a2' => 'someone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
                     ['question' => 'If {a1} bypasses peer review, {a2} will flag it immediately.', 'options' => ['a1' => ['anyone', 'someone', 'no one'], 'a2' => ['someone', 'everyone', 'no one']], 'answers' => ['a1' => 'anyone', 'a2' => 'someone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
                     ['question' => 'Soon {a1} will circulate {a2} addenda, assuming reviewers ask.', 'options' => ['a1' => ['someone', 'anyone', 'everyone'], 'a2' => ['something', 'anything', 'nothing']], 'answers' => ['a1' => 'someone', 'a2' => 'something'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                ],
-            ],
-                'question' => [
-                    ['question' => 'Did {a1} leave {a2} for us?', 'options' => ['a1' => ['anyone', 'someone', 'no one'], 'a2' => ['something', 'anything', 'nothing']], 'answers' => ['a1' => 'anyone', 'a2' => 'anything'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                    ['question' => 'Is {a1} waiting outside, or did they all go?', 'options' => ['a1' => ['anyone', 'someone', 'everyone']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
-                    ['question' => 'Has {a1} seen my notebook, or is {a2} sure it is lost?', 'options' => ['a1' => ['anyone', 'someone', 'everyone'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                    ['question' => 'Could {a1} explain this rule to me?', 'options' => ['a1' => ['someone', 'anyone', 'everyone']], 'answers' => ['a1' => 'someone'], 'verb_hints' => ['a1' => null]],
-                    ['question' => 'Is there {a1} we should buy before the trip?', 'options' => ['a1' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anything'], 'verb_hints' => ['a1' => null]],
-                    ['question' => 'Were {a1} upset about the delay, or was {a2} calm?', 'options' => ['a1' => ['everyone', 'someone', 'no one'], 'a2' => ['someone', 'no one', 'anyone']], 'answers' => ['a1' => 'everyone', 'a2' => 'someone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                ],
-                'past' => [
-                    ['question' => 'Last weekend {a1} unusual happened, and {a2} talked about it.', 'options' => ['a1' => ['something', 'nothing', 'anything'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'something', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                    ['question' => '{a1} called while we were out, but {a2} left a note.', 'options' => ['a1' => ['someone', 'anyone', 'no one'], 'a2' => ['no one', 'someone', 'everyone']], 'answers' => ['a1' => 'someone', 'a2' => 'no one'], 'verb_hints' => ['a1' => null, 'a2' => 'not']],
-                    ['question' => 'There was {a1} left after the party; {a2} finished the snacks.', 'options' => ['a1' => ['nothing', 'anything', 'something'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'nothing', 'a2' => 'everyone'], 'verb_hints' => ['a1' => 'not', 'a2' => null]],
-                    ['question' => 'We met {a1} new on the trip and exchanged {a2} special.', 'options' => ['a1' => ['someone', 'anyone', 'no one'], 'a2' => ['something', 'anything', 'everything']], 'answers' => ['a1' => 'someone', 'a2' => 'something'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                ],
-                'present' => [
-                    ['question' => 'At lunch {a1} always tells {a2} funny.', 'options' => ['a1' => ['someone', 'anyone', 'everyone'], 'a2' => ['something', 'anything', 'nothing']], 'answers' => ['a1' => 'someone', 'a2' => 'something'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                    ['question' => 'There is {a1} in the inbox for you, but {a2} urgent.', 'options' => ['a1' => ['something', 'anything', 'nothing'], 'a2' => ['nothing', 'something', 'everything']], 'answers' => ['a1' => 'something', 'a2' => 'nothing'], 'verb_hints' => ['a1' => null, 'a2' => 'not']],
-                    ['question' => '{a1} expects honest answers, so {a2} breaks promises.', 'options' => ['a1' => ['everyone', 'someone', 'no one'], 'a2' => ['no one', 'someone', 'everyone']], 'answers' => ['a1' => 'everyone', 'a2' => 'no one'], 'verb_hints' => ['a1' => null, 'a2' => 'not']],
-                    ['question' => 'She never travels with {a1}; she prefers solo trips.', 'options' => ['a1' => ['anyone', 'someone', 'everyone']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => 'not (she)']],
-                ],
-                'future' => [
-                    ['question' => 'Tomorrow {a1} will check the reports, and {a2} else will rest.', 'options' => ['a1' => ['someone', 'anyone', 'everyone'], 'a2' => ['everyone', 'someone', 'no one']], 'answers' => ['a1' => 'someone', 'a2' => 'everyone'], 'verb_hints' => ['a1' => null, 'a2' => null]],
-                    ['question' => 'If {a1} calls, tell them we will arrive soon.', 'options' => ['a1' => ['anyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
-                    ['question' => "We won't leave {a1} behind this time.", 'options' => ['a1' => ['anyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => 'not (we)']],
-                    ['question' => 'Will {a1} have {a2} ready by Friday?', 'options' => ['a1' => ['anyone', 'someone', 'everyone'], 'a2' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anyone', 'a2' => 'anything'], 'verb_hints' => ['a1' => null, 'a2' => null]],
                 ],
             ],
         ];
