@@ -40,7 +40,7 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
         ];
 
         // Tags for fixed questions
-        $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Quality Control'])->id;
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status'])->id;
         $duplicateVerbFixTag = Tag::firstOrCreate(['name' => 'duplicate verb -> fixed'], ['category' => 'Quality Control'])->id;
         $verbHintUpdatedTag = Tag::firstOrCreate(['name' => '(verb) -> (to verb)'], ['category' => 'Quality Control'])->id;
 
