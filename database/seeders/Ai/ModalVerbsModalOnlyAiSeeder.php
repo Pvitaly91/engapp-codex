@@ -383,11 +383,12 @@ class ModalVerbsModalOnlyAiSeeder extends ModalVerbsComprehensiveAiSeeder
                     'question' => 'The lights are off, so they {a1} be at home.',
                     'markers' => [
                         'a1' => [
-                            'answer' => 'Must',
-                            'options' => ['Must', 'Might', 'Could'],
-                            'verb_hint' => 'logical deduction',
+                            'answer' => "Can't",
+                            'options' => ["Can't", 'Might', 'Could'],
+                            'verb_hint' => 'negative deduction',
                         ],
                     ],
+                    'fix_tags' => ['Must -> Can\'t (answer)', 'logical deduction -> negative deduction (verb_hint)'],
                 ],
                 [
                     'theme' => 'ability',
@@ -580,11 +581,12 @@ class ModalVerbsModalOnlyAiSeeder extends ModalVerbsComprehensiveAiSeeder
                     'question' => 'To meet the deadline, we {a1} work over the weekend.',
                     'markers' => [
                         'a1' => [
-                            'answer' => 'Will',
-                            'options' => ['Will', 'Should', 'Might'],
-                            'verb_hint' => 'inevitable duty',
+                            'answer' => 'Must',
+                            'options' => ['Must', 'Should', 'Might'],
+                            'verb_hint' => 'strong obligation',
                         ],
                     ],
+                    'fix_tags' => ['Will -> Must (answer)', 'inevitable duty -> strong obligation (verb_hint)'],
                 ],
                 [
                     'theme' => 'advice',
