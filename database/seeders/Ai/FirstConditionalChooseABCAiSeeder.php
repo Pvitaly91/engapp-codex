@@ -10,7 +10,7 @@ use Database\Seeders\QuestionSeeder;
 class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
 {
     public function run(): void
-    {   
+    {
         $categoryId = Category::firstOrCreate(['name' => 'First Conditional Comprehensive AI Test'])->id;
 
         $sectionSources = [
@@ -507,7 +507,7 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
 
             $wrappedVerbHints = [];
             foreach ($entry['verb_hint'] as $marker => $hint) {
-                $wrappedVerbHints[$marker] = '(' . $hint . ')';
+                $wrappedVerbHints[$marker] = '('.$hint.')';
             }
 
             $rawQuestions[] = [
@@ -579,7 +579,7 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
             // Add verb_hint change tag based on the pattern
             $oldVerbHintTag = null;
             $verbHintValue = $question['verb_hint'][array_key_first($question['verb_hint'])] ?? '';
-            
+
             if ($verbHintValue === '(question about result)') {
                 $oldVerbHintTag = Tag::firstOrCreate(
                     ['name' => 'old verb_hint: will + base verb → new verb_hint: question about result'],
@@ -596,7 +596,7 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
                     ['category' => 'Seeder Fix Notes']
                 )->id;
             }
-            
+
             if ($oldVerbHintTag !== null) {
                 $tagIds[] = $oldVerbHintTag;
             }
@@ -695,23 +695,23 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
         $base = $question['verb_base'][$marker] ?? '';
 
         $messages = [
-            'do' => "❌ «do» лише допоміжне для ствердження/запитання у Present Simple, але в першому умовному результаті потрібен `will`.",
-            'does' => "❌ «does» використовується у Present Simple, тоді як перший умовний вимагає `will` у результаті.",
-            'did' => "❌ «did» — минулий час; if-клауза в першому умовному стоїть у Present Simple, а результат — з `will`.",
-            'has' => "❌ «has» утворює Present Perfect, що не відповідає структурі першого умовного.",
-            'have' => "❌ «have» створює перфектну конструкцію, а нам потрібен `will` + V1.",
-            'is' => "❌ «is» — форма to be у Present Simple, але в результаті першого умовного ми вживаємо `will` + V1.",
-            'are' => "❌ «are» не передає майбутній результат; потрібен `will` + V1.",
-            'was' => "❌ «was» — Past Simple, тоді як перший умовний використовує Present Simple в if-клаузі й `will` у результаті.",
-            'were' => "❌ «were» — Past Simple; перший умовний не використовує минулий допоміжний у цих позиціях.",
-            'shall' => "❌ «shall» трапляється в офіційних пропозиціях, але стандартна форма першого умовного — `will`.",
-            'should' => "❌ «should» передає пораду, а не стандартний результат першого умовного.",
-            'can' => "❌ «can» говорить про можливість, однак граматично правильний майбутній результат формується з `will`.",
-            'could' => "❌ «could» звучить як умовний другого типу; для першого умовного треба `will`.",
-            'would' => "❌ «would» характерне для другого умовного; у першому умовному потрібно `will`.",
+            'do' => '❌ «do» лише допоміжне для ствердження/запитання у Present Simple, але в першому умовному результаті потрібен `will`.',
+            'does' => '❌ «does» використовується у Present Simple, тоді як перший умовний вимагає `will` у результаті.',
+            'did' => '❌ «did» — минулий час; if-клауза в першому умовному стоїть у Present Simple, а результат — з `will`.',
+            'has' => '❌ «has» утворює Present Perfect, що не відповідає структурі першого умовного.',
+            'have' => '❌ «have» створює перфектну конструкцію, а нам потрібен `will` + V1.',
+            'is' => '❌ «is» — форма to be у Present Simple, але в результаті першого умовного ми вживаємо `will` + V1.',
+            'are' => '❌ «are» не передає майбутній результат; потрібен `will` + V1.',
+            'was' => '❌ «was» — Past Simple, тоді як перший умовний використовує Present Simple в if-клаузі й `will` у результаті.',
+            'were' => '❌ «were» — Past Simple; перший умовний не використовує минулий допоміжний у цих позиціях.',
+            'shall' => '❌ «shall» трапляється в офіційних пропозиціях, але стандартна форма першого умовного — `will`.',
+            'should' => '❌ «should» передає пораду, а не стандартний результат першого умовного.',
+            'can' => '❌ «can» говорить про можливість, однак граматично правильний майбутній результат формується з `will`.',
+            'could' => '❌ «could» звучить як умовний другого типу; для першого умовного треба `will`.',
+            'would' => '❌ «would» характерне для другого умовного; у першому умовному потрібно `will`.',
             "wouldn't" => "❌ «wouldn't» вказує на другий умовний. Перший умовний використовує `will not`/`won't`.",
             "didn't" => "❌ «didn't» — минуле заперечення. У першому умовному if-клауза стоїть у Present Simple з `do/does not`.",
-            'will' => "❌ «will» без not не підходить, бо тут потрібно заперечення `will not`.",
+            'will' => '❌ «will» без not не підходить, бо тут потрібно заперечення `will not`.',
         ];
 
         if ($config['form'] === 'negative') {
@@ -868,7 +868,7 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
 
     private function subjectVisibleInQuestion(string $question, string $marker, string $subject): bool
     {
-        $placeholder = '{' . $marker . '}';
+        $placeholder = '{'.$marker.'}';
         $position = mb_strpos($question, $placeholder, 0, 'UTF-8');
 
         if ($position === false) {
@@ -877,6 +877,6 @@ class FirstConditionalChooseABCAiSeeder extends QuestionSeeder
 
         $before = mb_substr($question, 0, $position, 'UTF-8');
 
-        return preg_match('/\b' . preg_quote($subject, '/') . '\b/iu', $before) === 1;
+        return preg_match('/\b'.preg_quote($subject, '/').'\b/iu', $before) === 1;
     }
 }
