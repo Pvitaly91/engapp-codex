@@ -182,7 +182,7 @@ class IndefinitePronounsPracticeAiChatGptSeeder extends QuestionSeeder
                     ['question' => 'Is {a1} in the garden?', 'options' => ['a1' => ['anyone', 'someone', 'no one']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
                     ['question' => 'Do you have {a1} to ask?', 'options' => ['a1' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anything'], 'verb_hints' => ['a1' => null]],
                     ['question' => 'Is {a1} hungry?', 'options' => ['a1' => ['anyone', 'someone', 'everyone']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
-                    ['question' => 'Did {a1} call me?', 'options' => ['a1' => ['someone', 'anyone', 'no one']], 'answers' => ['a1' => 'someone'], 'verb_hints' => ['a1' => null], 'fixed' => true, 'correction' => 'hint: he/she -> null'],
+                    ['question' => 'Did {a1} call me?', 'options' => ['a1' => ['someone', 'anyone', 'no one']], 'answers' => ['a1' => 'someone'], 'verb_hints' => ['a1' => null], 'fixed' => true, 'correction' => 'verb_hint: he/she -> null'],
                     ['question' => 'Can {a1} help me with this bag?', 'options' => ['a1' => ['anyone', 'someone', 'everyone']], 'answers' => ['a1' => 'anyone'], 'verb_hints' => ['a1' => null]],
                     ['question' => 'Is there {a1} to read here?', 'options' => ['a1' => ['anything', 'something', 'nothing']], 'answers' => ['a1' => 'anything'], 'verb_hints' => ['a1' => null]],
                 ],
