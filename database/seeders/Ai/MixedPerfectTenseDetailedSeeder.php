@@ -20,6 +20,10 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
         $categoryId = Category::firstOrCreate(['name' => 'Mixed Perfect Tense Detailed Test'])->id;
         $sourceId   = Source::firstOrCreate(['name' => 'Mixed Perfect Choices with Detailed Explanations'])->id;
 
+        $statusTags = [
+            'fixed' => Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status'])->id,
+        ];
+
         $grammarTags = [
             'duration_result'      => Tag::firstOrCreate(['name' => 'Duration vs Result'], ['category' => 'Grammar Detail'])->id,
             'past_time_reference'  => Tag::firstOrCreate(['name' => 'Past Time Reference'], ['category' => 'Grammar Detail'])->id,
@@ -65,9 +69,13 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
             'incidents'      => Tag::firstOrCreate(['name' => 'Home Incidents'], ['category' => 'Usage Context'])->id,
         ];
   
+        $correctionTags = [
+            'q1_pronoun' => Tag::firstOrCreate(['name' => 'He -> She (Question 1)'], ['category' => 'Corrections'])->id,
+        ];
+
         $questions = [
             [ 
-                'question'  => 'Jane {a1} in the house for hours. He {a2} three rooms so far.',
+                'question'  => 'Jane {a1} in the house for hours. She {a2} three rooms so far.',
                 'verb_hint' => ['a1' => '(work)', 'a2' => '(clean)'],
                 'options'   => [
                     'a1' => ['has worked', 'has been working'],
@@ -77,7 +85,7 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
                 'explanations' => [
                     'has worked' => "❌ Present Perfect Simple: have/has + V3. Хоча 'has worked' граматично правильно, воно підкреслює лише факт роботи. Вираз 'for hours' вимагає акценту на тривалості, тому Continuous доречніший.",
                     'has been working' => "✅ Present Perfect Continuous: have/has + been + V-ing. Оскільки 'Jane' у третій особі однини → 'has been working'. Вираз 'for hours' прямо вказує на тривалість процесу, тому це правильний вибір.",
-                    'has cleaned' => "✅ Present Perfect Simple: have/has + V3. Підмет 'he' → 'has cleaned'. Маркер 'so far' вказує на результат, тому ця форма правильна.",
+                    'has cleaned' => "✅ Present Perfect Simple: have/has + V3. Підмет 'she' → 'has cleaned'. Маркер 'so far' вказує на результат, тому ця форма правильна.",
                     'has been cleaning' => "❌ Present Perfect Continuous: have/has + been + V-ing. Але тут йдеться не про сам процес, а про результат — три кімнати вже закінчені. Тому Continuous недоречний.",
                 ],
                 'hints' => [
@@ -95,6 +103,8 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
                 ],
                 'grammar_key' => 'duration_result',
                 'context_key' => 'housework',
+                'correction_tags' => ['q1_pronoun'],
+                'is_fixed' => true,
             ],
             [
                 'question'  => 'He {a1} there when he was a child.',
@@ -624,9 +634,22 @@ class MixedPerfectTenseDetailedSeeder extends Seeder
                 $tenseTagIds[] = Tag::firstOrCreate(['name' => $tenseName], ['category' => 'Tenses'])->id;
             }
 
+            $additionalTags = [];
+            if (!empty($data['is_fixed'])) {
+                $additionalTags[] = $statusTags['fixed'];
+            }
+            if (!empty($data['correction_tags'])) {
+                foreach ($data['correction_tags'] as $correctionKey) {
+                    if (isset($correctionTags[$correctionKey])) {
+                        $additionalTags[] = $correctionTags[$correctionKey];
+                    }
+                }
+            }
+
             $tagIds = array_values(array_unique(array_merge(
                 $tenseTagIds,
-                [$grammarTags[$data['grammar_key']], $contextTags[$data['context_key']]]
+                [$grammarTags[$data['grammar_key']], $contextTags[$data['context_key']]],
+                $additionalTags
             )));
 
             $items[] = [
