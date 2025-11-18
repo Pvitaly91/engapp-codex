@@ -35,6 +35,12 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             ['category' => 'English Grammar Theme']
         )->id;
 
+        // Create fixed tag for corrected questions
+        $fixedTagId = Tag::firstOrCreate(
+            ['name' => 'fixed'],
+            ['category' => 'Question Status']
+        )->id;
+
         $questions = $this->getQuestionData();
         
         $items = [];
@@ -47,6 +53,8 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             $options = $entry['options'];
             $answerIndex = $entry['answer_index'];
             $verbHint = $entry['verb_hint'] ?? '';
+            $isFixed = $entry['is_fixed'] ?? false;
+            $correctionTags = $entry['correction_tags'] ?? [];
             
             $answer = $options[$answerIndex];
             
@@ -59,6 +67,19 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             // Determine modal tags based on answer
             $modalTags = $this->determineModalTags($answer, $options, $modalTagIds);
             $tagIds = array_merge($tagIds, $modalTags);
+            
+            // Add fixed tag and correction tags if this question was fixed
+            if ($isFixed) {
+                $tagIds[] = $fixedTagId;
+                
+                foreach ($correctionTags as $correctionTag) {
+                    $correctionTagId = Tag::firstOrCreate(
+                        ['name' => $correctionTag],
+                        ['category' => 'Corrections']
+                    )->id;
+                    $tagIds[] = $correctionTagId;
+                }
+            }
             
             // Build comprehensive hints and explanations
             $hint = $this->buildHint($theme, $verbHint, $questionText, $level);
@@ -237,7 +258,7 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             'Habits & Hypotheticals' => 'Would використовується для опису звичок у минулому та гіпотетичних ситуацій.',
             'Subtle Deduction' => 'Must і might have допомагають робити тонкі висновки про теперішнє та минуле.',
             'Nuanced Necessity' => 'Needn\'t виражає відсутність необхідності у теперішньому.',
-            'Expectation' => 'Be supposed to показує очікування або домовленість.',
+            'Expectation' => 'Should виражає очікування або ймовірність події. Використовується для передбачень, що базуються на логіці або попередньому досвіді.',
             'Formal Permission' => 'May використовується у формальних контекстах для надання дозволу.',
             'Politeness' => 'Would, could, might роблять мову більш ввічливою та делікатною.',
             'Speculation (Future)' => 'Could і may вказують на можливість майбутніх подій.',
@@ -776,11 +797,13 @@ class ModalVerbsLeveledComprehensiveAiSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'B2',
-                'theme' => 'Ability',
+                'theme' => 'Expectation',
                 'question' => 'Choose the best option: By next year, I {a1} speak fluent Spanish.',
                 'options' => ['should', 'must', 'may', 'can'],
                 'answer_index' => 0,
-                'verb_hint' => 'future expectation/ability',
+                'verb_hint' => 'future expectation (probability)',
+                'is_fixed' => true,
+                'correction_tags' => ['Ability -> Expectation (theme)', 'future expectation/ability -> future expectation (probability) (verb_hint)'],
             ],
 
 
