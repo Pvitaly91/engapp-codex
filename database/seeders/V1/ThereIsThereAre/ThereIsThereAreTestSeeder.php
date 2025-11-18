@@ -25,11 +25,13 @@ class ThereIsThereAreTestSeeder extends Seeder
                 'tag'      => ['name' => 'restaurant', 'category' => 'Places'],
             ],
             [
-                'question' => 'Do you know if {a1} at least tomorrow?',
+                'question' => 'Do you know if {a1} time at least tomorrow?',
                 'options'  => ['there is', 'there are'],
                 'answer'   => 'there is',
                 'level'    => 'A1',
                 'tag'      => ['name' => 'tomorrow', 'category' => 'Time'],
+                'fixed'    => true,
+                'error_tag' => 'incomplete sentence -> added time',
             ],
             [
                 'question' => 'Are you going to the parade? I hear {a1} going to be horses!',
@@ -110,6 +112,8 @@ class ThereIsThereAreTestSeeder extends Seeder
             ],
         ];
 
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed']);
+
         $service = new QuestionSeedingService();
         $items = [];
 
@@ -124,6 +128,17 @@ class ThereIsThereAreTestSeeder extends Seeder
                 ['category' => $q['tag']['category']]
             );
 
+            $tagIds = [$grammarTag->id, $themeTag->id];
+            
+            // Add fixed tags if question was corrected
+            if (isset($q['fixed']) && $q['fixed']) {
+                $tagIds[] = $fixedTag->id;
+                if (isset($q['error_tag'])) {
+                    $errorTag = Tag::firstOrCreate(['name' => $q['error_tag']]);
+                    $tagIds[] = $errorTag->id;
+                }
+            }
+
             $items[] = [
                 'uuid'        => $uuid,
                 'question'    => $q['question'],
@@ -131,7 +146,7 @@ class ThereIsThereAreTestSeeder extends Seeder
                 'category_id' => $categoryId,
                 'flag'        => 0,
                 'source_id'   => $sourceId,
-                'tag_ids'     => [$grammarTag->id, $themeTag->id],
+                'tag_ids'     => $tagIds,
                 'level'       => $q['level'],
                 'answers'     => [
                     ['marker' => 'a1', 'answer' => $q['answer']],
