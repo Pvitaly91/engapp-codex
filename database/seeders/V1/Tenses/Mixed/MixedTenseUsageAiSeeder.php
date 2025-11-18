@@ -70,9 +70,13 @@ class MixedTenseUsageAiSeeder extends Seeder
             'holiday' => Tag::firstOrCreate(['name' => 'Holidays & Leisure'], ['category' => 'Vocabulary Detail'])->id,
         ];
 
+        // Correction tags for fixed questions
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Review Status'])->id;
+        $correctionTag = Tag::firstOrCreate(['name' => 'He -> She'], ['category' => 'Answer Corrections'])->id;
+
         $questionData = [
             [
-                'question' => 'Jane {a1} in the house for hours. He {a2} three rooms so far.',
+                'question' => 'Jane {a1} in the house for hours. She {a2} three rooms so far.',
                 'verb_hint' => ['a1' => '(work)', 'a2' => '(clean)'],
                 'options' => [
                     'a1' => ['has worked', 'has been working'],
@@ -83,7 +87,7 @@ class MixedTenseUsageAiSeeder extends Seeder
                     'has worked' => "Форма Present Perfect Simple підкреслює результат, але у виразі 'for hours' важлива саме тривалість процесу. Тому відповідь неправильна.",
                     'has been working' => "Правильна відповідь. 'For hours' вказує на дію, яка триває вже певний час, тому тут потрібен Present Perfect Continuous.",
                     'has cleaned' => "Правильна відповідь. Вираз 'so far' показує результат до цього моменту, тому вживаємо Present Perfect Simple.",
-                    'has been cleaning' => "Ця форма підкреслює сам процес, але контекст говорить про результат (закінчив три кімнати). Тому неправильна.",
+                    'has been cleaning' => "Ця форма підкреслює сам процес, але контекст говорить про результат (закінчила три кімнати). Тому неправильна.",
                 ],
                 'hints' => [
                     'a1' => 'Present Perfect Continuous: have/has + been + V-ing. Використовується для дій, що тривають до тепер.',
@@ -93,6 +97,7 @@ class MixedTenseUsageAiSeeder extends Seeder
                 'tense' => ['Present Perfect Continuous', 'Present Perfect Simple'],
                 'grammar' => 'duration_result',
                 'vocab' => 'housework',
+                'correction_tags' => [$fixedTag, $correctionTag],
             ],
             [
                 'question' => 'He {a1} there when he was a child.',
@@ -543,10 +548,17 @@ class MixedTenseUsageAiSeeder extends Seeder
                 $tenseTags[] = Tag::firstOrCreate(['name' => $tenseName], ['category' => 'Tenses'])->id;
             }
 
-            $tagIds = array_values(array_unique(array_merge(
+            $baseTags = array_merge(
                 $tenseTags,
                 [$grammarTags[$data['grammar']], $vocabularyTags[$data['vocab']]]
-            )));
+            );
+            
+            // Add correction tags if present
+            if (isset($data['correction_tags'])) {
+                $baseTags = array_merge($baseTags, $data['correction_tags']);
+            }
+            
+            $tagIds = array_values(array_unique($baseTags));
 
             $items[] = [
                 'uuid' => $uuid,
