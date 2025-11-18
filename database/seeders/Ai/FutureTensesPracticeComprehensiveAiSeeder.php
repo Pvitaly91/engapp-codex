@@ -42,6 +42,7 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
         // Tags for fixed questions
         $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Quality Control'])->id;
         $duplicateVerbFixTag = Tag::firstOrCreate(['name' => 'duplicate verb -> fixed'], ['category' => 'Quality Control'])->id;
+        $verbHintUpdatedTag = Tag::firstOrCreate(['name' => 'old verb_hint -> new verb_hint'], ['category' => 'Quality Control'])->id;
 
         $patternConfig = [
             'future_simple_question' => [
@@ -291,13 +292,14 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
                     'level' => $level,
                     'pattern' => $pattern,
                     'question' => $entry['question'],
-                    'verb_hint' => ['a1' => '(' . $forms['verb']['base'] . ')'],
+                    'verb_hint' => ['a1' => '(to ' . $forms['verb']['base'] . ')'],
                     'options' => $options,
                     'answers' => ['a1' => $answer],
                     'explanations' => $explanations,
                     'hints' => ['a1' => $hint],
                     'tense' => [$config['tense']],
                     'detail' => $config['detail'],
+                    'verb_hint_updated' => true,
                     'structure' => $config['structure'],
                 ];
             }
@@ -338,6 +340,11 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
                 if ($question['fixed'] === 'duplicate_verb') {
                     $tagIds[] = $duplicateVerbFixTag;
                 }
+            }
+
+            // Add verb_hint update tag for all questions (verb_hint was improved)
+            if (isset($question['verb_hint_updated']) && $question['verb_hint_updated']) {
+                $tagIds[] = $verbHintUpdatedTag;
             }
 
             $items[] = [
