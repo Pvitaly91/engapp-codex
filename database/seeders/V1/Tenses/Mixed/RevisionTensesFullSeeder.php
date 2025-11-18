@@ -24,6 +24,10 @@ class RevisionTensesFullSeeder extends Seeder
         $sourceSpec = Source::firstOrCreate(['name' => 'Write questions to the underlined words: Побудуй спеціальне питання до підкреслених слів.'])->id;
 
         $themeTag = Tag::firstOrCreate(['name' => 'revision_tenses_full']);
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed']);
+        $errorTag1 = Tag::firstOrCreate(['name' => 'played the computer -> played on the computer']);
+        $errorTag2 = Tag::firstOrCreate(['name' => 'forget on table -> leave on table']);
+        $errorTag3 = Tag::firstOrCreate(['name' => 'with her English -> with English']);
 
         // 1. Write positive sentences
         $data[] = [
@@ -38,15 +42,16 @@ class RevisionTensesFullSeeder extends Seeder
             'options' => [],
         ];
         $data[] = [
-            'question' => 'Amy/play/the computer/yesterday.',
+            'question' => 'Amy/play/on the computer/yesterday.',
             'difficulty' => 2,
             'category_id' => $cat_past,
             'source_id' => $sourcePos,
             'flag' => 0,
             'answers' => [
-                ['marker' => 'a1', 'answer' => 'Amy played the computer yesterday.', 'verb_hint' => 'play']
+                ['marker' => 'a1', 'answer' => 'Amy played on the computer yesterday.', 'verb_hint' => 'play']
             ],
             'options' => [],
+            'extra_tags' => [$fixedTag->id, $errorTag1->id],
         ];
         $data[] = [
             'question' => 'Bob/send/the telegram/tomorrow.',
@@ -306,15 +311,16 @@ class RevisionTensesFullSeeder extends Seeder
             'options' => [],
         ];
         $data[] = [
-            'question' => 'I/forget/always/my keys/on the table?',
+            'question' => 'I/leave/always/my keys/on the table?',
             'difficulty' => 2,
             'category_id' => $cat_present,
             'source_id' => $sourceGeneral,
             'flag' => 0,
             'answers' => [
-                ['marker' => 'a1', 'answer' => 'Do I always forget my keys on the table?', 'verb_hint' => 'forget']
+                ['marker' => 'a1', 'answer' => 'Do I always leave my keys on the table?', 'verb_hint' => 'leave']
             ],
             'options' => [],
+            'extra_tags' => [$fixedTag->id, $errorTag2->id],
         ];
         $data[] = [
             'question' => 'Mary/at school/dance/tomorrow?',
@@ -358,9 +364,10 @@ class RevisionTensesFullSeeder extends Seeder
             'source_id' => $sourceSpec,
             'flag' => 0,
             'answers' => [
-                ['marker' => 'a1', 'answer' => 'Who does Laura help with her English every day?', 'verb_hint' => 'help']
+                ['marker' => 'a1', 'answer' => 'Who does Laura help with English every day?', 'verb_hint' => 'help']
             ],
             'options' => [],
+            'extra_tags' => [$fixedTag->id, $errorTag3->id],
         ];
         $data[] = [
             'question' => 'Timmy studied typing yesterday.',
@@ -469,6 +476,10 @@ class RevisionTensesFullSeeder extends Seeder
 
            $d['uuid'] = $uuid;
             $d['tag_ids'] = [$themeTag->id];
+            if (isset($d['extra_tags'])) {
+                $d['tag_ids'] = array_merge($d['tag_ids'], $d['extra_tags']);
+                unset($d['extra_tags']);
+            }
             $items[]   = $d;
         }
 
