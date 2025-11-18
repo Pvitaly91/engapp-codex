@@ -39,6 +39,11 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
             'Future Perfect Continuous' => Tag::firstOrCreate(['name' => 'Future Perfect Continuous'], ['category' => 'Tenses'])->id,
         ];
 
+        // Tags for fixed questions
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status'])->id;
+        $duplicateVerbFixTag = Tag::firstOrCreate(['name' => 'duplicate verb -> fixed'], ['category' => 'Quality Control'])->id;
+        $verbHintUpdatedTag = Tag::firstOrCreate(['name' => '(verb) -> (to verb)'], ['category' => 'Quality Control'])->id;
+
         $patternConfig = [
             'future_simple_question' => [
                 'tense' => 'Future Simple',
@@ -113,8 +118,8 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
         $levels = [
             'A1' => [
                 ['pattern' => 'future_simple_question', 'question' => 'When {a1} the movie night on Friday?', 'forms' => $this->forms('we', 'start', 'starting', 'started')],
-                ['pattern' => 'future_simple_question', 'question' => 'What time {a1} you call your sister tomorrow?', 'forms' => $this->forms('you', 'call', 'calling', 'called')],
-                ['pattern' => 'future_simple_question', 'question' => 'Where {a1} they meet us next weekend?', 'forms' => $this->forms('they', 'meet', 'meeting', 'met')],
+                ['pattern' => 'future_simple_question', 'question' => 'What time {a1} your sister tomorrow?', 'forms' => $this->forms('you', 'call', 'calling', 'called'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_simple_question', 'question' => 'Where {a1} us next weekend?', 'forms' => $this->forms('they', 'meet', 'meeting', 'met'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_simple_negative', 'question' => 'I {a1} sweets after dinner anymore.', 'forms' => $this->forms('I', 'eat', 'eating', 'eaten')],
                 ['pattern' => 'future_simple_negative', 'question' => 'We {a1} forget your birthday this year.', 'forms' => $this->forms('we', 'forget', 'forgetting', 'forgotten')],
                 ['pattern' => 'future_simple_negative', 'question' => 'She {a1} buy a new phone this month.', 'forms' => $this->forms('she', 'buy', 'buying', 'bought')],
@@ -139,20 +144,20 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
             ],
             'A2' => [
                 ['pattern' => 'future_simple_question', 'question' => 'When {a1} the team present their idea next week?', 'forms' => $this->forms('the team', 'present', 'presenting', 'presented')],
-                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} you visit the client on Tuesday?', 'forms' => $this->forms('you', 'visit', 'visiting', 'visited')],
-                ['pattern' => 'future_simple_question', 'question' => 'Which city {a1} they explore during the holiday?', 'forms' => $this->forms('they', 'explore', 'exploring', 'explored')],
+                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} the client on Tuesday?', 'forms' => $this->forms('you', 'visit', 'visiting', 'visited'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_simple_question', 'question' => 'Which city {a1} during the holiday?', 'forms' => $this->forms('they', 'explore', 'exploring', 'explored'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_simple_negative', 'question' => 'I {a1} skip the training session again.', 'forms' => $this->forms('I', 'skip', 'skipping', 'skipped')],
                 ['pattern' => 'future_simple_negative', 'question' => 'We {a1} change the meeting place at the last minute.', 'forms' => $this->forms('we', 'change', 'changing', 'changed')],
                 ['pattern' => 'future_simple_negative', 'question' => 'Lena {a1} buy the cheaper tickets this time.', 'forms' => $this->forms('Lena', 'buy', 'buying', 'bought')],
                 ['pattern' => 'future_continuous_question', 'question' => 'What {a1} the students researching tomorrow afternoon?', 'forms' => $this->forms('the students', 'research', 'researching', 'researched')],
-                ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} you meeting after lunch?', 'forms' => $this->forms('you', 'meet', 'meeting', 'met')],
-                ['pattern' => 'future_continuous_question', 'question' => 'Where {a1} we staying during the festival?', 'forms' => $this->forms('we', 'stay', 'staying', 'stayed')],
+                ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} after lunch?', 'forms' => $this->forms('you', 'meet', 'meeting', 'met'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_continuous_question', 'question' => 'Where {a1} during the festival?', 'forms' => $this->forms('we', 'stay', 'staying', 'stayed'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_continuous_negative', 'question' => 'They {a1} driving through the night.', 'forms' => $this->forms('they', 'drive', 'driving', 'driven')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'I {a1} answering emails during dinner.', 'forms' => $this->forms('I', 'answer', 'answering', 'answered')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'The kids {a1} playing outside if it rains.', 'forms' => $this->forms('the kids', 'play', 'playing', 'played')],
                 ['pattern' => 'future_perfect_question', 'question' => 'How much data {a1} the lab collect by Friday?', 'forms' => $this->forms('the lab', 'collect', 'collecting', 'collected')],
                 ['pattern' => 'future_perfect_question', 'question' => 'By when {a1} you finish the online course?', 'forms' => $this->forms('you', 'finish', 'finishing', 'finished')],
-                ['pattern' => 'future_perfect_question', 'question' => 'Which chapters {a1} they read before the seminar?', 'forms' => $this->forms('they', 'read', 'reading', 'read')],
+                ['pattern' => 'future_perfect_question', 'question' => 'Which chapters {a1} before the seminar?', 'forms' => $this->forms('they', 'read', 'reading', 'read'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_perfect_negative', 'question' => 'We {a1} solved the issue before the call.', 'forms' => $this->forms('we', 'solve', 'solving', 'solved')],
                 ['pattern' => 'future_perfect_negative', 'question' => 'He {a1} saved enough for the trip by April.', 'forms' => $this->forms('he', 'save', 'saving', 'saved')],
                 ['pattern' => 'future_perfect_negative', 'question' => 'I {a1} completed the draft before lunch.', 'forms' => $this->forms('I', 'complete', 'completing', 'completed')],
@@ -165,12 +170,12 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
             ],
             'B1' => [
                 ['pattern' => 'future_simple_question', 'question' => 'When {a1} the committee announce the shortlist?', 'forms' => $this->forms('the committee', 'announce', 'announcing', 'announced')],
-                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} you submit the proposal without feedback?', 'forms' => $this->forms('you', 'submit', 'submitting', 'submitted')],
-                ['pattern' => 'future_simple_question', 'question' => 'Which supplier {a1} they choose after the audit?', 'forms' => $this->forms('they', 'choose', 'choosing', 'chosen')],
+                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} the proposal without feedback?', 'forms' => $this->forms('you', 'submit', 'submitting', 'submitted'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_simple_question', 'question' => 'Which supplier {a1} after the audit?', 'forms' => $this->forms('they', 'choose', 'choosing', 'chosen'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_simple_negative', 'question' => 'We {a1} approve the design without testing.', 'forms' => $this->forms('we', 'approve', 'approving', 'approved')],
                 ['pattern' => 'future_simple_negative', 'question' => 'I {a1} ignore the data you collected.', 'forms' => $this->forms('I', 'ignore', 'ignoring', 'ignored')],
                 ['pattern' => 'future_simple_negative', 'question' => 'The manager {a1} postpone the briefing again.', 'forms' => $this->forms('the manager', 'postpone', 'postponing', 'postponed')],
-                ['pattern' => 'future_continuous_question', 'question' => 'What {a1} you presenting at the conference tomorrow?', 'forms' => $this->forms('you', 'present', 'presenting', 'presented')],
+                ['pattern' => 'future_continuous_question', 'question' => 'What {a1} at the conference tomorrow?', 'forms' => $this->forms('you', 'present', 'presenting', 'presented'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} the consultants advising next quarter?', 'forms' => $this->forms('the consultants', 'advise', 'advising', 'advised')],
                 ['pattern' => 'future_continuous_question', 'question' => 'Where {a1} the engineers working during the relocation?', 'forms' => $this->forms('the engineers', 'work', 'working', 'worked')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'We {a1} waiting for confirmation all evening.', 'forms' => $this->forms('we', 'wait', 'waiting', 'waited')],
@@ -191,13 +196,13 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
             ],
             'B2' => [
                 ['pattern' => 'future_simple_question', 'question' => 'When {a1} the board reveal the merger details?', 'forms' => $this->forms('the board', 'reveal', 'revealing', 'revealed')],
-                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} you challenge the preliminary findings?', 'forms' => $this->forms('you', 'challenge', 'challenging', 'challenged')],
-                ['pattern' => 'future_simple_question', 'question' => 'Which metrics {a1} they track in the next review?', 'forms' => $this->forms('they', 'track', 'tracking', 'tracked')],
+                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} the preliminary findings?', 'forms' => $this->forms('you', 'challenge', 'challenging', 'challenged'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_simple_question', 'question' => 'Which metrics {a1} in the next review?', 'forms' => $this->forms('they', 'track', 'tracking', 'tracked'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_simple_negative', 'question' => 'We {a1} compromise the budget for marketing.', 'forms' => $this->forms('we', 'compromise', 'compromising', 'compromised')],
                 ['pattern' => 'future_simple_negative', 'question' => 'I {a1} release the statement before legal approval.', 'forms' => $this->forms('I', 'release', 'releasing', 'released')],
                 ['pattern' => 'future_simple_negative', 'question' => 'The director {a1} dismiss the consultant’s warnings.', 'forms' => $this->forms('the director', 'dismiss', 'dismissing', 'dismissed')],
                 ['pattern' => 'future_continuous_question', 'question' => 'What {a1} the researchers examining during the field study?', 'forms' => $this->forms('the researchers', 'examine', 'examining', 'examined')],
-                ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} you interviewing for the feature tomorrow?', 'forms' => $this->forms('you', 'interview', 'interviewing', 'interviewed')],
+                ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} for the feature tomorrow?', 'forms' => $this->forms('you', 'interview', 'interviewing', 'interviewed'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_continuous_question', 'question' => 'Where {a1} the delegates staying during the summit?', 'forms' => $this->forms('the delegates', 'stay', 'staying', 'stayed')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'We {a1} relying on manual reports next quarter.', 'forms' => $this->forms('we', 'rely', 'relying', 'relied')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'I {a1} attending routine meetings while on sabbatical.', 'forms' => $this->forms('I', 'attend', 'attending', 'attended')],
@@ -209,7 +214,7 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
                 ['pattern' => 'future_perfect_negative', 'question' => 'She {a1} gathered stakeholder feedback before finalizing.', 'forms' => $this->forms('she', 'gather', 'gathering', 'gathered')],
                 ['pattern' => 'future_perfect_negative', 'question' => 'I {a1} documented the edge cases before deployment.', 'forms' => $this->forms('I', 'document', 'documenting', 'documented')],
                 ['pattern' => 'future_perfect_continuous_question', 'question' => 'How long {a1} the analysts reviewing the portfolio by December?', 'forms' => $this->forms('the analysts', 'review', 'reviewing', 'reviewed')],
-                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By 2030, how long {a1} you leading the remote team?', 'forms' => $this->forms('you', 'lead', 'leading', 'led')],
+                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By 2030, how long {a1} the remote team?', 'forms' => $this->forms('you', 'lead', 'leading', 'led'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_perfect_continuous_question', 'question' => 'By next audit, how long {a1} the company testing automated controls?', 'forms' => $this->forms('the company', 'test', 'testing', 'tested')],
                 ['pattern' => 'future_perfect_continuous_negative', 'question' => 'We {a1} negotiating with that supplier long enough to extend terms.', 'forms' => $this->forms('we', 'negotiate', 'negotiating', 'negotiated')],
                 ['pattern' => 'future_perfect_continuous_negative', 'question' => 'I {a1} researching the case long enough to publish by April.', 'forms' => $this->forms('I', 'research', 'researching', 'researched')],
@@ -217,13 +222,13 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
             ],
             'C1' => [
                 ['pattern' => 'future_simple_question', 'question' => 'When {a1} the panel disclose the funding decision?', 'forms' => $this->forms('the panel', 'disclose', 'disclosing', 'disclosed')],
-                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} you reframe the narrative before the briefing?', 'forms' => $this->forms('you', 'reframe', 'reframing', 'reframed')],
-                ['pattern' => 'future_simple_question', 'question' => 'Which hypotheses {a1} they prioritize during the symposium?', 'forms' => $this->forms('they', 'prioritize', 'prioritizing', 'prioritized')],
+                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} the narrative before the briefing?', 'forms' => $this->forms('you', 'reframe', 'reframing', 'reframed'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_simple_question', 'question' => 'Which hypotheses {a1} during the symposium?', 'forms' => $this->forms('they', 'prioritize', 'prioritizing', 'prioritized'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_simple_negative', 'question' => 'We {a1} endorse the draft without empirical support.', 'forms' => $this->forms('we', 'endorse', 'endorsing', 'endorsed')],
                 ['pattern' => 'future_simple_negative', 'question' => 'I {a1} undermine the peer review recommendations.', 'forms' => $this->forms('I', 'undermine', 'undermining', 'undermined')],
                 ['pattern' => 'future_simple_negative', 'question' => 'The director {a1} authorize the merger without due diligence.', 'forms' => $this->forms('the director', 'authorize', 'authorizing', 'authorized')],
                 ['pattern' => 'future_continuous_question', 'question' => 'What {a1} the advisory board debating throughout the retreat?', 'forms' => $this->forms('the advisory board', 'debate', 'debating', 'debated')],
-                ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} you consulting when the crisis unfolds?', 'forms' => $this->forms('you', 'consult', 'consulting', 'consulted')],
+                ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} when the crisis unfolds?', 'forms' => $this->forms('you', 'consult', 'consulting', 'consulted'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_continuous_question', 'question' => 'Where {a1} the research fellows collaborating during the residency?', 'forms' => $this->forms('the research fellows', 'collaborate', 'collaborating', 'collaborated')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'We {a1} engaging in routine audits during the pilot phase.', 'forms' => $this->forms('we', 'engage', 'engaging', 'engaged')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'I {a1} moderating every panel while traveling abroad.', 'forms' => $this->forms('I', 'moderate', 'moderating', 'moderated')],
@@ -235,21 +240,21 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
                 ['pattern' => 'future_perfect_negative', 'question' => 'She {a1} assembled the interdisciplinary panel by July.', 'forms' => $this->forms('she', 'assemble', 'assembling', 'assembled')],
                 ['pattern' => 'future_perfect_negative', 'question' => 'I {a1} archived the raw datasets prior to publication.', 'forms' => $this->forms('I', 'archive', 'archiving', 'archived')],
                 ['pattern' => 'future_perfect_continuous_question', 'question' => 'How long {a1} the economists modeling the scenario by the summit?', 'forms' => $this->forms('the economists', 'model', 'modeling', 'modeled')],
-                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By 2035, how long {a1} you mentoring emerging researchers?', 'forms' => $this->forms('you', 'mentor', 'mentoring', 'mentored')],
-                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By next decade, how long {a1} they experimenting with quantum algorithms?', 'forms' => $this->forms('they', 'experiment', 'experimenting', 'experimented')],
+                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By 2035, how long {a1} emerging researchers?', 'forms' => $this->forms('you', 'mentor', 'mentoring', 'mentored'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By next decade, how long {a1} with quantum algorithms?', 'forms' => $this->forms('they', 'experiment', 'experimenting', 'experimented'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_perfect_continuous_negative', 'question' => 'We {a1} operating under interim guidelines long enough to normalize them.', 'forms' => $this->forms('we', 'operate', 'operating', 'operated')],
                 ['pattern' => 'future_perfect_continuous_negative', 'question' => 'I {a1} scrutinizing that dataset long enough to exhaust every lead.', 'forms' => $this->forms('I', 'scrutinize', 'scrutinizing', 'scrutinized')],
                 ['pattern' => 'future_perfect_continuous_negative', 'question' => 'The consortium {a1} negotiating tariffs for a full cycle by then.', 'forms' => $this->forms('the consortium', 'negotiate', 'negotiating', 'negotiated')],
             ],
             'C2' => [
                 ['pattern' => 'future_simple_question', 'question' => 'When {a1} the council ratify the cross-border accord?', 'forms' => $this->forms('the council', 'ratify', 'ratifying', 'ratified')],
-                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} you recalibrate the protocol before peer review?', 'forms' => $this->forms('you', 'recalibrate', 'recalibrating', 'recalibrated')],
-                ['pattern' => 'future_simple_question', 'question' => 'Which paradigms {a1} they interrogate in the forthcoming manifesto?', 'forms' => $this->forms('they', 'interrogate', 'interrogating', 'interrogated')],
+                ['pattern' => 'future_simple_question', 'question' => 'Why {a1} the protocol before peer review?', 'forms' => $this->forms('you', 'recalibrate', 'recalibrating', 'recalibrated'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_simple_question', 'question' => 'Which paradigms {a1} in the forthcoming manifesto?', 'forms' => $this->forms('they', 'interrogate', 'interrogating', 'interrogated'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_simple_negative', 'question' => 'We {a1} concede the argument without replicable evidence.', 'forms' => $this->forms('we', 'concede', 'conceding', 'conceded')],
                 ['pattern' => 'future_simple_negative', 'question' => 'I {a1} dilute the thesis to appease the reviewers.', 'forms' => $this->forms('I', 'dilute', 'diluting', 'diluted')],
                 ['pattern' => 'future_simple_negative', 'question' => 'The editor {a1} approve revisions that compromise integrity.', 'forms' => $this->forms('the editor', 'approve', 'approving', 'approved')],
                 ['pattern' => 'future_continuous_question', 'question' => 'What {a1} the negotiators arbitrating during the emergency summit?', 'forms' => $this->forms('the negotiators', 'arbitrate', 'arbitrating', 'arbitrated')],
-                ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} you liaising with while the delegation travels?', 'forms' => $this->forms('you', 'liaise', 'liaising', 'liaised')],
+                ['pattern' => 'future_continuous_question', 'question' => 'Who {a1} with while the delegation travels?', 'forms' => $this->forms('you', 'liaise', 'liaising', 'liaised'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_continuous_question', 'question' => 'Where {a1} the visiting scholars convening throughout the residency?', 'forms' => $this->forms('the visiting scholars', 'convene', 'convening', 'convened')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'We {a1} disseminating preliminary drafts before the embargo ends.', 'forms' => $this->forms('we', 'disseminate', 'disseminating', 'disseminated')],
                 ['pattern' => 'future_continuous_negative', 'question' => 'I {a1} occupying the plenary chair during the interim period.', 'forms' => $this->forms('I', 'occupy', 'occupying', 'occupied')],
@@ -261,8 +266,8 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
                 ['pattern' => 'future_perfect_negative', 'question' => 'She {a1} secured the multi-year grant by the conference.', 'forms' => $this->forms('she', 'secure', 'securing', 'secured')],
                 ['pattern' => 'future_perfect_negative', 'question' => 'I {a1} audited the encrypted archives by the deadline.', 'forms' => $this->forms('I', 'audit', 'auditing', 'audited')],
                 ['pattern' => 'future_perfect_continuous_question', 'question' => 'How long {a1} the think tank evaluating the pilot by 2040?', 'forms' => $this->forms('the think tank', 'evaluate', 'evaluating', 'evaluated')],
-                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By 2038, how long {a1} you curating the transnational consortium?', 'forms' => $this->forms('you', 'curate', 'curating', 'curated')],
-                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By the time regulation shifts, how long {a1} they refining the predictive engine?', 'forms' => $this->forms('they', 'refine', 'refining', 'refined')],
+                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By 2038, how long {a1} the transnational consortium?', 'forms' => $this->forms('you', 'curate', 'curating', 'curated'), 'fixed' => 'duplicate_verb'],
+                ['pattern' => 'future_perfect_continuous_question', 'question' => 'By the time regulation shifts, how long {a1} the predictive engine?', 'forms' => $this->forms('they', 'refine', 'refining', 'refined'), 'fixed' => 'duplicate_verb'],
                 ['pattern' => 'future_perfect_continuous_negative', 'question' => 'We {a1} leveraging provisional metrics long enough to treat them as standards.', 'forms' => $this->forms('we', 'leverage', 'leveraging', 'leveraged')],
                 ['pattern' => 'future_perfect_continuous_negative', 'question' => 'I {a1} interrogating that corpus long enough to draw final conclusions.', 'forms' => $this->forms('I', 'interrogate', 'interrogating', 'interrogated')],
                 ['pattern' => 'future_perfect_continuous_negative', 'question' => 'The mediators {a1} steering back-channel talks for the entire decade by then.', 'forms' => $this->forms('the mediators', 'steer', 'steering', 'steered')],
@@ -287,13 +292,14 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
                     'level' => $level,
                     'pattern' => $pattern,
                     'question' => $entry['question'],
-                    'verb_hint' => ['a1' => '(' . $forms['verb']['base'] . ')'],
+                    'verb_hint' => ['a1' => '(to ' . $forms['verb']['base'] . ')'],
                     'options' => $options,
                     'answers' => ['a1' => $answer],
                     'explanations' => $explanations,
                     'hints' => ['a1' => $hint],
                     'tense' => [$config['tense']],
                     'detail' => $config['detail'],
+                    'verb_hint_updated' => true,
                     'structure' => $config['structure'],
                 ];
             }
@@ -326,6 +332,19 @@ class FutureTensesPracticeComprehensiveAiSeeder extends QuestionSeeder
 
             foreach ($question['tense'] as $tenseName) {
                 $tagIds[] = $tenseTags[$tenseName];
+            }
+
+            // Add fix tags if question was fixed
+            if (isset($question['fixed'])) {
+                $tagIds[] = $fixedTag;
+                if ($question['fixed'] === 'duplicate_verb') {
+                    $tagIds[] = $duplicateVerbFixTag;
+                }
+            }
+
+            // Add verb_hint update tag for all questions (verb_hint was improved)
+            if (isset($question['verb_hint_updated']) && $question['verb_hint_updated']) {
+                $tagIds[] = $verbHintUpdatedTag;
             }
 
             $items[] = [
