@@ -104,6 +104,16 @@ class SecondConditionalTestV2Seeder extends QuestionSeeder
             ['category' => 'English Grammar Tense']
         )->id;
 
+        $fixedTagId = Tag::firstOrCreate(
+            ['name' => 'fixed'],
+            ['category' => 'Status']
+        )->id;
+
+        $amelieFixTagId = Tag::firstOrCreate(
+            ['name' => 'could -> buy'],
+            ['category' => 'Fix Description']
+        )->id;
+
         $entries = $this->questionEntries();
 
         $items = [];
@@ -172,6 +182,14 @@ class SecondConditionalTestV2Seeder extends QuestionSeeder
 
             $uuid = $this->generateQuestionUuid($index + 1, $entry['question']);
 
+            $tagIds = [$themeTagId, $detailTagId, $structureTagId, $tenseTagId];
+            
+            // Add fixed tags for the Amélie question
+            if (str_contains($entry['question'], 'Amélie could')) {
+                $tagIds[] = $fixedTagId;
+                $tagIds[] = $amelieFixTagId;
+            }
+
             $items[] = [
                 'uuid' => $uuid,
                 'question' => $entry['question'],
@@ -180,7 +198,7 @@ class SecondConditionalTestV2Seeder extends QuestionSeeder
                 'source_id' => $sourceId,
                 'flag' => 0,
                 'level' => $entry['level'],
-                'tag_ids' => array_values(array_unique([$themeTagId, $detailTagId, $structureTagId, $tenseTagId])),
+                'tag_ids' => array_values(array_unique($tagIds)),
                 'answers' => $answers,
                 'options' => $flatOptions,
                 'variants' => [],
@@ -331,19 +349,19 @@ class SecondConditionalTestV2Seeder extends QuestionSeeder
             ],
             [
                 'level' => 'A2',
-                'question' => 'If Amélie {a1} buy a new super power, she {a2} super human strength.',
+                'question' => 'If Amélie could {a1} a new super power, she {a2} super human strength.',
                 'markers' => [
                     'a1' => [
-                        'type' => 'if_modal_could',
+                        'type' => 'if_past_simple',
                         'subject' => 'Amélie',
                         'verb' => 'buy',
-                        'verb_hint' => 'can',
-                        'answer' => 'could',
+                        'verb_hint' => 'buy',
+                        'answer' => 'buy',
                         'options' => [
-                            ['value' => 'could', 'reason' => 'correct'],
-                            ['value' => 'can', 'reason' => 'present_modal'],
-                            ['value' => 'was able', 'reason' => 'bare_was_able'],
-                            ['value' => 'would can', 'reason' => 'modal_stack'],
+                            ['value' => 'buy', 'reason' => 'correct'],
+                            ['value' => 'buys', 'reason' => 'third_person'],
+                            ['value' => 'bought', 'reason' => 'past_simple'],
+                            ['value' => 'to buy', 'reason' => 'extra_word'],
                         ],
                     ],
                     'a2' => [
