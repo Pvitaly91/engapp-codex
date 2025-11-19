@@ -1420,6 +1420,22 @@
                 }, 300);
             };
 
+            // Get route URLs from existing forms (to handle base path correctly)
+            const getRouteUrls = function () {
+                // Find existing forms to extract route URLs
+                const existingRunForm = document.querySelector('form[action*="seed-runs/run"]');
+                const existingMarkExecutedForm = document.querySelector('form[action*="seed-runs/mark-executed"]');
+                const existingDeleteFileForm = document.querySelector('form[action*="seed-runs/delete-file"]');
+                const existingPreviewLink = document.querySelector('a[href*="seed-runs/preview"]');
+
+                return {
+                    run: existingRunForm ? existingRunForm.action : window.location.origin + '/seed-runs/run',
+                    markExecuted: existingMarkExecutedForm ? existingMarkExecutedForm.action : window.location.origin + '/seed-runs/mark-executed',
+                    deleteFile: existingDeleteFileForm ? existingDeleteFileForm.action : window.location.origin + '/seed-runs/delete-file',
+                    previewBase: existingPreviewLink ? existingPreviewLink.href.split('?')[0] : window.location.origin + '/seed-runs/preview'
+                };
+            };
+
             // Helper function to add seeder to pending list
             const addToPendingList = function (seeder) {
                 const pendingList = document.getElementById('pending-seeders-list');
@@ -1439,6 +1455,9 @@
                 if (!listElement) {
                     return;
                 }
+
+                // Get route URLs from existing forms
+                const routes = getRouteUrls();
 
                 // Generate unique IDs
                 const checkboxId = 'pending-seeder-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
@@ -1475,8 +1494,8 @@
                                 <i class="fa-solid fa-file-code"></i>
                                 Код
                             </button>
-                            ${seeder.supports_preview ? '<a href="' + window.location.origin + '/seed-runs/preview?class_name=' + encodeURIComponent(seeder.class_name) + '" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto"><i class="fa-solid fa-eye"></i>Переглянути</a>' : ''}
-                            <form method="POST" action="${window.location.origin}/seed-runs/delete-file" data-preloader data-confirm="Видалити файл сидера «${escapeHtml(seeder.display_class_name)}»?" class="flex w-full sm:w-auto">
+                            ${seeder.supports_preview ? '<a href="' + routes.previewBase + '?class_name=' + encodeURIComponent(seeder.class_name) + '" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto"><i class="fa-solid fa-eye"></i>Переглянути</a>' : ''}
+                            <form method="POST" action="${routes.deleteFile}" data-preloader data-confirm="Видалити файл сидера «${escapeHtml(seeder.display_class_name)}»?" class="flex w-full sm:w-auto">
                                 <input type="hidden" name="_token" value="${csrfToken}">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
@@ -1485,7 +1504,7 @@
                                     Видалити файл
                                 </button>
                             </form>
-                            <form method="POST" action="${window.location.origin}/seed-runs/mark-executed" data-preloader class="flex w-full sm:w-auto">
+                            <form method="POST" action="${routes.markExecuted}" data-preloader class="flex w-full sm:w-auto">
                                 <input type="hidden" name="_token" value="${csrfToken}">
                                 <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
                                 <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
@@ -1493,7 +1512,7 @@
                                     Позначити виконаним
                                 </button>
                             </form>
-                            <form method="POST" action="${window.location.origin}/seed-runs/run" data-preloader class="flex w-full sm:w-auto">
+                            <form method="POST" action="${routes.run}" data-preloader class="flex w-full sm:w-auto">
                                 <input type="hidden" name="_token" value="${csrfToken}">
                                 <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
                                 <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
