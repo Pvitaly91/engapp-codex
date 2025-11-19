@@ -199,6 +199,7 @@
 @php
     $codeMirrorSources = array(
         route('file-manager.asset', ['path' => 'codemirror/codemirror.min.js']),
+        route('file-manager.asset', ['path' => 'codemirror/addon/mode/multiplex.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/clike/clike.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/xml/xml.min.js']),
         route('file-manager.asset', ['path' => 'codemirror/mode/javascript/javascript.min.js']),
@@ -607,6 +608,14 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
                 this.editorInstance.on('change', () => {
                     this.editorModified = true;
                 });
+                
+                // Refresh CodeMirror after a short delay to ensure proper rendering
+                setTimeout(() => {
+                    if (this.editorInstance) {
+                        this.editorInstance.refresh();
+                    }
+                }, 100);
+                
                 this.editorInstance.focus();
             } catch (initError) {
                 console.error('CodeMirror initialization error:', initError);
@@ -630,20 +639,65 @@ function fileManagerIDE(initialPath = '', initialSelection = '') {
                 return;
             }
 
-            const loadChain = scripts.reduce((chain, src) => chain.then(() => this.loadScript(src)), Promise.resolve());
-            const timeoutMs = 8000;
+            const [coreScript, ...modeScripts] = scripts;
+            
+            // Separate scripts by their dependencies
+            // PHP mode depends on htmlmixed, which depends on xml, javascript, css
+            const htmlmixedScripts = modeScripts.filter(src => src.includes('/htmlmixed/'));
+            const phpScripts = modeScripts.filter(src => src.includes('/php/'));
+            const htmlmixedDeps = modeScripts.filter(src => 
+                src.includes('/xml/') || 
+                src.includes('/javascript/') || 
+                src.includes('/css/') ||
+                src.includes('/clike/')
+            );
+            const otherScripts = modeScripts.filter(src => 
+                !htmlmixedScripts.includes(src) && 
+                !phpScripts.includes(src) && 
+                !htmlmixedDeps.includes(src) &&
+                !src.includes('/multiplex/')
+            );
+            const multiplexScripts = modeScripts.filter(src => src.includes('/multiplex/'));
+            const timeoutMs = 15000;
+
+            const loadAll = async () => {
+                // 1. Load CodeMirror core
+                await this.loadScript(coreScript);
+                
+                // 2. Load multiplex addon (needed by PHP mode)
+                await Promise.all(multiplexScripts.map(src => this.loadScript(src)));
+                
+                // 3. Load htmlmixed dependencies in parallel (xml, javascript, css, clike)
+                await Promise.all(htmlmixedDeps.map(src => this.loadScript(src)));
+                
+                // Small delay to ensure mode definitions are registered
+                await new Promise(resolve => setTimeout(resolve, 50));
+                
+                // 4. Load htmlmixed after its dependencies
+                await Promise.all(htmlmixedScripts.map(src => this.loadScript(src)));
+                
+                // Small delay to ensure htmlmixed mode is registered
+                await new Promise(resolve => setTimeout(resolve, 50));
+                
+                // 5. Load PHP mode after htmlmixed is ready
+                await Promise.all(phpScripts.map(src => this.loadScript(src)));
+                
+                // 6. Load remaining independent modes
+                await Promise.all(otherScripts.map(src => this.loadScript(src)));
+
+                if (!window.CodeMirror) {
+                    throw new Error('CodeMirror глобальний об\'єкт недоступний після завантаження');
+                }
+
+                this.editorAssetsReady = true;
+            };
+
             const timeout = new Promise((_, reject) => setTimeout(
                 () => reject(new Error('Перевищено час очікування завантаження редактора')),
                 timeoutMs,
             ));
 
-            this.editorAssetsPromise = Promise.race([loadChain, timeout])
-                .then(() => {
-                    if (!window.CodeMirror) {
-                        throw new Error('CodeMirror глобальний об\'єкт недоступний після завантаження');
-                    }
-                    this.editorAssetsReady = true;
-                })
+            this.editorAssetsPromise = Promise.race([loadAll(), timeout])
                 .catch(error => {
                     this.editorAssetsPromise = null;
                     throw error;

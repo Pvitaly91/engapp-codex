@@ -44,10 +44,15 @@ class NativeDeploymentController extends BaseController
     public function deploy(Request $request): RedirectResponse
     {
         $branch = $request->input('branch', 'main');
-        $sanitized = $this->sanitizeBranchName($branch);
+        $sanitized = $this->sanitizeBranchName($branch ?? 'main');
+
+        $autoPushBranch = $request->input('auto_push_branch', '');
+        $autoPushBranch = $this->sanitizeBranchName($autoPushBranch ?? '');
 
         try {
             $result = $this->deployment->deploy($sanitized);
+            $logs = $result['logs'];
+            $message = $result['message'];
         } catch (\Throwable $throwable) {
             return $this->redirectWithFeedback('error', $throwable->getMessage(), [], $sanitized);
         }
@@ -59,13 +64,48 @@ class NativeDeploymentController extends BaseController
             'Оновлення сайту до останнього стану гілки через GitHub API'
         );
 
-        return $this->redirectWithFeedback('success', $result['message'], $result['logs'], $sanitized);
+        // Auto-push to branch if specified
+        if ($autoPushBranch !== '') {
+            try {
+                $currentCommit = $this->deployment->headCommit();
+                
+                // Create branch if it doesn't exist
+                $createResult = $this->deployment->createBranch($autoPushBranch, 'current');
+                $logs = array_merge($logs, $createResult['logs']);
+                
+                // Push branch to remote
+                $pushResult = $this->deployment->pushBranch($autoPushBranch);
+                $logs = array_merge($logs, $pushResult['logs']);
+                
+                $message .= " Поточний стан також запушено на origin/{$autoPushBranch}.";
+                
+                // Track auto-push usage
+                BranchUsageHistory::trackUsage(
+                    $autoPushBranch,
+                    'auto_push',
+                    "Автоматичний пуш після оновлення на віддалену гілку {$autoPushBranch} через GitHub API"
+                );
+
+                // Update backup branch record
+                BackupBranch::updateOrCreate(
+                    ['name' => $autoPushBranch],
+                    [
+                        'commit_hash' => $currentCommit,
+                        'pushed_at' => now(),
+                    ]
+                );
+            } catch (\Throwable $throwable) {
+                $message .= " Проте не вдалося запушити на origin/{$autoPushBranch}: " . $throwable->getMessage();
+            }
+        }
+
+        return $this->redirectWithFeedback('success', $message, $logs, $sanitized);
     }
 
     public function pushCurrent(Request $request): RedirectResponse
     {
         $branch = $request->input('branch', 'main');
-        $sanitized = $this->sanitizeBranchName($branch);
+        $sanitized = $this->sanitizeBranchName($branch ?? 'main');
 
         try {
             $result = $this->deployment->push($sanitized);
@@ -101,7 +141,7 @@ class NativeDeploymentController extends BaseController
         $branch = $request->input('branch_name', '');
         $commit = $request->input('commit', 'current');
 
-        $sanitizedBranch = $this->sanitizeBranchName($branch);
+        $sanitizedBranch = $this->sanitizeBranchName($branch ?? '');
         $resolvedCommit = $commit === 'current' ? ($this->deployment->headCommit() ?? '') : $commit;
 
         try {
@@ -137,7 +177,7 @@ class NativeDeploymentController extends BaseController
     public function createAndPushBranch(Request $request): RedirectResponse
     {
         $branchName = $request->input('quick_branch_name', '');
-        $sanitized = $this->sanitizeBranchName($branchName);
+        $sanitized = $this->sanitizeBranchName($branchName ?? '');
 
         if ($sanitized === '') {
             return $this->redirectWithFeedback('error', 'Вкажіть коректну назву гілки.', [], null);

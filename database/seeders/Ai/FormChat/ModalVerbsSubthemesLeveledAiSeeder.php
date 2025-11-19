@@ -97,6 +97,8 @@ class ModalVerbsSubthemesLeveledAiSeeder extends QuestionSeeder
                 ['category' => 'English Grammar Modal Pair']
             )->id;
         }
+        // Теги для виправлених питань
+        $fixedTagId = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status'])->id;
 
         // 1) Банк: по 10 питань на підтему
         $bankEntries = $this->buildPerSubthemeBank(10);
@@ -141,6 +143,20 @@ class ModalVerbsSubthemesLeveledAiSeeder extends QuestionSeeder
             // Теги: базовий + підтеми + модальні пари
             $tagIds = [$modalsTagId, $themeTagIds[$subKey]];
             $tagIds = array_values(array_unique(array_merge($tagIds, $this->detectPairTags($options, $pairTagIds))));
+            
+            // Додати теги для виправлених питань
+            if (!empty($entry['fixed'])) {
+                $tagIds[] = $fixedTagId;
+                
+                // Додати тег з інформацією про виправлення
+                if (!empty($entry['correction'])) {
+                    $correctionTagId = Tag::firstOrCreate(
+                        ['name' => $entry['correction']], 
+                        ['category' => 'Question Correction']
+                    )->id;
+                    $tagIds[] = $correctionTagId;
+                }
+            }
 
             $uuid = $this->generateQuestionUuid($level, $subKey, $entry['bucket'], $i + 1);
 
@@ -194,6 +210,8 @@ class ModalVerbsSubthemesLeveledAiSeeder extends QuestionSeeder
                     'answer'   => $answer,
                     'options'  => $opts,
                     'verb_hint'=> $tpl['hint'] ?? null,
+                    'fixed'    => $tpl['fixed'] ?? false,
+                    'correction' => $tpl['correction'] ?? null,
                 ];
             }
         }
@@ -221,6 +239,8 @@ class ModalVerbsSubthemesLeveledAiSeeder extends QuestionSeeder
                         'answer'   => $answer,
                         'options'  => $opts,
                         'verb_hint'=> $tpl['hint'] ?? null,
+                        'fixed'    => $tpl['fixed'] ?? false,
+                        'correction' => $tpl['correction'] ?? null,
                     ];
                 }
             }
@@ -261,7 +281,7 @@ class ModalVerbsSubthemesLeveledAiSeeder extends QuestionSeeder
             case 'advice':
                 $pool = [
                     ['q' => 'You {a1} take an umbrella today.', 'answer' => 'should', 'hint' => 'you; take', 'distract' => ['must','can','may']],
-                    ['q' => 'You {a1} to see a dentist about that tooth.', 'answer' => 'ought to', 'hint' => 'you; see', 'distract' => ['should','must','may']],
+                    ['q' => 'You {a1} to see a dentist about that tooth.', 'answer' => 'ought', 'hint' => 'you; see', 'distract' => ['should','must','may'], 'fixed' => true, 'correction' => 'ought to -> ought'],
                     ['q' => 'You {a1} not skip breakfast.', 'answer' => "had better", 'hint' => 'you; skip', 'distract' => ['should','must','may']],
                 ];
                 return $pool[$i % count($pool)];
