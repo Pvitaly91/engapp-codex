@@ -1188,7 +1188,7 @@ class SeedRunController extends Controller
         throw new \InvalidArgumentException('Invalid source key provided.');
     }
 
-    public function run(Request $request): RedirectResponse
+    public function run(Request $request): RedirectResponse|JsonResponse
     {
         $validated = $request->validate([
             'class_name' => ['required', 'string'],
@@ -1197,17 +1197,29 @@ class SeedRunController extends Controller
         $className = $validated['class_name'];
 
         if (! $this->ensureSeederClassIsLoaded($className)) {
+            $message = __('Seeder :class was not found.', ['class' => $className]);
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $message], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
+                ->withErrors(['run' => $message]);
         }
 
         $filePath = $this->resolveSeederFilePath($className);
 
         if (! $this->isInstantiableSeeder($className, $filePath)) {
+            $message = __('Seeder :class cannot be executed.', ['class' => $className]);
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $message], 422);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['run' => __('Seeder :class cannot be executed.', ['class' => $className])]);
+                ->withErrors(['run' => $message]);
         }
 
         try {
@@ -1215,17 +1227,36 @@ class SeedRunController extends Controller
         } catch (\Throwable $exception) {
             report($exception);
 
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $exception->getMessage()], 500);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['run' => $exception->getMessage()]);
         }
 
+        $message = __('Seeder :class executed successfully.', ['class' => $className]);
+        
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            return response()->json([
+                'message' => $message,
+                'seeder_moved' => true,
+                'class_name' => $className,
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ]);
+        }
+
         return redirect()
             ->route('seed-runs.index')
-            ->with('status', __('Seeder :class executed successfully.', ['class' => $className]));
+            ->with('status', $message);
     }
 
-    public function destroySeederFile(Request $request): RedirectResponse
+    public function destroySeederFile(Request $request): RedirectResponse|JsonResponse
     {
         $validated = $request->validate([
             'class_name' => ['required', 'string'],
@@ -1237,17 +1268,38 @@ class SeedRunController extends Controller
         $result = $this->removeSeederFileAndAssociatedRuns($className, null, $deleteQuestions);
 
         if (($result['status'] ?? null) === 'success') {
+            if ($request->wantsJson()) {
+                $overview = $this->assembleSeedRunOverview();
+                return response()->json([
+                    'message' => $result['message'],
+                    'seeder_removed' => true,
+                    'class_name' => $className,
+                    'runs_deleted' => $result['runs_deleted'] ?? 0,
+                    'questions_deleted' => $result['questions_deleted'] ?? 0,
+                    'overview' => [
+                        'pending_count' => $overview['pendingSeeders']->count(),
+                        'executed_count' => $overview['executedSeeders']->count(),
+                    ],
+                ]);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
                 ->with('status', $result['message']);
         }
 
+        $errorMessage = $result['message'] ?? __('Не вдалося видалити файл сидера.');
+        
+        if ($request->wantsJson()) {
+            return response()->json(['message' => $errorMessage], 500);
+        }
+
         return redirect()
             ->route('seed-runs.index')
-            ->withErrors(['run' => $result['message'] ?? __('Не вдалося видалити файл сидера.')]);
+            ->withErrors(['run' => $errorMessage]);
     }
 
-    public function destroySeederFiles(Request $request): RedirectResponse
+    public function destroySeederFiles(Request $request): RedirectResponse|JsonResponse
     {
         $validated = $request->validate([
             'class_names' => ['required', 'array', 'min:1'],
@@ -1269,9 +1321,15 @@ class SeedRunController extends Controller
             ->values();
 
         if ($classNames->isEmpty()) {
+            $errorMessage = __('Будь ласка, оберіть принаймні один сидер для видалення.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 422);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['run' => __('Будь ласка, оберіть принаймні один сидер для видалення.')]);
+                ->withErrors(['run' => $errorMessage]);
         }
 
         $seedRunsTableExists = Schema::hasTable('seed_runs');
@@ -1331,6 +1389,22 @@ class SeedRunController extends Controller
                     ['count' => $totalQuestionsDeleted]
                 );
             }
+        }
+
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            return response()->json([
+                'message' => implode(' ', $statusMessages),
+                'errors' => $errorMessages,
+                'success_count' => $successCount,
+                'runs_deleted' => $totalRunsDeleted,
+                'questions_deleted' => $totalQuestionsDeleted,
+                'removed_class_names' => $classNames->all(),
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ], empty($errorMessages) && $successCount > 0 ? 200 : 500);
         }
 
         $redirect = redirect()->route('seed-runs.index');
@@ -1546,12 +1620,18 @@ class SeedRunController extends Controller
         return basename($realPath);
     }
 
-    public function markAsExecuted(Request $request): RedirectResponse
+    public function markAsExecuted(Request $request): RedirectResponse|JsonResponse
     {
         if (! Schema::hasTable('seed_runs')) {
+            $errorMessage = __('The seed_runs table does not exist.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['run' => __('The seed_runs table does not exist.')]);
+                ->withErrors(['run' => $errorMessage]);
         }
 
         $validated = $request->validate([
@@ -1561,9 +1641,15 @@ class SeedRunController extends Controller
         $className = $validated['class_name'];
 
         if (! $this->ensureSeederClassIsLoaded($className)) {
+            $errorMessage = __('Seeder :class was not found.', ['class' => $className]);
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['run' => __('Seeder :class was not found.', ['class' => $className])]);
+                ->withErrors(['run' => $errorMessage]);
         }
 
         try {
@@ -1574,22 +1660,47 @@ class SeedRunController extends Controller
         } catch (\Throwable $exception) {
             report($exception);
 
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $exception->getMessage()], 500);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
                 ->withErrors(['run' => $exception->getMessage()]);
         }
 
+        $message = __('Seeder :class marked as executed.', ['class' => $className]);
+        
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            return response()->json([
+                'message' => $message,
+                'seeder_moved' => true,
+                'class_name' => $className,
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ]);
+        }
+
         return redirect()
             ->route('seed-runs.index')
-            ->with('status', __('Seeder :class marked as executed.', ['class' => $className]));
+            ->with('status', $message);
     }
 
-    public function runMissing(): RedirectResponse
+    public function runMissing(Request $request): RedirectResponse|JsonResponse
     {
         if (! Schema::hasTable('seed_runs')) {
+            $errorMessage = __('The seed_runs table does not exist.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['run' => __('The seed_runs table does not exist.')]);
+                ->withErrors(['run' => $errorMessage]);
         }
 
         $executedClasses = DB::table('seed_runs')
@@ -1625,13 +1736,32 @@ class SeedRunController extends Controller
             }
         }
 
-        $redirect = redirect()->route('seed-runs.index');
-
+        $successMessage = null;
         if ($ran->isNotEmpty()) {
-            $redirect = $redirect->with('status', __('Executed :count seeder(s): :classes', [
+            $successMessage = __('Executed :count seeder(s): :classes', [
                 'count' => $ran->count(),
                 'classes' => $ran->implode(', '),
-            ]));
+            ]);
+        }
+
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            return response()->json([
+                'message' => $successMessage ?? __('No seeders were executed.'),
+                'errors' => $errors->all(),
+                'executed_count' => $ran->count(),
+                'executed_classes' => $ran->all(),
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ], $ran->isNotEmpty() ? 200 : 422);
+        }
+
+        $redirect = redirect()->route('seed-runs.index');
+
+        if ($successMessage) {
+            $redirect = $redirect->with('status', $successMessage);
         }
 
         if ($errors->isNotEmpty()) {
@@ -1641,41 +1771,109 @@ class SeedRunController extends Controller
         return $redirect;
     }
 
-    public function destroy(int $seedRunId): RedirectResponse
+    public function destroy(Request $request, int $seedRunId): RedirectResponse|JsonResponse
     {
         if (! Schema::hasTable('seed_runs')) {
+            $errorMessage = __('The seed_runs table does not exist.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['delete' => __('The seed_runs table does not exist.')]);
-        }
-
-        $deleted = DB::table('seed_runs')->where('id', $seedRunId)->delete();
-
-        if (! $deleted) {
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['delete' => __('Seed run record was not found.')]);
-        }
-
-        return redirect()
-            ->route('seed-runs.index')
-            ->with('status', __('Seed run entry removed.'));
-    }
-
-    public function destroyWithQuestions(int $seedRunId): RedirectResponse
-    {
-        if (! Schema::hasTable('seed_runs')) {
-            return redirect()
-                ->route('seed-runs.index')
-                ->withErrors(['delete' => __('The seed_runs table does not exist.')]);
+                ->withErrors(['delete' => $errorMessage]);
         }
 
         $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
 
         if (! $seedRun) {
+            $errorMessage = __('Seed run record was not found.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['delete' => __('Seed run record was not found.')]);
+                ->withErrors(['delete' => $errorMessage]);
+        }
+
+        $className = $seedRun->class_name;
+        $deleted = DB::table('seed_runs')->where('id', $seedRunId)->delete();
+
+        if (! $deleted) {
+            $errorMessage = __('Seed run record was not found.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => $errorMessage]);
+        }
+
+        $message = __('Seed run entry removed.');
+        
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            
+            // Check if seeder file still exists and should appear in pending
+            $filePath = $this->resolveSeederFilePath($className);
+            $fileExists = $filePath && File::exists($filePath);
+            
+            // Find the pending seeder data if it returns to pending
+            $pendingSeederData = null;
+            if ($fileExists) {
+                $pendingSeederData = $overview['pendingSeeders']
+                    ->firstWhere('class_name', $className);
+            }
+            
+            return response()->json([
+                'message' => $message,
+                'seed_run_id' => $seedRunId,
+                'class_name' => $className,
+                'returns_to_pending' => $fileExists,
+                'pending_seeder' => $pendingSeederData,
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ]);
+        }
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', $message);
+    }
+
+    public function destroyWithQuestions(Request $request, int $seedRunId): RedirectResponse|JsonResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            $errorMessage = __('The seed_runs table does not exist.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => $errorMessage]);
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            $errorMessage = __('Seed run record was not found.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => $errorMessage]);
         }
 
         $deletedQuestions = 0;
@@ -1718,17 +1916,53 @@ class SeedRunController extends Controller
             ]),
         };
 
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            
+            // Check if seeder file still exists and should appear in pending
+            $filePath = $this->resolveSeederFilePath($seedRun->class_name);
+            $fileExists = $filePath && File::exists($filePath);
+            
+            // Find the pending seeder data if it returns to pending
+            $pendingSeederData = null;
+            if ($fileExists) {
+                $pendingSeederData = $overview['pendingSeeders']
+                    ->firstWhere('class_name', $seedRun->class_name);
+            }
+            
+            return response()->json([
+                'message' => $status,
+                'seed_run_id' => $seedRunId,
+                'class_name' => $seedRun->class_name,
+                'returns_to_pending' => $fileExists,
+                'pending_seeder' => $pendingSeederData,
+                'questions_deleted' => $deletedQuestions,
+                'blocks_deleted' => $deletedBlocks,
+                'pages_deleted' => $deletedPages,
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ]);
+        }
+
         return redirect()
             ->route('seed-runs.index')
             ->with('status', $status);
     }
 
-    public function destroyFolder(Request $request): RedirectResponse
+    public function destroyFolder(Request $request): RedirectResponse|JsonResponse
     {
         if (! Schema::hasTable('seed_runs')) {
+            $errorMessage = __('The seed_runs table does not exist.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['delete' => __('The seed_runs table does not exist.')]);
+                ->withErrors(['delete' => $errorMessage]);
         }
 
         $validated = $request->validate([
@@ -1740,9 +1974,15 @@ class SeedRunController extends Controller
         $seedRunIds = collect($validated['seed_run_ids'])->filter()->unique()->values();
 
         if ($seedRunIds->isEmpty()) {
+            $errorMessage = __('No seed runs were selected.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 422);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['delete' => __('No seed runs were selected.')]);
+                ->withErrors(['delete' => $errorMessage]);
         }
 
         $seedRuns = DB::table('seed_runs')
@@ -1750,9 +1990,15 @@ class SeedRunController extends Controller
             ->get();
 
         if ($seedRuns->isEmpty()) {
+            $errorMessage = __('Seed run records were not found.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['delete' => __('Seed run records were not found.')]);
+                ->withErrors(['delete' => $errorMessage]);
         }
 
         DB::table('seed_runs')
@@ -1760,21 +2006,41 @@ class SeedRunController extends Controller
             ->delete();
 
         $folderLabel = $this->resolveFolderLabel($validated['folder_label'] ?? null);
+        $message = __('Removed :count seed run entries from folder :folder.', [
+            'count' => $seedRuns->count(),
+            'folder' => $folderLabel,
+        ]);
+
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            return response()->json([
+                'message' => $message,
+                'deleted_count' => $seedRuns->count(),
+                'folder_label' => $folderLabel,
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ]);
+        }
 
         return redirect()
             ->route('seed-runs.index')
-            ->with('status', __('Removed :count seed run entries from folder :folder.', [
-                'count' => $seedRuns->count(),
-                'folder' => $folderLabel,
-            ]));
+            ->with('status', $message);
     }
 
-    public function destroyFolderWithQuestions(Request $request): RedirectResponse
+    public function destroyFolderWithQuestions(Request $request): RedirectResponse|JsonResponse
     {
         if (! Schema::hasTable('seed_runs')) {
+            $errorMessage = __('The seed_runs table does not exist.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['delete' => __('The seed_runs table does not exist.')]);
+                ->withErrors(['delete' => $errorMessage]);
         }
 
         $validated = $request->validate([
@@ -1786,9 +2052,15 @@ class SeedRunController extends Controller
         $seedRunIds = collect($validated['seed_run_ids'])->filter()->unique()->values();
 
         if ($seedRunIds->isEmpty()) {
+            $errorMessage = __('No seed runs were selected.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 422);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['delete' => __('No seed runs were selected.')]);
+                ->withErrors(['delete' => $errorMessage]);
         }
 
         $seedRuns = DB::table('seed_runs')
@@ -1796,9 +2068,15 @@ class SeedRunController extends Controller
             ->get();
 
         if ($seedRuns->isEmpty()) {
+            $errorMessage = __('Seed run records were not found.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
             return redirect()
                 ->route('seed-runs.index')
-                ->withErrors(['delete' => __('Seed run records were not found.')]);
+                ->withErrors(['delete' => $errorMessage]);
         }
 
         $folderLabel = $this->resolveFolderLabel($validated['folder_label'] ?? null);
@@ -1864,6 +2142,22 @@ class SeedRunController extends Controller
 
         if ($deletedPages > 0) {
             $statusMessage .= ' ' . __('Deleted :count related page record(s).', ['count' => $deletedPages]);
+        }
+
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            return response()->json([
+                'message' => $statusMessage,
+                'deleted_count' => $seedRuns->count(),
+                'questions_deleted' => $deletedQuestions,
+                'blocks_deleted' => $deletedBlocks,
+                'pages_deleted' => $deletedPages,
+                'folder_label' => $folderLabel,
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ]);
         }
 
         return redirect()
