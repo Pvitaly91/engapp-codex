@@ -49,6 +49,23 @@
             ->filter(fn ($group) => filled($group['seeder']))
             ->values();
 
+        $seederSearchItems = $seederGroups
+            ->map(function ($group) {
+                $className = $group['seeder'] ?? '';
+                $displaySeederName = \Illuminate\Support\Str::after($className, 'Database\\Seeders\\');
+
+                if ($displaySeederName === $className) {
+                    $displaySeederName = $className;
+                }
+
+                return [
+                    'seeder' => $displaySeederName,
+                    'sources' => collect($group['sources'] ?? [])->pluck('name')->filter()->values()->all(),
+                ];
+            })
+            ->filter(fn ($item) => filled($item['seeder']))
+            ->values();
+
         $hasSelectedSeederSources = $seederGroups->contains(function ($group) use ($selectedSourceCollection) {
             return collect($group['sources'] ?? [])
                 ->pluck('id')
@@ -80,6 +97,7 @@
         
             <div class="space-y-6 ">
                 <div x-data="{ openSeederFilter: {{ ($hasSelectedSeederClasses || $hasSelectedSeederSources) ? 'true' : 'false' }}, toggleSeederSources(open) { this.$dispatch('toggle-all-seeder-sources', { open }); } }"
+                     x-init="$store.seederSearch.setSeeders(@js($seederSearchItems))"
                      @class([
                         'space-y-3 border border-transparent rounded-2xl p-3',
                         'border-blue-300 bg-blue-50' => ($hasSelectedSeederClasses || $hasSelectedSeederSources),
@@ -112,6 +130,19 @@
                         @if($seederGroups->isEmpty())
                             <p class="text-sm text-gray-500">Немає доступних класів сидера.</p>
                         @else
+                            <div class="relative">
+                                <input
+                                    type="search"
+                                    placeholder="Пошук сидерів або джерел..."
+                                    x-model.debounce.200ms="$store.seederSearch.query"
+                                    class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    autocomplete="off"
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.9 14.32a6 6 0 111.414-1.414l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM14 9a5 5 0 11-10 0 5 5 0 0110 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p x-show="$store.seederSearch.query && !$store.seederSearch.hasResults()" x-cloak class="text-sm text-gray-500">Сидери або джерела не знайдені.</p>
                             @if(isset($seederGroupsByDate) && $seederGroupsByDate->isNotEmpty())
                                 <div class="space-y-4">
                                     @foreach($seederGroupsByDate as $date => $dateSeederClasses)
@@ -125,6 +156,7 @@
                                                     @php
                                                         $className = $group['seeder'];
                                                         $seederSources = collect($group['sources'] ?? []);
+                                                        $seederSourceNames = $seederSources->pluck('name')->filter()->values();
                                                         $seederIsSelected = in_array($className, $selectedSeederClasses, true);
                                                         $seederSourceIds = $seederSources->pluck('id');
                                                         $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
@@ -153,6 +185,9 @@
                                                                 this.open = !!openState;
                                                             }
                                                         }"
+                                                         x-show="$store.seederSearch.matchesSeeder(@js($displaySeederName), @js($seederSourceNames))"
+                                                         x-effect="if ($store.seederSearch.normalized() && $store.seederSearch.matchesSeeder(@js($displaySeederName), @js($seederSourceNames))) { open = true }"
+                                                         x-cloak
                                                          @toggle-all-seeder-sources.window="toggle($event.detail.open)"
                                                          @class([
                                                             'border rounded-2xl overflow-hidden transition',
@@ -237,13 +272,14 @@
                                 </div>
                             @else
                                 <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 items-start">
-                                @foreach($seederGroups as $group)
-                                    @php
-                                        $className = $group['seeder'];
-                                        $seederSources = collect($group['sources'] ?? []);
-                                        $seederIsSelected = in_array($className, $selectedSeederClasses, true);
-                                        $seederSourceIds = $seederSources->pluck('id');
-                                        $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
+                                        @foreach($seederGroups as $group)
+                                            @php
+                                                $className = $group['seeder'];
+                                                $seederSources = collect($group['sources'] ?? []);
+                                                $seederSourceNames = $seederSources->pluck('name')->filter()->values();
+                                                $seederIsSelected = in_array($className, $selectedSeederClasses, true);
+                                                $seederSourceIds = $seederSources->pluck('id');
+                                                $seederHasSelectedSources = $seederSourceIds->intersect($selectedSourceCollection)->isNotEmpty();
                                         $groupIsActive = $seederIsSelected || $seederHasSelectedSources;
                                         $seederInputId = 'seeder-' . md5($className);
                                         $displaySeederName = \Illuminate\Support\Str::after($className, 'Database\\Seeders\\');
@@ -258,21 +294,24 @@
                                             ? \Illuminate\Support\Carbon::parse($seederExecutionTimes->get($className))
                                             : null;
                                     @endphp
-                                    <div x-data="{
-                                            open: {{ $groupIsActive ? 'true' : 'false' }},
-                                            toggle(openState = undefined) {
-                                                if (openState === undefined) {
-                                                    this.open = !this.open;
-                                                    return;
-                                                }
+                                            <div x-data="{
+                                                    open: {{ $groupIsActive ? 'true' : 'false' }},
+                                                    toggle(openState = undefined) {
+                                                        if (openState === undefined) {
+                                                            this.open = !this.open;
+                                                            return;
+                                                        }
 
-                                                this.open = !!openState;
-                                            }
-                                        }"
-                                         @toggle-all-seeder-sources.window="toggle($event.detail.open)"
-                                         @class([
-                                            'border rounded-2xl overflow-hidden transition',
-                                            'border-gray-200' => ! $groupIsActive,
+                                                        this.open = !!openState;
+                                                    }
+                                                }"
+                                                 x-show="$store.seederSearch.matchesSeeder(@js($displaySeederName), @js($seederSourceNames))"
+                                                 x-effect="if ($store.seederSearch.normalized() && $store.seederSearch.matchesSeeder(@js($displaySeederName), @js($seederSourceNames))) { open = true }"
+                                                 x-cloak
+                                                 @toggle-all-seeder-sources.window="toggle($event.detail.open)"
+                                                 @class([
+                                                    'border rounded-2xl overflow-hidden transition',
+                                                    'border-gray-200' => ! $groupIsActive,
                                             'border-blue-400 shadow-sm bg-blue-50' => $groupIsActive,
                                          ])
                                     >
@@ -347,7 +386,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            </div>
+                                </div>
                             @endif
                         @endif
                     </div>
@@ -822,6 +861,15 @@
                                     @if($q->source)
                                         <span class="text-xs text-gray-500">Source: {{ $q->source->name }}</span>
                                     @endif
+                                    @php
+                                        $questionSeeder = $q->seeder ?? null;
+                                        if ($questionSeeder) {
+                                            $questionSeeder = \Illuminate\Support\Str::after($questionSeeder, 'Database\\Seeders\\');
+                                        }
+                                    @endphp
+                                    @if($questionSeeder)
+                                        <span class="text-xs text-gray-500">Seeder: {{ $questionSeeder }}</span>
+                                    @endif
                                     @if($q->flag)
                                         <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
                                     @endif
@@ -921,6 +969,56 @@
 
 <script>
 document.addEventListener('alpine:init', () => {
+    Alpine.store('seederSearch', {
+        query: '',
+        all: [],
+        setSeeders(items) {
+            if (!Array.isArray(items)) {
+                this.all = [];
+                return;
+            }
+
+            this.all = items.map(item => ({
+                seeder: (item && item.seeder) || '',
+                sources: Array.isArray(item && item.sources) ? item.sources : [],
+            }));
+        },
+        normalized() {
+            return this.query.trim().toLowerCase();
+        },
+        matchesText(text) {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            return String(text || '').toLowerCase().includes(normalized);
+        },
+        matchesSeeder(seederName, sourceNames = []) {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            if (this.matchesText(seederName)) {
+                return true;
+            }
+
+            return (Array.isArray(sourceNames) ? sourceNames : []).some(source => this.matchesText(source));
+        },
+        hasResults() {
+            const normalized = this.normalized();
+
+            if (!normalized) {
+                return true;
+            }
+
+            return this.all.some(item => this.matchesSeeder(item.seeder, item.sources));
+        },
+    });
+
     Alpine.store('tagSearch', {
         query: '',
         all: [],
