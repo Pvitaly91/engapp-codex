@@ -182,12 +182,14 @@
                         $actionLabels = [
                           'deploy' => 'Оновлення',
                           'push' => 'Пуш',
+                          'auto_push' => 'Автоматичний пуш',
                           'create_and_push' => 'Створення та пуш',
                           'backup' => 'Резервна копія',
                         ];
                         $actionColors = [
                           'deploy' => 'bg-red-100 text-red-700',
                           'push' => 'bg-emerald-100 text-emerald-700',
+                          'auto_push' => 'bg-purple-100 text-purple-700',
                           'create_and_push' => 'bg-blue-100 text-blue-700',
                           'backup' => 'bg-amber-100 text-amber-700',
                         ];

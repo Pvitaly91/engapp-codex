@@ -82,7 +82,7 @@ class NativeDeploymentController extends BaseController
                 // Track auto-push usage
                 BranchUsageHistory::trackUsage(
                     $autoPushBranch,
-                    'push',
+                    'auto_push',
                     "Автоматичний пуш після оновлення на віддалену гілку {$autoPushBranch} через GitHub API"
                 );
 
