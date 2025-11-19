@@ -66,6 +66,12 @@ class PastTenseFormsAiSeeder extends QuestionSeeder
             $detailTags[$key] = Tag::firstOrCreate(['name' => $name], ['category' => 'Grammar Detail'])->id;
         }
 
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status']);
+        $questionFixTag = Tag::firstOrCreate(
+            ['name' => 'double negation removed → correct question format'],
+            ['category' => 'Seeder Fix Notes']
+        );
+
         $levelDifficulty = [
             'A1' => 1,
             'A2' => 2,
@@ -83,10 +89,10 @@ class PastTenseFormsAiSeeder extends QuestionSeeder
                         'options' => ['called', 'was calling', 'had called', 'has called'],
                         'answer' => 'called',
                         'explanations' => [
-                            'called' => "✅ Past Simple. Подія відбулася одразу після іншої.",
-                            'was calling' => "❌ Past Continuous. Показує процес, але не послідовність.",
-                            'had called' => "❌ Past Perfect. Тут немає «раніше».",
-                            'has called' => "❌ Present Perfect.",
+                            'called' => '✅ Past Simple. Подія відбулася одразу після іншої.',
+                            'was calling' => '❌ Past Continuous. Показує процес, але не послідовність.',
+                            'had called' => '❌ Past Perfect. Тут немає «раніше».',
+                            'has called' => '❌ Present Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple: Subject + V2.  
@@ -101,10 +107,10 @@ HINT,
                         'options' => ['rained', 'was raining', 'had rained', 'rains'],
                         'answer' => 'rained',
                         'explanations' => [
-                            'rained' => "✅ Past Simple. Коротка дія, яка перервала процес.",
-                            'was raining' => "❌ Past Continuous. Це процес, а не момент.",
-                            'had rained' => "❌ Past Perfect. Не підходить.",
-                            'rains' => "❌ Present Simple.",
+                            'rained' => '✅ Past Simple. Коротка дія, яка перервала процес.',
+                            'was raining' => '❌ Past Continuous. Це процес, а не момент.',
+                            'had rained' => '❌ Past Perfect. Не підходить.',
+                            'rains' => '❌ Present Simple.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple: Subject + V2.  
@@ -119,10 +125,10 @@ HINT,
                         'options' => ['play', 'played', 'had played', 'were playing'],
                         'answer' => 'played',
                         'explanations' => [
-                            'play' => "❌ Present Simple.",
-                            'played' => "✅ Past Simple. Завершена дія у минулому.",
-                            'had played' => "❌ Past Perfect.",
-                            'were playing' => "❌ Past Continuous.",
+                            'play' => '❌ Present Simple.',
+                            'played' => '✅ Past Simple. Завершена дія у минулому.',
+                            'had played' => '❌ Past Perfect.',
+                            'were playing' => '❌ Past Continuous.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple: Subject + V2.  
@@ -137,10 +143,10 @@ HINT,
                         'options' => ['did', 'do', 'have', 'was'],
                         'answer' => 'did',
                         'explanations' => [
-                            'did' => "✅ Past Simple Question. Формула: Did + subject + V1.",
-                            'do' => "❌ Present Simple.",
-                            'have' => "❌ Present Perfect.",
-                            'was' => "❌ be, але не з цим дієсловом.",
+                            'did' => '✅ Past Simple Question. Формула: Did + subject + V1.',
+                            'do' => '❌ Present Simple.',
+                            'have' => '❌ Present Perfect.',
+                            'was' => '❌ be, але не з цим дієсловом.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple (Interrogative): Did + subject + V1.  
@@ -151,14 +157,14 @@ HINT,
                         'detail_tags' => ['past_simple_question'],
                     ],
                     [
-                        'text' => 'She _____ not visit us last summer.',
+                        'text' => 'She _____ visit us last summer.',
                         'options' => ['did', 'does', 'did not', 'was'],
                         'answer' => 'did not',
                         'explanations' => [
-                            'did' => "❌ Неповна форма.",
-                            'does' => "❌ Present Simple.",
-                            'did not' => "✅ Past Simple Negative. Subject + did not + V1.",
-                            'was' => "❌ be. Не підходить.",
+                            'did' => '❌ Неповна форма.',
+                            'does' => '❌ Present Simple.',
+                            'did not' => '✅ Past Simple Negative. Subject + did not + V1.',
+                            'was' => '❌ be. Не підходить.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple (Negative): Subject + did not + V1.  
@@ -173,10 +179,10 @@ HINT,
                         'options' => ['go', 'goes', 'went', 'had gone'],
                         'answer' => 'went',
                         'explanations' => [
-                            'go' => "❌ Base form.",
-                            'goes' => "❌ Present Simple.",
-                            'went' => "✅ Past Simple. Ствердження про минуле.",
-                            'had gone' => "❌ Past Perfect.",
+                            'go' => '❌ Base form.',
+                            'goes' => '❌ Present Simple.',
+                            'went' => '✅ Past Simple. Ствердження про минуле.',
+                            'had gone' => '❌ Past Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple Affirmative: Subject + V2.  
@@ -191,10 +197,10 @@ HINT,
                         'options' => ['win', 'won', 'winning', 'has won'],
                         'answer' => 'win',
                         'explanations' => [
-                            'win' => "✅ Correct. Past Simple Question: Did + V1.",
-                            'won' => "❌ Past form already, but after did потрібен V1.",
-                            'winning' => "❌ V-ing форма.",
-                            'has won' => "❌ Present Perfect.",
+                            'win' => '✅ Correct. Past Simple Question: Did + V1.',
+                            'won' => '❌ Past form already, but after did потрібен V1.',
+                            'winning' => '❌ V-ing форма.',
+                            'has won' => '❌ Present Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple (Question): Did + subject + V1.  
@@ -205,14 +211,14 @@ HINT,
                         'detail_tags' => ['past_simple_question'],
                     ],
                     [
-                        'text' => 'They _____ not like the food in that restaurant.',
+                        'text' => 'They _____ like the food in that restaurant.',
                         'options' => ['did', 'did not', 'don’t', 'were not'],
                         'answer' => 'did not',
                         'explanations' => [
-                            'did' => "❌ Неповна форма.",
-                            'did not' => "✅ Past Simple Negative.",
-                            'don’t' => "❌ Present Simple.",
-                            'were not' => "❌ Past Continuous/Passive.",
+                            'did' => '❌ Неповна форма.',
+                            'did not' => '✅ Past Simple Negative.',
+                            'don’t' => '❌ Present Simple.',
+                            'were not' => '❌ Past Continuous/Passive.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple (Negative): Subject + did not + V1.  
@@ -231,10 +237,10 @@ HINT,
                         'options' => ['played', 'was playing', 'had played', 'plays'],
                         'answer' => 'was playing',
                         'explanations' => [
-                            'played' => "❌ Past Simple. Не показує одночасності.",
-                            'was playing' => "✅ Past Continuous. Дія у процесі, коли сталося інше.",
-                            'had played' => "❌ Past Perfect.",
-                            'plays' => "❌ Present Simple.",
+                            'played' => '❌ Past Simple. Не показує одночасності.',
+                            'was playing' => '✅ Past Continuous. Дія у процесі, коли сталося інше.',
+                            'had played' => '❌ Past Perfect.',
+                            'plays' => '❌ Present Simple.',
                         ],
                         'hint' => <<<'HINT'
 Past Continuous: Subject + was/were + V-ing.  
@@ -249,10 +255,10 @@ HINT,
                         'options' => ['Were', 'Did', 'Was', 'Are'],
                         'answer' => 'Were',
                         'explanations' => [
-                            'Were' => "✅ Past Continuous Question.",
-                            'Did' => "❌ Past Simple.",
-                            'Was' => "❌ Використовується з he/she/it.",
-                            'Are' => "❌ Present Continuous.",
+                            'Were' => '✅ Past Continuous Question.',
+                            'Did' => '❌ Past Simple.',
+                            'Was' => '❌ Використовується з he/she/it.',
+                            'Are' => '❌ Present Continuous.',
                         ],
                         'hint' => <<<'HINT'
 Past Continuous (Interrogative): Was/Were + subject + V-ing.  
@@ -263,14 +269,14 @@ HINT,
                         'detail_tags' => ['past_continuous_question', 'interruption'],
                     ],
                     [
-                        'text' => 'She _____ not listening to me yesterday.',
+                        'text' => 'She _____ listening to me yesterday.',
                         'options' => ['was', 'was not', 'did not', 'were not'],
                         'answer' => 'was not',
                         'explanations' => [
-                            'was' => "❌ Неповна форма.",
-                            'was not' => "✅ Past Continuous Negative.",
-                            'did not' => "❌ Past Simple.",
-                            'were not' => "❌ Використовується з you/we/they.",
+                            'was' => '❌ Неповна форма.',
+                            'was not' => '✅ Past Continuous Negative.',
+                            'did not' => '❌ Past Simple.',
+                            'were not' => '❌ Використовується з you/we/they.',
                         ],
                         'hint' => <<<'HINT'
 Past Continuous (Negative): Subject + was/were not + V-ing.  
@@ -285,10 +291,10 @@ HINT,
                         'options' => ['had', 'were having', 'had had', 'was having'],
                         'answer' => 'were having',
                         'explanations' => [
-                            'had' => "❌ Past Simple.",
-                            'were having' => "✅ Past Continuous. Процес у момент часу.",
-                            'had had' => "❌ Past Perfect.",
-                            'was having' => "❌ Узгодження з множиною неправильне.",
+                            'had' => '❌ Past Simple.',
+                            'were having' => '✅ Past Continuous. Процес у момент часу.',
+                            'had had' => '❌ Past Perfect.',
+                            'was having' => '❌ Узгодження з множиною неправильне.',
                         ],
                         'hint' => <<<'HINT'
 Past Continuous: Subject + was/were + V-ing.  
@@ -303,10 +309,10 @@ HINT,
                         'options' => ['watched', 'was watching', 'had watched', 'watch'],
                         'answer' => 'was watching',
                         'explanations' => [
-                            'watched' => "❌ Past Simple.",
-                            'was watching' => "✅ Past Continuous. Дві дії паралельно.",
-                            'had watched' => "❌ Past Perfect.",
-                            'watch' => "❌ Base form.",
+                            'watched' => '❌ Past Simple.',
+                            'was watching' => '✅ Past Continuous. Дві дії паралельно.',
+                            'had watched' => '❌ Past Perfect.',
+                            'watch' => '❌ Base form.',
                         ],
                         'hint' => <<<'HINT'
 Past Continuous: Subject + was/were + V-ing.  
@@ -317,14 +323,14 @@ HINT,
                         'detail_tags' => ['past_continuous_affirmative', 'simultaneous_actions'],
                     ],
                     [
-                        'text' => 'They _____ not working when I called them.',
+                        'text' => 'They _____ working when I called them.',
                         'options' => ['were not', 'was not', 'did not', 'are not'],
                         'answer' => 'were not',
                         'explanations' => [
-                            'were not' => "✅ Past Continuous Negative. Підмет у множині.",
-                            'was not' => "❌ Використовується з одниною.",
-                            'did not' => "❌ Past Simple.",
-                            'are not' => "❌ Present Simple.",
+                            'were not' => '✅ Past Continuous Negative. Підмет у множині.',
+                            'was not' => '❌ Використовується з одниною.',
+                            'did not' => '❌ Past Simple.',
+                            'are not' => '❌ Present Simple.',
                         ],
                         'hint' => <<<'HINT'
 Past Continuous (Negative): Subject + were not + V-ing.  
@@ -339,10 +345,10 @@ HINT,
                         'options' => ['crying', 'cried', 'cries', 'had cried'],
                         'answer' => 'crying',
                         'explanations' => [
-                            'crying' => "✅ Past Continuous Question.",
-                            'cried' => "❌ Past Simple.",
-                            'cries' => "❌ Present Simple.",
-                            'had cried' => "❌ Past Perfect.",
+                            'crying' => '✅ Past Continuous Question.',
+                            'cried' => '❌ Past Simple.',
+                            'cries' => '❌ Present Simple.',
+                            'had cried' => '❌ Past Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Continuous (Question): Was + subject + V-ing?  
@@ -357,10 +363,10 @@ HINT,
                         'options' => ['was washing', 'washed', 'had washed', 'washes'],
                         'answer' => 'was washing',
                         'explanations' => [
-                            'was washing' => "✅ Past Continuous. Дія у процесі.",
-                            'washed' => "❌ Past Simple.",
-                            'had washed' => "❌ Past Perfect.",
-                            'washes' => "❌ Present Simple.",
+                            'was washing' => '✅ Past Continuous. Дія у процесі.',
+                            'washed' => '❌ Past Simple.',
+                            'had washed' => '❌ Past Perfect.',
+                            'washes' => '❌ Present Simple.',
                         ],
                         'hint' => <<<'HINT'
 Past Continuous Affirmative: Subject + was + V-ing.  
@@ -379,10 +385,10 @@ HINT,
                         'options' => ['wrote', 'was writing', 'has written', 'had written'],
                         'answer' => 'had written',
                         'explanations' => [
-                            'wrote' => "❌ Past Simple.",
-                            'was writing' => "❌ Past Continuous.",
-                            'has written' => "❌ Present Perfect.",
-                            'had written' => "✅ Past Perfect.",
+                            'wrote' => '❌ Past Simple.',
+                            'was writing' => '❌ Past Continuous.',
+                            'has written' => '❌ Present Perfect.',
+                            'had written' => '✅ Past Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect: Subject + had + V3.  
@@ -397,10 +403,10 @@ HINT,
                         'options' => ['finished', 'had finished', 'have finished', 'were finishing'],
                         'answer' => 'had finished',
                         'explanations' => [
-                            'finished' => "❌ Past Simple.",
-                            'had finished' => "✅ Past Perfect.",
-                            'have finished' => "❌ Present Perfect.",
-                            'were finishing' => "❌ Past Continuous.",
+                            'finished' => '❌ Past Simple.',
+                            'had finished' => '✅ Past Perfect.',
+                            'have finished' => '❌ Present Perfect.',
+                            'were finishing' => '❌ Past Continuous.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect: Subject + had + V3.  
@@ -415,10 +421,10 @@ HINT,
                         'options' => ['saw', 'had seen', 'were seeing', 'have seen'],
                         'answer' => 'had seen',
                         'explanations' => [
-                            'saw' => "❌ Past Simple.",
-                            'had seen' => "✅ Past Perfect.",
-                            'were seeing' => "❌ Past Continuous.",
-                            'have seen' => "❌ Present Perfect.",
+                            'saw' => '❌ Past Simple.',
+                            'had seen' => '✅ Past Perfect.',
+                            'were seeing' => '❌ Past Continuous.',
+                            'have seen' => '❌ Present Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect: Subject + had + V3.  
@@ -433,10 +439,10 @@ HINT,
                         'options' => ['had', 'had he started', 'he had started', 'did he start'],
                         'answer' => 'had he started',
                         'explanations' => [
-                            'had' => "❌ Неповна форма.",
-                            'had he started' => "✅ Інверсія з No sooner.",
-                            'he had started' => "❌ Порушено інверсію.",
-                            'did he start' => "❌ Past Simple.",
+                            'had' => '❌ Неповна форма.',
+                            'had he started' => '✅ Інверсія з No sooner.',
+                            'he had started' => '❌ Порушено інверсію.',
+                            'did he start' => '❌ Past Simple.',
                         ],
                         'hint' => <<<'HINT'
 No sooner had + subject + V3 … than …  
@@ -451,10 +457,10 @@ HINT,
                         'options' => ['Had', 'Did', 'Has', 'Was'],
                         'answer' => 'Had',
                         'explanations' => [
-                            'Had' => "✅ Past Perfect Question.",
-                            'Did' => "❌ Past Simple.",
-                            'Has' => "❌ Present Perfect.",
-                            'Was' => "❌ be.",
+                            'Had' => '✅ Past Perfect Question.',
+                            'Did' => '❌ Past Simple.',
+                            'Has' => '❌ Present Perfect.',
+                            'Was' => '❌ be.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect (Question): Had + subject + V3.  
@@ -465,14 +471,14 @@ HINT,
                         'detail_tags' => ['past_perfect_question'],
                     ],
                     [
-                        'text' => 'I _____ not finished my project when the deadline came.',
+                        'text' => 'I _____ finished my project when the deadline came.',
                         'options' => ['had', 'had not', 'did not', 'was not'],
                         'answer' => 'had not',
                         'explanations' => [
-                            'had' => "❌ Неповна форма.",
-                            'had not' => "✅ Past Perfect Negative.",
-                            'did not' => "❌ Past Simple.",
-                            'was not' => "❌ Past Continuous.",
+                            'had' => '❌ Неповна форма.',
+                            'had not' => '✅ Past Perfect Negative.',
+                            'did not' => '❌ Past Simple.',
+                            'was not' => '❌ Past Continuous.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect (Negative): Subject + had not + V3.  
@@ -487,10 +493,10 @@ HINT,
                         'options' => ['left', 'was leaving', 'had left', 'has left'],
                         'answer' => 'had left',
                         'explanations' => [
-                            'left' => "❌ Past Simple.",
-                            'was leaving' => "❌ Past Continuous.",
-                            'had left' => "✅ Past Perfect.",
-                            'has left' => "❌ Present Perfect.",
+                            'left' => '❌ Past Simple.',
+                            'was leaving' => '❌ Past Continuous.',
+                            'had left' => '✅ Past Perfect.',
+                            'has left' => '❌ Present Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect: Subject + had + V3.  
@@ -505,10 +511,10 @@ HINT,
                         'options' => ['left', 'was leaving', 'had left', 'has left'],
                         'answer' => 'had left',
                         'explanations' => [
-                            'left' => "❌ Past Simple.",
-                            'was leaving' => "❌ Past Continuous.",
-                            'had left' => "✅ Past Perfect.",
-                            'has left' => "❌ Present Perfect.",
+                            'left' => '❌ Past Simple.',
+                            'was leaving' => '❌ Past Continuous.',
+                            'had left' => '✅ Past Perfect.',
+                            'has left' => '❌ Present Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect Affirmative: had + V3.  
@@ -527,10 +533,10 @@ HINT,
                         'options' => ['were killed', 'had killed', 'was killing', 'have been killed'],
                         'answer' => 'were killed',
                         'explanations' => [
-                            'were killed' => "✅ Past Simple Passive. Правильна форма.",
-                            'had killed' => "❌ Active form.",
-                            'was killing' => "❌ Past Continuous.",
-                            'have been killed' => "❌ Present Perfect Passive.",
+                            'were killed' => '✅ Past Simple Passive. Правильна форма.',
+                            'had killed' => '❌ Active form.',
+                            'was killing' => '❌ Past Continuous.',
+                            'have been killed' => '❌ Present Perfect Passive.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple Passive: was/were + V3.  
@@ -545,10 +551,10 @@ HINT,
                         'options' => ['wrote', 'was written', 'had written', 'writes'],
                         'answer' => 'was written',
                         'explanations' => [
-                            'wrote' => "❌ Active form.",
-                            'was written' => "✅ Past Simple Passive.",
-                            'had written' => "❌ Active.",
-                            'writes' => "❌ Present Simple.",
+                            'wrote' => '❌ Active form.',
+                            'was written' => '✅ Past Simple Passive.',
+                            'had written' => '❌ Active.',
+                            'writes' => '❌ Present Simple.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple Passive: was/were + V3.  
@@ -563,10 +569,10 @@ HINT,
                         'options' => ['was finished', 'had been finished', 'is finished', 'finished'],
                         'answer' => 'had been finished',
                         'explanations' => [
-                            'was finished' => "❌ Past Simple Passive.",
-                            'had been finished' => "✅ Past Perfect Passive.",
-                            'is finished' => "❌ Present Simple.",
-                            'finished' => "❌ Active.",
+                            'was finished' => '❌ Past Simple Passive.',
+                            'had been finished' => '✅ Past Perfect Passive.',
+                            'is finished' => '❌ Present Simple.',
+                            'finished' => '❌ Active.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect Passive: had been + V3.  
@@ -581,10 +587,10 @@ HINT,
                         'options' => ['cleaned', 'were cleaned', 'being cleaned', 'had cleaned'],
                         'answer' => 'cleaned',
                         'explanations' => [
-                            'cleaned' => "✅ Past Simple Passive (Question). Were + object + V3?",
-                            'were cleaned' => "❌ Подвійна форма.",
-                            'being cleaned' => "❌ Past Continuous Passive.",
-                            'had cleaned' => "❌ Active voice.",
+                            'cleaned' => '✅ Past Simple Passive (Question). Were + object + V3?',
+                            'were cleaned' => '❌ Подвійна форма.',
+                            'being cleaned' => '❌ Past Continuous Passive.',
+                            'had cleaned' => '❌ Active voice.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple Passive (Question): Were + object + V3?  
@@ -599,10 +605,10 @@ HINT,
                         'options' => ['built', 'was built', 'had built', 'has been built'],
                         'answer' => 'was built',
                         'explanations' => [
-                            'built' => "❌ V3 без допоміжного.",
-                            'was built' => "✅ Past Simple Passive.",
-                            'had built' => "❌ Active.",
-                            'has been built' => "❌ Present Perfect Passive.",
+                            'built' => '❌ V3 без допоміжного.',
+                            'was built' => '✅ Past Simple Passive.',
+                            'had built' => '❌ Active.',
+                            'has been built' => '❌ Present Perfect Passive.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple Passive: was + V3.  
@@ -617,10 +623,10 @@ HINT,
                         'options' => ['were', 'were signed', 'had been signed', 'signed'],
                         'answer' => 'had been signed',
                         'explanations' => [
-                            'were' => "❌ be без V3.",
-                            'were signed' => "❌ Past Simple Passive.",
-                            'had been signed' => "✅ Past Perfect Passive.",
-                            'signed' => "❌ Active.",
+                            'were' => '❌ be без V3.',
+                            'were signed' => '❌ Past Simple Passive.',
+                            'had been signed' => '✅ Past Perfect Passive.',
+                            'signed' => '❌ Active.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect Passive: had been + V3.  
@@ -635,10 +641,10 @@ HINT,
                         'options' => ['published', 'publish', 'was published', 'had published'],
                         'answer' => 'published',
                         'explanations' => [
-                            'published' => "✅ Correct. Past Simple Passive Question.",
-                            'publish' => "❌ Base form.",
-                            'was published' => "❌ Подвійна форма.",
-                            'had published' => "❌ Active Past Perfect.",
+                            'published' => '✅ Correct. Past Simple Passive Question.',
+                            'publish' => '❌ Base form.',
+                            'was published' => '❌ Подвійна форма.',
+                            'had published' => '❌ Active Past Perfect.',
                         ],
                         'hint' => <<<'HINT'
 Past Simple Passive (Question): Was + object + V3?  
@@ -653,10 +659,10 @@ HINT,
                         'options' => ['was passed', 'had been passed', 'passes', 'is passed'],
                         'answer' => 'had been passed',
                         'explanations' => [
-                            'was passed' => "❌ Past Simple Passive.",
-                            'had been passed' => "✅ Past Perfect Passive.",
-                            'passes' => "❌ Present Simple.",
-                            'is passed' => "❌ Present Passive.",
+                            'was passed' => '❌ Past Simple Passive.',
+                            'had been passed' => '✅ Past Perfect Passive.',
+                            'passes' => '❌ Present Simple.',
+                            'is passed' => '❌ Present Passive.',
                         ],
                         'hint' => <<<'HINT'
 Past Perfect Passive: had been + V3.  
@@ -670,7 +676,7 @@ HINT,
             ],
         ];
 
-        $service = new QuestionSeedingService();
+        $service = new QuestionSeedingService;
         $items = [];
         $meta = [];
 
@@ -713,6 +719,20 @@ HINT,
                     if (isset($detailTags[$detailKey])) {
                         $tagIds[] = $detailTags[$detailKey];
                     }
+                }
+
+                // Add fixed tag for corrected questions
+                $fixedQuestions = [
+                    'She _____ visit us last summer.',
+                    'They _____ like the food in that restaurant.',
+                    'She _____ listening to me yesterday.',
+                    'They _____ working when I called them.',
+                    'I _____ finished my project when the deadline came.',
+                ];
+
+                if (in_array($question['text'], $fixedQuestions)) {
+                    $tagIds[] = $fixedTag->id;
+                    $tagIds[] = $questionFixTag->id;
                 }
 
                 $items[] = [
@@ -777,8 +797,8 @@ HINT,
         $markers = [];
         $index = 1;
         while (str_contains($text, '_____')) {
-            $marker = 'a' . $index;
-            $text = preg_replace('/_____/', '{' . $marker . '}', $text, 1);
+            $marker = 'a'.$index;
+            $text = preg_replace('/_____/', '{'.$marker.'}', $text, 1);
             $markers[] = $marker;
             $index++;
         }
@@ -819,7 +839,7 @@ HINT,
         $index = 1;
 
         while (preg_match('/\(([^)]+)\)/', $text, $matches, PREG_OFFSET_CAPTURE)) {
-            $marker = 'a' . $index;
+            $marker = 'a'.$index;
             $hints[$marker] = trim($matches[1][0]);
             $text = substr_replace($text, '', $matches[0][1], strlen($matches[0][0]));
             $index++;
