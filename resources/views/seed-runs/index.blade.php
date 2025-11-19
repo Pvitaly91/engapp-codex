@@ -1267,6 +1267,57 @@
                 }
             });
 
+            const handleAjaxFormSubmit = async function (form) {
+                if (preloader) {
+                    preloader.classList.remove('hidden');
+                }
+
+                try {
+                    const formData = new FormData(form);
+                    const method = form.querySelector('[name="_method"]')?.value || form.method.toUpperCase();
+                    
+                    const response = await fetch(form.action, {
+                        method: method === 'DELETE' || method === 'PUT' || method === 'PATCH' ? 'POST' : method,
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+                        body: formData,
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = parseErrorMessage(payload, 'Не вдалося виконати операцію.');
+                        throw new Error(message);
+                    }
+
+                    const successMessage = payload && typeof payload.message === 'string' && payload.message
+                        ? payload.message
+                        : 'Операцію успішно виконано.';
+
+                    showFeedback(successMessage, 'success');
+
+                    // Reload the page to update the UI
+                    window.setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося виконати операцію.';
+
+                    showFeedback(message, 'error');
+                } finally {
+                    if (preloader) {
+                        preloader.classList.add('hidden');
+                    }
+                }
+            };
+
             document.addEventListener('submit', function (event) {
                 const form = event.target.closest('form[data-preloader]');
 
@@ -1274,13 +1325,11 @@
                     return;
                 }
 
+                // Check if this is already confirmed and ready to submit via AJAX
                 if (form.dataset.confirmed === 'true') {
+                    event.preventDefault();
                     delete form.dataset.confirmed;
-
-                    if (preloader) {
-                        preloader.classList.remove('hidden');
-                    }
-
+                    handleAjaxFormSubmit(form);
                     return;
                 }
 
@@ -1296,19 +1345,15 @@
                     }
 
                     if (!modalOpened) {
-                        if (preloader) {
-                            preloader.classList.remove('hidden');
-                        }
-
-                        form.submit();
+                        handleAjaxFormSubmit(form);
                     }
 
                     return;
                 }
 
-                if (preloader) {
-                    preloader.classList.remove('hidden');
-                }
+                // No confirmation needed, submit via AJAX directly
+                event.preventDefault();
+                handleAjaxFormSubmit(form);
             });
 
             document.querySelectorAll('[data-bulk-delete-button]').forEach(function (button) {
