@@ -1785,6 +1785,21 @@ class SeedRunController extends Controller
                 ->withErrors(['delete' => $errorMessage]);
         }
 
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            $errorMessage = __('Seed run record was not found.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['delete' => $errorMessage]);
+        }
+
+        $className = $seedRun->class_name;
         $deleted = DB::table('seed_runs')->where('id', $seedRunId)->delete();
 
         if (! $deleted) {
@@ -1803,9 +1818,24 @@ class SeedRunController extends Controller
         
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
+            
+            // Check if seeder file still exists and should appear in pending
+            $filePath = $this->resolveSeederFilePath($className);
+            $fileExists = $filePath && File::exists($filePath);
+            
+            // Find the pending seeder data if it returns to pending
+            $pendingSeederData = null;
+            if ($fileExists) {
+                $pendingSeederData = $overview['pendingSeeders']
+                    ->firstWhere('class_name', $className);
+            }
+            
             return response()->json([
                 'message' => $message,
                 'seed_run_id' => $seedRunId,
+                'class_name' => $className,
+                'returns_to_pending' => $fileExists,
+                'pending_seeder' => $pendingSeederData,
                 'overview' => [
                     'pending_count' => $overview['pendingSeeders']->count(),
                     'executed_count' => $overview['executedSeeders']->count(),
@@ -1888,9 +1918,24 @@ class SeedRunController extends Controller
 
         if ($request->wantsJson()) {
             $overview = $this->assembleSeedRunOverview();
+            
+            // Check if seeder file still exists and should appear in pending
+            $filePath = $this->resolveSeederFilePath($seedRun->class_name);
+            $fileExists = $filePath && File::exists($filePath);
+            
+            // Find the pending seeder data if it returns to pending
+            $pendingSeederData = null;
+            if ($fileExists) {
+                $pendingSeederData = $overview['pendingSeeders']
+                    ->firstWhere('class_name', $seedRun->class_name);
+            }
+            
             return response()->json([
                 'message' => $status,
                 'seed_run_id' => $seedRunId,
+                'class_name' => $seedRun->class_name,
+                'returns_to_pending' => $fileExists,
+                'pending_seeder' => $pendingSeederData,
                 'questions_deleted' => $deletedQuestions,
                 'blocks_deleted' => $deletedBlocks,
                 'pages_deleted' => $deletedPages,

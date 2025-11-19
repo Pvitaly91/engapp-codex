@@ -1358,12 +1358,22 @@
                     const seederNode = findExecutedSeederById(payload.seed_run_id);
                     
                     if (seederNode) {
-                        fadeOutAndRemove(seederNode);
+                        fadeOutAndRemove(seederNode, function () {
+                            // If seeder returns to pending, add it to pending list
+                            if (payload.returns_to_pending && payload.pending_seeder) {
+                                addToPendingList(payload.pending_seeder);
+                            }
+                        });
                     }
                 }
 
-                // Disable "Execute all" button if no more pending seeders
-                if (payload.overview && payload.overview.pending_count === 0) {
+                // Enable "Execute all" button if there are pending seeders
+                if (payload.overview && payload.overview.pending_count > 0) {
+                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                    if (executeAllButton) {
+                        executeAllButton.disabled = false;
+                    }
+                } else if (payload.overview && payload.overview.pending_count === 0) {
                     const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
                     if (executeAllButton) {
                         executeAllButton.disabled = true;
@@ -1408,6 +1418,111 @@
                         callback();
                     }
                 }, 300);
+            };
+
+            // Helper function to add seeder to pending list
+            const addToPendingList = function (seeder) {
+                const pendingList = document.getElementById('pending-seeders-list');
+                const pendingContainer = document.getElementById('pending-seeders-container');
+                
+                if (!pendingContainer) {
+                    return;
+                }
+
+                // If container shows "all executed" message, replace with list
+                const emptyMessage = pendingContainer.querySelector('p.text-gray-500');
+                if (emptyMessage && !pendingList) {
+                    pendingContainer.innerHTML = '<ul class="space-y-3" id="pending-seeders-list"></ul>';
+                }
+
+                const listElement = document.getElementById('pending-seeders-list');
+                if (!listElement) {
+                    return;
+                }
+
+                // Generate unique IDs
+                const checkboxId = 'pending-seeder-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+                const actionsId = checkboxId + '-actions';
+
+                // Create seeder HTML
+                const li = document.createElement('li');
+                li.className = 'flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between';
+                li.setAttribute('data-pending-seeder', '');
+                li.setAttribute('data-class-name', seeder.class_name);
+                li.style.opacity = '0';
+
+                const displayNamespace = seeder.display_class_namespace || '';
+                const displayBasename = seeder.display_class_basename || seeder.display_class_name;
+                
+                li.innerHTML = `
+                    <div class="flex items-center gap-3 sm:flex-1">
+                        <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
+                        <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
+                            ${displayNamespace ? '<span class="text-gray-500">' + escapeHtml(displayNamespace) + '</span><span class="text-gray-400">\\</span>' : ''}
+                            <span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">${escapeHtml(displayBasename)}</span>
+                        </label>
+                    </div>
+                    <div class="sm:hidden">
+                        <button type="button" class="inline-flex items-center justify-between gap-2 w-full px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition" data-pending-actions-toggle data-target="${actionsId}" aria-expanded="false" aria-controls="${actionsId}">
+                            <span data-toggle-label-collapsed>Показати дії</span>
+                            <span data-toggle-label-expanded class="hidden">Сховати дії</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform" data-pending-actions-icon></i>
+                        </button>
+                    </div>
+                    <div id="${actionsId}" class="hidden w-full sm:w-auto sm:block" data-pending-actions>
+                        <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap sm:items-center">
+                            <button type="button" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto" data-seeder-file-open data-class-name="${escapeHtml(seeder.class_name)}" data-display-name="${escapeHtml(seeder.display_class_name)}">
+                                <i class="fa-solid fa-file-code"></i>
+                                Код
+                            </button>
+                            ${seeder.supports_preview ? '<a href="' + window.location.origin + '/seed-runs/preview?class_name=' + encodeURIComponent(seeder.class_name) + '" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto"><i class="fa-solid fa-eye"></i>Переглянути</a>' : ''}
+                            <form method="POST" action="${window.location.origin}/seed-runs/delete-file" data-preloader data-confirm="Видалити файл сидера «${escapeHtml(seeder.display_class_name)}»?" class="flex w-full sm:w-auto">
+                                <input type="hidden" name="_token" value="${csrfToken}">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
+                                    <i class="fa-solid fa-file-circle-xmark"></i>
+                                    Видалити файл
+                                </button>
+                            </form>
+                            <form method="POST" action="${window.location.origin}/seed-runs/mark-executed" data-preloader class="flex w-full sm:w-auto">
+                                <input type="hidden" name="_token" value="${csrfToken}">
+                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
+                                    <i class="fa-solid fa-check"></i>
+                                    Позначити виконаним
+                                </button>
+                            </form>
+                            <form method="POST" action="${window.location.origin}/seed-runs/run" data-preloader class="flex w-full sm:w-auto">
+                                <input type="hidden" name="_token" value="${csrfToken}">
+                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
+                                    <i class="fa-solid fa-play"></i>
+                                    Виконати
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+
+                // Add to list
+                listElement.appendChild(li);
+
+                // Fade in animation
+                window.setTimeout(function () {
+                    li.style.transition = 'opacity 0.3s ease';
+                    li.style.opacity = '1';
+                }, 50);
+
+                // Update bulk button states
+                updateAllBulkButtonStates();
+            };
+
+            // Helper function to escape HTML
+            const escapeHtml = function (text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
             };
 
             const checkPendingListEmpty = function () {
