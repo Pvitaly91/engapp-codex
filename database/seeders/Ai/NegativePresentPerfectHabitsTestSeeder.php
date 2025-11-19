@@ -18,6 +18,11 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
 
         $tenseTag = Tag::firstOrCreate(['name' => 'Present Perfect'], ['category' => 'Tenses']);
         $grammarTag = Tag::firstOrCreate(['name' => 'Negative Statements'], ['category' => 'Grammar Focus']);
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status']);
+        $verbHintChangeTag = Tag::firstOrCreate(
+            ['name' => 'old verb_hint: verb/not → new verb_hint: negative form'],
+            ['category' => 'Seeder Fix Notes']
+        );
 
         $vocabularyTags = [
             'food_drink' => Tag::firstOrCreate(['name' => 'Food & Drink'], ['category' => 'Vocabulary'])->id,
@@ -34,7 +39,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'Emma {a1} chocolate this week – only fruit.',
                 'answer' => "hasn't eaten",
-                'verb_hint' => 'eat/not',
+                'verb_hint' => 'negative form',
                 'options' => ["hasn't eaten", "hasn't been eating", "didn't eat", "wasn't eating"],
                 'variants' => [
                     'Sophia {a1} bread today – she chose rice instead.',
@@ -48,7 +53,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'We {a1} TV lately, just a few short videos online.',
                 'answer' => "haven't watched",
-                'verb_hint' => 'watch/not',
+                'verb_hint' => 'negative form',
                 'options' => ["haven't watched", "haven't been watching", "didn't watch", "weren't watching"],
                 'variants' => [
                     'We {a1} movies lately – only some short clips.',
@@ -62,7 +67,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'Tom {a1} his friends for weeks. He’s been busy with exams.',
                 'answer' => "hasn't seen",
-                'verb_hint' => 'see/not',
+                'verb_hint' => 'negative form',
                 'options' => ["hasn't seen", "hasn't been seeing", "didn't see", "wasn't seeing"],
                 'variants' => [
                     'Daniel {a1} his cousins for a year – they live abroad.',
@@ -76,7 +81,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'I {a1} much coffee this morning – only half a cup.',
                 'answer' => "haven't drunk",
-                'verb_hint' => 'drink/not',
+                'verb_hint' => 'negative form',
                 'options' => ["haven't drunk", "haven't been drinking", "didn't drink", "wasn't drinking"],
                 'variants' => [
                     'I {a1} tea today – I felt like juice instead.',
@@ -90,7 +95,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'They {a1} the gym for months, that’s why they lost shape.',
                 'answer' => "haven't gone",
-                'verb_hint' => 'go/not',
+                'verb_hint' => 'negative form',
                 'options' => ["haven't gone", "haven't been going", "didn't go", "weren't going"],
                 'variants' => [
                     'Noah and Emma {a1} swimming for a long time – the pool is closed.',
@@ -104,7 +109,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'She {a1} enough sleep recently – she looks really tired.',
                 'answer' => "hasn't slept",
-                'verb_hint' => 'sleep/not',
+                'verb_hint' => 'negative form',
                 'options' => ["hasn't slept", "hasn't been sleeping", "didn't sleep", "wasn't sleeping"],
                 'variants' => [
                     'Amelia {a1} well this week – always waking up at night.',
@@ -118,7 +123,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'I {a1} my English homework today – I was too busy.',
                 'answer' => "haven't done",
-                'verb_hint' => 'do/not',
+                'verb_hint' => 'negative form',
                 'options' => ["haven't done", "haven't been doing", "didn't do", "wasn't doing"],
                 'variants' => [
                     'I {a1} the dishes today – I left them in the sink.',
@@ -132,7 +137,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'David {a1} his guitar for weeks – he needs to practice.',
                 'answer' => "hasn't played",
-                'verb_hint' => 'play/not',
+                'verb_hint' => 'negative form',
                 'options' => ["hasn't played", "hasn't been playing", "didn't play", "wasn't playing"],
                 'variants' => [
                     'Oliver {a1} the piano for weeks – he lost motivation.',
@@ -146,7 +151,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'We {a1} any news from Anna since the party.',
                 'answer' => "haven't heard",
-                'verb_hint' => 'hear/not',
+                'verb_hint' => 'negative form',
                 'options' => ["haven't heard", "haven't been hearing", "didn't hear", "weren't hearing"],
                 'variants' => [
                     'We {a1} from Peter since April – he moved abroad.',
@@ -160,7 +165,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             [
                 'question' => 'I {a1} running these days – only walking in the park.',
                 'answer' => "haven't been running",
-                'verb_hint' => 'run/not',
+                'verb_hint' => 'negative form',
                 'options' => ["haven't run", "haven't been running", "didn't run", "wasn't running"],
                 'variants' => [
                     'I {a1} swimming these days – the pool is under repair.',
@@ -173,7 +178,7 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
             ],
         ];
 
-        $service = new QuestionSeedingService();
+        $service = new QuestionSeedingService;
         $items = [];
 
         foreach ($questions as $data) {
@@ -189,6 +194,8 @@ class NegativePresentPerfectHabitsTestSeeder extends Seeder
                     $tenseTag->id,
                     $grammarTag->id,
                     $vocabularyTags[$data['vocab']],
+                    $fixedTag->id,
+                    $verbHintChangeTag->id,
                 ],
                 'answers' => [
                     [
