@@ -44,10 +44,10 @@ class NativeDeploymentController extends BaseController
     public function deploy(Request $request): RedirectResponse
     {
         $branch = $request->input('branch', 'main');
-        $sanitized = $this->sanitizeBranchName($branch);
+        $sanitized = $this->sanitizeBranchName($branch ?? 'main');
 
         $autoPushBranch = $request->input('auto_push_branch', '');
-        $autoPushBranch = $this->sanitizeBranchName($autoPushBranch);
+        $autoPushBranch = $this->sanitizeBranchName($autoPushBranch ?? '');
 
         try {
             $result = $this->deployment->deploy($sanitized);
@@ -105,7 +105,7 @@ class NativeDeploymentController extends BaseController
     public function pushCurrent(Request $request): RedirectResponse
     {
         $branch = $request->input('branch', 'main');
-        $sanitized = $this->sanitizeBranchName($branch);
+        $sanitized = $this->sanitizeBranchName($branch ?? 'main');
 
         try {
             $result = $this->deployment->push($sanitized);
@@ -141,7 +141,7 @@ class NativeDeploymentController extends BaseController
         $branch = $request->input('branch_name', '');
         $commit = $request->input('commit', 'current');
 
-        $sanitizedBranch = $this->sanitizeBranchName($branch);
+        $sanitizedBranch = $this->sanitizeBranchName($branch ?? '');
         $resolvedCommit = $commit === 'current' ? ($this->deployment->headCommit() ?? '') : $commit;
 
         try {
@@ -177,7 +177,7 @@ class NativeDeploymentController extends BaseController
     public function createAndPushBranch(Request $request): RedirectResponse
     {
         $branchName = $request->input('quick_branch_name', '');
-        $sanitized = $this->sanitizeBranchName($branchName);
+        $sanitized = $this->sanitizeBranchName($branchName ?? '');
 
         if ($sanitized === '') {
             return $this->redirectWithFeedback('error', 'Вкажіть коректну назву гілки.', [], null);
