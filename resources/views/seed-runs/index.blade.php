@@ -1323,7 +1323,31 @@
                 const classNameInput = form.querySelector('[name="class_name"]');
                 const className = classNameInput ? classNameInput.value : null;
 
-                // Check if this is a seeder removal operation
+                // Check if this is a seeder execution (run) operation
+                // For execution, reload page after showing success message so user sees result in executed section
+                const isExecutionOperation = form.action && form.action.includes('/seed-runs/run') && !form.action.includes('run-missing');
+                if (isExecutionOperation && payload.seeder_moved) {
+                    // Remove from pending list first
+                    if (className) {
+                        const seederListItem = findSeederByClassName(className);
+                        if (seederListItem) {
+                            fadeOutAndRemove(seederListItem, function () {
+                                // Reload page after animation so user sees seeder in executed section
+                                window.setTimeout(function () {
+                                    window.location.reload();
+                                }, 100);
+                            });
+                        }
+                    } else {
+                        // Fallback: just reload
+                        window.setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    }
+                    return; // Exit early for execution operations
+                }
+
+                // Check if this is a seeder removal operation (not execution)
                 if (payload.seeder_removed || payload.seeder_moved) {
                     // Find and remove the seeder's list item from pending section
                     if (className) {
