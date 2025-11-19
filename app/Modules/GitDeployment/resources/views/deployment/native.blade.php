@@ -97,11 +97,73 @@
       </div>
     @endif
 
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">1. Оновити з GitHub API</h2>
+          <p class="text-sm text-muted-foreground">Завантажує архів гілки з GitHub API, оновлює файли напряму та видаляє локальні елементи, яких немає в репозиторії — усе без виконання SSH-команд.</p>
+        </div>
+        <form method="POST" action="{{ route('deployment.native.deploy') }}" class="space-y-4">
+          @csrf
+          <label class="block text-sm font-medium">Гілка для оновлення</label>
+          <div class="relative">
+            <input type="text" name="branch" value="{{ $feedback['branch'] ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" />
+            <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-medium" for="native-auto-push-branch">Автоматично запушити стан після оновлення до гілки (опціонально)</label>
+            <div class="relative">
+              <input 
+                id="native-auto-push-branch" 
+                type="text" 
+                name="auto_push_branch" 
+                list="native-backup-branches-list"
+                placeholder="Введіть назву або оберіть з існуючих гілок" 
+                class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" 
+              />
+              <datalist id="native-backup-branches-list">
+                @foreach($backupBranches as $branch)
+                  <option value="{{ $branch->name }}">
+                @endforeach
+              </datalist>
+              <button type="button" onclick="this.previousElementSibling.previousElementSibling.value=''; this.previousElementSibling.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+            <p class="text-xs text-muted-foreground">Якщо вказати гілку, після оновлення поточний стан буде автоматично запушено на цю гілку (буде створена, якщо не існує).</p>
+          </div>
+          
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-red-600/90">Оновити зараз</button>
+        </form>
+      </div>
+    </section>
+
     @if($recentUsage->isNotEmpty())
       <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
         <div class="space-y-4 p-6">
-          <h2 class="text-2xl font-semibold">Історія використання гілок</h2>
-          <div class="overflow-x-auto">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-semibold">Історія використання гілок</h2>
+            <button 
+              type="button" 
+              id="toggle-branch-history"
+              class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-expanded="true"
+              aria-controls="branch-history-content"
+            >
+              <span id="toggle-branch-history-text">Згорнути</span>
+              <svg id="toggle-branch-history-icon" class="h-4 w-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div id="branch-history-content" class="overflow-x-auto">
             <table class="min-w-full divide-y divide-border/70 text-sm">
               <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
                 <tr>
@@ -114,7 +176,17 @@
               <tbody class="divide-y divide-border/60 bg-background/60">
                 @foreach($recentUsage as $usage)
                   <tr>
-                    <td class="px-4 py-3 font-medium">{{ $usage->branch_name }}</td>
+                    <td class="px-4 py-3 font-medium">
+                      <button
+                        type="button"
+                        class="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-left font-medium text-foreground transition hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        data-copy-branch="{{ $usage->branch_name }}"
+                      >
+                        <span data-copy-branch-text>{{ $usage->branch_name }}</span>
+                        <span class="hidden text-xs font-semibold text-success" data-copy-branch-success>Скопійовано!</span>
+                        <span class="hidden text-xs font-semibold text-destructive-foreground" data-copy-branch-error>Не вдалося скопіювати</span>
+                      </button>
+                    </td>
                     <td class="px-4 py-3">
                       @php
                         $actionLabels = [
@@ -144,28 +216,6 @@
         </div>
       </section>
     @endif
-
-    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
-      <div class="space-y-6 p-6">
-        <div>
-          <h2 class="text-2xl font-semibold">1. Оновити з GitHub API</h2>
-          <p class="text-sm text-muted-foreground">Завантажує архів гілки з GitHub API, оновлює файли напряму та видаляє локальні елементи, яких немає в репозиторії — усе без виконання SSH-команд.</p>
-        </div>
-        <form method="POST" action="{{ route('deployment.native.deploy') }}" class="space-y-4">
-          @csrf
-          <label class="block text-sm font-medium">Гілка для оновлення</label>
-          <div class="relative">
-            <input type="text" name="branch" value="{{ $feedback['branch'] ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" />
-            <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-            </button>
-          </div>
-          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-red-600/90">Оновити зараз</button>
-        </form>
-      </div>
-    </section>
 
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
       <div class="space-y-6 p-6">
@@ -371,4 +421,5 @@
   </div>
 
   @include('git-deployment::deployment.partials.backup-branch-copy-script')
+  @include('git-deployment::deployment.partials.branch-history-toggle-script')
 @endsection

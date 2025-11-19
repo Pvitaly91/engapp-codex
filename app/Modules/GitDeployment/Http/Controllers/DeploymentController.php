@@ -51,6 +51,10 @@ class DeploymentController extends BaseController
         $branch = Str::of($branch)->trim()->value() ?: 'main';
         $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'main';
 
+        $autoPushBranch = $request->input('auto_push_branch', '');
+        $autoPushBranch = Str::of($autoPushBranch)->trim()->value();
+        $autoPushBranch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $autoPushBranch);
+
         if ($redirect = $this->redirectIfShellUnavailable($branch)) {
             return $redirect;
         }
@@ -107,6 +111,43 @@ class DeploymentController extends BaseController
         $message = 'Сайт успішно оновлено до останнього стану гілки.';
         if (! $backupStored) {
             $message .= ' Увага: резервну копію не збережено.';
+        }
+
+        // Auto-push to branch if specified
+        if ($autoPushBranch !== '') {
+            $currentBranchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], $repoPath);
+            $commandsOutput[] = $this->formatProcess('git rev-parse --abbrev-ref HEAD', $currentBranchProcess);
+
+            if ($currentBranchProcess->isSuccessful()) {
+                $pushProcess = $this->runCommand(['git', 'push', '--force', 'origin', "HEAD:{$autoPushBranch}"], $repoPath);
+                $commandsOutput[] = $this->formatProcess("git push --force origin HEAD:{$autoPushBranch}", $pushProcess);
+
+                if ($pushProcess->isSuccessful()) {
+                    $message .= " Поточний стан також запушено на origin/{$autoPushBranch}.";
+                    
+                    // Track auto-push usage
+                    BranchUsageHistory::trackUsage(
+                        $autoPushBranch,
+                        'push',
+                        "Автоматичний пуш після оновлення на віддалену гілку {$autoPushBranch}"
+                    );
+
+                    // Update backup branch record
+                    $newCommitProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
+                    if ($newCommitProcess->isSuccessful()) {
+                        $newCommit = trim($newCommitProcess->getOutput());
+                        BackupBranch::updateOrCreate(
+                            ['name' => $autoPushBranch],
+                            [
+                                'commit_hash' => $newCommit,
+                                'pushed_at' => now(),
+                            ]
+                        );
+                    }
+                } else {
+                    $message .= " Проте не вдалося запушити на origin/{$autoPushBranch}.";
+                }
+            }
         }
 
         return $this->redirectWithFeedback('success', $message, $commandsOutput);
