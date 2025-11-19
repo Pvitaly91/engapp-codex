@@ -2013,7 +2013,8 @@ class SeedRunController extends Controller
         $profile = $this->describeSeederData($seedRun->class_name);
 
         try {
-            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile, $className) {
+            // Delete old data in a transaction
+            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
                 $classNames = collect([$seedRun->class_name]);
 
                 // Delete old data
@@ -2029,15 +2030,15 @@ class SeedRunController extends Controller
                     $deletedBlocks = $pageResult['blocks'];
                     $deletedPages = $pageResult['pages_deleted'];
                 }
-
-                // Re-run the seeder
-                Artisan::call('db:seed', ['--class' => $className]);
-
-                // Update the ran_at timestamp
-                DB::table('seed_runs')
-                    ->where('id', $seedRun->id)
-                    ->update(['ran_at' => now()]);
             });
+
+            // Re-run the seeder outside the transaction
+            Artisan::call('db:seed', ['--class' => $className]);
+
+            // Update the ran_at timestamp
+            DB::table('seed_runs')
+                ->where('id', $seedRun->id)
+                ->update(['ran_at' => now()]);
         } catch (\Throwable $exception) {
             report($exception);
 
