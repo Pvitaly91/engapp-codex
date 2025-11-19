@@ -16,7 +16,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
 {
     public function run(): void
     {
-        $categoryId = Category::firstOrCreate(['name' => 'AI Past Perfect Comprehensive Test'])->id; 
+        $categoryId = Category::firstOrCreate(['name' => 'AI Past Perfect Comprehensive Test'])->id;
 
         $sectionSources = [
             'A' => Source::firstOrCreate(['name' => 'AI Past Perfect Comprehensive Test — Section A'])->id,
@@ -39,17 +39,17 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
         ];
 
         $detailTagDefinitions = [
-            'by_the_time_completion'      => 'By the Time Prior Completion',
-            'before_clause_completion'    => 'Before-Clause Prior Completion',
-            'duration_before_event'       => 'Duration Before Another Event',
-            'cause_duration_because'      => 'Because-Clause Duration Cause',
-            'cause_result_completion'     => 'Because-Clause Result Focus',
-            'missing_information_cause'   => 'Missing Information Cause',
-            'negative_experience_before'  => 'Negative Experience Before Event',
-            'already_completion'          => 'Already Completed Before Event',
-            'wrong_choice_consequence'    => 'Wrong Choice Consequence',
-            'resulting_state_after_time'  => 'Resulting State After Long Action',
-            'negative_cause_continuous'   => 'Negative Continuous Cause Statement',
+            'by_the_time_completion' => 'By the Time Prior Completion',
+            'before_clause_completion' => 'Before-Clause Prior Completion',
+            'duration_before_event' => 'Duration Before Another Event',
+            'cause_duration_because' => 'Because-Clause Duration Cause',
+            'cause_result_completion' => 'Because-Clause Result Focus',
+            'missing_information_cause' => 'Missing Information Cause',
+            'negative_experience_before' => 'Negative Experience Before Event',
+            'already_completion' => 'Already Completed Before Event',
+            'wrong_choice_consequence' => 'Wrong Choice Consequence',
+            'resulting_state_after_time' => 'Resulting State After Long Action',
+            'negative_cause_continuous' => 'Negative Continuous Cause Statement',
         ];
 
         $detailTags = [];
@@ -57,11 +57,32 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
             $detailTags[$key] = Tag::firstOrCreate(['name' => $name], ['category' => 'Grammar Detail'])->id;
         }
 
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status']);
+
+        $verbHintChangeTags = [
+            'past action' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (verb) → new verb_hint: (past action)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'past negative' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (not/verb) → new verb_hint: (past negative)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'never before' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (never/verb) → new verb_hint: (never before)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'past question' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (subject/verb) → new verb_hint: (past question)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+        ];
+
         $questionData = [
             'A' => [
                 [
                     'question' => 'By the time the train arrived, we {a1} our tickets.',
-                    'verb_hint' => ['a1' => '(buy)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['bought', 'had bought', 'were buying'],
                     'answers' => ['a1' => 'had bought'],
                     'explanations' => [
@@ -78,7 +99,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'She {a1} the book before the teacher asked for it.',
-                    'verb_hint' => ['a1' => '(finish)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['finished', 'had finished', 'was finishing'],
                     'answers' => ['a1' => 'had finished'],
                     'explanations' => [
@@ -95,7 +116,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'They {a1} the letter before I opened the door.',
-                    'verb_hint' => ['a1' => '(write)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['wrote', 'had written', 'were writing'],
                     'answers' => ['a1' => 'had written'],
                     'explanations' => [
@@ -112,7 +133,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'He {a1} his homework before he went out to play.',
-                    'verb_hint' => ['a1' => '(complete)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['completed', 'had completed', 'was completing'],
                     'answers' => ['a1' => 'had completed'],
                     'explanations' => [
@@ -129,7 +150,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'I {a1} dinner before my parents came home.',
-                    'verb_hint' => ['a1' => '(prepare)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['prepared', 'had prepared', 'was preparing'],
                     'answers' => ['a1' => 'had prepared'],
                     'explanations' => [
@@ -148,7 +169,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
             'B' => [
                 [
                     'question' => 'She {a1} for the bus for twenty minutes before it finally came.',
-                    'verb_hint' => ['a1' => '(wait)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['was waiting', 'had waited', 'had been waiting'],
                     'answers' => ['a1' => 'had been waiting'],
                     'explanations' => [
@@ -165,7 +186,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'They {a1} English for two years before they moved to London.',
-                    'verb_hint' => ['a1' => '(study)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['studied', 'had studied', 'had been studying'],
                     'answers' => ['a1' => 'had been studying'],
                     'explanations' => [
@@ -182,7 +203,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'We {a1} for hours when the rain finally stopped.',
-                    'verb_hint' => ['a1' => '(walk)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['walked', 'had walked', 'had been walking'],
                     'answers' => ['a1' => 'had been walking'],
                     'explanations' => [
@@ -199,7 +220,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'He {a1} the piano all afternoon before his friends visited him.',
-                    'verb_hint' => ['a1' => '(play)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['played', 'had played', 'had been playing'],
                     'answers' => ['a1' => 'had been playing'],
                     'explanations' => [
@@ -216,7 +237,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'I {a1} to call you for days before you finally answered.',
-                    'verb_hint' => ['a1' => '(try)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['tried', 'had tried', 'had been trying'],
                     'answers' => ['a1' => 'had been trying'],
                     'explanations' => [
@@ -235,7 +256,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
             'C' => [
                 [
                     'question' => 'By the time I met him, he {a1} in that company for ten years.',
-                    'verb_hint' => ['a1' => '(work)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['worked', 'had worked', 'had been working'],
                     'answers' => ['a1' => 'had been working'],
                     'explanations' => [
@@ -252,7 +273,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'They were tired because they {a1} the house all day.',
-                    'verb_hint' => ['a1' => '(clean)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['cleaned', 'had cleaned', 'had been cleaning'],
                     'answers' => ['a1' => 'had been cleaning'],
                     'explanations' => [
@@ -269,7 +290,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'She was upset because she {a1} the message earlier.',
-                    'verb_hint' => ['a1' => '(not/receive)'],
+                    'verb_hint' => ['a1' => '(past negative)'],
                     'options' => ['had not received', 'did not receive', 'was not receiving'],
                     'answers' => ['a1' => 'had not received'],
                     'explanations' => [
@@ -286,7 +307,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'The streets were wet because it {a1} all night.',
-                    'verb_hint' => ['a1' => '(rain)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['rained', 'had rained', 'had been raining'],
                     'answers' => ['a1' => 'had been raining'],
                     'explanations' => [
@@ -303,7 +324,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'I {a1} him before he moved abroad.',
-                    'verb_hint' => ['a1' => '(never/meet)'],
+                    'verb_hint' => ['a1' => '(never before)'],
                     'options' => ['never met', 'had never met', 'was never meeting'],
                     'answers' => ['a1' => 'had never met'],
                     'explanations' => [
@@ -494,7 +515,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
             'E' => [
                 [
                     'question' => 'By the time I got home, my sister {a1} dinner.',
-                    'verb_hint' => ['a1' => '(cook)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['cooked', 'had cooked', 'was cooking'],
                     'answers' => ['a1' => 'had cooked'],
                     'explanations' => [
@@ -511,7 +532,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'She was upset because she {a1} the message.',
-                    'verb_hint' => ['a1' => '(not/receive)'],
+                    'verb_hint' => ['a1' => '(past negative)'],
                     'options' => ['did not receive', 'had not received', 'was not receiving'],
                     'answers' => ['a1' => 'had not received'],
                     'explanations' => [
@@ -528,7 +549,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => '{a1} your homework before you went out?',
-                    'verb_hint' => ['a1' => '(you/finish)'],
+                    'verb_hint' => ['a1' => '(past question)'],
                     'options' => ['Did you finish', 'Had you finished', 'Were you finishing'],
                     'answers' => ['a1' => 'Had you finished'],
                     'explanations' => [
@@ -547,7 +568,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
             'F' => [
                 [
                     'question' => 'She was tired because she {a1} all night.',
-                    'verb_hint' => ['a1' => '(study)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['had studied', 'had been studying', 'was studying'],
                     'answers' => ['a1' => 'had been studying'],
                     'explanations' => [
@@ -564,7 +585,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'They were wet because they {a1} in the rain.',
-                    'verb_hint' => ['a1' => '(not/play)'],
+                    'verb_hint' => ['a1' => '(past negative)'],
                     'options' => ['had not played', 'had not been playing', 'did not play'],
                     'answers' => ['a1' => 'had not been playing'],
                     'explanations' => [
@@ -581,7 +602,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => '{a1} for a long time before the bus arrived?',
-                    'verb_hint' => ['a1' => '(they/wait)'],
+                    'verb_hint' => ['a1' => '(past question)'],
                     'options' => ['Had they been waiting', 'Were they waiting', 'Did they wait'],
                     'answers' => ['a1' => 'Had they been waiting'],
                     'explanations' => [
@@ -600,7 +621,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
             'G' => [
                 [
                     'question' => 'He was tired because he {a1} all day.',
-                    'verb_hint' => ['a1' => '(work)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['worked', 'had worked', 'had been working'],
                     'answers' => ['a1' => 'had been working'],
                     'explanations' => [
@@ -617,7 +638,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'Her clothes were dirty because she {a1} in the garden.',
-                    'verb_hint' => ['a1' => '(play)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['played', 'had played', 'had been playing'],
                     'answers' => ['a1' => 'had been playing'],
                     'explanations' => [
@@ -634,7 +655,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'The ground was wet because it {a1} all night.',
-                    'verb_hint' => ['a1' => '(rain)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['rained', 'had rained', 'had been raining'],
                     'answers' => ['a1' => 'had been raining'],
                     'explanations' => [
@@ -651,7 +672,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'She lost her voice because she {a1} for hours.',
-                    'verb_hint' => ['a1' => '(sing)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['sang', 'had sung', 'had been singing'],
                     'answers' => ['a1' => 'had been singing'],
                     'explanations' => [
@@ -668,7 +689,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 ],
                 [
                     'question' => 'They were late because they {a1} the wrong way.',
-                    'verb_hint' => ['a1' => '(drive)'],
+                    'verb_hint' => ['a1' => '(past action)'],
                     'options' => ['drove', 'had driven', 'had been driving'],
                     'answers' => ['a1' => 'had been driving'],
                     'explanations' => [
@@ -706,7 +727,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
             }
         }
 
-        $service = new QuestionSeedingService();
+        $service = new QuestionSeedingService;
         $items = [];
         $meta = [];
 
@@ -738,6 +759,16 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
                 }
                 foreach ($question['detail_tags'] as $detailKey) {
                     $tagIds[] = $detailTags[$detailKey];
+                }
+
+                // Add fixed tag and verb_hint change tags
+                $verbHintValue = $question['verb_hint']['a1'] ?? null;
+                if ($verbHintValue !== null) {
+                    $verbHintClean = trim($verbHintValue, '()');
+                    if (isset($verbHintChangeTags[$verbHintClean])) {
+                        $tagIds[] = $fixedTag->id;
+                        $tagIds[] = $verbHintChangeTags[$verbHintClean];
+                    }
                 }
 
                 $items[] = [
@@ -814,7 +845,7 @@ class PastPerfectComprehensiveAiSeeder extends Seeder
 
         $parts = [];
         foreach ($hints as $marker => $text) {
-            $parts[] = '{' . $marker . '} ' . ltrim($text);
+            $parts[] = '{'.$marker.'} '.ltrim($text);
         }
 
         return implode("\n", $parts);

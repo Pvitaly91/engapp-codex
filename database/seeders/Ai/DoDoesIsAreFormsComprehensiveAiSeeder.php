@@ -222,6 +222,59 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'future_be_usage' => Tag::firstOrCreate(['name' => 'Future Simple To Be Choice'], ['category' => 'English Grammar Detail'])->id,
         ];
 
+        $fixedTagId = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status'])->id;
+
+        $verbHintChangeTags = [
+            'auxiliary needed' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: auxiliary needed'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'negation form' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: negation form'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'state or description' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: state or description'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'negative state' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: negative state'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'past auxiliary' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: past auxiliary'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'past negation' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: past negation'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'past state' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: past state'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'past negative state' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: past negative state'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'future auxiliary' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: future auxiliary'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'future negation' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: future negation'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'future state' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: future state'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'future negative state' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: to be → new verb_hint: future negative state'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+        ];
+
         $patternConfig = [
             'present_do_question' => [
                 'section' => 'present',
@@ -229,7 +282,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ['do', 'does', 'am', 'is', 'are'],
                 'detail' => 'present_do_usage',
                 'hint_short' => 'Present Simple question',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'auxiliary needed',
                 'tense_label' => 'Present Simple',
                 'markers' => 'every day, usually, often',
             ],
@@ -239,7 +292,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ["don't", "doesn't", 'am not', "isn't", 'are not'],
                 'detail' => 'present_do_usage',
                 'hint_short' => 'Present Simple negative',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'negation form',
                 'tense_label' => 'Present Simple',
                 'markers' => 'never, usually, at weekends',
             ],
@@ -249,7 +302,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ['am', 'is', 'are', 'do'],
                 'detail' => 'present_be_usage',
                 'hint_short' => 'To be question (present)',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'state or description',
                 'tense_label' => 'Present Simple',
                 'markers' => 'now, today, at the moment',
             ],
@@ -259,7 +312,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ['am not', "isn't", "aren't", "don't"],
                 'detail' => 'present_be_usage',
                 'hint_short' => 'To be negative (present)',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'negative state',
                 'tense_label' => 'Present Simple',
                 'markers' => 'now, today, these days',
             ],
@@ -269,7 +322,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ['did', 'do', 'does', 'was'],
                 'detail' => 'past_do_usage',
                 'hint_short' => 'Past Simple question',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'past auxiliary',
                 'tense_label' => 'Past Simple',
                 'markers' => 'yesterday, last night, ago',
             ],
@@ -279,7 +332,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ["didn't", "don't", "doesn't", "wasn't"],
                 'detail' => 'past_do_usage',
                 'hint_short' => 'Past Simple negative',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'past negation',
                 'tense_label' => 'Past Simple',
                 'markers' => 'yesterday, last week, ago',
             ],
@@ -289,7 +342,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ['was', 'were', 'is', 'are'],
                 'detail' => 'past_be_usage',
                 'hint_short' => 'To be question (past)',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'past state',
                 'tense_label' => 'Past Simple',
                 'markers' => 'yesterday, last night, last year',
             ],
@@ -299,7 +352,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ["wasn't", "weren't", "isn't", "aren't"],
                 'detail' => 'past_be_usage',
                 'hint_short' => 'To be negative (past)',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'past negative state',
                 'tense_label' => 'Past Simple',
                 'markers' => 'yesterday, last week, ago',
             ],
@@ -309,7 +362,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ['will', 'will be', 'will not', "won't", 'do', 'does', 'did'],
                 'detail' => 'future_do_usage',
                 'hint_short' => 'Future Simple question',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'future auxiliary',
                 'tense_label' => 'Future Simple',
                 'markers' => 'tomorrow, next week, soon',
             ],
@@ -319,7 +372,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ["won't", 'will not', 'will', "won't be", 'do', 'does', 'did'],
                 'detail' => 'future_do_usage',
                 'hint_short' => 'Future Simple negative',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'future negation',
                 'tense_label' => 'Future Simple',
                 'markers' => 'tomorrow, next month, later',
             ],
@@ -329,7 +382,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ['will be', 'will', 'will not', "won't", 'is', 'are', 'was'],
                 'detail' => 'future_be_usage',
                 'hint_short' => 'To be question (future)',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'future state',
                 'tense_label' => 'Future Simple',
                 'markers' => 'tomorrow, next week, soon',
             ],
@@ -339,12 +392,12 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'option_pool' => ["won't be", 'will not be', 'will be', "won't", 'is', 'are', 'was'],
                 'detail' => 'future_be_usage',
                 'hint_short' => 'To be negative (future)',
-                'verb_hint' => 'to be',
+                'verb_hint' => 'future negative state',
                 'tense_label' => 'Future Simple',
                 'markers' => 'tomorrow, next year, later',
             ],
         ];
- 
+
         $structureTags = [];
         foreach ($patternConfig as $config) {
             $label = $config['hint_short'];
@@ -526,7 +579,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                 'section' => $config['section'],
                 'detail' => $config['detail'],
                 'question' => $entry['question'],
-                'verb_hint' => ['a1' => '(' . $config['verb_hint'] . ')'],
+                'verb_hint' => ['a1' => '('.$config['verb_hint'].')'],
                 'options' => $options,
                 'answers' => ['a1' => $answer],
                 'explanations' => $this->buildExplanations($entry['pattern'], $entry, $options, $answer, $example, $config['tense_label']),
@@ -593,7 +646,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
                     $optionMarkerMap[$answer] = $marker;
                 }
 
-                $tagIds = [$themeTags[$sectionKey]];
+                $tagIds = [$themeTags[$sectionKey], $fixedTagId];
                 $detailKey = $question['detail'] ?? null;
                 if ($detailKey !== null && isset($detailTags[$detailKey])) {
                     $tagIds[] = $detailTags[$detailKey];
@@ -605,6 +658,13 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
 
                 foreach ($question['tense'] as $tenseName) {
                     $tagIds[] = $tenseTags[$tenseName];
+                }
+
+                // Add verb_hint change tag
+                $verbHintValue = $question['verb_hint']['a1'] ?? '';
+                $verbHintClean = trim($verbHintValue, '()');
+                if (isset($verbHintChangeTags[$verbHintClean])) {
+                    $tagIds[] = $verbHintChangeTags[$verbHintClean];
                 }
 
                 $items[] = [
@@ -849,7 +909,7 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
             'future_do_negative' => "✅ «{$answer}» правильно, бо заперечення у {$tenseLabel} утворюємо як «will not».  \nПриклад: *{$example}*",
             'future_be_question' => "✅ «{$answer}» правильно, бо стан у майбутньому передається конструкцією «will + be».  \nПриклад: *{$example}*",
             'future_be_negative' => "✅ «{$answer}» правильно, бо заперечення майбутнього стану формуємо через «will not be».  \nПриклад: *{$example}*",
-            default => "✅" ,
+            default => '✅' ,
         };
     }
 
@@ -1225,10 +1285,9 @@ class DoDoesIsAreFormsComprehensiveAiSeeder extends QuestionSeeder
         return match ($category) {
             'i' => 'займенника «I»',
             'you' => 'займенника «you»',
-            'third_singular' => 'третьої особи однини (наприклад, «' . $subject . '»)',
-            'plural' => 'множини (наприклад, «' . $subject . '»)',
-            default => 'підмета «' . $subject . '»',
+            'third_singular' => 'третьої особи однини (наприклад, «'.$subject.'»)',
+            'plural' => 'множини (наприклад, «'.$subject.'»)',
+            default => 'підмета «'.$subject.'»',
         };
     }
-
 }

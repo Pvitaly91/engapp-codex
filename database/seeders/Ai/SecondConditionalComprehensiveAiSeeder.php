@@ -6,9 +6,9 @@ use App\Models\Category;
 use App\Models\Source;
 use App\Models\Tag;
 use Database\Seeders\QuestionSeeder;
- 
+
 class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
-{ 
+{
     private array $levelDifficulty = [
         'A1' => 1,
         'A2' => 2,
@@ -16,8 +16,8 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
         'B2' => 4,
         'C1' => 5,
         'C2' => 5,
-    ]; 
-    
+    ];
+
     private array $hintTemplates = [
         'if_past_simple' => "Час: Second Conditional.\nФормула: **if + Past Simple**.\nПояснення: Умовна частина описує нереальну ситуацію, тому дієслово ставимо у Past Simple (наприклад, від «%verb%» беремо минулу форму).\nПриклад: *%example%*",
         'if_were' => "Час: Second Conditional.\nФормула: **if + were** для всіх осіб.\nПояснення: З дієсловом to be у другому умовному використовуємо «were», навіть із «I» або «she».\nПриклад: *%example%*",
@@ -90,7 +90,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'AI Second Conditional'])->id;
- 
+
         $sourceMap = [
             'negative_past' => Source::firstOrCreate(['name' => 'AI Second Conditional Negative Past'])->id,
             'negative_present' => Source::firstOrCreate(['name' => 'AI Second Conditional Negative Present'])->id,
@@ -119,6 +119,39 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             ['name' => 'Second Conditional'],
             ['category' => 'English Grammar Tense']
         )->id;
+
+        $fixedTag = Tag::firstOrCreate(['name' => 'fixed'], ['category' => 'Question Status']);
+
+        $verbHintChangeTags = [
+            'if_past_simple' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (verb) → new verb_hint: (if-clause verb)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'if_were' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: be → new verb_hint: (if-clause state)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'if_modal_could' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: can → new verb_hint: (if-clause ability)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'result_would_simple' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (verb) → new verb_hint: (result action)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'result_would_negative' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (not verb) → new verb_hint: (negative result)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'result_would_be_able' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (verb) → new verb_hint: (result ability)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+            'result_would_have_to' => Tag::firstOrCreate(
+                ['name' => 'old verb_hint: (verb) → new verb_hint: (result obligation)'],
+                ['category' => 'Seeder Fix Notes']
+            )->id,
+        ];
 
         $entries = $this->questionEntries();
 
@@ -190,6 +223,22 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
 
             $uuid = $this->generateQuestionUuid($index + 1, $entry['question']);
 
+            // Add fixed tag and verb_hint change tags
+            $tagIds = [$themeTagId, $detailTagId, $structureTagId, $tenseTagId, $fixedTag->id];
+
+            // Collect unique marker types for this question
+            $markerTypes = [];
+            foreach ($entry['markers'] as $markerData) {
+                if (isset($markerData['type']) && isset($verbHintChangeTags[$markerData['type']])) {
+                    $markerTypes[$markerData['type']] = true;
+                }
+            }
+
+            // Add tags for each unique marker type
+            foreach (array_keys($markerTypes) as $type) {
+                $tagIds[] = $verbHintChangeTags[$type];
+            }
+
             $items[] = [
                 'uuid' => $uuid,
                 'question' => $entry['question'],
@@ -198,7 +247,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
                 'source_id' => $sourceMap[$entry['group']] ?? null,
                 'flag' => 2,
                 'level' => $entry['level'],
-                'tag_ids' => array_values(array_unique([$themeTagId, $detailTagId, $structureTagId, $tenseTagId])),
+                'tag_ids' => array_values(array_unique($tagIds)),
                 'answers' => $answers,
                 'options' => $flatOptions,
                 'variants' => [],
@@ -1689,8 +1738,8 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             $options = [
                 ['value' => $answer, 'reason' => 'correct'],
                 ['value' => $verb, 'reason' => 'present_simple'],
-                ['value' => $verb . 's', 'reason' => 'third_person'],
-                ['value' => 'had ' . $answer, 'reason' => 'past_perfect'],
+                ['value' => $verb.'s', 'reason' => 'third_person'],
+                ['value' => 'had '.$answer, 'reason' => 'past_perfect'],
             ];
         }
 
@@ -1698,7 +1747,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             'type' => 'if_past_simple',
             'subject' => $subject,
             'verb' => $verb,
-            'verb_hint' => $hint ?? $verb,
+            'verb_hint' => $hint ?? '(if-clause verb)',
             'answer' => $answer,
             'options' => $options,
         ];
@@ -1719,7 +1768,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             'type' => 'if_were',
             'subject' => $subject,
             'verb' => 'be',
-            'verb_hint' => $hint ?? 'be',
+            'verb_hint' => $hint ?? '(if-clause state)',
             'answer' => 'were',
             'options' => $options,
         ];
@@ -1740,7 +1789,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             'type' => 'if_modal_could',
             'subject' => $subject,
             'verb' => $verb,
-            'verb_hint' => $hint ?? 'can',
+            'verb_hint' => $hint ?? '(if-clause ability)',
             'answer' => 'could',
             'options' => $options,
         ];
@@ -1759,9 +1808,9 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             } else {
                 $options = [
                     ['value' => $answer, 'reason' => 'correct'],
-                    ['value' => $verb . 's', 'reason' => 'third_person'],
-                    ['value' => 'will ' . $verb, 'reason' => 'first_conditional'],
-                    ['value' => $verb . 'ed', 'reason' => 'past_simple'],
+                    ['value' => $verb.'s', 'reason' => 'third_person'],
+                    ['value' => 'will '.$verb, 'reason' => 'first_conditional'],
+                    ['value' => $verb.'ed', 'reason' => 'past_simple'],
                 ];
             }
         }
@@ -1770,7 +1819,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             'type' => 'result_would_simple',
             'subject' => $subject,
             'verb' => $verb,
-            'verb_hint' => $hint ?? $verb,
+            'verb_hint' => $hint ?? '(result action)',
             'answer' => $answer,
             'options' => $options,
         ];
@@ -1783,7 +1832,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
                 ['value' => $answer, 'reason' => 'correct'],
                 ['value' => str_replace('would not', 'will not', $answer), 'reason' => 'first_conditional'],
                 ['value' => $verb, 'reason' => 'present_simple'],
-                ['value' => 'would be ' . $verb . 'ing', 'reason' => 'continuous'],
+                ['value' => 'would be '.$verb.'ing', 'reason' => 'continuous'],
             ];
         }
 
@@ -1791,7 +1840,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             'type' => 'result_would_negative',
             'subject' => $subject,
             'verb' => $verb,
-            'verb_hint' => $hint ?? ('not ' . $verb),
+            'verb_hint' => $hint ?? '(negative result)',
             'answer' => $answer,
             'options' => $options,
         ];
@@ -1812,7 +1861,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             'type' => 'result_would_be_able',
             'subject' => $subject,
             'verb' => $verb,
-            'verb_hint' => $hint ?? $verb,
+            'verb_hint' => $hint ?? '(result ability)',
             'answer' => $answer,
             'options' => $options,
         ];
@@ -1833,7 +1882,7 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
             'type' => 'result_would_have_to',
             'subject' => $subject,
             'verb' => $verb,
-            'verb_hint' => $hint ?? $verb,
+            'verb_hint' => $hint ?? '(result obligation)',
             'answer' => $answer,
             'options' => $options,
         ];
@@ -1847,8 +1896,8 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
     private function baseVerbOptions(string $verb, string $past): array
     {
         return [
-            ['value' => 'would ' . $verb, 'reason' => 'correct'],
-            ['value' => 'will ' . $verb, 'reason' => 'first_conditional'],
+            ['value' => 'would '.$verb, 'reason' => 'correct'],
+            ['value' => 'will '.$verb, 'reason' => 'first_conditional'],
             ['value' => $verb, 'reason' => 'present_simple'],
             ['value' => $past, 'reason' => 'past_simple'],
         ];
@@ -1857,10 +1906,10 @@ class SecondConditionalComprehensiveAiSeeder extends QuestionSeeder
     private function negativeHaveToOptions(string $verb): array
     {
         return [
-            ['value' => 'would not have to ' . $verb, 'reason' => 'correct'],
-            ['value' => 'will not have to ' . $verb, 'reason' => 'first_conditional'],
-            ['value' => 'have to ' . $verb, 'reason' => 'present_simple'],
-            ['value' => 'would have had to ' . $verb, 'reason' => 'third_conditional'],
+            ['value' => 'would not have to '.$verb, 'reason' => 'correct'],
+            ['value' => 'will not have to '.$verb, 'reason' => 'first_conditional'],
+            ['value' => 'have to '.$verb, 'reason' => 'present_simple'],
+            ['value' => 'would have had to '.$verb, 'reason' => 'third_conditional'],
         ];
     }
 }
