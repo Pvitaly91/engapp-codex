@@ -1951,6 +1951,143 @@ class SeedRunController extends Controller
             ->with('status', $status);
     }
 
+    public function refresh(Request $request, int $seedRunId): RedirectResponse|JsonResponse
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            $errorMessage = __('The seed_runs table does not exist.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['refresh' => $errorMessage]);
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            $errorMessage = __('Seed run record was not found.');
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['refresh' => $errorMessage]);
+        }
+
+        $className = $seedRun->class_name;
+
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            $errorMessage = __('Seeder :class was not found.', ['class' => $className]);
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 404);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['refresh' => $errorMessage]);
+        }
+
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $this->isInstantiableSeeder($className, $filePath)) {
+            $errorMessage = __('Seeder :class cannot be executed.', ['class' => $className]);
+            
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $errorMessage], 422);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['refresh' => $errorMessage]);
+        }
+
+        $deletedQuestions = 0;
+        $deletedBlocks = 0;
+        $deletedPages = 0;
+        $profile = $this->describeSeederData($seedRun->class_name);
+
+        try {
+            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile, $className) {
+                $classNames = collect([$seedRun->class_name]);
+
+                // Delete old data
+                if ($profile['type'] === 'questions') {
+                    $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
+                } elseif ($profile['type'] === 'pages') {
+                    $pageResult = $this->deletePageContentForSeeders($classNames);
+                    $deletedBlocks = $pageResult['blocks'];
+                    $deletedPages = $pageResult['pages_deleted'];
+                } else {
+                    $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
+                    $pageResult = $this->deletePageContentForSeeders($classNames);
+                    $deletedBlocks = $pageResult['blocks'];
+                    $deletedPages = $pageResult['pages_deleted'];
+                }
+
+                // Re-run the seeder
+                Artisan::call('db:seed', ['--class' => $className]);
+
+                // Update the ran_at timestamp
+                DB::table('seed_runs')
+                    ->where('id', $seedRun->id)
+                    ->update(['ran_at' => now()]);
+            });
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            if ($request->wantsJson()) {
+                return response()->json(['message' => $exception->getMessage()], 500);
+            }
+
+            return redirect()
+                ->route('seed-runs.index')
+                ->withErrors(['refresh' => $exception->getMessage()]);
+        }
+
+        $status = match ($profile['type']) {
+            'pages' => __('Refreshed seeder :class. Deleted :blocks text block(s) and regenerated content.', [
+                'class' => $seedRun->class_name,
+                'blocks' => $deletedBlocks,
+            ]) . ($deletedPages > 0
+                ? ' ' . __('Deleted :count page record(s).', ['count' => $deletedPages])
+                : ''),
+            'questions' => __('Refreshed seeder :class. Deleted :count question(s) and regenerated them.', [
+                'class' => $seedRun->class_name,
+                'count' => $deletedQuestions,
+            ]),
+            default => __('Refreshed seeder :class. Data has been regenerated.', [
+                'class' => $seedRun->class_name,
+            ]),
+        };
+
+        if ($request->wantsJson()) {
+            $overview = $this->assembleSeedRunOverview();
+            
+            return response()->json([
+                'message' => $status,
+                'seed_run_id' => $seedRunId,
+                'class_name' => $seedRun->class_name,
+                'questions_deleted' => $deletedQuestions,
+                'blocks_deleted' => $deletedBlocks,
+                'pages_deleted' => $deletedPages,
+                'overview' => [
+                    'pending_count' => $overview['pendingSeeders']->count(),
+                    'executed_count' => $overview['executedSeeders']->count(),
+                ],
+            ]);
+        }
+
+        return redirect()
+            ->route('seed-runs.index')
+            ->with('status', $status);
+    }
+
     public function destroyFolder(Request $request): RedirectResponse|JsonResponse
     {
         if (! Schema::hasTable('seed_runs')) {
