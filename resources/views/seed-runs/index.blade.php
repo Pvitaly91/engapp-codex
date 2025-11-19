@@ -88,14 +88,15 @@
                             </button>
                         @endif
                     </div>
+                    <div id="pending-seeders-container">
                     @if($pendingSeeders->isEmpty())
                         <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
                     @else
-                        <ul class="space-y-3">
+                        <ul class="space-y-3" id="pending-seeders-list">
                             @foreach($pendingSeeders as $pendingSeeder)
                                 @php($pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name))
                                 @php($pendingActionsId = $pendingCheckboxId . '-actions')
-                                <li class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                <li class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" data-pending-seeder data-class-name="{{ $pendingSeeder->class_name }}">
                                     <div class="flex items-center gap-3 sm:flex-1">
                                         <input type="checkbox"
                                                id="{{ $pendingCheckboxId }}"
@@ -176,6 +177,7 @@
                             @endforeach
                         </ul>
                     @endif
+                    </div>
                 </div>
 
                 <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
@@ -1301,10 +1303,8 @@
 
                     showFeedback(successMessage, 'success');
 
-                    // Reload the page to update the UI
-                    window.setTimeout(function () {
-                        window.location.reload();
-                    }, 500);
+                    // Update UI dynamically based on operation type
+                    handleUIUpdate(form, payload);
                 } catch (error) {
                     const message = error && typeof error.message === 'string' && error.message
                         ? error.message
@@ -1314,6 +1314,97 @@
                 } finally {
                     if (preloader) {
                         preloader.classList.add('hidden');
+                    }
+                }
+            };
+
+            const handleUIUpdate = function (form, payload) {
+                // Get the class name from form if available
+                const classNameInput = form.querySelector('[name="class_name"]');
+                const className = classNameInput ? classNameInput.value : null;
+
+                // Check if this is a seeder removal operation
+                if (payload.seeder_removed || payload.seeder_moved) {
+                    // Find and remove the seeder's list item from pending section
+                    if (className) {
+                        const seederListItem = document.querySelector('[data-pending-seeder][data-class-name="' + className + '"]');
+                        
+                        if (seederListItem) {
+                            seederListItem.style.opacity = '0';
+                            seederListItem.style.transition = 'opacity 0.3s ease';
+                            
+                            window.setTimeout(function () {
+                                seederListItem.remove();
+                                checkPendingListEmpty();
+                            }, 300);
+                        }
+                    }
+                }
+
+                // Handle bulk operations (multiple class names)
+                if (payload.removed_class_names && Array.isArray(payload.removed_class_names)) {
+                    payload.removed_class_names.forEach(function (className) {
+                        const seederListItem = document.querySelector('[data-pending-seeder][data-class-name="' + className + '"]');
+                        
+                        if (seederListItem) {
+                            seederListItem.style.opacity = '0';
+                            seederListItem.style.transition = 'opacity 0.3s ease';
+                            
+                            window.setTimeout(function () {
+                                seederListItem.remove();
+                            }, 300);
+                        }
+                    });
+
+                    // Check if pending list is now empty after bulk delete
+                    window.setTimeout(function () {
+                        checkPendingListEmpty();
+                    }, 400);
+                }
+
+                // Handle seed run deletion (from executed section)
+                if (payload.seed_run_id) {
+                    const seederNode = document.querySelector('[data-seeder-node][data-seed-run-id="' + payload.seed_run_id + '"]');
+                    
+                    if (seederNode) {
+                        seederNode.style.opacity = '0';
+                        seederNode.style.transition = 'opacity 0.3s ease';
+                        
+                        window.setTimeout(function () {
+                            seederNode.remove();
+                        }, 300);
+                    }
+                }
+
+                // Disable "Execute all" button if no more pending seeders
+                if (payload.overview && payload.overview.pending_count === 0) {
+                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                    if (executeAllButton) {
+                        executeAllButton.disabled = true;
+                    }
+                }
+
+                // Reset bulk delete checkboxes and disable button
+                updateAllBulkButtonStates();
+            };
+
+            const checkPendingListEmpty = function () {
+                const pendingList = document.getElementById('pending-seeders-list');
+                const pendingContainer = document.getElementById('pending-seeders-container');
+                
+                if (pendingList && pendingList.children.length === 0 && pendingContainer) {
+                    pendingContainer.innerHTML = '<p class="text-sm text-gray-500">Усі сидери вже виконані.</p>';
+                    
+                    // Disable and hide bulk delete button
+                    const bulkDeleteButton = document.querySelector('[data-bulk-delete-button][data-bulk-scope="pending"]');
+                    if (bulkDeleteButton && bulkDeleteButton.parentElement) {
+                        bulkDeleteButton.parentElement.remove();
+                    }
+                    
+                    // Disable "Execute all" button
+                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                    if (executeAllButton) {
+                        executeAllButton.disabled = true;
                     }
                 }
             };
