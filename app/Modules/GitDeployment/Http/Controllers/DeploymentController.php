@@ -115,12 +115,33 @@ class DeploymentController extends BaseController
 
         // Auto-push to branch if specified
         if ($autoPushBranch !== '') {
-            $currentBranchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], $repoPath);
-            $commandsOutput[] = $this->formatProcess('git rev-parse --abbrev-ref HEAD', $currentBranchProcess);
+            // Get current commit
+            $currentCommitProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
+            $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $currentCommitProcess);
 
-            if ($currentBranchProcess->isSuccessful()) {
-                $pushProcess = $this->runCommand(['git', 'push', '--force', 'origin', "HEAD:{$autoPushBranch}"], $repoPath);
-                $commandsOutput[] = $this->formatProcess("git push --force origin HEAD:{$autoPushBranch}", $pushProcess);
+            if ($currentCommitProcess->isSuccessful()) {
+                $currentCommit = trim($currentCommitProcess->getOutput());
+
+                // Check if branch exists locally
+                $branchListProcess = $this->runCommand(['git', 'branch', '--list', $autoPushBranch], $repoPath);
+                $commandsOutput[] = $this->formatProcess("git branch --list {$autoPushBranch}", $branchListProcess);
+
+                $branchExists = trim($branchListProcess->getOutput()) !== '';
+
+                if (! $branchExists) {
+                    // Create branch locally if it doesn't exist
+                    $createProcess = $this->runCommand(['git', 'branch', $autoPushBranch, $currentCommit], $repoPath);
+                    $commandsOutput[] = $this->formatProcess("git branch {$autoPushBranch} {$currentCommit}", $createProcess);
+
+                    if (! $createProcess->isSuccessful()) {
+                        $message .= " Проте не вдалося створити гілку {$autoPushBranch} локально.";
+                        return $this->redirectWithFeedback('success', $message, $commandsOutput);
+                    }
+                }
+
+                // Push branch to remote
+                $pushProcess = $this->runCommand(['git', 'push', '--force', 'origin', $autoPushBranch], $repoPath);
+                $commandsOutput[] = $this->formatProcess("git push --force origin {$autoPushBranch}", $pushProcess);
 
                 if ($pushProcess->isSuccessful()) {
                     $message .= " Поточний стан також запушено на origin/{$autoPushBranch}.";
@@ -133,17 +154,13 @@ class DeploymentController extends BaseController
                     );
 
                     // Update backup branch record
-                    $newCommitProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
-                    if ($newCommitProcess->isSuccessful()) {
-                        $newCommit = trim($newCommitProcess->getOutput());
-                        BackupBranch::updateOrCreate(
-                            ['name' => $autoPushBranch],
-                            [
-                                'commit_hash' => $newCommit,
-                                'pushed_at' => now(),
-                            ]
-                        );
-                    }
+                    BackupBranch::updateOrCreate(
+                        ['name' => $autoPushBranch],
+                        [
+                            'commit_hash' => $currentCommit,
+                            'pushed_at' => now(),
+                        ]
+                    );
                 } else {
                     $message .= " Проте не вдалося запушити на origin/{$autoPushBranch}.";
                 }
