@@ -45,7 +45,7 @@
     @if($feedback)
       @php
         $highlightSuccessfulUpdate = $feedback['status'] === 'success'
-          && \Illuminate\Support\Str::contains($feedback['message'], 'Сайт успішно оновлено до останнього стану гілки.');
+          && \Illuminate\Support\Str::startsWith($feedback['message'], 'Сайт успішно оновлено до останнього стану гілки.');
       @endphp
       @php
         $highlightShellUnavailable = $feedback['status'] === 'error'
@@ -123,26 +123,16 @@
           
           <div class="space-y-2">
             <label class="block text-sm font-medium" for="auto-push-branch">Автоматично запушити стан після оновлення до гілки (опціонально)</label>
-            <div class="relative">
-              <input 
-                id="auto-push-branch" 
-                type="text" 
-                name="auto_push_branch" 
-                list="backup-branches-list"
-                placeholder="Введіть назву або оберіть з існуючих гілок" 
-                class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" 
-              />
-              <datalist id="backup-branches-list">
-                @foreach($backupBranches as $branch)
-                  <option value="{{ $branch->name }}">
-                @endforeach
-              </datalist>
-              <button type="button" onclick="this.previousElementSibling.previousElementSibling.value=''; this.previousElementSibling.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-              </button>
-            </div>
+            <select 
+              id="auto-push-branch" 
+              name="auto_push_branch"
+              class="w-full rounded-2xl border border-input bg-background px-4 py-2"
+            >
+              <option value="">-- Оберіть гілку або введіть нову --</option>
+              @foreach($backupBranches as $branch)
+                <option value="{{ $branch->name }}">{{ $branch->name }}</option>
+              @endforeach
+            </select>
             <p class="text-xs text-muted-foreground">Якщо вказати гілку, після оновлення поточний стан буде автоматично запушено на цю гілку (буде створена, якщо не існує).</p>
           </div>
           
@@ -438,4 +428,5 @@
 
   @include('git-deployment::deployment.partials.backup-branch-copy-script')
   @include('git-deployment::deployment.partials.branch-history-toggle-script')
+  @include('git-deployment::deployment.partials.searchable-select-script')
 @endsection
