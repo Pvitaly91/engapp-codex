@@ -1327,16 +1327,12 @@
                 if (payload.seeder_removed || payload.seeder_moved) {
                     // Find and remove the seeder's list item from pending section
                     if (className) {
-                        const seederListItem = document.querySelector('[data-pending-seeder][data-class-name="' + className + '"]');
+                        const seederListItem = findSeederByClassName(className);
                         
                         if (seederListItem) {
-                            seederListItem.style.opacity = '0';
-                            seederListItem.style.transition = 'opacity 0.3s ease';
-                            
-                            window.setTimeout(function () {
-                                seederListItem.remove();
+                            fadeOutAndRemove(seederListItem, function () {
                                 checkPendingListEmpty();
-                            }, 300);
+                            });
                         }
                     }
                 }
@@ -1344,15 +1340,10 @@
                 // Handle bulk operations (multiple class names)
                 if (payload.removed_class_names && Array.isArray(payload.removed_class_names)) {
                     payload.removed_class_names.forEach(function (className) {
-                        const seederListItem = document.querySelector('[data-pending-seeder][data-class-name="' + className + '"]');
+                        const seederListItem = findSeederByClassName(className);
                         
                         if (seederListItem) {
-                            seederListItem.style.opacity = '0';
-                            seederListItem.style.transition = 'opacity 0.3s ease';
-                            
-                            window.setTimeout(function () {
-                                seederListItem.remove();
-                            }, 300);
+                            fadeOutAndRemove(seederListItem);
                         }
                     });
 
@@ -1364,15 +1355,10 @@
 
                 // Handle seed run deletion (from executed section)
                 if (payload.seed_run_id) {
-                    const seederNode = document.querySelector('[data-seeder-node][data-seed-run-id="' + payload.seed_run_id + '"]');
+                    const seederNode = findExecutedSeederById(payload.seed_run_id);
                     
                     if (seederNode) {
-                        seederNode.style.opacity = '0';
-                        seederNode.style.transition = 'opacity 0.3s ease';
-                        
-                        window.setTimeout(function () {
-                            seederNode.remove();
-                        }, 300);
+                        fadeOutAndRemove(seederNode);
                     }
                 }
 
@@ -1386,6 +1372,42 @@
 
                 // Reset bulk delete checkboxes and disable button
                 updateAllBulkButtonStates();
+            };
+
+            // Helper function to find seeder element by class name
+            const findSeederByClassName = function (className) {
+                // Find pending seeder by iterating through all pending seeders
+                const pendingSeeders = document.querySelectorAll('[data-pending-seeder]');
+                for (let i = 0; i < pendingSeeders.length; i++) {
+                    if (pendingSeeders[i].getAttribute('data-class-name') === className) {
+                        return pendingSeeders[i];
+                    }
+                }
+                return null;
+            };
+
+            // Helper function to find executed seeder by seed run ID
+            const findExecutedSeederById = function (seedRunId) {
+                const executedSeeders = document.querySelectorAll('[data-seeder-node]');
+                for (let i = 0; i < executedSeeders.length; i++) {
+                    if (executedSeeders[i].getAttribute('data-seed-run-id') === String(seedRunId)) {
+                        return executedSeeders[i];
+                    }
+                }
+                return null;
+            };
+
+            // Helper function to fade out and remove element
+            const fadeOutAndRemove = function (element, callback) {
+                element.style.opacity = '0';
+                element.style.transition = 'opacity 0.3s ease';
+                
+                window.setTimeout(function () {
+                    element.remove();
+                    if (callback) {
+                        callback();
+                    }
+                }, 300);
             };
 
             const checkPendingListEmpty = function () {
