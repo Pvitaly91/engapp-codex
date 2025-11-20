@@ -671,7 +671,14 @@
             });
 
             // Highlight the active tag button
-            const activeButton = document.querySelector(`[data-tag-filter="${CSS.escape(tagName)}"]`);
+            // Use attribute matching instead of CSS.escape for better compatibility
+            const allButtons = document.querySelectorAll('[data-tag-filter]');
+            let activeButton = null;
+            allButtons.forEach(btn => {
+                if (btn.getAttribute('data-tag-filter') === tagName) {
+                    activeButton = btn;
+                }
+            });
             if (activeButton) {
                 activeButton.classList.add('ring-2', 'ring-purple-500', 'ring-offset-2');
             }
@@ -780,8 +787,26 @@
         }
 
         function getPluralForm(count) {
-            if (count === 1) return 'питання';
-            if (count >= 2 && count <= 4) return 'питання';
+            // Ukrainian plural forms for "питання/питань"
+            const lastDigit = count % 10;
+            const lastTwoDigits = count % 100;
+            
+            // Special cases: 11-14 always use 'питань'
+            if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+                return 'питань';
+            }
+            
+            // Numbers ending in 1 use 'питання' (1, 21, 31, etc.)
+            if (lastDigit === 1) {
+                return 'питання';
+            }
+            
+            // Numbers ending in 2-4 use 'питання' (2-4, 22-24, 32-34, etc.)
+            if (lastDigit >= 2 && lastDigit <= 4) {
+                return 'питання';
+            }
+            
+            // All others use 'питань' (0, 5-20, 25-30, etc.)
             return 'питань';
         }
     </script>
