@@ -45,7 +45,43 @@ class ComparativesSuperlativesV2Seeder extends QuestionSeeder
             ['category' => 'English Grammar Structure']
         )->id;
 
+        $thanPatternTagId = Tag::firstOrCreate(
+            ['name' => 'Comparative + than Pattern'],
+            ['category' => 'English Grammar Pattern']
+        )->id;
+
+        $equalityTagId = Tag::firstOrCreate(
+            ['name' => 'As ... as Equality'],
+            ['category' => 'English Grammar Pattern']
+        )->id;
+
+        $superlativeFormTagId = Tag::firstOrCreate(
+            ['name' => 'Superlative Formation (-est / most / least)'],
+            ['category' => 'English Grammar Pattern']
+        )->id;
+
+        $irregularFormsTagId = Tag::firstOrCreate(
+            ['name' => 'Irregular Comparative Forms (good/bad/far)'],
+            ['category' => 'English Grammar Focus']
+        )->id;
+
+        $quantityComparisonTagId = Tag::firstOrCreate(
+            ['name' => 'Quantity Comparisons (much/many/less/fewer)'],
+            ['category' => 'English Grammar Focus']
+        )->id;
+
         $questions = $this->questionEntries();
+
+        $tagIds = [
+            $themeTagId,
+            $detailTagId,
+            $structureTagId,
+            $thanPatternTagId,
+            $equalityTagId,
+            $superlativeFormTagId,
+            $irregularFormsTagId,
+            $quantityComparisonTagId,
+        ];
 
         $items = [];
         $meta = [];
@@ -73,7 +109,7 @@ class ComparativesSuperlativesV2Seeder extends QuestionSeeder
                 'flag' => 0,
                 'type' => 0,
                 'level' => $entry['level'],
-                'tag_ids' => [$themeTagId, $detailTagId, $structureTagId],
+                'tag_ids' => $tagIds,
                 'answers' => $answers,
                 'options' => $options,
                 'variants' => [$entry['question']],
