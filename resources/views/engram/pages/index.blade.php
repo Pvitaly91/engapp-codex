@@ -1,6 +1,6 @@
-@extends('layouts.engram')
+@extends('layouts.gramlyze-new')
 
-@section('title', 'Теорія')
+@section('title', 'Theory Pages — Gramlyze')
 
 @section('content')
     @php($categoryPages = $categoryPages ?? collect())

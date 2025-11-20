@@ -1307,7 +1307,9 @@ class GrammarTestController extends Controller
             // Main tag maps to itself
             $tagToMainTag[$mainTag] = $mainTag;
             foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
-                $tagToMainTag[$similarTag] = $mainTag;
+                // Handle both old format (string) and new format (array with 'tag' key)
+                $tagName = is_array($similarTag) ? ($similarTag['tag'] ?? $similarTag) : $similarTag;
+                $tagToMainTag[$tagName] = $mainTag;
             }
         }
 
