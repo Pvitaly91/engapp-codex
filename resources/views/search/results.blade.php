@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.gramlyze-new')
 
-@section('title', 'Search')
+@section('title', 'Search Results — Gramlyze')
 
 @section('content')
     <h1 class="text-2xl font-bold mb-4">Search results for "{{ e($query) }}"</h1>

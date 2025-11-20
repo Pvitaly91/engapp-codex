@@ -1,6 +1,6 @@
-@extends('layouts.engram')
+@extends('layouts.gramlyze-new')
 
-@section('title', 'Збережені тести')
+@section('title', 'Test Catalog — Gramlyze')
 
 @section('content')
 <div class="flex flex-col md:flex-row gap-6">

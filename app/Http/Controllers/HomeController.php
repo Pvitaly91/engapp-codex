@@ -38,7 +38,7 @@ class HomeController extends Controller
             'tags' => Tag::count(),
         ];
 
-        return view('home', [
+        return view('home-new', [
             'latestTests' => $latestTests,
             'featuredCategories' => $featuredCategories,
             'recentPages' => $recentPages,

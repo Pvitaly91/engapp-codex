@@ -1,6 +1,6 @@
-@extends('layouts.engram')
+@extends('layouts.gramlyze-new')
 
-@section('title', $page->title)
+@section('title', $page->title . ' — Gramlyze')
 
 @section('content')
     @php($mobileSelectedCategory = $selectedCategory ?? null)

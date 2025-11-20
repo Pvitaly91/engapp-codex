@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.gramlyze-new')
 
-@section('title', 'Review Results')
+@section('title', 'Review Results — Gramlyze')
 
 @section('content')
 <div class="max-w-3xl mx-auto p-4">
