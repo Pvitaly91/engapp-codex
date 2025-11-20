@@ -130,26 +130,21 @@
       <div class="flex h-16 items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center">
-          <a href="{{ route('home') }}" class="flex items-center space-x-2" aria-label="Gramlyze Home">
-            <x-gramlyze-logo-new />
+          <a href="{{ route('home') }}" class="flex items-center space-x-2" aria-label="Gramlyze Home - English Teaching Platform">
+            <x-gramlyze-logo-new aria-label="Gramlyze Logo" />
           </a>
         </div>
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex md:items-center md:space-x-1">
-          <a href="{{ route('catalog-tests.cards') }}" class="px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 transition-colors rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-            Catalog
+          <a href="{{ route('home') }}#features" class="px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 transition-colors rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+            Features
           </a>
-          <a href="{{ route('pages.index') }}" class="px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 transition-colors rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-            Theory
+          <a href="{{ route('home') }}#about" class="px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 transition-colors rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+            About
           </a>
-          <a href="{{ route('question-review.index') }}" class="px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 transition-colors rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-            Reviews
-          </a>
-          <a href="{{ route('site.search') }}" class="px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 transition-colors rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+          <a href="{{ route('login.show') }}" class="px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 transition-colors rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+            Login
           </a>
         </div>
 
@@ -163,8 +158,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
           </button>
-          <a href="{{ route('grammar-test') }}" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg hover:from-teal-700 hover:to-cyan-700 transition-all shadow-sm hover:shadow-md">
-            Create Test
+          <a href="{{ route('login.show') }}" class="inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg hover:from-teal-700 hover:to-cyan-700 transition-all shadow-sm hover:shadow-md">
+            Get Started
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
@@ -183,21 +178,18 @@
 
       <!-- Mobile menu -->
       <div id="mobile-menu" class="hidden md:hidden pb-4 pt-2 space-y-1">
-        <a href="{{ route('catalog-tests.cards') }}" class="block px-4 py-2 text-base font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-          Catalog
+        <a href="{{ route('home') }}#features" class="block px-4 py-2 text-base font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+          Features
         </a>
-        <a href="{{ route('pages.index') }}" class="block px-4 py-2 text-base font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-          Theory
+        <a href="{{ route('home') }}#about" class="block px-4 py-2 text-base font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+          About
         </a>
-        <a href="{{ route('question-review.index') }}" class="block px-4 py-2 text-base font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-          Reviews
-        </a>
-        <a href="{{ route('site.search') }}" class="block px-4 py-2 text-base font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-          Search
+        <a href="{{ route('login.show') }}" class="block px-4 py-2 text-base font-medium text-slate-700 hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+          Login
         </a>
         <div class="pt-2 border-t border-slate-200 dark:border-slate-700">
-          <a href="{{ route('grammar-test') }}" class="block px-4 py-2.5 text-center font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg">
-            Create Test
+          <a href="{{ route('login.show') }}" class="block px-4 py-2.5 text-center font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg">
+            Get Started
           </a>
         </div>
       </div>
@@ -237,10 +229,9 @@
         <div>
           <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100 uppercase tracking-wider mb-4">Platform</h3>
           <ul class="space-y-3">
-            <li><a href="{{ route('catalog-tests.cards') }}" class="text-sm text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors">Test Catalog</a></li>
-            <li><a href="{{ route('pages.index') }}" class="text-sm text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors">Theory Pages</a></li>
-            <li><a href="{{ route('question-review.index') }}" class="text-sm text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors">Question Reviews</a></li>
-            <li><a href="{{ route('grammar-test') }}" class="text-sm text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors">Test Builder</a></li>
+            <li><a href="{{ route('home') }}#features" class="text-sm text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors">Features</a></li>
+            <li><a href="{{ route('home') }}#about" class="text-sm text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors">About</a></li>
+            <li><a href="{{ route('login.show') }}" class="text-sm text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors">Platform Access</a></li>
           </ul>
         </div>
 

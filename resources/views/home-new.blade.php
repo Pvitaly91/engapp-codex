@@ -25,16 +25,16 @@
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="{{ route('catalog-tests.cards') }}" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg hover:from-teal-700 hover:to-cyan-700 transition-all shadow-lg hover:shadow-xl">
-          Browse Test Catalog
+        <a href="{{ route('login.show') }}" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg hover:from-teal-700 hover:to-cyan-700 transition-all shadow-lg hover:shadow-xl">
+          Get Started
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </a>
-        <a href="{{ route('grammar-test') }}" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-lg hover:border-teal-600 dark:hover:border-teal-500 transition-all">
-          Start Creating
+        <a href="#features" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-lg hover:border-teal-600 dark:hover:border-teal-500 transition-all">
+          Learn More
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </a>
       </div>
@@ -66,7 +66,7 @@
           </div>
           
           <div class="space-y-3">
-            <a href="{{ route('catalog-tests.cards') }}" class="block p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
+            <a href="{{ route('login.show') }}" class="block p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
               <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                   <div class="p-2 bg-teal-100 dark:bg-teal-900/50 rounded-lg">
@@ -76,7 +76,7 @@
                   </div>
                   <div>
                     <div class="font-medium text-slate-900 dark:text-white">Test Catalog</div>
-                    <div class="text-sm text-slate-600 dark:text-slate-400">Browse ready-made tests</div>
+                    <div class="text-sm text-slate-600 dark:text-slate-400">7,500+ ready-made tests</div>
                   </div>
                 </div>
                 <svg class="w-5 h-5 text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,7 +85,7 @@
               </div>
             </a>
 
-            <a href="{{ route('pages.index') }}" class="block p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
+            <a href="{{ route('login.show') }}" class="block p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
               <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                   <div class="p-2 bg-cyan-100 dark:bg-cyan-900/50 rounded-lg">
@@ -104,7 +104,7 @@
               </div>
             </a>
 
-            <a href="{{ route('question-review.index') }}" class="block p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
+            <a href="{{ route('login.show') }}" class="block p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
               <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                   <div class="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg">
@@ -114,7 +114,7 @@
                   </div>
                   <div>
                     <div class="font-medium text-slate-900 dark:text-white">AI Reviews</div>
-                    <div class="text-sm text-slate-600 dark:text-slate-400">Automated answer analysis</div>
+                    <div class="text-sm text-slate-600 dark:text-slate-400">2,400+ automated reviews</div>
                   </div>
                 </div>
                 <svg class="w-5 h-5 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@
 </section>
 
 <!-- Features Section -->
-<section class="py-16 md:py-24" data-animate>
+<section id="features" class="py-16 md:py-24" data-animate>
   <div class="text-center mb-12">
     <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
       Everything You Need to Teach English
@@ -165,9 +165,9 @@
     @endphp
 
     @foreach($features as $feature)
-    <div class="group p-8 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-{{ $feature['color'] }}-500 dark:hover:border-{{ $feature['color'] }}-500 transition-all hover:shadow-lg">
-      <div class="w-12 h-12 rounded-xl bg-{{ $feature['color'] }}-100 dark:bg-{{ $feature['color'] }}-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-        <svg class="w-6 h-6 text-{{ $feature['color'] }}-600 dark:text-{{ $feature['color'] }}-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="group p-8 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-500 transition-all hover:shadow-lg">
+      <div class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+        <svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $feature['icon'] }}" />
         </svg>
       </div>
@@ -191,16 +191,16 @@
         Join hundreds of educators who are already using Gramlyze to create better learning experiences.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="{{ route('catalog-tests.cards') }}" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-teal-600 bg-white rounded-lg hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl">
-          Explore Catalog
+        <a href="{{ route('login.show') }}" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-teal-600 bg-white rounded-lg hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl">
+          Get Started Now
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </a>
-        <a href="{{ route('login.show') }}" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 transition-all">
-          Admin Access
+        <a href="#features" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 transition-all">
+          Learn More
           <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </a>
       </div>
