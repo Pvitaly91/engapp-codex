@@ -410,18 +410,23 @@ class TestTagController extends Controller
             ->orderBy('title')
             ->get()
             ->map(function ($page) {
+                $category = $page->category;
+                $url = null;
+                
+                if ($category && $category->slug && $page->slug) {
+                    $url = route('pages.show', [$category->slug, $page->slug]);
+                }
+                
                 return [
                     'id' => $page->id,
                     'title' => $page->title,
                     'slug' => $page->slug,
-                    'category' => $page->category ? [
-                        'id' => $page->category->id,
-                        'title' => $page->category->title,
-                        'slug' => $page->category->slug,
+                    'category' => $category ? [
+                        'id' => $category->id,
+                        'title' => $category->title,
+                        'slug' => $category->slug,
                     ] : null,
-                    'url' => ($page->category && $page->category->slug && $page->slug)
-                        ? route('pages.show', [$page->category->slug, $page->slug])
-                        : null,
+                    'url' => $url,
                 ];
             });
 
@@ -1109,9 +1114,8 @@ class TestTagController extends Controller
 
         $page = Page::findOrFail($validated['page_id']);
         
-        if (!$tag->pages()->where('pages.id', $page->id)->exists()) {
-            $tag->pages()->attach($page->id);
-        }
+        // syncWithoutDetaching ensures no duplicates and avoids race conditions
+        $tag->pages()->syncWithoutDetaching([$page->id]);
 
         return response()->json([
             'success' => true,
@@ -1141,9 +1145,8 @@ class TestTagController extends Controller
 
         $category = PageCategory::findOrFail($validated['page_category_id']);
         
-        if (!$tag->pageCategories()->where('page_categories.id', $category->id)->exists()) {
-            $tag->pageCategories()->attach($category->id);
-        }
+        // syncWithoutDetaching ensures no duplicates and avoids race conditions
+        $tag->pageCategories()->syncWithoutDetaching([$category->id]);
 
         return response()->json([
             'success' => true,
