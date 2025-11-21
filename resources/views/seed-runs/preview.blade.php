@@ -120,6 +120,12 @@
                             <p class="text-sm text-gray-500 mt-1">
                                 {{ __('Перелік усіх унікальних тегів, які присутні в цьому сидері. Нові теги будуть додані до бази даних під час виконання сидера.') }}
                             </p>
+                            <p class="text-sm text-purple-600 font-medium mt-1 flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                                </svg>
+                                {{ __('Клікніть на тег, щоб побачити питання з цим тегом') }}
+                            </p>
                         </div>
                         <svg class="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200 rotate-180"
                              viewBox="0 0 20 20"
@@ -146,7 +152,10 @@
                                     </h3>
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($newTags as $tag)
-                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium">
+                                            <button type="button"
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium hover:bg-green-100 hover:border-green-300 transition cursor-pointer"
+                                                    data-tag-filter="{{ $tag['name'] }}"
+                                                    title="{{ __('Клікніть, щоб побачити питання з цим тегом') }}">
                                                 <svg class="w-4 h-4 mr-1.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                                                 </svg>
@@ -154,7 +163,7 @@
                                                 @if(filled($tag['category']))
                                                     <span class="ml-1.5 text-xs text-green-600">({{ $tag['category'] }})</span>
                                                 @endif
-                                            </span>
+                                            </button>
                                         @endforeach
                                     </div>
                                 </div>
@@ -170,7 +179,10 @@
                                     </h3>
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($existingTags as $tag)
-                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-800 text-sm font-medium">
+                                            <button type="button"
+                                                    class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-800 text-sm font-medium hover:bg-blue-100 hover:border-blue-300 transition cursor-pointer"
+                                                    data-tag-filter="{{ $tag['name'] }}"
+                                                    title="{{ __('Клікніть, щоб побачити питання з цим тегом') }}">
                                                 <svg class="w-4 h-4 mr-1.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
@@ -178,7 +190,7 @@
                                                 @if(filled($tag['category']))
                                                     <span class="ml-1.5 text-xs text-blue-600">({{ $tag['category'] }})</span>
                                                 @endif
-                                            </span>
+                                            </button>
                                         @endforeach
                                     </div>
                                 </div>
@@ -256,7 +268,9 @@
                                         $questionExplanations = collect(data_get($question, 'explanations', []));
                                     @endphp
 
-                                    <div class="rounded-xl border border-slate-200 bg-white/60 p-6 shadow-sm" data-question-preview>
+                                    <div class="rounded-xl border border-slate-200 bg-white/60 p-6 shadow-sm transition-all" 
+                                         data-question-preview
+                                         data-question-tags="{{ $questionTags->pluck('name')->implode(',') }}">
                                         <div class="space-y-1">
                                             <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
                                             <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
@@ -622,5 +636,153 @@
                 }
             });
         });
+
+        // Tag filter functionality
+        let activeTagFilter = null;
+
+        document.addEventListener('click', function (event) {
+            const tagButton = event.target.closest('[data-tag-filter]');
+            
+            if (!tagButton) {
+                return;
+            }
+
+            const tagName = tagButton.getAttribute('data-tag-filter');
+            
+            // Toggle filter if clicking the same tag
+            if (activeTagFilter === tagName) {
+                activeTagFilter = null;
+                resetTagFilter();
+                return;
+            }
+
+            activeTagFilter = tagName;
+            applyTagFilter(tagName);
+        });
+
+        function applyTagFilter(tagName) {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allTagButtons = document.querySelectorAll('[data-tag-filter]');
+            let matchCount = 0;
+
+            // Reset all tag buttons to normal state
+            allTagButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-purple-500', 'ring-offset-2');
+            });
+
+            // Highlight the active tag button
+            const activeButton = document.querySelector(`[data-tag-filter="${CSS.escape(tagName)}"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-purple-500', 'ring-offset-2');
+            }
+
+            // Filter questions
+            allQuestions.forEach(question => {
+                const questionTags = question.getAttribute('data-question-tags') || '';
+                const tagsArray = questionTags.split(',').map(t => t.trim()).filter(t => t);
+                const hasTag = tagsArray.includes(tagName);
+
+                if (hasTag) {
+                    question.classList.remove('opacity-30', 'scale-95');
+                    question.classList.add('ring-2', 'ring-purple-400', 'shadow-lg');
+                    matchCount++;
+
+                    // Auto-expand the source section if collapsed
+                    const sourceContent = question.closest('[data-source-content]');
+                    if (sourceContent && sourceContent.classList.contains('hidden')) {
+                        const sourceGroup = sourceContent.closest('[data-source-group]');
+                        const sourceToggle = sourceGroup?.querySelector('[data-source-toggle]');
+                        if (sourceToggle) {
+                            sourceToggle.setAttribute('aria-expanded', 'true');
+                            sourceContent.classList.remove('hidden');
+                            const icon = sourceToggle.querySelector('[data-source-toggle-icon]');
+                            if (icon) {
+                                icon.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                } else {
+                    question.classList.add('opacity-30', 'scale-95');
+                    question.classList.remove('ring-2', 'ring-purple-400', 'shadow-lg');
+                }
+            });
+
+            // Show notification
+            showFilterNotification(tagName, matchCount);
+
+            // Scroll to first matching question
+            const firstMatch = document.querySelector('[data-question-preview].ring-2');
+            if (firstMatch) {
+                setTimeout(() => {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+
+        function resetTagFilter() {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allTagButtons = document.querySelectorAll('[data-tag-filter]');
+
+            // Reset all tag buttons
+            allTagButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-purple-500', 'ring-offset-2');
+            });
+
+            // Reset all questions
+            allQuestions.forEach(question => {
+                question.classList.remove('opacity-30', 'scale-95', 'ring-2', 'ring-purple-400', 'shadow-lg');
+            });
+
+            // Remove notification
+            const existingNotification = document.getElementById('tag-filter-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+        }
+
+        function showFilterNotification(tagName, count) {
+            // Remove existing notification
+            const existing = document.getElementById('tag-filter-notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.id = 'tag-filter-notification';
+            notification.className = 'fixed top-4 right-4 z-50 bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in';
+            notification.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                <span class="font-medium">Фільтр: <strong>${escapeHtml(tagName)}</strong> (${count} ${getPluralForm(count)})</span>
+                <button type="button" onclick="activeTagFilter = null; resetTagFilter();" class="ml-2 hover:bg-purple-700 rounded p-1 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function getPluralForm(count) {
+            if (count === 1) return 'питання';
+            if (count >= 2 && count <= 4) return 'питання';
+            return 'питань';
+        }
     </script>
 @endsection

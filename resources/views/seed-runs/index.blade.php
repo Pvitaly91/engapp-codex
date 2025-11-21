@@ -88,14 +88,15 @@
                             </button>
                         @endif
                     </div>
+                    <div id="pending-seeders-container">
                     @if($pendingSeeders->isEmpty())
                         <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
                     @else
-                        <ul class="space-y-3">
+                        <ul class="space-y-3" id="pending-seeders-list">
                             @foreach($pendingSeeders as $pendingSeeder)
                                 @php($pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name))
                                 @php($pendingActionsId = $pendingCheckboxId . '-actions')
-                                <li class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                <li class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" data-pending-seeder data-class-name="{{ $pendingSeeder->class_name }}">
                                     <div class="flex items-center gap-3 sm:flex-1">
                                         <input type="checkbox"
                                                id="{{ $pendingCheckboxId }}"
@@ -176,6 +177,7 @@
                             @endforeach
                         </ul>
                     @endif
+                    </div>
                 </div>
 
                 <div class="bg-white shadow rounded-lg p-6 overflow-hidden">
@@ -1267,6 +1269,326 @@
                 }
             });
 
+            const handleAjaxFormSubmit = async function (form) {
+                if (preloader) {
+                    preloader.classList.remove('hidden');
+                }
+
+                try {
+                    const formData = new FormData(form);
+                    const method = form.querySelector('[name="_method"]')?.value || form.method.toUpperCase();
+                    
+                    const response = await fetch(form.action, {
+                        method: method === 'DELETE' || method === 'PUT' || method === 'PATCH' ? 'POST' : method,
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+                        body: formData,
+                    });
+
+                    const payload = await response.json().catch(function () {
+                        return null;
+                    });
+
+                    if (!response.ok) {
+                        const message = parseErrorMessage(payload, 'Не вдалося виконати операцію.');
+                        throw new Error(message);
+                    }
+
+                    const successMessage = payload && typeof payload.message === 'string' && payload.message
+                        ? payload.message
+                        : 'Операцію успішно виконано.';
+
+                    showFeedback(successMessage, 'success');
+
+                    // Update UI dynamically based on operation type
+                    handleUIUpdate(form, payload);
+                } catch (error) {
+                    const message = error && typeof error.message === 'string' && error.message
+                        ? error.message
+                        : 'Не вдалося виконати операцію.';
+
+                    showFeedback(message, 'error');
+                } finally {
+                    if (preloader) {
+                        preloader.classList.add('hidden');
+                    }
+                }
+            };
+
+            const handleUIUpdate = function (form, payload) {
+                // Get the class name from form if available
+                const classNameInput = form.querySelector('[name="class_name"]');
+                const className = classNameInput ? classNameInput.value : null;
+
+                // Check if this is a seeder execution (run) operation
+                // For execution, reload page after showing success message so user sees result in executed section
+                const isExecutionOperation = form.action && form.action.includes('/seed-runs/run') && !form.action.includes('run-missing');
+                if (isExecutionOperation && payload.seeder_moved) {
+                    // Remove from pending list first
+                    if (className) {
+                        const seederListItem = findSeederByClassName(className);
+                        if (seederListItem) {
+                            fadeOutAndRemove(seederListItem, function () {
+                                // Reload page after animation so user sees seeder in executed section
+                                window.setTimeout(function () {
+                                    window.location.reload();
+                                }, 100);
+                            });
+                        }
+                    } else {
+                        // Fallback: just reload
+                        window.setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    }
+                    return; // Exit early for execution operations
+                }
+
+                // Check if this is a seeder removal operation (not execution)
+                if (payload.seeder_removed || payload.seeder_moved) {
+                    // Find and remove the seeder's list item from pending section
+                    if (className) {
+                        const seederListItem = findSeederByClassName(className);
+                        
+                        if (seederListItem) {
+                            fadeOutAndRemove(seederListItem, function () {
+                                checkPendingListEmpty();
+                            });
+                        }
+                    }
+                }
+
+                // Handle bulk operations (multiple class names)
+                if (payload.removed_class_names && Array.isArray(payload.removed_class_names)) {
+                    payload.removed_class_names.forEach(function (className) {
+                        const seederListItem = findSeederByClassName(className);
+                        
+                        if (seederListItem) {
+                            fadeOutAndRemove(seederListItem);
+                        }
+                    });
+
+                    // Check if pending list is now empty after bulk delete
+                    window.setTimeout(function () {
+                        checkPendingListEmpty();
+                    }, 400);
+                }
+
+                // Handle seed run deletion (from executed section)
+                if (payload.seed_run_id) {
+                    const seederNode = findExecutedSeederById(payload.seed_run_id);
+                    
+                    if (seederNode) {
+                        fadeOutAndRemove(seederNode, function () {
+                            // If seeder returns to pending, add it to pending list
+                            if (payload.returns_to_pending && payload.pending_seeder) {
+                                addToPendingList(payload.pending_seeder);
+                            }
+                        });
+                    }
+                }
+
+                // Enable "Execute all" button if there are pending seeders
+                if (payload.overview && payload.overview.pending_count > 0) {
+                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                    if (executeAllButton) {
+                        executeAllButton.disabled = false;
+                    }
+                } else if (payload.overview && payload.overview.pending_count === 0) {
+                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                    if (executeAllButton) {
+                        executeAllButton.disabled = true;
+                    }
+                }
+
+                // Reset bulk delete checkboxes and disable button
+                updateAllBulkButtonStates();
+            };
+
+            // Helper function to find seeder element by class name
+            const findSeederByClassName = function (className) {
+                // Find pending seeder by iterating through all pending seeders
+                const pendingSeeders = document.querySelectorAll('[data-pending-seeder]');
+                for (let i = 0; i < pendingSeeders.length; i++) {
+                    if (pendingSeeders[i].getAttribute('data-class-name') === className) {
+                        return pendingSeeders[i];
+                    }
+                }
+                return null;
+            };
+
+            // Helper function to find executed seeder by seed run ID
+            const findExecutedSeederById = function (seedRunId) {
+                const executedSeeders = document.querySelectorAll('[data-seeder-node]');
+                for (let i = 0; i < executedSeeders.length; i++) {
+                    if (executedSeeders[i].getAttribute('data-seed-run-id') === String(seedRunId)) {
+                        return executedSeeders[i];
+                    }
+                }
+                return null;
+            };
+
+            // Helper function to fade out and remove element
+            const fadeOutAndRemove = function (element, callback) {
+                element.style.opacity = '0';
+                element.style.transition = 'opacity 0.3s ease';
+                
+                window.setTimeout(function () {
+                    element.remove();
+                    if (callback) {
+                        callback();
+                    }
+                }, 300);
+            };
+
+            // Get route URLs from existing forms (to handle base path correctly)
+            const getRouteUrls = function () {
+                // Find existing forms to extract route URLs
+                const existingRunForm = document.querySelector('form[action*="seed-runs/run"]');
+                const existingMarkExecutedForm = document.querySelector('form[action*="seed-runs/mark-executed"]');
+                const existingDeleteFileForm = document.querySelector('form[action*="seed-runs/delete-file"]');
+                const existingPreviewLink = document.querySelector('a[href*="seed-runs/preview"]');
+
+                return {
+                    run: existingRunForm ? existingRunForm.action : window.location.origin + '/seed-runs/run',
+                    markExecuted: existingMarkExecutedForm ? existingMarkExecutedForm.action : window.location.origin + '/seed-runs/mark-executed',
+                    deleteFile: existingDeleteFileForm ? existingDeleteFileForm.action : window.location.origin + '/seed-runs/delete-file',
+                    previewBase: existingPreviewLink ? existingPreviewLink.href.split('?')[0] : window.location.origin + '/seed-runs/preview'
+                };
+            };
+
+            // Helper function to add seeder to pending list
+            const addToPendingList = function (seeder) {
+                const pendingList = document.getElementById('pending-seeders-list');
+                const pendingContainer = document.getElementById('pending-seeders-container');
+                
+                if (!pendingContainer) {
+                    return;
+                }
+
+                // If container shows "all executed" message, replace with list
+                const emptyMessage = pendingContainer.querySelector('p.text-gray-500');
+                if (emptyMessage && !pendingList) {
+                    pendingContainer.innerHTML = '<ul class="space-y-3" id="pending-seeders-list"></ul>';
+                }
+
+                const listElement = document.getElementById('pending-seeders-list');
+                if (!listElement) {
+                    return;
+                }
+
+                // Get route URLs from existing forms
+                const routes = getRouteUrls();
+
+                // Generate unique IDs
+                const checkboxId = 'pending-seeder-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+                const actionsId = checkboxId + '-actions';
+
+                // Create seeder HTML
+                const li = document.createElement('li');
+                li.className = 'flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between';
+                li.setAttribute('data-pending-seeder', '');
+                li.setAttribute('data-class-name', seeder.class_name);
+                li.style.opacity = '0';
+
+                const displayNamespace = seeder.display_class_namespace || '';
+                const displayBasename = seeder.display_class_basename || seeder.display_class_name;
+                
+                li.innerHTML = `
+                    <div class="flex items-center gap-3 sm:flex-1">
+                        <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
+                        <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
+                            ${displayNamespace ? '<span class="text-gray-500">' + escapeHtml(displayNamespace) + '</span><span class="text-gray-400">\\</span>' : ''}
+                            <span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">${escapeHtml(displayBasename)}</span>
+                        </label>
+                    </div>
+                    <div class="sm:hidden">
+                        <button type="button" class="inline-flex items-center justify-between gap-2 w-full px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition" data-pending-actions-toggle data-target="${actionsId}" aria-expanded="false" aria-controls="${actionsId}">
+                            <span data-toggle-label-collapsed>Показати дії</span>
+                            <span data-toggle-label-expanded class="hidden">Сховати дії</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform" data-pending-actions-icon></i>
+                        </button>
+                    </div>
+                    <div id="${actionsId}" class="hidden w-full sm:w-auto sm:block" data-pending-actions>
+                        <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap sm:items-center">
+                            <button type="button" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto" data-seeder-file-open data-class-name="${escapeHtml(seeder.class_name)}" data-display-name="${escapeHtml(seeder.display_class_name)}">
+                                <i class="fa-solid fa-file-code"></i>
+                                Код
+                            </button>
+                            ${seeder.supports_preview ? '<a href="' + routes.previewBase + '?class_name=' + encodeURIComponent(seeder.class_name) + '" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto"><i class="fa-solid fa-eye"></i>Переглянути</a>' : ''}
+                            <form method="POST" action="${routes.deleteFile}" data-preloader data-confirm="Видалити файл сидера «${escapeHtml(seeder.display_class_name)}»?" class="flex w-full sm:w-auto">
+                                <input type="hidden" name="_token" value="${csrfToken}">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
+                                    <i class="fa-solid fa-file-circle-xmark"></i>
+                                    Видалити файл
+                                </button>
+                            </form>
+                            <form method="POST" action="${routes.markExecuted}" data-preloader class="flex w-full sm:w-auto">
+                                <input type="hidden" name="_token" value="${csrfToken}">
+                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
+                                    <i class="fa-solid fa-check"></i>
+                                    Позначити виконаним
+                                </button>
+                            </form>
+                            <form method="POST" action="${routes.run}" data-preloader class="flex w-full sm:w-auto">
+                                <input type="hidden" name="_token" value="${csrfToken}">
+                                <input type="hidden" name="class_name" value="${escapeHtml(seeder.class_name)}">
+                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
+                                    <i class="fa-solid fa-play"></i>
+                                    Виконати
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+
+                // Add to list
+                listElement.appendChild(li);
+
+                // Fade in animation
+                window.setTimeout(function () {
+                    li.style.transition = 'opacity 0.3s ease';
+                    li.style.opacity = '1';
+                }, 50);
+
+                // Update bulk button states
+                updateAllBulkButtonStates();
+            };
+
+            // Helper function to escape HTML
+            const escapeHtml = function (text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            };
+
+            const checkPendingListEmpty = function () {
+                const pendingList = document.getElementById('pending-seeders-list');
+                const pendingContainer = document.getElementById('pending-seeders-container');
+                
+                if (pendingList && pendingList.children.length === 0 && pendingContainer) {
+                    pendingContainer.innerHTML = '<p class="text-sm text-gray-500">Усі сидери вже виконані.</p>';
+                    
+                    // Disable and hide bulk delete button
+                    const bulkDeleteButton = document.querySelector('[data-bulk-delete-button][data-bulk-scope="pending"]');
+                    if (bulkDeleteButton && bulkDeleteButton.parentElement) {
+                        bulkDeleteButton.parentElement.remove();
+                    }
+                    
+                    // Disable "Execute all" button
+                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                    if (executeAllButton) {
+                        executeAllButton.disabled = true;
+                    }
+                }
+            };
+
             document.addEventListener('submit', function (event) {
                 const form = event.target.closest('form[data-preloader]');
 
@@ -1274,13 +1596,11 @@
                     return;
                 }
 
+                // Check if this is already confirmed and ready to submit via AJAX
                 if (form.dataset.confirmed === 'true') {
+                    event.preventDefault();
                     delete form.dataset.confirmed;
-
-                    if (preloader) {
-                        preloader.classList.remove('hidden');
-                    }
-
+                    handleAjaxFormSubmit(form);
                     return;
                 }
 
@@ -1296,19 +1616,15 @@
                     }
 
                     if (!modalOpened) {
-                        if (preloader) {
-                            preloader.classList.remove('hidden');
-                        }
-
-                        form.submit();
+                        handleAjaxFormSubmit(form);
                     }
 
                     return;
                 }
 
-                if (preloader) {
-                    preloader.classList.remove('hidden');
-                }
+                // No confirmation needed, submit via AJAX directly
+                event.preventDefault();
+                handleAjaxFormSubmit(form);
             });
 
             document.querySelectorAll('[data-bulk-delete-button]').forEach(function (button) {
