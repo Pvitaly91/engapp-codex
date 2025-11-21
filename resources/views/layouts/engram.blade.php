@@ -46,24 +46,24 @@
   <style>
     :root {
       /* Vibrant Surfaces */
-      --background: 0 0% 100%;
-      --foreground: 15 7% 11%;
+      --background: 210 40% 98%;
+      --foreground: 215 31% 18%;
       --card: 0 0% 100%;
-      --card-foreground: 15 7% 11%;
+      --card-foreground: 215 31% 18%;
       --popover: 0 0% 100%;
-      --popover-foreground: 15 7% 11%;
+      --popover-foreground: 215 31% 18%;
 
       /* Vivid Brand / Semantic */
-      --primary: 262 83% 58%;
+      --primary: 253 85% 63%;
       --primary-foreground: 0 0% 100%;
 
-      --secondary: 188 85% 45%;
+      --secondary: 188 82% 47%;
       --secondary-foreground: 0 0% 100%;
 
-      --muted: 0 0% 96%;
-      --muted-foreground: 15 7% 35%;
+      --muted: 210 40% 96%;
+      --muted-foreground: 215 16% 40%;
 
-      --accent: 24 94% 50%;
+      --accent: 31 94% 55%;
       --accent-foreground: 0 0% 100%;
 
       --destructive: 0 84% 60%;
@@ -73,9 +73,9 @@
       --warning: 38 92% 50%;
       --info: 217 91% 60%;
 
-      --border: 0 0% 88%;
-      --input: 0 0% 88%;
-      --ring: 262 83% 58%;
+      --border: 214 32% 89%;
+      --input: 214 32% 89%;
+      --ring: 253 85% 63%;
     }
     .dark {
       --background: 222 15% 10%;
@@ -85,7 +85,7 @@
       --popover: 222 15% 13%;
       --popover-foreground: 0 0% 98%;
 
-      --primary: 262 91% 70%;
+      --primary: 253 85% 70%;
       --primary-foreground: 0 0% 10%;
 
       --secondary: 188 85% 52%;
@@ -94,7 +94,7 @@
       --muted: 222 15% 16%;
       --muted-foreground: 0 0% 80%;
 
-      --accent: 24 94% 55%;
+      --accent: 31 94% 60%;
       --accent-foreground: 0 0% 10%;
 
       --destructive: 0 72% 55%;
@@ -106,11 +106,11 @@
 
       --border: 222 15% 22%;
       --input: 222 15% 22%;
-      --ring: 262 83% 60%;
+      --ring: 253 85% 63%;
     }
     html, body { height: 100%; }
-    body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
-    .container { max-width: 72rem; }
+    body { background: radial-gradient(circle at 15% 20%, hsla(var(--primary), 0.09), transparent 25%), radial-gradient(circle at 90% 10%, hsla(var(--secondary), 0.07), transparent 20%), hsl(var(--background)); color: hsl(var(--foreground)); }
+    .page-shell { max-width: 80rem; }
     [data-animate] {
       opacity: 0;
       transform: translateY(32px);
@@ -147,16 +147,17 @@
 </head>
 
 <body class="font-sans antialiased selection:bg-primary/15 selection:text-primary">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_20%,hsla(var(--primary),0.08),transparent_25%),radial-gradient(circle_at_80%_0%,hsla(var(--accent),0.08),transparent_20%),linear-gradient(135deg,hsla(var(--secondary),0.05),transparent_40%)]"></div>
   <!-- HEADER / NAV -->
-  <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/80">
-    <div class="container mx-auto px-4">
+  <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/85">
+    <div class="page-shell mx-auto px-4">
       <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-20 md:flex-nowrap">
         <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0" aria-label="Gramlyze">
           <x-gramlyze-logo class="hidden md:inline-flex" />
           <x-gramlyze-logo variant="compact" class="md:hidden" />
         </a>
         <form action="{{ route('site.search') }}" method="GET" class="relative hidden md:block">
-          <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук..." class="w-48 rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+          <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук матеріалів" class="w-56 rounded-xl border border-input bg-background px-4 py-2 text-sm shadow-sm focus:border-primary focus:outline-none" />
           <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
         </form>
         <div class="flex items-center gap-2 md:hidden">
@@ -170,37 +171,52 @@
             </svg>
           </button>
         </div>
-        <nav id="primary-nav" class="order-3 hidden flex w-full flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium md:order-none md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:pt-0">
+        <nav id="primary-nav" class="order-3 hidden w-full flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium md:order-none md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:pt-0">
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog-tests.cards') }}">Каталог</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">AI Toolkit</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">Командам</a>
+          <a class="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg" href="{{ route('grammar-test') }}">Розпочати</a>
         </nav>
       </div>
       <div id="mobile-search" class="md:hidden hidden pb-3">
         <form action="{{ route('site.search') }}" method="GET" class="relative">
-          <input type="search" name="q" id="search-box-mobile" autocomplete="off" placeholder="Пошук..." class="mt-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm" />
+          <input type="search" name="q" id="search-box-mobile" autocomplete="off" placeholder="Пошук матеріалів" class="mt-3 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm shadow-sm" />
           <div id="search-box-mobile-list" class="absolute left-0 right-0 mt-1 bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
         </form>
       </div>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-8">
+  <main class="page-shell mx-auto px-4 py-10">
     @yield('content')
   </main>
 
-  <footer class="border-t border-border mt-10 py-6 text-sm">
-    <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <x-gramlyze-logo variant="compact" size="h-9 w-9" />
-        <span>Gramlyze <span id="year"></span></span>
+  <footer class="border-t border-border mt-12 py-8 text-sm">
+    <div class="page-shell mx-auto px-4 grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-center">
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <x-gramlyze-logo variant="compact" size="h-9 w-9" />
+          <span class="font-semibold">Gramlyze <span id="year"></span></span>
+        </div>
+        <p class="text-muted-foreground max-w-2xl">Платформа для викладачів та методистів англійської мови: тести, AI-аналіз, база знань і спільна робота команди.</p>
+        <div class="flex flex-wrap gap-3 text-xs text-muted-foreground">
+          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">🔒 Безпека даних</span>
+          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">🤝 Підтримка команди</span>
+          <span class="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1">⚡ Швидкий старт</span>
+        </div>
       </div>
-      <div class="flex md:justify-end gap-4 text-sm">
-        <a class="text-muted-foreground hover:text-foreground" href="#">Політика</a>
-        <a class="text-muted-foreground hover:text-foreground" href="#">Умови</a>
-        <a class="text-muted-foreground hover:text-foreground" href="#faq">Підтримка</a>
+      <div class="flex flex-col gap-3 md:items-end">
+        <div class="flex flex-wrap gap-4 text-sm md:justify-end">
+          <a class="text-muted-foreground hover:text-foreground" href="#">Політика</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#">Умови</a>
+          <a class="text-muted-foreground hover:text-foreground" href="#faq">Підтримка</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="theme-toggle" type="button" class="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:text-foreground">Тема</button>
+          <a href="{{ route('login.show') }}" class="rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary">Вхід до адмінки</a>
+        </div>
       </div>
     </div>
   </footer>

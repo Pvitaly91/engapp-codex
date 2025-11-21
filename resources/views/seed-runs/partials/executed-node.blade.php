@@ -205,6 +205,13 @@
                                                         Видалити файл
                                                     </button>
                                                 </form>
+                                                <form method="POST" action="{{ route('seed-runs.refresh', $seedRun->id) }}" data-preloader data-confirm="Оновити дані сидера «{{ e($seedRun->display_class_name) }}»? Всі поточні дані будуть видалені та створені заново." class="w-full sm:w-auto lg:w-auto">
+                                                    @csrf
+                                                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-500 transition">
+                                                        <i class="fa-solid fa-rotate"></i>
+                                                        Оновити дані
+                                                    </button>
+                                                </form>
                                                 <form method="POST" action="{{ route('seed-runs.destroy-with-questions', $seedRun->id) }}" data-preloader data-confirm="{{ __($seederDeleteConfirm) }}" class="w-full sm:w-auto lg:w-auto">
                                                     @csrf
                                                     @method('DELETE')
