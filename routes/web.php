@@ -146,6 +146,24 @@ Route::middleware('auth.admin')->group(function () {
             Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');
         });
 
+        Route::prefix('pages-manage')->name('pages.manage.')->group(function () {
+            Route::get('/', [\App\Http\Controllers\PageV2ManageController::class, 'index'])->name('index');
+            Route::get('/create', [\App\Http\Controllers\PageV2ManageController::class, 'create'])->name('create');
+            Route::post('/', [\App\Http\Controllers\PageV2ManageController::class, 'store'])->name('store');
+            Route::get('/{page}/edit', [\App\Http\Controllers\PageV2ManageController::class, 'edit'])->name('edit');
+            Route::put('/{page}', [\App\Http\Controllers\PageV2ManageController::class, 'update'])->name('update');
+            Route::delete('/{page}', [\App\Http\Controllers\PageV2ManageController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('page-categories-manage')->name('page-categories.manage.')->group(function () {
+            Route::get('/', [\App\Http\Controllers\PageCategoryManageController::class, 'index'])->name('index');
+            Route::get('/create', [\App\Http\Controllers\PageCategoryManageController::class, 'create'])->name('create');
+            Route::post('/', [\App\Http\Controllers\PageCategoryManageController::class, 'store'])->name('store');
+            Route::get('/{category}/edit', [\App\Http\Controllers\PageCategoryManageController::class, 'edit'])->name('edit');
+            Route::put('/{category}', [\App\Http\Controllers\PageCategoryManageController::class, 'update'])->name('update');
+            Route::delete('/{category}', [\App\Http\Controllers\PageCategoryManageController::class, 'destroy'])->name('destroy');
+        });
+
         Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');
         Route::post('/grammar-test', [GrammarTestController::class, 'generate'])->name('grammar-test.generate');
         Route::get('/grammar-test/v2', fn () => redirect()->route('grammar-test'))->name('grammar-test.v2');
