@@ -972,6 +972,19 @@ matchBoard.addEventListener('click', (event) => {
     }
 });
 
+// Debounce utility to reduce processing during rapid typing
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Live search functionality for each column
 function filterColumn(column, searchTerm) {
     const cards = column.querySelectorAll('.match-card');
@@ -995,15 +1008,19 @@ function filterColumn(column, searchTerm) {
     renderConnections();
 }
 
+// Debounced filter functions for performance
+const debouncedFilterLeft = debounce((value) => filterColumn(leftCol, value), 150);
+const debouncedFilterRight = debounce((value) => filterColumn(rightCol, value), 150);
+
 if (searchLeftInput) {
     searchLeftInput.addEventListener('input', (event) => {
-        filterColumn(leftCol, event.target.value);
+        debouncedFilterLeft(event.target.value);
     });
 }
 
 if (searchRightInput) {
     searchRightInput.addEventListener('input', (event) => {
-        filterColumn(rightCol, event.target.value);
+        debouncedFilterRight(event.target.value);
     });
 }
 
