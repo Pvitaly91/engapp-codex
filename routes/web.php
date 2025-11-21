@@ -136,7 +136,11 @@ Route::middleware('auth.admin')->group(function () {
             Route::get('/{tag}/questions/{question}/tags', [TestTagController::class, 'questionTags'])
                 ->name('questions.tags');
             Route::get('/{tag}/pages', [TestTagController::class, 'pages'])->name('pages');
+            Route::post('/{tag}/pages', [TestTagController::class, 'attachPage'])->name('pages.attach');
+            Route::delete('/{tag}/pages', [TestTagController::class, 'detachPage'])->name('pages.detach');
             Route::get('/{tag}/page-categories', [TestTagController::class, 'pageCategories'])->name('page-categories');
+            Route::post('/{tag}/page-categories', [TestTagController::class, 'attachPageCategory'])->name('page-categories.attach');
+            Route::delete('/{tag}/page-categories', [TestTagController::class, 'detachPageCategory'])->name('page-categories.detach');
             Route::get('/{tag}/edit', [TestTagController::class, 'edit'])->name('edit');
             Route::put('/{tag}', [TestTagController::class, 'update'])->name('update');
             Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');

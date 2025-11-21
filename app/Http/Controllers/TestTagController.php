@@ -1094,4 +1094,68 @@ class TestTagController extends Controller
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Категорію та всі її агрегації видалено.');
     }
+
+    public function attachPage(Request $request, Tag $tag): JsonResponse
+    {
+        $validated = $request->validate([
+            'page_id' => ['required', 'exists:pages,id'],
+        ]);
+
+        $page = Page::findOrFail($validated['page_id']);
+        
+        if (!$tag->pages()->where('pages.id', $page->id)->exists()) {
+            $tag->pages()->attach($page->id);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => "Тег '{$tag->name}' додано до сторінки '{$page->title}'.",
+        ]);
+    }
+
+    public function detachPage(Request $request, Tag $tag): JsonResponse
+    {
+        $validated = $request->validate([
+            'page_id' => ['required', 'exists:pages,id'],
+        ]);
+
+        $tag->pages()->detach($validated['page_id']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Тег відв\'язано від сторінки.',
+        ]);
+    }
+
+    public function attachPageCategory(Request $request, Tag $tag): JsonResponse
+    {
+        $validated = $request->validate([
+            'page_category_id' => ['required', 'exists:page_categories,id'],
+        ]);
+
+        $category = PageCategory::findOrFail($validated['page_category_id']);
+        
+        if (!$tag->pageCategories()->where('page_categories.id', $category->id)->exists()) {
+            $tag->pageCategories()->attach($category->id);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => "Тег '{$tag->name}' додано до категорії '{$category->title}'.",
+        ]);
+    }
+
+    public function detachPageCategory(Request $request, Tag $tag): JsonResponse
+    {
+        $validated = $request->validate([
+            'page_category_id' => ['required', 'exists:page_categories,id'],
+        ]);
+
+        $tag->pageCategories()->detach($validated['page_category_id']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Тег відв\'язано від категорії.',
+        ]);
+    }
 }
