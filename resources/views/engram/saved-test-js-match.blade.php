@@ -170,6 +170,7 @@ const matchState = {
 
 let clickSelectedElement = null;
 let highlightedConnection = null;
+let cardMapsCache = { left: null, right: null };
 
 const matchBoard = document.getElementById('match-board');
 const svg = document.getElementById('match-svg');
@@ -288,6 +289,19 @@ function buildItems(rawQuestions) {
 
 function getItemMap() {
     return new Map(matchState.items.map(item => [item.key, item]));
+}
+
+function getCardMaps() {
+    if (!cardMapsCache.left || !cardMapsCache.right) {
+        cardMapsCache.left = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+        cardMapsCache.right = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+    }
+    return cardMapsCache;
+}
+
+function invalidateCardMapsCache() {
+    cardMapsCache.left = null;
+    cardMapsCache.right = null;
 }
 
 function setCheckDisabled(disabled) {
@@ -537,8 +551,7 @@ function highlightConnection(connection) {
     // Clear any previous highlight
     clearHighlight();
 
-    const leftCards = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
-    const rightCards = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+    const { left: leftCards, right: rightCards } = getCardMaps();
 
     const leftEl = leftCards.get(connection.leftKey);
     const rightEl = rightCards.get(connection.rightKey);
@@ -665,6 +678,9 @@ function renderColumns() {
     });
 
     updateEmptyState();
+    
+    // Invalidate card maps cache since DOM changed
+    invalidateCardMapsCache();
     
     // Equalize heights of elements at the same row position
     equalizeRowHeights();
