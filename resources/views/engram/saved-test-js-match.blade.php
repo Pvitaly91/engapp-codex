@@ -170,6 +170,7 @@ const matchState = {
 
 let clickSelectedElement = null;
 let highlightedConnection = null;
+let highlightedElements = { leftCard: null, rightCard: null, line: null };
 let cardMapsCache = { left: null, right: null };
 
 const matchBoard = document.getElementById('match-board');
@@ -292,6 +293,7 @@ function getItemMap() {
 }
 
 function getCardMaps() {
+    // Rebuild both maps if either is missing to keep them in sync
     if (!cardMapsCache.left || !cardMapsCache.right) {
         cardMapsCache.left = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
         cardMapsCache.right = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
@@ -530,14 +532,19 @@ function findConnectionForElement(el) {
 
 function clearHighlight() {
     if (highlightedConnection) {
-        const leftCards = leftCol.querySelectorAll('.match-card');
-        const rightCards = rightCol.querySelectorAll('.match-card');
-        
-        leftCards.forEach(card => card.classList.remove('highlighted'));
-        rightCards.forEach(card => card.classList.remove('highlighted'));
-        
-        const lines = svg.querySelectorAll('line[data-conn]');
-        lines.forEach(line => line.classList.remove('highlighted'));
+        // Clear only the previously highlighted elements
+        if (highlightedElements.leftCard) {
+            highlightedElements.leftCard.classList.remove('highlighted');
+            highlightedElements.leftCard = null;
+        }
+        if (highlightedElements.rightCard) {
+            highlightedElements.rightCard.classList.remove('highlighted');
+            highlightedElements.rightCard = null;
+        }
+        if (highlightedElements.line) {
+            highlightedElements.line.classList.remove('highlighted');
+            highlightedElements.line = null;
+        }
         
         highlightedConnection = null;
     }
@@ -567,6 +574,10 @@ function highlightConnection(connection) {
             line.classList.add('highlighted');
         }
 
+        // Store references for efficient clearing
+        highlightedElements.leftCard = leftEl;
+        highlightedElements.rightCard = rightEl;
+        highlightedElements.line = line;
         highlightedConnection = connection;
     }
 }
@@ -936,8 +947,8 @@ window.addEventListener('resize', () => {
     renderConnections();
 });
 
-// Clear highlight when clicking outside of cards
-document.addEventListener('click', (event) => {
+// Clear highlight when clicking outside of cards (scoped to match board)
+matchBoard.addEventListener('click', (event) => {
     const clickedCard = event.target.closest('.match-card');
     if (!clickedCard && highlightedConnection) {
         clearHighlight();
