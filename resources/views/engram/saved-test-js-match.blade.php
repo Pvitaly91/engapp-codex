@@ -791,6 +791,11 @@ function renderConnections() {
             }
         }
 
+        // Skip drawing line if either element is hidden by search
+        if (leftEl.classList.contains('search-hidden') || rightEl.classList.contains('search-hidden')) {
+            return;
+        }
+
         const { x: x1, y: y1 } = getCenter(leftEl);
         const { x: x2, y: y2 } = getCenter(rightEl);
         const stroke = matchState.evaluated
