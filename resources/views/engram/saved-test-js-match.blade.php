@@ -778,6 +778,11 @@ function renderConnections() {
             return;
         }
 
+        // Skip if either element is hidden by search - do this early to avoid unnecessary DOM operations
+        if (leftEl.classList.contains('search-hidden') || rightEl.classList.contains('search-hidden')) {
+            return;
+        }
+
         leftEl.classList.add('connected');
         rightEl.classList.add('connected');
 
@@ -789,11 +794,6 @@ function renderConnections() {
                 leftEl.classList.add('incorrect');
                 rightEl.classList.add('incorrect');
             }
-        }
-
-        // Skip drawing line if either element is hidden by search
-        if (leftEl.classList.contains('search-hidden') || rightEl.classList.contains('search-hidden')) {
-            return;
         }
 
         const { x: x1, y: y1 } = getCenter(leftEl);
