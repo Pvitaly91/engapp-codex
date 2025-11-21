@@ -533,18 +533,13 @@ function findConnectionForElement(el) {
 function clearHighlight() {
     if (highlightedConnection) {
         // Clear only the previously highlighted elements
-        if (highlightedElements.leftCard) {
-            highlightedElements.leftCard.classList.remove('highlighted');
-            highlightedElements.leftCard = null;
-        }
-        if (highlightedElements.rightCard) {
-            highlightedElements.rightCard.classList.remove('highlighted');
-            highlightedElements.rightCard = null;
-        }
-        if (highlightedElements.line) {
-            highlightedElements.line.classList.remove('highlighted');
-            highlightedElements.line = null;
-        }
+        Object.keys(highlightedElements).forEach(key => {
+            const element = highlightedElements[key];
+            if (element) {
+                element.classList.remove('highlighted');
+                highlightedElements[key] = null;
+            }
+        });
         
         highlightedConnection = null;
     }
@@ -747,8 +742,7 @@ function renderConnections() {
 
     const itemMap = getItemMap();
 
-    const leftCards = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
-    const rightCards = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+    const { left: leftCards, right: rightCards } = getCardMaps();
 
     leftCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
     rightCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
