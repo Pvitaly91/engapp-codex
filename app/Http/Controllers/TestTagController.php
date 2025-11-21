@@ -269,18 +269,24 @@ class TestTagController extends Controller
     {
         $emptyTags = Tag::query()
             ->whereDoesntHave('questions')
+            ->whereDoesntHave('words')
+            ->whereDoesntHave('pages')
+            ->whereDoesntHave('pageCategories')
             ->get();
 
         $count = $emptyTags->count();
 
         foreach ($emptyTags as $tag) {
+            $tag->questions()->detach();
             $tag->words()->detach();
+            $tag->pages()->detach();
+            $tag->pageCategories()->detach();
             $tag->delete();
         }
 
         $message = $count > 0
-            ? "Видалено тегів без питань: {$count}."
-            : 'Не знайдено тегів без питань.';
+            ? "Видалено порожніх тегів: {$count}."
+            : 'Не знайдено порожніх тегів.';
 
         if ($request->expectsJson()) {
             return response()->json([
