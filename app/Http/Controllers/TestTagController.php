@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Services\ChatGPTService;
@@ -249,6 +251,8 @@ class TestTagController extends Controller
     {
         $tag->questions()->detach();
         $tag->words()->detach();
+        $tag->pages()->detach();
+        $tag->pageCategories()->detach();
         $tag->delete();
 
         if ($request->expectsJson()) {
@@ -393,6 +397,72 @@ class TestTagController extends Controller
         ]);
     }
 
+    public function pages(Tag $tag): JsonResponse
+    {
+        $pages = $tag->pages()
+            ->with('category')
+            ->orderBy('title')
+            ->get()
+            ->map(function ($page) {
+                return [
+                    'id' => $page->id,
+                    'title' => $page->title,
+                    'slug' => $page->slug,
+                    'category' => $page->category ? [
+                        'id' => $page->category->id,
+                        'title' => $page->category->title,
+                        'slug' => $page->category->slug,
+                    ] : null,
+                    'url' => $page->category 
+                        ? route('pages.show', [$page->category->slug, $page->slug])
+                        : null,
+                ];
+            });
+
+        $html = view('test-tags.partials.pages-list', [
+            'pages' => $pages,
+            'emptyMessage' => 'Для цього тегу ще не додано сторінок теорії.',
+        ])->render();
+
+        return response()->json([
+            'tag' => [
+                'id' => $tag->id,
+                'name' => $tag->name,
+            ],
+            'html' => $html,
+        ]);
+    }
+
+    public function pageCategories(Tag $tag): JsonResponse
+    {
+        $categories = $tag->pageCategories()
+            ->withCount('pages')
+            ->orderBy('title')
+            ->get()
+            ->map(function ($category) {
+                return [
+                    'id' => $category->id,
+                    'title' => $category->title,
+                    'slug' => $category->slug,
+                    'pages_count' => $category->pages_count,
+                    'url' => route('pages.category', $category->slug),
+                ];
+            });
+
+        $html = view('test-tags.partials.page-categories-list', [
+            'categories' => $categories,
+            'emptyMessage' => 'Для цього тегу ще не додано категорій теорії.',
+        ])->render();
+
+        return response()->json([
+            'tag' => [
+                'id' => $tag->id,
+                'name' => $tag->name,
+            ],
+            'html' => $html,
+        ]);
+    }
+
     public function editCategory(string $category): View
     {
         [, $categories] = $this->loadTagData();
@@ -492,6 +562,8 @@ class TestTagController extends Controller
         foreach ($tags as $tag) {
             $tag->questions()->detach();
             $tag->words()->detach();
+            $tag->pages()->detach();
+            $tag->pageCategories()->detach();
             $tag->delete();
         }
 

@@ -122,19 +122,45 @@
                                             @endphp
                                             <li class="space-y-3 rounded-lg border border-slate-100 px-3 py-2">
                                                 <div class="flex flex-wrap items-center justify-between gap-3">
-                                                    <button
-                                                        type="button"
-                                                        class="flex flex-1 items-center justify-between gap-3 text-left font-medium transition {{ $isEmptyTag ? 'text-red-600 hover:text-red-600' : 'text-slate-700 hover:text-blue-600' }}"
-                                                        data-tag-load
-                                                        data-tag-id="{{ $tag->id }}"
-                                                        data-tag-name="{{ $tag->name }}"
-                                                        data-tag-url="{{ route('test-tags.questions', $tag) }}"
-                                                    >
-                                                        <span>{{ $tag->name }}</span>
-                                                        <span class="inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $isEmptyTag ? 'bg-red-100 text-red-600' : 'bg-slate-100 text-slate-600' }}">
-                                                            {{ $tag->questions_count }}
-                                                        </span>
-                                                    </button>
+                                                    <div class="flex flex-1 items-center gap-3">
+                                                        <button
+                                                            type="button"
+                                                            class="flex flex-1 items-center justify-between gap-3 text-left font-medium transition {{ $isEmptyTag ? 'text-red-600 hover:text-red-600' : 'text-slate-700 hover:text-blue-600' }}"
+                                                            data-tag-load
+                                                            data-tag-id="{{ $tag->id }}"
+                                                            data-tag-name="{{ $tag->name }}"
+                                                            data-tag-url="{{ route('test-tags.questions', $tag) }}"
+                                                        >
+                                                            <span>{{ $tag->name }}</span>
+                                                            <span class="inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $isEmptyTag ? 'bg-red-100 text-red-600' : 'bg-slate-100 text-slate-600' }}">
+                                                                {{ $tag->questions_count }}
+                                                            </span>
+                                                        </button>
+                                                        <div class="flex items-center gap-1">
+                                                            <button
+                                                                type="button"
+                                                                class="rounded-md border border-slate-200 px-2 py-1 text-xs font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-600"
+                                                                data-tag-load
+                                                                data-tag-type="pages"
+                                                                data-tag-id="{{ $tag->id }}"
+                                                                data-tag-url="{{ route('test-tags.pages', $tag) }}"
+                                                                title="Переглянути сторінки теорії"
+                                                            >
+                                                                <i class="fa-solid fa-book"></i> Сторінки
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                class="rounded-md border border-slate-200 px-2 py-1 text-xs font-medium text-slate-600 hover:bg-purple-50 hover:text-purple-600"
+                                                                data-tag-load
+                                                                data-tag-type="categories"
+                                                                data-tag-id="{{ $tag->id }}"
+                                                                data-tag-url="{{ route('test-tags.page-categories', $tag) }}"
+                                                                title="Переглянути категорії теорії"
+                                                            >
+                                                                <i class="fa-solid fa-folder-open"></i> Категорії
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                     <span class="flex items-center gap-2 text-xs">
                                                         <a
                                                             href="{{ route('test-tags.edit', $tag) }}"

@@ -135,6 +135,8 @@ Route::middleware('auth.admin')->group(function () {
                 ->name('questions.answers');
             Route::get('/{tag}/questions/{question}/tags', [TestTagController::class, 'questionTags'])
                 ->name('questions.tags');
+            Route::get('/{tag}/pages', [TestTagController::class, 'pages'])->name('pages');
+            Route::get('/{tag}/page-categories', [TestTagController::class, 'pageCategories'])->name('page-categories');
             Route::get('/{tag}/edit', [TestTagController::class, 'edit'])->name('edit');
             Route::put('/{tag}', [TestTagController::class, 'update'])->name('update');
             Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');

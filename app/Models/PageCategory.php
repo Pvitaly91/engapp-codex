@@ -29,4 +29,9 @@ class PageCategory extends Model
             ->orderBy('sort_order')
             ->orderBy('id');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

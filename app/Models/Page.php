@@ -19,4 +19,9 @@ class Page extends Model
     {
         return $this->hasMany(TextBlock::class)->orderBy('sort_order');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

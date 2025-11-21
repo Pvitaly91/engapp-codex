@@ -17,4 +17,14 @@ class Tag extends Model
     {
         return $this->belongsToMany(Question::class);
     }
+
+    public function pages()
+    {
+        return $this->belongsToMany(Page::class);
+    }
+
+    public function pageCategories()
+    {
+        return $this->belongsToMany(PageCategory::class);
+    }
 }
