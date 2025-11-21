@@ -413,7 +413,7 @@ class TestTagController extends Controller
                         'title' => $page->category->title,
                         'slug' => $page->category->slug,
                     ] : null,
-                    'url' => $page->category 
+                    'url' => ($page->category && $page->category->slug && $page->slug)
                         ? route('pages.show', [$page->category->slug, $page->slug])
                         : null,
                 ];
