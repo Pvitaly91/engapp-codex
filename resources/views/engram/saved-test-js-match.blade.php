@@ -17,6 +17,7 @@
         <ul class="list-disc space-y-1 pl-4">
             <li>Зліва — речення (1…n), справа — пояснення (a…n).</li>
             <li>Тягни або натискай, щоб провести лінію між відповідними парами.</li>
+            <li>Натисни на елемент із зв'язком, щоб підсвітити його з'єднання.</li>
             <li>Кожен елемент може мати лише один зв'язок.</li>
             <li><strong>Перевірити</strong> активується, коли всі пари з'єднані.</li>
             <li><strong>Скинути</strong> очищує з'єднання та перемішує елементи.</li>
@@ -88,6 +89,20 @@
         opacity: 0.6;
         pointer-events: none;
     }
+    .match-card.highlighted {
+        border-color: #f59e0b;
+        box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4);
+        background: #fef3c7;
+        animation: pulse-highlight 1s ease-in-out;
+    }
+    @keyframes pulse-highlight {
+        0%, 100% {
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4);
+        }
+        50% {
+            box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.3);
+        }
+    }
     .match-card-label {
         display: inline-flex;
         align-items: center;
@@ -124,7 +139,12 @@
         stroke-width: 3;
         stroke: #94a3b8;
         stroke-linecap: round;
-        transition: stroke 0.3s ease;
+        transition: stroke 0.3s ease, stroke-width 0.3s ease;
+    }
+    #match-svg line.highlighted {
+        stroke: #f59e0b;
+        stroke-width: 5;
+        filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.6));
     }
 </style>
 
@@ -149,6 +169,7 @@ const matchState = {
 };
 
 let clickSelectedElement = null;
+let highlightedConnection = null;
 
 const matchBoard = document.getElementById('match-board');
 const svg = document.getElementById('match-svg');
@@ -429,6 +450,18 @@ function handleClickConnection(el) {
         return;
     }
 
+    // Check if the clicked element already has a connection
+    const existingConnection = findConnectionForElement(el);
+    
+    // If element has a connection and nothing is selected, highlight it
+    if (existingConnection && !clickSelectedElement) {
+        highlightConnection(existingConnection);
+        return;
+    }
+
+    // Clear any existing highlight when making new selections
+    clearHighlight();
+
     // If no element is selected yet, select this one
     if (!clickSelectedElement) {
         clickSelectedElement = el;
@@ -464,6 +497,67 @@ function handleClickConnection(el) {
     applyConnection(leftEl.dataset.key, rightEl.dataset.key);
 }
 
+function findConnectionForElement(el) {
+    if (!el) {
+        return null;
+    }
+
+    const key = el.dataset.key;
+    if (!key) {
+        return null;
+    }
+
+    const isLeft = el.classList.contains('match-sentence');
+    const type = isLeft ? 'leftKey' : 'rightKey';
+    const conn = matchState.connections.find(conn => conn[type] === key);
+    
+    return conn;
+}
+
+function clearHighlight() {
+    if (highlightedConnection) {
+        const leftCards = leftCol.querySelectorAll('.match-card');
+        const rightCards = rightCol.querySelectorAll('.match-card');
+        
+        leftCards.forEach(card => card.classList.remove('highlighted'));
+        rightCards.forEach(card => card.classList.remove('highlighted'));
+        
+        const lines = svg.querySelectorAll('line[data-conn]');
+        lines.forEach(line => line.classList.remove('highlighted'));
+        
+        highlightedConnection = null;
+    }
+}
+
+function highlightConnection(connection) {
+    if (!connection) {
+        return;
+    }
+
+    // Clear any previous highlight
+    clearHighlight();
+
+    const leftCards = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+    const rightCards = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+
+    const leftEl = leftCards.get(connection.leftKey);
+    const rightEl = rightCards.get(connection.rightKey);
+
+    if (leftEl && rightEl) {
+        leftEl.classList.add('highlighted');
+        rightEl.classList.add('highlighted');
+
+        // Find and highlight the line
+        const lineKey = `${connection.leftKey}|${connection.rightKey}`;
+        const line = svg.querySelector(`line[data-conn="${lineKey}"]`);
+        if (line) {
+            line.classList.add('highlighted');
+        }
+
+        highlightedConnection = connection;
+    }
+}
+
 function removeConnectionForElement(el) {
     if (!el) {
         return;
@@ -480,6 +574,7 @@ function removeConnectionForElement(el) {
     if (idx !== -1) {
         matchState.connections.splice(idx, 1);
         clearEvaluation();
+        clearHighlight();
         renderConnections();
         updateButtonState();
         updateProgress();
@@ -519,6 +614,7 @@ function applyConnection(leftKey, rightKey) {
 
     matchState.connections.push({ leftKey, rightKey, correct: false });
     clearEvaluation();
+    clearHighlight();
     renderConnections();
     updateButtonState();
     updateProgress();
@@ -618,6 +714,9 @@ function renderConnections() {
         clickSelectedElement.classList.remove('selected');
         clickSelectedElement = null;
     }
+
+    // Clear highlight
+    clearHighlight();
 
     const itemMap = getItemMap();
 
@@ -819,6 +918,14 @@ if (restartBtn) {
 
 window.addEventListener('resize', () => {
     renderConnections();
+});
+
+// Clear highlight when clicking outside of cards
+document.addEventListener('click', (event) => {
+    const clickedCard = event.target.closest('.match-card');
+    if (!clickedCard && highlightedConnection) {
+        clearHighlight();
+    }
 });
 
 initMatch();
