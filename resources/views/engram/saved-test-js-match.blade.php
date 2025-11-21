@@ -28,6 +28,24 @@
         </h1>
     <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm" id="match-board">
         <svg id="match-svg" class="pointer-events-none absolute inset-0 h-full w-full"></svg>
+        <div class="grid gap-4 sm:gap-6 md:gap-10 grid-cols-2 mb-4" id="match-search-inputs">
+            <div>
+                <input 
+                    type="text" 
+                    id="search-left" 
+                    placeholder="Пошук речень..." 
+                    class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    id="search-right" 
+                    placeholder="Пошук пояснень..." 
+                    class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                />
+            </div>
+        </div>
         <div class="grid gap-4 sm:gap-6 md:gap-10 grid-cols-2" id="match-columns">
             <div class="space-y-3" id="match-left"></div>
             <div class="space-y-3" id="match-right"></div>
@@ -88,6 +106,9 @@
     .match-card.disabled {
         opacity: 0.6;
         pointer-events: none;
+    }
+    .match-card.search-hidden {
+        display: none;
     }
     .match-card.highlighted {
         border-color: #f59e0b;
@@ -180,6 +201,8 @@ const rightCol = document.getElementById('match-right');
 const emptyState = document.getElementById('match-empty');
 const checkBtn = document.getElementById('match-check');
 const resetBtn = document.getElementById('match-reset');
+const searchLeftInput = document.getElementById('search-left');
+const searchRightInput = document.getElementById('search-right');
 const resultEl = document.getElementById('match-result');
 const restartBtn = document.getElementById('restart-test');
 
@@ -948,6 +971,41 @@ matchBoard.addEventListener('click', (event) => {
         clearHighlight();
     }
 });
+
+// Live search functionality for each column
+function filterColumn(column, searchTerm) {
+    const cards = column.querySelectorAll('.match-card');
+    const normalizedSearch = searchTerm.toLowerCase().trim();
+    
+    cards.forEach(card => {
+        if (!normalizedSearch) {
+            card.classList.remove('search-hidden');
+            return;
+        }
+        
+        const textContent = card.textContent.toLowerCase();
+        if (textContent.includes(normalizedSearch)) {
+            card.classList.remove('search-hidden');
+        } else {
+            card.classList.add('search-hidden');
+        }
+    });
+    
+    // Re-render connections after filtering to update line positions
+    renderConnections();
+}
+
+if (searchLeftInput) {
+    searchLeftInput.addEventListener('input', (event) => {
+        filterColumn(leftCol, event.target.value);
+    });
+}
+
+if (searchRightInput) {
+    searchRightInput.addEventListener('input', (event) => {
+        filterColumn(rightCol, event.target.value);
+    });
+}
 
 initMatch();
 </script>
