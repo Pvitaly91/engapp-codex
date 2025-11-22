@@ -125,7 +125,7 @@
 
     @push('scripts')
         <script>
-            function copyToClipboard() {
+            function copyToClipboard(event) {
                 const content = document.getElementById('json-content').textContent;
                 navigator.clipboard.writeText(content).then(() => {
                     // Show temporary success message

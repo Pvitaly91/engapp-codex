@@ -5,6 +5,10 @@
 @section('content')
     <div class="py-8">
         <div class="mx-auto flex max-w-5xl flex-col gap-8">
+            @php
+                $exportFilePath = config_path('tags/exported_tags.json');
+                $exportFileExists = file_exists($exportFilePath);
+            @endphp
             <header class="space-y-2">
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div>
@@ -31,7 +35,7 @@
                                 <i class="fa-solid fa-file-export mr-2"></i>Експорт в JSON
                             </button>
                         </form>
-                        @if (file_exists(config_path('tags/exported_tags.json')))
+                        @if ($exportFileExists)
                             <a
                                 href="{{ route('test-tags.export.view') }}"
                                 class="inline-flex items-center justify-center rounded-lg border border-blue-300 bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring"
@@ -69,12 +73,12 @@
                 </div>
                 <div class="flex flex-wrap items-center gap-4">
                     <p class="text-sm text-slate-400">Всього тегів: {{ $totalTags }}</p>
-                    @if (file_exists(config_path('tags/exported_tags.json')))
+                    @if ($exportFileExists)
                         <p class="text-sm text-slate-500">
                             <i class="fa-solid fa-file-code mr-1 text-emerald-600"></i>
                             <span class="font-medium">Файл експорту:</span>
                             <code class="ml-1 rounded bg-slate-100 px-2 py-1 text-xs font-mono text-slate-700">config/tags/exported_tags.json</code>
-                            <span class="ml-2 text-slate-400">({{ number_format(filesize(config_path('tags/exported_tags.json')) / 1024, 2) }} KB)</span>
+                            <span class="ml-2 text-slate-400">({{ number_format(filesize($exportFilePath) / 1024, 2) }} KB)</span>
                         </p>
                     @endif
                 </div>

@@ -260,7 +260,7 @@ class TestTagController extends Controller
         ]);
     }
 
-    public function downloadExportedJson()
+    public function downloadExportedJson(): \Symfony\Component\HttpFoundation\BinaryFileResponse|RedirectResponse
     {
         $filePath = config_path('tags/exported_tags.json');
 
