@@ -27,7 +27,7 @@
         <p class="text-sm text-gray-500">Ще немає тегів. Додайте їх у розділі «Теги тестів», щоб використовувати тут.</p>
     @else
         <div class="space-y-4" data-tag-selector>
-            <div class="grid gap-3 md:grid-cols-2" data-tag-categories>
+            <div class="grid gap-3 md:grid-cols-1" data-tag-categories>
                 @foreach ($tagsByCategory as $tagCategory => $tags)
                     @php
                         $categoryLabel = $tagCategory ?: 'Без категорії';
@@ -37,15 +37,38 @@
                         class="space-y-3 rounded-xl border border-gray-200 bg-gray-50 p-4"
                         data-tag-category
                         data-category-name="{{ $categoryKey }}"
+                        x-data="{ expanded: false }"
                     >
                         <div class="flex items-center justify-between gap-2">
-                            <div class="space-y-0.5">
-                                <p class="text-sm font-semibold text-gray-800">{{ $categoryLabel }}</p>
-                                <p class="text-xs text-gray-500">{{ trans_choice('{0}Немає тегів|{1}1 тег|[2,4]:count теги|[5,*]:count тегів', $tags->count(), ['count' => $tags->count()]) }}</p>
-                            </div>
+                            <button
+                                type="button"
+                                @click="expanded = !expanded"
+                                class="flex flex-1 items-center gap-2 text-left transition-colors hover:text-gray-900"
+                            >
+                                <svg
+                                    class="h-4 w-4 text-gray-500 transition-transform"
+                                    :class="{ 'rotate-90': expanded }"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                                <div class="space-y-0.5">
+                                    <p class="text-sm font-semibold text-gray-800" data-category-label>{{ $categoryLabel }}</p>
+                                    <p class="text-xs text-gray-500">{{ trans_choice('{0}Немає тегів|{1}1 тег|[2,4]:count теги|[5,*]:count тегів', $tags->count(), ['count' => $tags->count()]) }}</p>
+                                </div>
+                            </button>
                             <span class="inline-flex items-center rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-700">{{ $tags->count() }}</span>
                         </div>
-                        <div class="grid gap-2" data-tag-options>
+                        <div
+                            class="grid gap-2"
+                            data-tag-options
+                            x-show="expanded"
+                            x-transition
+                        >
                             @foreach ($tags as $tag)
                                 @php
                                     $inputId = ($idPrefix ?? 'tag') . '-' . $tag->id;
@@ -67,7 +90,7 @@
                                             @checked($isChecked)
                                             class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                                         />
-                                        <span>{{ $tag->name }}</span>
+                                        <span data-tag-name-display>{{ $tag->name }}</span>
                                     </span>
                                     <span class="text-xs text-gray-500">Категорія: {{ $categoryLabel }}</span>
                                 </label>
@@ -92,6 +115,33 @@
                     const categories = selector.querySelectorAll('[data-tag-category]');
                     const emptyState = selector.querySelector('[data-tag-empty]');
 
+                    // Function to highlight search term in text using safe DOM manipulation
+                    const highlightText = (element, text, term) => {
+                        if (!term || term.length > 100) {
+                            element.textContent = text;
+                            return;
+                        }
+                        
+                        const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        const regex = new RegExp(`(${escapedTerm})`, 'gi');
+                        const parts = text.split(regex);
+                        
+                        // Clear element
+                        element.textContent = '';
+                        
+                        // Build content using safe DOM methods
+                        parts.forEach((part, index) => {
+                            if (part.toLowerCase() === term.toLowerCase()) {
+                                const mark = document.createElement('mark');
+                                mark.className = 'bg-yellow-200 text-gray-900';
+                                mark.textContent = part;
+                                element.appendChild(mark);
+                            } else if (part) {
+                                element.appendChild(document.createTextNode(part));
+                            }
+                        });
+                    };
+
                     const updateVisibility = () => {
                         const term = (searchInput?.value || '').toLowerCase().trim();
                         let hasVisible = false;
@@ -106,10 +156,42 @@
                                 const searchable = `${tagName} ${categoryName}`;
                                 const matches = term === '' || searchable.includes(term);
                                 option.style.display = matches ? '' : 'none';
+                                
+                                // Highlight matching text
+                                const tagTextSpan = option.querySelector('[data-tag-name-display]');
+                                if (tagTextSpan) {
+                                    let originalText = tagTextSpan.getAttribute('data-original-text');
+                                    if (!originalText) {
+                                        originalText = tagTextSpan.textContent;
+                                        tagTextSpan.setAttribute('data-original-text', originalText);
+                                    }
+                                    highlightText(tagTextSpan, originalText, term);
+                                }
+                                
                                 if (matches) {
                                     visibleOptions += 1;
                                 }
                             });
+
+                            // Highlight matching text in category label
+                            const categoryLabelElement = category.querySelector('[data-category-label]');
+                            if (categoryLabelElement) {
+                                let originalCategoryText = categoryLabelElement.getAttribute('data-original-text');
+                                if (!originalCategoryText) {
+                                    originalCategoryText = categoryLabelElement.textContent;
+                                    categoryLabelElement.setAttribute('data-original-text', originalCategoryText);
+                                }
+                                highlightText(categoryLabelElement, originalCategoryText, term);
+                            }
+
+                            // Auto-expand categories with matching tags when searching
+                            if (term && visibleOptions > 0) {
+                                // Trigger Alpine.js to expand the category
+                                // Access Alpine data from the parent element with x-data
+                                if (category._x_dataStack && category._x_dataStack[0]) {
+                                    category._x_dataStack[0].expanded = true;
+                                }
+                            }
 
                             category.style.display = visibleOptions > 0 ? '' : 'none';
                             if (visibleOptions > 0) {
