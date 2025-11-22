@@ -74,7 +74,7 @@
                             : ($editingCategory?->tags->pluck('id')->all() ?? []);
                     @endphp
 
-                    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
+                    <div class="flex flex-col gap-6">
                         <div class="space-y-6">
                             @if ($editingCategory)
                                 <section class="space-y-4 rounded-xl border border-blue-200 bg-blue-50/60 p-5">
