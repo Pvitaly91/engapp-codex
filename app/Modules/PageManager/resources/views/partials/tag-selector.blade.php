@@ -184,6 +184,18 @@
                                 highlightText(categoryLabelElement, originalCategoryText, term);
                             }
 
+                            // Auto-expand categories with matching tags when searching
+                            if (term && visibleOptions > 0) {
+                                // Trigger Alpine.js to expand the category
+                                const button = category.querySelector('button[type="button"]');
+                                if (button && button.__x) {
+                                    const alpineData = button.__x.$data;
+                                    if (alpineData && !alpineData.expanded) {
+                                        alpineData.expanded = true;
+                                    }
+                                }
+                            }
+
                             category.style.display = visibleOptions > 0 ? '' : 'none';
                             if (visibleOptions > 0) {
                                 hasVisible = true;
