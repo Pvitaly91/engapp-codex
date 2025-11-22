@@ -115,21 +115,31 @@
                     const categories = selector.querySelectorAll('[data-tag-category]');
                     const emptyState = selector.querySelector('[data-tag-empty]');
 
-                    // Function to highlight search term in text
-                    const highlightText = (text, term) => {
-                        if (!term || term.length > 100) return text; // Limit term length to prevent ReDoS
+                    // Function to highlight search term in text using safe DOM manipulation
+                    const highlightText = (element, text, term) => {
+                        if (!term || term.length > 100) {
+                            element.textContent = text;
+                            return;
+                        }
+                        
                         const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                         const regex = new RegExp(`(${escapedTerm})`, 'gi');
-                        // Escape HTML entities in text to prevent XSS
-                        const escapeHtml = (str) => str.replace(/[&<>"']/g, (char) => ({
-                            '&': '&amp;',
-                            '<': '&lt;',
-                            '>': '&gt;',
-                            '"': '&quot;',
-                            "'": '&#039;'
-                        })[char]);
-                        const escapedText = escapeHtml(text);
-                        return escapedText.replace(regex, '<mark class="bg-yellow-200 text-gray-900">$1</mark>');
+                        const parts = text.split(regex);
+                        
+                        // Clear element
+                        element.textContent = '';
+                        
+                        // Build content using safe DOM methods
+                        parts.forEach((part, index) => {
+                            if (part.toLowerCase() === term.toLowerCase()) {
+                                const mark = document.createElement('mark');
+                                mark.className = 'bg-yellow-200 text-gray-900';
+                                mark.textContent = part;
+                                element.appendChild(mark);
+                            } else if (part) {
+                                element.appendChild(document.createTextNode(part));
+                            }
+                        });
                     };
 
                     const updateVisibility = () => {
@@ -150,11 +160,11 @@
                                 // Highlight matching text
                                 const tagTextSpan = option.querySelector('[data-tag-name-display]');
                                 if (tagTextSpan) {
-                                    const originalText = tagTextSpan.getAttribute('data-original-text') || tagTextSpan.textContent;
-                                    if (!tagTextSpan.hasAttribute('data-original-text')) {
-                                        tagTextSpan.setAttribute('data-original-text', originalText);
+                                    const originalText = tagTextSpan.getAttribute('data-original-text');
+                                    if (!originalText) {
+                                        tagTextSpan.setAttribute('data-original-text', tagTextSpan.textContent);
                                     }
-                                    tagTextSpan.innerHTML = highlightText(originalText, term);
+                                    highlightText(tagTextSpan, originalText || tagTextSpan.textContent, term);
                                 }
                                 
                                 if (matches) {
