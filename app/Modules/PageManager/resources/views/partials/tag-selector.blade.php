@@ -90,7 +90,7 @@
                                             @checked($isChecked)
                                             class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                                         />
-                                        <span>{{ $tag->name }}</span>
+                                        <span data-tag-name-display>{{ $tag->name }}</span>
                                     </span>
                                     <span class="text-xs text-gray-500">Категорія: {{ $categoryLabel }}</span>
                                 </label>
@@ -117,9 +117,19 @@
 
                     // Function to highlight search term in text
                     const highlightText = (text, term) => {
-                        if (!term) return text;
-                        const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-                        return text.replace(regex, '<mark class="bg-yellow-200 text-gray-900">$1</mark>');
+                        if (!term || term.length > 100) return text; // Limit term length to prevent ReDoS
+                        const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        const regex = new RegExp(`(${escapedTerm})`, 'gi');
+                        // Escape HTML entities in text to prevent XSS
+                        const escapeHtml = (str) => str.replace(/[&<>"']/g, (char) => ({
+                            '&': '&amp;',
+                            '<': '&lt;',
+                            '>': '&gt;',
+                            '"': '&quot;',
+                            "'": '&#039;'
+                        })[char]);
+                        const escapedText = escapeHtml(text);
+                        return escapedText.replace(regex, '<mark class="bg-yellow-200 text-gray-900">$1</mark>');
                     };
 
                     const updateVisibility = () => {
@@ -138,7 +148,7 @@
                                 option.style.display = matches ? '' : 'none';
                                 
                                 // Highlight matching text
-                                const tagTextSpan = option.querySelector('span.flex.items-center.gap-2 > span');
+                                const tagTextSpan = option.querySelector('[data-tag-name-display]');
                                 if (tagTextSpan) {
                                     const originalText = tagTextSpan.getAttribute('data-original-text') || tagTextSpan.textContent;
                                     if (!tagTextSpan.hasAttribute('data-original-text')) {
