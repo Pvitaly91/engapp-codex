@@ -225,12 +225,20 @@ class TestTagController extends Controller
         $directory = dirname($filePath);
 
         if (!is_dir($directory)) {
-            mkdir($directory, 0755, true);
+            if (!mkdir($directory, 0755, true)) {
+                return redirect()->route('test-tags.index')->with('error', 'Не вдалося створити директорію для експорту.');
+            }
         }
 
-        file_put_contents($filePath, json_encode($jsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        $result = file_put_contents($filePath, json_encode($jsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 
-        return redirect()->route('test-tags.index')->with('status', 'Теги успішно експортовано до файлу config/tags/exported_tags.json');
+        if ($result === false) {
+            return redirect()->route('test-tags.index')->with('error', 'Не вдалося записати файл експорту.');
+        }
+
+        $relativePath = 'config/tags/exported_tags.json';
+
+        return redirect()->route('test-tags.index')->with('status', "Теги успішно експортовано до файлу {$relativePath}");
     }
 
     public function create(): View
