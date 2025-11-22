@@ -38,12 +38,15 @@ class PageManagerController extends Controller
             $editingCategory = $categories->firstWhere('id', $categoryId);
         }
 
+        $exportFileExists = file_exists(config_path('pages/exported_pages.json'));
+
         return view('page-manager::index', [
             'pages' => $pages,
             'categories' => $categories,
             'activeTab' => $activeTab,
             'editingCategory' => $editingCategory,
             'tagsByCategory' => $tagsByCategory,
+            'exportFileExists' => $exportFileExists,
         ]);
     }
 
@@ -499,5 +502,95 @@ class PageManagerController extends Controller
         if ((int) $block->page_category_id !== (int) $category->getKey()) {
             abort(404);
         }
+    }
+
+    public function exportToJson(): RedirectResponse
+    {
+        $categories = PageCategory::query()
+            ->with(['pages' => function ($query) {
+                $query->orderBy('title');
+            }])
+            ->orderBy('title')
+            ->get();
+
+        $exportData = $categories->map(function (PageCategory $category) {
+            return [
+                'category_id' => $category->id,
+                'category_title' => $category->title,
+                'category_slug' => $category->slug,
+                'category_language' => $category->language,
+                'pages' => $category->pages->map(function (Page $page) {
+                    return [
+                        'page_id' => $page->id,
+                        'page_title' => $page->title,
+                        'page_slug' => $page->slug,
+                    ];
+                })->values()->all(),
+            ];
+        })->values()->all();
+
+        $jsonData = [
+            'exported_at' => now()->toIso8601String(),
+            'total_categories' => count($exportData),
+            'total_pages' => $categories->sum(fn ($category) => $category->pages->count()),
+            'categories' => $exportData,
+        ];
+
+        $filePath = config_path('pages/exported_pages.json');
+        $directory = dirname($filePath);
+
+        if (!is_dir($directory) && !mkdir($directory, 0755, true) && !is_dir($directory)) {
+            return redirect()->route('pages.manage.index')->with('error', 'Не вдалося створити директорію для експорту.');
+        }
+
+        $result = file_put_contents($filePath, json_encode($jsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+
+        if ($result === false) {
+            return redirect()->route('pages.manage.index')->with('error', 'Не вдалося записати файл експорту.');
+        }
+
+        $relativePath = 'config/pages/exported_pages.json';
+
+        return redirect()->route('pages.manage.index')->with('status', "Сторінки успішно експортовано до файлу {$relativePath}");
+    }
+
+    public function viewExportedJson()
+    {
+        $filePath = config_path('pages/exported_pages.json');
+
+        if (!file_exists($filePath)) {
+            return redirect()->route('pages.manage.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
+        }
+
+        $jsonContent = file_get_contents($filePath);
+        if ($jsonContent === false) {
+            return redirect()->route('pages.manage.index')->with('error', 'Не вдалося прочитати файл експорту.');
+        }
+
+        $jsonData = json_decode($jsonContent, true);
+        if ($jsonData === null && json_last_error() !== JSON_ERROR_NONE) {
+            return redirect()->route('pages.manage.index')->with('error', 'Файл експорту містить некоректний JSON.');
+        }
+
+        $relativePath = 'config/pages/exported_pages.json';
+
+        return view('page-manager::view-export', [
+            'jsonContent' => $jsonContent,
+            'jsonData' => $jsonData,
+            'filePath' => $relativePath,
+            'fileSize' => filesize($filePath),
+            'lastModified' => filemtime($filePath),
+        ]);
+    }
+
+    public function downloadExportedJson()
+    {
+        $filePath = config_path('pages/exported_pages.json');
+
+        if (!file_exists($filePath)) {
+            return redirect()->route('pages.manage.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
+        }
+
+        return response()->download($filePath, 'exported_pages.json');
     }
 }

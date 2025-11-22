@@ -9,7 +9,23 @@
                 <h1 class="text-2xl font-semibold">Сторінки</h1>
                 <p class="text-sm text-gray-500">Керуйте сторінками, редагуйте та оновлюйте блоки контенту.</p>
             </div>
-            <a href="{{ route('pages.manage.create') }}" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">+ Нова сторінка</a>
+            <div class="flex flex-wrap gap-2">
+                <form action="{{ route('pages.manage.export') }}" method="POST" class="inline-flex">
+                    @csrf
+                    <button type="submit" class="inline-flex items-center rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-emerald-700">
+                        Експорт в JSON
+                    </button>
+                </form>
+                @if ($exportFileExists)
+                    <a href="{{ route('pages.manage.export.view') }}" class="inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-700">
+                        Переглянути JSON
+                    </a>
+                    <a href="{{ route('pages.manage.export.download') }}" class="inline-flex items-center rounded-xl bg-purple-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-purple-700">
+                        Скачати JSON
+                    </a>
+                @endif
+                <a href="{{ route('pages.manage.create') }}" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">+ Нова сторінка</a>
+            </div>
         </div>
 
         @if (session('status'))
