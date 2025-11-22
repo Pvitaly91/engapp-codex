@@ -26,7 +26,6 @@
             <input
                 type="text"
                 x-model="searchQuery"
-                @input="filterTags"
                 placeholder="Пошук тегів або категорій..."
                 class="w-full rounded-lg border border-slate-300 px-3 py-2 pl-10 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring"
             >
@@ -87,43 +86,13 @@ function tagSelector(initialSelected) {
     return {
         selectedTagIds: Array.isArray(initialSelected) ? initialSelected : [],
         searchQuery: '',
-        visibleTags: {},
-        visibleCategories: {},
-        
-        init() {
-            this.updateVisibility();
-        },
-        
-        filterTags() {
-            this.updateVisibility();
-        },
-        
-        updateVisibility() {
-            const query = this.searchQuery.toLowerCase().trim();
-            
-            if (!query) {
-                // Show all
-                this.visibleTags = {};
-                this.visibleCategories = {};
-                return;
-            }
-            
-            // Mark visible tags and categories
-            const tags = document.querySelectorAll('[x-show*="isTagVisible"]');
-            tags.forEach(el => {
-                const tagName = el.querySelector('span').textContent.toLowerCase();
-                const categoryName = el.closest('[x-show*="isCategoryVisible"]')?.querySelector('h4')?.textContent.toLowerCase() || '';
-                
-                const visible = tagName.includes(query) || categoryName.includes(query);
-                const tagId = parseInt(el.querySelector('input').value);
-                
-                this.visibleTags[tagId] = visible;
-                
-                if (visible && categoryName) {
-                    this.visibleCategories[categoryName] = true;
-                }
-            });
-        },
+        categoryTags: @json($groupedTags->map(fn($tags, $cat) => [
+            'name' => $cat,
+            'tags' => $tags->map(fn($tag) => [
+                'id' => $tag->id,
+                'name' => $tag->name
+            ])->values()
+        ])->values()),
         
         isTagVisible(tagId, tagName, categoryName) {
             const query = this.searchQuery.toLowerCase().trim();
@@ -139,47 +108,38 @@ function tagSelector(initialSelected) {
             
             if (!query) return true;
             
-            // Show category if its name matches or if it has visible tags
+            // Show category if its name matches
             if (categoryName.toLowerCase().includes(query)) {
                 return true;
             }
             
             // Check if any tag in this category is visible
-            const categoryDiv = document.querySelector(`h4:contains('${categoryName}')`);
-            if (categoryDiv) {
-                const labels = categoryDiv.closest('[x-show*="isCategoryVisible"]')?.querySelectorAll('label') || [];
-                for (let label of labels) {
-                    const tagName = label.querySelector('span')?.textContent.toLowerCase() || '';
-                    if (tagName.includes(query)) {
-                        return true;
-                    }
-                }
+            const category = this.categoryTags.find(c => c.name === categoryName);
+            if (category) {
+                return category.tags.some(tag => 
+                    tag.name.toLowerCase().includes(query)
+                );
             }
             
             return false;
         },
         
         getVisibleTagsCount(categoryName) {
+            const category = this.categoryTags.find(c => c.name === categoryName);
+            if (!category) return '0 тегів';
+            
             const query = this.searchQuery.toLowerCase().trim();
             
             if (!query) {
-                // Count all tags in category
-                const categoryDiv = Array.from(document.querySelectorAll('h4')).find(h => h.textContent === categoryName);
-                const count = categoryDiv?.closest('[x-show*="isCategoryVisible"]')?.querySelectorAll('label').length || 0;
+                const count = category.tags.length;
                 return count + ' ' + (count === 1 ? 'тег' : 'тегів');
             }
             
             // Count visible tags
-            const categoryDiv = Array.from(document.querySelectorAll('h4')).find(h => h.textContent === categoryName);
-            const labels = categoryDiv?.closest('[x-show*="isCategoryVisible"]')?.querySelectorAll('label') || [];
-            let visibleCount = 0;
-            
-            for (let label of labels) {
-                const tagName = label.querySelector('span')?.textContent.toLowerCase() || '';
-                if (tagName.includes(query) || categoryName.toLowerCase().includes(query)) {
-                    visibleCount++;
-                }
-            }
+            const visibleCount = category.tags.filter(tag => 
+                tag.name.toLowerCase().includes(query) || 
+                categoryName.toLowerCase().includes(query)
+            ).length;
             
             return visibleCount + ' ' + (visibleCount === 1 ? 'тег' : 'тегів');
         },
@@ -189,17 +149,11 @@ function tagSelector(initialSelected) {
             
             if (!query) return true;
             
-            const labels = document.querySelectorAll('[x-show*="isTagVisible"]');
-            for (let label of labels) {
-                const tagName = label.querySelector('span')?.textContent.toLowerCase() || '';
-                const categoryName = label.closest('[x-show*="isCategoryVisible"]')?.querySelector('h4')?.textContent.toLowerCase() || '';
-                
-                if (tagName.includes(query) || categoryName.includes(query)) {
-                    return true;
-                }
-            }
-            
-            return false;
+            // Check if any category or tag matches
+            return this.categoryTags.some(category => 
+                category.name.toLowerCase().includes(query) ||
+                category.tags.some(tag => tag.name.toLowerCase().includes(query))
+            );
         }
     }
 }
