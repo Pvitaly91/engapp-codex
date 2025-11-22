@@ -166,6 +166,7 @@ class DatabaseSeeder extends Seeder
             QuestionWordsDragDropSeeder::class,
             SomeAnyCategorySeeder::class,
             GrammarPagesSeeder::class,
+            PageTagAssignmentSeeder::class,
         ]);
     }
 }
