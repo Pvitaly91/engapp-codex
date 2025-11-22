@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\TextBlock;
 use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -542,7 +543,7 @@ class PageManagerController extends Controller
         $filePath = config_path(self::EXPORT_FILE_PATH);
         $directory = dirname($filePath);
 
-        if (!is_dir($directory) && !mkdir($directory, 0755, true)) {
+        if (!is_dir($directory) && !mkdir($directory, 0750, true)) {
             return redirect()->route('pages.manage.index')->with('error', 'Не вдалося створити директорію для експорту.');
         }
 
@@ -578,7 +579,7 @@ class PageManagerController extends Controller
             'jsonData' => $jsonData,
             'filePath' => self::EXPORT_RELATIVE_PATH,
             'fileSize' => filesize($filePath),
-            'lastModified' => \Carbon\Carbon::createFromTimestamp(filemtime($filePath)),
+            'lastModified' => Carbon::createFromTimestamp(filemtime($filePath)),
         ]);
     }
 
