@@ -13,6 +13,9 @@ use Illuminate\Validation\Rule;
 
 class PageManagerController extends Controller
 {
+    private const EXPORT_FILE_PATH = 'pages/exported_pages.json';
+    private const EXPORT_RELATIVE_PATH = 'config/pages/exported_pages.json';
+
     public function index(Request $request)
     {
         $pages = Page::query()
@@ -38,7 +41,7 @@ class PageManagerController extends Controller
             $editingCategory = $categories->firstWhere('id', $categoryId);
         }
 
-        $exportFileExists = file_exists(config_path('pages/exported_pages.json'));
+        $exportFileExists = file_exists(config_path(self::EXPORT_FILE_PATH));
 
         return view('page-manager::index', [
             'pages' => $pages,
@@ -536,10 +539,10 @@ class PageManagerController extends Controller
             'categories' => $exportData,
         ];
 
-        $filePath = config_path('pages/exported_pages.json');
+        $filePath = config_path(self::EXPORT_FILE_PATH);
         $directory = dirname($filePath);
 
-        if (!is_dir($directory) && !mkdir($directory, 0755, true) && !is_dir($directory)) {
+        if (!is_dir($directory) && !mkdir($directory, 0755, true)) {
             return redirect()->route('pages.manage.index')->with('error', 'Не вдалося створити директорію для експорту.');
         }
 
@@ -549,14 +552,12 @@ class PageManagerController extends Controller
             return redirect()->route('pages.manage.index')->with('error', 'Не вдалося записати файл експорту.');
         }
 
-        $relativePath = 'config/pages/exported_pages.json';
-
-        return redirect()->route('pages.manage.index')->with('status', "Сторінки успішно експортовано до файлу {$relativePath}");
+        return redirect()->route('pages.manage.index')->with('status', "Сторінки успішно експортовано до файлу " . self::EXPORT_RELATIVE_PATH);
     }
 
     public function viewExportedJson()
     {
-        $filePath = config_path('pages/exported_pages.json');
+        $filePath = config_path(self::EXPORT_FILE_PATH);
 
         if (!file_exists($filePath)) {
             return redirect()->route('pages.manage.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
@@ -572,20 +573,18 @@ class PageManagerController extends Controller
             return redirect()->route('pages.manage.index')->with('error', 'Файл експорту містить некоректний JSON.');
         }
 
-        $relativePath = 'config/pages/exported_pages.json';
-
         return view('page-manager::view-export', [
             'jsonContent' => $jsonContent,
             'jsonData' => $jsonData,
-            'filePath' => $relativePath,
+            'filePath' => self::EXPORT_RELATIVE_PATH,
             'fileSize' => filesize($filePath),
-            'lastModified' => filemtime($filePath),
+            'lastModified' => \Carbon\Carbon::createFromTimestamp(filemtime($filePath)),
         ]);
     }
 
     public function downloadExportedJson()
     {
-        $filePath = config_path('pages/exported_pages.json');
+        $filePath = config_path(self::EXPORT_FILE_PATH);
 
         if (!file_exists($filePath)) {
             return redirect()->route('pages.manage.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');

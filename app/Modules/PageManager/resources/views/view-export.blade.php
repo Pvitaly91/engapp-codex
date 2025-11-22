@@ -44,7 +44,7 @@
                         <div class="flex items-center gap-2">
                             <div>
                                 <p class="text-xs text-slate-500">Останнє оновлення</p>
-                                <p class="text-sm font-medium text-slate-700">{{ \Carbon\Carbon::createFromTimestamp($lastModified)->format('d.m.Y H:i') }}</p>
+                                <p class="text-sm font-medium text-slate-700">{{ $lastModified->format('d.m.Y H:i') }}</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
