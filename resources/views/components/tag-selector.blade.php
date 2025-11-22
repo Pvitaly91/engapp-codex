@@ -37,17 +37,20 @@
         <div class="rounded-lg border border-slate-200 bg-slate-50 p-4 max-h-96 overflow-y-auto">
             <div class="space-y-4">
                 @foreach ($groupedTags as $categoryName => $tags)
-                    <div x-show="isCategoryVisible('{{ $categoryName }}')" x-transition>
+                    <div x-show="isCategoryVisible({{ json_encode($categoryName) }})" x-transition data-category="{{ e($categoryName) }}">
                         <div class="mb-2 flex items-center justify-between">
                             <h4 class="text-sm font-semibold text-slate-700">{{ $categoryName }}</h4>
-                            <span class="text-xs text-slate-400" x-text="getVisibleTagsCount('{{ $categoryName }}')"></span>
+                            <span class="text-xs text-slate-400" x-text="getVisibleTagsCount({{ json_encode($categoryName) }})"></span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 md:grid-cols-3">
                             @foreach ($tags as $tag)
                                 <label 
                                     class="flex items-center space-x-2 rounded border border-slate-200 bg-white px-3 py-2 hover:bg-blue-50 cursor-pointer transition-colors"
-                                    x-show="isTagVisible({{ $tag->id }}, '{{ $tag->name }}', '{{ $categoryName }}')"
+                                    x-show="isTagVisible({{ $tag->id }}, {{ json_encode($tag->name) }}, {{ json_encode($categoryName) }})"
                                     x-transition
+                                    data-tag-id="{{ $tag->id }}"
+                                    data-tag-name="{{ e($tag->name) }}"
+                                    data-category="{{ e($categoryName) }}"
                                 >
                                     <input
                                         type="checkbox"
