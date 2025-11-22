@@ -37,7 +37,7 @@
                         class="space-y-3 rounded-xl border border-gray-200 bg-gray-50 p-4"
                         data-tag-category
                         data-category-name="{{ $categoryKey }}"
-                        x-data="{ expanded: true }"
+                        x-data="{ expanded: false }"
                     >
                         <div class="flex items-center justify-between gap-2">
                             <button
@@ -57,7 +57,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                 </svg>
                                 <div class="space-y-0.5">
-                                    <p class="text-sm font-semibold text-gray-800">{{ $categoryLabel }}</p>
+                                    <p class="text-sm font-semibold text-gray-800" data-category-label>{{ $categoryLabel }}</p>
                                     <p class="text-xs text-gray-500">{{ trans_choice('{0}Немає тегів|{1}1 тег|[2,4]:count теги|[5,*]:count тегів', $tags->count(), ['count' => $tags->count()]) }}</p>
                                 </div>
                             </button>
@@ -172,6 +172,17 @@
                                     visibleOptions += 1;
                                 }
                             });
+
+                            // Highlight matching text in category label
+                            const categoryLabelElement = category.querySelector('[data-category-label]');
+                            if (categoryLabelElement) {
+                                let originalCategoryText = categoryLabelElement.getAttribute('data-original-text');
+                                if (!originalCategoryText) {
+                                    originalCategoryText = categoryLabelElement.textContent;
+                                    categoryLabelElement.setAttribute('data-original-text', originalCategoryText);
+                                }
+                                highlightText(categoryLabelElement, originalCategoryText, term);
+                            }
 
                             category.style.display = visibleOptions > 0 ? '' : 'none';
                             if (visibleOptions > 0) {
