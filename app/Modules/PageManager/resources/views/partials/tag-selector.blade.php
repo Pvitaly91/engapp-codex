@@ -160,11 +160,12 @@
                                 // Highlight matching text
                                 const tagTextSpan = option.querySelector('[data-tag-name-display]');
                                 if (tagTextSpan) {
-                                    const originalText = tagTextSpan.getAttribute('data-original-text');
+                                    let originalText = tagTextSpan.getAttribute('data-original-text');
                                     if (!originalText) {
-                                        tagTextSpan.setAttribute('data-original-text', tagTextSpan.textContent);
+                                        originalText = tagTextSpan.textContent;
+                                        tagTextSpan.setAttribute('data-original-text', originalText);
                                     }
-                                    highlightText(tagTextSpan, originalText || tagTextSpan.textContent, term);
+                                    highlightText(tagTextSpan, originalText, term);
                                 }
                                 
                                 if (matches) {
