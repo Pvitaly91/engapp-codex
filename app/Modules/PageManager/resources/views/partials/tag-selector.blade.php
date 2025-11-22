@@ -27,7 +27,7 @@
         <p class="text-sm text-gray-500">Ще немає тегів. Додайте їх у розділі «Теги тестів», щоб використовувати тут.</p>
     @else
         <div class="space-y-4" data-tag-selector>
-            <div class="grid gap-3 md:grid-cols-2" data-tag-categories>
+            <div class="grid gap-3 md:grid-cols-1" data-tag-categories>
                 @foreach ($tagsByCategory as $tagCategory => $tags)
                     @php
                         $categoryLabel = $tagCategory ?: 'Без категорії';
