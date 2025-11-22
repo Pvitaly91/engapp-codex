@@ -85,27 +85,34 @@ class PageTagAssignmentSeeder extends Seeder
 
     /**
      * Find matching tags for a given title and slug
+     * 
+     * @param string $title The title of the page or category
+     * @param string $slug The slug of the page or category
+     * @param array $tagsByName Associative array of tag names (lowercase) to tag IDs
+     * @return array Array of unique tag IDs
      */
     private function findMatchingTags(string $title, string $slug, array $tagsByName): array
     {
-        $matchedTags = [];
+        $matchedTagIds = [];
         $titleLower = mb_strtolower($title);
         $slugLower = strtolower($slug);
 
-        // Direct mappings for specific pages/categories to tags
+        // Direct mappings for specific pages to tags
         $directMappings = $this->getDirectMappings();
         
-        // Check if we have a direct mapping
+        // Check if we have a direct mapping (preferred for specific pages)
         if (isset($directMappings[$slugLower])) {
             foreach ($directMappings[$slugLower] as $tagName) {
                 $tagKey = mb_strtolower($tagName);
                 if (isset($tagsByName[$tagKey])) {
-                    $matchedTags[] = $tagsByName[$tagKey];
+                    $matchedTagIds[$tagsByName[$tagKey]] = true;
                 }
             }
+            // Return early if we found direct matches
+            return array_keys($matchedTagIds);
         }
 
-        // Keyword-based matching for categories
+        // Keyword-based matching for categories and pages without direct mappings
         $keywordMappings = $this->getKeywordMappings();
         
         foreach ($keywordMappings as $keyword => $tagNames) {
@@ -114,14 +121,14 @@ class PageTagAssignmentSeeder extends Seeder
                 foreach ($tagList as $tagName) {
                     $tagKey = mb_strtolower($tagName);
                     if (isset($tagsByName[$tagKey])) {
-                        $matchedTags[] = $tagsByName[$tagKey];
+                        $matchedTagIds[$tagsByName[$tagKey]] = true;
                     }
                 }
             }
         }
 
-        // Remove duplicates
-        return array_unique($matchedTags);
+        // Return unique tag IDs
+        return array_keys($matchedTagIds);
     }
 
     /**
