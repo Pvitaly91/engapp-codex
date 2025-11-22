@@ -5,6 +5,7 @@ namespace App\Modules\PageManager\Http\Controllers;
 use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\TextBlock;
+use App\Models\Tag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -21,9 +22,11 @@ class PageManagerController extends Controller
 
         $categories = PageCategory::query()
             ->withCount('pages')
-            ->with('textBlocks')
+            ->with(['textBlocks', 'tags'])
             ->orderBy('title')
             ->get();
+
+        $tagsByCategory = $this->tagOptions();
 
         $activeTab = $request->query('tab', 'pages');
 
@@ -40,6 +43,7 @@ class PageManagerController extends Controller
             'categories' => $categories,
             'activeTab' => $activeTab,
             'editingCategory' => $editingCategory,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
@@ -47,10 +51,12 @@ class PageManagerController extends Controller
     {
         $page = new Page();
         $categories = $this->categories();
+        $tagsByCategory = $this->tagOptions();
 
         return view('page-manager::create', [
             'page' => $page,
             'categories' => $categories,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
@@ -58,12 +64,17 @@ class PageManagerController extends Controller
     {
         $validated = $this->validatedData($request);
 
+        $tagIds = $validated['tags'] ?? [];
+        unset($validated['tags']);
+
         $page = Page::create([
             'title' => $validated['title'],
             'slug' => $validated['slug'],
             'text' => $validated['text'] ?? '',
             'page_category_id' => $validated['page_category_id'],
         ]);
+
+        $this->syncTags($page, $tagIds);
 
         return redirect()
             ->route('pages.manage.edit', $page)
@@ -77,11 +88,15 @@ class PageManagerController extends Controller
             ->orderBy('id')
             ->get();
         $categories = $this->categories();
+        $tagsByCategory = $this->tagOptions();
+
+        $page->loadMissing('tags');
 
         return view('page-manager::edit', [
             'page' => $page,
             'blocks' => $blocks,
             'categories' => $categories,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
@@ -89,12 +104,17 @@ class PageManagerController extends Controller
     {
         $validated = $this->validatedData($request, $page);
 
+        $tagIds = $validated['tags'] ?? [];
+        unset($validated['tags']);
+
         $page->fill([
             'title' => $validated['title'],
             'slug' => $validated['slug'],
             'text' => $validated['text'] ?? '',
             'page_category_id' => $validated['page_category_id'],
         ])->save();
+
+        $this->syncTags($page, $tagIds);
 
         return back()->with('status', 'Зміни збережено.');
     }
@@ -112,7 +132,12 @@ class PageManagerController extends Controller
     {
         $data = $this->validatedCategoryData($request);
 
-        PageCategory::create($data);
+        $tagIds = $data['tags'] ?? [];
+        unset($data['tags']);
+
+        $category = PageCategory::create($data);
+
+        $this->syncTags($category, $tagIds);
 
         return redirect()
             ->route('pages.manage.index', ['tab' => 'categories'])
@@ -123,7 +148,12 @@ class PageManagerController extends Controller
     {
         $data = $this->validatedCategoryData($request, $category);
 
+        $tagIds = $data['tags'] ?? [];
+        unset($data['tags']);
+
         $category->fill($data)->save();
+
+        $this->syncTags($category, $tagIds);
 
         return redirect()
             ->route('pages.manage.index', ['tab' => 'categories'])
@@ -172,7 +202,7 @@ class PageManagerController extends Controller
             ],
             'text' => ['nullable', 'string'],
             'page_category_id' => ['required', 'integer', Rule::exists('page_categories', 'id')],
-        ]);
+        ] + $this->tagRules());
     }
 
     protected function validatedCategoryData(Request $request, ?PageCategory $category = null): array
@@ -188,7 +218,7 @@ class PageManagerController extends Controller
                 Rule::unique('page_categories', 'slug')->ignore($categoryId),
             ],
             'language' => ['required', 'string', 'max:8'],
-        ]);
+        ] + $this->tagRules());
     }
 
     public function createBlock(Page $page)
@@ -402,6 +432,54 @@ class PageManagerController extends Controller
         $currentMax = (int) $category->textBlocks()->max('sort_order');
 
         return $currentMax + 10 ?: 10;
+    }
+
+    protected function tagRules(): array
+    {
+        return [
+            'tags' => ['nullable', 'array'],
+            'tags.*' => ['integer', Rule::exists('tags', 'id')],
+        ];
+    }
+
+    protected function syncTags($model, array $tagIds): void
+    {
+        $uniqueIds = collect($tagIds)
+            ->filter()
+            ->map(fn ($id) => (int) $id)
+            ->unique()
+            ->values()
+            ->all();
+
+        $model->tags()->sync($uniqueIds);
+    }
+
+    protected function tagOptions()
+    {
+        $tags = Tag::query()
+            ->orderByRaw('CASE WHEN category IS NULL OR category = "" THEN 1 ELSE 0 END')
+            ->orderBy('category')
+            ->orderBy('name')
+            ->get()
+            ->groupBy(function (Tag $tag) {
+                return $tag->category ?: 'Без категорії';
+            });
+
+        return $tags->sortKeysUsing(function ($a, $b) {
+            if ($a === $b) {
+                return 0;
+            }
+
+            if ($a === 'Без категорії') {
+                return 1;
+            }
+
+            if ($b === 'Без категорії') {
+                return -1;
+            }
+
+            return strnatcasecmp($a, $b);
+        });
     }
 
     protected function categories()

@@ -11,5 +11,6 @@
         'submitLabel' => 'Створити сторінку',
         'page' => $page,
         'categories' => $categories,
+        'tagsByCategory' => $tagsByCategory,
     ])
 @endsection
