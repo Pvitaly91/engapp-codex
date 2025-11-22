@@ -239,6 +239,38 @@ class TestTagController extends Controller
         return redirect()->route('test-tags.index')->with('status', "Теги успішно експортовано до файлу {$relativePath}");
     }
 
+    public function viewExportedJson(): View|RedirectResponse
+    {
+        $filePath = config_path('tags/exported_tags.json');
+
+        if (!file_exists($filePath)) {
+            return redirect()->route('test-tags.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
+        }
+
+        $jsonContent = file_get_contents($filePath);
+        $jsonData = json_decode($jsonContent, true);
+        $relativePath = 'config/tags/exported_tags.json';
+
+        return view('test-tags.view-export', [
+            'jsonContent' => $jsonContent,
+            'jsonData' => $jsonData,
+            'filePath' => $relativePath,
+            'fileSize' => filesize($filePath),
+            'lastModified' => filemtime($filePath),
+        ]);
+    }
+
+    public function downloadExportedJson()
+    {
+        $filePath = config_path('tags/exported_tags.json');
+
+        if (!file_exists($filePath)) {
+            return redirect()->route('test-tags.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
+        }
+
+        return response()->download($filePath, 'exported_tags.json');
+    }
+
     public function create(): View
     {
         [, $categories] = $this->loadTagData();

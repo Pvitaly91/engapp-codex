@@ -28,9 +28,23 @@
                                 type="submit"
                                 class="inline-flex items-center justify-center rounded-lg border border-emerald-300 bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring"
                             >
-                                <i class="fa-solid fa-download mr-2"></i>Експорт в JSON
+                                <i class="fa-solid fa-file-export mr-2"></i>Експорт в JSON
                             </button>
                         </form>
+                        @if (file_exists(config_path('tags/exported_tags.json')))
+                            <a
+                                href="{{ route('test-tags.export.view') }}"
+                                class="inline-flex items-center justify-center rounded-lg border border-blue-300 bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring"
+                            >
+                                <i class="fa-solid fa-eye mr-2"></i>Переглянути JSON
+                            </a>
+                            <a
+                                href="{{ route('test-tags.export.download') }}"
+                                class="inline-flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring"
+                            >
+                                <i class="fa-solid fa-download mr-2"></i>Скачати JSON
+                            </a>
+                        @endif
                         <form
                             action="{{ route('test-tags.destroy-empty') }}"
                             method="POST"
@@ -53,7 +67,17 @@
                         </a>
                     </div>
                 </div>
-                <p class="text-sm text-slate-400">Всього тегів: {{ $totalTags }}</p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <p class="text-sm text-slate-400">Всього тегів: {{ $totalTags }}</p>
+                    @if (file_exists(config_path('tags/exported_tags.json')))
+                        <p class="text-sm text-slate-500">
+                            <i class="fa-solid fa-file-code mr-1 text-emerald-600"></i>
+                            <span class="font-medium">Файл експорту:</span>
+                            <code class="ml-1 rounded bg-slate-100 px-2 py-1 text-xs font-mono text-slate-700">config/tags/exported_tags.json</code>
+                            <span class="ml-2 text-slate-400">({{ number_format(filesize(config_path('tags/exported_tags.json')) / 1024, 2) }} KB)</span>
+                        </p>
+                    @endif
+                </div>
             </header>
 
             @if (session('status'))
