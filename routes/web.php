@@ -135,9 +135,33 @@ Route::middleware('auth.admin')->group(function () {
                 ->name('questions.answers');
             Route::get('/{tag}/questions/{question}/tags', [TestTagController::class, 'questionTags'])
                 ->name('questions.tags');
+            Route::get('/{tag}/pages', [TestTagController::class, 'pages'])->name('pages');
+            Route::post('/{tag}/pages', [TestTagController::class, 'attachPage'])->name('pages.attach');
+            Route::delete('/{tag}/pages', [TestTagController::class, 'detachPage'])->name('pages.detach');
+            Route::get('/{tag}/page-categories', [TestTagController::class, 'pageCategories'])->name('page-categories');
+            Route::post('/{tag}/page-categories', [TestTagController::class, 'attachPageCategory'])->name('page-categories.attach');
+            Route::delete('/{tag}/page-categories', [TestTagController::class, 'detachPageCategory'])->name('page-categories.detach');
             Route::get('/{tag}/edit', [TestTagController::class, 'edit'])->name('edit');
             Route::put('/{tag}', [TestTagController::class, 'update'])->name('update');
             Route::delete('/{tag}', [TestTagController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('pages-manage')->name('pages.manage.')->group(function () {
+            Route::get('/', [\App\Http\Controllers\PageV2ManageController::class, 'index'])->name('index');
+            Route::get('/create', [\App\Http\Controllers\PageV2ManageController::class, 'create'])->name('create');
+            Route::post('/', [\App\Http\Controllers\PageV2ManageController::class, 'store'])->name('store');
+            Route::get('/{page}/edit', [\App\Http\Controllers\PageV2ManageController::class, 'edit'])->name('edit');
+            Route::put('/{page}', [\App\Http\Controllers\PageV2ManageController::class, 'update'])->name('update');
+            Route::delete('/{page}', [\App\Http\Controllers\PageV2ManageController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('page-categories-manage')->name('page-categories.manage.')->group(function () {
+            Route::get('/', [\App\Http\Controllers\PageCategoryManageController::class, 'index'])->name('index');
+            Route::get('/create', [\App\Http\Controllers\PageCategoryManageController::class, 'create'])->name('create');
+            Route::post('/', [\App\Http\Controllers\PageCategoryManageController::class, 'store'])->name('store');
+            Route::get('/{category}/edit', [\App\Http\Controllers\PageCategoryManageController::class, 'edit'])->name('edit');
+            Route::put('/{category}', [\App\Http\Controllers\PageCategoryManageController::class, 'update'])->name('update');
+            Route::delete('/{category}', [\App\Http\Controllers\PageCategoryManageController::class, 'destroy'])->name('destroy');
         });
 
         Route::get('/grammar-test', [GrammarTestController::class, 'index'])->name('grammar-test');

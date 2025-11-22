@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\PageCategory;
+use App\Models\Tag;
 use App\Models\TextBlock;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,9 +14,13 @@ class PageV2ManageController extends Controller
 {
     public function index()
     {
-        $pages = Page::query()->orderBy('title')->get();
+        $pages = Page::query()
+            ->with('category')
+            ->withCount('tags')
+            ->orderBy('title')
+            ->get();
 
-        return view('engram.pages.v2.manage.index', [
+        return view('engram.pages.manage.index', [
             'pages' => $pages,
         ]);
     }
@@ -22,9 +28,13 @@ class PageV2ManageController extends Controller
     public function create()
     {
         $page = new Page();
+        $categories = PageCategory::orderBy('title')->get();
+        $allTags = Tag::orderBy('name')->get();
 
-        return view('engram.pages.v2.manage.create', [
+        return view('engram.pages.manage.create', [
             'page' => $page,
+            'categories' => $categories,
+            'allTags' => $allTags,
         ]);
     }
 
@@ -36,23 +46,29 @@ class PageV2ManageController extends Controller
             'title' => $validated['title'],
             'slug' => $validated['slug'],
             'text' => $validated['text'] ?? '',
+            'page_category_id' => $validated['page_category_id'] ?? null,
         ]);
 
+        // Sync tags
+        if (isset($validated['tags'])) {
+            $page->tags()->sync($validated['tags']);
+        }
+
         return redirect()
-            ->route('pages-v2.manage.edit', $page)
-            ->with('status', 'Сторінку створено. Додайте або оновіть її блоки нижче.');
+            ->route('pages.manage.edit', $page)
+            ->with('status', 'Сторінку створено.');
     }
 
     public function edit(Page $page)
     {
-        $blocks = $page->textBlocks()
-            ->orderBy('sort_order')
-            ->orderBy('id')
-            ->get();
+        $page->load('category', 'tags');
+        $categories = PageCategory::orderBy('title')->get();
+        $allTags = Tag::orderBy('name')->get();
 
-        return view('engram.pages.v2.manage.edit', [
+        return view('engram.pages.manage.edit', [
             'page' => $page,
-            'blocks' => $blocks,
+            'categories' => $categories,
+            'allTags' => $allTags,
         ]);
     }
 
@@ -64,7 +80,15 @@ class PageV2ManageController extends Controller
             'title' => $validated['title'],
             'slug' => $validated['slug'],
             'text' => $validated['text'] ?? '',
+            'page_category_id' => $validated['page_category_id'] ?? null,
         ])->save();
+
+        // Sync tags
+        if (isset($validated['tags'])) {
+            $page->tags()->sync($validated['tags']);
+        } else {
+            $page->tags()->sync([]);
+        }
 
         return back()->with('status', 'Зміни збережено.');
     }
@@ -91,6 +115,9 @@ class PageV2ManageController extends Controller
                 Rule::unique('pages', 'slug')->ignore($pageId),
             ],
             'text' => ['nullable', 'string'],
+            'page_category_id' => ['nullable', 'exists:page_categories,id'],
+            'tags' => ['nullable', 'array'],
+            'tags.*' => ['exists:tags,id'],
         ]);
     }
 

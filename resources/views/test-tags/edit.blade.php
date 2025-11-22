@@ -82,6 +82,88 @@
                     </a>
                 </div>
             </form>
+
+            <div class="space-y-6">
+                <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h2 class="mb-4 text-xl font-semibold text-slate-800">Пов'язані сторінки теорії</h2>
+                    <div class="space-y-3">
+                        <div class="flex gap-2">
+                            <button
+                                type="button"
+                                onclick="loadAssociatedPages()"
+                                class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-blue-700"
+                            >
+                                <i class="fa-solid fa-book mr-2"></i>Переглянути пов'язані сторінки
+                            </button>
+                        </div>
+                        <div id="associated-pages" class="hidden">
+                            <div class="text-sm text-slate-500">Завантаження...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h2 class="mb-4 text-xl font-semibold text-slate-800">Пов'язані категорії теорії</h2>
+                    <div class="space-y-3">
+                        <div class="flex gap-2">
+                            <button
+                                type="button"
+                                onclick="loadAssociatedCategories()"
+                                class="inline-flex items-center rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-purple-700"
+                            >
+                                <i class="fa-solid fa-folder-open mr-2"></i>Переглянути пов'язані категорії
+                            </button>
+                        </div>
+                        <div id="associated-categories" class="hidden">
+                            <div class="text-sm text-slate-500">Завантаження...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+<script>
+    async function loadAssociatedPages() {
+        const container = document.getElementById('associated-pages');
+        container.classList.remove('hidden');
+        container.innerHTML = '<div class="text-sm text-slate-500">Завантаження...</div>';
+
+        try {
+            const response = await fetch('{{ route('test-tags.pages', $tag) }}', {
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+            });
+
+            const data = await response.json();
+            container.innerHTML = data.html;
+        } catch (error) {
+            container.innerHTML = '<div class="text-sm text-red-600">Помилка завантаження сторінок.</div>';
+        }
+    }
+
+    async function loadAssociatedCategories() {
+        const container = document.getElementById('associated-categories');
+        container.classList.remove('hidden');
+        container.innerHTML = '<div class="text-sm text-slate-500">Завантаження...</div>';
+
+        try {
+            const response = await fetch('{{ route('test-tags.page-categories', $tag) }}', {
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+            });
+
+            const data = await response.json();
+            container.innerHTML = data.html;
+        } catch (error) {
+            container.innerHTML = '<div class="text-sm text-red-600">Помилка завантаження категорій.</div>';
+        }
+    }
+</script>
+@endpush

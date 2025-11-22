@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Services\ChatGPTService;
@@ -249,6 +251,8 @@ class TestTagController extends Controller
     {
         $tag->questions()->detach();
         $tag->words()->detach();
+        $tag->pages()->detach();
+        $tag->pageCategories()->detach();
         $tag->delete();
 
         if ($request->expectsJson()) {
@@ -265,18 +269,24 @@ class TestTagController extends Controller
     {
         $emptyTags = Tag::query()
             ->whereDoesntHave('questions')
+            ->whereDoesntHave('words')
+            ->whereDoesntHave('pages')
+            ->whereDoesntHave('pageCategories')
             ->get();
 
         $count = $emptyTags->count();
 
         foreach ($emptyTags as $tag) {
+            $tag->questions()->detach();
             $tag->words()->detach();
+            $tag->pages()->detach();
+            $tag->pageCategories()->detach();
             $tag->delete();
         }
 
         $message = $count > 0
-            ? "Видалено тегів без питань: {$count}."
-            : 'Не знайдено тегів без питань.';
+            ? "Видалено порожніх тегів: {$count}."
+            : 'Не знайдено порожніх тегів.';
 
         if ($request->expectsJson()) {
             return response()->json([
@@ -393,6 +403,77 @@ class TestTagController extends Controller
         ]);
     }
 
+    public function pages(Tag $tag): JsonResponse
+    {
+        $pages = $tag->pages()
+            ->with('category')
+            ->orderBy('title')
+            ->get()
+            ->map(function ($page) {
+                $category = $page->category;
+                $url = null;
+                
+                if ($category && $category->slug && $page->slug) {
+                    $url = route('pages.show', [$category->slug, $page->slug]);
+                }
+                
+                return [
+                    'id' => $page->id,
+                    'title' => $page->title,
+                    'slug' => $page->slug,
+                    'category' => $category ? [
+                        'id' => $category->id,
+                        'title' => $category->title,
+                        'slug' => $category->slug,
+                    ] : null,
+                    'url' => $url,
+                ];
+            });
+
+        $html = view('test-tags.partials.pages-list', [
+            'pages' => $pages,
+            'emptyMessage' => 'Для цього тегу ще не додано сторінок теорії.',
+        ])->render();
+
+        return response()->json([
+            'tag' => [
+                'id' => $tag->id,
+                'name' => $tag->name,
+            ],
+            'html' => $html,
+        ]);
+    }
+
+    public function pageCategories(Tag $tag): JsonResponse
+    {
+        $categories = $tag->pageCategories()
+            ->withCount('pages')
+            ->orderBy('title')
+            ->get()
+            ->map(function ($category) {
+                return [
+                    'id' => $category->id,
+                    'title' => $category->title,
+                    'slug' => $category->slug,
+                    'pages_count' => $category->pages_count,
+                    'url' => route('pages.category', $category->slug),
+                ];
+            });
+
+        $html = view('test-tags.partials.page-categories-list', [
+            'categories' => $categories,
+            'emptyMessage' => 'Для цього тегу ще не додано категорій теорії.',
+        ])->render();
+
+        return response()->json([
+            'tag' => [
+                'id' => $tag->id,
+                'name' => $tag->name,
+            ],
+            'html' => $html,
+        ]);
+    }
+
     public function editCategory(string $category): View
     {
         [, $categories] = $this->loadTagData();
@@ -492,6 +573,8 @@ class TestTagController extends Controller
         foreach ($tags as $tag) {
             $tag->questions()->detach();
             $tag->words()->detach();
+            $tag->pages()->detach();
+            $tag->pageCategories()->detach();
             $tag->delete();
         }
 
@@ -1021,5 +1104,67 @@ class TestTagController extends Controller
 
         return redirect()->route('test-tags.aggregations.index')
             ->with('status', 'Категорію та всі її агрегації видалено.');
+    }
+
+    public function attachPage(Request $request, Tag $tag): JsonResponse
+    {
+        $validated = $request->validate([
+            'page_id' => ['required', 'exists:pages,id'],
+        ]);
+
+        $page = Page::findOrFail($validated['page_id']);
+        
+        // syncWithoutDetaching ensures no duplicates and avoids race conditions
+        $tag->pages()->syncWithoutDetaching([$page->id]);
+
+        return response()->json([
+            'success' => true,
+            'message' => "Тег '{$tag->name}' додано до сторінки '{$page->title}'.",
+        ]);
+    }
+
+    public function detachPage(Request $request, Tag $tag): JsonResponse
+    {
+        $validated = $request->validate([
+            'page_id' => ['required', 'exists:pages,id'],
+        ]);
+
+        $tag->pages()->detach($validated['page_id']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Тег відв\'язано від сторінки.',
+        ]);
+    }
+
+    public function attachPageCategory(Request $request, Tag $tag): JsonResponse
+    {
+        $validated = $request->validate([
+            'page_category_id' => ['required', 'exists:page_categories,id'],
+        ]);
+
+        $category = PageCategory::findOrFail($validated['page_category_id']);
+        
+        // syncWithoutDetaching ensures no duplicates and avoids race conditions
+        $tag->pageCategories()->syncWithoutDetaching([$category->id]);
+
+        return response()->json([
+            'success' => true,
+            'message' => "Тег '{$tag->name}' додано до категорії '{$category->title}'.",
+        ]);
+    }
+
+    public function detachPageCategory(Request $request, Tag $tag): JsonResponse
+    {
+        $validated = $request->validate([
+            'page_category_id' => ['required', 'exists:page_categories,id'],
+        ]);
+
+        $tag->pageCategories()->detach($validated['page_category_id']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Тег відв\'язано від категорії.',
+        ]);
     }
 }
