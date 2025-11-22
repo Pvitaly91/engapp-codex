@@ -97,22 +97,26 @@ function tagSelector(initialSelected) {
             ])->values()
         ])->values()),
         
+        get normalizedQuery() {
+            return this.searchQuery.toLowerCase().trim();
+        },
+        
+        formatTagCount(count) {
+            return count + ' ' + (count === 1 ? 'тег' : 'тегів');
+        },
+        
         isTagVisible(tagId, tagName, categoryName) {
-            const query = this.searchQuery.toLowerCase().trim();
+            if (!this.normalizedQuery) return true;
             
-            if (!query) return true;
-            
-            return tagName.toLowerCase().includes(query) || 
-                   categoryName.toLowerCase().includes(query);
+            return tagName.toLowerCase().includes(this.normalizedQuery) || 
+                   categoryName.toLowerCase().includes(this.normalizedQuery);
         },
         
         isCategoryVisible(categoryName) {
-            const query = this.searchQuery.toLowerCase().trim();
-            
-            if (!query) return true;
+            if (!this.normalizedQuery) return true;
             
             // Show category if its name matches
-            if (categoryName.toLowerCase().includes(query)) {
+            if (categoryName.toLowerCase().includes(this.normalizedQuery)) {
                 return true;
             }
             
@@ -120,7 +124,7 @@ function tagSelector(initialSelected) {
             const category = this.categoryTags.find(c => c.name === categoryName);
             if (category) {
                 return category.tags.some(tag => 
-                    tag.name.toLowerCase().includes(query)
+                    tag.name.toLowerCase().includes(this.normalizedQuery)
                 );
             }
             
@@ -129,33 +133,28 @@ function tagSelector(initialSelected) {
         
         getVisibleTagsCount(categoryName) {
             const category = this.categoryTags.find(c => c.name === categoryName);
-            if (!category) return '0 тегів';
+            if (!category) return this.formatTagCount(0);
             
-            const query = this.searchQuery.toLowerCase().trim();
-            
-            if (!query) {
-                const count = category.tags.length;
-                return count + ' ' + (count === 1 ? 'тег' : 'тегів');
+            if (!this.normalizedQuery) {
+                return this.formatTagCount(category.tags.length);
             }
             
             // Count visible tags
             const visibleCount = category.tags.filter(tag => 
-                tag.name.toLowerCase().includes(query) || 
-                categoryName.toLowerCase().includes(query)
+                tag.name.toLowerCase().includes(this.normalizedQuery) || 
+                categoryName.toLowerCase().includes(this.normalizedQuery)
             ).length;
             
-            return visibleCount + ' ' + (visibleCount === 1 ? 'тег' : 'тегів');
+            return this.formatTagCount(visibleCount);
         },
         
         hasVisibleTags() {
-            const query = this.searchQuery.toLowerCase().trim();
-            
-            if (!query) return true;
+            if (!this.normalizedQuery) return true;
             
             // Check if any category or tag matches
             return this.categoryTags.some(category => 
-                category.name.toLowerCase().includes(query) ||
-                category.tags.some(tag => tag.name.toLowerCase().includes(query))
+                category.name.toLowerCase().includes(this.normalizedQuery) ||
+                category.tags.some(tag => tag.name.toLowerCase().includes(this.normalizedQuery))
             );
         }
     }
