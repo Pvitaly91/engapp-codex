@@ -10,6 +10,9 @@ Route::middleware(config('page-manager.middleware', ['web']))
         Route::get('/', [PageManagerController::class, 'index'])->name('index');
         Route::get('/create', [PageManagerController::class, 'create'])->name('create');
         Route::post('/', [PageManagerController::class, 'store'])->name('store');
+        Route::post('/export', [PageManagerController::class, 'exportToJson'])->name('export');
+        Route::get('/export/view', [PageManagerController::class, 'viewExportedJson'])->name('export.view');
+        Route::get('/export/download', [PageManagerController::class, 'downloadExportedJson'])->name('export.download');
         Route::get('/{page}/edit', [PageManagerController::class, 'edit'])
             ->whereNumber('page')
             ->name('edit');
