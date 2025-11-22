@@ -187,12 +187,9 @@
                             // Auto-expand categories with matching tags when searching
                             if (term && visibleOptions > 0) {
                                 // Trigger Alpine.js to expand the category
-                                const button = category.querySelector('button[type="button"]');
-                                if (button && button.__x) {
-                                    const alpineData = button.__x.$data;
-                                    if (alpineData && !alpineData.expanded) {
-                                        alpineData.expanded = true;
-                                    }
+                                // Access Alpine data from the parent element with x-data
+                                if (category._x_dataStack && category._x_dataStack[0]) {
+                                    category._x_dataStack[0].expanded = true;
                                 }
                             }
 
