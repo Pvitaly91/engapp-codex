@@ -94,7 +94,7 @@
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
                                                         </svg>
                                                         <span>{{ $tag->name }}</span>
-                                                        @if ($tag->category)
+                                                        @if (!empty($tag->category))
                                                             <span class="text-xs text-gray-500">({{ $tag->category }})</span>
                                                         @endif
                                                     </span>
