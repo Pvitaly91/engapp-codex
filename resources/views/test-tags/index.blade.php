@@ -19,6 +19,19 @@
                             <i class="fa-solid fa-layer-group mr-2"></i>Агрегація тегів
                         </a>
                         <form
+                            action="{{ route('test-tags.export') }}"
+                            method="POST"
+                            class="inline-flex"
+                        >
+                            @csrf
+                            <button
+                                type="submit"
+                                class="inline-flex items-center justify-center rounded-lg border border-emerald-300 bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring"
+                            >
+                                <i class="fa-solid fa-download mr-2"></i>Експорт в JSON
+                            </button>
+                        </form>
+                        <form
                             action="{{ route('test-tags.destroy-empty') }}"
                             method="POST"
                             data-confirm="Видалити всі теги без питань?"

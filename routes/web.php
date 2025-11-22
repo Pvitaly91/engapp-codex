@@ -101,6 +101,7 @@ Route::middleware('auth.admin')->group(function () {
             Route::get('/', [TestTagController::class, 'index'])->name('index');
             Route::get('/create', [TestTagController::class, 'create'])->name('create');
             Route::post('/', [TestTagController::class, 'store'])->name('store');
+            Route::post('/export', [TestTagController::class, 'exportToJson'])->name('export');
             Route::delete('/empty', [TestTagController::class, 'destroyEmptyTags'])->name('destroy-empty');
             
             Route::prefix('aggregations')->name('aggregations.')->group(function () {

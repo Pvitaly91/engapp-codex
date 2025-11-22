@@ -192,6 +192,47 @@ class TestTagController extends Controller
         ]);
     }
 
+    public function exportToJson(): RedirectResponse
+    {
+        [$tagsByCategory] = $this->loadTagData();
+
+        $exportData = $tagsByCategory->map(function ($tags, $category) {
+            return [
+                'category' => $category ?: 'Без категорії',
+                'tags' => $tags->map(function (Tag $tag) {
+                    return [
+                        'id' => $tag->id,
+                        'name' => $tag->name,
+                        'category' => $tag->category,
+                        'questions_count' => (int) $tag->questions_count,
+                        'pages_count' => (int) $tag->pages_count,
+                        'page_categories_count' => (int) $tag->page_categories_count,
+                        'created_at' => $tag->created_at?->toIso8601String(),
+                        'updated_at' => $tag->updated_at?->toIso8601String(),
+                    ];
+                })->values()->all(),
+            ];
+        })->values()->all();
+
+        $jsonData = [
+            'exported_at' => now()->toIso8601String(),
+            'total_categories' => count($exportData),
+            'total_tags' => $tagsByCategory->sum(fn ($tags) => $tags->count()),
+            'categories' => $exportData,
+        ];
+
+        $filePath = config_path('tags/exported_tags.json');
+        $directory = dirname($filePath);
+
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true);
+        }
+
+        file_put_contents($filePath, json_encode($jsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+
+        return redirect()->route('test-tags.index')->with('status', 'Теги успішно експортовано до файлу config/tags/exported_tags.json');
+    }
+
     public function create(): View
     {
         [, $categories] = $this->loadTagData();
