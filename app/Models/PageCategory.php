@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PageCategory extends Model
@@ -28,5 +29,10 @@ class PageCategory extends Model
         return $this->hasMany(TextBlock::class, 'page_category_id')
             ->orderBy('sort_order')
             ->orderBy('id');
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

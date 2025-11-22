@@ -127,7 +127,7 @@ class TestTagController extends Controller
     private function loadTagData(): array
     {
         $tagsByCategory = Tag::query()
-            ->withCount('questions')
+            ->withCount(['questions', 'pages', 'pageCategories'])
             ->orderByRaw('CASE WHEN category IS NULL OR category = "" THEN 1 ELSE 0 END')
             ->orderBy('category')
             ->orderBy('name')
@@ -172,7 +172,9 @@ class TestTagController extends Controller
 
         $tagGroups = $tagsByCategory->map(function ($tags, $category) {
             $isEmpty = $tags->isEmpty() || $tags->every(function (Tag $tag) {
-                return (int) $tag->questions_count === 0;
+                return (int) $tag->questions_count === 0
+                    && (int) $tag->pages_count === 0
+                    && (int) $tag->page_categories_count === 0;
             });
 
             return [
@@ -249,6 +251,8 @@ class TestTagController extends Controller
     {
         $tag->questions()->detach();
         $tag->words()->detach();
+        $tag->pages()->detach();
+        $tag->pageCategories()->detach();
         $tag->delete();
 
         if ($request->expectsJson()) {
@@ -265,12 +269,16 @@ class TestTagController extends Controller
     {
         $emptyTags = Tag::query()
             ->whereDoesntHave('questions')
+            ->whereDoesntHave('pages')
+            ->whereDoesntHave('pageCategories')
             ->get();
 
         $count = $emptyTags->count();
 
         foreach ($emptyTags as $tag) {
             $tag->words()->detach();
+            $tag->pages()->detach();
+            $tag->pageCategories()->detach();
             $tag->delete();
         }
 
@@ -492,6 +500,8 @@ class TestTagController extends Controller
         foreach ($tags as $tag) {
             $tag->questions()->detach();
             $tag->words()->detach();
+            $tag->pages()->detach();
+            $tag->pageCategories()->detach();
             $tag->delete();
         }
 

@@ -12,6 +12,7 @@
             'submitLabel' => 'Зберегти сторінку',
             'page' => $page,
             'categories' => $categories,
+            'tagsByCategory' => $tagsByCategory,
         ])
 
         <section class="rounded-2xl border border-gray-200 bg-white p-6 shadow">

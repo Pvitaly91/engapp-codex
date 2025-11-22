@@ -66,6 +66,23 @@
             </label>
         </section>
 
+        @php
+            $selectedTagIds = collect(old('tags', $page->tags->pluck('id')->all()))
+                ->map(fn ($id) => (int) $id)
+                ->unique()
+                ->values()
+                ->all();
+        @endphp
+
+        @include('page-manager::partials.tag-selector', [
+            'label' => 'Теги сторінки',
+            'description' => 'Додайте теги, щоб сторінку можна було знаходити за тими ж категоріями, що й тести.',
+            'tagsByCategory' => $tagsByCategory,
+            'selectedTagIds' => $selectedTagIds,
+            'inputName' => 'tags[]',
+            'idPrefix' => 'page-tags-' . ($page->id ?? 'new'),
+        ])
+
         <div class="flex items-center justify-end gap-3">
             <a href="{{ route('pages.manage.index') }}" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">Скасувати</a>
             <button type="submit" class="rounded-xl bg-blue-600 px-6 py-2 text-sm font-semibold text-white hover:bg-blue-700">
