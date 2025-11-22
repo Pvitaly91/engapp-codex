@@ -83,6 +83,26 @@
                                         <p class="text-sm text-blue-800/80">Оновіть назву, slug або мову вибраної категорії.</p>
                                     </header>
 
+                                    @if ($editingCategory->tags->isNotEmpty())
+                                        <div class="rounded-lg border border-blue-300 bg-white p-4">
+                                            <h3 class="mb-3 text-sm font-semibold text-gray-900">Прикріплені теги</h3>
+                                            <div class="flex flex-wrap gap-2">
+                                                @foreach ($editingCategory->tags as $tag)
+                                                    <span class="inline-flex items-center gap-1.5 rounded-lg border border-blue-300 bg-blue-50 px-3 py-1.5 text-sm font-medium text-gray-700">
+                                                        <svg class="h-4 w-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+                                                        </svg>
+                                                        <span>{{ $tag->name }}</span>
+                                                        @if ($tag->category)
+                                                            <span class="text-xs text-gray-500">({{ $tag->category }})</span>
+                                                        @endif
+                                                    </span>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
                                     <form method="POST" action="{{ route('pages.manage.categories.update', $editingCategory) }}" class="space-y-4">
                                         @csrf
                                         @method('PUT')
