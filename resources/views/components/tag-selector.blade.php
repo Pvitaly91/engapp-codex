@@ -11,6 +11,19 @@
         $uncategorized = $groupedTags->pull('Без категорії');
         $groupedTags->put('Без категорії', $uncategorized);
     }
+    
+    // Prepare data for JavaScript
+    $categoryTagsData = $groupedTags->map(function($tags, $cat) {
+        return [
+            'name' => $cat,
+            'tags' => $tags->map(function($tag) {
+                return [
+                    'id' => $tag->id,
+                    'name' => $tag->name
+                ];
+            })->values()
+        ];
+    })->values();
 @endphp
 
 <div class="space-y-2" x-data="tagSelector(@js($selectedTags))">
@@ -89,13 +102,7 @@ function tagSelector(initialSelected) {
     return {
         selectedTagIds: Array.isArray(initialSelected) ? initialSelected : [],
         searchQuery: '',
-        categoryTags: @json($groupedTags->map(fn($tags, $cat) => [
-            'name' => $cat,
-            'tags' => $tags->map(fn($tag) => [
-                'id' => $tag->id,
-                'name' => $tag->name
-            ])->values()
-        ])->values()),
+        categoryTags: @json($categoryTagsData),
         
         get normalizedQuery() {
             return this.searchQuery.toLowerCase().trim();
