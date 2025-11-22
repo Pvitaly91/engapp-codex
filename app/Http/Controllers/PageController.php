@@ -87,14 +87,10 @@ class PageController extends Controller
         }
 
         // Get saved tests with matching tags
-        $relatedTests = collect();
         $pageTagIds = $page->tags->pluck('id')->toArray();
-        
-        if (!empty($pageTagIds)) {
-            $relatedTests = SavedGrammarTest::withMatchingTags($pageTagIds)
-                ->orderBy('name')
-                ->get();
-        }
+        $relatedTests = !empty($pageTagIds)
+            ? SavedGrammarTest::withMatchingTags($pageTagIds)->orderBy('name')->get()
+            : collect();
 
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],

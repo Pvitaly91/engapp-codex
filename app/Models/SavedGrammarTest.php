@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 class SavedGrammarTest extends Model
 {
@@ -47,7 +48,7 @@ class SavedGrammarTest extends Model
 
         return $query->whereHas('questionLinks', function ($q) use ($tagIds) {
             $q->whereExists(function ($subQuery) use ($tagIds) {
-                $subQuery->select(\DB::raw(1))
+                $subQuery->select(DB::raw(1))
                     ->from('questions')
                     ->join('question_tag', 'questions.id', '=', 'question_tag.question_id')
                     ->whereColumn('questions.uuid', 'saved_grammar_test_questions.question_uuid')
