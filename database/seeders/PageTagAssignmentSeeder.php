@@ -17,11 +17,29 @@ class PageTagAssignmentSeeder extends Seeder
     {
         Log::info('Starting PageTagAssignmentSeeder');
 
-        $tagsData = json_decode(file_get_contents(config_path('tags/exported_tags.json')), true);
-        $pagesData = json_decode(file_get_contents(config_path('pages/exported_pages.json')), true);
+        // Load and validate tags data
+        $tagsPath = config_path('tags/exported_tags.json');
+        if (!file_exists($tagsPath)) {
+            Log::error("Tags file not found: {$tagsPath}");
+            return;
+        }
+        
+        $tagsData = json_decode(file_get_contents($tagsPath), true);
+        if (!$tagsData || !isset($tagsData['categories']) || !is_array($tagsData['categories'])) {
+            Log::error("Invalid tags data structure in {$tagsPath}");
+            return;
+        }
 
-        if (!$tagsData || !$pagesData) {
-            Log::error('Failed to load tags or pages data');
+        // Load and validate pages data
+        $pagesPath = config_path('pages/exported_pages.json');
+        if (!file_exists($pagesPath)) {
+            Log::error("Pages file not found: {$pagesPath}");
+            return;
+        }
+        
+        $pagesData = json_decode(file_get_contents($pagesPath), true);
+        if (!$pagesData || !isset($pagesData['categories']) || !is_array($pagesData['categories'])) {
+            Log::error("Invalid pages data structure in {$pagesPath}");
             return;
         }
 
@@ -30,7 +48,15 @@ class PageTagAssignmentSeeder extends Seeder
         $tagsById = [];
         
         foreach ($tagsData['categories'] as $tagCategory) {
+            if (!isset($tagCategory['tags']) || !is_array($tagCategory['tags'])) {
+                continue;
+            }
+            
             foreach ($tagCategory['tags'] as $tagData) {
+                if (!isset($tagData['name']) || !isset($tagData['id'])) {
+                    continue;
+                }
+                
                 $tagName = $tagData['name'];
                 $tagId = $tagData['id'];
                 $tagsByName[strtolower($tagName)] = $tagId;
@@ -163,7 +189,7 @@ class PageTagAssignmentSeeder extends Seeder
             'modal-verbs-may-might' => ['May / Might', 'Permission (may)', 'Possibility (may/might)'],
             'modal-verbs-must-have-to' => ['Must / Have to', 'Obligation (must/have to)', 'Necessity (must)'],
             'modal-verbs-should-ought-to' => ['Should / Ought to', 'Advice (should/ought to)', 'Recommendation (should)'],
-            'modal-verbs-need-need-to' => ['Need / Need to', 'Need / Needn\'t'],
+            'modal-verbs-need-need-to' => ['Need / Need to', "Need / Needn't"],
             'modal-verbs-perfect-modals' => ['Perfect Modals', 'Be Supposed To', 'Shall'],
             
             // Article pages
@@ -183,7 +209,7 @@ class PageTagAssignmentSeeder extends Seeder
             'do-does-is-are' => ['do_does_is_are', 'Auxiliary Verb Choice'],
             
             // There is/are pages
-            'there-is-there-are' => ['There is there are', 'There is', 'There are', 'There isn\'t', 'There aren\'t', 'Is there', 'Are there'],
+            'there-is-there-are' => ['There is there are', 'There is', 'There are', "There isn't", "There aren't", 'Is there', 'Are there'],
             
             // Verb to be pages
             'verb-to-be' => ['to_be_tense', 'Verb "to be"'],
