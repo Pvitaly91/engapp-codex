@@ -62,32 +62,11 @@
                     </select>
                 </div>
 
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-slate-700">Теги</label>
-                    <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                        <div class="grid grid-cols-2 gap-2 md:grid-cols-3">
-                            @foreach ($allTags as $tag)
-                                <label class="flex items-center space-x-2 rounded border border-slate-200 bg-white px-3 py-2 hover:bg-blue-50">
-                                    <input
-                                        type="checkbox"
-                                        name="tags[]"
-                                        value="{{ $tag->id }}"
-                                        @checked(in_array($tag->id, old('tags', [])))
-                                        class="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                                    >
-                                    <span class="text-sm text-slate-700">{{ $tag->name }}</span>
-                                    @if($tag->category)
-                                        <span class="text-xs text-slate-400">({{ $tag->category }})</span>
-                                    @endif
-                                </label>
-                            @endforeach
-                        </div>
-                        @if($allTags->isEmpty())
-                            <p class="text-sm text-slate-500">Теги ще не створено. <a href="{{ route('test-tags.create') }}" class="text-blue-600 hover:underline">Створити тег</a></p>
-                        @endif
-                    </div>
-                    <p class="text-xs text-slate-400">Виберіть теги, які відповідають темам цієї категорії.</p>
-                </div>
+                <x-tag-selector 
+                    :allTags="$allTags" 
+                    :selectedTags="old('tags', [])"
+                    helpText="Виберіть теги, які відповідають темам цієї категорії."
+                />
 
                 <div class="flex flex-wrap gap-2">
                     <button
