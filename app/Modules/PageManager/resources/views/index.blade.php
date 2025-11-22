@@ -53,6 +53,9 @@
                     @php
                         $editFormHasErrors = old('_method') === 'PUT';
                         $emptyCategoryCount = $categories->where('pages_count', 0)->count();
+                        $editSelectedTags = $editFormHasErrors
+                            ? (array) old('tags', $editingCategory?->tags->pluck('id')->all() ?? [])
+                            : ($editingCategory?->tags->pluck('id')->all() ?? []);
                     @endphp
 
                     <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
@@ -83,6 +86,15 @@
                                             </label>
                                         </div>
 
+                                        @include('page-manager::partials.tag-selector', [
+                                            'label' => 'Теги категорії',
+                                            'description' => 'Позначте категорію тегами, щоб поєднувати теорію з відповідними тестами.',
+                                            'tagsByCategory' => $tagsByCategory,
+                                            'selectedTagIds' => $editSelectedTags,
+                                            'inputName' => 'tags[]',
+                                            'idPrefix' => 'page-category-edit-' . $editingCategory->id,
+                                        ])
+
                                         <div class="flex items-center justify-end gap-3">
                                             <a href="{{ route('pages.manage.index', ['tab' => 'categories']) }}" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">Скасувати</a>
                                             <button type="submit" class="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">Оновити категорію</button>
@@ -95,6 +107,7 @@
                                 $createTitle = $editFormHasErrors ? '' : old('title');
                                 $createSlug = $editFormHasErrors ? '' : old('slug');
                                 $createLanguage = $editFormHasErrors ? 'uk' : old('language', 'uk');
+                                $createTags = $editFormHasErrors ? [] : (array) old('tags', []);
                             @endphp
 
                             <section class="space-y-4 rounded-xl border border-gray-200 bg-gray-50 p-5">
@@ -120,6 +133,15 @@
                                             <input type="text" name="language" value="{{ $createLanguage }}" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200" />
                                         </label>
                                     </div>
+
+                                    @include('page-manager::partials.tag-selector', [
+                                        'label' => 'Теги категорії',
+                                        'description' => 'Привʼяжіть нову категорію до наявних тегів, щоб поєднати її з теорією та тестами.',
+                                        'tagsByCategory' => $tagsByCategory,
+                                        'selectedTagIds' => $createTags,
+                                        'inputName' => 'tags[]',
+                                        'idPrefix' => 'page-category-create',
+                                    ])
 
                                     <div class="flex justify-end">
                                         <button type="submit" class="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">Створити категорію</button>

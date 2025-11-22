@@ -118,7 +118,8 @@
                                     <ul class="space-y-2">
                                         @forelse ($group['tags'] as $tag)
                                             @php
-                                                $isEmptyTag = (int) $tag->questions_count === 0;
+                                                $usageCount = (int) $tag->questions_count + (int) $tag->pages_count + (int) $tag->page_categories_count;
+                                                $isEmptyTag = $usageCount === 0;
                                             @endphp
                                             <li class="space-y-3 rounded-lg border border-slate-100 px-3 py-2">
                                                 <div class="flex flex-wrap items-center justify-between gap-3">
@@ -132,7 +133,7 @@
                                                     >
                                                         <span>{{ $tag->name }}</span>
                                                         <span class="inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-semibold {{ $isEmptyTag ? 'bg-red-100 text-red-600' : 'bg-slate-100 text-slate-600' }}">
-                                                            {{ $tag->questions_count }}
+                                                            Використань: {{ $usageCount }}
                                                         </span>
                                                     </button>
                                                     <span class="flex items-center gap-2 text-xs">
@@ -156,6 +157,20 @@
                                                                 Видалити
                                                             </button>
                                                         </form>
+                                                    </span>
+                                                </div>
+                                                <div class="flex flex-wrap gap-2 text-[11px] text-slate-600">
+                                                    <span class="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 font-medium">
+                                                        <i class="fa-regular fa-circle-question text-slate-500"></i>
+                                                        Питань: {{ $tag->questions_count }}
+                                                    </span>
+                                                    <span class="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2.5 py-1 font-medium text-indigo-700">
+                                                        <i class="fa-regular fa-file-lines"></i>
+                                                        Сторінок: {{ $tag->pages_count }}
+                                                    </span>
+                                                    <span class="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 font-medium text-amber-800">
+                                                        <i class="fa-regular fa-folder-closed"></i>
+                                                        Категорій: {{ $tag->page_categories_count }}
                                                     </span>
                                                 </div>
                                                 <div
