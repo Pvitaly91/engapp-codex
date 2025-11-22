@@ -67,136 +67,19 @@
             <div class="p-4 sm:p-6">
                 @if ($activeTab === 'categories')
                     @php
-                        $editFormHasErrors = old('_method') === 'PUT';
                         $emptyCategoryCount = $categories->where('pages_count', 0)->count();
-                        $editSelectedTags = $editFormHasErrors
-                            ? (array) old('tags', $editingCategory?->tags->pluck('id')->all() ?? [])
-                            : ($editingCategory?->tags->pluck('id')->all() ?? []);
                     @endphp
 
-                    <div class="flex flex-col gap-6">
-                        <div class="space-y-6">
-                            @if ($editingCategory)
-                                <section class="space-y-4 rounded-xl border border-blue-200 bg-blue-50/60 p-5">
-                                    <header class="space-y-1">
-                                        <h2 class="text-lg font-semibold">Редагувати категорію</h2>
-                                        <p class="text-sm text-blue-800/80">Оновіть назву, slug або мову вибраної категорії.</p>
-                                    </header>
-
-                                    @if ($editingCategory->tags->isNotEmpty())
-                                        <div class="rounded-lg border border-blue-300 bg-white p-4">
-                                            <h3 class="mb-3 text-sm font-semibold text-gray-900">Прикріплені теги</h3>
-                                            <div class="flex flex-wrap gap-2">
-                                                @foreach ($editingCategory->tags as $tag)
-                                                    <span class="inline-flex items-center gap-1.5 rounded-lg border border-blue-300 bg-blue-50 px-3 py-1.5 text-sm font-medium text-gray-700">
-                                                        <svg class="h-4 w-4 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-                                                        </svg>
-                                                        <span>{{ $tag->name }}</span>
-                                                        @if (!empty($tag->category))
-                                                            <span class="text-xs text-gray-500">({{ $tag->category }})</span>
-                                                        @endif
-                                                    </span>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    <form method="POST" action="{{ route('pages.manage.categories.update', $editingCategory) }}" class="space-y-4">
-                                        @csrf
-                                        @method('PUT')
-
-                                        <div class="grid gap-4 sm:grid-cols-2">
-                                            <label class="space-y-2 text-sm">
-                                                <span class="font-medium text-gray-700">Назва</span>
-                                                <input type="text" name="title" value="{{ $editFormHasErrors ? old('title', $editingCategory->title) : $editingCategory->title }}" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200" />
-                                            </label>
-                                            <label class="space-y-2 text-sm">
-                                                <span class="font-medium text-gray-700">Slug</span>
-                                                <input type="text" name="slug" value="{{ $editFormHasErrors ? old('slug', $editingCategory->slug) : $editingCategory->slug }}" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200" />
-                                            </label>
-                                            <label class="space-y-2 text-sm">
-                                                <span class="font-medium text-gray-700">Мова</span>
-                                                <input type="text" name="language" value="{{ $editFormHasErrors ? old('language', $editingCategory->language) : $editingCategory->language }}" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200" />
-                                            </label>
-                                        </div>
-
-                                        @include('page-manager::partials.tag-selector', [
-                                            'label' => 'Теги категорії',
-                                            'description' => 'Позначте категорію тегами, щоб поєднувати теорію з відповідними тестами.',
-                                            'tagsByCategory' => $tagsByCategory,
-                                            'selectedTagIds' => $editSelectedTags,
-                                            'inputName' => 'tags[]',
-                                            'idPrefix' => 'page-category-edit-' . $editingCategory->id,
-                                        ])
-
-                                        <div class="flex items-center justify-end gap-3">
-                                            <a href="{{ route('pages.manage.index', ['tab' => 'categories']) }}" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">Скасувати</a>
-                                            <button type="submit" class="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">Оновити категорію</button>
-                                        </div>
-                                    </form>
-                                </section>
-                            @endif
-
-                            @php
-                                $createTitle = $editFormHasErrors ? '' : old('title');
-                                $createSlug = $editFormHasErrors ? '' : old('slug');
-                                $createLanguage = $editFormHasErrors ? 'uk' : old('language', 'uk');
-                                $createTags = $editFormHasErrors ? [] : (array) old('tags', []);
-                            @endphp
-
-                            <section class="space-y-4 rounded-xl border border-gray-200 bg-gray-50 p-5">
-                                <header class="space-y-1">
-                                    <h2 class="text-lg font-semibold">Нова категорія</h2>
-                                    <p class="text-sm text-gray-600">Створіть категорію для групування сторінок.</p>
-                                </header>
-
-                                <form method="POST" action="{{ route('pages.manage.categories.store') }}" class="space-y-4">
-                                    @csrf
-
-                                    <div class="grid gap-4 sm:grid-cols-2">
-                                        <label class="space-y-2 text-sm">
-                                            <span class="font-medium text-gray-700">Назва</span>
-                                            <input type="text" name="title" value="{{ $createTitle }}" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200" />
-                                        </label>
-                                        <label class="space-y-2 text-sm">
-                                            <span class="font-medium text-gray-700">Slug</span>
-                                            <input type="text" name="slug" value="{{ $createSlug }}" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200" />
-                                        </label>
-                                        <label class="space-y-2 text-sm">
-                                            <span class="font-medium text-gray-700">Мова</span>
-                                            <input type="text" name="language" value="{{ $createLanguage }}" required class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 focus:border-blue-500 focus:ring focus:ring-blue-200" />
-                                        </label>
-                                    </div>
-
-                                    @include('page-manager::partials.tag-selector', [
-                                        'label' => 'Теги категорії',
-                                        'description' => 'Привʼяжіть нову категорію до наявних тегів, щоб поєднати її з теорією та тестами.',
-                                        'tagsByCategory' => $tagsByCategory,
-                                        'selectedTagIds' => $createTags,
-                                        'inputName' => 'tags[]',
-                                        'idPrefix' => 'page-category-create',
-                                    ])
-
-                                    <div class="flex justify-end">
-                                        <button type="submit" class="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">Створити категорію</button>
-                                    </div>
-                                </form>
-                            </section>
-                        </div>
-
-                        <div class="space-y-4">
+                    <div class="space-y-4">
                             <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                                <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-                                    <div class="flex items-center gap-3">
-                                        <h2 class="text-lg font-semibold text-gray-900">Категорії сторінок</h2>
-                                        <span class="inline-flex w-fit items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
-                                            {{ $categories->count() }} всього
-                                        </span>
-                                    </div>
+                                <div class="flex items-center gap-3">
+                                    <h2 class="text-lg font-semibold text-gray-900">Категорії сторінок</h2>
+                                    <span class="inline-flex w-fit items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                                        {{ $categories->count() }} всього
+                                    </span>
                                 </div>
                                 <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+                                    <a href="{{ route('pages.manage.categories.create') }}" class="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">+ Нова категорія</a>
                                     <label class="relative block w-full sm:w-64">
                                         <span class="sr-only">Пошук категорій</span>
                                         <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
@@ -278,7 +161,7 @@
 
                                         <div class="flex flex-col gap-2 sm:flex-row sm:justify-end sm:gap-3">
                                             <a href="{{ route('pages.manage.categories.blocks.index', $category) }}" class="inline-flex items-center justify-center rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-100">Опис</a>
-                                            <a href="{{ route('pages.manage.index', ['tab' => 'categories', 'edit' => $category->id]) }}" class="inline-flex items-center justify-center rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">Редагувати</a>
+                                            <a href="{{ route('pages.manage.categories.edit', $category) }}" class="inline-flex items-center justify-center rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100">Редагувати</a>
                                             <form action="{{ route('pages.manage.categories.destroy', $category) }}" method="POST" onsubmit="return confirm('Видалити категорію?');" class="inline-flex">
                                                 @csrf
                                                 @method('DELETE')
@@ -346,7 +229,7 @@
                                                     <td class="px-4 py-3">
                                                         <div class="flex justify-end gap-2">
                                                             <a href="{{ route('pages.manage.categories.blocks.index', $category) }}" class="rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm text-indigo-700 hover:bg-indigo-100">Опис</a>
-                                                            <a href="{{ route('pages.manage.index', ['tab' => 'categories', 'edit' => $category->id]) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
+                                                            <a href="{{ route('pages.manage.categories.edit', $category) }}" class="rounded-lg border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100">Редагувати</a>
                                                             <form action="{{ route('pages.manage.categories.destroy', $category) }}" method="POST" onsubmit="return confirm('Видалити категорію?');">
                                                                 @csrf
                                                                 @method('DELETE')

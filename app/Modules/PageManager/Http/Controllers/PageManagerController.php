@@ -30,17 +30,7 @@ class PageManagerController extends Controller
             ->orderBy('title')
             ->get();
 
-        $tagsByCategory = $this->tagOptions();
-
         $activeTab = $request->query('tab', 'pages');
-
-        $editingCategory = null;
-        if ($request->filled('edit')) {
-            $activeTab = 'categories';
-
-            $categoryId = (int) $request->query('edit');
-            $editingCategory = $categories->firstWhere('id', $categoryId);
-        }
 
         $exportFileExists = file_exists(config_path(self::EXPORT_FILE_PATH));
 
@@ -48,8 +38,6 @@ class PageManagerController extends Controller
             'pages' => $pages,
             'categories' => $categories,
             'activeTab' => $activeTab,
-            'editingCategory' => $editingCategory,
-            'tagsByCategory' => $tagsByCategory,
             'exportFileExists' => $exportFileExists,
         ]);
     }
@@ -135,6 +123,15 @@ class PageManagerController extends Controller
             ->with('status', 'Сторінку видалено.');
     }
 
+    public function createCategory()
+    {
+        $tagsByCategory = $this->tagOptions();
+
+        return view('page-manager::categories.create', [
+            'tagsByCategory' => $tagsByCategory,
+        ]);
+    }
+
     public function storeCategory(Request $request): RedirectResponse
     {
         $data = $this->validatedCategoryData($request);
@@ -149,6 +146,17 @@ class PageManagerController extends Controller
         return redirect()
             ->route('pages.manage.index', ['tab' => 'categories'])
             ->with('status', 'Категорію створено.');
+    }
+
+    public function editCategory(PageCategory $category)
+    {
+        $category->loadMissing('tags');
+        $tagsByCategory = $this->tagOptions();
+
+        return view('page-manager::categories.edit', [
+            'category' => $category,
+            'tagsByCategory' => $tagsByCategory,
+        ]);
     }
 
     public function updateCategory(Request $request, PageCategory $category): RedirectResponse

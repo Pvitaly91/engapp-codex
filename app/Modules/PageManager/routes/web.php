@@ -23,7 +23,10 @@ Route::middleware(config('page-manager.middleware', ['web']))
             ->whereNumber('page')
             ->name('destroy');
 
+        Route::get('/categories/create', [PageManagerController::class, 'createCategory'])->name('categories.create');
         Route::post('/categories', [PageManagerController::class, 'storeCategory'])->name('categories.store');
+        Route::get('/categories/{category}/edit', [PageManagerController::class, 'editCategory'])
+            ->name('categories.edit');
         Route::put('/categories/{category}', [PageManagerController::class, 'updateCategory'])
             ->name('categories.update');
         Route::delete('/categories/{category}', [PageManagerController::class, 'destroyCategory'])
