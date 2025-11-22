@@ -77,7 +77,7 @@
                 <div class="flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-slate-800">Вміст JSON файлу</h2>
                     <button
-                        onclick="copyToClipboard()"
+                        onclick="copyToClipboard(event)"
                         class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring"
                     >
                         <i class="fa-solid fa-copy mr-1.5"></i>Копіювати

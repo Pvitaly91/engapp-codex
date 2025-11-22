@@ -186,9 +186,15 @@ class TestTagController extends Controller
             ];
         })->values();
 
+        $exportFilePath = config_path('tags/exported_tags.json');
+        $exportFileExists = file_exists($exportFilePath);
+        $exportFileSize = $exportFileExists ? filesize($exportFilePath) : 0;
+
         return view('test-tags.index', [
             'tagGroups' => $tagGroups,
             'totalTags' => $tagsByCategory->sum(fn ($tags) => $tags->count()),
+            'exportFileExists' => $exportFileExists,
+            'exportFileSize' => $exportFileSize,
         ]);
     }
 
@@ -248,7 +254,15 @@ class TestTagController extends Controller
         }
 
         $jsonContent = file_get_contents($filePath);
+        if ($jsonContent === false) {
+            return redirect()->route('test-tags.index')->with('error', 'Не вдалося прочитати файл експорту.');
+        }
+
         $jsonData = json_decode($jsonContent, true);
+        if ($jsonData === null && json_last_error() !== JSON_ERROR_NONE) {
+            return redirect()->route('test-tags.index')->with('error', 'Файл експорту містить некоректний JSON.');
+        }
+
         $relativePath = 'config/tags/exported_tags.json';
 
         return view('test-tags.view-export', [
