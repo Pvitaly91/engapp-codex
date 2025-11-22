@@ -109,6 +109,25 @@
                 'columns' => $columns ?? [],
                 'locale' => $locale ?? app()->getLocale(),
             ])
+
+            @if(isset($relatedTests) && $relatedTests->isNotEmpty())
+                <div class="rounded-2xl border border-border/80 bg-card shadow-soft p-6">
+                    <h2 class="text-lg font-semibold mb-4">Пов'язані тести</h2>
+                    <div class="space-y-2">
+                        @foreach($relatedTests as $test)
+                            <a
+                                href="{{ route('saved-test.js', $test->slug) }}"
+                                class="block rounded-xl border border-border/60 bg-background p-4 transition hover:border-primary/40 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                            >
+                                <h3 class="font-medium text-foreground">{{ $test->name }}</h3>
+                                @if($test->description)
+                                    <p class="mt-1 text-sm text-muted-foreground line-clamp-2">{{ $test->description }}</p>
+                                @endif
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
         </article>
     </div>
 @endsection

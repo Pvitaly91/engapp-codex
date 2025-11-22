@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\SavedGrammarTest;
 use Illuminate\Support\Collection;
 
 class PageController extends Controller
@@ -54,7 +55,7 @@ class PageController extends Controller
     public function show(PageCategory $category, string $pageSlug)
     {
         $page = Page::query()
-            ->with('textBlocks')
+            ->with(['textBlocks', 'tags'])
             ->where('slug', $pageSlug)
             ->where('page_category_id', $category->getKey())
             ->firstOrFail();
@@ -85,6 +86,16 @@ class PageController extends Controller
             $categoryPages = collect([$page]);
         }
 
+        // Get saved tests with matching tags
+        $relatedTests = collect();
+        $pageTagIds = $page->tags->pluck('id')->toArray();
+        
+        if (!empty($pageTagIds)) {
+            $relatedTests = SavedGrammarTest::withMatchingTags($pageTagIds)
+                ->orderBy('name')
+                ->get();
+        }
+
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],
             ['label' => 'Теорія', 'url' => route('pages.index')],
@@ -101,6 +112,7 @@ class PageController extends Controller
             'categories' => $categories,
             'selectedCategory' => $category,
             'categoryPages' => $categoryPages,
+            'relatedTests' => $relatedTests,
         ]);
     }
 
