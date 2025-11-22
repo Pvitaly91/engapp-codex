@@ -224,10 +224,8 @@ class TestTagController extends Controller
         $filePath = config_path('tags/exported_tags.json');
         $directory = dirname($filePath);
 
-        if (!is_dir($directory)) {
-            if (!mkdir($directory, 0755, true)) {
-                return redirect()->route('test-tags.index')->with('error', 'Не вдалося створити директорію для експорту.');
-            }
+        if (!is_dir($directory) && !mkdir($directory, 0755, true) && !is_dir($directory)) {
+            return redirect()->route('test-tags.index')->with('error', 'Не вдалося створити директорію для експорту.');
         }
 
         $result = file_put_contents($filePath, json_encode($jsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
