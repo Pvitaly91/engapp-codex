@@ -37,15 +37,38 @@
                         class="space-y-3 rounded-xl border border-gray-200 bg-gray-50 p-4"
                         data-tag-category
                         data-category-name="{{ $categoryKey }}"
+                        x-data="{ expanded: true }"
                     >
                         <div class="flex items-center justify-between gap-2">
-                            <div class="space-y-0.5">
-                                <p class="text-sm font-semibold text-gray-800">{{ $categoryLabel }}</p>
-                                <p class="text-xs text-gray-500">{{ trans_choice('{0}Немає тегів|{1}1 тег|[2,4]:count теги|[5,*]:count тегів', $tags->count(), ['count' => $tags->count()]) }}</p>
-                            </div>
+                            <button
+                                type="button"
+                                @click="expanded = !expanded"
+                                class="flex flex-1 items-center gap-2 text-left transition-colors hover:text-gray-900"
+                            >
+                                <svg
+                                    class="h-4 w-4 text-gray-500 transition-transform"
+                                    :class="{ 'rotate-90': expanded }"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                                <div class="space-y-0.5">
+                                    <p class="text-sm font-semibold text-gray-800">{{ $categoryLabel }}</p>
+                                    <p class="text-xs text-gray-500">{{ trans_choice('{0}Немає тегів|{1}1 тег|[2,4]:count теги|[5,*]:count тегів', $tags->count(), ['count' => $tags->count()]) }}</p>
+                                </div>
+                            </button>
                             <span class="inline-flex items-center rounded-full bg-gray-200 px-3 py-1 text-xs font-semibold text-gray-700">{{ $tags->count() }}</span>
                         </div>
-                        <div class="grid gap-2" data-tag-options>
+                        <div
+                            class="grid gap-2"
+                            data-tag-options
+                            x-show="expanded"
+                            x-transition
+                        >
                             @foreach ($tags as $tag)
                                 @php
                                     $inputId = ($idPrefix ?? 'tag') . '-' . $tag->id;
@@ -92,6 +115,13 @@
                     const categories = selector.querySelectorAll('[data-tag-category]');
                     const emptyState = selector.querySelector('[data-tag-empty]');
 
+                    // Function to highlight search term in text
+                    const highlightText = (text, term) => {
+                        if (!term) return text;
+                        const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                        return text.replace(regex, '<mark class="bg-yellow-200 text-gray-900">$1</mark>');
+                    };
+
                     const updateVisibility = () => {
                         const term = (searchInput?.value || '').toLowerCase().trim();
                         let hasVisible = false;
@@ -106,6 +136,17 @@
                                 const searchable = `${tagName} ${categoryName}`;
                                 const matches = term === '' || searchable.includes(term);
                                 option.style.display = matches ? '' : 'none';
+                                
+                                // Highlight matching text
+                                const tagTextSpan = option.querySelector('span.flex.items-center.gap-2 > span');
+                                if (tagTextSpan) {
+                                    const originalText = tagTextSpan.getAttribute('data-original-text') || tagTextSpan.textContent;
+                                    if (!tagTextSpan.hasAttribute('data-original-text')) {
+                                        tagTextSpan.setAttribute('data-original-text', originalText);
+                                    }
+                                    tagTextSpan.innerHTML = highlightText(originalText, term);
+                                }
+                                
                                 if (matches) {
                                     visibleOptions += 1;
                                 }
