@@ -225,33 +225,48 @@ class PageTagAssignmentSeeder extends Seeder
 
     /**
      * Get keyword-based mappings
+     * 
+     * These are used for category-level matching when no direct mapping exists.
+     * Only include tags that actually exist in the system.
      */
     private function getKeywordMappings(): array
     {
         return [
-            // Category-level keywords
+            // Category-level keywords - Tenses
             'tenses' => ['Present Simple', 'Present Continuous', 'Present Perfect', 'Present Perfect Continuous', 'Past Simple', 'Past Continuous', 'Past Perfect', 'Past Perfect Continuous', 'Future Simple', 'Future Continuous', 'Future Perfect', 'Future Perfect Continuous'],
             'часи' => ['Present Simple', 'Present Continuous', 'Present Perfect', 'Present Perfect Continuous', 'Past Simple', 'Past Continuous', 'Past Perfect', 'Past Perfect Continuous', 'Future Simple', 'Future Continuous', 'Future Perfect', 'Future Perfect Continuous'],
+            
+            // Category-level keywords - Conditionals
             'conditions' => ['First Conditional', 'Second Conditional', 'Third Conditional', 'Mixed Conditional', 'Zero Conditional'],
             'умовні' => ['First Conditional', 'Second Conditional', 'Third Conditional', 'Mixed Conditional', 'Zero Conditional'],
+            
+            // Category-level keywords - Modal Verbs
             'modal' => ['Can / Could', 'May / Might', 'Must / Have to', 'Should / Ought to', 'Will / Would', 'Need / Need to'],
             'модальні' => ['Can / Could', 'May / Might', 'Must / Have to', 'Should / Ought to', 'Will / Would', 'Need / Need to'],
-            'articles' => ['Articles', 'A An The', 'A or An'],
-            'артиклі' => ['Articles', 'A An The', 'A or An'],
-            'pronouns' => ['Personal Pronouns', 'Possessive Pronouns', 'Reflexive Pronouns', 'Demonstrative Pronouns'],
-            'займенники' => ['Personal Pronouns', 'Possessive Pronouns', 'Reflexive Pronouns', 'Demonstrative Pronouns'],
-            'quantifiers' => ['Quantifiers', 'Much/Many', 'A lot of', 'Few/Little'],
-            'кількісні' => ['Quantifiers', 'Much/Many', 'A lot of', 'Few/Little'],
-            'demonstrat' => ['Demonstrative Pronouns', 'this_that_these_those'],
-            'вказівні' => ['Demonstrative Pronouns', 'this_that_these_those'],
-            'possession' => ['have_has_got', 'Possessive Pronouns'],
-            'володіння' => ['have_has_got', 'Possessive Pronouns'],
-            'question' => ['Question Formation', 'Question Word Order', 'Wh-Questions'],
-            'питальні' => ['Question Formation', 'Question Word Order', 'Wh-Questions'],
-            'sentence-structure' => ['Sentence Structure', 'Word Order'],
-            'мовні конструкції' => ['Sentence Structure', 'Word Order'],
-            'comparison' => ['Degrees of Comparison', 'Comparative', 'Superlative'],
-            'прикметник' => ['Degrees of Comparison', 'Comparative', 'Superlative'],
+            
+            // Category-level keywords - Articles
+            'articles' => ['A An The', 'A or An'],
+            'артиклі' => ['A An The', 'A or An'],
+            
+            // Category-level keywords - Pronouns
+            'pronouns' => ['Indefinite Pronoun Compounds', 'Gap-fill Pronoun Forms (AI)'],
+            'займенники' => ['Indefinite Pronoun Compounds', 'Gap-fill Pronoun Forms (AI)'],
+            
+            // Category-level keywords - Quantifiers
+            'quantifiers' => ['Quantifiers'],
+            'кількісні' => ['Quantifiers'],
+            
+            // Category-level keywords - Demonstratives
+            'demonstrat' => ['this_that_these_those'],
+            'вказівні' => ['this_that_these_those'],
+            
+            // Category-level keywords - Possession/Have got
+            'possession' => ['have_has_got'],
+            'володіння' => ['have_has_got'],
+            
+            // Category-level keywords - Comparison
+            'comparison' => ['Degrees of Comparison'],
+            'прикметник' => ['Degrees of Comparison'],
         ];
     }
 }
