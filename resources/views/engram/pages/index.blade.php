@@ -77,7 +77,7 @@
                             <div class="text-xs text-muted-foreground mb-2 font-semibold">Теги категорії:</div>
                             <div class="flex flex-wrap gap-1">
                                 @foreach($selectedCategory->tags as $tag)
-                                    <span class="inline-block bg-secondary/20 text-secondary-foreground/90 font-medium text-xs px-2 py-0.5 rounded">{{ $tag->name }}</span>
+                                    <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">{{ $tag->name }}</span>
                                 @endforeach
                             </div>
                         </div>

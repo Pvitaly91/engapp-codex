@@ -79,7 +79,7 @@
                                 @php($isCurrentPage = $page->is($pageItem))
                                 <a
                                     href="{{ route('pages.show', [$mobileSelectedCategory->slug, $pageItem->slug]) }}"
-                                    class="block rounded-xl px-3 py-2 text-sm transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 {{ $isCurrentPage ? 'bg-secondary/20 text-secondary-foreground font-semibold' : 'text-muted-foreground' }}"
+                                    class="block rounded-xl px-3 py-2 text-sm transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground' }}"
                                     @if($isCurrentPage) aria-current="page" @endif
                                 >
                                     {{ $pageItem->title }}
@@ -137,7 +137,7 @@
                             <div class="text-xs text-muted-foreground mb-2 font-semibold">Теги сторінки:</div>
                             <div class="flex flex-wrap gap-1">
                                 @foreach($page->tags as $tag)
-                                    <span class="inline-block bg-secondary/20 text-secondary-foreground/90 font-medium text-xs px-2 py-0.5 rounded">{{ $tag->name }}</span>
+                                    <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">{{ $tag->name }}</span>
                                 @endforeach
                             </div>
                         </div>
