@@ -8,6 +8,7 @@ use App\Models\Tag;
 use Database\Seeders\PageTagAssignmentSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class PageTagAssignmentSeederTest extends TestCase
@@ -70,14 +71,14 @@ class PageTagAssignmentSeederTest extends TestCase
         $this->assertEquals($initialPageTags, $secondPageTags, 'Page tags should not duplicate on second run');
 
         // Verify no duplicate entries in pivot tables
-        $categoryTagDuplicates = \DB::table('page_category_tag')
-            ->select('page_category_id', 'tag_id', \DB::raw('COUNT(*) as count'))
+        $categoryTagDuplicates = DB::table('page_category_tag')
+            ->select('page_category_id', 'tag_id', DB::raw('COUNT(*) as count'))
             ->groupBy('page_category_id', 'tag_id')
             ->having('count', '>', 1)
             ->get();
 
-        $pageTagDuplicates = \DB::table('page_tag')
-            ->select('page_id', 'tag_id', \DB::raw('COUNT(*) as count'))
+        $pageTagDuplicates = DB::table('page_tag')
+            ->select('page_id', 'tag_id', DB::raw('COUNT(*) as count'))
             ->groupBy('page_id', 'tag_id')
             ->having('count', '>', 1)
             ->get();

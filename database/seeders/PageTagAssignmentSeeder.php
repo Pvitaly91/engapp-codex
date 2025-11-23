@@ -756,7 +756,7 @@ class PageTagAssignmentSeeder extends Seeder
     /**
      * Attach new tags to a model (Page or PageCategory) while preventing duplicates
      * 
-     * @param \Illuminate\Database\Eloquent\Model $model The model to attach tags to
+     * @param Page|PageCategory $model The model to attach tags to
      * @param array $tagIds Array of tag IDs to potentially attach
      * @param string $entityDescription Description of the entity for logging
      * @return void
@@ -769,7 +769,7 @@ class PageTagAssignmentSeeder extends Seeder
         
         if (!empty($newTags)) {
             $model->tags()->attach($newTags);
-            $skippedCount = count(array_intersect($tagIds, $existingTags));
+            $skippedCount = count($tagIds) - count($newTags);
             Log::info("Assigned " . count($newTags) . " new tags to {$entityDescription}" . 
                      ($skippedCount > 0 ? " (skipped {$skippedCount} existing)" : ""));
         } else {
