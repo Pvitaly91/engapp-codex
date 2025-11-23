@@ -92,6 +92,40 @@ class PageController extends Controller
             ? SavedGrammarTest::withMatchingTags($pageTagIds)->orderBy('name')->get()
             : collect();
 
+        // Enrich related tests with level ranges and matching tags
+        if ($relatedTests->isNotEmpty()) {
+            $relatedTests = $relatedTests->map(function ($test) use ($pageTagIds) {
+                // Get all questions for this test
+                $questionUuids = $test->questionLinks->pluck('question_uuid')->toArray();
+                
+                if (!empty($questionUuids)) {
+                    // Get questions with their levels and tags
+                    $questions = \App\Models\Question::whereIn('uuid', $questionUuids)
+                        ->with('tags')
+                        ->get();
+                    
+                    // Extract unique levels and sort them
+                    $levels = $questions->pluck('level')->filter()->unique()->sort();
+                    $order = array_flip(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
+                    $levels = $levels->sortBy(fn($lvl) => $order[$lvl] ?? 99)->values();
+                    
+                    // Find matching tags
+                    $testTagIds = $questions->pluck('tags')->flatten()->pluck('id')->unique()->toArray();
+                    $matchingTagIds = array_intersect($pageTagIds, $testTagIds);
+                    $matchingTags = $page->tags->whereIn('id', $matchingTagIds)->pluck('name');
+                    
+                    // Add computed properties
+                    $test->level_range = $levels;
+                    $test->matching_tags = $matchingTags;
+                } else {
+                    $test->level_range = collect();
+                    $test->matching_tags = collect();
+                }
+                
+                return $test;
+            });
+        }
+
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],
             ['label' => 'Теорія', 'url' => route('pages.index')],
