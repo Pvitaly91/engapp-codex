@@ -838,31 +838,31 @@
        
     </form>
 
-    @if(!empty($questions) && count($questions))
-        <div x-data="questionPicker(@js($questionSearchRoute), @js($questionRenderRoute), {
-            manualInput: {{ !empty($manualInput) ? 'true' : 'false' }},
-            autocompleteInput: {{ !empty($autocompleteInput) ? 'true' : 'false' }},
-            builderInput: {{ !empty($builderInput) ? 'true' : 'false' }},
-            checkOneInput: {{ !empty($checkOneInput) ? 'true' : 'false' }},
-            savePayloadKey: '{{ $savePayloadKey }}'
-        })" x-init="init()" class="space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <div class="text-sm text-gray-500" id="question-count">Кількість питань: {{ count($questions) }}</div>
-                <div class="flex flex-wrap items-center gap-2">
-                    <button type="button" @click="open = true"
-                            class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
-                        Додати питання
+    {{-- Question Picker - Always Available --}}
+    <div x-data="questionPicker(@js($questionSearchRoute), @js($questionRenderRoute), {
+        manualInput: {{ !empty($manualInput) ? 'true' : 'false' }},
+        autocompleteInput: {{ !empty($autocompleteInput) ? 'true' : 'false' }},
+        builderInput: {{ !empty($builderInput) ? 'true' : 'false' }},
+        checkOneInput: {{ !empty($checkOneInput) ? 'true' : 'false' }},
+        savePayloadKey: '{{ $savePayloadKey }}'
+    })" x-init="init()" class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div class="text-sm text-gray-500" id="question-count">Кількість питань: {{ !empty($questions) ? count($questions) : 0 }}</div>
+            <div class="flex flex-wrap items-center gap-2">
+                <button type="button" @click="open = true"
+                        class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
+                    Додати питання
+                </button>
+                @if(!empty($questions) && count($questions) > 1)
+                    <button type="button" id="shuffle-questions"
+                            class="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
+                        Перемішати питання
                     </button>
-                    @if(count($questions) > 1)
-                        <button type="button" id="shuffle-questions"
-                                class="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
-                            Перемішати питання
-                        </button>
-                    @endif
-                </div>
+                @endif
             </div>
+        </div>
 
-            <div x-show="open" x-transition.opacity class="fixed inset-0 z-40 flex items-center justify-center px-4" style="display: none;">
+        <div x-show="open" x-transition.opacity class="fixed inset-0 z-40 flex items-center justify-center px-4" style="display: none;">
                 <div class="absolute inset-0 bg-black/50" @click="close()"></div>
                 <div class="relative z-10 w-full max-w-5xl bg-white rounded-2xl shadow-xl p-4 sm:p-6 space-y-4">
                     <div class="flex items-center justify-between gap-3">
@@ -935,70 +935,123 @@
                 </div>
             </div>
 
-        <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
-            @csrf
-            <div id="questions-list" class="space-y-6">
-                @foreach($questions as $q)
-                    @include('components.grammar-test-question-item', [
-                        'question' => $q,
-                        'savePayloadKey' => $savePayloadKey,
-                        'manualInput' => $manualInput,
-                        'autocompleteInput' => $autocompleteInput,
-                        'builderInput' => $builderInput,
-                        'autocompleteRoute' => $autocompleteRoute,
-                        'checkOneInput' => $checkOneInput,
-                        'number' => $loop->iteration,
-                    ])
-                @endforeach
-            </div>
-
-            <div>
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
-                    Перевірити
-                </button>
-            </div>
-        </form>
-
-        <div class="bg-white shadow rounded-2xl p-4 sm:p-6">
-            <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
+        @if(!empty($questions) && count($questions))
+            <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
                 @csrf
-                @php
-                    $filtersForSave = $normalizedFilters ?? [
-                        'categories' => $selectedCategories,
-                        'difficulty_from' => $difficultyFrom,
-                        'difficulty_to' => $difficultyTo,
-                        'num_questions' => $numQuestions,
-                        'manual_input' => (bool) $manualInput,
-                        'autocomplete_input' => (bool) $autocompleteInput,
-                        'check_one_input' => (bool) $checkOneInput,
-                        'builder_input' => (bool) $builderInput,
-                        'include_ai' => (bool) ($includeAi ?? false),
-                        'only_ai' => (bool) ($onlyAi ?? false),
-                        'include_ai_v2' => (bool) ($includeAiV2 ?? false),
-                        'only_ai_v2' => (bool) ($onlyAiV2 ?? false),
-                        'levels' => $selectedLevels ?? [],
-                        'tags' => $selectedTags,
-                        'sources' => $selectedSources,
-                        'seeder_classes' => $selectedSeederClasses,
-                        'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
-                    ];
-                @endphp
-                <input type="hidden" name="filters" value="{{ htmlentities(json_encode($filtersForSave)) }}">
-                <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
-                <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"
-                       class="border rounded-lg px-3 py-2 w-full sm:w-80">
-                <div class="flex flex-col sm:flex-row gap-2">
-                    <button type="submit" name="save_mode" value="questions" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
-                        Зберегти тест
-                    </button>
-                    <button type="submit" name="save_mode" value="filters" class="inline-flex justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-6 py-2 rounded-2xl shadow font-semibold transition">
-                        Зберегти фільтр
+                <div id="questions-list" class="space-y-6">
+                    @foreach($questions as $q)
+                        @include('components.grammar-test-question-item', [
+                            'question' => $q,
+                            'savePayloadKey' => $savePayloadKey,
+                            'manualInput' => $manualInput,
+                            'autocompleteInput' => $autocompleteInput,
+                            'builderInput' => $builderInput,
+                            'autocompleteRoute' => $autocompleteRoute,
+                            'checkOneInput' => $checkOneInput,
+                            'number' => $loop->iteration,
+                        ])
+                    @endforeach
+                </div>
+
+                <div>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
+                        Перевірити
                     </button>
                 </div>
             </form>
-        </div>
-        </div>
-    @elseif(isset($questions))
+
+            <div class="bg-white shadow rounded-2xl p-4 sm:p-6">
+                <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
+                    @csrf
+                    @php
+                        $filtersForSave = $normalizedFilters ?? [
+                            'categories' => $selectedCategories,
+                            'difficulty_from' => $difficultyFrom,
+                            'difficulty_to' => $difficultyTo,
+                            'num_questions' => $numQuestions,
+                            'manual_input' => (bool) $manualInput,
+                            'autocomplete_input' => (bool) $autocompleteInput,
+                            'check_one_input' => (bool) $checkOneInput,
+                            'builder_input' => (bool) $builderInput,
+                            'include_ai' => (bool) ($includeAi ?? false),
+                            'only_ai' => (bool) ($onlyAi ?? false),
+                            'include_ai_v2' => (bool) ($includeAiV2 ?? false),
+                            'only_ai_v2' => (bool) ($onlyAiV2 ?? false),
+                            'levels' => $selectedLevels ?? [],
+                            'tags' => $selectedTags,
+                            'sources' => $selectedSources,
+                            'seeder_classes' => $selectedSeederClasses,
+                            'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
+                        ];
+                    @endphp
+                    <input type="hidden" name="filters" value="{{ htmlentities(json_encode($filtersForSave)) }}">
+                    <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
+                    <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"
+                           class="border rounded-lg px-3 py-2 w-full sm:w-80">
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <button type="submit" name="save_mode" value="questions" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
+                            Зберегти тест
+                        </button>
+                        <button type="submit" name="save_mode" value="filters" class="inline-flex justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-6 py-2 rounded-2xl shadow font-semibold transition">
+                            Зберегти фільтр
+                        </button>
+                    </div>
+                </form>
+            </div>
+        @else
+            {{-- Empty questions list container for manually added questions --}}
+            <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6" style="display: none;">
+                @csrf
+                <div id="questions-list" class="space-y-6"></div>
+                <div>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
+                        Перевірити
+                    </button>
+                </div>
+            </form>
+
+            <div class="bg-white shadow rounded-2xl p-4 sm:p-6" style="display: none;">
+                <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
+                    @csrf
+                    @php
+                        $filtersForSave = $normalizedFilters ?? [
+                            'categories' => $selectedCategories ?? [],
+                            'difficulty_from' => $difficultyFrom ?? null,
+                            'difficulty_to' => $difficultyTo ?? null,
+                            'num_questions' => $numQuestions ?? 0,
+                            'manual_input' => (bool) ($manualInput ?? false),
+                            'autocomplete_input' => (bool) ($autocompleteInput ?? false),
+                            'check_one_input' => (bool) ($checkOneInput ?? false),
+                            'builder_input' => (bool) ($builderInput ?? false),
+                            'include_ai' => (bool) ($includeAi ?? false),
+                            'only_ai' => (bool) ($onlyAi ?? false),
+                            'include_ai_v2' => (bool) ($includeAiV2 ?? false),
+                            'only_ai_v2' => (bool) ($onlyAiV2 ?? false),
+                            'levels' => $selectedLevels ?? [],
+                            'tags' => $selectedTags ?? [],
+                            'sources' => $selectedSources ?? [],
+                            'seeder_classes' => $selectedSeederClasses ?? [],
+                            'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
+                        ];
+                    @endphp
+                    <input type="hidden" name="filters" value="{{ htmlentities(json_encode($filtersForSave)) }}">
+                    <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="[]">
+                    <input type="text" name="name" value="{{ $autoTestName ?? '' }}" placeholder="Назва тесту" required autocomplete="off"
+                           class="border rounded-lg px-3 py-2 w-full sm:w-80">
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <button type="submit" name="save_mode" value="questions" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
+                            Зберегти тест
+                        </button>
+                        <button type="submit" name="save_mode" value="filters" class="inline-flex justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-6 py-2 rounded-2xl shadow font-semibold transition">
+                            Зберегти фільтр
+                        </button>
+                    </div>
+                </form>
+            </div>
+        @endif
+    </div>
+
+    @if(isset($questions) && empty($questions))
         <div class="text-red-600 font-bold text-lg">Питань по вибраних параметрах не знайдено!</div>
     @endif
 
@@ -1219,7 +1272,8 @@ function createQuestionsManager() {
     const getItems = () => Array.from(container ? container.querySelectorAll('[data-question-id]') : []);
 
     const updateNumbers = () => {
-        getItems().forEach((item, index) => {
+        const items = getItems();
+        items.forEach((item, index) => {
             const numberEl = item.querySelector('.question-number');
             if (numberEl) {
                 numberEl.textContent = `${index + 1}.`;
@@ -1228,7 +1282,18 @@ function createQuestionsManager() {
 
         const countLabel = document.getElementById('question-count');
         if (countLabel) {
-            countLabel.textContent = `Кількість питань: ${getItems().length}`;
+            countLabel.textContent = `Кількість питань: ${items.length}`;
+        }
+
+        // Show/hide forms based on question count
+        const checkForm = container?.closest('form');
+        const saveFormContainer = document.querySelector('#save-test-form')?.closest('.bg-white');
+        if (items.length === 0) {
+            if (checkForm) checkForm.style.display = 'none';
+            if (saveFormContainer) saveFormContainer.style.display = 'none';
+        } else {
+            if (checkForm) checkForm.style.display = '';
+            if (saveFormContainer) saveFormContainer.style.display = '';
         }
     };
 
@@ -1254,6 +1319,16 @@ function createQuestionsManager() {
 
         updateNumbers();
         updateOrderInput();
+
+        // Show forms when questions are added
+        const checkForm = container.closest('form');
+        const saveFormContainer = document.querySelector('#save-test-form')?.closest('.bg-white');
+        if (checkForm && getItems().length > 0) {
+            checkForm.style.display = '';
+        }
+        if (saveFormContainer && getItems().length > 0) {
+            saveFormContainer.style.display = '';
+        }
     };
 
     const showDeleteModal = (questionItem) => {
