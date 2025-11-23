@@ -1173,7 +1173,7 @@ class GrammarTestController extends Controller
             });
         }
 
-        // Use paginate() to avoid N+1 query problem
+        // Use paginate() for efficient pagination (N+1 is prevented via eager loading above)
         $paginator = $questionsQuery->paginate($perPage, ['*'], 'page', $page);
         $questions = $paginator->items();
 

@@ -976,7 +976,8 @@
     @endif
 
     <!-- Modal for Adding Questions -->
-    <div x-data="questionSearchModal()" x-show="open" @keydown.escape.window="closeModal()" style="display: none;" 
+    <div x-data="questionSearchModal()" x-show="open" @keydown.escape.window="closeModal()" 
+         @open-question-search-modal.window="openModal()" style="display: none;" 
          class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
             <!-- Background overlay -->
@@ -1054,7 +1055,7 @@
                                                 Складність: <span x-text="question.difficulty"></span>/10
                                             </span>
                                         </div>
-                                        <div class="text-sm text-gray-800 mb-1" x-html="question.question"></div>
+                                        <div class="text-sm text-gray-800 mb-1" x-text="question.question"></div>
                                         <template x-if="question.tags && question.tags.length > 0">
                                             <div class="flex flex-wrap gap-1 mb-1">
                                                 <template x-for="tag in question.tags" :key="tag">
@@ -1527,11 +1528,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const addQuestionsButton = document.getElementById('add-questions-button');
     if (addQuestionsButton) {
         addQuestionsButton.addEventListener('click', () => {
-            // Trigger Alpine.js modal opening
-            const modalElement = document.querySelector('[x-data*="questionSearchModal"]');
-            if (modalElement && modalElement.__x) {
-                modalElement.__x.$data.openModal();
-            }
+            // Trigger Alpine.js modal opening using custom event
+            window.dispatchEvent(new CustomEvent('open-question-search-modal'));
         });
     }
 });
