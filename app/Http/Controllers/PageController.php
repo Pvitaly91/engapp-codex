@@ -164,11 +164,16 @@ class PageController extends Controller
     }
 
     /**
-     * Get related tests with level ranges and matching tags.
+     * Get related tests with enriched metadata including level ranges and matching tags.
+     * 
+     * This method fetches saved grammar tests that have questions matching the given tag IDs,
+     * then enriches each test with computed properties:
+     * - level_range: Collection of unique levels (e.g., ['A1', 'A2', 'B1']) sorted in proper order
+     * - matching_tags: Collection of tag names that match between the source and test questions
      *
-     * @param array $tagIds Tag IDs to match against
-     * @param Collection $tags Tag collection for matching
-     * @return Collection
+     * @param array $tagIds Tag IDs to match against (from page or category)
+     * @param Collection $tags Tag collection for computing matching tag names
+     * @return Collection Collection of SavedGrammarTest models with level_range and matching_tags properties
      */
     protected function getRelatedTestsWithMetadata(array $tagIds, Collection $tags): Collection
     {
