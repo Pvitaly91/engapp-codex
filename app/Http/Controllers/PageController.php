@@ -41,13 +41,19 @@ class PageController extends Controller
         $category->load([
             'pages' => fn ($query) => $query->orderBy('title'),
             'textBlocks',
+            'tags',
         ]);
+
+        // Get saved tests with matching tags
+        $categoryTagIds = $category->tags->pluck('id')->toArray();
+        $relatedTests = $this->getRelatedTestsWithMetadata($categoryTagIds, $category->tags);
 
         return view('engram.pages.index', [
             'categories' => $categories,
             'selectedCategory' => $category,
             'categoryPages' => $category->pages,
             'categoryDescription' => $this->categoryDescriptionData($category),
+            'relatedTests' => $relatedTests,
         ]);
     }
 
@@ -90,51 +96,7 @@ class PageController extends Controller
 
         // Get saved tests with matching tags
         $pageTagIds = $page->tags->pluck('id')->toArray();
-        $relatedTests = !empty($pageTagIds)
-            ? SavedGrammarTest::withMatchingTags($pageTagIds)->orderBy('name')->get()
-            : collect();
-
-        // Enrich related tests with level ranges and matching tags
-        if ($relatedTests->isNotEmpty()) {
-            // Get all question UUIDs for all tests at once
-            $allQuestionUuids = $relatedTests->flatMap(fn($test) => $test->questionLinks->pluck('question_uuid'))->unique()->toArray();
-            
-            // Fetch all questions with their tags in one query
-            $allQuestions = !empty($allQuestionUuids)
-                ? Question::whereIn('uuid', $allQuestionUuids)->with('tags')->get()->keyBy('uuid')
-                : collect();
-            
-            $levelOrder = array_flip(self::LEVEL_ORDER);
-            
-            $relatedTests = $relatedTests->map(function ($test) use ($allQuestions, $pageTagIds, $page, $levelOrder) {
-                $questionUuids = $test->questionLinks->pluck('question_uuid')->toArray();
-                
-                if (!empty($questionUuids)) {
-                    // Get questions for this test from the pre-loaded collection
-                    $testQuestions = collect($questionUuids)
-                        ->map(fn($uuid) => $allQuestions->get($uuid))
-                        ->filter();
-                    
-                    // Extract unique levels and sort them
-                    $levels = $testQuestions->pluck('level')->filter()->unique();
-                    $levels = $levels->sortBy(fn($lvl) => $levelOrder[$lvl] ?? 99)->values();
-                    
-                    // Find matching tags
-                    $testTagIds = $testQuestions->pluck('tags')->flatten()->pluck('id')->unique()->toArray();
-                    $matchingTagIds = array_intersect($pageTagIds, $testTagIds);
-                    $matchingTags = $page->tags->whereIn('id', $matchingTagIds)->pluck('name');
-                    
-                    // Add computed properties
-                    $test->level_range = $levels;
-                    $test->matching_tags = $matchingTags;
-                } else {
-                    $test->level_range = collect();
-                    $test->matching_tags = collect();
-                }
-                
-                return $test;
-            });
-        }
+        $relatedTests = $this->getRelatedTestsWithMetadata($pageTagIds, $page->tags);
 
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],
@@ -199,5 +161,64 @@ class PageController extends Controller
             'locale' => $locale,
             'hasBlocks' => $blocks->isNotEmpty(),
         ];
+    }
+
+    /**
+     * Get related tests with level ranges and matching tags.
+     *
+     * @param array $tagIds Tag IDs to match against
+     * @param Collection $tags Tag collection for matching
+     * @return Collection
+     */
+    protected function getRelatedTestsWithMetadata(array $tagIds, Collection $tags): Collection
+    {
+        if (empty($tagIds)) {
+            return collect();
+        }
+
+        $relatedTests = SavedGrammarTest::withMatchingTags($tagIds)->orderBy('name')->get();
+
+        if ($relatedTests->isEmpty()) {
+            return collect();
+        }
+
+        // Get all question UUIDs for all tests at once
+        $allQuestionUuids = $relatedTests->flatMap(fn($test) => $test->questionLinks->pluck('question_uuid'))->unique()->toArray();
+        
+        // Fetch all questions with their tags in one query
+        $allQuestions = !empty($allQuestionUuids)
+            ? Question::whereIn('uuid', $allQuestionUuids)->with('tags')->get()->keyBy('uuid')
+            : collect();
+        
+        $levelOrder = array_flip(self::LEVEL_ORDER);
+        
+        return $relatedTests->map(function ($test) use ($allQuestions, $tagIds, $tags, $levelOrder) {
+            $questionUuids = $test->questionLinks->pluck('question_uuid')->toArray();
+            
+            if (!empty($questionUuids)) {
+                // Get questions for this test from the pre-loaded collection
+                $testQuestions = collect($questionUuids)
+                    ->map(fn($uuid) => $allQuestions->get($uuid))
+                    ->filter();
+                
+                // Extract unique levels and sort them
+                $levels = $testQuestions->pluck('level')->filter()->unique();
+                $levels = $levels->sortBy(fn($lvl) => $levelOrder[$lvl] ?? 99)->values();
+                
+                // Find matching tags
+                $testTagIds = $testQuestions->pluck('tags')->flatten()->pluck('id')->unique()->toArray();
+                $matchingTagIds = array_intersect($tagIds, $testTagIds);
+                $matchingTags = $tags->whereIn('id', $matchingTagIds)->pluck('name');
+                
+                // Add computed properties
+                $test->level_range = $levels;
+                $test->matching_tags = $matchingTags;
+            } else {
+                $test->level_range = collect();
+                $test->matching_tags = collect();
+            }
+            
+            return $test;
+        });
     }
 }
