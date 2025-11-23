@@ -1100,6 +1100,45 @@ class GrammarTestController extends Controller
         ));
     }
     
+    public function edit(string $slug)
+    {
+        if ($legacy = Test::where('slug', $slug)->first()) {
+            return view('saved-tests-edit', ['test' => $legacy, 'testType' => 'legacy']);
+        }
+
+        if ($saved = SavedGrammarTest::where('slug', $slug)->first()) {
+            return view('saved-tests-edit', ['test' => $saved, 'testType' => 'saved']);
+        }
+
+        abort(404);
+    }
+
+    public function update(Request $request, string $slug)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        if ($legacy = Test::where('slug', $slug)->first()) {
+            $legacy->name = $request->name;
+            $legacy->description = $request->description;
+            $legacy->save();
+
+            return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
+        }
+
+        if ($saved = SavedGrammarTest::where('slug', $slug)->first()) {
+            $saved->name = $request->name;
+            $saved->description = $request->description;
+            $saved->save();
+
+            return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
+        }
+
+        abort(404);
+    }
+
     public function destroy(string $slug)
     {
         if ($legacy = Test::where('slug', $slug)->first()) {

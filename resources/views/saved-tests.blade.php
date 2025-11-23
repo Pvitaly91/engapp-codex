@@ -45,6 +45,10 @@
                        class="flex-1 sm:flex-none text-center bg-white border border-blue-200 text-blue-700 px-4 py-2 rounded-2xl text-sm font-semibold hover:bg-blue-50 transition">
                         Технічна сторінка
                     </a>
+                    <a href="{{ route('saved-tests.edit', $test->slug) }}"
+                       class="flex-1 sm:flex-none text-center bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-2xl text-sm font-semibold hover:bg-gray-50 transition">
+                        Редагувати
+                    </a>
                     <form action="{{ route('saved-tests.destroy', $test->slug) }}" method="POST"
                           onsubmit="return confirm('Видалити цей тест?');" class="inline-flex flex-1 sm:flex-none">
                         @csrf
