@@ -1,33 +1,32 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Resources\TechnicalQuestionResource;
-use App\Models\Question;
 use App\Models\Category;
-use Illuminate\Support\Arr;
-use App\Models\Source;
-use Illuminate\Support\Str;
-use App\Models\Test;
-use App\Models\Tag;
-use App\Models\SavedGrammarTest;
 use App\Models\ChatGPTExplanation;
+use App\Models\Question;
+use App\Models\QuestionHint;
+use App\Models\SavedGrammarTest;
+use App\Models\Source;
+use App\Models\Tag;
+use App\Models\Test;
+use App\Services\GrammarTestFilterService;
 use App\Services\QuestionDeletionService;
 use App\Services\QuestionVariantService;
-use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
 use App\Services\SavedTestResolver;
 use App\Services\TagAggregationService;
-use App\Models\QuestionHint;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Carbon;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class GrammarTestController extends Controller
@@ -52,9 +51,7 @@ class GrammarTestController extends Controller
         private GrammarTestFilterService $filterService,
         private QuestionDeletionService $questionDeletionService,
         private TagAggregationService $aggregationService,
-    )
-    {
-    }
+    ) {}
 
     public function save(Request $request)
     {
@@ -72,7 +69,7 @@ class GrammarTestController extends Controller
         $originalSlug = $slug;
         $i = 1;
         while ($this->slugExists($slug)) {
-            $slug = $originalSlug . '-' . $i++;
+            $slug = $originalSlug.'-'.$i++;
         }
 
         $test = \App\Models\Test::create([
@@ -117,7 +114,7 @@ class GrammarTestController extends Controller
         $originalSlug = $slug;
         $i = 1;
         while ($this->slugExists($slug)) {
-            $slug = $originalSlug . '-' . $i++;
+            $slug = $originalSlug.'-'.$i++;
         }
 
         $test = SavedGrammarTest::create([
@@ -167,9 +164,9 @@ class GrammarTestController extends Controller
         }
 
         $filters = $this->filtersFromTest($test);
-        $manualInput = !empty($filters['manual_input']);
-        $autocompleteInput = !empty($filters['autocomplete_input']);
-        $builderInput = !empty($filters['builder_input']);
+        $manualInput = ! empty($filters['manual_input']);
+        $autocompleteInput = ! empty($filters['autocomplete_input']);
+        $builderInput = ! empty($filters['builder_input']);
 
         return view('saved-test', [
             'test' => $test,
@@ -208,8 +205,8 @@ class GrammarTestController extends Controller
             }
 
             $texts
-                ->filter(fn($text) => is_string($text) && trim($text) !== '')
-                ->map(fn($text) => trim($text))
+                ->filter(fn ($text) => is_string($text) && trim($text) !== '')
+                ->map(fn ($text) => trim($text))
                 ->unique()
                 ->each(function (string $text) use ($question, &$textToQuestionIds) {
                     $textToQuestionIds[$text][] = $question->id;
@@ -514,7 +511,7 @@ class GrammarTestController extends Controller
             }
 
             $verbHints = $q->verbHints
-                ->mapWithKeys(fn($vh) => [$vh->marker => $vh->option->option ?? ''])
+                ->mapWithKeys(fn ($vh) => [$vh->marker => $vh->option->option ?? ''])
                 ->toArray();
 
             return [
@@ -542,46 +539,46 @@ class GrammarTestController extends Controller
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
 
-        $key = 'step_' . $test->slug;
+        $key = 'step_'.$test->slug;
 
         $orderParam = $request->query('order');
         $allowedOrders = ['sequential', 'random'];
         if ($orderParam && in_array($orderParam, $allowedOrders)) {
-            if ($orderParam !== session($key . '_order')) {
-                session([$key . '_order' => $orderParam]);
+            if ($orderParam !== session($key.'_order')) {
+                session([$key.'_order' => $orderParam]);
                 session()->forget([
-                    $key . '_stats',
-                    $key . '_queue',
-                    $key . '_total',
-                    $key . '_index',
-                    $key . '_feedback',
+                    $key.'_stats',
+                    $key.'_queue',
+                    $key.'_total',
+                    $key.'_index',
+                    $key.'_feedback',
                 ]);
             }
         }
 
-        $order = session($key . '_order', 'sequential');
-        $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
+        $order = session($key.'_order', 'sequential');
+        $stats = session($key.'_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
         $percentage = $stats['total'] > 0 ? round(($stats['correct'] / $stats['total']) * 100, 2) : 0;
-        $queue = session($key . '_queue');
-        $index = session($key . '_index', 0);
-        $totalCount = session($key . '_total', 0);
+        $queue = session($key.'_queue');
+        $index = session($key.'_index', 0);
+        $totalCount = session($key.'_total', 0);
         if (! $queue) {
             $queue = $resolved->questionIds->toArray();
             if ($order === 'random') {
                 shuffle($queue);
             }
             $totalCount = count($queue);
-            session([$key . '_queue' => $queue, $key . '_total' => $totalCount, $key . '_index' => 0]);
+            session([$key.'_queue' => $queue, $key.'_total' => $totalCount, $key.'_index' => 0]);
             $index = 0;
         }
 
         $nav = $request->query('nav');
         if ($nav === 'next' && $index < count($queue) - 1) {
             $index++;
-            session([$key . '_index' => $index]);
+            session([$key.'_index' => $index]);
         } elseif ($nav === 'prev' && $index > 0) {
             $index--;
-            session([$key . '_index' => $index]);
+            session([$key.'_index' => $index]);
         }
 
         if ($index >= count($queue)) {
@@ -608,8 +605,8 @@ class GrammarTestController extends Controller
         $questionNumber = array_search($currentId, $resolved->questionIds->toArray(), true);
         $questionNumber = $questionNumber === false ? null : $questionNumber + 1;
 
-        $feedback = session($key . '_feedback');
-        session()->forget($key . '_feedback');
+        $feedback = session($key.'_feedback');
+        session()->forget($key.'_feedback');
 
         return view('saved-test-step', [
             'test' => $test,
@@ -654,7 +651,7 @@ class GrammarTestController extends Controller
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
-        $key = 'step_' . $test->slug;
+        $key = 'step_'.$test->slug;
         $request->validate([
             'question_id' => 'required|integer',
             'answers' => 'required|array',
@@ -686,11 +683,11 @@ class GrammarTestController extends Controller
                 $explanations[$ans->marker] = $gpt->explainWrongAnswer($question->question, $given, $correctValue);
             }
             $class = $isCorrectAnswer ? 'text-green-700 font-bold' : 'text-red-700 font-bold';
-            $replacement = '<span class="' . $class . '">' . e($given) . '</span>';
-            $sentenceHtml = str_replace('{' . $ans->marker . '}', $replacement, $sentenceHtml);
+            $replacement = '<span class="'.$class.'">'.e($given).'</span>';
+            $sentenceHtml = str_replace('{'.$ans->marker.'}', $replacement, $sentenceHtml);
         }
-        $stats = session($key . '_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
-        $answered = session($key . '_answered', []);
+        $stats = session($key.'_stats', ['correct' => 0, 'wrong' => 0, 'total' => 0]);
+        $answered = session($key.'_answered', []);
         $prev = $answered[$question->id] ?? null;
 
         if ($prev === null) {
@@ -712,24 +709,24 @@ class GrammarTestController extends Controller
             $answered[$question->id] = 'wrong';
         }
         session([
-            $key . '_stats' => $stats,
-            $key . '_answered' => $answered,
-            $key . '_feedback' => [
+            $key.'_stats' => $stats,
+            $key.'_answered' => $answered,
+            $key.'_feedback' => [
                 'isCorrect' => $correct,
                 'explanations' => $explanations,
                 'answers' => $givenAnswers,
                 'answer_sentence' => $sentenceHtml,
             ],
         ]);
-        if($correct){
+        if ($correct) {
             return redirect()->route('saved-test.step', [
                 'slug' => $slug,
-                'nav'  => 'next',
+                'nav' => 'next',
             ]);
-        }else{
-            return redirect()->route('saved-test.step', $slug);    
-        }    
-       
+        } else {
+            return redirect()->route('saved-test.step', $slug);
+        }
+
     }
 
     public function determineTense(Request $request, string $slug)
@@ -768,7 +765,7 @@ class GrammarTestController extends Controller
         $tags = Tag::where('category', 'Tenses')->pluck('name')->all();
 
         // Визначаємо теги через потрібний сервіс
-        $service   = app($serviceClass);
+        $service = app($serviceClass);
         $suggested = $service->determineTenseTags($questionText, $tags);
 
         return response()->json(['tags' => $suggested]);
@@ -794,7 +791,7 @@ class GrammarTestController extends Controller
 
         return response()->json(['level' => $level]);
     }
- 
+
     public function determineLevelGemini(Request $request, $slug)
     {
         $resolved = $this->savedTestResolver->resolve($slug);
@@ -890,15 +887,16 @@ class GrammarTestController extends Controller
     {
         $resolved = $this->savedTestResolver->resolve($slug);
         $test = $resolved->model;
-        $key = 'step_' . $test->slug;
+        $key = 'step_'.$test->slug;
         session()->forget([
-            $key . '_stats',
-            $key . '_answered',
-            $key . '_queue',
-            $key . '_total',
-            $key . '_index',
-            $key . '_feedback',
+            $key.'_stats',
+            $key.'_answered',
+            $key.'_queue',
+            $key.'_total',
+            $key.'_index',
+            $key.'_feedback',
         ]);
+
         return redirect()->route('saved-test.step', $slug);
     }
 
@@ -999,9 +997,9 @@ class GrammarTestController extends Controller
 
     private function removeQuestionFromSessionQueue(Model $test, int $questionId): void
     {
-        $key = 'step_' . $test->slug;
-        $queue = session($key . '_queue', []);
-        $index = session($key . '_index', 0);
+        $key = 'step_'.$test->slug;
+        $queue = session($key.'_queue', []);
+        $index = session($key.'_index', 0);
         $removedIndex = array_search($questionId, $queue, true);
         $queue = array_values(array_filter($queue, fn ($id) => (int) $id !== $questionId));
 
@@ -1011,11 +1009,11 @@ class GrammarTestController extends Controller
             $index = min($index, max(count($queue) - 1, 0));
         }
 
-        session([$key . '_queue' => $queue, $key . '_index' => $index]);
+        session([$key.'_queue' => $queue, $key.'_index' => $index]);
 
-        if (session()->has($key . '_total')) {
-            $currentTotal = (int) session($key . '_total');
-            session([$key . '_total' => max($currentTotal - 1, 0)]);
+        if (session()->has($key.'_total')) {
+            $currentTotal = (int) session($key.'_total');
+            session([$key.'_total' => max($currentTotal - 1, 0)]);
         }
     }
 
@@ -1045,7 +1043,7 @@ class GrammarTestController extends Controller
 
         File::put(
             $path,
-            json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . PHP_EOL
+            json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE).PHP_EOL
         );
     }
 
@@ -1099,7 +1097,7 @@ class GrammarTestController extends Controller
             $this->uuidFormExtras()
         ));
     }
-    
+
     public function destroy(string $slug)
     {
         if ($legacy = Test::where('slug', $slug)->first()) {
@@ -1121,72 +1119,72 @@ class GrammarTestController extends Controller
     public function autocomplete(Request $request)
     {
         $q = $request->input('q', '');
-        $words = \App\Models\Word::where('word', 'like', $q . '%')
-            ->orderByRaw('word LIKE ? DESC', [$q . '%'])
+        $words = \App\Models\Word::where('word', 'like', $q.'%')
+            ->orderByRaw('word LIKE ? DESC', [$q.'%'])
             ->orderBy('word')
             ->limit(5)
             ->pluck('word');
 
         return response()->json($words);
     }
-    
+
     // AJAX пошук питань для додавання в тест
     public function searchQuestions(Request $request)
     {
         $query = $request->input('q', '');
         $page = max(1, (int) $request->input('page', 1));
         $perPage = 20;
-        
+
         $questionsQuery = Question::with(['category', 'tags', 'source', 'answers.option', 'options'])
             ->orderByDesc('id');
-        
+
         if ($query) {
             $questionsQuery->where(function ($q) use ($query) {
                 // Пошук по тексту питання
-                $q->where('question', 'like', '%' . $query . '%')
+                $q->where('question', 'like', '%'.$query.'%')
                     // Пошук по ID
                     ->orWhere('id', $query)
                     // Пошук по UUID
-                    ->orWhere('uuid', 'like', '%' . $query . '%')
+                    ->orWhere('uuid', 'like', '%'.$query.'%')
                     // Пошук по відповідях
                     ->orWhereHas('answers', function ($aq) use ($query) {
-                        $aq->where('answer', 'like', '%' . $query . '%')
+                        $aq->where('answer', 'like', '%'.$query.'%')
                             ->orWhereHas('option', function ($oq) use ($query) {
-                                $oq->where('option', 'like', '%' . $query . '%');
+                                $oq->where('option', 'like', '%'.$query.'%');
                             });
                     })
                     // Пошук по варіантах відповідей (options)
                     ->orWhereHas('options', function ($oq) use ($query) {
-                        $oq->where('option', 'like', '%' . $query . '%');
+                        $oq->where('option', 'like', '%'.$query.'%');
                     })
                     // Пошук по тегах
                     ->orWhereHas('tags', function ($tq) use ($query) {
-                        $tq->where('name', 'like', '%' . $query . '%');
+                        $tq->where('name', 'like', '%'.$query.'%');
                     })
                     // Пошук по джерелу (source)
                     ->orWhereHas('source', function ($sq) use ($query) {
-                        $sq->where('name', 'like', '%' . $query . '%');
+                        $sq->where('name', 'like', '%'.$query.'%');
                     });
-                
+
                 // Пошук по сидері якщо є колонка
                 if (Schema::hasColumn('questions', 'seeder')) {
-                    $q->orWhere('seeder', 'like', '%' . $query . '%');
+                    $q->orWhere('seeder', 'like', '%'.$query.'%');
                 }
             });
         }
-        
+
         $total = $questionsQuery->count();
         $questions = $questionsQuery
             ->skip(($page - 1) * $perPage)
             ->take($perPage)
             ->get();
-        
+
         $items = $questions->map(function ($question) {
             $seeder = $question->seeder ?? null;
             if ($seeder) {
                 $seeder = \Illuminate\Support\Str::after($seeder, 'Database\\Seeders\\');
             }
-            
+
             return [
                 'id' => $question->id,
                 'uuid' => $question->uuid,
@@ -1207,7 +1205,7 @@ class GrammarTestController extends Controller
                 'options' => $question->options->pluck('option')->toArray(),
             ];
         });
-        
+
         return response()->json([
             'items' => $items,
             'total' => $total,
@@ -1223,7 +1221,7 @@ class GrammarTestController extends Controller
         $questionId = $request->input('question_id');
         $answers = $request->input('answers', []);
         $question = \App\Models\Question::with('answers.option')->find($questionId);
-        if(!$question) {
+        if (! $question) {
             return response()->json(['result' => 'not_found']);
         }
         $allCorrect = true;
@@ -1232,12 +1230,11 @@ class GrammarTestController extends Controller
             $answerRow = $question->answers->where('marker', $marker)->first();
             $correctValue = $answerRow?->option?->option ?? '';
             $correctArr[$marker] = $correctValue;
-            if(!$answerRow || mb_strtolower(trim($answer)) !== mb_strtolower($correctValue)) {
+            if (! $answerRow || mb_strtolower(trim($answer)) !== mb_strtolower($correctValue)) {
                 $allCorrect = false;
             }
         }
-    
-      
+
         return response()->json([
             'result' => $allCorrect ? 'correct' : 'incorrect',
             'correct' => $correctArr,
@@ -1256,7 +1253,7 @@ class GrammarTestController extends Controller
 
     public function check(Request $request)
     {
-      
+
         $slug = $request->input('test_slug');
         $questions = Question::with(['answers.option', 'category'])->whereIn('id', array_keys($request->get('questions', [])))->get();
         $results = [];
@@ -1288,7 +1285,7 @@ class GrammarTestController extends Controller
                 'question' => $question,
                 'user_answers' => $userAnswers,
                 'is_correct' => ($correctCount === $total),
-                'correct_answers' => $question->answers->mapWithKeys(fn($a) => [$a->marker => $a->option->option]),
+                'correct_answers' => $question->answers->mapWithKeys(fn ($a) => [$a->marker => $a->option->option]),
                 'explanations' => $explanations,
             ];
         }
@@ -1310,29 +1307,29 @@ class GrammarTestController extends Controller
 
         $tests = $this->allSavedTests();
 
-        $allQuestionIds = $tests->flatMap(fn($t) => $t->question_ids ?? [])->unique();
+        $allQuestionIds = $tests->flatMap(fn ($t) => $t->question_ids ?? [])->unique();
         $questions = Question::with('tags')->whereIn('id', $allQuestionIds)->get()->keyBy('id');
 
-        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        $order = array_flip(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
         foreach ($tests as $test) {
             $questionIds = collect($test->question_ids ?? []);
-            $testQuestions = $questionIds->map(fn($id) => $questions[$id] ?? null)->filter();
-            $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
+            $testQuestions = $questionIds->map(fn ($id) => $questions[$id] ?? null)->filter();
+            $tagNames = $testQuestions->flatMap(fn ($q) => $q->tags->pluck('name'));
             $test->tag_names = $tagNames->unique()->values();
             $test->levels = $testQuestions->pluck('level')->unique()
-                ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+                ->sortBy(fn ($lvl) => $order[$lvl] ?? 99)
                 ->values();
         }
 
-        $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
-        $availableLevels = $tests->flatMap(fn($t) => $t->levels)->unique()
+        $availableTags = $tests->flatMap(fn ($t) => $t->tag_names)->unique()->values();
+        $availableLevels = $tests->flatMap(fn ($t) => $t->levels)->unique()
             ->filter()
-            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->sortBy(fn ($lvl) => $order[$lvl] ?? 99)
             ->values();
 
         $tagModels = Tag::whereIn('name', $availableTags)->get();
-        $tagsByCategory = $tagModels->groupBy(fn($t) => $t->category ?? 'Other')
-            ->map(fn($group) => $group->pluck('name')->sort()->values());
+        $tagsByCategory = $tagModels->groupBy(fn ($t) => $t->category ?? 'Other')
+            ->map(fn ($group) => $group->pluck('name')->sort()->values());
 
         $tagsByCategory = $tagsByCategory->sortKeys();
         if ($tagsByCategory->has('Tenses')) {
@@ -1344,15 +1341,15 @@ class GrammarTestController extends Controller
             $tagsByCategory->put('Other', $other);
         }
 
-        if (!empty($selectedTags)) {
+        if (! empty($selectedTags)) {
             $tests = $tests->filter(function ($t) use ($selectedTags) {
                 return collect($selectedTags)
-                    ->every(fn($tag) => $t->tag_names->contains($tag));
+                    ->every(fn ($tag) => $t->tag_names->contains($tag));
             })->values();
         }
-        if (!empty($selectedLevels)) {
+        if (! empty($selectedLevels)) {
             $tests = $tests->filter(function ($t) use ($selectedLevels) {
-                return collect($selectedLevels)->every(fn($lvl) => $t->levels->contains($lvl));
+                return collect($selectedLevels)->every(fn ($lvl) => $t->levels->contains($lvl));
             })->values();
         }
 
@@ -1360,7 +1357,7 @@ class GrammarTestController extends Controller
             ? 'catalog-tests-cards'
             : 'saved-tests-cards';
 
-        return view('engram.' . $view, [
+        return view('engram.'.$view, [
             'tests' => $tests,
             'tags' => $tagsByCategory,
             'selectedTags' => $selectedTags,
@@ -1380,12 +1377,12 @@ class GrammarTestController extends Controller
 
         $tests = $this->allSavedTests();
 
-        $allQuestionIds = $tests->flatMap(fn($t) => $t->question_ids ?? [])->unique();
+        $allQuestionIds = $tests->flatMap(fn ($t) => $t->question_ids ?? [])->unique();
         $questions = Question::with('tags')->whereIn('id', $allQuestionIds)->get()->keyBy('id');
 
         // Get aggregations
         $aggregations = $this->aggregationService->getAggregations();
-        
+
         // Build a map of tag -> main tag (for aggregation)
         $tagToMainTag = [];
         foreach ($aggregations as $aggregation) {
@@ -1397,31 +1394,31 @@ class GrammarTestController extends Controller
             }
         }
 
-        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        $order = array_flip(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
         foreach ($tests as $test) {
             $questionIds = collect($test->question_ids ?? []);
-            $testQuestions = $questionIds->map(fn($id) => $questions[$id] ?? null)->filter();
-            $tagNames = $testQuestions->flatMap(fn($q) => $q->tags->pluck('name'));
-            
+            $testQuestions = $questionIds->map(fn ($id) => $questions[$id] ?? null)->filter();
+            $tagNames = $testQuestions->flatMap(fn ($q) => $q->tags->pluck('name'));
+
             // Map tags to their main tags ONLY if they're part of an aggregation
             // Filter out tags that are not in any aggregation
             $aggregatedTagNames = $tagNames
-                ->map(function($tagName) use ($tagToMainTag) {
+                ->map(function ($tagName) use ($tagToMainTag) {
                     // Only include tags that are in the aggregation map
                     return isset($tagToMainTag[$tagName]) ? $tagToMainTag[$tagName] : null;
                 })
                 ->filter(); // Remove null values (non-aggregated tags)
-            
+
             $test->tag_names = $aggregatedTagNames->unique()->values();
             $test->levels = $testQuestions->pluck('level')->unique()
-                ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+                ->sortBy(fn ($lvl) => $order[$lvl] ?? 99)
                 ->values();
         }
 
-        $availableTags = $tests->flatMap(fn($t) => $t->tag_names)->unique()->values();
-        $availableLevels = $tests->flatMap(fn($t) => $t->levels)->unique()
+        $availableTags = $tests->flatMap(fn ($t) => $t->tag_names)->unique()->values();
+        $availableLevels = $tests->flatMap(fn ($t) => $t->levels)->unique()
             ->filter()
-            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->sortBy(fn ($lvl) => $order[$lvl] ?? 99)
             ->values();
 
         // Build category mapping for aggregated tags from aggregation config
@@ -1437,15 +1434,15 @@ class GrammarTestController extends Controller
         foreach ($availableTags as $tagName) {
             // All tags should be in the aggregation config at this point
             $category = $aggregatedTagCategories[$tagName] ?? 'Other';
-            
-            if (!$tagsByCategory->has($category)) {
+
+            if (! $tagsByCategory->has($category)) {
                 $tagsByCategory->put($category, collect());
             }
             $tagsByCategory[$category]->push($tagName);
         }
-        
+
         // Sort tags within each category
-        $tagsByCategory = $tagsByCategory->map(fn($tags) => $tags->sort()->values());
+        $tagsByCategory = $tagsByCategory->map(fn ($tags) => $tags->sort()->values());
 
         $tagsByCategory = $tagsByCategory->sortKeys();
         if ($tagsByCategory->has('Tenses')) {
@@ -1457,15 +1454,15 @@ class GrammarTestController extends Controller
             $tagsByCategory->put('Other', $other);
         }
 
-        if (!empty($selectedTags)) {
+        if (! empty($selectedTags)) {
             $tests = $tests->filter(function ($t) use ($selectedTags) {
                 return collect($selectedTags)
-                    ->every(fn($tag) => $t->tag_names->contains($tag));
+                    ->every(fn ($tag) => $t->tag_names->contains($tag));
             })->values();
         }
-        if (!empty($selectedLevels)) {
+        if (! empty($selectedLevels)) {
             $tests = $tests->filter(function ($t) use ($selectedLevels) {
-                return collect($selectedLevels)->every(fn($lvl) => $t->levels->contains($lvl));
+                return collect($selectedLevels)->every(fn ($lvl) => $t->levels->contains($lvl));
             })->values();
         }
 
@@ -1521,10 +1518,10 @@ class GrammarTestController extends Controller
         $maxDifficulty = Question::max('difficulty') ?? 10;
         $maxQuestions = Question::count();
         $allTags = Tag::whereHas('questions')->get();
-        $order = array_flip(['A1','A2','B1','B2','C1','C2']);
+        $order = array_flip(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
         $levels = Question::select('level')->distinct()->pluck('level')
             ->filter()
-            ->sortBy(fn($lvl) => $order[$lvl] ?? 99)
+            ->sortBy(fn ($lvl) => $order[$lvl] ?? 99)
             ->values();
         $seederClasses = Schema::hasColumn('questions', 'seeder')
             ? Question::query()
@@ -1736,22 +1733,22 @@ class GrammarTestController extends Controller
 
         // Get aggregated tags
         $aggregations = $this->aggregationService->getAggregations();
-        
+
         // Build aggregated tags by category
         $aggregatedTagsByCategory = collect();
         foreach ($aggregations as $aggregation) {
             $mainTag = $aggregation['main_tag'];
             $category = $aggregation['category'] ?? $otherLabel;
-            
-            if (!$aggregatedTagsByCategory->has($category)) {
+
+            if (! $aggregatedTagsByCategory->has($category)) {
                 $aggregatedTagsByCategory->put($category, collect());
             }
             $aggregatedTagsByCategory[$category]->push($mainTag);
         }
-        
+
         // Sort aggregated tags within each category
-        $aggregatedTagsByCategory = $aggregatedTagsByCategory->map(fn($tags) => $tags->sort()->values());
-        
+        $aggregatedTagsByCategory = $aggregatedTagsByCategory->map(fn ($tags) => $tags->sort()->values());
+
         $aggregatedTagsByCategory = $aggregatedTagsByCategory->sortKeys();
         if ($aggregatedTagsByCategory->has('Tenses')) {
             $tenses = $aggregatedTagsByCategory->pull('Tenses');
@@ -1765,32 +1762,32 @@ class GrammarTestController extends Controller
         // Get seeder execution dates from seed_runs table
         $seederGroupsByDate = collect();
         $seederExecutionTimes = collect();
-        if (Schema::hasTable('seed_runs') && 
-            Schema::hasColumn('seed_runs', 'class_name') && 
+        if (Schema::hasTable('seed_runs') &&
+            Schema::hasColumn('seed_runs', 'class_name') &&
             Schema::hasColumn('seed_runs', 'ran_at') &&
             Schema::hasColumn('questions', 'seeder')) {
             $seedRuns = DB::table('seed_runs')
                 ->orderByDesc('ran_at')
                 ->get();
-            
+
             // Build a map of seeder class name to execution time
             foreach ($seedRuns as $run) {
                 $seederExecutionTimes->put($run->class_name, $run->ran_at);
             }
-            
+
             $groupedRuns = $seedRuns->groupBy(function ($run) {
                 return Carbon::parse($run->ran_at)->format('Y-m-d');
             });
 
             foreach ($groupedRuns as $date => $runs) {
                 $seederClassesForDate = $runs->pluck('class_name')->unique()->values();
-                
+
                 // Only include seeders that have questions
                 $seedersWithQuestions = $seederSourceGroups
                     ->pluck('seeder')
                     ->intersect($seederClassesForDate)
                     ->values();
-                
+
                 if ($seedersWithQuestions->isNotEmpty()) {
                     $seederGroupsByDate->put($date, $seedersWithQuestions);
                 }
@@ -1872,7 +1869,7 @@ class GrammarTestController extends Controller
         });
 
         $uuidTests = SavedGrammarTest::query()->with('questionLinks')->latest()->get();
-        $allUuids = $uuidTests->flatMap(fn($test) => $test->questionLinks->pluck('question_uuid'))
+        $allUuids = $uuidTests->flatMap(fn ($test) => $test->questionLinks->pluck('question_uuid'))
             ->filter()
             ->unique()
             ->values();
@@ -1930,5 +1927,4 @@ class GrammarTestController extends Controller
 
         return $legacyTests->merge($uuidTests)->sortByDesc('created_at')->values();
     }
-
 }
