@@ -1129,7 +1129,120 @@ class GrammarTestController extends Controller
 
         return response()->json($words);
     }
-    
+
+    public function searchQuestions(Request $request)
+    {
+        $query = trim((string) $request->input('q', ''));
+        $limit = (int) min(max($request->input('limit', 20), 1), 50);
+
+        $builder = Question::query()
+            ->with(['tags:id,name', 'source:id,name'])
+            ->orderByDesc('id');
+
+        if ($query !== '') {
+            $terms = collect(preg_split('/\s+/', $query))
+                ->filter()
+                ->values();
+
+            $builder->where(function ($outer) use ($terms) {
+                foreach ($terms as $term) {
+                    $outer->where(function ($inner) use ($term) {
+                        $like = '%' . $term . '%';
+
+                        if (is_numeric($term)) {
+                            $inner->orWhere('id', (int) $term);
+                        }
+
+                        $inner->orWhere('uuid', 'like', $like)
+                            ->orWhere('question', 'like', $like)
+                            ->orWhere('seeder', 'like', $like)
+                            ->orWhereHas('tags', fn ($q) => $q->where('name', 'like', $like))
+                            ->orWhereHas('source', fn ($q) => $q->where('name', 'like', $like))
+                            ->orWhereHas('answers.option', fn ($q) => $q->where('option', 'like', $like))
+                            ->orWhereHas('options', fn ($q) => $q->where('option', 'like', $like));
+                    });
+                }
+            });
+        }
+
+        $results = $builder->limit($limit)->get()->map(function (Question $question) {
+            return [
+                'id' => $question->id,
+                'uuid' => $question->uuid,
+                'question' => $question->question,
+                'seeder' => $question->seeder,
+                'source' => $question->source?->name,
+                'tags' => $question->tags->pluck('name')->values(),
+                'difficulty' => $question->difficulty,
+                'level' => $question->level,
+            ];
+        });
+
+        return response()->json(['items' => $results]);
+    }
+
+    public function renderQuestions(Request $request)
+    {
+        $ids = collect($request->input('question_ids', []))
+            ->filter(fn ($id) => is_numeric($id))
+            ->map(fn ($id) => (int) $id)
+            ->values();
+
+        $uuids = collect($request->input('question_uuids', []))
+            ->filter(fn ($uuid) => is_string($uuid) && $uuid !== '')
+            ->values();
+
+        if ($ids->isEmpty() && $uuids->isEmpty()) {
+            return response()->json(['html' => '']);
+        }
+
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags', 'source'];
+
+        $questions = Question::with($relations)
+            ->where(function ($query) use ($ids, $uuids) {
+                if ($ids->isNotEmpty()) {
+                    $query->orWhereIn('id', $ids);
+                }
+
+                if ($uuids->isNotEmpty()) {
+                    $query->orWhereIn('uuid', $uuids);
+                }
+            })
+            ->get();
+
+        $positions = $uuids
+            ->mapWithKeys(fn ($uuid, $index) => [$uuid => $index])
+            ->merge($ids->mapWithKeys(fn ($id, $index) => [$id => $index + $uuids->count()]));
+
+        $questions = $questions->sortBy(function (Question $question) use ($positions) {
+            if ($question->uuid && $positions->has($question->uuid)) {
+                return $positions->get($question->uuid);
+            }
+
+            if ($positions->has($question->id)) {
+                return $positions->get($question->id);
+            }
+
+            return $question->id;
+        })->values();
+
+        $html = $questions
+            ->map(function (Question $question) use ($request) {
+                return view('components.grammar-test-question-item', [
+                    'question' => $question,
+                    'savePayloadKey' => $request->input('save_payload_key', 'uuid'),
+                    'manualInput' => $request->boolean('manual_input'),
+                    'autocompleteInput' => $request->boolean('autocomplete_input'),
+                    'builderInput' => $request->boolean('builder_input'),
+                    'autocompleteRoute' => url('/api/search?lang=en'),
+                    'checkOneInput' => $request->boolean('check_one_input'),
+                ])->render();
+            })
+            ->implode('');
+
+        return response()->json(['html' => $html]);
+    }
+
 
     // AJAX перевірка ВСЬОГО питання (Check answer)
     public function checkOneAnswer(Request $request)

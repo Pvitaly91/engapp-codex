@@ -149,6 +149,8 @@ Route::middleware('auth.admin')->group(function () {
         Route::post('/grammar-test/v2', [GrammarTestController::class, 'generate'])->name('grammar-test-v2.generate');
         Route::post('/grammar-test-check', [GrammarTestController::class, 'check'])->name('grammar-test.check');
         Route::get('/grammar-test-autocomplete', [GrammarTestController::class, 'autocomplete'])->name('grammar-test.autocomplete');
+        Route::get('/grammar-test/search-questions', [GrammarTestController::class, 'searchQuestions'])->name('grammar-test.search-questions');
+        Route::post('/grammar-test/render-questions', [GrammarTestController::class, 'renderQuestions'])->name('grammar-test.render-questions');
         Route::post('/grammar-test-check-answer', [GrammarTestController::class, 'checkOneAnswer'])->name('grammar-test.checkOne');
 
         Route::post('/grammar-test-save', [GrammarTestController::class, 'save'])->name('grammar-test.save');
