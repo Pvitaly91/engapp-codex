@@ -150,6 +150,7 @@ Route::middleware('auth.admin')->group(function () {
         Route::post('/grammar-test-check', [GrammarTestController::class, 'check'])->name('grammar-test.check');
         Route::get('/grammar-test-autocomplete', [GrammarTestController::class, 'autocomplete'])->name('grammar-test.autocomplete');
         Route::post('/grammar-test-check-answer', [GrammarTestController::class, 'checkOneAnswer'])->name('grammar-test.checkOne');
+        Route::get('/grammar-test-search-questions', [GrammarTestController::class, 'searchQuestions'])->name('grammar-test.search-questions');
 
         Route::post('/grammar-test-save', [GrammarTestController::class, 'save'])->name('grammar-test.save');
         Route::post('/grammar-test-save-v2', [GrammarTestController::class, 'saveV2'])->name('grammar-test.save-v2');
