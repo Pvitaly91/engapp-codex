@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\Question;
+use App\Models\SavedGrammarTest;
 use Illuminate\Support\Collection;
 
 class PageController extends Controller
 {
+    private const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
     /**
      * Display the available categories with the first category's pages.
      */
@@ -38,13 +41,19 @@ class PageController extends Controller
         $category->load([
             'pages' => fn ($query) => $query->orderBy('title'),
             'textBlocks',
+            'tags',
         ]);
+
+        // Get saved tests with matching tags
+        $categoryTagIds = $category->tags->pluck('id')->toArray();
+        $relatedTests = $this->getRelatedTestsWithMetadata($categoryTagIds, $category->tags);
 
         return view('engram.pages.index', [
             'categories' => $categories,
             'selectedCategory' => $category,
             'categoryPages' => $category->pages,
             'categoryDescription' => $this->categoryDescriptionData($category),
+            'relatedTests' => $relatedTests,
         ]);
     }
 
@@ -54,7 +63,7 @@ class PageController extends Controller
     public function show(PageCategory $category, string $pageSlug)
     {
         $page = Page::query()
-            ->with('textBlocks')
+            ->with(['textBlocks', 'tags'])
             ->where('slug', $pageSlug)
             ->where('page_category_id', $category->getKey())
             ->firstOrFail();
@@ -85,6 +94,10 @@ class PageController extends Controller
             $categoryPages = collect([$page]);
         }
 
+        // Get saved tests with matching tags
+        $pageTagIds = $page->tags->pluck('id')->toArray();
+        $relatedTests = $this->getRelatedTestsWithMetadata($pageTagIds, $page->tags);
+
         $breadcrumbs = [
             ['label' => 'Home', 'url' => route('home')],
             ['label' => 'Теорія', 'url' => route('pages.index')],
@@ -101,6 +114,7 @@ class PageController extends Controller
             'categories' => $categories,
             'selectedCategory' => $category,
             'categoryPages' => $categoryPages,
+            'relatedTests' => $relatedTests,
         ]);
     }
 
@@ -147,5 +161,69 @@ class PageController extends Controller
             'locale' => $locale,
             'hasBlocks' => $blocks->isNotEmpty(),
         ];
+    }
+
+    /**
+     * Get related tests with enriched metadata including level ranges and matching tags.
+     * 
+     * This method fetches saved grammar tests that have questions matching the given tag IDs,
+     * then enriches each test with computed properties:
+     * - level_range: Collection of unique levels (e.g., ['A1', 'A2', 'B1']) sorted in proper order
+     * - matching_tags: Collection of tag names that match between the source and test questions
+     *
+     * @param array $tagIds Tag IDs to match against (from page or category)
+     * @param Collection $tags Tag collection for computing matching tag names
+     * @return Collection Collection of SavedGrammarTest models with level_range and matching_tags properties
+     */
+    protected function getRelatedTestsWithMetadata(array $tagIds, Collection $tags): Collection
+    {
+        if (empty($tagIds)) {
+            return collect();
+        }
+
+        $relatedTests = SavedGrammarTest::withMatchingTags($tagIds)->orderBy('name')->get();
+
+        if ($relatedTests->isEmpty()) {
+            return collect();
+        }
+
+        // Get all question UUIDs for all tests at once
+        $allQuestionUuids = $relatedTests->flatMap(fn($test) => $test->questionLinks->pluck('question_uuid'))->unique()->toArray();
+        
+        // Fetch all questions with their tags in one query
+        $allQuestions = !empty($allQuestionUuids)
+            ? Question::whereIn('uuid', $allQuestionUuids)->with('tags')->get()->keyBy('uuid')
+            : collect();
+        
+        $levelOrder = array_flip(self::LEVEL_ORDER);
+        
+        return $relatedTests->map(function ($test) use ($allQuestions, $tagIds, $tags, $levelOrder) {
+            $questionUuids = $test->questionLinks->pluck('question_uuid')->toArray();
+            
+            if (!empty($questionUuids)) {
+                // Get questions for this test from the pre-loaded collection
+                $testQuestions = collect($questionUuids)
+                    ->map(fn($uuid) => $allQuestions->get($uuid))
+                    ->filter();
+                
+                // Extract unique levels and sort them
+                $levels = $testQuestions->pluck('level')->filter()->unique();
+                $levels = $levels->sortBy(fn($lvl) => $levelOrder[$lvl] ?? 99)->values();
+                
+                // Find matching tags
+                $testTagIds = $testQuestions->pluck('tags')->flatten()->pluck('id')->unique()->toArray();
+                $matchingTagIds = array_intersect($tagIds, $testTagIds);
+                $matchingTags = $tags->whereIn('id', $matchingTagIds)->pluck('name');
+                
+                // Add computed properties
+                $test->level_range = $levels;
+                $test->matching_tags = $matchingTags;
+            } else {
+                $test->level_range = collect();
+                $test->matching_tags = collect();
+            }
+            
+            return $test;
+        });
     }
 }
