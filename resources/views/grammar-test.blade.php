@@ -837,7 +837,7 @@
 
     @if(!empty($questions) && count($questions))
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div class="text-sm text-gray-500">Кількість питань: {{ count($questions) }}</div>
+            <div id="questions-count-display" class="text-sm text-gray-500">Кількість питань: {{ count($questions) }}</div>
             <div class="flex gap-3">
                 <button type="button" id="add-questions-button"
                         class="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
@@ -1339,8 +1339,8 @@ function questionSearchModal() {
             updateQuestionNumbers();
             updateQuestionsOrder();
             
-            // Show questions count
-            const countElement = document.querySelector('.text-sm.text-gray-500');
+            // Show questions count - using more specific selector
+            const countElement = document.getElementById('questions-count-display');
             if (countElement) {
                 const totalQuestions = container.querySelectorAll('[data-question-id]').length;
                 countElement.textContent = `Кількість питань: ${totalQuestions}`;
@@ -1355,37 +1355,45 @@ function questionSearchModal() {
             div.setAttribute('data-question-id', question.id);
             div.setAttribute('data-question-save', question.uuid);
             
+            // Helper function to escape HTML
+            const escapeHtml = (text) => {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            };
+            
             const categoryClass = question.category === 'past' ? 'bg-red-100 text-red-700' : 
                                  (question.category === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700');
+            
+            const tagColors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
             
             const tagsHtml = question.tags && question.tags.length > 0 ? `
                 <div class="flex flex-wrap gap-1">
                     ${question.tags.map((tag, idx) => {
-                        const colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
-                        return `<span class="inline-flex px-2 py-0.5 rounded text-xs font-semibold ${colors[idx % colors.length]}">${tag}</span>`;
+                        return `<span class="inline-flex px-2 py-0.5 rounded text-xs font-semibold ${tagColors[idx % tagColors.length]}">${escapeHtml(tag)}</span>`;
                     }).join('')}
                 </div>
             ` : '';
             
             div.innerHTML = `
-                <input type="hidden" name="questions[${question.id}]" value="1">
+                <input type="hidden" name="questions[${escapeHtml(question.id)}]" value="1">
                 <div class="bg-white shadow rounded-2xl p-4 sm:p-6 space-y-3">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                         <div class="text-sm font-semibold text-gray-700 flex flex-wrap items-center gap-2">
                             <span class="uppercase px-2 py-1 rounded text-xs ${categoryClass}">
-                                ${question.category || 'N/A'}
+                                ${escapeHtml(question.category || 'N/A')}
                             </span>
-                            ${question.source ? `<span class="text-xs text-gray-500">Source: ${question.source}</span>` : ''}
-                            ${question.seeder ? `<span class="text-xs text-gray-500">Seeder: ${question.seeder}</span>` : ''}
+                            ${question.source ? `<span class="text-xs text-gray-500">Source: ${escapeHtml(question.source)}</span>` : ''}
+                            ${question.seeder ? `<span class="text-xs text-gray-500">Seeder: ${escapeHtml(question.seeder)}</span>` : ''}
                             ${question.flag ? '<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>' : ''}
-                            <span class="text-xs text-gray-400">Складність: ${question.difficulty}/10</span>
-                            <span class="text-xs text-gray-400">Level: ${question.level || 'N/A'}</span>
+                            <span class="text-xs text-gray-400">Складність: ${escapeHtml(question.difficulty)}/10</span>
+                            <span class="text-xs text-gray-400">Level: ${escapeHtml(question.level || 'N/A')}</span>
                         </div>
-                        <span class="text-xs text-gray-400">ID: ${question.id} | UUID: ${question.uuid || '—'}</span>
+                        <span class="text-xs text-gray-400">ID: ${escapeHtml(question.id)} | UUID: ${escapeHtml(question.uuid || '—')}</span>
                     </div>
                     <div class="flex flex-wrap gap-2 items-baseline">
                         <span class="question-number font-bold mr-2"></span>
-                        <span class="text-base">${question.question}</span>
+                        <span class="text-base">${escapeHtml(question.question)}</span>
                     </div>
                     ${tagsHtml}
                 </div>

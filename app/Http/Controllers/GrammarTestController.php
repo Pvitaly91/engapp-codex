@@ -1128,7 +1128,7 @@ class GrammarTestController extends Controller
         return response()->json($words);
     }
 
-    // AJAX пошук питань для додавання в тест
+    // AJAX search questions for adding to test
     public function searchQuestions(Request $request)
     {
         $query = $request->input('q', '');
@@ -1140,44 +1140,42 @@ class GrammarTestController extends Controller
 
         if ($query) {
             $questionsQuery->where(function ($q) use ($query) {
-                // Пошук по тексту питання
+                // Search by question text
                 $q->where('question', 'like', '%'.$query.'%')
-                    // Пошук по ID
+                    // Search by ID
                     ->orWhere('id', $query)
-                    // Пошук по UUID
+                    // Search by UUID
                     ->orWhere('uuid', 'like', '%'.$query.'%')
-                    // Пошук по відповідях
+                    // Search by answers
                     ->orWhereHas('answers', function ($aq) use ($query) {
                         $aq->where('answer', 'like', '%'.$query.'%')
                             ->orWhereHas('option', function ($oq) use ($query) {
                                 $oq->where('option', 'like', '%'.$query.'%');
                             });
                     })
-                    // Пошук по варіантах відповідей (options)
+                    // Search by answer options
                     ->orWhereHas('options', function ($oq) use ($query) {
                         $oq->where('option', 'like', '%'.$query.'%');
                     })
-                    // Пошук по тегах
+                    // Search by tags
                     ->orWhereHas('tags', function ($tq) use ($query) {
                         $tq->where('name', 'like', '%'.$query.'%');
                     })
-                    // Пошук по джерелу (source)
+                    // Search by source
                     ->orWhereHas('source', function ($sq) use ($query) {
                         $sq->where('name', 'like', '%'.$query.'%');
                     });
 
-                // Пошук по сидері якщо є колонка
+                // Search by seeder if column exists
                 if (Schema::hasColumn('questions', 'seeder')) {
                     $q->orWhere('seeder', 'like', '%'.$query.'%');
                 }
             });
         }
 
-        $total = $questionsQuery->count();
-        $questions = $questionsQuery
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
+        // Use paginate() to avoid N+1 query problem
+        $paginator = $questionsQuery->paginate($perPage, ['*'], 'page', $page);
+        $questions = $paginator->items();
 
         $items = $questions->map(function ($question) {
             $seeder = $question->seeder ?? null;
@@ -1208,14 +1206,14 @@ class GrammarTestController extends Controller
 
         return response()->json([
             'items' => $items,
-            'total' => $total,
-            'page' => $page,
-            'perPage' => $perPage,
-            'lastPage' => ceil($total / $perPage),
+            'total' => $paginator->total(),
+            'page' => $paginator->currentPage(),
+            'perPage' => $paginator->perPage(),
+            'lastPage' => $paginator->lastPage(),
         ]);
     }
 
-    // AJAX перевірка ВСЬОГО питання (Check answer)
+    // AJAX check full question answer
     public function checkOneAnswer(Request $request)
     {
         $questionId = $request->input('question_id');
