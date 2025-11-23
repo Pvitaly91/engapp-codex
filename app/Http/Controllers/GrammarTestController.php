@@ -1175,9 +1175,8 @@ class GrammarTestController extends Controller
 
         // Use paginate() for efficient pagination (N+1 is prevented via eager loading above)
         $paginator = $questionsQuery->paginate($perPage, ['*'], 'page', $page);
-        $questions = $paginator->items();
 
-        $items = $questions->map(function ($question) {
+        $items = $paginator->getCollection()->map(function ($question) {
             $seeder = $question->seeder ?? null;
             if ($seeder) {
                 $seeder = \Illuminate\Support\Str::after($seeder, 'Database\\Seeders\\');
