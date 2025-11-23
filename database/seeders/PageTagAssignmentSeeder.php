@@ -287,10 +287,6 @@ class PageTagAssignmentSeeder extends Seeder
                 'Quantity Comparisons (much/many/less/fewer)',
                 'Comparatives and Superlatives Practice'
             ],
-            
-            // Translation and vocabulary pages
-            'translation-techniques' => [],  // No matching tags found in system
-            'vocabulary-building' => [],  // No matching tags found in system
         ];
     }
 
