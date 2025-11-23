@@ -81,16 +81,7 @@ class PageTagAssignmentSeeder extends Seeder
             // Assign tags to category
             $categoryTags = $this->findMatchingTags($categoryTitle, $categorySlug, $tagsByName, true);
             if (!empty($categoryTags)) {
-                // Get existing tag IDs to prevent duplicates
-                $existingTags = $pageCategory->tags()->pluck('tags.id')->toArray();
-                $newTags = array_diff($categoryTags, $existingTags);
-                
-                if (!empty($newTags)) {
-                    $pageCategory->tags()->attach($newTags);
-                    Log::info("Assigned " . count($newTags) . " new tags to category: {$categoryTitle} (skipped " . count(array_intersect($categoryTags, $existingTags)) . " existing)");
-                } else {
-                    Log::info("No new tags to assign to category: {$categoryTitle} (all " . count($categoryTags) . " already exist)");
-                }
+                $this->attachNewTags($pageCategory, $categoryTags, "category: {$categoryTitle}");
             }
 
             // Process pages in this category
@@ -108,16 +99,7 @@ class PageTagAssignmentSeeder extends Seeder
                 // Assign tags to page
                 $pageTags = $this->findMatchingTags($pageTitle, $pageSlug, $tagsByName, false);
                 if (!empty($pageTags)) {
-                    // Get existing tag IDs to prevent duplicates
-                    $existingTags = $page->tags()->pluck('tags.id')->toArray();
-                    $newTags = array_diff($pageTags, $existingTags);
-                    
-                    if (!empty($newTags)) {
-                        $page->tags()->attach($newTags);
-                        Log::info("Assigned " . count($newTags) . " new tags to page: {$pageTitle} (skipped " . count(array_intersect($pageTags, $existingTags)) . " existing)");
-                    } else {
-                        Log::info("No new tags to assign to page: {$pageTitle} (all " . count($pageTags) . " already exist)");
-                    }
+                    $this->attachNewTags($page, $pageTags, "page: {$pageTitle}");
                 }
             }
         }
@@ -138,7 +120,7 @@ class PageTagAssignmentSeeder extends Seeder
     {
         $matchedTagIds = [];
         $titleLower = mb_strtolower($title);
-        $slugLower = strtolower($slug);
+        $slugLower = mb_strtolower($slug);
 
         // For pages: use direct mappings for specific tags
         if (!$isCategory) {
@@ -769,5 +751,29 @@ class PageTagAssignmentSeeder extends Seeder
             'verbs' => ['Past Simple', 'Irregular Comparative Forms (good/bad/far)'],
             'дієслова' => ['Past Simple', 'Irregular Comparative Forms (good/bad/far)'],
         ];
+    }
+
+    /**
+     * Attach new tags to a model (Page or PageCategory) while preventing duplicates
+     * 
+     * @param \Illuminate\Database\Eloquent\Model $model The model to attach tags to
+     * @param array $tagIds Array of tag IDs to potentially attach
+     * @param string $entityDescription Description of the entity for logging
+     * @return void
+     */
+    private function attachNewTags($model, array $tagIds, string $entityDescription): void
+    {
+        // Get existing tag IDs to prevent duplicates
+        $existingTags = $model->tags()->pluck('tags.id')->toArray();
+        $newTags = array_diff($tagIds, $existingTags);
+        
+        if (!empty($newTags)) {
+            $model->tags()->attach($newTags);
+            $skippedCount = count(array_intersect($tagIds, $existingTags));
+            Log::info("Assigned " . count($newTags) . " new tags to {$entityDescription}" . 
+                     ($skippedCount > 0 ? " (skipped {$skippedCount} existing)" : ""));
+        } else {
+            Log::info("No new tags to assign to {$entityDescription} (all " . count($tagIds) . " already exist)");
+        }
     }
 }
