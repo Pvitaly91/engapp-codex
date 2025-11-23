@@ -165,11 +165,17 @@ class PageTagAssignmentSeeder extends Seeder
         return [
             // Tense pages
             'present-simple' => ['Present Simple', 'Present Simple Do/Does Choice', 'Present Simple To Be Choice'],
-            'present-continuous' => ['Present Continuous', 'Present Continuous Affirmative Form', 'Present Continuous Negative Form', 'Present Continuous Question Form'],
+            'present-continuous' => ['Present Continuous', 'present_continuous_short_forms', 'present_continuous_short_answers'],
             'present-perfect' => ['Present Perfect', 'Present Perfect Forms', 'Present Perfect Sentences', 'Present Perfect Simple'],
-            'present-perfect-continuous' => ['Present Perfect Continuous', 'Present Perfect Continuous Affirmative Form', 'Present Perfect Continuous Negative Form', 'Present Perfect Continuous Question Form'],
+            'present-perfect-continuous' => ['Present Perfect Continuous'],
             'past-simple' => ['Past Simple', 'Past Simple Do/Did Choice', 'Past Simple To Be Choice', 'Past Simple Passive'],
-            'past-continuous' => ['Past Continuous', 'Past Continuous Affirmative Form', 'Past Continuous Negative Form', 'Past Continuous Question Form'],
+            'past-continuous' => [
+                'Past Continuous',
+                'Past Continuous Affirmative',
+                'Past Continuous Negatives',
+                'Past Continuous Questions',
+                'Past Continuous Review'
+            ],
             'past-perfect' => ['Past Perfect', 'Past Perfect Simple', 'Past Perfect Passive'],
             'past-perfect-continuous' => ['Past Perfect Continuous'],
             'future-simple' => ['Future Simple', 'Future Simple Will/Do Choice', 'Future Simple To Be Choice', 'Future Simple negative', 'Future Simple question', 'Future Simple Negative Form', 'Future Simple Question Form'],
@@ -178,22 +184,22 @@ class PageTagAssignmentSeeder extends Seeder
             'future-perfect-continuous' => ['Future Perfect Continuous', 'Future Perfect Continuous Negative Form', 'Future Perfect Continuous Question Form', 'Future Perfect Continuous Focus'],
             
             // Conditional pages
-            'zero-conditional' => ['Zero Conditional', 'Zero Conditional Sentences'],
+            'zero-conditional' => ['Zero Conditional', 'Conditionals Type 0-1-2 Practice'],
             'first-conditional' => ['First Conditional', 'First Conditional Sentences', 'First Conditional Clause Completion'],
             'second-conditional' => ['Second Conditional', 'Second Conditional Sentences', 'Second Conditional Sentence Completion'],
             'third-conditional' => ['Third Conditional', 'Third Conditional Sentences'],
             'mixed-conditional' => ['Mixed Conditional', 'Mixed Conditional Sentences', 'Mixed Conditional (Second→Third)', 'Mixed Conditional (Third→Second)', 'Mixed Conditional Sentence Creation'],
             
             // Modal verb pages
-            'modal-verbs-can-could' => ['Can / Could', 'Ability (can/could)', 'Permission (can/could)'],
-            'modal-verbs-may-might' => ['May / Might', 'Permission (may)', 'Possibility (may/might)'],
-            'modal-verbs-must-have-to' => ['Must / Have to', 'Obligation (must/have to)', 'Necessity (must)'],
-            'modal-verbs-should-ought-to' => ['Should / Ought to', 'Advice (should/ought to)', 'Recommendation (should)'],
+            'modal-verbs-can-could' => ['Can / Could', 'Can', 'Modal Verbs Practice', 'Modal Verbs'],
+            'modal-verbs-may-might' => ['May / Might', 'Modal Verbs Practice', 'Modal Verbs', 'Modal Degrees of Probability'],
+            'modal-verbs-must-have-to' => ['Must / Have to', 'Modal Verbs Practice', 'Modal Verbs', 'Modal Obligation & Necessity Comparison'],
+            'modal-verbs-should-ought-to' => ['Should / Ought to', 'Modal Verbs Practice', 'Modal Verbs'],
             'modal-verbs-need-need-to' => ['Need / Need to', "Need / Needn't"],
-            'modal-verbs-perfect-modals' => ['Perfect Modals', 'Be Supposed To', 'Shall'],
+            'modal-verbs-perfect-modals' => ['Be Supposed To', 'Shall', 'Modal Verbs Practice', 'Modal Verbs'],
             
             // Article pages
-            'a-an-the' => ['A An The', 'A or An', 'Articles'],
+            'a-an-the' => ['A An The', 'A or An'],
             
             // Demonstrative pages
             'this-that-these-those' => ['this_that_these_those', 'this_that_these_those_exercise_2', 'this_that_these_those_exercise_3'],
@@ -202,35 +208,73 @@ class PageTagAssignmentSeeder extends Seeder
             'have-got' => ['have_has_got', 'have_has_got_exercise_2', 'have_has_got_exercise_3'],
             
             // Question pages
-            'question-forms' => ['Question Formation', 'Question Word Order', 'Wh-Questions', 'Yes/No Questions'],
-            'short-answers' => ['short_answers', 'Short Answers'],
+            'question-forms' => [
+                'question_words_drag_drop',
+                'Present Simple question',
+                'Past Simple question',
+                'Future Simple question',
+                'Past Continuous Questions',
+                'Past Perfect Questions',
+                'Modal Question Form'
+            ],
+            'short-answers' => ['short_answers', 'present_continuous_short_answers'],
             
             // Auxiliary verb pages
-            'do-does-is-are' => ['do_does_is_are', 'Auxiliary Verb Choice'],
+            'do-does-is-are' => ['do_does_is_are', 'Past Simple Do/Did Choice', 'Present Simple Do/Does Choice'],
             
             // There is/are pages
-            'there-is-there-are' => ['There is there are', 'There is', 'There are', "There isn't", "There aren't", 'Is there', 'Are there'],
+            'there-is-there-are' => [
+                'There is there are', 
+                'There is', 
+                'There are', 
+                "There isn't", 
+                "There aren't",
+                "There aren't any",
+                'Is there', 
+                'Are there',
+                'There is/There are'
+            ],
             
             // Verb to be pages
-            'verb-to-be' => ['to_be_tense', 'Verb "to be"'],
+            'verb-to-be' => [
+                'to_be_tense',
+                'To be negative (present)',
+                'To be negative (past)',
+                'To be negative (future)',
+                'To be question (present)',
+                'To be question (past)',
+                'To be question (future)',
+                'Present Simple To Be Choice',
+                'Past Simple To Be Choice',
+                'Future Simple To Be Choice'
+            ],
             
             // Pronoun pages
-            'pronouns' => ['Personal Pronouns', 'Possessive Pronouns', 'Reflexive Pronouns', 'Demonstrative Pronouns', 'Indefinite Pronoun Compounds', 'Gap-fill Pronoun Forms (AI)'],
+            'pronouns' => [
+                'Indefinite Pronoun Compounds', 
+                'Gap-fill Pronoun Forms (AI)',
+                'Indefinite Pronouns Practice',
+                'Indefinite Pronouns Practice AI'
+            ],
             
             // Some/Any pages
-            'some-any' => ['Some/Any', 'Some / Any / No / Every Compounds (AI)', 'Something / Anything / Nothing Exercises'],
-            'some-any-people' => ['somebody', 'anybody', 'nobody', 'everybody', 'someone', 'anyone', 'no one', 'everyone'],
-            'some-any-places' => ['somewhere', 'anywhere', 'nowhere', 'everywhere'],
-            'some-any-things' => ['something', 'anything', 'nothing', 'everything'],
+            'some-any' => [
+                'Some or Any',
+                'Some/Any/No/Every Compounds (AI)', 
+                'Something / Anything / Nothing Exercises'
+            ],
+            'some-any-people' => ['Some/Any/No/Every Compounds (AI)', 'Indefinite Pronoun Compounds'],
+            'some-any-places' => ['Some/Any/No/Every Compounds (AI)', 'Indefinite Pronoun Compounds'],
+            'some-any-things' => ['Something / Anything / Nothing Exercises', 'Some/Any/No/Every Compounds (AI)'],
             
             // Quantifier pages
-            'quantifiers' => ['Much/Many', 'A lot of', 'Few/Little', 'Quantifiers'],
+            'quantifiers' => ['Quantity Comparisons (much/many/less/fewer)'],
             
             // Irregular verb pages
-            'irregular-verbs' => ['Irregular Verbs', 'Irregular Past Forms'],
+            'irregular-verbs' => ['Past Simple', 'Irregular Comparative Forms (good/bad/far)'],
             
             // Contraction pages
-            'contractions-short-forms' => ['Contractions', 'Short Forms'],
+            'contractions-short-forms' => ['Contractions', 'present_continuous_short_forms', 'present_continuous_short_answers'],
             
             // Comparison pages
             'degrees-of-comparison' => [
@@ -240,12 +284,9 @@ class PageTagAssignmentSeeder extends Seeder
                 'As ... as Equality', 
                 'Superlative Formation (-est / most / least)', 
                 'Irregular Comparative Forms (good/bad/far)', 
-                'Quantity Comparisons (much/many/less/fewer)'
+                'Quantity Comparisons (much/many/less/fewer)',
+                'Comparatives and Superlatives Practice'
             ],
-            
-            // Translation and vocabulary pages
-            'translation-techniques' => ['Translation'],
-            'vocabulary-building' => ['Vocabulary', 'Word Formation'],
         ];
     }
 
@@ -275,24 +316,37 @@ class PageTagAssignmentSeeder extends Seeder
             'артиклі' => ['A An The', 'A or An'],
             
             // Category-level keywords - Pronouns
-            'pronouns' => ['Indefinite Pronoun Compounds', 'Gap-fill Pronoun Forms (AI)'],
-            'займенники' => ['Indefinite Pronoun Compounds', 'Gap-fill Pronoun Forms (AI)'],
+            'pronouns' => ['Indefinite Pronoun Compounds', 'Gap-fill Pronoun Forms (AI)', 'Indefinite Pronouns Practice', 'Indefinite Pronouns Practice AI'],
+            'займенники' => ['Indefinite Pronoun Compounds', 'Gap-fill Pronoun Forms (AI)', 'Indefinite Pronouns Practice', 'Indefinite Pronouns Practice AI'],
             
             // Category-level keywords - Quantifiers
-            'quantifiers' => ['Quantifiers'],
-            'кількісні' => ['Quantifiers'],
+            'quantifiers' => ['Quantity Comparisons (much/many/less/fewer)'],
+            'кількісні' => ['Quantity Comparisons (much/many/less/fewer)'],
             
             // Category-level keywords - Demonstratives
-            'demonstrat' => ['this_that_these_those'],
-            'вказівні' => ['this_that_these_those'],
+            'demonstrat' => ['this_that_these_those', 'this_that_these_those_exercise_2', 'this_that_these_those_exercise_3'],
+            'вказівні' => ['this_that_these_those', 'this_that_these_those_exercise_2', 'this_that_these_those_exercise_3'],
             
             // Category-level keywords - Possession/Have got
-            'possession' => ['have_has_got'],
-            'володіння' => ['have_has_got'],
+            'possession' => ['have_has_got', 'have_has_got_exercise_2', 'have_has_got_exercise_3'],
+            'володіння' => ['have_has_got', 'have_has_got_exercise_2', 'have_has_got_exercise_3'],
             
-            // Category-level keywords - Comparison
-            'comparison' => ['Degrees of Comparison'],
-            'прикметник' => ['Degrees of Comparison'],
+            // Category-level keywords - Comparison/Adjectives
+            'comparison' => ['Degrees of Comparison', 'Comparative / Superlative Choice', 'Comparative + than Pattern', 'Comparatives and Superlatives Practice'],
+            'прикметник' => ['Degrees of Comparison', 'Comparative / Superlative Choice', 'Comparative + than Pattern', 'Comparatives and Superlatives Practice'],
+            'adjective' => ['Degrees of Comparison', 'Comparative / Superlative Choice', 'Comparative + than Pattern', 'Comparatives and Superlatives Practice'],
+            
+            // Category-level keywords - Questions
+            'question' => ['question_words_drag_drop', 'Present Simple question', 'Past Simple question', 'Future Simple question'],
+            'питальні' => ['question_words_drag_drop', 'Present Simple question', 'Past Simple question', 'Future Simple question'],
+            
+            // Category-level keywords - Sentence structures
+            'structures' => ['Contractions'],
+            'конструкції' => ['Contractions'],
+            
+            // Category-level keywords - Verbs
+            'verbs' => ['Past Simple', 'Irregular Comparative Forms (good/bad/far)'],
+            'дієслова' => ['Past Simple', 'Irregular Comparative Forms (good/bad/far)'],
         ];
     }
 }
