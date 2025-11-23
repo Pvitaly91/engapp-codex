@@ -1131,14 +1131,14 @@ class GrammarTestController extends Controller
     // AJAX search questions for adding to test
     public function searchQuestions(Request $request)
     {
-        $query = $request->input('q', '');
+        $query = trim($request->input('q', ''));
         $page = max(1, (int) $request->input('page', 1));
         $perPage = 20;
 
         $questionsQuery = Question::with(['category', 'tags', 'source', 'answers.option', 'options'])
             ->orderByDesc('id');
 
-        if ($query) {
+        if ($query !== '') {
             $questionsQuery->where(function ($q) use ($query) {
                 // Search by question text
                 $q->where('question', 'like', '%'.$query.'%')

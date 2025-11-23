@@ -1028,6 +1028,9 @@
                         <template x-if="results.length === 0 && searchQuery">
                             <p class="text-gray-500 text-center py-4">Питання не знайдено</p>
                         </template>
+                        <template x-if="results.length === 0 && !searchQuery">
+                            <p class="text-gray-500 text-center py-4">Введіть запит для пошуку або почекайте завантаження</p>
+                        </template>
                         
                         <template x-for="question in results" :key="question.id">
                             <div class="border border-gray-200 rounded-xl p-3 hover:bg-gray-50 transition">
@@ -1252,12 +1255,15 @@ function questionSearchModal() {
         total: 0,
         totalPages: 0,
         
-        openModal() {
+        async openModal() {
             this.open = true;
             this.searchQuery = '';
             this.results = [];
             this.selectedQuestions = [];
             this.currentPage = 1;
+            // Load initial results when modal opens
+            this.loading = true;
+            await this.fetchQuestions();
         },
         
         closeModal() {
