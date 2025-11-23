@@ -1316,8 +1316,12 @@ document.addEventListener('alpine:init', () => {
             }
         },
         
+        getQuestionKey(question) {
+            return question.uuid || question.id.toString();
+        },
+        
         toggleQuestion(question) {
-            const key = question.uuid || question.id.toString();
+            const key = this.getQuestionKey(question);
             if (this.selectedQuestions.has(key)) {
                 this.selectedQuestions.delete(key);
             } else {
@@ -1326,13 +1330,13 @@ document.addEventListener('alpine:init', () => {
         },
         
         isSelected(question) {
-            const key = question.uuid || question.id.toString();
+            const key = this.getQuestionKey(question);
             return this.selectedQuestions.has(key);
         },
         
         addSelectedToTest() {
             if (this.selectedQuestions.size === 0) {
-                alert('Будь ласка, оберіть хоча б одне питання');
+                console.warn('No questions selected');
                 return;
             }
             
@@ -1342,10 +1346,11 @@ document.addEventListener('alpine:init', () => {
             
             const container = document.getElementById('questions-list');
             if (!container) {
-                alert('Контейнер питань не знайдено');
+                console.error('Questions container not found');
                 return;
             }
             
+            let addedCount = 0;
             selectedData.forEach(questionData => {
                 // Check if question already exists
                 const existingQuestion = container.querySelector(`[data-question-id="${questionData.id}"]`);
@@ -1356,6 +1361,7 @@ document.addEventListener('alpine:init', () => {
                 // Create question element
                 const questionEl = createQuestionElement(questionData);
                 container.appendChild(questionEl);
+                addedCount++;
             });
             
             // Update numbering
@@ -1365,6 +1371,11 @@ document.addEventListener('alpine:init', () => {
             // Close modal and reset
             this.selectedQuestions.clear();
             this.close();
+            
+            // Log success
+            if (addedCount > 0) {
+                console.log(`Added ${addedCount} question(s) to test`);
+            }
         }
     }));
 });

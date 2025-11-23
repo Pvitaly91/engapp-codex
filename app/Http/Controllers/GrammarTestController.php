@@ -1143,18 +1143,31 @@ class GrammarTestController extends Controller
 
         if (!empty($query)) {
             $questionsQuery->where(function ($q) use ($query, $searchById, $searchByUuid) {
+                $hasCondition = false;
+                
                 // Search by ID
                 if ($searchById && is_numeric($query)) {
-                    $q->orWhere('id', '=', (int) $query);
+                    $q->where('id', '=', (int) $query);
+                    $hasCondition = true;
                 }
                 
                 // Search by UUID
                 if ($searchByUuid) {
-                    $q->orWhere('uuid', 'like', '%' . $query . '%');
+                    if ($hasCondition) {
+                        $q->orWhere('uuid', 'like', '%' . $query . '%');
+                    } else {
+                        $q->where('uuid', 'like', '%' . $query . '%');
+                        $hasCondition = true;
+                    }
                 }
                 
                 // Search by question text
-                $q->orWhere('question', 'like', '%' . $query . '%');
+                if ($hasCondition) {
+                    $q->orWhere('question', 'like', '%' . $query . '%');
+                } else {
+                    $q->where('question', 'like', '%' . $query . '%');
+                    $hasCondition = true;
+                }
                 
                 // Search by seeder
                 if (Schema::hasColumn('questions', 'seeder')) {
