@@ -27,6 +27,7 @@ use Database\Seeders\V2\ComparativesSuperlativesV2Seeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
 use Database\Seeders\V2\MixedConditionalsBridgePracticeV2Seeder;
+use Database\Seeders\chatGpt\GptPageTagAssignmentSeeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue1Seeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue2Seeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22DialogueSeeder;
@@ -166,6 +167,7 @@ class DatabaseSeeder extends Seeder
             QuestionWordsDragDropSeeder::class,
             SomeAnyCategorySeeder::class,
             GrammarPagesSeeder::class,
+            GptPageTagAssignmentSeeder::class,
         ]);
     }
 }
