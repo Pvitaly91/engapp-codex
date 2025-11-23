@@ -1136,7 +1136,7 @@ class GrammarTestController extends Controller
         $limit = (int) min(max($request->input('limit', 20), 1), 50);
 
         $builder = Question::query()
-            ->with(['tags:id,name', 'source:id,name'])
+            ->with(['tags:id,name', 'source:id,name', 'answers.option:id,option', 'options:id,option'])
             ->orderByDesc('id');
 
         if ($query !== '') {
@@ -1166,15 +1166,28 @@ class GrammarTestController extends Controller
         }
 
         $results = $builder->limit($limit)->get()->map(function (Question $question) {
+            $renderedQuestion = $question->renderQuestionText();
+            $answers = $question->answers->map(function ($answer) {
+                return [
+                    'marker' => $answer->marker,
+                    'text' => $answer->option->option ?? $answer->answer,
+                ];
+            });
+
+            $options = $question->options->pluck('option')->filter()->values();
+
             return [
                 'id' => $question->id,
                 'uuid' => $question->uuid,
                 'question' => $question->question,
+                'rendered_question' => $renderedQuestion,
                 'seeder' => $question->seeder,
                 'source' => $question->source?->name,
                 'tags' => $question->tags->pluck('name')->values(),
                 'difficulty' => $question->difficulty,
                 'level' => $question->level,
+                'answers' => $answers,
+                'options' => $options,
             ];
         });
 

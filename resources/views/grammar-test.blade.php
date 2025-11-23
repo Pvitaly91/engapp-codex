@@ -892,19 +892,35 @@
                             <template x-for="item in results" :key="item.id + '-' + (item.uuid || '')">
                                 <label class="flex items-start gap-3 p-4 hover:bg-gray-50 transition cursor-pointer">
                                     <input type="checkbox" class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded" :checked="isSelected(item)" @change="toggle(item)">
-                                    <div class="space-y-1">
+                                    <div class="space-y-2">
                                         <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500">
-                                            <span class="font-semibold text-gray-700" x-text="'ID: ' + item.id"></span>
-                                            <template x-if="item.uuid"><span class="text-gray-500" x-text="'UUID: ' + item.uuid"></span></template>
-                                            <template x-if="item.seeder"><span class="px-2 py-0.5 rounded-full bg-gray-100" x-text="item.seeder"></span></template>
-                                            <template x-if="item.source"><span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700" x-text="item.source"></span></template>
-                                            <template x-if="item.level"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700" x-text="'Level: ' + item.level"></span></template>
-                                            <span class="px-2 py-0.5 rounded-full bg-yellow-50 text-yellow-700" x-text="'Складність: ' + item.difficulty"></span>
+                                            <span class="font-semibold text-gray-700" x-html="highlightText('ID: ' + item.id)"></span>
+                                            <template x-if="item.uuid"><span class="text-gray-500" x-html="highlightText('UUID: ' + item.uuid)"></span></template>
+                                            <template x-if="item.seeder"><span class="px-2 py-0.5 rounded-full bg-gray-100" x-html="highlightText(item.seeder)"></span></template>
+                                            <template x-if="item.source"><span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700" x-html="highlightText(item.source)"></span></template>
+                                            <template x-if="item.level"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700" x-html="highlightText('Level: ' + item.level)"></span></template>
+                                            <span class="px-2 py-0.5 rounded-full bg-yellow-50 text-yellow-700" x-html="highlightText('Складність: ' + item.difficulty)"></span>
                                         </div>
-                                        <p class="text-sm font-semibold text-gray-800" x-text="item.question"></p>
+                                        <p class="text-sm font-semibold text-gray-800" x-html="highlightText(item.rendered_question || item.question)"></p>
+                                        <div class="flex flex-col gap-1 text-xs text-gray-600" x-show="item.answers && item.answers.length" x-cloak>
+                                            <span class="font-semibold text-gray-700">Відповіді:</span>
+                                            <div class="flex flex-wrap gap-1">
+                                                <template x-for="answer in item.answers" :key="(answer.marker || '') + (answer.text || '')">
+                                                    <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800" x-html="highlightText(answer.text || '')"></span>
+                                                </template>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-1 text-[11px] text-gray-600" x-show="item.options && item.options.length" x-cloak>
+                                            <span class="font-semibold text-gray-700">Варіанти:</span>
+                                            <div class="flex flex-wrap gap-1">
+                                                <template x-for="option in item.options" :key="option">
+                                                    <span class="px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800" x-html="highlightText(option)"></span>
+                                                </template>
+                                            </div>
+                                        </div>
                                         <div class="flex flex-wrap gap-1" x-show="item.tags && item.tags.length" x-cloak>
                                             <template x-for="tag in item.tags" :key="tag">
-                                                <span class="text-[11px] px-2 py-0.5 rounded-full bg-purple-50 text-purple-700" x-text="tag"></span>
+                                                <span class="text-[11px] px-2 py-0.5 rounded-full bg-purple-50 text-purple-700" x-html="highlightText(tag)"></span>
                                             </template>
                                         </div>
                                     </div>
@@ -1275,6 +1291,39 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
             }
 
             return `Вибрано: ${this.selected.length}`;
+        },
+        normalizedTerms() {
+            return String(this.query || '')
+                .toLowerCase()
+                .split(/\s+/)
+                .map(t => t.trim())
+                .filter(Boolean);
+        },
+        escapeHtml(text = '') {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        },
+        escapeRegExp(string) {
+            return String(string).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        },
+        highlightText(text = '') {
+            const terms = this.normalizedTerms();
+            let safe = this.escapeHtml(text);
+
+            if (!terms.length || !safe) {
+                return safe;
+            }
+
+            terms.forEach(term => {
+                const regex = new RegExp(`(${this.escapeRegExp(term)})`, 'gi');
+                safe = safe.replace(regex, '<mark>$1</mark>');
+            });
+
+            return safe;
         },
         isSelected(item) {
             return this.selected.some(sel => sel.id === item.id && sel.uuid === item.uuid);
