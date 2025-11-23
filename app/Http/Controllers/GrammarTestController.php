@@ -1131,6 +1131,98 @@ class GrammarTestController extends Controller
     }
     
 
+    // AJAX search for questions (for modal)
+    public function searchQuestions(Request $request)
+    {
+        $query = $request->input('q', '');
+        $searchById = $request->input('search_by_id', false);
+        $searchByUuid = $request->input('search_by_uuid', false);
+        $limit = min((int) $request->input('limit', 20), 100);
+
+        $questionsQuery = Question::with(['category', 'source', 'tags', 'answers.option', 'options']);
+
+        if (!empty($query)) {
+            $questionsQuery->where(function ($q) use ($query, $searchById, $searchByUuid) {
+                // Search by ID
+                if ($searchById && is_numeric($query)) {
+                    $q->orWhere('id', '=', (int) $query);
+                }
+                
+                // Search by UUID
+                if ($searchByUuid) {
+                    $q->orWhere('uuid', 'like', '%' . $query . '%');
+                }
+                
+                // Search by question text
+                $q->orWhere('question', 'like', '%' . $query . '%');
+                
+                // Search by seeder
+                if (Schema::hasColumn('questions', 'seeder')) {
+                    $q->orWhere('seeder', 'like', '%' . $query . '%');
+                }
+                
+                // Search by tags
+                $q->orWhereHas('tags', function ($tagQuery) use ($query) {
+                    $tagQuery->where('name', 'like', '%' . $query . '%');
+                });
+                
+                // Search by source
+                $q->orWhereHas('source', function ($sourceQuery) use ($query) {
+                    $sourceQuery->where('name', 'like', '%' . $query . '%');
+                });
+                
+                // Search by answers
+                $q->orWhereHas('answers', function ($answerQuery) use ($query) {
+                    $answerQuery->where('answer', 'like', '%' . $query . '%')
+                        ->orWhereHas('option', function ($optionQuery) use ($query) {
+                            $optionQuery->where('option', 'like', '%' . $query . '%');
+                        });
+                });
+                
+                // Search by options
+                $q->orWhereHas('options', function ($optionQuery) use ($query) {
+                    $optionQuery->where('option', 'like', '%' . $query . '%');
+                });
+            });
+        }
+
+        $questions = $questionsQuery
+            ->orderByDesc('id')
+            ->limit($limit)
+            ->get();
+
+        $results = $questions->map(function ($question) {
+            $seederDisplay = $question->seeder 
+                ? Str::after($question->seeder, 'Database\\Seeders\\') 
+                : null;
+                
+            return [
+                'id' => $question->id,
+                'uuid' => $question->uuid,
+                'question' => $question->question,
+                'category' => $question->category->name ?? 'N/A',
+                'source' => $question->source->name ?? null,
+                'seeder' => $seederDisplay,
+                'level' => $question->level ?? 'N/A',
+                'difficulty' => $question->difficulty,
+                'flag' => $question->flag,
+                'tags' => $question->tags->pluck('name')->toArray(),
+                'answers' => $question->answers->map(function ($answer) {
+                    return [
+                        'marker' => $answer->marker,
+                        'value' => $answer->option->option ?? $answer->answer ?? '',
+                    ];
+                })->toArray(),
+                'options' => $question->options->pluck('option')->toArray(),
+            ];
+        });
+
+        return response()->json([
+            'questions' => $results,
+            'total' => $results->count(),
+        ]);
+    }
+
     // AJAX перевірка ВСЬОГО питання (Check answer)
     public function checkOneAnswer(Request $request)
     {
