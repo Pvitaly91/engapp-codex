@@ -1120,23 +1120,18 @@ class GrammarTestController extends Controller
             'description' => 'nullable|string',
         ]);
 
-        if ($legacy = Test::where('slug', $slug)->first()) {
-            $legacy->name = $request->name;
-            $legacy->description = $request->description;
-            $legacy->save();
+        $test = Test::where('slug', $slug)->first() 
+            ?? SavedGrammarTest::where('slug', $slug)->first();
 
-            return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
+        if (!$test) {
+            abort(404);
         }
 
-        if ($saved = SavedGrammarTest::where('slug', $slug)->first()) {
-            $saved->name = $request->name;
-            $saved->description = $request->description;
-            $saved->save();
+        $test->name = $request->name;
+        $test->description = $request->description;
+        $test->save();
 
-            return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
-        }
-
-        abort(404);
+        return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
     }
 
     public function destroy(string $slug)

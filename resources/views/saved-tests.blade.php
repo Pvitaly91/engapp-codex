@@ -12,6 +12,12 @@
         </a>
     </div>
 
+    @if(session('success'))
+        <div class="mb-4 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-2xl">
+            {{ session('success') }}
+        </div>
+    @endif
+
     @include('components.word-search')
     @if($tests->count())
         <ul class="space-y-4">
