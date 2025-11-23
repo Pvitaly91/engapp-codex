@@ -1137,19 +1137,10 @@ class GrammarTestController extends Controller
 
     public function destroy(string $slug)
     {
-        if ($legacy = Test::where('slug', $slug)->first()) {
-            $legacy->delete();
+        $test = $this->findTestBySlug($slug);
+        $test->delete();
 
-            return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
-        }
-
-        if ($saved = SavedGrammarTest::where('slug', $slug)->first()) {
-            $saved->delete();
-
-            return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
-        }
-
-        abort(404);
+        return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
     }
 
     // AJAX-предиктивний пошук
