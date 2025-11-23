@@ -120,13 +120,13 @@
                                     {{ $test->name }}
                                 </a>
                                 
-                                @if($test->level_range && $test->level_range->isNotEmpty())
+                                @if($test->level_range->isNotEmpty())
                                     <div class="text-xs text-muted-foreground mb-2">
                                         <span class="font-semibold">Рівні:</span> {{ $test->level_range->join(', ') }}
                                     </div>
                                 @endif
 
-                                @if($test->matching_tags && $test->matching_tags->isNotEmpty())
+                                @if($test->matching_tags->isNotEmpty())
                                     <div class="mb-3 flex flex-wrap gap-1">
                                         @foreach($test->matching_tags as $tag)
                                             <span class="inline-block bg-primary/10 text-primary text-xs px-2 py-0.5 rounded">{{ $tag }}</span>

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\Question;
 use App\Models\SavedGrammarTest;
 use Illuminate\Support\Collection;
 
 class PageController extends Controller
 {
+    private const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
     /**
      * Display the available categories with the first category's pages.
      */
@@ -94,23 +96,31 @@ class PageController extends Controller
 
         // Enrich related tests with level ranges and matching tags
         if ($relatedTests->isNotEmpty()) {
-            $relatedTests = $relatedTests->map(function ($test) use ($pageTagIds) {
-                // Get all questions for this test
+            // Get all question UUIDs for all tests at once
+            $allQuestionUuids = $relatedTests->flatMap(fn($test) => $test->questionLinks->pluck('question_uuid'))->unique()->toArray();
+            
+            // Fetch all questions with their tags in one query
+            $allQuestions = !empty($allQuestionUuids)
+                ? Question::whereIn('uuid', $allQuestionUuids)->with('tags')->get()->keyBy('uuid')
+                : collect();
+            
+            $levelOrder = array_flip(self::LEVEL_ORDER);
+            
+            $relatedTests = $relatedTests->map(function ($test) use ($allQuestions, $pageTagIds, $page, $levelOrder) {
                 $questionUuids = $test->questionLinks->pluck('question_uuid')->toArray();
                 
                 if (!empty($questionUuids)) {
-                    // Get questions with their levels and tags
-                    $questions = \App\Models\Question::whereIn('uuid', $questionUuids)
-                        ->with('tags')
-                        ->get();
+                    // Get questions for this test from the pre-loaded collection
+                    $testQuestions = collect($questionUuids)
+                        ->map(fn($uuid) => $allQuestions->get($uuid))
+                        ->filter();
                     
                     // Extract unique levels and sort them
-                    $levels = $questions->pluck('level')->filter()->unique()->sort();
-                    $order = array_flip(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
-                    $levels = $levels->sortBy(fn($lvl) => $order[$lvl] ?? 99)->values();
+                    $levels = $testQuestions->pluck('level')->filter()->unique();
+                    $levels = $levels->sortBy(fn($lvl) => $levelOrder[$lvl] ?? 99)->values();
                     
                     // Find matching tags
-                    $testTagIds = $questions->pluck('tags')->flatten()->pluck('id')->unique()->toArray();
+                    $testTagIds = $testQuestions->pluck('tags')->flatten()->pluck('id')->unique()->toArray();
                     $matchingTagIds = array_intersect($pageTagIds, $testTagIds);
                     $matchingTags = $page->tags->whereIn('id', $matchingTagIds)->pluck('name');
                     
