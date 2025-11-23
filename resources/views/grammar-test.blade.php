@@ -1223,10 +1223,32 @@ function createQuestionsManager() {
         updateOrderInput();
     };
 
+    const removeQuestion = (button) => {
+        const questionItem = button.closest('.question-item');
+        if (!questionItem) {
+            return;
+        }
+
+        if (confirm('Видалити це питання з тесту?')) {
+            questionItem.remove();
+            updateNumbers();
+            updateOrderInput();
+        }
+    };
+
     const init = () => {
         if (!container) {
             return;
         }
+
+        // Add event listener for remove buttons
+        container.addEventListener('click', (event) => {
+            const removeBtn = event.target.closest('.remove-question-btn');
+            if (removeBtn) {
+                event.preventDefault();
+                removeQuestion(removeBtn);
+            }
+        });
 
         if (shuffleButton) {
             shuffleButton.addEventListener('click', () => {
