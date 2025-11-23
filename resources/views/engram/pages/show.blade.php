@@ -137,7 +137,7 @@
                             <div class="text-xs text-muted-foreground mb-2 font-semibold">Теги сторінки:</div>
                             <div class="flex flex-wrap gap-1">
                                 @foreach($page->tags as $tag)
-                                    <span class="inline-block bg-secondary/20 text-secondary-foreground text-xs px-2 py-0.5 rounded">{{ $tag->name }}</span>
+                                    <span class="inline-block bg-secondary/20 text-secondary-foreground/90 font-medium text-xs px-2 py-0.5 rounded">{{ $tag->name }}</span>
                                 @endforeach
                             </div>
                         </div>
