@@ -1279,11 +1279,16 @@ function questionSearchModal() {
         async fetchQuestions() {
             try {
                 const url = new URL('{{ route('grammar-test.search-questions') }}');
-                url.searchParams.append('q', this.searchQuery);
+                const trimmedQuery = (this.searchQuery || '').trim();
+                url.searchParams.append('q', trimmedQuery);
                 url.searchParams.append('page', this.currentPage);
+                
+                console.log('Fetching questions with query:', trimmedQuery, 'page:', this.currentPage);
                 
                 const response = await fetch(url);
                 const data = await response.json();
+                
+                console.log('Received data:', data);
                 
                 this.results = data.items || [];
                 this.total = data.total || 0;

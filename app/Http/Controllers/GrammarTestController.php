@@ -1135,6 +1135,8 @@ class GrammarTestController extends Controller
         $page = max(1, (int) $request->input('page', 1));
         $perPage = 20;
 
+        \Log::info('Question search request', ['query' => $query, 'page' => $page]);
+
         $questionsQuery = Question::with(['category', 'tags', 'source', 'answers.option', 'options'])
             ->orderByDesc('id');
 
@@ -1175,6 +1177,8 @@ class GrammarTestController extends Controller
 
         // Use paginate() for efficient pagination (N+1 is prevented via eager loading above)
         $paginator = $questionsQuery->paginate($perPage, ['*'], 'page', $page);
+
+        \Log::info('Question search results', ['total' => $paginator->total(), 'current_page' => $paginator->currentPage()]);
 
         $items = $paginator->getCollection()->map(function ($question) {
             $seeder = $question->seeder ?? null;
