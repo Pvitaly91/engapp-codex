@@ -1102,15 +1102,9 @@ class GrammarTestController extends Controller
     
     public function edit(string $slug)
     {
-        if ($legacy = Test::where('slug', $slug)->first()) {
-            return view('saved-tests-edit', ['test' => $legacy, 'testType' => 'legacy']);
-        }
+        $test = $this->findTestBySlug($slug);
 
-        if ($saved = SavedGrammarTest::where('slug', $slug)->first()) {
-            return view('saved-tests-edit', ['test' => $saved, 'testType' => 'saved']);
-        }
-
-        abort(404);
+        return view('saved-tests-edit', ['test' => $test]);
     }
 
     public function update(Request $request, string $slug)
@@ -1120,6 +1114,17 @@ class GrammarTestController extends Controller
             'description' => 'nullable|string',
         ]);
 
+        $test = $this->findTestBySlug($slug);
+
+        $test->name = $request->name;
+        $test->description = $request->description;
+        $test->save();
+
+        return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
+    }
+
+    private function findTestBySlug(string $slug)
+    {
         $test = Test::where('slug', $slug)->first() 
             ?? SavedGrammarTest::where('slug', $slug)->first();
 
@@ -1127,11 +1132,7 @@ class GrammarTestController extends Controller
             abort(404);
         }
 
-        $test->name = $request->name;
-        $test->description = $request->description;
-        $test->save();
-
-        return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
+        return $test;
     }
 
     public function destroy(string $slug)
