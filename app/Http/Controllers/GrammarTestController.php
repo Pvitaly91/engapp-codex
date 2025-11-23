@@ -1103,8 +1103,39 @@ class GrammarTestController extends Controller
     public function edit(string $slug)
     {
         $test = $this->findTestBySlug($slug);
+        $questions = collect();
+        $savePayloadKey = 'uuid';
 
-        return view('saved-tests-edit', ['test' => $test]);
+        if ($test instanceof SavedGrammarTest) {
+            $questionUuids = $test->questionLinks->pluck('question_uuid')->filter();
+            if ($questionUuids->isNotEmpty()) {
+                $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags', 'source'];
+                $questions = Question::with($relations)
+                    ->whereIn('uuid', $questionUuids)
+                    ->get()
+                    ->sortBy(fn (Question $question) => $questionUuids->search($question->uuid))
+                    ->values();
+            }
+        } elseif ($test instanceof Test) {
+            $savePayloadKey = 'id';
+            $questionIds = collect($test->questions ?? [])->filter(fn ($id) => is_numeric($id))->map(fn ($id) => (int) $id);
+            if ($questionIds->isNotEmpty()) {
+                $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags', 'source'];
+                $questions = Question::with($relations)
+                    ->whereIn('id', $questionIds)
+                    ->get()
+                    ->sortBy(fn (Question $question) => $questionIds->search($question->id))
+                    ->values();
+            }
+        }
+
+        return view('saved-tests-edit', [
+            'test' => $test,
+            'questions' => $questions,
+            'questionSearchRoute' => route('grammar-test.search-questions'),
+            'questionRenderRoute' => route('grammar-test.render-questions'),
+            'savePayloadKey' => $savePayloadKey,
+        ]);
     }
 
     public function update(Request $request, string $slug)
@@ -1112,6 +1143,7 @@ class GrammarTestController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'question_uuids' => 'nullable|string',
         ]);
 
         $test = $this->findTestBySlug($slug);
@@ -1119,6 +1151,23 @@ class GrammarTestController extends Controller
         $test->name = $request->name;
         $test->description = $request->description;
         $test->save();
+
+        if ($test instanceof SavedGrammarTest) {
+            $questionUuids = collect(json_decode(html_entity_decode($request->input('question_uuids', '[]')), true))
+                ->filter(fn ($uuid) => is_string($uuid) && $uuid !== '')
+                ->values();
+
+            DB::transaction(function () use ($test, $questionUuids) {
+                $test->questionLinks()->delete();
+
+                $questionUuids->each(function ($uuid, $index) use ($test) {
+                    $test->questionLinks()->create([
+                        'question_uuid' => $uuid,
+                        'position' => $index,
+                    ]);
+                });
+            });
+        }
 
         return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
     }
