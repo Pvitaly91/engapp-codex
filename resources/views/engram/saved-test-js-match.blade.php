@@ -17,6 +17,7 @@
         <ul class="list-disc space-y-1 pl-4">
             <li>Зліва — речення (1…n), справа — пояснення (a…n).</li>
             <li>Тягни або натискай, щоб провести лінію між відповідними парами.</li>
+            <li>Натисни на елемент із зв'язком, щоб підсвітити його з'єднання.</li>
             <li>Кожен елемент може мати лише один зв'язок.</li>
             <li><strong>Перевірити</strong> активується, коли всі пари з'єднані.</li>
             <li><strong>Скинути</strong> очищує з'єднання та перемішує елементи.</li>
@@ -27,6 +28,24 @@
         </h1>
     <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm" id="match-board">
         <svg id="match-svg" class="pointer-events-none absolute inset-0 h-full w-full"></svg>
+        <div class="grid gap-4 sm:gap-6 md:gap-10 grid-cols-2 mb-4" id="match-search-inputs">
+            <div>
+                <input 
+                    type="text" 
+                    id="search-left" 
+                    placeholder="Пошук речень..." 
+                    class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                />
+            </div>
+            <div>
+                <input 
+                    type="text" 
+                    id="search-right" 
+                    placeholder="Пошук пояснень..." 
+                    class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                />
+            </div>
+        </div>
         <div class="grid gap-4 sm:gap-6 md:gap-10 grid-cols-2" id="match-columns">
             <div class="space-y-3" id="match-left"></div>
             <div class="space-y-3" id="match-right"></div>
@@ -88,6 +107,23 @@
         opacity: 0.6;
         pointer-events: none;
     }
+    .match-card.search-hidden {
+        display: none;
+    }
+    .match-card.highlighted {
+        border-color: #f59e0b;
+        box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4);
+        background: #fef3c7;
+        animation: pulse-highlight 1s ease-in-out;
+    }
+    @keyframes pulse-highlight {
+        0%, 100% {
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4);
+        }
+        50% {
+            box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.3);
+        }
+    }
     .match-card-label {
         display: inline-flex;
         align-items: center;
@@ -124,7 +160,12 @@
         stroke-width: 3;
         stroke: #94a3b8;
         stroke-linecap: round;
-        transition: stroke 0.3s ease;
+        transition: stroke 0.3s ease, stroke-width 0.3s ease;
+    }
+    #match-svg line.highlighted {
+        stroke: #f59e0b;
+        stroke-width: 5;
+        filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.6));
     }
 </style>
 
@@ -149,6 +190,9 @@ const matchState = {
 };
 
 let clickSelectedElement = null;
+let highlightedConnection = null;
+let highlightedElements = { leftCard: null, rightCard: null, line: null };
+let cardMapsCache = { left: null, right: null };
 
 const matchBoard = document.getElementById('match-board');
 const svg = document.getElementById('match-svg');
@@ -157,6 +201,8 @@ const rightCol = document.getElementById('match-right');
 const emptyState = document.getElementById('match-empty');
 const checkBtn = document.getElementById('match-check');
 const resetBtn = document.getElementById('match-reset');
+const searchLeftInput = document.getElementById('search-left');
+const searchRightInput = document.getElementById('search-right');
 const resultEl = document.getElementById('match-result');
 const restartBtn = document.getElementById('restart-test');
 
@@ -267,6 +313,20 @@ function buildItems(rawQuestions) {
 
 function getItemMap() {
     return new Map(matchState.items.map(item => [item.key, item]));
+}
+
+function getCardMaps() {
+    // Rebuild both maps if either is missing to keep them in sync
+    if (!cardMapsCache.left || !cardMapsCache.right) {
+        cardMapsCache.left = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+        cardMapsCache.right = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+    }
+    return cardMapsCache;
+}
+
+function invalidateCardMapsCache() {
+    cardMapsCache.left = null;
+    cardMapsCache.right = null;
 }
 
 function setCheckDisabled(disabled) {
@@ -429,6 +489,18 @@ function handleClickConnection(el) {
         return;
     }
 
+    // Check if the clicked element already has a connection
+    const existingConnection = findConnectionForElement(el);
+    
+    // If element has a connection and nothing is selected, highlight it
+    if (existingConnection && !clickSelectedElement) {
+        highlightConnection(existingConnection);
+        return;
+    }
+
+    // Clear any existing highlight when making new selections
+    clearHighlight();
+
     // If no element is selected yet, select this one
     if (!clickSelectedElement) {
         clickSelectedElement = el;
@@ -464,6 +536,70 @@ function handleClickConnection(el) {
     applyConnection(leftEl.dataset.key, rightEl.dataset.key);
 }
 
+function findConnectionForElement(el) {
+    if (!el) {
+        return null;
+    }
+
+    const key = el.dataset.key;
+    if (!key) {
+        return null;
+    }
+
+    const isLeft = el.classList.contains('match-sentence');
+    const type = isLeft ? 'leftKey' : 'rightKey';
+    const conn = matchState.connections.find(conn => conn[type] === key);
+    
+    return conn;
+}
+
+function clearHighlight() {
+    if (highlightedConnection) {
+        // Clear only the previously highlighted elements
+        Object.keys(highlightedElements).forEach(key => {
+            const element = highlightedElements[key];
+            if (element) {
+                element.classList.remove('highlighted');
+                highlightedElements[key] = null;
+            }
+        });
+        
+        highlightedConnection = null;
+    }
+}
+
+function highlightConnection(connection) {
+    if (!connection) {
+        return;
+    }
+
+    // Clear any previous highlight
+    clearHighlight();
+
+    const { left: leftCards, right: rightCards } = getCardMaps();
+
+    const leftEl = leftCards.get(connection.leftKey);
+    const rightEl = rightCards.get(connection.rightKey);
+
+    if (leftEl && rightEl) {
+        leftEl.classList.add('highlighted');
+        rightEl.classList.add('highlighted');
+
+        // Find and highlight the line
+        const lineKey = `${connection.leftKey}|${connection.rightKey}`;
+        const line = svg.querySelector(`line[data-conn="${lineKey}"]`);
+        if (line) {
+            line.classList.add('highlighted');
+        }
+
+        // Store references for efficient clearing
+        highlightedElements.leftCard = leftEl;
+        highlightedElements.rightCard = rightEl;
+        highlightedElements.line = line;
+        highlightedConnection = connection;
+    }
+}
+
 function removeConnectionForElement(el) {
     if (!el) {
         return;
@@ -480,6 +616,7 @@ function removeConnectionForElement(el) {
     if (idx !== -1) {
         matchState.connections.splice(idx, 1);
         clearEvaluation();
+        clearHighlight();
         renderConnections();
         updateButtonState();
         updateProgress();
@@ -519,6 +656,7 @@ function applyConnection(leftKey, rightKey) {
 
     matchState.connections.push({ leftKey, rightKey, correct: false });
     clearEvaluation();
+    clearHighlight();
     renderConnections();
     updateButtonState();
     updateProgress();
@@ -570,6 +708,9 @@ function renderColumns() {
 
     updateEmptyState();
     
+    // Invalidate card maps cache since DOM changed
+    invalidateCardMapsCache();
+    
     // Equalize heights of elements at the same row position
     equalizeRowHeights();
 }
@@ -619,10 +760,12 @@ function renderConnections() {
         clickSelectedElement = null;
     }
 
+    // Clear highlight
+    clearHighlight();
+
     const itemMap = getItemMap();
 
-    const leftCards = new Map(Array.from(leftCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
-    const rightCards = new Map(Array.from(rightCol.querySelectorAll('.match-card')).map(el => [el.dataset.key, el]));
+    const { left: leftCards, right: rightCards } = getCardMaps();
 
     leftCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
     rightCards.forEach(card => card.classList.remove('connected', 'correct', 'incorrect', 'selected'));
@@ -632,6 +775,11 @@ function renderConnections() {
         const rightEl = rightCards.get(conn.rightKey);
 
         if (!leftEl || !rightEl) {
+            return;
+        }
+
+        // Skip if either element is hidden by search - do this early to avoid unnecessary DOM operations
+        if (leftEl.classList.contains('search-hidden') || rightEl.classList.contains('search-hidden')) {
             return;
         }
 
@@ -820,6 +968,66 @@ if (restartBtn) {
 window.addEventListener('resize', () => {
     renderConnections();
 });
+
+// Clear highlight when clicking outside of cards (scoped to match board)
+matchBoard.addEventListener('click', (event) => {
+    const clickedCard = event.target.closest('.match-card');
+    if (!clickedCard && highlightedConnection) {
+        clearHighlight();
+    }
+});
+
+// Debounce utility to reduce processing during rapid typing
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Live search functionality for each column
+function filterColumn(column, searchTerm) {
+    const cards = column.querySelectorAll('.match-card');
+    const normalizedSearch = searchTerm.toLowerCase().trim();
+    
+    cards.forEach(card => {
+        if (!normalizedSearch) {
+            card.classList.remove('search-hidden');
+            return;
+        }
+        
+        const textContent = card.textContent.toLowerCase();
+        if (textContent.includes(normalizedSearch)) {
+            card.classList.remove('search-hidden');
+        } else {
+            card.classList.add('search-hidden');
+        }
+    });
+    
+    // Re-render connections after filtering to update line positions
+    renderConnections();
+}
+
+// Debounced filter functions for performance
+const debouncedFilterLeft = debounce((value) => filterColumn(leftCol, value), 150);
+const debouncedFilterRight = debounce((value) => filterColumn(rightCol, value), 150);
+
+if (searchLeftInput) {
+    searchLeftInput.addEventListener('input', (event) => {
+        debouncedFilterLeft(event.target.value);
+    });
+}
+
+if (searchRightInput) {
+    searchRightInput.addEventListener('input', (event) => {
+        debouncedFilterRight(event.target.value);
+    });
+}
 
 initMatch();
 </script>

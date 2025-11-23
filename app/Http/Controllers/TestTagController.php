@@ -127,7 +127,7 @@ class TestTagController extends Controller
     private function loadTagData(): array
     {
         $tagsByCategory = Tag::query()
-            ->withCount('questions')
+            ->withCount(['questions', 'pages', 'pageCategories'])
             ->orderByRaw('CASE WHEN category IS NULL OR category = "" THEN 1 ELSE 0 END')
             ->orderBy('category')
             ->orderBy('name')
@@ -172,7 +172,9 @@ class TestTagController extends Controller
 
         $tagGroups = $tagsByCategory->map(function ($tags, $category) {
             $isEmpty = $tags->isEmpty() || $tags->every(function (Tag $tag) {
-                return (int) $tag->questions_count === 0;
+                return (int) $tag->questions_count === 0
+                    && (int) $tag->pages_count === 0
+                    && (int) $tag->page_categories_count === 0;
             });
 
             return [
@@ -184,10 +186,103 @@ class TestTagController extends Controller
             ];
         })->values();
 
+        $exportFilePath = config_path('tags/exported_tags.json');
+        $exportFileExists = file_exists($exportFilePath);
+        $exportFileSize = $exportFileExists ? filesize($exportFilePath) : 0;
+
         return view('test-tags.index', [
             'tagGroups' => $tagGroups,
             'totalTags' => $tagsByCategory->sum(fn ($tags) => $tags->count()),
+            'exportFileExists' => $exportFileExists,
+            'exportFileSize' => $exportFileSize,
         ]);
+    }
+
+    public function exportToJson(): RedirectResponse
+    {
+        [$tagsByCategory] = $this->loadTagData();
+
+        $exportData = $tagsByCategory->map(function ($tags, $category) {
+            return [
+                'category' => $category ?: 'Без категорії',
+                'tags' => $tags->map(function (Tag $tag) {
+                    return [
+                        'id' => $tag->id,
+                        'name' => $tag->name,
+                        'category' => $tag->category,
+                        'questions_count' => (int) $tag->questions_count,
+                        'pages_count' => (int) $tag->pages_count,
+                        'page_categories_count' => (int) $tag->page_categories_count,
+                        'created_at' => $tag->created_at?->toIso8601String(),
+                        'updated_at' => $tag->updated_at?->toIso8601String(),
+                    ];
+                })->values()->all(),
+            ];
+        })->values()->all();
+
+        $jsonData = [
+            'exported_at' => now()->toIso8601String(),
+            'total_categories' => count($exportData),
+            'total_tags' => $tagsByCategory->sum(fn ($tags) => $tags->count()),
+            'categories' => $exportData,
+        ];
+
+        $filePath = config_path('tags/exported_tags.json');
+        $directory = dirname($filePath);
+
+        if (!is_dir($directory) && !mkdir($directory, 0755, true) && !is_dir($directory)) {
+            return redirect()->route('test-tags.index')->with('error', 'Не вдалося створити директорію для експорту.');
+        }
+
+        $result = file_put_contents($filePath, json_encode($jsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+
+        if ($result === false) {
+            return redirect()->route('test-tags.index')->with('error', 'Не вдалося записати файл експорту.');
+        }
+
+        $relativePath = 'config/tags/exported_tags.json';
+
+        return redirect()->route('test-tags.index')->with('status', "Теги успішно експортовано до файлу {$relativePath}");
+    }
+
+    public function viewExportedJson(): View|RedirectResponse
+    {
+        $filePath = config_path('tags/exported_tags.json');
+
+        if (!file_exists($filePath)) {
+            return redirect()->route('test-tags.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
+        }
+
+        $jsonContent = file_get_contents($filePath);
+        if ($jsonContent === false) {
+            return redirect()->route('test-tags.index')->with('error', 'Не вдалося прочитати файл експорту.');
+        }
+
+        $jsonData = json_decode($jsonContent, true);
+        if ($jsonData === null && json_last_error() !== JSON_ERROR_NONE) {
+            return redirect()->route('test-tags.index')->with('error', 'Файл експорту містить некоректний JSON.');
+        }
+
+        $relativePath = 'config/tags/exported_tags.json';
+
+        return view('test-tags.view-export', [
+            'jsonContent' => $jsonContent,
+            'jsonData' => $jsonData,
+            'filePath' => $relativePath,
+            'fileSize' => filesize($filePath),
+            'lastModified' => filemtime($filePath),
+        ]);
+    }
+
+    public function downloadExportedJson(): \Symfony\Component\HttpFoundation\BinaryFileResponse|RedirectResponse
+    {
+        $filePath = config_path('tags/exported_tags.json');
+
+        if (!file_exists($filePath)) {
+            return redirect()->route('test-tags.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
+        }
+
+        return response()->download($filePath, 'exported_tags.json');
     }
 
     public function create(): View
@@ -249,6 +344,8 @@ class TestTagController extends Controller
     {
         $tag->questions()->detach();
         $tag->words()->detach();
+        $tag->pages()->detach();
+        $tag->pageCategories()->detach();
         $tag->delete();
 
         if ($request->expectsJson()) {
@@ -265,12 +362,16 @@ class TestTagController extends Controller
     {
         $emptyTags = Tag::query()
             ->whereDoesntHave('questions')
+            ->whereDoesntHave('pages')
+            ->whereDoesntHave('pageCategories')
             ->get();
 
         $count = $emptyTags->count();
 
         foreach ($emptyTags as $tag) {
             $tag->words()->detach();
+            $tag->pages()->detach();
+            $tag->pageCategories()->detach();
             $tag->delete();
         }
 
@@ -492,6 +593,8 @@ class TestTagController extends Controller
         foreach ($tags as $tag) {
             $tag->questions()->detach();
             $tag->words()->detach();
+            $tag->pages()->detach();
+            $tag->pageCategories()->detach();
             $tag->delete();
         }
 

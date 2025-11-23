@@ -82,6 +82,9 @@
         $hasSelectedSources = !empty($selectedSources);
         $hasSelectedTags = !empty($selectedTags);
         $hasSelectedSeederClasses = !empty($selectedSeederClasses);
+
+        $questionSearchRoute = route('grammar-test.search-questions');
+        $questionRenderRoute = route('grammar-test.render-questions');
     @endphp
 
     <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -835,136 +838,255 @@
        
     </form>
 
-    @if(!empty($questions) && count($questions))
+    {{-- Question Picker - Always Available --}}
+    <div x-data="questionPicker(@js($questionSearchRoute), @js($questionRenderRoute), {
+        manualInput: {{ !empty($manualInput) ? 'true' : 'false' }},
+        autocompleteInput: {{ !empty($autocompleteInput) ? 'true' : 'false' }},
+        builderInput: {{ !empty($builderInput) ? 'true' : 'false' }},
+        checkOneInput: {{ !empty($checkOneInput) ? 'true' : 'false' }},
+        savePayloadKey: '{{ $savePayloadKey }}'
+    })" x-init="init()" class="space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div class="text-sm text-gray-500">Кількість питань: {{ count($questions) }}</div>
-            @if(count($questions) > 1)
-                <button type="button" id="shuffle-questions"
-                        class="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
-                    Перемішати питання
+            <div class="text-sm text-gray-500" id="question-count">Кількість питань: {{ !empty($questions) ? count($questions) : 0 }}</div>
+            <div class="flex flex-wrap items-center gap-2">
+                <button type="button" @click="open = true"
+                        class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
+                    Додати питання
                 </button>
-            @endif
+                @if(!empty($questions) && count($questions) > 1)
+                    <button type="button" id="shuffle-questions"
+                            class="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
+                        Перемішати питання
+                    </button>
+                @endif
+            </div>
         </div>
 
-        <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
-            @csrf
-            <div id="questions-list" class="space-y-6">
-                @foreach($questions as $q)
-                    <div class="question-item" data-question-id="{{ $q->id }}" data-question-save="{{ $q->{$savePayloadKey} }}">
-                        <input type="hidden" name="questions[{{ $q->id }}]" value="1">
-                        <div class="bg-white shadow rounded-2xl p-4 sm:p-6 space-y-3">
-                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                                <div class="text-sm font-semibold text-gray-700 flex flex-wrap items-center gap-2">
-                                    <span class="uppercase px-2 py-1 rounded text-xs {{ $q->category->name === 'past' ? 'bg-red-100 text-red-700' : ($q->category->name === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700') }}">
-                                        {{ ucfirst($q->category->name) }}
-                                    </span>
-                                    @if($q->source)
-                                        <span class="text-xs text-gray-500">Source: {{ $q->source->name }}</span>
-                                    @endif
-                                    @php
-                                        $questionSeeder = $q->seeder ?? null;
-                                        if ($questionSeeder) {
-                                            $questionSeeder = \Illuminate\Support\Str::after($questionSeeder, 'Database\\Seeders\\');
-                                        }
-                                    @endphp
-                                    @if($questionSeeder)
-                                        <span class="text-xs text-gray-500">Seeder: {{ $questionSeeder }}</span>
-                                    @endif
-                                    @if($q->flag)
-                                        <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
-                                    @endif
-                                    <span class="text-xs text-gray-400">Складність: {{ $q->difficulty }}/10</span>
-                                    <span class="text-xs text-gray-400">Level: {{ $q->level ?? 'N/A' }}</span>
-                                </div>
-                                <span class="text-xs text-gray-400">ID: {{ $q->id }} | UUID: {{ $q->uuid ?? '—' }}</span>
-                            </div>
-                            <div class="flex flex-wrap gap-2 items-baseline">
-                                <span class="question-number font-bold mr-2">{{ $loop->iteration }}.</span>
-                                @php preg_match_all('/\{a(\d+)\}/', $q->question, $matches); @endphp
-                                @include('components.question-input', [
-                                    'question' => $q,
-                                    'inputNamePrefix' => "question_{$q->id}_",
-                                    'manualInput' => $manualInput,
-                                    'autocompleteInput' => $autocompleteInput,
-                                    'builderInput' => $builderInput,
-                                    'autocompleteRoute' => $autocompleteRoute,
-                                ])
-                            </div>
-                            @if($q->tags->count())
-                                <div class="flex flex-wrap gap-1">
-                                    @php
-                                        $colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
-                                    @endphp
-                                    @foreach($q->tags as $tag)
-                                        <a href="{{ route('saved-tests.cards', ['tag' => $tag->name]) }}" class="inline-flex px-2 py-0.5 rounded text-xs font-semibold hover:underline {{ $colors[$loop->index % count($colors)] }}">{{ $tag->name }}</a>
-                                    @endforeach
-                                </div>
-                            @endif
-                            @if(!empty($checkOneInput))
-                                <div class="flex items-center gap-2">
-                                    <button
-                                        type="button"
-                                        class="mt-1 bg-purple-600 text-white text-xs rounded px-3 py-1 hover:bg-purple-700"
-                                        onclick="checkFullQuestionAjax(this, '{{ $q->id }}', '{{ implode(',', array_map(function($n){return 'a'.$n;}, $matches[1])) }}')"
-                                    >
-                                        Check answer
-                                    </button>
-                                    <span class="text-xs font-bold" id="result-question-{{ $q->id }}"></span>
-                                </div>
-                            @endif
+        <div x-show="open" x-transition.opacity class="fixed inset-0 z-40 flex items-center justify-center px-4" style="display: none;">
+                <div class="absolute inset-0 bg-black/50" @click="close()"></div>
+                <div class="relative z-10 w-full max-w-5xl bg-white rounded-2xl shadow-xl p-4 sm:p-6 space-y-4">
+                    <div class="flex items-center justify-between gap-3">
+                        <h3 class="text-lg font-bold text-gray-800">Додати питання до тесту</h3>
+                        <button type="button" class="text-gray-500 hover:text-gray-700" @click="close()">&times;</button>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="relative">
+                            <input type="search" x-model.debounce.300ms="query" placeholder="Пошук за текстом, тегами, сидером, джерелом, ID або UUID"
+                                   class="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                   autocomplete="off">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.9 14.32a6 6 0 111.414-1.414l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM14 9a5 5 0 11-10 0 5 5 0 0110 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span>Пошук у тексті питання, відповідях, тегах, сидерах, джерелах та варіантах.</span>
+                            <span x-text="selectionLabel()"></span>
+                        </div>
+                        <div class="border border-gray-200 rounded-2xl divide-y max-h-[60vh] overflow-auto" x-ref="results">
+                            <template x-if="loading">
+                                <div class="p-4 text-sm text-gray-500">Завантаження...</div>
+                            </template>
+                            <template x-if="!loading && results.length === 0">
+                                <div class="p-4 text-sm text-gray-500">Нічого не знайдено.</div>
+                            </template>
+                            <template x-for="item in results" :key="item.id + '-' + (item.uuid || '')">
+                                <label class="flex items-start gap-3 p-4 hover:bg-gray-50 transition cursor-pointer">
+                                    <input type="checkbox" class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded" :checked="isSelected(item)" @change="toggle(item)">
+                                    <div class="space-y-2">
+                                        <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500">
+                                            <span class="font-semibold text-gray-700" x-html="highlightText('ID: ' + item.id)"></span>
+                                            <template x-if="item.uuid"><span class="text-gray-500" x-html="highlightText('UUID: ' + item.uuid)"></span></template>
+                                            <template x-if="item.seeder"><span class="px-2 py-0.5 rounded-full bg-gray-100" x-html="highlightText(item.seeder)"></span></template>
+                                            <template x-if="item.source"><span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700" x-html="highlightText(item.source)"></span></template>
+                                            <template x-if="item.level"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700" x-html="highlightText('Level: ' + item.level)"></span></template>
+                                            <span class="px-2 py-0.5 rounded-full bg-yellow-50 text-yellow-700" x-html="highlightText('Складність: ' + item.difficulty)"></span>
+                                        </div>
+                                        <p class="text-sm font-semibold text-gray-800" x-html="renderQuestionPreview(item)"></p>
+                                        <div class="flex flex-col gap-1 text-xs text-gray-600" x-show="item.answers && item.answers.length" x-cloak>
+                                            <span class="font-semibold text-gray-700">Відповіді:</span>
+                                            <div class="flex flex-wrap gap-1">
+                                                <template x-for="answer in item.answers" :key="(answer.marker || '') + (answer.text || '')">
+                                                    <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800" x-html="highlightText(answer.text || '')"></span>
+                                                </template>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-1 text-[11px] text-gray-600" x-show="item.options && item.options.length" x-cloak>
+                                            <span class="font-semibold text-gray-700">Варіанти:</span>
+                                            <div class="flex flex-wrap gap-1">
+                                                <template x-for="option in item.options" :key="option">
+                                                    <span class="px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800" x-html="highlightText(option)"></span>
+                                                </template>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-wrap gap-1" x-show="item.tags && item.tags.length" x-cloak>
+                                            <template x-for="tag in item.tags" :key="tag">
+                                                <span class="text-[11px] px-2 py-0.5 rounded-full bg-purple-50 text-purple-700" x-html="highlightText(tag)"></span>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </label>
+                            </template>
                         </div>
                     </div>
-                @endforeach
+                    <div class="flex flex-col sm:flex-row sm:justify-end gap-2">
+                        <button type="button" class="inline-flex justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-2 rounded-2xl font-semibold" @click="close()">Скасувати</button>
+                        <button type="button" class="inline-flex justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-2xl font-semibold disabled:opacity-60 disabled:cursor-not-allowed" :disabled="selected.length === 0 || loading" @click="apply()">Додати вибрані</button>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
-                    Перевірити
-                </button>
-            </div>
-        </form>
-
-        <div class="bg-white shadow rounded-2xl p-4 sm:p-6">
-            <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
+        @if(!empty($questions) && count($questions))
+            <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
                 @csrf
-                @php
-                    $filtersForSave = $normalizedFilters ?? [
-                        'categories' => $selectedCategories,
-                        'difficulty_from' => $difficultyFrom,
-                        'difficulty_to' => $difficultyTo,
-                        'num_questions' => $numQuestions,
-                        'manual_input' => (bool) $manualInput,
-                        'autocomplete_input' => (bool) $autocompleteInput,
-                        'check_one_input' => (bool) $checkOneInput,
-                        'builder_input' => (bool) $builderInput,
-                        'include_ai' => (bool) ($includeAi ?? false),
-                        'only_ai' => (bool) ($onlyAi ?? false),
-                        'include_ai_v2' => (bool) ($includeAiV2 ?? false),
-                        'only_ai_v2' => (bool) ($onlyAiV2 ?? false),
-                        'levels' => $selectedLevels ?? [],
-                        'tags' => $selectedTags,
-                        'sources' => $selectedSources,
-                        'seeder_classes' => $selectedSeederClasses,
-                        'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
-                    ];
-                @endphp
-                <input type="hidden" name="filters" value="{{ htmlentities(json_encode($filtersForSave)) }}">
-                <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
-                <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"
-                       class="border rounded-lg px-3 py-2 w-full sm:w-80">
-                <div class="flex flex-col sm:flex-row gap-2">
-                    <button type="submit" name="save_mode" value="questions" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
-                        Зберегти тест
-                    </button>
-                    <button type="submit" name="save_mode" value="filters" class="inline-flex justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-6 py-2 rounded-2xl shadow font-semibold transition">
-                        Зберегти фільтр
+                <div id="questions-list" class="space-y-6">
+                    @foreach($questions as $q)
+                        @include('components.grammar-test-question-item', [
+                            'question' => $q,
+                            'savePayloadKey' => $savePayloadKey,
+                            'manualInput' => $manualInput,
+                            'autocompleteInput' => $autocompleteInput,
+                            'builderInput' => $builderInput,
+                            'autocompleteRoute' => $autocompleteRoute,
+                            'checkOneInput' => $checkOneInput,
+                            'number' => $loop->iteration,
+                        ])
+                    @endforeach
+                </div>
+
+                <div>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
+                        Перевірити
                     </button>
                 </div>
             </form>
-        </div>
-    @elseif(isset($questions))
+
+            <div class="bg-white shadow rounded-2xl p-4 sm:p-6">
+                <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
+                    @csrf
+                    @php
+                        $filtersForSave = $normalizedFilters ?? [
+                            'categories' => $selectedCategories,
+                            'difficulty_from' => $difficultyFrom,
+                            'difficulty_to' => $difficultyTo,
+                            'num_questions' => $numQuestions,
+                            'manual_input' => (bool) $manualInput,
+                            'autocomplete_input' => (bool) $autocompleteInput,
+                            'check_one_input' => (bool) $checkOneInput,
+                            'builder_input' => (bool) $builderInput,
+                            'include_ai' => (bool) ($includeAi ?? false),
+                            'only_ai' => (bool) ($onlyAi ?? false),
+                            'include_ai_v2' => (bool) ($includeAiV2 ?? false),
+                            'only_ai_v2' => (bool) ($onlyAiV2 ?? false),
+                            'levels' => $selectedLevels ?? [],
+                            'tags' => $selectedTags,
+                            'sources' => $selectedSources,
+                            'seeder_classes' => $selectedSeederClasses,
+                            'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
+                        ];
+                    @endphp
+                    <input type="hidden" name="filters" value="{{ htmlentities(json_encode($filtersForSave)) }}">
+                    <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="{{ htmlentities(json_encode($questions->pluck($savePayloadKey))) }}">
+                    <input type="text" name="name" value="{{ $autoTestName }}" placeholder="Назва тесту" required autocomplete="off"
+                           class="border rounded-lg px-3 py-2 w-full sm:w-80">
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <button type="submit" name="save_mode" value="questions" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
+                            Зберегти тест
+                        </button>
+                        <button type="submit" name="save_mode" value="filters" class="inline-flex justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-6 py-2 rounded-2xl shadow font-semibold transition">
+                            Зберегти фільтр
+                        </button>
+                    </div>
+                </form>
+            </div>
+        @else
+            {{-- Empty questions list container for manually added questions --}}
+            <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6" style="display: none;">
+                @csrf
+                <div id="questions-list" class="space-y-6"></div>
+                <div>
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-2xl shadow font-semibold text-lg transition">
+                        Перевірити
+                    </button>
+                </div>
+            </form>
+
+            <div class="bg-white shadow rounded-2xl p-4 sm:p-6" style="display: none;">
+                <form action="{{ $saveRoute }}" method="POST" class="flex flex-col sm:flex-row sm:items-center gap-3" id="save-test-form">
+                    @csrf
+                    @php
+                        $filtersForSave = $normalizedFilters ?? [
+                            'categories' => $selectedCategories ?? [],
+                            'difficulty_from' => $difficultyFrom ?? null,
+                            'difficulty_to' => $difficultyTo ?? null,
+                            'num_questions' => $numQuestions ?? 0,
+                            'manual_input' => (bool) ($manualInput ?? false),
+                            'autocomplete_input' => (bool) ($autocompleteInput ?? false),
+                            'check_one_input' => (bool) ($checkOneInput ?? false),
+                            'builder_input' => (bool) ($builderInput ?? false),
+                            'include_ai' => (bool) ($includeAi ?? false),
+                            'only_ai' => (bool) ($onlyAi ?? false),
+                            'include_ai_v2' => (bool) ($includeAiV2 ?? false),
+                            'only_ai_v2' => (bool) ($onlyAiV2 ?? false),
+                            'levels' => $selectedLevels ?? [],
+                            'tags' => $selectedTags ?? [],
+                            'sources' => $selectedSources ?? [],
+                            'seeder_classes' => $selectedSeederClasses ?? [],
+                            'randomize_filtered' => (bool) ($randomizeFiltered ?? false),
+                        ];
+                    @endphp
+                    <input type="hidden" name="filters" value="{{ htmlentities(json_encode($filtersForSave)) }}">
+                    <input type="hidden" name="{{ $savePayloadField }}" id="questions-order-input" value="[]">
+                    <input type="text" name="name" value="{{ $autoTestName ?? '' }}" placeholder="Назва тесту" required autocomplete="off"
+                           class="border rounded-lg px-3 py-2 w-full sm:w-80">
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <button type="submit" name="save_mode" value="questions" class="inline-flex justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-2xl shadow font-semibold transition">
+                            Зберегти тест
+                        </button>
+                        <button type="submit" name="save_mode" value="filters" class="inline-flex justify-center bg-emerald-100 hover:bg-emerald-200 text-emerald-700 px-6 py-2 rounded-2xl shadow font-semibold transition">
+                            Зберегти фільтр
+                        </button>
+                    </div>
+                </form>
+            </div>
+        @endif
+    </div>
+
+    @if(isset($questions) && empty($questions))
         <div class="text-red-600 font-bold text-lg">Питань по вибраних параметрах не знайдено!</div>
     @endif
+
+    {{-- Confirmation Modal for Question Deletion --}}
+    <div
+        id="question-delete-confirmation-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="question-delete-confirmation-title"
+    >
+        <div class="absolute inset-0 bg-black/50" data-modal-overlay></div>
+        <div class="relative w-full max-w-md space-y-5 rounded-2xl bg-white px-6 py-5 shadow-xl mx-4">
+            <div class="space-y-2">
+                <h2 id="question-delete-confirmation-title" class="text-lg font-semibold text-gray-800">Видалити питання?</h2>
+                <p class="text-sm text-gray-600">Ви впевнені, що хочете видалити це питання з тесту? Цю дію не можна буде скасувати.</p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+                <button
+                    type="button"
+                    class="rounded-2xl bg-gray-100 px-5 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-200 transition"
+                    data-modal-cancel
+                >
+                    Скасувати
+                </button>
+                <button
+                    type="button"
+                    class="rounded-2xl bg-red-600 px-5 py-2 text-sm font-semibold text-white shadow hover:bg-red-700 transition"
+                    data-modal-confirm
+                >
+                    Видалити
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -1137,24 +1259,42 @@ function checkFullQuestionAjax(btn, questionId, markerList) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const manager = createQuestionsManager();
+    manager.init();
+});
+
+function createQuestionsManager() {
     const container = document.getElementById('questions-list');
     const shuffleButton = document.getElementById('shuffle-questions');
     const orderInput = document.getElementById('questions-order-input');
     const saveForm = document.getElementById('save-test-form');
 
-    if (!container) {
-        return;
-    }
-
-    const getItems = () => Array.from(container.querySelectorAll('[data-question-id]'));
+    const getItems = () => Array.from(container ? container.querySelectorAll('[data-question-id]') : []);
 
     const updateNumbers = () => {
-        getItems().forEach((item, index) => {
+        const items = getItems();
+        items.forEach((item, index) => {
             const numberEl = item.querySelector('.question-number');
             if (numberEl) {
                 numberEl.textContent = `${index + 1}.`;
             }
         });
+
+        const countLabel = document.getElementById('question-count');
+        if (countLabel) {
+            countLabel.textContent = `Кількість питань: ${items.length}`;
+        }
+
+        // Show/hide forms based on question count
+        const checkForm = container?.closest('form');
+        const saveFormContainer = document.querySelector('#save-test-form')?.closest('.bg-white');
+        if (items.length === 0) {
+            if (checkForm) checkForm.style.display = 'none';
+            if (saveFormContainer) saveFormContainer.style.display = 'none';
+        } else {
+            if (checkForm) checkForm.style.display = '';
+            if (saveFormContainer) saveFormContainer.style.display = '';
+        }
     };
 
     const updateOrderInput = () => {
@@ -1166,32 +1306,283 @@ document.addEventListener('DOMContentLoaded', () => {
         orderInput.value = JSON.stringify(order);
     };
 
-    if (shuffleButton) {
-        shuffleButton.addEventListener('click', () => {
-            const items = getItems();
+    const appendHtml = (html) => {
+        if (!container || !html) {
+            return;
+        }
 
-            if (items.length <= 1) {
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = html;
+
+        const newItems = Array.from(wrapper.querySelectorAll('.question-item'));
+        newItems.forEach(item => container.appendChild(item));
+
+        updateNumbers();
+        updateOrderInput();
+
+        // Show forms when questions are added
+        const checkForm = container.closest('form');
+        const saveFormContainer = document.querySelector('#save-test-form')?.closest('.bg-white');
+        if (checkForm && getItems().length > 0) {
+            checkForm.style.display = '';
+        }
+        if (saveFormContainer && getItems().length > 0) {
+            saveFormContainer.style.display = '';
+        }
+    };
+
+    const showDeleteModal = (questionItem) => {
+        const modal = document.getElementById('question-delete-confirmation-modal');
+        if (!modal) {
+            return;
+        }
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        const confirmBtn = modal.querySelector('[data-modal-confirm]');
+        const cancelBtn = modal.querySelector('[data-modal-cancel]');
+        const overlay = modal.querySelector('[data-modal-overlay]');
+
+        const handleConfirm = () => {
+            questionItem.remove();
+            updateNumbers();
+            updateOrderInput();
+            closeModal();
+        };
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            confirmBtn.removeEventListener('click', handleConfirm);
+            cancelBtn.removeEventListener('click', closeModal);
+            overlay.removeEventListener('click', closeModal);
+        };
+
+        confirmBtn.addEventListener('click', handleConfirm);
+        cancelBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+    };
+
+    const removeQuestion = (button) => {
+        const questionItem = button.closest('.question-item');
+        if (!questionItem) {
+            return;
+        }
+
+        showDeleteModal(questionItem);
+    };
+
+    const init = () => {
+        if (!container) {
+            return;
+        }
+
+        // Add event listener for remove buttons
+        container.addEventListener('click', (event) => {
+            const removeBtn = event.target.closest('.remove-question-btn');
+            if (removeBtn) {
+                event.preventDefault();
+                removeQuestion(removeBtn);
+            }
+        });
+
+        if (shuffleButton) {
+            shuffleButton.addEventListener('click', () => {
+                const items = getItems();
+
+                if (items.length <= 1) {
+                    return;
+                }
+
+                for (let i = items.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [items[i], items[j]] = [items[j], items[i]];
+                }
+
+                items.forEach(item => container.appendChild(item));
+                updateNumbers();
+                updateOrderInput();
+            });
+        }
+
+        if (saveForm) {
+            saveForm.addEventListener('submit', updateOrderInput);
+        }
+
+        window.addEventListener('grammar-test:add-questions', (event) => {
+            appendHtml(event.detail && event.detail.html ? event.detail.html : '');
+        });
+
+        updateNumbers();
+        updateOrderInput();
+    };
+
+    return { init, updateNumbers, updateOrderInput, appendHtml };
+}
+
+function questionPicker(searchUrl, renderUrl, config = {}) {
+    return {
+        open: false,
+        query: '',
+        loading: false,
+        results: [],
+        selected: [],
+        init() {
+            this.$watch('query', () => {
+                if (this.open) {
+                    this.fetchResults();
+                }
+            });
+
+            this.$watch('open', (value) => {
+                if (value) {
+                    this.fetchResults();
+                }
+            });
+        },
+        close() {
+            this.open = false;
+        },
+        selectionLabel() {
+            if (!this.selected.length) {
+                return 'Не вибрано';
+            }
+
+            return `Вибрано: ${this.selected.length}`;
+        },
+        normalizedTerms() {
+            return String(this.query || '')
+                .toLowerCase()
+                .split(/\s+/)
+                .map(t => t.trim())
+                .filter(Boolean);
+        },
+        escapeHtml(text = '') {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        },
+        escapeRegExp(string) {
+            return String(string).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        },
+        highlightText(text = '') {
+            return this.applyTermHighlight(this.escapeHtml(text));
+        },
+        applyTermHighlight(html = '') {
+            const terms = this.normalizedTerms();
+
+            if (!terms.length || !html) {
+                return html;
+            }
+
+            let highlighted = html;
+
+            terms.forEach(term => {
+                const regex = new RegExp(`(${this.escapeRegExp(term)})`, 'gi');
+                highlighted = highlighted.replace(regex, '<mark>$1</mark>');
+            });
+
+            return highlighted;
+        },
+        highlightAnswers(html = '', answers = []) {
+            if (!html) {
+                return html;
+            }
+
+            let rendered = html;
+
+            (Array.isArray(answers) ? answers : []).forEach(answer => {
+                const text = this.escapeHtml(answer?.text || '');
+
+                if (!text) {
+                    return;
+                }
+
+                const regex = new RegExp(`(${this.escapeRegExp(text)})`, 'gi');
+                rendered = rendered.replace(
+                    regex,
+                    '<span class="bg-amber-100 text-amber-900 font-semibold px-1 rounded">$1</span>'
+                );
+            });
+
+            return rendered;
+        },
+        renderQuestionPreview(item) {
+            const base = this.escapeHtml(item?.rendered_question || item?.question || '');
+            const withAnswers = this.highlightAnswers(base, item?.answers || []);
+
+            return this.applyTermHighlight(withAnswers);
+        },
+        isSelected(item) {
+            return this.selected.some(sel => sel.id === item.id && sel.uuid === item.uuid);
+        },
+        toggle(item) {
+            if (this.isSelected(item)) {
+                this.selected = this.selected.filter(sel => !(sel.id === item.id && sel.uuid === item.uuid));
+            } else {
+                this.selected = [...this.selected, item];
+            }
+        },
+        fetchResults() {
+            this.loading = true;
+            fetch(`${searchUrl}?q=${encodeURIComponent(this.query || '')}`)
+                .then(res => res.json())
+                .then(data => {
+                    this.results = Array.isArray(data.items) ? data.items : [];
+                })
+                .catch(() => {
+                    this.results = [];
+                })
+                .finally(() => {
+                    this.loading = false;
+                });
+        },
+        apply() {
+            if (!this.selected.length) {
                 return;
             }
 
-            for (let i = items.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [items[i], items[j]] = [items[j], items[i]];
-            }
+            this.loading = true;
 
-            items.forEach(item => container.appendChild(item));
-            updateNumbers();
-            updateOrderInput();
-        });
-    }
+            const payload = {
+                question_ids: this.selected.map(item => item.id),
+                question_uuids: this.selected.map(item => item.uuid).filter(Boolean),
+                manual_input: !!config.manualInput,
+                autocomplete_input: !!config.autocompleteInput,
+                builder_input: !!config.builderInput,
+                check_one_input: !!config.checkOneInput,
+                save_payload_key: config.savePayloadKey || 'uuid',
+            };
 
-    if (saveForm) {
-        saveForm.addEventListener('submit', updateOrderInput);
-    }
-
-    updateNumbers();
-    updateOrderInput();
-});
+            fetch(renderUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+                body: JSON.stringify(payload),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    window.dispatchEvent(new CustomEvent('grammar-test:add-questions', {
+                        detail: { html: (data && data.html) || '' },
+                    }));
+                    this.selected = [];
+                    this.query = '';
+                    this.close();
+                })
+                .catch(() => {})
+                .finally(() => {
+                    this.loading = false;
+                });
+        },
+    };
+}
 
 function builder(route, prefix) {
     const stored = [];

@@ -5,6 +5,8 @@ namespace App\Modules\PageManager\Http\Controllers;
 use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\TextBlock;
+use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -12,6 +14,9 @@ use Illuminate\Validation\Rule;
 
 class PageManagerController extends Controller
 {
+    private const EXPORT_FILE_PATH = 'pages/exported_pages.json';
+    private const EXPORT_RELATIVE_PATH = 'config/pages/exported_pages.json';
+
     public function index(Request $request)
     {
         $pages = Page::query()
@@ -21,25 +26,19 @@ class PageManagerController extends Controller
 
         $categories = PageCategory::query()
             ->withCount('pages')
-            ->with('textBlocks')
+            ->with(['textBlocks', 'tags'])
             ->orderBy('title')
             ->get();
 
         $activeTab = $request->query('tab', 'pages');
 
-        $editingCategory = null;
-        if ($request->filled('edit')) {
-            $activeTab = 'categories';
-
-            $categoryId = (int) $request->query('edit');
-            $editingCategory = $categories->firstWhere('id', $categoryId);
-        }
+        $exportFileExists = file_exists(config_path(self::EXPORT_FILE_PATH));
 
         return view('page-manager::index', [
             'pages' => $pages,
             'categories' => $categories,
             'activeTab' => $activeTab,
-            'editingCategory' => $editingCategory,
+            'exportFileExists' => $exportFileExists,
         ]);
     }
 
@@ -47,10 +46,12 @@ class PageManagerController extends Controller
     {
         $page = new Page();
         $categories = $this->categories();
+        $tagsByCategory = $this->tagOptions();
 
         return view('page-manager::create', [
             'page' => $page,
             'categories' => $categories,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
@@ -58,12 +59,17 @@ class PageManagerController extends Controller
     {
         $validated = $this->validatedData($request);
 
+        $tagIds = $validated['tags'] ?? [];
+        unset($validated['tags']);
+
         $page = Page::create([
             'title' => $validated['title'],
             'slug' => $validated['slug'],
             'text' => $validated['text'] ?? '',
             'page_category_id' => $validated['page_category_id'],
         ]);
+
+        $this->syncTags($page, $tagIds);
 
         return redirect()
             ->route('pages.manage.edit', $page)
@@ -77,11 +83,15 @@ class PageManagerController extends Controller
             ->orderBy('id')
             ->get();
         $categories = $this->categories();
+        $tagsByCategory = $this->tagOptions();
+
+        $page->loadMissing('tags');
 
         return view('page-manager::edit', [
             'page' => $page,
             'blocks' => $blocks,
             'categories' => $categories,
+            'tagsByCategory' => $tagsByCategory,
         ]);
     }
 
@@ -89,12 +99,17 @@ class PageManagerController extends Controller
     {
         $validated = $this->validatedData($request, $page);
 
+        $tagIds = $validated['tags'] ?? [];
+        unset($validated['tags']);
+
         $page->fill([
             'title' => $validated['title'],
             'slug' => $validated['slug'],
             'text' => $validated['text'] ?? '',
             'page_category_id' => $validated['page_category_id'],
         ])->save();
+
+        $this->syncTags($page, $tagIds);
 
         return back()->with('status', 'Зміни збережено.');
     }
@@ -108,22 +123,52 @@ class PageManagerController extends Controller
             ->with('status', 'Сторінку видалено.');
     }
 
+    public function createCategory()
+    {
+        $tagsByCategory = $this->tagOptions();
+
+        return view('page-manager::categories.create', [
+            'tagsByCategory' => $tagsByCategory,
+        ]);
+    }
+
     public function storeCategory(Request $request): RedirectResponse
     {
         $data = $this->validatedCategoryData($request);
 
-        PageCategory::create($data);
+        $tagIds = $data['tags'] ?? [];
+        unset($data['tags']);
+
+        $category = PageCategory::create($data);
+
+        $this->syncTags($category, $tagIds);
 
         return redirect()
             ->route('pages.manage.index', ['tab' => 'categories'])
             ->with('status', 'Категорію створено.');
     }
 
+    public function editCategory(PageCategory $category)
+    {
+        $category->loadMissing('tags');
+        $tagsByCategory = $this->tagOptions();
+
+        return view('page-manager::categories.edit', [
+            'category' => $category,
+            'tagsByCategory' => $tagsByCategory,
+        ]);
+    }
+
     public function updateCategory(Request $request, PageCategory $category): RedirectResponse
     {
         $data = $this->validatedCategoryData($request, $category);
 
+        $tagIds = $data['tags'] ?? [];
+        unset($data['tags']);
+
         $category->fill($data)->save();
+
+        $this->syncTags($category, $tagIds);
 
         return redirect()
             ->route('pages.manage.index', ['tab' => 'categories'])
@@ -172,7 +217,7 @@ class PageManagerController extends Controller
             ],
             'text' => ['nullable', 'string'],
             'page_category_id' => ['required', 'integer', Rule::exists('page_categories', 'id')],
-        ]);
+        ] + $this->tagRules());
     }
 
     protected function validatedCategoryData(Request $request, ?PageCategory $category = null): array
@@ -188,7 +233,7 @@ class PageManagerController extends Controller
                 Rule::unique('page_categories', 'slug')->ignore($categoryId),
             ],
             'language' => ['required', 'string', 'max:8'],
-        ]);
+        ] + $this->tagRules());
     }
 
     public function createBlock(Page $page)
@@ -404,6 +449,54 @@ class PageManagerController extends Controller
         return $currentMax + 10 ?: 10;
     }
 
+    protected function tagRules(): array
+    {
+        return [
+            'tags' => ['nullable', 'array'],
+            'tags.*' => ['integer', Rule::exists('tags', 'id')],
+        ];
+    }
+
+    protected function syncTags($model, array $tagIds): void
+    {
+        $uniqueIds = collect($tagIds)
+            ->filter()
+            ->map(fn ($id) => (int) $id)
+            ->unique()
+            ->values()
+            ->all();
+
+        $model->tags()->sync($uniqueIds);
+    }
+
+    protected function tagOptions()
+    {
+        $tags = Tag::query()
+            ->orderByRaw('CASE WHEN category IS NULL OR category = "" THEN 1 ELSE 0 END')
+            ->orderBy('category')
+            ->orderBy('name')
+            ->get()
+            ->groupBy(function (Tag $tag) {
+                return $tag->category ?: 'Без категорії';
+            });
+
+        return $tags->sortKeysUsing(function ($a, $b) {
+            if ($a === $b) {
+                return 0;
+            }
+
+            if ($a === 'Без категорії') {
+                return 1;
+            }
+
+            if ($b === 'Без категорії') {
+                return -1;
+            }
+
+            return strnatcasecmp($a, $b);
+        });
+    }
+
     protected function categories()
     {
         return PageCategory::query()->orderBy('title')->get();
@@ -421,5 +514,91 @@ class PageManagerController extends Controller
         if ((int) $block->page_category_id !== (int) $category->getKey()) {
             abort(404);
         }
+    }
+
+    public function exportToJson(): RedirectResponse
+    {
+        $categories = PageCategory::query()
+            ->with(['pages' => function ($query) {
+                $query->orderBy('title');
+            }])
+            ->orderBy('title')
+            ->get();
+
+        $exportData = $categories->map(function (PageCategory $category) {
+            return [
+                'category_id' => $category->id,
+                'category_title' => $category->title,
+                'category_slug' => $category->slug,
+                'category_language' => $category->language,
+                'pages' => $category->pages->map(function (Page $page) {
+                    return [
+                        'page_id' => $page->id,
+                        'page_title' => $page->title,
+                        'page_slug' => $page->slug,
+                    ];
+                })->values()->all(),
+            ];
+        })->values()->all();
+
+        $jsonData = [
+            'exported_at' => now()->toIso8601String(),
+            'total_categories' => count($exportData),
+            'total_pages' => $categories->sum(fn ($category) => $category->pages->count()),
+            'categories' => $exportData,
+        ];
+
+        $filePath = config_path(self::EXPORT_FILE_PATH);
+        $directory = dirname($filePath);
+
+        if (!is_dir($directory) && !mkdir($directory, 0750, true)) {
+            return redirect()->route('pages.manage.index')->with('error', 'Не вдалося створити директорію для експорту.');
+        }
+
+        $result = file_put_contents($filePath, json_encode($jsonData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+
+        if ($result === false) {
+            return redirect()->route('pages.manage.index')->with('error', 'Не вдалося записати файл експорту.');
+        }
+
+        return redirect()->route('pages.manage.index')->with('status', "Сторінки успішно експортовано до файлу " . self::EXPORT_RELATIVE_PATH);
+    }
+
+    public function viewExportedJson()
+    {
+        $filePath = config_path(self::EXPORT_FILE_PATH);
+
+        if (!file_exists($filePath)) {
+            return redirect()->route('pages.manage.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
+        }
+
+        $jsonContent = file_get_contents($filePath);
+        if ($jsonContent === false) {
+            return redirect()->route('pages.manage.index')->with('error', 'Не вдалося прочитати файл експорту.');
+        }
+
+        $jsonData = json_decode($jsonContent, true);
+        if ($jsonData === null && json_last_error() !== JSON_ERROR_NONE) {
+            return redirect()->route('pages.manage.index')->with('error', 'Файл експорту містить некоректний JSON.');
+        }
+
+        return view('page-manager::view-export', [
+            'jsonContent' => $jsonContent,
+            'jsonData' => $jsonData,
+            'filePath' => self::EXPORT_RELATIVE_PATH,
+            'fileSize' => filesize($filePath),
+            'lastModified' => Carbon::createFromTimestamp(filemtime($filePath)),
+        ]);
+    }
+
+    public function downloadExportedJson()
+    {
+        $filePath = config_path(self::EXPORT_FILE_PATH);
+
+        if (!file_exists($filePath)) {
+            return redirect()->route('pages.manage.index')->with('error', 'Файл експорту не знайдено. Спочатку виконайте експорт.');
+        }
+
+        return response()->download($filePath, 'exported_pages.json');
     }
 }
