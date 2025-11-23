@@ -1123,10 +1123,13 @@ class GrammarTestController extends Controller
         return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
     }
 
-    private function findTestBySlug(string $slug)
+    private function findTestBySlug(string $slug): Test|SavedGrammarTest
     {
-        $test = Test::where('slug', $slug)->first() 
-            ?? SavedGrammarTest::where('slug', $slug)->first();
+        $test = Test::where('slug', $slug)->first();
+        
+        if (!$test) {
+            $test = SavedGrammarTest::where('slug', $slug)->first();
+        }
 
         if (!$test) {
             abort(404);
