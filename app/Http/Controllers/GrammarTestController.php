@@ -1100,21 +1100,50 @@ class GrammarTestController extends Controller
         ));
     }
     
+    public function edit(string $slug)
+    {
+        $test = $this->findTestBySlug($slug);
+
+        return view('saved-tests-edit', ['test' => $test]);
+    }
+
+    public function update(Request $request, string $slug)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        $test = $this->findTestBySlug($slug);
+
+        $test->name = $request->name;
+        $test->description = $request->description;
+        $test->save();
+
+        return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
+    }
+
+    private function findTestBySlug(string $slug): Test|SavedGrammarTest
+    {
+        $test = Test::where('slug', $slug)->first();
+        
+        if (!$test) {
+            $test = SavedGrammarTest::where('slug', $slug)->first();
+        }
+
+        if (!$test) {
+            abort(404);
+        }
+
+        return $test;
+    }
+
     public function destroy(string $slug)
     {
-        if ($legacy = Test::where('slug', $slug)->first()) {
-            $legacy->delete();
+        $test = $this->findTestBySlug($slug);
+        $test->delete();
 
-            return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
-        }
-
-        if ($saved = SavedGrammarTest::where('slug', $slug)->first()) {
-            $saved->delete();
-
-            return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
-        }
-
-        abort(404);
+        return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
     }
 
     // AJAX-предиктивний пошук

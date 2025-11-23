@@ -175,6 +175,8 @@ Route::middleware('auth.admin')->group(function () {
         Route::delete('/test/{slug}/step/remove-tag', [GrammarTestController::class, 'removeTag'])->name('saved-test.step.remove-tag');
         Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
         Route::get('/tests', [GrammarTestController::class, 'list'])->name('saved-tests.list');
+        Route::get('/tests/{slug}/edit', [GrammarTestController::class, 'edit'])->name('saved-tests.edit');
+        Route::put('/tests/{slug}', [GrammarTestController::class, 'update'])->name('saved-tests.update');
         Route::delete('/tests/{slug}', [GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 
         Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
