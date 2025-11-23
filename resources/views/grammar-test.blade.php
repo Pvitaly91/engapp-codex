@@ -901,7 +901,7 @@
                                             <template x-if="item.level"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700" x-html="highlightText('Level: ' + item.level)"></span></template>
                                             <span class="px-2 py-0.5 rounded-full bg-yellow-50 text-yellow-700" x-html="highlightText('Складність: ' + item.difficulty)"></span>
                                         </div>
-                                        <p class="text-sm font-semibold text-gray-800" x-html="highlightText(item.rendered_question || item.question)"></p>
+                                        <p class="text-sm font-semibold text-gray-800" x-html="renderQuestionPreview(item)"></p>
                                         <div class="flex flex-col gap-1 text-xs text-gray-600" x-show="item.answers && item.answers.length" x-cloak>
                                             <span class="font-semibold text-gray-700">Відповіді:</span>
                                             <div class="flex flex-wrap gap-1">
@@ -1311,19 +1311,52 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
             return String(string).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         },
         highlightText(text = '') {
+            return this.applyTermHighlight(this.escapeHtml(text));
+        },
+        applyTermHighlight(html = '') {
             const terms = this.normalizedTerms();
-            let safe = this.escapeHtml(text);
 
-            if (!terms.length || !safe) {
-                return safe;
+            if (!terms.length || !html) {
+                return html;
             }
+
+            let highlighted = html;
 
             terms.forEach(term => {
                 const regex = new RegExp(`(${this.escapeRegExp(term)})`, 'gi');
-                safe = safe.replace(regex, '<mark>$1</mark>');
+                highlighted = highlighted.replace(regex, '<mark>$1</mark>');
             });
 
-            return safe;
+            return highlighted;
+        },
+        highlightAnswers(html = '', answers = []) {
+            if (!html) {
+                return html;
+            }
+
+            let rendered = html;
+
+            (Array.isArray(answers) ? answers : []).forEach(answer => {
+                const text = this.escapeHtml(answer?.text || '');
+
+                if (!text) {
+                    return;
+                }
+
+                const regex = new RegExp(`(${this.escapeRegExp(text)})`, 'gi');
+                rendered = rendered.replace(
+                    regex,
+                    '<span class="bg-amber-100 text-amber-900 font-semibold px-1 rounded">$1</span>'
+                );
+            });
+
+            return rendered;
+        },
+        renderQuestionPreview(item) {
+            const base = this.escapeHtml(item?.rendered_question || item?.question || '');
+            const withAnswers = this.highlightAnswers(base, item?.answers || []);
+
+            return this.applyTermHighlight(withAnswers);
         },
         isSelected(item) {
             return this.selected.some(sel => sel.id === item.id && sel.uuid === item.uuid);
