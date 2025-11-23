@@ -93,7 +93,10 @@
                                 $testRoute = route('saved-test.js', $test->slug);
                             }
                         @endphp
-                        <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>
+                        <div class="mt-auto grid grid-cols-1 gap-2">
+                            <a href="{{ $testRoute }}" class="inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>
+                            <a href="{{ route('saved-tests.edit', $test->slug) }}" class="inline-block text-center bg-muted hover:bg-muted/80 text-foreground px-4 py-2 rounded-2xl text-sm font-semibold border border-border">Редагувати</a>
+                        </div>
                     </div>
                 @endforeach
             </div>
