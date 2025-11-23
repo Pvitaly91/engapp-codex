@@ -1130,6 +1130,92 @@ class GrammarTestController extends Controller
         return response()->json($words);
     }
     
+    // AJAX пошук питань для додавання в тест
+    public function searchQuestions(Request $request)
+    {
+        $query = $request->input('q', '');
+        $page = max(1, (int) $request->input('page', 1));
+        $perPage = 20;
+        
+        $questionsQuery = Question::with(['category', 'tags', 'source', 'answers.option', 'options'])
+            ->orderByDesc('id');
+        
+        if ($query) {
+            $questionsQuery->where(function ($q) use ($query) {
+                // Пошук по тексту питання
+                $q->where('question', 'like', '%' . $query . '%')
+                    // Пошук по ID
+                    ->orWhere('id', $query)
+                    // Пошук по UUID
+                    ->orWhere('uuid', 'like', '%' . $query . '%')
+                    // Пошук по відповідях
+                    ->orWhereHas('answers', function ($aq) use ($query) {
+                        $aq->where('answer', 'like', '%' . $query . '%')
+                            ->orWhereHas('option', function ($oq) use ($query) {
+                                $oq->where('option', 'like', '%' . $query . '%');
+                            });
+                    })
+                    // Пошук по варіантах відповідей (options)
+                    ->orWhereHas('options', function ($oq) use ($query) {
+                        $oq->where('option', 'like', '%' . $query . '%');
+                    })
+                    // Пошук по тегах
+                    ->orWhereHas('tags', function ($tq) use ($query) {
+                        $tq->where('name', 'like', '%' . $query . '%');
+                    })
+                    // Пошук по джерелу (source)
+                    ->orWhereHas('source', function ($sq) use ($query) {
+                        $sq->where('name', 'like', '%' . $query . '%');
+                    });
+                
+                // Пошук по сидері якщо є колонка
+                if (Schema::hasColumn('questions', 'seeder')) {
+                    $q->orWhere('seeder', 'like', '%' . $query . '%');
+                }
+            });
+        }
+        
+        $total = $questionsQuery->count();
+        $questions = $questionsQuery
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->get();
+        
+        $items = $questions->map(function ($question) {
+            $seeder = $question->seeder ?? null;
+            if ($seeder) {
+                $seeder = \Illuminate\Support\Str::after($seeder, 'Database\\Seeders\\');
+            }
+            
+            return [
+                'id' => $question->id,
+                'uuid' => $question->uuid,
+                'question' => $question->question,
+                'category' => $question->category ? $question->category->name : null,
+                'difficulty' => $question->difficulty,
+                'level' => $question->level,
+                'flag' => $question->flag,
+                'source' => $question->source ? $question->source->name : null,
+                'seeder' => $seeder,
+                'tags' => $question->tags->pluck('name')->toArray(),
+                'answers' => $question->answers->map(function ($answer) {
+                    return [
+                        'marker' => $answer->marker,
+                        'value' => $answer->option->option ?? $answer->answer ?? '',
+                    ];
+                })->toArray(),
+                'options' => $question->options->pluck('option')->toArray(),
+            ];
+        });
+        
+        return response()->json([
+            'items' => $items,
+            'total' => $total,
+            'page' => $page,
+            'perPage' => $perPage,
+            'lastPage' => ceil($total / $perPage),
+        ]);
+    }
 
     // AJAX перевірка ВСЬОГО питання (Check answer)
     public function checkOneAnswer(Request $request)

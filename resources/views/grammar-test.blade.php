@@ -838,12 +838,21 @@
     @if(!empty($questions) && count($questions))
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div class="text-sm text-gray-500">Кількість питань: {{ count($questions) }}</div>
-            @if(count($questions) > 1)
-                <button type="button" id="shuffle-questions"
-                        class="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
-                    Перемішати питання
+            <div class="flex gap-3">
+                <button type="button" id="add-questions-button"
+                        class="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                    </svg>
+                    Додати питання
                 </button>
-            @endif
+                @if(count($questions) > 1)
+                    <button type="button" id="shuffle-questions"
+                            class="inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-2xl shadow-sm text-sm font-semibold transition">
+                        Перемішати питання
+                    </button>
+                @endif
+            </div>
         </div>
 
         <form action="{{ route('grammar-test.check') }}" method="POST" class="space-y-6">
@@ -965,6 +974,141 @@
     @elseif(isset($questions))
         <div class="text-red-600 font-bold text-lg">Питань по вибраних параметрах не знайдено!</div>
     @endif
+
+    <!-- Modal for Adding Questions -->
+    <div x-data="questionSearchModal()" x-show="open" @keydown.escape.window="closeModal()" style="display: none;" 
+         class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" 
+                 x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" 
+                 x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                 class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" 
+                 @click="closeModal()" aria-hidden="true"></div>
+
+            <!-- Modal panel -->
+            <div x-show="open" x-transition:enter="ease-out duration-300"
+                 x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                 x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                 x-transition:leave="ease-in duration-200"
+                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                 class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+                
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-gray-900" id="modal-title">
+                            Пошук та вибір питань
+                        </h3>
+                        <button type="button" @click="closeModal()" class="text-gray-400 hover:text-gray-600">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Search input -->
+                    <div class="mb-4">
+                        <input type="text" x-model="searchQuery" @input.debounce.500ms="search()" 
+                               placeholder="Пошук по тексту питання, ID, UUID, тегах, відповідях, джерелах, сидерах..."
+                               class="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <p class="text-xs text-gray-500 mt-1">
+                            Можна шукати по тексту питання, ID, UUID, тегах, відповідях, варіантах відповідей, джерелах та сидерах
+                        </p>
+                    </div>
+
+                    <!-- Loading indicator -->
+                    <div x-show="loading" class="text-center py-4">
+                        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                    </div>
+
+                    <!-- Results -->
+                    <div x-show="!loading" class="space-y-3 max-h-96 overflow-y-auto">
+                        <template x-if="results.length === 0 && searchQuery">
+                            <p class="text-gray-500 text-center py-4">Питання не знайдено</p>
+                        </template>
+                        
+                        <template x-for="question in results" :key="question.id">
+                            <div class="border border-gray-200 rounded-xl p-3 hover:bg-gray-50 transition">
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" :value="question.uuid" 
+                                           x-model="selectedQuestions"
+                                           class="mt-1 h-5 w-5 text-blue-600 border-gray-300 rounded">
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                            <span class="text-xs px-2 py-0.5 rounded bg-blue-100 text-blue-800" 
+                                                  x-text="question.category || 'N/A'"></span>
+                                            <span class="text-xs text-gray-500">
+                                                ID: <span x-text="question.id"></span>
+                                            </span>
+                                            <span class="text-xs text-gray-500">
+                                                UUID: <span x-text="question.uuid?.substring(0, 8) || '—'"></span>
+                                            </span>
+                                            <template x-if="question.flag">
+                                                <span class="text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>
+                                            </template>
+                                            <template x-if="question.level">
+                                                <span class="text-xs text-gray-500">Level: <span x-text="question.level"></span></span>
+                                            </template>
+                                            <span class="text-xs text-gray-500">
+                                                Складність: <span x-text="question.difficulty"></span>/10
+                                            </span>
+                                        </div>
+                                        <div class="text-sm text-gray-800 mb-1" x-html="question.question"></div>
+                                        <template x-if="question.tags && question.tags.length > 0">
+                                            <div class="flex flex-wrap gap-1 mb-1">
+                                                <template x-for="tag in question.tags" :key="tag">
+                                                    <span class="text-xs px-2 py-0.5 rounded bg-green-100 text-green-800" x-text="tag"></span>
+                                                </template>
+                                            </div>
+                                        </template>
+                                        <template x-if="question.source">
+                                            <div class="text-xs text-gray-500">
+                                                Джерело: <span x-text="question.source"></span>
+                                            </div>
+                                        </template>
+                                        <template x-if="question.seeder">
+                                            <div class="text-xs text-gray-500">
+                                                Сидер: <span x-text="question.seeder"></span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </label>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div x-show="!loading && totalPages > 1" class="flex items-center justify-between mt-4 pt-4 border-t">
+                        <button type="button" @click="previousPage()" :disabled="currentPage <= 1"
+                                class="px-3 py-1 border rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                            Попередня
+                        </button>
+                        <span class="text-sm text-gray-600">
+                            Сторінка <span x-text="currentPage"></span> з <span x-text="totalPages"></span>
+                            (всього: <span x-text="total"></span>)
+                        </span>
+                        <button type="button" @click="nextPage()" :disabled="currentPage >= totalPages"
+                                class="px-3 py-1 border rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                            Наступна
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-3">
+                    <button type="button" @click="addSelectedQuestions()"
+                            :disabled="selectedQuestions.length === 0"
+                            class="w-full inline-flex justify-center rounded-2xl border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed sm:ml-3 sm:w-auto sm:text-sm">
+                        Додати вибрані (<span x-text="selectedQuestions.length"></span>)
+                    </button>
+                    <button type="button" @click="closeModal()"
+                            class="mt-3 w-full inline-flex justify-center rounded-2xl border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:w-auto sm:text-sm">
+                        Скасувати
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -1096,6 +1240,185 @@ document.addEventListener('alpine:init', () => {
     });
 });
 
+function questionSearchModal() {
+    return {
+        open: false,
+        searchQuery: '',
+        results: [],
+        selectedQuestions: [],
+        loading: false,
+        currentPage: 1,
+        total: 0,
+        totalPages: 0,
+        
+        openModal() {
+            this.open = true;
+            this.searchQuery = '';
+            this.results = [];
+            this.selectedQuestions = [];
+            this.currentPage = 1;
+        },
+        
+        closeModal() {
+            this.open = false;
+        },
+        
+        async search() {
+            this.loading = true;
+            this.currentPage = 1;
+            await this.fetchQuestions();
+        },
+        
+        async fetchQuestions() {
+            try {
+                const url = new URL('{{ route('grammar-test.search-questions') }}');
+                url.searchParams.append('q', this.searchQuery);
+                url.searchParams.append('page', this.currentPage);
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                this.results = data.items || [];
+                this.total = data.total || 0;
+                this.totalPages = data.lastPage || 0;
+            } catch (error) {
+                console.error('Error fetching questions:', error);
+                this.results = [];
+            } finally {
+                this.loading = false;
+            }
+        },
+        
+        async previousPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+                this.loading = true;
+                await this.fetchQuestions();
+            }
+        },
+        
+        async nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+                this.loading = true;
+                await this.fetchQuestions();
+            }
+        },
+        
+        async addSelectedQuestions() {
+            if (this.selectedQuestions.length === 0) {
+                return;
+            }
+            
+            // Fetch full question details for selected questions
+            const questionsToAdd = this.results.filter(q => 
+                this.selectedQuestions.includes(q.uuid)
+            );
+            
+            // Add questions to the list
+            const container = document.getElementById('questions-list');
+            if (!container) {
+                console.error('Questions list container not found');
+                return;
+            }
+            
+            for (const question of questionsToAdd) {
+                // Check if question already exists
+                const existingQuestion = container.querySelector(`[data-question-id="${question.id}"]`);
+                if (existingQuestion) {
+                    console.log(`Question ${question.id} already exists, skipping`);
+                    continue;
+                }
+                
+                // Create question element
+                const questionEl = this.createQuestionElement(question);
+                container.appendChild(questionEl);
+            }
+            
+            // Update question numbers and order
+            updateQuestionNumbers();
+            updateQuestionsOrder();
+            
+            // Show questions count
+            const countElement = document.querySelector('.text-sm.text-gray-500');
+            if (countElement) {
+                const totalQuestions = container.querySelectorAll('[data-question-id]').length;
+                countElement.textContent = `Кількість питань: ${totalQuestions}`;
+            }
+            
+            this.closeModal();
+        },
+        
+        createQuestionElement(question) {
+            const div = document.createElement('div');
+            div.className = 'question-item';
+            div.setAttribute('data-question-id', question.id);
+            div.setAttribute('data-question-save', question.uuid);
+            
+            const categoryClass = question.category === 'past' ? 'bg-red-100 text-red-700' : 
+                                 (question.category === 'present' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700');
+            
+            const tagsHtml = question.tags && question.tags.length > 0 ? `
+                <div class="flex flex-wrap gap-1">
+                    ${question.tags.map((tag, idx) => {
+                        const colors = ['bg-blue-200 text-blue-800', 'bg-green-200 text-green-800', 'bg-red-200 text-red-800', 'bg-purple-200 text-purple-800', 'bg-pink-200 text-pink-800', 'bg-yellow-200 text-yellow-800', 'bg-indigo-200 text-indigo-800', 'bg-teal-200 text-teal-800'];
+                        return `<span class="inline-flex px-2 py-0.5 rounded text-xs font-semibold ${colors[idx % colors.length]}">${tag}</span>`;
+                    }).join('')}
+                </div>
+            ` : '';
+            
+            div.innerHTML = `
+                <input type="hidden" name="questions[${question.id}]" value="1">
+                <div class="bg-white shadow rounded-2xl p-4 sm:p-6 space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <div class="text-sm font-semibold text-gray-700 flex flex-wrap items-center gap-2">
+                            <span class="uppercase px-2 py-1 rounded text-xs ${categoryClass}">
+                                ${question.category || 'N/A'}
+                            </span>
+                            ${question.source ? `<span class="text-xs text-gray-500">Source: ${question.source}</span>` : ''}
+                            ${question.seeder ? `<span class="text-xs text-gray-500">Seeder: ${question.seeder}</span>` : ''}
+                            ${question.flag ? '<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-yellow-200 text-yellow-800">AI</span>' : ''}
+                            <span class="text-xs text-gray-400">Складність: ${question.difficulty}/10</span>
+                            <span class="text-xs text-gray-400">Level: ${question.level || 'N/A'}</span>
+                        </div>
+                        <span class="text-xs text-gray-400">ID: ${question.id} | UUID: ${question.uuid || '—'}</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 items-baseline">
+                        <span class="question-number font-bold mr-2"></span>
+                        <span class="text-base">${question.question}</span>
+                    </div>
+                    ${tagsHtml}
+                </div>
+            `;
+            
+            return div;
+        }
+    };
+}
+
+function updateQuestionNumbers() {
+    const container = document.getElementById('questions-list');
+    if (!container) return;
+    
+    const items = Array.from(container.querySelectorAll('[data-question-id]'));
+    items.forEach((item, index) => {
+        const numberEl = item.querySelector('.question-number');
+        if (numberEl) {
+            numberEl.textContent = `${index + 1}.`;
+        }
+    });
+}
+
+function updateQuestionsOrder() {
+    const container = document.getElementById('questions-list');
+    const orderInput = document.getElementById('questions-order-input');
+    if (!container || !orderInput) return;
+    
+    const items = Array.from(container.querySelectorAll('[data-question-id]'));
+    const order = items.map(item => item.dataset.questionSave);
+    orderInput.value = JSON.stringify(order);
+}
+
 function checkFullQuestionAjax(btn, questionId, markerList) {
     let markers = markerList.split(',');
     let answers = {};
@@ -1191,6 +1514,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateNumbers();
     updateOrderInput();
+    
+    // Add event listener for the "Add Questions" button
+    const addQuestionsButton = document.getElementById('add-questions-button');
+    if (addQuestionsButton) {
+        addQuestionsButton.addEventListener('click', () => {
+            // Trigger Alpine.js modal opening
+            const modalElement = document.querySelector('[x-data*="questionSearchModal"]');
+            if (modalElement && modalElement.__x) {
+                modalElement.__x.$data.openModal();
+            }
+        });
+    }
 });
 
 function builder(route, prefix) {
