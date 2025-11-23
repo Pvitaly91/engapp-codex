@@ -1269,19 +1269,19 @@ function createQuestionsManager() {
         const cancelBtn = modal.querySelector('[data-modal-cancel]');
         const overlay = modal.querySelector('[data-modal-overlay]');
 
+        const handleConfirm = () => {
+            questionItem.remove();
+            updateNumbers();
+            updateOrderInput();
+            closeModal();
+        };
+
         const closeModal = () => {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
             confirmBtn.removeEventListener('click', handleConfirm);
             cancelBtn.removeEventListener('click', closeModal);
             overlay.removeEventListener('click', closeModal);
-        };
-
-        const handleConfirm = () => {
-            questionItem.remove();
-            updateNumbers();
-            updateOrderInput();
-            closeModal();
         };
 
         confirmBtn.addEventListener('click', handleConfirm);
