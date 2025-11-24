@@ -21,6 +21,7 @@
         $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
         $categoryPreview = $previewType === 'category' ? ($preview['category'] ?? null) : null;
+        $levelsSummary = collect($preview['levelsSummary'] ?? []);
     @endphp
 
     <div class="max-w-5xl mx-auto space-y-6">
@@ -75,9 +76,6 @@
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Існуючих питань із такими UUID') }}</dt>
                         <dd>{{ $existingQuestionCount === null ? __('—') : $existingQuestionCount }}</dd>
                     </div>
-                    @php
-                        $levelsSummary = collect($preview['levelsSummary'] ?? []);
-                    @endphp
                     @if($levelsSummary->isNotEmpty())
                         <div class="md:col-span-2">
                             <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs mb-2">{{ __('Рівні в сидері') }}</dt>
