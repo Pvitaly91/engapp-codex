@@ -159,22 +159,127 @@ function createQuestionsManager() {
 function questionPicker(searchUrl, renderUrl, config = {}) {
     return {
         open: false,
+        view: 'filter',
         query: '',
         loading: false,
+        totalCount: 0,
         results: [],
         selected: [],
+        filters: {
+            seederClasses: [],
+            sources: [],
+            levels: [],
+            tags: [],
+            aggregatedTags: [],
+        },
+        onlyAiV2: false,
+        appliedFilters: null,
+        filtersDirty: false,
+        filtersPreviewOpen: false,
         init() {
             this.$watch('query', () => {
-                if (this.open) {
+                if (this.open && this.view === 'results') {
                     this.fetchResults();
                 }
             });
 
             this.$watch('open', (value) => {
                 if (value) {
-                    this.fetchResults();
+                    this.view = 'filter';
+                    this.results = [];
+                    this.query = '';
+                    this.filtersDirty = false;
+                    this.appliedFilters = this.appliedFilters || this.snapshotFilters();
                 }
             });
+
+            ['filters.seederClasses', 'filters.sources', 'filters.levels', 'filters.tags', 'filters.aggregatedTags']
+                .forEach((path) => {
+                    this.$watch(path, () => {
+                        this.markFiltersDirty();
+                    });
+                });
+
+            this.$watch('onlyAiV2', () => {
+                this.markFiltersDirty();
+            });
+
+            this.filterLabels = Object.assign({
+                seeders: {},
+                sources: {},
+                levels: {},
+                tags: {},
+                aggregatedTags: {},
+                only_ai_v2: 'Тільки AI (flag = 2)',
+            }, config.filterLabels || {});
+
+            this.appliedFilters = this.snapshotFilters();
+        },
+        toggleFilter(key, value) {
+            const current = Array.isArray(this.filters[key]) ? [...this.filters[key]] : [];
+            const idx = current.indexOf(value);
+
+            if (idx === -1) {
+                current.push(value);
+            } else {
+                current.splice(idx, 1);
+            }
+
+            this.filters[key] = current;
+            this.markFiltersDirty();
+        },
+        markFiltersDirty() {
+            this.filtersDirty = true;
+        },
+        snapshotFilters() {
+            return {
+                seederClasses: [...(this.filters.seederClasses || [])],
+                sources: [...(this.filters.sources || [])],
+                levels: [...(this.filters.levels || [])],
+                tags: [...(this.filters.tags || [])],
+                aggregatedTags: [...(this.filters.aggregatedTags || [])],
+                onlyAiV2: !!this.onlyAiV2,
+            };
+        },
+        applyFilters() {
+            this.appliedFilters = this.snapshotFilters();
+            this.filtersDirty = false;
+            this.view = 'results';
+
+            if (this.open) {
+                this.fetchResults();
+            }
+        },
+        backToFilters() {
+            this.view = 'filter';
+        },
+        searchWithoutFilters() {
+            this.filters = {
+                seederClasses: [],
+                sources: [],
+                levels: [],
+                tags: [],
+                aggregatedTags: [],
+            };
+            this.onlyAiV2 = false;
+            this.appliedFilters = this.snapshotFilters();
+            this.filtersDirty = false;
+            this.view = 'results';
+
+            if (this.open) {
+                this.fetchResults();
+            }
+        },
+        resetFilters() {
+            this.filters = {
+                seederClasses: [],
+                sources: [],
+                levels: [],
+                tags: [],
+                aggregatedTags: [],
+            };
+            this.onlyAiV2 = false;
+            this.filtersDirty = true;
         },
         close() {
             this.open = false;
@@ -263,18 +368,97 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
             }
         },
         fetchResults() {
+            if (this.filtersDirty || this.view !== 'results') {
+                return;
+            }
+
             this.loading = true;
-            fetch(`${searchUrl}?q=${encodeURIComponent(this.query || '')}`)
+            this.totalCount = 0;
+            const params = new URLSearchParams();
+            params.set('q', this.query || '');
+
+            const activeFilters = this.appliedFilters || this.snapshotFilters();
+            const filterKeys = ['seeder_classes', 'sources', 'levels', 'tags', 'aggregated_tags'];
+            const stateKeys = ['seederClasses', 'sources', 'levels', 'tags', 'aggregatedTags'];
+
+            filterKeys.forEach((param, index) => {
+                const stateKey = stateKeys[index];
+                const values = activeFilters[stateKey] || [];
+
+                values.forEach(value => params.append(`${param}[]`, value));
+            });
+
+            if (activeFilters.onlyAiV2) {
+                params.set('only_ai_v2', '1');
+            }
+
+            fetch(`${searchUrl}?${params.toString()}`)
                 .then(res => res.json())
                 .then(data => {
                     this.results = Array.isArray(data.items) ? data.items : [];
+                    this.totalCount = Number.isFinite(data.total) ? data.total : this.results.length;
                 })
                 .catch(() => {
                     this.results = [];
+                    this.totalCount = 0;
                 })
                 .finally(() => {
                     this.loading = false;
                 });
+        },
+        appliedFilterList() {
+            const applied = this.appliedFilters || this.snapshotFilters();
+            const entries = [];
+
+            (applied.seederClasses || []).forEach(value => entries.push({
+                label: 'Сидер',
+                value: this.filterLabels.seeders?.[value] || value,
+            }));
+
+            (applied.sources || []).forEach(value => entries.push({
+                label: 'Джерело',
+                value: this.filterLabels.sources?.[value] || value,
+            }));
+
+            (applied.levels || []).forEach(value => entries.push({
+                label: 'Level',
+                value: this.filterLabels.levels?.[value] || value,
+            }));
+
+            (applied.tags || []).forEach(value => entries.push({
+                label: 'Tag',
+                value: this.filterLabels.tags?.[value] || value,
+            }));
+
+            (applied.aggregatedTags || []).forEach(value => entries.push({
+                label: 'Агрегований тег',
+                value: this.filterLabels.aggregatedTags?.[value] || value,
+            }));
+
+            if (applied.onlyAiV2) {
+                entries.push({
+                    label: 'AI',
+                    value: this.filterLabels.only_ai_v2 || 'Тільки AI (flag = 2)',
+                });
+            }
+
+            return entries;
+        },
+        appliedFilterSummary() {
+            const entries = this.appliedFilterList();
+
+            if (!entries.length) {
+                return 'Фільтри не застосовано';
+            }
+
+            return entries.map(item => `${item.label}: ${item.value}`).join(' · ');
+        },
+        resultCountLabel() {
+            if (this.loading) {
+                return 'Завантаження результатів...';
+            }
+
+            return `Знайдено: ${this.totalCount}`;
         },
         apply() {
             if (!this.selected.length) {
