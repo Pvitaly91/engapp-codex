@@ -1103,8 +1103,39 @@ class GrammarTestController extends Controller
     public function edit(string $slug)
     {
         $test = $this->findTestBySlug($slug);
+        $questions = collect();
+        $savePayloadKey = 'uuid';
 
-        return view('saved-tests-edit', ['test' => $test]);
+        if ($test instanceof SavedGrammarTest) {
+            $questionUuids = $test->questionLinks->pluck('question_uuid')->filter();
+            if ($questionUuids->isNotEmpty()) {
+                $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags', 'source'];
+                $questions = Question::with($relations)
+                    ->whereIn('uuid', $questionUuids)
+                    ->get()
+                    ->sortBy(fn (Question $question) => $questionUuids->search($question->uuid))
+                    ->values();
+            }
+        } elseif ($test instanceof Test) {
+            $savePayloadKey = 'id';
+            $questionIds = collect($test->questions ?? [])->filter(fn ($id) => is_numeric($id))->map(fn ($id) => (int) $id);
+            if ($questionIds->isNotEmpty()) {
+                $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags', 'source'];
+                $questions = Question::with($relations)
+                    ->whereIn('id', $questionIds)
+                    ->get()
+                    ->sortBy(fn (Question $question) => $questionIds->search($question->id))
+                    ->values();
+            }
+        }
+
+        return view('saved-tests-edit', array_merge([
+            'test' => $test,
+            'questions' => $questions,
+            'questionSearchRoute' => route('grammar-test.search-questions'),
+            'questionRenderRoute' => route('grammar-test.render-questions'),
+            'savePayloadKey' => $savePayloadKey,
+        ], $this->uuidFormExtras()));
     }
 
     public function update(Request $request, string $slug)
@@ -1112,6 +1143,7 @@ class GrammarTestController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'question_uuids' => 'nullable|string',
         ]);
 
         $test = $this->findTestBySlug($slug);
@@ -1119,6 +1151,23 @@ class GrammarTestController extends Controller
         $test->name = $request->name;
         $test->description = $request->description;
         $test->save();
+
+        if ($test instanceof SavedGrammarTest) {
+            $questionUuids = collect(json_decode(html_entity_decode($request->input('question_uuids', '[]')), true))
+                ->filter(fn ($uuid) => is_string($uuid) && $uuid !== '')
+                ->values();
+
+            DB::transaction(function () use ($test, $questionUuids) {
+                $test->questionLinks()->delete();
+
+                $questionUuids->each(function ($uuid, $index) use ($test) {
+                    $test->questionLinks()->create([
+                        'question_uuid' => $uuid,
+                        'position' => $index,
+                    ]);
+                });
+            });
+        }
 
         return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
     }
@@ -1163,6 +1212,7 @@ class GrammarTestController extends Controller
     {
         $query = trim((string) $request->input('q', ''));
         $limit = (int) min(max($request->input('limit', 20), 1), 50);
+        $filters = $this->filterService->normalize($request->all());
 
         $builder = Question::query()
             ->with(['tags:id,name', 'source:id,name', 'answers.option:id,option', 'options:id,option'])
@@ -1192,6 +1242,53 @@ class GrammarTestController extends Controller
                     });
                 }
             });
+        }
+
+        if (!empty($filters['seeder_classes'])) {
+            $builder->whereIn('seeder', $filters['seeder_classes']);
+        }
+
+        if (!empty($filters['sources'])) {
+            $builder->whereIn('source_id', $filters['sources']);
+        }
+
+        if (!empty($filters['categories'])) {
+            $builder->whereIn('category_id', $filters['categories']);
+        }
+
+        if (!empty($filters['levels'])) {
+            $builder->whereIn('level', $filters['levels']);
+        }
+
+        if (!empty($filters['tags'])) {
+            $builder->whereHas('tags', fn ($q) => $q->whereIn('name', $filters['tags']));
+        }
+
+        if (!empty($filters['aggregated_tags'])) {
+            $aggregations = $this->aggregationService->getAggregations();
+            $mainTagToSimilarTags = [];
+            foreach ($aggregations as $aggregation) {
+                $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
+            }
+
+            $tagsToMatch = [];
+            foreach ($filters['aggregated_tags'] as $mainTag) {
+                $tagsToMatch[] = $mainTag;
+
+                if (isset($mainTagToSimilarTags[$mainTag])) {
+                    $tagsToMatch = array_merge($tagsToMatch, $mainTagToSimilarTags[$mainTag]);
+                }
+            }
+
+            $tagsToMatch = array_values(array_unique($tagsToMatch));
+
+            if (!empty($tagsToMatch)) {
+                $builder->whereHas('tags', fn ($q) => $q->whereIn('name', $tagsToMatch));
+            }
+        }
+
+        if (!empty($filters['only_ai_v2'])) {
+            $builder->where('flag', 2);
         }
 
         $results = $builder->limit($limit)->get()->map(function (Question $question) {
