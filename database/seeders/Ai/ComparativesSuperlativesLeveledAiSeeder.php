@@ -46,12 +46,13 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 ];
             }
 
+            $questionText = $this->formatQuestionForLevel($entry['question'], $entry['level']);
             $options = $this->flattenOptions($entry['options']);
             $uuid = $this->generateQuestionUuid($entry['level'], $index + 1, $entry['question']);
 
             $items[] = [
                 'uuid' => $uuid,
-                'question' => $entry['question'],
+                'question' => $questionText,
                 'category_id' => $categoryId,
                 'difficulty' => $this->levelDifficulty[$entry['level']] ?? 3,
                 'source_id' => $sourceIds[$entry['source']] ?? reset($sourceIds),
@@ -61,7 +62,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 'tag_ids' => $tagIds,
                 'answers' => $answers,
                 'options' => $options,
-                'variants' => [$entry['question']],
+                'variants' => [$questionText],
             ];
 
             $meta[] = [
@@ -1368,6 +1369,11 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
         }
 
         return $variantSet;
+    }
+
+    private function formatQuestionForLevel(string $question, string $level): string
+    {
+        return sprintf('%s — рівень %s', $question, $level);
     }
 
     private function buildHints(array $variant): array
