@@ -75,6 +75,21 @@
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Існуючих питань із такими UUID') }}</dt>
                         <dd>{{ $existingQuestionCount === null ? __('—') : $existingQuestionCount }}</dd>
                     </div>
+                    @php
+                        $levelsSummary = collect($preview['levelsSummary'] ?? []);
+                    @endphp
+                    @if($levelsSummary->isNotEmpty())
+                        <div class="md:col-span-2">
+                            <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs mb-2">{{ __('Рівні в сидері') }}</dt>
+                            <dd class="flex flex-wrap gap-2">
+                                @foreach($levelsSummary as $level)
+                                    <span class="inline-flex items-center px-3 py-1 rounded-md bg-indigo-100 text-indigo-800 text-sm font-medium">
+                                        {{ $level }}
+                                    </span>
+                                @endforeach
+                            </dd>
+                        </div>
+                    @endif
                 @elseif($previewType === 'page' && $pagePreview)
                     <div>
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Заголовок сторінки') }}</dt>

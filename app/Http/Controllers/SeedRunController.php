@@ -626,6 +626,14 @@ class SeedRunController extends Controller
                 })
                 ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)
                 ->values();
+
+            // Collect all unique levels from the preview questions
+            $levelsSummary = $questions
+                ->pluck('level')
+                ->filter(fn ($level) => filled($level))
+                ->unique()
+                ->sort(SORT_NATURAL)
+                ->values();
         } finally {
             DB::rollBack();
         }
@@ -635,6 +643,7 @@ class SeedRunController extends Controller
             'questions' => $previewQuestions,
             'existingQuestionCount' => $existingQuestionCount,
             'tagsSummary' => $tagsSummary,
+            'levelsSummary' => $levelsSummary,
         ];
     }
 
