@@ -1291,6 +1291,8 @@ class GrammarTestController extends Controller
             $builder->where('flag', 2);
         }
 
+        $totalCount = (clone $builder)->count();
+
         $results = $builder->limit($limit)->get()->map(function (Question $question) {
             $renderedQuestion = $question->renderQuestionText();
             $answers = $question->answers->map(function ($answer) {
@@ -1317,7 +1319,10 @@ class GrammarTestController extends Controller
             ];
         });
 
-        return response()->json(['items' => $results]);
+        return response()->json([
+            'items' => $results,
+            'total' => $totalCount,
+        ]);
     }
 
     public function renderQuestions(Request $request)

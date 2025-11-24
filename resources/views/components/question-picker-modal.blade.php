@@ -270,21 +270,53 @@
                         <span>Пошук у відібраних питаннях.</span>
                         <span x-show="filtersDirty" class="text-red-500">Фільтри змінено — застосуйте, щоб оновити.</span>
                     </div>
-                    <button type="button" class="inline-flex items-center gap-2 text-blue-600 font-semibold" @click="backToFilters()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M12.78 4.22a.75.75 0 010 1.06L8.06 10l4.72 4.72a.75.75 0 11-1.06 1.06l-5.25-5.25a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z" clip-rule="evenodd" />
-                        </svg>
-                        Повернутися до фільтрів
-                    </button>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold text-gray-700" x-text="resultCountLabel()"></span>
+                        <button type="button" class="inline-flex items-center gap-2 text-blue-600 font-semibold" @click="backToFilters()">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.78 4.22a.75.75 0 010 1.06L8.06 10l4.72 4.72a.75.75 0 11-1.06 1.06l-5.25-5.25a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z" clip-rule="evenodd" />
+                            </svg>
+                            Повернутися до фільтрів
+                        </button>
+                    </div>
                 </div>
 
-                <div class="relative">
-                    <input type="search" x-model.debounce.300ms="query" placeholder="Пошук за текстом, тегами, сидером, джерелом, ID або UUID"
-                           class="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                           autocomplete="off">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M12.9 14.32a6 6 0 111.414-1.414l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM14 9a5 5 0 11-10 0 5 5 0 0110 0z" clip-rule="evenodd" />
-                    </svg>
+                <div class="space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-3">
+                        <div class="relative flex-1">
+                            <input type="search" x-model.debounce.300ms="query" placeholder="Пошук за текстом, тегами, сидером, джерелом, ID або UUID"
+                                   class="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                   autocomplete="off">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.9 14.32a6 6 0 111.414-1.414l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM14 9a5 5 0 11-10 0 5 5 0 0110 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <button type="button"
+                                class="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50"
+                                @click="filtersPreviewOpen = !filtersPreviewOpen">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4.22 5.22a.75.75 0 011.06 0L10 9.94l4.72-4.72a.75.75 0 111.06 1.06l-5.25 5.25a.75.75 0 01-1.06 0L4.22 6.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="whitespace-nowrap">Вибрані фільтри</span>
+                            <span class="text-gray-400" x-text="filtersPreviewOpen ? 'Згорнути' : 'Розгорнути'"></span>
+                        </button>
+                    </div>
+
+                    <div x-show="filtersPreviewOpen" x-collapse class="border border-gray-100 rounded-xl p-3 bg-gray-50 space-y-2">
+                        <div class="flex items-center justify-between text-xs text-gray-500">
+                            <span class="font-semibold text-gray-700">Застосовані фільтри</span>
+                            <span x-text="appliedFilterSummary()"></span>
+                        </div>
+                        <div class="flex flex-wrap gap-2" x-show="appliedFilterList().length" x-cloak>
+                            <template x-for="(item, index) in appliedFilterList()" :key="item.label + '-' + item.value + '-' + index">
+                                <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white border border-gray-200 text-xs text-gray-700">
+                                    <span x-text="item.label"></span>
+                                    <span class="text-gray-500" x-text="item.value"></span>
+                                </span>
+                            </template>
+                        </div>
+                        <div class="text-xs text-gray-500" x-show="!appliedFilterList().length" x-cloak>Фільтри не застосовано.</div>
+                    </div>
                 </div>
 
                 <div class="flex items-center justify-between text-xs text-gray-500">

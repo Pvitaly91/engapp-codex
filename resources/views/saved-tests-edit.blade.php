@@ -41,8 +41,29 @@
                 @enderror
             </div>
 
+            @php
+                $filterLabels = [
+                    'seeders' => collect($seederSourceGroups ?? [])
+                        ->filter(fn($group) => filled($group['seeder'] ?? null))
+                        ->mapWithKeys(fn($group) => [$group['seeder'] => \Illuminate\Support\Str::after($group['seeder'], 'Database\\Seeders\\')])
+                        ->toArray(),
+                    'sources' => collect($sourcesByCategory ?? [])
+                        ->flatMap(fn($group) => collect($group['sources'] ?? [])->mapWithKeys(fn($source) => [$source->id => $source->name]))
+                        ->toArray(),
+                    'levels' => collect($levels ?? [])->mapWithKeys(fn($level) => [$level => $level])->toArray(),
+                    'tags' => collect($tagsByCategory ?? [])
+                        ->flatMap(fn($tags) => collect($tags)->mapWithKeys(fn($tag) => [$tag->name => $tag->name]))
+                        ->toArray(),
+                    'aggregatedTags' => collect($aggregatedTagsByCategory ?? [])
+                        ->flatMap(fn($tags) => collect($tags)->mapWithKeys(fn($tag) => [$tag => $tag]))
+                        ->toArray(),
+                    'only_ai_v2' => 'Тільки AI (flag = 2)',
+                ];
+            @endphp
+
             <div x-data="questionPicker(@js($questionSearchRoute), @js($questionRenderRoute), {
-                savePayloadKey: '{{ $savePayloadKey }}'
+                savePayloadKey: '{{ $savePayloadKey }}',
+                filterLabels: @js($filterLabels)
             })" x-init="init()" class="space-y-4">
                 @include('components.question-picker-modal', [
                     'questionCount' => $questions->count(),
