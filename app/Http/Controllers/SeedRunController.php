@@ -748,6 +748,7 @@ class SeedRunController extends Controller
             'questions' => collect(),
             'existingQuestionCount' => null,
             'page' => $pageMeta,
+            'levelsSummary' => collect(),
         ];
     }
 
@@ -831,6 +832,7 @@ class SeedRunController extends Controller
             'questions' => collect(),
             'existingQuestionCount' => null,
             'category' => $categoryMeta,
+            'levelsSummary' => collect(),
         ];
     }
 
