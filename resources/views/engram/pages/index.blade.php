@@ -50,6 +50,17 @@
                 </div>
             @endif
 
+            @if($selectedCategory && $selectedCategory->tags->isNotEmpty())
+                <div class="rounded-2xl border border-border/80 bg-card shadow-soft p-6">
+                    <div class="text-xs text-muted-foreground mb-2 font-semibold">Теги категорії:</div>
+                    <div class="flex flex-wrap gap-1">
+                        @foreach($selectedCategory->tags as $tag)
+                            <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">{{ $tag->name }}</span>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
             @if(isset($relatedTests) && $relatedTests->isNotEmpty())
                 <div class="rounded-2xl border border-border/80 bg-card shadow-soft p-6" x-data="{ expanded: true }">
                     <div class="flex items-center justify-between mb-4">
@@ -71,17 +82,6 @@
                             </svg>
                         </button>
                     </div>
-
-                    @if($selectedCategory && $selectedCategory->tags->isNotEmpty())
-                        <div class="mb-4 pb-4 border-b border-border/60">
-                            <div class="text-xs text-muted-foreground mb-2 font-semibold">Теги категорії:</div>
-                            <div class="flex flex-wrap gap-1">
-                                @foreach($selectedCategory->tags as $tag)
-                                    <span class="inline-block bg-secondary text-secondary-foreground font-medium text-xs px-2 py-0.5 rounded">{{ $tag->name }}</span>
-                                @endforeach
-                            </div>
-                        </div>
-                    @endif
 
                     <div x-show="expanded" x-collapse>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

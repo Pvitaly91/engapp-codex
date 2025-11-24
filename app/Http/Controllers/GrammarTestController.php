@@ -1100,21 +1100,99 @@ class GrammarTestController extends Controller
         ));
     }
     
+    public function edit(string $slug)
+    {
+        $test = $this->findTestBySlug($slug);
+        $questions = collect();
+        $savePayloadKey = 'uuid';
+
+        if ($test instanceof SavedGrammarTest) {
+            $questionUuids = $test->questionLinks->pluck('question_uuid')->filter();
+            if ($questionUuids->isNotEmpty()) {
+                $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags', 'source'];
+                $questions = Question::with($relations)
+                    ->whereIn('uuid', $questionUuids)
+                    ->get()
+                    ->sortBy(fn (Question $question) => $questionUuids->search($question->uuid))
+                    ->values();
+            }
+        } elseif ($test instanceof Test) {
+            $savePayloadKey = 'id';
+            $questionIds = collect($test->questions ?? [])->filter(fn ($id) => is_numeric($id))->map(fn ($id) => (int) $id);
+            if ($questionIds->isNotEmpty()) {
+                $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags', 'source'];
+                $questions = Question::with($relations)
+                    ->whereIn('id', $questionIds)
+                    ->get()
+                    ->sortBy(fn (Question $question) => $questionIds->search($question->id))
+                    ->values();
+            }
+        }
+
+        return view('saved-tests-edit', [
+            'test' => $test,
+            'questions' => $questions,
+            'questionSearchRoute' => route('grammar-test.search-questions'),
+            'questionRenderRoute' => route('grammar-test.render-questions'),
+            'savePayloadKey' => $savePayloadKey,
+        ]);
+    }
+
+    public function update(Request $request, string $slug)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'question_uuids' => 'nullable|string',
+        ]);
+
+        $test = $this->findTestBySlug($slug);
+
+        $test->name = $request->name;
+        $test->description = $request->description;
+        $test->save();
+
+        if ($test instanceof SavedGrammarTest) {
+            $questionUuids = collect(json_decode(html_entity_decode($request->input('question_uuids', '[]')), true))
+                ->filter(fn ($uuid) => is_string($uuid) && $uuid !== '')
+                ->values();
+
+            DB::transaction(function () use ($test, $questionUuids) {
+                $test->questionLinks()->delete();
+
+                $questionUuids->each(function ($uuid, $index) use ($test) {
+                    $test->questionLinks()->create([
+                        'question_uuid' => $uuid,
+                        'position' => $index,
+                    ]);
+                });
+            });
+        }
+
+        return redirect()->route('saved-tests.list')->with('success', 'Тест оновлено!');
+    }
+
+    private function findTestBySlug(string $slug): Test|SavedGrammarTest
+    {
+        $test = Test::where('slug', $slug)->first();
+        
+        if (!$test) {
+            $test = SavedGrammarTest::where('slug', $slug)->first();
+        }
+
+        if (!$test) {
+            abort(404);
+        }
+
+        return $test;
+    }
+
     public function destroy(string $slug)
     {
-        if ($legacy = Test::where('slug', $slug)->first()) {
-            $legacy->delete();
+        $test = $this->findTestBySlug($slug);
+        $test->delete();
 
-            return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
-        }
-
-        if ($saved = SavedGrammarTest::where('slug', $slug)->first()) {
-            $saved->delete();
-
-            return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
-        }
-
-        abort(404);
+        return redirect()->route('saved-tests.list')->with('success', 'Тест видалено!');
     }
 
     // AJAX-предиктивний пошук
@@ -1129,7 +1207,133 @@ class GrammarTestController extends Controller
 
         return response()->json($words);
     }
-    
+
+    public function searchQuestions(Request $request)
+    {
+        $query = trim((string) $request->input('q', ''));
+        $limit = (int) min(max($request->input('limit', 20), 1), 50);
+
+        $builder = Question::query()
+            ->with(['tags:id,name', 'source:id,name', 'answers.option:id,option', 'options:id,option'])
+            ->orderByDesc('id');
+
+        if ($query !== '') {
+            $terms = collect(preg_split('/\s+/', $query))
+                ->filter()
+                ->values();
+
+            $builder->where(function ($outer) use ($terms) {
+                foreach ($terms as $term) {
+                    $outer->where(function ($inner) use ($term) {
+                        $like = '%' . $term . '%';
+
+                        if (is_numeric($term)) {
+                            $inner->orWhere('id', (int) $term);
+                        }
+
+                        $inner->orWhere('uuid', 'like', $like)
+                            ->orWhere('question', 'like', $like)
+                            ->orWhere('seeder', 'like', $like)
+                            ->orWhereHas('tags', fn ($q) => $q->where('name', 'like', $like))
+                            ->orWhereHas('source', fn ($q) => $q->where('name', 'like', $like))
+                            ->orWhereHas('answers.option', fn ($q) => $q->where('option', 'like', $like))
+                            ->orWhereHas('options', fn ($q) => $q->where('option', 'like', $like));
+                    });
+                }
+            });
+        }
+
+        $results = $builder->limit($limit)->get()->map(function (Question $question) {
+            $renderedQuestion = $question->renderQuestionText();
+            $answers = $question->answers->map(function ($answer) {
+                return [
+                    'marker' => $answer->marker,
+                    'text' => $answer->option->option ?? $answer->answer,
+                ];
+            });
+
+            $options = $question->options->pluck('option')->filter()->values();
+
+            return [
+                'id' => $question->id,
+                'uuid' => $question->uuid,
+                'question' => $question->question,
+                'rendered_question' => $renderedQuestion,
+                'seeder' => $question->seeder,
+                'source' => $question->source?->name,
+                'tags' => $question->tags->pluck('name')->values(),
+                'difficulty' => $question->difficulty,
+                'level' => $question->level,
+                'answers' => $answers,
+                'options' => $options,
+            ];
+        });
+
+        return response()->json(['items' => $results]);
+    }
+
+    public function renderQuestions(Request $request)
+    {
+        $ids = collect($request->input('question_ids', []))
+            ->filter(fn ($id) => is_numeric($id))
+            ->map(fn ($id) => (int) $id)
+            ->values();
+
+        $uuids = collect($request->input('question_uuids', []))
+            ->filter(fn ($uuid) => is_string($uuid) && $uuid !== '')
+            ->values();
+
+        if ($ids->isEmpty() && $uuids->isEmpty()) {
+            return response()->json(['html' => '']);
+        }
+
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags', 'source'];
+
+        $questions = Question::with($relations)
+            ->where(function ($query) use ($ids, $uuids) {
+                if ($ids->isNotEmpty()) {
+                    $query->orWhereIn('id', $ids);
+                }
+
+                if ($uuids->isNotEmpty()) {
+                    $query->orWhereIn('uuid', $uuids);
+                }
+            })
+            ->get();
+
+        $positions = $uuids
+            ->mapWithKeys(fn ($uuid, $index) => [$uuid => $index])
+            ->merge($ids->mapWithKeys(fn ($id, $index) => [$id => $index + $uuids->count()]));
+
+        $questions = $questions->sortBy(function (Question $question) use ($positions) {
+            if ($question->uuid && $positions->has($question->uuid)) {
+                return $positions->get($question->uuid);
+            }
+
+            if ($positions->has($question->id)) {
+                return $positions->get($question->id);
+            }
+
+            return $question->id;
+        })->values();
+
+        $html = $questions
+            ->map(function (Question $question) use ($request) {
+                return view('components.grammar-test-question-item', [
+                    'question' => $question,
+                    'savePayloadKey' => $request->input('save_payload_key', 'uuid'),
+                    'manualInput' => $request->boolean('manual_input'),
+                    'autocompleteInput' => $request->boolean('autocomplete_input'),
+                    'builderInput' => $request->boolean('builder_input'),
+                    'autocompleteRoute' => url('/api/search?lang=en'),
+                    'checkOneInput' => $request->boolean('check_one_input'),
+                ])->render();
+            })
+            ->implode('');
+
+        return response()->json(['html' => $html]);
+    }
+
 
     // AJAX перевірка ВСЬОГО питання (Check answer)
     public function checkOneAnswer(Request $request)

@@ -149,6 +149,8 @@ Route::middleware('auth.admin')->group(function () {
         Route::post('/grammar-test/v2', [GrammarTestController::class, 'generate'])->name('grammar-test-v2.generate');
         Route::post('/grammar-test-check', [GrammarTestController::class, 'check'])->name('grammar-test.check');
         Route::get('/grammar-test-autocomplete', [GrammarTestController::class, 'autocomplete'])->name('grammar-test.autocomplete');
+        Route::get('/grammar-test/search-questions', [GrammarTestController::class, 'searchQuestions'])->name('grammar-test.search-questions');
+        Route::post('/grammar-test/render-questions', [GrammarTestController::class, 'renderQuestions'])->name('grammar-test.render-questions');
         Route::post('/grammar-test-check-answer', [GrammarTestController::class, 'checkOneAnswer'])->name('grammar-test.checkOne');
 
         Route::post('/grammar-test-save', [GrammarTestController::class, 'save'])->name('grammar-test.save');
@@ -173,6 +175,8 @@ Route::middleware('auth.admin')->group(function () {
         Route::delete('/test/{slug}/step/remove-tag', [GrammarTestController::class, 'removeTag'])->name('saved-test.step.remove-tag');
         Route::delete('/test/{slug}/question/{question}', [GrammarTestController::class, 'deleteQuestion'])->name('saved-test.question.destroy');
         Route::get('/tests', [GrammarTestController::class, 'list'])->name('saved-tests.list');
+        Route::get('/tests/{slug}/edit', [GrammarTestController::class, 'edit'])->name('saved-tests.edit');
+        Route::put('/tests/{slug}', [GrammarTestController::class, 'update'])->name('saved-tests.update');
         Route::delete('/tests/{slug}', [GrammarTestController::class, 'destroy'])->name('saved-tests.destroy');
 
         Route::get('/words', [WordSearchController::class, 'search'])->name('words.search');
