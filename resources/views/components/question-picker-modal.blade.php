@@ -85,13 +85,26 @@
                     <div class="flex flex-wrap gap-2 items-center">
                         <span class="font-semibold text-gray-800">Фільтри:</span>
                         <label class="inline-flex items-center gap-1">
-                            <input type="checkbox" class="rounded text-blue-600" x-model="onlyAiV2" @change="refreshResults()">
+                            <input type="checkbox" class="rounded text-blue-600" x-model="onlyAiV2" @change="markFiltersDirty()">
                             <span>Тільки AI (flag = 2)</span>
                         </label>
+                        <span x-show="filtersDirty" class="text-red-500">Застосуйте фільтри перед пошуком</span>
                     </div>
-                    <button type="button" class="text-[11px] text-blue-600 font-semibold" @click="Object.keys(openSections).forEach(key => openSections[key] = false)">
-                        Згорнути все
-                    </button>
+                    <div class="flex items-center gap-3">
+                        <button type="button" class="text-[11px] text-blue-600 font-semibold" @click="Object.keys(openSections).forEach(key => openSections[key] = false)">
+                            Згорнути все
+                        </button>
+                        <button type="button" class="text-[11px] text-blue-600 font-semibold" @click="applyFilters()"
+                                :disabled="loading"
+                                :class="{ 'opacity-60 cursor-not-allowed': loading }">
+                            Застосувати фільтри
+                        </button>
+                        <button type="button" class="text-[11px] text-gray-500 font-semibold" @click="resetFilters()"
+                                :disabled="loading"
+                                :class="{ 'opacity-60 cursor-not-allowed': loading }">
+                            Скинути
+                        </button>
+                    </div>
                 </div>
 
                 <div class="space-y-3">
@@ -122,7 +135,7 @@
                                                     <div x-show="open" x-collapse class="px-2 pb-2 space-y-2">
                                                         @foreach($groupsForDate as $group)
                                                             <label class="flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-[11px]">
-                                                                <input type="checkbox" class="rounded text-blue-600" value="{{ $group['seeder'] }}" x-model="filters.seederClasses" @change="refreshResults()">
+                                                                <input type="checkbox" class="rounded text-blue-600" value="{{ $group['seeder'] }}" x-model="filters.seederClasses" @change="markFiltersDirty()">
                                                                 <span class="text-gray-800">{{ $makeSeederLabel($group['seeder']) }}</span>
                                                             </label>
                                                         @endforeach
@@ -135,7 +148,7 @@
                                     <div class="flex flex-wrap gap-2">
                                         @foreach($seederGroups as $group)
                                             <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                                <input type="checkbox" class="rounded text-blue-600" value="{{ $group['seeder'] }}" x-model="filters.seederClasses" @change="refreshResults()">
+                                                <input type="checkbox" class="rounded text-blue-600" value="{{ $group['seeder'] }}" x-model="filters.seederClasses" @change="markFiltersDirty()">
                                                 <span class="text-gray-800">{{ $makeSeederLabel($group['seeder']) }}</span>
                                             </label>
                                         @endforeach
@@ -160,7 +173,7 @@
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($group['sources'] as $source)
                                                 <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $source->id }}" x-model="filters.sources" @change="refreshResults()">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $source->id }}" x-model="filters.sources" @change="markFiltersDirty()">
                                                     <span class="text-gray-800">{{ $source->name }}</span>
                                                 </label>
                                             @endforeach
@@ -183,7 +196,7 @@
                                 <div class="flex flex-wrap gap-2">
                                     @foreach($levels as $level)
                                         <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                            <input type="checkbox" class="rounded text-blue-600" value="{{ $level }}" x-model="filters.levels" @change="refreshResults()">
+                                            <input type="checkbox" class="rounded text-blue-600" value="{{ $level }}" x-model="filters.levels" @change="markFiltersDirty()">
                                             <span class="text-gray-800">{{ $level }}</span>
                                         </label>
                                     @endforeach
@@ -207,7 +220,7 @@
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($tags as $tag)
                                                 <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag->name }}" x-model="filters.tags" @change="refreshResults()">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag->name }}" x-model="filters.tags" @change="markFiltersDirty()">
                                                     <span class="text-gray-800">{{ $tag->name }}</span>
                                                 </label>
                                             @endforeach
@@ -233,7 +246,7 @@
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($tags as $tag)
                                                 <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag }}" x-model="filters.aggregatedTags" @change="refreshResults()">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag }}" x-model="filters.aggregatedTags" @change="markFiltersDirty()">
                                                     <span class="text-gray-800">{{ $tag }}</span>
                                                 </label>
                                             @endforeach

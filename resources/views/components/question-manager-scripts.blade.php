@@ -171,6 +171,8 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
             aggregatedTags: [],
         },
         onlyAiV2: false,
+        appliedFilters: null,
+        filtersDirty: false,
         init() {
             this.$watch('query', () => {
                 if (this.open) {
@@ -187,17 +189,15 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
             ['filters.seederClasses', 'filters.sources', 'filters.levels', 'filters.tags', 'filters.aggregatedTags']
                 .forEach((path) => {
                     this.$watch(path, () => {
-                        if (this.open) {
-                            this.fetchResults();
-                        }
+                        this.markFiltersDirty();
                     });
                 });
 
             this.$watch('onlyAiV2', () => {
-                if (this.open) {
-                    this.fetchResults();
-                }
+                this.markFiltersDirty();
             });
+
+            this.appliedFilters = this.snapshotFilters();
         },
         toggleFilter(key, value) {
             const current = Array.isArray(this.filters[key]) ? [...this.filters[key]] : [];
@@ -210,15 +210,39 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
             }
 
             this.filters[key] = current;
+            this.markFiltersDirty();
+        },
+        markFiltersDirty() {
+            this.filtersDirty = true;
+        },
+        snapshotFilters() {
+            return {
+                seederClasses: [...(this.filters.seederClasses || [])],
+                sources: [...(this.filters.sources || [])],
+                levels: [...(this.filters.levels || [])],
+                tags: [...(this.filters.tags || [])],
+                aggregatedTags: [...(this.filters.aggregatedTags || [])],
+                onlyAiV2: !!this.onlyAiV2,
+            };
+        },
+        applyFilters() {
+            this.appliedFilters = this.snapshotFilters();
+            this.filtersDirty = false;
 
             if (this.open) {
                 this.fetchResults();
             }
         },
-        refreshResults() {
-            if (this.open) {
-                this.fetchResults();
-            }
+        resetFilters() {
+            this.filters = {
+                seederClasses: [],
+                sources: [],
+                levels: [],
+                tags: [],
+                aggregatedTags: [],
+            };
+            this.onlyAiV2 = false;
+            this.applyFilters();
         },
         close() {
             this.open = false;
@@ -307,21 +331,26 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
             }
         },
         fetchResults() {
+            if (this.filtersDirty) {
+                return;
+            }
+
             this.loading = true;
             const params = new URLSearchParams();
             params.set('q', this.query || '');
 
+            const activeFilters = this.appliedFilters || this.snapshotFilters();
             const filterKeys = ['seeder_classes', 'sources', 'levels', 'tags', 'aggregated_tags'];
             const stateKeys = ['seederClasses', 'sources', 'levels', 'tags', 'aggregatedTags'];
 
             filterKeys.forEach((param, index) => {
                 const stateKey = stateKeys[index];
-                const values = this.filters[stateKey] || [];
+                const values = activeFilters[stateKey] || [];
 
                 values.forEach(value => params.append(`${param}[]`, value));
             });
 
-            if (this.onlyAiV2) {
+            if (activeFilters.onlyAiV2) {
                 params.set('only_ai_v2', '1');
             }
 
