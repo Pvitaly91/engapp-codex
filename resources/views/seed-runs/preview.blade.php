@@ -847,7 +847,7 @@
                 const hasLevel = questionLevel === levelName;
 
                 if (hasLevel) {
-                    question.classList.remove('opacity-30', 'scale-95');
+                    question.classList.remove('hidden');
                     question.classList.add('ring-2', 'ring-indigo-400', 'shadow-lg');
                     matchCount++;
 
@@ -866,7 +866,7 @@
                         }
                     }
                 } else {
-                    question.classList.add('opacity-30', 'scale-95');
+                    question.classList.add('hidden');
                     question.classList.remove('ring-2', 'ring-indigo-400', 'shadow-lg');
                 }
             });
@@ -894,7 +894,7 @@
 
             // Reset all questions
             allQuestions.forEach(question => {
-                question.classList.remove('opacity-30', 'scale-95', 'ring-2', 'ring-indigo-400', 'shadow-lg');
+                question.classList.remove('hidden', 'ring-2', 'ring-indigo-400', 'shadow-lg');
             });
 
             // Remove notification
