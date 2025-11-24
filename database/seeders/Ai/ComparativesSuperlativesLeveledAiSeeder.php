@@ -1372,9 +1372,9 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
 
     private function buildHints(array $variant): array
     {
-        $formula = $variant['formula'] ?? 'Formula: comparative = adjective/adverb + -er + than; longer words often use more/less + adjective. Superlative = -est/most/least.';
-        $example = $variant['example'] ?? 'Example: "faster than a car", "as calm as before", "the most helpful".';
-        $reminder = $variant['reminder'] ?? 'Check if the prompt needs equality (as ... as), comparative (+ than), or superlative (the + -est/most).';
+        $formula = $variant['formula'] ?? 'Формула: comparative = прикметник/прислівник + -er + than; довші слова вживають more/less + adjective. Superlative = -est/most/least.';
+        $example = $variant['example'] ?? 'Приклад: "faster than a car", "as calm as before", "the most helpful" — без прямої підказки правильної відповіді.';
+        $reminder = $variant['reminder'] ?? 'Перевір, чи треба рівність (as ... as), порівняння двох предметів (+ than), чи найвищий ступінь (the + -est/most/least).';
 
         return [$formula, $example, $reminder];
     }
@@ -1394,22 +1394,22 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
         $normalized = strtolower($option);
 
         if (str_contains($normalized, 'est') || str_contains($normalized, 'most')) {
-            return 'Superlative forms (-est/most) compare one item with the whole set; use them only when selecting the top degree rather than comparing two things.';
+            return 'Форми суперлатива (-est/most) порівнюють один елемент із усією групою; застосовуй їх, коли треба підкреслити найвищий ступінь, а не просто різницю між двома предметами.';
         }
 
         if (str_contains($normalized, 'more') || str_contains($normalized, 'less')) {
-            return 'Comparatives with more/less highlight differences for longer adjectives or quantities; confirm the noun type and whether a shorter -er form fits.';
+            return 'Comparatives з more/less показують різницю для довших прикметників або кількості; переконайся, що іменник пасує, і чи не можна вжити коротку форму на -er.';
         }
 
         if (str_contains($normalized, 'as')) {
-            return 'The as ... as frame signals equality; ensure both halves of the structure balance when the idea is similarity rather than ranking.';
+            return 'Конструкція as ... as передає рівність; стеж, щоб обидві частини були збалансовані, коли йдеться про схожість, а не про ранжування.';
         }
 
         if (str_contains($normalized, 'fewer') || str_contains($normalized, 'fewest')) {
-            return 'Use fewer/fewest with countable nouns; pair them with plural nouns when talking about number comparisons.';
+            return 'Fewer/fewest уживай із злічуваними іменниками, зазвичай у множині, коли говориш про кількісні порівняння.';
         }
 
-        return 'Match the form to the comparison goal for ' . $concept . ': use -er/than for two items, as ... as for equality, and -est/most/least for top degree statements.';
+        return 'Добирай форму до мети порівняння для ' . $concept . ': -er/than — для двох предметів, as ... as — для рівності, -est/most/least — щоб показати найвищий ступінь.';
     }
 
     private function flattenOptions(array $optionSets): array
