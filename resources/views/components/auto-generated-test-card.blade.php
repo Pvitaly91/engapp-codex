@@ -4,17 +4,11 @@
     // Get the filter levels for display
     $filters = $test->filters ?? [];
     $levels = $filters['levels'] ?? [];
-    $levelLabel = !empty($levels) ? implode('-', $levels) : 'N/A';
     $tags = $filters['tags'] ?? [];
-    
-    // Get total available questions (count questions matching the filters)
-    $totalAvailable = \App\Models\Question::query()
-        ->where('flag', 2)
-        ->whereIn('level', $levels)
-        ->when(!empty($tags), fn($q) => $q->whereHas('tags', fn($tq) => $tq->whereIn('name', $tags)))
-        ->count();
-    
     $questionsCount = $filters['num_questions'] ?? 15;
+    
+    // Get total available from computed attribute (set in service to avoid N+1 queries)
+    $totalAvailable = $test->getAttribute('total_questions_available') ?? $questionsCount;
 @endphp
 
 <div class="bg-background border border-border/60 rounded-xl p-4 flex flex-col hover:border-primary/40 hover:shadow-md transition">
