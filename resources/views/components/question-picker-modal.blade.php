@@ -57,14 +57,14 @@
     </div>
 </div>
 
-<div x-show="open" x-transition.opacity class="fixed inset-0 z-40 flex items-center justify-center px-4" style="display: none;">
+<div x-show="open" x-transition.opacity class="fixed inset-0 z-40 flex items-start justify-center px-4 py-6 overflow-y-auto" style="display: none;">
     <div class="absolute inset-0 bg-black/50" @click="close()"></div>
-    <div class="relative z-10 w-full max-w-5xl bg-white rounded-2xl shadow-xl p-4 sm:p-6 space-y-4">
+    <div class="relative z-10 w-full max-w-5xl bg-white rounded-2xl shadow-xl p-4 sm:p-6 space-y-4 max-h-[90vh] flex flex-col">
         <div class="flex items-center justify-between gap-3">
             <h3 class="text-lg font-bold text-gray-800">Додати питання до тесту</h3>
             <button type="button" class="text-gray-500 hover:text-gray-700" @click="close()">&times;</button>
         </div>
-        <div class="flex flex-col gap-4">
+        <div class="flex-1 min-h-0 flex flex-col gap-4 overflow-y-auto pr-1">
             <div class="relative">
                 <input type="search" x-model.debounce.300ms="query" placeholder="Пошук за текстом, тегами, сидером, джерелом, ID або UUID"
                        class="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
