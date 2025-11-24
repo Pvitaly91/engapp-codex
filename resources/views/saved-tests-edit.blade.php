@@ -49,6 +49,11 @@
                     'questionSearchRoute' => $questionSearchRoute,
                     'questionRenderRoute' => $questionRenderRoute,
                     'showShuffle' => $questions->count() > 1,
+                    'seederSourceGroups' => $seederSourceGroups ?? [],
+                    'sourcesByCategory' => $sourcesByCategory ?? [],
+                    'levels' => $levels ?? [],
+                    'tagsByCategory' => $tagsByCategory ?? [],
+                    'aggregatedTagsByCategory' => $aggregatedTagsByCategory ?? [],
                 ])
 
                 <div id="questions-list" data-keep-visible="true" class="space-y-4">

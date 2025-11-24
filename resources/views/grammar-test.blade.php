@@ -851,6 +851,11 @@
             'questionSearchRoute' => $questionSearchRoute,
             'questionRenderRoute' => $questionRenderRoute,
             'showShuffle' => !empty($questions) && count($questions) > 1,
+            'seederSourceGroups' => $seederSourceGroups ?? [],
+            'sourcesByCategory' => $sourcesByCategory ?? [],
+            'levels' => $levels ?? [],
+            'tagsByCategory' => $tagsByCategory ?? [],
+            'aggregatedTagsByCategory' => $aggregatedTagsByCategory ?? [],
         ])
 
         @if(!empty($questions) && count($questions))

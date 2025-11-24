@@ -21,7 +21,7 @@
             <h3 class="text-lg font-bold text-gray-800">Додати питання до тесту</h3>
             <button type="button" class="text-gray-500 hover:text-gray-700" @click="close()">&times;</button>
         </div>
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-4">
             <div class="relative">
                 <input type="search" x-model.debounce.300ms="query" placeholder="Пошук за текстом, тегами, сидером, джерелом, ID або UUID"
                        class="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
@@ -30,9 +30,113 @@
                     <path fill-rule="evenodd" d="M12.9 14.32a6 6 0 111.414-1.414l3.387 3.387a1 1 0 01-1.414 1.414l-3.387-3.387zM14 9a5 5 0 11-10 0 5 5 0 0110 0z" clip-rule="evenodd" />
                 </svg>
             </div>
+
             <div class="flex items-center justify-between text-xs text-gray-500">
                 <span>Пошук у тексті питання, відповідях, тегах, сидерах, джерелах та варіантах.</span>
                 <span x-text="selectionLabel()"></span>
+            </div>
+
+            <div class="space-y-3 border border-gray-200 rounded-2xl p-3">
+                <div class="flex flex-wrap gap-2 text-xs text-gray-600">
+                    <span class="font-semibold text-gray-800">Фільтри:</span>
+                    <label class="inline-flex items-center gap-1">
+                        <input type="checkbox" class="rounded text-blue-600" x-model="onlyAiV2" @change="refreshResults()">
+                        <span>Тільки AI (flag = 2)</span>
+                    </label>
+                </div>
+
+                <div class="grid gap-3 md:grid-cols-2">
+                    @if(!empty($seederSourceGroups))
+                        <div class="space-y-2">
+                            <p class="text-xs font-semibold text-gray-700">Клас сидера питання</p>
+                            <div class="flex flex-wrap gap-2">
+                                @foreach($seederSourceGroups as $group)
+                                    <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
+                                        <input type="checkbox" class="rounded text-blue-600" value="{{ $group['seeder'] }}" @change="toggleFilter('seederClasses', $event.target.value)" :checked="filters.seederClasses.includes('{{ $group['seeder'] }}')">
+                                        <span class="text-gray-800">{{ $group['seeder'] }}</span>
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(!empty($sourcesByCategory))
+                        <div class="space-y-2">
+                            <p class="text-xs font-semibold text-gray-700">Джерела по категоріях</p>
+                            <div class="space-y-2 max-h-48 overflow-auto pr-1">
+                                @foreach($sourcesByCategory as $group)
+                                    <div class="space-y-1">
+                                        <p class="text-[11px] text-gray-500 font-semibold">{{ $group['category']->name }}</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            @foreach($group['sources'] as $source)
+                                                <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $source->id }}" @change="toggleFilter('sources', '{{ $source->id }}')" :checked="filters.sources.includes('{{ $source->id }}')">
+                                                    <span class="text-gray-800">{{ $source->name }}</span>
+                                                </label>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(!empty($levels))
+                        <div class="space-y-2">
+                            <p class="text-xs font-semibold text-gray-700">Level</p>
+                            <div class="flex flex-wrap gap-2">
+                                @foreach($levels as $level)
+                                    <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
+                                        <input type="checkbox" class="rounded text-blue-600" value="{{ $level }}" @change="toggleFilter('levels', '{{ $level }}')" :checked="filters.levels.includes('{{ $level }}')">
+                                        <span class="text-gray-800">{{ $level }}</span>
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(!empty($tagsByCategory))
+                        <div class="space-y-2">
+                            <p class="text-xs font-semibold text-gray-700">Tags</p>
+                            <div class="space-y-2 max-h-40 overflow-auto pr-1">
+                                @foreach($tagsByCategory as $category => $tags)
+                                    <div class="space-y-1">
+                                        <p class="text-[11px] text-gray-500 font-semibold">{{ $category }}</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            @foreach($tags as $tag)
+                                                <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag->name }}" @change="toggleFilter('tags', '{{ $tag->name }}')" :checked="filters.tags.includes('{{ $tag->name }}')">
+                                                    <span class="text-gray-800">{{ $tag->name }}</span>
+                                                </label>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(!empty($aggregatedTagsByCategory))
+                        <div class="space-y-2">
+                            <p class="text-xs font-semibold text-gray-700">Агреговані теги</p>
+                            <div class="space-y-2 max-h-40 overflow-auto pr-1">
+                                @foreach($aggregatedTagsByCategory as $category => $tags)
+                                    <div class="space-y-1">
+                                        <p class="text-[11px] text-gray-500 font-semibold">{{ $category }}</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            @foreach($tags as $tag)
+                                                <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag }}" @change="toggleFilter('aggregatedTags', '{{ $tag }}')" :checked="filters.aggregatedTags.includes('{{ $tag }}')">
+                                                    <span class="text-gray-800">{{ $tag }}</span>
+                                                </label>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                </div>
             </div>
             <div class="border border-gray-200 rounded-2xl divide-y max-h-[60vh] overflow-auto" x-ref="results">
                 <template x-if="loading">

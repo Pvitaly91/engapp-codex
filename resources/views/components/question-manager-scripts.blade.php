@@ -163,6 +163,14 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
         loading: false,
         results: [],
         selected: [],
+        filters: {
+            seederClasses: [],
+            sources: [],
+            levels: [],
+            tags: [],
+            aggregatedTags: [],
+        },
+        onlyAiV2: false,
         init() {
             this.$watch('query', () => {
                 if (this.open) {
@@ -175,6 +183,27 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
                     this.fetchResults();
                 }
             });
+        },
+        toggleFilter(key, value) {
+            const current = Array.isArray(this.filters[key]) ? [...this.filters[key]] : [];
+            const idx = current.indexOf(value);
+
+            if (idx === -1) {
+                current.push(value);
+            } else {
+                current.splice(idx, 1);
+            }
+
+            this.filters[key] = current;
+
+            if (this.open) {
+                this.fetchResults();
+            }
+        },
+        refreshResults() {
+            if (this.open) {
+                this.fetchResults();
+            }
         },
         close() {
             this.open = false;
@@ -264,7 +293,24 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
         },
         fetchResults() {
             this.loading = true;
-            fetch(`${searchUrl}?q=${encodeURIComponent(this.query || '')}`)
+            const params = new URLSearchParams();
+            params.set('q', this.query || '');
+
+            const filterKeys = ['seeder_classes', 'sources', 'levels', 'tags', 'aggregated_tags'];
+            const stateKeys = ['seederClasses', 'sources', 'levels', 'tags', 'aggregatedTags'];
+
+            filterKeys.forEach((param, index) => {
+                const stateKey = stateKeys[index];
+                const values = this.filters[stateKey] || [];
+
+                values.forEach(value => params.append(`${param}[]`, value));
+            });
+
+            if (this.onlyAiV2) {
+                params.set('only_ai_v2', '1');
+            }
+
+            fetch(`${searchUrl}?${params.toString()}`)
                 .then(res => res.json())
                 .then(data => {
                     this.results = Array.isArray(data.items) ? data.items : [];

@@ -1129,13 +1129,13 @@ class GrammarTestController extends Controller
             }
         }
 
-        return view('saved-tests-edit', [
+        return view('saved-tests-edit', array_merge([
             'test' => $test,
             'questions' => $questions,
             'questionSearchRoute' => route('grammar-test.search-questions'),
             'questionRenderRoute' => route('grammar-test.render-questions'),
             'savePayloadKey' => $savePayloadKey,
-        ]);
+        ], $this->uuidFormExtras()));
     }
 
     public function update(Request $request, string $slug)
@@ -1212,6 +1212,7 @@ class GrammarTestController extends Controller
     {
         $query = trim((string) $request->input('q', ''));
         $limit = (int) min(max($request->input('limit', 20), 1), 50);
+        $filters = $this->filterService->normalize($request->all());
 
         $builder = Question::query()
             ->with(['tags:id,name', 'source:id,name', 'answers.option:id,option', 'options:id,option'])
@@ -1241,6 +1242,53 @@ class GrammarTestController extends Controller
                     });
                 }
             });
+        }
+
+        if (!empty($filters['seeder_classes'])) {
+            $builder->whereIn('seeder', $filters['seeder_classes']);
+        }
+
+        if (!empty($filters['sources'])) {
+            $builder->whereIn('source_id', $filters['sources']);
+        }
+
+        if (!empty($filters['categories'])) {
+            $builder->whereIn('category_id', $filters['categories']);
+        }
+
+        if (!empty($filters['levels'])) {
+            $builder->whereIn('level', $filters['levels']);
+        }
+
+        if (!empty($filters['tags'])) {
+            $builder->whereHas('tags', fn ($q) => $q->whereIn('name', $filters['tags']));
+        }
+
+        if (!empty($filters['aggregated_tags'])) {
+            $aggregations = $this->aggregationService->getAggregations();
+            $mainTagToSimilarTags = [];
+            foreach ($aggregations as $aggregation) {
+                $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
+            }
+
+            $tagsToMatch = [];
+            foreach ($filters['aggregated_tags'] as $mainTag) {
+                $tagsToMatch[] = $mainTag;
+
+                if (isset($mainTagToSimilarTags[$mainTag])) {
+                    $tagsToMatch = array_merge($tagsToMatch, $mainTagToSimilarTags[$mainTag]);
+                }
+            }
+
+            $tagsToMatch = array_values(array_unique($tagsToMatch));
+
+            if (!empty($tagsToMatch)) {
+                $builder->whereHas('tags', fn ($q) => $q->whereIn('name', $tagsToMatch));
+            }
+        }
+
+        if (!empty($filters['only_ai_v2'])) {
+            $builder->where('flag', 2);
         }
 
         $results = $builder->limit($limit)->get()->map(function (Question $question) {
