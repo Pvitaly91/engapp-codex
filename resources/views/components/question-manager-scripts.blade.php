@@ -183,6 +183,21 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
                     this.fetchResults();
                 }
             });
+
+            ['filters.seederClasses', 'filters.sources', 'filters.levels', 'filters.tags', 'filters.aggregatedTags']
+                .forEach((path) => {
+                    this.$watch(path, () => {
+                        if (this.open) {
+                            this.fetchResults();
+                        }
+                    });
+                });
+
+            this.$watch('onlyAiV2', () => {
+                if (this.open) {
+                    this.fetchResults();
+                }
+            });
         },
         toggleFilter(key, value) {
             const current = Array.isArray(this.filters[key]) ? [...this.filters[key]] : [];

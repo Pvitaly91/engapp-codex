@@ -1,3 +1,46 @@
+@php
+    use Illuminate\Support\Carbon;
+    use Illuminate\Support\Str;
+
+    $seederGroups = collect($seederSourceGroups ?? [])
+        ->filter(fn ($group) => filled($group['seeder'] ?? null))
+        ->values();
+
+    $seederGroupsByDate = collect($seederGroupsByDate ?? [])
+        ->sortKeysDesc();
+
+    $recentSeederClasses = collect($recentSeederClasses ?? [])
+        ->filter()
+        ->values();
+
+    $recentSeederOrdinals = collect($recentSeederOrdinals ?? []);
+
+    $seederExecutionTimes = collect($seederExecutionTimes ?? [])
+        ->filter(fn ($time) => filled($time))
+        ->mapWithKeys(fn ($time, $class) => [$class => Carbon::parse($time)]);
+
+    $makeSeederLabel = function (string $class) use ($recentSeederClasses, $recentSeederOrdinals, $seederExecutionTimes) {
+        $displayName = Str::after($class, 'Database\\Seeders\\');
+        $isNew = $recentSeederClasses->contains($class);
+        $ordinal = $recentSeederOrdinals->get($class);
+        $timestamp = $seederExecutionTimes->get($class);
+
+        $metaParts = collect();
+        if ($isNew) {
+            $metaParts->push('Новий' . (! is_null($ordinal) ? ' #' . $ordinal : ''));
+        }
+        if ($timestamp) {
+            $metaParts->push($timestamp->format('Y-m-d H:i'));
+        }
+
+        $meta = $metaParts->isNotEmpty()
+            ? ' (' . $metaParts->implode(' · ') . ')'
+            : '';
+
+        return $displayName . $meta;
+    };
+@endphp
+
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
     <div class="text-sm text-gray-500" id="question-count">Кількість питань: {{ $questionCount }}</div>
     <div class="flex flex-wrap items-center gap-2">
@@ -36,41 +79,88 @@
                 <span x-text="selectionLabel()"></span>
             </div>
 
-            <div class="space-y-3 border border-gray-200 rounded-2xl p-3">
-                <div class="flex flex-wrap gap-2 text-xs text-gray-600">
-                    <span class="font-semibold text-gray-800">Фільтри:</span>
-                    <label class="inline-flex items-center gap-1">
-                        <input type="checkbox" class="rounded text-blue-600" x-model="onlyAiV2" @change="refreshResults()">
-                        <span>Тільки AI (flag = 2)</span>
-                    </label>
+            <div class="space-y-3 border border-gray-200 rounded-2xl p-3 max-h-[60vh] overflow-y-auto"
+                 x-data="{ openSections: { seeders: true, sources: true, levels: true, tags: false, aggregatedTags: false } }">
+                <div class="flex flex-wrap gap-2 text-xs text-gray-600 items-center justify-between">
+                    <div class="flex flex-wrap gap-2 items-center">
+                        <span class="font-semibold text-gray-800">Фільтри:</span>
+                        <label class="inline-flex items-center gap-1">
+                            <input type="checkbox" class="rounded text-blue-600" x-model="onlyAiV2" @change="refreshResults()">
+                            <span>Тільки AI (flag = 2)</span>
+                        </label>
+                    </div>
+                    <button type="button" class="text-[11px] text-blue-600 font-semibold" @click="Object.keys(openSections).forEach(key => openSections[key] = false)">
+                        Згорнути все
+                    </button>
                 </div>
 
-                <div class="grid gap-3 md:grid-cols-2">
-                    @if(!empty($seederSourceGroups))
-                        <div class="space-y-2">
-                            <p class="text-xs font-semibold text-gray-700">Клас сидера питання</p>
-                            <div class="flex flex-wrap gap-2">
-                                @foreach($seederSourceGroups as $group)
-                                    <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                        <input type="checkbox" class="rounded text-blue-600" value="{{ $group['seeder'] }}" @change="toggleFilter('seederClasses', $event.target.value)" :checked="filters.seederClasses.includes('{{ $group['seeder'] }}')">
-                                        <span class="text-gray-800">{{ $group['seeder'] }}</span>
-                                    </label>
-                                @endforeach
+                <div class="space-y-3">
+                    @if($seederGroups->isNotEmpty())
+                        <div class="border border-gray-100 rounded-xl">
+                            <button type="button" class="w-full flex items-center justify-between px-3 py-2 text-left" @click="openSections.seeders = !openSections.seeders">
+                                <span class="text-xs font-semibold text-gray-700">Клас сидера питання</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 transition-transform" :class="{ 'rotate-180': openSections.seeders }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+
+                            <div x-show="openSections.seeders" x-collapse class="px-3 pb-3 space-y-3">
+                                @if($seederGroupsByDate->isNotEmpty())
+                                    <div class="space-y-2">
+                                        @foreach($seederGroupsByDate as $date => $classNames)
+                                            @php
+                                                $groupsForDate = $seederGroups->whereIn('seeder', $classNames->all());
+                                            @endphp
+                                            @if($groupsForDate->isNotEmpty())
+                                                <div class="border border-gray-100 rounded-lg" x-data="{ open: {{ $loop->first ? 'true' : 'false' }} }">
+                                                    <button type="button" class="w-full flex items-center justify-between text-xs font-semibold text-gray-700 px-2 py-1" @click="open = !open">
+                                                        <span>{{ $date }}</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-500 transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                    <div x-show="open" x-collapse class="px-2 pb-2 space-y-2">
+                                                        @foreach($groupsForDate as $group)
+                                                            <label class="flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-[11px]">
+                                                                <input type="checkbox" class="rounded text-blue-600" value="{{ $group['seeder'] }}" x-model="filters.seederClasses" @change="refreshResults()">
+                                                                <span class="text-gray-800">{{ $makeSeederLabel($group['seeder']) }}</span>
+                                                            </label>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="flex flex-wrap gap-2">
+                                        @foreach($seederGroups as $group)
+                                            <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
+                                                <input type="checkbox" class="rounded text-blue-600" value="{{ $group['seeder'] }}" x-model="filters.seederClasses" @change="refreshResults()">
+                                                <span class="text-gray-800">{{ $makeSeederLabel($group['seeder']) }}</span>
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endif
 
                     @if(!empty($sourcesByCategory))
-                        <div class="space-y-2">
-                            <p class="text-xs font-semibold text-gray-700">Джерела по категоріях</p>
-                            <div class="space-y-2 max-h-48 overflow-auto pr-1">
+                        <div class="border border-gray-100 rounded-xl">
+                            <button type="button" class="w-full flex items-center justify-between px-3 py-2 text-left" @click="openSections.sources = !openSections.sources">
+                                <span class="text-xs font-semibold text-gray-700">Джерела по категоріях</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 transition-transform" :class="{ 'rotate-180': openSections.sources }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div x-show="openSections.sources" x-collapse class="px-3 pb-3 space-y-2 max-h-48 overflow-auto pr-1">
                                 @foreach($sourcesByCategory as $group)
                                     <div class="space-y-1">
                                         <p class="text-[11px] text-gray-500 font-semibold">{{ $group['category']->name }}</p>
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($group['sources'] as $source)
                                                 <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $source->id }}" @change="toggleFilter('sources', '{{ $source->id }}')" :checked="filters.sources.includes('{{ $source->id }}')">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $source->id }}" x-model="filters.sources" @change="refreshResults()">
                                                     <span class="text-gray-800">{{ $source->name }}</span>
                                                 </label>
                                             @endforeach
@@ -82,30 +172,42 @@
                     @endif
 
                     @if(!empty($levels))
-                        <div class="space-y-2">
-                            <p class="text-xs font-semibold text-gray-700">Level</p>
-                            <div class="flex flex-wrap gap-2">
-                                @foreach($levels as $level)
-                                    <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                        <input type="checkbox" class="rounded text-blue-600" value="{{ $level }}" @change="toggleFilter('levels', '{{ $level }}')" :checked="filters.levels.includes('{{ $level }}')">
-                                        <span class="text-gray-800">{{ $level }}</span>
-                                    </label>
-                                @endforeach
+                        <div class="border border-gray-100 rounded-xl">
+                            <button type="button" class="w-full flex items-center justify-between px-3 py-2 text-left" @click="openSections.levels = !openSections.levels">
+                                <span class="text-xs font-semibold text-gray-700">Level</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 transition-transform" :class="{ 'rotate-180': openSections.levels }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div x-show="openSections.levels" x-collapse class="px-3 pb-3">
+                                <div class="flex flex-wrap gap-2">
+                                    @foreach($levels as $level)
+                                        <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
+                                            <input type="checkbox" class="rounded text-blue-600" value="{{ $level }}" x-model="filters.levels" @change="refreshResults()">
+                                            <span class="text-gray-800">{{ $level }}</span>
+                                        </label>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     @endif
 
                     @if(!empty($tagsByCategory))
-                        <div class="space-y-2">
-                            <p class="text-xs font-semibold text-gray-700">Tags</p>
-                            <div class="space-y-2 max-h-40 overflow-auto pr-1">
+                        <div class="border border-gray-100 rounded-xl">
+                            <button type="button" class="w-full flex items-center justify-between px-3 py-2 text-left" @click="openSections.tags = !openSections.tags">
+                                <span class="text-xs font-semibold text-gray-700">Tags</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 transition-transform" :class="{ 'rotate-180': openSections.tags }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div x-show="openSections.tags" x-collapse class="px-3 pb-3 space-y-2 max-h-40 overflow-auto pr-1">
                                 @foreach($tagsByCategory as $category => $tags)
                                     <div class="space-y-1">
                                         <p class="text-[11px] text-gray-500 font-semibold">{{ $category }}</p>
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($tags as $tag)
                                                 <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag->name }}" @change="toggleFilter('tags', '{{ $tag->name }}')" :checked="filters.tags.includes('{{ $tag->name }}')">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag->name }}" x-model="filters.tags" @change="refreshResults()">
                                                     <span class="text-gray-800">{{ $tag->name }}</span>
                                                 </label>
                                             @endforeach
@@ -117,16 +219,21 @@
                     @endif
 
                     @if(!empty($aggregatedTagsByCategory))
-                        <div class="space-y-2">
-                            <p class="text-xs font-semibold text-gray-700">Агреговані теги</p>
-                            <div class="space-y-2 max-h-40 overflow-auto pr-1">
+                        <div class="border border-gray-100 rounded-xl">
+                            <button type="button" class="w-full flex items-center justify-between px-3 py-2 text-left" @click="openSections.aggregatedTags = !openSections.aggregatedTags">
+                                <span class="text-xs font-semibold text-gray-700">Агреговані теги</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 transition-transform" :class="{ 'rotate-180': openSections.aggregatedTags }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div x-show="openSections.aggregatedTags" x-collapse class="px-3 pb-3 space-y-2 max-h-40 overflow-auto pr-1">
                                 @foreach($aggregatedTagsByCategory as $category => $tags)
                                     <div class="space-y-1">
                                         <p class="text-[11px] text-gray-500 font-semibold">{{ $category }}</p>
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($tags as $tag)
                                                 <label class="inline-flex items-center gap-2 px-2 py-1 rounded-xl border border-gray-200 text-xs">
-                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag }}" @change="toggleFilter('aggregatedTags', '{{ $tag }}')" :checked="filters.aggregatedTags.includes('{{ $tag }}')">
+                                                    <input type="checkbox" class="rounded text-blue-600" value="{{ $tag }}" x-model="filters.aggregatedTags" @change="refreshResults()">
                                                     <span class="text-gray-800">{{ $tag }}</span>
                                                 </label>
                                             @endforeach
