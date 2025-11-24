@@ -81,9 +81,12 @@
                             <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs mb-2">{{ __('Рівні в сидері') }}</dt>
                             <dd class="flex flex-wrap gap-2">
                                 @foreach($levelsSummary as $level)
-                                    <span class="inline-flex items-center px-3 py-1 rounded-md bg-indigo-100 text-indigo-800 text-sm font-medium">
+                                    <button type="button"
+                                            class="inline-flex items-center px-3 py-1 rounded-md bg-indigo-100 text-indigo-800 text-sm font-medium hover:bg-indigo-200 hover:ring-2 hover:ring-indigo-300 transition cursor-pointer"
+                                            data-level-filter="{{ $level }}"
+                                            title="{{ __('Клікніть, щоб побачити питання з цим рівнем') }}">
                                         {{ $level }}
-                                    </span>
+                                    </button>
                                 @endforeach
                             </dd>
                         </div>
@@ -283,7 +286,8 @@
 
                                     <div class="rounded-xl border border-slate-200 bg-white/60 p-6 shadow-sm transition-all" 
                                          data-question-preview
-                                         data-question-tags="{{ $questionTags->pluck('name')->implode(',') }}">
+                                         data-question-tags="{{ $questionTags->pluck('name')->implode(',') }}"
+                                         data-question-level="{{ $question['level'] ?? '' }}">
                                         <div class="space-y-1">
                                             <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
                                             <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
@@ -796,6 +800,141 @@
             if (count === 1) return 'питання';
             if (count >= 2 && count <= 4) return 'питання';
             return 'питань';
+        }
+
+        // Level filter functionality
+        let activeLevelFilter = null;
+
+        document.addEventListener('click', function (event) {
+            const levelButton = event.target.closest('[data-level-filter]');
+            
+            if (!levelButton) {
+                return;
+            }
+
+            const levelName = levelButton.getAttribute('data-level-filter');
+            
+            // Toggle filter if clicking the same level
+            if (activeLevelFilter === levelName) {
+                activeLevelFilter = null;
+                resetLevelFilter();
+                return;
+            }
+
+            activeLevelFilter = levelName;
+            applyLevelFilter(levelName);
+        });
+
+        function applyLevelFilter(levelName) {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allLevelButtons = document.querySelectorAll('[data-level-filter]');
+            let matchCount = 0;
+
+            // Reset all level buttons to normal state
+            allLevelButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            });
+
+            // Highlight the active level button
+            const activeButton = document.querySelector(`[data-level-filter="${CSS.escape(levelName)}"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            }
+
+            // Filter questions
+            allQuestions.forEach(question => {
+                const questionLevel = question.getAttribute('data-question-level') || '';
+                const hasLevel = questionLevel === levelName;
+
+                if (hasLevel) {
+                    question.classList.remove('opacity-30', 'scale-95');
+                    question.classList.add('ring-2', 'ring-indigo-400', 'shadow-lg');
+                    matchCount++;
+
+                    // Auto-expand the source section if collapsed
+                    const sourceContent = question.closest('[data-source-content]');
+                    if (sourceContent && sourceContent.classList.contains('hidden')) {
+                        const sourceGroup = sourceContent.closest('[data-source-group]');
+                        const sourceToggle = sourceGroup?.querySelector('[data-source-toggle]');
+                        if (sourceToggle) {
+                            sourceToggle.setAttribute('aria-expanded', 'true');
+                            sourceContent.classList.remove('hidden');
+                            const icon = sourceToggle.querySelector('[data-source-toggle-icon]');
+                            if (icon) {
+                                icon.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                } else {
+                    question.classList.add('opacity-30', 'scale-95');
+                    question.classList.remove('ring-2', 'ring-indigo-400', 'shadow-lg');
+                }
+            });
+
+            // Show notification
+            showLevelFilterNotification(levelName, matchCount);
+
+            // Scroll to first matching question
+            const firstMatch = document.querySelector('[data-question-preview].ring-2.ring-indigo-400');
+            if (firstMatch) {
+                setTimeout(() => {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+
+        function resetLevelFilter() {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allLevelButtons = document.querySelectorAll('[data-level-filter]');
+
+            // Reset all level buttons
+            allLevelButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            });
+
+            // Reset all questions
+            allQuestions.forEach(question => {
+                question.classList.remove('opacity-30', 'scale-95', 'ring-2', 'ring-indigo-400', 'shadow-lg');
+            });
+
+            // Remove notification
+            const existingNotification = document.getElementById('level-filter-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+        }
+
+        function showLevelFilterNotification(levelName, count) {
+            // Remove existing notification
+            const existing = document.getElementById('level-filter-notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.id = 'level-filter-notification';
+            notification.className = 'fixed top-4 right-4 z-50 bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in';
+            notification.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                <span class="font-medium">Фільтр рівня: <strong>${escapeHtml(levelName)}</strong> (${count} ${getPluralForm(count)})</span>
+                <button type="button" onclick="activeLevelFilter = null; resetLevelFilter();" class="ml-2 hover:bg-indigo-700 rounded p-1 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
         }
     </script>
 @endsection
