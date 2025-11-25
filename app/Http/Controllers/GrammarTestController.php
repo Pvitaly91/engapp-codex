@@ -1268,7 +1268,14 @@ class GrammarTestController extends Controller
             $aggregations = $this->aggregationService->getAggregations();
             $mainTagToSimilarTags = [];
             foreach ($aggregations as $aggregation) {
-                $mainTagToSimilarTags[$aggregation['main_tag']] = $aggregation['similar_tags'] ?? [];
+                $similarTags = [];
+                foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
+                    $tagName = $this->extractTagName($similarTag);
+                    if ($tagName !== null) {
+                        $similarTags[] = $tagName;
+                    }
+                }
+                $mainTagToSimilarTags[$aggregation['main_tag']] = $similarTags;
             }
 
             $tagsToMatch = [];
@@ -1564,7 +1571,10 @@ class GrammarTestController extends Controller
             // Main tag maps to itself
             $tagToMainTag[$mainTag] = $mainTag;
             foreach ($aggregation['similar_tags'] ?? [] as $similarTag) {
-                $tagToMainTag[$similarTag] = $mainTag;
+                $tagName = $this->extractTagName($similarTag);
+                if ($tagName !== null) {
+                    $tagToMainTag[$tagName] = $mainTag;
+                }
             }
         }
 
@@ -2100,6 +2110,19 @@ class GrammarTestController extends Controller
         });
 
         return $legacyTests->merge($uuidTests)->sortByDesc('created_at')->values();
+    }
+
+    /**
+     * Extract tag name from a similar tag entry.
+     * Handles both string format and object format with 'tag' key.
+     */
+    private function extractTagName(mixed $similarTag): ?string
+    {
+        if (is_array($similarTag)) {
+            return $similarTag['tag'] ?? null;
+        }
+        
+        return is_string($similarTag) ? $similarTag : null;
     }
 
 }
