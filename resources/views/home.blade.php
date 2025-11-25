@@ -21,7 +21,7 @@
           </p>
         </div>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a href="{{ route('catalog-tests.cards') }}" class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">
+          <a href="{{ route('catalog.tests-cards') }}" class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">
             📚 До каталогу тестів
             <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -90,7 +90,7 @@
       [
         'title' => 'Каталог тестів',
         'description' => 'Готові картки за CEFR, часовими формами та професійними сценаріями. Фільтри за тегами скорочують підготовку уроку.',
-        'link' => route('catalog-tests.cards'),
+        'link' => route('catalog.tests-cards'),
         'accent' => 'primary',
         'icon' => 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
       ],
@@ -237,7 +237,7 @@
         <h2 class="text-3xl font-bold text-foreground md:text-4xl">Спробуйте оновлений публічний досвід Gramlyze</h2>
         <p class="text-base leading-relaxed text-muted-foreground max-w-2xl">Почніть з каталогу, зберіть власний тест або відкрийте теоретичні сторінки. Всі переходи й стилі вже узгоджені.</p>
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a href="{{ route('catalog-tests.cards') }}" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">Відкрити каталог</a>
+          <a href="{{ route('catalog.tests-cards') }}" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">Відкрити каталог</a>
           <a href="{{ route('pages.index') }}" class="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary">Перейти до теорії</a>
         </div>
       </div>

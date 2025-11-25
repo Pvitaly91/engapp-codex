@@ -1534,7 +1534,7 @@ class GrammarTestController extends Controller
             })->values();
         }
 
-        $view = $request->routeIs('catalog-tests.cards')
+        $view = $request->routeIs('catalog.tests-cards')
             ? 'catalog-tests-cards'
             : 'saved-tests-cards';
 
