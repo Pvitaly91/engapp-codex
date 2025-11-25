@@ -634,6 +634,18 @@ class SeedRunController extends Controller
                 ->unique()
                 ->sort(SORT_NATURAL)
                 ->values();
+
+            // Collect all unique correct answers from the preview questions
+            $answersSummary = $questions
+                ->flatMap(function (Question $question) {
+                    return $question->answers->map(function ($answer) {
+                        return optional($answer->option)->option ?? $answer->answer;
+                    });
+                })
+                ->filter(fn ($answer) => filled($answer))
+                ->unique()
+                ->sort(SORT_NATURAL | SORT_FLAG_CASE)
+                ->values();
         } finally {
             DB::rollBack();
         }
@@ -644,6 +656,7 @@ class SeedRunController extends Controller
             'existingQuestionCount' => $existingQuestionCount,
             'tagsSummary' => $tagsSummary,
             'levelsSummary' => $levelsSummary,
+            'answersSummary' => $answersSummary,
         ];
     }
 
@@ -749,6 +762,7 @@ class SeedRunController extends Controller
             'existingQuestionCount' => null,
             'page' => $pageMeta,
             'levelsSummary' => collect(),
+            'answersSummary' => collect(),
         ];
     }
 
@@ -833,6 +847,7 @@ class SeedRunController extends Controller
             'existingQuestionCount' => null,
             'category' => $categoryMeta,
             'levelsSummary' => collect(),
+            'answersSummary' => collect(),
         ];
     }
 
