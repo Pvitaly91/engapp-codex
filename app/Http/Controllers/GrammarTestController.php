@@ -1558,6 +1558,11 @@ class GrammarTestController extends Controller
 
         $tests = $this->allSavedTests();
 
+        // Filter out auto-generated tests for theory pages (slug contains '-auto-')
+        $tests = $tests->filter(function ($test) {
+            return !str_contains($test->slug ?? '', '-auto-');
+        })->values();
+
         $allQuestionIds = $tests->flatMap(fn($t) => $t->question_ids ?? [])->unique();
         $questions = Question::with('tags')->whereIn('id', $allQuestionIds)->get()->keyBy('id');
 
