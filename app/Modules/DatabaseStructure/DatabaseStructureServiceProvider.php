@@ -35,6 +35,7 @@ class DatabaseStructureServiceProvider extends ServiceProvider
         $this->app->singleton(Services\DatabaseStructureFetcher::class);
         $this->app->singleton(Services\ContentManagementMenuManager::class);
         $this->app->singleton(Services\FilterStorageManager::class);
+        $this->app->singleton(Services\SearchPresetManager::class);
     }
 
     protected function registerRoutes(): void
