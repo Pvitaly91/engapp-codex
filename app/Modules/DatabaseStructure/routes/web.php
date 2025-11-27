@@ -24,6 +24,21 @@ Route::put('/tables/{table}/records/value', [DatabaseStructureController::class,
 Route::delete('/tables/{table}/records', [DatabaseStructureController::class, 'destroy'])
     ->where('table', '[^/]+')
     ->name('destroy');
+Route::post('/tables/{table}/records/check-dependencies', [DatabaseStructureController::class, 'checkDependencies'])
+    ->where('table', '[^/]+')
+    ->name('check-dependencies');
+Route::delete('/tables/{table}/records/cascade', [DatabaseStructureController::class, 'destroyWithCascade'])
+    ->where('table', '[^/]+')
+    ->name('destroy-cascade');
+Route::delete('/tables/{table}/truncate', [DatabaseStructureController::class, 'truncateTable'])
+    ->where('table', '[^/]+')
+    ->name('truncate');
+Route::delete('/tables/{table}/drop', [DatabaseStructureController::class, 'dropTable'])
+    ->where('table', '[^/]+')
+    ->name('drop');
+Route::get('/tables/{table}/references', [DatabaseStructureController::class, 'checkTableReferences'])
+    ->where('table', '[^/]+')
+    ->name('references');
 Route::post('/tables/{table}/columns/{column}/manual-foreign', [DatabaseStructureController::class, 'storeManualForeign'])
     ->where(['table' => '[^/]+', 'column' => '[^/]+'])
     ->name('manual-foreign.store');

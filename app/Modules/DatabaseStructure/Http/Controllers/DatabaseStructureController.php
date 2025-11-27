@@ -449,6 +449,130 @@ class DatabaseStructureController
         }
     }
 
+    public function checkDependencies(Request $request, string $table): JsonResponse
+    {
+        try {
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису.');
+            }
+
+            $result = $this->fetcher->checkDependentRecords($table, $identifiers);
+
+            return response()->json($result);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroyWithCascade(Request $request, string $table): JsonResponse
+    {
+        try {
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису для видалення.');
+            }
+
+            $cascade = (bool) $request->input('cascade', false);
+            $result = $this->fetcher->deleteRecordWithCascade($table, $identifiers, $cascade);
+
+            $message = 'Запис успішно видалено.';
+            if (!empty($result['cascade_deleted'])) {
+                $totalCascadeDeleted = array_sum($result['cascade_deleted']);
+                $message = "Запис успішно видалено разом із {$totalCascadeDeleted} пов'язаними записами.";
+            }
+
+            return response()->json([
+                'deleted' => $result['deleted'],
+                'cascade_deleted' => $result['cascade_deleted'],
+                'message' => $message,
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function truncateTable(string $table): JsonResponse
+    {
+        try {
+            $this->fetcher->truncateTable($table);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Таблицю успішно очищено.',
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function dropTable(string $table): JsonResponse
+    {
+        try {
+            $this->fetcher->dropTable($table);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Таблицю успішно видалено.',
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function checkTableReferences(string $table): JsonResponse
+    {
+        try {
+            $result = $this->fetcher->checkTableReferences($table);
+
+            return response()->json($result);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
     public function storeManualForeign(Request $request, string $table, string $column): JsonResponse
     {
         try {
@@ -634,8 +758,9 @@ class DatabaseStructureController
         try {
             $name = is_string($request->input('name')) ? trim((string) $request->input('name')) : '';
             $query = is_string($request->input('query')) ? trim((string) $request->input('query')) : '';
+            $exactMatch = $request->boolean('exact_match', false);
 
-            $presets = $this->searchPresetManager->store($name, $query);
+            $presets = $this->searchPresetManager->store($name, $query, $exactMatch);
 
             return response()->json([
                 'items' => $presets['items'],
