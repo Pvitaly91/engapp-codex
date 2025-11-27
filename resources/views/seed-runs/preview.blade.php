@@ -21,6 +21,8 @@
         $existingQuestionCount = $preview['existingQuestionCount'] ?? null;
         $pagePreview = $previewType === 'page' ? ($preview['page'] ?? null) : null;
         $categoryPreview = $previewType === 'category' ? ($preview['category'] ?? null) : null;
+        $levelsSummary = collect($preview['levelsSummary'] ?? []);
+        $answersSummary = collect($preview['answersSummary'] ?? []);
     @endphp
 
     <div class="max-w-5xl mx-auto space-y-6">
@@ -75,6 +77,21 @@
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Існуючих питань із такими UUID') }}</dt>
                         <dd>{{ $existingQuestionCount === null ? __('—') : $existingQuestionCount }}</dd>
                     </div>
+                    @if($levelsSummary->isNotEmpty())
+                        <div class="md:col-span-2">
+                            <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs mb-2">{{ __('Рівні в сидері') }}</dt>
+                            <dd class="flex flex-wrap gap-2">
+                                @foreach($levelsSummary as $level)
+                                    <button type="button"
+                                            class="inline-flex items-center px-3 py-1 rounded-md bg-indigo-100 text-indigo-800 text-sm font-medium hover:bg-indigo-200 hover:ring-2 hover:ring-indigo-300 transition cursor-pointer"
+                                            data-level-filter="{{ $level }}"
+                                            title="{{ __('Клікніть, щоб побачити питання з цим рівнем') }}">
+                                        {{ $level }}
+                                    </button>
+                                @endforeach
+                            </dd>
+                        </div>
+                    @endif
                 @elseif($previewType === 'page' && $pagePreview)
                     <div>
                         <dt class="font-semibold text-gray-600 uppercase tracking-wide text-xs">{{ __('Заголовок сторінки') }}</dt>
@@ -200,6 +217,61 @@
                 </div>
             @endif
 
+            {{-- Answers Summary Block - Similar to tags --}}
+            @if($answersSummary->isNotEmpty())
+                <div class="bg-white shadow rounded-lg overflow-hidden" data-answers-summary-section>
+                    <button type="button"
+                            class="w-full flex items-center justify-between gap-3 px-6 py-4 text-left transition hover:bg-slate-50"
+                            data-answers-summary-toggle
+                            aria-expanded="true">
+                        <div>
+                            <h2 class="text-lg font-semibold text-gray-800">{{ __('Усі правильні відповіді в сидері') }}</h2>
+                            <p class="text-sm text-gray-500 mt-1">
+                                {{ __('Перелік усіх унікальних правильних відповідей, які присутні в цьому сидері.') }}
+                            </p>
+                            <p class="text-sm text-emerald-600 font-medium mt-1 flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                                </svg>
+                                {{ __('Клікніть на відповідь, щоб побачити питання з цією відповіддю') }}
+                            </p>
+                        </div>
+                        <svg class="h-5 w-5 shrink-0 text-slate-500 transition-transform duration-200 rotate-180"
+                             viewBox="0 0 20 20"
+                             fill="currentColor"
+                             data-answers-summary-icon>
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.7a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.25 8.27a.75.75 0 0 1-.02-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <div class="border-t border-slate-200 px-6 py-4" data-answers-summary-content>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2 flex items-center gap-2">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-medium">
+                                        {{ __('Відповіді') }}
+                                    </span>
+                                    <span>{{ trans_choice('{1} :count відповідь|[2,4] :count відповіді|[5,*] :count відповідей', $answersSummary->count(), ['count' => $answersSummary->count()]) }}</span>
+                                </h3>
+                                <div class="flex flex-wrap gap-2">
+                                    @foreach($answersSummary as $answer)
+                                        <button type="button"
+                                                class="inline-flex items-center px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium hover:bg-emerald-100 hover:border-emerald-300 transition cursor-pointer"
+                                                data-answer-filter="{{ $answer }}"
+                                                title="{{ __('Клікніть, щоб побачити питання з цією відповіддю') }}">
+                                            <svg class="w-4 h-4 mr-1.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            {{ $answer }}
+                                        </button>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
             @if($questionPreviews->isEmpty())
                 <div class="bg-white shadow rounded-lg p-6">
                     <p class="text-sm text-gray-500">
@@ -270,7 +342,9 @@
 
                                     <div class="rounded-xl border border-slate-200 bg-white/60 p-6 shadow-sm transition-all" 
                                          data-question-preview
-                                         data-question-tags="{{ $questionTags->pluck('name')->implode(',') }}">
+                                         data-question-tags="{{ $questionTags->pluck('name')->implode(',') }}"
+                                         data-question-level="{{ $question['level'] ?? '' }}"
+                                         data-question-answers="{{ $filledAnswers->pluck('label')->implode(',') }}">
                                         <div class="space-y-1">
                                             <h2 class="text-lg font-semibold text-gray-800">{!! $question['highlighted_text'] !!}</h2>
                                             <p class="text-xs text-gray-500 font-mono break-all">UUID: {{ $question['uuid'] }}</p>
@@ -603,6 +677,35 @@
             }
         });
 
+        // Answers summary toggle
+        document.addEventListener('click', function (event) {
+            const toggle = event.target.closest('[data-answers-summary-toggle]');
+
+            if (!toggle) {
+                return;
+            }
+
+            const section = toggle.closest('[data-answers-summary-section]');
+
+            if (!section) {
+                return;
+            }
+
+            const content = section.querySelector('[data-answers-summary-content]');
+            const icon = toggle.querySelector('[data-answers-summary-icon]');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                toggle.setAttribute('aria-expanded', 'false');
+                content?.classList.add('hidden');
+                icon?.classList.remove('rotate-180');
+            } else {
+                toggle.setAttribute('aria-expanded', 'true');
+                content?.classList.remove('hidden');
+                icon?.classList.add('rotate-180');
+            }
+        });
+
         document.querySelectorAll('[data-page-preview-frame]').forEach((frame) => {
             const container = frame.closest('[data-page-preview]');
             const encodedHtml = container?.getAttribute('data-page-preview-html');
@@ -783,6 +886,277 @@
             if (count === 1) return 'питання';
             if (count >= 2 && count <= 4) return 'питання';
             return 'питань';
+        }
+
+        // Level filter functionality
+        let activeLevelFilter = null;
+
+        document.addEventListener('click', function (event) {
+            const levelButton = event.target.closest('[data-level-filter]');
+            
+            if (!levelButton) {
+                return;
+            }
+
+            const levelName = levelButton.getAttribute('data-level-filter');
+            
+            // Toggle filter if clicking the same level
+            if (activeLevelFilter === levelName) {
+                activeLevelFilter = null;
+                resetLevelFilter();
+                return;
+            }
+
+            activeLevelFilter = levelName;
+            applyLevelFilter(levelName);
+        });
+
+        function applyLevelFilter(levelName) {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allLevelButtons = document.querySelectorAll('[data-level-filter]');
+            let matchCount = 0;
+
+            // Reset all level buttons to normal state
+            allLevelButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            });
+
+            // Highlight the active level button
+            const activeButton = document.querySelector(`[data-level-filter="${CSS.escape(levelName)}"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            }
+
+            // Filter questions
+            allQuestions.forEach(question => {
+                const questionLevel = question.getAttribute('data-question-level') || '';
+                const hasLevel = questionLevel === levelName;
+
+                if (hasLevel) {
+                    question.classList.remove('hidden');
+                    question.classList.add('ring-2', 'ring-indigo-400', 'shadow-lg');
+                    matchCount++;
+
+                    // Auto-expand the source section if collapsed
+                    const sourceContent = question.closest('[data-source-content]');
+                    if (sourceContent && sourceContent.classList.contains('hidden')) {
+                        const sourceGroup = sourceContent.closest('[data-source-group]');
+                        const sourceToggle = sourceGroup?.querySelector('[data-source-toggle]');
+                        if (sourceToggle) {
+                            sourceToggle.setAttribute('aria-expanded', 'true');
+                            sourceContent.classList.remove('hidden');
+                            const icon = sourceToggle.querySelector('[data-source-toggle-icon]');
+                            if (icon) {
+                                icon.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                } else {
+                    question.classList.add('hidden');
+                    question.classList.remove('ring-2', 'ring-indigo-400', 'shadow-lg');
+                }
+            });
+
+            // Show notification
+            showLevelFilterNotification(levelName, matchCount);
+
+            // Scroll to first matching question
+            const firstMatch = document.querySelector('[data-question-preview].ring-2.ring-indigo-400');
+            if (firstMatch) {
+                setTimeout(() => {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+
+        function resetLevelFilter() {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allLevelButtons = document.querySelectorAll('[data-level-filter]');
+
+            // Reset all level buttons
+            allLevelButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-indigo-500', 'ring-offset-2');
+            });
+
+            // Reset all questions
+            allQuestions.forEach(question => {
+                question.classList.remove('hidden', 'ring-2', 'ring-indigo-400', 'shadow-lg');
+            });
+
+            // Remove notification
+            const existingNotification = document.getElementById('level-filter-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+        }
+
+        function showLevelFilterNotification(levelName, count) {
+            // Remove existing notification
+            const existing = document.getElementById('level-filter-notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.id = 'level-filter-notification';
+            notification.className = 'fixed top-4 right-4 z-50 bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in';
+            notification.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                <span class="font-medium">Фільтр рівня: <strong>${escapeHtml(levelName)}</strong> (${count} ${getPluralForm(count)})</span>
+                <button type="button" onclick="activeLevelFilter = null; resetLevelFilter();" class="ml-2 hover:bg-indigo-700 rounded p-1 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Answer filter functionality
+        let activeAnswerFilter = null;
+
+        document.addEventListener('click', function (event) {
+            const answerButton = event.target.closest('[data-answer-filter]');
+            
+            if (!answerButton) {
+                return;
+            }
+
+            const answerName = answerButton.getAttribute('data-answer-filter');
+            
+            // Toggle filter if clicking the same answer
+            if (activeAnswerFilter === answerName) {
+                activeAnswerFilter = null;
+                resetAnswerFilter();
+                return;
+            }
+
+            activeAnswerFilter = answerName;
+            applyAnswerFilter(answerName);
+        });
+
+        function applyAnswerFilter(answerName) {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allAnswerButtons = document.querySelectorAll('[data-answer-filter]');
+            let matchCount = 0;
+
+            // Reset all answer buttons to normal state
+            allAnswerButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-emerald-500', 'ring-offset-2');
+            });
+
+            // Highlight the active answer button
+            const activeButton = document.querySelector(`[data-answer-filter="${CSS.escape(answerName)}"]`);
+            if (activeButton) {
+                activeButton.classList.add('ring-2', 'ring-emerald-500', 'ring-offset-2');
+            }
+
+            // Filter questions
+            allQuestions.forEach(question => {
+                const questionAnswers = question.getAttribute('data-question-answers') || '';
+                const answersArray = questionAnswers.split(',').map(a => a.trim()).filter(a => a);
+                const hasAnswer = answersArray.includes(answerName);
+
+                if (hasAnswer) {
+                    question.classList.remove('hidden');
+                    question.classList.add('ring-2', 'ring-emerald-400', 'shadow-lg');
+                    matchCount++;
+
+                    // Auto-expand the source section if collapsed
+                    const sourceContent = question.closest('[data-source-content]');
+                    if (sourceContent && sourceContent.classList.contains('hidden')) {
+                        const sourceGroup = sourceContent.closest('[data-source-group]');
+                        const sourceToggle = sourceGroup?.querySelector('[data-source-toggle]');
+                        if (sourceToggle) {
+                            sourceToggle.setAttribute('aria-expanded', 'true');
+                            sourceContent.classList.remove('hidden');
+                            const icon = sourceToggle.querySelector('[data-source-toggle-icon]');
+                            if (icon) {
+                                icon.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                } else {
+                    question.classList.add('hidden');
+                    question.classList.remove('ring-2', 'ring-emerald-400', 'shadow-lg');
+                }
+            });
+
+            // Show notification
+            showAnswerFilterNotification(answerName, matchCount);
+
+            // Scroll to first matching question
+            const firstMatch = document.querySelector('[data-question-preview].ring-2.ring-emerald-400');
+            if (firstMatch) {
+                setTimeout(() => {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+
+        function resetAnswerFilter() {
+            const allQuestions = document.querySelectorAll('[data-question-preview]');
+            const allAnswerButtons = document.querySelectorAll('[data-answer-filter]');
+
+            // Reset all answer buttons
+            allAnswerButtons.forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-emerald-500', 'ring-offset-2');
+            });
+
+            // Reset all questions
+            allQuestions.forEach(question => {
+                question.classList.remove('hidden', 'ring-2', 'ring-emerald-400', 'shadow-lg');
+            });
+
+            // Remove notification
+            const existingNotification = document.getElementById('answer-filter-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+        }
+
+        function showAnswerFilterNotification(answerName, count) {
+            // Remove existing notification
+            const existing = document.getElementById('answer-filter-notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.id = 'answer-filter-notification';
+            notification.className = 'fixed top-4 right-4 z-50 bg-emerald-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in';
+            notification.innerHTML = `
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                <span class="font-medium">Фільтр відповіді: <strong>${escapeHtml(answerName)}</strong> (${count} ${getPluralForm(count)})</span>
+                <button type="button" onclick="activeAnswerFilter = null; resetAnswerFilter();" class="ml-2 hover:bg-emerald-700 rounded p-1 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
         }
     </script>
 @endsection

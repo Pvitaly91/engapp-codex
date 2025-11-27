@@ -20,7 +20,7 @@
             </div>
             <p class="text-lg font-semibold text-foreground">Нічого не знайдено</p>
             <p class="mt-2 text-sm text-muted-foreground">Спробуйте інший запит або перегляньте каталог тестів</p>
-            <a href="{{ route('catalog-tests.cards') }}" class="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg">
+            <a href="{{ route('catalog.tests-cards') }}" class="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg">
                 До каталогу
             </a>
         </div>

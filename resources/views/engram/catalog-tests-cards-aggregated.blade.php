@@ -12,7 +12,7 @@
             </svg>
         </button>
     </div>
-    <aside id="filters" class="md:w-48 w-full md:shrink-0 hidden md:block md:sticky md:top-20 md:self-start bg-card md:bg-transparent md:p-0 p-4 rounded-2xl shadow-soft md:shadow-none">
+    <aside id="filters" class="md:w-48 w-full md:shrink-0 hidden md:block bg-card md:bg-transparent md:p-0 p-4 rounded-2xl shadow-soft md:shadow-none">
         <div class="flex justify-between items-center md:hidden mb-4">
             <h2 class="text-base font-semibold">Фільтр</h2>
             <button type="button" id="filter-close" class="text-sm text-primary underline">
