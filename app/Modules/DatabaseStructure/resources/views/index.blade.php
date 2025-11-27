@@ -4400,21 +4400,15 @@
 
               if (useExactMatch) {
                 // For exact match, only match table name exactly (case-insensitive)
-                if (tableName.toLowerCase() === q) {
-                  return true;
-                }
-              } else {
-                // For partial match, check if table name contains the query
-                if (tableName.toLowerCase().includes(q)) {
-                  return true;
-                }
+                return tableName.toLowerCase() === q;
               }
 
-              // When exact match is enabled, don't search in columns - only table names
-              if (useExactMatch) {
-                return false;
+              // For partial match, check if table name contains the query
+              if (tableName.toLowerCase().includes(q)) {
+                return true;
               }
 
+              // Also search in columns for partial match
               const columns = Array.isArray(table.structure?.columns) ? table.structure.columns : [];
 
               return columns.some((column) => {
