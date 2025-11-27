@@ -13,6 +13,12 @@ use Illuminate\Support\Arr;
 
 class SavedTestResolver
 {
+    /** Maximum length for base64 encoded filter input (10KB) */
+    private const MAX_ENCODED_FILTER_LENGTH = 10240;
+
+    /** Maximum length for test name parameter */
+    private const MAX_NAME_LENGTH = 255;
+
     public function __construct(
         private GrammarTestFilterService $filterService,
     ) {
@@ -118,8 +124,8 @@ class SavedTestResolver
             return null;
         }
 
-        // Validate input length to prevent abuse (max 10KB encoded)
-        if (!is_string($encodedFilters) || strlen($encodedFilters) > 10240) {
+        // Validate input length to prevent abuse
+        if (!is_string($encodedFilters) || strlen($encodedFilters) > self::MAX_ENCODED_FILTER_LENGTH) {
             return null;
         }
 
@@ -145,7 +151,7 @@ class SavedTestResolver
 
         // Sanitize the name parameter
         $name = $request->query('name', 'Тест');
-        if (!is_string($name) || strlen($name) > 255) {
+        if (!is_string($name) || strlen($name) > self::MAX_NAME_LENGTH) {
             $name = 'Тест';
         }
 
