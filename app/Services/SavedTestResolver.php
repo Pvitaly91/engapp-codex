@@ -42,50 +42,111 @@ class SavedTestResolver
         $saved = SavedGrammarTest::with('questionLinks')->where('slug', $slug)->first();
 
         if ($saved) {
-            $rawFilters = $saved->filters ?? [];
-            if (is_string($rawFilters)) {
-                $decoded = json_decode($rawFilters, true);
-                $rawFilters = is_array($decoded) ? $decoded : [];
-            }
+            return $this->resolveFromModel($saved);
+        }
 
-            $isFilterBased = is_array($rawFilters)
-                && Arr::get($rawFilters, '__meta.mode') === 'filters';
-
-            if ($isFilterBased) {
-                $normalized = $this->filterService->normalize($rawFilters);
-                $questions = $this->filterService->questionsFromFilters($normalized);
-
-                $questionIds = $questions->pluck('id')
-                    ->filter(fn ($id) => filled($id))
-                    ->map(fn ($id) => (int) $id)
-                    ->values();
-
-                $questionUuids = $questions->pluck('uuid')
-                    ->filter(fn ($uuid) => filled($uuid))
-                    ->values();
-
-                return new ResolvedSavedTest($saved, $questionIds, $questionUuids, true, $questions, true);
-            }
-
-            $questionUuids = $saved->questionLinks
-                ->sortBy('position')
-                ->pluck('question_uuid')
-                ->filter(fn ($uuid) => filled($uuid))
-                ->values();
-
-            $idMap = $questionUuids->isEmpty()
-                ? collect()
-                : Question::whereIn('uuid', $questionUuids)->pluck('id', 'uuid');
-
-            $questionIds = $questionUuids
-                ->map(fn ($uuid) => isset($idMap[$uuid]) ? (int) $idMap[$uuid] : null)
-                ->filter(fn ($id) => $id !== null)
-                ->values();
-
-            return new ResolvedSavedTest($saved, $questionIds, $questionUuids, true);
+        // Try to resolve from query parameters (for virtual/filter-based tests)
+        $virtualTest = $this->resolveFromQueryParams($slug);
+        if ($virtualTest) {
+            return $virtualTest;
         }
 
         throw new ModelNotFoundException("Saved test [{$slug}] not found.");
+    }
+
+    /**
+     * Resolve a test from a SavedGrammarTest model.
+     */
+    private function resolveFromModel(SavedGrammarTest $saved): ResolvedSavedTest
+    {
+        $rawFilters = $saved->filters ?? [];
+        if (is_string($rawFilters)) {
+            $decoded = json_decode($rawFilters, true);
+            $rawFilters = is_array($decoded) ? $decoded : [];
+        }
+
+        $isFilterBased = is_array($rawFilters)
+            && Arr::get($rawFilters, '__meta.mode') === 'filters';
+
+        if ($isFilterBased) {
+            $normalized = $this->filterService->normalize($rawFilters);
+            $questions = $this->filterService->questionsFromFilters($normalized);
+
+            $questionIds = $questions->pluck('id')
+                ->filter(fn ($id) => filled($id))
+                ->map(fn ($id) => (int) $id)
+                ->values();
+
+            $questionUuids = $questions->pluck('uuid')
+                ->filter(fn ($uuid) => filled($uuid))
+                ->values();
+
+            return new ResolvedSavedTest($saved, $questionIds, $questionUuids, true, $questions, true);
+        }
+
+        $questionUuids = $saved->questionLinks
+            ->sortBy('position')
+            ->pluck('question_uuid')
+            ->filter(fn ($uuid) => filled($uuid))
+            ->values();
+
+        $idMap = $questionUuids->isEmpty()
+            ? collect()
+            : Question::whereIn('uuid', $questionUuids)->pluck('id', 'uuid');
+
+        $questionIds = $questionUuids
+            ->map(fn ($uuid) => isset($idMap[$uuid]) ? (int) $idMap[$uuid] : null)
+            ->filter(fn ($id) => $id !== null)
+            ->values();
+
+        return new ResolvedSavedTest($saved, $questionIds, $questionUuids, true);
+    }
+
+    /**
+     * Resolve a virtual test from query parameters.
+     * 
+     * This supports filter-based tests that aren't stored in the database.
+     * The filters are passed as a base64-encoded JSON string in the 'filters' query param.
+     */
+    private function resolveFromQueryParams(string $slug): ?ResolvedSavedTest
+    {
+        $request = request();
+        $encodedFilters = $request->query('filters');
+        
+        if (!$encodedFilters) {
+            return null;
+        }
+
+        $decodedFilters = base64_decode($encodedFilters, true);
+        if ($decodedFilters === false) {
+            return null;
+        }
+
+        $filters = json_decode($decodedFilters, true);
+        if (!is_array($filters)) {
+            return null;
+        }
+
+        // Create a virtual test model
+        $virtualTest = new VirtualSavedTest(
+            name: $request->query('name', 'Тест'),
+            slug: $slug,
+            filters: $filters
+        );
+
+        $normalized = $this->filterService->normalize($filters);
+        $questions = $this->filterService->questionsFromFilters($normalized);
+
+        $questionIds = $questions->pluck('id')
+            ->filter(fn ($id) => filled($id))
+            ->map(fn ($id) => (int) $id)
+            ->values();
+
+        $questionUuids = $questions->pluck('uuid')
+            ->filter(fn ($uuid) => filled($uuid))
+            ->values();
+
+        return new ResolvedSavedTest($virtualTest, $questionIds, $questionUuids, true, $questions, true);
     }
 
     public function loadQuestions(ResolvedSavedTest $resolved, array $relations = []): Collection
