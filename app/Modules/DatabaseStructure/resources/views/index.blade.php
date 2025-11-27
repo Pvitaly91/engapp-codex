@@ -3729,6 +3729,8 @@
             hasDependencies: false,
             dependencies: [],
             deleting: false,
+            tableRef: null,
+            identifiers: null,
           },
           tableOperationModal: {
             open: false,
@@ -3739,6 +3741,7 @@
             error: null,
             hasReferences: false,
             references: [],
+            tableRef: null,
           },
           manualForeignErrors: {},
           bodyScrollLocked: false,

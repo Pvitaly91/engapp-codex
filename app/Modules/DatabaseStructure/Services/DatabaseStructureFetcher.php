@@ -642,13 +642,17 @@ class DatabaseStructureFetcher
             return true;
         }
 
-        // Disable foreign key checks temporarily for truncation
-        $this->connection->statement('SET FOREIGN_KEY_CHECKS=0');
+        // Disable foreign key checks temporarily for truncation (MySQL only)
+        if ($driver === 'mysql') {
+            $this->connection->statement('SET FOREIGN_KEY_CHECKS=0');
+        }
 
         try {
             $this->connection->table($table)->truncate();
         } finally {
-            $this->connection->statement('SET FOREIGN_KEY_CHECKS=1');
+            if ($driver === 'mysql') {
+                $this->connection->statement('SET FOREIGN_KEY_CHECKS=1');
+            }
         }
 
         return true;
@@ -771,8 +775,13 @@ class DatabaseStructureFetcher
         $references = [];
 
         foreach ($tables as $tableRow) {
-            $tableName = str_replace("'", "''", $tableRow->name);
-            $foreignKeys = $this->connection->select("PRAGMA foreign_key_list('{$tableName}')");
+            // Validate table name contains only safe characters
+            $tableName = $tableRow->name;
+            if (!preg_match('/^[A-Za-z0-9_]+$/', $tableName)) {
+                continue;
+            }
+
+            $foreignKeys = $this->connection->select("PRAGMA foreign_key_list({$tableName})");
 
             foreach ($foreignKeys as $fk) {
                 if ($fk->table === $targetTable) {
