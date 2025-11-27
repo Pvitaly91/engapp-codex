@@ -2524,7 +2524,7 @@
         const id = typeof entry.id === 'string' ? entry.id.trim() : '';
         const name = typeof entry.name === 'string' ? entry.name.trim() : '';
         const query = typeof entry.query === 'string' ? entry.query.trim() : '';
-        const exactMatch = entry.exact_match === true;
+        const exactMatch = entry.exact_match === true || entry.exactMatch === true;
 
         if (!id || !name || !query) {
           return null;
