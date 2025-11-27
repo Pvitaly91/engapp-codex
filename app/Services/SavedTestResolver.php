@@ -118,6 +118,16 @@ class SavedTestResolver
             return null;
         }
 
+        // Validate input length to prevent abuse (max 10KB encoded)
+        if (!is_string($encodedFilters) || strlen($encodedFilters) > 10240) {
+            return null;
+        }
+
+        // Only allow valid base64 characters
+        if (!preg_match('/^[A-Za-z0-9+\/=]+$/', $encodedFilters)) {
+            return null;
+        }
+
         $decodedFilters = base64_decode($encodedFilters, true);
         if ($decodedFilters === false) {
             return null;
@@ -128,9 +138,20 @@ class SavedTestResolver
             return null;
         }
 
+        // Validate required filter structure
+        if (!$this->validateFilterStructure($filters)) {
+            return null;
+        }
+
+        // Sanitize the name parameter
+        $name = $request->query('name', 'Тест');
+        if (!is_string($name) || strlen($name) > 255) {
+            $name = 'Тест';
+        }
+
         // Create a virtual test model
         $virtualTest = new VirtualSavedTest(
-            name: $request->query('name', 'Тест'),
+            name: $name,
             slug: $slug,
             filters: $filters
         );
@@ -168,5 +189,41 @@ class SavedTestResolver
             ->map(fn ($id) => $questions->get($id))
             ->filter()
             ->values();
+    }
+
+    /**
+     * Validate the basic structure of filter parameters.
+     * 
+     * This ensures the filters contain expected keys with valid types.
+     */
+    private function validateFilterStructure(array $filters): bool
+    {
+        // Check for filter mode (required for virtual tests)
+        if (!isset($filters['__meta']['mode']) || $filters['__meta']['mode'] !== 'filters') {
+            return false;
+        }
+
+        // Validate tags array
+        if (isset($filters['tags']) && !is_array($filters['tags'])) {
+            return false;
+        }
+
+        // Validate levels array
+        if (isset($filters['levels']) && !is_array($filters['levels'])) {
+            return false;
+        }
+
+        // Validate num_questions is a reasonable integer
+        if (isset($filters['num_questions'])) {
+            if (!is_int($filters['num_questions']) && !is_numeric($filters['num_questions'])) {
+                return false;
+            }
+            $numQuestions = (int) $filters['num_questions'];
+            if ($numQuestions < 1 || $numQuestions > 1000) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

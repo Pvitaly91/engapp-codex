@@ -11,7 +11,8 @@
     $totalAvailable = $test->getAttribute('total_questions_available') ?? $questionsCount;
     
     // Check if this is a virtual test (not persisted in the database)
-    $isVirtual = $test instanceof \App\Services\VirtualSavedTest || ($test->exists ?? true) === false;
+    // Use isVirtual() method if available, otherwise check exists property
+    $isVirtual = method_exists($test, 'isVirtual') ? $test->isVirtual() : (($test->exists ?? true) === false);
     
     // Build URL with filters for virtual tests
     if ($isVirtual) {

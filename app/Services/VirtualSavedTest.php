@@ -62,6 +62,14 @@ class VirtualSavedTest
     }
 
     /**
+     * Check if this is a virtual (non-persisted) test.
+     */
+    public function isVirtual(): bool
+    {
+        return true;
+    }
+
+    /**
      * Set the total questions available count (fluent setter for chaining).
      */
     public function setTotalQuestionsAvailable(int $count): self
@@ -75,11 +83,23 @@ class VirtualSavedTest
      */
     public function getAttribute(string $key): mixed
     {
-        if ($key === 'total_questions_available') {
-            return $this->totalQuestionsAvailable;
+        // Whitelist of allowed attributes for Eloquent-style access
+        $allowedAttributes = [
+            'total_questions_available' => fn() => $this->totalQuestionsAvailable,
+            'uuid' => fn() => $this->uuid,
+            'name' => fn() => $this->name,
+            'slug' => fn() => $this->slug,
+            'filters' => fn() => $this->filters,
+            'description' => fn() => $this->description,
+            'id' => fn() => $this->id,
+            'exists' => fn() => $this->exists,
+        ];
+
+        if (isset($allowedAttributes[$key])) {
+            return $allowedAttributes[$key]();
         }
 
-        return $this->{$key} ?? null;
+        return null;
     }
 
     /**
