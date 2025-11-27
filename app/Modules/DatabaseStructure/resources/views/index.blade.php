@@ -37,6 +37,12 @@
         'default' => route('database-structure.filters.default', ['table' => '__TABLE__', 'scope' => '__SCOPE__']),
         'destroy' => route('database-structure.filters.destroy', ['table' => '__TABLE__', 'scope' => '__SCOPE__', 'filter' => '__FILTER__']),
       ]),
+      @js([
+        'index' => route('database-structure.search-presets.index'),
+        'store' => route('database-structure.search-presets.store'),
+        'use' => route('database-structure.search-presets.use', ['preset' => '__PRESET__']),
+        'destroy' => route('database-structure.search-presets.destroy', ['preset' => '__PRESET__']),
+      ]),
       @js(route('database-structure.keyword-search')),
       @js([
         'initialTab' => $currentTab,
@@ -120,6 +126,58 @@
             x-model.trim="query"
           />
         </div>
+      </div>
+      <div class="mt-4 space-y-3">
+        <div class="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
+          <p class="text-xs text-muted-foreground">
+            Збережіть пошуковий запит, щоб швидко повертатися до нього у майбутньому.
+          </p>
+          <div class="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+              :disabled="!query || searchPresets.saving"
+              @click="saveCurrentSearchPreset()"
+            >
+              <i class="fa-solid fa-floppy-disk text-[12px]"></i>
+              Зберегти пошук
+            </button>
+            <template x-if="searchPresets.loading">
+              <span class="text-xs text-muted-foreground">Завантаження збережених пошуків…</span>
+            </template>
+            <template x-if="searchPresets.feedback">
+              <span class="text-xs font-semibold text-emerald-600" x-text="searchPresets.feedback"></span>
+            </template>
+          </div>
+        </div>
+        <template x-if="searchPresets.error">
+          <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-2 text-sm text-rose-600" x-text="searchPresets.error"></div>
+        </template>
+        <template x-if="!searchPresets.loading && searchPresets.items.length > 0">
+          <div class="flex flex-wrap items-center gap-2">
+            <template x-for="preset in searchPresets.items" :key="`preset-${preset.id}`">
+              <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background text-xs font-semibold">
+                <button
+                  type="button"
+                  class="px-3 py-1 transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                  :class="searchPresets.lastUsed === preset.id ? 'bg-primary/10 text-primary' : 'text-foreground'"
+                  :disabled="searchPresets.saving"
+                  @click="applySearchPreset(preset)"
+                  x-text="preset.name"
+                ></button>
+                <button
+                  type="button"
+                  class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="searchPresets.saving"
+                  @click="deleteSearchPreset(preset.id)"
+                  :aria-label="`Видалити пошук ${preset.name}`"
+                >
+                  <i class="fa-solid fa-xmark text-[10px]"></i>
+                </button>
+              </div>
+            </template>
+          </div>
+        </template>
       </div>
     </header>
 
@@ -933,10 +991,8 @@
       <div class="relative z-10 w-full max-w-md rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
         <div class="flex items-start justify-between gap-4">
           <div>
-            <h2 class="text-lg font-semibold text-foreground">Збереження фільтру</h2>
-            <p class="mt-1 text-xs text-muted-foreground">
-              Вкажіть назву для збереженого фільтру.
-            </p>
+            <h2 class="text-lg font-semibold text-foreground" x-text="filterNameModal.title || 'Збереження фільтру'"></h2>
+            <p class="mt-1 text-xs text-muted-foreground" x-text="filterNameModal.description || 'Вкажіть назву для збереженого фільтру.'"></p>
           </div>
           <button
             type="button"
@@ -948,12 +1004,12 @@
         </div>
         <form class="mt-6 space-y-4" @submit.prevent="confirmFilterNameModal()">
           <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            <span>Назва фільтру</span>
+            <span x-text="filterNameModal.label || 'Назва фільтру'"></span>
             <input
               type="text"
               class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
               x-model="filterNameModal.name"
-              :placeholder="filterNameModal.defaultName || 'Новий фільтр'"
+              :placeholder="filterNameModal.placeholder || filterNameModal.defaultName || 'Новий фільтр'"
               x-ref="filterNameInput"
             />
           </label>
@@ -2158,6 +2214,7 @@
       contentManagementRoutes,
       contentManagementSettings = {},
       filterRoutes = {},
+      searchPresetRoutes = {},
       keywordSearchRoute = '',
       viewOptions = {},
     ) {
@@ -2206,6 +2263,86 @@
 
         return route;
       };
+
+      const normalizeSearchPresetRoutes = (routes) => {
+        const source = routes && typeof routes === 'object' ? routes : {};
+
+        return {
+          index: typeof source.index === 'string' ? source.index : '',
+          store: typeof source.store === 'string' ? source.store : '',
+          use: typeof source.use === 'string' ? source.use : '',
+          destroy: typeof source.destroy === 'string' ? source.destroy : '',
+        };
+      };
+
+      const buildSearchPresetRoute = (template, presetId = null) => {
+        if (typeof template !== 'string' || template.trim() === '') {
+          return '';
+        }
+
+        let route = template;
+
+        if (route.includes('__PRESET__')) {
+          if (presetId === null) {
+            return '';
+          }
+
+          const normalizedPreset = typeof presetId === 'string' ? presetId.trim() : '';
+
+          if (!normalizedPreset) {
+            return '';
+          }
+
+          route = route.replace('__PRESET__', encodeURIComponent(normalizedPreset));
+        }
+
+        return route;
+      };
+
+      const normalizeSearchPresetEntry = (entry) => {
+        if (!entry || typeof entry !== 'object') {
+          return null;
+        }
+
+        const id = typeof entry.id === 'string' ? entry.id.trim() : '';
+        const name = typeof entry.name === 'string' ? entry.name.trim() : '';
+        const query = typeof entry.query === 'string' ? entry.query.trim() : '';
+
+        if (!id || !name || !query) {
+          return null;
+        }
+
+        return { id, name, query };
+      };
+
+      const normalizeSearchPresetResponse = (payload) => {
+        const itemsSource = payload && typeof payload === 'object' ? payload.items : [];
+        const lastUsed = payload && typeof payload === 'object' && typeof payload.last_used === 'string'
+          ? payload.last_used.trim()
+          : '';
+        const items = Array.isArray(itemsSource)
+          ? itemsSource.map((entry) => normalizeSearchPresetEntry(entry)).filter(Boolean)
+          : [];
+
+        return {
+          items,
+          lastUsed: lastUsed || '',
+        };
+      };
+
+      const nameModalDefaults = () => ({
+        title: 'Збереження фільтру',
+        description: 'Вкажіть назву для збереженого фільтру.',
+        placeholder: 'Новий фільтр',
+        label: 'Назва фільтру',
+        emptyError: 'Вкажіть назву фільтру.',
+      });
+
+      const normalizeNameModalConfig = (config) => Object.assign(
+        {},
+        nameModalDefaults(),
+        config && typeof config === 'object' ? config : {},
+      );
 
       const normalizeSavedFilterEntry = (entry) => {
         if (!entry || typeof entry !== 'object') {
@@ -3244,6 +3381,7 @@
         const normalizedContentManagementRoutes = normalizeContentManagementRoutes(contentManagementRoutes);
         const normalizedContentManagementSettings = normalizeContentManagementTableSettings(contentManagementSettings);
         const normalizedFilterRoutes = normalizeFilterRoutes(filterRoutes);
+        const normalizedSearchPresetRoutes = normalizeSearchPresetRoutes(searchPresetRoutes);
         const normalizedViewOptions =
           viewOptions && typeof viewOptions === 'object' && !Array.isArray(viewOptions)
             ? viewOptions
@@ -3280,6 +3418,7 @@
           tabRoutes: normalizedTabRoutes,
           query: '',
           filterRoutes: normalizedFilterRoutes,
+          searchPresetRoutes: normalizedSearchPresetRoutes,
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
           recordsValueRoute: valueRoute,
@@ -3291,6 +3430,15 @@
             delete: typeof manualForeignDeleteRoute === 'string' ? manualForeignDeleteRoute : '',
           },
           contentManagementRoutes: normalizedContentManagementRoutes,
+          searchPresets: {
+            items: [],
+            lastUsed: '',
+            loading: false,
+            saving: false,
+            error: '',
+            feedback: '',
+            feedbackTimeout: null,
+          },
           contentManagement: {
             menu: normalizedContentManagementMenu,
             defaultTable: resolveDefaultContentManagementTable(normalizedContentManagementMenu),
@@ -3349,6 +3497,11 @@
             defaultName: '',
             error: '',
             resolve: null,
+            title: 'Збереження фільтру',
+            description: 'Вкажіть назву для збереженого фільтру.',
+            placeholder: 'Новий фільтр',
+            label: 'Назва фільтру',
+            emptyError: 'Вкажіть назву фільтру.',
           },
           manualForeignErrors: {},
           bodyScrollLocked: false,
@@ -3395,6 +3548,8 @@
           tables: normalizedTables,
           init() {
             this.syncBodyScrollLock();
+
+            this.loadSavedSearchPresets();
 
             this.$watch('valueModal.open', () => {
               this.syncBodyScrollLock();
@@ -3624,16 +3779,16 @@
               return;
             }
 
-          targetState.items = Array.isArray(normalized.items) ? normalized.items : [];
-          targetState.lastUsed = typeof normalized.lastUsed === 'string' ? normalized.lastUsed : '';
-          targetState.defaultId = typeof normalized.defaultId === 'string' ? normalized.defaultId : '';
-          targetState.defaultDisabled = normalized.defaultDisabled === true;
-          targetState.loaded = true;
-        },
-        async updateSavedFilterDefault(scope, tableName, filterId, state, feedbackTarget) {
-          if (!state) {
-            return;
-          }
+            targetState.items = Array.isArray(normalized.items) ? normalized.items : [];
+            targetState.lastUsed = typeof normalized.lastUsed === 'string' ? normalized.lastUsed : '';
+            targetState.defaultId = typeof normalized.defaultId === 'string' ? normalized.defaultId : '';
+            targetState.defaultDisabled = normalized.defaultDisabled === true;
+            targetState.loaded = true;
+          },
+          async updateSavedFilterDefault(scope, tableName, filterId, state, feedbackTarget) {
+            if (!state) {
+              return;
+            }
 
           const normalizedScope = normalizeFilterScope(scope);
           const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
@@ -3705,10 +3860,31 @@
 
             return `${base} ${Date.now()}`;
           },
-          promptFilterName(defaultName = '') {
+          generateDefaultSearchName(existing) {
+            const items = Array.isArray(existing) ? existing : [];
+            const base = 'Пошук';
+            const existingNames = new Set(
+              items
+                .map((item) => (item && typeof item.name === 'string' ? item.name.toLowerCase() : ''))
+                .filter((name) => name !== ''),
+            );
+
+            for (let index = 1; index <= items.length + 10; index += 1) {
+              const candidate = `${base} ${index}`;
+
+              if (!existingNames.has(candidate.toLowerCase())) {
+                return candidate;
+              }
+            }
+
+            return `${base} ${Date.now()}`;
+          },
+          promptFilterName(defaultName = '', options = {}) {
             const fallback = typeof defaultName === 'string' && defaultName.trim() !== ''
               ? defaultName.trim()
               : 'Новий фільтр';
+            const modalConfig = normalizeNameModalConfig(options);
+            const defaults = nameModalDefaults();
 
             return new Promise((resolve) => {
               if (typeof this.filterNameModal.resolve === 'function') {
@@ -3719,6 +3895,11 @@
               this.filterNameModal.name = fallback;
               this.filterNameModal.defaultName = fallback;
               this.filterNameModal.error = '';
+              this.filterNameModal.title = modalConfig.title || defaults.title;
+              this.filterNameModal.description = modalConfig.description || defaults.description;
+              this.filterNameModal.placeholder = modalConfig.placeholder || fallback || defaults.placeholder;
+              this.filterNameModal.label = modalConfig.label || defaults.label;
+              this.filterNameModal.emptyError = modalConfig.emptyError || defaults.emptyError;
               this.filterNameModal.resolve = resolve;
 
               this.$nextTick(() => {
@@ -3740,6 +3921,12 @@
             this.filterNameModal.defaultName = '';
             this.filterNameModal.error = '';
             this.filterNameModal.resolve = null;
+            const defaults = nameModalDefaults();
+            this.filterNameModal.title = defaults.title;
+            this.filterNameModal.description = defaults.description;
+            this.filterNameModal.placeholder = defaults.placeholder;
+            this.filterNameModal.label = defaults.label;
+            this.filterNameModal.emptyError = defaults.emptyError;
           },
           confirmFilterNameModal() {
             const name = typeof this.filterNameModal.name === 'string'
@@ -3747,7 +3934,7 @@
               : '';
 
             if (!name) {
-              this.filterNameModal.error = 'Вкажіть назву фільтру.';
+              this.filterNameModal.error = this.filterNameModal.emptyError || 'Вкажіть назву фільтру.';
 
               this.$nextTick(() => {
                 const input = this.$refs?.filterNameInput;
@@ -3777,6 +3964,174 @@
 
             if (typeof resolver === 'function') {
               resolver(null);
+            }
+          },
+          updateSearchPresetsState(payload) {
+            const normalized = normalizeSearchPresetResponse(payload || {});
+            this.searchPresets.items = normalized.items;
+            this.searchPresets.lastUsed = normalized.lastUsed;
+          },
+          async loadSavedSearchPresets() {
+            if (!this.searchPresetRoutes.index) {
+              return;
+            }
+
+            this.searchPresets.loading = true;
+            this.searchPresets.error = '';
+
+            try {
+              const response = await fetch(this.searchPresetRoutes.index, {
+                method: 'GET',
+                headers: { Accept: 'application/json' },
+              });
+
+              if (!response.ok) {
+                const payload = await response.json().catch(() => null);
+                const message = payload?.message || 'Не вдалося завантажити збережені пошуки.';
+                throw new Error(message);
+              }
+
+              const payload = await response.json();
+              this.updateSearchPresetsState(payload);
+            } catch (error) {
+              this.searchPresets.error = error?.message || 'Не вдалося завантажити збережені пошуки.';
+            } finally {
+              this.searchPresets.loading = false;
+            }
+          },
+          async saveCurrentSearchPreset() {
+            const query = typeof this.query === 'string' ? this.query.trim() : '';
+
+            if (!query) {
+              this.searchPresets.error = 'Введіть запит для збереження.';
+              return;
+            }
+
+            if (!this.searchPresetRoutes.store) {
+              this.searchPresets.error = 'Збереження пошуку недоступне.';
+              return;
+            }
+
+            const defaultName = this.generateDefaultSearchName(this.searchPresets.items);
+            const name = await this.promptFilterName(defaultName, {
+              title: 'Збереження пошуку',
+              description: 'Вкажіть назву для збереженого пошуку за таблицями або полями.',
+              placeholder: 'Новий пошук',
+              label: 'Назва пошуку',
+              emptyError: 'Вкажіть назву пошуку.',
+            });
+
+            if (!name) {
+              return;
+            }
+
+            this.searchPresets.saving = true;
+            this.searchPresets.error = '';
+            this.clearFeedback(this.searchPresets);
+
+            try {
+              const response = await fetch(this.searchPresetRoutes.store, {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': this.csrfToken || '',
+                },
+                body: JSON.stringify({ name, query }),
+              });
+
+              if (!response.ok) {
+                const payload = await response.json().catch(() => null);
+                const message = payload?.message || 'Не вдалося зберегти пошук.';
+                throw new Error(message);
+              }
+
+              const payload = await response.json();
+              this.updateSearchPresetsState(payload);
+              this.setFeedback(this.searchPresets, 'Пошук збережено.');
+            } catch (error) {
+              this.searchPresets.error = error?.message || 'Не вдалося зберегти пошук.';
+            } finally {
+              this.searchPresets.saving = false;
+            }
+          },
+          async markSearchPresetAsUsed(presetId) {
+            const route = buildSearchPresetRoute(this.searchPresetRoutes.use, presetId);
+
+            if (!route) {
+              return;
+            }
+
+            try {
+              const response = await fetch(route, {
+                method: 'PATCH',
+                headers: {
+                  Accept: 'application/json',
+                  'X-CSRF-TOKEN': this.csrfToken || '',
+                },
+              });
+
+              if (!response.ok) {
+                const payload = await response.json().catch(() => null);
+                const message = payload?.message || 'Не вдалося застосувати збережений пошук.';
+                throw new Error(message);
+              }
+
+              const payload = await response.json();
+              this.updateSearchPresetsState(payload);
+            } catch (error) {
+              this.searchPresets.error = error?.message || 'Не вдалося застосувати збережений пошук.';
+            }
+          },
+          async applySearchPreset(preset) {
+            const normalized = normalizeSearchPresetEntry(preset);
+
+            if (!normalized) {
+              return;
+            }
+
+            this.query = normalized.query;
+            this.searchPresets.lastUsed = normalized.id;
+
+            await this.markSearchPresetAsUsed(normalized.id);
+          },
+          async deleteSearchPreset(presetId) {
+            if (!presetId) {
+              return;
+            }
+
+            const route = buildSearchPresetRoute(this.searchPresetRoutes.destroy, presetId);
+
+            if (!route) {
+              return;
+            }
+
+            this.searchPresets.saving = true;
+            this.searchPresets.error = '';
+            this.clearFeedback(this.searchPresets);
+
+            try {
+              const response = await fetch(route, {
+                method: 'DELETE',
+                headers: {
+                  Accept: 'application/json',
+                  'X-CSRF-TOKEN': this.csrfToken || '',
+                },
+              });
+
+              if (!response.ok) {
+                const payload = await response.json().catch(() => null);
+                const message = payload?.message || 'Не вдалося видалити пошук.';
+                throw new Error(message);
+              }
+
+              const payload = await response.json();
+              this.updateSearchPresetsState(payload);
+              this.setFeedback(this.searchPresets, 'Збережений пошук видалено.');
+            } catch (error) {
+              this.searchPresets.error = error?.message || 'Не вдалося видалити пошук.';
+            } finally {
+              this.searchPresets.saving = false;
             }
           },
           get filteredTables() {
