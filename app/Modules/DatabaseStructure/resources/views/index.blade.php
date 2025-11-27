@@ -37,6 +37,12 @@
         'default' => route('database-structure.filters.default', ['table' => '__TABLE__', 'scope' => '__SCOPE__']),
         'destroy' => route('database-structure.filters.destroy', ['table' => '__TABLE__', 'scope' => '__SCOPE__', 'filter' => '__FILTER__']),
       ]),
+      @js([
+        'index' => route('database-structure.search-presets.index'),
+        'store' => route('database-structure.search-presets.store'),
+        'use' => route('database-structure.search-presets.use', ['preset' => '__PRESET__']),
+        'destroy' => route('database-structure.search-presets.destroy', ['preset' => '__PRESET__']),
+      ]),
       @js(route('database-structure.keyword-search')),
       @js([
         'initialTab' => $currentTab,
@@ -45,6 +51,13 @@
           'structure' => route('database-structure.index'),
           'content-management' => route('database-structure.content-management'),
         ],
+      ]),
+      @js([
+        'checkDependencies' => route('database-structure.check-dependencies', ['table' => '__TABLE__']),
+        'destroyCascade' => route('database-structure.destroy-cascade', ['table' => '__TABLE__']),
+        'truncate' => route('database-structure.truncate', ['table' => '__TABLE__']),
+        'drop' => route('database-structure.drop', ['table' => '__TABLE__']),
+        'references' => route('database-structure.references', ['table' => '__TABLE__']),
       ])
     )"
     @keydown.window.escape.prevent="handleEscape()"
@@ -120,6 +133,68 @@
             x-model.trim="query"
           />
         </div>
+      </div>
+      <div class="mt-3 flex items-center gap-2">
+        <label class="inline-flex cursor-pointer items-center gap-2 text-xs text-muted-foreground">
+          <input
+            type="checkbox"
+            class="h-4 w-4 rounded border-border text-primary focus:ring-2 focus:ring-primary/40"
+            x-model="exactTableMatch"
+          />
+          <span>Точний збіг назви таблиці</span>
+        </label>
+      </div>
+      <div class="mt-4 space-y-3">
+        <div class="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
+          <p class="text-xs text-muted-foreground">
+            Збережіть пошуковий запит, щоб швидко повертатися до нього у майбутньому.
+          </p>
+          <div class="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:cursor-not-allowed disabled:opacity-60"
+              :disabled="!query || searchPresets.saving"
+              @click="saveCurrentSearchPreset()"
+            >
+              <i class="fa-solid fa-floppy-disk text-[12px]"></i>
+              Зберегти пошук
+            </button>
+            <template x-if="searchPresets.loading">
+              <span class="text-xs text-muted-foreground">Завантаження збережених пошуків…</span>
+            </template>
+            <template x-if="searchPresets.feedback">
+              <span class="text-xs font-semibold text-emerald-600" x-text="searchPresets.feedback"></span>
+            </template>
+          </div>
+        </div>
+        <template x-if="searchPresets.error">
+          <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-2 text-sm text-rose-600" x-text="searchPresets.error"></div>
+        </template>
+        <template x-if="!searchPresets.loading && searchPresets.items.length > 0">
+          <div class="flex flex-wrap items-center gap-2">
+            <template x-for="preset in searchPresets.items" :key="`preset-${preset.id}`">
+              <div class="inline-flex items-center overflow-hidden rounded-full border border-border/70 bg-background text-xs font-semibold">
+                <button
+                  type="button"
+                  class="px-3 py-1 transition hover:bg-primary/10 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                  :class="searchPresets.lastUsed === preset.id ? 'bg-primary/10 text-primary' : 'text-foreground'"
+                  :disabled="searchPresets.saving"
+                  @click="applySearchPreset(preset)"
+                  x-text="preset.name"
+                ></button>
+                <button
+                  type="button"
+                  class="px-2 py-1 text-muted-foreground transition hover:text-rose-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 disabled:cursor-not-allowed disabled:opacity-60"
+                  :disabled="searchPresets.saving"
+                  @click="deleteSearchPreset(preset.id)"
+                  :aria-label="`Видалити пошук ${preset.name}`"
+                >
+                  <i class="fa-solid fa-xmark text-[10px]"></i>
+                </button>
+              </div>
+            </template>
+          </div>
+        </template>
       </div>
     </header>
 
@@ -405,6 +480,22 @@
                   @click.stop="toggleRecords(table)"
                   x-text="table.records.visible ? 'Сховати записи' : 'Показати записи'"
                 ></button>
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-2 text-xs font-semibold text-amber-700 transition hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-300"
+                  @click.stop="openTableOperationModal(table, 'truncate')"
+                >
+                  <i class="fa-solid fa-eraser text-[10px]"></i>
+                  Очистити таблицю
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-50 px-4 py-2 text-xs font-semibold text-rose-600 transition hover:bg-rose-100 focus:outline-none focus:ring-2 focus:ring-rose-300"
+                  @click.stop="openTableOperationModal(table, 'drop')"
+                >
+                  <i class="fa-solid fa-trash text-[10px]"></i>
+                  Видалити таблицю
+                </button>
                 <template x-if="table.records.loading">
                   <span class="text-xs text-muted-foreground">Завантаження записів...</span>
                 </template>
@@ -918,6 +1009,189 @@
 
     </div>
 
+    {{-- Dependency Modal --}}
+    <div
+      x-show="dependencyModal.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        @click="dependencyModal.deleting ? null : closeDependencyModal()"
+      ></div>
+      <div class="relative z-10 w-full max-w-lg rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-foreground">
+              <i class="fa-solid fa-triangle-exclamation text-amber-500 mr-2"></i>
+              Запис має пов'язані дані
+            </h2>
+            <p class="mt-1 text-sm text-muted-foreground">
+              Цей запис має залежні записи в інших таблицях. Видалення може призвести до помилок цілісності даних.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+            :disabled="dependencyModal.deleting"
+            @click="closeDependencyModal()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="mt-4 space-y-3">
+          <div class="text-sm text-muted-foreground">
+            <p class="font-semibold text-foreground mb-2">Залежні таблиці:</p>
+            <ul class="space-y-2">
+              <template x-for="dep in dependencyModal.dependencies" :key="`dep-${dep.table}-${dep.column}`">
+                <li class="flex items-center justify-between rounded-xl border border-border/60 bg-muted/20 px-4 py-3">
+                  <div>
+                    <span class="font-medium text-foreground" x-text="dep.table"></span>
+                    <span class="text-muted-foreground">.</span>
+                    <span class="text-muted-foreground" x-text="dep.column"></span>
+                  </div>
+                  <span class="inline-flex items-center rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700">
+                    <span x-text="dep.count"></span>
+                    <span class="ml-1">записів</span>
+                  </span>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+
+        <template x-if="dependencyModal.error">
+          <div class="mt-4 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600" x-text="dependencyModal.error"></div>
+        </template>
+
+        <div class="mt-6 flex flex-wrap items-center justify-end gap-2">
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="dependencyModal.deleting"
+            @click="closeDependencyModal()"
+          >
+            Скасувати
+          </button>
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-rose-50 px-4 py-2 text-xs font-semibold text-rose-600 transition hover:bg-rose-100 disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="dependencyModal.deleting"
+            @click="confirmDeleteWithDependencies(true)"
+          >
+            <i class="fa-solid fa-trash"></i>
+            <span x-show="!dependencyModal.deleting">Видалити разом з пов'язаними</span>
+            <span x-show="dependencyModal.deleting" x-cloak>Видалення...</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    {{-- Table Operation Modal (Truncate/Drop) --}}
+    <div
+      x-show="tableOperationModal.open"
+      x-cloak
+      class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        @click="tableOperationModal.loading ? null : closeTableOperationModal()"
+      ></div>
+      <div class="relative z-10 w-full max-w-lg rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-foreground">
+              <template x-if="tableOperationModal.operation === 'truncate'">
+                <span><i class="fa-solid fa-eraser text-amber-500 mr-2"></i>Очистити таблицю</span>
+              </template>
+              <template x-if="tableOperationModal.operation === 'drop'">
+                <span><i class="fa-solid fa-trash text-rose-500 mr-2"></i>Видалити таблицю</span>
+              </template>
+            </h2>
+            <p class="mt-1 text-sm text-muted-foreground">
+              Таблиця: <span class="font-medium text-foreground" x-text="tableOperationModal.table"></span>
+            </p>
+          </div>
+          <button
+            type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+            :disabled="tableOperationModal.loading"
+            @click="closeTableOperationModal()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="mt-4 space-y-4">
+          <template x-if="tableOperationModal.operation === 'truncate'">
+            <div class="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+              <i class="fa-solid fa-triangle-exclamation mr-1"></i>
+              Ви впевнені, що хочете видалити всі записи з цієї таблиці? Цю дію неможливо скасувати!
+            </div>
+          </template>
+          <template x-if="tableOperationModal.operation === 'drop'">
+            <div class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+              <i class="fa-solid fa-triangle-exclamation mr-1"></i>
+              Ви впевнені, що хочете повністю видалити цю таблицю з бази даних? Цю дію неможливо скасувати!
+            </div>
+          </template>
+
+          <div x-show="tableOperationModal.checkingReferences" class="text-sm text-muted-foreground">
+            Перевірка залежностей...
+          </div>
+
+          <template x-if="tableOperationModal.operation === 'drop' && tableOperationModal.hasReferences && !tableOperationModal.checkingReferences">
+            <div class="space-y-2">
+              <p class="text-sm font-semibold text-foreground">Таблиці, що посилаються на цю таблицю:</p>
+              <ul class="space-y-2">
+                <template x-for="ref in tableOperationModal.references" :key="`ref-${ref.table}-${ref.column}`">
+                  <li class="flex items-center rounded-xl border border-border/60 bg-muted/20 px-4 py-2 text-sm">
+                    <span class="font-medium text-foreground" x-text="ref.table"></span>
+                    <span class="text-muted-foreground">.</span>
+                    <span class="text-muted-foreground" x-text="ref.column"></span>
+                  </li>
+                </template>
+              </ul>
+              <p class="text-xs text-rose-600">
+                Увага: видалення цієї таблиці може порушити цілісність даних у зв'язаних таблицях.
+              </p>
+            </div>
+          </template>
+        </div>
+
+        <template x-if="tableOperationModal.error">
+          <div class="mt-4 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600" x-text="tableOperationModal.error"></div>
+        </template>
+
+        <div class="mt-6 flex flex-wrap items-center justify-end gap-2">
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
+            :disabled="tableOperationModal.loading"
+            @click="closeTableOperationModal()"
+          >
+            Скасувати
+          </button>
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition disabled:cursor-not-allowed disabled:opacity-60"
+            :class="tableOperationModal.operation === 'drop' ? 'border border-rose-300 bg-rose-50 text-rose-600 hover:bg-rose-100' : 'border border-amber-300 bg-amber-50 text-amber-700 hover:bg-amber-100'"
+            :disabled="tableOperationModal.loading || tableOperationModal.checkingReferences"
+            @click="confirmTableOperation()"
+          >
+            <i class="fa-solid" :class="tableOperationModal.operation === 'drop' ? 'fa-trash' : 'fa-eraser'"></i>
+            <span x-show="!tableOperationModal.loading" x-text="tableOperationModal.operation === 'drop' ? 'Видалити таблицю' : 'Очистити таблицю'"></span>
+            <span x-show="tableOperationModal.loading" x-cloak>Виконання...</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
 
     <div
       x-show="filterNameModal.open"
@@ -933,10 +1207,8 @@
       <div class="relative z-10 w-full max-w-md rounded-3xl border border-border/70 bg-white p-6 shadow-xl">
         <div class="flex items-start justify-between gap-4">
           <div>
-            <h2 class="text-lg font-semibold text-foreground">Збереження фільтру</h2>
-            <p class="mt-1 text-xs text-muted-foreground">
-              Вкажіть назву для збереженого фільтру.
-            </p>
+            <h2 class="text-lg font-semibold text-foreground" x-text="filterNameModal.title || 'Збереження фільтру'"></h2>
+            <p class="mt-1 text-xs text-muted-foreground" x-text="filterNameModal.description || 'Вкажіть назву для збереженого фільтру.'"></p>
           </div>
           <button
             type="button"
@@ -948,12 +1220,12 @@
         </div>
         <form class="mt-6 space-y-4" @submit.prevent="confirmFilterNameModal()">
           <label class="flex flex-col gap-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            <span>Назва фільтру</span>
+            <span x-text="filterNameModal.label || 'Назва фільтру'"></span>
             <input
               type="text"
               class="rounded-2xl border border-input bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
               x-model="filterNameModal.name"
-              :placeholder="filterNameModal.defaultName || 'Новий фільтр'"
+              :placeholder="filterNameModal.placeholder || filterNameModal.defaultName || 'Новий фільтр'"
               x-ref="filterNameInput"
             />
           </label>
@@ -2158,8 +2430,10 @@
       contentManagementRoutes,
       contentManagementSettings = {},
       filterRoutes = {},
+      searchPresetRoutes = {},
       keywordSearchRoute = '',
       viewOptions = {},
+      tableOperationRoutes = {},
     ) {
       const normalizeFilterScope = (scope) => (scope === 'content' ? 'content' : 'records');
 
@@ -2206,6 +2480,87 @@
 
         return route;
       };
+
+      const normalizeSearchPresetRoutes = (routes) => {
+        const source = routes && typeof routes === 'object' ? routes : {};
+
+        return {
+          index: typeof source.index === 'string' ? source.index : '',
+          store: typeof source.store === 'string' ? source.store : '',
+          use: typeof source.use === 'string' ? source.use : '',
+          destroy: typeof source.destroy === 'string' ? source.destroy : '',
+        };
+      };
+
+      const buildSearchPresetRoute = (template, presetId = null) => {
+        if (typeof template !== 'string' || template.trim() === '') {
+          return '';
+        }
+
+        let route = template;
+
+        if (route.includes('__PRESET__')) {
+          if (presetId === null) {
+            return '';
+          }
+
+          const normalizedPreset = typeof presetId === 'string' ? presetId.trim() : '';
+
+          if (!normalizedPreset) {
+            return '';
+          }
+
+          route = route.replace('__PRESET__', encodeURIComponent(normalizedPreset));
+        }
+
+        return route;
+      };
+
+      const normalizeSearchPresetEntry = (entry) => {
+        if (!entry || typeof entry !== 'object') {
+          return null;
+        }
+
+        const id = typeof entry.id === 'string' ? entry.id.trim() : '';
+        const name = typeof entry.name === 'string' ? entry.name.trim() : '';
+        const query = typeof entry.query === 'string' ? entry.query.trim() : '';
+        const exactMatch = entry.exact_match === true || entry.exactMatch === true;
+
+        if (!id || !name || !query) {
+          return null;
+        }
+
+        return { id, name, query, exactMatch };
+      };
+
+      const normalizeSearchPresetResponse = (payload) => {
+        const itemsSource = payload && typeof payload === 'object' ? payload.items : [];
+        const lastUsed = payload && typeof payload === 'object' && typeof payload.last_used === 'string'
+          ? payload.last_used.trim()
+          : '';
+        const items = Array.isArray(itemsSource)
+          ? itemsSource.map((entry) => normalizeSearchPresetEntry(entry)).filter(Boolean)
+          : [];
+
+        return {
+          items,
+          lastUsed: lastUsed || '',
+        };
+      };
+
+      const nameModalDefaults = () => ({
+        title: 'Збереження фільтру',
+        description: 'Вкажіть назву для збереженого фільтру.',
+        placeholder: 'Новий фільтр',
+        label: 'Назва фільтру',
+        emptyError: 'Вкажіть назву фільтру.',
+      });
+
+      const normalizeNameModalConfig = (config) => Object.assign(
+        {},
+        nameModalDefaults(),
+        config && typeof config === 'object' ? config : {},
+      );
 
       const normalizeSavedFilterEntry = (entry) => {
         if (!entry || typeof entry !== 'object') {
@@ -3244,6 +3599,7 @@
         const normalizedContentManagementRoutes = normalizeContentManagementRoutes(contentManagementRoutes);
         const normalizedContentManagementSettings = normalizeContentManagementTableSettings(contentManagementSettings);
         const normalizedFilterRoutes = normalizeFilterRoutes(filterRoutes);
+        const normalizedSearchPresetRoutes = normalizeSearchPresetRoutes(searchPresetRoutes);
         const normalizedViewOptions =
           viewOptions && typeof viewOptions === 'object' && !Array.isArray(viewOptions)
             ? viewOptions
@@ -3274,23 +3630,43 @@
             : '',
         };
 
+        const normalizedTableOperationRoutes = {
+          checkDependencies: typeof tableOperationRoutes?.checkDependencies === 'string' ? tableOperationRoutes.checkDependencies : '',
+          destroyCascade: typeof tableOperationRoutes?.destroyCascade === 'string' ? tableOperationRoutes.destroyCascade : '',
+          truncate: typeof tableOperationRoutes?.truncate === 'string' ? tableOperationRoutes.truncate : '',
+          drop: typeof tableOperationRoutes?.drop === 'string' ? tableOperationRoutes.drop : '',
+          references: typeof tableOperationRoutes?.references === 'string' ? tableOperationRoutes.references : '',
+        };
+
         return {
           activeTab: standaloneTab || initialTab,
           standaloneTab,
           tabRoutes: normalizedTabRoutes,
           query: '',
+          exactTableMatch: false,
           filterRoutes: normalizedFilterRoutes,
+          searchPresetRoutes: normalizedSearchPresetRoutes,
           recordsRoute,
           recordsDeleteRoute: deleteRoute,
           recordsValueRoute: valueRoute,
           recordsShowRoute: recordRoute,
           recordsUpdateRoute: updateRoute,
           structureRoute,
+          tableOperationRoutes: normalizedTableOperationRoutes,
           manualForeignRoutes: {
             store: typeof manualForeignStoreRoute === 'string' ? manualForeignStoreRoute : '',
             delete: typeof manualForeignDeleteRoute === 'string' ? manualForeignDeleteRoute : '',
           },
           contentManagementRoutes: normalizedContentManagementRoutes,
+          searchPresets: {
+            items: [],
+            lastUsed: '',
+            loading: false,
+            saving: false,
+            error: '',
+            feedback: '',
+            feedbackTimeout: null,
+          },
           contentManagement: {
             menu: normalizedContentManagementMenu,
             defaultTable: resolveDefaultContentManagementTable(normalizedContentManagementMenu),
@@ -3349,6 +3725,35 @@
             defaultName: '',
             error: '',
             resolve: null,
+            title: 'Збереження фільтру',
+            description: 'Вкажіть назву для збереженого фільтру.',
+            placeholder: 'Новий фільтр',
+            label: 'Назва фільтру',
+            emptyError: 'Вкажіть назву фільтру.',
+          },
+          dependencyModal: {
+            open: false,
+            table: '',
+            row: null,
+            rowIndex: null,
+            loading: false,
+            error: null,
+            hasDependencies: false,
+            dependencies: [],
+            deleting: false,
+            tableRef: null,
+            identifiers: null,
+          },
+          tableOperationModal: {
+            open: false,
+            operation: '', // 'truncate' or 'drop'
+            table: '',
+            loading: false,
+            checkingReferences: false,
+            error: null,
+            hasReferences: false,
+            references: [],
+            tableRef: null,
           },
           manualForeignErrors: {},
           bodyScrollLocked: false,
@@ -3395,6 +3800,8 @@
           tables: normalizedTables,
           init() {
             this.syncBodyScrollLock();
+
+            this.loadSavedSearchPresets();
 
             this.$watch('valueModal.open', () => {
               this.syncBodyScrollLock();
@@ -3624,16 +4031,16 @@
               return;
             }
 
-          targetState.items = Array.isArray(normalized.items) ? normalized.items : [];
-          targetState.lastUsed = typeof normalized.lastUsed === 'string' ? normalized.lastUsed : '';
-          targetState.defaultId = typeof normalized.defaultId === 'string' ? normalized.defaultId : '';
-          targetState.defaultDisabled = normalized.defaultDisabled === true;
-          targetState.loaded = true;
-        },
-        async updateSavedFilterDefault(scope, tableName, filterId, state, feedbackTarget) {
-          if (!state) {
-            return;
-          }
+            targetState.items = Array.isArray(normalized.items) ? normalized.items : [];
+            targetState.lastUsed = typeof normalized.lastUsed === 'string' ? normalized.lastUsed : '';
+            targetState.defaultId = typeof normalized.defaultId === 'string' ? normalized.defaultId : '';
+            targetState.defaultDisabled = normalized.defaultDisabled === true;
+            targetState.loaded = true;
+          },
+          async updateSavedFilterDefault(scope, tableName, filterId, state, feedbackTarget) {
+            if (!state) {
+              return;
+            }
 
           const normalizedScope = normalizeFilterScope(scope);
           const normalizedTable = typeof tableName === 'string' ? tableName.trim() : '';
@@ -3705,10 +4112,31 @@
 
             return `${base} ${Date.now()}`;
           },
-          promptFilterName(defaultName = '') {
+          generateDefaultSearchName(existing) {
+            const items = Array.isArray(existing) ? existing : [];
+            const base = 'Пошук';
+            const existingNames = new Set(
+              items
+                .map((item) => (item && typeof item.name === 'string' ? item.name.toLowerCase() : ''))
+                .filter((name) => name !== ''),
+            );
+
+            for (let index = 1; index <= items.length + 10; index += 1) {
+              const candidate = `${base} ${index}`;
+
+              if (!existingNames.has(candidate.toLowerCase())) {
+                return candidate;
+              }
+            }
+
+            return `${base} ${Date.now()}`;
+          },
+          promptFilterName(defaultName = '', options = {}) {
             const fallback = typeof defaultName === 'string' && defaultName.trim() !== ''
               ? defaultName.trim()
               : 'Новий фільтр';
+            const modalConfig = normalizeNameModalConfig(options);
+            const defaults = nameModalDefaults();
 
             return new Promise((resolve) => {
               if (typeof this.filterNameModal.resolve === 'function') {
@@ -3719,6 +4147,11 @@
               this.filterNameModal.name = fallback;
               this.filterNameModal.defaultName = fallback;
               this.filterNameModal.error = '';
+              this.filterNameModal.title = modalConfig.title || defaults.title;
+              this.filterNameModal.description = modalConfig.description || defaults.description;
+              this.filterNameModal.placeholder = modalConfig.placeholder || fallback || defaults.placeholder;
+              this.filterNameModal.label = modalConfig.label || defaults.label;
+              this.filterNameModal.emptyError = modalConfig.emptyError || defaults.emptyError;
               this.filterNameModal.resolve = resolve;
 
               this.$nextTick(() => {
@@ -3740,6 +4173,12 @@
             this.filterNameModal.defaultName = '';
             this.filterNameModal.error = '';
             this.filterNameModal.resolve = null;
+            const defaults = nameModalDefaults();
+            this.filterNameModal.title = defaults.title;
+            this.filterNameModal.description = defaults.description;
+            this.filterNameModal.placeholder = defaults.placeholder;
+            this.filterNameModal.label = defaults.label;
+            this.filterNameModal.emptyError = defaults.emptyError;
           },
           confirmFilterNameModal() {
             const name = typeof this.filterNameModal.name === 'string'
@@ -3747,7 +4186,7 @@
               : '';
 
             if (!name) {
-              this.filterNameModal.error = 'Вкажіть назву фільтру.';
+              this.filterNameModal.error = this.filterNameModal.emptyError || 'Вкажіть назву фільтру.';
 
               this.$nextTick(() => {
                 const input = this.$refs?.filterNameInput;
@@ -3779,19 +4218,197 @@
               resolver(null);
             }
           },
+          updateSearchPresetsState(payload) {
+            const normalized = normalizeSearchPresetResponse(payload || {});
+            this.searchPresets.items = normalized.items;
+            this.searchPresets.lastUsed = normalized.lastUsed;
+          },
+          async loadSavedSearchPresets() {
+            if (!this.searchPresetRoutes.index) {
+              return;
+            }
+
+            this.searchPresets.loading = true;
+            this.searchPresets.error = '';
+
+            try {
+              const response = await fetch(this.searchPresetRoutes.index, {
+                method: 'GET',
+                headers: { Accept: 'application/json' },
+              });
+
+              if (!response.ok) {
+                const payload = await response.json().catch(() => null);
+                const message = payload?.message || 'Не вдалося завантажити збережені пошуки.';
+                throw new Error(message);
+              }
+
+              const payload = await response.json();
+              this.updateSearchPresetsState(payload);
+            } catch (error) {
+              this.searchPresets.error = error?.message || 'Не вдалося завантажити збережені пошуки.';
+            } finally {
+              this.searchPresets.loading = false;
+            }
+          },
+          async saveCurrentSearchPreset() {
+            const query = typeof this.query === 'string' ? this.query.trim() : '';
+
+            if (!query) {
+              this.searchPresets.error = 'Введіть запит для збереження.';
+              return;
+            }
+
+            if (!this.searchPresetRoutes.store) {
+              this.searchPresets.error = 'Збереження пошуку недоступне.';
+              return;
+            }
+
+            const defaultName = this.generateDefaultSearchName(this.searchPresets.items);
+            const name = await this.promptFilterName(defaultName, {
+              title: 'Збереження пошуку',
+              description: 'Вкажіть назву для збереженого пошуку за таблицями або полями.',
+              placeholder: 'Новий пошук',
+              label: 'Назва пошуку',
+              emptyError: 'Вкажіть назву пошуку.',
+            });
+
+            if (!name) {
+              return;
+            }
+
+            this.searchPresets.saving = true;
+            this.searchPresets.error = '';
+            this.clearFeedback(this.searchPresets);
+
+            try {
+              const response = await fetch(this.searchPresetRoutes.store, {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': this.csrfToken || '',
+                },
+                body: JSON.stringify({ name, query, exact_match: this.exactTableMatch }),
+              });
+
+              if (!response.ok) {
+                const payload = await response.json().catch(() => null);
+                const message = payload?.message || 'Не вдалося зберегти пошук.';
+                throw new Error(message);
+              }
+
+              const payload = await response.json();
+              this.updateSearchPresetsState(payload);
+              this.setFeedback(this.searchPresets, 'Пошук збережено.');
+            } catch (error) {
+              this.searchPresets.error = error?.message || 'Не вдалося зберегти пошук.';
+            } finally {
+              this.searchPresets.saving = false;
+            }
+          },
+          async markSearchPresetAsUsed(presetId) {
+            const route = buildSearchPresetRoute(this.searchPresetRoutes.use, presetId);
+
+            if (!route) {
+              return;
+            }
+
+            try {
+              const response = await fetch(route, {
+                method: 'PATCH',
+                headers: {
+                  Accept: 'application/json',
+                  'X-CSRF-TOKEN': this.csrfToken || '',
+                },
+              });
+
+              if (!response.ok) {
+                const payload = await response.json().catch(() => null);
+                const message = payload?.message || 'Не вдалося застосувати збережений пошук.';
+                throw new Error(message);
+              }
+
+              const payload = await response.json();
+              this.updateSearchPresetsState(payload);
+            } catch (error) {
+              this.searchPresets.error = error?.message || 'Не вдалося застосувати збережений пошук.';
+            }
+          },
+          async applySearchPreset(preset) {
+            const normalized = normalizeSearchPresetEntry(preset);
+
+            if (!normalized) {
+              return;
+            }
+
+            this.query = normalized.query;
+            this.exactTableMatch = normalized.exactMatch || false;
+            this.searchPresets.lastUsed = normalized.id;
+
+            await this.markSearchPresetAsUsed(normalized.id);
+          },
+          async deleteSearchPreset(presetId) {
+            if (!presetId) {
+              return;
+            }
+
+            const route = buildSearchPresetRoute(this.searchPresetRoutes.destroy, presetId);
+
+            if (!route) {
+              return;
+            }
+
+            this.searchPresets.saving = true;
+            this.searchPresets.error = '';
+            this.clearFeedback(this.searchPresets);
+
+            try {
+              const response = await fetch(route, {
+                method: 'DELETE',
+                headers: {
+                  Accept: 'application/json',
+                  'X-CSRF-TOKEN': this.csrfToken || '',
+                },
+              });
+
+              if (!response.ok) {
+                const payload = await response.json().catch(() => null);
+                const message = payload?.message || 'Не вдалося видалити пошук.';
+                throw new Error(message);
+              }
+
+              const payload = await response.json();
+              this.updateSearchPresetsState(payload);
+              this.setFeedback(this.searchPresets, 'Збережений пошук видалено.');
+            } catch (error) {
+              this.searchPresets.error = error?.message || 'Не вдалося видалити пошук.';
+            } finally {
+              this.searchPresets.saving = false;
+            }
+          },
           get filteredTables() {
             if (!this.query) {
               return this.tables;
             }
 
             const q = this.query.toLowerCase();
+            const useExactMatch = this.exactTableMatch === true;
+
             return this.tables.filter((table) => {
               const tableName = typeof table.name === 'string' ? table.name : '';
 
+              if (useExactMatch) {
+                // For exact match, only match table name exactly (case-insensitive)
+                return tableName.toLowerCase() === q;
+              }
+
+              // For partial match, check if table name contains the query
               if (tableName.toLowerCase().includes(q)) {
                 return true;
               }
 
+              // Also search in columns for partial match
               const columns = Array.isArray(table.structure?.columns) ? table.structure.columns : [];
 
               return columns.some((column) => {
@@ -6819,6 +7436,16 @@
             return;
           }
 
+          if (this.dependencyModal.open && !this.dependencyModal.deleting) {
+            this.closeDependencyModal();
+            return;
+          }
+
+          if (this.tableOperationModal.open && !this.tableOperationModal.loading) {
+            this.closeTableOperationModal();
+            return;
+          }
+
           if (this.contentManagement.tableSettings.open) {
             this.closeContentManagementTableSettings();
             return;
@@ -7534,10 +8161,6 @@
             return;
           }
 
-          if (!window.confirm('Ви впевнені, що хочете видалити цей запис?')) {
-            return;
-          }
-
           const sourceRow = row && typeof row === 'object' ? row : {};
           const identifiers = this.buildIdentifiers(table, sourceRow);
 
@@ -7546,14 +8169,73 @@
             return;
           }
 
+          // Check for dependencies first
+          if (this.tableOperationRoutes.checkDependencies) {
+            try {
+              const checkUrl = new URL(
+                this.tableOperationRoutes.checkDependencies.replace('__TABLE__', encodeURIComponent(table.name)),
+                window.location.origin
+              );
+
+              const checkResponse = await fetch(checkUrl.toString(), {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': this.csrfToken || '',
+                },
+                body: JSON.stringify({ identifiers }),
+              });
+
+              if (checkResponse.ok) {
+                const checkData = await checkResponse.json();
+                
+                if (checkData.has_dependencies) {
+                  // Show dependency modal
+                  this.dependencyModal.open = true;
+                  this.dependencyModal.table = table.name;
+                  this.dependencyModal.row = row;
+                  this.dependencyModal.rowIndex = rowIndex;
+                  this.dependencyModal.loading = false;
+                  this.dependencyModal.error = null;
+                  this.dependencyModal.hasDependencies = true;
+                  this.dependencyModal.dependencies = checkData.dependencies || [];
+                  this.dependencyModal.deleting = false;
+                  this.dependencyModal.tableRef = table;
+                  this.dependencyModal.identifiers = identifiers;
+                  return;
+                }
+              }
+            } catch (error) {
+              // If check fails, proceed with normal deletion confirmation
+              console.warn('Failed to check dependencies:', error);
+            }
+          }
+
+          // No dependencies or check failed, proceed with simple confirmation
+          if (!window.confirm('Ви впевнені, що хочете видалити цей запис?')) {
+            return;
+          }
+
+          await this.performRecordDeletion(table, identifiers, rowIndex, false);
+        },
+        async performRecordDeletion(table, identifiers, rowIndex, cascade = false) {
           table.records.error = null;
           table.records.deletingRowIndex = rowIndex;
 
           try {
-            const url = new URL(
-              this.recordsDeleteRoute.replace('__TABLE__', encodeURIComponent(table.name)),
-              window.location.origin
-            );
+            let url;
+            if (cascade && this.tableOperationRoutes.destroyCascade) {
+              url = new URL(
+                this.tableOperationRoutes.destroyCascade.replace('__TABLE__', encodeURIComponent(table.name)),
+                window.location.origin
+              );
+            } else {
+              url = new URL(
+                this.recordsDeleteRoute.replace('__TABLE__', encodeURIComponent(table.name)),
+                window.location.origin
+              );
+            }
 
             const response = await fetch(url.toString(), {
               method: 'DELETE',
@@ -7562,7 +8244,7 @@
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': this.csrfToken || '',
               },
-              body: JSON.stringify({ identifiers }),
+              body: JSON.stringify({ identifiers, cascade }),
             });
 
             if (!response.ok) {
@@ -7577,6 +8259,149 @@
           } finally {
             table.records.deletingRowIndex = null;
           }
+        },
+        async confirmDeleteWithDependencies(cascade = false) {
+          if (!this.dependencyModal.tableRef || !this.dependencyModal.identifiers) {
+            return;
+          }
+
+          this.dependencyModal.deleting = true;
+          this.dependencyModal.error = null;
+
+          try {
+            await this.performRecordDeletion(
+              this.dependencyModal.tableRef,
+              this.dependencyModal.identifiers,
+              this.dependencyModal.rowIndex,
+              cascade
+            );
+            this.closeDependencyModal();
+          } catch (error) {
+            this.dependencyModal.error = error.message ?? 'Сталася помилка під час видалення.';
+            this.dependencyModal.deleting = false;
+          }
+        },
+        closeDependencyModal() {
+          this.dependencyModal.open = false;
+          this.dependencyModal.table = '';
+          this.dependencyModal.row = null;
+          this.dependencyModal.rowIndex = null;
+          this.dependencyModal.loading = false;
+          this.dependencyModal.error = null;
+          this.dependencyModal.hasDependencies = false;
+          this.dependencyModal.dependencies = [];
+          this.dependencyModal.deleting = false;
+          this.dependencyModal.tableRef = null;
+          this.dependencyModal.identifiers = null;
+        },
+        async openTableOperationModal(table, operation) {
+          this.tableOperationModal.open = true;
+          this.tableOperationModal.operation = operation;
+          this.tableOperationModal.table = table.name;
+          this.tableOperationModal.loading = false;
+          this.tableOperationModal.checkingReferences = true;
+          this.tableOperationModal.error = null;
+          this.tableOperationModal.hasReferences = false;
+          this.tableOperationModal.references = [];
+          this.tableOperationModal.tableRef = table;
+
+          // Check for references if dropping
+          if (operation === 'drop' && this.tableOperationRoutes.references) {
+            try {
+              const url = new URL(
+                this.tableOperationRoutes.references.replace('__TABLE__', encodeURIComponent(table.name)),
+                window.location.origin
+              );
+
+              const response = await fetch(url.toString(), {
+                headers: {
+                  Accept: 'application/json',
+                  'X-CSRF-TOKEN': this.csrfToken || '',
+                },
+              });
+
+              if (response.ok) {
+                const data = await response.json();
+                this.tableOperationModal.hasReferences = data.has_references || false;
+                this.tableOperationModal.references = data.references || [];
+              }
+            } catch (error) {
+              console.warn('Failed to check table references:', error);
+            }
+          }
+
+          this.tableOperationModal.checkingReferences = false;
+        },
+        async confirmTableOperation() {
+          const operation = this.tableOperationModal.operation;
+          const tableName = this.tableOperationModal.table;
+
+          if (!tableName) {
+            return;
+          }
+
+          this.tableOperationModal.loading = true;
+          this.tableOperationModal.error = null;
+
+          try {
+            let routeTemplate;
+            if (operation === 'truncate') {
+              routeTemplate = this.tableOperationRoutes.truncate;
+            } else if (operation === 'drop') {
+              routeTemplate = this.tableOperationRoutes.drop;
+            }
+
+            if (!routeTemplate) {
+              throw new Error('Маршрут операції не налаштовано.');
+            }
+
+            const url = new URL(
+              routeTemplate.replace('__TABLE__', encodeURIComponent(tableName)),
+              window.location.origin
+            );
+
+            const response = await fetch(url.toString(), {
+              method: 'DELETE',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.csrfToken || '',
+              },
+            });
+
+            if (!response.ok) {
+              const payload = await response.json().catch(() => null);
+              const message = payload?.message || 'Не вдалося виконати операцію.';
+              throw new Error(message);
+            }
+
+            this.closeTableOperationModal();
+
+            if (operation === 'truncate') {
+              // Reload records for the table
+              if (this.tableOperationModal.tableRef) {
+                await this.loadRecords(this.tableOperationModal.tableRef);
+              }
+            } else if (operation === 'drop') {
+              // Remove table from the list and reload page
+              window.location.reload();
+            }
+          } catch (error) {
+            this.tableOperationModal.error = error.message ?? 'Сталася помилка.';
+          } finally {
+            this.tableOperationModal.loading = false;
+          }
+        },
+        closeTableOperationModal() {
+          this.tableOperationModal.open = false;
+          this.tableOperationModal.operation = '';
+          this.tableOperationModal.table = '';
+          this.tableOperationModal.loading = false;
+          this.tableOperationModal.checkingReferences = false;
+          this.tableOperationModal.error = null;
+          this.tableOperationModal.hasReferences = false;
+          this.tableOperationModal.references = [];
+          this.tableOperationModal.tableRef = null;
         },
         buildIdentifiers(table, row) {
           const identifiers = [];

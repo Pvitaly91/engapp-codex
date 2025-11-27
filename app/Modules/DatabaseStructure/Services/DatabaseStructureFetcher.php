@@ -468,6 +468,388 @@ class DatabaseStructureFetcher
     }
 
     /**
+     * Check for dependent records in other tables that reference this record.
+     * Returns information about tables that have foreign key references.
+     *
+     * @param array<int, array{column: string, value: mixed}> $identifiers
+     * @return array{has_dependencies: bool, dependencies: array<int, array{table: string, column: string, count: int, constraint: string|null}>}
+     */
+    public function checkDependentRecords(string $table, array $identifiers): array
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $columns = $tableInfo['columns'] ?? [];
+        $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+
+        $normalizedIdentifiers = $this->normalizeIdentifiers($identifiers, $columnNames);
+
+        if (empty($normalizedIdentifiers)) {
+            throw new RuntimeException('Не вдалося визначити ідентифікатори запису.');
+        }
+
+        // Find all tables that have foreign keys pointing to this table
+        $referencingTables = $this->getReferencingTables($table);
+
+        $dependencies = [];
+
+        foreach ($referencingTables as $ref) {
+            $referencingTable = $ref['table'];
+            $referencingColumn = $ref['column'];
+            $referencedColumn = $ref['referenced_column'];
+
+            // Find the value of the referenced column in our identifiers
+            $referencedValue = null;
+            foreach ($normalizedIdentifiers as $identifier) {
+                if ($identifier['column'] === $referencedColumn) {
+                    $referencedValue = $identifier['value'];
+                    break;
+                }
+            }
+
+            if ($referencedValue === null) {
+                continue;
+            }
+
+            // Count dependent records
+            $count = $this->connection->table($referencingTable)
+                ->where($referencingColumn, '=', $referencedValue)
+                ->count();
+
+            if ($count > 0) {
+                $dependencies[] = [
+                    'table' => $referencingTable,
+                    'column' => $referencingColumn,
+                    'referenced_column' => $referencedColumn,
+                    'count' => $count,
+                    'constraint' => $ref['constraint'] ?? null,
+                ];
+            }
+        }
+
+        return [
+            'has_dependencies' => !empty($dependencies),
+            'dependencies' => $dependencies,
+        ];
+    }
+
+    /**
+     * Delete a record with optional cascade deletion of dependent records.
+     *
+     * @param array<int, array{column: string, value: mixed}> $identifiers
+     * @param bool $cascade If true, deletes dependent records first
+     * @return array{deleted: int, cascade_deleted: array<string, int>}
+     */
+    public function deleteRecordWithCascade(string $table, array $identifiers, bool $cascade = false): array
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $columns = $tableInfo['columns'] ?? [];
+        $columnNames = array_map(static fn ($column) => $column['name'], $columns);
+
+        $normalizedIdentifiers = $this->normalizeIdentifiers($identifiers, $columnNames);
+
+        if (empty($normalizedIdentifiers)) {
+            throw new RuntimeException('Не вдалося визначити ідентифікатори запису для видалення.');
+        }
+
+        $cascadeDeleted = [];
+
+        if ($cascade) {
+            // Find and delete dependent records first
+            $referencingTables = $this->getReferencingTables($table);
+
+            foreach ($referencingTables as $ref) {
+                $referencingTable = $ref['table'];
+                $referencingColumn = $ref['column'];
+                $referencedColumn = $ref['referenced_column'];
+
+                // Find the value of the referenced column in our identifiers
+                $referencedValue = null;
+                foreach ($normalizedIdentifiers as $identifier) {
+                    if ($identifier['column'] === $referencedColumn) {
+                        $referencedValue = $identifier['value'];
+                        break;
+                    }
+                }
+
+                if ($referencedValue === null) {
+                    continue;
+                }
+
+                $deletedCount = $this->connection->table($referencingTable)
+                    ->where($referencingColumn, '=', $referencedValue)
+                    ->delete();
+
+                if ($deletedCount > 0) {
+                    $cascadeDeleted[$referencingTable] = $deletedCount;
+                }
+            }
+        }
+
+        // Now delete the main record
+        $query = $this->connection->table($table);
+
+        foreach ($normalizedIdentifiers as $identifier) {
+            if ($identifier['value'] === null) {
+                $query->whereNull($identifier['column']);
+                continue;
+            }
+
+            $query->where($identifier['column'], '=', $identifier['value']);
+        }
+
+        $deleted = $query->delete();
+
+        if ($deleted === 0 && empty($cascadeDeleted)) {
+            throw new RuntimeException('Запис не знайдено або не вдалося видалити.');
+        }
+
+        return [
+            'deleted' => $deleted,
+            'cascade_deleted' => $cascadeDeleted,
+        ];
+    }
+
+    /**
+     * Truncate (clear) all records from a table.
+     *
+     * @return bool
+     */
+    public function truncateTable(string $table): bool
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $driver = $this->connection->getDriverName();
+
+        if ($driver === 'sqlite') {
+            // SQLite doesn't support TRUNCATE, use DELETE instead
+            $this->connection->table($table)->delete();
+            return true;
+        }
+
+        // Disable foreign key checks temporarily for truncation (MySQL only)
+        if ($driver === 'mysql') {
+            $this->connection->statement('SET FOREIGN_KEY_CHECKS=0');
+        }
+
+        try {
+            $this->connection->table($table)->truncate();
+        } finally {
+            if ($driver === 'mysql') {
+                $this->connection->statement('SET FOREIGN_KEY_CHECKS=1');
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Drop (delete) an entire table.
+     *
+     * @return bool
+     */
+    public function dropTable(string $table): bool
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $driver = $this->connection->getDriverName();
+
+        // Disable foreign key checks for dropping
+        if ($driver === 'mysql') {
+            $this->connection->statement('SET FOREIGN_KEY_CHECKS=0');
+        }
+
+        try {
+            $this->connection->getSchemaBuilder()->drop($table);
+        } finally {
+            if ($driver === 'mysql') {
+                $this->connection->statement('SET FOREIGN_KEY_CHECKS=1');
+            }
+        }
+
+        // Clear the structure cache as the table list has changed
+        $this->clearCache();
+
+        return true;
+    }
+
+    /**
+     * Get tables that have foreign key references pointing to the specified table.
+     *
+     * @return array<int, array{table: string, column: string, referenced_column: string, constraint: string|null}>
+     */
+    public function getReferencingTables(string $targetTable): array
+    {
+        $driver = $this->connection->getDriverName();
+
+        return match ($driver) {
+            'mysql' => $this->getReferencingTablesMySql($targetTable),
+            'pgsql' => $this->getReferencingTablesPostgres($targetTable),
+            'sqlite' => $this->getReferencingTablesSqlite($targetTable),
+            'sqlsrv' => $this->getReferencingTablesSqlServer($targetTable),
+            default => [],
+        };
+    }
+
+    /**
+     * @return array<int, array{table: string, column: string, referenced_column: string, constraint: string|null}>
+     */
+    private function getReferencingTablesMySql(string $targetTable): array
+    {
+        $database = $this->connection->getDatabaseName();
+
+        $rows = $this->connection->select(
+            'SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_COLUMN_NAME
+             FROM information_schema.KEY_COLUMN_USAGE
+             WHERE TABLE_SCHEMA = ? AND REFERENCED_TABLE_NAME = ?',
+            [$database, $targetTable]
+        );
+
+        return array_map(static fn ($row) => [
+            'table' => $row->TABLE_NAME,
+            'column' => $row->COLUMN_NAME,
+            'referenced_column' => $row->REFERENCED_COLUMN_NAME,
+            'constraint' => $row->CONSTRAINT_NAME,
+        ], $rows);
+    }
+
+    /**
+     * @return array<int, array{table: string, column: string, referenced_column: string, constraint: string|null}>
+     */
+    private function getReferencingTablesPostgres(string $targetTable): array
+    {
+        $rows = $this->connection->select(
+            "SELECT
+                tc.table_name,
+                kcu.column_name,
+                ccu.column_name AS referenced_column_name,
+                tc.constraint_name
+             FROM information_schema.table_constraints AS tc
+             JOIN information_schema.key_column_usage AS kcu
+                ON tc.constraint_name = kcu.constraint_name
+             JOIN information_schema.constraint_column_usage AS ccu
+                ON ccu.constraint_name = tc.constraint_name
+             WHERE tc.constraint_type = 'FOREIGN KEY'
+                AND ccu.table_name = ?",
+            [$targetTable]
+        );
+
+        return array_map(static fn ($row) => [
+            'table' => $row->table_name,
+            'column' => $row->column_name,
+            'referenced_column' => $row->referenced_column_name,
+            'constraint' => $row->constraint_name,
+        ], $rows);
+    }
+
+    /**
+     * @return array<int, array{table: string, column: string, referenced_column: string, constraint: string|null}>
+     */
+    private function getReferencingTablesSqlite(string $targetTable): array
+    {
+        // SQLite requires parsing PRAGMA foreign_key_list for each table
+        $tables = $this->connection->select(
+            "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%'"
+        );
+
+        $references = [];
+
+        foreach ($tables as $tableRow) {
+            // Validate table name contains only safe characters
+            $tableName = $tableRow->name;
+            if (!preg_match('/^[A-Za-z0-9_]+$/', $tableName)) {
+                continue;
+            }
+
+            $foreignKeys = $this->connection->select("PRAGMA foreign_key_list({$tableName})");
+
+            foreach ($foreignKeys as $fk) {
+                if ($fk->table === $targetTable) {
+                    $references[] = [
+                        'table' => $tableRow->name,
+                        'column' => $fk->from,
+                        'referenced_column' => $fk->to,
+                        'constraint' => null,
+                    ];
+                }
+            }
+        }
+
+        return $references;
+    }
+
+    /**
+     * @return array<int, array{table: string, column: string, referenced_column: string, constraint: string|null}>
+     */
+    private function getReferencingTablesSqlServer(string $targetTable): array
+    {
+        $rows = $this->connection->select(
+            "SELECT
+                fk.name AS constraint_name,
+                tp.name AS table_name,
+                cp.name AS column_name,
+                cr.name AS referenced_column_name
+             FROM sys.foreign_keys AS fk
+             INNER JOIN sys.foreign_key_columns AS fkc ON fk.object_id = fkc.constraint_object_id
+             INNER JOIN sys.tables AS tp ON fkc.parent_object_id = tp.object_id
+             INNER JOIN sys.columns AS cp ON fkc.parent_object_id = cp.object_id AND fkc.parent_column_id = cp.column_id
+             INNER JOIN sys.tables AS tr ON fkc.referenced_object_id = tr.object_id
+             INNER JOIN sys.columns AS cr ON fkc.referenced_object_id = cr.object_id AND fkc.referenced_column_id = cr.column_id
+             WHERE tr.name = ?",
+            [$targetTable]
+        );
+
+        return array_map(static fn ($row) => [
+            'table' => $row->table_name,
+            'column' => $row->column_name,
+            'referenced_column' => $row->referenced_column_name,
+            'constraint' => $row->constraint_name,
+        ], $rows);
+    }
+
+    /**
+     * Check for tables that reference this table (for drop table warnings).
+     *
+     * @return array{has_references: bool, references: array<int, array{table: string, column: string, referenced_column: string, constraint: string|null}>}
+     */
+    public function checkTableReferences(string $table): array
+    {
+        $structure = Collection::make($this->getStructure());
+        $tableInfo = $structure->firstWhere('name', $table);
+
+        if (!$tableInfo) {
+            throw new RuntimeException("Table '{$table}' was not found in the current connection.");
+        }
+
+        $references = $this->getReferencingTables($table);
+
+        return [
+            'has_references' => !empty($references),
+            'references' => $references,
+        ];
+    }
+
+    /**
      * @param array<int, array{column: string, value: mixed}> $identifiers
      */
     public function updateRecordValue(string $table, string $column, array $identifiers, mixed $value): mixed

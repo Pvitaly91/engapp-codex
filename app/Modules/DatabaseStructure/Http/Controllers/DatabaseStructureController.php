@@ -6,6 +6,7 @@ use App\Modules\DatabaseStructure\Services\ContentManagementMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use App\Modules\DatabaseStructure\Services\FilterStorageManager;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
+use App\Modules\DatabaseStructure\Services\SearchPresetManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -19,6 +20,7 @@ class DatabaseStructureController
         private ManualRelationManager $manualRelationManager,
         private ContentManagementMenuManager $contentManagementMenuManager,
         private FilterStorageManager $filterStorageManager,
+        private SearchPresetManager $searchPresetManager,
     )
     {
     }
@@ -447,6 +449,130 @@ class DatabaseStructureController
         }
     }
 
+    public function checkDependencies(Request $request, string $table): JsonResponse
+    {
+        try {
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису.');
+            }
+
+            $result = $this->fetcher->checkDependentRecords($table, $identifiers);
+
+            return response()->json($result);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroyWithCascade(Request $request, string $table): JsonResponse
+    {
+        try {
+            $identifiers = $this->extractIdentifiers($request);
+
+            if (empty($identifiers)) {
+                throw new RuntimeException('Не вдалося визначити ідентифікатори запису для видалення.');
+            }
+
+            $cascade = (bool) $request->input('cascade', false);
+            $result = $this->fetcher->deleteRecordWithCascade($table, $identifiers, $cascade);
+
+            $message = 'Запис успішно видалено.';
+            if (!empty($result['cascade_deleted'])) {
+                $totalCascadeDeleted = array_sum($result['cascade_deleted']);
+                $message = "Запис успішно видалено разом із {$totalCascadeDeleted} пов'язаними записами.";
+            }
+
+            return response()->json([
+                'deleted' => $result['deleted'],
+                'cascade_deleted' => $result['cascade_deleted'],
+                'message' => $message,
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function truncateTable(string $table): JsonResponse
+    {
+        try {
+            $this->fetcher->truncateTable($table);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Таблицю успішно очищено.',
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function dropTable(string $table): JsonResponse
+    {
+        try {
+            $this->fetcher->dropTable($table);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Таблицю успішно видалено.',
+            ]);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function checkTableReferences(string $table): JsonResponse
+    {
+        try {
+            $result = $this->fetcher->checkTableReferences($table);
+
+            return response()->json($result);
+        } catch (RuntimeException $exception) {
+            $status = str_contains($exception->getMessage(), 'Table') ? 404 : 422;
+
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], $status);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
     public function storeManualForeign(Request $request, string $table, string $column): JsonResponse
     {
         try {
@@ -603,6 +729,94 @@ class DatabaseStructureController
 
             return response()->json([
                 'message' => __('Не вдалося виконати пошук.'),
+            ], 500);
+        }
+    }
+
+    public function searchPresets(): JsonResponse
+    {
+        try {
+            $presets = $this->searchPresetManager->all();
+
+            return response()->json([
+                'items' => $presets['items'],
+                'last_used' => $presets['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function storeSearchPreset(Request $request): JsonResponse
+    {
+        try {
+            $name = is_string($request->input('name')) ? trim((string) $request->input('name')) : '';
+            $query = is_string($request->input('query')) ? trim((string) $request->input('query')) : '';
+            $exactMatch = $request->boolean('exact_match', false);
+
+            $presets = $this->searchPresetManager->store($name, $query, $exactMatch);
+
+            return response()->json([
+                'items' => $presets['items'],
+                'last_used' => $presets['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function useSearchPreset(string $preset): JsonResponse
+    {
+        try {
+            $presetId = is_string($preset) ? trim($preset) : '';
+
+            $presets = $this->searchPresetManager->markAsLastUsed($presetId);
+
+            return response()->json([
+                'items' => $presets['items'],
+                'last_used' => $presets['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroySearchPreset(string $preset): JsonResponse
+    {
+        try {
+            $presetId = is_string($preset) ? trim($preset) : '';
+
+            $presets = $this->searchPresetManager->delete($presetId);
+
+            return response()->json([
+                'items' => $presets['items'],
+                'last_used' => $presets['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
             ], 500);
         }
     }
