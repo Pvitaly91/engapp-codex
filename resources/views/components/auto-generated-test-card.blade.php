@@ -1,8 +1,6 @@
 @props(['test'])
 
 @php
-    use App\Services\VirtualSavedTest;
-    
     // Get the filter levels for display
     $filters = $test->filters ?? [];
     $levels = $filters['levels'] ?? [];
@@ -13,7 +11,7 @@
     $totalAvailable = $test->getAttribute('total_questions_available') ?? $questionsCount;
     
     // Check if this is a virtual test (not persisted in the database)
-    $isVirtual = $test instanceof VirtualSavedTest || ($test->exists ?? true) === false;
+    $isVirtual = $test instanceof \App\Services\VirtualSavedTest || ($test->exists ?? true) === false;
     
     // Build URL with filters for virtual tests
     if ($isVirtual) {

@@ -22,13 +22,15 @@ class VirtualSavedTest
     public readonly ?int $id;
     public readonly bool $exists;
 
-    private int $totalQuestionsAvailable = 0;
+    /** @var int Total questions available for this test */
+    public int $totalQuestionsAvailable = 0;
 
     public function __construct(
         string $name,
         string $slug,
         array $filters,
-        ?string $description = null
+        ?string $description = null,
+        int $totalQuestionsAvailable = 0
     ) {
         $this->uuid = (string) Str::uuid();
         $this->name = $name;
@@ -37,6 +39,7 @@ class VirtualSavedTest
         $this->description = $description;
         $this->id = null;
         $this->exists = false;
+        $this->totalQuestionsAvailable = $totalQuestionsAvailable;
     }
 
     /**
@@ -46,7 +49,8 @@ class VirtualSavedTest
         array $levelPair,
         array $tagNames,
         string $contextPrefix,
-        int $questionsPerTest = 15
+        int $questionsPerTest = 15,
+        int $totalQuestionsAvailable = 0
     ): self {
         [$levelFrom, $levelTo] = $levelPair;
 
@@ -54,24 +58,16 @@ class VirtualSavedTest
         $name = self::createName($contextPrefix, $levelFrom, $levelTo);
         $filters = self::buildFilters($levelFrom, $levelTo, $tagNames, $questionsPerTest);
 
-        return new self($name, $slug, $filters);
+        return new self($name, $slug, $filters, null, $totalQuestionsAvailable);
     }
 
     /**
-     * Set the total questions available count.
+     * Set the total questions available count (fluent setter for chaining).
      */
     public function setTotalQuestionsAvailable(int $count): self
     {
         $this->totalQuestionsAvailable = $count;
         return $this;
-    }
-
-    /**
-     * Get the total questions available count.
-     */
-    public function getTotalQuestionsAvailable(): int
-    {
-        return $this->totalQuestionsAvailable;
     }
 
     /**
@@ -111,7 +107,7 @@ class VirtualSavedTest
      */
     public function __isset(string $name): bool
     {
-        return in_array($name, ['uuid', 'name', 'slug', 'filters', 'description', 'id', 'exists', 'questionLinks'], true);
+        return in_array($name, ['uuid', 'name', 'slug', 'filters', 'description', 'id', 'exists', 'questionLinks', 'totalQuestionsAvailable'], true);
     }
 
     /**
