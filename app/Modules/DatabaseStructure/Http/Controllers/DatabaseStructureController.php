@@ -6,6 +6,7 @@ use App\Modules\DatabaseStructure\Services\ContentManagementMenuManager;
 use App\Modules\DatabaseStructure\Services\DatabaseStructureFetcher;
 use App\Modules\DatabaseStructure\Services\FilterStorageManager;
 use App\Modules\DatabaseStructure\Services\ManualRelationManager;
+use App\Modules\DatabaseStructure\Services\SearchPresetManager;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -19,6 +20,7 @@ class DatabaseStructureController
         private ManualRelationManager $manualRelationManager,
         private ContentManagementMenuManager $contentManagementMenuManager,
         private FilterStorageManager $filterStorageManager,
+        private SearchPresetManager $searchPresetManager,
     )
     {
     }
@@ -603,6 +605,93 @@ class DatabaseStructureController
 
             return response()->json([
                 'message' => __('Не вдалося виконати пошук.'),
+            ], 500);
+        }
+    }
+
+    public function searchPresets(): JsonResponse
+    {
+        try {
+            $presets = $this->searchPresetManager->all();
+
+            return response()->json([
+                'items' => $presets['items'],
+                'last_used' => $presets['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function storeSearchPreset(Request $request): JsonResponse
+    {
+        try {
+            $name = is_string($request->input('name')) ? trim((string) $request->input('name')) : '';
+            $query = is_string($request->input('query')) ? trim((string) $request->input('query')) : '';
+
+            $presets = $this->searchPresetManager->store($name, $query);
+
+            return response()->json([
+                'items' => $presets['items'],
+                'last_used' => $presets['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function useSearchPreset(string $preset): JsonResponse
+    {
+        try {
+            $presetId = is_string($preset) ? trim($preset) : '';
+
+            $presets = $this->searchPresetManager->markAsLastUsed($presetId);
+
+            return response()->json([
+                'items' => $presets['items'],
+                'last_used' => $presets['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function destroySearchPreset(string $preset): JsonResponse
+    {
+        try {
+            $presetId = is_string($preset) ? trim($preset) : '';
+
+            $presets = $this->searchPresetManager->delete($presetId);
+
+            return response()->json([
+                'items' => $presets['items'],
+                'last_used' => $presets['last_used'],
+            ]);
+        } catch (RuntimeException $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
+            ], 422);
+        } catch (\Throwable $exception) {
+            return response()->json([
+                'message' => $exception->getMessage(),
             ], 500);
         }
     }
