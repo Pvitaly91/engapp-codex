@@ -15,8 +15,11 @@ class DisableDebugbarForGuests
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (class_exists(Debugbar::class) && ! $request->session()->get('admin_authenticated', false)) {
-            Debugbar::disable();
+        // Only disable if Debugbar is available and user is not admin-authenticated
+        if (class_exists(Debugbar::class)) {
+            if (! $request->session()->get('admin_authenticated', false)) {
+                Debugbar::disable();
+            }
         }
 
         return $next($request);
