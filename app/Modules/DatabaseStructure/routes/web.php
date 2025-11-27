@@ -52,5 +52,15 @@ Route::patch('/tables/{table}/filters/{scope}/default', [DatabaseStructureContro
 Route::delete('/tables/{table}/filters/{scope}/{filter}', [DatabaseStructureController::class, 'destroyFilter'])
     ->where(['table' => '[^/]+', 'scope' => 'records|content', 'filter' => '[^/]+'])
     ->name('filters.destroy');
+Route::get('/search-presets', [DatabaseStructureController::class, 'searchPresets'])
+    ->name('search-presets.index');
+Route::post('/search-presets', [DatabaseStructureController::class, 'storeSearchPreset'])
+    ->name('search-presets.store');
+Route::patch('/search-presets/{preset}/use', [DatabaseStructureController::class, 'useSearchPreset'])
+    ->where('preset', '[^/]+')
+    ->name('search-presets.use');
+Route::delete('/search-presets/{preset}', [DatabaseStructureController::class, 'destroySearchPreset'])
+    ->where('preset', '[^/]+')
+    ->name('search-presets.destroy');
 Route::get('/keyword-search', [DatabaseStructureController::class, 'keywordSearch'])
     ->name('keyword-search');
