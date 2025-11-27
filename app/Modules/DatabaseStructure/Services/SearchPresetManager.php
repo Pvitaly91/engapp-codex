@@ -13,7 +13,7 @@ class SearchPresetManager
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, query: string}>, last_used: string|null}
+     * @return array{items: array<int, array{id: string, name: string, query: string, exact_match: bool}>, last_used: string|null}
      */
     public function all(): array
     {
@@ -44,9 +44,9 @@ class SearchPresetManager
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, query: string}>, last_used: string|null}
+     * @return array{items: array<int, array{id: string, name: string, query: string, exact_match: bool}>, last_used: string|null}
      */
-    public function store(string $name, string $query): array
+    public function store(string $name, string $query, bool $exactMatch = false): array
     {
         $normalizedName = $this->normalizeName($name);
         $normalizedQuery = $this->normalizeQuery($query);
@@ -80,6 +80,7 @@ class SearchPresetManager
             'id' => Str::uuid()->toString(),
             'name' => $normalizedName,
             'query' => $normalizedQuery,
+            'exact_match' => $exactMatch,
         ];
 
         usort($items, static function ($a, $b): int {
@@ -98,7 +99,7 @@ class SearchPresetManager
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, query: string}>, last_used: string|null}
+     * @return array{items: array<int, array{id: string, name: string, query: string, exact_match: bool}>, last_used: string|null}
      */
     public function markAsLastUsed(string $presetId): array
     {
@@ -137,7 +138,7 @@ class SearchPresetManager
     }
 
     /**
-     * @return array{items: array<int, array{id: string, name: string, query: string}>, last_used: string|null}
+     * @return array{items: array<int, array{id: string, name: string, query: string, exact_match: bool}>, last_used: string|null}
      */
     public function delete(string $presetId): array
     {
@@ -251,6 +252,7 @@ class SearchPresetManager
         $id = $this->normalizeId($entry['id'] ?? null);
         $name = $this->normalizeName($entry['name'] ?? null);
         $query = $this->normalizeQuery($entry['query'] ?? null);
+        $exactMatch = isset($entry['exact_match']) && $entry['exact_match'] === true;
 
         if ($id === '' || $name === '' || $query === '') {
             return null;
@@ -260,6 +262,7 @@ class SearchPresetManager
             'id' => $id,
             'name' => $name,
             'query' => $query,
+            'exact_match' => $exactMatch,
         ];
     }
 

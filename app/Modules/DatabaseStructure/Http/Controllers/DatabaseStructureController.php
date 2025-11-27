@@ -758,8 +758,9 @@ class DatabaseStructureController
         try {
             $name = is_string($request->input('name')) ? trim((string) $request->input('name')) : '';
             $query = is_string($request->input('query')) ? trim((string) $request->input('query')) : '';
+            $exactMatch = $request->boolean('exact_match', false);
 
-            $presets = $this->searchPresetManager->store($name, $query);
+            $presets = $this->searchPresetManager->store($name, $query, $exactMatch);
 
             return response()->json([
                 'items' => $presets['items'],

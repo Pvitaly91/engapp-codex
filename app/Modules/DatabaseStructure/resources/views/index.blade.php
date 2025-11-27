@@ -134,6 +134,16 @@
           />
         </div>
       </div>
+      <div class="mt-3 flex items-center gap-2">
+        <label class="inline-flex cursor-pointer items-center gap-2 text-xs text-muted-foreground">
+          <input
+            type="checkbox"
+            class="h-4 w-4 rounded border-border text-primary focus:ring-2 focus:ring-primary/40"
+            x-model="exactTableMatch"
+          />
+          <span>Точний збіг назви таблиці</span>
+        </label>
+      </div>
       <div class="mt-4 space-y-3">
         <div class="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
           <p class="text-xs text-muted-foreground">
@@ -2514,12 +2524,13 @@
         const id = typeof entry.id === 'string' ? entry.id.trim() : '';
         const name = typeof entry.name === 'string' ? entry.name.trim() : '';
         const query = typeof entry.query === 'string' ? entry.query.trim() : '';
+        const exactMatch = entry.exact_match === true;
 
         if (!id || !name || !query) {
           return null;
         }
 
-        return { id, name, query };
+        return { id, name, query, exactMatch };
       };
 
       const normalizeSearchPresetResponse = (payload) => {
@@ -3632,6 +3643,7 @@
           standaloneTab,
           tabRoutes: normalizedTabRoutes,
           query: '',
+          exactTableMatch: false,
           filterRoutes: normalizedFilterRoutes,
           searchPresetRoutes: normalizedSearchPresetRoutes,
           recordsRoute,
@@ -4277,7 +4289,7 @@
                   'Content-Type': 'application/json',
                   'X-CSRF-TOKEN': this.csrfToken || '',
                 },
-                body: JSON.stringify({ name, query }),
+                body: JSON.stringify({ name, query, exact_match: this.exactTableMatch }),
               });
 
               if (!response.ok) {
@@ -4331,6 +4343,7 @@
             }
 
             this.query = normalized.query;
+            this.exactTableMatch = normalized.exactMatch || false;
             this.searchPresets.lastUsed = normalized.id;
 
             await this.markSearchPresetAsUsed(normalized.id);
@@ -4380,11 +4393,26 @@
             }
 
             const q = this.query.toLowerCase();
+            const useExactMatch = this.exactTableMatch === true;
+
             return this.tables.filter((table) => {
               const tableName = typeof table.name === 'string' ? table.name : '';
 
-              if (tableName.toLowerCase().includes(q)) {
-                return true;
+              if (useExactMatch) {
+                // For exact match, only match table name exactly (case-insensitive)
+                if (tableName.toLowerCase() === q) {
+                  return true;
+                }
+              } else {
+                // For partial match, check if table name contains the query
+                if (tableName.toLowerCase().includes(q)) {
+                  return true;
+                }
+              }
+
+              // When exact match is enabled, don't search in columns - only table names
+              if (useExactMatch) {
+                return false;
               }
 
               const columns = Array.isArray(table.structure?.columns) ? table.structure.columns : [];
