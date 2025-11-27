@@ -626,6 +626,26 @@ class SeedRunController extends Controller
                 })
                 ->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE)
                 ->values();
+
+            // Collect all unique levels from the preview questions
+            $levelsSummary = $questions
+                ->pluck('level')
+                ->filter(fn ($level) => filled($level))
+                ->unique()
+                ->sort(SORT_NATURAL)
+                ->values();
+
+            // Collect all unique correct answers from the preview questions
+            $answersSummary = $questions
+                ->flatMap(function (Question $question) {
+                    return $question->answers->map(function ($answer) {
+                        return optional($answer->option)->option ?? $answer->answer;
+                    });
+                })
+                ->filter(fn ($answer) => filled($answer))
+                ->unique()
+                ->sort(SORT_NATURAL | SORT_FLAG_CASE)
+                ->values();
         } finally {
             DB::rollBack();
         }
@@ -635,6 +655,8 @@ class SeedRunController extends Controller
             'questions' => $previewQuestions,
             'existingQuestionCount' => $existingQuestionCount,
             'tagsSummary' => $tagsSummary,
+            'levelsSummary' => $levelsSummary,
+            'answersSummary' => $answersSummary,
         ];
     }
 
@@ -739,6 +761,8 @@ class SeedRunController extends Controller
             'questions' => collect(),
             'existingQuestionCount' => null,
             'page' => $pageMeta,
+            'levelsSummary' => collect(),
+            'answersSummary' => collect(),
         ];
     }
 
@@ -822,6 +846,8 @@ class SeedRunController extends Controller
             'questions' => collect(),
             'existingQuestionCount' => null,
             'category' => $categoryMeta,
+            'levelsSummary' => collect(),
+            'answersSummary' => collect(),
         ];
     }
 
