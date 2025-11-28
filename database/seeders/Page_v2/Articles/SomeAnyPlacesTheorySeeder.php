@@ -8,7 +8,7 @@ class SomeAnyPlacesTheorySeeder extends ArticlePageSeeder
 {
     protected function slug(): string
     {
-        return 'some-any-places';
+        return 'theory-some-any-places';
     }
 
     protected function type(): ?string
