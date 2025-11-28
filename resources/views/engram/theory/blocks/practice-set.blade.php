@@ -15,7 +15,7 @@
             @foreach($selects as $index => $item)
                 <div class="flex flex-col gap-1">
                     <label class="font-medium">
-                        {{ $index + 1 }}. {{ $item['label'] ?? '' }}
+                        {{ $index + 1 }}. {!! $item['label'] ?? '' !!}
                     </label>
                     <div class="flex items-center gap-2">
                         <select class="rounded-lg border-slate-200 text-sm">
