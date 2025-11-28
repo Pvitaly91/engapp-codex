@@ -28,6 +28,15 @@ class SomeAnyPlacesTheorySeeder extends ArticlePageSeeder
                 'title' => 'Some / Any',
                 'language' => 'uk',
             ],
+            'tags' => [
+                'Some or Any',
+                'Some/Any/No/Every Compounds (AI)',
+                'Something / Anything / Nothing Exercises',
+                'Indefinite Pronoun Compounds',
+                'Somewhere anywhere nowhere forms',
+                'Places-focused compounds',
+                'Location reference nuance',
+            ],
             'blocks' => [
                 [
                     'type' => 'hero',

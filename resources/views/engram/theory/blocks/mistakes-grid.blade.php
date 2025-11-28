@@ -16,7 +16,7 @@
                     <p class="text-xs font-semibold uppercase tracking-wide {{ $palette['text'] }} mb-1">{{ $item['label'] }}</p>
                 @endif
                 @if(! empty($item['title']))
-                    <p class="text-sm text-slate-800 mb-2">{{ $item['title'] }}</p>
+                    <p class="text-sm text-slate-800 mb-2">{!! $item['title'] !!}</p>
                 @endif
                 @if(! empty($item['wrong']))
                     <p class="text-xs mb-1 text-rose-700">❌ <span class="font-mono">{{ $item['wrong'] }}</span></p>

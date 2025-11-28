@@ -43,15 +43,17 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Public Theory pages (no authentication required)
+// Public pages routes (no authentication required)
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
 Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
-Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
-Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
-Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
 Route::middleware('auth.admin')->group(function () {
+    // Theory pages (authentication required)
+    Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
+    Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
+    Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
+
     Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
     Route::get('/catalog-tests/cards', [GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
     Route::get('/catalog/tests-cards', [GrammarTestController::class, 'catalogAggregated'])->name('catalog.tests-cards');
