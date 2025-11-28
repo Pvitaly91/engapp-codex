@@ -2,9 +2,9 @@
 
 namespace Database\Seeders\Page_v2\Adjectives;
 
-use Database\Seeders\Pages\Concerns\GrammarPageSeeder;
+use Database\Seeders\Pages\Adjectives\AdjectivePageSeeder;
 
-class DegreesOfComparisonTheorySeeder extends GrammarPageSeeder
+class DegreesOfComparisonTheorySeeder extends AdjectivePageSeeder
 {
     protected function slug(): string
     {
@@ -23,11 +23,6 @@ class DegreesOfComparisonTheorySeeder extends GrammarPageSeeder
             'subtitle_html' => '<p>Ступені порівняння показують, <strong>як одні якості співвідносяться з іншими</strong>. Є три ступені: звичайний, вищий (comparative) і найвищий (superlative).</p>',
             'subtitle_text' => 'Comparative показує різницю між двома предметами, superlative — виділяє крайній ступінь у групі.',
             'locale' => 'uk',
-            'category' => [
-                'slug' => 'adjectives',
-                'title' => 'Прикметники',
-                'language' => 'uk',
-            ],
             'tags' => [
                 'Degrees of Comparison',
                 'Comparative / Superlative Choice',
@@ -273,8 +268,8 @@ class DegreesOfComparisonTheorySeeder extends GrammarPageSeeder
                         'title' => 'Інші сторінки з категорії Прикметники',
                         'items' => [
                             [
-                                'label' => 'Degrees of Comparison (поточна)',
-                                'current' => true,
+                                'label' => 'Degrees of Comparison',
+                                'url' => '/theory/adjectives/theory-degrees-of-comparison',
                             ],
                         ],
                     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
