@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         app()->setLocale(session('locale', config('app.locale')));
 
-      //  Question::observe(QuestionObserver::class);
+        //  Question::observe(QuestionObserver::class);
     }
 }
