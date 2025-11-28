@@ -106,7 +106,111 @@
     </section>
 
     {{-- Main Content Area --}}
-    <div class="grid gap-8 lg:grid-cols-[1fr_280px]">
+    <div class="grid gap-8 lg:grid-cols-[280px_1fr]">
+        {{-- Left Sidebar --}}
+        <aside class="hidden lg:block">
+            <div class="sticky top-24 space-y-6">
+                {{-- Theory Categories List --}}
+                @if(isset($categories) && $categories->isNotEmpty())
+                    <nav class="rounded-2xl border border-border/50 bg-card/80 p-5 backdrop-blur-sm">
+                        <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                            Категорії теорії
+                        </h3>
+                        <ul class="space-y-1">
+                            @foreach($categories as $category)
+                                @php($isActiveCategory = isset($selectedCategory) && $selectedCategory->is($category))
+                                <li>
+                                    <a 
+                                        href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                        class="block rounded-xl px-3 py-2 text-sm transition-all {{ $isActiveCategory ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted hover:text-foreground' }}"
+                                    >
+                                        {{ $category->title }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </nav>
+                @endif
+
+                {{-- Table of Contents --}}
+                @php($tocBlocks = $contentBlocks->filter(fn($b) => !empty(json_decode($b->body ?? '[]', true)['title'] ?? '')))
+                @if($tocBlocks->isNotEmpty())
+                    <nav class="rounded-2xl border border-border/50 bg-card/80 p-5 backdrop-blur-sm">
+                        <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                            Зміст
+                        </h3>
+                        <ul class="space-y-2 text-sm">
+                            @foreach($tocBlocks as $tocBlock)
+                                @php($tocData = json_decode($tocBlock->body ?? '[]', true))
+                                @if(!empty($tocData['title']))
+                                    <li>
+                                        <a 
+                                            href="#block-{{ $tocBlock->id }}" 
+                                            class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors py-1"
+                                        >
+                                            <span class="h-1.5 w-1.5 rounded-full bg-border"></span>
+                                            {{ $tocData['title'] }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </nav>
+                @endif
+
+                {{-- Category Navigation --}}
+                @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
+                    <nav class="rounded-2xl border border-border/50 bg-card/80 p-5 backdrop-blur-sm">
+                        <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                            {{ $selectedCategory->title }}
+                        </h3>
+                        <ul class="space-y-1">
+                            @foreach($categoryPages as $pageItem)
+                                @php($isCurrentPage = $page->is($pageItem))
+                                <li>
+                                    <a 
+                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        class="block rounded-xl px-3 py-2 text-sm transition-all {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted hover:text-foreground' }}"
+                                    >
+                                        {{ $pageItem->title }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </nav>
+                @endif
+
+                {{-- Quick Actions --}}
+                <div class="rounded-2xl border border-border/50 bg-gradient-to-br from-primary/5 to-secondary/5 p-5">
+                    <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                        Швидкі дії
+                    </h3>
+                    <div class="space-y-2">
+                        <a 
+                            href="{{ route($routePrefix . '.index') }}"
+                            class="flex items-center gap-3 rounded-xl bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-background hover:shadow-sm"
+                        >
+                            <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                            Усі категорії
+                        </a>
+                        @if(isset($selectedCategory))
+                            <a 
+                                href="{{ route($routePrefix . '.category', $selectedCategory->slug) }}"
+                                class="flex items-center gap-3 rounded-xl bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-background hover:shadow-sm"
+                            >
+                                <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                                </svg>
+                                {{ $selectedCategory->title }}
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </aside>
+
         {{-- Content Column --}}
         <div class="min-w-0 space-y-8">
             @foreach($contentBlocks as $block)
@@ -204,88 +308,6 @@
                 </section>
             @endif
         </div>
-
-        {{-- Sidebar --}}
-        <aside class="hidden lg:block">
-            <div class="sticky top-24 space-y-6">
-                {{-- Table of Contents --}}
-                @php($tocBlocks = $contentBlocks->filter(fn($b) => !empty(json_decode($b->body ?? '[]', true)['title'] ?? '')))
-                @if($tocBlocks->isNotEmpty())
-                    <nav class="rounded-2xl border border-border/50 bg-card/80 p-5 backdrop-blur-sm">
-                        <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                            Зміст
-                        </h3>
-                        <ul class="space-y-2 text-sm">
-                            @foreach($tocBlocks as $tocBlock)
-                                @php($tocData = json_decode($tocBlock->body ?? '[]', true))
-                                @if(!empty($tocData['title']))
-                                    <li>
-                                        <a 
-                                            href="#block-{{ $tocBlock->id }}" 
-                                            class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors py-1"
-                                        >
-                                            <span class="h-1.5 w-1.5 rounded-full bg-border"></span>
-                                            {{ $tocData['title'] }}
-                                        </a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </nav>
-                @endif
-
-                {{-- Category Navigation --}}
-                @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
-                    <nav class="rounded-2xl border border-border/50 bg-card/80 p-5 backdrop-blur-sm">
-                        <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                            {{ $selectedCategory->title }}
-                        </h3>
-                        <ul class="space-y-1">
-                            @foreach($categoryPages as $pageItem)
-                                @php($isCurrentPage = $page->is($pageItem))
-                                <li>
-                                    <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                        class="block rounded-xl px-3 py-2 text-sm transition-all {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted hover:text-foreground' }}"
-                                    >
-                                        {{ $pageItem->title }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </nav>
-                @endif
-
-                {{-- Quick Actions --}}
-                <div class="rounded-2xl border border-border/50 bg-gradient-to-br from-primary/5 to-secondary/5 p-5">
-                    <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                        Швидкі дії
-                    </h3>
-                    <div class="space-y-2">
-                        <a 
-                            href="{{ route($routePrefix . '.index') }}"
-                            class="flex items-center gap-3 rounded-xl bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-background hover:shadow-sm"
-                        >
-                            <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                            </svg>
-                            Усі категорії
-                        </a>
-                        @if(isset($selectedCategory))
-                            <a 
-                                href="{{ route($routePrefix . '.category', $selectedCategory->slug) }}"
-                                class="flex items-center gap-3 rounded-xl bg-background/60 px-3 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-background hover:shadow-sm"
-                            >
-                                <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                                </svg>
-                                {{ $selectedCategory->title }}
-                            </a>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </aside>
     </div>
 
     {{-- Mobile Navigation --}}
