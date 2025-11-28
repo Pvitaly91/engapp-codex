@@ -29,7 +29,155 @@
         </nav>
 
         {{-- Main Content Grid --}}
-        <div class="grid gap-8 lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_360px]">
+        <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
+            {{-- Left Sidebar --}}
+            <aside class="hidden lg:block">
+                <div class="sticky top-24 space-y-5">
+                    {{-- Theory Categories List --}}
+                    @if(isset($categories) && $categories->isNotEmpty())
+                        <div class="rounded-2xl border border-border/60 bg-card p-5">
+                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                                Категорії теорії
+                            </h3>
+                            <nav class="space-y-1">
+                                @foreach($categories as $category)
+                                    @php($isActiveCategory = isset($selectedCategory) && $selectedCategory->is($category))
+                                    <a 
+                                        href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all {{ $isActiveCategory ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
+                                    >
+                                        {{ $category->title }}
+                                    </a>
+                                @endforeach
+                            </nav>
+                        </div>
+                    @endif
+
+                    {{-- Table of Contents --}}
+                    @php($tocBlocks = $contentBlocks->filter(fn($b) => !empty(json_decode($b->body ?? '[]', true)['title'] ?? '')))
+                    @if($tocBlocks->isNotEmpty())
+                        <div class="rounded-2xl border border-border/60 bg-card p-5">
+                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
+                                </svg>
+                                Зміст
+                            </h3>
+                            <nav class="space-y-1">
+                                @foreach($tocBlocks as $tocBlock)
+                                    @php($tocData = json_decode($tocBlock->body ?? '[]', true))
+                                    @if(!empty($tocData['title']))
+                                        <a 
+                                            href="#block-{{ $tocBlock->id }}" 
+                                            class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                                        >
+                                            <span class="h-1 w-1 rounded-full bg-border"></span>
+                                            <span class="truncate">{{ preg_replace('/^\d+\.\s*/', '', $tocData['title']) }}</span>
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </nav>
+                        </div>
+                    @endif
+
+                    {{-- Category Pages Navigation --}}
+                    @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
+                        <div class="rounded-2xl border border-border/60 bg-card p-5">
+                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                {{ $selectedCategory->title }}
+                            </h3>
+                            <nav class="space-y-1">
+                                @foreach($categoryPages as $pageItem)
+                                    @php($isCurrentPage = $page->is($pageItem))
+                                    <a 
+                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
+                                    >
+                                        @if($isCurrentPage)
+                                            <svg class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                            </svg>
+                                        @endif
+                                        <span class="truncate">{{ $pageItem->title }}</span>
+                                    </a>
+                                @endforeach
+                            </nav>
+                        </div>
+                    @endif
+
+                    {{-- Quick Actions --}}
+                    <div class="rounded-2xl border border-border/60 bg-gradient-to-br from-muted/30 to-muted/10 p-5">
+                        <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            Швидкі дії
+                        </h3>
+                        <div class="space-y-2">
+                            <a 
+                                href="{{ route($routePrefix . '.index') }}"
+                                class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
+                            >
+                                <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                                </svg>
+                                Усі категорії
+                            </a>
+                            @if(isset($selectedCategory))
+                                <a 
+                                    href="{{ route($routePrefix . '.category', $selectedCategory->slug) }}"
+                                    class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
+                                >
+                                    <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    {{ $selectedCategory->title }}
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+
+                    {{-- Tags Section --}}
+                    @if($page->tags->isNotEmpty())
+                        <div class="rounded-2xl border border-border/60 bg-card p-5" x-data="{ show: false }">
+                            <button 
+                                @click="show = !show"
+                                class="flex w-full items-center justify-between text-left"
+                            >
+                                <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                    </svg>
+                                    Теги ({{ $page->tags->count() }})
+                                </h3>
+                                <svg 
+                                    class="h-4 w-4 text-muted-foreground transition-transform" 
+                                    :class="{ 'rotate-180': show }"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div x-show="show" x-collapse class="mt-4">
+                                <div class="flex flex-wrap gap-1.5">
+                                    @foreach($page->tags as $tag)
+                                        <span class="inline-flex items-center rounded-md bg-muted/60 px-2 py-1 text-xs text-muted-foreground">
+                                            {{ $tag->name }}
+                                        </span>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </aside>
+
             {{-- Primary Content Area --}}
             <div class="min-w-0 space-y-6">
                 {{-- Hero Title Card --}}
@@ -209,131 +357,6 @@
                     </section>
                 @endif
             </div>
-
-            {{-- Right Sidebar --}}
-            <aside class="hidden lg:block">
-                <div class="sticky top-24 space-y-5">
-                    {{-- Table of Contents --}}
-                    @php($tocBlocks = $contentBlocks->filter(fn($b) => !empty(json_decode($b->body ?? '[]', true)['title'] ?? '')))
-                    @if($tocBlocks->isNotEmpty())
-                        <div class="rounded-2xl border border-border/60 bg-card p-5">
-                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
-                                </svg>
-                                Зміст
-                            </h3>
-                            <nav class="space-y-1">
-                                @foreach($tocBlocks as $tocBlock)
-                                    @php($tocData = json_decode($tocBlock->body ?? '[]', true))
-                                    @if(!empty($tocData['title']))
-                                        <a 
-                                            href="#block-{{ $tocBlock->id }}" 
-                                            class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-                                        >
-                                            <span class="h-1 w-1 rounded-full bg-border"></span>
-                                            <span class="truncate">{{ preg_replace('/^\d+\.\s*/', '', $tocData['title']) }}</span>
-                                        </a>
-                                    @endif
-                                @endforeach
-                            </nav>
-                        </div>
-                    @endif
-
-                    {{-- Category Pages Navigation --}}
-                    @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
-                        <div class="rounded-2xl border border-border/60 bg-card p-5">
-                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                                </svg>
-                                {{ $selectedCategory->title }}
-                            </h3>
-                            <nav class="space-y-1">
-                                @foreach($categoryPages as $pageItem)
-                                    @php($isCurrentPage = $page->is($pageItem))
-                                    <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
-                                    >
-                                        @if($isCurrentPage)
-                                            <svg class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                            </svg>
-                                        @endif
-                                        <span class="truncate">{{ $pageItem->title }}</span>
-                                    </a>
-                                @endforeach
-                            </nav>
-                        </div>
-                    @endif
-
-                    {{-- Quick Actions --}}
-                    <div class="rounded-2xl border border-border/60 bg-gradient-to-br from-muted/30 to-muted/10 p-5">
-                        <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                            Швидкі дії
-                        </h3>
-                        <div class="space-y-2">
-                            <a 
-                                href="{{ route($routePrefix . '.index') }}"
-                                class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
-                            >
-                                <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                                </svg>
-                                Усі категорії
-                            </a>
-                            @if(isset($selectedCategory))
-                                <a 
-                                    href="{{ route($routePrefix . '.category', $selectedCategory->slug) }}"
-                                    class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 text-sm font-medium text-foreground transition-all hover:shadow-sm hover:border-primary/20 border border-transparent"
-                                >
-                                    <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                    </svg>
-                                    {{ $selectedCategory->title }}
-                                </a>
-                            @endif
-                        </div>
-                    </div>
-
-                    {{-- Tags Section --}}
-                    @if($page->tags->isNotEmpty())
-                        <div class="rounded-2xl border border-border/60 bg-card p-5" x-data="{ show: false }">
-                            <button 
-                                @click="show = !show"
-                                class="flex w-full items-center justify-between text-left"
-                            >
-                                <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-                                    </svg>
-                                    Теги ({{ $page->tags->count() }})
-                                </h3>
-                                <svg 
-                                    class="h-4 w-4 text-muted-foreground transition-transform" 
-                                    :class="{ 'rotate-180': show }"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                >
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </button>
-                            <div x-show="show" x-collapse class="mt-4">
-                                <div class="flex flex-wrap gap-1.5">
-                                    @foreach($page->tags as $tag)
-                                        <span class="inline-flex items-center rounded-md bg-muted/60 px-2 py-1 text-xs text-muted-foreground">
-                                            {{ $tag->name }}
-                                        </span>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                </div>
-            </aside>
         </div>
 
         {{-- Mobile Floating Menu --}}
@@ -361,9 +384,27 @@
                 class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-72 max-h-[60vh] overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-xl"
             >
                 <div class="space-y-4">
+                    {{-- Theory Categories --}}
+                    @if(isset($categories) && $categories->isNotEmpty())
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Категорії теорії</h4>
+                            <nav class="space-y-1">
+                                @foreach($categories as $category)
+                                    @php($isActiveCategory = isset($selectedCategory) && $selectedCategory->is($category))
+                                    <a 
+                                        href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                        class="block rounded-lg px-3 py-2 text-sm {{ $isActiveCategory ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
+                                    >
+                                        {{ $category->title }}
+                                    </a>
+                                @endforeach
+                            </nav>
+                        </div>
+                    @endif
+
                     {{-- Category Pages --}}
                     @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
-                        <div>
+                        <div class="border-t border-border pt-4">
                             <h4 class="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{{ $selectedCategory->title }}</h4>
                             <nav class="space-y-1">
                                 @foreach($categoryPages as $pageItem)
