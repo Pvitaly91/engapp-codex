@@ -58,20 +58,24 @@ class DynamicPageController extends PageController
     /**
      * Display a specific category with its related pages for a specific page type.
      */
-    public function categoryForType(string $pageType, PageCategory $category)
+    public function categoryForType(string $pageType, string $category)
     {
         $this->configureForType($pageType);
 
-        return parent::category($category);
+        $categoryModel = PageCategory::where('slug', $category)->firstOrFail();
+
+        return parent::category($categoryModel);
     }
 
     /**
      * Display the specified page using structured text blocks for a specific page type.
      */
-    public function showForType(string $pageType, PageCategory $category, string $pageSlug)
+    public function showForType(string $pageType, string $category, string $pageSlug)
     {
         $this->configureForType($pageType);
 
-        return parent::show($category, $pageSlug);
+        $categoryModel = PageCategory::where('slug', $category)->firstOrFail();
+
+        return parent::show($categoryModel, $pageSlug);
     }
 }

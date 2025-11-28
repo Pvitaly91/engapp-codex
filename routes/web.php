@@ -56,10 +56,10 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     Route::get('/theory', [DynamicPageController::class, 'indexForType'])
         ->defaults('pageType', 'theory')
         ->name('theory.index');
-    Route::get('/theory/{category:slug}', [DynamicPageController::class, 'categoryForType'])
+    Route::get('/theory/{category}', [DynamicPageController::class, 'categoryForType'])
         ->defaults('pageType', 'theory')
         ->name('theory.category');
-    Route::get('/theory/{category:slug}/{pageSlug}', [DynamicPageController::class, 'showForType'])
+    Route::get('/theory/{category}/{pageSlug}', [DynamicPageController::class, 'showForType'])
         ->defaults('pageType', 'theory')
         ->name('theory.show');
 
@@ -68,10 +68,10 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     Route::get('/{pageType}', [DynamicPageController::class, 'indexForType'])
         ->where('pageType', $reservedPrefixes)
         ->name('dynamic-pages.index');
-    Route::get('/{pageType}/{category:slug}', [DynamicPageController::class, 'categoryForType'])
+    Route::get('/{pageType}/{category}', [DynamicPageController::class, 'categoryForType'])
         ->where('pageType', $reservedPrefixes)
         ->name('dynamic-pages.category');
-    Route::get('/{pageType}/{category:slug}/{pageSlug}', [DynamicPageController::class, 'showForType'])
+    Route::get('/{pageType}/{category}/{pageSlug}', [DynamicPageController::class, 'showForType'])
         ->where('pageType', $reservedPrefixes)
         ->name('dynamic-pages.show');
 
