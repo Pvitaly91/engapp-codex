@@ -19,6 +19,7 @@ use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TestTagController;
+use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
@@ -52,19 +53,10 @@ Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])
 $reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
 
 Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
-    // Theory pages - explicit routes for backward compatibility (skip validation since these are known routes)
-    Route::get('/theory', [DynamicPageController::class, 'indexForType'])
-        ->defaults('pageType', 'theory')
-        ->defaults('skipValidation', true)
-        ->name('theory.index');
-    Route::get('/theory/{category}', [DynamicPageController::class, 'categoryForType'])
-        ->defaults('pageType', 'theory')
-        ->defaults('skipValidation', true)
-        ->name('theory.category');
-    Route::get('/theory/{category}/{pageSlug}', [DynamicPageController::class, 'showForType'])
-        ->defaults('pageType', 'theory')
-        ->defaults('skipValidation', true)
-        ->name('theory.show');
+    // Theory pages - use dedicated TheoryController for backward compatibility
+    Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
+    Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
+    Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
     // Dynamic page type routes (authentication required)
     // These routes handle any other page type dynamically based on pages.type in DB
