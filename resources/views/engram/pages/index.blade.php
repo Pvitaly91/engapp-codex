@@ -1,6 +1,6 @@
 @extends('layouts.engram')
 
-@section('title', 'Теорія')
+@section('title', $sectionTitle ?? 'Теорія')
 
 @section('content')
     @php($categoryPages = $categoryPages ?? collect())
@@ -11,6 +11,7 @@
             'selectedCategory' => $selectedCategory,
             'categoryPages' => $categoryPages,
             'showCategoryPagesNav' => false,
+            'routePrefix' => $routePrefix ?? 'pages',
         ])
 
         @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
@@ -43,6 +44,7 @@
                 @include('engram.pages.partials.page-grid', [
                     'pages' => $categoryPages,
                     'category' => $selectedCategory,
+                    'routePrefix' => $routePrefix ?? 'pages',
                 ])
             @else
                 <div class="rounded-2xl border border-dashed border-muted p-8 text-center text-muted-foreground">
