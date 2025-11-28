@@ -20,6 +20,7 @@ use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
 use App\Services\SavedTestResolver;
 use App\Services\TagAggregationService;
+use App\Services\VirtualSavedTest;
 use App\Models\QuestionHint;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -532,7 +533,7 @@ class GrammarTestController extends Controller
         })->values()->all();
     }
 
-    private function jsStateSessionKey(Test|SavedGrammarTest $test, string $view): string
+    private function jsStateSessionKey(Test|SavedGrammarTest|VirtualSavedTest $test, string $view): string
     {
         return sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
     }

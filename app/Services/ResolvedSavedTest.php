@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 class ResolvedSavedTest
 {
     public function __construct(
-        public Model $model,
+        public Model|VirtualSavedTest $model,
         public Collection $questionIds,
         public Collection $questionUuids,
         public bool $usesUuidLinks,
