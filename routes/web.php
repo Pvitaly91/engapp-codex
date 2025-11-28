@@ -3,6 +3,7 @@
 use App\Http\Controllers\AiTestController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatGPTExplanationController;
+use App\Http\Controllers\DynamicPageController;
 use App\Http\Controllers\GrammarTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -48,11 +49,26 @@ Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
 Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
 
-Route::middleware('auth.admin')->group(function () {
-    // Theory pages (authentication required)
+// Define a pattern that excludes reserved route prefixes for dynamic page type routes
+$reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
+
+Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
+    // Theory pages - use dedicated TheoryController for backward compatibility
     Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
     Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
     Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
+
+    // Dynamic page type routes (authentication required)
+    // These routes handle any other page type dynamically based on pages.type in DB
+    Route::get('/{pageType}', [DynamicPageController::class, 'indexForType'])
+        ->where('pageType', $reservedPrefixes)
+        ->name('dynamic-pages.index');
+    Route::get('/{pageType}/{category}', [DynamicPageController::class, 'categoryForType'])
+        ->where('pageType', $reservedPrefixes)
+        ->name('dynamic-pages.category');
+    Route::get('/{pageType}/{category}/{pageSlug}', [DynamicPageController::class, 'showForType'])
+        ->where('pageType', $reservedPrefixes)
+        ->name('dynamic-pages.show');
 
     Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
     Route::get('/catalog-tests/cards', [GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
