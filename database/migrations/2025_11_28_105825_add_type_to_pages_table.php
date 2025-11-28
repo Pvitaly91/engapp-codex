@@ -8,14 +8,20 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('pages', function (Blueprint $table) {
+            $table->dropUnique('pages_slug_unique');
+
             $table->string('type')->nullable()->after('text');
+
+            $table->unique(['slug', 'type'], 'pages_slug_type_unique');
         });
     }
 
     public function down(): void
     {
         Schema::table('pages', function (Blueprint $table) {
+            $table->dropUnique('pages_slug_type_unique');
             $table->dropColumn('type');
+            $table->unique('slug', 'pages_slug_unique');
         });
     }
 };
