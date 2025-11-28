@@ -52,15 +52,18 @@ Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])
 $reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
 
 Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
-    // Theory pages - explicit routes for backward compatibility
+    // Theory pages - explicit routes for backward compatibility (skip validation since these are known routes)
     Route::get('/theory', [DynamicPageController::class, 'indexForType'])
         ->defaults('pageType', 'theory')
+        ->defaults('skipValidation', true)
         ->name('theory.index');
     Route::get('/theory/{category}', [DynamicPageController::class, 'categoryForType'])
         ->defaults('pageType', 'theory')
+        ->defaults('skipValidation', true)
         ->name('theory.category');
     Route::get('/theory/{category}/{pageSlug}', [DynamicPageController::class, 'showForType'])
         ->defaults('pageType', 'theory')
+        ->defaults('skipValidation', true)
         ->name('theory.show');
 
     // Dynamic page type routes (authentication required)

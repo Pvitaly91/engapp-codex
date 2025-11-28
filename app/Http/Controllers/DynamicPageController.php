@@ -12,15 +12,20 @@ class DynamicPageController extends PageController
 {
     /**
      * Configure controller based on the page type from URL.
+     *
+     * @param  string  $pageType  The page type to configure for
+     * @param  bool  $validateExists  Whether to validate that pages with this type exist
      */
-    protected function configureForType(string $pageType): void
+    protected function configureForType(string $pageType, bool $validateExists = true): void
     {
-        // Cache the validation check for 5 minutes to avoid database queries on every request
-        $cacheKey = "page_type_exists:{$pageType}";
-        $exists = Cache::remember($cacheKey, 300, fn () => Page::where('type', $pageType)->exists());
+        if ($validateExists) {
+            // Cache the validation check for 5 minutes to avoid database queries on every request
+            $cacheKey = "page_type_exists:{$pageType}";
+            $exists = Cache::remember($cacheKey, 300, fn () => Page::where('type', $pageType)->exists());
 
-        if (! $exists) {
-            throw new NotFoundHttpException("Page type '{$pageType}' not found.");
+            if (! $exists) {
+                throw new NotFoundHttpException("Page type '{$pageType}' not found.");
+            }
         }
 
         $this->pageType = $pageType;
@@ -47,20 +52,27 @@ class DynamicPageController extends PageController
 
     /**
      * Display the available categories with the first category's pages for a specific page type.
+     *
+     * @param  string  $pageType  The page type
+     * @param  bool  $skipValidation  Skip validation for explicitly defined routes
      */
-    public function indexForType(string $pageType)
+    public function indexForType(string $pageType, bool $skipValidation = false)
     {
-        $this->configureForType($pageType);
+        $this->configureForType($pageType, ! $skipValidation);
 
         return parent::index();
     }
 
     /**
      * Display a specific category with its related pages for a specific page type.
+     *
+     * @param  string  $pageType  The page type
+     * @param  string  $category  The category slug
+     * @param  bool  $skipValidation  Skip validation for explicitly defined routes
      */
-    public function categoryForType(string $pageType, string $category)
+    public function categoryForType(string $pageType, string $category, bool $skipValidation = false)
     {
-        $this->configureForType($pageType);
+        $this->configureForType($pageType, ! $skipValidation);
 
         $categoryModel = PageCategory::where('slug', $category)->firstOrFail();
 
@@ -69,10 +81,15 @@ class DynamicPageController extends PageController
 
     /**
      * Display the specified page using structured text blocks for a specific page type.
+     *
+     * @param  string  $pageType  The page type
+     * @param  string  $category  The category slug
+     * @param  string  $pageSlug  The page slug
+     * @param  bool  $skipValidation  Skip validation for explicitly defined routes
      */
-    public function showForType(string $pageType, string $category, string $pageSlug)
+    public function showForType(string $pageType, string $category, string $pageSlug, bool $skipValidation = false)
     {
-        $this->configureForType($pageType);
+        $this->configureForType($pageType, ! $skipValidation);
 
         $categoryModel = PageCategory::where('slug', $category)->firstOrFail();
 
