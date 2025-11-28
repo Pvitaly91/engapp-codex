@@ -4,6 +4,7 @@ namespace Database\Seeders\Pages\Concerns;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\Tag;
 use App\Models\TextBlock;
 use App\Support\Database\Seeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
@@ -74,8 +75,8 @@ abstract class GrammarPageSeeder extends Seeder
         TextBlock::where('page_id', $page->id)
             ->whereIn('seeder', $this->cleanupSeederClasses())
             ->delete();
- 
-        if (!empty($config['subtitle_html'])) {
+
+        if (! empty($config['subtitle_html'])) {
             TextBlock::create([
                 'page_id' => $page->id,
                 'locale' => $config['locale'] ?? 'uk',
@@ -101,6 +102,16 @@ abstract class GrammarPageSeeder extends Seeder
                 'body' => $block['body'] ?? null,
                 'seeder' => static::class,
             ]);
+        }
+
+        // Attach tags if defined
+        if (! empty($config['tags'])) {
+            $tagIds = [];
+            foreach ($config['tags'] as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $tagIds[] = $tag->id;
+            }
+            $page->tags()->sync($tagIds);
         }
     }
 }
