@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Page extends Model
 {
-    protected $fillable = ['slug', 'title', 'text', 'seeder', 'page_category_id'];
+    protected $fillable = ['slug', 'title', 'text', 'type', 'seeder', 'page_category_id'];
 
     public function category(): BelongsTo
     {
@@ -24,5 +24,12 @@ class Page extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function scopeForType($query, ?string $type)
+    {
+        return $type === null
+            ? $query->whereNull('type')
+            : $query->where('type', $type);
     }
 }

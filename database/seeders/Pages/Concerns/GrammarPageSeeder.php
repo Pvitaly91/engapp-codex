@@ -4,6 +4,7 @@ namespace Database\Seeders\Pages\Concerns;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\Tag;
 use App\Models\TextBlock;
 use App\Support\Database\Seeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
@@ -13,6 +14,11 @@ abstract class GrammarPageSeeder extends Seeder
     abstract protected function slug(): string;
 
     abstract protected function page(): array;
+
+    protected function type(): ?string
+    {
+        return null;
+    }
 
     protected function category(): ?array
     {
@@ -28,6 +34,7 @@ abstract class GrammarPageSeeder extends Seeder
     {
         $slug = $this->slug();
         $config = $this->page();
+        $type = $this->type();
 
         $categoryConfig = $config['category'] ?? $this->category();
         $categoryId = null;
@@ -48,11 +55,18 @@ abstract class GrammarPageSeeder extends Seeder
             $categoryId = $category->id;
         }
 
+        $matchAttributes = ['slug' => $slug];
+
+        if (! is_null($type)) {
+            $matchAttributes['type'] = $type;
+        }
+
         $page = Page::updateOrCreate(
-            ['slug' => $slug],
+            $matchAttributes,
             [
                 'title' => $config['title'],
                 'text' => $config['subtitle_text'] ?? null,
+                'type' => $type,
                 'seeder' => static::class,
                 'page_category_id' => $categoryId,
             ]
@@ -61,8 +75,8 @@ abstract class GrammarPageSeeder extends Seeder
         TextBlock::where('page_id', $page->id)
             ->whereIn('seeder', $this->cleanupSeederClasses())
             ->delete();
- 
-        if (!empty($config['subtitle_html'])) {
+
+        if (! empty($config['subtitle_html'])) {
             TextBlock::create([
                 'page_id' => $page->id,
                 'locale' => $config['locale'] ?? 'uk',
@@ -80,7 +94,7 @@ abstract class GrammarPageSeeder extends Seeder
             TextBlock::create([
                 'page_id' => $page->id,
                 'locale' => $config['locale'] ?? 'uk',
-                'type' => 'box',
+                'type' => $block['type'] ?? 'box',
                 'column' => $block['column'],
                 'heading' => $block['heading'] ?? null,
                 'css_class' => $block['css_class'] ?? null,
@@ -88,6 +102,16 @@ abstract class GrammarPageSeeder extends Seeder
                 'body' => $block['body'] ?? null,
                 'seeder' => static::class,
             ]);
+        }
+
+        // Attach tags if defined
+        if (! empty($config['tags'])) {
+            $tagIds = [];
+            foreach ($config['tags'] as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $tagIds[] = $tag->id;
+            }
+            $page->tags()->sync($tagIds);
         }
     }
 }

@@ -1,5 +1,6 @@
 @php($categoryPages = $categoryPages ?? collect())
 @php($showCategoryPagesNav = $showCategoryPagesNav ?? false)
+@php($routePrefix = $routePrefix ?? 'pages')
 @php($class = trim('space-y-8 ' . ($class ?? '')))
 <aside class="{{ $class }}">
     <div>
@@ -8,7 +9,7 @@
             @forelse($categories as $category)
                 @php($isActive = $selectedCategory && $selectedCategory->is($category))
                 <a
-                    href="{{ route('pages.category', $category->slug) }}"
+                    href="{{ route($routePrefix . '.category', $category->slug) }}"
                     class="block rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-muted/80 {{ $isActive ? 'bg-primary text-primary-foreground' : 'text-muted-foreground' }}"
                 >
                     <span>{{ $category->title }}</span>
@@ -26,7 +27,7 @@
                 @foreach($categoryPages as $pageItem)
                     @php($isCurrentPage = isset($currentPage) && $currentPage && $currentPage->is($pageItem))
                     <a
-                        href="{{ route('pages.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
                         class="block rounded-xl px-3 py-2 text-sm transition hover:bg-muted/80 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground' }}"
                     >
                         {{ $pageItem->title }}
