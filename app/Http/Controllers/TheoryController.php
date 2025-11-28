@@ -8,7 +8,7 @@ class TheoryController extends PageController
 
     protected string $routePrefix = 'theory';
 
-    protected string $showView = 'engram.theory.show-v2';
+    protected string $showView = 'engram.theory.show-v3';
 
     protected string $indexView = 'engram.pages.index';
 

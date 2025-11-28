@@ -37,7 +37,7 @@ class QuestionVariantService
         return $variants;
     }
 
-    public function applyRandomVariant(Test|SavedGrammarTest $test, Question $question, ?string $previousVariant = null): void
+    public function applyRandomVariant(Test|SavedGrammarTest|VirtualSavedTest $test, Question $question, ?string $previousVariant = null): void
     {
         if (! $this->supportsVariants()) {
             return;
@@ -79,7 +79,7 @@ class QuestionVariantService
         $question->setAttribute('question', $choice);
     }
 
-    public function applyRandomVariants(Test|SavedGrammarTest $test, Collection $questions, array $previousVariants = []): Collection
+    public function applyRandomVariants(Test|SavedGrammarTest|VirtualSavedTest $test, Collection $questions, array $previousVariants = []): Collection
     {
         if (! $this->supportsVariants()) {
             return $questions;
