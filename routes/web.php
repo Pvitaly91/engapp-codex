@@ -48,7 +48,10 @@ Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
 Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
 
-Route::middleware('auth.admin')->group(function () {
+// Define a pattern that excludes reserved route prefixes for dynamic page type routes
+$reservedPrefixes = '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$';
+
+Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     // Theory pages - explicit routes for backward compatibility
     Route::get('/theory', [DynamicPageController::class, 'indexForType'])
         ->defaults('pageType', 'theory')
@@ -63,13 +66,13 @@ Route::middleware('auth.admin')->group(function () {
     // Dynamic page type routes (authentication required)
     // These routes handle any other page type dynamically based on pages.type in DB
     Route::get('/{pageType}', [DynamicPageController::class, 'indexForType'])
-        ->where('pageType', '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$')
+        ->where('pageType', $reservedPrefixes)
         ->name('dynamic-pages.index');
     Route::get('/{pageType}/{category:slug}', [DynamicPageController::class, 'categoryForType'])
-        ->where('pageType', '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$')
+        ->where('pageType', $reservedPrefixes)
         ->name('dynamic-pages.category');
     Route::get('/{pageType}/{category:slug}/{pageSlug}', [DynamicPageController::class, 'showForType'])
-        ->where('pageType', '^(?!pages|login|logout|admin|test|tests|catalog-tests|catalog|words|search|grammar-test|ai-test|question-review|question-review-results|verb-hints|questions|question-answers|question-variants|question-hints|chatgpt-explanations|question-hint|question-explain|seed-runs|translate|train|test-tags|theory)$')
+        ->where('pageType', $reservedPrefixes)
         ->name('dynamic-pages.show');
 
     Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');

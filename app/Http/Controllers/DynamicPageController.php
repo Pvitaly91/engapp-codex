@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -14,8 +15,10 @@ class DynamicPageController extends PageController
      */
     protected function configureForType(string $pageType): void
     {
-        // Validate that pages with this type exist
-        $exists = Page::where('type', $pageType)->exists();
+        // Cache the validation check for 5 minutes to avoid database queries on every request
+        $cacheKey = "page_type_exists:{$pageType}";
+        $exists = Cache::remember($cacheKey, 300, fn () => Page::where('type', $pageType)->exists());
+
         if (! $exists) {
             throw new NotFoundHttpException("Page type '{$pageType}' not found.");
         }
@@ -24,14 +27,22 @@ class DynamicPageController extends PageController
         $this->routePrefix = $pageType;
         $this->sectionTitle = Str::ucfirst($pageType);
 
-        // Use type-specific views if they exist, otherwise fallback to pages views
-        $this->indexView = view()->exists("engram.{$pageType}.index")
-            ? "engram.{$pageType}.index"
-            : 'engram.pages.index';
+        // Cache view existence checks for the entire request lifecycle
+        // These are unlikely to change during runtime
+        $viewCacheKey = "page_type_views:{$pageType}";
+        $views = Cache::remember($viewCacheKey, 3600, function () use ($pageType) {
+            return [
+                'index' => view()->exists("engram.{$pageType}.index")
+                    ? "engram.{$pageType}.index"
+                    : 'engram.pages.index',
+                'show' => view()->exists("engram.{$pageType}.show")
+                    ? "engram.{$pageType}.show"
+                    : 'engram.pages.show',
+            ];
+        });
 
-        $this->showView = view()->exists("engram.{$pageType}.show")
-            ? "engram.{$pageType}.show"
-            : 'engram.pages.show';
+        $this->indexView = $views['index'];
+        $this->showView = $views['show'];
     }
 
     /**
