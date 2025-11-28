@@ -17,13 +17,13 @@ use App\Http\Controllers\QuestionVariantController;
 use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
+use App\Http\Controllers\TestTagController;
+use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
-use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
-use App\Modules\GitDeployment\Http\Controllers\NativeDeploymentController;
 use App\Http\Controllers\WordsTestController;
-use App\Http\Controllers\TestTagController;
+use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,10 +43,16 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Public pages routes (no authentication required)
+Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
+Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
+Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
+
 Route::middleware('auth.admin')->group(function () {
-    Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
-    Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
-    Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
+    // Theory pages (authentication required)
+    Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
+    Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
+    Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
     Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
     Route::get('/catalog-tests/cards', [GrammarTestController::class, 'catalog'])->name('catalog-tests.cards');
@@ -105,7 +111,7 @@ Route::middleware('auth.admin')->group(function () {
             Route::get('/export/view', [TestTagController::class, 'viewExportedJson'])->name('export.view');
             Route::get('/export/download', [TestTagController::class, 'downloadExportedJson'])->name('export.download');
             Route::delete('/empty', [TestTagController::class, 'destroyEmptyTags'])->name('destroy-empty');
-            
+
             Route::prefix('aggregations')->name('aggregations.')->group(function () {
                 Route::get('/', [TestTagController::class, 'aggregations'])->name('index');
                 Route::get('/auto', [TestTagController::class, 'autoAggregationsPage'])->name('auto-page');
@@ -123,7 +129,7 @@ Route::middleware('auth.admin')->group(function () {
                 Route::put('/category/{category}', [TestTagController::class, 'updateAggregationCategory'])->name('update-category');
                 Route::delete('/category/{category}', [TestTagController::class, 'destroyAggregationCategory'])->name('destroy-category');
             });
-            
+
             Route::get('/categories/{category}/edit', [TestTagController::class, 'editCategory'])
                 ->where('category', '.*')
                 ->name('categories.edit');

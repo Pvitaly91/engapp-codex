@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Http\Controllers;
+
+class TheoryController extends PageController
+{
+    protected ?string $pageType = 'theory';
+
+    protected string $routePrefix = 'theory';
+
+    protected string $showView = 'engram.theory.show';
+
+    protected string $indexView = 'engram.pages.index';
+
+    protected string $sectionTitle = 'Теорія';
+}

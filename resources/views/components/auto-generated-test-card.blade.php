@@ -9,10 +9,25 @@
     
     // Get total available from computed attribute (set in service to avoid N+1 queries)
     $totalAvailable = $test->getAttribute('total_questions_available') ?? $questionsCount;
+    
+    // Check if this is a virtual test (not persisted in the database)
+    // Use isVirtual() method if available, otherwise check exists property
+    $isVirtual = method_exists($test, 'isVirtual') ? $test->isVirtual() : (($test->exists ?? true) === false);
+    
+    // Build URL with filters for virtual tests
+    if ($isVirtual) {
+        $encodedFilters = base64_encode(json_encode($filters));
+        $testUrl = route('saved-test.js', $test->slug) . '?' . http_build_query([
+            'filters' => $encodedFilters,
+            'name' => $test->name,
+        ]);
+    } else {
+        $testUrl = route('saved-test.js', $test->slug);
+    }
 @endphp
 
 <div class="bg-background border border-border/60 rounded-xl p-4 flex flex-col hover:border-primary/40 hover:shadow-md transition">
-    <a href="{{ route('saved-test.js', $test->slug) }}" class="font-medium text-foreground hover:text-primary mb-2">
+    <a href="{{ $testUrl }}" class="font-medium text-foreground hover:text-primary mb-2">
         {{ $test->name }}
     </a>
     
@@ -37,7 +52,7 @@
         </div>
     @endif
 
-    <a href="{{ route('saved-test.js', $test->slug) }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
+    <a href="{{ $testUrl }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-xl text-sm font-semibold transition">
         Пройти тест
     </a>
 </div>
