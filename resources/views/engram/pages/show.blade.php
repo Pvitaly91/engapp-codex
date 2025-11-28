@@ -6,6 +6,7 @@
     @php($mobileSelectedCategory = $selectedCategory ?? null)
     @php($mobileCategoryPages = ($categoryPages ?? collect()))
     @php($hasCategoryPages = $mobileSelectedCategory && $mobileCategoryPages->isNotEmpty())
+    @php($routePrefix = $routePrefix ?? 'pages')
 
     <div class="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-[260px_1fr] lg:items-start lg:gap-8">
         <div
@@ -41,7 +42,7 @@
                         @forelse($categories as $category)
                             @php($isActive = $mobileSelectedCategory && $mobileSelectedCategory->is($category))
                             <a
-                                href="{{ route('pages.category', $category->slug) }}"
+                                href="{{ route($routePrefix . '.category', $category->slug) }}"
                                 class="block rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 {{ $isActive ? 'bg-primary/10 text-primary' : 'text-muted-foreground' }}"
                                 @if($isActive) aria-current="page" @endif
                             >
@@ -78,7 +79,7 @@
                             @foreach($mobileCategoryPages as $pageItem)
                                 @php($isCurrentPage = $page->is($pageItem))
                                 <a
-                                    href="{{ route('pages.show', [$mobileSelectedCategory->slug, $pageItem->slug]) }}"
+                                    href="{{ route($routePrefix . '.show', [$mobileSelectedCategory->slug, $pageItem->slug]) }}"
                                     class="block rounded-xl px-3 py-2 text-sm transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground' }}"
                                     @if($isCurrentPage) aria-current="page" @endif
                                 >
@@ -99,6 +100,7 @@
                 'currentPage' => $page,
                 'showCategoryPagesNav' => true,
                 'class' => 'lg:sticky lg:top-24',
+                'routePrefix' => $routePrefix,
             ])
         </div>
 

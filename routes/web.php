@@ -18,6 +18,7 @@ use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\TestTagController;
+use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
@@ -46,6 +47,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
 Route::get('/pages/{category:slug}', [PageController::class, 'category'])->name('pages.category');
 Route::get('/pages/{category:slug}/{pageSlug}', [PageController::class, 'show'])->name('pages.show');
+Route::get('/theory', [TheoryController::class, 'index'])->name('theory.index');
+Route::get('/theory/{category:slug}', [TheoryController::class, 'category'])->name('theory.category');
+Route::get('/theory/{category:slug}/{pageSlug}', [TheoryController::class, 'show'])->name('theory.show');
 
 Route::middleware('auth.admin')->group(function () {
     Route::get('/tests/cards', [GrammarTestController::class, 'catalog'])->name('saved-tests.cards');
