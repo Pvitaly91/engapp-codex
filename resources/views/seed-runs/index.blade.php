@@ -766,34 +766,6 @@
                 }
             };
 
-            const getDefaultSeederTemplate = function (className, folder) {
-                let namespace = 'Database\\Seeders';
-                if (folder) {
-                    const parts = folder.replace(/[\/\\]+/g, '\\').replace(/^\\|\\$/g, '').split('\\').filter(function(p) { return p !== ''; });
-                    if (parts.length > 0) {
-                        namespace += '\\' + parts.join('\\');
-                    }
-                }
-
-                var lines = [
-                    '<?php',
-                    '',
-                    'namespace ' + namespace + ';',
-                    '',
-                    'use App\\Support\\Database\\Seeder;',
-                    '',
-                    'class ' + className + ' extends Seeder',
-                    '{',
-                    '    public function run(): void',
-                    '    {',
-                    '        // Your seeding logic here',
-                    '    }',
-                    '}'
-                ];
-
-                return lines.join('\n') + '\n';
-            };
-
             const resetCreateSeederModal = function () {
                 if (!createSeederModal) {
                     return;
@@ -809,16 +781,14 @@
                     createSeederFolderInput.value = '';
                 }
 
-                // Set default template
-                const defaultTemplate = getDefaultSeederTemplate('NewSeeder', '');
-
+                // Start with empty editor - user will paste their PHP code
                 if (createSeederEditorInstance) {
-                    createSeederEditorInstance.setValue(defaultTemplate);
+                    createSeederEditorInstance.setValue('');
                     createSeederEditorInstance.clearHistory();
                 }
 
                 if (createSeederEditor) {
-                    createSeederEditor.value = defaultTemplate;
+                    createSeederEditor.value = '';
                 }
 
                 updateCreateSeederStatus('');
@@ -860,45 +830,7 @@
                 resetCreateSeederModal();
             };
 
-            // Update template when class name or folder changes
-            const updateSeederTemplate = function () {
-                if (!createSeederEditorInstance) {
-                    return;
-                }
-
-                const className = createSeederClassInput ? createSeederClassInput.value.trim() : 'NewSeeder';
-                const folder = createSeederFolderInput ? createSeederFolderInput.value.trim() : '';
-
-                if (!className) {
-                    return;
-                }
-
-                const currentValue = createSeederEditorInstance.getValue();
-                const defaultTemplate = getDefaultSeederTemplate(className || 'NewSeeder', folder);
-
-                // Only update if it looks like the template is still relatively unchanged
-                // (to avoid overwriting custom code)
-                const isDefaultLike = currentValue.indexOf('// Your seeding logic here') !== -1 || currentValue.indexOf('class NewSeeder') !== -1;
-
-                if (isDefaultLike || currentValue.trim() === '' || currentValue === getDefaultSeederTemplate('NewSeeder', '')) {
-                    createSeederEditorInstance.setValue(defaultTemplate);
-                    createSeederEditorInstance.clearHistory();
-                }
-            };
-
             // Event listeners for create seeder modal
-            if (createSeederClassInput) {
-                createSeederClassInput.addEventListener('input', function () {
-                    updateSeederTemplate();
-                });
-            }
-
-            if (createSeederFolderInput) {
-                createSeederFolderInput.addEventListener('input', function () {
-                    updateSeederTemplate();
-                });
-            }
-
             if (createSeederOpenButtons && createSeederOpenButtons.length > 0) {
                 createSeederOpenButtons.forEach(function (button) {
                     button.addEventListener('click', function () {
