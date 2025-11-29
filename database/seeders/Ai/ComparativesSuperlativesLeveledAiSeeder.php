@@ -42,7 +42,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 $answers[] = [
                     'marker' => $marker,
                     'answer' => $answer,
-                    'verb_hint' => $entry['verb_hints'][$marker] ?? null,
+                    'verb_hint' => $entry['verb_hints'][$marker] ?? $answer,
                 ];
             }
 
@@ -146,19 +146,35 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
 
     private function questionEntries(): array
     {
-        $levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
-
         $templates = $this->questionTemplates();
 
         $entries = [];
-        foreach ($levels as $level) {
+        $seenQuestions = [];
+
+        // Level-to-variant mapping for proper difficulty distribution
+        $levelVariants = [
+            'A1' => ['simple'],
+            'A2' => ['simple', 'paired'],
+            'B1' => ['paired'],
+            'B2' => ['paired', 'extended'],
+            'C1' => ['extended'],
+        ];
+
+        foreach ($levelVariants as $level => $variantTypes) {
             foreach ($templates as $template) {
-                foreach (['simple', 'paired', 'extended'] as $variantKey) {
+                foreach ($variantTypes as $variantKey) {
                     $variant = $this->pickVariant($template['variants'][$variantKey] ?? [], $level);
 
                     if (empty($variant)) {
                         continue;
                     }
+
+                    // Skip duplicate questions
+                    $questionHash = md5($variant['question']);
+                    if (isset($seenQuestions[$questionHash])) {
+                        continue;
+                    }
+                    $seenQuestions[$questionHash] = true;
 
                     $entries[] = [
                         'level' => $level,
@@ -1360,26 +1376,37 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
 
     private function pickVariant(array $variantSet, string $level): array
     {
-        if (isset($variantSet['a1']) && $level === 'A1') {
+        if (empty($variantSet)) {
+            return [];
+        }
+
+        // For A1, prefer the simpler 'a1' variant if available
+        if ($level === 'A1' && isset($variantSet['a1'])) {
             return $variantSet['a1'];
         }
 
+        // For other levels, use the default variant if available
         if (isset($variantSet['default'])) {
             return $variantSet['default'];
         }
 
-        return $variantSet;
+        // If the variantSet is directly a variant (not nested), return it
+        if (isset($variantSet['question'])) {
+            return $variantSet;
+        }
+
+        return [];
     }
 
     private function formatQuestionForLevel(string $question, string $level): string
     {
-        return sprintf('%s — рівень %s', $question, $level);
+        return $question;
     }
 
     private function buildHints(array $variant): array
     {
         $formula = $variant['formula'] ?? 'Формула: comparative = прикметник/прислівник + -er + than; довші слова вживають more/less + adjective. Superlative = -est/most/least.';
-        $example = $variant['example'] ?? 'Приклад: "faster than a car", "as calm as before", "the most helpful" — без прямої підказки правильної відповіді.';
+        $example = 'Приклад: порівняй два об\'єкти за допомогою -er + than, використовуй as ... as для рівності, та -est/most для найвищого ступеня.';
         $reminder = $variant['reminder'] ?? 'Перевір, чи треба рівність (as ... as), порівняння двох предметів (+ than), чи найвищий ступінь (the + -est/most/least).';
 
         return [$formula, $example, $reminder];
