@@ -323,7 +323,7 @@
                             <p class="mt-1 text-xs text-slate-500">{{ __('Має починатися з великої літери (наприклад: MyNewSeeder)') }}</p>
                         </div>
                         <div>
-                            <label for="create-seeder-folder" class="block text-sm font-medium text-slate-700 mb-1">{{ __('Папка (необов'язково)') }}</label>
+                            <label for="create-seeder-folder" class="block text-sm font-medium text-slate-700 mb-1">{{ __("Папка (необов'язково)") }}</label>
                             <input type="text"
                                    id="create-seeder-folder"
                                    name="folder"
