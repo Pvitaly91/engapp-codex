@@ -46,13 +46,12 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 ];
             }
 
-            $questionText = $entry['question'];
             $options = $this->flattenOptions($entry['options']);
             $uuid = $this->generateQuestionUuid($entry['level'], $index + 1, $entry['question']);
 
             $items[] = [
                 'uuid' => $uuid,
-                'question' => $questionText,
+                'question' => $entry['question'],
                 'category_id' => $categoryId,
                 'difficulty' => $this->levelDifficulty[$entry['level']] ?? 3,
                 'source_id' => $sourceIds[$entry['source']] ?? reset($sourceIds),
@@ -62,7 +61,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 'tag_ids' => $tagIds,
                 'answers' => $answers,
                 'options' => $options,
-                'variants' => [$questionText],
+                'variants' => [$entry['question']],
             ];
 
             $meta[] = [
@@ -246,7 +245,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 'source' => 'past',
                 'question' => 'I felt {a1} about the news than before.',
                 'answers' => ['a1' => 'better'],
-                'options' => ['a1' => ['better', 'best', 'good']],
+                'options' => ['a1' => ['better', 'best', 'well']],
                 'verb_hints' => ['a1' => 'good'],
             ],
             [
@@ -496,7 +495,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'lightest', 'a2' => 'least'],
                 'options' => [
                     'a1' => ['lightest', 'lighter', 'light'],
-                    'a2' => ['least', 'less', 'little'],
+                    'a2' => ['least', 'less', 'fewer'],
                 ],
                 'verb_hints' => ['a1' => 'light', 'a2' => 'little'],
             ],
@@ -750,7 +749,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 'options' => [
                     'a1' => ['more', 'most', 'many'],
                     'a2' => ['fewer', 'fewest', 'few'],
-                    'a3' => ['least', 'less', 'little'],
+                    'a3' => ['least', 'less', 'fewer'],
                 ],
                 'verb_hints' => ['a1' => 'many', 'a2' => 'few', 'a3' => 'little'],
             ],
@@ -758,10 +757,10 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 'level' => 'C1',
                 'source' => 'interrogative',
                 'question' => 'Will the lake be {a1} from the town than the sea, the hill even {a2}, and the campsite the {a3} spot we choose?',
-                'answers' => ['a1' => 'farther', 'a2' => 'further', 'a3' => 'closest'],
+                'answers' => ['a1' => 'farther', 'a2' => 'farther', 'a3' => 'closest'],
                 'options' => [
-                    'a1' => ['farther', 'further', 'far'],
-                    'a2' => ['further', 'furthest', 'farther'],
+                    'a1' => ['farther', 'farthest', 'far'],
+                    'a2' => ['farther', 'farthest', 'far'],
                     'a3' => ['closest', 'closer', 'close'],
                 ],
                 'verb_hints' => ['a1' => 'far', 'a2' => 'far', 'a3' => 'close'],
