@@ -357,9 +357,15 @@
                                             @else
                                                 <ul class="mt-2 space-y-1">
                                                     @foreach($filledAnswers as $answer)
+                                                        @php
+                                                            $verbHint = $questionVerbHints->firstWhere('marker', $answer['marker']);
+                                                        @endphp
                                                         <li class="flex items-center gap-2">
                                                             <span class="font-mono text-xs text-gray-500">{{ $answer['marker'] }}</span>
                                                             <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-medium">{{ $answer['label'] }}</span>
+                                                            @if($verbHint && filled($verbHint['label']))
+                                                                <span class="text-xs text-gray-500">({{ $verbHint['label'] }})</span>
+                                                            @endif
                                                         </li>
                                                     @endforeach
                                                 </ul>
