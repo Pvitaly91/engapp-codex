@@ -15,7 +15,6 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
         'B1' => 3,
         'B2' => 4,
         'C1' => 5,
-        'C2' => 6,
     ];
 
     public function run(): void
@@ -146,32 +145,36 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
 
     private function questionEntries(): array
     {
-        $levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
-
         $templates = $this->questionTemplates();
 
         $entries = [];
-        foreach ($levels as $level) {
-            foreach ($templates as $template) {
-                foreach (['simple', 'paired', 'extended'] as $variantKey) {
-                    $variant = $this->pickVariant($template['variants'][$variantKey] ?? [], $level);
+        foreach ($templates as $template) {
+            foreach (['simple', 'paired', 'extended'] as $variantKey) {
+                $variant = $this->pickVariant($template['variants'][$variantKey] ?? []);
 
-                    if (empty($variant)) {
-                        continue;
-                    }
-
-                    $entries[] = [
-                        'level' => $level,
-                        'source' => $this->resolveSource($template['form'], $template['tense']),
-                        'question' => $variant['question'],
-                        'answers' => $variant['answers'],
-                        'options' => $variant['options'],
-                        'verb_hints' => $variant['verb_hints'] ?? [],
-                        'hints' => $this->buildHints($variant),
-                        'explanations' => $this->buildExplanations($variant['options'], $variant['concept'] ?? 'comparison control'),
-                        'option_markers' => $this->buildOptionMarkers($variant['options']),
-                    ];
+                if (empty($variant)) {
+                    continue;
                 }
+
+                $answers = $variant['answers'];
+                $verbHints = $this->ensureVerbHints($answers, $variant['verb_hints'] ?? []);
+                $level = $this->resolveLevelFromVariant($variantKey, $answers, $variant['level'] ?? null);
+
+                $entries[] = [
+                    'level' => $level,
+                    'source' => $this->resolveSource($template['form'], $template['tense']),
+                    'question' => $variant['question'],
+                    'answers' => $answers,
+                    'options' => $variant['options'],
+                    'verb_hints' => $verbHints,
+                    'hints' => $this->buildHints($variant, $answers),
+                    'explanations' => $this->buildExplanations(
+                        $variant['options'],
+                        $variant['concept'] ?? 'comparison control',
+                        $answers
+                    ),
+                    'option_markers' => $this->buildOptionMarkers($variant['options']),
+                ];
             }
         }
 
@@ -1358,38 +1361,69 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
         ];
     }
 
-    private function pickVariant(array $variantSet, string $level): array
+    private function pickVariant(array $variantSet): array
     {
-        if (isset($variantSet['a1']) && $level === 'A1') {
-            return $variantSet['a1'];
-        }
-
         if (isset($variantSet['default'])) {
             return $variantSet['default'];
+        }
+
+        if (isset($variantSet['a1'])) {
+            return $variantSet['a1'];
         }
 
         return $variantSet;
     }
 
+    private function resolveLevelFromVariant(string $variantKey, array $answers, ?string $override): string
+    {
+        if ($override !== null) {
+            return $override;
+        }
+
+        $baseLevel = match ($variantKey) {
+            'simple' => 'A1',
+            'paired' => 'B1',
+            default => 'B2',
+        };
+
+        $blankCount = count($answers);
+        if ($baseLevel === 'A1' && $blankCount > 1) {
+            return 'A2';
+        }
+
+        if ($blankCount >= 3) {
+            return 'C1';
+        }
+
+        return $baseLevel;
+    }
+
     private function formatQuestionForLevel(string $question, string $level): string
     {
-        return sprintf('%s — рівень %s', $question, $level);
+        return $question;
     }
 
-    private function buildHints(array $variant): array
+    private function buildHints(array $variant, array $answers): array
     {
         $formula = $variant['formula'] ?? 'Формула: comparative = прикметник/прислівник + -er + than; довші слова вживають more/less + adjective. Superlative = -est/most/least.';
-        $example = $variant['example'] ?? 'Приклад: "faster than a car", "as calm as before", "the most helpful" — без прямої підказки правильної відповіді.';
+        $example = $variant['example'] ?? 'Приклад: "more creative than before", "as gentle as a breeze", "the most careful teammate" — без прямої підказки правильної відповіді.';
         $reminder = $variant['reminder'] ?? 'Перевір, чи треба рівність (as ... as), порівняння двох предметів (+ than), чи найвищий ступінь (the + -est/most/least).';
 
-        return [$formula, $example, $reminder];
+        return [
+            $this->sanitizeText($formula, $answers),
+            $this->sanitizeText($example, $answers),
+            $this->sanitizeText($reminder, $answers),
+        ];
     }
 
-    private function buildExplanations(array $optionSets, string $concept): array
+    private function buildExplanations(array $optionSets, string $concept, array $answers): array
     {
         $explanations = [];
         foreach ($this->flattenOptions($optionSets) as $option) {
-            $explanations[$option] = $this->describeOption($option, $concept);
+            $explanations[$option] = $this->sanitizeText(
+                $this->describeOption($option, $concept),
+                $answers
+            );
         }
 
         return $explanations;
@@ -1428,6 +1462,24 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
         }
 
         return array_values(array_unique($values));
+    }
+
+    private function sanitizeText(string $text, array $answers): string
+    {
+        foreach ($answers as $answer) {
+            $text = str_ireplace($answer, '___', $text);
+        }
+
+        return trim(preg_replace('/\s{2,}/', ' ', $text));
+    }
+
+    private function ensureVerbHints(array $answers, array $providedHints): array
+    {
+        foreach ($answers as $marker => $answer) {
+            $providedHints[$marker] = $answer;
+        }
+
+        return $providedHints;
     }
 
     private function buildOptionMarkers(array $optionSets): array
