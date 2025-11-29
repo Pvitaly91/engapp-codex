@@ -126,7 +126,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'bigger'],
                 'options' => ['a1' => ['bigger', 'biggest', 'big']],
                 'verb_hints' => ['a1' => 'large in size'],
-                'hints' => ['For short adjectives, add -er to make comparisons between two things.'],
+                'hints' => ['Для коротких прикметників додаємо -er для порівняння двох речей.'],
                 'explanations' => [
                     'bigger' => 'Коли порівнюємо два предмети, використовуємо прикметник + -er + than. Формула: adjective + -er + than. Наприклад: A car is faster than a bicycle.',
                     'biggest' => 'Суперлатив (найвищий ступінь) використовується для порівняння з групою, а не двох предметів. Формула: the + adjective-est.',
@@ -135,11 +135,11 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'A1',
-                'question' => 'Summer is {a1} than winter.',
+                'question' => 'The summer day is {a1} than the spring day.',
                 'answers' => ['a1' => 'hotter'],
                 'options' => ['a1' => ['hotter', 'hottest', 'hot']],
                 'verb_hints' => ['a1' => 'temperature, warm'],
-                'hints' => ['Short adjectives ending in consonant-vowel-consonant double the final consonant before -er.'],
+                'hints' => ['Короткі прикметники із закінченням приголосна-голосна-приголосна подвоюють останню приголосну перед -er.'],
                 'explanations' => [
                     'hotter' => 'При порівнянні двох сезонів вживаємо comparative: adjective + -er + than. Hot подвоює t перед -er.',
                     'hottest' => 'Суперлатив вживається з the для найвищого ступеня серед групи, не для порівняння двох речей.',
@@ -148,11 +148,11 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'A1',
-                'question' => 'My cat is {a1} than my dog.',
+                'question' => 'The kitten is {a1} than the puppy.',
                 'answers' => ['a1' => 'smaller'],
                 'options' => ['a1' => ['smaller', 'smallest', 'small']],
                 'verb_hints' => ['a1' => 'little, not large'],
-                'hints' => ['Use adjective + -er + than when comparing two animals or things.'],
+                'hints' => ['Використовуйте прикметник + -er + than при порівнянні двох тварин або предметів.'],
                 'explanations' => [
                     'smaller' => 'Формула comparative для коротких прикметників: base + -er + than. Наприклад: A mouse is quieter than a bird.',
                     'smallest' => 'Superlative потребує the та використовується для групи з трьох і більше.',
@@ -161,15 +161,15 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'A1',
-                'question' => 'Is your house {a1} than mine?',
-                'answers' => ['a1' => 'older'],
-                'options' => ['a1' => ['older', 'oldest', 'old']],
-                'verb_hints' => ['a1' => 'age, years'],
-                'hints' => ['In questions, the comparative form stays the same: adjective + -er + than.'],
+                'question' => 'Is your bicycle {a1} than mine?',
+                'answers' => ['a1' => 'newer'],
+                'options' => ['a1' => ['newer', 'newest', 'new']],
+                'verb_hints' => ['a1' => 'recent, modern'],
+                'hints' => ['У питаннях форма comparative залишається такою ж: прикметник + -er + than.'],
                 'explanations' => [
-                    'older' => 'У запитаннях comparative зберігає форму: Is X adjective-er than Y? Наприклад: Is the tree taller than the fence?',
-                    'oldest' => 'Superlative не підходить для порівняння двох будинків; потрібен comparative.',
-                    'old' => 'Базова форма не виражає порівняння в питальному реченні.',
+                    'newer' => 'У запитаннях comparative зберігає форму: Is X adjective-er than Y? Наприклад: Is the tree taller than the fence?',
+                    'newest' => 'Superlative не підходить для порівняння двох велосипедів; потрібен comparative.',
+                    'new' => 'Базова форма не виражає порівняння в питальному реченні.',
                 ],
             ],
             [
@@ -178,7 +178,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'long'],
                 'options' => ['a1' => ['long', 'longer', 'longest']],
                 'verb_hints' => ['a1' => 'length, size'],
-                'hints' => ['The pattern "as + adjective + as" uses the base form of the adjective.'],
+                'hints' => ['Конструкція "as + прикметник + as" використовує базову форму прикметника.'],
                 'explanations' => [
                     'long' => 'Конструкція as + adjective + as використовує базову форму. Наприклад: not as tall as.',
                     'longer' => 'Comparative не вживається в структурі as ... as; там потрібна базова форма.',
@@ -191,7 +191,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'tallest'],
                 'options' => ['a1' => ['tallest', 'taller', 'tall']],
                 'verb_hints' => ['a1' => 'height, high'],
-                'hints' => ['Use "the + adjective-est" when comparing one thing to all others in a group.'],
+                'hints' => ['Використовуйте "the + прикметник-est" для порівняння одного предмета з усіма іншими в групі.'],
                 'explanations' => [
                     'tallest' => 'Superlative: the + adjective-est для найвищого ступеня в групі. Наприклад: the fastest car.',
                     'taller' => 'Comparative порівнює два предмети, а не один із групою.',
@@ -204,7 +204,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'cheaper'],
                 'options' => ['a1' => ['cheaper', 'cheapest', 'cheap']],
                 'verb_hints' => ['a1' => 'price, cost'],
-                'hints' => ['Short adjectives add -er for comparisons between two items.'],
+                'hints' => ['Короткі прикметники додають -er для порівняння двох предметів.'],
                 'explanations' => [
                     'cheaper' => 'Порівняння двох речей: adjective + -er + than. Наприклад: A bike is slower than a car.',
                     'cheapest' => 'Superlative вживається для найвищого ступеня серед групи, а не двох предметів.',
@@ -217,7 +217,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'cleaner'],
                 'options' => ['a1' => ['cleaner', 'cleanest', 'clean']],
                 'verb_hints' => ['a1' => 'tidy, neat'],
-                'hints' => ['Negative sentences with "not" still use the comparative form for two items.'],
+                'hints' => ['Заперечні речення з "not" все ще використовують comparative форму для двох предметів.'],
                 'explanations' => [
                     'cleaner' => 'У запереченні comparative зберігає форму: not + adjective-er + than. Наприклад: not faster than.',
                     'cleanest' => 'Superlative не підходить для заперечного порівняння двох кімнат.',
@@ -230,7 +230,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'heavy'],
                 'options' => ['a1' => ['heavy', 'heavier', 'heaviest']],
                 'verb_hints' => ['a1' => 'weight'],
-                'hints' => ['Questions with "as...as" use the base form of the adjective.'],
+                'hints' => ['Питання з "as...as" використовують базову форму прикметника.'],
                 'explanations' => [
                     'heavy' => 'Питання з as ... as використовує базову форму прикметника. Наприклад: as fast as.',
                     'heavier' => 'Comparative не вживається в структурі as ... as.',
@@ -243,7 +243,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'colder'],
                 'options' => ['a1' => ['colder', 'coldest', 'cold']],
                 'verb_hints' => ['a1' => 'temperature, chilly'],
-                'hints' => ['Compare two days using adjective + -er + than.'],
+                'hints' => ['Порівнюйте два дні за допомогою прикметника + -er + than.'],
                 'explanations' => [
                     'colder' => 'Порівняння двох днів: adjective + -er + than. Наприклад: Monday was busier than Tuesday.',
                     'coldest' => 'Superlative потребує the та групи з трьох і більше.',
@@ -256,7 +256,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'fastest'],
                 'options' => ['a1' => ['fastest', 'faster', 'fast']],
                 'verb_hints' => ['a1' => 'speed'],
-                'hints' => ['Use "the + adjective-est" to describe the top item in a group.'],
+                'hints' => ['Використовуйте "the + прикметник-est" для опису найкращого предмета в групі.'],
                 'explanations' => [
                     'fastest' => 'Superlative: the + adjective-est виражає найвищий ступінь у групі. Наприклад: the oldest building.',
                     'faster' => 'Comparative порівнює два предмети, а не один із групою.',
@@ -269,7 +269,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'lighter'],
                 'options' => ['a1' => ['lighter', 'lightest', 'light']],
                 'verb_hints' => ['a1' => 'weight, not heavy'],
-                'hints' => ['Short adjectives form the comparative with -er + than.'],
+                'hints' => ['Короткі прикметники утворюють comparative за допомогою -er + than.'],
                 'explanations' => [
                     'lighter' => 'Comparative для коротких прикметників: base + -er + than. Наприклад: Paper is thinner than cardboard.',
                     'lightest' => 'Superlative вживається для групи, а не двох предметів.',
@@ -280,11 +280,11 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
             // ===== A2 Level (12 questions): Mix of present/past/future, longer adjectives, some irregular =====
             [
                 'level' => 'A2',
-                'question' => 'Yesterday was {a1} than today.',
+                'question' => 'Last Monday was {a1} than this Monday.',
                 'answers' => ['a1' => 'sunnier'],
                 'options' => ['a1' => ['sunnier', 'sunniest', 'sunny']],
                 'verb_hints' => ['a1' => 'weather, bright'],
-                'hints' => ['Adjectives ending in -y change to -ier in the comparative form.'],
+                'hints' => ['Прикметники на -y змінюють закінчення на -ier у формі comparative.'],
                 'explanations' => [
                     'sunnier' => 'Прикметники на -y змінюють закінчення на -ier: sunny → sunnier. Наприклад: happy → happier.',
                     'sunniest' => 'Superlative потребує the та групи з трьох і більше днів.',
@@ -297,7 +297,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'interesting'],
                 'options' => ['a1' => ['interesting', 'more interesting', 'most interesting']],
                 'verb_hints' => ['a1' => 'engaging, captivating'],
-                'hints' => ['The structure "not as + adjective + as" uses the base form.'],
+                'hints' => ['Структура "not as + прикметник + as" використовує базову форму.'],
                 'explanations' => [
                     'interesting' => 'Конструкція not as + adjective + as використовує базову форму. Наприклад: not as exciting as.',
                     'more interesting' => 'Comparative не вживається в структурі as ... as.',
@@ -310,7 +310,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'taller'],
                 'options' => ['a1' => ['taller', 'tallest', 'tall']],
                 'verb_hints' => ['a1' => 'height'],
-                'hints' => ['Future questions still use the comparative form for two items.'],
+                'hints' => ['Питання про майбутнє все ще використовують comparative форму для двох предметів.'],
                 'explanations' => [
                     'taller' => 'У майбутньому часі comparative зберігає форму: Will X be adjective-er than Y? Наприклад: Will it be colder tomorrow?',
                     'tallest' => 'Superlative не підходить для порівняння двох будівель.',
@@ -323,7 +323,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'wiser'],
                 'options' => ['a1' => ['wiser', 'wisest', 'wise']],
                 'verb_hints' => ['a1' => 'knowledge, smart'],
-                'hints' => ['Adjectives ending in -e just add -r for the comparative.'],
+                'hints' => ['Прикметники на -e просто додають -r для comparative.'],
                 'explanations' => [
                     'wiser' => 'Прикметники на -e додають лише -r: wise → wiser. Наприклад: large → larger.',
                     'wisest' => 'Superlative потребує the та групи з трьох і більше осіб.',
@@ -332,11 +332,11 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'A2',
-                'question' => 'The train was {a1} than we expected.',
+                'question' => 'The bus was {a1} than we expected.',
                 'answers' => ['a1' => 'slower'],
                 'options' => ['a1' => ['slower', 'slowest', 'slow']],
                 'verb_hints' => ['a1' => 'speed, pace'],
-                'hints' => ['Use comparative + than to express unexpected differences.'],
+                'hints' => ['Використовуйте comparative + than для вираження несподіваних відмінностей.'],
                 'explanations' => [
                     'slower' => 'Comparative виражає різницю: adjective-er + than expected. Наприклад: The test was harder than expected.',
                     'slowest' => 'Superlative не підходить для порівняння з очікуваннями.',
@@ -345,15 +345,15 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'A2',
-                'question' => 'This soup tastes {a1} than the salad.',
-                'answers' => ['a1' => 'saltier'],
-                'options' => ['a1' => ['saltier', 'saltiest', 'salty']],
-                'verb_hints' => ['a1' => 'taste, seasoning'],
-                'hints' => ['Adjectives ending in -y change to -ier when comparing two things.'],
+                'question' => 'This tea tastes {a1} than the coffee.',
+                'answers' => ['a1' => 'sweeter'],
+                'options' => ['a1' => ['sweeter', 'sweetest', 'sweet']],
+                'verb_hints' => ['a1' => 'taste, flavour'],
+                'hints' => ['Короткі прикметники додають -er при порівнянні двох речей.'],
                 'explanations' => [
-                    'saltier' => 'Прикметники на -y → -ier: salty → saltier. Наприклад: The coffee was sweeter than usual.',
-                    'saltiest' => 'Superlative потребує групи, а не двох страв.',
-                    'salty' => 'Базова форма не виражає порівняння смаку.',
+                    'sweeter' => 'Короткі прикметники: base + -er + than. Наприклад: The juice was tastier than the soda.',
+                    'sweetest' => 'Superlative потребує групи, а не двох напоїв.',
+                    'sweet' => 'Базова форма не виражає порівняння смаку.',
                 ],
             ],
             [
@@ -362,7 +362,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'easier'],
                 'options' => ['a1' => ['easier', 'easiest', 'easy']],
                 'verb_hints' => ['a1' => 'simple, not difficult'],
-                'hints' => ['Questions comparing two languages use adjective-ier + than.'],
+                'hints' => ['Питання про порівняння двох мов використовують прикметник-ier + than.'],
                 'explanations' => [
                     'easier' => 'Питання з comparative: Is X adjective-er than Y? Easy → easier. Наприклад: Is the exam harder than before?',
                     'easiest' => 'Superlative не підходить для порівняння двох мов.',
@@ -375,7 +375,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'prettiest'],
                 'options' => ['a1' => ['prettiest', 'prettier', 'pretty']],
                 'verb_hints' => ['a1' => 'beautiful, nice'],
-                'hints' => ['Use "the + adjective-iest" for the top item in a group.'],
+                'hints' => ['Використовуйте "the + прикметник-iest" для найкращого предмета в групі.'],
                 'explanations' => [
                     'prettiest' => 'Superlative: the + adjective-iest для найвищого ступеня. Pretty → prettiest. Наприклад: the happiest day.',
                     'prettier' => 'Comparative порівнює два предмети, а не один із групою.',
@@ -388,7 +388,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'better'],
                 'options' => ['a1' => ['better', 'best', 'good']],
                 'verb_hints' => ['a1' => 'quality, taste'],
-                'hints' => ['Some adjectives have irregular comparative forms.'],
+                'hints' => ['Деякі прикметники мають неправильні форми comparative.'],
                 'explanations' => [
                     'better' => 'Good має неправильну форму comparative: good → better. Наприклад: This book is better than the movie.',
                     'best' => 'Superlative вживається для найвищого ступеня в групі.',
@@ -397,11 +397,11 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'A2',
-                'question' => 'The weather will be {a1} tomorrow.',
+                'question' => 'The traffic will be {a1} later in the evening.',
                 'answers' => ['a1' => 'worse'],
                 'options' => ['a1' => ['worse', 'worst', 'bad']],
                 'verb_hints' => ['a1' => 'negative, not good'],
-                'hints' => ['Bad has an irregular comparative form.'],
+                'hints' => ['Bad має неправильну форму comparative.'],
                 'explanations' => [
                     'worse' => 'Bad → worse — неправильна форма. Наприклад: My cold is getting worse.',
                     'worst' => 'Superlative потребує the: the worst day.',
@@ -414,7 +414,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'farther'],
                 'options' => ['a1' => ['farther', 'farthest', 'far']],
                 'verb_hints' => ['a1' => 'distance'],
-                'hints' => ['Far has an irregular comparative: farther/further.'],
+                'hints' => ['Far має неправильний comparative: farther/further.'],
                 'explanations' => [
                     'farther' => 'Far → farther/further — неправильна форма. Наприклад: The store is farther than the bank.',
                     'farthest' => 'Superlative потребує the: the farthest point.',
@@ -427,7 +427,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'hardest'],
                 'options' => ['a1' => ['hardest', 'harder', 'hard']],
                 'verb_hints' => ['a1' => 'difficult, challenging'],
-                'hints' => ['Use "the + adjective-est" when one item stands out in a group.'],
+                'hints' => ['Використовуйте "the + прикметник-est" коли один предмет виділяється в групі.'],
                 'explanations' => [
                     'hardest' => 'Superlative: the + adjective-est для найвищого ступеня. Наприклад: the longest river.',
                     'harder' => 'Comparative порівнює два предмети, а не один із групою.',
@@ -442,7 +442,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more fluently'],
                 'options' => ['a1' => ['more fluently', 'most fluently', 'fluently']],
                 'verb_hints' => ['a1' => 'smooth speech'],
-                'hints' => ['Adverbs ending in -ly form comparatives with "more" + adverb.'],
+                'hints' => ['Прислівники на -ly утворюють comparative за допомогою "more" + прислівник.'],
                 'explanations' => [
                     'more fluently' => 'Прислівники на -ly утворюють comparative з more: more fluently. Наприклад: She runs more quickly than him.',
                     'most fluently' => 'Superlative вживається для найвищого ступеня в групі.',
@@ -451,11 +451,11 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'B1',
-                'question' => 'Was the concert {a1} than you thought?',
+                'question' => 'Was the performance {a1} than you thought?',
                 'answers' => ['a1' => 'more exciting'],
                 'options' => ['a1' => ['more exciting', 'most exciting', 'excitinger']],
                 'verb_hints' => ['a1' => 'thrilling, engaging'],
-                'hints' => ['Long adjectives use "more" + adjective + "than" for comparisons.'],
+                'hints' => ['Довгі прикметники використовують "more" + прикметник + "than" для порівнянь.'],
                 'explanations' => [
                     'more exciting' => 'Довгі прикметники утворюють comparative з more: more exciting. Наприклад: more interesting than.',
                     'most exciting' => 'Superlative потребує the та групи.',
@@ -468,7 +468,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more expensive'],
                 'options' => ['a1' => ['more expensive', 'expensiver', 'most expensive']],
                 'verb_hints' => ['a1' => 'price, costly'],
-                'hints' => ['Multi-syllable adjectives form comparatives with "more" before them.'],
+                'hints' => ['Багатоскладові прикметники утворюють comparative за допомогою "more" перед ними.'],
                 'explanations' => [
                     'more expensive' => 'Багатоскладові прикметники: more + adjective + than. Наприклад: more beautiful than.',
                     'expensiver' => 'Довгі прикметники не додають -er. Правильно: more expensive.',
@@ -481,7 +481,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'quickly'],
                 'options' => ['a1' => ['quickly', 'more quickly', 'quickest']],
                 'verb_hints' => ['a1' => 'speed, fast'],
-                'hints' => ['The pattern "as + adverb + as" uses the base form.'],
+                'hints' => ['Конструкція "as + прислівник + as" використовує базову форму.'],
                 'explanations' => [
                     'quickly' => 'Конструкція as + adverb + as використовує базову форму. Наприклад: as carefully as.',
                     'more quickly' => 'Comparative не вживається в структурі as ... as.',
@@ -494,7 +494,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'most important'],
                 'options' => ['a1' => ['most important', 'more important', 'importantest']],
                 'verb_hints' => ['a1' => 'significant, crucial'],
-                'hints' => ['Long adjectives form superlatives with "the most" + adjective.'],
+                'hints' => ['Довгі прикметники утворюють superlative за допомогою "the most" + прикметник.'],
                 'explanations' => [
                     'most important' => 'Superlative для довгих прикметників: the most + adjective. Наприклад: the most beautiful city.',
                     'more important' => 'Comparative порівнює два предмети, а не найвищий ступінь.',
@@ -507,7 +507,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more clearly'],
                 'options' => ['a1' => ['more clearly', 'clearlier', 'most clearly']],
                 'verb_hints' => ['a1' => 'understandable'],
-                'hints' => ['Adverbs ending in -ly use "more" for comparisons.'],
+                'hints' => ['Прислівники на -ly використовують "more" для порівнянь.'],
                 'explanations' => [
                     'more clearly' => 'Прислівники на -ly: more + adverb. Наприклад: more slowly, more carefully.',
                     'clearlier' => 'Прислівники на -ly не додають -er. Правильно: more clearly.',
@@ -520,7 +520,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'worse'],
                 'options' => ['a1' => ['worse', 'more bad', 'worst']],
                 'verb_hints' => ['a1' => 'negative change'],
-                'hints' => ['Bad has an irregular comparative form.'],
+                'hints' => ['Bad має неправильну форму comparative.'],
                 'explanations' => [
                     'worse' => 'Bad → worse — неправильна форма. Наприклад: The traffic is getting worse.',
                     'more bad' => 'Bad не вживається з more. Правильно: worse.',
@@ -533,7 +533,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'least interesting'],
                 'options' => ['a1' => ['least interesting', 'less interesting', 'interestingless']],
                 'verb_hints' => ['a1' => 'boring, dull'],
-                'hints' => ['Use "the least + adjective" for the lowest degree in a group.'],
+                'hints' => ['Використовуйте "the least + прикметник" для найнижчого ступеня в групі.'],
                 'explanations' => [
                     'least interesting' => 'The least + adjective виражає найнижчий ступінь. Наприклад: the least expensive option.',
                     'less interesting' => 'Less + adjective порівнює два предмети, а не найнижчий ступінь.',
@@ -546,7 +546,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'later'],
                 'options' => ['a1' => ['later', 'latest', 'more late']],
                 'verb_hints' => ['a1' => 'time, timing'],
-                'hints' => ['Late has a regular comparative: later.'],
+                'hints' => ['Late має правильний comparative: later.'],
                 'explanations' => [
                     'later' => 'Late → later — правильна форма comparative. Наприклад: He finished later than expected.',
                     'latest' => 'Superlative потребує the: the latest news.',
@@ -559,7 +559,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'less difficult'],
                 'options' => ['a1' => ['less difficult', 'difficulter', 'least difficult']],
                 'verb_hints' => ['a1' => 'easier, simpler'],
-                'hints' => ['Use "less + adjective + than" for a lower degree comparison.'],
+                'hints' => ['Використовуйте "less + прикметник + than" для порівняння нижчого ступеня.'],
                 'explanations' => [
                     'less difficult' => 'Less + adjective + than виражає нижчий ступінь. Наприклад: less expensive than.',
                     'difficulter' => 'Довгі прикметники не додають -er. Правильно: less/more difficult.',
@@ -572,7 +572,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more carefully'],
                 'options' => ['a1' => ['more carefully', 'carefullier', 'most carefully']],
                 'verb_hints' => ['a1' => 'attention, caution'],
-                'hints' => ['Adverbs ending in -ly use "more" for comparisons.'],
+                'hints' => ['Прислівники на -ly використовують "more" для порівнянь.'],
                 'explanations' => [
                     'more carefully' => 'Прислівники на -ly: more + adverb + than. Наприклад: more politely than.',
                     'carefullier' => 'Прислівники на -ly не додають -er. Правильно: more carefully.',
@@ -585,7 +585,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'most popular'],
                 'options' => ['a1' => ['most popular', 'popularest', 'more popular']],
                 'verb_hints' => ['a1' => 'famous, well-known'],
-                'hints' => ['Long adjectives form superlatives with "the most" + adjective.'],
+                'hints' => ['Довгі прикметники утворюють superlative за допомогою "the most" + прикметник.'],
                 'explanations' => [
                     'most popular' => 'Superlative для довгих прикметників: the most + adjective. Наприклад: the most beautiful.',
                     'popularest' => 'Довгі прикметники не додають -est. Правильно: the most popular.',
@@ -600,7 +600,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'better'],
                 'options' => ['a1' => ['better', 'best', 'good']],
                 'verb_hints' => ['a1' => 'improvement, progress'],
-                'hints' => ['The pattern "the more... the + comparative" shows parallel change.'],
+                'hints' => ['Конструкція "the more... the + comparative" показує паралельну зміну.'],
                 'explanations' => [
                     'better' => 'Конструкція the more... the + comparative: the more... the better. Наприклад: The harder you work, the more you earn.',
                     'best' => 'Superlative не вживається в цій паралельній конструкції.',
@@ -613,7 +613,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'most impressively'],
                 'options' => ['a1' => ['most impressively', 'more impressively', 'impressively']],
                 'verb_hints' => ['a1' => 'outstanding, remarkable'],
-                'hints' => ['Adverbs use "the most + adverb" for superlatives.'],
+                'hints' => ['Прислівники використовують "the most + прислівник" для superlative.'],
                 'explanations' => [
                     'most impressively' => 'Superlative прислівника: the most + adverb. Наприклад: the most efficiently.',
                     'more impressively' => 'Comparative порівнює два, а не виражає найвищий ступінь.',
@@ -626,7 +626,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'better'],
                 'options' => ['a1' => ['better', 'best', 'good']],
                 'verb_hints' => ['a1' => 'quality, improvement'],
-                'hints' => ['The pattern "no + comparative + than" emphasizes equality or lack of improvement.'],
+                'hints' => ['Конструкція "no + comparative + than" підкреслює рівність або відсутність покращення.'],
                 'explanations' => [
                     'better' => 'No + comparative + than виражає відсутність різниці. Наприклад: no faster than, no cheaper than.',
                     'best' => 'Superlative не вживається в конструкції no ... than.',
@@ -639,7 +639,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'better'],
                 'options' => ['a1' => ['better', 'best', 'more good']],
                 'verb_hints' => ['a1' => 'improved, superior'],
-                'hints' => ['In conditional sentences, comparative forms can describe hypothetical outcomes.'],
+                'hints' => ['В умовних реченнях comparative форми можуть описувати гіпотетичні результати.'],
                 'explanations' => [
                     'better' => 'У conditional comparative виражає гіпотетичний результат. Good → better. Наприклад: would have been faster.',
                     'best' => 'Superlative не підходить для порівняння двох сценаріїв.',
@@ -652,7 +652,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more complex'],
                 'options' => ['a1' => ['more complex', 'complexer', 'most complex']],
                 'verb_hints' => ['a1' => 'complicated, difficult'],
-                'hints' => ['Adverbs like "increasingly" intensify the comparative form.'],
+                'hints' => ['Прислівники типу "increasingly" підсилюють comparative форму.'],
                 'explanations' => [
                     'more complex' => 'Increasingly + comparative підсилює зміну. Наприклад: increasingly more difficult.',
                     'complexer' => 'Довгі прикметники не додають -er. Правильно: more complex.',
@@ -665,7 +665,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more valuable'],
                 'options' => ['a1' => ['more valuable', 'valuabler', 'most valuable']],
                 'verb_hints' => ['a1' => 'worth, price'],
-                'hints' => ['Intensifiers like "far" strengthen the comparative form.'],
+                'hints' => ['Підсилювачі типу "far" посилюють comparative форму.'],
                 'explanations' => [
                     'more valuable' => 'Far + comparative підсилює різницю. Наприклад: far more expensive, far better.',
                     'valuabler' => 'Довгі прикметники не додають -er. Правильно: more valuable.',
@@ -678,7 +678,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'least expensive'],
                 'options' => ['a1' => ['least expensive', 'less expensive', 'expensivest']],
                 'verb_hints' => ['a1' => 'cheapest, affordable'],
-                'hints' => ['Use "the least + adjective" for the minimum degree.'],
+                'hints' => ['Використовуйте "the least + прикметник" для мінімального ступеня.'],
                 'explanations' => [
                     'least expensive' => 'The least + adjective виражає найнижчий ступінь. Наприклад: the least complicated option.',
                     'less expensive' => 'Less + adjective порівнює два, а не виражає найнижчий ступінь.',
@@ -691,7 +691,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'faster'],
                 'options' => ['a1' => ['faster', 'fastest', 'more fast']],
                 'verb_hints' => ['a1' => 'speed, pace'],
-                'hints' => ['Short adverbs like "fast" add -er for comparisons.'],
+                'hints' => ['Короткі прислівники типу "fast" додають -er для порівнянь.'],
                 'explanations' => [
                     'faster' => 'Короткі прислівники додають -er: fast → faster. Наприклад: hard → harder.',
                     'fastest' => 'Superlative потребує the та групи.',
@@ -704,7 +704,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more efficiently'],
                 'options' => ['a1' => ['more efficiently', 'efficientlier', 'most efficiently']],
                 'verb_hints' => ['a1' => 'effective, productive'],
-                'hints' => ['Adverbs ending in -ly use "more + adverb + than" for comparisons.'],
+                'hints' => ['Прислівники на -ly використовують "more + прислівник + than" для порівнянь.'],
                 'explanations' => [
                     'more efficiently' => 'Прислівники на -ly: more + adverb + than. Наприклад: more effectively than planned.',
                     'efficientlier' => 'Прислівники на -ly не додають -er. Правильно: more efficiently.',
@@ -717,7 +717,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'simpler'],
                 'options' => ['a1' => ['simpler', 'simplest', 'more simple']],
                 'verb_hints' => ['a1' => 'clear, basic'],
-                'hints' => ['The pattern "the + comparative... the + comparative" shows correlation.'],
+                'hints' => ['Конструкція "the + comparative... the + comparative" показує кореляцію.'],
                 'explanations' => [
                     'simpler' => 'Конструкція the + comparative... the + comparative. Наприклад: The shorter the wait, the better.',
                     'simplest' => 'Superlative не вживається в паралельній конструкції the... the.',
@@ -730,7 +730,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'least'],
                 'options' => ['a1' => ['least', 'less', 'lesser']],
                 'verb_hints' => ['a1' => 'minimum, smallest degree'],
-                'hints' => ['Use "the least" before adjectives for the minimum degree.'],
+                'hints' => ['Використовуйте "the least" перед прикметниками для мінімального ступеня.'],
                 'explanations' => [
                     'least' => 'The least + adjective виражає найнижчий ступінь серед групи. Наприклад: the least likely outcome.',
                     'less' => 'Less порівнює два предмети, а не виражає найнижчий ступінь.',
@@ -743,7 +743,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more'],
                 'options' => ['a1' => ['more', 'most', 'much']],
                 'verb_hints' => ['a1' => 'degree, extent'],
-                'hints' => ['Adverbs like "slightly" modify the comparative form.'],
+                'hints' => ['Прислівники типу "slightly" модифікують comparative форму.'],
                 'explanations' => [
                     'more' => 'Slightly + more + adjective пом\'якшує порівняння. Наприклад: slightly more expensive.',
                     'most' => 'Superlative не підходить для порівняння двох версій.',
@@ -758,7 +758,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more significant'],
                 'options' => ['a1' => ['more significant', 'significanter', 'most significant']],
                 'verb_hints' => ['a1' => 'important, meaningful'],
-                'hints' => ['Far + comparative intensifies the degree of difference.'],
+                'hints' => ['Far + comparative підсилює ступінь різниці.'],
                 'explanations' => [
                     'more significant' => 'Far + more + adjective підсилює різницю. Наприклад: far more consequential than expected.',
                     'significanter' => 'Довгі прикметники не додають -er. Правильно: more significant.',
@@ -771,7 +771,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more favorable'],
                 'options' => ['a1' => ['more favorable', 'favorabler', 'most favorable']],
                 'verb_hints' => ['a1' => 'positive, advantageous'],
-                'hints' => ['In conditional structures, comparative forms describe hypothetical states.'],
+                'hints' => ['В умовних структурах comparative форми описують гіпотетичні стани.'],
                 'explanations' => [
                     'more favorable' => 'У conditional comparative описує гіпотетичний стан. Наприклад: had it been simpler.',
                     'favorabler' => 'Довгі прикметники не додають -er. Правильно: more favorable.',
@@ -784,7 +784,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more'],
                 'options' => ['a1' => ['more', 'most', 'much']],
                 'verb_hints' => ['a1' => 'degree, extent'],
-                'hints' => ['Intensifiers like "considerably" strengthen the comparative.'],
+                'hints' => ['Підсилювачі типу "considerably" посилюють comparative.'],
                 'explanations' => [
                     'more' => 'Considerably + more + adjective підсилює порівняння. Наприклад: considerably more reliable.',
                     'most' => 'Superlative не підходить для порівняння з попередніми дослідженнями.',
@@ -800,7 +800,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                     'a2' => ['clearer', 'more clear', 'clearest'],
                 ],
                 'verb_hints' => ['a1' => 'carefully, attentively', 'a2' => 'obvious, evident'],
-                'hints' => ['The pattern "the more... the more" uses comparative forms in both parts.'],
+                'hints' => ['Конструкція "the more... the more" використовує comparative форми в обох частинах.'],
                 'explanations' => [
                     'more closely' => 'Прислівник closely: more closely. Наприклад: the more carefully you read.',
                     'closer' => 'Closer — прикметник, а не прислівник дії examines.',
@@ -816,7 +816,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more'],
                 'options' => ['a1' => ['more', 'most', 'much']],
                 'verb_hints' => ['a1' => 'degree, extent'],
-                'hints' => ['No + comparative + than emphasizes lack of superiority.'],
+                'hints' => ['No + comparative + than підкреслює відсутність переваги.'],
                 'explanations' => [
                     'more' => 'No + more + adjective + than виражає відсутність переваги. Наприклад: no more effective than.',
                     'most' => 'Superlative не вживається в конструкції no ... than.',
@@ -829,7 +829,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more smoothly'],
                 'options' => ['a1' => ['more smoothly', 'smoothlier', 'most smoothly']],
                 'verb_hints' => ['a1' => 'easily, without problems'],
-                'hints' => ['Adverbs ending in -ly use "more + adverb" for comparisons.'],
+                'hints' => ['Прислівники на -ly використовують "more + прислівник" для порівнянь.'],
                 'explanations' => [
                     'more smoothly' => 'Прислівники на -ly: more + adverb + than. Наприклад: more efficiently than expected.',
                     'smoothlier' => 'Прислівники на -ly не додають -er. Правильно: more smoothly.',
@@ -842,7 +842,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'most compelling'],
                 'options' => ['a1' => ['most compelling', 'more compelling', 'compellingest']],
                 'verb_hints' => ['a1' => 'convincing, persuasive'],
-                'hints' => ['By far + superlative emphasizes a significant gap.'],
+                'hints' => ['By far + superlative підкреслює значну перевагу.'],
                 'explanations' => [
                     'most compelling' => 'By far the + most + adjective підсилює superlative. Наприклад: by far the most innovative.',
                     'more compelling' => 'Comparative порівнює два, а не виражає найвищий ступінь.',
@@ -858,7 +858,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                     'a2' => ['more', 'most', 'much'],
                 ],
                 'verb_hints' => ['a1' => 'complex, detailed', 'a2' => 'challenging, difficult'],
-                'hints' => ['The pattern "the more... the more" requires comparative in both clauses.'],
+                'hints' => ['Конструкція "the more... the more" вимагає comparative в обох частинах.'],
                 'explanations' => [
                     'more' => 'Конструкція the + more + adjective... the + more + adjective. Наприклад: the more complex, the more costly.',
                     'most' => 'Superlative не вживається в паралельній конструкції the... the.',
@@ -871,7 +871,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more'],
                 'options' => ['a1' => ['more', 'most', 'much']],
                 'verb_hints' => ['a1' => 'degree, extent'],
-                'hints' => ['Significantly + comparative intensifies the comparison.'],
+                'hints' => ['Significantly + comparative підсилює порівняння.'],
                 'explanations' => [
                     'more' => 'Significantly + more + adjective підсилює порівняння. Наприклад: significantly more evident.',
                     'most' => 'Superlative не підходить для порівняння з попередньою документацією.',
@@ -884,7 +884,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more'],
                 'options' => ['a1' => ['more', 'most', 'much']],
                 'verb_hints' => ['a1' => 'degree, quantity'],
-                'hints' => ['In conditional inversion, comparative describes hypothetical conditions.'],
+                'hints' => ['В умовній інверсії comparative описує гіпотетичні умови.'],
                 'explanations' => [
                     'more' => 'Were + subject + more + adjective — умовна інверсія. Наприклад: Were it more accessible.',
                     'most' => 'Superlative не підходить для умовного речення.',
@@ -897,7 +897,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more'],
                 'options' => ['a1' => ['more', 'most', 'much']],
                 'verb_hints' => ['a1' => 'degree, extent'],
-                'hints' => ['Marginally + comparative indicates a small difference.'],
+                'hints' => ['Marginally + comparative вказує на невелику різницю.'],
                 'explanations' => [
                     'more' => 'Marginally + more + adjective вказує на малу різницю. Наприклад: marginally more successful.',
                     'most' => 'Superlative не підходить для порівняння двох підходів.',
@@ -910,7 +910,7 @@ class GeminiDegreesOfComparisonSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'more'],
                 'options' => ['a1' => ['more', 'most', 'less']],
                 'verb_hints' => ['a1' => 'degree, extent'],
-                'hints' => ['No + comparative + than emphasizes equal validity.'],
+                'hints' => ['No + comparative + than підкреслює рівну валідність.'],
                 'explanations' => [
                     'more' => 'No + more + adjective + than виражає рівність. Наприклад: no more reliable than.',
                     'most' => 'Superlative не вживається в конструкції no ... than.',
