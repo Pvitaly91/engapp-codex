@@ -775,20 +775,23 @@
                     }
                 }
 
-                return `<?php
+                var lines = [
+                    '<?php',
+                    '',
+                    'namespace ' + namespace + ';',
+                    '',
+                    'use App\\Support\\Database\\Seeder;',
+                    '',
+                    'class ' + className + ' extends Seeder',
+                    '{',
+                    '    public function run(): void',
+                    '    {',
+                    '        // Your seeding logic here',
+                    '    }',
+                    '}'
+                ];
 
-namespace ` + namespace + `;
-
-use App\\Support\\Database\\Seeder;
-
-class ` + className + ` extends Seeder
-{
-    public function run(): void
-    {
-        // Your seeding logic here
-    }
-}
-`;
+                return lines.join('\n') + '\n';
             };
 
             const resetCreateSeederModal = function () {
