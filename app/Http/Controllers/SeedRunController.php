@@ -372,6 +372,42 @@ class SeedRunController extends Controller
         ]);
     }
 
+    public function getSeederFolders(): JsonResponse
+    {
+        $baseDir = database_path('seeders');
+        $folders = $this->discoverSeederFolders($baseDir, $baseDir);
+
+        return response()->json([
+            'folders' => $folders,
+        ]);
+    }
+
+    protected function discoverSeederFolders(string $baseDir, string $currentDir): array
+    {
+        $folders = [];
+
+        if (! File::isDirectory($currentDir)) {
+            return $folders;
+        }
+
+        $directories = File::directories($currentDir);
+
+        foreach ($directories as $directory) {
+            $relativePath = str_replace($baseDir . DIRECTORY_SEPARATOR, '', $directory);
+            $relativePath = str_replace(DIRECTORY_SEPARATOR, '/', $relativePath);
+
+            $folders[] = $relativePath;
+
+            // Recursively discover subfolders
+            $subFolders = $this->discoverSeederFolders($baseDir, $directory);
+            $folders = array_merge($folders, $subFolders);
+        }
+
+        sort($folders);
+
+        return $folders;
+    }
+
     protected function assembleSeedRunOverview(): array
     {
         $tableExists = Schema::hasTable('seed_runs');

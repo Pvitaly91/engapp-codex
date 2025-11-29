@@ -324,13 +324,28 @@
                         </div>
                         <div>
                             <label for="create-seeder-folder" class="block text-sm font-medium text-slate-700 mb-1">{{ __("Папка (необов'язково)") }}</label>
-                            <input type="text"
-                                   id="create-seeder-folder"
-                                   name="folder"
-                                   class="w-full font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
-                                   placeholder="V2/Custom"
-                                   data-create-seeder-folder-input>
-                            <p class="mt-1 text-xs text-slate-500">{{ __('Вкажіть підпапку (наприклад: V2/Custom, Ai)') }}</p>
+                            <div class="flex gap-2">
+                                <select id="create-seeder-folder-select"
+                                        class="flex-1 font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
+                                        data-create-seeder-folder-select>
+                                    <option value="">{{ __('Коренева папка (database/seeders)') }}</option>
+                                </select>
+                                <button type="button"
+                                        class="px-3 py-2 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg hover:bg-emerald-100 transition"
+                                        data-create-seeder-new-folder-toggle
+                                        title="{{ __('Створити нову папку') }}">
+                                    <i class="fa-solid fa-folder-plus"></i>
+                                </button>
+                            </div>
+                            <div class="mt-2 hidden" data-create-seeder-new-folder-container>
+                                <input type="text"
+                                       id="create-seeder-folder"
+                                       name="folder"
+                                       class="w-full font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
+                                       placeholder="{{ __('Нова папка (наприклад: V2/Custom)') }}"
+                                       data-create-seeder-folder-input>
+                                <p class="mt-1 text-xs text-slate-500">{{ __('Введіть назву нової папки') }}</p>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -442,12 +457,16 @@
             // Create Seeder Modal elements
             const createSeederModal = document.getElementById('create-seeder-modal');
             const createSeederStoreUrl = createSeederModal ? createSeederModal.dataset.storeUrl || '' : '';
+            const createSeederFoldersUrl = @json(route('seed-runs.folders.list'));
             const createSeederOverlay = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-overlay]') : null;
             const createSeederForm = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-form]') : null;
             const createSeederEditor = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-editor]') : null;
             let createSeederEditorInstance = null;
             const createSeederClassInput = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-class-input]') : null;
             const createSeederFolderInput = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-folder-input]') : null;
+            const createSeederFolderSelect = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-folder-select]') : null;
+            const createSeederNewFolderToggle = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-new-folder-toggle]') : null;
+            const createSeederNewFolderContainer = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-new-folder-container]') : null;
             const createSeederStatus = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-status]') : null;
             const createSeederSaveButton = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-save-button]') : null;
             const createSeederCloseButtons = createSeederModal ? createSeederModal.querySelectorAll('[data-create-seeder-close]') : [];
@@ -766,6 +785,81 @@
                 }
             };
 
+            let createSeederFoldersLoaded = false;
+
+            const loadSeederFolders = async function () {
+                if (!createSeederFolderSelect || createSeederFoldersLoaded) {
+                    return;
+                }
+
+                try {
+                    const response = await fetch(createSeederFoldersUrl, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    if (!response.ok) {
+                        return;
+                    }
+
+                    const data = await response.json();
+                    const folders = data.folders || [];
+
+                    // Clear existing options except the first one (root folder)
+                    while (createSeederFolderSelect.options.length > 1) {
+                        createSeederFolderSelect.remove(1);
+                    }
+
+                    // Add folder options
+                    folders.forEach(function (folder) {
+                        const option = document.createElement('option');
+                        option.value = folder;
+                        option.textContent = folder;
+                        createSeederFolderSelect.appendChild(option);
+                    });
+
+                    createSeederFoldersLoaded = true;
+                } catch (error) {
+                    console.error('Failed to load seeder folders:', error);
+                }
+            };
+
+            const toggleNewFolderInput = function () {
+                if (!createSeederNewFolderContainer || !createSeederFolderSelect) {
+                    return;
+                }
+
+                const isHidden = createSeederNewFolderContainer.classList.contains('hidden');
+
+                if (isHidden) {
+                    // Show new folder input, hide select
+                    createSeederNewFolderContainer.classList.remove('hidden');
+                    createSeederFolderSelect.disabled = true;
+                    createSeederFolderSelect.value = '';
+                    if (createSeederFolderInput) {
+                        createSeederFolderInput.focus();
+                    }
+                } else {
+                    // Hide new folder input, show select
+                    createSeederNewFolderContainer.classList.add('hidden');
+                    createSeederFolderSelect.disabled = false;
+                    if (createSeederFolderInput) {
+                        createSeederFolderInput.value = '';
+                    }
+                }
+            };
+
+            const getSelectedFolder = function () {
+                // Check if new folder input is visible
+                if (createSeederNewFolderContainer && !createSeederNewFolderContainer.classList.contains('hidden')) {
+                    return createSeederFolderInput ? createSeederFolderInput.value.trim() : '';
+                }
+
+                // Otherwise get from select
+                return createSeederFolderSelect ? createSeederFolderSelect.value : '';
+            };
+
             const resetCreateSeederModal = function () {
                 if (!createSeederModal) {
                     return;
@@ -779,6 +873,15 @@
 
                 if (createSeederFolderInput) {
                     createSeederFolderInput.value = '';
+                }
+
+                if (createSeederFolderSelect) {
+                    createSeederFolderSelect.value = '';
+                    createSeederFolderSelect.disabled = false;
+                }
+
+                if (createSeederNewFolderContainer) {
+                    createSeederNewFolderContainer.classList.add('hidden');
                 }
 
                 // Start with empty editor - user will paste their PHP code
@@ -804,6 +907,7 @@
                 }
 
                 resetCreateSeederModal();
+                loadSeederFolders();
                 document.body.classList.add('overflow-hidden');
                 createSeederModal.classList.remove('hidden');
                 createSeederModal.classList.add('flex');
@@ -829,6 +933,13 @@
                 document.body.classList.remove('overflow-hidden');
                 resetCreateSeederModal();
             };
+
+            // Event listener for new folder toggle
+            if (createSeederNewFolderToggle) {
+                createSeederNewFolderToggle.addEventListener('click', function () {
+                    toggleNewFolderInput();
+                });
+            }
 
             // Event listeners for create seeder modal
             if (createSeederOpenButtons && createSeederOpenButtons.length > 0) {
@@ -859,7 +970,7 @@
                     event.preventDefault();
 
                     const className = createSeederClassInput ? createSeederClassInput.value.trim() : '';
-                    const folder = createSeederFolderInput ? createSeederFolderInput.value.trim() : '';
+                    const folder = getSelectedFolder();
                     const contents = createSeederEditorInstance
                         ? createSeederEditorInstance.getValue()
                         : (createSeederEditor.value || '');
