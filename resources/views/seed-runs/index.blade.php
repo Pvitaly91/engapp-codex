@@ -354,8 +354,7 @@
                                   name="contents"
                                   data-create-seeder-editor
                                   class="w-full h-80 font-mono text-sm text-slate-800 border border-slate-200 rounded-lg p-4 focus:border-emerald-500 focus:ring-emerald-500 resize-y"
-                                  spellcheck="false"
-                                  required></textarea>
+                                  spellcheck="false"></textarea>
                     </div>
                 </div>
                 <div class="px-6 py-4 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
