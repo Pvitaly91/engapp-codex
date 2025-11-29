@@ -76,17 +76,25 @@
                 <div class="bg-white shadow rounded-lg p-6">
                     <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
                         <h2 class="text-xl font-semibold text-gray-800">Невиконані сидери</h2>
-                        @if($pendingSeeders->isNotEmpty())
-                            <button type="submit"
-                                    form="pending-bulk-delete-form"
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                                    data-bulk-delete-button
-                                    data-bulk-scope="pending"
-                                    disabled>
-                                <i class="fa-solid fa-trash-can"></i>
-                                Видалити вибрані файли
+                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                            <button type="button"
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition"
+                                    data-create-seeder-open>
+                                <i class="fa-solid fa-plus"></i>
+                                Створити сидер
                             </button>
-                        @endif
+                            @if($pendingSeeders->isNotEmpty())
+                                <button type="submit"
+                                        form="pending-bulk-delete-form"
+                                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-md hover:bg-red-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                        data-bulk-delete-button
+                                        data-bulk-scope="pending"
+                                        disabled>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    Видалити вибрані файли
+                                </button>
+                            @endif
+                        </div>
                     </div>
                     <div id="pending-seeders-container">
                     @if($pendingSeeders->isEmpty())
@@ -286,6 +294,80 @@
         </div>
     </div>
 
+    <div id="create-seeder-modal" class="hidden fixed inset-0 z-[60] items-center justify-center" data-store-url="{{ route('seed-runs.file.store') }}">
+        <div class="absolute inset-0 bg-slate-900/60" data-create-seeder-overlay></div>
+        <div class="relative bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 flex flex-col overflow-hidden max-h-[90vh]">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-start justify-between gap-4">
+                <div>
+                    <h2 class="text-lg font-semibold text-slate-800">{{ __('Створити новий сидер') }}</h2>
+                    <p class="text-xs text-slate-500 mt-1">{{ __('Вкажіть назву класу та PHP код сидера') }}</p>
+                </div>
+                <button type="button" class="text-slate-400 hover:text-slate-600 transition" data-create-seeder-close>
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form method="POST" action="{{ route('seed-runs.file.store') }}" class="flex-1 flex flex-col overflow-hidden" data-create-seeder-form>
+                @csrf
+                <div class="p-6 space-y-4 overflow-y-auto">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="create-seeder-class-name" class="block text-sm font-medium text-slate-700 mb-1">{{ __('Назва класу') }} <span class="text-red-500">*</span></label>
+                            <input type="text"
+                                   id="create-seeder-class-name"
+                                   name="class_name"
+                                   class="w-full font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
+                                   placeholder="MyNewSeeder"
+                                   pattern="[A-Z][a-zA-Z0-9]*"
+                                   required
+                                   data-create-seeder-class-input>
+                            <p class="mt-1 text-xs text-slate-500">{{ __('Має починатися з великої літери (наприклад: MyNewSeeder)') }}</p>
+                        </div>
+                        <div>
+                            <label for="create-seeder-folder" class="block text-sm font-medium text-slate-700 mb-1">{{ __("Папка (необов'язково)") }}</label>
+                            <div class="flex gap-2">
+                                <select id="create-seeder-folder-select"
+                                        class="flex-1 font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
+                                        data-create-seeder-folder-select>
+                                    <option value="">{{ __('Коренева папка (database/seeders)') }}</option>
+                                </select>
+                                <button type="button"
+                                        class="px-3 py-2 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg hover:bg-emerald-100 transition"
+                                        data-create-seeder-new-folder-toggle
+                                        title="{{ __('Створити нову папку') }}">
+                                    <i class="fa-solid fa-folder-plus"></i>
+                                </button>
+                            </div>
+                            <div class="mt-2 hidden" data-create-seeder-new-folder-container>
+                                <input type="text"
+                                       id="create-seeder-folder"
+                                       name="folder"
+                                       class="w-full font-mono text-sm text-slate-800 border border-slate-200 rounded-lg px-4 py-2 focus:border-emerald-500 focus:ring-emerald-500"
+                                       placeholder="{{ __('Нова папка (наприклад: V2/Custom)') }}"
+                                       data-create-seeder-folder-input>
+                                <p class="mt-1 text-xs text-slate-500">{{ __('Введіть назву нової папки') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="create-seeder-contents" class="block text-sm font-medium text-slate-700 mb-1">{{ __('PHP код сидера') }} <span class="text-red-500">*</span></label>
+                        <textarea id="create-seeder-contents"
+                                  name="contents"
+                                  data-create-seeder-editor
+                                  class="w-full h-80 font-mono text-sm text-slate-800 border border-slate-200 rounded-lg p-4 focus:border-emerald-500 focus:ring-emerald-500 resize-y"
+                                  spellcheck="false"></textarea>
+                    </div>
+                </div>
+                <div class="px-6 py-4 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <p class="text-xs text-slate-500" data-create-seeder-status></p>
+                    <div class="flex items-center justify-end gap-3">
+                        <button type="button" class="px-4 py-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 rounded-md hover:bg-slate-100 transition" data-create-seeder-close>{{ __('Скасувати') }}</button>
+                        <button type="submit" class="px-4 py-2 text-sm font-semibold text-white bg-emerald-600 rounded-md hover:bg-emerald-500 transition disabled:opacity-60 disabled:cursor-not-allowed" data-create-seeder-save-button>{{ __('Створити сидер') }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     @once
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" referrerpolicy="no-referrer" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js" referrerpolicy="no-referrer"></script>
@@ -314,6 +396,14 @@
 
         #seeder-file-modal .CodeMirror.cm-editor-disabled .CodeMirror-cursor {
             display: none !important;
+        }
+
+        #create-seeder-modal .CodeMirror {
+            height: 20rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.875rem;
         }
 
         .hidden-by-search {
@@ -362,6 +452,30 @@
             const fileModalMissingClassMessage = @json(__('Не вказано клас сидера.'));
             const fileModalUpdatedAtTemplate = @json(__('Останнє оновлення файлу: :timestamp'));
             const fileModalLoadingMessage = @json(__('Завантаження файлу…'));
+
+            // Create Seeder Modal elements
+            const createSeederModal = document.getElementById('create-seeder-modal');
+            const createSeederStoreUrl = createSeederModal ? createSeederModal.dataset.storeUrl || '' : '';
+            const createSeederFoldersUrl = @json(route('seed-runs.folders.list'));
+            const createSeederOverlay = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-overlay]') : null;
+            const createSeederForm = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-form]') : null;
+            const createSeederEditor = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-editor]') : null;
+            let createSeederEditorInstance = null;
+            const createSeederClassInput = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-class-input]') : null;
+            const createSeederFolderInput = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-folder-input]') : null;
+            const createSeederFolderSelect = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-folder-select]') : null;
+            const createSeederNewFolderToggle = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-new-folder-toggle]') : null;
+            const createSeederNewFolderContainer = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-new-folder-container]') : null;
+            const createSeederStatus = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-status]') : null;
+            const createSeederSaveButton = createSeederModal ? createSeederModal.querySelector('[data-create-seeder-save-button]') : null;
+            const createSeederCloseButtons = createSeederModal ? createSeederModal.querySelectorAll('[data-create-seeder-close]') : [];
+            const createSeederOpenButtons = document.querySelectorAll('[data-create-seeder-open]');
+            const createSeederCreatingMessage = @json(__('Створення файлу…'));
+            const createSeederCreatedMessage = @json(__('Файл сидера успішно створено.'));
+            const createSeederErrorMessage = @json(__('Не вдалося створити файл сидера.'));
+            const createSeederMissingClassMessage = @json(__('Не вказано назву класу сидера.'));
+            const createSeederMissingContentsMessage = @json(__('Не вказано PHP код сидера.'));
+
             let feedbackTimeout;
 
             const setFileEditorDisabledState = function (disabled) {
@@ -623,6 +737,323 @@
                 document.body.classList.remove('overflow-hidden');
                 resetFileModal();
             };
+
+            // Create Seeder Modal functions
+            const ensureCreateSeederEditorInstance = function () {
+                if (!createSeederEditor || typeof CodeMirror === 'undefined') {
+                    return;
+                }
+
+                if (createSeederEditorInstance) {
+                    return;
+                }
+
+                createSeederEditorInstance = CodeMirror.fromTextArea(createSeederEditor, {
+                    mode: 'application/x-httpd-php',
+                    lineNumbers: true,
+                    indentUnit: 4,
+                    tabSize: 4,
+                    indentWithTabs: true,
+                    lineWrapping: false,
+                    matchBrackets: true,
+                    autoCloseBrackets: true,
+                });
+
+                createSeederEditorInstance.setSize('100%', '20rem');
+            };
+
+            const updateCreateSeederStatus = function (message, type = 'info') {
+                if (!createSeederStatus) {
+                    return;
+                }
+
+                createSeederStatus.textContent = message || '';
+                createSeederStatus.classList.remove('text-emerald-600', 'text-red-600', 'text-slate-500');
+
+                if (!message) {
+                    createSeederStatus.classList.add('text-slate-500');
+                    return;
+                }
+
+                if (type === 'success') {
+                    createSeederStatus.classList.add('text-emerald-600');
+                } else if (type === 'error') {
+                    createSeederStatus.classList.add('text-red-600');
+                } else {
+                    createSeederStatus.classList.add('text-slate-500');
+                }
+            };
+
+            let createSeederFoldersLoaded = false;
+
+            const loadSeederFolders = async function () {
+                if (!createSeederFolderSelect || createSeederFoldersLoaded) {
+                    return;
+                }
+
+                try {
+                    const response = await fetch(createSeederFoldersUrl, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                    });
+
+                    if (!response.ok) {
+                        return;
+                    }
+
+                    const data = await response.json();
+                    const folders = data.folders || [];
+
+                    // Clear existing options except the first one (root folder)
+                    while (createSeederFolderSelect.options.length > 1) {
+                        createSeederFolderSelect.remove(1);
+                    }
+
+                    // Add folder options
+                    folders.forEach(function (folder) {
+                        const option = document.createElement('option');
+                        option.value = folder;
+                        option.textContent = folder;
+                        createSeederFolderSelect.appendChild(option);
+                    });
+
+                    createSeederFoldersLoaded = true;
+                } catch (error) {
+                    console.error('Failed to load seeder folders:', error);
+                }
+            };
+
+            const toggleNewFolderInput = function () {
+                if (!createSeederNewFolderContainer || !createSeederFolderSelect) {
+                    return;
+                }
+
+                const isHidden = createSeederNewFolderContainer.classList.contains('hidden');
+
+                if (isHidden) {
+                    // Show new folder input, hide select
+                    createSeederNewFolderContainer.classList.remove('hidden');
+                    createSeederFolderSelect.disabled = true;
+                    createSeederFolderSelect.value = '';
+                    if (createSeederFolderInput) {
+                        createSeederFolderInput.focus();
+                    }
+                } else {
+                    // Hide new folder input, show select
+                    createSeederNewFolderContainer.classList.add('hidden');
+                    createSeederFolderSelect.disabled = false;
+                    if (createSeederFolderInput) {
+                        createSeederFolderInput.value = '';
+                    }
+                }
+            };
+
+            const getSelectedFolder = function () {
+                // Check if new folder input is visible
+                if (createSeederNewFolderContainer && !createSeederNewFolderContainer.classList.contains('hidden')) {
+                    return createSeederFolderInput ? createSeederFolderInput.value.trim() : '';
+                }
+
+                // Otherwise get from select
+                return createSeederFolderSelect ? createSeederFolderSelect.value : '';
+            };
+
+            const resetCreateSeederModal = function () {
+                if (!createSeederModal) {
+                    return;
+                }
+
+                ensureCreateSeederEditorInstance();
+
+                if (createSeederClassInput) {
+                    createSeederClassInput.value = '';
+                }
+
+                if (createSeederFolderInput) {
+                    createSeederFolderInput.value = '';
+                }
+
+                if (createSeederFolderSelect) {
+                    createSeederFolderSelect.value = '';
+                    createSeederFolderSelect.disabled = false;
+                }
+
+                if (createSeederNewFolderContainer) {
+                    createSeederNewFolderContainer.classList.add('hidden');
+                }
+
+                // Start with empty editor - user will paste their PHP code
+                if (createSeederEditorInstance) {
+                    createSeederEditorInstance.setValue('');
+                    createSeederEditorInstance.clearHistory();
+                }
+
+                if (createSeederEditor) {
+                    createSeederEditor.value = '';
+                }
+
+                updateCreateSeederStatus('');
+
+                if (createSeederSaveButton) {
+                    createSeederSaveButton.disabled = false;
+                }
+            };
+
+            const openCreateSeederModal = function () {
+                if (!createSeederModal) {
+                    return;
+                }
+
+                resetCreateSeederModal();
+                loadSeederFolders();
+                document.body.classList.add('overflow-hidden');
+                createSeederModal.classList.remove('hidden');
+                createSeederModal.classList.add('flex');
+
+                window.setTimeout(function () {
+                    if (createSeederClassInput) {
+                        createSeederClassInput.focus();
+                    }
+
+                    if (createSeederEditorInstance) {
+                        createSeederEditorInstance.refresh();
+                    }
+                }, 50);
+            };
+
+            const closeCreateSeederModal = function () {
+                if (!createSeederModal) {
+                    return;
+                }
+
+                createSeederModal.classList.add('hidden');
+                createSeederModal.classList.remove('flex');
+                document.body.classList.remove('overflow-hidden');
+                resetCreateSeederModal();
+            };
+
+            // Event listener for new folder toggle
+            if (createSeederNewFolderToggle) {
+                createSeederNewFolderToggle.addEventListener('click', function () {
+                    toggleNewFolderInput();
+                });
+            }
+
+            // Event listeners for create seeder modal
+            if (createSeederOpenButtons && createSeederOpenButtons.length > 0) {
+                createSeederOpenButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        openCreateSeederModal();
+                    });
+                });
+            }
+
+            if (createSeederCloseButtons && createSeederCloseButtons.length > 0) {
+                createSeederCloseButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        closeCreateSeederModal();
+                    });
+                });
+            }
+
+            if (createSeederOverlay) {
+                createSeederOverlay.addEventListener('click', function () {
+                    closeCreateSeederModal();
+                });
+            }
+
+            // Handle create seeder form submission
+            if (createSeederForm && createSeederEditor) {
+                createSeederForm.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    const className = createSeederClassInput ? createSeederClassInput.value.trim() : '';
+                    const folder = getSelectedFolder();
+                    const contents = createSeederEditorInstance
+                        ? createSeederEditorInstance.getValue()
+                        : (createSeederEditor.value || '');
+
+                    if (!className) {
+                        updateCreateSeederStatus(createSeederMissingClassMessage, 'error');
+                        showFeedback(createSeederMissingClassMessage, 'error');
+                        return;
+                    }
+
+                    if (!contents.trim()) {
+                        updateCreateSeederStatus(createSeederMissingContentsMessage, 'error');
+                        showFeedback(createSeederMissingContentsMessage, 'error');
+                        return;
+                    }
+
+                    if (preloader) {
+                        preloader.classList.remove('hidden');
+                    }
+
+                    updateCreateSeederStatus(createSeederCreatingMessage, 'info');
+
+                    if (createSeederSaveButton) {
+                        createSeederSaveButton.disabled = true;
+                    }
+
+                    try {
+                        const formData = new FormData(createSeederForm);
+                        formData.set('class_name', className);
+                        formData.set('folder', folder);
+                        formData.set('contents', contents);
+
+                        const response = await fetch(createSeederStoreUrl, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': csrfToken,
+                                'Accept': 'application/json',
+                            },
+                            body: formData,
+                        });
+
+                        const payload = await response.json().catch(function () {
+                            return null;
+                        });
+
+                        if (!response.ok) {
+                            const message = parseErrorMessage(payload, createSeederErrorMessage);
+                            throw new Error(message);
+                        }
+
+                        const successMessage = payload && typeof payload.message === 'string' && payload.message
+                            ? payload.message
+                            : createSeederCreatedMessage;
+
+                        updateCreateSeederStatus(successMessage, 'success');
+                        showFeedback(successMessage, 'success');
+
+                        // Add the new seeder to the pending list
+                        if (payload.pending_seeder) {
+                            addToPendingList(payload.pending_seeder);
+                        }
+
+                        // Close the modal after a short delay
+                        window.setTimeout(function () {
+                            closeCreateSeederModal();
+                        }, 500);
+                    } catch (error) {
+                        const message = error && typeof error.message === 'string' && error.message
+                            ? error.message
+                            : createSeederErrorMessage;
+
+                        updateCreateSeederStatus(message, 'error');
+                        showFeedback(message, 'error');
+                    } finally {
+                        if (createSeederSaveButton) {
+                            createSeederSaveButton.disabled = false;
+                        }
+
+                        if (preloader) {
+                            preloader.classList.add('hidden');
+                        }
+                    }
+                });
+            }
 
             const loadSeederFile = async function (className, displayName) {
                 if (!fileModal || !fileModalLoadUrl || !className) {
@@ -1253,6 +1684,11 @@
                 }
 
                 let handled = false;
+
+                if (createSeederModal && !createSeederModal.classList.contains('hidden')) {
+                    closeCreateSeederModal();
+                    handled = true;
+                }
 
                 if (fileModal && !fileModal.classList.contains('hidden')) {
                     closeFileModal();
