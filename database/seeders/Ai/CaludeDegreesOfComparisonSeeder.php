@@ -263,7 +263,7 @@ class CaludeDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'fast'],
                 'question_hints' => ['Використовуйте comparative форму для порівняння двох тварин.'],
                 'chatgpt_explanations' => [
-                    'faster' => 'Порівняння двох тварин потребує comparative. Формула: A is + adjective-er + than B. Приклад: A cat is quieter than a parrot.',
+                    'faster' => 'Порівняння двох тварин потребує comparative. Формула: A is + adjective-er + than B. Приклад: A cheetah is faster than a lion.',
                     'fast' => 'Базова форма не виражає порівняння між двома суб\'єктами.',
                     'fastest' => 'Superlative для групи з трьох і більше.',
                 ],
@@ -276,7 +276,7 @@ class CaludeDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'warm'],
                 'question_hints' => ['Порівнюйте два сезони за допомогою -er + than.'],
                 'chatgpt_explanations' => [
-                    'warmer' => 'Порівняння двох типів днів використовує comparative. Додаємо -er до короткого прикметника. Приклад: Spring nights are cooler than summer nights.',
+                    'warmer' => 'Порівняння двох типів днів використовує comparative. Додаємо -er до короткого прикметника. Приклад: Summer evenings are warmer than spring evenings.',
                     'warm' => 'Базова форма не показує порівняння.',
                     'warmest' => 'Superlative потребує the і групу з трьох і більше.',
                 ],
