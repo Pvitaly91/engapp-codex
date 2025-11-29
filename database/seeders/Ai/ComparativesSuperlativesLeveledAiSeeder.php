@@ -15,7 +15,6 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
         'B1' => 3,
         'B2' => 4,
         'C1' => 5,
-        'C2' => 6,
     ];
 
     public function run(): void
@@ -1406,7 +1405,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
     private function buildHints(array $variant): array
     {
         $formula = $variant['formula'] ?? 'Формула: comparative = прикметник/прислівник + -er + than; довші слова вживають more/less + adjective. Superlative = -est/most/least.';
-        $example = 'Приклад: порівняй два об\'єкти за допомогою -er + than, використовуй as ... as для рівності, та -est/most для найвищого ступеня.';
+        $example = "Приклад: порівняй два об'єкти за допомогою -er + than, використовуй as ... as для рівності, та -est/most для найвищого ступеня.";
         $reminder = $variant['reminder'] ?? 'Перевір, чи треба рівність (as ... as), порівняння двох предметів (+ than), чи найвищий ступінь (the + -est/most/least).';
 
         return [$formula, $example, $reminder];
