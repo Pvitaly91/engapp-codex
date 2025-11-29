@@ -214,6 +214,125 @@ class SeedRunController extends Controller
         ]);
     }
 
+    public function storeSeederFile(Request $request): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'class_name' => ['required', 'string', 'regex:/^[A-Z][a-zA-Z0-9]*$/'],
+            'contents' => ['required', 'string'],
+            'folder' => ['nullable', 'string'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => __('Неможливо створити файл сидера через помилки валідації.'),
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $validated = $validator->validated();
+        $className = (string) $validated['class_name'];
+        $contents = (string) $validated['contents'];
+        $folder = trim((string) ($validated['folder'] ?? ''));
+
+        // Build the directory path
+        $baseDir = database_path('seeders');
+        $targetDir = $baseDir;
+
+        if ($folder !== '') {
+            // Sanitize folder path (only allow alphanumeric, underscores, and directory separators)
+            $folder = preg_replace('/[^a-zA-Z0-9_\/\\\\]/', '', $folder);
+            $folder = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $folder);
+            $folder = trim($folder, DIRECTORY_SEPARATOR);
+
+            if ($folder !== '') {
+                $targetDir = $baseDir . DIRECTORY_SEPARATOR . $folder;
+            }
+        }
+
+        // Build the namespace based on folder structure
+        $namespace = 'Database\\Seeders';
+        if ($folder !== '') {
+            $namespaceParts = explode(DIRECTORY_SEPARATOR, $folder);
+            $namespaceParts = array_filter($namespaceParts, fn ($part) => $part !== '');
+            if (! empty($namespaceParts)) {
+                $namespace .= '\\' . implode('\\', $namespaceParts);
+            }
+        }
+
+        // Full class name with namespace
+        $fullClassName = $namespace . '\\' . $className;
+
+        // Check if file already exists
+        $filePath = $targetDir . DIRECTORY_SEPARATOR . $className . '.php';
+
+        if (File::exists($filePath)) {
+            return response()->json([
+                'message' => __('Файл сидера :class вже існує.', ['class' => $fullClassName]),
+            ], 409);
+        }
+
+        // Create directory if it doesn't exist
+        if (! File::isDirectory($targetDir)) {
+            try {
+                File::makeDirectory($targetDir, 0755, true);
+            } catch (\Throwable $exception) {
+                report($exception);
+
+                return response()->json([
+                    'message' => __('Не вдалося створити директорію для сидера.'),
+                ], 500);
+            }
+        }
+
+        // Write the file
+        try {
+            File::put($filePath, $contents, true);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return response()->json([
+                'message' => __('Не вдалося створити файл сидера :class.', ['class' => $fullClassName]),
+            ], 500);
+        }
+
+        clearstatcache(true, $filePath);
+
+        $lastModified = null;
+
+        try {
+            $timestamp = File::lastModified($filePath);
+
+            if ($timestamp) {
+                $lastModified = Carbon::createFromTimestamp($timestamp)->toDateTimeString();
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        // Clear the seeder class map cache
+        $this->seederClassMap = null;
+
+        // Prepare the pending seeder data for UI update
+        $displayName = $this->formatSeederClassName($fullClassName);
+        [$displayNamespace, $baseName] = $this->splitSeederDisplayName($displayName);
+
+        $pendingSeeder = (object) [
+            'class_name' => $fullClassName,
+            'display_class_name' => $displayName,
+            'display_class_namespace' => $displayNamespace,
+            'display_class_basename' => $baseName,
+            'supports_preview' => false,
+        ];
+
+        return response()->json([
+            'message' => __('Файл сидера успішно створено.'),
+            'class_name' => $fullClassName,
+            'path' => $this->makeSeederFileDisplayPath($filePath),
+            'last_modified' => $lastModified,
+            'pending_seeder' => $pendingSeeder,
+        ]);
+    }
+
     protected function assembleSeedRunOverview(): array
     {
         $tableExists = Schema::hasTable('seed_runs');
