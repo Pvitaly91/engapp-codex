@@ -203,13 +203,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['affirmative sentence', 'comparative', 'present simple'],
                 'hints' => [
-                    'a1' => 'For short adjectives comparing two items, add -er before "than".',
+                    'a1' => 'Для коротких прикметників при порівнянні двох предметів додаємо -er перед «than».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'lighter' => 'Use the comparative form of a short adjective: adjective + -er + than.',
-                        'lightest' => 'This is a superlative form used with "the" when comparing three or more.',
-                        'more light' => 'Short adjectives normally do not use "more" for the comparative.',
+                        'lighter' => 'Використовуємо порівняльну форму короткого прикметника: adjective + -er + than.',
+                        'lightest' => 'Це найвищий ступінь, який вживається з «the» при порівнянні трьох і більше.',
+                        'more light' => 'Короткі прикметники зазвичай не вживають «more» для порівняльного ступеня.',
                     ],
                 ],
             ],
@@ -226,13 +226,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['affirmative sentence', 'comparative', 'present simple'],
                 'hints' => [
-                    'a1' => 'Short adjectives ending in -y change to -ier when comparing two things.',
+                    'a1' => 'Короткі прикметники, що закінчуються на -y, змінюють закінчення на -ier при порівнянні двох речей.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'heavier' => 'Comparative pattern: adjective ending in -y → -ier + than.',
-                        'heavy' => 'Base form is used for "as...as" patterns, not after "than".',
-                        'more heavy' => 'Short adjectives typically form the comparative with -er instead of "more".',
+                        'heavier' => 'Порівняльний ступінь: прикметник на -y → -ier + than.',
+                        'heavy' => 'Базова форма використовується для конструкції «as...as», а не після «than».',
+                        'more heavy' => 'Короткі прикметники зазвичай утворюють порівняльний ступінь за допомогою -er, а не «more».',
                     ],
                 ],
             ],
@@ -249,13 +249,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['superlative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Use the superlative form with "the" when choosing one item out of many.',
+                    'a1' => 'Використовуйте найвищий ступінь з «the», коли обираєте один предмет із багатьох.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'busiest' => 'Superlative pattern for short adjectives ending in -y: drop y + -iest.',
-                        'busier' => 'Comparative form compares two things, not one against all.',
-                        'more busy' => 'Short adjectives usually take -est for the superlative rather than "most".',
+                        'busiest' => 'Найвищий ступінь для коротких прикметників на -y: прибираємо y + -iest.',
+                        'busier' => 'Порівняльний ступінь порівнює два предмети, а не один серед усіх.',
+                        'more busy' => 'Короткі прикметники зазвичай вживають -est для найвищого ступеня, а не «most».',
                     ],
                 ],
             ],
@@ -272,13 +272,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'Short adverbs share the -er pattern when comparing two actions.',
+                    'a1' => 'Короткі прислівники також мають закінчення -er при порівнянні двох дій.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'faster' => 'Comparative adverb pattern: base + -er + than.',
-                        'fastest' => 'This is the superlative form used with "the" for three or more items.',
-                        'fastly' => 'The adverb already exists as "fast"; adding -ly is incorrect here.',
+                        'faster' => 'Порівняльний ступінь прислівника: основа + -er + than.',
+                        'fastest' => 'Це найвищий ступінь, який вживається з «the» для трьох і більше.',
+                        'fastly' => 'Прислівник уже існує як «fast»; додавання -ly тут є неправильним.',
                     ],
                 ],
             ],
@@ -295,13 +295,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Double the final consonant for one-syllable CVC adjectives before adding -er.',
+                    'a1' => 'Подвоюємо останню приголосну для односкладових прикметників типу CVC перед додаванням -er.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'bigger' => 'Pattern: CVC adjective → double final consonant + -er for comparison.',
-                        'biggest' => 'Superlative requires "the" and is used when comparing more than two.',
-                        'more big' => 'Short adjectives prefer the -er comparative instead of "more".',
+                        'bigger' => 'Схема: прикметник CVC → подвоєння кінцевої приголосної + -er для порівняння.',
+                        'biggest' => 'Найвищий ступінь потребує «the» і використовується при порівнянні більш ніж двох.',
+                        'more big' => 'Короткі прикметники віддають перевагу порівняльному ступеню з -er, а не «more».',
                     ],
                 ],
             ],
@@ -318,13 +318,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['superlative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'To show the extreme degree among many roads, use the -est form.',
+                    'a1' => 'Щоб показати найвищий ступінь серед багатьох доріг, використовуйте форму з -est.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'narrowest' => 'Superlative of a short adjective: base + -est with "the".',
-                        'narrower' => 'This is comparative and fits when only two roads are compared.',
-                        'more narrow' => 'Short adjectives typically use -er/-est instead of "more".',
+                        'narrowest' => 'Найвищий ступінь короткого прикметника: основа + -est з «the».',
+                        'narrower' => 'Це порівняльний ступінь, який підходить лише при порівнянні двох доріг.',
+                        'more narrow' => 'Короткі прикметники зазвичай вживають -er/-est замість «more».',
                     ],
                 ],
             ],
@@ -341,13 +341,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Comparing two people needs the -er form plus "than".',
+                    'a1' => 'При порівнянні двох людей потрібна форма з -er плюс «than».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'taller' => 'Comparative of a one-syllable adjective uses -er with than.',
-                        'tallest' => 'Superlative is for one out of many and usually requires "the".',
-                        'tall' => 'Base form fits patterns like "as...as", not after "than".',
+                        'taller' => 'Порівняльний ступінь односкладового прикметника вживає -er з than.',
+                        'tallest' => 'Найвищий ступінь для вибору одного з багатьох і зазвичай потребує «the».',
+                        'tall' => 'Базова форма підходить для конструкцій типу «as...as», а не після «than».',
                     ],
                 ],
             ],
@@ -364,13 +364,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Change final -y to -i before adding -er for short adjectives.',
+                    'a1' => 'Замініть кінцеву -y на -i перед додаванням -er для коротких прикметників.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'easier' => 'Comparative rule: drop -y, add -ier, then use with "than".',
-                        'easiest' => 'Superlative form compares more than two puzzles and uses "the".',
-                        'more easy' => 'Short adjectives take the -er comparative rather than "more".',
+                        'easier' => 'Правило порівняльного ступеня: прибираємо -y, додаємо -ier, потім вживаємо з «than».',
+                        'easiest' => 'Найвищий ступінь порівнює більше двох головоломок і вживається з «the».',
+                        'more easy' => 'Короткі прикметники вживають порівняльний ступінь з -er, а не «more».',
                     ],
                 ],
             ],
@@ -387,13 +387,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['superlative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'To show the extreme degree among many, use the -est form with "the".',
+                    'a1' => 'Щоб показати найвищий ступінь серед багатьох, вживайте форму з -est разом з «the».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'smallest' => 'Superlative rule: base adjective + -est for the highest degree.',
-                        'smaller' => 'Comparative is only for two items and uses -er.',
-                        'more small' => 'Short adjectives use -er/-est instead of "more"/"most".',
+                        'smallest' => 'Правило найвищого ступеня: базовий прикметник + -est для найвищого рівня.',
+                        'smaller' => 'Порівняльний ступінь лише для двох предметів і вживає -er.',
+                        'more small' => 'Короткі прикметники вживають -er/-est замість «more»/«most».',
                     ],
                 ],
             ],
@@ -410,13 +410,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Use adjective + -er to compare two ways of travel.',
+                    'a1' => 'Вживайте прикметник + -er для порівняння двох видів транспорту.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'slower' => 'Comparative of a short adjective uses -er before "than".',
-                        'slowest' => 'Superlative would need "the" and implies three or more options.',
-                        'more slow' => 'Short adjectives generally avoid "more" for comparison.',
+                        'slower' => 'Порівняльний ступінь короткого прикметника вживає -er перед «than».',
+                        'slowest' => 'Найвищий ступінь потребує «the» і означає три або більше варіантів.',
+                        'more slow' => 'Короткі прикметники зазвичай уникають «more» для порівняння.',
                     ],
                 ],
             ],
@@ -433,13 +433,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Short adjectives ending in -y take -ier in the comparative.',
+                    'a1' => 'Короткі прикметники на -y вживають -ier у порівняльному ступені.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'funnier' => 'Pattern: adjective ending in -y → replace y with i and add -er for comparison.',
-                        'funniest' => 'Superlative form requires "the" and compares more than two stories.',
-                        'more funny' => 'Short adjectives use the -er form rather than "more".',
+                        'funnier' => 'Схема: прикметник на -y → замінюємо y на i та додаємо -er для порівняння.',
+                        'funniest' => 'Найвищий ступінь потребує «the» і порівнює більше двох історій.',
+                        'more funny' => 'Короткі прикметники вживають форму з -er, а не «more».',
                     ],
                 ],
             ],
@@ -456,13 +456,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A1',
                 'tags' => ['superlative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Use the superlative form to show the top position among many classmates.',
+                    'a1' => 'Використовуйте найвищий ступінь, щоб показати найвищу позицію серед багатьох однокласників.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'smartest' => 'Superlative of a one-syllable adjective adds -est with "the".',
-                        'smarter' => 'Comparative only compares two students.',
-                        'more smart' => 'Short adjectives prefer the -er/-est pattern instead of "more".',
+                        'smartest' => 'Найвищий ступінь односкладового прикметника додає -est з «the».',
+                        'smarter' => 'Порівняльний ступінь порівнює лише двох учнів.',
+                        'more smart' => 'Короткі прикметники віддають перевагу схемі -er/-est замість «more».',
                     ],
                 ],
             ],
@@ -481,13 +481,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['negative sentence', 'equality structure', 'present simple'],
                 'hints' => [
-                    'a1' => 'In "as...as" comparisons, keep the adjective in its base form.',
+                    'a1' => 'У конструкціях «as...as» прикметник залишається в базовій формі.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'hot' => 'The pattern "not as...as" uses the base adjective without comparative endings.',
-                        'hotter' => 'Adding -er is for direct comparisons with "than".',
-                        'hottest' => 'Superlative needs "the" and involves three or more items.',
+                        'hot' => 'Конструкція «not as...as» вживає базовий прикметник без закінчень порівняльного ступеня.',
+                        'hotter' => 'Додавання -er використовується для прямих порівнянь з «than».',
+                        'hottest' => 'Найвищий ступінь потребує «the» і стосується трьох і більше.',
                     ],
                 ],
             ],
@@ -504,13 +504,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['interrogative sentence', 'comparative', 'present simple'],
                 'hints' => [
-                    'a1' => 'For two things, short adjectives usually add -er before "than".',
+                    'a1' => 'Для двох речей короткі прикметники зазвичай додають -er перед «than».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'sweeter' => 'Comparative rule: adjective + -er + than for two items.',
-                        'sweetest' => 'Superlative requires "the" and is used for three or more cookies.',
-                        'more sweet' => 'Short adjectives tend to avoid "more" in the comparative.',
+                        'sweeter' => 'Правило порівняльного ступеня: прикметник + -er + than для двох.',
+                        'sweetest' => 'Найвищий ступінь потребує «the» і використовується для трьох і більше печива.',
+                        'more sweet' => 'Короткі прикметники зазвичай уникають «more» у порівняльному ступені.',
                     ],
                 ],
             ],
@@ -527,13 +527,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple', 'advice'],
                 'hints' => [
-                    'a1' => 'Use the -er form to compare two roads or expectations.',
+                    'a1' => 'Вживайте форму з -er для порівняння двох доріг або очікувань.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'narrower' => 'Comparative pattern for short adjectives adds -er with "than".',
-                        'narrowest' => 'Superlative describes the extreme among several paths.',
-                        'more narrow' => 'Short adjectives typically form the comparative with -er.',
+                        'narrower' => 'Схема порівняльного ступеня для коротких прикметників додає -er з «than».',
+                        'narrowest' => 'Найвищий ступінь описує крайність серед кількох шляхів.',
+                        'more narrow' => 'Короткі прикметники зазвичай утворюють порівняльний ступінь з -er.',
                     ],
                 ],
             ],
@@ -550,13 +550,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['superlative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'When choosing one out of many, use the superlative with "the".',
+                    'a1' => 'При виборі одного з багатьох вживайте найвищий ступінь з «the».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'brightest' => 'Superlative: adjective + -est shows the highest degree.',
-                        'brighter' => 'Comparative only contrasts two rooms.',
-                        'more bright' => 'Short adjectives prefer -er/-est rather than "more".',
+                        'brightest' => 'Найвищий ступінь: прикметник + -est показує найвищий рівень.',
+                        'brighter' => 'Порівняльний ступінь лише протиставляє дві кімнати.',
+                        'more bright' => 'Короткі прикметники віддають перевагу -er/-est, а не «more».',
                     ],
                 ],
             ],
@@ -573,13 +573,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['comparative', 'affirmative sentence', 'adverb comparison', 'present simple'],
                 'hints' => [
-                    'a1' => 'Long adverbs form the comparative with "more" before the word.',
+                    'a1' => 'Довгі прислівники утворюють порівняльний ступінь з «more» перед словом.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more fluently' => 'Pattern: more + adverb + than for longer adverbs.',
-                        'most fluently' => 'Superlative uses "the most" when comparing more than two people.',
-                        'fluently' => 'Base form suits "as...as" structures, not direct comparison with than.',
+                        'more fluently' => 'Схема: more + прислівник + than для довгих прислівників.',
+                        'most fluently' => 'Найвищий ступінь вживає «the most» при порівнянні більше двох людей.',
+                        'fluently' => 'Базова форма підходить для структур «as...as», а не для прямого порівняння з than.',
                     ],
                 ],
             ],
@@ -596,13 +596,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['comparative', 'negative sentence', 'past simple'],
                 'hints' => [
-                    'a1' => 'Even in negatives, comparing two exams needs the -er form with "than".',
+                    'a1' => 'Навіть у запереченнях порівняння двох іспитів потребує форми з -er та «than».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'harder' => 'Comparative of a short adjective adds -er to show difference.',
-                        'hardest' => 'Superlative indicates the extreme among several tests.',
-                        'more hard' => 'Short adjectives do not usually take "more" for the comparative.',
+                        'harder' => 'Порівняльний ступінь короткого прикметника додає -er для показу різниці.',
+                        'hardest' => 'Найвищий ступінь вказує на крайність серед кількох тестів.',
+                        'more hard' => 'Короткі прикметники зазвичай не вживають «more» для порівняльного ступеня.',
                     ],
                 ],
             ],
@@ -619,13 +619,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['superlative', 'interrogative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'When asking about the top option among many, use the superlative with "the".',
+                    'a1' => 'При запитанні про найкращий варіант серед багатьох вживайте найвищий ступінь з «the».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'fastest' => 'Superlative of a short adjective uses -est for the highest degree.',
-                        'faster' => 'Comparative compares only two routes.',
-                        'more fast' => 'Short adjectives avoid "more" and use -er/-est instead.',
+                        'fastest' => 'Найвищий ступінь короткого прикметника вживає -est для найвищого рівня.',
+                        'faster' => 'Порівняльний ступінь порівнює лише два маршрути.',
+                        'more fast' => 'Короткі прикметники уникають «more» і вживають -er/-est замість.',
                     ],
                 ],
             ],
@@ -642,13 +642,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['comparative', 'affirmative sentence', 'past simple'],
                 'hints' => [
-                    'a1' => 'Use the -er form to compare two explanations directly.',
+                    'a1' => 'Вживайте форму з -er для безпосереднього порівняння двох пояснень.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'clearer' => 'Short adjectives form the comparative with -er when followed by "than".',
-                        'clearest' => 'Superlative describes the highest degree among several explanations.',
-                        'more clear' => 'Short adjectives typically avoid "more" for comparison.',
+                        'clearer' => 'Короткі прикметники утворюють порівняльний ступінь з -er, коли за ними йде «than».',
+                        'clearest' => 'Найвищий ступінь описує найвищий рівень серед кількох пояснень.',
+                        'more clear' => 'Короткі прикметники зазвичай уникають «more» для порівняння.',
                     ],
                 ],
             ],
@@ -665,13 +665,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['comparative', 'affirmative sentence', 'past simple', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'Irregular adverb uses -er in the comparative to show a delay.',
+                    'a1' => 'Неправильний прислівник вживає -er у порівняльному ступені для позначення затримки.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'later' => 'Comparative adverb pattern: add -er to show a greater delay.',
-                        'latest' => 'Superlative form with -est is used with "the".',
-                        'more late' => 'The adverb already has a set comparative without "more".',
+                        'later' => 'Схема порівняльного ступеня прислівника: додаємо -er для показу більшої затримки.',
+                        'latest' => 'Найвищий ступінь з -est вживається з «the».',
+                        'more late' => 'Цей прислівник уже має усталений порівняльний ступінь без «more».',
                     ],
                 ],
             ],
@@ -688,13 +688,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['comparative', 'future reference', 'affirmative sentence'],
                 'hints' => [
-                    'a1' => 'For two nights, add -er to the adjective before "than".',
+                    'a1' => 'Для двох ночей додаємо -er до прикметника перед «than».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'colder' => 'Comparative of a short adjective uses -er to show lower temperature.',
-                        'coldest' => 'Superlative would compare three or more nights.',
-                        'more cold' => 'Short adjectives use -er rather than "more" in comparisons.',
+                        'colder' => 'Порівняльний ступінь короткого прикметника вживає -er для показу нижчої температури.',
+                        'coldest' => 'Найвищий ступінь порівнював би три і більше ночей.',
+                        'more cold' => 'Короткі прикметники вживають -er, а не «more» у порівняннях.',
                     ],
                 ],
             ],
@@ -711,13 +711,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'To show a smaller degree, use the comparative form opposite of "more".',
+                    'a1' => 'Щоб показати менший ступінь, вживайте порівняльний ступінь, протилежний до «more».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'less' => 'Comparative of small amount pairs with adjectives to show decrease.',
-                        'lesser' => 'This form is formal and often used before a noun, not before an adjective alone.',
-                        'least' => 'Superlative indicates the smallest degree among several times.',
+                        'less' => 'Порівняльний ступінь малої кількості поєднується з прикметниками для показу зменшення.',
+                        'lesser' => 'Ця форма є офіційною і часто вживається перед іменником, а не перед прикметником окремо.',
+                        'least' => 'Найвищий ступінь вказує на найменший ступінь серед кількох разів.',
                     ],
                 ],
             ],
@@ -734,13 +734,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'A2',
                 'tags' => ['superlative', 'affirmative sentence', 'present perfect context'],
                 'hints' => [
-                    'a1' => 'For long adjectives, use "the most" to express the highest degree.',
+                    'a1' => 'Для довгих прикметників вживайте «the most» для вираження найвищого ступеня.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'most exciting' => 'Long adjectives form the superlative with "the most" + adjective.',
-                        'more exciting' => 'Comparative only compares two events.',
-                        'excitingest' => 'This form is non-standard; long adjectives avoid -est endings.',
+                        'most exciting' => 'Довгі прикметники утворюють найвищий ступінь з «the most» + прикметник.',
+                        'more exciting' => 'Порівняльний ступінь лише порівнює дві події.',
+                        'excitingest' => 'Ця форма є нестандартною; довгі прикметники уникають закінчень -est.',
                     ],
                 ],
             ],
@@ -759,13 +759,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['comparative', 'past simple', 'affirmative sentence'],
                 'hints' => [
-                    'a1' => 'Long adjectives take "more" for the comparative when contrasting two things.',
+                    'a1' => 'Довгі прикметники вживають «more» для порівняльного ступеня при протиставленні двох речей.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more thrilling' => 'Comparative of a long adjective uses more + adjective + than.',
-                        'most thrilling' => 'Superlative is for one item out of three or more.',
-                        'thrillingest' => 'Adding -est to long adjectives is non-standard.',
+                        'more thrilling' => 'Порівняльний ступінь довгого прикметника вживає more + прикметник + than.',
+                        'most thrilling' => 'Найвищий ступінь для вибору одного з трьох і більше.',
+                        'thrillingest' => 'Додавання -est до довгих прикметників є нестандартним.',
                     ],
                 ],
             ],
@@ -782,13 +782,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['comparative', 'present simple', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'Use more + adverb + than for comparing manners of action.',
+                    'a1' => 'Вживайте more + прислівник + than для порівняння способів дії.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more carefully' => 'Long adverbs use more + adverb + than for comparison.',
-                        'most carefully' => 'Superlative with "the" compares three or more situations.',
-                        'carefuller' => 'Adding -er is not standard for this adverb.',
+                        'more carefully' => 'Довгі прислівники вживають more + прислівник + than для порівняння.',
+                        'most carefully' => 'Найвищий ступінь з «the» порівнює три і більше ситуацій.',
+                        'carefuller' => 'Додавання -er не є стандартним для цього прислівника.',
                     ],
                 ],
             ],
@@ -805,13 +805,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['comparative', 'interrogative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'For two routes, use the -er comparative before "than" is implied.',
+                    'a1' => 'Для двох маршрутів вживайте порівняльний ступінь з -er, де «than» мається на увазі.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'safer' => 'Short adjectives often take -er in questions comparing two options.',
-                        'safest' => 'Superlative would require choosing one out of several routes.',
-                        'more safe' => 'Short adjectives commonly avoid "more" for comparison.',
+                        'safer' => 'Короткі прикметники часто вживають -er у запитаннях, що порівнюють два варіанти.',
+                        'safest' => 'Найвищий ступінь потребував би вибору одного з кількох маршрутів.',
+                        'more safe' => 'Короткі прикметники зазвичай уникають «more» для порівняння.',
                     ],
                 ],
             ],
@@ -828,13 +828,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['comparative', 'past simple', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'Some adverbs have an -er form to show a sooner time.',
+                    'a1' => 'Деякі прислівники мають форму з -er для позначення більш раннього часу.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'earlier' => 'Irregular adverb uses -er for comparison of time.',
-                        'earliest' => 'Superlative suggests the soonest among several times.',
-                        'more early' => 'This phrase is less common; the -er form is standard.',
+                        'earlier' => 'Неправильний прислівник вживає -er для порівняння часу.',
+                        'earliest' => 'Найвищий ступінь означає найраніший серед кількох разів.',
+                        'more early' => 'Ця фраза менш поширена; форма з -er є стандартною.',
                     ],
                 ],
             ],
@@ -851,13 +851,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['superlative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'To show the lowest degree of cost, use "the least" with the adjective.',
+                    'a1' => 'Щоб показати найнижчий ступінь вартості, вживайте «the least» з прикметником.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'least expensive' => 'Superlative of long adjectives can use "the least" for the lowest degree.',
-                        'less expensive' => 'Comparative only contrasts two prices.',
-                        'more inexpensive' => 'Double marking makes the phrase awkward; use a single superlative marker instead.',
+                        'least expensive' => 'Найвищий ступінь довгих прикметників може вживати «the least» для найнижчого рівня.',
+                        'less expensive' => 'Порівняльний ступінь лише протиставляє дві ціни.',
+                        'more inexpensive' => 'Подвійне маркування робить фразу незграбною; вживайте один маркер найвищого ступеня.',
                     ],
                 ],
             ],
@@ -874,7 +874,14 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['comparative', 'affirmative sentence', 'past simple', 'irregular adjective'],
                 'hints' => [
-                    'a1' => 'Use the irregular comparative form of "good" when comparing two attempts.',
+                    'a1' => 'Вживайте неправильну форму порівняльного ступеня від «good» при порівнянні двох спроб.',
+                ],
+                'explanations' => [
+                    'a1' => [
+                        'better' => 'Неправильний порівняльний ступінь від good показує вищу якість, ніж минулого разу.',
+                        'best' => 'Найвищий ступінь вживається для вибору одного з трьох і більше.',
+                        'more good' => 'Ця фраза є неграматичною; вживайте встановлену неправильну форму better.',
+                    ],
                 ],
             ],
             [
@@ -890,13 +897,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['comparative', 'future reference', 'affirmative sentence'],
                 'hints' => [
-                    'a1' => 'Use the -er form of a short adjective to show a reduced distance.',
+                    'a1' => 'Вживайте форму з -er короткого прикметника для показу зменшеної відстані.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'shorter' => 'Comparative of a short adjective uses -er to indicate a smaller amount.',
-                        'shortest' => 'Superlative is for the extreme among several options.',
-                        'more short' => 'Short adjectives prefer -er/-est instead of "more".',
+                        'shorter' => 'Порівняльний ступінь короткого прикметника вживає -er для позначення меншої кількості.',
+                        'shortest' => 'Найвищий ступінь для крайності серед кількох варіантів.',
+                        'more short' => 'Короткі прикметники віддають перевагу -er/-est замість «more».',
                     ],
                 ],
             ],
@@ -913,13 +920,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['equality structure', 'negative sentence', 'comparative', 'past simple'],
                 'hints' => [
-                    'a1' => 'To say two things are similar, use "as" + adjective + "as" even in negatives.',
+                    'a1' => 'Щоб сказати, що дві речі схожі, вживайте «as» + прикметник + «as» навіть у запереченнях.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'as entertaining' => 'Equality pattern keeps the adjective in base form within as...as.',
-                        'more entertaining' => 'This would state the sequel is superior, which the sentence denies.',
-                        'most entertaining' => 'Superlative suggests it is better than all others, not equal.',
+                        'as entertaining' => 'Схема рівності зберігає прикметник у базовій формі всередині as...as.',
+                        'more entertaining' => 'Це означало б, що продовження краще, що речення заперечує.',
+                        'most entertaining' => 'Найвищий ступінь передбачає, що він кращий за всіх інших, а не рівний.',
                     ],
                 ],
             ],
@@ -936,13 +943,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['superlative', 'adverb comparison', 'past simple'],
                 'hints' => [
-                    'a1' => 'When comparing three or more people, use "the most" + adverb.',
+                    'a1' => 'При порівнянні трьох і більше людей вживайте «the most» + прислівник.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'most confidently' => 'Superlative adverb uses the most + adverb to show the highest degree.',
-                        'more confidently' => 'Comparative only contrasts two candidates.',
-                        'confidence' => 'This is a noun, not an adverbial form.',
+                        'most confidently' => 'Найвищий ступінь прислівника вживає the most + прислівник для найвищого рівня.',
+                        'more confidently' => 'Порівняльний ступінь лише протиставляє двох кандидатів.',
+                        'confidence' => 'Це іменник, а не прислівникова форма.',
                     ],
                 ],
             ],
@@ -959,13 +966,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['comparative', 'interrogative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Long adjectives take "more" for comparison of two items.',
+                    'a1' => 'Довгі прикметники вживають «more» для порівняння двох предметів.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more stylish' => 'Comparative with a long adjective uses more + adjective + than.',
-                        'most stylish' => 'Superlative is reserved for one out of many choices.',
-                        'stylelier' => 'This spelling is non-standard; use a periphrastic comparative instead.',
+                        'more stylish' => 'Порівняльний ступінь з довгим прикметником вживає more + прикметник + than.',
+                        'most stylish' => 'Найвищий ступінь для вибору одного з багатьох.',
+                        'stylelier' => 'Це написання є нестандартним; вживайте описовий порівняльний ступінь.',
                     ],
                 ],
             ],
@@ -982,13 +989,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['superlative', 'affirmative sentence', 'past simple'],
                 'hints' => [
-                    'a1' => 'To show the smallest amount among options, use the superlative form opposite of "most".',
+                    'a1' => 'Щоб показати найменшу кількість серед варіантів, вживайте найвищий ступінь, протилежний до «most».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'least' => 'Superlative of small quantity uses the least before the adjective.',
-                        'less' => 'Comparative indicates a smaller amount between two.',
-                        'lesser' => 'This form is used attributively and sounds formal, not with adjectives alone.',
+                        'least' => 'Найвищий ступінь малої кількості вживає the least перед прикметником.',
+                        'less' => 'Порівняльний ступінь вказує на меншу кількість між двома.',
+                        'lesser' => 'Ця форма вживається атрибутивно і звучить офіційно, не з прикметниками окремо.',
                     ],
                 ],
             ],
@@ -1005,13 +1012,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B1',
                 'tags' => ['comparative', 'affirmative sentence', 'past simple', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'Use the irregular comparative adverb form to show extra effort.',
+                    'a1' => 'Вживайте неправильну форму порівняльного ступеня прислівника для показу додаткових зусиль.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'harder' => 'Adverbial comparative keeps the same form with -er to show greater intensity.',
-                        'hardest' => 'Superlative is for the highest degree among several periods.',
-                        'more hard' => 'The adverb does not need "more" for comparison.',
+                        'harder' => 'Порівняльний ступінь прислівника зберігає ту ж форму з -er для показу більшої інтенсивності.',
+                        'hardest' => 'Найвищий ступінь для найвищого рівня серед кількох періодів.',
+                        'more hard' => 'Цей прислівник не потребує «more» для порівняння.',
                     ],
                 ],
             ],
@@ -1030,13 +1037,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'past perfect context', 'inversion structure'],
                 'hints' => [
-                    'a1' => 'After contrasting two conditions, use adjective + -er before "than".',
+                    'a1' => 'Після протиставлення двох умов вживайте прикметник + -er перед «than».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'stronger' => 'Comparative of a short adjective uses -er to mark the increased force.',
-                        'strongest' => 'Superlative signals the highest degree among several, not two.',
-                        'more strong' => 'Short adjectives generally avoid "more" for the comparative.',
+                        'stronger' => 'Порівняльний ступінь короткого прикметника вживає -er для позначення посиленої сили.',
+                        'strongest' => 'Найвищий ступінь сигналізує про найвищий рівень серед кількох, а не двох.',
+                        'more strong' => 'Короткі прикметники зазвичай уникають «more» для порівняльного ступеня.',
                     ],
                 ],
             ],
@@ -1053,13 +1060,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'affirmative sentence', 'adverb comparison', 'present simple'],
                 'hints' => [
-                    'a1' => 'Long adverbs take "more" to compare performance in two settings.',
+                    'a1' => 'Довгі прислівники вживають «more» для порівняння виступів у двох місцях.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more beautifully' => 'Pattern: more + adverb + than for multi-syllable adverbs.',
-                        'most beautifully' => 'Superlative compares three or more performances.',
-                        'beautifuller' => 'This form is non-standard for the adverb.',
+                        'more beautifully' => 'Схема: more + прислівник + than для багатоскладових прислівників.',
+                        'most beautifully' => 'Найвищий ступінь порівнює три і більше виступів.',
+                        'beautifuller' => 'Ця форма є нестандартною для прислівника.',
                     ],
                 ],
             ],
@@ -1076,13 +1083,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['superlative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'When comparing three or more options, use "the most" with long adjectives.',
+                    'a1' => 'При порівнянні трьох і більше варіантів вживайте «the most» з довгими прикметниками.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'most feasible' => 'Superlative for long adjectives uses the most + adjective to show top suitability.',
-                        'more feasible' => 'Comparative only ranks two proposals.',
-                        'feasiblest' => 'Long adjectives avoid -est endings.',
+                        'most feasible' => 'Найвищий ступінь для довгих прикметників вживає the most + прикметник для найвищої придатності.',
+                        'more feasible' => 'Порівняльний ступінь лише ранжує дві пропозиції.',
+                        'feasiblest' => 'Довгі прикметники уникають закінчень -est.',
                     ],
                 ],
             ],
@@ -1099,13 +1106,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'past simple', 'contrast clause'],
                 'hints' => [
-                    'a1' => 'Use "more" with long adjectives to show increased difficulty.',
+                    'a1' => 'Вживайте «more» з довгими прикметниками для показу підвищеної складності.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more complex' => 'Comparative with long adjective follows more + adjective + than.',
-                        'most complex' => 'Superlative indicates top difficulty among several.',
-                        'complexer' => 'This ending is unusual for long adjectives.',
+                        'more complex' => 'Порівняльний ступінь з довгим прикметником слідує схемі more + прикметник + than.',
+                        'most complex' => 'Найвищий ступінь вказує на найвищу складність серед кількох.',
+                        'complexer' => 'Це закінчення є незвичним для довгих прикметників.',
                     ],
                 ],
             ],
@@ -1122,13 +1129,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'conditional clause', 'past perfect context'],
                 'hints' => [
-                    'a1' => 'Long adjectives in hypothetical comparisons use more + adjective.',
+                    'a1' => 'Довгі прикметники в гіпотетичних порівняннях вживають more + прикметник.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more comfortable' => 'Comparative pattern uses more + adjective + than in conditional ideas.',
-                        'most comfortable' => 'Superlative suits choosing the best among several seating options.',
-                        'comfortabler' => 'Adding -er to this adjective is non-standard.',
+                        'more comfortable' => 'Схема порівняльного ступеня вживає more + прикметник + than в умовних ідеях.',
+                        'most comfortable' => 'Найвищий ступінь підходить для вибору найкращого серед кількох місць.',
+                        'comfortabler' => 'Додавання -er до цього прикметника є нестандартним.',
                     ],
                 ],
             ],
@@ -1145,13 +1152,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'adverb comparison', 'present simple'],
                 'hints' => [
-                    'a1' => 'Use the comparative opposite of "more" to show reduced performance.',
+                    'a1' => 'Вживайте порівняльний ступінь, протилежний до «more», для показу зниженої продуктивності.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'less efficiently' => 'Comparative of efficiency uses less + adverb + than to show decline.',
-                        'least efficiently' => 'Superlative marks the lowest degree among several situations.',
-                        'inefficiently' => 'Base form lacks the comparative marker for two conditions.',
+                        'less efficiently' => 'Порівняльний ступінь ефективності вживає less + прислівник + than для показу зниження.',
+                        'least efficiently' => 'Найвищий ступінь позначає найнижчий рівень серед кількох ситуацій.',
+                        'inefficiently' => 'Базова форма не має порівняльного маркера для двох умов.',
                     ],
                 ],
             ],
@@ -1168,13 +1175,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'affirmative sentence', 'past simple'],
                 'hints' => [
-                    'a1' => 'Longer adjectives often use "more" for comparison between two moments.',
+                    'a1' => 'Довші прикметники часто вживають «more» для порівняння між двома моментами.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more certain' => 'Comparative with more + adjective expresses increased confidence.',
-                        'most certain' => 'Superlative indicates the highest degree among several options.',
-                        'certainer' => 'This form is unusual; use the periphrastic comparative instead.',
+                        'more certain' => 'Порівняльний ступінь з more + прикметник виражає підвищену впевненість.',
+                        'most certain' => 'Найвищий ступінь вказує на найвищий рівень серед кількох варіантів.',
+                        'certainer' => 'Ця форма є незвичною; вживайте описовий порівняльний ступінь.',
                     ],
                 ],
             ],
@@ -1191,13 +1198,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'affirmative sentence', 'past simple'],
                 'hints' => [
-                    'a1' => 'To show a smaller degree, pair "less" with the adjective.',
+                    'a1' => 'Щоб показати менший ступінь, поєднуйте «less» з прикметником.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'less dramatic' => 'Comparative using less + adjective expresses a reduced degree.',
-                        'least dramatic' => 'Superlative indicates the minimal degree among several shows.',
-                        'more dramatic' => 'This would mean the opposite, implying greater intensity.',
+                        'less dramatic' => 'Порівняльний ступінь з less + прикметник виражає знижений ступінь.',
+                        'least dramatic' => 'Найвищий ступінь вказує на мінімальний ступінь серед кількох шоу.',
+                        'more dramatic' => 'Це означало б протилежне, імплікуючи більшу інтенсивність.',
                     ],
                 ],
             ],
@@ -1214,13 +1221,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['superlative', 'adverb comparison', 'present simple'],
                 'hints' => [
-                    'a1' => 'When comparing more than two people, use "the most" + adverb.',
+                    'a1' => 'При порівнянні більше двох людей вживайте «the most» + прислівник.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'most calmly' => 'Superlative adverb structure: the most + adverb for the highest degree.',
-                        'more calmly' => 'Comparative only compares two interns.',
-                        'calmer' => 'This is an adjective form and not the correct adverbial superlative.',
+                        'most calmly' => 'Структура найвищого ступеня прислівника: the most + прислівник для найвищого рівня.',
+                        'more calmly' => 'Порівняльний ступінь лише порівнює двох стажерів.',
+                        'calmer' => 'Це форма прикметника і не є правильним прислівниковим найвищим ступенем.',
                     ],
                 ],
             ],
@@ -1237,13 +1244,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'Short adjectives use -er to compare appearance with reality.',
+                    'a1' => 'Короткі прикметники вживають -er для порівняння зовнішнього вигляду з реальністю.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'larger' => 'Comparative of a short adjective forms with -er and an implied than.',
-                        'largest' => 'Superlative requires "the" and compares more than two castles.',
-                        'more large' => 'Short adjectives typically avoid "more" for the comparative.',
+                        'larger' => 'Порівняльний ступінь короткого прикметника утворюється з -er і мається на увазі than.',
+                        'largest' => 'Найвищий ступінь потребує «the» і порівнює більше двох замків.',
+                        'more large' => 'Короткі прикметники зазвичай уникають «more» для порівняльного ступеня.',
                     ],
                 ],
             ],
@@ -1260,13 +1267,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'conditional clause', 'future reference', 'irregular adjective'],
                 'hints' => [
-                    'a1' => 'Use the irregular comparative form to show decline in conditions.',
+                    'a1' => 'Вживайте неправильну форму порівняльного ступеня для показу погіршення умов.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'worse' => 'Irregular comparative for bad indicates a poorer state.',
-                        'worst' => 'Superlative marks the lowest quality among several times.',
-                        'baddest' => 'This colloquial form is not standard for formal comparison.',
+                        'worse' => 'Неправильний порівняльний ступінь для bad вказує на гірший стан.',
+                        'worst' => 'Найвищий ступінь позначає найнижчу якість серед кількох разів.',
+                        'baddest' => 'Ця розмовна форма не є стандартною для офіційного порівняння.',
                     ],
                 ],
             ],
@@ -1283,13 +1290,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'B2',
                 'tags' => ['comparative', 'adverb comparison', 'past simple'],
                 'hints' => [
-                    'a1' => 'Many adverbs ending in -ly use more + adverb + than for comparison.',
+                    'a1' => 'Багато прислівників на -ly вживають more + прислівник + than для порівняння.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more quickly' => 'Comparative adverb with -ly uses more + adverb to show speed difference.',
-                        'most quickly' => 'Superlative compares three or more teams.',
-                        'quickerly' => 'This form is incorrect; -ly adverbs avoid the -er ending.',
+                        'more quickly' => 'Порівняльний ступінь прислівника з -ly вживає more + прислівник для показу різниці в швидкості.',
+                        'most quickly' => 'Найвищий ступінь порівнює три і більше команд.',
+                        'quickerly' => 'Ця форма є неправильною; прислівники на -ly уникають закінчення -er.',
                     ],
                 ],
             ],
@@ -1308,13 +1315,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'conditional clause', 'past perfect context', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'For longer adverbs in hypothetical statements, use more + adverb.',
+                    'a1' => 'Для довших прислівників у гіпотетичних твердженнях вживайте more + прислівник.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more smoothly' => 'Comparative adverb with more shows a higher degree of ease.',
-                        'most smoothly' => 'Superlative would suggest comparison among many scenarios.',
-                        'smoother' => 'This adjective form does not fit the adverbial role here.',
+                        'more smoothly' => 'Порівняльний ступінь прислівника з more показує вищий ступінь легкості.',
+                        'most smoothly' => 'Найвищий ступінь передбачав би порівняння серед багатьох сценаріїв.',
+                        'smoother' => 'Ця форма прикметника не підходить для прислівникової ролі тут.',
                     ],
                 ],
             ],
@@ -1331,13 +1338,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'affirmative sentence', 'present simple', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'Use more + adverb to express a stronger manner of believing.',
+                    'a1' => 'Вживайте more + прислівник для вираження сильнішого способу переконання.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more firmly' => 'Comparative of manner uses more + adverb to indicate increased strength.',
-                        'most firmly' => 'Superlative would compare several people, not just a change in one person.',
-                        'firmest' => 'This is an adjective superlative and does not modify the verb appropriately.',
+                        'more firmly' => 'Порівняльний ступінь способу вживає more + прислівник для вказівки на посилену міцність.',
+                        'most firmly' => 'Найвищий ступінь порівнював би кількох людей, а не просто зміну в одній людині.',
+                        'firmest' => 'Це найвищий ступінь прикметника і не модифікує дієслово належним чином.',
                     ],
                 ],
             ],
@@ -1354,13 +1361,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['superlative', 'affirmative sentence', 'present perfect context'],
                 'hints' => [
-                    'a1' => 'To show the highest degree, place the superlative determiner before the adjective.',
+                    'a1' => 'Щоб показати найвищий ступінь, поставте маркер найвищого ступеня перед прикметником.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'most' => 'Superlative construction requires the + most before a long adjective.',
-                        'more' => 'This would form a comparative rather than a superlative.',
-                        'mostly' => 'As an adverb, it does not fit the noun phrase structure.',
+                        'most' => 'Конструкція найвищого ступеня потребує the + most перед довгим прикметником.',
+                        'more' => 'Це сформувало б порівняльний ступінь, а не найвищий.',
+                        'mostly' => 'Як прислівник, він не підходить до структури іменникової фрази.',
                     ],
                 ],
             ],
@@ -1377,13 +1384,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'conditional clause', 'future reference', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'Use more + adverb to compare the intensity of a potential change.',
+                    'a1' => 'Вживайте more + прислівник для порівняння інтенсивності потенційної зміни.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more sharply' => 'Comparative adverb indicates a stronger rise compared with predictions.',
-                        'most sharply' => 'Superlative would compare several scenarios, not two.',
-                        'sharper' => 'This adjective form does not modify the verb directly.',
+                        'more sharply' => 'Порівняльний ступінь прислівника вказує на сильніше зростання порівняно з прогнозами.',
+                        'most sharply' => 'Найвищий ступінь порівнював би кілька сценаріїв, а не два.',
+                        'sharper' => 'Ця форма прикметника не модифікує дієслово безпосередньо.',
                     ],
                 ],
             ],
@@ -1400,13 +1407,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'past perfect context', 'adverb comparison'],
                 'hints' => [
-                    'a1' => 'Long adverbs describing manner use more + adverb for comparison.',
+                    'a1' => 'Довгі прислівники, що описують спосіб, вживають more + прислівник для порівняння.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more persuasively' => 'Comparative with more + adverb shows a stronger manner than expected.',
-                        'most persuasively' => 'Superlative would rank her against many speakers.',
-                        'persuasiveer' => 'This non-standard form does not create a correct adverb.',
+                        'more persuasively' => 'Порівняльний ступінь з more + прислівник показує сильніший спосіб, ніж очікувалося.',
+                        'most persuasively' => 'Найвищий ступінь ранжував би її серед багатьох спікерів.',
+                        'persuasiveer' => 'Ця нестандартна форма не створює правильний прислівник.',
                     ],
                 ],
             ],
@@ -1423,13 +1430,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['superlative', 'affirmative sentence', 'irregular adjective'],
                 'hints' => [
-                    'a1' => 'Use the irregular superlative form of "good" for the top candidate.',
+                    'a1' => 'Вживайте неправильну форму найвищого ступеня від «good» для найкращого кандидата.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'best' => 'Irregular superlative shows the highest degree without "most".',
-                        'better' => 'This is the comparative form and compares only two.',
-                        'more good' => 'This phrase is ungrammatical; use the set irregular forms.',
+                        'best' => 'Неправильний найвищий ступінь показує найвищий рівень без «most».',
+                        'better' => 'Це порівняльний ступінь і порівнює лише двох.',
+                        'more good' => 'Ця фраза є неграматичною; вживайте встановлені неправильні форми.',
                     ],
                 ],
             ],
@@ -1446,13 +1453,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'conditional clause', 'past perfect context', 'irregular adjective'],
                 'hints' => [
-                    'a1' => 'Use the irregular comparative form to show an unreal improved state.',
+                    'a1' => 'Вживайте неправильну форму порівняльного ступеня для показу нереального покращеного стану.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'better' => 'Irregular comparative expresses a higher quality than the current state.',
-                        'best' => 'Superlative would compare the team with several others.',
-                        'more well' => 'Standard English prefers the irregular comparative form.',
+                        'better' => 'Неправильний порівняльний ступінь виражає вищу якість, ніж поточний стан.',
+                        'best' => 'Найвищий ступінь порівнював би команду з кількома іншими.',
+                        'more well' => 'Стандартна англійська віддає перевагу неправильній формі порівняльного ступеня.',
                     ],
                 ],
             ],
@@ -1469,13 +1476,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'negative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'For long adjectives in a negative comparison, still use more + adjective.',
+                    'a1' => 'Для довгих прикметників у негативному порівнянні все одно вживайте more + прикметник.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more authoritative' => 'Comparative with more + adjective fits even with negative markers.',
-                        'most authoritative' => 'Superlative would claim the top position, which the sentence denies.',
-                        'authoritativeer' => 'This form is incorrect for long adjectives.',
+                        'more authoritative' => 'Порівняльний ступінь з more + прикметник підходить навіть з негативними маркерами.',
+                        'most authoritative' => 'Найвищий ступінь претендував би на найвищу позицію, що речення заперечує.',
+                        'authoritativeer' => 'Ця форма є неправильною для довгих прикметників.',
                     ],
                 ],
             ],
@@ -1492,13 +1499,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'affirmative sentence', 'past simple'],
                 'hints' => [
-                    'a1' => 'To show a gradual decrease, use the comparative opposite of "more".',
+                    'a1' => 'Щоб показати поступове зменшення, вживайте порівняльний ступінь, протилежний до «more».',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'less' => 'Comparative of degree indicates a smaller amount without adding than explicitly.',
-                        'lesser' => 'Formal attributive form, not natural before an adjective alone.',
-                        'least' => 'Superlative would imply comparison among many stages.',
+                        'less' => 'Порівняльний ступінь вказує на менший ступінь без явного додавання than.',
+                        'lesser' => 'Офіційна атрибутивна форма, не природна перед прикметником окремо.',
+                        'least' => 'Найвищий ступінь передбачав би порівняння серед багатьох етапів.',
                     ],
                 ],
             ],
@@ -1515,13 +1522,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['superlative', 'affirmative sentence', 'present simple'],
                 'hints' => [
-                    'a1' => 'To show the strongest option out of several, use "the most" with the adjective.',
+                    'a1' => 'Щоб показати найсильніший варіант з кількох, вживайте «the most» з прикметником.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'most resilient' => 'Superlative of a long adjective forms with the most + adjective.',
-                        'more resilient' => 'Comparative only contrasts two solutions.',
-                        'resiliencest' => 'This ending is not standard for long adjectives.',
+                        'most resilient' => 'Найвищий ступінь довгого прикметника утворюється з the most + прикметник.',
+                        'more resilient' => 'Порівняльний ступінь лише протиставляє два рішення.',
+                        'resiliencest' => 'Це закінчення не є стандартним для довгих прикметників.',
                     ],
                 ],
             ],
@@ -1538,13 +1545,13 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'conditional clause', 'present simple'],
                 'hints' => [
-                    'a1' => 'Use more + adjective in unreal conditions to show a higher level imagined.',
+                    'a1' => 'Вживайте more + прикметник у нереальних умовах для показу уявного вищого рівня.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more reliable' => 'Comparative with more + adjective expresses an unreal higher quality.',
-                        'most reliable' => 'Superlative would compare many data sets.',
-                        'reliabler' => 'This -er form is non-standard for long adjectives.',
+                        'more reliable' => 'Порівняльний ступінь з more + прикметник виражає нереальну вищу якість.',
+                        'most reliable' => 'Найвищий ступінь порівнював би багато наборів даних.',
+                        'reliabler' => 'Ця форма з -er є нестандартною для довгих прикметників.',
                     ],
                 ],
             ],
@@ -1561,16 +1568,28 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'source' => 'C1',
                 'tags' => ['comparative', 'adverb comparison', 'present perfect context'],
                 'hints' => [
-                    'a1' => 'Long adverbs in comparisons use more + adverb to show improved style.',
+                    'a1' => 'Довгі прислівники у порівняннях вживають more + прислівник для показу покращеного стилю.',
                 ],
                 'explanations' => [
                     'a1' => [
-                        'more concisely' => 'Comparative adverb with more shows a tighter writing style than before.',
-                        'most concisely' => 'Superlative would compare several versions of the text.',
-                        'conciselier' => 'This constructed form is not standard English.',
+                        'more concisely' => 'Порівняльний ступінь прислівника з more показує більш стислий стиль написання, ніж раніше.',
+                        'most concisely' => 'Найвищий ступінь порівнював би кілька версій тексту.',
+                        'conciselier' => 'Ця штучна форма не є стандартною англійською.',
                     ],
                 ],
             ],
         ];
+    }
+
+    private function flattenOptions(array $optionSets): array
+    {
+        $values = [];
+        foreach ($optionSets as $options) {
+            foreach ($options as $option) {
+                $values[] = (string) $option;
+            }
+        }
+
+        return array_values(array_unique($values));
     }
 }
