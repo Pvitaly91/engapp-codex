@@ -206,7 +206,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 'question' => 'Is this path as {a1} as the other?',
                 'answers' => ['a1' => 'safe'],
                 'options' => ['a1' => ['safe', 'safely', 'safer']],
-                'verb_hints' => ['a1' => 'safe'],
+                'verb_hints' => ['a1' => 'secure'],
             ],
             [
                 'level' => 'A2',
@@ -214,7 +214,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                 'question' => "This soup isn't as {a1} as yesterday's.",
                 'answers' => ['a1' => 'tasty'],
                 'options' => ['a1' => ['tasty', 'tastier', 'tastiest']],
-                'verb_hints' => ['a1' => 'tasty'],
+                'verb_hints' => ['a1' => 'delicious'],
             ],
             [
                 'level' => 'A2',
@@ -275,7 +275,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a1' => ['faster', 'fastest', 'fast'],
                     'a2' => ['fast', 'faster', 'fastest'],
                 ],
-                'verb_hints' => ['a1' => 'fast', 'a2' => 'fast'],
+                'verb_hints' => ['a1' => 'fast', 'a2' => 'quick'],
             ],
             [
                 'level' => 'B1',
@@ -286,7 +286,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a1' => ['tasty', 'tastier', 'tastiest'],
                     'a2' => ['less', 'least', 'fewer'],
                 ],
-                'verb_hints' => ['a1' => 'tasty', 'a2' => 'little'],
+                'verb_hints' => ['a1' => 'delicious', 'a2' => 'little'],
             ],
             [
                 'level' => 'B1',
@@ -319,7 +319,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a1' => ['heavier', 'heaviest', 'heavy'],
                     'a2' => ['large', 'larger', 'largest'],
                 ],
-                'verb_hints' => ['a1' => 'heavy', 'a2' => 'large'],
+                'verb_hints' => ['a1' => 'heavy', 'a2' => 'big'],
             ],
             [
                 'level' => 'B1',
@@ -365,7 +365,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a1' => ['safe', 'safely', 'safer'],
                     'a2' => ['safer', 'safest', 'safe'],
                 ],
-                'verb_hints' => ['a1' => 'safe', 'a2' => 'safe'],
+                'verb_hints' => ['a1' => 'secure', 'a2' => 'safe'],
             ],
             [
                 'level' => 'B2',
@@ -376,7 +376,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a1' => ['fastest', 'faster', 'fast'],
                     'a2' => ['faster', 'fastest', 'fast'],
                 ],
-                'verb_hints' => ['a1' => 'fast', 'a2' => 'fast'],
+                'verb_hints' => ['a1' => 'fast', 'a2' => 'quick'],
             ],
             [
                 'level' => 'B2',
@@ -387,7 +387,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a1' => ['higher', 'highest', 'high'],
                     'a2' => ['high', 'higher', 'highest'],
                 ],
-                'verb_hints' => ['a1' => 'high', 'a2' => 'high'],
+                'verb_hints' => ['a1' => 'high', 'a2' => 'tall'],
             ],
             [
                 'level' => 'B2',
@@ -398,7 +398,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a1' => ['as', 'so', 'more'],
                     'a2' => ['hardest', 'harder', 'hard'],
                 ],
-                'verb_hints' => ['a1' => 'as', 'a2' => 'hard'],
+                'verb_hints' => ['a1' => 'equally', 'a2' => 'hard'],
             ],
             [
                 'level' => 'B2',
@@ -475,7 +475,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a1' => ['wider', 'widest', 'wide'],
                     'a2' => ['wide', 'wider', 'widest'],
                 ],
-                'verb_hints' => ['a1' => 'wide', 'a2' => 'wide'],
+                'verb_hints' => ['a1' => 'wide', 'a2' => 'broad'],
             ],
             [
                 'level' => 'B2',
@@ -511,7 +511,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a2' => ['quieter', 'quiet', 'quietest'],
                     'a3' => ['reliable', 'more reliable', 'most reliable'],
                 ],
-                'verb_hints' => ['a1' => 'fast', 'a2' => 'quiet', 'a3' => 'reliable'],
+                'verb_hints' => ['a1' => 'fast', 'a2' => 'quiet', 'a3' => 'dependable'],
             ],
             [
                 'level' => 'C1',
@@ -523,7 +523,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a2' => ['less', 'least', 'fewer'],
                     'a3' => ['biggest', 'bigger', 'big'],
                 ],
-                'verb_hints' => ['a1' => 'tasty', 'a2' => 'little', 'a3' => 'big'],
+                'verb_hints' => ['a1' => 'delicious', 'a2' => 'little', 'a3' => 'big'],
             ],
             [
                 'level' => 'C1',
@@ -547,7 +547,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a2' => ['safer', 'safest', 'safe'],
                     'a3' => ['best', 'better', 'good'],
                 ],
-                'verb_hints' => ['a1' => 'safe', 'a2' => 'safe', 'a3' => 'good'],
+                'verb_hints' => ['a1' => 'secure', 'a2' => 'safe', 'a3' => 'good'],
             ],
             [
                 'level' => 'C1',
@@ -643,7 +643,7 @@ class ComparativesSuperlativesLeveledAiSeeder extends QuestionSeeder
                     'a2' => ['less', 'least', 'fewer'],
                     'a3' => ['longest', 'longer', 'long'],
                 ],
-                'verb_hints' => ['a1' => 'as', 'a2' => 'little', 'a3' => 'long'],
+                'verb_hints' => ['a1' => 'equally', 'a2' => 'little', 'a3' => 'long'],
             ],
             [
                 'level' => 'C1',
