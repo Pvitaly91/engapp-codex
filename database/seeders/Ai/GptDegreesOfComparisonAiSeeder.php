@@ -216,14 +216,14 @@ class GptDegreesOfComparisonAiSeeder extends QuestionSeeder
             ['level' => 'A1', 'source' => 'present', 'question' => 'My bike is {a1} than his.', 'answers' => ['a1' => 'slower'], 'options' => ['a1' => ['slower', 'slowest', 'slow']], 'verb_hints' => ['a1' => 'slow']],
             ['level' => 'A1', 'source' => 'present', 'question' => 'Her sandwich is {a1} than mine.', 'answers' => ['a1' => 'smaller'], 'options' => ['a1' => ['smaller', 'smallest', 'small']], 'verb_hints' => ['a1' => 'small']],
             ['level' => 'A1', 'source' => 'questions', 'question' => 'Is the river {a1} today than yesterday?', 'answers' => ['a1' => 'higher'], 'options' => ['a1' => ['higher', 'highest', 'high']], 'verb_hints' => ['a1' => 'high']],
-            ['level' => 'A1', 'source' => 'present', 'question' => 'This puzzle is {a1} than that one.', 'answers' => ['a1' => 'easier'], 'options' => ['a1' => ['easier', 'easy', 'easiest']], 'verb_hints' => ['a1' => 'easy']],
+
             ['level' => 'A1', 'source' => 'present', 'question' => 'Our dog runs {a1} than the cat.', 'answers' => ['a1' => 'faster'], 'options' => ['a1' => ['faster', 'fastest', 'fast']], 'verb_hints' => ['a1' => 'fast']],
             ['level' => 'A1', 'source' => 'present', 'question' => 'The soup is not as {a1} as yesterday.', 'answers' => ['a1' => 'hot'], 'options' => ['a1' => ['hot', 'hotter', 'hottest']], 'verb_hints' => ['a1' => 'warm']],
             ['level' => 'A1', 'source' => 'questions', 'question' => 'Are these shoes as {a1} as those?', 'answers' => ['a1' => 'comfortable'], 'options' => ['a1' => ['comfortable', 'more comfortable', 'comfortablest']], 'verb_hints' => ['a1' => 'comfy']],
             ['level' => 'A1', 'source' => 'present', 'question' => 'The red apple is {a1} than the green one.', 'answers' => ['a1' => 'sweeter'], 'options' => ['a1' => ['sweeter', 'sweetest', 'sweet']], 'verb_hints' => ['a1' => 'sweet']],
             ['level' => 'A1', 'source' => 'present', 'question' => 'This road is {a1} than the city street.', 'answers' => ['a1' => 'wider'], 'options' => ['a1' => ['wider', 'widest', 'wide']], 'verb_hints' => ['a1' => 'wide']],
             ['level' => 'A1', 'source' => 'present', 'question' => 'Tom is {a1} than Ben.', 'answers' => ['a1' => 'younger'], 'options' => ['a1' => ['younger', 'youngest', 'young']], 'verb_hints' => ['a1' => 'young']],
-            ['level' => 'A1', 'source' => 'mixed', 'question' => 'This box is {a1} than it looks.', 'answers' => ['a1' => 'lighter'], 'options' => ['a1' => ['lighter', 'lightest', 'light']], 'verb_hints' => ['a1' => 'light']],
+
             ['level' => 'A1', 'source' => 'questions', 'question' => 'Is the film as {a1} as the book?', 'answers' => ['a1' => 'long'], 'options' => ['a1' => ['long', 'longer', 'longest']], 'verb_hints' => ['a1' => 'length']],
 
             // A2 level — negatives, past actions, equality variations

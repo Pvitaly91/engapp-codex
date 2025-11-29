@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\V2;
+namespace Database\Seeders\Ai;
 
 use App\Models\Category;
 use App\Models\ChatGPTExplanation;
@@ -197,7 +197,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'lighter'],
                 'verb_hints' => [
-                    'a1' => 'base adjective: light',
+                    'a1' => 'базовий прикметник: light',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -220,7 +220,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'heavier'],
                 'verb_hints' => [
-                    'a1' => 'base adjective: heavy',
+                    'a1' => 'базовий прикметник: heavy',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -243,7 +243,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'busiest'],
                 'verb_hints' => [
-                    'a1' => 'superlative for busy',
+                    'a1' => 'найвищий ступінь для busy',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -266,7 +266,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'faster'],
                 'verb_hints' => [
-                    'a1' => 'comparative form of fast',
+                    'a1' => 'порівняльний ступінь від fast',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -289,7 +289,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'bigger'],
                 'verb_hints' => [
-                    'a1' => 'short adjective ending with consonant + vowel + consonant',
+                    'a1' => 'короткий прикметник: закінчення приголосна + голосна + приголосна',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -312,7 +312,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'narrowest'],
                 'verb_hints' => [
-                    'a1' => 'superlative form with -est',
+                    'a1' => 'найвищий ступінь із закінченням -est',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -335,7 +335,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'taller'],
                 'verb_hints' => [
-                    'a1' => 'short adjective: tall',
+                    'a1' => 'короткий прикметник: tall',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -358,7 +358,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'easier'],
                 'verb_hints' => [
-                    'a1' => 'adjective ending in -y',
+                    'a1' => 'прикметник із закінченням -y',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -381,7 +381,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'smallest'],
                 'verb_hints' => [
-                    'a1' => 'superlative of small',
+                    'a1' => 'найвищий ступінь від small',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -404,7 +404,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'slower'],
                 'verb_hints' => [
-                    'a1' => 'comparative of slow',
+                    'a1' => 'порівняльний ступінь від slow',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -427,7 +427,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'funnier'],
                 'verb_hints' => [
-                    'a1' => 'change -y to -i then add -er',
+                    'a1' => 'заміна -y на -i та додавання -er',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -450,7 +450,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'smartest'],
                 'verb_hints' => [
-                    'a1' => 'superlative with -est',
+                    'a1' => 'найвищий ступінь із закінченням -est',
                 ],
                 'level' => 'A1',
                 'source' => 'A1',
@@ -475,7 +475,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'hot'],
                 'verb_hints' => [
-                    'a1' => 'use base adjective in as...as',
+                    'a1' => 'базовий прикметник у конструкції as...as',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -498,7 +498,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'sweeter'],
                 'verb_hints' => [
-                    'a1' => 'short adjective comparative',
+                    'a1' => 'порівняльний ступінь короткого прикметника',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -521,7 +521,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'narrower'],
                 'verb_hints' => [
-                    'a1' => 'comparative of narrow',
+                    'a1' => 'порівняльний ступінь від narrow',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -544,7 +544,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'brightest'],
                 'verb_hints' => [
-                    'a1' => 'superlative with the + -est',
+                    'a1' => 'найвищий ступінь з the + -est',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -567,7 +567,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more fluently'],
                 'verb_hints' => [
-                    'a1' => 'comparative of a long adverb',
+                    'a1' => 'порівняльний ступінь довгого прислівника',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -590,7 +590,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'harder'],
                 'verb_hints' => [
-                    'a1' => 'comparative of hard',
+                    'a1' => 'порівняльний ступінь від hard',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -613,7 +613,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'fastest'],
                 'verb_hints' => [
-                    'a1' => 'superlative of fast',
+                    'a1' => 'найвищий ступінь від fast',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -636,7 +636,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'clearer'],
                 'verb_hints' => [
-                    'a1' => 'comparative of clear',
+                    'a1' => 'порівняльний ступінь від clear',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -659,7 +659,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'later'],
                 'verb_hints' => [
-                    'a1' => 'comparative adverb of late',
+                    'a1' => 'порівняльний прислівник від late',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -682,7 +682,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'colder'],
                 'verb_hints' => [
-                    'a1' => 'comparative of cold',
+                    'a1' => 'порівняльний ступінь від cold',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -705,7 +705,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'less'],
                 'verb_hints' => [
-                    'a1' => 'comparative of little (amount)',
+                    'a1' => 'порівняльний ступінь від little (кількість)',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -728,7 +728,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'most exciting'],
                 'verb_hints' => [
-                    'a1' => 'superlative with most + long adjective',
+                    'a1' => 'найвищий ступінь з most + довгий прикметник',
                 ],
                 'level' => 'A2',
                 'source' => 'A2',
@@ -753,7 +753,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more thrilling'],
                 'verb_hints' => [
-                    'a1' => 'comparative with more + long adjective',
+                    'a1' => 'порівняльний ступінь з more + довгий прикметник',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -776,7 +776,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more carefully'],
                 'verb_hints' => [
-                    'a1' => 'comparative of careful (adverb)',
+                    'a1' => 'порівняльний ступінь прислівника carefully',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -799,7 +799,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'safer'],
                 'verb_hints' => [
-                    'a1' => 'short adjective comparative',
+                    'a1' => 'порівняльний ступінь короткого прикметника',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -822,7 +822,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'earlier'],
                 'verb_hints' => [
-                    'a1' => 'comparative adverb of early',
+                    'a1' => 'порівняльний прислівник від early',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -845,7 +845,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'least expensive'],
                 'verb_hints' => [
-                    'a1' => 'superlative using least',
+                    'a1' => 'найвищий ступінь з least',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -868,7 +868,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'better'],
                 'verb_hints' => [
-                    'a1' => 'irregular comparative of good',
+                    'a1' => 'неправильний порівняльний ступінь від good',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -891,7 +891,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'shorter'],
                 'verb_hints' => [
-                    'a1' => 'comparative for future improvement',
+                    'a1' => 'порівняльний ступінь для майбутнього покращення',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -914,7 +914,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'as entertaining'],
                 'verb_hints' => [
-                    'a1' => 'equality with as...as for long adjective',
+                    'a1' => 'рівність з as...as для довгого прикметника',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -937,7 +937,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'most confidently'],
                 'verb_hints' => [
-                    'a1' => 'superlative adverb with most',
+                    'a1' => 'найвищий ступінь прислівника з most',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -960,7 +960,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more stylish'],
                 'verb_hints' => [
-                    'a1' => 'comparative with more + long adjective',
+                    'a1' => 'порівняльний ступінь з more + довгий прикметник',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -983,7 +983,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'least'],
                 'verb_hints' => [
-                    'a1' => 'superlative of little (quantity)',
+                    'a1' => 'найвищий ступінь від little (кількість)',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -1006,7 +1006,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'harder'],
                 'verb_hints' => [
-                    'a1' => 'comparative of hard (adverb)',
+                    'a1' => 'порівняльний ступінь прислівника hard',
                 ],
                 'level' => 'B1',
                 'source' => 'B1',
@@ -1031,7 +1031,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'stronger'],
                 'verb_hints' => [
-                    'a1' => 'comparative of strong',
+                    'a1' => 'порівняльний ступінь від strong',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1054,7 +1054,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more beautifully'],
                 'verb_hints' => [
-                    'a1' => 'comparative of long adverb beautifully',
+                    'a1' => 'порівняльний ступінь довгого прислівника beautifully',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1077,7 +1077,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'most feasible'],
                 'verb_hints' => [
-                    'a1' => 'superlative with most + long adjective',
+                    'a1' => 'найвищий ступінь з most + довгий прикметник',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1100,7 +1100,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more complex'],
                 'verb_hints' => [
-                    'a1' => 'comparative with more + long adjective',
+                    'a1' => 'порівняльний ступінь з more + довгий прикметник',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1123,7 +1123,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more comfortable'],
                 'verb_hints' => [
-                    'a1' => 'comparative with more + long adjective',
+                    'a1' => 'порівняльний ступінь з more + довгий прикметник',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1146,7 +1146,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'less efficiently'],
                 'verb_hints' => [
-                    'a1' => 'comparative showing decrease with adverb',
+                    'a1' => 'порівняльний ступінь зменшення з прислівником',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1169,7 +1169,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more certain'],
                 'verb_hints' => [
-                    'a1' => 'comparative with more + adjective',
+                    'a1' => 'порівняльний ступінь з more + прикметник',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1192,7 +1192,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'less dramatic'],
                 'verb_hints' => [
-                    'a1' => 'comparative showing reduction with long adjective',
+                    'a1' => 'порівняльний ступінь зменшення з довгим прикметником',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1215,7 +1215,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'most calmly'],
                 'verb_hints' => [
-                    'a1' => 'superlative adverb with most',
+                    'a1' => 'найвищий ступінь прислівника з most',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1238,7 +1238,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'larger'],
                 'verb_hints' => [
-                    'a1' => 'comparative of large',
+                    'a1' => 'порівняльний ступінь від large',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1261,7 +1261,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'worse'],
                 'verb_hints' => [
-                    'a1' => 'irregular comparative of bad',
+                    'a1' => 'неправильний порівняльний ступінь від bad',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1284,7 +1284,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more quickly'],
                 'verb_hints' => [
-                    'a1' => 'comparative adverb with more',
+                    'a1' => 'порівняльний прислівник з more',
                 ],
                 'level' => 'B2',
                 'source' => 'B2',
@@ -1309,7 +1309,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more smoothly'],
                 'verb_hints' => [
-                    'a1' => 'comparative adverb with more',
+                    'a1' => 'порівняльний прислівник з more',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1332,7 +1332,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more firmly'],
                 'verb_hints' => [
-                    'a1' => 'comparative adverb showing degree',
+                    'a1' => 'порівняльний прислівник ступеня',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1355,7 +1355,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'most'],
                 'verb_hints' => [
-                    'a1' => 'superlative marker before adjective',
+                    'a1' => 'маркер найвищого ступеня перед прикметником',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1378,7 +1378,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more sharply'],
                 'verb_hints' => [
-                    'a1' => 'comparative adverb with more',
+                    'a1' => 'порівняльний прислівник з more',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1401,7 +1401,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more persuasively'],
                 'verb_hints' => [
-                    'a1' => 'comparative adverb for manner',
+                    'a1' => 'порівняльний прислівник способу',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1424,7 +1424,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'best'],
                 'verb_hints' => [
-                    'a1' => 'irregular superlative of good',
+                    'a1' => 'неправильний найвищий ступінь від good',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1447,7 +1447,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'better'],
                 'verb_hints' => [
-                    'a1' => 'irregular comparative of good/well',
+                    'a1' => 'неправильний порівняльний ступінь від good/well',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1470,7 +1470,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more authoritative'],
                 'verb_hints' => [
-                    'a1' => 'comparative with more + long adjective',
+                    'a1' => 'порівняльний ступінь з more + довгий прикметник',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1493,7 +1493,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'less'],
                 'verb_hints' => [
-                    'a1' => 'comparative for reduced degree',
+                    'a1' => 'порівняльний ступінь для зменшення',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1516,7 +1516,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'most resilient'],
                 'verb_hints' => [
-                    'a1' => 'superlative with most + long adjective',
+                    'a1' => 'найвищий ступінь з most + довгий прикметник',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1539,7 +1539,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more reliable'],
                 'verb_hints' => [
-                    'a1' => 'comparative with more + long adjective',
+                    'a1' => 'порівняльний ступінь з more + довгий прикметник',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
@@ -1562,7 +1562,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 ],
                 'answers' => ['a1' => 'more concisely'],
                 'verb_hints' => [
-                    'a1' => 'comparative adverb with more',
+                    'a1' => 'порівняльний прислівник з more',
                 ],
                 'level' => 'C1',
                 'source' => 'C1',
