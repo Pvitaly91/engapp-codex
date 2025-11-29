@@ -356,7 +356,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'good'],
                 'question_hints' => ['Some adjectives have irregular comparative forms.'],
                 'chatgpt_explanations' => [
-                    'better' => 'Good має неправильну comparative форму. Формула: good → comparative → superlative. Приклад: Her cooking is finer than mine.',
+                    'better' => 'Good має неправильну comparative форму. Формула: good → comparative → superlative. Приклад: Her presentation is superior to mine.',
                     'gooder' => 'Неправильні прикметники не додають -er до базової форми.',
                     'best' => 'Superlative не поєднується з than.',
                 ],
@@ -447,7 +447,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'bad'],
                 'question_hints' => ['Some adjectives have irregular comparative forms.'],
                 'chatgpt_explanations' => [
-                    'worse' => 'Bad має неправильну comparative форму. Формула: bad → comparative → superlative. Приклад: The noise is louder today.',
+                    'worse' => 'Bad має неправильну comparative форму. Формула: bad → comparative → superlative. Приклад: The situation is becoming more difficult.',
                     'badder' => 'Неправильні прикметники не додають -er.',
                     'worst' => 'Superlative використовується для найвищого ступеня в групі.',
                 ],
@@ -633,7 +633,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'good'],
                 'question_hints' => ['Conditional sentences use comparative forms to show potential outcomes.'],
                 'chatgpt_explanations' => [
-                    'better' => 'У conditional реченнях comparative показує потенційний результат. Приклад: If we had started earlier, the outcome would have been finer.',
+                    'better' => 'У conditional реченнях comparative показує потенційний результат. Приклад: If we had started earlier, the outcome would have been more favorable.',
                     'gooder' => 'Good має неправильну форму, не додає -er.',
                     'best' => 'Superlative використовується для найвищого ступеня в групі, не для умовного порівняння.',
                 ],
@@ -672,7 +672,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'good'],
                 'question_hints' => ['The double comparative structure: "The more..., the + comparative...".'],
                 'chatgpt_explanations' => [
-                    'better' => 'Структура the more..., the + comparative виражає пропорційну залежність. Приклад: The longer you wait, the stronger the result.',
+                    'better' => 'Структура the more..., the + comparative виражає пропорційну залежність. Приклад: The longer you wait, the more prepared you will be.',
                     'gooder' => 'Good має неправильну форму, не додає -er.',
                     'best' => 'Superlative не використовується у структурі the more..., the...',
                 ],
@@ -698,7 +698,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'highest degree'],
                 'question_hints' => ['Use "the most + adjective" for superlatives of long adjectives.'],
                 'chatgpt_explanations' => [
-                    'most' => 'Superlative для довгих прикметників: the + most + adjective. By far підсилює superlative. Приклад: This is by far the finest work we have received.',
+                    'most' => 'Superlative для довгих прикметників: the + most + adjective. By far підсилює superlative. Приклад: This is by far the most remarkable achievement we have witnessed.',
                     'more' => 'Comparative порівнює два об\'єкти, а не вибір з групи.',
                     'much' => 'Much не є частиною superlative конструкції.',
                 ],
@@ -791,7 +791,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'increase'],
                 'question_hints' => ['Conditional structures use comparative forms to show hypothetical outcomes.'],
                 'chatgpt_explanations' => [
-                    'more' => 'У conditional реченнях comparative показує гіпотетичний результат. Формула: Had + subject + been + more + adjective..., subject + would have + past participle. Приклад: Had the analysis been more thorough, the conclusions would have been sounder.',
+                    'more' => 'У conditional реченнях comparative показує гіпотетичний результат. Формула: Had + subject + been + more + adjective..., subject + would have + past participle. Приклад: Had the analysis been more thorough, the conclusions would have been more accurate.',
                     'most' => 'Superlative не використовується у conditional порівняннях.',
                     'much' => 'Much не є comparative формою.',
                 ],
@@ -856,7 +856,7 @@ class GptDegreesOfComparisonSeeder extends QuestionSeeder
                 'verb_hints' => ['a1' => 'increase'],
                 'question_hints' => ['Subjunctive conditionals use comparative forms.'],
                 'chatgpt_explanations' => [
-                    'more' => 'У subjunctive conditional реченнях comparative показує гіпотетичний результат. Формула: Were + subject + to be + more + adjective..., subject + would + verb. Приклад: Were the standards to be stricter, fewer applicants would qualify.',
+                    'more' => 'У subjunctive conditional реченнях comparative показує гіпотетичний результат. Формула: Were + subject + to be + more + adjective..., subject + would + verb. Приклад: Were the criteria to be more demanding, fewer candidates would meet them.',
                     'most' => 'Superlative не використовується у conditional порівняннях.',
                     'much' => 'Much не є comparative формою.',
                 ],
