@@ -777,11 +777,11 @@
 
                 return `<?php
 
-namespace ${namespace};
+namespace ` + namespace + `;
 
 use App\\Support\\Database\\Seeder;
 
-class ${className} extends Seeder
+class ` + className + ` extends Seeder
 {
     public function run(): void
     {
