@@ -234,15 +234,6 @@ class SeedRunController extends Controller
         $contents = (string) $validated['contents'];
         $folder = trim((string) ($validated['folder'] ?? ''));
 
-        // Validate PHP syntax
-        $syntaxCheck = $this->validatePhpSyntax($contents);
-
-        if ($syntaxCheck !== true) {
-            return response()->json([
-                'message' => __('Невалідний PHP синтаксис: :error', ['error' => $syntaxCheck]),
-            ], 422);
-        }
-
         // Build the directory path with strict validation
         $baseDir = database_path('seeders');
         $targetDir = $baseDir;
@@ -2920,42 +2911,6 @@ class SeedRunController extends Controller
         }
 
         return @class_exists($className);
-    }
-
-    /**
-     * Validate PHP syntax of the provided code.
-     *
-     * @return bool|string True if valid, error message string if invalid
-     */
-    protected function validatePhpSyntax(string $code): bool|string
-    {
-        // Create a temporary file to check syntax
-        $tempFile = tempnam(sys_get_temp_dir(), 'php_check_');
-
-        if ($tempFile === false) {
-            return __('Не вдалося створити тимчасовий файл для перевірки синтаксису.');
-        }
-
-        try {
-            file_put_contents($tempFile, $code);
-
-            $output = [];
-            $returnCode = 0;
-
-            exec(sprintf('php -l %s 2>&1', escapeshellarg($tempFile)), $output, $returnCode);
-
-            if ($returnCode !== 0) {
-                $errorMessage = implode("\n", $output);
-                // Clean up temp file path from error message
-                $errorMessage = str_replace($tempFile, 'file', $errorMessage);
-
-                return $errorMessage;
-            }
-
-            return true;
-        } finally {
-            @unlink($tempFile);
-        }
     }
 
     /**
