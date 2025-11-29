@@ -219,7 +219,7 @@ class SeedRunController extends Controller
         $validator = Validator::make($request->all(), [
             'class_name' => ['required', 'string', 'regex:/^[A-Z][a-zA-Z0-9]*$/'],
             'contents' => ['required', 'string'],
-            'folder' => ['nullable', 'string'],
+            'folder' => ['nullable', 'string', 'max:100'],
         ]);
 
         if ($validator->fails()) {
@@ -234,26 +234,65 @@ class SeedRunController extends Controller
         $contents = (string) $validated['contents'];
         $folder = trim((string) ($validated['folder'] ?? ''));
 
-        // Build the directory path
+        // Validate PHP syntax
+        $syntaxCheck = $this->validatePhpSyntax($contents);
+
+        if ($syntaxCheck !== true) {
+            return response()->json([
+                'message' => __('Невалідний PHP синтаксис: :error', ['error' => $syntaxCheck]),
+            ], 422);
+        }
+
+        // Build the directory path with strict validation
         $baseDir = database_path('seeders');
         $targetDir = $baseDir;
 
         if ($folder !== '') {
-            // Sanitize folder path (only allow alphanumeric, underscores, and directory separators)
-            $folder = preg_replace('/[^a-zA-Z0-9_\/\\\\]/', '', $folder);
-            $folder = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $folder);
-            $folder = trim($folder, DIRECTORY_SEPARATOR);
+            // Use whitelist approach: only allow alphanumeric characters and underscores in folder names
+            // Split by any directory separator and validate each part
+            $parts = preg_split('/[\/\\\\]+/', $folder);
+            $sanitizedParts = [];
+
+            foreach ($parts as $part) {
+                $part = trim($part);
+
+                if ($part === '' || $part === '.' || $part === '..') {
+                    continue;
+                }
+
+                // Only allow alphanumeric and underscores in folder names
+                if (! preg_match('/^[a-zA-Z][a-zA-Z0-9_]*$/', $part)) {
+                    return response()->json([
+                        'message' => __('Назва папки може містити лише літери, цифри та підкреслення, і має починатися з літери.'),
+                    ], 422);
+                }
+
+                $sanitizedParts[] = $part;
+            }
+
+            $folder = implode(DIRECTORY_SEPARATOR, $sanitizedParts);
 
             if ($folder !== '') {
                 $targetDir = $baseDir . DIRECTORY_SEPARATOR . $folder;
+
+                // Ensure the resolved path is still within the seeders directory
+                $resolvedPath = realpath(dirname($targetDir));
+
+                if ($resolvedPath !== false && strpos($resolvedPath, realpath($baseDir)) !== 0) {
+                    return response()->json([
+                        'message' => __('Невалідний шлях до папки.'),
+                    ], 422);
+                }
             }
         }
 
         // Build the namespace based on folder structure
         $namespace = 'Database\\Seeders';
+
         if ($folder !== '') {
             $namespaceParts = explode(DIRECTORY_SEPARATOR, $folder);
             $namespaceParts = array_filter($namespaceParts, fn ($part) => $part !== '');
+
             if (! empty($namespaceParts)) {
                 $namespace .= '\\' . implode('\\', $namespaceParts);
             }
@@ -2845,6 +2884,42 @@ class SeedRunController extends Controller
         }
 
         return @class_exists($className);
+    }
+
+    /**
+     * Validate PHP syntax of the provided code.
+     *
+     * @return bool|string True if valid, error message string if invalid
+     */
+    protected function validatePhpSyntax(string $code): bool|string
+    {
+        // Create a temporary file to check syntax
+        $tempFile = tempnam(sys_get_temp_dir(), 'php_check_');
+
+        if ($tempFile === false) {
+            return __('Не вдалося створити тимчасовий файл для перевірки синтаксису.');
+        }
+
+        try {
+            file_put_contents($tempFile, $code);
+
+            $output = [];
+            $returnCode = 0;
+
+            exec(sprintf('php -l %s 2>&1', escapeshellarg($tempFile)), $output, $returnCode);
+
+            if ($returnCode !== 0) {
+                $errorMessage = implode("\n", $output);
+                // Clean up temp file path from error message
+                $errorMessage = str_replace($tempFile, 'file', $errorMessage);
+
+                return $errorMessage;
+            }
+
+            return true;
+        } finally {
+            @unlink($tempFile);
+        }
     }
 
     /**
