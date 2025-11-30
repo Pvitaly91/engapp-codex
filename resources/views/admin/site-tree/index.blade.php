@@ -519,8 +519,10 @@
                     setTimeout(() => { this.message = ''; }, 3000);
                 },
 
-                async fetchTree() {
-                    this.loading = true;
+                async fetchTree(showLoading = true) {
+                    if (showLoading) {
+                        this.loading = true;
+                    }
                     try {
                         const response = await fetch('/admin/site-tree/api', {
                             headers: { 'Accept': 'application/json' }
@@ -532,7 +534,9 @@
                     } catch (error) {
                         this.showMessage('Помилка завантаження дерева', 'error');
                     }
-                    this.loading = false;
+                    if (showLoading) {
+                        this.loading = false;
+                    }
                 },
 
                 async toggleItem(item) {
@@ -654,7 +658,7 @@
                         
                         const data = await response.json();
                         if (data.success) {
-                            await this.fetchTree();
+                            await this.fetchTree(false);
                             this.showMessage('Створено');
                             this.closeModal();
                         }
@@ -676,7 +680,7 @@
                         });
                         const data = await response.json();
                         if (data.success) {
-                            await this.fetchTree();
+                            await this.fetchTree(false);
                             this.showMessage('Видалено');
                         }
                     } catch (error) {
@@ -824,8 +828,18 @@
                         return;
                     }
 
-                    // Calculate new position - drop after target
+                    // Prevent dropping a parent onto its own child
+                    if (this.isDescendant(targetItem, this.draggedItem.id)) {
+                        this.dragOverId = null;
+                        this.showMessage('Неможливо перемістити елемент у власний підрозділ', 'error');
+                        return;
+                    }
+
+                    // Calculate new position - drop after target (same parent as target)
                     const newParentId = targetParentId;
+                    // Target index is the position of the target in its parent's children array
+                    // We want to place dragged item right after target, so newSortOrder = targetItem.sort_order + 1
+                    // However, we don't have sort_order in frontend, so we use index
                     const newSortOrder = targetIndex + 1;
 
                     try {
@@ -843,7 +857,8 @@
                         });
                         const data = await response.json();
                         if (data.success) {
-                            await this.fetchTree();
+                            // Fetch tree without showing loading spinner to avoid visual reload effect
+                            await this.fetchTree(false);
                             this.showMessage('Переміщено');
                         } else {
                             this.showMessage(data.message || 'Помилка переміщення', 'error');
@@ -853,6 +868,16 @@
                     }
 
                     this.dragOverId = null;
+                },
+
+                // Check if checkItem is a descendant of itemId
+                isDescendant(checkItem, itemId) {
+                    if (!checkItem.children) return false;
+                    for (const child of checkItem.children) {
+                        if (child.id === itemId) return true;
+                        if (this.isDescendant(child, itemId)) return true;
+                    }
+                    return false;
                 },
 
                 // Touch handlers for mobile
