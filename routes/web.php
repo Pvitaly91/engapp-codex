@@ -256,6 +256,8 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::get('/seed-runs/preview', [SeedRunController::class, 'preview'])->name('seed-runs.preview');
         Route::get('/seed-runs/file', [SeedRunController::class, 'showSeederFile'])->name('seed-runs.file.show');
         Route::put('/seed-runs/file', [SeedRunController::class, 'updateSeederFile'])->name('seed-runs.file.update');
+        Route::post('/seed-runs/file', [SeedRunController::class, 'storeSeederFile'])->name('seed-runs.file.store');
+        Route::get('/seed-runs/folders', [SeedRunController::class, 'getSeederFolders'])->name('seed-runs.folders.list');
         Route::post('/seed-runs/run', [SeedRunController::class, 'run'])->name('seed-runs.run');
         Route::delete('/seed-runs/delete-file', [SeedRunController::class, 'destroySeederFile'])
             ->name('seed-runs.destroy-seeder-file');
