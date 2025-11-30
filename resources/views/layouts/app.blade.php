@@ -73,6 +73,7 @@
 
                 <div class="hidden md:flex md:items-center md:gap-6 text-gray-600 font-medium">
                     <a href="{{ route('pages.manage.index') }}" class="hover:text-blue-500 transition">Сторінки</a>
+                    <a href="{{ route('site-tree.index') }}" class="hover:text-blue-500 transition">Структура сайту</a>
                     <div
                         x-data="{ open: false }"
                         class="relative"
@@ -154,6 +155,7 @@
                 x-transition
             >
                 <a href="{{ route('pages.manage.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Сторінки</a>
+                <a href="{{ route('site-tree.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Структура сайту</a>
                 <div x-data="{ openGrammar: false }" class="space-y-1">
                     <button
                         type="button"
@@ -204,7 +206,8 @@
         </div>
     </nav>
 
-    <!-- Alpine.js для реактивності -->
+    <!-- Alpine.js plugins and core -->
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <!-- Контент -->
     <main class="flex-1 container mx-auto px-4">
