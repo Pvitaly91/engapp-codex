@@ -327,7 +327,7 @@
             <h2 class="text-2xl font-semibold">5. Керування резервними гілками</h2>
             <p class="text-sm text-muted-foreground">Усі створені гілки доступні нижче. Звідси ж можна запушити їх на GitHub, щоб зберегти віддалену копію.</p>
           </div>
-          @if(!$backupBranches->isEmpty())
+          @if($backupBranches->isNotEmpty())
             <button 
               type="button" 
               id="toggle-backup-branches"
