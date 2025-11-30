@@ -524,9 +524,16 @@
                 startEditing(item) {
                     this.editingId = item.id;
                     this.editingTitle = item.title;
+                    // Focus will be handled by Alpine's x-init on the input
                     this.$nextTick(() => {
-                        const input = document.querySelector(`input[x-model="editingTitle"]`);
-                        if (input) input.focus();
+                        const inputs = document.querySelectorAll('input[type="text"]');
+                        for (const input of inputs) {
+                            if (input.value === item.title) {
+                                input.focus();
+                                input.select();
+                                break;
+                            }
+                        }
                     });
                 },
 
@@ -546,13 +553,21 @@
                             },
                             body: JSON.stringify({ title: this.editingTitle.trim() })
                         });
+                        
+                        if (!response.ok) {
+                            const errorText = response.status === 422 ? 'Невірні дані' : 
+                                              response.status === 404 ? 'Елемент не знайдено' :
+                                              response.status >= 500 ? 'Помилка сервера' : 'Помилка збереження';
+                            throw new Error(errorText);
+                        }
+                        
                         const data = await response.json();
                         if (data.success) {
                             item.title = data.item.title;
                             this.showMessage('Збережено');
                         }
                     } catch (error) {
-                        this.showMessage('Помилка збереження', 'error');
+                        this.showMessage(error.message || 'Помилка збереження', 'error');
                     }
                     this.cancelEditing();
                 },
@@ -598,6 +613,11 @@
                                 parent_id: this.modalData.parentId
                             })
                         });
+                        
+                        if (!response.ok) {
+                            throw new Error(response.status >= 500 ? 'Помилка сервера' : 'Помилка створення');
+                        }
+                        
                         const data = await response.json();
                         if (data.success) {
                             await this.fetchTree();

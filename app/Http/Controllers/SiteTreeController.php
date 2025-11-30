@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\SiteTreeItem;
-use Database\Seeders\SiteTreeSeeder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -128,14 +128,14 @@ class SiteTreeController extends Controller
             $oldSortOrder = $item->sort_order;
 
             // If moving within the same parent
-            if ($oldParentId == $newParentId) {
+            if ($oldParentId === $newParentId) {
                 if ($newSortOrder > $oldSortOrder) {
                     // Moving down
                     SiteTreeItem::where('parent_id', $oldParentId)
                         ->where('sort_order', '>', $oldSortOrder)
                         ->where('sort_order', '<=', $newSortOrder)
                         ->decrement('sort_order');
-                } else if ($newSortOrder < $oldSortOrder) {
+                } elseif ($newSortOrder < $oldSortOrder) {
                     // Moving up
                     SiteTreeItem::where('parent_id', $oldParentId)
                         ->where('sort_order', '>=', $newSortOrder)
@@ -169,9 +169,11 @@ class SiteTreeController extends Controller
 
     public function reset(): JsonResponse
     {
-        // Run the seeder to reset to original state
-        $seeder = new SiteTreeSeeder();
-        $seeder->run();
+        // Use Artisan to run the seeder properly
+        Artisan::call('db:seed', [
+            '--class' => 'Database\\Seeders\\SiteTreeSeeder',
+            '--force' => true,
+        ]);
 
         return response()->json([
             'success' => true,
@@ -231,7 +233,8 @@ class SiteTreeController extends Controller
         ]);
 
         DB::transaction(function () use ($validated) {
-            SiteTreeItem::truncate();
+            // Delete all items properly to trigger events and respect constraints
+            SiteTreeItem::query()->delete();
             $this->importTreeData($validated['tree'], null, 0);
         });
 
