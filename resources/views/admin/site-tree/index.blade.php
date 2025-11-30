@@ -92,7 +92,7 @@
 
         {{-- Tree container --}}
         <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow">
-            <div class="p-2 sm:p-4 md:p-6">
+            <div class="p-1 sm:p-3 md:p-5">
                 <template x-if="loading">
                     <div class="flex items-center justify-center py-12">
                         <svg class="animate-spin h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -116,7 +116,7 @@
                                     <div>
                                         {{-- Tree item --}}
                                         <div 
-                                            class="group py-1.5 px-1 sm:px-2 rounded-lg transition-colors"
+                                            class="group py-1 px-0.5 sm:px-1 rounded-lg transition-colors"
                                             :class="{
                                                 'bg-blue-50 border-2 border-blue-400 border-dashed': dragOverId === item.id,
                                                 'hover:bg-gray-50': dragOverId !== item.id,
@@ -131,26 +131,19 @@
                                             @drop.prevent="handleDrop($event, item, null, index)"
                                             data-tree-item
                                         >
-                                            <div class="flex items-center gap-1">
-                                                {{-- Drag handle --}}
-                                                <div class="flex-shrink-0 cursor-grab active:cursor-grabbing p-1 text-gray-400 hover:text-gray-600 touch-manipulation" @touchstart="handleTouchStart($event, item, null, index)" @touchmove.prevent="handleTouchMove($event)" @touchend="handleTouchEnd($event)">
-                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
-                                                    </svg>
-                                                </div>
-
+                                            <div class="flex items-center gap-0.5">
                                                 {{-- Expand/collapse --}}
                                                 <button 
                                                     type="button"
                                                     @click="toggleCollapse(item.id)"
-                                                    class="flex-shrink-0 p-1 text-gray-400 hover:text-gray-600 transition"
+                                                    class="flex-shrink-0 p-0.5 text-gray-400 hover:text-gray-600 transition"
                                                     x-show="item.children && item.children.length > 0"
                                                 >
                                                     <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-90': !isCollapsed(item.id) }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                                     </svg>
                                                 </button>
-                                                <span x-show="!item.children || item.children.length === 0" class="w-6"></span>
+                                                <span x-show="!item.children || item.children.length === 0" class="w-5"></span>
 
                                                 {{-- Checkbox --}}
                                                 <input 
@@ -161,9 +154,9 @@
                                                 >
 
                                                 {{-- Title (editable) - clickable to show actions --}}
-                                                <div class="flex-1 min-w-0 flex items-start sm:items-center gap-1 sm:gap-2 cursor-pointer" @click="toggleItemActions(item.id)" @dblclick="startEditing(item)">
+                                                <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(item.id)" @dblclick="startEditing(item)">
                                                     <template x-if="editingId !== item.id">
-                                                        <span class="text-sm font-semibold break-words sm:truncate leading-tight" :class="{ 'line-through text-gray-400': !item.is_checked }" x-text="item.title"></span>
+                                                        <span class="text-sm font-semibold leading-tight" :class="[isItemSelected(item.id) ? 'truncate' : '', item.is_checked ? '' : 'line-through text-gray-400']" x-text="item.title"></span>
                                                     </template>
                                                     <template x-if="editingId === item.id">
                                                         <input 
@@ -180,16 +173,16 @@
 
                                                     {{-- Level badge --}}
                                                     <template x-if="item.level">
-                                                        <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 sm:px-2 py-0.5 text-xs font-medium text-blue-700" x-text="item.level"></span>
+                                                        <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="item.level"></span>
                                                     </template>
                                                 </div>
 
                                                 {{-- Actions - visible when selected --}}
-                                                <div class="flex-shrink-0 flex items-center gap-1 transition-opacity" :class="isItemSelected(item.id) ? 'opacity-100' : 'opacity-0 pointer-events-none'">
+                                                <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(item.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
                                                     <button 
                                                         type="button"
                                                         @click.stop="startEditing(item)"
-                                                        class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition"
+                                                        class="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition"
                                                         title="Редагувати"
                                                     >
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,7 +192,7 @@
                                                     <button 
                                                         type="button"
                                                         @click.stop="addChild(item)"
-                                                        class="p-1.5 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition"
+                                                        class="p-1 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition"
                                                         title="Додати підрозділ"
                                                     >
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -209,24 +202,30 @@
                                                     <button 
                                                         type="button"
                                                         @click.stop="deleteItem(item)"
-                                                        class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition"
+                                                        class="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition"
                                                         title="Видалити"
                                                     >
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                                                         </svg>
                                                     </button>
+                                                    {{-- Drag handle - only shown when selected --}}
+                                                    <div class="cursor-grab active:cursor-grabbing p-1 text-gray-400 hover:text-gray-600 touch-manipulation" @touchstart="handleTouchStart($event, item, null, index)" @touchmove.prevent="handleTouchMove($event)" @touchend="handleTouchEnd($event)">
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+                                                        </svg>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         {{-- Children --}}
-                                        <div x-show="!isCollapsed(item.id) && item.children && item.children.length > 0" x-collapse class="ml-3 sm:ml-6 border-l-2 border-gray-200 pl-1 sm:pl-2">
+                                        <div x-show="!isCollapsed(item.id) && item.children && item.children.length > 0" x-collapse class="ml-2 sm:ml-4 border-l-2 border-gray-200 pl-1">
                                             <template x-for="(child, childIndex) in item.children" :key="child.id">
                                                 <div>
                                                     {{-- Level 1 child --}}
                                                     <div 
-                                                        class="group py-1.5 px-1 sm:px-2 rounded-lg transition-colors"
+                                                        class="group py-1 px-0.5 sm:px-1 rounded-lg transition-colors"
                                                         :class="{
                                                             'bg-blue-50 border-2 border-blue-400 border-dashed': dragOverId === child.id,
                                                             'hover:bg-gray-50': dragOverId !== child.id,
@@ -241,24 +240,18 @@
                                                         @drop.prevent="handleDrop($event, child, item.id, childIndex)"
                                                         data-tree-item
                                                     >
-                                                        <div class="flex items-center gap-1">
-                                                            <div class="flex-shrink-0 cursor-grab active:cursor-grabbing p-1 text-gray-400 hover:text-gray-600 touch-manipulation" @touchstart="handleTouchStart($event, child, item.id, childIndex)" @touchmove.prevent="handleTouchMove($event)" @touchend="handleTouchEnd($event)">
-                                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
-                                                                </svg>
-                                                            </div>
-
+                                                        <div class="flex items-center gap-0.5">
                                                             <button 
                                                                 type="button"
                                                                 @click="toggleCollapse(child.id)"
-                                                                class="flex-shrink-0 p-1 text-gray-400 hover:text-gray-600 transition"
+                                                                class="flex-shrink-0 p-0.5 text-gray-400 hover:text-gray-600 transition"
                                                                 x-show="child.children && child.children.length > 0"
                                                             >
                                                                 <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-90': !isCollapsed(child.id) }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                                                 </svg>
                                                             </button>
-                                                            <span x-show="!child.children || child.children.length === 0" class="w-6"></span>
+                                                            <span x-show="!child.children || child.children.length === 0" class="w-5"></span>
 
                                                             <input 
                                                                 type="checkbox"
@@ -267,9 +260,9 @@
                                                                 class="flex-shrink-0 rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500 focus:ring-offset-0"
                                                             >
 
-                                                            <div class="flex-1 min-w-0 flex items-start sm:items-center gap-1 sm:gap-2 cursor-pointer" @click="toggleItemActions(child.id)" @dblclick="startEditing(child)">
+                                                            <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(child.id)" @dblclick="startEditing(child)">
                                                                 <template x-if="editingId !== child.id">
-                                                                    <span class="text-sm break-words sm:truncate leading-tight" :class="{ 'line-through text-gray-400': !child.is_checked }" x-text="child.title"></span>
+                                                                    <span class="text-sm leading-tight" :class="[isItemSelected(child.id) ? 'truncate' : '', child.is_checked ? '' : 'line-through text-gray-400']" x-text="child.title"></span>
                                                                 </template>
                                                                 <template x-if="editingId === child.id">
                                                                     <input 
@@ -283,29 +276,32 @@
                                                                     >
                                                                 </template>
                                                                 <template x-if="child.level">
-                                                                    <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 sm:px-2 py-0.5 text-xs font-medium text-blue-700" x-text="child.level"></span>
+                                                                    <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="child.level"></span>
                                                                 </template>
                                                             </div>
 
-                                                            <div class="flex-shrink-0 flex items-center gap-1 transition-opacity" :class="isItemSelected(child.id) ? 'opacity-100' : 'opacity-0 pointer-events-none'">
-                                                                <button type="button" @click.stop="startEditing(child)" class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition" title="Редагувати">
+                                                            <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(child.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                <button type="button" @click.stop="startEditing(child)" class="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition" title="Редагувати">
                                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                                                                 </button>
-                                                                <button type="button" @click.stop="addChild(child)" class="p-1.5 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition" title="Додати підрозділ">
+                                                                <button type="button" @click.stop="addChild(child)" class="p-1 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition" title="Додати підрозділ">
                                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
                                                                 </button>
-                                                                <button type="button" @click.stop="deleteItem(child)" class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition" title="Видалити">
+                                                                <button type="button" @click.stop="deleteItem(child)" class="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition" title="Видалити">
                                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
                                                                 </button>
+                                                                <div class="cursor-grab active:cursor-grabbing p-1 text-gray-400 hover:text-gray-600 touch-manipulation" @touchstart="handleTouchStart($event, child, item.id, childIndex)" @touchmove.prevent="handleTouchMove($event)" @touchend="handleTouchEnd($event)">
+                                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     {{-- Level 2 children --}}
-                                                    <div x-show="!isCollapsed(child.id) && child.children && child.children.length > 0" x-collapse class="ml-3 sm:ml-6 border-l-2 border-gray-200 pl-1 sm:pl-2">
+                                                    <div x-show="!isCollapsed(child.id) && child.children && child.children.length > 0" x-collapse class="ml-2 sm:ml-4 border-l-2 border-gray-200 pl-1">
                                                         <template x-for="(grandchild, grandchildIndex) in child.children" :key="grandchild.id">
                                                             <div 
-                                                                class="group py-1.5 px-1 sm:px-2 rounded-lg transition-colors"
+                                                                class="group py-1 px-0.5 sm:px-1 rounded-lg transition-colors"
                                                                 :class="{
                                                                     'bg-blue-50 border-2 border-blue-400 border-dashed': dragOverId === grandchild.id,
                                                                     'hover:bg-gray-50': dragOverId !== grandchild.id,
@@ -320,13 +316,8 @@
                                                                 @drop.prevent="handleDrop($event, grandchild, child.id, grandchildIndex)"
                                                                 data-tree-item
                                                             >
-                                                                <div class="flex items-center gap-1">
-                                                                    <div class="flex-shrink-0 cursor-grab active:cursor-grabbing p-1 text-gray-400 hover:text-gray-600 touch-manipulation" @touchstart="handleTouchStart($event, grandchild, child.id, grandchildIndex)" @touchmove.prevent="handleTouchMove($event)" @touchend="handleTouchEnd($event)">
-                                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
-                                                                        </svg>
-                                                                    </div>
-                                                                    <span class="w-6"></span>
+                                                                <div class="flex items-center gap-0.5">
+                                                                    <span class="w-5"></span>
 
                                                                     <input 
                                                                         type="checkbox"
@@ -335,9 +326,9 @@
                                                                         class="flex-shrink-0 rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500 focus:ring-offset-0"
                                                                     >
 
-                                                                    <div class="flex-1 min-w-0 flex items-start sm:items-center gap-1 sm:gap-2 cursor-pointer" @click="toggleItemActions(grandchild.id)" @dblclick="startEditing(grandchild)">
+                                                                    <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(grandchild.id)" @dblclick="startEditing(grandchild)">
                                                                         <template x-if="editingId !== grandchild.id">
-                                                                            <span class="text-sm break-words sm:truncate leading-tight" :class="{ 'line-through text-gray-400': !grandchild.is_checked }" x-text="grandchild.title"></span>
+                                                                            <span class="text-sm leading-tight" :class="[isItemSelected(grandchild.id) ? 'truncate' : '', grandchild.is_checked ? '' : 'line-through text-gray-400']" x-text="grandchild.title"></span>
                                                                         </template>
                                                                         <template x-if="editingId === grandchild.id">
                                                                             <input 
@@ -351,17 +342,20 @@
                                                                             >
                                                                         </template>
                                                                         <template x-if="grandchild.level">
-                                                                            <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 sm:px-2 py-0.5 text-xs font-medium text-blue-700" x-text="grandchild.level"></span>
+                                                                            <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="grandchild.level"></span>
                                                                         </template>
                                                                     </div>
 
-                                                                    <div class="flex-shrink-0 flex items-center gap-1 transition-opacity" :class="isItemSelected(grandchild.id) ? 'opacity-100' : 'opacity-0 pointer-events-none'">
-                                                                        <button type="button" @click.stop="startEditing(grandchild)" class="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition" title="Редагувати">
+                                                                    <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(grandchild.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                        <button type="button" @click.stop="startEditing(grandchild)" class="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition" title="Редагувати">
                                                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                                                                         </button>
-                                                                        <button type="button" @click.stop="deleteItem(grandchild)" class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition" title="Видалити">
+                                                                        <button type="button" @click.stop="deleteItem(grandchild)" class="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition" title="Видалити">
                                                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
                                                                         </button>
+                                                                        <div class="cursor-grab active:cursor-grabbing p-1 text-gray-400 hover:text-gray-600 touch-manipulation" @touchstart="handleTouchStart($event, grandchild, child.id, grandchildIndex)" @touchmove.prevent="handleTouchMove($event)" @touchend="handleTouchEnd($event)">
+                                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -381,7 +375,7 @@
 
         {{-- Add/Edit Modal --}}
         <div 
-            x-show="showModal" 
+            x-show="showModal"
             x-cloak
             class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
             @click.self="closeModal()"
