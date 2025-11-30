@@ -226,8 +226,11 @@
 
                                                 {{-- Title (editable) - clickable to show actions --}}
                                                 <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(item.id)" @dblclick="startEditing(item)">
+                                                    {{-- Category number --}}
+                                                    <span class="flex-shrink-0 text-sm font-bold text-gray-500 mr-1" x-text="getCategoryNumber(index)"></span>
+                                                    
                                                     <template x-if="editingId !== item.id">
-                                                        <span class="text-sm font-semibold leading-tight" :class="[isItemSelected(item.id) ? 'truncate' : '', item.is_checked ? '' : 'line-through text-gray-400']" x-text="item.title"></span>
+                                                        <span class="text-sm font-semibold leading-tight" :class="[isItemSelected(item.id) ? 'truncate' : '', item.is_checked ? '' : 'line-through text-gray-400', existsInPages(item.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="item.title"></span>
                                                     </template>
                                                     <template x-if="editingId === item.id">
                                                         <input 
@@ -245,6 +248,11 @@
                                                     {{-- Level badge --}}
                                                     <template x-if="item.level">
                                                         <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="item.level"></span>
+                                                    </template>
+                                                    
+                                                    {{-- Exists in pages indicator --}}
+                                                    <template x-if="existsInPages(item.title)">
+                                                        <span class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700" title="Є в /pages">✓</span>
                                                     </template>
                                                 </div>
 
@@ -332,8 +340,11 @@
                                                             >
 
                                                             <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(child.id)" @dblclick="startEditing(child)">
+                                                                {{-- Page number within category --}}
+                                                                <span class="flex-shrink-0 text-xs font-medium text-gray-400 mr-1" x-text="getItemNumber(index, childIndex)"></span>
+                                                                
                                                                 <template x-if="editingId !== child.id">
-                                                                    <span class="text-sm leading-tight" :class="[isItemSelected(child.id) ? 'truncate' : '', child.is_checked ? '' : 'line-through text-gray-400']" x-text="child.title"></span>
+                                                                    <span class="text-sm leading-tight" :class="[isItemSelected(child.id) ? 'truncate' : '', child.is_checked ? '' : 'line-through text-gray-400', existsInPages(child.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="child.title"></span>
                                                                 </template>
                                                                 <template x-if="editingId === child.id">
                                                                     <input 
@@ -348,6 +359,11 @@
                                                                 </template>
                                                                 <template x-if="child.level">
                                                                     <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="child.level"></span>
+                                                                </template>
+                                                                
+                                                                {{-- Exists in pages indicator --}}
+                                                                <template x-if="existsInPages(child.title)">
+                                                                    <span class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700" title="Є в /pages">✓</span>
                                                                 </template>
                                                             </div>
 
@@ -399,7 +415,7 @@
 
                                                                     <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(grandchild.id)" @dblclick="startEditing(grandchild)">
                                                                         <template x-if="editingId !== grandchild.id">
-                                                                            <span class="text-sm leading-tight" :class="[isItemSelected(grandchild.id) ? 'truncate' : '', grandchild.is_checked ? '' : 'line-through text-gray-400']" x-text="grandchild.title"></span>
+                                                                            <span class="text-sm leading-tight" :class="[isItemSelected(grandchild.id) ? 'truncate' : '', grandchild.is_checked ? '' : 'line-through text-gray-400', existsInPages(grandchild.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="grandchild.title"></span>
                                                                         </template>
                                                                         <template x-if="editingId === grandchild.id">
                                                                             <input 
@@ -414,6 +430,11 @@
                                                                         </template>
                                                                         <template x-if="grandchild.level">
                                                                             <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="grandchild.level"></span>
+                                                                        </template>
+                                                                        
+                                                                        {{-- Exists in pages indicator --}}
+                                                                        <template x-if="existsInPages(grandchild.title)">
+                                                                            <span class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700" title="Є в /pages">✓</span>
                                                                         </template>
                                                                     </div>
 
@@ -585,6 +606,7 @@
                 currentVariant: @json($currentVariant ?? null),
                 currentVariantId: {{ $currentVariant->id ?? 'null' }},
                 currentVariantSlug: '{{ $currentVariant->slug ?? "" }}',
+                existingPages: @json($existingPages ?? []),
                 loading: false,
                 message: '',
                 messageType: 'success',
@@ -740,6 +762,20 @@
                 
                 isItemSelected(itemId) {
                     return this.selectedItemId === itemId;
+                },
+                
+                existsInPages(title) {
+                    // Check if the title (or title without numbering) exists in exported pages
+                    const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '');
+                    return this.existingPages.some(t => t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle));
+                },
+                
+                getCategoryNumber(index) {
+                    return (index + 1) + '.';
+                },
+                
+                getItemNumber(categoryIndex, itemIndex) {
+                    return (categoryIndex + 1) + '.' + (itemIndex + 1);
                 },
 
                 isCollapsed(itemId) {

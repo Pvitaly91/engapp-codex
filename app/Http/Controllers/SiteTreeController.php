@@ -25,8 +25,33 @@ class SiteTreeController extends Controller
         }
         
         $tree = $currentVariant ? $this->getTreeWithChildren($currentVariant->id) : collect();
+        
+        // Load existing page titles from exported_pages.json
+        $existingPages = $this->getExistingPageTitles();
 
-        return view('admin.site-tree.index', compact('tree', 'variants', 'currentVariant'));
+        return view('admin.site-tree.index', compact('tree', 'variants', 'currentVariant', 'existingPages'));
+    }
+    
+    private function getExistingPageTitles(): array
+    {
+        $titles = [];
+        $path = config_path('pages/exported_pages.json');
+        
+        if (file_exists($path)) {
+            $data = json_decode(file_get_contents($path), true);
+            if (isset($data['categories'])) {
+                foreach ($data['categories'] as $category) {
+                    $titles[] = $category['category_title'];
+                    if (isset($category['pages'])) {
+                        foreach ($category['pages'] as $page) {
+                            $titles[] = $page['page_title'];
+                        }
+                    }
+                }
+            }
+        }
+        
+        return $titles;
     }
 
     private function getTreeWithChildren(?int $variantId = null)
