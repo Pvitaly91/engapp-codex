@@ -214,6 +214,191 @@ class SeedRunController extends Controller
         ]);
     }
 
+    public function storeSeederFile(Request $request): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'class_name' => ['required', 'string', 'regex:/^[A-Z][a-zA-Z0-9]*$/'],
+            'contents' => ['required', 'string'],
+            'folder' => ['nullable', 'string', 'max:100'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => __('Неможливо створити файл сидера через помилки валідації.'),
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $validated = $validator->validated();
+        $className = (string) $validated['class_name'];
+        $contents = (string) $validated['contents'];
+        $folder = trim((string) ($validated['folder'] ?? ''));
+
+        // Build the directory path with strict validation
+        $baseDir = database_path('seeders');
+        $targetDir = $baseDir;
+
+        if ($folder !== '') {
+            // Use whitelist approach: only allow alphanumeric characters and underscores in folder names
+            // Split by any directory separator and validate each part
+            $parts = preg_split('/[\/\\\\]+/', $folder);
+            $sanitizedParts = [];
+
+            foreach ($parts as $part) {
+                $part = trim($part);
+
+                if ($part === '' || $part === '.' || $part === '..') {
+                    continue;
+                }
+
+                // Only allow alphanumeric and underscores in folder names
+                if (! preg_match('/^[a-zA-Z][a-zA-Z0-9_]*$/', $part)) {
+                    return response()->json([
+                        'message' => __('Назва папки може містити лише літери, цифри та підкреслення, і має починатися з літери.'),
+                    ], 422);
+                }
+
+                $sanitizedParts[] = $part;
+            }
+
+            $folder = implode(DIRECTORY_SEPARATOR, $sanitizedParts);
+
+            if ($folder !== '') {
+                $targetDir = $baseDir . DIRECTORY_SEPARATOR . $folder;
+
+                // Ensure the resolved path is still within the seeders directory
+                $resolvedPath = realpath(dirname($targetDir));
+
+                if ($resolvedPath !== false && strpos($resolvedPath, realpath($baseDir)) !== 0) {
+                    return response()->json([
+                        'message' => __('Невалідний шлях до папки.'),
+                    ], 422);
+                }
+            }
+        }
+
+        // Build the namespace based on folder structure
+        $namespace = 'Database\\Seeders';
+
+        if ($folder !== '') {
+            $namespaceParts = explode(DIRECTORY_SEPARATOR, $folder);
+            $namespaceParts = array_filter($namespaceParts, fn ($part) => $part !== '');
+
+            if (! empty($namespaceParts)) {
+                $namespace .= '\\' . implode('\\', $namespaceParts);
+            }
+        }
+
+        // Full class name with namespace
+        $fullClassName = $namespace . '\\' . $className;
+
+        // Check if file already exists
+        $filePath = $targetDir . DIRECTORY_SEPARATOR . $className . '.php';
+
+        if (File::exists($filePath)) {
+            return response()->json([
+                'message' => __('Файл сидера :class вже існує.', ['class' => $fullClassName]),
+            ], 409);
+        }
+
+        // Create directory if it doesn't exist
+        if (! File::isDirectory($targetDir)) {
+            try {
+                File::makeDirectory($targetDir, 0755, true);
+            } catch (\Throwable $exception) {
+                report($exception);
+
+                return response()->json([
+                    'message' => __('Не вдалося створити директорію для сидера.'),
+                ], 500);
+            }
+        }
+
+        // Write the file
+        try {
+            File::put($filePath, $contents, true);
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return response()->json([
+                'message' => __('Не вдалося створити файл сидера :class.', ['class' => $fullClassName]),
+            ], 500);
+        }
+
+        clearstatcache(true, $filePath);
+
+        $lastModified = null;
+
+        try {
+            $timestamp = File::lastModified($filePath);
+
+            if ($timestamp) {
+                $lastModified = Carbon::createFromTimestamp($timestamp)->toDateTimeString();
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
+        // Clear the seeder class map cache
+        $this->seederClassMap = null;
+
+        // Prepare the pending seeder data for UI update
+        $displayName = $this->formatSeederClassName($fullClassName);
+        [$displayNamespace, $baseName] = $this->splitSeederDisplayName($displayName);
+
+        $pendingSeeder = (object) [
+            'class_name' => $fullClassName,
+            'display_class_name' => $displayName,
+            'display_class_namespace' => $displayNamespace,
+            'display_class_basename' => $baseName,
+            'supports_preview' => false,
+        ];
+
+        return response()->json([
+            'message' => __('Файл сидера успішно створено.'),
+            'class_name' => $fullClassName,
+            'path' => $this->makeSeederFileDisplayPath($filePath),
+            'last_modified' => $lastModified,
+            'pending_seeder' => $pendingSeeder,
+        ]);
+    }
+
+    public function getSeederFolders(): JsonResponse
+    {
+        $baseDir = database_path('seeders');
+        $folders = $this->discoverSeederFolders($baseDir, $baseDir);
+
+        return response()->json([
+            'folders' => $folders,
+        ]);
+    }
+
+    protected function discoverSeederFolders(string $baseDir, string $currentDir): array
+    {
+        $folders = [];
+
+        if (! File::isDirectory($currentDir)) {
+            return $folders;
+        }
+
+        $directories = File::directories($currentDir);
+
+        foreach ($directories as $directory) {
+            $relativePath = str_replace($baseDir . DIRECTORY_SEPARATOR, '', $directory);
+            $relativePath = str_replace(DIRECTORY_SEPARATOR, '/', $relativePath);
+
+            $folders[] = $relativePath;
+
+            // Recursively discover subfolders
+            $subFolders = $this->discoverSeederFolders($baseDir, $directory);
+            $folders = array_merge($folders, $subFolders);
+        }
+
+        sort($folders);
+
+        return $folders;
+    }
+
     protected function assembleSeedRunOverview(): array
     {
         $tableExists = Schema::hasTable('seed_runs');
