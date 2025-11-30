@@ -250,14 +250,28 @@
                                                         <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="item.level"></span>
                                                     </template>
                                                     
-                                                    {{-- Exists in pages indicator --}}
+                                                    {{-- Exists in pages indicator with link --}}
                                                     <template x-if="existsInPages(item.title)">
-                                                        <span class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700" title="Є в /pages">✓</span>
+                                                        <a :href="getPageUrl(item.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
                                                     </template>
                                                 </div>
 
                                                 {{-- Actions - visible when selected --}}
                                                 <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(item.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                    {{-- Link to page on site - only for existing pages --}}
+                                                    <template x-if="existsInPages(item.title)">
+                                                        <a 
+                                                            :href="getPageUrl(item.title)"
+                                                            target="_blank"
+                                                            @click.stop
+                                                            class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition"
+                                                            title="Відкрити на сайті"
+                                                        >
+                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                                            </svg>
+                                                        </a>
+                                                    </template>
                                                     <button 
                                                         type="button"
                                                         @click.stop="startEditing(item)"
@@ -361,13 +375,19 @@
                                                                     <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="child.level"></span>
                                                                 </template>
                                                                 
-                                                                {{-- Exists in pages indicator --}}
+                                                                {{-- Exists in pages indicator with link --}}
                                                                 <template x-if="existsInPages(child.title)">
-                                                                    <span class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700" title="Є в /pages">✓</span>
+                                                                    <a :href="getPageUrl(child.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
                                                                 </template>
                                                             </div>
 
                                                             <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(child.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                {{-- Link to page on site --}}
+                                                                <template x-if="existsInPages(child.title)">
+                                                                    <a :href="getPageUrl(child.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
+                                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                                                    </a>
+                                                                </template>
                                                                 <button type="button" @click.stop="startEditing(child)" class="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition" title="Редагувати">
                                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                                                                 </button>
@@ -432,13 +452,19 @@
                                                                             <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="grandchild.level"></span>
                                                                         </template>
                                                                         
-                                                                        {{-- Exists in pages indicator --}}
+                                                                        {{-- Exists in pages indicator with link --}}
                                                                         <template x-if="existsInPages(grandchild.title)">
-                                                                            <span class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700" title="Є в /pages">✓</span>
+                                                                            <a :href="getPageUrl(grandchild.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
                                                                         </template>
                                                                     </div>
 
                                                                     <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(grandchild.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                        {{-- Link to page on site --}}
+                                                                        <template x-if="existsInPages(grandchild.title)">
+                                                                            <a :href="getPageUrl(grandchild.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
+                                                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                                                            </a>
+                                                                        </template>
                                                                         <button type="button" @click.stop="startEditing(grandchild)" class="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition" title="Редагувати">
                                                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                                                                         </button>
@@ -765,9 +791,22 @@
                 },
                 
                 existsInPages(title) {
-                    // Check if the title (or title without numbering) exists in exported pages
+                    // Check if the title exists in exported pages (now existingPages is an object: title -> url)
                     const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '');
-                    return this.existingPages.some(t => t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle));
+                    const titles = Object.keys(this.existingPages);
+                    return titles.some(t => t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle));
+                },
+                
+                getPageUrl(title) {
+                    // Get the URL for a page if it exists
+                    const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '');
+                    const titles = Object.keys(this.existingPages);
+                    for (const t of titles) {
+                        if (t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle)) {
+                            return this.existingPages[t];
+                        }
+                    }
+                    return null;
                 },
                 
                 getCategoryNumber(index) {
