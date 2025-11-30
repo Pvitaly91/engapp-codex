@@ -111,7 +111,7 @@
                 <template x-if="!loading && tree.length > 0">
                     <div class="space-y-1" id="site-tree">
                         <template x-for="(item, index) in tree" :key="item.id">
-                            <div x-data="{ collapsed: false }">
+                            <div>
                                 <template x-if="true">
                                     <div>
                                         {{-- Tree item --}}
@@ -139,11 +139,11 @@
                                             {{-- Expand/collapse --}}
                                             <button 
                                                 type="button"
-                                                @click="collapsed = !collapsed"
+                                                @click="toggleCollapse(item.id)"
                                                 class="flex-shrink-0 p-1 text-gray-400 hover:text-gray-600 transition"
                                                 x-show="item.children && item.children.length > 0"
                                             >
-                                                <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-90': !collapsed }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-90': !isCollapsed(item.id) }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                                 </svg>
                                             </button>
@@ -216,9 +216,9 @@
                                         </div>
 
                                         {{-- Children --}}
-                                        <div x-show="!collapsed && item.children && item.children.length > 0" x-collapse class="ml-6 border-l-2 border-gray-200 pl-2">
+                                        <div x-show="!isCollapsed(item.id) && item.children && item.children.length > 0" x-collapse class="ml-6 border-l-2 border-gray-200 pl-2">
                                             <template x-for="(child, childIndex) in item.children" :key="child.id">
-                                                <div x-data="{ childCollapsed: false }">
+                                                <div>
                                                     {{-- Level 1 child --}}
                                                     <div 
                                                         class="group flex items-center gap-1 py-1.5 px-2 rounded-lg transition-colors"
@@ -242,11 +242,11 @@
 
                                                         <button 
                                                             type="button"
-                                                            @click="childCollapsed = !childCollapsed"
+                                                            @click="toggleCollapse(child.id)"
                                                             class="flex-shrink-0 p-1 text-gray-400 hover:text-gray-600 transition"
                                                             x-show="child.children && child.children.length > 0"
                                                         >
-                                                            <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-90': !childCollapsed }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-90': !isCollapsed(child.id) }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                                             </svg>
                                                         </button>
@@ -292,7 +292,7 @@
                                                     </div>
 
                                                     {{-- Level 2 children --}}
-                                                    <div x-show="!childCollapsed && child.children && child.children.length > 0" x-collapse class="ml-6 border-l-2 border-gray-200 pl-2">
+                                                    <div x-show="!isCollapsed(child.id) && child.children && child.children.length > 0" x-collapse class="ml-6 border-l-2 border-gray-200 pl-2">
                                                         <template x-for="(grandchild, grandchildIndex) in child.children" :key="grandchild.id">
                                                             <div 
                                                                 class="group flex items-center gap-1 py-1.5 px-2 rounded-lg transition-colors"
@@ -473,10 +473,19 @@
                 csrfToken: null,
                 touchDragItem: null,
                 touchStartY: 0,
+                collapsedItems: {},
 
                 init() {
                     const csrfMeta = document.querySelector('meta[name="csrf-token"]');
                     this.csrfToken = csrfMeta ? csrfMeta.getAttribute('content') : null;
+                },
+
+                isCollapsed(itemId) {
+                    return this.collapsedItems[itemId] === true;
+                },
+
+                toggleCollapse(itemId) {
+                    this.collapsedItems[itemId] = !this.collapsedItems[itemId];
                 },
 
                 showMessage(text, type = 'success') {
@@ -678,21 +687,29 @@
                 },
 
                 expandAll() {
-                    document.querySelectorAll('[x-data]').forEach(el => {
-                        if (el.__x && el.__x.$data) {
-                            if ('collapsed' in el.__x.$data) el.__x.$data.collapsed = false;
-                            if ('childCollapsed' in el.__x.$data) el.__x.$data.childCollapsed = false;
-                        }
-                    });
+                    // Collect all item IDs recursively and set them to expanded (not collapsed)
+                    const collectIds = (items) => {
+                        items.forEach(item => {
+                            this.collapsedItems[item.id] = false;
+                            if (item.children && item.children.length > 0) {
+                                collectIds(item.children);
+                            }
+                        });
+                    };
+                    collectIds(this.tree);
                 },
 
                 collapseAll() {
-                    document.querySelectorAll('[x-data]').forEach(el => {
-                        if (el.__x && el.__x.$data) {
-                            if ('collapsed' in el.__x.$data) el.__x.$data.collapsed = true;
-                            if ('childCollapsed' in el.__x.$data) el.__x.$data.childCollapsed = true;
-                        }
-                    });
+                    // Collect all item IDs recursively and set them to collapsed
+                    const collectIds = (items) => {
+                        items.forEach(item => {
+                            if (item.children && item.children.length > 0) {
+                                this.collapsedItems[item.id] = true;
+                                collectIds(item.children);
+                            }
+                        });
+                    };
+                    collectIds(this.tree);
                 },
 
                 async exportTree() {
