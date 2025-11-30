@@ -11,11 +11,16 @@ class SiteTreeItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['parent_id', 'title', 'level', 'is_checked', 'sort_order'];
+    protected $fillable = ['parent_id', 'variant_id', 'title', 'level', 'is_checked', 'sort_order'];
 
     protected $casts = [
         'is_checked' => 'boolean',
     ];
+
+    public function variant(): BelongsTo
+    {
+        return $this->belongsTo(SiteTreeVariant::class, 'variant_id');
+    }
 
     public function parent(): BelongsTo
     {
@@ -30,5 +35,10 @@ class SiteTreeItem extends Model
     public function scopeRoots($query)
     {
         return $query->whereNull('parent_id')->orderBy('sort_order');
+    }
+
+    public function scopeForVariant($query, $variantId)
+    {
+        return $query->where('variant_id', $variantId);
     }
 }

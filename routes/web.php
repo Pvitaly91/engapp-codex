@@ -93,6 +93,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
 
         Route::get('/site-tree', [SiteTreeController::class, 'index'])->name('site-tree.index');
+        Route::get('/site-tree/variant/{variantSlug}', [SiteTreeController::class, 'index'])->name('site-tree.variant');
         Route::get('/site-tree/api', [SiteTreeController::class, 'getTree'])->name('site-tree.api');
         Route::post('/site-tree', [SiteTreeController::class, 'store'])->name('site-tree.store');
         Route::post('/site-tree/{item}/toggle', [SiteTreeController::class, 'toggle'])->name('site-tree.toggle');
@@ -102,6 +103,12 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::post('/site-tree/reset', [SiteTreeController::class, 'reset'])->name('site-tree.reset');
         Route::get('/site-tree/export', [SiteTreeController::class, 'exportTree'])->name('site-tree.export');
         Route::post('/site-tree/import', [SiteTreeController::class, 'importTree'])->name('site-tree.import');
+        
+        // Variant management
+        Route::get('/site-tree-variants', [SiteTreeController::class, 'listVariants'])->name('site-tree.variants.list');
+        Route::post('/site-tree-variants', [SiteTreeController::class, 'storeVariant'])->name('site-tree.variants.store');
+        Route::put('/site-tree-variants/{variant}', [SiteTreeController::class, 'updateVariant'])->name('site-tree.variants.update');
+        Route::delete('/site-tree-variants/{variant}', [SiteTreeController::class, 'destroyVariant'])->name('site-tree.variants.destroy');
 
         Route::get('set-locale', function (\Illuminate\Http\Request $request) {
             $lang = $request->input('lang', 'en');

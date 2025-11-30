@@ -12,6 +12,77 @@
             </div>
         </div>
 
+        {{-- Variant Selector --}}
+        <div class="flex flex-wrap items-center gap-2 p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
+            <div class="flex items-center gap-2">
+                <label class="text-sm font-medium text-gray-700">Варіант:</label>
+                <select 
+                    x-model="currentVariantSlug" 
+                    @change="switchVariant()" 
+                    class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                >
+                    <template x-for="variant in variants" :key="variant.id">
+                        <option :value="variant.slug" x-text="variant.name + (variant.is_base ? ' (базовий)' : '')"></option>
+                    </template>
+                </select>
+            </div>
+            
+            <div class="h-6 w-px bg-gray-300 hidden sm:block"></div>
+            
+            <button 
+                type="button"
+                @click="showCreateVariantModal()"
+                class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-green-700 bg-green-50 rounded-lg hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-1 transition"
+            >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                </svg>
+                <span class="hidden sm:inline">Новий варіант</span>
+            </button>
+
+            <template x-if="currentVariant && !currentVariant.is_base">
+                <div class="flex items-center gap-1">
+                    <button 
+                        type="button"
+                        @click="showEditVariantModal()"
+                        class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-1 transition"
+                        title="Перейменувати варіант"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                        </svg>
+                    </button>
+                    <button 
+                        type="button"
+                        @click="deleteVariant()"
+                        class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-1 transition"
+                        title="Видалити варіант"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </template>
+            
+            <div class="flex-1"></div>
+            
+            {{-- Copy URL button --}}
+            <template x-if="currentVariant && !currentVariant.is_base">
+                <button 
+                    type="button"
+                    @click="copyVariantUrl()"
+                    class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-blue-700 bg-blue-50 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-1 transition"
+                    title="Копіювати посилання на варіант"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="hidden sm:inline">Копіювати URL</span>
+                </button>
+            </template>
+        </div>
+
         {{-- Toolbar --}}
         <div class="flex flex-wrap items-center gap-2 p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
             <button 
@@ -456,6 +527,52 @@
                 </div>
             </div>
         </div>
+
+        {{-- Variant Modal --}}
+        <div 
+            x-show="showVariantModal"
+            x-cloak
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+            @click.self="closeVariantModal()"
+        >
+            <div 
+                class="w-full max-w-md bg-white rounded-2xl shadow-xl"
+                @click.stop
+            >
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold mb-4" x-text="variantModalTitle"></h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Назва варіанту</label>
+                            <input 
+                                type="text"
+                                x-model="variantModalData.name"
+                                @keydown.enter="submitVariantModal()"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Введіть назву"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-end gap-2 px-6 py-4 bg-gray-50 rounded-b-2xl">
+                    <button 
+                        type="button"
+                        @click="closeVariantModal()"
+                        class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    >
+                        Скасувати
+                    </button>
+                    <button 
+                        type="button"
+                        @click="submitVariantModal()"
+                        :disabled="!variantModalData.name.trim()"
+                        class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span x-text="variantModalSubmitText"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -464,6 +581,9 @@
         function siteTreeEditor() {
             return {
                 tree: @json($tree),
+                variants: @json($variants ?? []),
+                currentVariant: @json($currentVariant ?? null),
+                currentVariantSlug: '{{ $currentVariant->slug ?? "" }}',
                 loading: false,
                 message: '',
                 messageType: 'success',
@@ -475,6 +595,11 @@
                 modalData: { title: '', level: '', parentId: null },
                 modalCallback: null,
                 showResetConfirm: false,
+                showVariantModal: false,
+                variantModalTitle: '',
+                variantModalSubmitText: 'Створити',
+                variantModalData: { name: '', id: null },
+                variantModalMode: 'create',
                 draggedItem: null,
                 draggedParentId: null,
                 draggedIndex: null,
@@ -494,6 +619,117 @@
                         if (!e.target.closest('[data-tree-item]')) {
                             this.selectedItemId = null;
                         }
+                    });
+                },
+                
+                // Variant methods
+                switchVariant() {
+                    if (this.currentVariantSlug) {
+                        const variant = this.variants.find(v => v.slug === this.currentVariantSlug);
+                        if (variant) {
+                            if (variant.is_base) {
+                                window.location.href = '/admin/site-tree';
+                            } else {
+                                window.location.href = '/admin/site-tree/variant/' + variant.slug;
+                            }
+                        }
+                    }
+                },
+                
+                showCreateVariantModal() {
+                    this.variantModalTitle = 'Новий варіант дерева';
+                    this.variantModalSubmitText = 'Створити';
+                    this.variantModalData = { name: '', id: null };
+                    this.variantModalMode = 'create';
+                    this.showVariantModal = true;
+                },
+                
+                showEditVariantModal() {
+                    if (!this.currentVariant) return;
+                    this.variantModalTitle = 'Редагувати варіант';
+                    this.variantModalSubmitText = 'Зберегти';
+                    this.variantModalData = { name: this.currentVariant.name, id: this.currentVariant.id };
+                    this.variantModalMode = 'edit';
+                    this.showVariantModal = true;
+                },
+                
+                closeVariantModal() {
+                    this.showVariantModal = false;
+                    this.variantModalData = { name: '', id: null };
+                },
+                
+                async submitVariantModal() {
+                    if (!this.variantModalData.name.trim()) return;
+                    
+                    try {
+                        if (this.variantModalMode === 'create') {
+                            const response = await fetch('/admin/site-tree-variants', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': this.csrfToken,
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify({ name: this.variantModalData.name.trim() })
+                            });
+                            const data = await response.json();
+                            if (data.success) {
+                                window.location.href = data.url;
+                            }
+                        } else {
+                            const response = await fetch('/admin/site-tree-variants/' + this.variantModalData.id, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': this.csrfToken,
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify({ name: this.variantModalData.name.trim() })
+                            });
+                            const data = await response.json();
+                            if (data.success) {
+                                this.currentVariant.name = data.variant.name;
+                                const idx = this.variants.findIndex(v => v.id === data.variant.id);
+                                if (idx !== -1) {
+                                    this.variants[idx].name = data.variant.name;
+                                }
+                                this.showMessage('Варіант оновлено');
+                                this.closeVariantModal();
+                            }
+                        }
+                    } catch (error) {
+                        this.showMessage('Помилка збереження варіанту', 'error');
+                    }
+                },
+                
+                async deleteVariant() {
+                    if (!this.currentVariant || this.currentVariant.is_base) return;
+                    if (!confirm('Видалити цей варіант дерева? Усі його дані будуть втрачені.')) return;
+                    
+                    try {
+                        const response = await fetch('/admin/site-tree-variants/' + this.currentVariant.id, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': this.csrfToken,
+                                'Accept': 'application/json'
+                            }
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            window.location.href = '/admin/site-tree';
+                        }
+                    } catch (error) {
+                        this.showMessage('Помилка видалення варіанту', 'error');
+                    }
+                },
+                
+                copyVariantUrl() {
+                    if (!this.currentVariant) return;
+                    const url = window.location.origin + '/admin/site-tree/variant/' + this.currentVariant.slug;
+                    navigator.clipboard.writeText(url).then(() => {
+                        this.showMessage('URL скопійовано');
+                    }).catch(() => {
+                        this.showMessage('Не вдалося скопіювати URL', 'error');
                     });
                 },
                 

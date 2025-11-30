@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\SiteTreeItem;
+use App\Models\SiteTreeVariant;
 use Illuminate\Database\Seeder;
 
 class SiteTreeSeeder extends Seeder
@@ -12,20 +13,32 @@ class SiteTreeSeeder extends Seeder
      */
     public function run(): void
     {
-        // Clear existing items
-        SiteTreeItem::truncate();
+        // Get or create base variant
+        $baseVariant = SiteTreeVariant::where('is_base', true)->first();
+        
+        if (!$baseVariant) {
+            $baseVariant = SiteTreeVariant::create([
+                'name' => 'Базова структура',
+                'slug' => 'base',
+                'is_base' => true,
+            ]);
+        }
+
+        // Clear existing items for base variant only
+        SiteTreeItem::where('variant_id', $baseVariant->id)->delete();
 
         $tree = $this->getTreeData();
 
         foreach ($tree as $sortOrder => $section) {
-            $this->createItem($section, null, $sortOrder);
+            $this->createItem($section, null, $sortOrder, $baseVariant->id);
         }
     }
 
-    private function createItem(array $data, ?int $parentId, int $sortOrder): void
+    private function createItem(array $data, ?int $parentId, int $sortOrder, int $variantId): void
     {
         $item = SiteTreeItem::create([
             'parent_id' => $parentId,
+            'variant_id' => $variantId,
             'title' => $data['title'],
             'level' => $data['level'] ?? null,
             'is_checked' => true,
@@ -34,7 +47,7 @@ class SiteTreeSeeder extends Seeder
 
         if (isset($data['children'])) {
             foreach ($data['children'] as $childSortOrder => $child) {
-                $this->createItem($child, $item->id, $childSortOrder);
+                $this->createItem($child, $item->id, $childSortOrder, $variantId);
             }
         }
     }
