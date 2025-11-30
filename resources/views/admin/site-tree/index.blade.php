@@ -583,6 +583,7 @@
                 tree: @json($tree),
                 variants: @json($variants ?? []),
                 currentVariant: @json($currentVariant ?? null),
+                currentVariantId: {{ $currentVariant->id ?? 'null' }},
                 currentVariantSlug: '{{ $currentVariant->slug ?? "" }}',
                 loading: false,
                 message: '',
@@ -760,7 +761,8 @@
                         this.loading = true;
                     }
                     try {
-                        const response = await fetch('/admin/site-tree/api', {
+                        const url = this.currentVariantId ? `/admin/site-tree/api?variant_id=${this.currentVariantId}` : '/admin/site-tree/api';
+                        const response = await fetch(url, {
                             headers: { 'Accept': 'application/json' }
                         });
                         const data = await response.json();
@@ -884,7 +886,8 @@
                             body: JSON.stringify({
                                 title: this.modalData.title.trim(),
                                 level: this.modalData.level.trim() || null,
-                                parent_id: this.modalData.parentId
+                                parent_id: this.modalData.parentId,
+                                variant_id: this.currentVariantId
                             })
                         });
                         
@@ -936,9 +939,13 @@
                         const response = await fetch('/admin/site-tree/reset', {
                             method: 'POST',
                             headers: {
+                                'Content-Type': 'application/json',
                                 'X-CSRF-TOKEN': this.csrfToken,
                                 'Accept': 'application/json'
-                            }
+                            },
+                            body: JSON.stringify({
+                                variant_id: this.currentVariantId
+                            })
                         });
                         const data = await response.json();
                         if (data.success) {
@@ -979,7 +986,8 @@
 
                 async exportTree() {
                     try {
-                        const response = await fetch('/admin/site-tree/export', {
+                        const url = this.currentVariantId ? `/admin/site-tree/export?variant_id=${this.currentVariantId}` : '/admin/site-tree/export';
+                        const response = await fetch(url, {
                             headers: { 'Accept': 'application/json' }
                         });
                         const data = await response.json();
@@ -1018,7 +1026,7 @@
                                 'X-CSRF-TOKEN': this.csrfToken,
                                 'Accept': 'application/json'
                             },
-                            body: JSON.stringify({ tree })
+                            body: JSON.stringify({ tree, variant_id: this.currentVariantId })
                         });
                         const data = await response.json();
                         if (data.success) {
