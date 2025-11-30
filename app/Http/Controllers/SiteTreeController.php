@@ -42,11 +42,11 @@ class SiteTreeController extends Controller
             if (isset($data['categories'])) {
                 foreach ($data['categories'] as $category) {
                     // Add category with URL to its slug
-                    $pages[$category['category_title']] = '/page/' . $category['category_slug'];
+                    $pages[$category['category_title']] = '/pages/' . $category['category_slug'];
                     if (isset($category['pages'])) {
                         foreach ($category['pages'] as $page) {
                             // Add page with URL
-                            $pages[$page['page_title']] = '/page/' . $category['category_slug'] . '/' . $page['page_slug'];
+                            $pages[$page['page_title']] = '/pages/' . $category['category_slug'] . '/' . $page['page_slug'];
                         }
                     }
                 }
