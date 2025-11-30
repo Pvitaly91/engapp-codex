@@ -136,6 +136,22 @@
     </section>
 
     @if($recentUsage->isNotEmpty())
+      @php
+        $actionLabels = [
+          'deploy' => 'Оновлення',
+          'push' => 'Пуш',
+          'auto_push' => 'Автоматичний пуш',
+          'create_and_push' => 'Створення та пуш',
+          'backup' => 'Резервна копія',
+        ];
+        $actionColors = [
+          'deploy' => 'bg-red-100 text-red-700',
+          'push' => 'bg-emerald-100 text-emerald-700',
+          'auto_push' => 'bg-purple-100 text-purple-700',
+          'create_and_push' => 'bg-blue-100 text-blue-700',
+          'backup' => 'bg-amber-100 text-amber-700',
+        ];
+      @endphp
       <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
         <div class="space-y-4 p-3 sm:p-6">
           <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -180,22 +196,6 @@
                         </button>
                       </td>
                       <td class="px-4 py-3">
-                        @php
-                          $actionLabels = [
-                            'deploy' => 'Оновлення',
-                            'push' => 'Пуш',
-                            'auto_push' => 'Автоматичний пуш',
-                            'create_and_push' => 'Створення та пуш',
-                            'backup' => 'Резервна копія',
-                          ];
-                          $actionColors = [
-                            'deploy' => 'bg-red-100 text-red-700',
-                            'push' => 'bg-emerald-100 text-emerald-700',
-                            'auto_push' => 'bg-purple-100 text-purple-700',
-                            'create_and_push' => 'bg-blue-100 text-blue-700',
-                            'backup' => 'bg-amber-100 text-amber-700',
-                          ];
-                        @endphp
                         <span @class(['inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold', $actionColors[$usage->action] ?? 'bg-muted text-foreground'])>
                           {{ $actionLabels[$usage->action] ?? $usage->action }}
                         </span>
@@ -210,22 +210,6 @@
             {{-- Mobile card view --}}
             <div class="md:hidden space-y-3">
               @foreach($recentUsage as $usage)
-                @php
-                  $actionLabels = [
-                    'deploy' => 'Оновлення',
-                    'push' => 'Пуш',
-                    'auto_push' => 'Автоматичний пуш',
-                    'create_and_push' => 'Створення та пуш',
-                    'backup' => 'Резервна копія',
-                  ];
-                  $actionColors = [
-                    'deploy' => 'bg-red-100 text-red-700',
-                    'push' => 'bg-emerald-100 text-emerald-700',
-                    'auto_push' => 'bg-purple-100 text-purple-700',
-                    'create_and_push' => 'bg-blue-100 text-blue-700',
-                    'backup' => 'bg-amber-100 text-amber-700',
-                  ];
-                @endphp
                 <div class="rounded-xl border border-border/60 bg-background/60 p-3 space-y-2">
                   <div class="flex flex-wrap items-center justify-between gap-2">
                     <button
