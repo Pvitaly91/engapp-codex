@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class SiteTreeItem extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['parent_id', 'title', 'level', 'is_checked', 'sort_order'];
+
+    protected $casts = [
+        'is_checked' => 'boolean',
+    ];
+
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(SiteTreeItem::class, 'parent_id');
+    }
+
+    public function children(): HasMany
+    {
+        return $this->hasMany(SiteTreeItem::class, 'parent_id')->orderBy('sort_order');
+    }
+
+    public function scopeRoots($query)
+    {
+        return $query->whereNull('parent_id')->orderBy('sort_order');
+    }
+}

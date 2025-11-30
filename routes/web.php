@@ -18,6 +18,7 @@ use App\Http\Controllers\QuestionVariantController;
 use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
+use App\Http\Controllers\SiteTreeController;
 use App\Http\Controllers\TestTagController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
@@ -90,6 +91,9 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
     Route::prefix('admin')->group(function () {
         Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
+
+        Route::get('/site-tree', [SiteTreeController::class, 'index'])->name('site-tree.index');
+        Route::post('/site-tree/{item}/toggle', [SiteTreeController::class, 'toggle'])->name('site-tree.toggle');
 
         Route::get('set-locale', function (\Illuminate\Http\Request $request) {
             $lang = $request->input('lang', 'en');
