@@ -137,13 +137,13 @@
 
     @if($recentUsage->isNotEmpty())
       <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
-        <div class="space-y-4 p-6">
-          <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-semibold">Історія використання гілок</h2>
+        <div class="space-y-4 p-3 sm:p-6">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <h2 class="text-xl sm:text-2xl font-semibold">Історія використання гілок</h2>
             <button 
               type="button" 
               id="toggle-branch-history"
-              class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary self-start sm:self-auto"
               aria-expanded="true"
               aria-controls="branch-history-content"
             >
@@ -153,57 +153,103 @@
               </svg>
             </button>
           </div>
-          <div id="branch-history-content" class="overflow-x-auto">
-            <table class="min-w-full divide-y divide-border/70 text-sm">
-              <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
-                <tr>
-                  <th class="px-4 py-3">Гілка</th>
-                  <th class="px-4 py-3">Дія</th>
-                  <th class="px-4 py-3">Опис</th>
-                  <th class="px-4 py-3">Час використання</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60 bg-background/60">
-                @foreach($recentUsage as $usage)
+          <div id="branch-history-content">
+            {{-- Desktop table view --}}
+            <div class="hidden md:block overflow-x-auto">
+              <table class="min-w-full divide-y divide-border/70 text-sm">
+                <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
                   <tr>
-                    <td class="px-4 py-3 font-medium">
-                      <button
-                        type="button"
-                        class="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-left font-medium text-foreground transition hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                        data-copy-branch="{{ $usage->branch_name }}"
-                      >
-                        <span data-copy-branch-text>{{ $usage->branch_name }}</span>
-                        <span class="hidden text-xs font-semibold text-success" data-copy-branch-success>Скопійовано!</span>
-                        <span class="hidden text-xs font-semibold text-destructive-foreground" data-copy-branch-error>Не вдалося скопіювати</span>
-                      </button>
-                    </td>
-                    <td class="px-4 py-3">
-                      @php
-                        $actionLabels = [
-                          'deploy' => 'Оновлення',
-                          'push' => 'Пуш',
-                          'auto_push' => 'Автоматичний пуш',
-                          'create_and_push' => 'Створення та пуш',
-                          'backup' => 'Резервна копія',
-                        ];
-                        $actionColors = [
-                          'deploy' => 'bg-red-100 text-red-700',
-                          'push' => 'bg-emerald-100 text-emerald-700',
-                          'auto_push' => 'bg-purple-100 text-purple-700',
-                          'create_and_push' => 'bg-blue-100 text-blue-700',
-                          'backup' => 'bg-amber-100 text-amber-700',
-                        ];
-                      @endphp
-                      <span @class(['inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold', $actionColors[$usage->action] ?? 'bg-muted text-foreground'])>
-                        {{ $actionLabels[$usage->action] ?? $usage->action }}
-                      </span>
-                    </td>
-                    <td class="px-4 py-3 text-xs text-muted-foreground">{{ $usage->description ?? '—' }}</td>
-                    <td class="px-4 py-3 text-xs">{{ $usage->used_at ? $usage->used_at->format('d.m.Y H:i:s') : '—' }}</td>
+                    <th class="px-4 py-3">Гілка</th>
+                    <th class="px-4 py-3">Дія</th>
+                    <th class="px-4 py-3">Опис</th>
+                    <th class="px-4 py-3">Час використання</th>
                   </tr>
-                @endforeach
-              </tbody>
-            </table>
+                </thead>
+                <tbody class="divide-y divide-border/60 bg-background/60">
+                  @foreach($recentUsage as $usage)
+                    <tr>
+                      <td class="px-4 py-3 font-medium">
+                        <button
+                          type="button"
+                          class="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-left font-medium text-foreground transition hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                          data-copy-branch="{{ $usage->branch_name }}"
+                        >
+                          <span data-copy-branch-text>{{ $usage->branch_name }}</span>
+                          <span class="hidden text-xs font-semibold text-success" data-copy-branch-success>Скопійовано!</span>
+                          <span class="hidden text-xs font-semibold text-destructive-foreground" data-copy-branch-error>Не вдалося скопіювати</span>
+                        </button>
+                      </td>
+                      <td class="px-4 py-3">
+                        @php
+                          $actionLabels = [
+                            'deploy' => 'Оновлення',
+                            'push' => 'Пуш',
+                            'auto_push' => 'Автоматичний пуш',
+                            'create_and_push' => 'Створення та пуш',
+                            'backup' => 'Резервна копія',
+                          ];
+                          $actionColors = [
+                            'deploy' => 'bg-red-100 text-red-700',
+                            'push' => 'bg-emerald-100 text-emerald-700',
+                            'auto_push' => 'bg-purple-100 text-purple-700',
+                            'create_and_push' => 'bg-blue-100 text-blue-700',
+                            'backup' => 'bg-amber-100 text-amber-700',
+                          ];
+                        @endphp
+                        <span @class(['inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold', $actionColors[$usage->action] ?? 'bg-muted text-foreground'])>
+                          {{ $actionLabels[$usage->action] ?? $usage->action }}
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-xs text-muted-foreground">{{ $usage->description ?? '—' }}</td>
+                      <td class="px-4 py-3 text-xs">{{ $usage->used_at ? $usage->used_at->format('d.m.Y H:i:s') : '—' }}</td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+            {{-- Mobile card view --}}
+            <div class="md:hidden space-y-3">
+              @foreach($recentUsage as $usage)
+                @php
+                  $actionLabels = [
+                    'deploy' => 'Оновлення',
+                    'push' => 'Пуш',
+                    'auto_push' => 'Автоматичний пуш',
+                    'create_and_push' => 'Створення та пуш',
+                    'backup' => 'Резервна копія',
+                  ];
+                  $actionColors = [
+                    'deploy' => 'bg-red-100 text-red-700',
+                    'push' => 'bg-emerald-100 text-emerald-700',
+                    'auto_push' => 'bg-purple-100 text-purple-700',
+                    'create_and_push' => 'bg-blue-100 text-blue-700',
+                    'backup' => 'bg-amber-100 text-amber-700',
+                  ];
+                @endphp
+                <div class="rounded-xl border border-border/60 bg-background/60 p-3 space-y-2">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      class="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-left font-semibold text-foreground transition hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary text-sm break-all"
+                      data-copy-branch="{{ $usage->branch_name }}"
+                    >
+                      <span data-copy-branch-text>{{ $usage->branch_name }}</span>
+                      <span class="hidden text-xs font-semibold text-success" data-copy-branch-success>Скопійовано!</span>
+                      <span class="hidden text-xs font-semibold text-destructive-foreground" data-copy-branch-error>Не вдалося скопіювати</span>
+                    </button>
+                    <span @class(['inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold', $actionColors[$usage->action] ?? 'bg-muted text-foreground'])>
+                      {{ $actionLabels[$usage->action] ?? $usage->action }}
+                    </span>
+                  </div>
+                  <div class="text-xs text-muted-foreground px-2">
+                    {{ $usage->description ?? '—' }}
+                  </div>
+                  <div class="text-xs text-muted-foreground px-2">
+                    {{ $usage->used_at ? $usage->used_at->format('d.m.Y H:i:s') : '—' }}
+                  </div>
+                </div>
+              @endforeach
+            </div>
           </div>
         </div>
       </section>
@@ -305,17 +351,17 @@
     </section>
 
     <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
-      <div class="space-y-6 p-6">
-        <div class="flex items-center justify-between">
+      <div class="space-y-6 p-3 sm:p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 class="text-2xl font-semibold">5. Керування резервними гілками</h2>
+            <h2 class="text-xl sm:text-2xl font-semibold">5. Керування резервними гілками</h2>
             <p class="text-sm text-muted-foreground">Публікуйте створені гілки на GitHub через REST API без SSH-команд.</p>
           </div>
           @if($backupBranches->isNotEmpty())
             <button 
               type="button" 
               id="toggle-backup-branches"
-              class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary self-start sm:self-auto"
               aria-expanded="true"
               aria-controls="backup-branches-content"
             >
@@ -330,7 +376,8 @@
           <p class="text-sm text-muted-foreground">Поки що немає створених резервних гілок. Створіть першу гілку у попередньому блоці.</p>
         @else
           <div id="backup-branches-content">
-            <div class="overflow-x-auto">
+            {{-- Desktop table view --}}
+            <div class="hidden md:block overflow-x-auto">
               <table class="min-w-full divide-y divide-border/70 text-sm">
                 <thead class="bg-muted/40 text-left text-xs uppercase tracking-wide text-muted-foreground">
                   <tr>
@@ -385,6 +432,51 @@
                   @endforeach
                 </tbody>
               </table>
+            </div>
+            {{-- Mobile card view --}}
+            <div class="md:hidden space-y-3">
+              @foreach($backupBranches as $branch)
+                <div class="rounded-xl border border-border/60 bg-background/60 p-3 space-y-3">
+                  <div class="space-y-1">
+                    <button
+                      type="button"
+                      class="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-left font-semibold text-foreground transition hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary text-sm break-all"
+                      data-copy-branch="{{ $branch->name }}"
+                    >
+                      <span data-copy-branch-text>{{ $branch->name }}</span>
+                      <span class="hidden text-xs font-semibold text-success" data-copy-branch-success>Скопійовано!</span>
+                      <span class="hidden text-xs font-semibold text-destructive-foreground" data-copy-branch-error>Не вдалося скопіювати</span>
+                    </button>
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-muted-foreground px-2">
+                      <span class="font-mono">{{ $branch->commit_hash }}</span>
+                      <span>•</span>
+                      <span>{{ $branch->created_at->format('d.m.Y H:i') }}</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border/40">
+                    @if($branch->pushed_at)
+                      <span class="inline-flex items-center gap-1 rounded-full bg-success/15 px-3 py-1 text-xs font-semibold text-success">
+                        <i class="fa-solid fa-check"></i> Запушено {{ $branch->pushed_at->format('d.m.Y H:i') }}
+                      </span>
+                    @else
+                      <span class="inline-flex items-center gap-1 rounded-full bg-warning/15 px-3 py-1 text-xs font-semibold text-amber-700">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Лише локально
+                      </span>
+                    @endif
+                    @if(! $branch->pushed_at)
+                      <form method="POST" action="{{ route('deployment.native.backup-branch.push', $branch) }}" class="inline">
+                        @csrf
+                        <button type="submit" class="inline-flex items-center gap-2 rounded-2xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
+                          <i class="fa-solid fa-cloud-arrow-up"></i>
+                          Запушити через API
+                        </button>
+                      </form>
+                    @else
+                      <span class="text-xs text-muted-foreground">Віддалена копія актуальна</span>
+                    @endif
+                  </div>
+                </div>
+              @endforeach
             </div>
             @if($backupBranches->hasPages())
               <div class="mt-4 flex justify-center">
