@@ -26,7 +26,8 @@ class DeploymentController extends BaseController
 
         $backupBranches = BackupBranch::query()
             ->orderByDesc('created_at')
-            ->get();
+            ->paginate(10)
+            ->withQueryString();
 
         $branchProcess = $this->runCommand(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], base_path());
         $currentBranch = $branchProcess->isSuccessful()

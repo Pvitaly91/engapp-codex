@@ -26,7 +26,8 @@ class NativeDeploymentController extends BaseController
 
         $backupBranches = BackupBranch::query()
             ->orderByDesc('created_at')
-            ->get();
+            ->paginate(10)
+            ->withQueryString();
 
         $recentUsage = BranchUsageHistory::getRecentUsage(10);
 
