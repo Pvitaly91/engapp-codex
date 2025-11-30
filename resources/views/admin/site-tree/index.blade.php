@@ -22,7 +22,7 @@
                     class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
                     <template x-for="variant in variants" :key="variant.id">
-                        <option :value="variant.slug" x-text="variant.name + (variant.is_base ? ' (базовий)' : '')"></option>
+                        <option :value="variant.slug" :selected="variant.slug === currentVariantSlug" x-text="variant.name + (variant.is_base ? ' (базовий)' : '')"></option>
                     </template>
                 </select>
             </div>
