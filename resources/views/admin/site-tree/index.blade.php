@@ -837,9 +837,7 @@
 
                     // Calculate new position - drop after target (same parent as target)
                     const newParentId = targetParentId;
-                    // Target index is the position of the target in its parent's children array
-                    // We want to place dragged item right after target, so newSortOrder = targetItem.sort_order + 1
-                    // However, we don't have sort_order in frontend, so we use index
+                    // We use array index since sort_order values are maintained on backend
                     const newSortOrder = targetIndex + 1;
 
                     try {
@@ -870,12 +868,19 @@
                     this.dragOverId = null;
                 },
 
-                // Check if checkItem is a descendant of itemId
+                // Check if checkItem is a descendant of itemId (iterative with depth limit)
                 isDescendant(checkItem, itemId) {
                     if (!checkItem.children) return false;
-                    for (const child of checkItem.children) {
-                        if (child.id === itemId) return true;
-                        if (this.isDescendant(child, itemId)) return true;
+                    const stack = [...checkItem.children];
+                    let depth = 0;
+                    const maxDepth = 20;
+                    while (stack.length > 0 && depth < maxDepth) {
+                        const item = stack.pop();
+                        if (item.id === itemId) return true;
+                        if (item.children) {
+                            stack.push(...item.children);
+                        }
+                        depth++;
                     }
                     return false;
                 },
