@@ -93,7 +93,15 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
 
         Route::get('/site-tree', [SiteTreeController::class, 'index'])->name('site-tree.index');
+        Route::get('/site-tree/api', [SiteTreeController::class, 'getTree'])->name('site-tree.api');
+        Route::post('/site-tree', [SiteTreeController::class, 'store'])->name('site-tree.store');
         Route::post('/site-tree/{item}/toggle', [SiteTreeController::class, 'toggle'])->name('site-tree.toggle');
+        Route::put('/site-tree/{item}', [SiteTreeController::class, 'update'])->name('site-tree.update');
+        Route::delete('/site-tree/{item}', [SiteTreeController::class, 'destroy'])->name('site-tree.destroy');
+        Route::post('/site-tree/{item}/move', [SiteTreeController::class, 'move'])->name('site-tree.move');
+        Route::post('/site-tree/reset', [SiteTreeController::class, 'reset'])->name('site-tree.reset');
+        Route::get('/site-tree/export', [SiteTreeController::class, 'exportTree'])->name('site-tree.export');
+        Route::post('/site-tree/import', [SiteTreeController::class, 'importTree'])->name('site-tree.import');
 
         Route::get('set-locale', function (\Illuminate\Http\Request $request) {
             $lang = $request->input('lang', 'en');
