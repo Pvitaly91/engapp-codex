@@ -106,17 +106,37 @@
                         </div>
                     </div>
 
-                    <div class="space-y-2" data-search-select>
-                        <label for="base_seeder_class" class="block text-sm font-medium text-slate-700">BASE_SEEDER_CLASS</label>
+                    <div
+                        class="space-y-2"
+                        data-search-select
+                        data-multi-select
+                        data-target-list="base-seeder-selected"
+                        data-input-name="base_seeder_class[]"
+                    >
+                        <label for="base_seeder_manual" class="block text-sm font-medium text-slate-700">BASE_SEEDER_CLASS (можна кілька)</label>
                         <input
                             type="text"
-                            name="base_seeder_class"
-                            id="base_seeder_class"
-                            value="{{ old('base_seeder_class', $state['base_seeder_class']) }}"
+                            id="base_seeder_manual"
+                            value=""
                             class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
                             placeholder="V2\\ConditionalsMixedPracticeV2Seeder"
-                            required
+                            data-manual-input
                         >
+                        <div class="flex flex-wrap gap-2" id="base-seeder-selected">
+                            @foreach (old('base_seeder_class', $state['base_seeder_classes']) as $class)
+                                <div class="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs" data-chip>
+                                    <span class="font-medium text-slate-700 truncate" title="{{ $class }}">{{ $class }}</span>
+                                    <input type="hidden" name="base_seeder_class[]" value="{{ $class }}">
+                                    <button type="button" class="text-slate-500 hover:text-red-600" data-remove-chip aria-label="Видалити сидер">&times;</button>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="inline-flex items-center rounded-lg bg-slate-800 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-900" data-add-from-input>
+                                <i class="fa-solid fa-plus mr-2"></i>Додати власне значення
+                            </button>
+                            <p class="text-xs text-slate-500">Додайте один чи кілька базових сидерів, за якими потрібно повторити структуру.</p>
+                        </div>
                         <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3 space-y-2">
                             <div class="flex items-center gap-2">
                                 <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
@@ -131,13 +151,13 @@
                                 size="6"
                                 class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
                                 data-searchable-select
-                                data-target-input="base_seeder_class"
+                                data-target-input="base_seeder_manual"
                             >
                                 @foreach ($seederClasses as $class)
                                     <option value="{{ $class }}">{{ $class }}</option>
                                 @endforeach
                             </select>
-                            <p class="text-xs text-slate-500">Підтягуються всі наявні сидери з каталогу <code>database/seeders</code>, виберіть або залиште власний шлях.</p>
+                            <p class="text-xs text-slate-500">Оберіть один чи кілька базових сидерів зі списку або додайте власні вручну.</p>
                         </div>
                     </div>
                 </div>
@@ -196,10 +216,9 @@
                             id="new_seeder_class_name"
                             value="{{ old('new_seeder_class_name', $state['new_seeder_class_name']) }}"
                             class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
-                            placeholder="MixedConditionalsAIGeneratedSeeder"
-                            required
+                            placeholder="MixedConditionalsAIGeneratedSeeder (опційно)"
                         >
-                        <p class="text-xs text-slate-500">Формуйте назву у стилі наявних сидерів, наприклад <code>TopicAIGeneratedSeeder</code>.</p>
+                        <p class="text-xs text-slate-500">Формуйте назву у стилі наявних сидерів, наприклад <code>TopicAIGeneratedSeeder</code>. Можна залишити порожнім, якщо хочете придумати назву пізніше.</p>
                     </div>
 
                     <div class="space-y-2" data-search-select>
@@ -320,9 +339,18 @@
                     <ul class="space-y-1">
                         <li><span class="text-slate-500">TOPIC_NAME:</span> {{ $state['topic_name'] }}</li>
                         <li><span class="text-slate-500">OPTIONAL_THEORY_URL:</span> {{ $state['optional_theory_url'] }}</li>
-                        <li><span class="text-slate-500">BASE_SEEDER_CLASS:</span> {{ $state['base_seeder_class'] }}</li>
+                        <li>
+                            <span class="text-slate-500">BASE_SEEDER_CLASS:</span>
+                            <ul class="ml-4 list-disc space-y-1 text-slate-700">
+                                @foreach ($state['base_seeder_classes'] as $class)
+                                    <li>{{ $class }}</li>
+                                @endforeach
+                            </ul>
+                        </li>
                         <li><span class="text-slate-500">NEW_SEEDER_NAMESPACE_PATH:</span> {{ $state['new_seeder_namespace_path'] }}</li>
-                        <li><span class="text-slate-500">NEW_SEEDER_CLASS_NAME:</span> {{ $state['new_seeder_class_name'] }}</li>
+                        @if ($state['new_seeder_class_name'])
+                            <li><span class="text-slate-500">NEW_SEEDER_CLASS_NAME:</span> {{ $state['new_seeder_class_name'] }}</li>
+                        @endif
                     </ul>
                 </div>
                 <div class="space-y-1">
@@ -357,8 +385,23 @@
             const select = container.querySelector('[data-searchable-select]');
             const targetInputId = select?.dataset.targetInput;
             const targetInput = targetInputId ? document.getElementById(targetInputId) : null;
+            const isMulti = container.hasAttribute('data-multi-select');
+            const selectedListId = container.dataset.targetList;
+            const selectedList = selectedListId ? document.getElementById(selectedListId) : null;
+            const hiddenName = container.dataset.inputName;
+            const manualInput = container.querySelector('[data-manual-input]');
+            const addButton = container.querySelector('[data-add-from-input]');
+            const form = container.closest('form');
 
-            if (!select || !targetInput) {
+            if (!select) {
+                return;
+            }
+
+            if (isMulti && (!selectedList || !hiddenName)) {
+                return;
+            }
+
+            if (!isMulti && !targetInput) {
                 return;
             }
 
@@ -371,15 +414,71 @@
                 });
             };
 
-            searchInput?.addEventListener('input', filterOptions);
+            const hasValue = (value) => {
+                return Array.from(selectedList?.querySelectorAll('input[type="hidden"]') || []).some(
+                    (input) => input.value === value,
+                );
+            };
 
-            select.addEventListener('change', () => {
-                const value = select.value;
+            const addValue = (rawValue) => {
+                const value = (rawValue || '').trim();
 
-                if (value !== undefined) {
+                if (!value) {
+                    return;
+                }
+
+                if (!isMulti && targetInput) {
                     targetInput.value = value;
                 }
+
+                if (isMulti && selectedList && hiddenName) {
+                    if (hasValue(value)) {
+                        return;
+                    }
+
+                    const chip = document.createElement('div');
+                    chip.className = 'flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs';
+                    chip.setAttribute('data-chip', '');
+
+                    const label = document.createElement('span');
+                    label.className = 'font-medium text-slate-700 truncate';
+                    label.title = value;
+                    label.textContent = value;
+
+                    const hidden = document.createElement('input');
+                    hidden.type = 'hidden';
+                    hidden.name = hiddenName;
+                    hidden.value = value;
+
+                    const removeBtn = document.createElement('button');
+                    removeBtn.type = 'button';
+                    removeBtn.className = 'text-slate-500 hover:text-red-600';
+                    removeBtn.setAttribute('aria-label', 'Видалити сидер');
+                    removeBtn.textContent = '×';
+                    removeBtn.addEventListener('click', () => chip.remove());
+
+                    chip.append(label, hidden, removeBtn);
+                    selectedList.appendChild(chip);
+                }
+
+                select.value = '';
+                if (manualInput) {
+                    manualInput.value = '';
+                }
+            };
+
+            searchInput?.addEventListener('input', filterOptions);
+
+            select.addEventListener('change', () => addValue(select.value));
+            addButton?.addEventListener('click', () => addValue(manualInput?.value));
+
+            container.querySelectorAll('[data-remove-chip]').forEach((btn) => {
+                btn.addEventListener('click', () => btn.closest('[data-chip]')?.remove());
             });
+
+            if (isMulti && form && manualInput) {
+                form.addEventListener('submit', () => addValue(manualInput.value));
+            }
 
             filterOptions();
         });

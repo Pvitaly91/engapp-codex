@@ -27,9 +27,10 @@ class PromptGeneratorController extends Controller
         $validated = $request->validate([
             'topic_name' => ['required', 'string', 'max:255'],
             'optional_theory_url' => ['nullable', 'string', 'max:500'],
-            'base_seeder_class' => ['required', 'string', 'max:255'],
+            'base_seeder_class' => ['required', 'array', 'min:1'],
+            'base_seeder_class.*' => ['string', 'max:255'],
             'new_seeder_namespace_path' => ['required', 'string', 'max:255'],
-            'new_seeder_class_name' => ['required', 'string', 'max:255'],
+            'new_seeder_class_name' => ['nullable', 'string', 'max:255'],
             'levels' => ['array'],
             'levels.*' => ['string', 'max:10'],
             'custom_levels' => ['nullable', 'string', 'max:255'],
@@ -39,27 +40,40 @@ class PromptGeneratorController extends Controller
 
         $levels = $this->prepareLevels($validated['levels'] ?? [], $validated['custom_levels'] ?? '');
 
+        $baseSeeders = collect($validated['base_seeder_class'])
+            ->map(fn ($value) => trim($value))
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+
+        if (empty($baseSeeders)) {
+            $baseSeeders = self::defaultState()['base_seeder_classes'];
+        }
+
         $state = [
             'topic_name' => $validated['topic_name'],
             'optional_theory_url' => $validated['optional_theory_url'] ?: 'none',
-            'base_seeder_class' => $validated['base_seeder_class'],
+            'base_seeder_classes' => $baseSeeders,
             'new_seeder_namespace_path' => $validated['new_seeder_namespace_path'],
-            'new_seeder_class_name' => $validated['new_seeder_class_name'],
+            'new_seeder_class_name' => $validated['new_seeder_class_name'] ?? '',
             'levels' => $levels,
             'custom_levels' => $validated['custom_levels'] ?? '',
             'questions_per_level' => (int) $validated['questions_per_level'],
             'hints_language' => $validated['hints_language'],
+            'total_questions' => count($levels) * (int) $validated['questions_per_level'],
         ];
 
         $prompt = view('prompt-generator::prompt', [
             'topicName' => $state['topic_name'],
             'theoryUrl' => $state['optional_theory_url'],
-            'baseSeederClass' => $state['base_seeder_class'],
+            'baseSeederClasses' => $state['base_seeder_classes'],
             'newSeederNamespacePath' => $state['new_seeder_namespace_path'],
             'newSeederClassName' => $state['new_seeder_class_name'],
             'levels' => $state['levels'],
             'questionsPerLevel' => $state['questions_per_level'],
             'hintsLanguage' => $state['hints_language'],
+            'totalQuestions' => $state['total_questions'],
         ])->render();
 
         return view('prompt-generator::index', $this->prepareViewData($state, $prompt));
@@ -87,13 +101,14 @@ class PromptGeneratorController extends Controller
         return [
             'topic_name' => 'Mixed Conditionals',
             'optional_theory_url' => 'https://gramlyze.com/pages/conditions/mixed-conditional',
-            'base_seeder_class' => 'V2\\ConditionalsMixedPracticeV2Seeder',
+            'base_seeder_classes' => ['V2\\ConditionalsMixedPracticeV2Seeder'],
             'new_seeder_namespace_path' => 'database/seeders/AI/Claude',
             'new_seeder_class_name' => 'MixedConditionalsAIGeneratedSeeder',
             'levels' => self::DEFAULT_LEVELS,
             'custom_levels' => '',
             'questions_per_level' => 12,
             'hints_language' => config('prompt-generator.default_language', 'Ukrainian'),
+            'total_questions' => count(self::DEFAULT_LEVELS) * 12,
         ];
     }
 

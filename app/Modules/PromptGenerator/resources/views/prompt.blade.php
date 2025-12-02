@@ -1,36 +1,23 @@
-- TOPIC_NAME: {{ $topicName }}
-  (example: "Mixed Conditionals", "Comparative and Superlative Adjectives", "Present Perfect vs Past Simple")
-- OPTIONAL_THEORY_URL: {{ $theoryUrl }} 
-  (example: "https://gramlyze.com/pages/conditions/mixed-conditional" or "none")
-- BASE_SEEDER_CLASS: {{ $baseSeederClass }} 
-  (example: "V2\\ConditionalsMixedPracticeV2Seeder")
-- NEW_SEEDER_NAMESPACE_PATH: {{ $newSeederNamespacePath }} 
-  (example: "database/seeders/AI/Claude")
-- NEW_SEEDER_CLASS_NAME: {{ $newSeederClassName }} 
-  (example: "MixedConditionalsAIGeneratedSeeder")
-- HINTS_LANGUAGE: {{ $hintsLanguage }} 
-  (language for chatgpt_explanations & question_hints, default: "Ukrainian")
-
-- LEVELS_TO_USE: {!! json_encode($levels, JSON_UNESCAPED_UNICODE) !!} 
-  (example: ["A1", "A2", "B1", "B2", "C1", "C2"])
-- QUESTIONS_PER_LEVEL: {{ $questionsPerLevel }} 
-  (example: 12)
-
 GENERAL TASK:
 Create a NEW Laravel seeder for grammar questions on the topic:
-{{ $topicName }} (see config above).
+{{ $topicName }}.
 
 If the theory URL ({{ $theoryUrl }}) is not "none", you may use it only as a reference for the grammar rules,
 but you must create completely original questions.
 
 You must:
-- Inspect {{ $baseSeederClass }}.
-- Reuse the same structure, methods and logic that {{ $baseSeederClass }} uses to build and insert questions.
-- Follow the same array keys / fields / models that {{ $baseSeederClass }} relies on.
+- Inspect and follow the structure from these base seeders:
+@foreach ($baseSeederClasses as $class)
+- {{ $class }}
+@endforeach
+- Reuse the same structure, methods and logic that the base seeders use to build and insert questions.
+- Follow the same array keys / fields / models that the base seeders rely on.
 
 FILE & NAMESPACE:
 - Place the new seeder class in {{ $newSeederNamespacePath }}.
+@if ($newSeederClassName)
 - Use {{ $newSeederClassName }} as the class name.
+@endif
 - Follow the same namespace and base class conventions as other seeders in this project.
 
 LANGUAGE:
@@ -38,9 +25,9 @@ LANGUAGE:
 - Fields chatgpt_explanations and question_hints must be generated in {{ $hintsLanguage }}.
 
 QUESTION QUANTITY & LEVELS:
-- Use CEFR levels from LEVELS_TO_USE list.
-- For EACH level in LEVELS_TO_USE generate EXACTLY QUESTIONS_PER_LEVEL UNIQUE questions.
-- Total number of questions = LEVELS_TO_USE.length × QUESTIONS_PER_LEVEL.
+- Use CEFR levels: {!! json_encode($levels, JSON_UNESCAPED_UNICODE) !!}.
+- For EACH level generate EXACTLY {{ $questionsPerLevel }} UNIQUE questions.
+- Total number of questions = {{ count($levels) }} × {{ $questionsPerLevel }} = {{ $totalQuestions }}.
 - Each question must have a field that stores its level (for example: "level" => "B1").
 
 GENERAL REQUIREMENTS FOR QUESTIONS:
@@ -53,7 +40,7 @@ GENERAL REQUIREMENTS FOR QUESTIONS:
 - NO duplicated questions (text or structure).
 
 FIELDS PER QUESTION
-(ADAPT FIELD NAMES TO MATCH {{ $baseSeederClass }}, BUT KEEP THIS INFORMATION):
+(ADAPT FIELD NAMES TO MATCH THE BASE SEEDERS, BUT KEEP THIS INFORMATION):
 
 For each question, generate:
 - text / question text with a gap for the missing part (e.g. "If I ____ more time, I would travel the world.").
@@ -120,9 +107,9 @@ SOURCE, FLAG, TYPE (FIXED REQUIREMENTS):
 - All questions must have:
   - questions.flag = 2
   - questions.type = 0
-- Use the exact keys/columns and structure that {{ $baseSeederClass }} uses when inserting questions.
+- Use the exact keys/columns and structure that the base seeders use when inserting questions.
 
 CODE STYLE:
-- Follow the exact collection/array structure of {{ $baseSeederClass }} so that the new seeder can be executed without manual changes.
+- Follow the exact collection/array structure of the base seeders so that the new seeder can be executed without manual changes.
 - Implement a run() method that inserts ALL generated questions (all levels, all quantities).
-- Do not add any external dependencies. Use only standard Laravel seeder patterns already used in {{ $baseSeederClass }}.
+- Do not add any external dependencies. Use only standard Laravel seeder patterns already used in the base seeders.
