@@ -2,6 +2,18 @@
 
 @section('title', 'Промт генератор')
 
+@php
+    use Illuminate\Support\Arr;
+
+    $baseSeederSelection = collect(
+        Arr::wrap(old('base_seeder_class', $state['base_seeder_classes']))
+    )
+        ->map(fn ($value) => trim($value))
+        ->filter()
+        ->unique()
+        ->values();
+@endphp
+
 @section('content')
 <div class="max-w-6xl mx-auto space-y-8">
     <header class="space-y-3">
@@ -123,7 +135,7 @@
                             data-manual-input
                         >
                         <div class="flex flex-wrap gap-2" id="base-seeder-selected">
-                            @foreach (old('base_seeder_class', $state['base_seeder_classes']) as $class)
+                            @foreach ($baseSeederSelection as $class)
                                 <div class="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs" data-chip>
                                     <span class="font-medium text-slate-700 truncate" title="{{ $class }}">{{ $class }}</span>
                                     <input type="hidden" name="base_seeder_class[]" value="{{ $class }}">
