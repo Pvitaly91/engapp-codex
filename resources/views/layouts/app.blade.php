@@ -100,6 +100,7 @@
                             <a href="{{ route('grammar-test') }}" class="block px-4 py-2 hover:bg-blue-50">Конструктор тестів</a>
                             <a href="{{ route('saved-tests.list') }}" class="block px-4 py-2 hover:bg-blue-50">Збережені тести</a>
                             <a href="{{ route('test-tags.index') }}" class="block px-4 py-2 hover:bg-blue-50">Теги тестів</a>
+                            <a href="{{ route('prompt-generator.index') }}" class="block px-4 py-2 hover:bg-blue-50">Промт генератор</a>
                         </div>
                     </div>
                     <a href="{{ route('seed-runs.index') }}" class="hover:text-blue-500 transition">Seed Runs</a>
@@ -169,6 +170,7 @@
                         <a href="{{ route('grammar-test') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Конструктор тестів</a>
                         <a href="{{ route('saved-tests.list') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Збережені тести</a>
                         <a href="{{ route('test-tags.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Теги тестів</a>
+                        <a href="{{ route('prompt-generator.index') }}" class="block rounded-lg px-2 py-1.5 hover:bg-blue-50">Промт генератор</a>
                     </div>
                 </div>
                 <a href="{{ route('seed-runs.index') }}" class="block px-2 py-2 rounded-lg hover:bg-blue-50">Seed Runs</a>

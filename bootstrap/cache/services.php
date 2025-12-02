@@ -42,6 +42,7 @@
     38 => 'App\\Modules\\FileManager\\FileManagerServiceProvider',
     39 => 'App\\Modules\\MigrationManager\\MigrationManagerServiceProvider',
     40 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
+    41 => 'App\\Modules\\PromptGenerator\\PromptGeneratorServiceProvider',
   ),
   'eager' => 
   array (
@@ -71,6 +72,7 @@
     23 => 'App\\Modules\\FileManager\\FileManagerServiceProvider',
     24 => 'App\\Modules\\MigrationManager\\MigrationManagerServiceProvider',
     25 => 'App\\Modules\\PageManager\\PageManagerServiceProvider',
+    26 => 'App\\Modules\\PromptGenerator\\PromptGeneratorServiceProvider',
   ),
   'deferred' => 
   array (

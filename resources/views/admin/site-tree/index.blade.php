@@ -226,8 +226,11 @@
 
                                                 {{-- Title (editable) - clickable to show actions --}}
                                                 <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(item.id)" @dblclick="startEditing(item)">
+                                                    {{-- Category number --}}
+                                                    <span class="flex-shrink-0 text-sm font-bold text-gray-500 mr-1" x-text="getCategoryNumber(index)"></span>
+                                                    
                                                     <template x-if="editingId !== item.id">
-                                                        <span class="text-sm font-semibold leading-tight" :class="[isItemSelected(item.id) ? 'truncate' : '', item.is_checked ? '' : 'line-through text-gray-400']" x-text="item.title"></span>
+                                                        <span class="text-sm font-semibold leading-tight" :class="[isItemSelected(item.id) ? 'truncate' : '', item.is_checked ? '' : 'line-through text-gray-400', existsInPages(item.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="item.title"></span>
                                                     </template>
                                                     <template x-if="editingId === item.id">
                                                         <input 
@@ -246,10 +249,29 @@
                                                     <template x-if="item.level">
                                                         <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="item.level"></span>
                                                     </template>
+                                                    
+                                                    {{-- Exists in pages indicator with link --}}
+                                                    <template x-if="existsInPages(item.title)">
+                                                        <a :href="getPageUrl(item.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                    </template>
                                                 </div>
 
                                                 {{-- Actions - visible when selected --}}
                                                 <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(item.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                    {{-- Link to page on site - only for existing pages --}}
+                                                    <template x-if="existsInPages(item.title)">
+                                                        <a 
+                                                            :href="getPageUrl(item.title)"
+                                                            target="_blank"
+                                                            @click.stop
+                                                            class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition"
+                                                            title="Відкрити на сайті"
+                                                        >
+                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                                            </svg>
+                                                        </a>
+                                                    </template>
                                                     <button 
                                                         type="button"
                                                         @click.stop="startEditing(item)"
@@ -332,8 +354,11 @@
                                                             >
 
                                                             <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(child.id)" @dblclick="startEditing(child)">
+                                                                {{-- Page number within category --}}
+                                                                <span class="flex-shrink-0 text-xs font-medium text-gray-400 mr-1" x-text="getItemNumber(index, childIndex)"></span>
+                                                                
                                                                 <template x-if="editingId !== child.id">
-                                                                    <span class="text-sm leading-tight" :class="[isItemSelected(child.id) ? 'truncate' : '', child.is_checked ? '' : 'line-through text-gray-400']" x-text="child.title"></span>
+                                                                    <span class="text-sm leading-tight" :class="[isItemSelected(child.id) ? 'truncate' : '', child.is_checked ? '' : 'line-through text-gray-400', existsInPages(child.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="child.title"></span>
                                                                 </template>
                                                                 <template x-if="editingId === child.id">
                                                                     <input 
@@ -349,9 +374,20 @@
                                                                 <template x-if="child.level">
                                                                     <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="child.level"></span>
                                                                 </template>
+                                                                
+                                                                {{-- Exists in pages indicator with link --}}
+                                                                <template x-if="existsInPages(child.title)">
+                                                                    <a :href="getPageUrl(child.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                                </template>
                                                             </div>
 
                                                             <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(child.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                {{-- Link to page on site --}}
+                                                                <template x-if="existsInPages(child.title)">
+                                                                    <a :href="getPageUrl(child.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
+                                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                                                    </a>
+                                                                </template>
                                                                 <button type="button" @click.stop="startEditing(child)" class="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition" title="Редагувати">
                                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                                                                 </button>
@@ -399,7 +435,7 @@
 
                                                                     <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(grandchild.id)" @dblclick="startEditing(grandchild)">
                                                                         <template x-if="editingId !== grandchild.id">
-                                                                            <span class="text-sm leading-tight" :class="[isItemSelected(grandchild.id) ? 'truncate' : '', grandchild.is_checked ? '' : 'line-through text-gray-400']" x-text="grandchild.title"></span>
+                                                                            <span class="text-sm leading-tight" :class="[isItemSelected(grandchild.id) ? 'truncate' : '', grandchild.is_checked ? '' : 'line-through text-gray-400', existsInPages(grandchild.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="grandchild.title"></span>
                                                                         </template>
                                                                         <template x-if="editingId === grandchild.id">
                                                                             <input 
@@ -415,9 +451,20 @@
                                                                         <template x-if="grandchild.level">
                                                                             <span class="flex-shrink-0 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-xs font-medium text-blue-700" x-text="grandchild.level"></span>
                                                                         </template>
+                                                                        
+                                                                        {{-- Exists in pages indicator with link --}}
+                                                                        <template x-if="existsInPages(grandchild.title)">
+                                                                            <a :href="getPageUrl(grandchild.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                                        </template>
                                                                     </div>
 
                                                                     <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(grandchild.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                        {{-- Link to page on site --}}
+                                                                        <template x-if="existsInPages(grandchild.title)">
+                                                                            <a :href="getPageUrl(grandchild.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
+                                                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                                                            </a>
+                                                                        </template>
                                                                         <button type="button" @click.stop="startEditing(grandchild)" class="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition" title="Редагувати">
                                                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                                                                         </button>
@@ -585,6 +632,7 @@
                 currentVariant: @json($currentVariant ?? null),
                 currentVariantId: {{ $currentVariant->id ?? 'null' }},
                 currentVariantSlug: '{{ $currentVariant->slug ?? "" }}',
+                existingPages: @json($existingPages ?? []),
                 loading: false,
                 message: '',
                 messageType: 'success',
@@ -740,6 +788,33 @@
                 
                 isItemSelected(itemId) {
                     return this.selectedItemId === itemId;
+                },
+                
+                existsInPages(title) {
+                    // Check if the title exists in exported pages (now existingPages is an object: title -> url)
+                    const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '');
+                    const titles = Object.keys(this.existingPages);
+                    return titles.some(t => t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle));
+                },
+                
+                getPageUrl(title) {
+                    // Get the URL for a page if it exists
+                    const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '');
+                    const titles = Object.keys(this.existingPages);
+                    for (const t of titles) {
+                        if (t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle)) {
+                            return this.existingPages[t];
+                        }
+                    }
+                    return null;
+                },
+                
+                getCategoryNumber(index) {
+                    return (index + 1) + '.';
+                },
+                
+                getItemNumber(categoryIndex, itemIndex) {
+                    return (categoryIndex + 1) + '.' + (itemIndex + 1);
                 },
 
                 isCollapsed(itemId) {

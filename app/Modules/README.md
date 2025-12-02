@@ -82,3 +82,18 @@
 4. Додайте посилання у меню адмінки на маршрут `migrations.index` (типово `/admin/migrations`).
 
 Більше деталей — у `app/Modules/MigrationManager/README.md`.
+
+## Модуль "PromptGenerator"
+
+Модуль додає сторінку `/admin/prompt-generator` із формою для складання промптів під генерацію нових сидерів питань.
+Він підтягує наявні теми, теоретичні сторінки та сидери, щоб можна було швидко заповнити змінні або вказати їх вручну.
+
+### Як встановити
+1. Скопіюйте папку `app/Modules/PromptGenerator` у ваш проєкт.
+2. Зареєструйте `App\\Modules\\PromptGenerator\\PromptGeneratorServiceProvider::class` у `config/app.php` (постачається за замовчуванням у цьому репозиторії).
+3. За потреби опублікуйте конфіг/шаблони:
+   ```bash
+   php artisan vendor:publish --tag=prompt-generator-config
+   php artisan vendor:publish --tag=prompt-generator-views
+   ```
+4. Додайте посилання в адмін-навігацію на маршрут `prompt-generator.index`.

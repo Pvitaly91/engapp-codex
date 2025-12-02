@@ -25,8 +25,35 @@ class SiteTreeController extends Controller
         }
         
         $tree = $currentVariant ? $this->getTreeWithChildren($currentVariant->id) : collect();
+        
+        // Load existing pages with URLs from exported_pages.json
+        $existingPages = $this->getExistingPagesWithUrls();
 
-        return view('admin.site-tree.index', compact('tree', 'variants', 'currentVariant'));
+        return view('admin.site-tree.index', compact('tree', 'variants', 'currentVariant', 'existingPages'));
+    }
+    
+    private function getExistingPagesWithUrls(): array
+    {
+        $pages = [];
+        $path = config_path('pages/exported_pages.json');
+        
+        if (file_exists($path)) {
+            $data = json_decode(file_get_contents($path), true);
+            if (isset($data['categories'])) {
+                foreach ($data['categories'] as $category) {
+                    // Add category with URL to its slug
+                    $pages[$category['category_title']] = '/pages/' . $category['category_slug'];
+                    if (isset($category['pages'])) {
+                        foreach ($category['pages'] as $page) {
+                            // Add page with URL
+                            $pages[$page['page_title']] = '/pages/' . $category['category_slug'] . '/' . $page['page_slug'];
+                        }
+                    }
+                }
+            }
+        }
+        
+        return $pages;
     }
 
     private function getTreeWithChildren(?int $variantId = null)
