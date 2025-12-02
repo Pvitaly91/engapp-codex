@@ -523,7 +523,7 @@ class BasicWordOrderPracticeV2Seeder extends QuestionSeeder
         $this->seedQuestionData($items, $meta);
     }
 
-    private function normalizeHint(?string $hint): ?string
+    protected function normalizeHint(?string $hint): ?string
     {
         if ($hint === null) {
             return null;
