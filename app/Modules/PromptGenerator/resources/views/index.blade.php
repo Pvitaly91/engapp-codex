@@ -37,63 +37,108 @@
                 </div>
 
                 <div class="space-y-4">
-                    <div class="space-y-1">
+                    <div class="space-y-2" data-search-select>
                         <label for="topic_name" class="block text-sm font-medium text-slate-700">TOPIC_NAME</label>
                         <input
                             type="text"
                             name="topic_name"
                             id="topic_name"
-                            list="topics-list"
                             value="{{ old('topic_name', $state['topic_name']) }}"
                             class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
                             placeholder="Напр.: Mixed Conditionals"
                             required
                         >
-                        <datalist id="topics-list">
-                            @foreach ($topicOptions as $topic)
-                                <option value="{{ $topic }}"></option>
-                            @endforeach
-                        </datalist>
-                        <p class="text-xs text-slate-500">Виберіть готову тему з тегів/категорій або введіть власну.</p>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3 space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                                <input
+                                    type="text"
+                                    class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                    placeholder="Пошук у списку тем"
+                                    data-search-input
+                                >
+                            </div>
+                            <select
+                                size="6"
+                                class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                data-searchable-select
+                                data-target-input="topic_name"
+                            >
+                                @foreach ($topicOptions as $topic)
+                                    <option value="{{ $topic }}">{{ $topic }}</option>
+                                @endforeach
+                            </select>
+                            <p class="text-xs text-slate-500">Оберіть зі списку або залиште власне значення у полі вище.</p>
+                        </div>
                     </div>
 
-                    <div class="space-y-1">
+                    <div class="space-y-2" data-search-select>
                         <label for="optional_theory_url" class="block text-sm font-medium text-slate-700">OPTIONAL_THEORY_URL</label>
                         <input
                             type="text"
                             name="optional_theory_url"
                             id="optional_theory_url"
-                            list="theory-links"
                             value="{{ old('optional_theory_url', $state['optional_theory_url']) }}"
                             class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
                             placeholder="https://... або none"
                         >
-                        <datalist id="theory-links">
-                            @foreach ($theoryOptions as $theory)
-                                <option value="{{ $theory['url'] }}">{{ $theory['title'] }}</option>
-                            @endforeach
-                        </datalist>
-                        <p class="text-xs text-slate-500">Можна обрати сторінку теорії з сайту або залишити <code>none</code>.</p>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3 space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                                <input
+                                    type="text"
+                                    class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                    placeholder="Пошук серед сторінок теорії"
+                                    data-search-input
+                                >
+                            </div>
+                            <select
+                                size="6"
+                                class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                data-searchable-select
+                                data-target-input="optional_theory_url"
+                            >
+                                @foreach ($theoryOptions as $theory)
+                                    <option value="{{ $theory['url'] }}">{{ $theory['title'] }}</option>
+                                @endforeach
+                            </select>
+                            <p class="text-xs text-slate-500">Обирайте існуючу теорію або залишайте власне значення/none у полі вище.</p>
+                        </div>
                     </div>
 
-                    <div class="space-y-1">
+                    <div class="space-y-2" data-search-select>
                         <label for="base_seeder_class" class="block text-sm font-medium text-slate-700">BASE_SEEDER_CLASS</label>
                         <input
                             type="text"
                             name="base_seeder_class"
                             id="base_seeder_class"
-                            list="seeder-classes"
                             value="{{ old('base_seeder_class', $state['base_seeder_class']) }}"
                             class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
                             placeholder="V2\\ConditionalsMixedPracticeV2Seeder"
                             required
                         >
-                        <datalist id="seeder-classes">
-                            @foreach ($seederClasses as $class)
-                                <option value="{{ $class }}"></option>
-                            @endforeach
-                        </datalist>
-                        <p class="text-xs text-slate-500">Підтягуються всі наявні сидери з каталогу <code>database/seeders</code>.</p>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3 space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                                <input
+                                    type="text"
+                                    class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                    placeholder="Пошук серед сидерів"
+                                    data-search-input
+                                >
+                            </div>
+                            <select
+                                size="6"
+                                class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                data-searchable-select
+                                data-target-input="base_seeder_class"
+                            >
+                                @foreach ($seederClasses as $class)
+                                    <option value="{{ $class }}">{{ $class }}</option>
+                                @endforeach
+                            </select>
+                            <p class="text-xs text-slate-500">Підтягуються всі наявні сидери з каталогу <code>database/seeders</code>, виберіть або залиште власний шлях.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -108,24 +153,39 @@
                 </div>
 
                 <div class="space-y-4">
-                    <div class="space-y-1">
+                    <div class="space-y-2" data-search-select>
                         <label for="new_seeder_namespace_path" class="block text-sm font-medium text-slate-700">NEW_SEEDER_NAMESPACE_PATH</label>
                         <input
                             type="text"
                             name="new_seeder_namespace_path"
                             id="new_seeder_namespace_path"
-                            list="seeder-namespaces"
                             value="{{ old('new_seeder_namespace_path', $state['new_seeder_namespace_path']) }}"
                             class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
                             placeholder="database/seeders/AI/Claude"
                             required
                         >
-                        <datalist id="seeder-namespaces">
-                            @foreach ($seederNamespaces as $namespace)
-                                <option value="{{ $namespace }}"></option>
-                            @endforeach
-                        </datalist>
-                        <p class="text-xs text-slate-500">Пропонуються існуючі каталоги сидерів, але можна вказати свій.</p>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3 space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                                <input
+                                    type="text"
+                                    class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                    placeholder="Пошук каталогу сидерів"
+                                    data-search-input
+                                >
+                            </div>
+                            <select
+                                size="6"
+                                class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                data-searchable-select
+                                data-target-input="new_seeder_namespace_path"
+                            >
+                                @foreach ($seederNamespaces as $namespace)
+                                    <option value="{{ $namespace }}">{{ $namespace }}</option>
+                                @endforeach
+                            </select>
+                            <p class="text-xs text-slate-500">Пропонуються існуючі каталоги сидерів, можна також вказати свій шлях вручну.</p>
+                        </div>
                     </div>
 
                     <div class="space-y-1">
@@ -142,24 +202,39 @@
                         <p class="text-xs text-slate-500">Формуйте назву у стилі наявних сидерів, наприклад <code>TopicAIGeneratedSeeder</code>.</p>
                     </div>
 
-                    <div class="space-y-1">
+                    <div class="space-y-2" data-search-select>
                         <label for="hints_language" class="block text-sm font-medium text-slate-700">HINTS_LANGUAGE</label>
                         <input
                             type="text"
                             name="hints_language"
                             id="hints_language"
-                            list="language-options"
                             value="{{ old('hints_language', $state['hints_language']) }}"
                             class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
                             placeholder="Ukrainian"
                             required
                         >
-                        <datalist id="language-options">
-                            @foreach ($languageOptions as $language)
-                                <option value="{{ $language }}"></option>
-                            @endforeach
-                        </datalist>
-                        <p class="text-xs text-slate-500">Мова для <code>chatgpt_explanations</code> і <code>question_hints</code> за замовчуванням — українська.</p>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-3 space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                                <input
+                                    type="text"
+                                    class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                    placeholder="Пошук мови"
+                                    data-search-input
+                                >
+                            </div>
+                            <select
+                                size="6"
+                                class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                                data-searchable-select
+                                data-target-input="hints_language"
+                            >
+                                @foreach ($languageOptions as $language)
+                                    <option value="{{ $language }}">{{ $language }}</option>
+                                @endforeach
+                            </select>
+                            <p class="text-xs text-slate-500">Обирайте мову підказок або введіть власну у поле вище (за замовчуванням — українська).</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -275,5 +350,41 @@
             setTimeout(() => (button.innerHTML = original), 1500);
         });
     }
+
+    function initSearchableSelects() {
+        document.querySelectorAll('[data-search-select]').forEach((container) => {
+            const searchInput = container.querySelector('[data-search-input]');
+            const select = container.querySelector('[data-searchable-select]');
+            const targetInputId = select?.dataset.targetInput;
+            const targetInput = targetInputId ? document.getElementById(targetInputId) : null;
+
+            if (!select || !targetInput) {
+                return;
+            }
+
+            const filterOptions = () => {
+                const term = (searchInput?.value || '').toLowerCase();
+
+                Array.from(select.options).forEach((option) => {
+                    const haystack = `${option.text} ${option.value}`.toLowerCase();
+                    option.hidden = term ? !haystack.includes(term) : false;
+                });
+            };
+
+            searchInput?.addEventListener('input', filterOptions);
+
+            select.addEventListener('change', () => {
+                const value = select.value;
+
+                if (value !== undefined) {
+                    targetInput.value = value;
+                }
+            });
+
+            filterOptions();
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initSearchableSelects);
 </script>
 @endpush
