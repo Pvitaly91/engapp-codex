@@ -11,6 +11,7 @@ use Database\Seeders\Pages\Conditions\SecondConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\ThirdConditionalPageSeeder;
 use Database\Seeders\Pages\Conditions\ZeroConditionalPageSeeder;
 use Database\Seeders\Pages\Adjectives\DegreesOfComparisonPageSeeder;
+use Database\Seeders\Pages\BasicGrammar\BasicWordOrderPageSeeder;
 use Database\Seeders\Pages\Demonstratives\ThisThatTheseThosePageSeeder;
 use Database\Seeders\Pages\HaveGot\HaveGotPageSeeder;
 use Database\Seeders\Pages\IrregularVerbs\IrregularVerbsPageSeeder;
@@ -85,6 +86,7 @@ class GrammarPagesSeeder extends Seeder
         VocabularyStrategiesPageSeeder::class,
         TranslationTechniquesPageSeeder::class,
         DegreesOfComparisonPageSeeder::class,
+        BasicWordOrderPageSeeder::class,
     ];
 
     public function run(): void
