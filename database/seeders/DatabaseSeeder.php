@@ -16,6 +16,7 @@ use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
 use Database\Seeders\Ai\ContractionsMatchSeeder;
 use Database\Seeders\Page_v2\Articles\SomeAnyPlacesTheorySeeder;
+use Database\Seeders\Page_v2\BasicGrammar\BasicWordOrderTheorySeeder;
 use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
 use Database\Seeders\Pages\Articles\SomeAnyCategorySeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
@@ -168,6 +169,7 @@ class DatabaseSeeder extends Seeder
             QuestionWordsDragDropSeeder::class,
             SomeAnyCategorySeeder::class,
             SomeAnyPlacesTheorySeeder::class,
+            BasicWordOrderTheorySeeder::class,
             GrammarPagesSeeder::class,
             GptPageTagAssignmentSeeder::class,
         ]);
