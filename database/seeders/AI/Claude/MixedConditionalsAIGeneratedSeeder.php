@@ -663,19 +663,19 @@ class MixedConditionalsAIGeneratedSeeder extends QuestionSeeder
             ],
             [
                 'level' => 'C2',
-                'question' => 'If the Byzantine Empire {a1} in the fifteenth century, the Renaissance {a2} an entirely different intellectual character.',
-                'answers' => ['a1' => "hadn't fallen", 'a2' => 'would have assumed'],
+                'question' => 'If the Byzantine Empire {a1} in the fifteenth century, contemporary Orthodox theological discourse {a2} fundamentally different today.',
+                'answers' => ['a1' => "hadn't fallen", 'a2' => 'would be'],
                 'options' => [
                     'a1' => ["hadn't fallen", "didn't fall", "doesn't fall", "wouldn't fall"],
-                    'a2' => ['would have assumed', 'would assume', 'will assume', 'assumed'],
+                    'a2' => ['would be', 'will be', 'is', 'was'],
                 ],
-                'verb_hints' => ['a1' => 'fall', 'a2' => 'assume'],
+                'verb_hints' => ['a1' => 'fall', 'a2' => 'be'],
                 'hints' => [
-                    'Формула: If + hadn\'t + V3, would have + V3.',
-                    'Обидві частини описують минулі гіпотетичні події.',
-                    'Приклад: If Rome hadn\'t declined, Europe would have developed differently.',
+                    'Формула: If + hadn\'t + V3, would + base verb.',
+                    'Минуле падіння імперії впливає на теперішній богословський дискурс.',
+                    'Приклад: If ancient libraries hadn\'t burned, knowledge would be more accessible now.',
                 ],
-                'tag_ids' => [$negativeTagId, $pastPerfectTagId, $wouldHaveTagId, $type1MixedTagId],
+                'tag_ids' => [$negativeTagId, $pastPerfectTagId, $wouldTagId, $type1MixedTagId],
             ],
             [
                 'level' => 'C2',
