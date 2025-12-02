@@ -649,19 +649,15 @@ class ComparativesSuperlativesComprehensiveAiV2Seeder extends QuestionSeeder
 
     private function flattenOptions(array $optionSets): array
     {
-        $options = [];
+        $values = [];
 
-        foreach ($optionSets as $marker => $optionList) {
+        foreach ($optionSets as $optionList) {
             foreach ($optionList as $value) {
-                $options[] = [
-                    'marker' => $marker,
-                    'value' => $value,
-                    'type' => 'text',
-                ];
+                $values[] = (string) $value;
             }
         }
 
-        return $options;
+        return array_values(array_unique($values));
     }
 }
 
