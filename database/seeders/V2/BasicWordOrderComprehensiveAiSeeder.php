@@ -381,7 +381,7 @@ class BasicWordOrderComprehensiveAiSeeder extends QuestionSeeder
                     'a1' => "Порядок: дієслово → об'єкт → прислівник міри. Прислівник міри 'very much' ставиться наприкінці речення.",
                 ],
                 'explanations' => [
-                    "don't play very often tennis" => "❌ Інше дієслово 'play' не підходить до контексту про симпатію. Також порядок слів неправильний.",
+                    "don't play very often tennis" => "❌ Неправильний порядок слів. Прислівник частоти 'very often' не може стояти між дієсловом і об'єктом 'tennis'. Правильний порядок: дієслово → об'єкт → прислівник.",
                     "don't like tennis very much" => "✅ Правильний порядок: дієслово 'like' → об'єкт 'tennis' → прислівник міри 'very much'.",
                     "don't like very much tennis" => "❌ Неправильний порядок. Прислівник міри не може стояти між дієсловом і об'єктом.",
                 ],
