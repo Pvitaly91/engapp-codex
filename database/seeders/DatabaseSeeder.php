@@ -23,6 +23,7 @@ use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\ConditionalsMixedPracticeV2Seeder;
 use Database\Seeders\V2\ConditionalsType1And2WorksheetV2Seeder;
 use Database\Seeders\V2\ConditionalsZeroToSecondWorksheetV2Seeder;
+use Database\Seeders\V2\BasicWordOrderPracticeV2Seeder;
 use Database\Seeders\V2\FirstConditionalChooseABCV2Seeder;
 use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
 use Database\Seeders\V2\ComparativesSuperlativesV2Seeder;
@@ -135,6 +136,7 @@ class DatabaseSeeder extends Seeder
             ConditionalsMixedPracticeCustomSeeder::class,
             MixedConditionalsBridgePracticeV2Seeder::class,
             ComparativesSuperlativesV2Seeder::class,
+            BasicWordOrderPracticeV2Seeder::class,
             FutureTensesPracticeV2Seeder::class,
             ModalObligationNecessityV2Seeder::class,
             ModalDeductionPossibilityV2Seeder::class,
