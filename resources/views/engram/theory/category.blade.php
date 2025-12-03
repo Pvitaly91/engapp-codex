@@ -184,13 +184,11 @@
 
             {{-- Primary Content Area --}}
             <div class="min-w-0 space-y-6">
-                {{-- Category Description (if has blocks) --}}
+                {{-- Category Description (if has blocks) - Using V3 style --}}
                 @if($categoryDescription['hasBlocks'] ?? false)
-                    @include('engram.pages.partials.grammar-card', [
+                    @include('engram.theory.partials.category-description-v3', [
                         'page' => $selectedCategory,
-                        'subtitleBlock' => $categoryDescription['subtitleBlock'] ?? null,
-                        'columns' => $categoryDescription['columns'] ?? [],
-                        'locale' => $categoryDescription['locale'] ?? app()->getLocale(),
+                        'categoryDescription' => $categoryDescription,
                     ])
                 @endif
 
