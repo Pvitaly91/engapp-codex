@@ -12,7 +12,7 @@ class TheoryController extends PageController
 
     protected string $indexView = 'engram.theory.index';
 
-    protected string $categoryView = 'engram.theory.category';
+    protected ?string $categoryView = 'engram.theory.category';
 
     protected string $sectionTitle = 'Теорія';
 }
