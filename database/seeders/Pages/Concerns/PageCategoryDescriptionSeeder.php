@@ -79,11 +79,14 @@ abstract class PageCategoryDescriptionSeeder extends Seeder
         }
 
         foreach ($description['blocks'] ?? [] as $index => $block) {
+            // Support both legacy 'box' type and new V3-style types
+            $blockType = $block['type'] ?? 'box';
+            
             TextBlock::create([
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $block['locale'] ?? $locale,
-                'type' => 'box',
+                'type' => $blockType,
                 'column' => $block['column'] ?? 'left',
                 'heading' => $block['heading'] ?? null,
                 'css_class' => $block['css_class'] ?? null,
