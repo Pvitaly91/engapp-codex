@@ -5,6 +5,7 @@
 @section('content')
     @php($categoryPages = $categoryPages ?? collect())
     @php($routePrefix = $routePrefix ?? 'theory')
+    @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
 
     <div class="min-h-screen">
         {{-- Breadcrumb Navigation --}}
@@ -26,11 +27,11 @@
             <div class="absolute inset-0 opacity-10">
                 <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <defs>
-                        <pattern id="grid-pattern-cat" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <pattern id="grid-pattern-theory-category" width="10" height="10" patternUnits="userSpaceOnUse">
                             <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
                         </pattern>
                     </defs>
-                    <rect width="100%" height="100%" fill="url(#grid-pattern-cat)"/>
+                    <rect width="100%" height="100%" fill="url(#grid-pattern-theory-category)"/>
                 </svg>
             </div>
             
@@ -184,8 +185,6 @@
             {{-- Primary Content Area --}}
             <div class="min-w-0 space-y-6">
                 {{-- Category Description (if has blocks) --}}
-                @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
-                
                 @if($categoryDescription['hasBlocks'] ?? false)
                     @include('engram.pages.partials.grammar-card', [
                         'page' => $selectedCategory,

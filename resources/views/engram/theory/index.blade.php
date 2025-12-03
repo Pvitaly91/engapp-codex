@@ -5,6 +5,7 @@
 @section('content')
     @php($categoryPages = $categoryPages ?? collect())
     @php($routePrefix = $routePrefix ?? 'theory')
+    @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
 
     <div class="min-h-screen">
         {{-- Hero Section --}}
@@ -13,11 +14,11 @@
             <div class="absolute inset-0 opacity-10">
                 <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <defs>
-                        <pattern id="grid-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <pattern id="grid-pattern-theory-index" width="10" height="10" patternUnits="userSpaceOnUse">
                             <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
                         </pattern>
                     </defs>
-                    <rect width="100%" height="100%" fill="url(#grid-pattern)"/>
+                    <rect width="100%" height="100%" fill="url(#grid-pattern-theory-index)"/>
                 </svg>
             </div>
             
@@ -99,7 +100,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="text-lg font-bold text-foreground">{{ $categories->sum('pages_count') }}</div>
+                                    <div class="text-lg font-bold text-foreground">{{ $categories->sum(fn($c) => $c->pages_count ?? 0) }}</div>
                                     <div class="text-xs text-muted-foreground">Сторінок теорії</div>
                                 </div>
                             </div>
@@ -112,8 +113,6 @@
             <div class="min-w-0 space-y-6">
                 {{-- Selected Category Header (if selected) --}}
                 @if(isset($selectedCategory) && $selectedCategory)
-                    @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
-                    
                     @if($categoryDescription['hasBlocks'] ?? false)
                         @include('engram.pages.partials.grammar-card', [
                             'page' => $selectedCategory,
