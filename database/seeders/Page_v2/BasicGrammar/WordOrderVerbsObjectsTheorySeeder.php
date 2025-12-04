@@ -24,8 +24,8 @@ class WordOrderVerbsObjectsTheorySeeder extends BasicGrammarPageSeeder
             'subtitle_text' => 'Теоретичний огляд порядку слів з допоміжними, модальними та фразовими дієсловами з прикладами та практикою.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'basic-grammar',
-                'title' => 'Базова граматика',
+                'slug' => 'word-order',
+                'title' => 'Word Order — Порядок слів',
                 'language' => 'uk',
             ],
             'tags' => [

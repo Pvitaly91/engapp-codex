@@ -24,8 +24,8 @@ class BasicWordOrderTheorySeeder extends BasicGrammarPageSeeder
             'subtitle_text' => 'Теоретичний огляд базового порядку слів у ствердних реченнях англійської мови з прикладами та практикою.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'basic-grammar',
-                'title' => 'Базова граматика',
+                'slug' => 'word-order',
+                'title' => 'Word Order — Порядок слів',
                 'language' => 'uk',
             ],
             'tags' => [
