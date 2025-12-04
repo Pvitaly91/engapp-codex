@@ -122,6 +122,37 @@ class SiteTreeController extends Controller
         }
     }
 
+    private function addMissingItemsFromBase(int $baseVariantId, int $targetVariantId, ?int $baseParentId = null, ?int $targetParentId = null): void
+    {
+        $baseItems = SiteTreeItem::where('variant_id', $baseVariantId)
+            ->where('parent_id', $baseParentId)
+            ->orderBy('sort_order')
+            ->get();
+
+        foreach ($baseItems as $baseItem) {
+            $existingItem = SiteTreeItem::where('variant_id', $targetVariantId)
+                ->where('parent_id', $targetParentId)
+                ->where('title', $baseItem->title)
+                ->first();
+
+            if ($existingItem) {
+                $this->addMissingItemsFromBase($baseVariantId, $targetVariantId, $baseItem->id, $existingItem->id);
+                continue;
+            }
+
+            $newItem = SiteTreeItem::create([
+                'variant_id' => $targetVariantId,
+                'parent_id' => $targetParentId,
+                'title' => $baseItem->title,
+                'level' => $baseItem->level,
+                'is_checked' => $baseItem->is_checked,
+                'sort_order' => $baseItem->sort_order,
+            ]);
+
+            $this->addMissingItemsFromBase($baseVariantId, $targetVariantId, $baseItem->id, $newItem->id);
+        }
+    }
+
     public function updateVariant(Request $request, SiteTreeVariant $variant): JsonResponse
     {
         $validated = $request->validate([
@@ -341,6 +372,37 @@ class SiteTreeController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Tree reset to original state',
+        ]);
+    }
+
+    public function syncMissingFromBase(Request $request): JsonResponse
+    {
+        $variantId = $request->input('variant_id');
+
+        if (! $variantId) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Variant ID is required',
+            ], 422);
+        }
+
+        $variant = SiteTreeVariant::find($variantId);
+        $baseVariant = SiteTreeVariant::getBase();
+
+        if (! $variant || $variant->is_base || ! $baseVariant) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Неможливо оновити базовий варіант',
+            ], 422);
+        }
+
+        DB::transaction(function () use ($baseVariant, $variant) {
+            $this->addMissingItemsFromBase($baseVariant->id, $variant->id);
+        });
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Бракуючі розділи додано з базового дерева',
         ]);
     }
 

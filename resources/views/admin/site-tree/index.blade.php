@@ -143,7 +143,7 @@
                 <input type="file" accept=".json" @change="importTree($event)" class="sr-only">
             </label>
 
-            <button 
+            <button
                 type="button"
                 @click="resetTree()"
                 class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-1 transition"
@@ -154,6 +154,19 @@
                 </svg>
                 <span class="hidden sm:inline">Скинути</span>
             </button>
+            <template x-if="currentVariant && !currentVariant.is_base">
+                <button
+                    type="button"
+                    @click="syncMissingFromBase()"
+                    class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-blue-700 bg-blue-50 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-1 transition"
+                    title="Додати бракуючі розділи з базового дерева"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    <span class="hidden sm:inline">Додати з бази</span>
+                </button>
+            </template>
         </div>
 
         {{-- Status messages --}}
@@ -1030,6 +1043,36 @@
                     } catch (error) {
                         this.showMessage('Помилка скидання', 'error');
                     }
+                    this.loading = false;
+                },
+
+                async syncMissingFromBase() {
+                    if (!this.currentVariantId || (this.currentVariant && this.currentVariant.is_base)) return;
+
+                    this.loading = true;
+                    try {
+                        const response = await fetch('/admin/site-tree/sync-missing', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': this.csrfToken,
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({ variant_id: this.currentVariantId })
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            await this.fetchTree(false);
+                            this.showMessage(data.message || 'Додано нові елементи з бази');
+                        } else {
+                            this.showMessage(data.message || 'Помилка оновлення дерева', 'error');
+                        }
+                    } catch (error) {
+                        this.showMessage('Помилка оновлення дерева', 'error');
+                    }
+
                     this.loading = false;
                 },
 
