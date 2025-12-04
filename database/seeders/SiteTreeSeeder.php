@@ -31,7 +31,7 @@ class SiteTreeSeeder extends Seeder
 
     private function createOrUpdateItem(array $data, ?int $parentId, int $sortOrder, int $variantId): void
     {
-        $item = SiteTreeItem::firstOrCreate(
+        $item = SiteTreeItem::updateOrCreate(
             [
                 'variant_id' => $variantId,
                 'title' => $data['title'],
@@ -43,12 +43,6 @@ class SiteTreeSeeder extends Seeder
                 'sort_order' => $sortOrder,
             ]
         );
-
-        // Update sort_order and level if item already exists
-        $item->update([
-            'level' => $data['level'] ?? null,
-            'sort_order' => $sortOrder,
-        ]);
 
         if (isset($data['children'])) {
             foreach ($data['children'] as $childSortOrder => $child) {
