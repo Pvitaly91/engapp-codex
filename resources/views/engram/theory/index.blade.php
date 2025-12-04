@@ -330,7 +330,7 @@
                             <p class="text-sm text-muted-foreground">Рівні складності</p>
                         </div>
                         <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
-                            <div class="text-4xl font-black text-amber-500 mb-2">🇺🇦</div>
+                            <div class="text-4xl font-black text-amber-500 mb-2" role="img" aria-label="Україна">🇺🇦</div>
                             <p class="text-sm text-muted-foreground">Українською мовою</p>
                         </div>
                     </div>
