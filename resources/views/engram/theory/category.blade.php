@@ -76,7 +76,7 @@
         <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
             {{-- Left Sidebar --}}
             <aside class="hidden lg:block">
-                <div class="sticky top-24 space-y-5">
+                <div id="theory-sidebar" class="sticky top-24 space-y-5 transition-[top] duration-200 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
                     {{-- Categories Navigation --}}
                     <div class="rounded-2xl border border-border/60 bg-card p-5">
                         <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
@@ -85,7 +85,7 @@
                             </svg>
                             Категорії
                         </h3>
-                        <nav class="space-y-1">
+                        <nav id="category-nav-scroll" class="space-y-1 max-h-[40vh] overflow-y-auto pr-1">
                             @if($categories->isNotEmpty())
                                 @include('engram.theory.partials.nested-category-nav', [
                                     'categories' => $categories,
