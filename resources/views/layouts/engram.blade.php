@@ -149,7 +149,7 @@
 <body class="font-sans antialiased selection:bg-primary/15 selection:text-primary">
   <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_20%,hsla(var(--primary),0.08),transparent_25%),radial-gradient(circle_at_80%_0%,hsla(var(--accent),0.08),transparent_20%),linear-gradient(135deg,hsla(var(--secondary),0.05),transparent_40%)]"></div>
   <!-- HEADER / NAV -->
-  <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/85">
+  <header id="main-header" class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/85 transition-transform duration-300">
     <div class="page-shell mx-auto px-4">
       <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-20 md:flex-nowrap">
         <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0" aria-label="Gramlyze">
@@ -173,7 +173,7 @@
         </div>
         <nav id="primary-nav" class="order-3 hidden w-full flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium md:order-none md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:pt-0">
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog.tests-cards') }}">Каталог</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('theory.index') }}">Теорія</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">AI Toolkit</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">Командам</a>
@@ -397,6 +397,57 @@
     }
 
     document.querySelectorAll('[data-slider]').forEach(initSlider);
+
+    // Hide header on scroll down, show on scroll up
+    (function headerScrollBehavior() {
+      const header = document.getElementById('main-header');
+      if (!header) return;
+      
+      let lastScrollTop = 0;
+      let headerHeight = header.offsetHeight;
+      const scrollThreshold = 50; // Minimum scroll before hiding
+      
+      function updateHeaderVisibility() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        // Don't hide if we're near the top
+        if (scrollTop < scrollThreshold) {
+          header.style.transform = 'translateY(0)';
+          document.documentElement.style.setProperty('--header-visible', '1');
+          lastScrollTop = scrollTop;
+          return;
+        }
+        
+        // Scrolling down - hide header
+        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+          header.style.transform = 'translateY(-100%)';
+          document.documentElement.style.setProperty('--header-visible', '0');
+        } 
+        // Scrolling up - show header
+        else if (scrollTop < lastScrollTop) {
+          header.style.transform = 'translateY(0)';
+          document.documentElement.style.setProperty('--header-visible', '1');
+        }
+        
+        lastScrollTop = scrollTop;
+      }
+      
+      // Set initial CSS variable
+      document.documentElement.style.setProperty('--header-visible', '1');
+      document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
+      
+      // Throttled scroll listener
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            updateHeaderVisibility();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
   </script>
 
   @yield('scripts')

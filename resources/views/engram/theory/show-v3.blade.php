@@ -32,7 +32,7 @@
         <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
             {{-- Left Sidebar --}}
             <aside class="hidden lg:block">
-                <div class="sticky top-24 space-y-5">
+                <div id="theory-sidebar" class="sticky top-24 space-y-5 transition-[top] duration-200">
                     {{-- Theory Categories List --}}
                     @if(isset($categories) && $categories->isNotEmpty())
                         <div class="rounded-2xl border border-border/60 bg-card p-5">
@@ -42,7 +42,7 @@
                                 </svg>
                                 Категорії теорії
                             </h3>
-                            <nav class="space-y-1">
+                            <nav id="category-nav-scroll" class="space-y-1 max-h-[40vh] overflow-y-auto pr-1 scrollbar-thin">
                                 @include('engram.theory.partials.nested-category-nav', [
                                     'categories' => $categories,
                                     'selectedCategory' => $selectedCategory ?? null,
@@ -430,4 +430,69 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+(function() {
+    const sidebar = document.getElementById('theory-sidebar');
+    const header = document.getElementById('main-header');
+    
+    if (!sidebar || !header) return;
+    
+    const headerHeight = header.offsetHeight || 80;
+    const topWhenHeaderVisible = headerHeight + 16; // 16px = 1rem padding
+    const topWhenHeaderHidden = 16; // Small padding from top when header is hidden
+    
+    function updateSidebarPosition() {
+        const headerVisible = document.documentElement.style.getPropertyValue('--header-visible') === '1';
+        const transform = window.getComputedStyle(header).transform;
+        const isHeaderHidden = transform.includes('matrix') && transform !== 'none' && transform.includes('-');
+        
+        if (isHeaderHidden || !headerVisible) {
+            sidebar.style.top = topWhenHeaderHidden + 'px';
+        } else {
+            sidebar.style.top = topWhenHeaderVisible + 'px';
+        }
+    }
+    
+    // Initial position
+    sidebar.style.top = topWhenHeaderVisible + 'px';
+    
+    // Throttled scroll listener
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateSidebarPosition();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+    
+    // Also listen for transitionend on header to catch animation completion
+    header.addEventListener('transitionend', updateSidebarPosition);
+})();
+</script>
+<style>
+/* Custom scrollbar for category navigation */
+#category-nav-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+#category-nav-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+#category-nav-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 2px;
+}
+#category-nav-scroll::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+}
+#category-nav-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+}
+</style>
 @endsection
