@@ -440,24 +440,32 @@
     
     if (!sidebar || !header) return;
     
-    const headerHeight = header.offsetHeight || 80;
-    const topWhenHeaderVisible = headerHeight + 16; // 16px = 1rem padding
+    // Use CSS custom property set by the header script, with fallback
+    function getHeaderHeight() {
+        const cssHeight = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+        if (cssHeight) {
+            return parseInt(cssHeight, 10) || header.offsetHeight;
+        }
+        return header.offsetHeight;
+    }
+    
     const topWhenHeaderHidden = 16; // Small padding from top when header is hidden
     
     function updateSidebarPosition() {
-        const headerVisible = document.documentElement.style.getPropertyValue('--header-visible') === '1';
-        const transform = window.getComputedStyle(header).transform;
-        const isHeaderHidden = transform.includes('matrix') && transform !== 'none' && transform.includes('-');
+        // Use only the CSS custom property for consistent state tracking
+        const headerVisible = getComputedStyle(document.documentElement).getPropertyValue('--header-visible').trim() === '1';
+        const headerHeight = getHeaderHeight();
+        const topWhenHeaderVisible = headerHeight + 16; // 16px = 1rem padding
         
-        if (isHeaderHidden || !headerVisible) {
-            sidebar.style.top = topWhenHeaderHidden + 'px';
-        } else {
+        if (headerVisible) {
             sidebar.style.top = topWhenHeaderVisible + 'px';
+        } else {
+            sidebar.style.top = topWhenHeaderHidden + 'px';
         }
     }
     
-    // Initial position
-    sidebar.style.top = topWhenHeaderVisible + 'px';
+    // Initial position - wait a tick for CSS variables to be set
+    requestAnimationFrame(updateSidebarPosition);
     
     // Throttled scroll listener
     let ticking = false;
