@@ -91,9 +91,9 @@
         {{-- Categories Section --}}
         <section id="categories-section" class="scroll-mt-24">
             <div class="text-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">Категорії теорії</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">Теми для вивчення</h2>
                 <p class="text-muted-foreground max-w-2xl mx-auto">
-                    Обери категорію для перегляду детальних уроків. Нові категорії додаються автоматично.
+                    Обери тему та почни вивчати граматику англійської мови
                 </p>
             </div>
 
@@ -156,7 +156,6 @@
                             {{-- Subcategories list --}}
                             @if($hasChildren)
                                 <div class="mt-3 pt-3 border-t border-border/60">
-                                    <p class="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Підкатегорії:</p>
                                     <ul class="space-y-1.5">
                                         @foreach($category->children as $child)
                                             <li>
