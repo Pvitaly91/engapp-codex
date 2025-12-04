@@ -158,6 +158,32 @@ class PageController extends Controller
     protected function categoryList(): Collection
     {
         return PageCategory::query()
+            ->whereNull('parent_id')
+            ->whereHas('pages', fn ($query) => $this->applyPageTypeFilter($query))
+            ->with(['children' => function ($query) {
+                $query->whereHas('pages', fn ($q) => $this->applyPageTypeFilter($q))
+                    ->withCount(['pages' => fn ($q) => $this->applyPageTypeFilter($q)])
+                    ->with(['children' => function ($subQuery) {
+                        $subQuery->whereHas('pages', fn ($q) => $this->applyPageTypeFilter($q))
+                            ->withCount(['pages' => fn ($q) => $this->applyPageTypeFilter($q)])
+                            ->orderBy('title');
+                    }])
+                    ->orderBy('title');
+            }])
+            ->withCount([
+                'pages' => fn ($query) => $this->applyPageTypeFilter($query),
+            ])
+            ->orderBy('title')
+            ->get();
+    }
+
+    /**
+     * Get all categories (flat list) that have pages of this type.
+     * Used for cases where we need all categories regardless of hierarchy.
+     */
+    protected function allCategoriesFlat(): Collection
+    {
+        return PageCategory::query()
             ->whereHas('pages', fn ($query) => $this->applyPageTypeFilter($query))
             ->withCount([
                 'pages' => fn ($query) => $this->applyPageTypeFilter($query),
