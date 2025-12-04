@@ -88,117 +88,13 @@
             </div>
         </header>
 
-        {{-- What You'll Learn Section --}}
-        <section class="mb-12">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">Що ти вивчиш</h2>
-                <p class="text-muted-foreground max-w-2xl mx-auto">
-                    Основні теми англійської граматики, структуровані для поступового та ефективного навчання
-                </p>
-            </div>
-
-            {{-- Features Grid --}}
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {{-- Feature 1: Basic Grammar --}}
-                <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-6 transition-all hover:border-emerald-500/40 hover:shadow-lg">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-bl-full"></div>
-                    <div class="relative">
-                        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white mb-4 shadow-lg shadow-emerald-500/20">
-                            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-foreground mb-2">Базова граматика</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">
-                            Частини мови, структура речення, порядок слів, типи речень та базові сполучники
-                        </p>
-                        <div class="mt-4 flex items-center gap-1.5 text-xs text-emerald-600 font-medium">
-                            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10">A1</span>
-                            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10">A2</span>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Feature 2: Nouns & Articles --}}
-                <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-6 transition-all hover:border-blue-500/40 hover:shadow-lg">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-full"></div>
-                    <div class="relative">
-                        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white mb-4 shadow-lg shadow-blue-500/20">
-                            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-foreground mb-2">Іменники та артиклі</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">
-                            Артиклі a/an/the, злічувані та незлічувані іменники, квантифікатори some/any/much/many
-                        </p>
-                        <div class="mt-4 flex items-center gap-1.5 text-xs text-blue-600 font-medium">
-                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10">A1</span>
-                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10">A2</span>
-                            <span class="px-2 py-0.5 rounded-full bg-blue-500/10">B1</span>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Feature 3: Adjectives --}}
-                <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-6 transition-all hover:border-amber-500/40 hover:shadow-lg">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-bl-full"></div>
-                    <div class="relative">
-                        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 text-white mb-4 shadow-lg shadow-amber-500/20">
-                            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-foreground mb-2">Прикметники</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">
-                            Ступені порівняння прикметників: comparative та superlative, правила утворення
-                        </p>
-                        <div class="mt-4 flex items-center gap-1.5 text-xs text-amber-600 font-medium">
-                            <span class="px-2 py-0.5 rounded-full bg-amber-500/10">A2</span>
-                            <span class="px-2 py-0.5 rounded-full bg-amber-500/10">B1</span>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Feature 4: Word Order --}}
-                <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-6 transition-all hover:border-purple-500/40 hover:shadow-lg">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-bl-full"></div>
-                    <div class="relative">
-                        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 text-white mb-4 shadow-lg shadow-purple-500/20">
-                            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-foreground mb-2">Порядок слів</h3>
-                        <p class="text-sm text-muted-foreground leading-relaxed">
-                            Структура S-V-O, питання та заперечення, прислівники, інверсія та cleft-речення
-                        </p>
-                        <div class="mt-4 flex items-center gap-1.5 text-xs text-purple-600 font-medium">
-                            <span class="px-2 py-0.5 rounded-full bg-purple-500/10">A1</span>
-                            <span class="px-2 py-0.5 rounded-full bg-purple-500/10">B2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         {{-- Categories Section --}}
         <section id="categories-section" class="scroll-mt-24">
-            <div class="flex items-center justify-between mb-8">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-2">Категорії теорії</h2>
-                    <p class="text-muted-foreground">Обери категорію для перегляду детальних уроків</p>
-                </div>
-                <div class="hidden md:flex items-center gap-4 text-sm text-muted-foreground">
-                    <div class="flex items-center gap-2">
-                        <div class="h-3 w-3 rounded-full bg-primary"></div>
-                        <span>{{ $categories->count() }} категорій</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <div class="h-3 w-3 rounded-full bg-secondary"></div>
-                        <span>{{ $totalPages }} уроків</span>
-                    </div>
-                </div>
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">Категорії теорії</h2>
+                <p class="text-muted-foreground max-w-2xl mx-auto">
+                    Обери категорію для перегляду детальних уроків. Нові категорії додаються автоматично.
+                </p>
             </div>
 
             {{-- Categories Grid --}}
