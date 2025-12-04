@@ -11,29 +11,13 @@
     $routePrefix = $routePrefix ?? 'theory';
     $level = $level ?? 0;
     $indent = $level * 12; // Indentation in pixels
-    
-    // Helper function to check if selected category is a descendant of given category
-    $isDescendant = function($category, $selected) use (&$isDescendant) {
-        if (!$selected || !$category->children || $category->children->isEmpty()) {
-            return false;
-        }
-        foreach ($category->children as $child) {
-            if ($child->id === $selected->id) {
-                return true;
-            }
-            if ($isDescendant($child, $selected)) {
-                return true;
-            }
-        }
-        return false;
-    };
 @endphp
 
 @foreach($categories as $category)
     @php
         $isActive = $selectedCategory && $selectedCategory->is($category);
-        $hasChildren = $category->children && $category->children->isNotEmpty();
-        $hasSelectedDescendant = $hasChildren && $isDescendant($category, $selectedCategory);
+        $hasChildren = $category->hasChildren();
+        $hasSelectedDescendant = $hasChildren && $category->hasDescendant($selectedCategory);
         $isExpanded = $isActive || $hasSelectedDescendant;
     @endphp
     

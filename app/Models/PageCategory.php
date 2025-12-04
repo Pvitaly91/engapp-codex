@@ -57,24 +57,49 @@ class PageCategory extends Model
     }
 
     /**
-     * Check if this category has any children.
+     * Check if this category has any children (uses loaded relation if available).
      */
     public function hasChildren(): bool
     {
+        if ($this->relationLoaded('children')) {
+            return $this->children->isNotEmpty();
+        }
         return $this->children()->exists();
     }
 
     /**
-     * Get the depth level of this category in the hierarchy.
+     * Check if a given category is a descendant of this category.
+     * Uses already-loaded children relationship for efficiency.
+     *
+     * @param PageCategory|null $category The category to check
+     * @return bool
      */
-    public function getDepthAttribute(): int
+    public function hasDescendant(?PageCategory $category): bool
     {
-        $depth = 0;
-        $parent = $this->parent;
-        while ($parent) {
-            $depth++;
-            $parent = $parent->parent;
+        if (!$category || !$this->relationLoaded('children') || $this->children->isEmpty()) {
+            return false;
         }
-        return $depth;
+
+        foreach ($this->children as $child) {
+            if ($child->id === $category->id) {
+                return true;
+            }
+            if ($child->hasDescendant($category)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if this category is an ancestor of a given category.
+     *
+     * @param PageCategory|null $category The category to check
+     * @return bool
+     */
+    public function isAncestorOf(?PageCategory $category): bool
+    {
+        return $this->hasDescendant($category);
     }
 }
