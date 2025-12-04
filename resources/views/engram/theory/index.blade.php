@@ -110,13 +110,14 @@
                             'from-violet-500 to-purple-600',
                         ];
                         $gradient = $gradients[$index % count($gradients)];
+                        $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
                     @endphp
-                    <a 
-                        href="{{ route($routePrefix . '.category', $category->slug) }}"
-                        class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl hover:-translate-y-1"
-                    >
-                        {{-- Card Header with Gradient --}}
-                        <div class="relative h-32 bg-gradient-to-br {{ $gradient }} p-6">
+                    <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
+                        {{-- Card Header with Gradient - Link to main category --}}
+                        <a 
+                            href="{{ route($routePrefix . '.category', $category->slug) }}"
+                            class="block relative h-32 bg-gradient-to-br {{ $gradient }} p-6 transition-opacity hover:opacity-90"
+                        >
                             {{-- Decorative elements --}}
                             <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                             <div class="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -132,15 +133,17 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                                 </svg>
                             </div>
-                        </div>
+                        </a>
                         
                         {{-- Card Body --}}
                         <div class="p-5">
-                            <h3 class="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                                {{ $category->title }}
-                            </h3>
-                            
-                            <div class="flex items-center justify-between">
+                            <a 
+                                href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                class="block mb-3"
+                            >
+                                <h3 class="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                                    {{ $category->title }}
+                                </h3>
                                 <span class="text-sm text-muted-foreground">
                                     @if(isset($category->pages_count) && $category->pages_count > 0)
                                         {{ $category->pages_count }} {{ trans_choice('уроків|урок|уроки', $category->pages_count) }}
@@ -148,16 +151,48 @@
                                         Немає уроків
                                     @endif
                                 </span>
-                                
-                                {{-- Arrow indicator --}}
-                                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                                    <svg class="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                    </svg>
+                            </a>
+                            
+                            {{-- Subcategories list --}}
+                            @if($hasChildren)
+                                <div class="mt-3 pt-3 border-t border-border/60">
+                                    <p class="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Підкатегорії:</p>
+                                    <ul class="space-y-1.5">
+                                        @foreach($category->children as $child)
+                                            <li>
+                                                <a 
+                                                    href="{{ route($routePrefix . '.category', $child->slug) }}"
+                                                    class="flex items-center justify-between text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
+                                                >
+                                                    <span class="flex items-center gap-2">
+                                                        <svg class="h-3 w-3 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                                        </svg>
+                                                        {{ $child->title }}
+                                                    </span>
+                                                    @if(isset($child->pages_count) && $child->pages_count > 0)
+                                                        <span class="text-xs text-muted-foreground">{{ $child->pages_count }}</span>
+                                                    @endif
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
-                            </div>
+                            @else
+                                {{-- Arrow indicator for categories without children --}}
+                                <a 
+                                    href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                    class="flex items-center justify-end mt-2"
+                                >
+                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                                        <svg class="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                </a>
+                            @endif
                         </div>
-                    </a>
+                    </div>
                 @empty
                     <div class="col-span-full rounded-2xl border border-dashed border-muted p-12 text-center">
                         <div class="flex justify-center mb-4">
@@ -267,15 +302,40 @@
                     </div>
                     <nav class="space-y-2">
                         @forelse($categories as $category)
-                            <a 
-                                href="{{ route($routePrefix . '.category', $category->slug) }}"
-                                class="flex items-center justify-between rounded-xl bg-muted/30 px-4 py-3 text-sm font-medium text-foreground transition hover:bg-primary/10 hover:text-primary"
-                            >
-                                <span>{{ $category->title }}</span>
-                                @if(isset($category->pages_count) && $category->pages_count > 0)
-                                    <span class="text-xs text-muted-foreground">{{ $category->pages_count }}</span>
+                            @php
+                                $hasChildrenMobile = $category->relationLoaded('children') && $category->children->isNotEmpty();
+                            @endphp
+                            <div class="space-y-1">
+                                <a 
+                                    href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                    class="flex items-center justify-between rounded-xl bg-muted/30 px-4 py-3 text-sm font-medium text-foreground transition hover:bg-primary/10 hover:text-primary"
+                                >
+                                    <span>{{ $category->title }}</span>
+                                    @if(isset($category->pages_count) && $category->pages_count > 0)
+                                        <span class="text-xs text-muted-foreground">{{ $category->pages_count }}</span>
+                                    @endif
+                                </a>
+                                @if($hasChildrenMobile)
+                                    <div class="ml-4 space-y-1">
+                                        @foreach($category->children as $child)
+                                            <a 
+                                                href="{{ route($routePrefix . '.category', $child->slug) }}"
+                                                class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-muted-foreground transition hover:bg-primary/10 hover:text-primary"
+                                            >
+                                                <span class="flex items-center gap-1.5">
+                                                    <svg class="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                                    </svg>
+                                                    {{ $child->title }}
+                                                </span>
+                                                @if(isset($child->pages_count) && $child->pages_count > 0)
+                                                    <span class="text-xs">{{ $child->pages_count }}</span>
+                                                @endif
+                                            </a>
+                                        @endforeach
+                                    </div>
                                 @endif
-                            </a>
+                            </div>
                         @empty
                             <p class="text-sm text-muted-foreground text-center py-4">Немає категорій</p>
                         @endforelse
