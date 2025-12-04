@@ -315,7 +315,7 @@ class PartsOfSpeechTheorySeeder extends BasicGrammarPageSeeder
                                 'description' => 'Вигуки часто стоять окремо і виділяються знаком оклику.',
                                 'examples' => [
                                     ['en' => 'Oh! Ah! Wow! Hey! Ouch!', 'ua' => 'О! А! Ого! Гей! Ой!'],
-                                    ['en' => 'Well, I think so.', 'ua' => 'Ну, я думаю так. (пом\'якшення)'],
+                                    ['en' => 'Well, I think so.', 'ua' => 'Ну, я думаю так. (помʼякшення)'],
                                 ],
                                 'note' => 'Вигуки додають емоційності мовленню, але в formal writing їх уникають.',
                             ],
