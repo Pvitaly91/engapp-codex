@@ -24,8 +24,8 @@ class WordOrderAdverbsAdverbialsTheorySeeder extends BasicGrammarPageSeeder
             'subtitle_text' => 'Теоретичний огляд позиції прислівників та обставин в англійських реченнях з прикладами та практикою.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'basic-grammar',
-                'title' => 'Базова граматика',
+                'slug' => 'word-order',
+                'title' => 'Word Order — Порядок слів',
                 'language' => 'uk',
             ],
             'tags' => [
