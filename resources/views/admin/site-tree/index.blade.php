@@ -882,15 +882,28 @@
                 buildSeederPrompt(item) {
                     const path = this.getItemPath(item.id);
                     const topic = path.join(' > ');
+                    const parentPath = path.slice(0, -1).join(' > ');
                     const slug = this.slugifyTitle(item.title || '');
+                    const isCategory = Array.isArray(item.children) && item.children.length > 0;
+
+                    if (isCategory) {
+                        return [
+                            '- Створи PHP сидер категорії у папці database/seeders/Page_v2 (/Pages_V2) за аналогією з іншими сидерами.',
+                            `- Категорія: "${topic}". Вона має відповідати розташуванню у дереві та вкладеності інших категорій.`,
+                            `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
+                            '- Додай title і tags для категорії, дотримуйся стилю існуючих категорійних сидерів.',
+                            '- Мова назв і тегів — українська, без плейсхолдерів.',
+                        ].join('\n');
+                    }
 
                     return [
-                        'Створи сидер для GitHub Copilot:',
-                        '- Файл у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
+                        '- Створи PHP сидер сторінки у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
+                        '- Сторінка має бути в тій самій категорійній гілці, що й у дереві (врахуй шлях батьківських категорій у структурі папок).',
+                        parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.',
                         `- Тип сторінки: theory (method type() має повертати \"theory\").`,
-                        `- Тема: "${topic}". Використай цю тему як основу контенту та блоків.`,
+                        `- Тема сторінки: "${topic}". Використай цю тему як основу контенту та блоків.`,
                         `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
-                        '- Додай title, subtitle, tags і blocks у page() за структурою інших сидерів Page_v2.',
+                        '- Додай title, subtitle, релевантні tags (масив рядків) і blocks у page() за структурою інших сидерів Page_v2.',
                         '- Мова контенту — українська, без плейсхолдерів.',
                     ].join('\n');
                 },
