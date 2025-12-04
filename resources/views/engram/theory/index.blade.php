@@ -3,10 +3,12 @@
 @section('title', $sectionTitle ?? 'Теорія')
 
 @section('content')
-    @php($categoryPages = $categoryPages ?? collect())
-    @php($routePrefix = $routePrefix ?? 'theory')
-    @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
-    @php($totalPages = $categories->sum(fn($c) => $c->pages_count ?? 0))
+    @php
+        $categoryPages = $categoryPages ?? collect();
+        $routePrefix = $routePrefix ?? 'theory';
+        $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
+        $totalPages = $categories->sum(fn($c) => $c->pages_count ?? 0);
+    @endphp
 
     <div class="min-h-screen">
         {{-- Hero Section with General Overview --}}
