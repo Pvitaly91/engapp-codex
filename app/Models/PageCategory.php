@@ -72,11 +72,12 @@ class PageCategory extends Model
      * Uses already-loaded children relationship for efficiency.
      *
      * @param PageCategory|null $category The category to check
+     * @param int $maxDepth Maximum depth to traverse (default 10)
      * @return bool
      */
-    public function hasDescendant(?PageCategory $category): bool
+    public function hasDescendant(?PageCategory $category, int $maxDepth = 10): bool
     {
-        if (!$category || !$this->relationLoaded('children') || $this->children->isEmpty()) {
+        if ($maxDepth <= 0 || !$category || !$this->relationLoaded('children') || $this->children->isEmpty()) {
             return false;
         }
 
@@ -84,7 +85,7 @@ class PageCategory extends Model
             if ($child->id === $category->id) {
                 return true;
             }
-            if ($child->hasDescendant($category)) {
+            if ($child->hasDescendant($category, $maxDepth - 1)) {
                 return true;
             }
         }
