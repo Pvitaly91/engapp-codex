@@ -42,7 +42,7 @@
                                 </svg>
                                 Категорії теорії
                             </h3>
-                            <nav id="category-nav-scroll" class="space-y-1 max-h-[40vh] overflow-y-auto pr-1 scrollbar-thin">
+                            <nav id="category-nav-scroll" class="space-y-1 max-h-[40vh] overflow-y-auto pr-1">
                                 @include('engram.theory.partials.nested-category-nav', [
                                     'categories' => $categories,
                                     'selectedCategory' => $selectedCategory ?? null,

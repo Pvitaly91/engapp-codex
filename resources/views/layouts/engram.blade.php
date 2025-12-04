@@ -404,8 +404,17 @@
       if (!header) return;
       
       let lastScrollTop = 0;
-      let headerHeight = header.offsetHeight;
       const scrollThreshold = 50; // Minimum scroll before hiding
+      
+      // Get current header height and update CSS variable
+      function getAndUpdateHeaderHeight() {
+        const height = header.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', height + 'px');
+        return height;
+      }
+      
+      // Initial header height
+      let headerHeight = getAndUpdateHeaderHeight();
       
       function updateHeaderVisibility() {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -434,7 +443,15 @@
       
       // Set initial CSS variable
       document.documentElement.style.setProperty('--header-visible', '1');
-      document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
+      
+      // Update header height on resize (debounced)
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+          headerHeight = getAndUpdateHeaderHeight();
+        }, 100);
+      }, { passive: true });
       
       // Throttled scroll listener
       let ticking = false;

@@ -85,7 +85,7 @@
                             </svg>
                             Категорії
                         </h3>
-                        <nav id="category-nav-scroll" class="space-y-1 max-h-[40vh] overflow-y-auto pr-1 scrollbar-thin">
+                        <nav id="category-nav-scroll" class="space-y-1 max-h-[40vh] overflow-y-auto pr-1">
                             @if($categories->isNotEmpty())
                                 @include('engram.theory.partials.nested-category-nav', [
                                     'categories' => $categories,
