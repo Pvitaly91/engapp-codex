@@ -8,27 +8,30 @@ use App\Support\Database\Seeder;
 use Database\Seeders\Ai\ConditionalsComprehensiveAiSeeder;
 use Database\Seeders\Ai\ConditionalsMixedPracticeCustomSeeder;
 use Database\Seeders\Ai\ConditionalsModalComprehensiveAiSeeder;
+use Database\Seeders\Ai\ContractionsMatchSeeder;
 use Database\Seeders\Ai\FirstConditionalAiFormsV2Seeder;
 use Database\Seeders\Ai\FirstConditionalChooseABCAiSeeder;
 use Database\Seeders\Ai\ModalVerbsComprehensiveAiSeeder;
 use Database\Seeders\Ai\ModalVerbsModalOnlyAiSeeder;
 use Database\Seeders\Ai\NegativePresentPerfectHabitsTestSeeder;
 use Database\Seeders\Ai\SecondConditionalComprehensiveAiSeeder;
-use Database\Seeders\Ai\ContractionsMatchSeeder;
-use Database\Seeders\Page_v2\Articles\SomeAnyPlacesTheorySeeder;
+use Database\Seeders\chatGpt\GptPageTagAssignmentSeeder;
 use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
+use Database\Seeders\Page_v2\Articles\SomeAnyPlacesTheorySeeder;
+use Database\Seeders\Page_v2\BasicGrammar\BasicWordOrderTheorySeeder;
 use Database\Seeders\Pages\Articles\SomeAnyCategorySeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
+use Database\Seeders\V2\BasicWordOrderComprehensiveV2Seeder;
+use Database\Seeders\V2\BasicWordOrderPracticeV2Seeder;
+use Database\Seeders\V2\ComparativesSuperlativesV2Seeder;
 use Database\Seeders\V2\ConditionalsMixedPracticeV2Seeder;
 use Database\Seeders\V2\ConditionalsType1And2WorksheetV2Seeder;
 use Database\Seeders\V2\ConditionalsZeroToSecondWorksheetV2Seeder;
 use Database\Seeders\V2\FirstConditionalChooseABCV2Seeder;
 use Database\Seeders\V2\FirstConditionalPracticeV2Seeder;
-use Database\Seeders\V2\ComparativesSuperlativesV2Seeder;
 use Database\Seeders\V2\FutureTensesPracticeV2Seeder;
 use Database\Seeders\V2\IfClausesType012WorksheetV2Seeder;
 use Database\Seeders\V2\MixedConditionalsBridgePracticeV2Seeder;
-use Database\Seeders\chatGpt\GptPageTagAssignmentSeeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue1Seeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22Dialogue2Seeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22DialogueSeeder;
@@ -134,6 +137,8 @@ class DatabaseSeeder extends Seeder
             ConditionalsMixedPracticeCustomSeeder::class,
             MixedConditionalsBridgePracticeV2Seeder::class,
             ComparativesSuperlativesV2Seeder::class,
+            BasicWordOrderPracticeV2Seeder::class,
+            BasicWordOrderComprehensiveV2Seeder::class,
             FutureTensesPracticeV2Seeder::class,
             ModalObligationNecessityV2Seeder::class,
             ModalDeductionPossibilityV2Seeder::class,
@@ -168,6 +173,7 @@ class DatabaseSeeder extends Seeder
             QuestionWordsDragDropSeeder::class,
             SomeAnyCategorySeeder::class,
             SomeAnyPlacesTheorySeeder::class,
+            BasicWordOrderTheorySeeder::class,
             GrammarPagesSeeder::class,
             GptPageTagAssignmentSeeder::class,
         ]);
