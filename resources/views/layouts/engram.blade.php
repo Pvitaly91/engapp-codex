@@ -520,20 +520,25 @@
 
   <style>
     /* Custom scrollbar for scrollable navigation elements */
-    #category-nav-scroll::-webkit-scrollbar {
+    #category-nav-scroll::-webkit-scrollbar,
+    #theory-sidebar::-webkit-scrollbar {
       width: 4px;
     }
-    #category-nav-scroll::-webkit-scrollbar-track {
+    #category-nav-scroll::-webkit-scrollbar-track,
+    #theory-sidebar::-webkit-scrollbar-track {
       background: transparent;
     }
-    #category-nav-scroll::-webkit-scrollbar-thumb {
+    #category-nav-scroll::-webkit-scrollbar-thumb,
+    #theory-sidebar::-webkit-scrollbar-thumb {
       background: hsl(var(--border));
       border-radius: 2px;
     }
-    #category-nav-scroll::-webkit-scrollbar-thumb:hover {
+    #category-nav-scroll::-webkit-scrollbar-thumb:hover,
+    #theory-sidebar::-webkit-scrollbar-thumb:hover {
       background: hsl(var(--muted-foreground));
     }
-    #category-nav-scroll {
+    #category-nav-scroll,
+    #theory-sidebar {
       scrollbar-width: thin;
       scrollbar-color: hsl(var(--border)) transparent;
     }
