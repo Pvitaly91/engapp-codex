@@ -86,20 +86,15 @@
                             Категорії
                         </h3>
                         <nav class="space-y-1">
-                            @forelse($categories as $category)
-                                @php($isActive = $selectedCategory->is($category))
-                                <a 
-                                    href="{{ route($routePrefix . '.category', $category->slug) }}"
-                                    class="flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition-all {{ $isActive ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
-                                >
-                                    <span class="truncate">{{ $category->title }}</span>
-                                    @if(isset($category->pages_count))
-                                        <span class="text-xs opacity-60">{{ $category->pages_count }}</span>
-                                    @endif
-                                </a>
-                            @empty
+                            @if($categories->isNotEmpty())
+                                @include('engram.theory.partials.nested-category-nav', [
+                                    'categories' => $categories,
+                                    'selectedCategory' => $selectedCategory,
+                                    'routePrefix' => $routePrefix,
+                                ])
+                            @else
                                 <p class="text-sm text-muted-foreground">Немає категорій.</p>
-                            @endforelse
+                            @endif
                         </nav>
                     </div>
 
@@ -333,18 +328,13 @@
                     <div>
                         <h4 class="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Категорії теорії</h4>
                         <nav class="space-y-1">
-                            @foreach($categories as $category)
-                                @php($isActive = $selectedCategory->is($category))
-                                <a 
-                                    href="{{ route($routePrefix . '.category', $category->slug) }}"
-                                    class="flex items-center justify-between rounded-lg px-3 py-2 text-sm {{ $isActive ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
-                                >
-                                    <span>{{ $category->title }}</span>
-                                    @if(isset($category->pages_count))
-                                        <span class="text-xs opacity-60">{{ $category->pages_count }}</span>
-                                    @endif
-                                </a>
-                            @endforeach
+                            @if($categories->isNotEmpty())
+                                @include('engram.theory.partials.nested-category-nav-mobile', [
+                                    'categories' => $categories,
+                                    'selectedCategory' => $selectedCategory,
+                                    'routePrefix' => $routePrefix,
+                                ])
+                            @endif
                         </nav>
                     </div>
 
