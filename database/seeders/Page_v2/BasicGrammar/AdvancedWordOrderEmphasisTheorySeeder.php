@@ -24,8 +24,8 @@ class AdvancedWordOrderEmphasisTheorySeeder extends BasicGrammarPageSeeder
             'subtitle_text' => 'Теоретичний огляд інверсії, cleft-речень та інших способів підсилення з прикладами та практикою.',
             'locale' => 'uk',
             'category' => [
-                'slug' => 'basic-grammar',
-                'title' => 'Базова граматика',
+                'slug' => 'word-order',
+                'title' => 'Word Order — Порядок слів',
                 'language' => 'uk',
             ],
             'tags' => [
