@@ -143,7 +143,7 @@
                 <input type="file" accept=".json" @change="importTree($event)" class="sr-only">
             </label>
 
-            <button 
+            <button
                 type="button"
                 @click="resetTree()"
                 class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-1 transition"
@@ -154,6 +154,19 @@
                 </svg>
                 <span class="hidden sm:inline">Скинути</span>
             </button>
+            <template x-if="currentVariant && !currentVariant.is_base">
+                <button
+                    type="button"
+                    @click="syncMissingFromBase()"
+                    class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-blue-700 bg-blue-50 rounded-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-1 transition"
+                    title="Додати бракуючі розділи з базового дерева"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    <span class="hidden sm:inline">Додати з бази</span>
+                </button>
+            </template>
         </div>
 
         {{-- Status messages --}}
@@ -258,6 +271,17 @@
 
                                                 {{-- Actions - visible when selected --}}
                                                 <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(item.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                    <button
+                                                        type="button"
+                                                        @click.stop="copySeederPrompt(item)"
+                                                        class="p-1 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded transition"
+                                                        title="Згенерувати промт сидера"
+                                                    >
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7h2a2 2 0 012 2v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2h2" />
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
+                                                        </svg>
+                                                    </button>
                                                     {{-- Link to page on site - only for existing pages --}}
                                                     <template x-if="existsInPages(item.title)">
                                                         <a 
@@ -382,6 +406,12 @@
                                                             </div>
 
                                                             <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(child.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                <button type="button" @click.stop="copySeederPrompt(child)" class="p-1 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded transition" title="Згенерувати промт сидера">
+                                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7h2a2 2 0 012 2v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2h2" />
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
+                                                                    </svg>
+                                                                </button>
                                                                 {{-- Link to page on site --}}
                                                                 <template x-if="existsInPages(child.title)">
                                                                     <a :href="getPageUrl(child.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
@@ -459,6 +489,12 @@
                                                                     </div>
 
                                                                     <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(grandchild.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                        <button type="button" @click.stop="copySeederPrompt(grandchild)" class="p-1 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded transition" title="Згенерувати промт сидера">
+                                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7h2a2 2 0 012 2v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2h2" />
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
+                                                                            </svg>
+                                                                        </button>
                                                                         {{-- Link to page on site --}}
                                                                         <template x-if="existsInPages(grandchild.title)">
                                                                             <a :href="getPageUrl(grandchild.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
@@ -817,6 +853,70 @@
                     return (categoryIndex + 1) + '.' + (itemIndex + 1);
                 },
 
+                getItemPath(itemId, items = this.tree, path = []) {
+                    for (const item of items) {
+                        const currentPath = [...path, item.title];
+                        if (item.id === itemId) {
+                            return currentPath;
+                        }
+
+                        if (item.children && item.children.length > 0) {
+                            const foundPath = this.getItemPath(itemId, item.children, currentPath);
+                            if (foundPath.length) {
+                                return foundPath;
+                            }
+                        }
+                    }
+                    return [];
+                },
+
+                slugifyTitle(title) {
+                    return title
+                        .toLowerCase()
+                        .replace(/[^a-z0-9\s-]+/g, '')
+                        .trim()
+                        .replace(/\s+/g, '-')
+                        .replace(/-+/g, '-');
+                },
+
+                buildSeederPrompt(item) {
+                    const path = this.getItemPath(item.id);
+                    const topic = path.join(' > ');
+                    const parentPath = path.slice(0, -1).join(' > ');
+                    const slug = this.slugifyTitle(item.title || '');
+                    const isCategory = Array.isArray(item.children) && item.children.length > 0;
+
+                    if (isCategory) {
+                        return [
+                            '- Створи PHP сидер категорії у папці database/seeders/Page_v2 (/Pages_V2) за аналогією з іншими сидерами.',
+                            `- Категорія: "${topic}". Вона має відповідати розташуванню у дереві та вкладеності інших категорій.`,
+                            `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
+                            '- Додай title і tags для категорії, дотримуйся стилю існуючих категорійних сидерів.',
+                            '- Мова назв і тегів — українська, без плейсхолдерів.',
+                        ].join('\n');
+                    }
+
+                    return [
+                        '- Створи PHP сидер сторінки у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
+                        '- Сторінка має бути в тій самій категорійній гілці, що й у дереві (врахуй шлях батьківських категорій у структурі папок).',
+                        parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.',
+                        `- Тип сторінки: theory (method type() має повертати \"theory\").`,
+                        `- Тема сторінки: "${topic}". Використай цю тему як основу контенту та блоків.`,
+                        `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
+                        '- Додай title, subtitle, релевантні tags (масив рядків) і blocks у page() за структурою інших сидерів Page_v2.',
+                        '- Мова контенту — українська, без плейсхолдерів.',
+                    ].join('\n');
+                },
+
+                copySeederPrompt(item) {
+                    const prompt = this.buildSeederPrompt(item);
+                    navigator.clipboard.writeText(prompt).then(() => {
+                        this.showMessage('Промт сидера скопійовано');
+                    }).catch(() => {
+                        this.showMessage('Не вдалося скопіювати промт', 'error');
+                    });
+                },
+
                 isCollapsed(itemId) {
                     return this.collapsedItems[itemId] === true;
                 },
@@ -1030,6 +1130,36 @@
                     } catch (error) {
                         this.showMessage('Помилка скидання', 'error');
                     }
+                    this.loading = false;
+                },
+
+                async syncMissingFromBase() {
+                    if (!this.currentVariantId || (this.currentVariant && this.currentVariant.is_base)) return;
+
+                    this.loading = true;
+                    try {
+                        const response = await fetch('/admin/site-tree/sync-missing', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': this.csrfToken,
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({ variant_id: this.currentVariantId })
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            await this.fetchTree(false);
+                            this.showMessage(data.message || 'Додано нові елементи з бази');
+                        } else {
+                            this.showMessage(data.message || 'Помилка оновлення дерева', 'error');
+                        }
+                    } catch (error) {
+                        this.showMessage('Помилка оновлення дерева', 'error');
+                    }
+
                     this.loading = false;
                 },
 
