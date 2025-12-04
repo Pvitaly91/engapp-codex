@@ -448,7 +448,79 @@
         }
       }, { passive: true });
     })();
+
+    // Sidebar positioning helper - adjusts sidebar position when header hides/shows
+    // Works with any element that has id="theory-sidebar"
+    (function initSidebarPositioning() {
+      const sidebar = document.getElementById('theory-sidebar');
+      const header = document.getElementById('main-header');
+      
+      if (!sidebar || !header) return;
+      
+      // Use CSS custom property set by the header script, with fallback
+      function getHeaderHeight() {
+        const cssHeight = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+        if (cssHeight) {
+          return parseInt(cssHeight, 10) || header.offsetHeight;
+        }
+        return header.offsetHeight;
+      }
+      
+      const topWhenHeaderHidden = 16; // Small padding from top when header is hidden
+      
+      function updateSidebarPosition() {
+        // Use only the CSS custom property for consistent state tracking
+        const headerVisible = getComputedStyle(document.documentElement).getPropertyValue('--header-visible').trim() === '1';
+        const headerHeight = getHeaderHeight();
+        const topWhenHeaderVisible = headerHeight + 16; // 16px = 1rem padding
+        
+        if (headerVisible) {
+          sidebar.style.top = topWhenHeaderVisible + 'px';
+        } else {
+          sidebar.style.top = topWhenHeaderHidden + 'px';
+        }
+      }
+      
+      // Initial position - wait a tick for CSS variables to be set
+      requestAnimationFrame(updateSidebarPosition);
+      
+      // Throttled scroll listener
+      let sidebarTicking = false;
+      window.addEventListener('scroll', function() {
+        if (!sidebarTicking) {
+          window.requestAnimationFrame(function() {
+            updateSidebarPosition();
+            sidebarTicking = false;
+          });
+          sidebarTicking = true;
+        }
+      }, { passive: true });
+      
+      // Also listen for transitionend on header to catch animation completion
+      header.addEventListener('transitionend', updateSidebarPosition);
+    })();
   </script>
+
+  <style>
+    /* Custom scrollbar for scrollable navigation elements */
+    #category-nav-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    #category-nav-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #category-nav-scroll::-webkit-scrollbar-thumb {
+      background: hsl(var(--border));
+      border-radius: 2px;
+    }
+    #category-nav-scroll::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--muted-foreground));
+    }
+    #category-nav-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--border)) transparent;
+    }
+  </style>
 
   @yield('scripts')
 </body>
