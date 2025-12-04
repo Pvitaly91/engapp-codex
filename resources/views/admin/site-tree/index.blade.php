@@ -271,6 +271,17 @@
 
                                                 {{-- Actions - visible when selected --}}
                                                 <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(item.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                    <button
+                                                        type="button"
+                                                        @click.stop="copySeederPrompt(item)"
+                                                        class="p-1 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded transition"
+                                                        title="Згенерувати промт сидера"
+                                                    >
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7h2a2 2 0 012 2v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2h2" />
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
+                                                        </svg>
+                                                    </button>
                                                     {{-- Link to page on site - only for existing pages --}}
                                                     <template x-if="existsInPages(item.title)">
                                                         <a 
@@ -395,6 +406,12 @@
                                                             </div>
 
                                                             <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(child.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                <button type="button" @click.stop="copySeederPrompt(child)" class="p-1 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded transition" title="Згенерувати промт сидера">
+                                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7h2a2 2 0 012 2v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2h2" />
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
+                                                                    </svg>
+                                                                </button>
                                                                 {{-- Link to page on site --}}
                                                                 <template x-if="existsInPages(child.title)">
                                                                     <a :href="getPageUrl(child.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
@@ -472,6 +489,12 @@
                                                                     </div>
 
                                                                     <div class="flex-shrink-0 flex items-center gap-0.5 transition-all" :class="isItemSelected(grandchild.id) ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden pointer-events-none'">
+                                                                        <button type="button" @click.stop="copySeederPrompt(grandchild)" class="p-1 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded transition" title="Згенерувати промт сидера">
+                                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7h2a2 2 0 012 2v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2h2" />
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
+                                                                            </svg>
+                                                                        </button>
                                                                         {{-- Link to page on site --}}
                                                                         <template x-if="existsInPages(grandchild.title)">
                                                                             <a :href="getPageUrl(grandchild.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
@@ -828,6 +851,57 @@
                 
                 getItemNumber(categoryIndex, itemIndex) {
                     return (categoryIndex + 1) + '.' + (itemIndex + 1);
+                },
+
+                getItemPath(itemId, items = this.tree, path = []) {
+                    for (const item of items) {
+                        const currentPath = [...path, item.title];
+                        if (item.id === itemId) {
+                            return currentPath;
+                        }
+
+                        if (item.children && item.children.length > 0) {
+                            const foundPath = this.getItemPath(itemId, item.children, currentPath);
+                            if (foundPath.length) {
+                                return foundPath;
+                            }
+                        }
+                    }
+                    return [];
+                },
+
+                slugifyTitle(title) {
+                    return title
+                        .toLowerCase()
+                        .replace(/[^a-z0-9\s-]+/g, '')
+                        .trim()
+                        .replace(/\s+/g, '-')
+                        .replace(/-+/g, '-');
+                },
+
+                buildSeederPrompt(item) {
+                    const path = this.getItemPath(item.id);
+                    const topic = path.join(' > ');
+                    const slug = this.slugifyTitle(item.title || '');
+
+                    return [
+                        'Створи сидер для GitHub Copilot:',
+                        '- Файл у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
+                        `- Тип сторінки: theory (method type() має повертати \"theory\").`,
+                        `- Тема: "${topic}". Використай цю тему як основу контенту та блоків.`,
+                        `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
+                        '- Додай title, subtitle, tags і blocks у page() за структурою інших сидерів Page_v2.',
+                        '- Мова контенту — українська, без плейсхолдерів.',
+                    ].join('\n');
+                },
+
+                copySeederPrompt(item) {
+                    const prompt = this.buildSeederPrompt(item);
+                    navigator.clipboard.writeText(prompt).then(() => {
+                        this.showMessage('Промт сидера скопійовано');
+                    }).catch(() => {
+                        this.showMessage('Не вдалося скопіювати промт', 'error');
+                    });
                 },
 
                 isCollapsed(itemId) {
