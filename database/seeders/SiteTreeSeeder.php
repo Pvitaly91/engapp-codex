@@ -14,40 +14,45 @@ class SiteTreeSeeder extends Seeder
     public function run(): void
     {
         // Get or create base variant
-        $baseVariant = SiteTreeVariant::where('is_base', true)->first();
-        
-        if (!$baseVariant) {
-            $baseVariant = SiteTreeVariant::create([
+        $baseVariant = SiteTreeVariant::firstOrCreate(
+            ['is_base' => true],
+            [
                 'name' => 'Базова структура',
                 'slug' => 'base',
-                'is_base' => true,
-            ]);
-        }
-
-        // Clear existing items for base variant only
-        SiteTreeItem::where('variant_id', $baseVariant->id)->delete();
+            ]
+        );
 
         $tree = $this->getTreeData();
 
         foreach ($tree as $sortOrder => $section) {
-            $this->createItem($section, null, $sortOrder, $baseVariant->id);
+            $this->createOrUpdateItem($section, null, $sortOrder, $baseVariant->id);
         }
     }
 
-    private function createItem(array $data, ?int $parentId, int $sortOrder, int $variantId): void
+    private function createOrUpdateItem(array $data, ?int $parentId, int $sortOrder, int $variantId): void
     {
-        $item = SiteTreeItem::create([
-            'parent_id' => $parentId,
-            'variant_id' => $variantId,
-            'title' => $data['title'],
+        $item = SiteTreeItem::firstOrCreate(
+            [
+                'variant_id' => $variantId,
+                'title' => $data['title'],
+                'parent_id' => $parentId,
+            ],
+            [
+                'level' => $data['level'] ?? null,
+                'is_checked' => true,
+                'sort_order' => $sortOrder,
+            ]
+        );
+
+        // Update sort_order and level if item already exists
+        $item->update([
             'level' => $data['level'] ?? null,
-            'is_checked' => true,
             'sort_order' => $sortOrder,
         ]);
 
         if (isset($data['children'])) {
             foreach ($data['children'] as $childSortOrder => $child) {
-                $this->createItem($child, $item->id, $childSortOrder, $variantId);
+                $this->createOrUpdateItem($child, $item->id, $childSortOrder, $variantId);
             }
         }
     }
@@ -61,7 +66,17 @@ class SiteTreeSeeder extends Seeder
                 'children' => [
                     ['title' => 'Parts of speech — Частини мови', 'level' => 'A1'],
                     ['title' => 'Sentence structure — Будова простого речення (S–V–O)', 'level' => 'A1'],
-                    ['title' => 'Basic word order — Порядок слів у ствердженні', 'level' => 'A1'],
+                    [
+                        'title' => 'Word Order — Порядок слів',
+                        'level' => 'A1–B2',
+                        'children' => [
+                            ['title' => 'Basic word order in statements — Порядок слів у ствердженні', 'level' => 'A1'],
+                            ['title' => 'Word order in questions and negatives — Питання та заперечення', 'level' => 'A1–A2'],
+                            ['title' => 'Word order with adverbs and adverbials — Прислівники та обставини', 'level' => 'A2–B1'],
+                            ['title' => 'Word order with verbs and objects — Допоміжні, модальні, фразові дієслова', 'level' => 'A2–B1'],
+                            ['title' => 'Advanced word order and emphasis — Інверсія та підсилення', 'level' => 'B1–B2'],
+                        ],
+                    ],
                 ],
             ],
             [
