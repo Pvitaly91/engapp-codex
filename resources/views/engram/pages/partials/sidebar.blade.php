@@ -10,7 +10,7 @@
                 @php($isActive = $selectedCategory && $selectedCategory->is($category))
                 <a
                     href="{{ route($routePrefix . '.category', $category->slug) }}"
-                    class="block rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-muted/80 {{ $isActive ? 'bg-primary text-primary-foreground' : 'text-muted-foreground' }}"
+                    class="block rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-muted/80 {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground' : 'text-muted-foreground' }}"
                 >
                     <span>{{ $category->title }}</span>
                 </a>

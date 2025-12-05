@@ -43,9 +43,9 @@
                 <span class="w-7 flex-shrink-0"></span>
             @endif
             
-            <a 
+            <a
                 href="{{ route($routePrefix . '.category', $category->slug) }}"
-                class="flex-1 flex items-center justify-between rounded-lg px-2 py-2 text-sm {{ $isActive ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
+                class="flex-1 flex items-center justify-between rounded-lg px-2 py-2 text-sm {{ $isActive ? 'bg-primary px-[5px] text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
             >
                 <span>{{ $category->title }}</span>
                 @if(isset($category->pages_count) && $category->pages_count > 0)

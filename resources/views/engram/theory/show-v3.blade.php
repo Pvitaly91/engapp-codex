@@ -10,6 +10,7 @@
     @php($heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [])
     @php($contentBlocks = $blocks->reject(fn($b) => in_array($b->type, ['hero', 'hero-v2', 'navigation-chips'])))
     @php($navBlock = $blocks->firstWhere('type', 'navigation-chips'))
+    @php($categoryPages = $categoryPages ?? collect())
 
     <div class="min-h-screen">
         {{-- Compact Breadcrumb Strip --}}
@@ -27,6 +28,14 @@
                 @endif
             @endforeach
         </nav>
+
+        @include('engram.theory.partials.sidebar-navigation-mobile', [
+            'categories' => $categories,
+            'selectedCategory' => $selectedCategory ?? null,
+            'categoryPages' => $categoryPages ?? collect(),
+            'currentPage' => $page,
+            'routePrefix' => $routePrefix,
+        ])
 
         {{-- Main Content Grid --}}
         <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
@@ -48,6 +57,29 @@
                                     'selectedCategory' => $selectedCategory ?? null,
                                     'routePrefix' => $routePrefix,
                                 ])
+                            </nav>
+                        </div>
+                    @endif
+
+                    @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
+                        <div class="rounded-2xl border border-border/60 bg-card p-5">
+                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
+                                </svg>
+                                {{ $selectedCategory->title }}
+                            </h3>
+                            <nav class="space-y-1">
+                                @foreach($categoryPages as $pageItem)
+                                    @php($isCurrentPage = $page->is($pageItem))
+                                    <a
+                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        class="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted/50 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:text-foreground' }}"
+                                        @if($isCurrentPage) aria-current="page" @endif
+                                    >
+                                        {{ $pageItem->title }}
+                                    </a>
+                                @endforeach
                             </nav>
                         </div>
                     @endif
