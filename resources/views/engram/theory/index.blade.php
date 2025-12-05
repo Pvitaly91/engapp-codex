@@ -111,6 +111,7 @@
                         ];
                         $gradient = $gradients[$index % count($gradients)];
                         $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
+                        $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
                     @endphp
                     <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
                         {{-- Card Header with Gradient and Title --}}
@@ -179,8 +180,31 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                            @else
-                                {{-- Arrow indicator for categories without children --}}
+                            @endif
+                            
+                            {{-- Pages list --}}
+                            @if($hasPages)
+                                <div class="{{ $hasChildren ? 'mt-3 pt-3 border-t border-border/60' : 'mt-3 pt-3 border-t border-border/60' }}">
+                                    <ul class="space-y-1.5">
+                                        @foreach($category->pages as $page)
+                                            <li>
+                                                <a 
+                                                    href="{{ route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
+                                                    class="flex items-start gap-2 text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
+                                                >
+                                                    <svg class="h-3 w-3 text-muted-foreground/60 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                    </svg>
+                                                    <span class="line-clamp-2 break-words">{{ $page->title }}</span>
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            
+                            @if(!$hasChildren && !$hasPages)
+                                {{-- Arrow indicator for categories without children or pages --}}
                                 <a 
                                     href="{{ route($routePrefix . '.category', $category->slug) }}"
                                     class="flex items-center justify-end mt-2"
