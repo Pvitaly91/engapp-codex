@@ -282,6 +282,8 @@ class PageController extends Controller
                 $category->setRelation('pages', $this->sortCollectionByOrdering($category->pages, $ordering, fn ($page) => $page->title));
             }
 
+            $category->setAttribute('ordered_tree_items', $this->sortCategoryItems($category, $ordering));
+
             return $category;
         });
 
@@ -305,6 +307,37 @@ class PageController extends Controller
         return $items
             ->sortBy(function ($item) use ($ordering, $getTitle) {
                 $title = $getTitle($item);
+                $order = $this->resolveOrderingValue($title, $ordering);
+
+                return [$order, mb_strtolower($title)];
+            })
+            ->values();
+    }
+
+    /**
+     * Combine child categories and pages into a single ordered collection that mirrors the site tree.
+     */
+    protected function sortCategoryItems(PageCategory $category, array $ordering): Collection
+    {
+        $items = collect();
+
+        if ($category->relationLoaded('children') && $category->children->isNotEmpty()) {
+            $items = $items->concat($category->children->map(fn (PageCategory $child) => [
+                'type' => 'category',
+                'model' => $child,
+            ]));
+        }
+
+        if ($category->relationLoaded('pages') && $category->pages->isNotEmpty()) {
+            $items = $items->concat($category->pages->map(fn ($page) => [
+                'type' => 'page',
+                'model' => $page,
+            ]));
+        }
+
+        return $items
+            ->sortBy(function ($item) use ($ordering) {
+                $title = $item['model']->title;
                 $order = $this->resolveOrderingValue($title, $ordering);
 
                 return [$order, mb_strtolower($title)];
