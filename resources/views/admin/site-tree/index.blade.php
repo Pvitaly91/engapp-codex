@@ -238,12 +238,12 @@
                                                 >
 
                                                 {{-- Title (editable) - clickable to show actions --}}
-                                                <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(item.id)" @dblclick="startEditing(item)">
+                                                <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="handleTitleClick(item)" @dblclick="startEditing(item)">
                                                     {{-- Category number --}}
                                                     <span class="flex-shrink-0 text-sm font-bold text-gray-500 mr-1" x-text="getCategoryNumber(index)"></span>
                                                     
                                                     <template x-if="editingId !== item.id">
-                                                        <span class="text-sm font-semibold leading-tight" :class="[isItemSelected(item.id) ? 'truncate' : '', item.is_checked ? '' : 'line-through text-gray-400', existsInPages(item.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="item.title"></span>
+                                                        <span class="text-sm font-semibold leading-tight" :class="[isItemSelected(item.id) ? 'truncate' : '', item.is_checked ? '' : 'line-through text-gray-400', isLinked(item) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="item.title"></span>
                                                     </template>
                                                     <template x-if="editingId === item.id">
                                                         <input 
@@ -264,8 +264,8 @@
                                                     </template>
                                                     
                                                     {{-- Exists in pages indicator with link --}}
-                                                    <template x-if="existsInPages(item.title)">
-                                                        <a :href="getPageUrl(item.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                    <template x-if="isLinked(item)">
+                                                        <a :href="getLinkedUrl(item)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
                                                     </template>
                                                 </div>
 
@@ -282,10 +282,21 @@
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
                                                         </svg>
                                                     </button>
+                                                    <button
+                                                        type="button"
+                                                        @click.stop="openLinkModal(item)"
+                                                        class="p-1 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded transition"
+                                                        title="Зв'язати з /theory"
+                                                    >
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 01-5.656-5.656l1.5-1.5" />
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 115.656 5.656l-1.5 1.5" />
+                                                        </svg>
+                                                    </button>
                                                     {{-- Link to page on site - only for existing pages --}}
-                                                    <template x-if="existsInPages(item.title)">
-                                                        <a 
-                                                            :href="getPageUrl(item.title)"
+                                                    <template x-if="isLinked(item)">
+                                                        <a
+                                                            :href="getLinkedUrl(item)"
                                                             target="_blank"
                                                             @click.stop
                                                             class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition"
@@ -377,12 +388,12 @@
                                                                 class="flex-shrink-0 rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500 focus:ring-offset-0"
                                                             >
 
-                                                            <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(child.id)" @dblclick="startEditing(child)">
+                                                            <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="handleTitleClick(child)" @dblclick="startEditing(child)">
                                                                 {{-- Page number within category --}}
                                                                 <span class="flex-shrink-0 text-xs font-medium text-gray-400 mr-1" x-text="getItemNumber(index, childIndex)"></span>
                                                                 
                                                                 <template x-if="editingId !== child.id">
-                                                                    <span class="text-sm leading-tight" :class="[isItemSelected(child.id) ? 'truncate' : '', child.is_checked ? '' : 'line-through text-gray-400', existsInPages(child.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="child.title"></span>
+                                                                    <span class="text-sm leading-tight" :class="[isItemSelected(child.id) ? 'truncate' : '', child.is_checked ? '' : 'line-through text-gray-400', isLinked(child) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="child.title"></span>
                                                                 </template>
                                                                 <template x-if="editingId === child.id">
                                                                     <input 
@@ -400,8 +411,8 @@
                                                                 </template>
                                                                 
                                                                 {{-- Exists in pages indicator with link --}}
-                                                                <template x-if="existsInPages(child.title)">
-                                                                    <a :href="getPageUrl(child.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                                <template x-if="isLinked(child)">
+                                                                    <a :href="getLinkedUrl(child)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
                                                                 </template>
                                                             </div>
 
@@ -412,9 +423,15 @@
                                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
                                                                     </svg>
                                                                 </button>
+                                                                <button type="button" @click.stop="openLinkModal(child)" class="p-1 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded transition" title="Зв'язати з /theory">
+                                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 01-5.656-5.656l1.5-1.5" />
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 115.656 5.656l-1.5 1.5" />
+                                                                    </svg>
+                                                                </button>
                                                                 {{-- Link to page on site --}}
-                                                                <template x-if="existsInPages(child.title)">
-                                                                    <a :href="getPageUrl(child.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
+                                                                <template x-if="isLinked(child)">
+                                                                    <a :href="getLinkedUrl(child)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
                                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                                                                     </a>
                                                                 </template>
@@ -463,9 +480,9 @@
                                                                         class="flex-shrink-0 rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500 focus:ring-offset-0"
                                                                     >
 
-                                                                    <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="toggleItemActions(grandchild.id)" @dblclick="startEditing(grandchild)">
+                                                                    <div class="flex-1 min-w-0 flex items-center gap-1 cursor-pointer ml-1" @click="handleTitleClick(grandchild)" @dblclick="startEditing(grandchild)">
                                                                         <template x-if="editingId !== grandchild.id">
-                                                                            <span class="text-sm leading-tight" :class="[isItemSelected(grandchild.id) ? 'truncate' : '', grandchild.is_checked ? '' : 'line-through text-gray-400', existsInPages(grandchild.title) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="grandchild.title"></span>
+                                                                            <span class="text-sm leading-tight" :class="[isItemSelected(grandchild.id) ? 'truncate' : '', grandchild.is_checked ? '' : 'line-through text-gray-400', isLinked(grandchild) ? 'text-green-700 bg-green-50 px-1 rounded' : '']" x-text="grandchild.title"></span>
                                                                         </template>
                                                                         <template x-if="editingId === grandchild.id">
                                                                             <input 
@@ -483,8 +500,8 @@
                                                                         </template>
                                                                         
                                                                         {{-- Exists in pages indicator with link --}}
-                                                                        <template x-if="existsInPages(grandchild.title)">
-                                                                            <a :href="getPageUrl(grandchild.title)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                                        <template x-if="isLinked(grandchild)">
+                                                                            <a :href="getLinkedUrl(grandchild)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
                                                                         </template>
                                                                     </div>
 
@@ -495,9 +512,15 @@
                                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 7V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2m7 4H9" />
                                                                             </svg>
                                                                         </button>
+                                                                        <button type="button" @click.stop="openLinkModal(grandchild)" class="p-1 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded transition" title="Зв'язати з /theory">
+                                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 01-5.656-5.656l1.5-1.5" />
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 115.656 5.656l-1.5 1.5" />
+                                                                            </svg>
+                                                                        </button>
                                                                         {{-- Link to page on site --}}
-                                                                        <template x-if="existsInPages(grandchild.title)">
-                                                                            <a :href="getPageUrl(grandchild.title)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
+                                                                        <template x-if="isLinked(grandchild)">
+                                                                            <a :href="getLinkedUrl(grandchild)" target="_blank" @click.stop class="p-1 text-green-500 hover:text-green-700 hover:bg-green-50 rounded transition" title="Відкрити на сайті">
                                                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                                                                             </a>
                                                                         </template>
@@ -612,7 +635,7 @@
         </div>
 
         {{-- Variant Modal --}}
-        <div 
+        <div
             x-show="showVariantModal"
             x-cloak
             class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
@@ -645,7 +668,7 @@
                     >
                         Скасувати
                     </button>
-                    <button 
+                    <button
                         type="button"
                         @click="submitVariantModal()"
                         :disabled="!variantModalData.name.trim()"
@@ -653,6 +676,74 @@
                     >
                         <span x-text="variantModalSubmitText"></span>
                     </button>
+                </div>
+            </div>
+        </div>
+
+        {{-- Link existing theory content modal --}}
+        <div
+            x-show="showLinkModal"
+            x-cloak
+            class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+            @click.self="closeLinkModal()"
+        >
+            <div class="w-full max-w-2xl bg-white rounded-2xl shadow-xl" @click.stop>
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold">Прив'язати до сторінки або категорії</h3>
+                            <p class="text-sm text-gray-600">Оберіть наявну сторінку/категорію з /theory, щоб підсвітити та зберегти зв'язок з елементом дерева.</p>
+                        </div>
+                        <button type="button" class="text-gray-400 hover:text-gray-600" @click="closeLinkModal()">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-700">Пошук</label>
+                        <input
+                            type="text"
+                            x-model="linkSearch"
+                            placeholder="Введіть частину назви або URL"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        >
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg max-h-72 overflow-y-auto divide-y divide-gray-100">
+                        <template x-for="option in filteredExistingPages()" :key="option.title">
+                            <label class="flex items-start gap-3 p-3 cursor-pointer border-l-4 transition"
+                                   :class="isPageAlreadyLinked(option.title) ? 'bg-amber-50 border-amber-400' : 'border-transparent hover:bg-gray-50'">
+                                <input type="radio" class="mt-1 text-blue-600 border-gray-300 focus:ring-blue-500" :value="option.title" x-model="linkSelectedTitle">
+                                <div class="space-y-1 w-full">
+                                    <div class="text-sm font-semibold" x-text="option.title"></div>
+                                    <div class="text-xs text-gray-500 break-all" x-text="option.url"></div>
+                                    <div class="flex items-center gap-1 text-[11px] font-medium text-amber-700" x-show="isPageAlreadyLinked(option.title)">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Вже прив'язано</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </template>
+                        <div class="p-4 text-sm text-gray-500" x-show="filteredExistingPages().length === 0">
+                            Нічого не знайдено.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center gap-2 px-6 py-4 bg-gray-50 rounded-b-2xl">
+                    <div class="text-sm text-gray-500" x-show="linkingItem">
+                        <span class="font-semibold">Поточний елемент:</span>
+                        <span x-text="linkingItem?.title || ''"></span>
+                    </div>
+                    <div class="flex gap-2 ml-auto">
+                        <button type="button" @click="closeLinkModal()" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">Скасувати</button>
+                        <button type="button" @click="clearLinking()" class="px-4 py-2 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">Відв'язати</button>
+                        <button type="button" @click="submitLinking()" :disabled="!linkSelectedTitle" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">Зберегти</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -694,10 +785,17 @@
                 touchStartY: 0,
                 collapsedItems: {},
                 selectedItemId: null,
+                showLinkModal: false,
+                linkingItem: null,
+                linkSelectedTitle: '',
+                linkSearch: '',
+                linkedPageTitles: {},
 
                 init() {
                     const csrfMeta = document.querySelector('meta[name="csrf-token"]');
                     this.csrfToken = csrfMeta ? csrfMeta.getAttribute('content') : null;
+
+                    this.updateLinkedPageTitles();
                     
                     // Close actions when clicking outside
                     document.addEventListener('click', (e) => {
@@ -821,28 +919,153 @@
                 toggleItemActions(itemId) {
                     this.selectedItemId = this.selectedItemId === itemId ? null : itemId;
                 },
-                
+
                 isItemSelected(itemId) {
                     return this.selectedItemId === itemId;
                 },
-                
-                existsInPages(title) {
-                    // Check if the title exists in exported pages (now existingPages is an object: title -> url)
-                    const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '');
-                    const titles = Object.keys(this.existingPages);
-                    return titles.some(t => t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle));
+
+                handleTitleClick(item) {
+                    this.toggleItemActions(item.id);
+                    navigator.clipboard.writeText(item.title).then(() => {
+                        this.showMessage('Назву скопійовано');
+                    }).catch(() => {
+                        this.showMessage('Не вдалося скопіювати назву', 'error');
+                    });
                 },
-                
-                getPageUrl(title) {
-                    // Get the URL for a page if it exists
-                    const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '');
-                    const titles = Object.keys(this.existingPages);
-                    for (const t of titles) {
+
+                isLinked(item) {
+                    if (!item) return false;
+                    if (item.linked_page_title || item.linked_page_url) return true;
+                    return !!this.findExistingMatch(item.title);
+                },
+
+                getLinkedUrl(item) {
+                    if (!item) return null;
+                    if (item.linked_page_url) return item.linked_page_url;
+                    const match = this.findExistingMatch(item.title);
+                    return match ? match.url : null;
+                },
+
+                findExistingMatch(title) {
+                    const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '').trim();
+                    const entries = Object.entries(this.existingPages);
+                    for (const [t, url] of entries) {
                         if (t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle)) {
-                            return this.existingPages[t];
+                            return { title: t, url };
                         }
                     }
                     return null;
+                },
+
+                updateLinkedPageTitles() {
+                    const titles = {};
+                    const walk = (nodes) => {
+                        if (!nodes) return;
+                        nodes.forEach(node => {
+                            if (node.linked_page_title) {
+                                titles[node.linked_page_title] = true;
+                            }
+                            if (node.children && node.children.length) {
+                                walk(node.children);
+                            }
+                        });
+                    };
+
+                    walk(this.tree);
+                    this.linkedPageTitles = titles;
+                },
+
+                isPageAlreadyLinked(title) {
+                    if (!title) return false;
+                    return !!this.linkedPageTitles[title];
+                },
+
+                openLinkModal(item) {
+                    this.linkingItem = item;
+                    const match = item.linked_page_title ? { title: item.linked_page_title } : this.findExistingMatch(item.title);
+                    this.linkSelectedTitle = match?.title || '';
+                    this.linkSearch = '';
+                    this.showLinkModal = true;
+                },
+
+                closeLinkModal() {
+                    this.showLinkModal = false;
+                    this.linkingItem = null;
+                    this.linkSelectedTitle = '';
+                    this.linkSearch = '';
+                },
+
+                filteredExistingPages() {
+                    const term = this.linkSearch.toLowerCase();
+                    return Object.entries(this.existingPages)
+                        .map(([title, url]) => ({ title, url }))
+                        .filter(option => {
+                            if (!term) return true;
+                            return option.title.toLowerCase().includes(term) || option.url.toLowerCase().includes(term);
+                        });
+                },
+
+                async submitLinking() {
+                    if (!this.linkingItem) return;
+                    const selectedTitle = this.linkSelectedTitle?.trim();
+                    const payload = {
+                        linked_page_title: selectedTitle || null,
+                        linked_page_url: selectedTitle ? (this.existingPages[selectedTitle] ?? null) : null,
+                    };
+
+                    try {
+                        const response = await fetch(`/admin/site-tree/${this.linkingItem.id}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': this.csrfToken,
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const data = await response.json();
+                        if (response.ok && data.success) {
+                            Object.assign(this.linkingItem, data.item);
+                            this.updateLinkedPageTitles();
+                            this.showMessage('Зв’язок збережено');
+                            this.closeLinkModal();
+                        } else {
+                            this.showMessage(data.message || 'Не вдалося зберегти зв’язок', 'error');
+                        }
+                    } catch (error) {
+                        this.showMessage('Помилка збереження зв’язку', 'error');
+                    }
+                },
+
+                async clearLinking() {
+                    if (!this.linkingItem) return;
+                    this.linkSelectedTitle = '';
+                    const payload = { linked_page_title: null, linked_page_url: null };
+
+                    try {
+                        const response = await fetch(`/admin/site-tree/${this.linkingItem.id}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': this.csrfToken,
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const data = await response.json();
+                        if (response.ok && data.success) {
+                            Object.assign(this.linkingItem, data.item);
+                            this.updateLinkedPageTitles();
+                            this.showMessage('Зв’язок видалено');
+                            this.closeLinkModal();
+                        } else {
+                            this.showMessage(data.message || 'Не вдалося видалити зв’язок', 'error');
+                        }
+                    } catch (error) {
+                        this.showMessage('Помилка видалення зв’язку', 'error');
+                    }
                 },
                 
                 getCategoryNumber(index) {
@@ -943,6 +1166,7 @@
                         const data = await response.json();
                         if (data.success) {
                             this.tree = data.tree;
+                            this.updateLinkedPageTitles();
                         }
                     } catch (error) {
                         this.showMessage('Помилка завантаження дерева', 'error');
