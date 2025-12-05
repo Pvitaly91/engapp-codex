@@ -199,12 +199,12 @@
 
                         <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-2">
                             @foreach($categoryPages as $index => $page)
-                                <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
-                                    {{-- Card Header with Gradient --}}
-                                    <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
-                                        class="block relative h-32 bg-gradient-to-br {{ ['from-indigo-500 to-purple-600', 'from-emerald-500 to-teal-600', 'from-blue-500 to-cyan-600', 'from-amber-500 to-orange-600', 'from-rose-500 to-pink-600', 'from-violet-500 to-purple-600'][$index % 6] }} p-6 transition-opacity hover:opacity-90"
-                                    >
+                                <a 
+                                    href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
+                                    class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl block"
+                                >
+                                    {{-- Card Header with Gradient and Title --}}
+                                    <div class="relative min-h-[8rem] bg-gradient-to-br {{ ['from-indigo-500 to-purple-600', 'from-emerald-500 to-teal-600', 'from-blue-500 to-cyan-600', 'from-amber-500 to-orange-600', 'from-rose-500 to-pink-600', 'from-violet-500 to-purple-600'][$index % 6] }} p-6 transition-opacity group-hover:opacity-90">
                                         {{-- Decorative elements --}}
                                         <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                                         <div class="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -214,43 +214,37 @@
                                             {{ $index + 1 }}
                                         </div>
                                         
-                                        {{-- Icon --}}
-                                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white">
-                                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                            </svg>
+                                        {{-- Icon and Title --}}
+                                        <div class="flex items-start gap-4">
+                                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white flex-shrink-0">
+                                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                </svg>
+                                            </div>
+                                            <h3 class="text-lg font-bold text-white pr-10 leading-snug">
+                                                {{ $page->title }}
+                                            </h3>
                                         </div>
-                                    </a>
+                                    </div>
                                     
                                     {{-- Card Body --}}
                                     <div class="p-5">
-                                        <a 
-                                            href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
-                                            class="block mb-3"
-                                        >
-                                            <h3 class="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                                                {{ $page->title }}
-                                            </h3>
-                                            @if(!empty($page->text))
-                                                <p class="text-sm text-muted-foreground line-clamp-2 mt-1">
-                                                    {{ $page->text }}
-                                                </p>
-                                            @endif
-                                        </a>
+                                        @if(!empty($page->text))
+                                            <p class="text-sm text-muted-foreground line-clamp-2">
+                                                {{ $page->text }}
+                                            </p>
+                                        @endif
                                         
                                         {{-- Arrow indicator --}}
-                                        <a 
-                                            href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
-                                            class="flex items-center justify-end mt-2"
-                                        >
+                                        <div class="flex items-center justify-end mt-3">
                                             <div class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                                                 <svg class="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                                                 </svg>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             @endforeach
                         </div>
                     </section>
