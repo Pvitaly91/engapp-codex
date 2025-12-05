@@ -992,12 +992,12 @@
                         });
 
                         const data = await response.json();
-                        if (data.success) {
+                        if (response.ok && data.success) {
                             Object.assign(this.linkingItem, data.item);
                             this.showMessage('Зв’язок збережено');
                             this.closeLinkModal();
                         } else {
-                            this.showMessage('Не вдалося зберегти зв’язок', 'error');
+                            this.showMessage(data.message || 'Не вдалося зберегти зв’язок', 'error');
                         }
                     } catch (error) {
                         this.showMessage('Помилка збереження зв’язку', 'error');
@@ -1021,12 +1021,12 @@
                         });
 
                         const data = await response.json();
-                        if (data.success) {
+                        if (response.ok && data.success) {
                             Object.assign(this.linkingItem, data.item);
                             this.showMessage('Зв’язок видалено');
                             this.closeLinkModal();
                         } else {
-                            this.showMessage('Не вдалося видалити зв’язок', 'error');
+                            this.showMessage(data.message || 'Не вдалося видалити зв’язок', 'error');
                         }
                     } catch (error) {
                         this.showMessage('Помилка видалення зв’язку', 'error');

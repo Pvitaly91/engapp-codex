@@ -10,7 +10,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
+use Illuminate\Database\QueryException;
 
 class SiteTreeController extends Controller
 {
@@ -255,7 +258,36 @@ class SiteTreeController extends Controller
             'linked_page_url' => 'nullable|string|max:255',
         ]);
 
-        $item->update($validated);
+        if (array_key_exists('linked_page_title', $validated) || array_key_exists('linked_page_url', $validated)) {
+            if (! Schema::hasColumns('site_tree_items', ['linked_page_title', 'linked_page_url'])) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Необхідно виконати міграції бази даних для збереження зв’язку.',
+                ], 422);
+            }
+        }
+
+        // Empty strings should not be persisted for link fields
+        if (array_key_exists('linked_page_title', $validated) && $validated['linked_page_title'] === '') {
+            $validated['linked_page_title'] = null;
+        }
+        if (array_key_exists('linked_page_url', $validated) && $validated['linked_page_url'] === '') {
+            $validated['linked_page_url'] = null;
+        }
+
+        try {
+            $item->update($validated);
+        } catch (QueryException $exception) {
+            Log::error('Failed to update site tree item', [
+                'item_id' => $item->id,
+                'error' => $exception->getMessage(),
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Не вдалося зберегти зв’язок. Повідомте адміністратора або перевірте міграції.',
+            ], 500);
+        }
 
         return response()->json([
             'success' => true,
