@@ -114,6 +114,7 @@
                                 'categories' => $categories,
                                 'selectedCategory' => $selectedCategory,
                                 'routePrefix' => $routePrefix,
+                                'showPagesInNav' => false,
                             ])
                         @else
                             <p class="px-3 py-2 text-sm text-muted-foreground">Немає категорій.</p>
@@ -185,6 +186,7 @@
                                     'categories' => $categories,
                                     'selectedCategory' => $selectedCategory,
                                     'routePrefix' => $routePrefix,
+                                    'showPagesInNav' => false,
                                 ])
                             @else
                                 <p class="text-sm text-muted-foreground">Немає категорій.</p>

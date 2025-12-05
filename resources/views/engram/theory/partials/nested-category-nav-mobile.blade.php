@@ -4,6 +4,7 @@
     @param ?PageCategory $selectedCategory - Currently selected category
     @param string $routePrefix - Route prefix (e.g., 'theory')
     @param int $level - Current nesting level (default 0)
+    @param bool $showPagesInNav - Whether to show pages inside category nav (default true)
 --}}
 @php
     $categories = $categories ?? collect();
@@ -11,6 +12,7 @@
     $routePrefix = $routePrefix ?? 'theory';
     $level = $level ?? 0;
     $indent = $level * 12; // Indentation in pixels
+    $showPagesInNav = $showPagesInNav ?? true;
 @endphp
 
 @foreach($categories as $category)
@@ -18,7 +20,7 @@
         $isActive = $selectedCategory && $selectedCategory->is($category);
         $hasChildren = $category->hasChildren();
         $hasSelectedDescendant = $hasChildren && $category->hasDescendant($selectedCategory);
-        $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
+        $hasPages = $showPagesInNav && $category->relationLoaded('pages') && $category->pages->isNotEmpty();
         $isExpandable = $hasChildren || $hasPages;
         $isExpanded = $isActive || $hasSelectedDescendant;
     @endphp
@@ -63,6 +65,7 @@
                         'selectedCategory' => $selectedCategory,
                         'routePrefix' => $routePrefix,
                         'level' => $level + 1,
+                        'showPagesInNav' => $showPagesInNav,
                     ])
                 @endif
                 
