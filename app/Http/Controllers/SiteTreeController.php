@@ -110,6 +110,8 @@ class SiteTreeController extends Controller
                 'variant_id' => $targetVariantId,
                 'parent_id' => $targetParentId,
                 'title' => $item->title,
+                'linked_page_title' => $item->linked_page_title,
+                'linked_page_url' => $item->linked_page_url,
                 'level' => $item->level,
                 'is_checked' => $item->is_checked,
                 'sort_order' => $item->sort_order,
@@ -141,6 +143,8 @@ class SiteTreeController extends Controller
                 'variant_id' => $targetVariantId,
                 'parent_id' => $targetParentId,
                 'title' => $baseItem->title,
+                'linked_page_title' => $baseItem->linked_page_title,
+                'linked_page_url' => $baseItem->linked_page_url,
                 'level' => $baseItem->level,
                 'is_checked' => $baseItem->is_checked,
                 'sort_order' => $baseItem->sort_order,
@@ -210,6 +214,8 @@ class SiteTreeController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'linked_page_title' => 'nullable|string|max:255',
+            'linked_page_url' => 'nullable|string|max:255',
             'level' => 'nullable|string|max:20',
             'parent_id' => 'nullable|integer|exists:site_tree_items,id',
             'variant_id' => 'nullable|integer|exists:site_tree_variants,id',
@@ -224,6 +230,8 @@ class SiteTreeController extends Controller
 
         $item = SiteTreeItem::create([
             'title' => $validated['title'],
+            'linked_page_title' => $validated['linked_page_title'] ?? null,
+            'linked_page_url' => $validated['linked_page_url'] ?? null,
             'level' => $validated['level'] ?? null,
             'parent_id' => $validated['parent_id'] ?? null,
             'variant_id' => $variantId,
@@ -243,6 +251,8 @@ class SiteTreeController extends Controller
             'title' => 'sometimes|required|string|max:255',
             'level' => 'nullable|string|max:20',
             'is_checked' => 'sometimes|boolean',
+            'linked_page_title' => 'nullable|string|max:255',
+            'linked_page_url' => 'nullable|string|max:255',
         ]);
 
         $item->update($validated);
@@ -439,6 +449,8 @@ class SiteTreeController extends Controller
         foreach ($items as $item) {
             $node = [
                 'title' => $item->title,
+                'linked_page_title' => $item->linked_page_title,
+                'linked_page_url' => $item->linked_page_url,
                 'level' => $item->level,
                 'is_checked' => $item->is_checked,
             ];
@@ -483,6 +495,8 @@ class SiteTreeController extends Controller
                 'parent_id' => $parentId,
                 'variant_id' => $variantId,
                 'title' => $data['title'],
+                'linked_page_title' => $data['linked_page_title'] ?? null,
+                'linked_page_url' => $data['linked_page_url'] ?? null,
                 'level' => $data['level'] ?? null,
                 'is_checked' => $data['is_checked'] ?? true,
                 'sort_order' => $sortOrder++,
