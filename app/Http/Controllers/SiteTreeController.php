@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SiteTreeItem;
 use App\Models\SiteTreeVariant;
+use App\Models\PageCategory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class SiteTreeController extends Controller
         
         $tree = $currentVariant ? $this->getTreeWithChildren($currentVariant->id) : collect();
         
-        // Load existing pages with URLs from exported_pages.json
+        // Load existing theory categories and pages with URLs for highlighting
         $existingPages = $this->getExistingPagesWithUrls();
 
         return view('admin.site-tree.index', compact('tree', 'variants', 'currentVariant', 'existingPages'));
@@ -34,26 +35,22 @@ class SiteTreeController extends Controller
     
     private function getExistingPagesWithUrls(): array
     {
-        $pages = [];
-        $path = config_path('pages/exported_pages.json');
-        
-        if (file_exists($path)) {
-            $data = json_decode(file_get_contents($path), true);
-            if (isset($data['categories'])) {
-                foreach ($data['categories'] as $category) {
-                    // Add category with URL to its slug
-                    $pages[$category['category_title']] = '/pages/' . $category['category_slug'];
-                    if (isset($category['pages'])) {
-                        foreach ($category['pages'] as $page) {
-                            // Add page with URL
-                            $pages[$page['page_title']] = '/pages/' . $category['category_slug'] . '/' . $page['page_slug'];
-                        }
-                    }
-                }
+        $items = [];
+
+        $categories = PageCategory::query()
+            ->whereHas('pages', fn ($query) => $query->forType('theory'))
+            ->with(['pages' => fn ($query) => $query->forType('theory')])
+            ->get();
+
+        foreach ($categories as $category) {
+            $items[$category->title] = route('theory.category', $category->slug);
+
+            foreach ($category->pages as $page) {
+                $items[$page->title] = route('theory.show', [$category->slug, $page->slug]);
             }
         }
-        
-        return $pages;
+
+        return $items;
     }
 
     private function getTreeWithChildren(?int $variantId = null)

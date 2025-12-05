@@ -827,7 +827,7 @@
                 },
                 
                 existsInPages(title) {
-                    // Check if the title exists in exported pages (now existingPages is an object: title -> url)
+                    // Check if the title exists among /theory categories or pages (existingPages is title -> url)
                     const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '');
                     const titles = Object.keys(this.existingPages);
                     return titles.some(t => t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle));
