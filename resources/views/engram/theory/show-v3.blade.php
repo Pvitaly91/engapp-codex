@@ -55,6 +55,7 @@
                                 @include('engram.theory.partials.nested-category-nav', [
                                     'categories' => $categories,
                                     'selectedCategory' => $selectedCategory ?? null,
+                                    'currentPage' => $page,
                                     'routePrefix' => $routePrefix,
                                 ])
                             </nav>
@@ -394,6 +395,7 @@
                                 @include('engram.theory.partials.nested-category-nav-mobile', [
                                     'categories' => $categories,
                                     'selectedCategory' => $selectedCategory ?? null,
+                                    'currentPage' => $page,
                                     'routePrefix' => $routePrefix,
                                 ])
                             </nav>
