@@ -199,22 +199,11 @@
 
                         <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-2">
                             @foreach($categoryPages as $index => $page)
-                                @php
-                                    $gradientClasses = [
-                                        'from-indigo-500 to-purple-600',
-                                        'from-emerald-500 to-teal-600',
-                                        'from-blue-500 to-cyan-600',
-                                        'from-amber-500 to-orange-600',
-                                        'from-rose-500 to-pink-600',
-                                        'from-violet-500 to-purple-600',
-                                    ];
-                                    $gradientClass = $gradientClasses[$index % count($gradientClasses)];
-                                @endphp
                                 <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
                                     {{-- Card Header with Gradient --}}
                                     <a 
                                         href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
-                                        class="block relative h-32 bg-gradient-to-br {{ $gradientClass }} p-6 transition-opacity hover:opacity-90"
+                                        class="block relative h-32 bg-gradient-to-br {{ ['from-indigo-500 to-purple-600', 'from-emerald-500 to-teal-600', 'from-blue-500 to-cyan-600', 'from-amber-500 to-orange-600', 'from-rose-500 to-pink-600', 'from-violet-500 to-purple-600'][$index % 6] }} p-6 transition-opacity hover:opacity-90"
                                     >
                                         {{-- Decorative elements --}}
                                         <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
