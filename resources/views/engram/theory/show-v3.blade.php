@@ -42,7 +42,7 @@
                                 </svg>
                                 Категорії теорії
                             </h3>
-                            <nav id="category-nav-scroll" class="space-y-1 max-h-[40vh] overflow-y-auto pr-1">
+                            <nav id="category-nav-scroll" class="space-y-1">
                                 @include('engram.theory.partials.nested-category-nav', [
                                     'categories' => $categories,
                                     'selectedCategory' => $selectedCategory ?? null,
@@ -79,33 +79,7 @@
                         </div>
                     @endif
 
-                    {{-- Category Pages Navigation --}}
-                    @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
-                        <div class="rounded-2xl border border-border/60 bg-card p-5">
-                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                </svg>
-                                {{ $selectedCategory->title }}
-                            </h3>
-                            <nav class="space-y-1">
-                                @foreach($categoryPages as $pageItem)
-                                    @php($isCurrentPage = $page->is($pageItem))
-                                    <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
-                                    >
-                                        @if($isCurrentPage)
-                                            <svg class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                            </svg>
-                                        @endif
-                                        <span class="truncate">{{ $pageItem->title }}</span>
-                                    </a>
-                                @endforeach
-                            </nav>
-                        </div>
-                    @endif
+                
 
                     {{-- Quick Actions --}}
                     <div class="rounded-2xl border border-border/60 bg-gradient-to-br from-muted/30 to-muted/10 p-5">
