@@ -8,7 +8,7 @@
 @endphp
 
 <div
-    class="lg:hidden space-y-4"
+    class="lg:hidden space-y-4 mb-6"
     x-data="{
         showCategories: false,
         showPages: {{ $hasCategoryPages ? 'true' : 'false' }}
