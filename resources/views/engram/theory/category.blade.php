@@ -72,9 +72,104 @@
             </div>
         </header>
 
+        {{-- Mobile Sidebar (visible only on mobile/tablet) --}}
+        <div
+            class="lg:hidden space-y-4 mb-8"
+            x-data="{
+                showCategories: false,
+                showPages: {{ $categoryPages->isNotEmpty() ? 'true' : 'false' }}
+            }"
+        >
+            {{-- Categories accordion --}}
+            <div class="rounded-2xl border border-border/80 bg-card shadow-soft">
+                <button
+                    type="button"
+                    class="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold"
+                    @click="showCategories = !showCategories"
+                    :aria-expanded="showCategories"
+                >
+                    <span class="flex items-center gap-2">
+                        <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                        Категорії
+                    </span>
+                    <span class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <span>{{ $selectedCategory->title ?? 'Оберіть категорію' }}</span>
+                        <svg
+                            class="h-4 w-4 transition-transform"
+                            :class="{ 'rotate-180': showCategories }"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                </button>
+                <div x-show="showCategories" x-collapse class="border-t border-border/80">
+                    <nav class="space-y-1 px-4 py-3 max-h-[50vh] overflow-y-auto">
+                        @if($categories->isNotEmpty())
+                            @include('engram.theory.partials.nested-category-nav-mobile', [
+                                'categories' => $categories,
+                                'selectedCategory' => $selectedCategory,
+                                'routePrefix' => $routePrefix,
+                                'showPagesInNav' => false,
+                            ])
+                        @else
+                            <p class="px-3 py-2 text-sm text-muted-foreground">Немає категорій.</p>
+                        @endif
+                    </nav>
+                </div>
+            </div>
+
+            {{-- Pages in category accordion --}}
+            @if($categoryPages->isNotEmpty())
+                <div class="rounded-2xl border border-border/80 bg-card shadow-soft">
+                    <button
+                        type="button"
+                        class="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold"
+                        @click="showPages = !showPages"
+                        :aria-expanded="showPages"
+                    >
+                        <span class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Сторінки розділу
+                        </span>
+                        <span class="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                            <span>{{ $categoryPages->count() }} {{ trans_choice('сторінок|сторінка|сторінки', $categoryPages->count()) }}</span>
+                            <svg
+                                class="h-4 w-4 transition-transform"
+                                :class="{ 'rotate-180': showPages }"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 0 1 1.08 1.04l-4.25 4.25a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div x-show="showPages" x-collapse class="border-t border-border/80">
+                        <nav class="space-y-1 px-4 py-3 max-h-[50vh] overflow-y-auto">
+                            @foreach($categoryPages as $pageItem)
+                                <a
+                                    href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                    class="block rounded-xl px-3 py-2 text-sm transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 text-muted-foreground"
+                                >
+                                    {{ $pageItem->title }}
+                                </a>
+                            @endforeach
+                        </nav>
+                    </div>
+                </div>
+            @endif
+        </div>
+
         {{-- Main Content Grid --}}
         <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
-            {{-- Left Sidebar --}}
+            {{-- Left Sidebar (desktop only) --}}
             <aside class="hidden lg:block">
                 <div id="theory-sidebar" class="sticky top-24 space-y-5 transition-[top] duration-200 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
                     {{-- Categories Navigation --}}
@@ -91,6 +186,7 @@
                                     'categories' => $categories,
                                     'selectedCategory' => $selectedCategory,
                                     'routePrefix' => $routePrefix,
+                                    'showPagesInNav' => false,
                                 ])
                             @else
                                 <p class="text-sm text-muted-foreground">Немає категорій.</p>
@@ -314,78 +410,6 @@
             </div>
         </div>
 
-        {{-- Mobile Floating Menu --}}
-        <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 lg:hidden" x-data="{ open: false }">
-            <button 
-                @click="open = !open"
-                class="flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background shadow-lg transition-transform hover:scale-105"
-            >
-                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-                Меню
-            </button>
 
-            {{-- Mobile Menu Content --}}
-            <div 
-                x-show="open" 
-                x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0 translate-y-4"
-                x-transition:enter-end="opacity-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100 translate-y-0"
-                x-transition:leave-end="opacity-0 translate-y-4"
-                @click.away="open = false"
-                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-72 max-h-[60vh] overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-xl"
-            >
-                <div class="space-y-4">
-                    {{-- Categories --}}
-                    <div>
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Категорії теорії</h4>
-                        <nav class="space-y-1">
-                            @if($categories->isNotEmpty())
-                                @include('engram.theory.partials.nested-category-nav-mobile', [
-                                    'categories' => $categories,
-                                    'selectedCategory' => $selectedCategory,
-                                    'routePrefix' => $routePrefix,
-                                ])
-                            @endif
-                        </nav>
-                    </div>
-
-                    {{-- Pages in current category --}}
-                    @if($categoryPages->isNotEmpty())
-                        <div class="border-t border-border pt-4">
-                            <h4 class="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{{ $selectedCategory->title }}</h4>
-                            <nav class="space-y-1">
-                                @foreach($categoryPages as $pageItem)
-                                    <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                        class="block rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted"
-                                    >
-                                        {{ $pageItem->title }}
-                                    </a>
-                                @endforeach
-                            </nav>
-                        </div>
-                    @endif
-
-                    {{-- Quick Actions --}}
-                    <div class="border-t border-border pt-4">
-                        <div class="space-y-2">
-                            <a 
-                                href="{{ route($routePrefix . '.index') }}"
-                                class="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2 text-sm font-medium text-foreground"
-                            >
-                                <svg class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                                </svg>
-                                Усі категорії
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 @endsection
