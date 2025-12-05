@@ -72,6 +72,14 @@
             </div>
         </header>
 
+        @include('engram.theory.partials.sidebar-navigation-mobile', [
+            'categories' => $categories,
+            'selectedCategory' => $selectedCategory,
+            'categoryPages' => $categoryPages,
+            'currentPage' => null,
+            'routePrefix' => $routePrefix,
+        ])
+
         {{-- Main Content Grid --}}
         <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
             {{-- Left Sidebar --}}
