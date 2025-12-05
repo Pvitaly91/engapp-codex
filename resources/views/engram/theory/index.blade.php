@@ -111,12 +111,13 @@
                         ];
                         $gradient = $gradients[$index % count($gradients)];
                         $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
+                        $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
                     @endphp
                     <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
-                        {{-- Card Header with Gradient - Link to main category --}}
+                        {{-- Card Header with Gradient and Title --}}
                         <a 
                             href="{{ route($routePrefix . '.category', $category->slug) }}"
-                            class="block relative h-32 bg-gradient-to-br {{ $gradient }} p-6 transition-opacity hover:opacity-90"
+                            class="block relative min-h-[8rem] bg-gradient-to-br {{ $gradient }} p-6 transition-opacity hover:opacity-90"
                         >
                             {{-- Decorative elements --}}
                             <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -127,11 +128,16 @@
                                 {{ $index + 1 }}
                             </div>
                             
-                            {{-- Icon --}}
-                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                                </svg>
+                            {{-- Icon and Title --}}
+                            <div class="flex items-start gap-4">
+                                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white flex-shrink-0">
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-white pr-10 leading-snug">
+                                    {{ $category->title }}
+                                </h3>
                             </div>
                         </a>
                         
@@ -141,9 +147,6 @@
                                 href="{{ route($routePrefix . '.category', $category->slug) }}"
                                 class="block mb-3"
                             >
-                                <h3 class="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                                    {{ $category->title }}
-                                </h3>
                                 <span class="text-sm text-muted-foreground">
                                     @if(isset($category->pages_count) && $category->pages_count > 0)
                                         {{ $category->pages_count }} {{ trans_choice('уроків|урок|уроки', $category->pages_count) }}
@@ -177,8 +180,31 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                            @else
-                                {{-- Arrow indicator for categories without children --}}
+                            @endif
+                            
+                            {{-- Pages list --}}
+                            @if($hasPages)
+                                <div class="{{ $hasChildren ? 'mt-3 pt-3 border-t border-border/60' : 'mt-3 pt-3 border-t border-border/60' }}">
+                                    <ul class="space-y-1.5">
+                                        @foreach($category->pages as $page)
+                                            <li>
+                                                <a 
+                                                    href="{{ route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
+                                                    class="flex items-start gap-2 text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
+                                                >
+                                                    <svg class="h-3 w-3 text-muted-foreground/60 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                    </svg>
+                                                    <span class="line-clamp-2 break-words">{{ $page->title }}</span>
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            
+                            @if(!$hasChildren && !$hasPages)
+                                {{-- Arrow indicator for categories without children or pages --}}
                                 <a 
                                     href="{{ route($routePrefix . '.category', $category->slug) }}"
                                     class="flex items-center justify-end mt-2"
