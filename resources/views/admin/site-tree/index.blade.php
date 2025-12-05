@@ -713,11 +713,18 @@
 
                     <div class="border border-gray-200 rounded-lg max-h-72 overflow-y-auto divide-y divide-gray-100">
                         <template x-for="option in filteredExistingPages()" :key="option.title">
-                            <label class="flex items-start gap-3 p-3 hover:bg-gray-50 cursor-pointer">
+                            <label class="flex items-start gap-3 p-3 cursor-pointer border-l-4 transition"
+                                   :class="isPageAlreadyLinked(option.title) ? 'bg-amber-50 border-amber-400' : 'border-transparent hover:bg-gray-50'">
                                 <input type="radio" class="mt-1 text-blue-600 border-gray-300 focus:ring-blue-500" :value="option.title" x-model="linkSelectedTitle">
-                                <div class="space-y-1">
+                                <div class="space-y-1 w-full">
                                     <div class="text-sm font-semibold" x-text="option.title"></div>
                                     <div class="text-xs text-gray-500 break-all" x-text="option.url"></div>
+                                    <div class="flex items-center gap-1 text-[11px] font-medium text-amber-700" x-show="isPageAlreadyLinked(option.title)">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Вже прив'язано</span>
+                                    </div>
                                 </div>
                             </label>
                         </template>
@@ -782,10 +789,13 @@
                 linkingItem: null,
                 linkSelectedTitle: '',
                 linkSearch: '',
+                linkedPageTitles: {},
 
                 init() {
                     const csrfMeta = document.querySelector('meta[name="csrf-token"]');
                     this.csrfToken = csrfMeta ? csrfMeta.getAttribute('content') : null;
+
+                    this.updateLinkedPageTitles();
                     
                     // Close actions when clicking outside
                     document.addEventListener('click', (e) => {
@@ -947,6 +957,29 @@
                     return null;
                 },
 
+                updateLinkedPageTitles() {
+                    const titles = {};
+                    const walk = (nodes) => {
+                        if (!nodes) return;
+                        nodes.forEach(node => {
+                            if (node.linked_page_title) {
+                                titles[node.linked_page_title] = true;
+                            }
+                            if (node.children && node.children.length) {
+                                walk(node.children);
+                            }
+                        });
+                    };
+
+                    walk(this.tree);
+                    this.linkedPageTitles = titles;
+                },
+
+                isPageAlreadyLinked(title) {
+                    if (!title) return false;
+                    return !!this.linkedPageTitles[title];
+                },
+
                 openLinkModal(item) {
                     this.linkingItem = item;
                     const match = item.linked_page_title ? { title: item.linked_page_title } : this.findExistingMatch(item.title);
@@ -994,6 +1027,7 @@
                         const data = await response.json();
                         if (response.ok && data.success) {
                             Object.assign(this.linkingItem, data.item);
+                            this.updateLinkedPageTitles();
                             this.showMessage('Зв’язок збережено');
                             this.closeLinkModal();
                         } else {
@@ -1023,6 +1057,7 @@
                         const data = await response.json();
                         if (response.ok && data.success) {
                             Object.assign(this.linkingItem, data.item);
+                            this.updateLinkedPageTitles();
                             this.showMessage('Зв’язок видалено');
                             this.closeLinkModal();
                         } else {
@@ -1131,6 +1166,7 @@
                         const data = await response.json();
                         if (data.success) {
                             this.tree = data.tree;
+                            this.updateLinkedPageTitles();
                         }
                     } catch (error) {
                         this.showMessage('Помилка завантаження дерева', 'error');
