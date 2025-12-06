@@ -333,7 +333,7 @@ class PossessiveAdjectivesVsPronounsTheorySeeder extends PronounsDemonstrativesP
                                 'description' => "Той самий принцип для our/ours і their/theirs.",
                                 'examples' => [
                                     ['en' => 'Our house vs The house is ours', 'ua' => 'Наш будинок vs Будинок наш'],
-                                    ['en' => 'Their dog vs The dog is theirs', 'ua' => 'Їхній собака vs Собака їхній'],
+                                    ['en' => 'Their dog vs The dog is theirs', 'ua' => 'Їхня собака vs Собака їхня'],
                                 ],
                                 'note' => '📌 Adjective + noun. Pronoun замість noun.',
                             ],
