@@ -122,7 +122,7 @@ class RelativePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                                 'description' => "<strong>Who</strong> тільки для людей! Для тварин і речей — which або that.",
                                 'examples' => [
                                     ['en' => 'The dog who barks... (✗)', 'ua' => 'ПОМИЛКА'],
-                                    ['en' => 'The dog that/which barks... (✓)', 'ua' => 'Собака, який гавкає...'],
+                                    ['en' => 'The dog that/which barks... (✓)', 'ua' => 'Собака, яка гавкає...'],
                                 ],
                             ],
                         ],
@@ -388,7 +388,7 @@ class RelativePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                         'inputs' => [
                             ['before' => 'The woman ___ called is a doctor. (жінка, яка)', 'after' => '→'],
                             ['before' => 'The car ___ I bought is new. (машина, яку)', 'after' => '→'],
-                            ['before' => 'The man ___ dog is big... (чоловік, чий собака)', 'after' => '→'],
+                            ['before' => 'The man ___ dog is big... (чоловік, чия собака)', 'after' => '→'],
                             ['before' => 'Everything ___ he said was true. (усе, що)', 'after' => '→'],
                         ],
                         'rephrase_title' => 'Вправа 3. Виправ помилки',
