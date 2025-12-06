@@ -8,7 +8,7 @@ class PronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
 {
     protected function slug(): string
     {
-        return 'pronouns';
+        return 'pronouns-theory';
     }
 
     protected function type(): ?string
