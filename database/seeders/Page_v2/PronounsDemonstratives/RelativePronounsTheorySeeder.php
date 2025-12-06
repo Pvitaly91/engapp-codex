@@ -150,7 +150,7 @@ class RelativePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                                 'color' => 'sky',
                                 'description' => "Which також використовується для тварин.",
                                 'examples' => [
-                                    ['en' => 'The dog which lives next door is friendly.', 'ua' => 'Собака, який живе по сусідству, дружелюбний.'],
+                                    ['en' => 'The dog which lives next door is friendly.', 'ua' => 'Собака, яка живе по сусідству, дружелюбна.'],
                                     ['en' => 'The cat which I saw was black.', 'ua' => 'Кіт, якого я бачив, був чорний.'],
                                 ],
                             ],
