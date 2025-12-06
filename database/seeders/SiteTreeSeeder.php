@@ -199,6 +199,18 @@ class SiteTreeSeeder extends Seeder
                 'title' => '8. Питальні речення та заперечення',
                 'level' => 'A1–B2',
                 'children' => [
+                    [
+                        'title' => 'Types of questions — Види питальних речень',
+                        'level' => 'A1–B1',
+                        'children' => [
+                            ['title' => 'Yes/No questions (general questions) — загальні питання', 'level' => 'A1'],
+                            ['title' => 'Wh-questions (special questions) — спеціальні питання: who, what, where, when, why, how', 'level' => 'A1–A2'],
+                            ['title' => 'Alternative questions — альтернативні питання (coffee or tea?)', 'level' => 'A2'],
+                            ['title' => "Question tags (disjunctive questions) — розділові питання: …, don't you? […, isn't it?]", 'level' => 'B1'],
+                            ['title' => "Negative questions — заперечні питання (Don't you know…?)", 'level' => 'B1'],
+                            ['title' => "Answers to questions — короткі й повні відповіді (Yes, I do / No, I don't)", 'level' => 'A1–A2'],
+                        ],
+                    ],
                     ['title' => 'Question forms — як ставити запитання', 'level' => 'A1'],
                     ['title' => 'Wh-questions — who, what, where, when, why, how', 'level' => 'A1–A2'],
                     ['title' => 'Short answers — короткі відповіді', 'level' => 'A1'],
