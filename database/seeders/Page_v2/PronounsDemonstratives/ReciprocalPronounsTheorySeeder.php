@@ -41,6 +41,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
             'blocks' => [
                 [
                     'layout' => 'hero',
+                    'column' => 'header',
                     'hero_image' => null,
                     'content' => [
                         'heading' => 'Reciprocal Pronouns — Взаємні займенники',
@@ -49,6 +50,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'two-columns',
+                    'column' => 'left',
                     'columns' => [
                         [
                             'heading' => 'Each Other',
@@ -62,6 +64,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'text',
+                    'column' => 'left',
                     'content' => [
                         'heading' => 'Сучасне використання',
                         'html' => "<p>У сучасній англійській мові різниця між <strong>each other</strong> і <strong>one another</strong> майже зникла. Обидва вирази можна використовувати як для двох, так і для більше осіб.</p><ul><li>The two friends trust <strong>each other</strong> / <strong>one another</strong>. — Двоє друзів довіряють один одному.</li><li>All students helped <strong>each other</strong> / <strong>one another</strong>. — Усі студенти допомагали один одному.</li></ul><p><strong>Рекомендація:</strong> <em>each other</em> вживається частіше в розмовній мові для будь-якої кількості осіб.</p>",
@@ -69,6 +72,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'usage-panel',
+                    'column' => 'left',
                     'columns' => [
                         [
                             'heading' => '✓ Взаємна дія',
@@ -82,6 +86,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'text',
+                    'column' => 'left',
                     'content' => [
                         'heading' => 'Присвійні форми',
                         'html' => "<p>Взаємні займенники можуть мати <strong>присвійну форму</strong> з апострофом <strong>'s</strong>:</p><ul><li><strong>each other's</strong> — один одного (чий)</li><li><strong>one another's</strong> — один одного (чий)</li></ul><p><strong>Приклади:</strong></p><ul><li>They borrowed <strong>each other's</strong> books. — Вони позичали книги один одного.</li><li>We know <strong>each other's</strong> names. — Ми знаємо імена один одного.</li><li>The students corrected <strong>one another's</strong> mistakes. — Студенти виправляли помилки один одного.</li></ul>",
@@ -129,6 +134,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'text',
+                    'column' => 'left',
                     'content' => [
                         'heading' => 'Типові вирази з Each Other',
                         'html' => "<ul><li><strong>know each other</strong> — знати один одного</li><li><strong>help each other</strong> — допомагати один одному</li><li><strong>love each other</strong> — любити один одного</li><li><strong>talk to each other</strong> — розмовляти один з одним</li><li><strong>listen to each other</strong> — слухати один одного</li><li><strong>look at each other</strong> — дивитися один на одного</li><li><strong>write to each other</strong> — писати один одному</li><li><strong>trust each other</strong> — довіряти один одному</li><li><strong>understand each other</strong> — розуміти один одного</li><li><strong>support each other</strong> — підтримувати один одного</li></ul>",
@@ -136,6 +142,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'common-mistakes',
+                    'column' => 'left',
                     'mistakes' => [
                         [
                             'incorrect' => 'They love <strong>themselves</strong>.',
@@ -161,6 +168,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'summary',
+                    'column' => 'left',
                     'summary_points' => [
                         '<strong>Each other</strong> і <strong>one another</strong> — взаємні займенники для позначення взаємної дії між двома або більше особами.',
                         'Традиційно <em>each other</em> для двох, <em>one another</em> для трьох і більше, але в сучасній мові ця різниця майже зникла.',
@@ -171,6 +179,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'practice',
+                    'column' => 'left',
                     'exercises' => [
                         [
                             'instruction' => 'Оберіть правильний варіант:',
@@ -196,6 +205,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                 ],
                 [
                     'layout' => 'navigation',
+                    'column' => 'footer',
                     'links' => [
                         [
                             'title' => '← Reflexive Pronouns',
