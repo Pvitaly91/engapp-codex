@@ -20,7 +20,9 @@
         $hasChildren = $category->hasChildren();
         $hasSelectedDescendant = $hasChildren && $category->hasDescendant($selectedCategory);
         $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
-        $isExpandable = $hasChildren || $hasPages;
+        $orderedItems = $category->ordered_tree_items ?? collect();
+        $hasOrderedItems = $orderedItems->isNotEmpty();
+        $isExpandable = $hasOrderedItems;
         $isExpanded = $isActive || $hasSelectedDescendant;
     @endphp
     
@@ -55,23 +57,20 @@
             </a>
         </div>
         
-        @if($isExpandable)
+        @if($hasOrderedItems)
             <div x-show="expanded" x-collapse>
-                {{-- Child categories --}}
-                @if($hasChildren)
-                    @include('engram.theory.partials.nested-category-nav-mobile', [
-                        'categories' => $category->children,
-                        'selectedCategory' => $selectedCategory,
-                        'routePrefix' => $routePrefix,
-                        'level' => $level + 1,
-                    ])
-                @endif
-                
-                {{-- Pages within this category --}}
-                @if($hasPages)
-                    <div class="space-y-0.5 {{ $hasChildren ? 'mt-1' : '' }}" style="padding-left: {{ $indent + 28 }}px">
-                        @foreach($category->pages as $page)
-                            @php($isCurrentPage = $currentPage && $currentPage->is($page))
+                @foreach($orderedItems as $item)
+                    @if($item['type'] === 'category')
+                        @include('engram.theory.partials.nested-category-nav-mobile', [
+                            'categories' => collect([$item['model']]),
+                            'selectedCategory' => $selectedCategory,
+                            'routePrefix' => $routePrefix,
+                            'level' => $level + 1,
+                        ])
+                    @else
+                        @php($page = $item['model'])
+                        @php($isCurrentPage = $currentPage && $currentPage->is($page))
+                        <div class="space-y-0.5" style="padding-left: {{ $indent + 28 }}px">
                             <a
                                 href="{{ route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
                                 class="flex items-start gap-2 rounded-lg px-2 py-1.5 text-xs transition-all {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:bg-muted' }}"
@@ -82,9 +81,9 @@
                                 </svg>
                                 <span class="line-clamp-2 break-words">{{ $page->title }}</span>
                             </a>
-                        @endforeach
-                    </div>
-                @endif
+                        </div>
+                    @endif
+                @endforeach
             </div>
         @endif
     </div>
