@@ -157,7 +157,7 @@ class IndefinitePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                                 'description' => "<strong>Someone</strong> і <strong>somebody</strong> — синоніми. Те саме з something.",
                                 'examples' => [
                                     ['en' => 'Someone called = Somebody called', 'ua' => 'Хтось телефонував'],
-                                    ['en' => 'Something happened = Something happened', 'ua' => 'Щось сталося'],
+                                    ['en' => 'I heard something = I heard a noise', 'ua' => 'Я почув щось = Я почув шум'],
                                 ],
                                 'note' => 'Someone/something — трохи формальніше. Somebody — розмовне.',
                             ],
