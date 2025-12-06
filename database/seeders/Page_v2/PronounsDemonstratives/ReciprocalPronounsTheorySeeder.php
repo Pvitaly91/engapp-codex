@@ -88,19 +88,44 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                     ],
                 ],
                 [
-                    'layout' => 'comparison-table',
-                    'table' => [
-                        'heading' => 'Each Other vs Reflexive Pronouns',
-                        'columns' => ['Each Other (взаємна дія)', 'Reflexive (дія на себе)'],
+                    'type' => 'comparison-table',
+                    'column' => 'left',
+                    'body' => json_encode([
+                        'title' => 'Each Other vs Reflexive Pronouns',
+                        'intro' => 'Порівняння взаємних і зворотних займенників:',
                         'rows' => [
-                            ['They love <strong>each other</strong>.', 'She loves <strong>herself</strong>.'],
-                            ['(Він любить її + вона любить його)', '(Вона любить саму себе)'],
-                            ['We see <strong>each other</strong> often.', 'I see <strong>myself</strong> in the mirror.'],
-                            ['(Ми бачимо один одного)', '(Я бачу себе в дзеркалі)'],
-                            ['They hugged <strong>each other</strong>.', 'He hurt <strong>himself</strong>.'],
-                            ['(Вони обійняли один одного)', '(Він поранив себе)'],
+                            [
+                                'en' => 'They love <strong>each other</strong>.',
+                                'ua' => 'Вони люблять один одного.',
+                                'note' => '(Він любить її + вона любить його — взаємна дія)',
+                            ],
+                            [
+                                'en' => 'She loves <strong>herself</strong>.',
+                                'ua' => 'Вона любить саму себе.',
+                                'note' => '(Дія на себе)',
+                            ],
+                            [
+                                'en' => 'We see <strong>each other</strong> often.',
+                                'ua' => 'Ми часто бачимо один одного.',
+                                'note' => '(Взаємна дія)',
+                            ],
+                            [
+                                'en' => 'I see <strong>myself</strong> in the mirror.',
+                                'ua' => 'Я бачу себе в дзеркалі.',
+                                'note' => '(Дія на себе)',
+                            ],
+                            [
+                                'en' => 'They hugged <strong>each other</strong>.',
+                                'ua' => 'Вони обійняли один одного.',
+                                'note' => '(Взаємна дія)',
+                            ],
+                            [
+                                'en' => 'He hurt <strong>himself</strong>.',
+                                'ua' => 'Він поранив себе.',
+                                'note' => '(Дія на себе)',
+                            ],
                         ],
-                    ],
+                    ]),
                 ],
                 [
                     'layout' => 'text',
