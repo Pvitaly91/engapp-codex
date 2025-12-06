@@ -149,9 +149,9 @@
 <body class="font-sans antialiased selection:bg-primary/15 selection:text-primary">
   <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_20%,hsla(var(--primary),0.08),transparent_25%),radial-gradient(circle_at_80%_0%,hsla(var(--accent),0.08),transparent_20%),linear-gradient(135deg,hsla(var(--secondary),0.05),transparent_40%)]"></div>
   <!-- HEADER / NAV -->
-  <header class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/85">
+  <header id="main-header" class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/85 transition-transform duration-300">
     <div class="page-shell mx-auto px-4">
-      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-20 md:flex-nowrap">
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4 lg:h-20 lg:flex-nowrap">
         <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0" aria-label="Gramlyze">
           <x-gramlyze-logo class="hidden md:inline-flex" />
           <x-gramlyze-logo variant="compact" class="md:hidden" />
@@ -160,8 +160,8 @@
           <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук матеріалів" class="w-56 rounded-xl border border-input bg-background px-4 py-2 text-sm shadow-sm focus:border-primary focus:outline-none" />
           <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
         </form>
-        <div class="flex items-center gap-2 md:hidden">
-          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">Пошук</span></button>
+        <div class="flex items-center gap-2 lg:hidden">
+          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm md:hidden" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">Пошук</span></button>
           <button id="mobile-menu-toggle" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="primary-nav">
             <span class="sr-only">Меню</span>
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -171,9 +171,9 @@
             </svg>
           </button>
         </div>
-        <nav id="primary-nav" class="order-3 hidden w-full flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium md:order-none md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:pt-0">
+        <nav id="primary-nav" class="order-3 hidden w-full flex flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium lg:order-none lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:pt-0">
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog.tests-cards') }}">Каталог</a>
-          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('pages.index') }}">Теорія</a>
+          <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('theory.index') }}">Теорія</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#ai-toolkit">AI Toolkit</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="#team-collaboration">Командам</a>
@@ -252,7 +252,7 @@
     });
     primaryNav?.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        if (window.matchMedia('(max-width: 767px)').matches) {
+        if (window.matchMedia('(max-width: 1023px)').matches) {
           mobileMenuToggle?.setAttribute('aria-expanded', 'false');
           primaryNav.classList.add('hidden');
         }
@@ -397,7 +397,152 @@
     }
 
     document.querySelectorAll('[data-slider]').forEach(initSlider);
+
+    // Hide header on scroll down, show on scroll up
+    (function headerScrollBehavior() {
+      const header = document.getElementById('main-header');
+      if (!header) return;
+      
+      let lastScrollTop = 0;
+      const scrollThreshold = 50; // Minimum scroll before hiding
+      
+      // Get current header height and update CSS variable
+      function getAndUpdateHeaderHeight() {
+        const height = header.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', height + 'px');
+        return height;
+      }
+      
+      // Initial header height
+      let headerHeight = getAndUpdateHeaderHeight();
+      
+      function updateHeaderVisibility() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        // Don't hide if we're near the top
+        if (scrollTop < scrollThreshold) {
+          header.style.transform = 'translateY(0)';
+          document.documentElement.style.setProperty('--header-visible', '1');
+          lastScrollTop = scrollTop;
+          return;
+        }
+        
+        // Scrolling down - hide header
+        if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+          header.style.transform = 'translateY(-100%)';
+          document.documentElement.style.setProperty('--header-visible', '0');
+        } 
+        // Scrolling up - show header
+        else if (scrollTop < lastScrollTop) {
+          header.style.transform = 'translateY(0)';
+          document.documentElement.style.setProperty('--header-visible', '1');
+        }
+        
+        lastScrollTop = scrollTop;
+      }
+      
+      // Set initial CSS variable
+      document.documentElement.style.setProperty('--header-visible', '1');
+      
+      // Update header height on resize (debounced)
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+          headerHeight = getAndUpdateHeaderHeight();
+        }, 100);
+      }, { passive: true });
+      
+      // Throttled scroll listener
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            updateHeaderVisibility();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    // Sidebar positioning helper - adjusts sidebar position when header hides/shows
+    // Works with any element that has id="theory-sidebar"
+    (function initSidebarPositioning() {
+      const sidebar = document.getElementById('theory-sidebar');
+      const header = document.getElementById('main-header');
+      
+      if (!sidebar || !header) return;
+      
+      // Use CSS custom property set by the header script, with fallback
+      function getHeaderHeight() {
+        const cssHeight = getComputedStyle(document.documentElement).getPropertyValue('--header-height');
+        if (cssHeight) {
+          return parseInt(cssHeight, 10) || header.offsetHeight;
+        }
+        return header.offsetHeight;
+      }
+      
+      const topWhenHeaderHidden = 16; // Small padding from top when header is hidden
+      
+      function updateSidebarPosition() {
+        // Use only the CSS custom property for consistent state tracking
+        const headerVisible = getComputedStyle(document.documentElement).getPropertyValue('--header-visible').trim() === '1';
+        const headerHeight = getHeaderHeight();
+        const topWhenHeaderVisible = headerHeight + 16; // 16px = 1rem padding
+        
+        if (headerVisible) {
+          sidebar.style.top = topWhenHeaderVisible + 'px';
+        } else {
+          sidebar.style.top = topWhenHeaderHidden + 'px';
+        }
+      }
+      
+      // Initial position - wait a tick for CSS variables to be set
+      requestAnimationFrame(updateSidebarPosition);
+      
+      // Throttled scroll listener
+      let sidebarTicking = false;
+      window.addEventListener('scroll', function() {
+        if (!sidebarTicking) {
+          window.requestAnimationFrame(function() {
+            updateSidebarPosition();
+            sidebarTicking = false;
+          });
+          sidebarTicking = true;
+        }
+      }, { passive: true });
+      
+      // Also listen for transitionend on header to catch animation completion
+      header.addEventListener('transitionend', updateSidebarPosition);
+    })();
   </script>
+
+  <style>
+    /* Custom scrollbar for scrollable navigation elements */
+    #category-nav-scroll::-webkit-scrollbar,
+    #theory-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    #category-nav-scroll::-webkit-scrollbar-track,
+    #theory-sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #category-nav-scroll::-webkit-scrollbar-thumb,
+    #theory-sidebar::-webkit-scrollbar-thumb {
+      background: hsl(var(--border));
+      border-radius: 2px;
+    }
+    #category-nav-scroll::-webkit-scrollbar-thumb:hover,
+    #theory-sidebar::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--muted-foreground));
+    }
+    #category-nav-scroll,
+    #theory-sidebar {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--border)) transparent;
+    }
+  </style>
 
   @yield('scripts')
 </body>

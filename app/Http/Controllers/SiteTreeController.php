@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\SiteTreeItem;
 use App\Models\SiteTreeVariant;
+use App\Models\PageCategory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
+use Illuminate\Database\QueryException;
 
 class SiteTreeController extends Controller
 {
@@ -26,7 +30,7 @@ class SiteTreeController extends Controller
         
         $tree = $currentVariant ? $this->getTreeWithChildren($currentVariant->id) : collect();
         
-        // Load existing pages with URLs from exported_pages.json
+        // Load existing theory categories and pages with URLs for highlighting
         $existingPages = $this->getExistingPagesWithUrls();
 
         return view('admin.site-tree.index', compact('tree', 'variants', 'currentVariant', 'existingPages'));
@@ -34,26 +38,22 @@ class SiteTreeController extends Controller
     
     private function getExistingPagesWithUrls(): array
     {
-        $pages = [];
-        $path = config_path('pages/exported_pages.json');
-        
-        if (file_exists($path)) {
-            $data = json_decode(file_get_contents($path), true);
-            if (isset($data['categories'])) {
-                foreach ($data['categories'] as $category) {
-                    // Add category with URL to its slug
-                    $pages[$category['category_title']] = '/pages/' . $category['category_slug'];
-                    if (isset($category['pages'])) {
-                        foreach ($category['pages'] as $page) {
-                            // Add page with URL
-                            $pages[$page['page_title']] = '/pages/' . $category['category_slug'] . '/' . $page['page_slug'];
-                        }
-                    }
-                }
+        $items = [];
+
+        $categories = PageCategory::query()
+            ->whereHas('pages', fn ($query) => $query->forType('theory'))
+            ->with(['pages' => fn ($query) => $query->forType('theory')])
+            ->get();
+
+        foreach ($categories as $category) {
+            $items[$category->title] = route('theory.category', $category->slug);
+
+            foreach ($category->pages as $page) {
+                $items[$page->title] = route('theory.show', [$category->slug, $page->slug]);
             }
         }
-        
-        return $pages;
+
+        return $items;
     }
 
     private function getTreeWithChildren(?int $variantId = null)
@@ -113,6 +113,8 @@ class SiteTreeController extends Controller
                 'variant_id' => $targetVariantId,
                 'parent_id' => $targetParentId,
                 'title' => $item->title,
+                'linked_page_title' => $item->linked_page_title,
+                'linked_page_url' => $item->linked_page_url,
                 'level' => $item->level,
                 'is_checked' => $item->is_checked,
                 'sort_order' => $item->sort_order,
@@ -144,6 +146,8 @@ class SiteTreeController extends Controller
                 'variant_id' => $targetVariantId,
                 'parent_id' => $targetParentId,
                 'title' => $baseItem->title,
+                'linked_page_title' => $baseItem->linked_page_title,
+                'linked_page_url' => $baseItem->linked_page_url,
                 'level' => $baseItem->level,
                 'is_checked' => $baseItem->is_checked,
                 'sort_order' => $baseItem->sort_order,
@@ -213,6 +217,8 @@ class SiteTreeController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
+            'linked_page_title' => 'nullable|string|max:255',
+            'linked_page_url' => 'nullable|string|max:255',
             'level' => 'nullable|string|max:20',
             'parent_id' => 'nullable|integer|exists:site_tree_items,id',
             'variant_id' => 'nullable|integer|exists:site_tree_variants,id',
@@ -227,6 +233,8 @@ class SiteTreeController extends Controller
 
         $item = SiteTreeItem::create([
             'title' => $validated['title'],
+            'linked_page_title' => $validated['linked_page_title'] ?? null,
+            'linked_page_url' => $validated['linked_page_url'] ?? null,
             'level' => $validated['level'] ?? null,
             'parent_id' => $validated['parent_id'] ?? null,
             'variant_id' => $variantId,
@@ -246,9 +254,40 @@ class SiteTreeController extends Controller
             'title' => 'sometimes|required|string|max:255',
             'level' => 'nullable|string|max:20',
             'is_checked' => 'sometimes|boolean',
+            'linked_page_title' => 'nullable|string|max:255',
+            'linked_page_url' => 'nullable|string|max:255',
         ]);
 
-        $item->update($validated);
+        if (array_key_exists('linked_page_title', $validated) || array_key_exists('linked_page_url', $validated)) {
+            if (! Schema::hasColumns('site_tree_items', ['linked_page_title', 'linked_page_url'])) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Необхідно виконати міграції бази даних для збереження зв’язку.',
+                ], 422);
+            }
+        }
+
+        // Empty strings should not be persisted for link fields
+        if (array_key_exists('linked_page_title', $validated) && $validated['linked_page_title'] === '') {
+            $validated['linked_page_title'] = null;
+        }
+        if (array_key_exists('linked_page_url', $validated) && $validated['linked_page_url'] === '') {
+            $validated['linked_page_url'] = null;
+        }
+
+        try {
+            $item->update($validated);
+        } catch (QueryException $exception) {
+            Log::error('Failed to update site tree item', [
+                'item_id' => $item->id,
+                'error' => $exception->getMessage(),
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Не вдалося зберегти зв’язок. Повідомте адміністратора або перевірте міграції.',
+            ], 500);
+        }
 
         return response()->json([
             'success' => true,
@@ -442,6 +481,8 @@ class SiteTreeController extends Controller
         foreach ($items as $item) {
             $node = [
                 'title' => $item->title,
+                'linked_page_title' => $item->linked_page_title,
+                'linked_page_url' => $item->linked_page_url,
                 'level' => $item->level,
                 'is_checked' => $item->is_checked,
             ];
@@ -486,6 +527,8 @@ class SiteTreeController extends Controller
                 'parent_id' => $parentId,
                 'variant_id' => $variantId,
                 'title' => $data['title'],
+                'linked_page_title' => $data['linked_page_title'] ?? null,
+                'linked_page_url' => $data['linked_page_url'] ?? null,
                 'level' => $data['level'] ?? null,
                 'is_checked' => $data['is_checked'] ?? true,
                 'sort_order' => $sortOrder++,

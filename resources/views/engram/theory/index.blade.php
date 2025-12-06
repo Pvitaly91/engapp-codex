@@ -3,353 +3,304 @@
 @section('title', $sectionTitle ?? 'Теорія')
 
 @section('content')
-    @php($categoryPages = $categoryPages ?? collect())
-    @php($routePrefix = $routePrefix ?? 'theory')
-    @php($categoryDescription = $categoryDescription ?? ['hasBlocks' => false])
+    @php
+        $categoryPages = $categoryPages ?? collect();
+        $routePrefix = $routePrefix ?? 'theory';
+        $categoryDescription = $categoryDescription ?? ['hasBlocks' => false];
+        $totalPages = $categories->sum(fn($c) => $c->pages_count ?? 0);
+    @endphp
 
     <div class="min-h-screen">
-        {{-- Hero Section --}}
-        <header class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white mb-8">
-            {{-- Decorative Pattern --}}
-            <div class="absolute inset-0 opacity-10">
+        {{-- Hero Section with General Overview --}}
+        <header class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white mb-10">
+            {{-- Animated Background Pattern --}}
+            <div class="absolute inset-0 opacity-20">
                 <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <defs>
-                        <pattern id="grid-pattern-theory-index" width="10" height="10" patternUnits="userSpaceOnUse">
-                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                        <pattern id="theory-hero-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1" fill="currentColor" opacity="0.5"/>
+                            <circle cx="12" cy="12" r="1.5" fill="currentColor" opacity="0.3"/>
                         </pattern>
                     </defs>
-                    <rect width="100%" height="100%" fill="url(#grid-pattern-theory-index)"/>
+                    <rect width="100%" height="100%" fill="url(#theory-hero-pattern)"/>
                 </svg>
             </div>
             
-            <div class="relative px-6 py-8 md:px-8 md:py-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="inline-flex items-center gap-1.5 rounded-lg bg-white/10 backdrop-blur-sm px-3 py-1.5 text-xs font-bold tracking-wide">
-                        <svg class="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                        </svg>
-                        {{ $categories->count() }} {{ trans_choice('категорій|категорія|категорії', $categories->count()) }}
-                    </span>
+            {{-- Decorative Shapes --}}
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-yellow-400/20 rounded-full blur-3xl"></div>
+            
+            <div class="relative px-8 py-12 md:px-12 md:py-16 lg:py-20">
+                <div class="max-w-4xl">
+                    {{-- Badge --}}
+                    <div class="flex flex-wrap items-center gap-3 mb-6">
+                        <span class="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold">
+                            <svg class="h-5 w-5 text-yellow-300" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                            </svg>
+                            Розділ теорії
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium">
+                            {{ $categories->count() }} категорій
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium">
+                            {{ $totalPages }} уроків
+                        </span>
+                    </div>
+
+                    {{-- Title --}}
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-6">
+                        Граматика англійської мови
+                    </h1>
+
+                    {{-- Description --}}
+                    <p class="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-2xl">
+                        Вивчай граматику англійської мови від базових понять до просунутих тем. 
+                        Структуровані уроки, зрозумілі пояснення та практичні приклади допоможуть тобі 
+                        опанувати мову на рівні від A1 до B2.
+                    </p>
+
+                    {{-- Quick Action Buttons --}}
+                    <div class="flex flex-wrap gap-3">
+                        @if($categories->first())
+                            <a 
+                                href="{{ route($routePrefix . '.category', $categories->first()->slug) }}"
+                                class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-indigo-600 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+                            >
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Почати навчання
+                            </a>
+                        @endif
+                        <a 
+                            href="#categories-section"
+                            class="inline-flex items-center gap-2 rounded-xl bg-white/20 backdrop-blur-sm px-6 py-3 text-sm font-bold text-white transition hover:bg-white/30"
+                        >
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                            Усі категорії
+                        </a>
+                    </div>
                 </div>
-
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight mb-4">
-                    {{ $sectionTitle ?? 'Теорія' }}
-                </h1>
-
-                <p class="text-base md:text-lg text-white/80 leading-relaxed max-w-3xl">
-                    Вивчай граматику англійської мови разом з Gramlyze. Обери категорію та почни опановувати нові теми.
-                </p>
             </div>
         </header>
 
-        {{-- Main Content Grid --}}
-        <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
-            {{-- Left Sidebar --}}
-            <aside class="hidden lg:block">
-                <div class="sticky top-24 space-y-5">
-                    {{-- Categories Navigation --}}
-                    <div class="rounded-2xl border border-border/60 bg-card p-5">
-                        <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                            </svg>
-                            Категорії
-                        </h3>
-                        <nav class="space-y-1">
-                            @forelse($categories as $category)
-                                @php($isActive = isset($selectedCategory) && $selectedCategory && $selectedCategory->is($category))
-                                <a 
-                                    href="{{ route($routePrefix . '.category', $category->slug) }}"
-                                    class="flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition-all {{ $isActive ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
-                                >
-                                    <span class="truncate">{{ $category->title }}</span>
-                                    @if(isset($category->pages_count))
-                                        <span class="text-xs opacity-60">{{ $category->pages_count }}</span>
-                                    @endif
-                                </a>
-                            @empty
-                                <p class="text-sm text-muted-foreground">Немає категорій.</p>
-                            @endforelse
-                        </nav>
-                    </div>
+        {{-- Categories Section --}}
+        <section id="categories-section" class="scroll-mt-24">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-3">Теми для вивчення</h2>
+                <p class="text-muted-foreground max-w-2xl mx-auto">
+                    Обери тему та почни вивчати граматику англійської мови
+                </p>
+            </div>
 
-                    {{-- Quick Stats --}}
-                    <div class="rounded-2xl border border-border/60 bg-gradient-to-br from-muted/30 to-muted/10 p-5">
-                        <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
-                            Статистика
-                        </h3>
-                        <div class="grid gap-3">
-                            <div class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 border border-transparent">
-                                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="text-lg font-bold text-foreground">{{ $categories->count() }}</div>
-                                    <div class="text-xs text-muted-foreground">Категорій</div>
-                                </div>
+            {{-- Categories Grid --}}
+            <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                @forelse($categories as $index => $category)
+                    @php
+                        $gradients = [
+                            'from-indigo-500 to-purple-600',
+                            'from-emerald-500 to-teal-600',
+                            'from-blue-500 to-cyan-600',
+                            'from-amber-500 to-orange-600',
+                            'from-rose-500 to-pink-600',
+                            'from-violet-500 to-purple-600',
+                        ];
+                        $gradient = $gradients[$index % count($gradients)];
+                        $hasChildren = $category->relationLoaded('children') && $category->children->isNotEmpty();
+                        $hasPages = $category->relationLoaded('pages') && $category->pages->isNotEmpty();
+                    @endphp
+                    <div class="group relative overflow-hidden rounded-2xl border border-border/60 bg-card transition-all hover:border-primary/30 hover:shadow-xl">
+                        {{-- Card Header with Gradient and Title --}}
+                        <a 
+                            href="{{ route($routePrefix . '.category', $category->slug) }}"
+                            class="block relative min-h-[8rem] bg-gradient-to-br {{ $gradient }} p-6 transition-opacity hover:opacity-90"
+                        >
+                            {{-- Decorative elements --}}
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div class="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                            
+                            {{-- Category number --}}
+                            <div class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white text-sm font-bold">
+                                {{ $index + 1 }}
                             </div>
-                            <div class="flex items-center gap-3 rounded-xl bg-card px-4 py-3 border border-transparent">
-                                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="text-lg font-bold text-foreground">{{ $categories->sum(fn($c) => $c->pages_count ?? 0) }}</div>
-                                    <div class="text-xs text-muted-foreground">Сторінок теорії</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            {{-- Primary Content Area --}}
-            <div class="min-w-0 space-y-6">
-                {{-- Selected Category Header (if selected) --}}
-                @if(isset($selectedCategory) && $selectedCategory)
-                    @if($categoryDescription['hasBlocks'] ?? false)
-                        @include('engram.pages.partials.grammar-card', [
-                            'page' => $selectedCategory,
-                            'subtitleBlock' => $categoryDescription['subtitleBlock'] ?? null,
-                            'columns' => $categoryDescription['columns'] ?? [],
-                            'locale' => $categoryDescription['locale'] ?? app()->getLocale(),
-                        ])
-                    @else
-                        <div class="rounded-2xl border border-border/60 bg-card p-6">
-                            <div class="flex items-center gap-4">
-                                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-white">
+                            
+                            {{-- Icon and Title --}}
+                            <div class="flex items-start gap-4">
+                                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm text-white flex-shrink-0">
                                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                                     </svg>
                                 </div>
-                                <div>
-                                    <h2 class="text-xl font-bold text-foreground">{{ $selectedCategory->title }}</h2>
-                                    <p class="text-sm text-muted-foreground">
-                                        {{ $categoryPages->count() }} {{ trans_choice('сторінок|сторінка|сторінки', $categoryPages->count()) }} у цій категорії
-                                    </p>
-                                </div>
+                                <h3 class="text-lg font-bold text-white pr-10 leading-snug">
+                                    {{ $category->title }}
+                                </h3>
                             </div>
+                        </a>
+                        
+                        {{-- Card Body --}}
+                        <div class="p-5">
+                            <a 
+                                href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                class="block mb-3"
+                            >
+                                <span class="text-sm text-muted-foreground">
+                                    @if(isset($category->pages_count) && $category->pages_count > 0)
+                                        {{ $category->pages_count }} {{ trans_choice('уроків|урок|уроки', $category->pages_count) }}
+                                    @else
+                                        Немає уроків
+                                    @endif
+                                </span>
+                            </a>
+                            
+                            {{-- Subcategories list --}}
+                            @if($hasChildren)
+                                <div class="mt-3 pt-3 border-t border-border/60">
+                                    <ul class="space-y-1.5">
+                                        @foreach($category->children as $child)
+                                            <li>
+                                                <a 
+                                                    href="{{ route($routePrefix . '.category', $child->slug) }}"
+                                                    class="flex items-center justify-between text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
+                                                >
+                                                    <span class="flex items-center gap-2">
+                                                        <svg class="h-3 w-3 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                                        </svg>
+                                                        {{ $child->title }}
+                                                    </span>
+                                                    @if(isset($child->pages_count) && $child->pages_count > 0)
+                                                        <span class="text-xs text-muted-foreground">{{ $child->pages_count }}</span>
+                                                    @endif
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            
+                            {{-- Pages list --}}
+                            @if($hasPages)
+                                <div class="{{ $hasChildren ? 'mt-3 pt-3 border-t border-border/60' : 'mt-3 pt-3 border-t border-border/60' }}">
+                                    <ul class="space-y-1.5">
+                                        @foreach($category->pages as $page)
+                                            <li>
+                                                <a 
+                                                    href="{{ route($routePrefix . '.show', [$category->slug, $page->slug]) }}"
+                                                    class="flex items-start gap-2 text-sm text-foreground hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-muted/50"
+                                                >
+                                                    <svg class="h-3 w-3 text-muted-foreground/60 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                    </svg>
+                                                    <span class="line-clamp-2 break-words">{{ $page->title }}</span>
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            
+                            @if(!$hasChildren && !$hasPages)
+                                {{-- Arrow indicator for categories without children or pages --}}
+                                <a 
+                                    href="{{ route($routePrefix . '.category', $category->slug) }}"
+                                    class="flex items-center justify-end mt-2"
+                                >
+                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-muted/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                                        <svg class="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                </a>
+                            @endif
                         </div>
-                    @endif
-                @else
-                    {{-- All Categories View --}}
-                    <div class="rounded-2xl border border-border/60 bg-card p-6">
-                        <div class="flex items-center gap-4">
-                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-white">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    </div>
+                @empty
+                    <div class="col-span-full rounded-2xl border border-dashed border-muted p-12 text-center">
+                        <div class="flex justify-center mb-4">
+                            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-muted/50 text-muted-foreground">
+                                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                                 </svg>
                             </div>
-                            <div>
-                                <h2 class="text-xl font-bold text-foreground">Усі категорії теорії</h2>
-                                <p class="text-sm text-muted-foreground">
-                                    Обери категорію, щоб переглянути доступні сторінки теорії
-                                </p>
-                            </div>
                         </div>
+                        <h3 class="text-lg font-semibold text-foreground mb-2">Категорії поки відсутні</h3>
+                        <p class="text-muted-foreground">Матеріали теорії з'являться тут незабаром.</p>
                     </div>
-                @endif
-
-                {{-- Categories Grid --}}
-                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    @forelse($categories as $category)
-                        @php($isActive = isset($selectedCategory) && $selectedCategory && $selectedCategory->is($category))
-                        <a 
-                            href="{{ route($routePrefix . '.category', $category->slug) }}"
-                            class="group relative overflow-hidden rounded-xl border {{ $isActive ? 'border-primary/50 bg-primary/5' : 'border-border/60 bg-card' }} p-5 transition-all hover:border-primary/40 hover:shadow-md"
-                        >
-                            {{-- Category Icon --}}
-                            <div class="flex h-10 w-10 items-center justify-center rounded-lg {{ $isActive ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary' }} transition-colors mb-4">
-                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                                </svg>
-                            </div>
-
-                            <h3 class="text-base font-bold {{ $isActive ? 'text-primary' : 'text-foreground' }} mb-1">
-                                {{ $category->title }}
-                            </h3>
-
-                            @if(isset($category->pages_count) && $category->pages_count > 0)
-                                <p class="text-sm text-muted-foreground">
-                                    {{ $category->pages_count }} {{ trans_choice('сторінок|сторінка|сторінки', $category->pages_count) }}
-                                </p>
-                            @endif
-
-                            {{-- Hover Arrow --}}
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <svg class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                </svg>
-                            </div>
-
-                            {{-- Active Indicator --}}
-                            @if($isActive)
-                                <div class="absolute top-0 right-0 m-3">
-                                    <span class="flex h-2 w-2 rounded-full bg-primary"></span>
-                                </div>
-                            @endif
-                        </a>
-                    @empty
-                        <div class="col-span-full rounded-2xl border border-dashed border-muted p-8 text-center text-muted-foreground">
-                            Поки що немає категорій теорії.
-                        </div>
-                    @endforelse
-                </div>
-
-                {{-- Category Pages Grid (if category selected) --}}
-                @if(isset($selectedCategory) && $selectedCategory && $categoryPages->isNotEmpty())
-                    <div class="rounded-2xl border border-border/60 bg-card overflow-hidden">
-                        <div class="border-b border-border/40 bg-muted/30 px-5 py-4">
-                            <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                                <svg class="h-5 w-5 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                </svg>
-                                Сторінки теорії у категорії «{{ $selectedCategory->title }}»
-                            </h2>
-                        </div>
-                        <div class="p-5">
-                            <div class="grid gap-3 sm:grid-cols-2">
-                                @foreach($categoryPages as $page)
-                                    <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $page->slug]) }}"
-                                        class="group relative rounded-xl border border-border/50 bg-gradient-to-br from-muted/20 to-transparent p-4 transition-all hover:border-primary/30 hover:shadow-sm"
-                                    >
-                                        <h3 class="text-base font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
-                                            {{ $page->title }}
-                                        </h3>
-                                        
-                                        @if(!empty($page->text))
-                                            <p class="text-sm text-muted-foreground line-clamp-2">
-                                                {{ $page->text }}
-                                            </p>
-                                        @endif
-
-                                        {{-- Hover indicator --}}
-                                        <div class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <svg class="h-4 w-4 text-primary/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                @elseif(isset($selectedCategory) && $selectedCategory)
-                    <div class="rounded-2xl border border-dashed border-muted p-8 text-center text-muted-foreground">
-                        Поки що в цій категорії немає сторінок. Спробуйте іншу категорію.
-                    </div>
-                @endif
-
-                {{-- Auto Generated Tests Section --}}
-                @if(isset($autoGeneratedTests) && $autoGeneratedTests->isNotEmpty())
-                    <section class="rounded-2xl border border-border/60 bg-card p-6">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-white">
-                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h2 class="text-lg font-bold text-foreground">Тести по темі</h2>
-                                <p class="text-xs text-muted-foreground">Перевір свої знання з цієї категорії</p>
-                            </div>
-                        </div>
-                        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                            @foreach($autoGeneratedTests as $test)
-                                <x-auto-generated-test-card :test="$test" />
-                            @endforeach
-                        </div>
-                    </section>
-                @endif
-
-                {{-- Category Tags Section --}}
-                @if(isset($selectedCategory) && $selectedCategory && $selectedCategory->tags->isNotEmpty())
-                    <section class="rounded-2xl border border-border/60 bg-card p-6" x-data="{ show: false }">
-                        <button 
-                            @click="show = !show"
-                            class="flex w-full items-center justify-between text-left"
-                        >
-                            <div class="flex items-center gap-3">
-                                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h2 class="text-lg font-bold text-foreground">Теги категорії</h2>
-                                    <p class="text-xs text-muted-foreground">{{ $selectedCategory->tags->count() }} тегів пов'язано з цією категорією</p>
-                                </div>
-                            </div>
-                            <svg 
-                                class="h-5 w-5 text-muted-foreground transition-transform" 
-                                :class="{ 'rotate-180': show }"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                            >
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                            </svg>
-                        </button>
-                        <div x-show="show" x-collapse class="mt-5">
-                            <div class="flex flex-wrap gap-1.5">
-                                @foreach($selectedCategory->tags as $tag)
-                                    <span class="inline-flex items-center rounded-md bg-muted/60 px-2.5 py-1 text-xs text-muted-foreground">
-                                        {{ $tag->name }}
-                                    </span>
-                                @endforeach
-                            </div>
-                        </div>
-                    </section>
-                @endif
-
-                {{-- Related Tests Section --}}
-                @if(isset($relatedTests) && $relatedTests->isNotEmpty())
-                    <section class="rounded-2xl border border-border/60 bg-card p-6" x-data="{ show: false }">
-                        <button 
-                            @click="show = !show"
-                            class="flex w-full items-center justify-between text-left"
-                        >
-                            <div class="flex items-center gap-3">
-                                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h2 class="text-lg font-bold text-foreground">Пов'язані тести</h2>
-                                    <p class="text-xs text-muted-foreground">{{ $relatedTests->count() }} тестів за тегами</p>
-                                </div>
-                            </div>
-                            <svg 
-                                class="h-5 w-5 text-muted-foreground transition-transform" 
-                                :class="{ 'rotate-180': show }"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                            >
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                            </svg>
-                        </button>
-                        <div x-show="show" x-collapse class="mt-5">
-                            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                                @foreach($relatedTests as $test)
-                                    <x-related-test-card :test="$test" />
-                                @endforeach
-                            </div>
-                        </div>
-                    </section>
-                @endif
+                @endforelse
             </div>
-        </div>
+        </section>
+
+        {{-- Learning Path Section --}}
+        <section class="mt-16 mb-12">
+            <div class="rounded-3xl border border-border/60 bg-gradient-to-br from-muted/30 via-card to-muted/20 p-8 md:p-12">
+                <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-2 text-sm font-semibold mb-4">
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Рекомендований шлях
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                            Як ефективно вивчати граматику?
+                        </h2>
+                        <p class="text-muted-foreground leading-relaxed mb-6">
+                            Почни з базових тем і поступово переходь до складніших. 
+                            Кожен урок включає теоретичний матеріал, приклади та практичні вправи 
+                            для закріплення знань.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <div class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-600 text-xs font-bold flex-shrink-0 mt-0.5">1</div>
+                                <p class="text-sm text-foreground"><strong>Почни з базової граматики</strong> — частини мови та структура речення</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-500/20 text-blue-600 text-xs font-bold flex-shrink-0 mt-0.5">2</div>
+                                <p class="text-sm text-foreground"><strong>Вивчи артиклі та іменники</strong> — a/an/the, злічувані/незлічувані</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-600 text-xs font-bold flex-shrink-0 mt-0.5">3</div>
+                                <p class="text-sm text-foreground"><strong>Опануй порівняння</strong> — ступені порівняння прикметників</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="flex h-6 w-6 items-center justify-center rounded-full bg-purple-500/20 text-purple-600 text-xs font-bold flex-shrink-0 mt-0.5">4</div>
+                                <p class="text-sm text-foreground"><strong>Поглиби знання</strong> — порядок слів, інверсія, складні структури</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {{-- Stats Cards --}}
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
+                            <div class="text-4xl font-black text-primary mb-2">{{ $categories->count() }}</div>
+                            <p class="text-sm text-muted-foreground">Категорій теорії</p>
+                        </div>
+                        <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
+                            <div class="text-4xl font-black text-secondary mb-2">{{ $totalPages }}</div>
+                            <p class="text-sm text-muted-foreground">Сторінок уроків</p>
+                        </div>
+                        <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
+                            <div class="text-4xl font-black text-emerald-500 mb-2">A1-B2</div>
+                            <p class="text-sm text-muted-foreground">Рівні складності</p>
+                        </div>
+                        <div class="rounded-2xl border border-border/60 bg-card p-6 text-center">
+                            <div class="text-4xl font-black text-amber-500 mb-2" role="img" aria-label="Україна">🇺🇦</div>
+                            <p class="text-sm text-muted-foreground">Українською мовою</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         {{-- Mobile Floating Menu --}}
         <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 lg:hidden" x-data="{ open: false }">
             <button 
                 @click="open = !open"
-                class="flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background shadow-lg transition-transform hover:scale-105"
+                class="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-105"
             >
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
@@ -367,27 +318,53 @@
                 x-transition:leave-start="opacity-100 translate-y-0"
                 x-transition:leave-end="opacity-0 translate-y-4"
                 @click.away="open = false"
-                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-72 max-h-[60vh] overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-xl"
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-80 max-h-[60vh] overflow-y-auto rounded-2xl border border-border bg-card p-5 shadow-xl"
             >
                 <div class="space-y-4">
-                    {{-- Categories --}}
-                    <div>
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Категорії теорії</h4>
-                        <nav class="space-y-1">
-                            @foreach($categories as $category)
-                                @php($isActive = isset($selectedCategory) && $selectedCategory && $selectedCategory->is($category))
+                    <div class="flex items-center justify-between border-b border-border pb-3">
+                        <h4 class="font-bold text-foreground">Категорії теорії</h4>
+                        <span class="text-xs text-muted-foreground">{{ $categories->count() }} категорій</span>
+                    </div>
+                    <nav class="space-y-2">
+                        @forelse($categories as $category)
+                            @php
+                                $hasChildrenMobile = $category->relationLoaded('children') && $category->children->isNotEmpty();
+                            @endphp
+                            <div class="space-y-1">
                                 <a 
                                     href="{{ route($routePrefix . '.category', $category->slug) }}"
-                                    class="flex items-center justify-between rounded-lg px-3 py-2 text-sm {{ $isActive ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
+                                    class="flex items-center justify-between rounded-xl bg-muted/30 px-4 py-3 text-sm font-medium text-foreground transition hover:bg-primary/10 hover:text-primary"
                                 >
                                     <span>{{ $category->title }}</span>
-                                    @if(isset($category->pages_count))
-                                        <span class="text-xs opacity-60">{{ $category->pages_count }}</span>
+                                    @if(isset($category->pages_count) && $category->pages_count > 0)
+                                        <span class="text-xs text-muted-foreground">{{ $category->pages_count }}</span>
                                     @endif
                                 </a>
-                            @endforeach
-                        </nav>
-                    </div>
+                                @if($hasChildrenMobile)
+                                    <div class="ml-4 space-y-1">
+                                        @foreach($category->children as $child)
+                                            <a 
+                                                href="{{ route($routePrefix . '.category', $child->slug) }}"
+                                                class="flex items-center justify-between rounded-lg px-3 py-2 text-xs text-muted-foreground transition hover:bg-primary/10 hover:text-primary"
+                                            >
+                                                <span class="flex items-center gap-1.5">
+                                                    <svg class="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                                                    </svg>
+                                                    {{ $child->title }}
+                                                </span>
+                                                @if(isset($child->pages_count) && $child->pages_count > 0)
+                                                    <span class="text-xs">{{ $child->pages_count }}</span>
+                                                @endif
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
+                        @empty
+                            <p class="text-sm text-muted-foreground text-center py-4">Немає категорій</p>
+                        @endforelse
+                    </nav>
                 </div>
             </div>
         </div>

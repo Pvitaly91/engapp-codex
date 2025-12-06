@@ -28,10 +28,16 @@ class PageCategoryManagementTest extends TestCase
 
         Schema::create('page_categories', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('parent_id')->nullable()->index();
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('language', 8)->default('uk');
             $table->timestamps();
+            
+            $table->foreign('parent_id')
+                ->references('id')
+                ->on('page_categories')
+                ->nullOnDelete();
         });
 
         Schema::create('pages', function (Blueprint $table) {

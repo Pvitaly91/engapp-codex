@@ -10,6 +10,7 @@
     @php($heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [])
     @php($contentBlocks = $blocks->reject(fn($b) => in_array($b->type, ['hero', 'hero-v2', 'navigation-chips'])))
     @php($navBlock = $blocks->firstWhere('type', 'navigation-chips'))
+    @php($categoryPages = $categoryPages ?? collect())
 
     <div class="min-h-screen">
         {{-- Compact Breadcrumb Strip --}}
@@ -28,11 +29,19 @@
             @endforeach
         </nav>
 
+        @include('engram.theory.partials.sidebar-navigation-mobile', [
+            'categories' => $categories,
+            'selectedCategory' => $selectedCategory ?? null,
+            'categoryPages' => $categoryPages ?? collect(),
+            'currentPage' => $page,
+            'routePrefix' => $routePrefix,
+        ])
+
         {{-- Main Content Grid --}}
-        <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)]">
             {{-- Left Sidebar --}}
             <aside class="hidden lg:block">
-                <div class="sticky top-24 space-y-5">
+                <div id="theory-sidebar" class="sticky top-24 space-y-5 transition-[top] duration-200 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
                     {{-- Theory Categories List --}}
                     @if(isset($categories) && $categories->isNotEmpty())
                         <div class="rounded-2xl border border-border/60 bg-card p-5">
@@ -42,14 +51,34 @@
                                 </svg>
                                 Категорії теорії
                             </h3>
+                            <nav id="category-nav-scroll" class="space-y-1">
+                                @include('engram.theory.partials.nested-category-nav', [
+                                    'categories' => $categories,
+                                    'selectedCategory' => $selectedCategory ?? null,
+                                    'currentPage' => $page,
+                                    'routePrefix' => $routePrefix,
+                                ])
+                            </nav>
+                        </div>
+                    @endif
+
+                    @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
+                        <div class="rounded-2xl border border-border/60 bg-card p-5">
+                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/>
+                                </svg>
+                                {{ $selectedCategory->title }}
+                            </h3>
                             <nav class="space-y-1">
-                                @foreach($categories as $category)
-                                    @php($isActiveCategory = isset($selectedCategory) && $selectedCategory->is($category))
-                                    <a 
-                                        href="{{ route($routePrefix . '.category', $category->slug) }}"
-                                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all {{ $isActiveCategory ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
+                                @foreach($categoryPages as $pageItem)
+                                    @php($isCurrentPage = $page->is($pageItem))
+                                    <a
+                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
+                                        class="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted/50 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:text-foreground' }}"
+                                        @if($isCurrentPage) aria-current="page" @endif
                                     >
-                                        {{ $category->title }}
+                                        {{ $pageItem->title }}
                                     </a>
                                 @endforeach
                             </nav>
@@ -83,33 +112,7 @@
                         </div>
                     @endif
 
-                    {{-- Category Pages Navigation --}}
-                    @if(isset($selectedCategory) && $categoryPages->isNotEmpty())
-                        <div class="rounded-2xl border border-border/60 bg-card p-5">
-                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                </svg>
-                                {{ $selectedCategory->title }}
-                            </h3>
-                            <nav class="space-y-1">
-                                @foreach($categoryPages as $pageItem)
-                                    @php($isCurrentPage = $page->is($pageItem))
-                                    <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all {{ $isCurrentPage ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50' }}"
-                                    >
-                                        @if($isCurrentPage)
-                                            <svg class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                            </svg>
-                                        @endif
-                                        <span class="truncate">{{ $pageItem->title }}</span>
-                                    </a>
-                                @endforeach
-                            </nav>
-                        </div>
-                    @endif
+                
 
                     {{-- Quick Actions --}}
                     <div class="rounded-2xl border border-border/60 bg-gradient-to-br from-muted/30 to-muted/10 p-5">
@@ -389,15 +392,12 @@
                         <div>
                             <h4 class="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Категорії теорії</h4>
                             <nav class="space-y-1">
-                                @foreach($categories as $category)
-                                    @php($isActiveCategory = isset($selectedCategory) && $selectedCategory->is($category))
-                                    <a 
-                                        href="{{ route($routePrefix . '.category', $category->slug) }}"
-                                        class="block rounded-lg px-3 py-2 text-sm {{ $isActiveCategory ? 'bg-primary text-primary-foreground font-medium' : 'text-muted-foreground hover:bg-muted' }}"
-                                    >
-                                        {{ $category->title }}
-                                    </a>
-                                @endforeach
+                                @include('engram.theory.partials.nested-category-nav-mobile', [
+                                    'categories' => $categories,
+                                    'selectedCategory' => $selectedCategory ?? null,
+                                    'currentPage' => $page,
+                                    'routePrefix' => $routePrefix,
+                                ])
                             </nav>
                         </div>
                     @endif
