@@ -261,8 +261,8 @@ class EachEveryAllTheorySeeder extends PronounsDemonstrativesPageSeeder
                                 'color' => 'blue',
                                 'description' => "<strong>Each</strong> частіше для невеликих груп (2-10). <strong>Every</strong> — для будь-якого розміру.",
                                 'examples' => [
-                                    ['en' => 'Each of my three cats... (мала група)', 'ua' => 'Each краще для 2-3 елементів'],
-                                    ['en' => 'Every citizen has rights. (велика група)', 'ua' => 'Every для великих груп'],
+                                    ['en' => 'Each of my three cats... (мала група)', 'ua' => 'Кожен з моїх трьох котів... (each краще для 2-3 елементів)'],
+                                    ['en' => 'Every citizen has rights. (велика група)', 'ua' => 'Кожен громадянин має права (every для великих груп)'],
                                 ],
                                 'note' => 'Each = невеликі групи. Every = будь-який розмір.',
                             ],
