@@ -8,7 +8,7 @@ class QuestionFormsTheorySeeder extends QuestionsNegationsPageSeeder
 {
     protected function slug(): string
     {
-        return 'question-forms';
+        return 'question-forms-how-to-ask';
     }
 
     protected function type(): ?string
