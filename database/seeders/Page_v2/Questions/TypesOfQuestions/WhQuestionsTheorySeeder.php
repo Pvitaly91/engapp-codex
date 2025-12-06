@@ -1,10 +1,10 @@
 <?php
 
-namespace Database\Seeders\Page_v2\Questions;
+namespace Database\Seeders\Page_v2\Questions\TypesOfQuestions;
 
-use Database\Seeders\Pages\Questions\QuestionPageSeeder;
+use Database\Seeders\Pages\Questions\TypesOfQuestions\TypesOfQuestionsPageSeeder;
 
-class WhQuestionsTheorySeeder extends QuestionPageSeeder
+class WhQuestionsTheorySeeder extends TypesOfQuestionsPageSeeder
 {
     public function slug(): string
     {
