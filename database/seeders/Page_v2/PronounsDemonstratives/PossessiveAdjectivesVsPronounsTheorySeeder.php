@@ -152,7 +152,7 @@ class PossessiveAdjectivesVsPronounsTheorySeeder extends PronounsDemonstrativesP
                                     ['en' => 'Your car is new.', 'ua' => 'Твоя машина нова.'],
                                     ['en' => 'His name is John.', 'ua' => "Його ім'я Джон."],
                                     ['en' => 'Her sister lives here.', 'ua' => 'Її сестра живе тут.'],
-                                    ['en' => 'The dog wagged its tail.', 'ua' => 'Собака махав хвостом.'],
+                                    ['en' => 'The dog wagged its tail.', 'ua' => 'Собака махала хвостом.'],
                                     ['en' => 'Our house is big.', 'ua' => 'Наш будинок великий.'],
                                     ['en' => 'Their children are at school.', 'ua' => 'Їхні діти в школі.'],
                                 ],
