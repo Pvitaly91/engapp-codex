@@ -151,7 +151,7 @@
   <!-- HEADER / NAV -->
   <header id="main-header" class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/85 transition-transform duration-300">
     <div class="page-shell mx-auto px-4">
-      <div class="flex flex-wrap items-center justify-between gap-4 py-4 md:h-20 md:flex-nowrap">
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4 lg:h-20 lg:flex-nowrap">
         <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0" aria-label="Gramlyze">
           <x-gramlyze-logo class="hidden md:inline-flex" />
           <x-gramlyze-logo variant="compact" class="md:hidden" />
@@ -160,8 +160,8 @@
           <input type="search" name="q" id="search-box" autocomplete="off" placeholder="Пошук матеріалів" class="w-56 rounded-xl border border-input bg-background px-4 py-2 text-sm shadow-sm focus:border-primary focus:outline-none" />
           <div id="search-box-list" class="absolute left-0 mt-1 w-full bg-background border border-border rounded-xl shadow-soft text-sm hidden z-50"></div>
         </form>
-        <div class="flex items-center gap-2 md:hidden">
-          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">Пошук</span></button>
+        <div class="flex items-center gap-2 lg:hidden">
+          <button id="mobile-search-btn" class="rounded-xl border border-border p-2 text-sm md:hidden" aria-expanded="false" aria-controls="mobile-search">🔍<span class="sr-only">Пошук</span></button>
           <button id="mobile-menu-toggle" class="rounded-xl border border-border p-2 text-sm" aria-expanded="false" aria-controls="primary-nav">
             <span class="sr-only">Меню</span>
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -171,7 +171,7 @@
             </svg>
           </button>
         </div>
-        <nav id="primary-nav" class="order-3 hidden w-full flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium md:order-none md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:pt-0">
+        <nav id="primary-nav" class="order-3 hidden w-full flex flex-col gap-3 border-t border-border/70 pt-3 text-sm font-medium lg:order-none lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:pt-0">
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('catalog.tests-cards') }}">Каталог</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('theory.index') }}">Теорія</a>
           <a class="text-muted-foreground transition hover:text-foreground" href="{{ route('question-review.index') }}">Рецензії</a>
@@ -252,7 +252,7 @@
     });
     primaryNav?.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        if (window.matchMedia('(max-width: 767px)').matches) {
+        if (window.matchMedia('(max-width: 1023px)').matches) {
           mobileMenuToggle?.setAttribute('aria-expanded', 'false');
           primaryNav.classList.add('hidden');
         }

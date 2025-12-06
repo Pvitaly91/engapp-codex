@@ -72,8 +72,16 @@
             </div>
         </header>
 
+        @include('engram.theory.partials.sidebar-navigation-mobile', [
+            'categories' => $categories,
+            'selectedCategory' => $selectedCategory,
+            'categoryPages' => $categoryPages,
+            'currentPage' => null,
+            'routePrefix' => $routePrefix,
+        ])
+
         {{-- Main Content Grid --}}
-        <div class="grid gap-8 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)]">
             {{-- Left Sidebar --}}
             <aside class="hidden lg:block">
                 <div id="theory-sidebar" class="sticky top-24 space-y-5 transition-[top] duration-200 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
@@ -85,7 +93,7 @@
                             </svg>
                             Категорії
                         </h3>
-                        <nav id="category-nav-scroll" class="space-y-1 max-h-[40vh] overflow-y-auto pr-1">
+                        <nav id="category-nav-scroll" class="space-y-1 overflow-y-auto pr-1">
                             @if($categories->isNotEmpty())
                                 @include('engram.theory.partials.nested-category-nav', [
                                     'categories' => $categories,
@@ -98,28 +106,7 @@
                         </nav>
                     </div>
 
-                    {{-- Pages in Category --}}
-                    @if($categoryPages->isNotEmpty())
-                        <div class="rounded-2xl border border-border/60 bg-card p-5">
-                            <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                                </svg>
-                                {{ $selectedCategory->title }}
-                            </h3>
-                            <nav class="space-y-1">
-                                @foreach($categoryPages as $pageItem)
-                                    <a 
-                                        href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
-                                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
-                                    >
-                                        <span class="h-1 w-1 rounded-full bg-border flex-shrink-0"></span>
-                                        <span class="truncate">{{ $pageItem->title }}</span>
-                                    </a>
-                                @endforeach
-                            </nav>
-                        </div>
-                    @endif
+                
 
                     {{-- Tags Section --}}
                     @if($selectedCategory->tags->isNotEmpty())
