@@ -208,7 +208,7 @@ class PersonalObjectPronounsTheorySeeder extends PronounsDemonstrativesPageSeede
                                 'examples' => [
                                     ['en' => "Who did it? — Me. (не I!)", 'ua' => 'Хто це зробив? — Я.'],
                                     ['en' => "Who wants coffee? — Me! (розмовне)", 'ua' => 'Хто хоче кави? — Я!'],
-                                    ['en' => "Who is she talking to? — Him.", 'ua' => 'З kim вона розмовляє? — З ним.'],
+                                    ['en' => "Who is she talking to? — Him.", 'ua' => 'З ким вона розмовляє? — З ним.'],
                                 ],
                                 'note' => "📌 Формально правильно: It's I / It was he. Але розмовно: It's me / It was him.",
                             ],
