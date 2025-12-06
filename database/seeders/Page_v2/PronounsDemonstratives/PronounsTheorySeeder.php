@@ -117,7 +117,7 @@ class PronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                                 ],
                             ],
                             [
-                                'label' => 'Object Pronouns — Об'єктні',
+                                'label' => "Object Pronouns — Об'єктні",
                                 'color' => 'sky',
                                 'description' => "Використовуються як <strong>додаток</strong> (хто/що отримує дію).",
                                 'examples' => [
@@ -133,7 +133,7 @@ class PronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                             [
                                 'label' => 'Таблиця особових займенників',
                                 'color' => 'purple',
-                                'description' => 'Повна таблиця підметових та об'єктних займенників:',
+                                'description' => "Повна таблиця підметових та об'єктних займенників:",
                                 'examples' => [
                                     ['en' => 'I → me', 'ua' => 'я → мене'],
                                     ['en' => 'you → you', 'ua' => 'ти/ви → тебе/вас'],
@@ -219,7 +219,7 @@ class PronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                             [
                                 'label' => 'Коли вживати',
                                 'color' => 'emerald',
-                                'description' => 'Коли <strong>підмет і об'єкт</strong> — одна й та сама особа.',
+                                'description' => "Коли <strong>підмет і об'єкт</strong> — одна й та сама особа.",
                                 'examples' => [
                                     ['en' => 'I taught myself English.', 'ua' => 'Я навчив себе (сам навчився) англійської.'],
                                     ['en' => 'She cut herself.', 'ua' => 'Вона порізалася (порізала себе).'],
@@ -358,7 +358,7 @@ class PronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                             [
                                 'label' => 'Помилка 1',
                                 'color' => 'rose',
-                                'title' => 'Плутанина підметових та об'єктних займенників.',
+                                'title' => "Плутанина підметових та об'єктних займенників.",
                                 'wrong' => 'Me and John went to the park.',
                                 'right' => '✅ <span class="font-mono">John and I went to the park.</span>',
                             ],
@@ -454,7 +454,7 @@ class PronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
                                 'current' => true,
                             ],
                             [
-                                'label' => 'Personal & Object Pronouns — Особові та об'єктні',
+                                'label' => "Personal & Object Pronouns — Особові та об'єктні",
                                 'current' => false,
                             ],
                             [
