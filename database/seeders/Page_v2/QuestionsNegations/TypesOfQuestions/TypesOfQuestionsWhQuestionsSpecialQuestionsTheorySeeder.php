@@ -100,8 +100,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                                 'examples' => [
                                     ['en' => 'Who do you love?', 'ua' => 'Кого ти кохаєш?'],
                                     ['en' => 'Who did you see?', 'ua' => 'Кого ти бачив?'],
-                                    ['en' => 'Who are you talking to?', 'ua' => 'Зким ти розмовляєш?'],
-                                    ['en' => 'Who does she work with?', 'ua' => 'З kim вона працює?'],
+                                    ['en' => 'Who are you talking to?', 'ua' => 'З ким ти розмовляєш?'],
+                                    ['en' => 'Who does she work with?', 'ua' => 'З ким вона працює?'],
                                 ],
                             ],
                             [
