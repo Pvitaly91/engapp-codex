@@ -178,6 +178,7 @@ class PageController extends Controller
     {
         $categories = PageCategory::query()
             ->whereNull('parent_id')
+            ->when($this->pageType === 'theory', fn ($query) => $query->where('type', 'theory'))
             ->with([
                 'pages' => fn ($query) => $this->applyPageTypeFilter($query)->orderBy('title'),
                 'children' => function ($query) {
@@ -203,7 +204,8 @@ class PageController extends Controller
 
     protected function applyCategoryChildrenRelations($query): void
     {
-        $query->withCount(['pages' => fn ($q) => $this->applyPageTypeFilter($q)])
+        $query->when($this->pageType === 'theory', fn ($q) => $q->where('type', 'theory'))
+            ->withCount(['pages' => fn ($q) => $this->applyPageTypeFilter($q)])
             ->with([
                 'pages' => fn ($q) => $this->applyPageTypeFilter($q)->orderBy('title'),
                 'children' => function ($childQuery) {
