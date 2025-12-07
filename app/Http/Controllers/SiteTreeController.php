@@ -357,6 +357,16 @@ class SiteTreeController extends Controller
         if (array_key_exists('linked_page_url', $validated) && $validated['linked_page_url'] === '') {
             $validated['linked_page_url'] = null;
         }
+        
+        // If manually linking/unlinking a page, set link_method to 'manual'
+        if (array_key_exists('linked_page_title', $validated) || array_key_exists('linked_page_url', $validated)) {
+            if ($validated['linked_page_title'] !== null && $validated['linked_page_url'] !== null) {
+                $validated['link_method'] = 'manual';
+            } else {
+                // If unlinking, clear the link_method
+                $validated['link_method'] = null;
+            }
+        }
 
         try {
             $item->update($validated);
