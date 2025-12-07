@@ -1119,16 +1119,91 @@
                         ].join('\n');
                     }
 
+                    // Get parent item to check for category seeder info (cache the lookup)
+                    const parentId = this.getParentId(item.id);
+                    const parent = parentId ? this.findItemById(this.tree, parentId) : null;
+                    let categoryInfo = parentPath;
+                    
+                    // If parent has linked category seeder info, use it
+                    if (parent && parent.linked_category_seeder) {
+                        categoryInfo = `${parentPath}(Сидер ${parent.linked_category_seeder})`;
+                    }
+                    
+                    // Build seeder class name hint based on parent's seeder for the theme line
+                    let themeInfo = topic;
+                    if (parent && parent.linked_category_seeder) {
+                        const seederClassHint = this.buildSeederClassNameHint(parent.linked_category_seeder);
+                        if (seederClassHint) {
+                            themeInfo = `${categoryInfo} > ${item.title}(${seederClassHint})`;
+                        }
+                    }
+
                     return [
                         '- Створи PHP сидер сторінки у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
                         '- Сторінка має бути в тій самій категорійній гілці, що й у дереві (врахуй шлях батьківських категорій у структурі папок).',
-                        parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.',
+                        parent && parent.linked_category_seeder 
+                            ? `- Категорія сторінки: "${categoryInfo}".` 
+                            : (parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.'),
                         `- Тип сторінки: theory (method type() має повертати \"theory\").`,
-                        `- Тема сторінки: "${topic}". Використай цю тему як основу контенту та блоків.`,
+                        `- Тема сторінки: "${themeInfo}". Використай цю тему як основу контенту та блоків.`,
                         `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
                         '- Додай title, subtitle, релевантні tags (масив рядків) і blocks у page() за структурою інших сидерів Page_v2.',
                         '- Мова контенту — українська, без плейсхолдерів.',
                     ].join('\n');
+                },
+                
+                findItemById(items, id) {
+                    for (const item of items) {
+                        if (item.id === id) {
+                            return item;
+                        }
+                        if (item.children && item.children.length > 0) {
+                            const found = this.findItemById(item.children, id);
+                            if (found) return found;
+                        }
+                    }
+                    return null;
+                },
+                
+                getParentId(itemId) {
+                    // Note: This performs a tree traversal on each call.
+                    // For prompt generation (user-initiated, infrequent action), this is acceptable.
+                    // If used more frequently, consider building a parent lookup map during init().
+                    const findParent = (items, targetId) => {
+                        for (const item of items) {
+                            if (item.children && item.children.some(child => child.id === targetId)) {
+                                return item.id;
+                            }
+                            if (item.children && item.children.length > 0) {
+                                const parentId = findParent(item.children, targetId);
+                                if (parentId) return parentId;
+                            }
+                        }
+                        return null;
+                    };
+                    return findParent(this.tree, itemId);
+                },
+                
+                buildSeederClassNameHint(parentSeeder) {
+                    if (!parentSeeder) return null;
+                    
+                    // Extract namespace path from parent seeder class name
+                    // Input: "Database\\Seeders\\Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsCategorySeeder"
+                    // Regex extracts the path between "Page_v2\\" and the last class name
+                    // Result: "QuestionsNegations\\TypesOfQuestions" (without Page_v2\\ prefix or CategorySeeder suffix)
+                    // Final output: "Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestions"
+                    
+                    const PAGE_V2_PREFIX = 'Page_v2\\';
+                    const seederMatch = parentSeeder.match(/Page_v2\\(.+)\\[^\\]+$/);
+                    if (!seederMatch) return null;
+                    
+                    const pathAfterPageV2 = seederMatch[1];  // Path without Page_v2\\ prefix: "QuestionsNegations\\TypesOfQuestions"
+                    const pathParts = pathAfterPageV2.split('\\');
+                    const lastPart = pathParts[pathParts.length - 1];  // "TypesOfQuestions"
+                    
+                    const namespacePath = PAGE_V2_PREFIX + pathAfterPageV2;  // Reconstruct: "Page_v2\\QuestionsNegations\\TypesOfQuestions"
+                    
+                    return `назва класу сидера повинна починатися на ${namespacePath}\\${lastPart}....php`;
                 },
 
                 copySeederPrompt(item) {
