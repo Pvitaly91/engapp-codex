@@ -24,7 +24,7 @@ class ArticlesWithGeographicalNamesTheorySeeder extends NounsArticlesQuantityPag
             'subtitle_text' => 'Теоретичний огляд артиклів з географічними назвами: правила вживання the з країнами, містами, океанами, річками, горами та іншими географічними обʼєктами.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

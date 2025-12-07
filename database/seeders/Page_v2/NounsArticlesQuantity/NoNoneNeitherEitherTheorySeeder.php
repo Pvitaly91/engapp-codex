@@ -24,7 +24,7 @@ class NoNoneNeitherEitherTheorySeeder extends NounsArticlesQuantityPageSeeder
             'subtitle_text' => 'Теоретичний огляд no, none, neither, either в англійській мові: правила вживання, різниця між ними та типові помилки.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

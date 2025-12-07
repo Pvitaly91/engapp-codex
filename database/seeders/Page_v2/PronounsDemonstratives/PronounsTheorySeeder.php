@@ -24,7 +24,7 @@ class PronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => 'Теоретичний огляд займенників англійської мови: особові, присвійні, зворотні, вказівні, неозначені та відносні займенники.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

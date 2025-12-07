@@ -24,7 +24,7 @@ class EachEveryAllTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => "Теоретичний огляд відмінностей між each, every та all в англійській мові: правила вживання, граматичні особливості (однина/множина), типові контексти та помилки.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

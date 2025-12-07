@@ -24,7 +24,7 @@ class PersonalObjectPronounsTheorySeeder extends PronounsDemonstrativesPageSeede
             'subtitle_text' => "Теоретичний огляд особових та об'єктних займенників англійської мови: subject pronouns (I, you, he, she, it, we, they) та object pronouns (me, you, him, her, it, us, them).",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

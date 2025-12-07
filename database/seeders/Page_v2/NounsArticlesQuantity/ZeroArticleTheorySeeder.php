@@ -24,7 +24,7 @@ class ZeroArticleTheorySeeder extends NounsArticlesQuantityPageSeeder
             'subtitle_text' => 'Теоретичний огляд нульового артикля в англійській мові: коли артикль не потрібен, правила вживання та типові помилки.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

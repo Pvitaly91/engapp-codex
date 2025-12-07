@@ -24,7 +24,7 @@ class PluralNounsTheorySeeder extends NounsArticlesQuantityPageSeeder
             'subtitle_text' => 'Теоретичний огляд утворення множини іменників в англійській мові: правила додавання -s, -es, -ies та неправильні форми.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

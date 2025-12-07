@@ -24,7 +24,7 @@ class QuantifiersTheorySeeder extends NounsArticlesQuantityPageSeeder
             'subtitle_text' => 'Теоретичний огляд слів кількості в англійській мові: much, many, a lot of, few, little — правила вживання та типові помилки.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

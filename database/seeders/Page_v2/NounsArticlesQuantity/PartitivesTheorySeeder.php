@@ -24,7 +24,7 @@ class PartitivesTheorySeeder extends NounsArticlesQuantityPageSeeder
             'subtitle_text' => 'Теоретичний огляд партитивів в англійській мові: як вимірювати незлічувані іменники за допомогою a piece of, a cup of та інших конструкцій.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

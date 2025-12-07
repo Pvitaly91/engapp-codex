@@ -174,7 +174,7 @@ HTML,
     protected function category(): array
     {
         return [
-            'slug' => '8',
+            'slug' => 'pytalni-rechennia-ta-zaperechennia',
             'title' => 'Питальні речення та заперечення',
             'language' => 'uk',
         ];

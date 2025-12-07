@@ -24,7 +24,7 @@ class PossessiveAdjectivesVsPronounsTheorySeeder extends PronounsDemonstrativesP
             'subtitle_text' => "Теоретичний огляд присвійних прикметників та присвійних займенників англійської мови: my/mine, your/yours, his/his, her/hers, our/ours, their/theirs — правила вживання та відмінності.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

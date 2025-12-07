@@ -24,7 +24,7 @@ class ReflexivePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => "Теоретичний огляд зворотних займенників англійської мови: myself, yourself, himself, herself, itself, ourselves, yourselves, themselves — правила вживання, emphatic use, та типові помилки.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

@@ -24,7 +24,7 @@ class AdvancedArticlesGenericReferenceTheorySeeder extends NounsArticlesQuantity
             'subtitle_text' => 'Теоретичний огляд просунутого вживання артиклів в англійській мові: узагальнюючі конструкції the rich, a tiger, people та інші способи передачі generic reference.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

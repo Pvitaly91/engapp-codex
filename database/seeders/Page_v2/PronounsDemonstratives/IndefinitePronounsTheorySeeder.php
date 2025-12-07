@@ -24,7 +24,7 @@ class IndefinitePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => "Теоретичний огляд неозначених займенників англійської мови: someone/somebody, anyone/anybody, no one/nobody, everyone/everybody, something, anything, nothing, everything, somewhere, anywhere, nowhere, everywhere.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],
