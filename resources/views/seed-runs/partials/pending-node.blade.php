@@ -1,5 +1,6 @@
 @php
     $indent = max(0, $depth) * 1.5;
+    $isCategorySeeder = false;
 @endphp
 
 @if(($node['type'] ?? null) === 'folder')
@@ -9,6 +10,7 @@
                 data-pending-folder-toggle
                 data-folder-path="{{ $node['path'] }}"
                 aria-expanded="true">
+            <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform" data-pending-folder-icon></i>
             <i class="fa-solid fa-folder-tree text-slate-500"></i>
             <span data-folder-name>{{ $node['name'] }}</span>
             <span class="text-xs font-normal text-slate-500" data-folder-count>({{ $node['seeder_count'] ?? 0 }})</span>
@@ -28,6 +30,13 @@
         $pendingSeeder = $node['pending_seeder'];
         $pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name ?? $node['name']);
         $pendingActionsId = $pendingCheckboxId . '-actions';
+        $isCategorySeeder = \Illuminate\Support\Str::contains(
+            $pendingSeeder->display_class_basename ?? $pendingSeeder->display_class_name ?? '',
+            'Category'
+        );
+        $pendingLabelClasses = $isCategorySeeder
+            ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
+            : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold';
     @endphp
 
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" style="margin-left: {{ $indent }}rem;" data-pending-seeder data-class-name="{{ $pendingSeeder->class_name }}">
@@ -45,7 +54,7 @@
                     <span class="text-gray-500">{{ $pendingSeeder->display_class_namespace }}</span>
                     <span class="text-gray-400">\</span>
                 @endif
-                <span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">
+                <span class="{{ $pendingLabelClasses }}">
                     {{ $pendingSeeder->display_class_basename }}
                 </span>
             </label>

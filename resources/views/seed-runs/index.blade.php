@@ -1887,6 +1887,7 @@
                 wrapper.setAttribute('data-seeder-count', '0');
                 wrapper.innerHTML = `
                     <button type="button" class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition" data-pending-folder-toggle data-folder-path="${escapeHtml(path)}" aria-expanded="true">
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform" data-pending-folder-icon></i>
                         <i class="fa-solid fa-folder-tree text-slate-500"></i>
                         <span data-folder-name>${escapeHtml(name)}</span>
                         <span class="text-xs font-normal text-slate-500" data-folder-count>(0)</span>
@@ -1902,6 +1903,10 @@
                 const actionsId = checkboxId + '-actions';
                 const displayNamespace = seeder.display_class_namespace || '';
                 const displayBasename = seeder.display_class_basename || seeder.display_class_name;
+                const isCategorySeeder = (displayBasename || '').includes('Category');
+                const labelClasses = isCategorySeeder
+                    ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
+                    : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold';
                 const wrapper = document.createElement('div');
                 wrapper.className = 'flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between';
                 wrapper.style.marginLeft = (Math.max(0, depth) * 1.5) + 'rem';
@@ -1914,7 +1919,7 @@
                         <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
                         <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
                             ${displayNamespace ? '<span class="text-gray-500">' + escapeHtml(displayNamespace) + '</span><span class="text-gray-400">\\</span>' : ''}
-                            <span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">${escapeHtml(displayBasename)}</span>
+                            <span class="${labelClasses}">${escapeHtml(displayBasename)}</span>
                         </label>
                     </div>
                     <div class="sm:hidden">
@@ -2393,9 +2398,14 @@
                 }
 
                 const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('[data-pending-folder-icon]');
 
                 button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
                 children.classList.toggle('hidden', isExpanded);
+
+                if (icon) {
+                    icon.classList.toggle('-rotate-90', isExpanded);
+                }
             };
 
             const handleSeederToggle = async function (button) {
