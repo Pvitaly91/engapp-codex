@@ -1128,8 +1128,14 @@
                         categoryInfo = `${parentPath}(Сидер ${parent.linked_category_seeder})`;
                     }
                     
-                    // Build seeder class name hint based on parent path
-                    const seederClassHint = this.buildSeederClassNameHint(path);
+                    // Build seeder class name hint based on parent path for the theme line
+                    let themeInfo = topic;
+                    if (parent && parent.linked_category_seeder) {
+                        const seederClassHint = this.buildSeederClassNameHint(path);
+                        if (seederClassHint) {
+                            themeInfo = `${categoryInfo} > ${item.title}(${seederClassHint})`;
+                        }
+                    }
 
                     return [
                         '- Створи PHP сидер сторінки у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
@@ -1138,12 +1144,11 @@
                             ? `- Категорія сторінки: "${categoryInfo}".` 
                             : (parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.'),
                         `- Тип сторінки: theory (method type() має повертати \"theory\").`,
-                        `- Тема сторінки: "${topic}". Використай цю тему як основу контенту та блоків.`,
+                        `- Тема сторінки: "${themeInfo}". Використай цю тему як основу контенту та блоків.`,
                         `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
-                        seederClassHint ? `- ${seederClassHint}` : null,
                         '- Додай title, subtitle, релевантні tags (масив рядків) і blocks у page() за структурою інших сидерів Page_v2.',
                         '- Мова контенту — українська, без плейсхолдерів.',
-                    ].filter(line => line !== null).join('\n');
+                    ].join('\n');
                 },
                 
                 findItemById(items, id) {
@@ -1181,21 +1186,18 @@
                     // Convert path to PascalCase for seeder class name pattern
                     const parentParts = path.slice(0, -1).map(part => {
                         return part
-                            .split(/[\s\-—]+/)
+                            .replace(/[—–]/g, '-')  // Normalize dashes
+                            .split(/[\s\-]+/)
+                            .filter(word => word.length > 0)
                             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
                             .join('');
                     });
-                    
-                    const pagePart = path[path.length - 1]
-                        .split(/[\s\-—]+/)
-                        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-                        .join('');
                     
                     // Build expected namespace path
                     const namespacePath = 'Page_v2\\' + parentParts.join('\\');
                     const seederPrefix = parentParts[parentParts.length - 1];
                     
-                    return `Назва класу сидера повинна починатися на ${namespacePath}\\${seederPrefix}....php`;
+                    return `назва класу сидера повинна починатися на ${namespacePath}\\${seederPrefix}....php`;
                 },
 
                 copySeederPrompt(item) {

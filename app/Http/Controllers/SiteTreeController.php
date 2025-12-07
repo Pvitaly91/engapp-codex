@@ -106,11 +106,13 @@ class SiteTreeController extends Controller
     {
         $path = [];
         $current = $category;
+        $targetCategory = $category;  // The category we're linking to
         
         // Build path from current category to root
         while ($current) {
             $pathSegment = $current->title;
-            if ($current->seeder) {
+            // Only add seeder info to the target category, not all ancestors
+            if ($current->id === $targetCategory->id && $current->seeder) {
                 $pathSegment .= "(Сидер {$current->seeder})";
             }
             array_unshift($path, $pathSegment);
