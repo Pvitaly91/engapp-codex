@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Page_v2\QuestionsNegations;
+namespace Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions;
 
 use App\Models\PageCategory;
 use App\Models\Tag;
