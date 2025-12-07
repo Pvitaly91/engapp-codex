@@ -1128,10 +1128,10 @@
                         categoryInfo = `${parentPath}(Сидер ${parent.linked_category_seeder})`;
                     }
                     
-                    // Build seeder class name hint based on parent path for the theme line
+                    // Build seeder class name hint based on parent's seeder for the theme line
                     let themeInfo = topic;
                     if (parent && parent.linked_category_seeder) {
-                        const seederClassHint = this.buildSeederClassNameHint(path);
+                        const seederClassHint = this.buildSeederClassNameHint(parent.linked_category_seeder);
                         if (seederClassHint) {
                             themeInfo = `${categoryInfo} > ${item.title}(${seederClassHint})`;
                         }
@@ -1180,24 +1180,22 @@
                     return findParent(this.tree, itemId);
                 },
                 
-                buildSeederClassNameHint(path) {
-                    if (path.length < 2) return null;
+                buildSeederClassNameHint(parentSeeder) {
+                    if (!parentSeeder) return null;
                     
-                    // Convert path to PascalCase for seeder class name pattern
-                    const parentParts = path.slice(0, -1).map(part => {
-                        return part
-                            .replace(/[—–]/g, '-')  // Normalize dashes
-                            .split(/[\s\-]+/)
-                            .filter(word => word.length > 0)
-                            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-                            .join('');
-                    });
+                    // Extract namespace from parent seeder
+                    // Example: "Database\\Seeders\\Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsCategorySeeder"
+                    // Should become: "Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestions"
                     
-                    // Build expected namespace path
-                    const namespacePath = 'Page_v2\\' + parentParts.join('\\');
-                    const seederPrefix = parentParts[parentParts.length - 1];
+                    const seederMatch = parentSeeder.match(/Page_v2\\(.+)\\[^\\]+$/);
+                    if (!seederMatch) return null;
                     
-                    return `назва класу сидера повинна починатися на ${namespacePath}\\${seederPrefix}....php`;
+                    const pathParts = seederMatch[1].split('\\');
+                    const lastPart = pathParts[pathParts.length - 1];
+                    
+                    const namespacePath = 'Page_v2\\' + pathParts.join('\\');
+                    
+                    return `назва класу сидера повинна починатися на ${namespacePath}\\${lastPart}....php`;
                 },
 
                 copySeederPrompt(item) {
