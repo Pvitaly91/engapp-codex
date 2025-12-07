@@ -19,7 +19,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
     protected function page(): array
     {
         return [
-            'title' => 'Answers to Questions — Короткі й повні відповіді (Yes, I do / No, I don\'t)',
+            'title' => 'Answers to Questions — Короткі і повні відповіді (Yes, I do / No, I don\'t)',
             'subtitle_html' => '<p><strong>Answers to questions</strong> (відповіді на питання) — важливий аспект англійської мови. У розмові зазвичай використовуються короткі відповіді з допоміжним дієсловом (Yes, I do / No, I don\'t), а не просто "Yes" або "No". Повні відповіді використовуються для більшої чіткості.</p>',
             'subtitle_text' => 'Теоретичний огляд відповідей на питання в англійській мові: короткі та повні відповіді, правила формування з різними типами дієслів.',
             'locale' => 'uk',
@@ -191,7 +191,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                                 'description' => 'Інші модальні працюють за тим самим принципом:',
                                 'examples' => [
                                     ['en' => 'Q: Should we go? — A: Yes, we should. / No, we shouldn\'t.', 'ua' => 'Повторюємо should'],
-                                    ['en' => 'Q: Must I wait? — A: Yes, you must. / No, you needn\'t.', 'ua' => 'Must або needn\'t у негативі'],
+                                    ['en' => 'Q: Must I wait? — A: Yes, you must. / No, you needn\'t.', 'ua' => 'Must або needn\'t у негативній формі'],
                                 ],
                                 'note' => '📌 Структура: Yes/No + Subject + Modal',
                             ],
@@ -229,7 +229,7 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                                 'examples' => [
                                     ['en' => 'Q: Do you have a car? — A: Yes, I do. / No, I don\'t.', 'ua' => 'Американський варіант'],
                                 ],
-                                'note' => '📌 Британський: have got, американський: have з do',
+                                'note' => '📌 Британський варіант: have got, американський варіант: have з do',
                             ],
                         ],
                     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
