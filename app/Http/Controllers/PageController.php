@@ -178,22 +178,10 @@ class PageController extends Controller
     {
         $categories = PageCategory::query()
             ->whereNull('parent_id')
-            ->whereHas('pages', fn ($query) => $this->applyPageTypeFilter($query))
             ->with([
                 'pages' => fn ($query) => $this->applyPageTypeFilter($query)->orderBy('title'),
                 'children' => function ($query) {
-                    $query->whereHas('pages', fn ($q) => $this->applyPageTypeFilter($q))
-                        ->withCount(['pages' => fn ($q) => $this->applyPageTypeFilter($q)])
-                        ->with([
-                            'pages' => fn ($q) => $this->applyPageTypeFilter($q)->orderBy('title'),
-                            'children' => function ($subQuery) {
-                                $subQuery->whereHas('pages', fn ($q) => $this->applyPageTypeFilter($q))
-                                    ->withCount(['pages' => fn ($q) => $this->applyPageTypeFilter($q)])
-                                    ->with(['pages' => fn ($q) => $this->applyPageTypeFilter($q)->orderBy('title')])
-                                    ->orderBy('title');
-                            },
-                        ])
-                        ->orderBy('title');
+                    $this->applyCategoryChildrenRelations($query);
                 },
             ])
             ->withCount([
@@ -211,6 +199,18 @@ class PageController extends Controller
         $ordering = $this->siteTreeOrdering;
 
         return $this->applySiteTreeOrdering($categories, $ordering);
+    }
+
+    protected function applyCategoryChildrenRelations($query): void
+    {
+        $query->withCount(['pages' => fn ($q) => $this->applyPageTypeFilter($q)])
+            ->with([
+                'pages' => fn ($q) => $this->applyPageTypeFilter($q)->orderBy('title'),
+                'children' => function ($childQuery) {
+                    $this->applyCategoryChildrenRelations($childQuery);
+                },
+            ])
+            ->orderBy('title');
     }
 
     /**
