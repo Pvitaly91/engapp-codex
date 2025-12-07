@@ -46,6 +46,7 @@ class SeedRunController extends Controller
             'tableExists' => $overview['tableExists'],
             'executedSeeders' => $overview['executedSeeders'],
             'pendingSeeders' => $overview['pendingSeeders'],
+            'pendingSeederHierarchy' => $overview['pendingSeederHierarchy'],
             'executedSeederHierarchy' => $overview['executedSeederHierarchy'],
             'recentSeedRunOrdinals' => $overview['recentSeedRunOrdinals'],
         ]);
@@ -456,6 +457,8 @@ class SeedRunController extends Controller
             })
             ->values();
 
+        $pendingSeederHierarchy = $this->buildPendingSeederHierarchy($pendingSeeders);
+
         $questionCounts = collect();
 
         if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
@@ -479,6 +482,7 @@ class SeedRunController extends Controller
             'tableExists' => true,
             'executedSeeders' => $executedSeeders,
             'pendingSeeders' => $pendingSeeders,
+            'pendingSeederHierarchy' => $pendingSeederHierarchy,
             'executedSeederHierarchy' => $executedSeederHierarchy,
             'recentSeedRunOrdinals' => $recentSeedRunOrdinals,
         ];
@@ -589,6 +593,98 @@ class SeedRunController extends Controller
         }
 
         return $this->normalizeSeederHierarchy($root);
+    }
+
+    protected function buildPendingSeederHierarchy(Collection $pendingSeeders): Collection
+    {
+        $root = [
+            'folders' => [],
+            'seeders' => [],
+        ];
+
+        foreach ($pendingSeeders as $seeder) {
+            $segments = array_values(array_filter(explode('\\', $seeder->display_class_name), 'strlen'));
+
+            if (empty($segments)) {
+                $root['seeders'][] = [
+                    'name' => $seeder->display_class_name,
+                    'seeder' => $seeder,
+                ];
+
+                continue;
+            }
+
+            $current =& $root;
+
+            foreach ($segments as $index => $segment) {
+                $isLast = $index === count($segments) - 1;
+
+                if ($isLast) {
+                    $current['seeders'][] = [
+                        'name' => $segment,
+                        'seeder' => $seeder,
+                    ];
+
+                    continue;
+                }
+
+                if (! isset($current['folders'][$segment])) {
+                    $current['folders'][$segment] = [
+                        'name' => $segment,
+                        'folders' => [],
+                        'seeders' => [],
+                    ];
+                }
+
+                $current =& $current['folders'][$segment];
+            }
+
+            unset($current);
+        }
+
+        return $this->normalizePendingSeederHierarchy($root);
+    }
+
+    protected function normalizePendingSeederHierarchy(array $node, string $path = ''): Collection
+    {
+        $folders = collect($node['folders'] ?? [])
+            ->sortBy(fn ($folder) => $folder['name'])
+            ->map(function ($folder) use ($path) {
+                $folderPath = ltrim(($path !== '' ? $path . '/' : '') . $folder['name'], '/');
+                $children = $this->normalizePendingSeederHierarchy($folder, $folderPath);
+                $seederCount = $children->sum(fn ($child) => (int) ($child['seeder_count'] ?? 0));
+                $classNames = $children->flatMap(function ($child) {
+                    return collect($child['class_names'] ?? []);
+                })->unique()->values();
+
+                return [
+                    'type' => 'folder',
+                    'name' => $folder['name'],
+                    'children' => $children,
+                    'seeder_count' => $seederCount,
+                    'class_names' => $classNames->all(),
+                    'path' => $folderPath,
+                ];
+            });
+
+        $seeders = collect($node['seeders'] ?? [])
+            ->sortBy(fn ($seeder) => $seeder['name'])
+            ->map(function ($seeder) use ($path) {
+                $pendingSeeder = $seeder['seeder'];
+                $className = $pendingSeeder->class_name ?? '';
+                $fullPath = ltrim(($path !== '' ? $path . '/' : '') . $seeder['name'], '/');
+
+                return [
+                    'type' => 'seeder',
+                    'name' => $seeder['name'],
+                    'pending_seeder' => $pendingSeeder,
+                    'seeder_count' => 1,
+                    'class_names' => [$className],
+                    'path' => $fullPath,
+                ];
+            });
+
+        return $folders->values()->merge($seeders->values())->values();
     }
 
     protected function normalizeSeederHierarchy(array $node, string $path = ''): Collection
