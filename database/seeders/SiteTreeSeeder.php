@@ -12,6 +12,16 @@ use Illuminate\Support\Facades\Log;
 class SiteTreeSeeder extends Seeder
 {
     /**
+     * Minimum length for title/slug matching to avoid false positives
+     */
+    private const MIN_MATCH_LENGTH = 5;
+
+    /**
+     * Common English words to exclude when normalizing titles
+     */
+    private const COMMON_WORDS = ['the', 'a', 'an', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'and', 'or', 'but'];
+
+    /**
      * Run the database seeds.
      */
     public function run(): void
@@ -100,6 +110,10 @@ class SiteTreeSeeder extends Seeder
      * 1. Try to match by exact title (most reliable)
      * 2. Try to match by seeder class name (if page has seeder)
      * 3. Try to match by slug pattern
+     * 
+     * @param SiteTreeItem $item
+     * @param \Illuminate\Database\Eloquent\Collection $pages
+     * @return Page|null
      */
     private function findMatchingPage(SiteTreeItem $item, $pages): ?Page
     {
@@ -122,8 +136,8 @@ class SiteTreeSeeder extends Seeder
                 $normalizedTitle = $this->normalizeTitle($item->title);
                 
                 // Check if seeder name contains the normalized title
-                // Require a substantial match (at least 70% of the normalized title length)
-                if (strlen($normalizedTitle) > 5 && stripos($seederBaseName, $normalizedTitle) !== false) {
+                // Only match if normalized title is meaningful (longer than MIN_MATCH_LENGTH)
+                if (strlen($normalizedTitle) > self::MIN_MATCH_LENGTH && stripos($seederBaseName, $normalizedTitle) !== false) {
                     return $page;
                 }
             }
@@ -134,7 +148,7 @@ class SiteTreeSeeder extends Seeder
         $potentialSlug = $this->titleToSlug($item->title);
         
         // Only try slug matching if we have a meaningful slug
-        if (strlen($potentialSlug) > 5) {
+        if (strlen($potentialSlug) > self::MIN_MATCH_LENGTH) {
             foreach ($pages as $page) {
                 // Check if either slug contains the other (substring match)
                 if (stripos($page->slug, $potentialSlug) !== false || stripos($potentialSlug, $page->slug) !== false) {
@@ -164,10 +178,9 @@ class SiteTreeSeeder extends Seeder
         }
         
         // Remove common words
-        $commonWords = ['the', 'a', 'an', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'and', 'or', 'but'];
         $words = explode(' ', $title);
-        $words = array_filter($words, function($word) use ($commonWords) {
-            return !in_array(strtolower(trim($word)), $commonWords);
+        $words = array_filter($words, function($word) {
+            return !in_array(strtolower(trim($word)), self::COMMON_WORDS);
         });
         
         // Convert to PascalCase-like format
