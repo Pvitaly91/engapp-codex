@@ -46,6 +46,7 @@ class SeedRunController extends Controller
             'tableExists' => $overview['tableExists'],
             'executedSeeders' => $overview['executedSeeders'],
             'pendingSeeders' => $overview['pendingSeeders'],
+            'pendingSeederHierarchy' => $overview['pendingSeederHierarchy'],
             'executedSeederHierarchy' => $overview['executedSeederHierarchy'],
             'recentSeedRunOrdinals' => $overview['recentSeedRunOrdinals'],
         ]);
