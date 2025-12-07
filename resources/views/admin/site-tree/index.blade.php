@@ -265,7 +265,12 @@
                                                     
                                                     {{-- Exists in pages indicator with link --}}
                                                     <template x-if="isLinked(item)">
-                                                        <a :href="getLinkedUrl(item)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                        <a :href="getLinkedUrl(item)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" :title="'Відкрити на сайті | Метод: ' + getLinkMethodLabel(item)">✓</a>
+                                                    </template>
+                                                    
+                                                    {{-- Link method badge --}}
+                                                    <template x-if="isLinked(item) && item.link_method">
+                                                        <span class="flex-shrink-0 inline-flex items-center rounded-full px-1.5 py-0.5 text-xs font-medium" :class="getLinkMethodBadgeClass(item.link_method)" x-text="getLinkMethodLabel(item)" :title="getLinkMethodTooltip(item.link_method)"></span>
                                                     </template>
                                                 </div>
 
@@ -412,7 +417,12 @@
                                                                 
                                                                 {{-- Exists in pages indicator with link --}}
                                                                 <template x-if="isLinked(child)">
-                                                                    <a :href="getLinkedUrl(child)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                                    <a :href="getLinkedUrl(child)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" :title="'Відкрити на сайті | Метод: ' + getLinkMethodLabel(child)">✓</a>
+                                                                </template>
+                                                                
+                                                                {{-- Link method badge --}}
+                                                                <template x-if="isLinked(child) && child.link_method">
+                                                                    <span class="flex-shrink-0 inline-flex items-center rounded-full px-1.5 py-0.5 text-xs font-medium" :class="getLinkMethodBadgeClass(child.link_method)" x-text="getLinkMethodLabel(child)" :title="getLinkMethodTooltip(child.link_method)"></span>
                                                                 </template>
                                                             </div>
 
@@ -501,7 +511,12 @@
                                                                         
                                                                         {{-- Exists in pages indicator with link --}}
                                                                         <template x-if="isLinked(grandchild)">
-                                                                            <a :href="getLinkedUrl(grandchild)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                                            <a :href="getLinkedUrl(grandchild)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" :title="'Відкрити на сайті | Метод: ' + getLinkMethodLabel(grandchild)">✓</a>
+                                                                        </template>
+                                                                        
+                                                                        {{-- Link method badge --}}
+                                                                        <template x-if="isLinked(grandchild) && grandchild.link_method">
+                                                                            <span class="flex-shrink-0 inline-flex items-center rounded-full px-1.5 py-0.5 text-xs font-medium" :class="getLinkMethodBadgeClass(grandchild.link_method)" x-text="getLinkMethodLabel(grandchild)" :title="getLinkMethodTooltip(grandchild.link_method)"></span>
                                                                         </template>
                                                                     </div>
 
@@ -944,6 +959,41 @@
                     if (item.linked_page_url) return item.linked_page_url;
                     const match = this.findExistingMatch(item.title);
                     return match ? match.url : null;
+                },
+                
+                getLinkMethodLabel(item) {
+                    if (!item || !item.link_method) return 'авто';
+                    
+                    const labels = {
+                        'exact_title': 'точна назва',
+                        'seeder_name': 'сидер',
+                        'slug_match': 'slug',
+                        'manual': 'вручну'
+                    };
+                    
+                    return labels[item.link_method] || item.link_method;
+                },
+                
+                getLinkMethodBadgeClass(linkMethod) {
+                    const classes = {
+                        'exact_title': 'bg-green-100 text-green-700',
+                        'seeder_name': 'bg-purple-100 text-purple-700',
+                        'slug_match': 'bg-yellow-100 text-yellow-700',
+                        'manual': 'bg-blue-100 text-blue-700'
+                    };
+                    
+                    return classes[linkMethod] || 'bg-gray-100 text-gray-700';
+                },
+                
+                getLinkMethodTooltip(linkMethod) {
+                    const tooltips = {
+                        'exact_title': 'Зв\'язано автоматично: точна відповідність назви',
+                        'seeder_name': 'Зв\'язано автоматично: відповідність імені сидера',
+                        'slug_match': 'Зв\'язано автоматично: відповідність slug',
+                        'manual': 'Зв\'язано вручну користувачем'
+                    };
+                    
+                    return tooltips[linkMethod] || 'Невідомий метод зв\'язування';
                 },
 
                 findExistingMatch(title) {
