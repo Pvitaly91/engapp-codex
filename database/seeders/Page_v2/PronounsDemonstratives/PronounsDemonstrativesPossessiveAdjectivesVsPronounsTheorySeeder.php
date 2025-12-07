@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\PronounsDemonstratives;
 
 use Database\Seeders\Pages\PronounsDemonstratives\PronounsDemonstrativesPageSeeder;
 
-class PossessiveAdjectivesVsPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
+class PronounsDemonstrativesPossessiveAdjectivesVsPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
 {
     protected function slug(): string
     {

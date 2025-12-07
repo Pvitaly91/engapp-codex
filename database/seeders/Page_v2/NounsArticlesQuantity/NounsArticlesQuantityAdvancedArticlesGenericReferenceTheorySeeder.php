@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\NounsArticlesQuantity;
 
 use Database\Seeders\Pages\NounsArticlesQuantity\NounsArticlesQuantityPageSeeder;
 
-class AdvancedArticlesGenericReferenceTheorySeeder extends NounsArticlesQuantityPageSeeder
+class NounsArticlesQuantityAdvancedArticlesGenericReferenceTheorySeeder extends NounsArticlesQuantityPageSeeder
 {
     protected function slug(): string
     {

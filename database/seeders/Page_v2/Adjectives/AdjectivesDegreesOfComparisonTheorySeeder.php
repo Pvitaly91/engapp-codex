@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\Adjectives;
 
 use Database\Seeders\Pages\Adjectives\AdjectivePageSeeder;
 
-class DegreesOfComparisonTheorySeeder extends AdjectivePageSeeder
+class AdjectivesDegreesOfComparisonTheorySeeder extends AdjectivePageSeeder
 {
     protected function slug(): string
     {

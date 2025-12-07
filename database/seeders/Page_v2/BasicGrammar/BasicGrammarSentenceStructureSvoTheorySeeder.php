@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\BasicGrammar;
 
 use Database\Seeders\Pages\BasicGrammar\BasicGrammarPageSeeder;
 
-class SentenceStructureSvoTheorySeeder extends BasicGrammarPageSeeder
+class BasicGrammarSentenceStructureSvoTheorySeeder extends BasicGrammarPageSeeder
 {
     protected function slug(): string
     {
