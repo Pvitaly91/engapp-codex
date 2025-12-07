@@ -13,9 +13,17 @@ class QuestionsDifferentTypesV2Seeder extends QuestionSeeder
     {
         $categoryId = Category::firstOrCreate(['name' => 'Questions - Different Types'])->id;
 
-        $sourceId = Source::firstOrCreate([
-            'name' => 'https://test-english.com/grammar-points/b1-b2/questions-different-types/'
-        ])->id;
+        $sourceIds = [
+            'exercise1' => Source::firstOrCreate([
+                'name' => 'https://test-english.com/grammar-points/b1-b2/questions-different-types/ - Exercise 1'
+            ])->id,
+            'exercise2' => Source::firstOrCreate([
+                'name' => 'https://test-english.com/grammar-points/b1-b2/questions-different-types/ - Exercise 2'
+            ])->id,
+            'exercise3' => Source::firstOrCreate([
+                'name' => 'https://test-english.com/grammar-points/b1-b2/questions-different-types/ - Exercise 3'
+            ])->id,
+        ];
 
         $themeTag = Tag::firstOrCreate(
             ['name' => 'Question Formation Practice'],
@@ -444,16 +452,25 @@ class QuestionsDifferentTypesV2Seeder extends QuestionSeeder
 
         $allQuestions = [];
 
-        // Process Exercise 1 and 2
-        foreach ([$exercise1, $exercise2] as $exerciseData) {
-            foreach ($exerciseData as $entry) {
-                $allQuestions[] = $this->processQuestion($entry);
-            }
+        // Process Exercise 1
+        foreach ($exercise1 as $entry) {
+            $question = $this->processQuestion($entry);
+            $question['exercise'] = 'exercise1';
+            $allQuestions[] = $question;
+        }
+
+        // Process Exercise 2
+        foreach ($exercise2 as $entry) {
+            $question = $this->processQuestion($entry);
+            $question['exercise'] = 'exercise2';
+            $allQuestions[] = $question;
         }
 
         // Process Exercise 3
         foreach ($exercise3 as $entry) {
-            $allQuestions[] = $this->processExercise3Question($entry);
+            $question = $this->processExercise3Question($entry);
+            $question['exercise'] = 'exercise3';
+            $allQuestions[] = $question;
         }
 
         $items = [];
@@ -490,12 +507,14 @@ class QuestionsDifferentTypesV2Seeder extends QuestionSeeder
                 $tagIds[] = $detailTags[$question['detail']];
             }
 
+            $exerciseKey = $question['exercise'] ?? 'exercise1';
+            
             $items[] = [
                 'uuid' => $uuid,
                 'question' => $question['question'],
                 'category_id' => $categoryId,
                 'difficulty' => $levelDifficulty[$question['level']] ?? 3,
-                'source_id' => $sourceId,
+                'source_id' => $sourceIds[$exerciseKey],
                 'flag' => 0,
                 'level' => $question['level'],
                 'tag_ids' => array_values(array_unique($tagIds)),
