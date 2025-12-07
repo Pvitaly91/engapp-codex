@@ -19,7 +19,7 @@ class LinkSiteTreeItemsToPages extends Command
      *
      * @var string
      */
-    protected $description = 'Link site tree items to pages by seeder name or slug';
+    protected $description = 'Link site tree items to pages by seeder field only';
 
     /**
      * Execute the console command.
@@ -28,18 +28,17 @@ class LinkSiteTreeItemsToPages extends Command
     {
         $variantId = $this->option('variant-id');
         
-        $this->info('🔗 Linking site tree items to pages...');
+        $this->info('🔗 Linking site tree items to pages by seeder field...');
         
         try {
             $linkingService = new SiteTreeLinkingService();
             $result = $linkingService->linkItemsToPages($variantId);
             
-            $this->info("Found " . count($linkingService->getPageUrlMap()) . " pages with URLs");
             $this->info("Found {$result['total']} site tree items");
             
             $this->info("✅ Linking complete!");
+            $this->info("   - Old links cleared: {$result['cleared']}");
             $this->info("   - New links created: {$result['linked']}");
-            $this->info("   - Existing links updated: {$result['updated']}");
             $this->info("   - Items without matches: {$result['skipped']}");
             
             return Command::SUCCESS;

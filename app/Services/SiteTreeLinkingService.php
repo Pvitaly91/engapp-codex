@@ -9,13 +9,10 @@ use App\Models\SiteTreeItem;
 class SiteTreeLinkingService
 {
     /**
-     * Link site tree items to pages
+     * Link site tree items to pages based on seeder field
      */
     public function linkItemsToPages(?int $variantId = null): array
     {
-        // Get all pages with URLs
-        $pagesWithUrls = $this->getPageUrlMap();
-        
         // Get all site tree items for the variant
         $query = SiteTreeItem::query();
         if ($variantId) {
@@ -24,26 +21,34 @@ class SiteTreeLinkingService
         
         $items = $query->get();
         
+        // Step 1: Clear all existing links
+        $clearedCount = 0;
+        foreach ($items as $item) {
+            if (!empty($item->linked_page_title) || !empty($item->linked_page_url)) {
+                $item->update([
+                    'linked_page_title' => null,
+                    'linked_page_url' => null,
+                ]);
+                $clearedCount++;
+            }
+        }
+        
+        // Step 2: Build seeder map
+        $seederMap = $this->buildSeederMap();
+        
+        // Step 3: Link items based on seeder field only
         $linkedCount = 0;
-        $updatedCount = 0;
         $skippedCount = 0;
         
         foreach ($items as $item) {
-            $match = $this->findPageMatch($item->title, $pagesWithUrls);
+            $match = $this->findPageBySeeder($item->title, $seederMap);
             
             if ($match) {
-                $hasExistingLink = !empty($item->linked_page_title) || !empty($item->linked_page_url);
-                
                 $item->update([
                     'linked_page_title' => $match['title'],
                     'linked_page_url' => $match['url'],
                 ]);
-                
-                if ($hasExistingLink) {
-                    $updatedCount++;
-                } else {
-                    $linkedCount++;
-                }
+                $linkedCount++;
             } else {
                 $skippedCount++;
             }
@@ -51,40 +56,43 @@ class SiteTreeLinkingService
         
         return [
             'total' => $items->count(),
-            'pages_count' => count($pagesWithUrls),
+            'cleared' => $clearedCount,
             'linked' => $linkedCount,
-            'updated' => $updatedCount,
             'skipped' => $skippedCount,
         ];
     }
     
     /**
-     * Build a map of page titles to URLs
+     * Build a map of seeder class names to page/category info
      */
-    public function getPageUrlMap(): array
+    protected function buildSeederMap(): array
     {
         $map = [];
         
-        $categories = PageCategory::with(['pages' => function ($query) {
-            $query->where('type', 'theory');
-        }])->get();
-        
+        // Get all categories with their seeders
+        $categories = PageCategory::whereNotNull('seeder')->get();
         foreach ($categories as $category) {
-            // Add category itself
-            $map[$category->title] = [
-                'title' => $category->title,
-                'url' => route('theory.category', $category->slug),
-                'seeder' => $category->seeder ?? null,
-                'slug' => $category->slug,
-            ];
+            if (!empty($category->seeder)) {
+                $map[$category->seeder] = [
+                    'title' => $category->title,
+                    'url' => route('theory.category', $category->slug),
+                    'type' => 'category',
+                ];
+            }
+        }
+        
+        // Get all theory pages with their seeders
+        $pages = Page::where('type', 'theory')
+            ->whereNotNull('seeder')
+            ->with('category')
+            ->get();
             
-            // Add pages within category
-            foreach ($category->pages as $page) {
-                $map[$page->title] = [
+        foreach ($pages as $page) {
+            if (!empty($page->seeder) && $page->category) {
+                $map[$page->seeder] = [
                     'title' => $page->title,
-                    'url' => route('theory.show', [$category->slug, $page->slug]),
-                    'seeder' => $page->seeder ?? null,
-                    'slug' => $page->slug,
+                    'url' => route('theory.show', [$page->category->slug, $page->slug]),
+                    'type' => 'page',
                 ];
             }
         }
@@ -93,74 +101,51 @@ class SiteTreeLinkingService
     }
     
     /**
-     * Find matching page for site tree item title
+     * Find matching page by seeder class name
      */
-    public function findPageMatch(string $title, array $pagesWithUrls): ?array
+    protected function findPageBySeeder(string $itemTitle, array $seederMap): ?array
     {
-        // Strategy 1: Try exact title match
-        if (isset($pagesWithUrls[$title])) {
-            return [
-                'title' => $title,
-                'url' => $pagesWithUrls[$title]['url'],
-            ];
-        }
-        
-        // Strategy 2: Try title without numbering (e.g., "1. Category" -> "Category")
-        $cleanTitle = preg_replace('/^\d+\.\s*/', '', $title);
+        // Clean the title - remove numbering and extra characters
+        $cleanTitle = preg_replace('/^\d+\.\s*/', '', $itemTitle);
         $cleanTitle = preg_replace('/^\d+\.\d+\s*/', '', $cleanTitle);
         $cleanTitle = trim($cleanTitle);
         
-        if ($cleanTitle !== $title && isset($pagesWithUrls[$cleanTitle])) {
-            return [
-                'title' => $cleanTitle,
-                'url' => $pagesWithUrls[$cleanTitle]['url'],
-            ];
+        // Extract English part (before —) if present
+        if (strpos($cleanTitle, '—') !== false) {
+            $parts = explode('—', $cleanTitle);
+            $cleanTitle = trim($parts[0]);
         }
         
-        // Strategy 3: Try fuzzy matching by checking if titles contain each other
-        foreach ($pagesWithUrls as $pageTitle => $pageData) {
-            $cleanPageTitle = preg_replace('/^\d+\.\s*/', '', $pageTitle);
-            $cleanPageTitle = preg_replace('/^\d+\.\d+\s*/', '', $cleanPageTitle);
-            $cleanPageTitle = trim($cleanPageTitle);
+        // Convert title to potential seeder class name pattern
+        // Example: "Word Order" -> "WordOrder"
+        $titlePattern = $this->titleToSeederPattern($cleanTitle);
+        
+        // Search through seeder map
+        foreach ($seederMap as $seederClass => $pageInfo) {
+            $seederBaseName = class_basename($seederClass);
             
-            // Check if either title contains the other (case-insensitive)
-            if (
-                stripos($cleanTitle, $cleanPageTitle) !== false ||
-                stripos($cleanPageTitle, $cleanTitle) !== false ||
-                stripos($title, $pageTitle) !== false ||
-                stripos($pageTitle, $title) !== false
-            ) {
-                return [
-                    'title' => $pageTitle,
-                    'url' => $pageData['url'],
-                ];
-            }
-        }
-        
-        // Strategy 4: Try matching by seeder name
-        foreach ($pagesWithUrls as $pageTitle => $pageData) {
-            if (!empty($pageData['seeder'])) {
-                // Check if seeder class name contains parts of the title
-                $seederBaseName = class_basename($pageData['seeder']);
-                $titleWords = preg_split('/\s+/', $cleanTitle);
-                
-                $matchCount = 0;
-                foreach ($titleWords as $word) {
-                    if (strlen($word) > 3 && stripos($seederBaseName, $word) !== false) {
-                        $matchCount++;
-                    }
-                }
-                
-                // If more than half of significant words match, consider it a match
-                if ($matchCount > 0 && $matchCount >= (count($titleWords) / 2)) {
-                    return [
-                        'title' => $pageTitle,
-                        'url' => $pageData['url'],
-                    ];
-                }
+            // Check if the seeder class name contains the title pattern
+            if (stripos($seederBaseName, $titlePattern) !== false) {
+                return $pageInfo;
             }
         }
         
         return null;
+    }
+    
+    /**
+     * Convert title to seeder pattern for matching
+     */
+    protected function titleToSeederPattern(string $title): string
+    {
+        // Remove common connecting words
+        $words = preg_split('/\s+/', $title);
+        $significantWords = array_filter($words, function($word) {
+            $lowerWord = strtolower($word);
+            return !in_array($lowerWord, ['and', 'or', 'the', 'a', 'an', 'in', 'on', 'at', 'to', 'for', 'of', 'with']);
+        });
+        
+        // Join words without spaces (CamelCase pattern)
+        return implode('', array_map('ucfirst', $significantWords));
     }
 }

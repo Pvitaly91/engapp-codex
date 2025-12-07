@@ -456,9 +456,9 @@ class SiteTreeController extends Controller
             
             return response()->json([
                 'success' => true,
-                'message' => "Створено {$result['linked']} нових зв'язків, оновлено {$result['updated']} існуючих",
+                'message' => "Очищено {$result['cleared']} старих зв'язків, створено {$result['linked']} нових зв'язків за seeder полем",
+                'cleared' => $result['cleared'],
                 'linked' => $result['linked'],
-                'updated' => $result['updated'],
                 'skipped' => $result['skipped'],
             ]);
         } catch (\Exception $e) {
