@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Page_v2\BasicGrammar;
+namespace Database\Seeders\Page_v2\BasicGrammar\WordOrder;
 
 use Database\Seeders\Pages\BasicGrammar\BasicGrammarPageSeeder;
 
