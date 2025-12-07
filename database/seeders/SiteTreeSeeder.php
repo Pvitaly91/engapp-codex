@@ -82,7 +82,9 @@ class SiteTreeSeeder extends Seeder
         $notLinkedCount = 0;
 
         foreach ($treeItems as $item) {
-            $linkedPage = $this->findMatchingPage($item, $pages);
+            $result = $this->findMatchingPage($item, $pages);
+            $linkedPage = $result['page'];
+            $linkMethod = $result['method'];
 
             if ($linkedPage) {
                 $pageUrl = $this->generatePageUrl($linkedPage);
@@ -91,10 +93,11 @@ class SiteTreeSeeder extends Seeder
                 $item->update([
                     'linked_page_title' => $linkedPage->title,
                     'linked_page_url' => $pageUrl,
+                    'link_method' => $linkMethod,
                 ]);
 
                 $linkedCount++;
-                Log::info("✓ Linked: '{$item->title}' -> '{$linkedPage->title}' ({$pageUrl})");
+                Log::info("✓ Linked: '{$item->title}' -> '{$linkedPage->title}' ({$pageUrl}) via {$linkMethod}");
             } else {
                 $notLinkedCount++;
                 Log::info("✗ Not linked: '{$item->title}'");
@@ -113,15 +116,15 @@ class SiteTreeSeeder extends Seeder
      * 
      * @param SiteTreeItem $item
      * @param \Illuminate\Database\Eloquent\Collection $pages
-     * @return Page|null
+     * @return array{page: Page|null, method: string|null}
      */
-    private function findMatchingPage(SiteTreeItem $item, $pages): ?Page
+    private function findMatchingPage(SiteTreeItem $item, $pages): array
     {
         // Strategy 1: Exact title match (case insensitive)
         // This is the most reliable method
         foreach ($pages as $page) {
             if (strcasecmp(trim($item->title), trim($page->title)) === 0) {
-                return $page;
+                return ['page' => $page, 'method' => 'exact_title'];
             }
         }
 
@@ -138,7 +141,7 @@ class SiteTreeSeeder extends Seeder
                 // Check if seeder name contains the normalized title
                 // Only match if normalized title is meaningful (longer than MIN_MATCH_LENGTH)
                 if (strlen($normalizedTitle) > self::MIN_MATCH_LENGTH && stripos($seederBaseName, $normalizedTitle) !== false) {
-                    return $page;
+                    return ['page' => $page, 'method' => 'seeder_name'];
                 }
             }
         }
@@ -152,12 +155,12 @@ class SiteTreeSeeder extends Seeder
             foreach ($pages as $page) {
                 // Check if either slug contains the other (substring match)
                 if (stripos($page->slug, $potentialSlug) !== false || stripos($potentialSlug, $page->slug) !== false) {
-                    return $page;
+                    return ['page' => $page, 'method' => 'slug_match'];
                 }
             }
         }
 
-        return null;
+        return ['page' => null, 'method' => null];
     }
 
     /**
