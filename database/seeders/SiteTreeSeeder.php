@@ -68,6 +68,9 @@ class SiteTreeSeeder extends Seeder
         // Get all pages with their categories
         $pages = Page::with('category')->get();
 
+        $linkedCount = 0;
+        $notLinkedCount = 0;
+
         foreach ($treeItems as $item) {
             $linkedPage = $this->findMatchingPage($item, $pages);
 
@@ -80,21 +83,35 @@ class SiteTreeSeeder extends Seeder
                     'linked_page_url' => $pageUrl,
                 ]);
 
-                Log::info("Linked tree item '{$item->title}' to page '{$linkedPage->title}' ({$pageUrl})");
+                $linkedCount++;
+                Log::info("✓ Linked: '{$item->title}' -> '{$linkedPage->title}' ({$pageUrl})");
+            } else {
+                $notLinkedCount++;
+                Log::info("✗ Not linked: '{$item->title}'");
             }
         }
+
+        Log::info("Page linking complete: {$linkedCount} linked, {$notLinkedCount} not linked");
     }
 
     /**
      * Find a matching page for a tree item
      * Strategy:
-     * 1. Try to match by seeder class name (if page has seeder)
-     * 2. Try to match by title
+     * 1. Try to match by exact title (most reliable)
+     * 2. Try to match by seeder class name (if page has seeder)
      * 3. Try to match by slug pattern
      */
     private function findMatchingPage(SiteTreeItem $item, $pages): ?Page
     {
-        // Strategy 1: Match by seeder class name
+        // Strategy 1: Exact title match (case insensitive)
+        // This is the most reliable method
+        foreach ($pages as $page) {
+            if (strcasecmp(trim($item->title), trim($page->title)) === 0) {
+                return $page;
+            }
+        }
+
+        // Strategy 2: Match by seeder class name
         // Look for pages whose seeder class name contains parts of the tree item title
         foreach ($pages as $page) {
             if ($page->seeder) {
@@ -105,26 +122,24 @@ class SiteTreeSeeder extends Seeder
                 $normalizedTitle = $this->normalizeTitle($item->title);
                 
                 // Check if seeder name contains the normalized title
-                if (stripos($seederBaseName, $normalizedTitle) !== false) {
+                // Require a substantial match (at least 70% of the normalized title length)
+                if (strlen($normalizedTitle) > 5 && stripos($seederBaseName, $normalizedTitle) !== false) {
                     return $page;
                 }
-            }
-        }
-
-        // Strategy 2: Match by title similarity
-        foreach ($pages as $page) {
-            // Try exact title match (case insensitive)
-            if (stripos($item->title, $page->title) !== false || stripos($page->title, $item->title) !== false) {
-                return $page;
             }
         }
 
         // Strategy 3: Match by slug pattern
         // Generate potential slug from tree item title and try to match
         $potentialSlug = $this->titleToSlug($item->title);
-        foreach ($pages as $page) {
-            if (stripos($page->slug, $potentialSlug) !== false || stripos($potentialSlug, $page->slug) !== false) {
-                return $page;
+        
+        // Only try slug matching if we have a meaningful slug
+        if (strlen($potentialSlug) > 5) {
+            foreach ($pages as $page) {
+                // Check if either slug contains the other (substring match)
+                if (stripos($page->slug, $potentialSlug) !== false || stripos($potentialSlug, $page->slug) !== false) {
+                    return $page;
+                }
             }
         }
 
