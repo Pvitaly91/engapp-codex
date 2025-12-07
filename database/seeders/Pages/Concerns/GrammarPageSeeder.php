@@ -49,6 +49,7 @@ abstract class GrammarPageSeeder extends Seeder
                 [
                     'title' => $categoryConfig['title'] ?? $categoryConfig['slug'],
                     'language' => $language,
+                    'seeder' => static::class,
                 ]
             );
 

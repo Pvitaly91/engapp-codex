@@ -14,6 +14,7 @@ class PageCategory extends Model
         'slug',
         'language',
         'parent_id',
+        'seeder',
     ];
 
     public function getRouteKeyName(): string

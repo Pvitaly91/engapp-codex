@@ -38,6 +38,7 @@ class WordOrderCategorySeeder extends Seeder
                 'title' => $description['title'],
                 'language' => $description['locale'],
                 'parent_id' => $parentCategory?->id,
+                'seeder' => static::class,
             ]
         );
 
