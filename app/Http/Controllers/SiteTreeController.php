@@ -40,8 +40,9 @@ class SiteTreeController extends Controller
     {
         $items = [];
 
+        // Get all theory categories (including those without pages)
         $categories = PageCategory::query()
-            ->whereHas('pages', fn ($query) => $query->forType('theory'))
+            ->where('type', 'theory')
             ->with(['pages' => fn ($query) => $query->forType('theory')])
             ->get();
 
