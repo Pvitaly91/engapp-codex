@@ -82,22 +82,52 @@ class SiteTreeController extends Controller
     
     private function enrichTreeWithCategoryInfo($items): void
     {
+        // Collect all unique linked page titles from the tree
+        $linkedTitles = $this->collectLinkedTitles($items);
+        
+        if (empty($linkedTitles)) {
+            return;
+        }
+        
+        // Fetch all categories at once with their parent relationships
+        $categories = PageCategory::whereIn('title', $linkedTitles)
+            ->with('parent.parent.parent')  // Load up to 3 levels of parents
+            ->get()
+            ->keyBy('title');
+        
+        // Enrich items with category information
+        $this->attachCategoryInfo($items, $categories);
+    }
+    
+    private function collectLinkedTitles($items, &$titles = []): array
+    {
         foreach ($items as $item) {
             if ($item->linked_page_title) {
-                // Try to find the category by title
-                $category = PageCategory::where('title', $item->linked_page_title)->first();
+                $titles[] = $item->linked_page_title;
+            }
+            
+            if ($item->children && $item->children->count() > 0) {
+                $this->collectLinkedTitles($item->children, $titles);
+            }
+        }
+        
+        return array_unique($titles);
+    }
+    
+    private function attachCategoryInfo($items, $categories): void
+    {
+        foreach ($items as $item) {
+            if ($item->linked_page_title && isset($categories[$item->linked_page_title])) {
+                $category = $categories[$item->linked_page_title];
                 
-                if ($category && $category->seeder) {
-                    // Get the full category path with seeder information
-                    $categoryPath = $this->getCategoryPathWithSeeder($category);
-                    $item->linked_category_path = $categoryPath;
+                if ($category->seeder) {
+                    $item->linked_category_path = $this->getCategoryPathWithSeeder($category);
                     $item->linked_category_seeder = $category->seeder;
                 }
             }
             
-            // Recursively enrich children
             if ($item->children && $item->children->count() > 0) {
-                $this->enrichTreeWithCategoryInfo($item->children);
+                $this->attachCategoryInfo($item->children, $categories);
             }
         }
     }

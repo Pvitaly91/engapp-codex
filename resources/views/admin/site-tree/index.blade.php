@@ -1165,6 +1165,9 @@
                 },
                 
                 getParentId(itemId) {
+                    // Note: This performs a tree traversal on each call.
+                    // For prompt generation (user-initiated, infrequent action), this is acceptable.
+                    // If used more frequently, consider building a parent lookup map during init().
                     const findParent = (items, targetId) => {
                         for (const item of items) {
                             if (item.children && item.children.some(child => child.id === targetId)) {
@@ -1185,15 +1188,18 @@
                     
                     // Extract namespace from parent seeder
                     // Example: "Database\\Seeders\\Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsCategorySeeder"
-                    // Should become: "Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestions"
+                    // Should extract: "QuestionsNegations\\TypesOfQuestions"
+                    // Result should be: "Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestions"
                     
+                    const PAGE_V2_PREFIX = 'Page_v2\\';
                     const seederMatch = parentSeeder.match(/Page_v2\\(.+)\\[^\\]+$/);
                     if (!seederMatch) return null;
                     
-                    const pathParts = seederMatch[1].split('\\');
+                    const pathAfterPageV2 = seederMatch[1];  // e.g., "QuestionsNegations\\TypesOfQuestions"
+                    const pathParts = pathAfterPageV2.split('\\');
                     const lastPart = pathParts[pathParts.length - 1];
                     
-                    const namespacePath = 'Page_v2\\' + pathParts.join('\\');
+                    const namespacePath = PAGE_V2_PREFIX + pathAfterPageV2;
                     
                     return `назва класу сидера повинна починатися на ${namespacePath}\\${lastPart}....php`;
                 },
