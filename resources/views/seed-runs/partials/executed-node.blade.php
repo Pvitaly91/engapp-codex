@@ -1,6 +1,7 @@
 @php
     $indent = max(0, $depth) * 1.5;
     $recentSeedRunOrdinals = collect($recentSeedRunOrdinals ?? []);
+    $isCategorySeeder = false;
 @endphp
 
 @if(($node['type'] ?? null) === 'folder')
@@ -85,6 +86,13 @@
         $deleteQuestionsCheckboxId = 'executed-delete-questions-' . $seedRun->id;
         $deleteFileConfirm = __('Видалити файл сидера «:class»?', ['class' => $seedRun->display_class_name]);
         $deleteFileConfirmWithQuestions = __('Видалити файл сидера «:class» та пов’язані питання?', ['class' => $seedRun->display_class_name]);
+        $isCategorySeeder = \Illuminate\Support\Str::contains(
+            $seedRun->display_class_basename ?? $seedRun->display_class_name ?? '',
+            'Category'
+        );
+        $executedLabelClasses = $isCategorySeeder
+            ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
+            : '';
     @endphp
     <div style="margin-left: {{ $indent }}rem;" data-seeder-node data-seed-run-id="{{ $seedRun->id }}" data-depth="{{ $depth }}">
         <div @class([
@@ -112,7 +120,7 @@
                             <div class="flex-1">
                                 <div class="font-mono text-sm text-gray-800 flex flex-wrap items-center gap-2">
                                     <label for="{{ $executedCheckboxId }}" class="cursor-pointer">
-                                        <span data-seeder-name>{{ $node['name'] }}</span>
+                                        <span data-seeder-name class="{{ $executedLabelClasses }}">{{ $node['name'] }}</span>
                                     </label>
                                     @if($seedRunIsRecent)
                                         <span class="text-[10px] uppercase font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">

@@ -37,6 +37,7 @@ abstract class PageCategoryDescriptionSeeder extends Seeder
             'slug' => $slug,
             'title' => $description['title'] ?? $slug,
             'language' => $description['locale'] ?? 'uk',
+            'type' => 'theory',
         ];
 
         $language = $categoryConfig['language']
@@ -52,6 +53,8 @@ abstract class PageCategoryDescriptionSeeder extends Seeder
             [
                 'title' => (isset($categoryData['title'])) ? $categoryData['title']  : $description['title'],
                 'language' => (isset($categoryData['language'])) ? $categoryData['language']  :$categoryConfig['language'],
+                'type' => $categoryData['type'] ?? $categoryConfig['type'],
+                'seeder' => static::class,
             ]
         );
 
