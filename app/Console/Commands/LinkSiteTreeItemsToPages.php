@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\SiteTreeLinkingService;
 use Illuminate\Console\Command;
 
 class LinkSiteTreeItemsToPages extends Command
@@ -30,7 +31,7 @@ class LinkSiteTreeItemsToPages extends Command
         $this->info('🔗 Linking site tree items to pages...');
         
         try {
-            $linkingService = new \App\Services\SiteTreeLinkingService();
+            $linkingService = new SiteTreeLinkingService();
             $result = $linkingService->linkItemsToPages($variantId);
             
             $this->info("Found " . count($linkingService->getPageUrlMap()) . " pages with URLs");

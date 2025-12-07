@@ -72,6 +72,7 @@ class SiteTreeLinkingService
         foreach ($categories as $category) {
             // Add category itself
             $map[$category->title] = [
+                'title' => $category->title,
                 'url' => route('theory.category', $category->slug),
                 'seeder' => $category->seeder ?? null,
                 'slug' => $category->slug,
@@ -80,6 +81,7 @@ class SiteTreeLinkingService
             // Add pages within category
             foreach ($category->pages as $page) {
                 $map[$page->title] = [
+                    'title' => $page->title,
                     'url' => route('theory.show', [$category->slug, $page->slug]),
                     'seeder' => $page->seeder ?? null,
                     'slug' => $page->slug,

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SiteTreeItem;
 use App\Models\SiteTreeVariant;
 use App\Models\PageCategory;
+use App\Services\SiteTreeLinkingService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -450,7 +451,7 @@ class SiteTreeController extends Controller
         $variantId = $request->input('variant_id');
         
         try {
-            $linkingService = new \App\Services\SiteTreeLinkingService();
+            $linkingService = new SiteTreeLinkingService();
             $result = $linkingService->linkItemsToPages($variantId);
             
             return response()->json([
@@ -468,7 +469,7 @@ class SiteTreeController extends Controller
             
             return response()->json([
                 'success' => false,
-                'message' => 'Помилка при створенні зв\'язків: ' . $e->getMessage(),
+                'message' => "Помилка при створенні зв'язків: " . $e->getMessage(),
             ], 500);
         }
     }
