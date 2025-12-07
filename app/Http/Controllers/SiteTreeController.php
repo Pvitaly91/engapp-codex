@@ -33,8 +33,11 @@ class SiteTreeController extends Controller
         
         // Load existing theory categories and pages with URLs for highlighting
         $existingPages = $this->getExistingPagesWithUrls();
+        
+        // Map seeder class names to URLs for linked items
+        $seederUrls = $this->getSeederToUrlMap();
 
-        return view('admin.site-tree.index', compact('tree', 'variants', 'currentVariant', 'existingPages'));
+        return view('admin.site-tree.index', compact('tree', 'variants', 'currentVariant', 'existingPages', 'seederUrls'));
     }
     
     private function getExistingPagesWithUrls(): array
@@ -42,19 +45,51 @@ class SiteTreeController extends Controller
         $items = [];
 
         $categories = PageCategory::query()
-            ->whereHas('pages', fn ($query) => $query->forType('theory'))
             ->with(['pages' => fn ($query) => $query->forType('theory')])
             ->get();
 
         foreach ($categories as $category) {
-            $items[$category->title] = route('theory.category', $category->slug);
+            $items[$category->title] = [
+                'url' => route('theory.category', $category->slug),
+                'seeder' => $category->seeder,
+            ];
 
             foreach ($category->pages as $page) {
-                $items[$page->title] = route('theory.show', [$category->slug, $page->slug]);
+                $items[$page->title] = [
+                    'url' => route('theory.show', [$category->slug, $page->slug]),
+                    'seeder' => $page->seeder,
+                ];
             }
         }
 
         return $items;
+    }
+    
+    private function getSeederToUrlMap(): array
+    {
+        $map = [];
+        
+        // Map category seeders to URLs
+        $categories = PageCategory::whereNotNull('seeder')->get();
+        foreach ($categories as $category) {
+            if (!empty($category->seeder)) {
+                $map[$category->seeder] = route('theory.category', $category->slug);
+            }
+        }
+        
+        // Map page seeders to URLs
+        $pages = Page::where('type', 'theory')
+            ->whereNotNull('seeder')
+            ->with('category')
+            ->get();
+            
+        foreach ($pages as $page) {
+            if (!empty($page->seeder) && $page->category) {
+                $map[$page->seeder] = route('theory.show', [$page->category->slug, $page->slug]);
+            }
+        }
+        
+        return $map;
     }
 
     private function getTreeWithChildren(?int $variantId = null)

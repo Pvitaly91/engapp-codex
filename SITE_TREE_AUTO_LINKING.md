@@ -61,8 +61,8 @@ php artisan site-tree:link-pages --variant-id=1
 
 1. **Спочатку очищаються** всі старі значення `linked_page_title` та `linked_page_url` для всіх елементів
 2. Поле `linked_page_title` заповнюється назвою знайденої сторінки/категорії (тільки якщо є відповідність за seeder)
-3. Поле `linked_page_url` заповнюється URL-адресою (тільки якщо є відповідність за seeder)
-4. У веб-інтерфейсі зв'язані елементи відображаються з зеленим фоном та мають клікабельне посилання
+3. Поле `linked_page_url` заповнюється **назвою класу seeder** (не URL!) - наприклад: `Database\Seeders\Page_v2\BasicGrammar\WordOrder\WordOrderCategorySeeder`
+4. У веб-інтерфейсі зв'язані елементи відображаються з зеленим фоном та мають клікабельне посилання (URL визначається з seeder класу)
 
 ## Приклади відповідностей
 
@@ -93,10 +93,13 @@ php artisan site-tree:link-pages --variant-id=1
 ### Поля в базі даних:
 
 Таблиця `site_tree_items`:
-- `linked_page_title` (nullable) - назва зв'язаної сторінки
-- `linked_page_url` (nullable) - URL зв'язаної сторінки
+- `linked_page_title` (nullable) - назва зв'язаної сторінки/категорії
+- `linked_page_url` (nullable) - **назва класу seeder** (не URL!)
 
 Таблиця `pages`:
+- `seeder` (nullable) - повна назва класу seeder
+
+Таблиця `page_categories`:
 - `seeder` (nullable) - повна назва класу seeder
 
 ## Логіка роботи
@@ -126,7 +129,7 @@ foreach ($items as $item) {
     if ($match) {
         $item->update([
             'linked_page_title' => $match['title'],
-            'linked_page_url' => $match['url'],
+            'linked_page_url' => $match['seeder'], // Зберігаємо seeder клас, не URL!
         ]);
     }
 }

@@ -46,7 +46,7 @@ class SiteTreeLinkingService
             if ($match) {
                 $item->update([
                     'linked_page_title' => $match['title'],
-                    'linked_page_url' => $match['url'],
+                    'linked_page_url' => $match['seeder'],
                 ]);
                 $linkedCount++;
             } else {
@@ -75,7 +75,7 @@ class SiteTreeLinkingService
             if (!empty($category->seeder)) {
                 $map[$category->seeder] = [
                     'title' => $category->title,
-                    'url' => route('theory.category', $category->slug),
+                    'seeder' => $category->seeder,
                     'type' => 'category',
                 ];
             }
@@ -91,7 +91,7 @@ class SiteTreeLinkingService
             if (!empty($page->seeder) && $page->category) {
                 $map[$page->seeder] = [
                     'title' => $page->title,
-                    'url' => route('theory.show', [$page->category->slug, $page->slug]),
+                    'seeder' => $page->seeder,
                     'type' => 'page',
                 ];
             }

@@ -771,6 +771,7 @@
                 currentVariantId: {{ $currentVariant->id ?? 'null' }},
                 currentVariantSlug: '{{ $currentVariant->slug ?? "" }}',
                 existingPages: @json($existingPages ?? []),
+                seederUrls: @json($seederUrls ?? []),
                 loading: false,
                 message: '',
                 messageType: 'success',
@@ -952,7 +953,10 @@
 
                 getLinkedUrl(item) {
                     if (!item) return null;
-                    if (item.linked_page_url) return item.linked_page_url;
+                    // linked_page_url now contains seeder class name, not URL
+                    if (item.linked_page_url && this.seederUrls[item.linked_page_url]) {
+                        return this.seederUrls[item.linked_page_url];
+                    }
                     const match = this.findExistingMatch(item.title);
                     return match ? match.url : null;
                 },
@@ -960,9 +964,13 @@
                 findExistingMatch(title) {
                     const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '').trim();
                     const entries = Object.entries(this.existingPages);
-                    for (const [t, url] of entries) {
+                    for (const [t, data] of entries) {
                         if (t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle)) {
-                            return { title: t, url };
+                            return { 
+                                title: t, 
+                                url: data.url || data,
+                                seeder: data.seeder || null
+                            };
                         }
                     }
                     return null;
@@ -1009,19 +1017,25 @@
                 filteredExistingPages() {
                     const term = this.linkSearch.toLowerCase();
                     return Object.entries(this.existingPages)
-                        .map(([title, url]) => ({ title, url }))
+                        .map(([title, data]) => ({ 
+                            title, 
+                            url: data.url || data,
+                            seeder: data.seeder || null
+                        }))
                         .filter(option => {
                             if (!term) return true;
-                            return option.title.toLowerCase().includes(term) || option.url.toLowerCase().includes(term);
+                            const url = option.url || '';
+                            return option.title.toLowerCase().includes(term) || url.toLowerCase().includes(term);
                         });
                 },
 
                 async submitLinking() {
                     if (!this.linkingItem) return;
                     const selectedTitle = this.linkSelectedTitle?.trim();
+                    const pageData = selectedTitle ? this.existingPages[selectedTitle] : null;
                     const payload = {
                         linked_page_title: selectedTitle || null,
-                        linked_page_url: selectedTitle ? (this.existingPages[selectedTitle] ?? null) : null,
+                        linked_page_url: pageData ? (pageData.seeder || pageData.url || pageData) : null,
                     };
 
                     try {
