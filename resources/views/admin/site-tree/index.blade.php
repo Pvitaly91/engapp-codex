@@ -1119,16 +1119,83 @@
                         ].join('\n');
                     }
 
+                    // Get parent item to check for category seeder info
+                    const parent = this.findItemById(this.tree, this.getParentId(item.id));
+                    let categoryInfo = parentPath;
+                    
+                    // If parent has linked category seeder info, use it
+                    if (parent && parent.linked_category_seeder) {
+                        categoryInfo = `${parentPath}(Сидер ${parent.linked_category_seeder})`;
+                    }
+                    
+                    // Build seeder class name hint based on parent path
+                    const seederClassHint = this.buildSeederClassNameHint(path);
+
                     return [
                         '- Створи PHP сидер сторінки у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
                         '- Сторінка має бути в тій самій категорійній гілці, що й у дереві (врахуй шлях батьківських категорій у структурі папок).',
-                        parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.',
+                        parent && parent.linked_category_seeder 
+                            ? `- Категорія сторінки: "${categoryInfo}".` 
+                            : (parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.'),
                         `- Тип сторінки: theory (method type() має повертати \"theory\").`,
                         `- Тема сторінки: "${topic}". Використай цю тему як основу контенту та блоків.`,
                         `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
+                        seederClassHint ? `- ${seederClassHint}` : null,
                         '- Додай title, subtitle, релевантні tags (масив рядків) і blocks у page() за структурою інших сидерів Page_v2.',
                         '- Мова контенту — українська, без плейсхолдерів.',
-                    ].join('\n');
+                    ].filter(line => line !== null).join('\n');
+                },
+                
+                findItemById(items, id) {
+                    for (const item of items) {
+                        if (item.id === id) {
+                            return item;
+                        }
+                        if (item.children && item.children.length > 0) {
+                            const found = this.findItemById(item.children, id);
+                            if (found) return found;
+                        }
+                    }
+                    return null;
+                },
+                
+                getParentId(itemId) {
+                    const findParent = (items, targetId) => {
+                        for (const item of items) {
+                            if (item.children && item.children.some(child => child.id === targetId)) {
+                                return item.id;
+                            }
+                            if (item.children && item.children.length > 0) {
+                                const parentId = findParent(item.children, targetId);
+                                if (parentId) return parentId;
+                            }
+                        }
+                        return null;
+                    };
+                    return findParent(this.tree, itemId);
+                },
+                
+                buildSeederClassNameHint(path) {
+                    if (path.length < 2) return null;
+                    
+                    // Convert path to PascalCase for seeder class name pattern
+                    const parentParts = path.slice(0, -1).map(part => {
+                        return part
+                            .split(/[\s\-—]+/)
+                            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                            .join('');
+                    });
+                    
+                    const pagePart = path[path.length - 1]
+                        .split(/[\s\-—]+/)
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                        .join('');
+                    
+                    // Build expected namespace path
+                    const namespacePath = 'Page_v2\\' + parentParts.join('\\');
+                    const seederPrefix = parentParts[parentParts.length - 1];
+                    
+                    return `Назва класу сидера повинна починатися на ${namespacePath}\\${seederPrefix}....php`;
                 },
 
                 copySeederPrompt(item) {

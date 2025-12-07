@@ -64,7 +64,7 @@ class SiteTreeController extends Controller
             $query->where('variant_id', $variantId);
         }
         
-        return $query
+        $tree = $query
             ->with(['children' => function ($query) {
                 $query->with(['children' => function ($q) {
                     $q->with(['children' => function ($q2) {
@@ -73,6 +73,51 @@ class SiteTreeController extends Controller
                 }])->orderBy('sort_order');
             }])
             ->get();
+            
+        // Enrich tree items with category seeder information
+        $this->enrichTreeWithCategoryInfo($tree);
+        
+        return $tree;
+    }
+    
+    private function enrichTreeWithCategoryInfo($items): void
+    {
+        foreach ($items as $item) {
+            if ($item->linked_page_title) {
+                // Try to find the category by title
+                $category = PageCategory::where('title', $item->linked_page_title)->first();
+                
+                if ($category && $category->seeder) {
+                    // Get the full category path with seeder information
+                    $categoryPath = $this->getCategoryPathWithSeeder($category);
+                    $item->linked_category_path = $categoryPath;
+                    $item->linked_category_seeder = $category->seeder;
+                }
+            }
+            
+            // Recursively enrich children
+            if ($item->children && $item->children->count() > 0) {
+                $this->enrichTreeWithCategoryInfo($item->children);
+            }
+        }
+    }
+    
+    private function getCategoryPathWithSeeder(PageCategory $category): string
+    {
+        $path = [];
+        $current = $category;
+        
+        // Build path from current category to root
+        while ($current) {
+            $pathSegment = $current->title;
+            if ($current->seeder) {
+                $pathSegment .= "(Сидер {$current->seeder})";
+            }
+            array_unshift($path, $pathSegment);
+            $current = $current->parent;
+        }
+        
+        return implode(' > ', $path);
     }
 
     public function storeVariant(Request $request): JsonResponse
