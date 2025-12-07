@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\SiteTreeItem;
 use App\Models\SiteTreeVariant;
 use App\Models\PageCategory;
