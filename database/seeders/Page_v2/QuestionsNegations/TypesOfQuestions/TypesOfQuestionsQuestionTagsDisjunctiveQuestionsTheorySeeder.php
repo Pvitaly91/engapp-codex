@@ -189,7 +189,7 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                                 'examples' => [
                                     ['en' => 'We should go, shouldn\'t we?', 'ua' => 'Нам варто піти, так?'],
                                     ['en' => 'You must be tired, mustn\'t you?', 'ua' => 'Ти мабуть втомлений, так?'],
-                                    ['en' => 'She may come, mayn\'t she?', 'ua' => 'Вона може прийти, так?'],
+                                    ['en' => 'She might come, mightn\'t she?', 'ua' => 'Вона може прийти, так?'],
                                 ],
                             ],
                             [
@@ -429,8 +429,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                             [
                                 'label' => 'Помилка 2',
                                 'color' => 'amber',
-                                'title' => 'Неправильний tag з I am.',
-                                'wrong' => '❌ I am right, am I not? / amn\'t I?',
+                                'title' => 'Неправильний tag з I am (amn\'t I — не існує, am I not — формальне).',
+                                'wrong' => '❌ I am right, amn\'t I?',
                                 'right' => '✅ <span class="font-mono">I am right, aren\'t I?</span>',
                             ],
                             [
