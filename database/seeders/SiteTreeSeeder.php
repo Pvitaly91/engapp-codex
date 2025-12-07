@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Page;
+use App\Models\PageCategory;
 use App\Models\SiteTreeItem;
 use App\Models\SiteTreeVariant;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Log;
 
 class SiteTreeSeeder extends Seeder
 {
@@ -27,6 +30,9 @@ class SiteTreeSeeder extends Seeder
         foreach ($tree as $sortOrder => $section) {
             $this->createOrUpdateItem($section, null, $sortOrder, $baseVariant->id);
         }
+
+        // Link pages to tree items
+        $this->linkPagesToTreeItems($baseVariant->id);
     }
 
     private function createOrUpdateItem(array $data, ?int $parentId, int $sortOrder, int $variantId): void
@@ -49,6 +55,145 @@ class SiteTreeSeeder extends Seeder
                 $this->createOrUpdateItem($child, $item->id, $childSortOrder, $variantId);
             }
         }
+    }
+
+    /**
+     * Link pages to tree items based on seeder class name or slug
+     */
+    private function linkPagesToTreeItems(int $variantId): void
+    {
+        // Get all tree items for this variant
+        $treeItems = SiteTreeItem::where('variant_id', $variantId)->get();
+
+        // Get all pages with their categories
+        $pages = Page::with('category')->get();
+
+        foreach ($treeItems as $item) {
+            $linkedPage = $this->findMatchingPage($item, $pages);
+
+            if ($linkedPage) {
+                $pageUrl = $this->generatePageUrl($linkedPage);
+                
+                // Update the tree item with linked page info
+                $item->update([
+                    'linked_page_title' => $linkedPage->title,
+                    'linked_page_url' => $pageUrl,
+                ]);
+
+                Log::info("Linked tree item '{$item->title}' to page '{$linkedPage->title}' ({$pageUrl})");
+            }
+        }
+    }
+
+    /**
+     * Find a matching page for a tree item
+     * Strategy:
+     * 1. Try to match by seeder class name (if page has seeder)
+     * 2. Try to match by title
+     * 3. Try to match by slug pattern
+     */
+    private function findMatchingPage(SiteTreeItem $item, $pages): ?Page
+    {
+        // Strategy 1: Match by seeder class name
+        // Look for pages whose seeder class name contains parts of the tree item title
+        foreach ($pages as $page) {
+            if ($page->seeder) {
+                $seederBaseName = class_basename($page->seeder);
+                
+                // Try to extract meaningful parts from the tree item title
+                // For example: "Advanced word order and emphasis" -> "AdvancedWordOrderEmphasis"
+                $normalizedTitle = $this->normalizeTitle($item->title);
+                
+                // Check if seeder name contains the normalized title
+                if (stripos($seederBaseName, $normalizedTitle) !== false) {
+                    return $page;
+                }
+            }
+        }
+
+        // Strategy 2: Match by title similarity
+        foreach ($pages as $page) {
+            // Try exact title match (case insensitive)
+            if (stripos($item->title, $page->title) !== false || stripos($page->title, $item->title) !== false) {
+                return $page;
+            }
+        }
+
+        // Strategy 3: Match by slug pattern
+        // Generate potential slug from tree item title and try to match
+        $potentialSlug = $this->titleToSlug($item->title);
+        foreach ($pages as $page) {
+            if (stripos($page->slug, $potentialSlug) !== false || stripos($potentialSlug, $page->slug) !== false) {
+                return $page;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Normalize title by removing common words and extracting key terms
+     */
+    private function normalizeTitle(string $title): string
+    {
+        // Remove level indicators like A1, B2, etc.
+        $title = preg_replace('/\s*[A-C][1-2](?:-[A-C][1-2])?\s*/i', '', $title);
+        
+        // Remove content in parentheses and after — dash
+        $title = preg_replace('/\s*[—–-]\s*.*$/', '', $title);
+        $title = preg_replace('/\s*\(.*?\)\s*/', '', $title);
+        
+        // Extract only English words (skip Ukrainian translations)
+        if (preg_match('/^([^—–-]+)/', $title, $matches)) {
+            $title = $matches[1];
+        }
+        
+        // Remove common words
+        $commonWords = ['the', 'a', 'an', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'and', 'or', 'but'];
+        $words = explode(' ', $title);
+        $words = array_filter($words, function($word) use ($commonWords) {
+            return !in_array(strtolower(trim($word)), $commonWords);
+        });
+        
+        // Convert to PascalCase-like format
+        $normalized = implode('', array_map('ucfirst', array_map('trim', $words)));
+        
+        return $normalized;
+    }
+
+    /**
+     * Convert title to slug format
+     */
+    private function titleToSlug(string $title): string
+    {
+        // Remove content in parentheses and after — dash
+        $title = preg_replace('/\s*[—–-]\s*.*$/', '', $title);
+        $title = preg_replace('/\s*\(.*?\)\s*/', '', $title);
+        
+        // Extract only English part
+        if (preg_match('/^([^—–-]+)/', $title, $matches)) {
+            $title = trim($matches[1]);
+        }
+        
+        // Convert to lowercase and replace spaces with hyphens
+        $slug = strtolower($title);
+        $slug = preg_replace('/[^\w\s-]/', '', $slug);
+        $slug = preg_replace('/[\s_]+/', '-', $slug);
+        $slug = trim($slug, '-');
+        
+        return $slug;
+    }
+
+    /**
+     * Generate URL for a page based on its type and category
+     */
+    private function generatePageUrl(Page $page): string
+    {
+        $pageType = $page->type ?? 'pages';
+        $categorySlug = $page->category?->slug ?? 'uncategorized';
+        $pageSlug = $page->slug;
+
+        return "/{$pageType}/{$categorySlug}/{$pageSlug}";
     }
 
     private function getTreeData(): array
