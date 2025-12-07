@@ -82,6 +82,7 @@ php artisan site-tree:link-pages --variant-id=1
 
 ### Файли, що задіяні:
 
+- **Service**: `app/Services/SiteTreeLinkingService.php` - основна логіка зв'язування
 - **Controller**: `app/Http/Controllers/SiteTreeController.php` - метод `linkToPages()`
 - **Route**: `routes/web.php` - `POST /admin/site-tree/link-pages`
 - **View**: `resources/views/admin/site-tree/index.blade.php`
@@ -105,13 +106,16 @@ php artisan site-tree:link-pages --variant-id=1
 ## Логіка роботи
 
 ```php
+// Використовує SiteTreeLinkingService
+$linkingService = new \App\Services\SiteTreeLinkingService();
+
 // 1. Отримати всі сторінки з URL
-$pagesWithUrls = $this->getPageUrlMap();
+$pagesWithUrls = $linkingService->getPageUrlMap();
 
 // 2. Для кожного елемента дерева
 foreach ($items as $item) {
-    // 3. Знайти відповідну сторінку
-    $match = $this->findPageMatch($item->title, $pagesWithUrls);
+    // 3. Знайти відповідну сторінку (4 стратегії)
+    $match = $linkingService->findPageMatch($item->title, $pagesWithUrls);
     
     // 4. Якщо знайдено, оновити зв'язок
     if ($match) {
@@ -121,6 +125,13 @@ foreach ($items as $item) {
         ]);
     }
 }
+
+// 5. Повернути статистику
+return [
+    'linked' => $linkedCount,    // Нових зв'язків
+    'updated' => $updatedCount,  // Оновлених зв'язків
+    'skipped' => $skippedCount,  // Без відповідностей
+];
 ```
 
 ## Обмеження
