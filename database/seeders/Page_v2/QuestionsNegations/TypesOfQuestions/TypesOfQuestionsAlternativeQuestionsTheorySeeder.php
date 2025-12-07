@@ -276,7 +276,7 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                                     ['en' => 'Where should we go — to the park or to the beach?', 'ua' => 'Куди нам піти — в парк чи на пляж?'],
                                     ['en' => 'When will you come — today or tomorrow?', 'ua' => 'Коли ти прийдеш — сьогодні чи завтра?'],
                                 ],
-                                'note' => '📌 Which often? використовується для вибору між варіантами',
+                                'note' => '📌 Which часто використовується для вибору між варіантами',
                             ],
                         ],
                     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
