@@ -167,6 +167,17 @@
                     <span class="hidden sm:inline">Додати з бази</span>
                 </button>
             </template>
+            <button
+                type="button"
+                @click="linkToPages()"
+                class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-purple-700 bg-purple-50 rounded-lg hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-1 transition"
+                title="Автоматично зв'язати з існуючими сторінками"
+            >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 115.656 5.656l-1.5 1.5" />
+                </svg>
+                <span class="hidden sm:inline">Зв'язати сторінки</span>
+            </button>
         </div>
 
         {{-- Status messages --}}
@@ -760,6 +771,7 @@
                 currentVariantId: {{ $currentVariant->id ?? 'null' }},
                 currentVariantSlug: '{{ $currentVariant->slug ?? "" }}',
                 existingPages: @json($existingPages ?? []),
+                seederUrls: @json($seederUrls ?? []),
                 loading: false,
                 message: '',
                 messageType: 'success',
@@ -941,7 +953,10 @@
 
                 getLinkedUrl(item) {
                     if (!item) return null;
-                    if (item.linked_page_url) return item.linked_page_url;
+                    // linked_page_url now contains seeder class name, not URL
+                    if (item.linked_page_url && this.seederUrls[item.linked_page_url]) {
+                        return this.seederUrls[item.linked_page_url];
+                    }
                     const match = this.findExistingMatch(item.title);
                     return match ? match.url : null;
                 },
@@ -949,9 +964,13 @@
                 findExistingMatch(title) {
                     const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '').trim();
                     const entries = Object.entries(this.existingPages);
-                    for (const [t, url] of entries) {
+                    for (const [t, data] of entries) {
                         if (t === title || t === cleanTitle || title.includes(t) || t.includes(cleanTitle)) {
-                            return { title: t, url };
+                            return { 
+                                title: t, 
+                                url: data.url || data,
+                                seeder: data.seeder || null
+                            };
                         }
                     }
                     return null;
@@ -998,19 +1017,25 @@
                 filteredExistingPages() {
                     const term = this.linkSearch.toLowerCase();
                     return Object.entries(this.existingPages)
-                        .map(([title, url]) => ({ title, url }))
+                        .map(([title, data]) => ({ 
+                            title, 
+                            url: data.url || data,
+                            seeder: data.seeder || null
+                        }))
                         .filter(option => {
                             if (!term) return true;
-                            return option.title.toLowerCase().includes(term) || option.url.toLowerCase().includes(term);
+                            const url = option.url || '';
+                            return option.title.toLowerCase().includes(term) || url.toLowerCase().includes(term);
                         });
                 },
 
                 async submitLinking() {
                     if (!this.linkingItem) return;
                     const selectedTitle = this.linkSelectedTitle?.trim();
+                    const pageData = selectedTitle ? this.existingPages[selectedTitle] : null;
                     const payload = {
                         linked_page_title: selectedTitle || null,
-                        linked_page_url: selectedTitle ? (this.existingPages[selectedTitle] ?? null) : null,
+                        linked_page_url: pageData ? (pageData.seeder || pageData.url || pageData) : null,
                     };
 
                     try {
@@ -1382,6 +1407,38 @@
                         }
                     } catch (error) {
                         this.showMessage('Помилка оновлення дерева', 'error');
+                    }
+
+                    this.loading = false;
+                },
+
+                async linkToPages() {
+                    if (!confirm("Автоматично зв'язати елементи дерева з існуючими сторінками? Це оновить існуючі зв'язки та створить нові.")) {
+                        return;
+                    }
+                    
+                    this.loading = true;
+                    try {
+                        const response = await fetch('/admin/site-tree/link-pages', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': this.csrfToken,
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({ variant_id: this.currentVariantId })
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            await this.fetchTree(false);
+                            this.showMessage(data.message || 'Зв\'язки створено');
+                        } else {
+                            this.showMessage(data.message || 'Помилка створення зв\'язків', 'error');
+                        }
+                    } catch (error) {
+                        this.showMessage('Помилка створення зв\'язків', 'error');
                     }
 
                     this.loading = false;

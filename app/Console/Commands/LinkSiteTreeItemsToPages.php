@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Services\SiteTreeLinkingService;
+use Illuminate\Console\Command;
+
+class LinkSiteTreeItemsToPages extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'site-tree:link-pages {--variant-id= : Variant ID to link (default: base variant)}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Link site tree items to pages by seeder field only';
+
+    /**
+     * Execute the console command.
+     */
+    public function handle()
+    {
+        $variantId = $this->option('variant-id');
+        
+        $this->info('🔗 Linking site tree items to pages by seeder field...');
+        
+        try {
+            $linkingService = new SiteTreeLinkingService();
+            $result = $linkingService->linkItemsToPages($variantId);
+            
+            $this->info("Found {$result['total']} site tree items");
+            
+            $this->info("✅ Linking complete!");
+            $this->info("   - Old links cleared: {$result['cleared']}");
+            $this->info("   - New links created: {$result['linked']}");
+            $this->info("   - Items without matches: {$result['skipped']}");
+            
+            return Command::SUCCESS;
+        } catch (\Exception $e) {
+            $this->error('❌ Error: ' . $e->getMessage());
+            return Command::FAILURE;
+        }
+    }
+}
