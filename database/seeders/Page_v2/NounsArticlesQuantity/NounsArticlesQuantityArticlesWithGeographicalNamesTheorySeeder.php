@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\NounsArticlesQuantity;
 
 use Database\Seeders\Pages\NounsArticlesQuantity\NounsArticlesQuantityPageSeeder;
 
-class ArticlesWithGeographicalNamesTheorySeeder extends NounsArticlesQuantityPageSeeder
+class NounsArticlesQuantityArticlesWithGeographicalNamesTheorySeeder extends NounsArticlesQuantityPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class ArticlesWithGeographicalNamesTheorySeeder extends NounsArticlesQuantityPag
             'subtitle_text' => 'Теоретичний огляд артиклів з географічними назвами: правила вживання the з країнами, містами, океанами, річками, горами та іншими географічними обʼєктами.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

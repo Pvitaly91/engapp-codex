@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\PronounsDemonstratives;
 
 use Database\Seeders\Pages\PronounsDemonstratives\PronounsDemonstrativesPageSeeder;
 
-class IndefinitePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
+class PronounsDemonstrativesIndefinitePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class IndefinitePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => "Теоретичний огляд неозначених займенників англійської мови: someone/somebody, anyone/anybody, no one/nobody, everyone/everybody, something, anything, nothing, everything, somewhere, anywhere, nowhere, everywhere.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

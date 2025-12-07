@@ -97,94 +97,18 @@
                         </div>
                     </div>
                     <div id="pending-seeders-container">
-                    @if($pendingSeeders->isEmpty())
-                        <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
-                    @else
-                        <ul class="space-y-3" id="pending-seeders-list">
-                            @foreach($pendingSeeders as $pendingSeeder)
-                                @php($pendingCheckboxId = 'pending-seeder-' . md5($pendingSeeder->class_name))
-                                @php($pendingActionsId = $pendingCheckboxId . '-actions')
-                                <li class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" data-pending-seeder data-class-name="{{ $pendingSeeder->class_name }}">
-                                    <div class="flex items-center gap-3 sm:flex-1">
-                                        <input type="checkbox"
-                                               id="{{ $pendingCheckboxId }}"
-                                               name="class_names[]"
-                                               value="{{ $pendingSeeder->class_name }}"
-                                               form="pending-bulk-delete-form"
-                                               class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
-                                               data-bulk-delete-checkbox
-                                               data-bulk-scope="pending">
-                                        <label for="{{ $pendingCheckboxId }}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
-                                            @if(!empty($pendingSeeder->display_class_namespace))
-                                                <span class="text-gray-500">{{ $pendingSeeder->display_class_namespace }}</span>
-                                                <span class="text-gray-400">\</span>
-                                            @endif
-                                            <span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">
-                                                {{ $pendingSeeder->display_class_basename }}
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="sm:hidden">
-                                        <button type="button"
-                                                class="inline-flex items-center justify-between gap-2 w-full px-3 py-1.5 bg-slate-100 text-slate-700 text-xs font-medium rounded-md hover:bg-slate-200 transition"
-                                                data-pending-actions-toggle
-                                                data-target="{{ $pendingActionsId }}"
-                                                aria-expanded="false"
-                                                aria-controls="{{ $pendingActionsId }}">
-                                            <span data-toggle-label-collapsed>Показати дії</span>
-                                            <span data-toggle-label-expanded class="hidden">Сховати дії</span>
-                                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform" data-pending-actions-icon></i>
-                                        </button>
-                                    </div>
-                                    <div id="{{ $pendingActionsId }}"
-                                         class="hidden w-full sm:w-auto sm:block"
-                                         data-pending-actions>
-                                        <div class="flex flex-col gap-2 w-full sm:flex-row sm:flex-wrap sm:items-center">
-                                            <button type="button"
-                                                    class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition w-full sm:w-auto"
-                                                    data-seeder-file-open
-                                                    data-class-name="{{ $pendingSeeder->class_name }}"
-                                                    data-display-name="{{ $pendingSeeder->display_class_name }}">
-                                                <i class="fa-solid fa-file-code"></i>
-                                                Код
-                                            </button>
-                                            @if($pendingSeeder->supports_preview)
-                                                <a href="{{ route('seed-runs.preview', ['class_name' => $pendingSeeder->class_name]) }}" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-sky-100 text-sky-700 text-xs font-medium rounded-md hover:bg-sky-200 transition w-full sm:w-auto">
-                                                    <i class="fa-solid fa-eye"></i>
-                                                    Переглянути
-                                                </a>
-                                            @endif
-                                            <form method="POST" action="{{ route('seed-runs.destroy-seeder-file') }}" data-preloader data-confirm="Видалити файл сидера «{{ e($pendingSeeder->display_class_name) }}»?" class="flex w-full sm:w-auto">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition w-full sm:w-auto">
-                                                    <i class="fa-solid fa-file-circle-xmark"></i>
-                                                    Видалити файл
-                                                </button>
-                                            </form>
-                                            <form method="POST" action="{{ route('seed-runs.mark-executed') }}" data-preloader class="flex w-full sm:w-auto">
-                                                @csrf
-                                                <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-md hover:bg-amber-400 transition w-full sm:w-auto">
-                                                    <i class="fa-solid fa-check"></i>
-                                                    Позначити виконаним
-                                                </button>
-                                            </form>
-                                            <form method="POST" action="{{ route('seed-runs.run') }}" data-preloader class="flex w-full sm:w-auto">
-                                                @csrf
-                                                <input type="hidden" name="class_name" value="{{ $pendingSeeder->class_name }}">
-                                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-md hover:bg-emerald-500 transition w-full sm:w-auto">
-                                                    <i class="fa-solid fa-play"></i>
-                                                    Виконати
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
+                        @if(($pendingSeederHierarchy ?? collect())->isEmpty())
+                            <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
+                        @else
+                            <div class="space-y-3" id="pending-seeders-tree" data-pending-tree>
+                                @foreach($pendingSeederHierarchy as $node)
+                                    @include('seed-runs.partials.pending-node', [
+                                        'node' => $node,
+                                        'depth' => 0,
+                                    ])
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -1767,7 +1691,7 @@
                     if (className) {
                         const seederListItem = findSeederByClassName(className);
                         if (seederListItem) {
-                            fadeOutAndRemove(seederListItem, function () {
+                            removePendingSeederNode(seederListItem, function () {
                                 // Reload page after animation so user sees seeder in executed section
                                 window.setTimeout(function () {
                                     window.location.reload();
@@ -1788,11 +1712,9 @@
                     // Find and remove the seeder's list item from pending section
                     if (className) {
                         const seederListItem = findSeederByClassName(className);
-                        
+
                         if (seederListItem) {
-                            fadeOutAndRemove(seederListItem, function () {
-                                checkPendingListEmpty();
-                            });
+                            removePendingSeederNode(seederListItem);
                         }
                     }
                 }
@@ -1801,9 +1723,9 @@
                 if (payload.removed_class_names && Array.isArray(payload.removed_class_names)) {
                     payload.removed_class_names.forEach(function (className) {
                         const seederListItem = findSeederByClassName(className);
-                        
+
                         if (seederListItem) {
-                            fadeOutAndRemove(seederListItem);
+                            removePendingSeederNode(seederListItem);
                         }
                     });
 
@@ -1896,44 +1818,98 @@
                 };
             };
 
-            // Helper function to add seeder to pending list
-            const addToPendingList = function (seeder) {
-                const pendingList = document.getElementById('pending-seeders-list');
+            const findPendingTree = function () {
+                return document.querySelector('[data-pending-tree]');
+            };
+
+            const ensurePendingTree = function () {
                 const pendingContainer = document.getElementById('pending-seeders-container');
-                
+
                 if (!pendingContainer) {
-                    return;
+                    return null;
                 }
 
-                // If container shows "all executed" message, replace with list
-                const emptyMessage = pendingContainer.querySelector('p.text-gray-500');
-                if (emptyMessage && !pendingList) {
-                    pendingContainer.innerHTML = '<ul class="space-y-3" id="pending-seeders-list"></ul>';
+                let pendingTree = findPendingTree();
+
+                if (!pendingTree) {
+                    pendingContainer.innerHTML = '<div class="space-y-3" id="pending-seeders-tree" data-pending-tree></div>';
+                    pendingTree = findPendingTree();
                 }
 
-                const listElement = document.getElementById('pending-seeders-list');
-                if (!listElement) {
-                    return;
+                return pendingTree;
+            };
+
+            const updateFolderCounts = function (folderElement, delta) {
+                let currentFolder = folderElement;
+
+                while (currentFolder) {
+                    const countAttribute = parseInt(currentFolder.getAttribute('data-seeder-count') || '0', 10) || 0;
+                    const nextCount = Math.max(0, countAttribute + delta);
+                    const folderCount = currentFolder.querySelector('[data-folder-count]');
+
+                    currentFolder.setAttribute('data-seeder-count', String(nextCount));
+
+                    if (folderCount) {
+                        folderCount.textContent = '(' + nextCount + ')';
+                    }
+
+                    currentFolder = currentFolder.parentElement ? currentFolder.parentElement.closest('[data-pending-folder]') : null;
                 }
+            };
 
-                // Get route URLs from existing forms
-                const routes = getRouteUrls();
+            const pruneEmptyPendingFolders = function (folderElement) {
+                let currentFolder = folderElement;
 
-                // Generate unique IDs
+                while (currentFolder) {
+                    const count = parseInt(currentFolder.getAttribute('data-seeder-count') || '0', 10) || 0;
+                    const children = currentFolder.querySelector('[data-pending-folder-children]');
+                    const hasSeeders = children && children.querySelector('[data-pending-seeder]');
+                    const hasFolders = children && children.querySelector('[data-pending-folder]');
+
+                    if (count <= 0 && !hasSeeders && !hasFolders) {
+                        const parentFolder = currentFolder.parentElement ? currentFolder.parentElement.closest('[data-pending-folder]') : null;
+                        currentFolder.remove();
+                        currentFolder = parentFolder;
+                        continue;
+                    }
+
+                    currentFolder = currentFolder.parentElement ? currentFolder.parentElement.closest('[data-pending-folder]') : null;
+                }
+            };
+
+            const createPendingFolderNode = function (name, path, depth) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'space-y-2';
+                wrapper.style.marginLeft = (Math.max(0, depth) * 1.5) + 'rem';
+                wrapper.setAttribute('data-pending-folder', '');
+                wrapper.setAttribute('data-folder-path', path);
+                wrapper.setAttribute('data-folder-name', name);
+                wrapper.setAttribute('data-seeder-count', '0');
+                wrapper.innerHTML = `
+                    <button type="button" class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition" data-pending-folder-toggle data-folder-path="${escapeHtml(path)}" aria-expanded="true">
+                        <i class="fa-solid fa-folder-tree text-slate-500"></i>
+                        <span data-folder-name>${escapeHtml(name)}</span>
+                        <span class="text-xs font-normal text-slate-500" data-folder-count>(0)</span>
+                    </button>
+                    <div class="space-y-3" data-pending-folder-children data-depth="${depth + 1}"></div>
+                `;
+
+                return wrapper;
+            };
+
+            const createPendingSeederNode = function (seeder, depth, routes) {
                 const checkboxId = 'pending-seeder-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
                 const actionsId = checkboxId + '-actions';
-
-                // Create seeder HTML
-                const li = document.createElement('li');
-                li.className = 'flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between';
-                li.setAttribute('data-pending-seeder', '');
-                li.setAttribute('data-class-name', seeder.class_name);
-                li.style.opacity = '0';
-
                 const displayNamespace = seeder.display_class_namespace || '';
                 const displayBasename = seeder.display_class_basename || seeder.display_class_name;
-                
-                li.innerHTML = `
+                const wrapper = document.createElement('div');
+                wrapper.className = 'flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between';
+                wrapper.style.marginLeft = (Math.max(0, depth) * 1.5) + 'rem';
+                wrapper.setAttribute('data-pending-seeder', '');
+                wrapper.setAttribute('data-class-name', seeder.class_name);
+                wrapper.style.opacity = '0';
+
+                wrapper.innerHTML = `
                     <div class="flex items-center gap-3 sm:flex-1">
                         <input type="checkbox" id="${checkboxId}" name="class_names[]" value="${escapeHtml(seeder.class_name)}" form="pending-bulk-delete-form" class="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500" data-bulk-delete-checkbox data-bulk-scope="pending">
                         <label for="${checkboxId}" class="inline-flex text-sm font-mono text-gray-700 break-all cursor-pointer min-w-[12rem] sm:min-w-[15rem]">
@@ -1984,17 +1960,90 @@
                     </div>
                 `;
 
-                // Add to list
-                listElement.appendChild(li);
+                return wrapper;
+            };
+
+            const getOrCreatePendingFolder = function (segments, pendingTree) {
+                let parentContainer = pendingTree;
+                let currentPath = '';
+
+                segments.forEach(function (segment, index) {
+                    currentPath = currentPath ? currentPath + '/' + segment : segment;
+                    let folder = parentContainer.querySelector('[data-pending-folder][data-folder-path="' + currentPath + '"]');
+
+                    if (!folder) {
+                        const folderNode = createPendingFolderNode(segment, currentPath, index);
+                        parentContainer.appendChild(folderNode);
+                        folder = folderNode;
+                    }
+
+                    const children = folder.querySelector('[data-pending-folder-children]');
+                    parentContainer = children || folder;
+                });
+
+                return parentContainer;
+            };
+
+            // Helper function to add seeder to pending list
+            const addToPendingList = function (seeder) {
+                const pendingTree = ensurePendingTree();
+                const pendingContainer = document.getElementById('pending-seeders-container');
+
+                if (!pendingTree || !pendingContainer) {
+                    return;
+                }
+
+                const routes = getRouteUrls();
+                const segments = (seeder.display_class_name || seeder.class_name || '').split('\\').filter(Boolean);
+                const folderSegments = segments.slice(0, -1);
+                const depth = folderSegments.length;
+                const targetContainer = folderSegments.length > 0
+                    ? getOrCreatePendingFolder(folderSegments, pendingTree)
+                    : pendingTree;
+
+                const seederNode = createPendingSeederNode(seeder, depth, routes);
+                targetContainer.appendChild(seederNode);
 
                 // Fade in animation
                 window.setTimeout(function () {
-                    li.style.transition = 'opacity 0.3s ease';
-                    li.style.opacity = '1';
+                    seederNode.style.transition = 'opacity 0.3s ease';
+                    seederNode.style.opacity = '1';
                 }, 50);
+
+                updateFolderCounts(seederNode.closest('[data-pending-folder]'), 1);
+
+                const bulkDeleteButton = document.querySelector('[data-bulk-delete-button][data-bulk-scope="pending"]');
+                if (bulkDeleteButton) {
+                    bulkDeleteButton.disabled = false;
+                    bulkDeleteButton.classList.remove('hidden');
+                }
+
+                const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                if (executeAllButton) {
+                    executeAllButton.disabled = false;
+                }
 
                 // Update bulk button states
                 updateAllBulkButtonStates();
+            };
+
+            const removePendingSeederNode = function (seederElement, callback) {
+                if (!seederElement) {
+                    return;
+                }
+
+                const parentFolder = seederElement.closest('[data-pending-folder]');
+
+                fadeOutAndRemove(seederElement, function () {
+                    updateFolderCounts(parentFolder, -1);
+                    pruneEmptyPendingFolders(parentFolder);
+                    checkPendingListEmpty();
+                    updateAllBulkButtonStates();
+
+                    if (callback) {
+                        callback();
+                    }
+                });
             };
 
             // Helper function to escape HTML
@@ -2005,23 +2054,22 @@
             };
 
             const checkPendingListEmpty = function () {
-                const pendingList = document.getElementById('pending-seeders-list');
                 const pendingContainer = document.getElementById('pending-seeders-container');
-                
-                if (pendingList && pendingList.children.length === 0 && pendingContainer) {
+                const hasPendingSeeders = pendingContainer && pendingContainer.querySelector('[data-pending-seeder]');
+                const bulkDeleteButton = document.querySelector('[data-bulk-delete-button][data-bulk-scope="pending"]');
+
+                if (bulkDeleteButton) {
+                    bulkDeleteButton.disabled = !hasPendingSeeders;
+                    bulkDeleteButton.classList.toggle('hidden', !hasPendingSeeders);
+                }
+
+                const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
+                if (executeAllButton) {
+                    executeAllButton.disabled = !hasPendingSeeders;
+                }
+
+                if (!hasPendingSeeders && pendingContainer) {
                     pendingContainer.innerHTML = '<p class="text-sm text-gray-500">Усі сидери вже виконані.</p>';
-                    
-                    // Disable and hide bulk delete button
-                    const bulkDeleteButton = document.querySelector('[data-bulk-delete-button][data-bulk-scope="pending"]');
-                    if (bulkDeleteButton && bulkDeleteButton.parentElement) {
-                        bulkDeleteButton.parentElement.remove();
-                    }
-                    
-                    // Disable "Execute all" button
-                    const executeAllButton = document.querySelector('form[action*="run-missing"] button[type="submit"]');
-                    if (executeAllButton) {
-                        executeAllButton.disabled = true;
-                    }
                 }
             };
 
@@ -2329,6 +2377,25 @@
                 if (loaded) {
                     applyExecutedSeederSearch();
                 }
+            };
+
+            const handlePendingFolderToggle = function (button) {
+                const folderNode = button.closest('[data-pending-folder]');
+
+                if (!folderNode) {
+                    return;
+                }
+
+                const children = folderNode.querySelector('[data-pending-folder-children]');
+
+                if (!children) {
+                    return;
+                }
+
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+                children.classList.toggle('hidden', isExpanded);
             };
 
             const handleSeederToggle = async function (button) {
@@ -2681,6 +2748,15 @@
                 if (pendingActionsButton) {
                     event.preventDefault();
                     handlePendingActionsToggle(pendingActionsButton);
+
+                    return;
+                }
+
+                const pendingFolderButton = event.target.closest('[data-pending-folder-toggle]');
+
+                if (pendingFolderButton) {
+                    event.preventDefault();
+                    handlePendingFolderToggle(pendingFolderButton);
 
                     return;
                 }

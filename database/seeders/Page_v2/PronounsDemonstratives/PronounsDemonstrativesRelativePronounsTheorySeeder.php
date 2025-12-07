@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\PronounsDemonstratives;
 
 use Database\Seeders\Pages\PronounsDemonstratives\PronounsDemonstrativesPageSeeder;
 
-class RelativePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
+class PronounsDemonstrativesRelativePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class RelativePronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => "Теоретичний огляд відносних займенників англійської мови: who, which, that, whose, whom — правила вживання, defining vs non-defining clauses, та типові помилки.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

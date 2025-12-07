@@ -147,7 +147,7 @@ HTML,
     protected function category(): array
     {
         return [
-            'slug' => '3',
+            'slug' => 'zaimennyky-ta-vkazivni-slova',
             'title' => 'Займенники та вказівні слова',
             'language' => 'uk',
         ];

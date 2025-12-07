@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\NounsArticlesQuantity;
 
 use Database\Seeders\Pages\NounsArticlesQuantity\NounsArticlesQuantityPageSeeder;
 
-class PluralNounsTheorySeeder extends NounsArticlesQuantityPageSeeder
+class NounsArticlesQuantityPluralNounsTheorySeeder extends NounsArticlesQuantityPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class PluralNounsTheorySeeder extends NounsArticlesQuantityPageSeeder
             'subtitle_text' => 'Теоретичний огляд утворення множини іменників в англійській мові: правила додавання -s, -es, -ies та неправильні форми.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

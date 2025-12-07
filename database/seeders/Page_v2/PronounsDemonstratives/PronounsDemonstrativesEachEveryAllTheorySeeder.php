@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\PronounsDemonstratives;
 
 use Database\Seeders\Pages\PronounsDemonstratives\PronounsDemonstrativesPageSeeder;
 
-class EachEveryAllTheorySeeder extends PronounsDemonstrativesPageSeeder
+class PronounsDemonstrativesEachEveryAllTheorySeeder extends PronounsDemonstrativesPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class EachEveryAllTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => "Теоретичний огляд відмінностей між each, every та all в англійській мові: правила вживання, граматичні особливості (однина/множина), типові контексти та помилки.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

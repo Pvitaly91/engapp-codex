@@ -9,7 +9,7 @@ abstract class NounsArticlesQuantityPageSeeder extends GrammarPageSeeder
     protected function category(): array
     {
         return [
-            'slug' => '2',
+            'slug' => 'imennyky-artykli-ta-kilkist',
             'title' => 'Іменники, артиклі та кількість',
             'language' => 'uk',
         ];
