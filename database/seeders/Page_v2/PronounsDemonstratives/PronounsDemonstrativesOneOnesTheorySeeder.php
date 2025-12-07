@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\PronounsDemonstratives;
 
 use Database\Seeders\Pages\PronounsDemonstratives\PronounsDemonstrativesPageSeeder;
 
-class OneOnesTheorySeeder extends PronounsDemonstrativesPageSeeder
+class PronounsDemonstrativesOneOnesTheorySeeder extends PronounsDemonstrativesPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class OneOnesTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => "Теоретичний огляд використання one і ones як займенників-замінників іменників: правила вживання, позиція в реченні, поєднання з прикметниками та означеннями.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

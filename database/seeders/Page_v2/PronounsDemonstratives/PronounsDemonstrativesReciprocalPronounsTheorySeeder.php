@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\PronounsDemonstratives;
 
 use Database\Seeders\Pages\PronounsDemonstratives\PronounsDemonstrativesPageSeeder;
 
-class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
+class PronounsDemonstrativesReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class ReciprocalPronounsTheorySeeder extends PronounsDemonstrativesPageSeeder
             'subtitle_text' => "Теоретичний огляд взаємних займенників англійської мови: each other і one another — правила вживання, відмінності, присвійні форми та типові помилки.",
             'locale' => 'uk',
             'category' => [
-                'slug' => '3',
+                'slug' => 'zaimennyky-ta-vkazivni-slova',
                 'title' => 'Займенники та вказівні слова',
                 'language' => 'uk',
             ],

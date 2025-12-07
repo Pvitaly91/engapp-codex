@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\NounsArticlesQuantity;
 
 use Database\Seeders\Pages\NounsArticlesQuantity\NounsArticlesQuantityPageSeeder;
 
-class ArticlesTheorySeeder extends NounsArticlesQuantityPageSeeder
+class NounsArticlesQuantityArticlesTheorySeeder extends NounsArticlesQuantityPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class ArticlesTheorySeeder extends NounsArticlesQuantityPageSeeder
             'subtitle_text' => 'Теоретичний огляд артиклів англійської мови: a, an, the — правила вживання, винятки та типові помилки.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

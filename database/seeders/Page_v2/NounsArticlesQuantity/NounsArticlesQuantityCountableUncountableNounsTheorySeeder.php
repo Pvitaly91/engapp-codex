@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\NounsArticlesQuantity;
 
 use Database\Seeders\Pages\NounsArticlesQuantity\NounsArticlesQuantityPageSeeder;
 
-class CountableUncountableNounsTheorySeeder extends NounsArticlesQuantityPageSeeder
+class NounsArticlesQuantityCountableUncountableNounsTheorySeeder extends NounsArticlesQuantityPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class CountableUncountableNounsTheorySeeder extends NounsArticlesQuantityPageSee
             'subtitle_text' => 'Теоретичний огляд злічуваних та незлічуваних іменників в англійській мові: правила, приклади та типові помилки.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],

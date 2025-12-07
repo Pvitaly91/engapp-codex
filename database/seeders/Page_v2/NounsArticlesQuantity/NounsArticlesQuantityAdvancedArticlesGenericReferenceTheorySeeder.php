@@ -4,7 +4,7 @@ namespace Database\Seeders\Page_v2\NounsArticlesQuantity;
 
 use Database\Seeders\Pages\NounsArticlesQuantity\NounsArticlesQuantityPageSeeder;
 
-class AdvancedArticlesGenericReferenceTheorySeeder extends NounsArticlesQuantityPageSeeder
+class NounsArticlesQuantityAdvancedArticlesGenericReferenceTheorySeeder extends NounsArticlesQuantityPageSeeder
 {
     protected function slug(): string
     {
@@ -24,7 +24,7 @@ class AdvancedArticlesGenericReferenceTheorySeeder extends NounsArticlesQuantity
             'subtitle_text' => 'Теоретичний огляд просунутого вживання артиклів в англійській мові: узагальнюючі конструкції the rich, a tiger, people та інші способи передачі generic reference.',
             'locale' => 'uk',
             'category' => [
-                'slug' => '2',
+                'slug' => 'imennyky-artykli-ta-kilkist',
                 'title' => 'Іменники, артиклі та кількість',
                 'language' => 'uk',
             ],
