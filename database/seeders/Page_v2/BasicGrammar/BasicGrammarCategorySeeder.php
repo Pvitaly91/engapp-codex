@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Pages\BasicGrammar;
+namespace Database\Seeders\Page_v2\BasicGrammar;
 
 use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder;
 

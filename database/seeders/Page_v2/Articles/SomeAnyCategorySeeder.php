@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Pages\Articles;
+namespace Database\Seeders\Page_v2\Articles;
 
 use Database\Seeders\Pages\Articles\Concerns\SomeAnyContent;
 use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder;
