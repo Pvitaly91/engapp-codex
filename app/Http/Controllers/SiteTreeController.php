@@ -99,7 +99,14 @@ class SiteTreeController extends Controller
         $this->attachCategoryInfo($items, $categories);
     }
     
-    private function collectLinkedTitles($items, &$titles = []): array
+    private function collectLinkedTitles($items): array
+    {
+        $titles = [];
+        $this->gatherLinkedTitles($items, $titles);
+        return array_unique($titles);
+    }
+    
+    private function gatherLinkedTitles($items, &$titles): void
     {
         foreach ($items as $item) {
             if ($item->linked_page_title) {
@@ -107,11 +114,9 @@ class SiteTreeController extends Controller
             }
             
             if ($item->children && $item->children->count() > 0) {
-                $this->collectLinkedTitles($item->children, $titles);
+                $this->gatherLinkedTitles($item->children, $titles);
             }
         }
-        
-        return array_unique($titles);
     }
     
     private function attachCategoryInfo($items, $categories): void

@@ -1119,8 +1119,9 @@
                         ].join('\n');
                     }
 
-                    // Get parent item to check for category seeder info
-                    const parent = this.findItemById(this.tree, this.getParentId(item.id));
+                    // Get parent item to check for category seeder info (cache the lookup)
+                    const parentId = this.getParentId(item.id);
+                    const parent = parentId ? this.findItemById(this.tree, parentId) : null;
                     let categoryInfo = parentPath;
                     
                     // If parent has linked category seeder info, use it
@@ -1186,20 +1187,21 @@
                 buildSeederClassNameHint(parentSeeder) {
                     if (!parentSeeder) return null;
                     
-                    // Extract namespace from parent seeder
-                    // Example: "Database\\Seeders\\Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsCategorySeeder"
-                    // Should extract: "QuestionsNegations\\TypesOfQuestions"
-                    // Result should be: "Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestions"
+                    // Extract namespace path from parent seeder class name
+                    // Input: "Database\\Seeders\\Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsCategorySeeder"
+                    // Regex extracts the path between "Page_v2\\" and the last class name
+                    // Result: "QuestionsNegations\\TypesOfQuestions" (without Page_v2\\ prefix or CategorySeeder suffix)
+                    // Final output: "Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestions"
                     
                     const PAGE_V2_PREFIX = 'Page_v2\\';
                     const seederMatch = parentSeeder.match(/Page_v2\\(.+)\\[^\\]+$/);
                     if (!seederMatch) return null;
                     
-                    const pathAfterPageV2 = seederMatch[1];  // e.g., "QuestionsNegations\\TypesOfQuestions"
+                    const pathAfterPageV2 = seederMatch[1];  // Path without Page_v2\\ prefix: "QuestionsNegations\\TypesOfQuestions"
                     const pathParts = pathAfterPageV2.split('\\');
-                    const lastPart = pathParts[pathParts.length - 1];
+                    const lastPart = pathParts[pathParts.length - 1];  // "TypesOfQuestions"
                     
-                    const namespacePath = PAGE_V2_PREFIX + pathAfterPageV2;
+                    const namespacePath = PAGE_V2_PREFIX + pathAfterPageV2;  // Reconstruct: "Page_v2\\QuestionsNegations\\TypesOfQuestions"
                     
                     return `назва класу сидера повинна починатися на ${namespacePath}\\${lastPart}....php`;
                 },
