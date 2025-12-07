@@ -103,6 +103,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::post('/site-tree/{item}/move', [SiteTreeController::class, 'move'])->name('site-tree.move');
         Route::post('/site-tree/reset', [SiteTreeController::class, 'reset'])->name('site-tree.reset');
         Route::post('/site-tree/sync-missing', [SiteTreeController::class, 'syncMissingFromBase'])->name('site-tree.sync-missing');
+        Route::post('/site-tree/link-pages', [SiteTreeController::class, 'linkToPages'])->name('site-tree.link-pages');
         Route::get('/site-tree/export', [SiteTreeController::class, 'exportTree'])->name('site-tree.export');
         Route::post('/site-tree/import', [SiteTreeController::class, 'importTree'])->name('site-tree.import');
         
