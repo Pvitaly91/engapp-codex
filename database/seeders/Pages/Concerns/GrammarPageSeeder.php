@@ -44,15 +44,21 @@ abstract class GrammarPageSeeder extends Seeder
                 ?? $categoryConfig['locale']
                 ?? ($config['locale'] ?? 'uk');
 
-            $category = PageCategory::updateOrCreate(
-                ['slug' => $categoryConfig['slug']],
-                [
-                    'title' => $categoryConfig['title'] ?? $categoryConfig['slug'],
-                    'language' => $language,
-                ]
-            );
+            $isPageV2Seeder = str_contains(static::class, 'Database\\Seeders\\Page_v2\\');
+            $hasCategoryInName = str_contains(class_basename(static::class), 'Category');
 
-            $categoryId = $category->id;
+            $category = $isPageV2Seeder && ! $hasCategoryInName
+                ? PageCategory::where('slug', $categoryConfig['slug'])->first()
+                : PageCategory::updateOrCreate(
+                    ['slug' => $categoryConfig['slug']],
+                    [
+                        'title' => $categoryConfig['title'] ?? $categoryConfig['slug'],
+                        'language' => $language,
+                        'seeder' => static::class,
+                    ]
+                );
+
+            $categoryId = $category?->id;
         }
 
         $matchAttributes = ['slug' => $slug];
