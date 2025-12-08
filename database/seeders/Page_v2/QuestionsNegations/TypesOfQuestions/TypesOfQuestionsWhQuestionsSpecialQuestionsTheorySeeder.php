@@ -269,6 +269,18 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                                 ],
                                 'note' => '📌 Why don\'t we/you...? = пропозиція або порада',
                             ],
+                            [
+                                'label' => 'WHY — з модальними дієсловами',
+                                'color' => 'purple',
+                                'description' => 'Why може використовуватися з модальними дієсловами <strong>(should, can, could, would, must)</strong> для запитання про причину обов\'язку, можливості або умови.',
+                                'examples' => [
+                                    ['en' => 'Why should I believe you?', 'ua' => 'Чому я маю тобі вірити?'],
+                                    ['en' => 'Why would she do that?', 'ua' => 'Навіщо їй це робити?'],
+                                    ['en' => 'Why can\'t we stay longer?', 'ua' => 'Чому ми не можемо залишитися довше?'],
+                                    ['en' => 'Why must you leave now?', 'ua' => 'Чому ти маєш йти зараз?'],
+                                ],
+                                'note' => '📌 Структура: Why + Modal Verb + Subject + Main Verb?',
+                            ],
                         ],
                     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
                 ],
