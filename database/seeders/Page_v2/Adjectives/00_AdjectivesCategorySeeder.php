@@ -33,7 +33,7 @@ HTML,
 <li><strong>Прикметники</strong> описують іменники: <span class="gw-en">a beautiful flower, an interesting book</span>.</li>
 <li><strong>Позиція:</strong> перед іменником або після to be: <span class="gw-en">The car is fast.</span></li>
 <li><strong>Форма:</strong> не змінюються за числом або родом: <span class="gw-en">one big house, two big houses</span>.</li>
-<li><strong>Порядок:</strong> розмір → якість → колір → матеріал: <span class="gw-en">a big beautiful blue car</span>.</li>
+<li><strong>Порядок:</strong> думка → розмір → вік → колір: <span class="gw-en">a beautiful big old blue car</span> (спрощений варіант).</li>
 </ul>
 HTML,
                 ],
@@ -118,8 +118,7 @@ HTML,
                     'css_class' => null,
                     'body' => <<<'HTML'
 <ul class="gw-list">
-<li><strong>Opinion</strong> (думка) → <strong>Size</strong> (розмір) → <strong>Age</strong> (вік) → <strong>Shape</strong> (форма)</li>
-<li><strong>Color</strong> (колір) → <strong>Origin</strong> (походження) → <strong>Material</strong> (матеріал) → <strong>Purpose</strong> (призначення)</li>
+<li><strong>Повний порядок прикметників:</strong> Opinion (думка) → Size (розмір) → Age (вік) → Shape (форма) → Color (колір) → Origin (походження) → Material (матеріал) → Purpose (призначення).</li>
 <li>Приклад: <span class="gw-en">a beautiful small old round red Italian wooden dining table</span>.</li>
 <li>На практиці рідко використовують більше 2-3 прикметників одночасно.</li>
 </ul>
