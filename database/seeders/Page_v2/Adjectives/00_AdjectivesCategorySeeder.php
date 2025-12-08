@@ -33,7 +33,7 @@ HTML,
 <li><strong>Прикметники</strong> описують іменники: <span class="gw-en">a beautiful flower, an interesting book</span>.</li>
 <li><strong>Позиція:</strong> перед іменником або після to be: <span class="gw-en">The car is fast.</span></li>
 <li><strong>Форма:</strong> не змінюються за числом або родом: <span class="gw-en">one big house, two big houses</span>.</li>
-<li><strong>Порядок:</strong> думка → розмір → вік → колір: <span class="gw-en">a beautiful big old blue car</span> (спрощений варіант).</li>
+<li><strong>Порядок:</strong> Opinion → Size → Age → Color: <span class="gw-en">a beautiful big old blue car</span> (спрощена послідовність).</li>
 </ul>
 HTML,
                 ],
