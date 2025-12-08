@@ -16,6 +16,15 @@ class AdjectivesDegreesOfComparisonTheorySeeder extends AdjectivePageSeeder
         return 'theory';
     }
 
+    protected function category(): array
+    {
+        return [
+            'slug' => 'prykmetniky-ta-pryslinknyky',
+            'title' => 'Прикметники та прислівники',
+            'language' => 'uk',
+        ];
+    }
+
     protected function page(): array
     {
         return [
