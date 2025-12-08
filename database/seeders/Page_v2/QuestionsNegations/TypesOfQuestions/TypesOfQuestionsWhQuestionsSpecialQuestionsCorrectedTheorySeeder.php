@@ -260,9 +260,9 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsCorrectedTheorySeeder extends Q
                                 ],
                             ],
                             [
-                                'label' => 'WHY — з модальними дієсловами',
+                                'label' => 'WHY — для пропозицій та порад',
                                 'color' => 'emerald',
-                                'description' => 'Why може використовуватися для пропозицій або порад.',
+                                'description' => 'Why може використовуватися для пропозицій або порад у конструкції <strong>Why don\'t we/you...?</strong>',
                                 'examples' => [
                                     ['en' => "Why don't we go to the cinema?", 'ua' => 'Чому б нам не піти в кіно?'],
                                     ['en' => "Why don't you ask him?", 'ua' => 'Чому б тобі його не запитати?'],
