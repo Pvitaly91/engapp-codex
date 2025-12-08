@@ -8,7 +8,7 @@ class AdjectivesCategorySeeder extends PageCategoryDescriptionSeeder
 {
     protected function slug(): string
     {
-        return '9';
+        return 'prykmetniky-ta-pryslinknyky';
     }
 
     protected function description(): array
