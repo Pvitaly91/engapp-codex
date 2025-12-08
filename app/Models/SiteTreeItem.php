@@ -11,7 +11,7 @@ class SiteTreeItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['parent_id', 'variant_id', 'title', 'linked_page_title', 'linked_page_url', 'level', 'is_checked', 'sort_order'];
+    protected $fillable = ['parent_id', 'variant_id', 'title', 'linked_page_title', 'linked_page_url', 'link_method', 'level', 'is_checked', 'sort_order'];
 
     protected $casts = [
         'is_checked' => 'boolean',
