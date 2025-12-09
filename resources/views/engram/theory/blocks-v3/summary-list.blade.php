@@ -5,12 +5,15 @@
     <div class="rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50/30 to-card overflow-hidden">
         @if(!empty($data['title']))
             <div class="border-b border-emerald-100 bg-emerald-50/50 px-5 py-4">
-                <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                    <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500 text-white text-xs font-bold">
-                        ✓
-                    </span>
-                    {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
-                </h2>
+                <div class="flex items-center justify-between gap-3">
+                    <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
+                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500 text-white text-xs font-bold">
+                            ✓
+                        </span>
+                        {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
+                    </h2>
+                    <x-text-block-level-badge :level="$block->level ?? null" />
+                </div>
             </div>
         @endif
 
