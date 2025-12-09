@@ -1190,20 +1190,8 @@
                         }
                     }
 
-                    return [
-                        '- Створи PHP сидер сторінки у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
-                        '- Сторінка має бути в тій самій категорійній гілці, що й у дереві (врахуй шлях батьківських категорій у структурі папок).',
-                        parent && parent.linked_category_seeder 
-                            ? `- Категорія сторінки: "${categoryInfo}".` 
-                            : (parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.'),
-                        `- Тип сторінки: theory (method type() має повертати \"theory\").`,
-                        `- Тема сторінки: "${themeInfo}". Використай цю тему як основу контенту та блоків.`,
-                        `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
-                        '- Додай title, subtitle, релевантні tags (масив рядків) і blocks у page() за структурою інших сидерів Page_v2.',
-                        '- Мова контенту — українська, без плейсхолдерів.',
-                        '- Оціни інформацію в кожному text_block по рівню, на який вона розрахована, від A1 до C2.',
-                        '- Записуй в поле seeder text_block назву класу сидера, з якого цей text_block записаний.',
-                    ].join('\n');
+                    return `PROJECT CONTEXT: 
+- The project uses Page_v2 seeders located in database/seeders/Page_v2 (and /Pages_V2).\n- Follow the structure, namespaces and coding style of existing Page_v2 seeders.\n\nREQUIREMENTS:\n\n1) File location and category\n- Create a new PHP seeder file under database/seeders/Page_v2 in the SAME category branch as used for the category:\n  "10. Умовні речення".\n- Use the same folder path and nesting conventions as other seeders in this category.\n\n2) Class and basic methods\n- Create a seeder class consistent with naming in other Page_v2 seeders\n  (e.g. something like ConditionalsIWishIfOnlyPresentTheorySeeder — this is an example, adapt to the project style).\n- The method type() must return the string: "theory".\n- The method slug() must return the string: "i-wish-if-only-present".\n\n3) Page metadata (page() method)\nIn the page() method, return an array with the same structure as other Page_v2 seeders, including at least:\n- 'title'    => page title in Ukrainian\n- 'subtitle' => short descriptive subtitle in Ukrainian\n- 'category' => "10. Умовні речення"\n- 'tags'     => an array of relevant strings in Ukrainian\n                 (e.g. ["умовні речення", "I wish", "If only", "жаль про теперішнє"])\n- 'blocks'   => an array of content blocks (text_blocks or equivalent key, following the existing Page_v2 format)\n\n4) Topic and content\n- Page topic: "10. Умовні речення > I wish / If only (present) — жаль про теперішнє".\n- Use this topic as the main basis for all content and blocks (пояснення, приклади, типові помилки, примітки тощо).\n- The ENTIRE page in the generated seeder (title, subtitle, tags, all block contents, examples, notes, explanations) MUST be written in Ukrainian.\n- All user-facing content MUST be in Ukrainian.\n- Do NOT use placeholders like "TODO", "...", "lorem ipsum" etc.\n\n5) text_blocks structure\nFor each element in the text_blocks (or the corresponding blocks array used for theory pages):\n- Provide at least:\n  - 'type'   => block type (e.g. "text", "example", "note", etc., consistent with other seeders)\n  - 'content'=> the actual Ukrainian content of the block\n  - 'level'  => CEFR level for this specific block: one of "A1", "A2", "B1", "B2", "C1", "C2"\n  - 'seeder' => the exact PHP class name of THIS seeder\n- IMPORTANT:\n  - Evaluate the CEFR level INDIVIDUALLY for each text_block and store it in 'level'.\n  - In 'seeder', always write the name of the current seeder class from which this text_block is seeded.\n\n6) General code style\n- Follow the same namespace, imports and base class as the other Page_v2 seeders.\n- If other seeders use declare(strict_types=1);, do the same.\n- Do not leave required fields empty or null if other seeders always define them.\n- Output VALID PHP code for the seeder class only (no extra comments or explanations outside the class).`;
                 },
                 
                 findItemById(items, id) {
