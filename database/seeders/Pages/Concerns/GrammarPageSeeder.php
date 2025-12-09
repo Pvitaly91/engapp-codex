@@ -92,6 +92,7 @@ abstract class GrammarPageSeeder extends Seeder
                 'css_class' => null,
                 'sort_order' => 0,
                 'body' => $config['subtitle_html'],
+                'level' => $config['subtitle_level'] ?? null,
                 'seeder' => static::class,
             ]);
         }
@@ -106,6 +107,7 @@ abstract class GrammarPageSeeder extends Seeder
                 'css_class' => $block['css_class'] ?? null,
                 'sort_order' => $index + 1,
                 'body' => $block['body'] ?? null,
+                'level' => $block['level'] ?? null,
                 'seeder' => static::class,
             ]);
         }

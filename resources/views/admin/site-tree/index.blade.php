@@ -1166,6 +1166,8 @@
                             `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
                             '- Додай title і tags для категорії, дотримуйся стилю існуючих категорійних сидерів.',
                             '- Мова назв і тегів — українська, без плейсхолдерів.',
+                            '- Оціни інформацію в кожному text_block по рівню, на який вона розрахована, від A1 до C2.',
+                            '- Записуй в поле seeder text_block назву класу сидера, з якого цей text_block записаний.',
                         ].join('\n');
                     }
 
@@ -1188,18 +1190,9 @@
                         }
                     }
 
-                    return [
-                        '- Створи PHP сидер сторінки у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
-                        '- Сторінка має бути в тій самій категорійній гілці, що й у дереві (врахуй шлях батьківських категорій у структурі папок).',
-                        parent && parent.linked_category_seeder 
-                            ? `- Категорія сторінки: "${categoryInfo}".` 
-                            : (parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.'),
-                        `- Тип сторінки: theory (method type() має повертати \"theory\").`,
-                        `- Тема сторінки: "${themeInfo}". Використай цю тему як основу контенту та блоків.`,
-                        `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
-                        '- Додай title, subtitle, релевантні tags (масив рядків) і blocks у page() за структурою інших сидерів Page_v2.',
-                        '- Мова контенту — українська, без плейсхолдерів.',
-                    ].join('\n');
+                    return `PROJECT CONTEXT:
+- The project uses Page_v2 seeders located in database/seeders/Page_v2 (and /Pages_V2).\n- Follow the structure, namespaces and coding style of existing Page_v2 seeders.\n\nREQUIREMENTS:\n\n1) File location and category\n- Create a new PHP seeder file under database/seeders/Page_v2 in the SAME category branch as used for the category:\n  "${categoryInfo || 'категорія не визначена'}".\n- Use the same folder path and nesting conventions as other seeders in this category.\n\n2) Class and basic methods\n- Create a seeder class consistent with naming in other Page_v2 seeders\n  (наприклад, щось на кшталт ${themeInfo ? `${themeInfo.replace(/[^a-z0-9]/gi, '')}TheorySeeder` : '[вкажи назву класу]'} — це приклад, адаптуй до стилю проєкту).\n- The method type() must return the string: "theory".\n- The method slug() must return the string: "${slug || '[вкажи slug латиницею]'}".\n\n3) Page metadata (page() method)\nУ методі page() поверни масив за структурою інших сидерів Page_v2, обов'язково додай:\n- 'title'    => назва сторінки українською\n- 'subtitle' => короткий опис українською\n- 'category' => "${categoryInfo || 'категорія не визначена'}"\n- 'tags'     => масив релевантних рядків українською (наприклад, слова ключові для теми)\n- 'blocks'   => масив контентних блоків (text_blocks або відповідний ключ, як у теоретичних сторінках)\n\n4) Topic and content\n- Тема сторінки: "${themeInfo}". Використай цю тему як основну для всього контенту та блоків (пояснення, приклади, типові помилки, примітки тощо).\n- ВЕСЬ контент у сидері (title, subtitle, tags, усі блоки, приклади, нотатки, пояснення) має бути написаний українською.\n- Не використовуй плейсхолдери на кшталт "TODO", "...", "lorem ipsum" тощо.\n\n5) text_blocks structure\nДля кожного елемента в text_blocks (або відповідному масиві blocks для теорії) вкажи мінімум:\n  - 'type'   => тип блоку (наприклад, "text", "example", "note" тощо, у стилі наявних сидерів)\n  - 'content'=> реальний український вміст блоку\n  - 'level'  => CEFR-рівень для цього блоку: один із "A1", "A2", "B1", "B2", "C1", "C2"\n  - 'seeder' => точна назва PHP-класу цього сидера\nВАЖЛИВО:\n  - Оціни рівень CEFR ІНДИВІДУАЛЬНО для кожного text_block і запиши його в 'level'.\n  - У 'seeder' завжди пиши назву поточного класу сидера, з якого цей text_block створюється.\n\n6) General code style\n- Дотримуйся того ж namespace, імпортів і базового класу, що й інші сидери Page_v2.\n- Якщо в інших сидерах є declare(strict_types=1); — додай і тут.\n- Не залишай обов'язкові поля порожніми чи null, якщо інші сидери їх визначають.\n- Виведи ЛИШЕ валідний PHP-код класу сидера (без зайвих коментарів чи пояснень поза класом).`;
+
                 },
                 
                 findItemById(items, id) {
