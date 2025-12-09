@@ -90,17 +90,24 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         $this->seedQuestionData($items, $meta);
     }
 
-    private function buildQuestions(): array
+        private function buildQuestions(): array
     {
         $questions = [];
         
-        // A1 Level - 12 questions
+        // SET 1 - Mixed question types (12 per level)
         $questions = array_merge($questions, $this->getA1Questions());
         $questions = array_merge($questions, $this->getA2Questions());
         $questions = array_merge($questions, $this->getB1Questions());
         $questions = array_merge($questions, $this->getB2Questions());
         $questions = array_merge($questions, $this->getC1Questions());
         $questions = array_merge($questions, $this->getC2Questions());
+        
+        // SET 2 - Organized by question type (proportional distribution)
+        $questions = array_merge($questions, $this->getSet2YesNoQuestions());
+        $questions = array_merge($questions, $this->getSet2WhQuestions());
+        $questions = array_merge($questions, $this->getSet2SubjectQuestions());
+        $questions = array_merge($questions, $this->getSet2TagQuestions());
+        $questions = array_merge($questions, $this->getSet2IndirectQuestions());
         
         return $questions;
     }
@@ -1309,4 +1316,1025 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ],
         ];
     }
-}
+
+    // SET 2: Yes/No Questions (~31 questions)
+    private function getSet2YesNoQuestions(): array
+    {
+        return [
+            // A1 Level - Basic Yes/No
+            [
+                'level' => 'A1',
+                'question' => "{a1} she a teacher?",
+                'answers' => ['a1' => 'Is'],
+                'options' => ['Is', 'Are', 'Do', 'Does'],
+                'verb_hint' => 'to be form',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Для питань з to be у Present Simple з she використовуємо Is."],
+                'explanations' => [
+                    'Is' => "✅ Правильно! З she використовуємо is. Приклад: Is she a teacher?",
+                    'Are' => "❌ Неправильно. Are використовується з you/we/they. Правильна відповідь: Is she a teacher?",
+                    'Do' => "❌ Неправильно. Do для дій, але тут стан (to be). Правильна відповідь: Is she a teacher?",
+                    'Does' => "❌ Неправильно. Does для дій, не для to be. Правильна відповідь: Is she a teacher?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'A1',
+                'question' => "{a1} they students?",
+                'answers' => ['a1' => 'Are'],
+                'options' => ['Are', 'Is', 'Do', 'Does'],
+                'verb_hint' => 'plural to be',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "З множиною (they) використовуємо Are у Present Simple."],
+                'explanations' => [
+                    'Are' => "✅ Правильно! З they використовуємо are. Приклад: Are they students?",
+                    'Is' => "❌ Неправильно. Is для однини (he/she/it). Правильна відповідь: Are they students?",
+                    'Do' => "❌ Неправильно. Do для дій, не для стану. Правильна відповідь: Are they students?",
+                    'Does' => "❌ Неправильно. Does тільки з he/she/it. Правильна відповідь: Are they students?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'A1',
+                'question' => "{a1} he like football?",
+                'answers' => ['a1' => 'Does'],
+                'options' => ['Does', 'Do', 'Is', 'Are'],
+                'verb_hint' => 'auxiliary for he/she/it',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Present Simple з he потребує does для питань."],
+                'explanations' => [
+                    'Does' => "✅ Правильно! З he використовуємо does. Приклад: Does he like football?",
+                    'Do' => "❌ Неправильно. Do для I/you/we/they. Правильна відповідь: Does he like football?",
+                    'Is' => "❌ Неправильно. Is для стану, але тут дія like. Правильна відповідь: Does he like football?",
+                    'Are' => "❌ Неправильно. Are не використовується з he. Правильна відповідь: Does he like football?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            
+            // A2 Level - More complex
+            [
+                'level' => 'A2',
+                'question' => "{a1} you play tennis every week?",
+                'answers' => ['a1' => 'Do'],
+                'options' => ['Do', 'Does', 'Are', 'Did'],
+                'verb_hint' => 'present simple auxiliary',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Every week вказує на Present Simple з you."],
+                'explanations' => [
+                    'Do' => "✅ Правильно! Present Simple з you. Приклад: Do you play tennis every week?",
+                    'Does' => "❌ Неправильно. Does тільки для he/she/it. Правильна відповідь: Do you play tennis every week?",
+                    'Are' => "❌ Неправильно. Are для continuous або to be. Правильна відповідь: Do you play tennis every week?",
+                    'Did' => "❌ Неправильно. Did для минулого часу. Правильна відповідь: Do you play tennis every week?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'A2',
+                'question' => "{a1} it rain yesterday?",
+                'answers' => ['a1' => 'Did'],
+                'options' => ['Did', 'Does', 'Was', 'Is'],
+                'verb_hint' => 'past simple auxiliary',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Yesterday вказує на Past Simple."],
+                'explanations' => [
+                    'Did' => "✅ Правильно! Past Simple з did. Приклад: Did it rain yesterday?",
+                    'Does' => "❌ Неправильно. Does для теперішнього часу. Правильна відповідь: Did it rain yesterday?",
+                    'Was' => "❌ Неправильно. Was для стану, але rain — дія. Правильна відповідь: Did it rain yesterday?",
+                    'Is' => "❌ Неправильно. Is для теперішнього часу. Правильна відповідь: Did it rain yesterday?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'A2',
+                'question' => "{a1} she working now?",
+                'answers' => ['a1' => 'Is'],
+                'options' => ['Is', 'Does', 'Are', 'Do'],
+                'verb_hint' => 'continuous tense',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Now вказує на Present Continuous з is/are."],
+                'explanations' => [
+                    'Is' => "✅ Правильно! Present Continuous з she. Приклад: Is she working now?",
+                    'Does' => "❌ Неправильно. Does для Present Simple. Правильна відповідь: Is she working now?",
+                    'Are' => "❌ Неправильно. Are для you/we/they. Правильна відповідь: Is she working now?",
+                    'Do' => "❌ Неправильно. Do для Present Simple. Правильна відповідь: Is she working now?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            
+            // B1 Level
+            [
+                'level' => 'B1',
+                'question' => "{a1} they visited Paris before?",
+                'answers' => ['a1' => 'Have'],
+                'options' => ['Have', 'Has', 'Did', 'Were'],
+                'verb_hint' => 'experience question',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Before вказує на життєвий досвід — Present Perfect."],
+                'explanations' => [
+                    'Have' => "✅ Правильно! Present Perfect з they. Приклад: Have they visited Paris before?",
+                    'Has' => "❌ Неправильно. Has для he/she/it. Правильна відповідь: Have they visited Paris before?",
+                    'Did' => "❌ Неправильно. Did для конкретного часу, не досвіду. Правильна відповідь: Have they visited Paris before?",
+                    'Were' => "❌ Неправильно. Were не використовується з visit. Правильна відповідь: Have they visited Paris before?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'B1',
+                'question' => "{a1} you going to travel this summer?",
+                'answers' => ['a1' => 'Are'],
+                'options' => ['Are', 'Do', 'Will', 'Have'],
+                'verb_hint' => 'going to future',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Going to для запланованих дій використовує to be."],
+                'explanations' => [
+                    'Are' => "✅ Правильно! Be going to з you. Приклад: Are you going to travel this summer?",
+                    'Do' => "❌ Неправильно. Do не використовується з going to. Правильна відповідь: Are you going to travel this summer?",
+                    'Will' => "❌ Неправильно. Will — інша форма майбутнього. Правильна відповідь: Are you going to travel this summer?",
+                    'Have' => "❌ Неправильно. Have не використовується з going to. Правильна відповідь: Are you going to travel this summer?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'B1',
+                'question' => "{a1} it been raining all day?",
+                'answers' => ['a1' => 'Has'],
+                'options' => ['Has', 'Have', 'Is', 'Was'],
+                'verb_hint' => 'perfect continuous',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "All day вказує на тривалість до теперішнього — Perfect Continuous."],
+                'explanations' => [
+                    'Has' => "✅ Правильно! Present Perfect Continuous з it. Приклад: Has it been raining all day?",
+                    'Have' => "❌ Неправильно. Have для I/you/we/they. Правильна відповідь: Has it been raining all day?",
+                    'Is' => "❌ Неправильно. Is для Present Continuous. Правильна відповідь: Has it been raining all day?",
+                    'Was' => "❌ Неправильно. Was для Past Continuous. Правильна відповідь: Has it been raining all day?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            
+            // B2 Level
+            [
+                'level' => 'B2',
+                'question' => "{a1} she been informed about the changes?",
+                'answers' => ['a1' => 'Has'],
+                'options' => ['Has', 'Have', 'Was', 'Is'],
+                'verb_hint' => 'perfect passive',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Present Perfect Passive з she використовує has been."],
+                'explanations' => [
+                    'Has' => "✅ Правильно! Present Perfect Passive з she. Приклад: Has she been informed about the changes?",
+                    'Have' => "❌ Неправильно. Have для множини. Правильна відповідь: Has she been informed about the changes?",
+                    'Was' => "❌ Неправильно. Was для Past Simple Passive. Правильна відповідь: Has she been informed about the changes?",
+                    'Is' => "❌ Неправильно. Is для Present Simple Passive. Правильна відповідь: Has she been informed about the changes?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'B2',
+                'question' => "{a1} the reports been reviewed yet?",
+                'answers' => ['a1' => 'Have'],
+                'options' => ['Have', 'Has', 'Were', 'Are'],
+                'verb_hint' => 'plural perfect passive',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Yet вказує на Present Perfect Passive з множиною."],
+                'explanations' => [
+                    'Have' => "✅ Правильно! Present Perfect Passive з множиною. Приклад: Have the reports been reviewed yet?",
+                    'Has' => "❌ Неправильно. Has для однини. Правильна відповідь: Have the reports been reviewed yet?",
+                    'Were' => "❌ Неправильно. Were для Past Simple. Правильна відповідь: Have the reports been reviewed yet?",
+                    'Are' => "❌ Неправильно. Are для Present Simple. Правильна відповідь: Have the reports been reviewed yet?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'B2',
+                'question' => "{a1} you been waiting long?",
+                'answers' => ['a1' => 'Have'],
+                'options' => ['Have', 'Has', 'Are', 'Were'],
+                'verb_hint' => 'duration until now',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Long вказує на тривалість до теперішнього моменту."],
+                'explanations' => [
+                    'Have' => "✅ Правильно! Present Perfect Continuous з you. Приклад: Have you been waiting long?",
+                    'Has' => "❌ Неправильно. Has для he/she/it. Правильна відповідь: Have you been waiting long?",
+                    'Are' => "❌ Неправильно. Are для Present Continuous. Правильна відповідь: Have you been waiting long?",
+                    'Were' => "❌ Неправильно. Were для Past Continuous. Правильна відповідь: Have you been waiting long?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            
+            // C1 Level
+            [
+                'level' => 'C1',
+                'question' => "{a1} the project been completed by next week?",
+                'answers' => ['a1' => 'Will'],
+                'options' => ['Will', 'Has', 'Have', 'Is'],
+                'verb_hint' => 'future perfect passive',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "By next week вказує на Future Perfect Passive."],
+                'explanations' => [
+                    'Will' => "✅ Правильно! Future Perfect Passive. Приклад: Will the project been completed by next week? (або Will the project have been completed...)",
+                    'Has' => "❌ Неправильно. Has для Present Perfect. Правильна відповідь: Will the project have been completed by next week?",
+                    'Have' => "❌ Неправильно. Have для Present Perfect. Правильна відповідь: Will the project have been completed by next week?",
+                    'Is' => "❌ Неправильно. Is для Present. Правильна відповідь: Will the project have been completed by next week?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'C1',
+                'question' => "{a1} we been overlooking something important?",
+                'answers' => ['a1' => 'Have'],
+                'options' => ['Have', 'Are', 'Were', 'Had'],
+                'verb_hint' => 'continuous perfect question',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Питання про можливу тривалу дію до теперішнього моменту."],
+                'explanations' => [
+                    'Have' => "✅ Правильно! Present Perfect Continuous з we. Приклад: Have we been overlooking something important?",
+                    'Are' => "❌ Неправильно. Are для Present Continuous. Правильна відповідь: Have we been overlooking something important?",
+                    'Were' => "❌ Неправильно. Were для минулого. Правильна відповідь: Have we been overlooking something important?",
+                    'Had' => "❌ Неправильно. Had для Past Perfect. Правильна відповідь: Have we been overlooking something important?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'C1',
+                'question' => "Could the data {a1} analyzed more thoroughly?",
+                'answers' => ['a1' => 'have been'],
+                'options' => ['have been', 'be', 'been', 'has been'],
+                'verb_hint' => 'modal perfect passive',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Could + perfect passive для критики минулого."],
+                'explanations' => [
+                    'have been' => "✅ Правильно! Could have been для можливості у минулому. Приклад: Could the data have been analyzed more thoroughly?",
+                    'be' => "❌ Неправильно. Be для простої форми. Правильна відповідь: Could the data have been analyzed more thoroughly?",
+                    'been' => "❌ Неправильно. Потрібно have been. Правильна відповідь: Could the data have been analyzed more thoroughly?",
+                    'has been' => "❌ Неправильно. Після could використовується have. Правильна відповідь: Could the data have been analyzed more thoroughly?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            
+            // C2 Level
+            [
+                'level' => 'C2',
+                'question' => "Might the results {a1} influenced by external factors?",
+                'answers' => ['a1' => 'have been'],
+                'options' => ['have been', 'be', 'been', 'has been'],
+                'verb_hint' => 'modal speculation passive',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Might have been для здогадки про минуле у пасиві."],
+                'explanations' => [
+                    'have been' => "✅ Правильно! Might have been для здогадки про минуле. Приклад: Might the results have been influenced by external factors?",
+                    'be' => "❌ Неправильно. Be для теперішнього/майбутнього. Правильна відповідь: Might the results have been influenced by external factors?",
+                    'been' => "❌ Неправильно. Потрібно have been. Правильна відповідь: Might the results have been influenced by external factors?",
+                    'has been' => "❌ Неправильно. Після might використовується have. Правильна відповідь: Might the results have been influenced by external factors?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'C2',
+                'question' => "Ought the committee {a1} consulted earlier?",
+                'answers' => ['a1' => 'to have been'],
+                'options' => ['to have been', 'have been', 'to be', 'been'],
+                'verb_hint' => 'ought to perfect passive',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Ought to + perfect passive для критики минулого (формально)."],
+                'explanations' => [
+                    'to have been' => "✅ Правильно! Ought to have been для критики минулого. Приклад: Ought the committee to have been consulted earlier?",
+                    'have been' => "❌ Неправильно. Після ought потрібно to. Правильна відповідь: Ought the committee to have been consulted earlier?",
+                    'to be' => "❌ Неправильно. To be для теперішнього/майбутнього. Правильна відповідь: Ought the committee to have been consulted earlier?",
+                    'been' => "❌ Неправильно. Потрібно to have been. Правильна відповідь: Ought the committee to have been consulted earlier?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+            [
+                'level' => 'C2',
+                'question' => "{a1} the implications been fully considered?",
+                'answers' => ['a1' => 'Have'],
+                'options' => ['Have', 'Has', 'Were', 'Are'],
+                'verb_hint' => 'plural perfect passive',
+                'detail' => 'yes_no',
+                'hints' => ['a1' => "Питання про завершеність дії до теперішнього з множиною."],
+                'explanations' => [
+                    'Have' => "✅ Правильно! Present Perfect Passive з множиною. Приклад: Have the implications been fully considered?",
+                    'Has' => "❌ Неправильно. Has для однини. Правильна відповідь: Have the implications been fully considered?",
+                    'Were' => "❌ Неправильно. Were для Past Simple. Правильна відповідь: Have the implications been fully considered?",
+                    'Are' => "❌ Неправильно. Are для Present Simple. Правильна відповідь: Have the implications been fully considered?",
+                ],
+                'source' => 'SET 2: Yes/No Questions',
+            ],
+        ];
+    }
+    // SET 2: Wh-Questions (~15 questions) - Answers are question words
+    private function getSet2WhQuestions(): array
+    {
+        return [
+            // A1 Level
+            [
+                'level' => 'A1',
+                'question' => "{a1} is your name?",
+                'answers' => ['a1' => 'What'],
+                'options' => ['What', 'Who', 'Where', 'When'],
+                'verb_hint' => 'asking for information',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Для питання про інформацію (ім'я, річ) використовуємо What."],
+                'explanations' => [
+                    'What' => "✅ Правильно! What для питання про ім'я або річ. Приклад: What is your name?",
+                    'Who' => "❌ Неправильно. Who для питання про особу. Правильна відповідь: What is your name?",
+                    'Where' => "❌ Неправильно. Where для питання про місце. Правильна відповідь: What is your name?",
+                    'When' => "❌ Неправильно. When для питання про час. Правильна відповідь: What is your name?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'A1',
+                'question' => "{a1} do you live?",
+                'answers' => ['a1' => 'Where'],
+                'options' => ['Where', 'What', 'Who', 'Why'],
+                'verb_hint' => 'location question',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Для питання про місце використовуємо Where."],
+                'explanations' => [
+                    'Where' => "✅ Правильно! Where для питання про місце. Приклад: Where do you live?",
+                    'What' => "❌ Неправильно. What для речей/інформації. Правильна відповідь: Where do you live?",
+                    'Who' => "❌ Неправильно. Who для людей. Правильна відповідь: Where do you live?",
+                    'Why' => "❌ Неправильно. Why для причин. Правильна відповідь: Where do you live?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'A1',
+                'question' => "{a1} is he?",
+                'answers' => ['a1' => 'Who'],
+                'options' => ['Who', 'What', 'Where', 'How'],
+                'verb_hint' => 'person identity',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Для питання про особу (хто це) використовуємо Who."],
+                'explanations' => [
+                    'Who' => "✅ Правильно! Who для питання про особу. Приклад: Who is he?",
+                    'What' => "❌ Неправильно. What для речей. Правильна відповідь: Who is he?",
+                    'Where' => "❌ Неправильно. Where для місця. Правильна відповідь: Who is he?",
+                    'How' => "❌ Неправильно. How для способу. Правильна відповідь: Who is he?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            
+            // A2 Level
+            [
+                'level' => 'A2',
+                'question' => "{a1} did you go yesterday?",
+                'answers' => ['a1' => 'Where'],
+                'options' => ['Where', 'When', 'Why', 'Who'],
+                'verb_hint' => 'location in past',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Питання про місце у минулому — Where."],
+                'explanations' => [
+                    'Where' => "✅ Правильно! Where для питання про місце. Приклад: Where did you go yesterday?",
+                    'When' => "❌ Неправильно. When для часу, але вже є yesterday. Правильна відповідь: Where did you go yesterday?",
+                    'Why' => "❌ Неправильно. Why для причини. Правильна відповідь: Where did you go yesterday?",
+                    'Who' => "❌ Неправильно. Who для людей. Правильна відповідь: Where did you go yesterday?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'A2',
+                'question' => "{a1} are you late?",
+                'answers' => ['a1' => 'Why'],
+                'options' => ['Why', 'When', 'Where', 'What'],
+                'verb_hint' => 'reason question',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Для питання про причину використовуємо Why."],
+                'explanations' => [
+                    'Why' => "✅ Правильно! Why для питання про причину. Приклад: Why are you late?",
+                    'When' => "❌ Неправильно. When для часу. Правильна відповідь: Why are you late?",
+                    'Where' => "❌ Неправильно. Where для місця. Правильна відповідь: Why are you late?",
+                    'What' => "❌ Неправильно. What для речей. Правильна відповідь: Why are you late?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'A2',
+                'question' => "{a1} does the class start?",
+                'answers' => ['a1' => 'When'],
+                'options' => ['When', 'Where', 'Why', 'How'],
+                'verb_hint' => 'time question',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Для питання про час використовуємо When."],
+                'explanations' => [
+                    'When' => "✅ Правильно! When для питання про час. Приклад: When does the class start?",
+                    'Where' => "❌ Неправильно. Where для місця. Правильна відповідь: When does the class start?",
+                    'Why' => "❌ Неправильно. Why для причини. Правильна відповідь: When does the class start?",
+                    'How' => "❌ Неправильно. How для способу. Правильна відповідь: When does the class start?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            
+            // B1 Level
+            [
+                'level' => 'B1',
+                'question' => "{a1} have you been learning English?",
+                'answers' => ['a1' => 'How long'],
+                'options' => ['How long', 'How much', 'How many', 'How often'],
+                'verb_hint' => 'duration question',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Для питання про тривалість використовуємо How long."],
+                'explanations' => [
+                    'How long' => "✅ Правильно! How long для тривалості. Приклад: How long have you been learning English?",
+                    'How much' => "❌ Неправильно. How much для кількості незліченного. Правильна відповідь: How long have you been learning English?",
+                    'How many' => "❌ Неправильно. How many для кількості зліченного. Правильна відповідь: How long have you been learning English?",
+                    'How often' => "❌ Неправильно. How often для частоти. Правильна відповідь: How long have you been learning English?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'B1',
+                'question' => "{a1} did she say that?",
+                'answers' => ['a1' => 'Why'],
+                'options' => ['Why', 'When', 'Where', 'How'],
+                'verb_hint' => 'reason in past',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Питання про причину дії у минулому."],
+                'explanations' => [
+                    'Why' => "✅ Правильно! Why для причини. Приклад: Why did she say that?",
+                    'When' => "❌ Неправильно. When для часу. Правильна відповідь: Why did she say that?",
+                    'Where' => "❌ Неправильно. Where для місця. Правильна відповідь: Why did she say that?",
+                    'How' => "❌ Неправильно. How для способу. Правильна відповідь: Why did she say that?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'B1',
+                'question' => "{a1} do you exercise per week?",
+                'answers' => ['a1' => 'How often'],
+                'options' => ['How often', 'How long', 'How much', 'How many'],
+                'verb_hint' => 'frequency question',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Для питання про частоту використовуємо How often."],
+                'explanations' => [
+                    'How often' => "✅ Правильно! How often для частоти. Приклад: How often do you exercise per week?",
+                    'How long' => "❌ Неправильно. How long для тривалості. Правильна відповідь: How often do you exercise per week?",
+                    'How much' => "❌ Неправильно. How much для кількості. Правильна відповідь: How often do you exercise per week?",
+                    'How many' => "❌ Неправильно. How many для кількості зліченного. Правильна відповідь: How often do you exercise per week?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            
+            // B2 Level
+            [
+                'level' => 'B2',
+                'question' => "{a1} would you handle this situation?",
+                'answers' => ['a1' => 'How'],
+                'options' => ['How', 'Why', 'When', 'Where'],
+                'verb_hint' => 'manner question',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Для питання про спосіб дії використовуємо How."],
+                'explanations' => [
+                    'How' => "✅ Правильно! How для способу дії. Приклад: How would you handle this situation?",
+                    'Why' => "❌ Неправильно. Why для причини. Правильна відповідь: How would you handle this situation?",
+                    'When' => "❌ Неправильно. When для часу. Правильна відповідь: How would you handle this situation?",
+                    'Where' => "❌ Неправильно. Where для місця. Правильна відповідь: How would you handle this situation?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'B2',
+                'question' => "{a1} did you realize the mistake?",
+                'answers' => ['a1' => 'When'],
+                'options' => ['When', 'Why', 'Where', 'How'],
+                'verb_hint' => 'time of realization',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Питання про момент усвідомлення."],
+                'explanations' => [
+                    'When' => "✅ Правильно! When для моменту дії. Приклад: When did you realize the mistake?",
+                    'Why' => "❌ Неправильно. Why для причини. Правильна відповідь: When did you realize the mistake?",
+                    'Where' => "❌ Неправильно. Where для місця. Правильна відповідь: When did you realize the mistake?",
+                    'How' => "❌ Неправильно. How для способу. Правильна відповідь: When did you realize the mistake?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'B2',
+                'question' => "{a1} should we prioritize?",
+                'answers' => ['a1' => 'What'],
+                'options' => ['What', 'Who', 'When', 'Where'],
+                'verb_hint' => 'thing selection',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Питання про вибір речі/завдання."],
+                'explanations' => [
+                    'What' => "✅ Правильно! What для вибору речі. Приклад: What should we prioritize?",
+                    'Who' => "❌ Неправильно. Who для людей. Правильна відповідь: What should we prioritize?",
+                    'When' => "❌ Неправильно. When для часу. Правильна відповідь: What should we prioritize?",
+                    'Where' => "❌ Неправильно. Where для місця. Правильна відповідь: What should we prioritize?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            
+            // C1 Level
+            [
+                'level' => 'C1',
+                'question' => "{a1} might have caused the delay?",
+                'answers' => ['a1' => 'What'],
+                'options' => ['What', 'Who', 'Why', 'When'],
+                'verb_hint' => 'cause speculation',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Здогадка про можливу причину (річ/подію)."],
+                'explanations' => [
+                    'What' => "✅ Правильно! What для речі/події. Приклад: What might have caused the delay?",
+                    'Who' => "❌ Неправильно. Who для людей. Правильна відповідь: What might have caused the delay?",
+                    'Why' => "❌ Неправильно. Why для причини, але вже є caused. Правильна відповідь: What might have caused the delay?",
+                    'When' => "❌ Неправильно. When для часу. Правильна відповідь: What might have caused the delay?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            [
+                'level' => 'C1',
+                'question' => "{a1} were you planning to inform us?",
+                'answers' => ['a1' => 'When'],
+                'options' => ['When', 'Why', 'How', 'Where'],
+                'verb_hint' => 'intended time',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "Питання про запланований момент."],
+                'explanations' => [
+                    'When' => "✅ Правильно! When для запланованого часу. Приклад: When were you planning to inform us?",
+                    'Why' => "❌ Неправильно. Why для причини. Правильна відповідь: When were you planning to inform us?",
+                    'How' => "❌ Неправильно. How для способу. Правильна відповідь: When were you planning to inform us?",
+                    'Where' => "❌ Неправильно. Where для місця. Правильна відповідь: When were you planning to inform us?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+            
+            // C2 Level
+            [
+                'level' => 'C2',
+                'question' => "{a1} ought we to have consulted?",
+                'answers' => ['a1' => 'Whom'],
+                'options' => ['Whom', 'Who', 'What', 'When'],
+                'verb_hint' => 'formal person object',
+                'detail' => 'wh_questions',
+                'hints' => ['a1' => "У формальній мові для об'єкта (кого) використовуємо Whom."],
+                'explanations' => [
+                    'Whom' => "✅ Правильно! Whom для об'єкта у формальній мові. Приклад: Whom ought we to have consulted?",
+                    'Who' => "❌ Неправильно. Who менш формальний. Правильна відповідь: Whom ought we to have consulted?",
+                    'What' => "❌ Неправильно. What для речей. Правильна відповідь: Whom ought we to have consulted?",
+                    'When' => "❌ Неправильно. When для часу. Правильна відповідь: Whom ought we to have consulted?",
+                ],
+                'source' => 'SET 2: Wh-Questions',
+            ],
+        ];
+    }
+    // SET 2: Subject Questions (~6 questions)
+    private function getSet2SubjectQuestions(): array
+    {
+        return [
+            // A2 Level
+            [
+                'level' => 'A2',
+                'question' => "Who {a1} this book?",
+                'answers' => ['a1' => 'wrote'],
+                'options' => ['wrote', 'did write', 'was writing', 'has written'],
+                'verb_hint' => 'past simple without auxiliary',
+                'detail' => 'subject_questions',
+                'hints' => ['a1' => "У питаннях про підмет не використовуємо допоміжне дієслово. Просто V2."],
+                'explanations' => [
+                    'wrote' => "✅ Правильно! У питаннях про підмет просто V2. Приклад: Who wrote this book?",
+                    'did write' => "❌ Неправильно. У питаннях про підмет не використовуємо did. Правильна відповідь: Who wrote this book?",
+                    'was writing' => "❌ Неправильно. Це Past Continuous, але потрібен простий факт. Правильна відповідь: Who wrote this book?",
+                    'has written' => "❌ Неправильно. Це Present Perfect, контекст вимагає Past Simple. Правильна відповідь: Who wrote this book?",
+                ],
+                'source' => 'SET 2: Subject Questions',
+            ],
+            [
+                'level' => 'A2',
+                'question' => "What {a1} on the table?",
+                'answers' => ['a1' => 'is'],
+                'options' => ['is', 'does', 'are', 'do'],
+                'verb_hint' => 'singular to be',
+                'detail' => 'subject_questions',
+                'hints' => ['a1' => "What як підмет — однина, використовуємо is."],
+                'explanations' => [
+                    'is' => "✅ Правильно! What (підмет) + is. Приклад: What is on the table?",
+                    'does' => "❌ Неправильно. Does не використовується з to be. Правильна відповідь: What is on the table?",
+                    'are' => "❌ Неправильно. Are для множини. Правильна відповідь: What is on the table?",
+                    'do' => "❌ Неправильно. Do не використовується з to be. Правильна відповідь: What is on the table?",
+                ],
+                'source' => 'SET 2: Subject Questions',
+            ],
+            
+            // B1 Level
+            [
+                'level' => 'B1',
+                'question' => "Who {a1} first?",
+                'answers' => ['a1' => 'arrived'],
+                'options' => ['arrived', 'did arrive', 'has arrived', 'was arriving'],
+                'verb_hint' => 'simple past',
+                'detail' => 'subject_questions',
+                'hints' => ['a1' => "У питаннях про підмет у Past Simple просто V2, без did."],
+                'explanations' => [
+                    'arrived' => "✅ Правильно! У питаннях про підмет просто V2. Приклад: Who arrived first?",
+                    'did arrive' => "❌ Неправильно. У питаннях про підмет не використовуємо did. Правильна відповідь: Who arrived first?",
+                    'has arrived' => "❌ Неправильно. Контекст вимагає Past Simple. Правильна відповідь: Who arrived first?",
+                    'was arriving' => "❌ Неправильно. Це Past Continuous. Правильна відповідь: Who arrived first?",
+                ],
+                'source' => 'SET 2: Subject Questions',
+            ],
+            [
+                'level' => 'B1',
+                'question' => "What {a1} the problem?",
+                'answers' => ['a1' => 'caused'],
+                'options' => ['caused', 'did cause', 'has caused', 'was causing'],
+                'verb_hint' => 'past without auxiliary',
+                'detail' => 'subject_questions',
+                'hints' => ['a1' => "What як підмет у Past Simple — просто V2."],
+                'explanations' => [
+                    'caused' => "✅ Правильно! What (підмет) + V2. Приклад: What caused the problem?",
+                    'did cause' => "❌ Неправильно. У питаннях про підмет не використовуємо did. Правильна відповідь: What caused the problem?",
+                    'has caused' => "❌ Неправильно. Контекст вимагає Past Simple. Правильна відповідь: What caused the problem?",
+                    'was causing' => "❌ Неправильно. Це Past Continuous. Правильна відповідь: What caused the problem?",
+                ],
+                'source' => 'SET 2: Subject Questions',
+            ],
+            
+            // B2 Level
+            [
+                'level' => 'B2',
+                'question' => "Who {a1} the decision?",
+                'answers' => ['a1' => 'made'],
+                'options' => ['made', 'did make', 'has made', 'was making'],
+                'verb_hint' => 'simple past action',
+                'detail' => 'subject_questions',
+                'hints' => ['a1' => "Питання про підмет у минулому — V2 без допоміжного."],
+                'explanations' => [
+                    'made' => "✅ Правильно! Who (підмет) + V2. Приклад: Who made the decision?",
+                    'did make' => "❌ Неправильно. У питаннях про підмет не використовуємо did. Правильна відповідь: Who made the decision?",
+                    'has made' => "❌ Неправильно. Контекст вимагає Past Simple. Правильна відповідь: Who made the decision?",
+                    'was making' => "❌ Неправильно. Це Past Continuous. Правильна відповідь: Who made the decision?",
+                ],
+                'source' => 'SET 2: Subject Questions',
+            ],
+            
+            // C1 Level
+            [
+                'level' => 'C1',
+                'question' => "Which factors {a1} contributed to the outcome?",
+                'answers' => ['a1' => 'have'],
+                'options' => ['have', 'has', 'did', 'were'],
+                'verb_hint' => 'plural perfect',
+                'detail' => 'subject_questions',
+                'hints' => ['a1' => "Which factors (підмет, множина) у Present Perfect."],
+                'explanations' => [
+                    'have' => "✅ Правильно! Множина як підмет + have. Приклад: Which factors have contributed to the outcome?",
+                    'has' => "❌ Неправильно. Has для однини. Правильна відповідь: Which factors have contributed to the outcome?",
+                    'did' => "❌ Неправильно. Контекст вимагає Perfect, не Past Simple. Правильна відповідь: Which factors have contributed to the outcome?",
+                    'were' => "❌ Неправильно. Were для Past Continuous. Правильна відповідь: Which factors have contributed to the outcome?",
+                ],
+                'source' => 'SET 2: Subject Questions',
+            ],
+        ];
+    }
+    // SET 2: Tag Questions (~8 questions)
+    private function getSet2TagQuestions(): array
+    {
+        return [
+            // A2 Level
+            [
+                'level' => 'A2',
+                'question' => "You like coffee, {a1}?",
+                'answers' => ['a1' => "don't you"],
+                'options' => ["don't you", 'do you', "aren't you", 'are you'],
+                'verb_hint' => 'negative tag after positive',
+                'detail' => 'tag_questions',
+                'hints' => ['a1' => "Після ствердного речення у Present Simple додаємо заперечний tag."],
+                'explanations' => [
+                    "don't you" => "✅ Правильно! Після ствердження заперечний tag. Приклад: You like coffee, don't you?",
+                    'do you' => "❌ Неправильно. Після ствердження потрібен заперечний tag. Правильна відповідь: You like coffee, don't you?",
+                    "aren't you" => "❌ Неправильно. Aren't для to be. Правильна відповідь: You like coffee, don't you?",
+                    'are you' => "❌ Неправильно. Are для to be, і потрібен заперечний tag. Правильна відповідь: You like coffee, don't you?",
+                ],
+                'source' => 'SET 2: Tag Questions',
+            ],
+            [
+                'level' => 'A2',
+                'question' => "She doesn't smoke, {a1}?",
+                'answers' => ['a1' => 'does she'],
+                'options' => ['does she', "doesn't she", 'is she', "isn't she"],
+                'verb_hint' => 'positive after negative',
+                'detail' => 'tag_questions',
+                'hints' => ['a1' => "Після заперечного речення додаємо ствердний tag."],
+                'explanations' => [
+                    'does she' => "✅ Правильно! Після заперечення ствердний tag. Приклад: She doesn't smoke, does she?",
+                    "doesn't she" => "❌ Неправильно. Після заперечення потрібен ствердний tag. Правильна відповідь: She doesn't smoke, does she?",
+                    'is she' => "❌ Неправильно. Is для to be. Правильна відповідь: She doesn't smoke, does she?",
+                    "isn't she" => "❌ Неправильно. Isn't для to be. Правильна відповідь: She doesn't smoke, does she?",
+                ],
+                'source' => 'SET 2: Tag Questions',
+            ],
+            
+            // B1 Level
+            [
+                'level' => 'B1',
+                'question' => "They can swim, {a1}?",
+                'answers' => ['a1' => "can't they"],
+                'options' => ["can't they", 'can they', "don't they", 'do they'],
+                'verb_hint' => 'modal tag',
+                'detail' => 'tag_questions',
+                'hints' => ['a1' => "Tag від модального can — can't."],
+                'explanations' => [
+                    "can't they" => "✅ Правильно! Tag від can — can't. Приклад: They can swim, can't they?",
+                    'can they' => "❌ Неправильно. Після ствердження потрібен заперечний tag. Правильна відповідь: They can swim, can't they?",
+                    "don't they" => "❌ Неправильно. Don't для Present Simple, але тут can. Правильна відповідь: They can swim, can't they?",
+                    'do they' => "❌ Неправильно. Do не використовується з can. Правильна відповідь: They can swim, can't they?",
+                ],
+                'source' => 'SET 2: Tag Questions',
+            ],
+            [
+                'level' => 'B1',
+                'question' => "He won't be late, {a1}?",
+                'answers' => ['a1' => 'will he'],
+                'options' => ['will he', "won't he", 'is he', "isn't he"],
+                'verb_hint' => 'future tag',
+                'detail' => 'tag_questions',
+                'hints' => ['a1' => "Після заперечного won't додаємо ствердний will."],
+                'explanations' => [
+                    'will he' => "✅ Правильно! Після won't ствердний will. Приклад: He won't be late, will he?",
+                    "won't he" => "❌ Неправильно. Після заперечення потрібен ствердний tag. Правильна відповідь: He won't be late, will he?",
+                    'is he' => "❌ Неправильно. Is не відповідає won't. Правильна відповідь: He won't be late, will he?",
+                    "isn't he" => "❌ Неправильно. Isn't не відповідає won't. Правильна відповідь: He won't be late, will he?",
+                ],
+                'source' => 'SET 2: Tag Questions',
+            ],
+            
+            // B2 Level
+            [
+                'level' => 'B2',
+                'question' => "You would help me, {a1}?",
+                'answers' => ['a1' => "wouldn't you"],
+                'options' => ["wouldn't you", 'would you', "won't you", 'will you'],
+                'verb_hint' => 'conditional tag',
+                'detail' => 'tag_questions',
+                'hints' => ['a1' => "Tag від would — wouldn't."],
+                'explanations' => [
+                    "wouldn't you" => "✅ Правильно! Tag від would — wouldn't. Приклад: You would help me, wouldn't you?",
+                    'would you' => "❌ Неправильно. Після ствердження потрібен заперечний tag. Правильна відповідь: You would help me, wouldn't you?",
+                    "won't you" => "❌ Неправильно. Won't від will, не від would. Правильна відповідь: You would help me, wouldn't you?",
+                    'will you' => "❌ Неправильно. Will не відповідає would. Правильна відповідь: You would help me, wouldn't you?",
+                ],
+                'source' => 'SET 2: Tag Questions',
+            ],
+            [
+                'level' => 'B2',
+                'question' => "She had left early, {a1}?",
+                'answers' => ['a1' => "hadn't she"],
+                'options' => ["hadn't she", 'had she', "didn't she", 'did she'],
+                'verb_hint' => 'past perfect tag',
+                'detail' => 'tag_questions',
+                'hints' => ['a1' => "Tag від Past Perfect had — hadn't."],
+                'explanations' => [
+                    "hadn't she" => "✅ Правильно! Tag від had — hadn't. Приклад: She had left early, hadn't she?",
+                    'had she' => "❌ Неправильно. Після ствердження потрібен заперечний tag. Правильна відповідь: She had left early, hadn't she?",
+                    "didn't she" => "❌ Неправильно. Didn't від Past Simple. Правильна відповідь: She had left early, hadn't she?",
+                    'did she' => "❌ Неправильно. Did не відповідає had. Правильна відповідь: She had left early, hadn't she?",
+                ],
+                'source' => 'SET 2: Tag Questions',
+            ],
+            
+            // C1 Level
+            [
+                'level' => 'C1',
+                'question' => "Nobody called, {a1}?",
+                'answers' => ['a1' => 'did they'],
+                'options' => ['did they', "didn't they", 'do they', "don't they"],
+                'verb_hint' => 'tag after nobody',
+                'detail' => 'tag_questions',
+                'hints' => ['a1' => "Після nobody (заперечне значення) використовуємо ствердний tag з they."],
+                'explanations' => [
+                    'did they' => "✅ Правильно! Після nobody ствердний tag з they. Приклад: Nobody called, did they?",
+                    "didn't they" => "❌ Неправильно. Після nobody (заперечне) потрібен ствердний tag. Правильна відповідь: Nobody called, did they?",
+                    'do they' => "❌ Неправильно. Do для Present Simple, але called — Past. Правильна відповідь: Nobody called, did they?",
+                    "don't they" => "❌ Неправильно. Don't не відповідає Past Simple. Правильна відповідь: Nobody called, did they?",
+                ],
+                'source' => 'SET 2: Tag Questions',
+            ],
+            
+            // C2 Level
+            [
+                'level' => 'C2',
+                'question' => "Let's proceed with the plan, {a1}?",
+                'answers' => ['a1' => 'shall we'],
+                'options' => ['shall we', "let's we", 'will we', "won't we"],
+                'verb_hint' => 'suggestion tag',
+                'detail' => 'tag_questions',
+                'hints' => ['a1' => "Після Let's використовуємо shall we."],
+                'explanations' => [
+                    'shall we' => "✅ Правильно! Після Let's використовуємо shall we. Приклад: Let's proceed with the plan, shall we?",
+                    "let's we" => "❌ Неправильно. Неправильна конструкція. Правильна відповідь: Let's proceed with the plan, shall we?",
+                    'will we' => "❌ Неправильно. Will можливий, але shallwe більш поширений. Правильна відповідь: Let's proceed with the plan, shall we?",
+                    "won't we" => "❌ Неправильно. Won't не використовується після Let's. Правильна відповідь: Let's proceed with the plan, shall we?",
+                ],
+                'source' => 'SET 2: Tag Questions',
+            ],
+        ];
+    }
+    // SET 2: Indirect Questions (~12 questions)
+    private function getSet2IndirectQuestions(): array
+    {
+        return [
+            // A2 Level
+            [
+                'level' => 'A2',
+                'question' => "Can you tell me where {a1}?",
+                'answers' => ['a1' => 'the station is'],
+                'options' => ['the station is', 'is the station', 'the is station', 'station is the'],
+                'verb_hint' => 'statement order',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях прямий порядок слів: підмет + дієслово."],
+                'explanations' => [
+                    'the station is' => "✅ Правильно! У непрямих питаннях прямий порядок. Приклад: Can you tell me where the station is?",
+                    'is the station' => "❌ Неправильно. У непрямих питаннях не використовується інверсія. Правильна відповідь: Can you tell me where the station is?",
+                    'the is station' => "❌ Неправильно. Неправильний порядок слів. Правильна відповідь: Can you tell me where the station is?",
+                    'station is the' => "❌ Неправильно. Повністю неправильний порядок. Правильна відповідь: Can you tell me where the station is?",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            [
+                'level' => 'A2',
+                'question' => "Do you know what {a1}?",
+                'answers' => ['a1' => 'time it is'],
+                'options' => ['time it is', 'it is time', 'is it time', 'time is it'],
+                'verb_hint' => 'no inversion',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях звичайний порядок слів без інверсії."],
+                'explanations' => [
+                    'time it is' => "✅ Правильно! Прямий порядок слів. Приклад: Do you know what time it is?",
+                    'it is time' => "❌ Неправильно. Неправильний порядок для питання про час. Правильна відповідь: Do you know what time it is?",
+                    'is it time' => "❌ Неправильно. У непрямих питаннях не використовується інверсія. Правильна відповідь: Do you know what time it is?",
+                    'time is it' => "❌ Неправильно. Неправильний порядок. Правильна відповідь: Do you know what time it is?",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            
+            // B1 Level
+            [
+                'level' => 'B1',
+                'question' => "Could you tell me how much {a1}?",
+                'answers' => ['a1' => 'it costs'],
+                'options' => ['it costs', 'costs it', 'does it cost', 'it does cost'],
+                'verb_hint' => 'subject before verb',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях підмет перед дієсловом, без do/does."],
+                'explanations' => [
+                    'it costs' => "✅ Правильно! Прямий порядок без do/does. Приклад: Could you tell me how much it costs?",
+                    'costs it' => "❌ Неправильно. Підмет має бути перед дієсловом. Правильна відповідь: Could you tell me how much it costs?",
+                    'does it cost' => "❌ Неправильно. У непрямих питаннях не використовуємо does. Правильна відповідь: Could you tell me how much it costs?",
+                    'it does cost' => "❌ Неправильно. Не потрібен does. Правильна відповідь: Could you tell me how much it costs?",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            [
+                'level' => 'B1',
+                'question' => "I wonder why {a1} late.",
+                'answers' => ['a1' => 'she was'],
+                'options' => ['she was', 'was she', 'she were', 'were she'],
+                'verb_hint' => 'statement word order',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "Після I wonder використовується прямий порядок слів."],
+                'explanations' => [
+                    'she was' => "✅ Правильно! Прямий порядок після I wonder. Приклад: I wonder why she was late.",
+                    'was she' => "❌ Неправильно. У непрямих питаннях не використовується інверсія. Правильна відповідь: I wonder why she was late.",
+                    'she were' => "❌ Неправильно. Were не використовується з she у цьому контексті. Правильна відповідь: I wonder why she was late.",
+                    'were she' => "❌ Неправильно. Інверсія та неправильна форма. Правильна відповідь: I wonder why she was late.",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            [
+                'level' => 'B1',
+                'question' => "Can you explain how {a1}?",
+                'answers' => ['a1' => 'this works'],
+                'options' => ['this works', 'works this', 'does this work', 'this does work'],
+                'verb_hint' => 'normal order',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях звичайний порядок слів без допоміжних дієслів."],
+                'explanations' => [
+                    'this works' => "✅ Правильно! Прямий порядок без does. Приклад: Can you explain how this works?",
+                    'works this' => "❌ Неправильно. Підмет перед дієсловом. Правильна відповідь: Can you explain how this works?",
+                    'does this work' => "❌ Неправильно. У непрямих питаннях не використовуємо does. Правильна відповідь: Can you explain how this works?",
+                    'this does work' => "❌ Неправильно. Не потрібен does. Правильна відповідь: Can you explain how this works?",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            
+            // B2 Level
+            [
+                'level' => 'B2',
+                'question' => "I'm not sure whether {a1} tomorrow.",
+                'answers' => ['a1' => 'he will come'],
+                'options' => ['he will come', 'will he come', 'he come will', 'will come he'],
+                'verb_hint' => 'statement order with modal',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "Після whether використовується прямий порядок слів."],
+                'explanations' => [
+                    'he will come' => "✅ Правильно! Прямий порядок після whether. Приклад: I'm not sure whether he will come tomorrow.",
+                    'will he come' => "❌ Неправильно. У непрямих питаннях не використовується інверсія. Правильна відповідь: I'm not sure whether he will come tomorrow.",
+                    'he come will' => "❌ Неправильно. Неправильний порядок слів. Правильна відповідь: I'm not sure whether he will come tomorrow.",
+                    'will come he' => "❌ Неправильно. Підмет має бути між will та come. Правильна відповідь: I'm not sure whether he will come tomorrow.",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            [
+                'level' => 'B2',
+                'question' => "Do you remember when {a1}?",
+                'answers' => ['a1' => 'they arrived'],
+                'options' => ['they arrived', 'arrived they', 'did they arrive', 'they did arrive'],
+                'verb_hint' => 'past without auxiliary',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях у минулому не використовуємо did."],
+                'explanations' => [
+                    'they arrived' => "✅ Правильно! Прямий порядок без did. Приклад: Do you remember when they arrived?",
+                    'arrived they' => "❌ Неправильно. Підмет перед дієсловом. Правильна відповідь: Do you remember when they arrived?",
+                    'did they arrive' => "❌ Неправильно. У непрямих питаннях не використовуємо did. Правильна відповідь: Do you remember when they arrived?",
+                    'they did arrive' => "❌ Неправильно. Не потрібен did. Правильна відповідь: Do you remember when they arrived?",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            [
+                'level' => 'B2',
+                'question' => "Could you clarify what {a1} next?",
+                'answers' => ['a1' => 'we should do'],
+                'options' => ['we should do', 'should we do', 'we do should', 'do we should'],
+                'verb_hint' => 'modal in statement order',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях модальне дієслово після підмета."],
+                'explanations' => [
+                    'we should do' => "✅ Правильно! Прямий порядок з should. Приклад: Could you clarify what we should do next?",
+                    'should we do' => "❌ Неправильно. У непрямих питаннях не використовується інверсія. Правильна відповідь: Could you clarify what we should do next?",
+                    'we do should' => "❌ Неправильно. Should має бути перед do. Правильна відповідь: Could you clarify what we should do next?",
+                    'do we should' => "❌ Неправильно. Повністю неправильний порядок. Правильна відповідь: Could you clarify what we should do next?",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            
+            // C1 Level
+            [
+                'level' => 'C1',
+                'question' => "I'd like to understand why {a1} this approach.",
+                'answers' => ['a1' => 'they chose'],
+                'options' => ['they chose', 'chose they', 'did they choose', 'they did choose'],
+                'verb_hint' => 'past statement order',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях у минулому прямий порядок без did."],
+                'explanations' => [
+                    'they chose' => "✅ Правильно! Прямий порядок без did. Приклад: I'd like to understand why they chose this approach.",
+                    'chose they' => "❌ Неправильно. Підмет перед дієсловом. Правильна відповідь: I'd like to understand why they chose this approach.",
+                    'did they choose' => "❌ Неправильно. У непрямих питаннях не використовуємо did. Правильна відповідь: I'd like to understand why they chose this approach.",
+                    'they did choose' => "❌ Неправильно. Не потрібен did. Правильна відповідь: I'd like to understand why they chose this approach.",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            [
+                'level' => 'C1',
+                'question' => "We need to determine if {a1} feasible.",
+                'answers' => ['a1' => 'this is'],
+                'options' => ['this is', 'is this', 'this be', 'be this'],
+                'verb_hint' => 'to be statement order',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "Після if використовується прямий порядок слів з is."],
+                'explanations' => [
+                    'this is' => "✅ Правильно! Прямий порядок після if. Приклад: We need to determine if this is feasible.",
+                    'is this' => "❌ Неправильно. У непрямих питаннях не використовується інверсія. Правильна відповідь: We need to determine if this is feasible.",
+                    'this be' => "❌ Неправильно. Be — неправильна форма, потрібен is. Правильна відповідь: We need to determine if this is feasible.",
+                    'be this' => "❌ Неправильно. Інверсія та неправильна форма. Правильна відповідь: We need to determine if this is feasible.",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            
+            // C2 Level
+            [
+                'level' => 'C2',
+                'question' => "One might wonder whether {a1} been considered.",
+                'answers' => ['a1' => 'all options have'],
+                'options' => ['all options have', 'have all options', 'all have options', 'options all have'],
+                'verb_hint' => 'perfect statement order',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях підмет перед have у Present Perfect."],
+                'explanations' => [
+                    'all options have' => "✅ Правильно! Прямий порядок з have. Приклад: One might wonder whether all options have been considered.",
+                    'have all options' => "❌ Неправильно. У непрямих питаннях не використовується інверсія. Правильна відповідь: One might wonder whether all options have been considered.",
+                    'all have options' => "❌ Неправильно. Неправильний порядок слів. Правильна відповідь: One might wonder whether all options have been considered.",
+                    'options all have' => "❌ Неправильно. All має бути перед options. Правильна відповідь: One might wonder whether all options have been considered.",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+            [
+                'level' => 'C2',
+                'question' => "The question remains as to how {a1} implemented.",
+                'answers' => ['a1' => 'this should be'],
+                'options' => ['this should be', 'should this be', 'this be should', 'be this should'],
+                'verb_hint' => 'passive modal statement',
+                'detail' => 'indirect_questions',
+                'hints' => ['a1' => "У непрямих питаннях прямий порядок навіть з пасивними модальними конструкціями."],
+                'explanations' => [
+                    'this should be' => "✅ Правильно! Прямий порядок з модальним пасивом. Приклад: The question remains as to how this should be implemented.",
+                    'should this be' => "❌ Неправильно. У непрямих питаннях не використовується інверсія. Правильна відповідь: The question remains as to how this should be implemented.",
+                    'this be should' => "❌ Неправильно. Should має бути перед be. Правильна відповідь: The question remains as to how this should be implemented.",
+                    'be this should' => "❌ Неправильно. Повністю неправильний порядок. Правильна відповідь: The question remains as to how this should be implemented.",
+                ],
+                'source' => 'SET 2: Indirect Questions',
+            ],
+        ];
+    }}
