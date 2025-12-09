@@ -90,7 +90,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         $this->seedQuestionData($items, $meta);
     }
 
-        private function buildQuestions(): array
+    private function buildQuestions(): array
     {
         $questions = [];
         
@@ -1531,7 +1531,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'detail' => 'yes_no',
                 'hints' => ['a1' => "By next week вказує на Future Perfect Passive."],
                 'explanations' => [
-                    'Will' => "✅ Правильно! Future Perfect Passive. Приклад: Will the project been completed by next week? (або Will the project have been completed...)",
+                    'Will' => "✅ Правильно! Future Perfect Passive. Приклад: Will the project have been completed by next week?",
                     'Has' => "❌ Неправильно. Has для Present Perfect. Правильна відповідь: Will the project have been completed by next week?",
                     'Have' => "❌ Неправильно. Have для Present Perfect. Правильна відповідь: Will the project have been completed by next week?",
                     'Is' => "❌ Неправильно. Is для Present. Правильна відповідь: Will the project have been completed by next week?",
@@ -2286,7 +2286,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'explanations' => [
                     'shall we' => "✅ Правильно! Після Let's використовуємо shall we. Приклад: Let's proceed with the plan, shall we?",
                     "let's we" => "❌ Неправильно. Неправильна конструкція. Правильна відповідь: Let's proceed with the plan, shall we?",
-                    'will we' => "❌ Неправильно. Will можливий, але shallwe більш поширений. Правильна відповідь: Let's proceed with the plan, shall we?",
+                    'will we' => "❌ Неправильно. Will можливий, але shall we більш поширений. Правильна відповідь: Let's proceed with the plan, shall we?",
                     "won't we" => "❌ Неправильно. Won't не використовується після Let's. Правильна відповідь: Let's proceed with the plan, shall we?",
                 ],
                 'source' => 'SET 2: Tag Questions',
