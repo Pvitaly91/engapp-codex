@@ -16,6 +16,7 @@ class TextBlock extends Model
         'css_class',
         'sort_order',
         'body',
+        'level',
         'seeder',
     ];
 

@@ -19,6 +19,7 @@ use Database\Seeders\chatGpt\GptPageTagAssignmentSeeder;
 use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
 use Database\Seeders\Page_v2\Articles\SomeAny\SomeAnyCategorySeeder;
 use Database\Seeders\Page_v2\Articles\SomeAny\SomeAnyPlacesTheorySeeder;
+use Database\Seeders\Page_v2\PageV2TextBlockLevelSeeder;
 use Database\Seeders\Page_v2\BasicGrammar\WordOrder\BasicWordOrderTheorySeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\BasicWordOrderComprehensiveV2Seeder;
@@ -178,6 +179,7 @@ class DatabaseSeeder extends Seeder
             BasicWordOrderTheorySeeder::class,
             GrammarPagesSeeder::class,
             GptPageTagAssignmentSeeder::class,
+            PageV2TextBlockLevelSeeder::class,
         ]);
     }
 }

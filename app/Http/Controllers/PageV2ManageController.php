@@ -171,6 +171,7 @@ class PageV2ManageController extends Controller
             'heading' => ['nullable', 'string', 'max:255'],
             'css_class' => ['nullable', 'string', 'max:255'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
+            'level' => ['nullable', 'string', 'max:16'],
             'body' => ['nullable', 'string'],
         ]);
 
@@ -184,6 +185,7 @@ class PageV2ManageController extends Controller
             'column' => $column === '' ? null : ($column ?? ($type === 'subtitle' ? 'header' : ($block?->column ?? null))),
             'heading' => $this->normaliseNullableString($data['heading'] ?? ($block?->heading ?? null)),
             'css_class' => $this->normaliseNullableString($data['css_class'] ?? ($block?->css_class ?? null)),
+            'level' => $this->normaliseNullableString($data['level'] ?? ($block?->level ?? null)),
             'body' => $this->normaliseNullableString($data['body'] ?? ($block?->body ?? null), preserveEmpty: true),
         ];
 
