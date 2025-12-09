@@ -113,7 +113,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'question' => "{a1} you like pizza?",
                 'answers' => ['a1' => 'Do'],
                 'options' => ['Do', 'Does', 'Are', 'Is'],
-                'verb_hint' => 'do',
+                'verb_hint' => 'auxiliary verb for questions',
                 'detail' => 'yes_no',
                 'hints' => ['a1' => "Для формування загального питання у Present Simple з you використовуємо Do. Формула: Do + you + базова форма дієслова."],
                 'explanations' => [
@@ -128,7 +128,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'question' => "{a1} she speak English?",
                 'answers' => ['a1' => 'Does'],
                 'options' => ['Does', 'Do', 'Is', 'Can'],
-                'verb_hint' => 'do/does',
+                'verb_hint' => 'auxiliary verb for 3rd person',
                 'detail' => 'yes_no',
                 'hints' => ['a1' => "Для формування загального питання у Present Simple з she використовуємо Does. Формула: Does + she + базова форма дієслова."],
                 'explanations' => [
@@ -173,7 +173,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'question' => "Where {a1} you live?",
                 'answers' => ['a1' => 'do'],
                 'options' => ['do', 'does', 'are', 'is'],
-                'verb_hint' => 'do',
+                'verb_hint' => 'auxiliary for present tense questions',
                 'detail' => 'wh_questions',
                 'hints' => ['a1' => "Для Wh-питання у Present Simple з you використовуємо do. Формула: Where + do + you + базова форма дієслова."],
                 'explanations' => [
@@ -188,7 +188,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'question' => "{a1} you go to school yesterday?",
                 'answers' => ['a1' => 'Did'],
                 'options' => ['Did', 'Do', 'Was', 'Were'],
-                'verb_hint' => 'do (past)',
+                'verb_hint' => 'auxiliary for past tense questions',
                 'detail' => 'yes_no',
                 'hints' => ['a1' => "Для формування загального питання у Past Simple використовуємо Did з усіма підметами."],
                 'explanations' => [
@@ -203,7 +203,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'question' => "When {a1} she arrive?",
                 'answers' => ['a1' => 'did'],
                 'options' => ['did', 'does', 'was', 'is'],
-                'verb_hint' => 'do (past)',
+                'verb_hint' => 'past tense auxiliary',
                 'detail' => 'wh_questions',
                 'hints' => ['a1' => "Для Wh-питання у Past Simple використовуємо did."],
                 'explanations' => [
@@ -345,7 +345,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'question' => "How many languages {a1} she speak?",
                 'answers' => ['a1' => 'does'],
                 'options' => ['does', 'do', 'is', 'are'],
-                'verb_hint' => 'do/does',
+                'verb_hint' => 'auxiliary for 3rd person singular',
                 'detail' => 'wh_questions',
                 'hints' => ['a1' => "Для питання про кількість у Present Simple з she використовуємо does."],
                 'explanations' => [
@@ -420,7 +420,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'question' => "How much {a1} it cost?",
                 'answers' => ['a1' => 'does'],
                 'options' => ['does', 'do', 'is', 'are'],
-                'verb_hint' => 'do/does',
+                'verb_hint' => 'auxiliary for it/he/she',
                 'detail' => 'wh_questions',
                 'hints' => ['a1' => "Для питання про ціну з it використовуємо does."],
                 'explanations' => [
