@@ -48,6 +48,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'level' => 'A2–B1',
                         'intro' => 'У цій темі ти навчишся <strong>правильно вибирати між comparative та superlative</strong> залежно від контексту та кількості об\'єктів порівняння.',
@@ -76,6 +77,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '1. Основна різниця у вживанні',
                         'intro' => 'Головна відмінність між comparative та superlative полягає в <strong>кількості об\'єктів</strong>, що порівнюються:',
@@ -107,6 +109,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '2. Коли використовувати Comparative',
                         'sections' => [
@@ -146,6 +149,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '3. Коли використовувати Superlative',
                         'sections' => [
@@ -185,6 +189,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'forms-grid',
                     'column' => 'left',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '4. Візуальне правило вибору',
                         'intro' => 'Простий алгоритм для вибору між comparative та superlative:',
@@ -199,6 +204,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'comparison-table',
                     'column' => 'right',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '5. Порівняння конструкцій',
                         'intro' => 'Паралельні приклади для кращого розуміння різниці:',
@@ -240,6 +246,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'right',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '6. Типові помилки україномовних',
                         'sections' => [
@@ -278,6 +285,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'usage-panels',
                     'column' => 'right',
+                    'level' => 'B2',
                     'body' => json_encode([
                         'title' => '7. Особливі випадки',
                         'sections' => [
@@ -317,6 +325,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'mistakes-grid',
                     'column' => 'right',
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '8. Контрольний список для перевірки',
                         'items' => [
@@ -354,6 +363,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'summary-list',
                     'column' => 'right',
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '9. Короткий конспект',
                         'items' => [
@@ -370,6 +380,7 @@ class AdjectivesComparativeVsSuperlativeTheorySeeder extends AdjectivePageSeeder
                 [
                     'type' => 'navigation-chips',
                     'column' => 'footer',
+                    'level' => 'A1',
                     'body' => json_encode([
                         'title' => 'Інші сторінки з категорії Прикметники та прислівники',
                         'items' => [
