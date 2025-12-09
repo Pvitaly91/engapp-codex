@@ -13,6 +13,7 @@ return new class extends Migration
             $table->foreignId('page_id')->constrained()->cascadeOnDelete();
             $table->string('locale', 8)->default('uk');
             $table->string('type', 32)->default('box');
+            $table->string('level', 16)->nullable();
             $table->string('column', 32)->nullable();
             $table->string('heading')->nullable();
             $table->string('css_class')->nullable();

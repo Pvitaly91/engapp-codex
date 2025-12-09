@@ -213,16 +213,6 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                         'title' => '5. Question Tags з HAVE/HAS',
                         'sections' => [
                             [
-                                'label' => 'HAVE GOT',
-                                'color' => 'blue',
-                                'description' => 'З <strong>have got</strong> (мати) використовуємо have/has у tag:',
-                                'examples' => [
-                                    ['en' => 'You have got a car, haven\'t you?', 'ua' => 'У тебе є машина, так?'],
-                                    ['en' => 'She has got a dog, hasn\'t she?', 'ua' => 'У неї є собака, правда?'],
-                                    ['en' => 'They haven\'t got time, have they?', 'ua' => 'У них немає часу, так?'],
-                                ],
-                            ],
-                            [
                                 'label' => 'Present Perfect',
                                 'color' => 'amber',
                                 'description' => 'У Present Perfect також використовуємо have/has:',
@@ -230,6 +220,16 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                                     ['en' => 'You have seen the movie, haven\'t you?', 'ua' => 'Ти бачив цей фільм, так?'],
                                     ['en' => 'She has finished, hasn\'t she?', 'ua' => 'Вона закінчила, правда?'],
                                     ['en' => 'They haven\'t arrived, have they?', 'ua' => 'Вони не приїхали, так?'],
+                                ],
+                            ],
+                            [
+                                'label' => 'HAVE GOT',
+                                'color' => 'blue',
+                                'description' => 'З <strong>have got</strong> (мати) використовуємо have/has у tag:',
+                                'examples' => [
+                                    ['en' => 'You have got a car, haven\'t you?', 'ua' => 'У тебе є машина, так?'],
+                                    ['en' => 'She has got a dog, hasn\'t she?', 'ua' => 'У неї є собака, правда?'],
+                                    ['en' => 'They haven\'t got time, have they?', 'ua' => 'У них немає часу, так?'],
                                 ],
                             ],
                             [

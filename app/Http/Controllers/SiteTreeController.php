@@ -40,8 +40,9 @@ class SiteTreeController extends Controller
     {
         $items = [];
 
+        // Get all theory categories (including those without pages)
         $categories = PageCategory::query()
-            ->whereHas('pages', fn ($query) => $query->forType('theory'))
+            ->where('type', 'theory')
             ->with(['pages' => fn ($query) => $query->forType('theory')])
             ->get();
 
@@ -64,7 +65,7 @@ class SiteTreeController extends Controller
             $query->where('variant_id', $variantId);
         }
         
-        return $query
+        $tree = $query
             ->with(['children' => function ($query) {
                 $query->with(['children' => function ($q) {
                     $q->with(['children' => function ($q2) {
@@ -73,6 +74,88 @@ class SiteTreeController extends Controller
                 }])->orderBy('sort_order');
             }])
             ->get();
+            
+        // Enrich tree items with category seeder information
+        $this->enrichTreeWithCategoryInfo($tree);
+        
+        return $tree;
+    }
+    
+    private function enrichTreeWithCategoryInfo($items): void
+    {
+        // Collect all unique linked page titles from the tree
+        $linkedTitles = $this->collectLinkedTitles($items);
+        
+        if (empty($linkedTitles)) {
+            return;
+        }
+        
+        // Fetch all categories at once with their parent relationships
+        $categories = PageCategory::whereIn('title', $linkedTitles)
+            ->with('parent.parent.parent')  // Load up to 3 levels of parents
+            ->get()
+            ->keyBy('title');
+        
+        // Enrich items with category information
+        $this->attachCategoryInfo($items, $categories);
+    }
+    
+    private function collectLinkedTitles($items): array
+    {
+        $titles = [];
+        $this->gatherLinkedTitles($items, $titles);
+        return array_unique($titles);
+    }
+    
+    private function gatherLinkedTitles($items, &$titles): void
+    {
+        foreach ($items as $item) {
+            if ($item->linked_page_title) {
+                $titles[] = $item->linked_page_title;
+            }
+            
+            if ($item->children && $item->children->count() > 0) {
+                $this->gatherLinkedTitles($item->children, $titles);
+            }
+        }
+    }
+    
+    private function attachCategoryInfo($items, $categories): void
+    {
+        foreach ($items as $item) {
+            if ($item->linked_page_title && isset($categories[$item->linked_page_title])) {
+                $category = $categories[$item->linked_page_title];
+                
+                if ($category->seeder) {
+                    $item->linked_category_path = $this->getCategoryPathWithSeeder($category);
+                    $item->linked_category_seeder = $category->seeder;
+                }
+            }
+            
+            if ($item->children && $item->children->count() > 0) {
+                $this->attachCategoryInfo($item->children, $categories);
+            }
+        }
+    }
+    
+    private function getCategoryPathWithSeeder(PageCategory $category): string
+    {
+        $path = [];
+        $current = $category;
+        $targetCategory = $category;  // The category we're linking to
+        
+        // Build path from current category to root
+        while ($current) {
+            $pathSegment = $current->title;
+            // Only add seeder info to the target category, not all ancestors
+            if ($current->id === $targetCategory->id && $current->seeder) {
+                $pathSegment .= "(Сидер {$current->seeder})";
+            }
+            array_unshift($path, $pathSegment);
+            $current = $current->parent;
+        }
+        
+        return implode(' > ', $path);
     }
 
     public function storeVariant(Request $request): JsonResponse
@@ -273,6 +356,16 @@ class SiteTreeController extends Controller
         }
         if (array_key_exists('linked_page_url', $validated) && $validated['linked_page_url'] === '') {
             $validated['linked_page_url'] = null;
+        }
+        
+        // If manually linking/unlinking a page, set link_method to 'manual'
+        if (array_key_exists('linked_page_title', $validated) || array_key_exists('linked_page_url', $validated)) {
+            if ($validated['linked_page_title'] !== null && $validated['linked_page_url'] !== null) {
+                $validated['link_method'] = 'manual';
+            } else {
+                // If unlinking, clear the link_method
+                $validated['link_method'] = null;
+            }
         }
 
         try {

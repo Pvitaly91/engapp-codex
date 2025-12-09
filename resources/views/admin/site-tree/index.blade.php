@@ -265,7 +265,12 @@
                                                     
                                                     {{-- Exists in pages indicator with link --}}
                                                     <template x-if="isLinked(item)">
-                                                        <a :href="getLinkedUrl(item)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                        <a :href="getLinkedUrl(item)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" :title="'Відкрити на сайті | Метод: ' + getLinkMethodLabel(item)">✓</a>
+                                                    </template>
+                                                    
+                                                    {{-- Link method badge --}}
+                                                    <template x-if="isLinked(item) && item.link_method">
+                                                        <span class="flex-shrink-0 inline-flex items-center rounded-full px-1.5 py-0.5 text-xs font-medium" :class="getLinkMethodBadgeClass(item.link_method)" x-text="getLinkMethodLabel(item)" :title="getLinkMethodTooltip(item.link_method)"></span>
                                                     </template>
                                                 </div>
 
@@ -412,7 +417,12 @@
                                                                 
                                                                 {{-- Exists in pages indicator with link --}}
                                                                 <template x-if="isLinked(child)">
-                                                                    <a :href="getLinkedUrl(child)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                                    <a :href="getLinkedUrl(child)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" :title="'Відкрити на сайті | Метод: ' + getLinkMethodLabel(child)">✓</a>
+                                                                </template>
+                                                                
+                                                                {{-- Link method badge --}}
+                                                                <template x-if="isLinked(child) && child.link_method">
+                                                                    <span class="flex-shrink-0 inline-flex items-center rounded-full px-1.5 py-0.5 text-xs font-medium" :class="getLinkMethodBadgeClass(child.link_method)" x-text="getLinkMethodLabel(child)" :title="getLinkMethodTooltip(child.link_method)"></span>
                                                                 </template>
                                                             </div>
 
@@ -501,7 +511,12 @@
                                                                         
                                                                         {{-- Exists in pages indicator with link --}}
                                                                         <template x-if="isLinked(grandchild)">
-                                                                            <a :href="getLinkedUrl(grandchild)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" title="Відкрити на сайті">✓</a>
+                                                                            <a :href="getLinkedUrl(grandchild)" target="_blank" class="flex-shrink-0 inline-flex items-center rounded-full bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 hover:bg-green-200 transition" :title="'Відкрити на сайті | Метод: ' + getLinkMethodLabel(grandchild)">✓</a>
+                                                                        </template>
+                                                                        
+                                                                        {{-- Link method badge --}}
+                                                                        <template x-if="isLinked(grandchild) && grandchild.link_method">
+                                                                            <span class="flex-shrink-0 inline-flex items-center rounded-full px-1.5 py-0.5 text-xs font-medium" :class="getLinkMethodBadgeClass(grandchild.link_method)" x-text="getLinkMethodLabel(grandchild)" :title="getLinkMethodTooltip(grandchild.link_method)"></span>
                                                                         </template>
                                                                     </div>
 
@@ -945,6 +960,41 @@
                     const match = this.findExistingMatch(item.title);
                     return match ? match.url : null;
                 },
+                
+                getLinkMethodLabel(item) {
+                    if (!item || !item.link_method) return 'авто';
+                    
+                    const labels = {
+                        'exact_title': 'точна назва',
+                        'seeder_name': 'сидер',
+                        'slug_match': 'slug',
+                        'manual': 'вручну'
+                    };
+                    
+                    return labels[item.link_method] || item.link_method;
+                },
+                
+                getLinkMethodBadgeClass(linkMethod) {
+                    const classes = {
+                        'exact_title': 'bg-green-100 text-green-700',
+                        'seeder_name': 'bg-purple-100 text-purple-700',
+                        'slug_match': 'bg-yellow-100 text-yellow-700',
+                        'manual': 'bg-blue-100 text-blue-700'
+                    };
+                    
+                    return classes[linkMethod] || 'bg-gray-100 text-gray-700';
+                },
+                
+                getLinkMethodTooltip(linkMethod) {
+                    const tooltips = {
+                        'exact_title': 'Зв\'язано автоматично: точна відповідність назви',
+                        'seeder_name': 'Зв\'язано автоматично: відповідність імені сидера',
+                        'slug_match': 'Зв\'язано автоматично: відповідність slug',
+                        'manual': 'Зв\'язано вручну користувачем'
+                    };
+                    
+                    return tooltips[linkMethod] || 'Невідомий метод зв\'язування';
+                },
 
                 findExistingMatch(title) {
                     const cleanTitle = title.replace(/^\d+\.\s*/, '').replace(/^\d+\.\d+\s*/, '').trim();
@@ -1116,19 +1166,87 @@
                             `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
                             '- Додай title і tags для категорії, дотримуйся стилю існуючих категорійних сидерів.',
                             '- Мова назв і тегів — українська, без плейсхолдерів.',
+                            '- Оціни інформацію в кожному text_block по рівню, на який вона розрахована, від A1 до C2.',
+                            '- Записуй в поле seeder text_block назву класу сидера, з якого цей text_block записаний.',
                         ].join('\n');
                     }
 
-                    return [
-                        '- Створи PHP сидер сторінки у папці database/seeders/Page_v2 (/Pages_V2), за аналогією з іншими сидерами.',
-                        '- Сторінка має бути в тій самій категорійній гілці, що й у дереві (врахуй шлях батьківських категорій у структурі папок).',
-                        parentPath ? `- Категорія сторінки: "${parentPath}".` : '- Це сторінка верхнього рівня.',
-                        `- Тип сторінки: theory (method type() має повертати \"theory\").`,
-                        `- Тема сторінки: "${topic}". Використай цю тему як основу контенту та блоків.`,
-                        `- Використай slug з латиницею: ${slug || '[вкажи slug латиницею]'} у методі slug().`,
-                        '- Додай title, subtitle, релевантні tags (масив рядків) і blocks у page() за структурою інших сидерів Page_v2.',
-                        '- Мова контенту — українська, без плейсхолдерів.',
-                    ].join('\n');
+                    // Get parent item to check for category seeder info (cache the lookup)
+                    const parentId = this.getParentId(item.id);
+                    const parent = parentId ? this.findItemById(this.tree, parentId) : null;
+                    let categoryInfo = parentPath;
+                    
+                    // If parent has linked category seeder info, use it
+                    if (parent && parent.linked_category_seeder) {
+                        categoryInfo = `${parentPath}(Сидер ${parent.linked_category_seeder})`;
+                    }
+                    
+                    // Build seeder class name hint based on parent's seeder for the theme line
+                    let themeInfo = topic;
+                    if (parent && parent.linked_category_seeder) {
+                        const seederClassHint = this.buildSeederClassNameHint(parent.linked_category_seeder);
+                        if (seederClassHint) {
+                            themeInfo = `${categoryInfo} > ${item.title}(${seederClassHint})`;
+                        }
+                    }
+
+                    return `PROJECT CONTEXT:
+- The project uses Page_v2 seeders located in database/seeders/Page_v2 (and /Pages_V2).\n- Follow the structure, namespaces and coding style of existing Page_v2 seeders.\n\nREQUIREMENTS:\n\n1) File location and category\n- Create a new PHP seeder file under database/seeders/Page_v2 in the SAME category branch as used for the category:\n  "${categoryInfo || 'категорія не визначена'}".\n- Use the same folder path and nesting conventions as other seeders in this category.\n\n2) Class and basic methods\n- Create a seeder class consistent with naming in other Page_v2 seeders\n  (наприклад, щось на кшталт ${themeInfo ? `${themeInfo.replace(/[^a-z0-9]/gi, '')}TheorySeeder` : '[вкажи назву класу]'} — це приклад, адаптуй до стилю проєкту).\n- The method type() must return the string: "theory".\n- The method slug() must return the string: "${slug || '[вкажи slug латиницею]'}".\n\n3) Page metadata (page() method)\nУ методі page() поверни масив за структурою інших сидерів Page_v2, обов'язково додай:\n- 'title'    => назва сторінки українською\n- 'subtitle' => короткий опис українською\n- 'category' => "${categoryInfo || 'категорія не визначена'}"\n- 'tags'     => масив релевантних рядків українською (наприклад, слова ключові для теми)\n- 'blocks'   => масив контентних блоків (text_blocks або відповідний ключ, як у теоретичних сторінках)\n\n4) Topic and content\n- Тема сторінки: "${themeInfo}". Використай цю тему як основну для всього контенту та блоків (пояснення, приклади, типові помилки, примітки тощо).\n- ВЕСЬ контент у сидері (title, subtitle, tags, усі блоки, приклади, нотатки, пояснення) має бути написаний українською.\n- Не використовуй плейсхолдери на кшталт "TODO", "...", "lorem ipsum" тощо.\n\n5) text_blocks structure\nДля кожного елемента в text_blocks (або відповідному масиві blocks для теорії) вкажи мінімум:\n  - 'type'   => тип блоку (наприклад, "text", "example", "note" тощо, у стилі наявних сидерів)\n  - 'content'=> реальний український вміст блоку\n  - 'level'  => CEFR-рівень для цього блоку: один із "A1", "A2", "B1", "B2", "C1", "C2"\n  - 'seeder' => точна назва PHP-класу цього сидера\nВАЖЛИВО:\n  - Оціни рівень CEFR ІНДИВІДУАЛЬНО для кожного text_block і запиши його в 'level'.\n  - У 'seeder' завжди пиши назву поточного класу сидера, з якого цей text_block створюється.\n\n6) General code style\n- Дотримуйся того ж namespace, імпортів і базового класу, що й інші сидери Page_v2.\n- Якщо в інших сидерах є declare(strict_types=1); — додай і тут.\n- Не залишай обов'язкові поля порожніми чи null, якщо інші сидери їх визначають.\n- Виведи ЛИШЕ валідний PHP-код класу сидера (без зайвих коментарів чи пояснень поза класом).`;
+
+                },
+                
+                findItemById(items, id) {
+                    for (const item of items) {
+                        if (item.id === id) {
+                            return item;
+                        }
+                        if (item.children && item.children.length > 0) {
+                            const found = this.findItemById(item.children, id);
+                            if (found) return found;
+                        }
+                    }
+                    return null;
+                },
+                
+                getParentId(itemId) {
+                    // Note: This performs a tree traversal on each call.
+                    // For prompt generation (user-initiated, infrequent action), this is acceptable.
+                    // If used more frequently, consider building a parent lookup map during init().
+                    const findParent = (items, targetId) => {
+                        for (const item of items) {
+                            if (item.children && item.children.some(child => child.id === targetId)) {
+                                return item.id;
+                            }
+                            if (item.children && item.children.length > 0) {
+                                const parentId = findParent(item.children, targetId);
+                                if (parentId) return parentId;
+                            }
+                        }
+                        return null;
+                    };
+                    return findParent(this.tree, itemId);
+                },
+                
+                buildSeederClassNameHint(parentSeeder) {
+                    if (!parentSeeder) return null;
+                    
+                    // Extract namespace path from parent seeder class name
+                    // Input: "Database\\Seeders\\Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestionsCategorySeeder"
+                    // Regex extracts the path between "Page_v2\\" and the last class name
+                    // Result: "QuestionsNegations\\TypesOfQuestions" (without Page_v2\\ prefix or CategorySeeder suffix)
+                    // Final output: "Page_v2\\QuestionsNegations\\TypesOfQuestions\\TypesOfQuestions"
+                    
+                    const PAGE_V2_PREFIX = 'Page_v2\\';
+                    const seederMatch = parentSeeder.match(/Page_v2\\(.+)\\[^\\]+$/);
+                    if (!seederMatch) return null;
+                    
+                    const pathAfterPageV2 = seederMatch[1];  // Path without Page_v2\\ prefix: "QuestionsNegations\\TypesOfQuestions"
+                    const pathParts = pathAfterPageV2.split('\\');
+                    const lastPart = pathParts[pathParts.length - 1];  // "TypesOfQuestions"
+                    
+                    const namespacePath = PAGE_V2_PREFIX + pathAfterPageV2;  // Reconstruct: "Page_v2\\QuestionsNegations\\TypesOfQuestions"
+                    
+                    return `назва класу сидера повинна починатися на ${namespacePath}\\${lastPart}....php`;
                 },
 
                 copySeederPrompt(item) {

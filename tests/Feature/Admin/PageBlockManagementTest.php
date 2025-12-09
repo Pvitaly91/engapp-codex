@@ -64,11 +64,13 @@ class PageBlockManagementTest extends TestCase
                 ->cascadeOnDelete();
             $table->string('locale', 8)->default('uk');
             $table->string('type', 32)->default('box');
+            $table->string('level', 16)->nullable();
             $table->string('column', 32)->nullable();
             $table->string('heading')->nullable();
             $table->string('css_class')->nullable();
             $table->unsignedInteger('sort_order')->default(0);
             $table->longText('body')->nullable();
+            $table->string('seeder')->nullable();
             $table->timestamps();
         });
     }

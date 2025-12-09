@@ -205,21 +205,21 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                         'title' => '5. Короткі відповіді з HAVE/HAS',
                         'sections' => [
                             [
-                                'label' => 'HAVE GOT',
-                                'color' => 'blue',
-                                'description' => 'З <strong>have got</strong> повторюємо have/has:',
-                                'examples' => [
-                                    ['en' => 'Q: Have you got a car? — A: Yes, I have. / No, I haven\'t.', 'ua' => 'Питання з have → відповідь з have'],
-                                    ['en' => 'Q: Has she got a dog? — A: Yes, she has. / No, she hasn\'t.', 'ua' => 'Питання з has → відповідь з has'],
-                                ],
-                            ],
-                            [
                                 'label' => 'Present Perfect',
                                 'color' => 'amber',
                                 'description' => 'У Present Perfect також використовуємо have/has:',
                                 'examples' => [
                                     ['en' => 'Q: Have you seen it? — A: Yes, I have. / No, I haven\'t.', 'ua' => 'Питання з have → відповідь з have'],
                                     ['en' => 'Q: Has she finished? — A: Yes, she has. / No, she hasn\'t.', 'ua' => 'Питання з has → відповідь з has'],
+                                ],
+                            ],
+                            [
+                                'label' => 'HAVE GOT',
+                                'color' => 'blue',
+                                'description' => 'З <strong>have got</strong> повторюємо have/has:',
+                                'examples' => [
+                                    ['en' => 'Q: Have you got a car? — A: Yes, I have. / No, I haven\'t.', 'ua' => 'Питання з have → відповідь з have'],
+                                    ['en' => 'Q: Has she got a dog? — A: Yes, she has. / No, she hasn\'t.', 'ua' => 'Питання з has → відповідь з has'],
                                 ],
                             ],
                             [

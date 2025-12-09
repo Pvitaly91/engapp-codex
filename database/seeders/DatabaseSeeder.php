@@ -19,6 +19,7 @@ use Database\Seeders\chatGpt\GptPageTagAssignmentSeeder;
 use Database\Seeders\DragDrop\QuestionWordsDragDropSeeder;
 use Database\Seeders\Page_v2\Articles\SomeAny\SomeAnyCategorySeeder;
 use Database\Seeders\Page_v2\Articles\SomeAny\SomeAnyPlacesTheorySeeder;
+use Database\Seeders\Page_v2\PageV2TextBlockLevelSeeder;
 use Database\Seeders\Page_v2\BasicGrammar\WordOrder\BasicWordOrderTheorySeeder;
 use Database\Seeders\Pages\GrammarPagesSeeder;
 use Database\Seeders\V2\BasicWordOrderComprehensiveV2Seeder;
@@ -40,6 +41,7 @@ use Database\Seeders\V2\Modals\ModalDeductionPossibilityPracticeV22MatchSeeder;
 use Database\Seeders\V2\Modals\ModalDeductionPossibilityV2Seeder;
 use Database\Seeders\V2\Modals\ModalObligationNecessityV2Seeder;
 use Database\Seeders\V2\PastTimeClausesMixedTestSeeder;
+use Database\Seeders\V2\QuestionsDifferentTypesV2Seeder;
 use Database\Seeders\V2\SecondConditionalTestV2Seeder;
 use Database\Seeders\V2\ThirdConditionalPracticeV2Seeder;
 
@@ -171,11 +173,13 @@ class DatabaseSeeder extends Seeder
             ModalVerbsComprehensiveAiSeeder::class,
             ModalVerbsModalOnlyAiSeeder::class,
             QuestionWordsDragDropSeeder::class,
+            QuestionsDifferentTypesV2Seeder::class,
             SomeAnyCategorySeeder::class,
             SomeAnyPlacesTheorySeeder::class,
             BasicWordOrderTheorySeeder::class,
             GrammarPagesSeeder::class,
             GptPageTagAssignmentSeeder::class,
+            PageV2TextBlockLevelSeeder::class,
         ]);
     }
 }
