@@ -292,7 +292,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
     }
 
     // Placeholder methods for other levels - to be implemented
-        private function getA2Questions(): array
+    private function getA2Questions(): array
     {
         return [
             [
