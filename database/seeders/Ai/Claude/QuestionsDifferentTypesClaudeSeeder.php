@@ -477,7 +477,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ],
         ];
     }
-        private function getB1Questions(): array
+    private function getB1Questions(): array
     {
         return [
             // 1. Present Perfect - Have/Has
@@ -685,7 +685,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ],
         ];
     }
-        private function getB2Questions(): array
+    private function getB2Questions(): array
     {
         return [
             // 1. Past Perfect
@@ -893,7 +893,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ],
         ];
     }
-        private function getC1Questions(): array
+    private function getC1Questions(): array
     {
         return [
             // 1. Negative Inversion - Rarely
@@ -1101,7 +1101,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ],
         ];
     }
-        private function getC2Questions(): array
+    private function getC2Questions(): array
     {
         return [
             // 1. Cleft Sentence
