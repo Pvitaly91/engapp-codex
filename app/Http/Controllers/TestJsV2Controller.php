@@ -14,7 +14,7 @@ use App\Services\VirtualSavedTest;
 class TestJsV2Controller extends Controller
 {
     private const JS_VIEWS = [
-        'saved-test-js-v2',
+        'js-v2',
     ];
 
     public function __construct(
@@ -26,7 +26,7 @@ class TestJsV2Controller extends Controller
 
     public function show($slug)
     {
-        return $this->renderSavedTestJsView($slug, 'saved-test-js-v2');
+        return $this->renderSavedTestJsView($slug, 'js-v2');
     }
 
     private function renderSavedTestJsView(string $slug, string $view)
