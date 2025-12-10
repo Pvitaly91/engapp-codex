@@ -39,6 +39,43 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             'negative_questions' => Tag::firstOrCreate(['name' => 'Negative Questions'], ['category' => 'English Grammar Detail'])->id,
         ];
 
+        // CEFR Level tags for filtering by proficiency
+        $levelTags = [
+            'A1' => Tag::firstOrCreate(['name' => 'CEFR A1'], ['category' => 'English Grammar Level'])->id,
+            'A2' => Tag::firstOrCreate(['name' => 'CEFR A2'], ['category' => 'English Grammar Level'])->id,
+            'B1' => Tag::firstOrCreate(['name' => 'CEFR B1'], ['category' => 'English Grammar Level'])->id,
+            'B2' => Tag::firstOrCreate(['name' => 'CEFR B2'], ['category' => 'English Grammar Level'])->id,
+            'C1' => Tag::firstOrCreate(['name' => 'CEFR C1'], ['category' => 'English Grammar Level'])->id,
+            'C2' => Tag::firstOrCreate(['name' => 'CEFR C2'], ['category' => 'English Grammar Level'])->id,
+        ];
+
+        // Grammar tense/structure tags
+        $tenseTags = [
+            'present_simple' => Tag::firstOrCreate(['name' => 'Present Simple'], ['category' => 'English Grammar Tense'])->id,
+            'past_simple' => Tag::firstOrCreate(['name' => 'Past Simple'], ['category' => 'English Grammar Tense'])->id,
+            'future_simple' => Tag::firstOrCreate(['name' => 'Future Simple'], ['category' => 'English Grammar Tense'])->id,
+            'present_continuous' => Tag::firstOrCreate(['name' => 'Present Continuous'], ['category' => 'English Grammar Tense'])->id,
+            'past_continuous' => Tag::firstOrCreate(['name' => 'Past Continuous'], ['category' => 'English Grammar Tense'])->id,
+            'present_perfect' => Tag::firstOrCreate(['name' => 'Present Perfect'], ['category' => 'English Grammar Tense'])->id,
+            'past_perfect' => Tag::firstOrCreate(['name' => 'Past Perfect'], ['category' => 'English Grammar Tense'])->id,
+            'present_perfect_continuous' => Tag::firstOrCreate(['name' => 'Present Perfect Continuous'], ['category' => 'English Grammar Tense'])->id,
+            'past_perfect_continuous' => Tag::firstOrCreate(['name' => 'Past Perfect Continuous'], ['category' => 'English Grammar Tense'])->id,
+            'modal_verbs' => Tag::firstOrCreate(['name' => 'Modal Verbs'], ['category' => 'English Grammar Tense'])->id,
+            'to_be' => Tag::firstOrCreate(['name' => 'To Be'], ['category' => 'English Grammar Tense'])->id,
+        ];
+
+        // Auxiliary verb type tags
+        $auxiliaryTags = [
+            'do_does_did' => Tag::firstOrCreate(['name' => 'Do/Does/Did'], ['category' => 'English Grammar Auxiliary'])->id,
+            'be_auxiliary' => Tag::firstOrCreate(['name' => 'Be (am/is/are/was/were)'], ['category' => 'English Grammar Auxiliary'])->id,
+            'have_has_had' => Tag::firstOrCreate(['name' => 'Have/Has/Had'], ['category' => 'English Grammar Auxiliary'])->id,
+            'will_would' => Tag::firstOrCreate(['name' => 'Will/Would'], ['category' => 'English Grammar Auxiliary'])->id,
+            'can_could' => Tag::firstOrCreate(['name' => 'Can/Could'], ['category' => 'English Grammar Auxiliary'])->id,
+            'should' => Tag::firstOrCreate(['name' => 'Should'], ['category' => 'English Grammar Auxiliary'])->id,
+            'must' => Tag::firstOrCreate(['name' => 'Must'], ['category' => 'English Grammar Auxiliary'])->id,
+            'may_might' => Tag::firstOrCreate(['name' => 'May/Might'], ['category' => 'English Grammar Auxiliary'])->id,
+        ];
+
         $levelDifficulty = [
             'A1' => 1,
             'A2' => 2,
@@ -70,8 +107,21 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ];
 
             $tagIds = [$themeTag];
+            
+            // Add detail tag (question type)
             if (isset($question['detail']) && isset($detailTags[$question['detail']])) {
                 $tagIds[] = $detailTags[$question['detail']];
+            }
+            
+            // Add CEFR level tag
+            if (isset($question['level']) && isset($levelTags[$question['level']])) {
+                $tagIds[] = $levelTags[$question['level']];
+            }
+            
+            // Add tense/structure and auxiliary tags based on verb_hint
+            if (isset($question['verb_hint'])) {
+                $additionalTags = $this->getTagsFromVerbHint($question['verb_hint'], $tenseTags, $auxiliaryTags);
+                $tagIds = array_merge($tagIds, $additionalTags);
             }
 
             // Determine source_id based on question detail/topic
@@ -105,6 +155,80 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         }
 
         $this->seedQuestionData($items, $meta);
+    }
+
+    /**
+     * Extract tense/structure and auxiliary tags from verb_hint
+     */
+    private function getTagsFromVerbHint(string $verbHint, array $tenseTags, array $auxiliaryTags): array
+    {
+        $tags = [];
+        $hint = strtolower($verbHint);
+
+        // Tense/structure tags
+        if (preg_match('/present simple|auxiliary.*questions|auxiliary for 3rd person/', $hint)) {
+            $tags[] = $tenseTags['present_simple'];
+            $tags[] = $auxiliaryTags['do_does_did'];
+        }
+        if (preg_match('/past simple|past.*auxiliary|did|past event|past without auxiliary/', $hint)) {
+            $tags[] = $tenseTags['past_simple'];
+            if (!preg_match('/without auxiliary/', $hint)) {
+                $tags[] = $auxiliaryTags['do_does_did'];
+            }
+        }
+        if (preg_match('/future|will/', $hint) && !preg_match('/would/', $hint)) {
+            $tags[] = $tenseTags['future_simple'];
+            $tags[] = $auxiliaryTags['will_would'];
+        }
+        if (preg_match('/present continuous|be \+ -ing|continuous tense/', $hint) && !preg_match('/perfect/', $hint)) {
+            $tags[] = $tenseTags['present_continuous'];
+            $tags[] = $auxiliaryTags['be_auxiliary'];
+        }
+        if (preg_match('/past continuous/', $hint)) {
+            $tags[] = $tenseTags['past_continuous'];
+            $tags[] = $auxiliaryTags['be_auxiliary'];
+        }
+        if (preg_match('/present perfect(?! continuous)|perfect passive|perfect tense|experience question|life experience/', $hint)) {
+            $tags[] = $tenseTags['present_perfect'];
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+        if (preg_match('/past perfect(?! continuous)/', $hint)) {
+            $tags[] = $tenseTags['past_perfect'];
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+        if (preg_match('/present perfect continuous|perfect continuous/', $hint) && !preg_match('/past perfect/', $hint)) {
+            $tags[] = $tenseTags['present_perfect_continuous'];
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+        if (preg_match('/past perfect continuous/', $hint)) {
+            $tags[] = $tenseTags['past_perfect_continuous'];
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+        if (preg_match('/\bto be\b|be \(|^be$|state with|weather/', $hint)) {
+            $tags[] = $tenseTags['to_be'];
+            $tags[] = $auxiliaryTags['be_auxiliary'];
+        }
+        if (preg_match('/modal|can|could|should|must|may|might|would|ought/', $hint)) {
+            $tags[] = $tenseTags['modal_verbs'];
+            
+            if (preg_match('/\bcan\b|could/', $hint)) {
+                $tags[] = $auxiliaryTags['can_could'];
+            }
+            if (preg_match('/should/', $hint)) {
+                $tags[] = $auxiliaryTags['should'];
+            }
+            if (preg_match('/must/', $hint)) {
+                $tags[] = $auxiliaryTags['must'];
+            }
+            if (preg_match('/\bmay\b|might/', $hint)) {
+                $tags[] = $auxiliaryTags['may_might'];
+            }
+            if (preg_match('/would|wouldn\'t/', $hint)) {
+                $tags[] = $auxiliaryTags['will_would'];
+            }
+        }
+
+        return array_unique($tags);
     }
 
     private function buildQuestions(): array
