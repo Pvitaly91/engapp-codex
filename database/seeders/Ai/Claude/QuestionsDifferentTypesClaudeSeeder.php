@@ -13,10 +13,30 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
     {
         $categoryId = Category::firstOrCreate(['name' => 'Questions - Different Types'])->id;
 
-        $sourceId = Source::firstOrCreate(['name' => 'AI generated: Questions: Different types (SET 1)'])->id;
+        // Create separate sources for each question topic
+        $sources = [
+            'yes_no' => Source::firstOrCreate(['name' => 'AI generated: Yes/No Questions (General Questions)'])->id,
+            'wh_questions' => Source::firstOrCreate(['name' => 'AI generated: Wh-Questions (Special Questions)'])->id,
+            'subject_questions' => Source::firstOrCreate(['name' => 'AI generated: Subject Questions'])->id,
+            'indirect_questions' => Source::firstOrCreate(['name' => 'AI generated: Indirect Questions'])->id,
+            'tag_questions' => Source::firstOrCreate(['name' => 'AI generated: Tag Questions (Disjunctive Questions)'])->id,
+            'alternative_questions' => Source::firstOrCreate(['name' => 'AI generated: Alternative Questions'])->id,
+            'negative_questions' => Source::firstOrCreate(['name' => 'AI generated: Negative Questions'])->id,
+        ];
 
         $themeTag = Tag::firstOrCreate(
             ['name' => 'Question Formation Practice'],
+            ['category' => 'English Grammar Theme']
+        )->id;
+
+        // General tags for all questions
+        $questionSentencesTag = Tag::firstOrCreate(
+            ['name' => 'Question Sentences'],
+            ['category' => 'English Grammar Theme']
+        )->id;
+
+        $typesOfQuestionSentencesTag = Tag::firstOrCreate(
+            ['name' => 'Types of Question Sentences'],
             ['category' => 'English Grammar Theme']
         )->id;
 
@@ -26,6 +46,45 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             'subject_questions' => Tag::firstOrCreate(['name' => 'Subject Questions'], ['category' => 'English Grammar Detail'])->id,
             'indirect_questions' => Tag::firstOrCreate(['name' => 'Indirect Questions'], ['category' => 'English Grammar Detail'])->id,
             'tag_questions' => Tag::firstOrCreate(['name' => 'Tag Questions'], ['category' => 'English Grammar Detail'])->id,
+            'alternative_questions' => Tag::firstOrCreate(['name' => 'Alternative Questions'], ['category' => 'English Grammar Detail'])->id,
+            'negative_questions' => Tag::firstOrCreate(['name' => 'Negative Questions'], ['category' => 'English Grammar Detail'])->id,
+        ];
+
+        // CEFR Level tags for filtering by proficiency
+        $levelTags = [
+            'A1' => Tag::firstOrCreate(['name' => 'CEFR A1'], ['category' => 'English Grammar Level'])->id,
+            'A2' => Tag::firstOrCreate(['name' => 'CEFR A2'], ['category' => 'English Grammar Level'])->id,
+            'B1' => Tag::firstOrCreate(['name' => 'CEFR B1'], ['category' => 'English Grammar Level'])->id,
+            'B2' => Tag::firstOrCreate(['name' => 'CEFR B2'], ['category' => 'English Grammar Level'])->id,
+            'C1' => Tag::firstOrCreate(['name' => 'CEFR C1'], ['category' => 'English Grammar Level'])->id,
+            'C2' => Tag::firstOrCreate(['name' => 'CEFR C2'], ['category' => 'English Grammar Level'])->id,
+        ];
+
+        // Grammar tense/structure tags
+        $tenseTags = [
+            'present_simple' => Tag::firstOrCreate(['name' => 'Present Simple'], ['category' => 'English Grammar Tense'])->id,
+            'past_simple' => Tag::firstOrCreate(['name' => 'Past Simple'], ['category' => 'English Grammar Tense'])->id,
+            'future_simple' => Tag::firstOrCreate(['name' => 'Future Simple'], ['category' => 'English Grammar Tense'])->id,
+            'present_continuous' => Tag::firstOrCreate(['name' => 'Present Continuous'], ['category' => 'English Grammar Tense'])->id,
+            'past_continuous' => Tag::firstOrCreate(['name' => 'Past Continuous'], ['category' => 'English Grammar Tense'])->id,
+            'present_perfect' => Tag::firstOrCreate(['name' => 'Present Perfect'], ['category' => 'English Grammar Tense'])->id,
+            'past_perfect' => Tag::firstOrCreate(['name' => 'Past Perfect'], ['category' => 'English Grammar Tense'])->id,
+            'present_perfect_continuous' => Tag::firstOrCreate(['name' => 'Present Perfect Continuous'], ['category' => 'English Grammar Tense'])->id,
+            'past_perfect_continuous' => Tag::firstOrCreate(['name' => 'Past Perfect Continuous'], ['category' => 'English Grammar Tense'])->id,
+            'modal_verbs' => Tag::firstOrCreate(['name' => 'Modal Verbs'], ['category' => 'English Grammar Tense'])->id,
+            'to_be' => Tag::firstOrCreate(['name' => 'To Be'], ['category' => 'English Grammar Tense'])->id,
+        ];
+
+        // Auxiliary verb type tags
+        $auxiliaryTags = [
+            'do_does_did' => Tag::firstOrCreate(['name' => 'Do/Does/Did'], ['category' => 'English Grammar Auxiliary'])->id,
+            'be_auxiliary' => Tag::firstOrCreate(['name' => 'Be (am/is/are/was/were)'], ['category' => 'English Grammar Auxiliary'])->id,
+            'have_has_had' => Tag::firstOrCreate(['name' => 'Have/Has/Had'], ['category' => 'English Grammar Auxiliary'])->id,
+            'will_would' => Tag::firstOrCreate(['name' => 'Will/Would'], ['category' => 'English Grammar Auxiliary'])->id,
+            'can_could' => Tag::firstOrCreate(['name' => 'Can/Could'], ['category' => 'English Grammar Auxiliary'])->id,
+            'should' => Tag::firstOrCreate(['name' => 'Should'], ['category' => 'English Grammar Auxiliary'])->id,
+            'must' => Tag::firstOrCreate(['name' => 'Must'], ['category' => 'English Grammar Auxiliary'])->id,
+            'may_might' => Tag::firstOrCreate(['name' => 'May/Might'], ['category' => 'English Grammar Auxiliary'])->id,
         ];
 
         $levelDifficulty = [
@@ -58,9 +117,28 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'verb_hint' => $this->normalizeHint($question['verb_hint'] ?? null),
             ];
 
-            $tagIds = [$themeTag];
+            $tagIds = [$themeTag, $questionSentencesTag, $typesOfQuestionSentencesTag];
+            
+            // Add detail tag (question type)
             if (isset($question['detail']) && isset($detailTags[$question['detail']])) {
                 $tagIds[] = $detailTags[$question['detail']];
+            }
+            
+            // Add CEFR level tag
+            if (isset($question['level']) && isset($levelTags[$question['level']])) {
+                $tagIds[] = $levelTags[$question['level']];
+            }
+            
+            // Add tense/structure and auxiliary tags based on verb_hint
+            if (isset($question['verb_hint'])) {
+                $additionalTags = $this->getTagsFromVerbHint($question['verb_hint'], $tenseTags, $auxiliaryTags);
+                $tagIds = array_merge($tagIds, $additionalTags);
+            }
+
+            // Determine source_id based on question detail/topic
+            $sourceId = $sources['yes_no']; // Default fallback
+            if (isset($question['detail']) && isset($sources[$question['detail']])) {
+                $sourceId = $sources[$question['detail']];
             }
 
             $items[] = [
@@ -88,6 +166,80 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         }
 
         $this->seedQuestionData($items, $meta);
+    }
+
+    /**
+     * Extract tense/structure and auxiliary tags from verb_hint
+     */
+    private function getTagsFromVerbHint(string $verbHint, array $tenseTags, array $auxiliaryTags): array
+    {
+        $tags = [];
+        $hint = strtolower($verbHint);
+
+        // Tense/structure tags
+        if (preg_match('/present simple|auxiliary.*questions|auxiliary for 3rd person/', $hint)) {
+            $tags[] = $tenseTags['present_simple'];
+            $tags[] = $auxiliaryTags['do_does_did'];
+        }
+        if (preg_match('/past simple|past.*auxiliary|\bdid\b|past event|past without auxiliary/', $hint)) {
+            $tags[] = $tenseTags['past_simple'];
+            if (!preg_match('/without auxiliary/', $hint)) {
+                $tags[] = $auxiliaryTags['do_does_did'];
+            }
+        }
+        if (preg_match('/\bfuture\b|\bwill\b/', $hint) && !preg_match('/would/', $hint)) {
+            $tags[] = $tenseTags['future_simple'];
+            $tags[] = $auxiliaryTags['will_would'];
+        }
+        if (preg_match('/present continuous|be \+ -ing|continuous tense/', $hint) && !preg_match('/perfect/', $hint)) {
+            $tags[] = $tenseTags['present_continuous'];
+            $tags[] = $auxiliaryTags['be_auxiliary'];
+        }
+        if (preg_match('/past continuous/', $hint)) {
+            $tags[] = $tenseTags['past_continuous'];
+            $tags[] = $auxiliaryTags['be_auxiliary'];
+        }
+        if (preg_match('/present perfect(?! continuous)|perfect passive|perfect tense|experience question|life experience/', $hint)) {
+            $tags[] = $tenseTags['present_perfect'];
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+        if (preg_match('/past perfect(?! continuous)/', $hint)) {
+            $tags[] = $tenseTags['past_perfect'];
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+        if (preg_match('/present perfect continuous/', $hint)) {
+            $tags[] = $tenseTags['present_perfect_continuous'];
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+        if (preg_match('/past perfect continuous/', $hint)) {
+            $tags[] = $tenseTags['past_perfect_continuous'];
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+        if (preg_match('/\bto be\b|be \(|^be$|state with|weather/', $hint)) {
+            $tags[] = $tenseTags['to_be'];
+            $tags[] = $auxiliaryTags['be_auxiliary'];
+        }
+        if (preg_match('/modal|\bcan\b|could|should|must|\bmay\b|might|would|ought/', $hint)) {
+            $tags[] = $tenseTags['modal_verbs'];
+            
+            if (preg_match('/\bcan\b|could/', $hint)) {
+                $tags[] = $auxiliaryTags['can_could'];
+            }
+            if (preg_match('/should/', $hint)) {
+                $tags[] = $auxiliaryTags['should'];
+            }
+            if (preg_match('/must/', $hint)) {
+                $tags[] = $auxiliaryTags['must'];
+            }
+            if (preg_match('/\bmay\b|might/', $hint)) {
+                $tags[] = $auxiliaryTags['may_might'];
+            }
+            if (preg_match('/would/', $hint)) {
+                $tags[] = $auxiliaryTags['will_would'];
+            }
+        }
+
+        return array_unique($tags);
     }
 
     private function buildQuestions(): array
@@ -511,7 +663,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Doesn't"],
                 'options' => ["Doesn't", "Don't", "Isn't", "Didn't"],
                 'verb_hint' => 'negative question form',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання у Present Simple з he формується з Doesn't. Виражає здивування або очікування."],
                 'explanations' => [
                     "Doesn't" => "✅ Правильно! Заперечне питання з he використовує Doesn't. Приклад: Doesn't he know about the meeting?",
@@ -528,7 +680,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'but', 'nor'],
                 'verb_hint' => 'choice connector',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Альтернативні питання використовують сполучник or (або) для вибору між варіантами."],
                 'explanations' => [
                     'or' => "✅ Правильно! Альтернативні питання використовують or для вибору. Приклад: Do you prefer coffee or tea?",
@@ -647,7 +799,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Didn't"],
                 'options' => ["Didn't", "Don't", "Haven't", "Weren't"],
                 'verb_hint' => 'negative past question',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання у Past Simple використовує Didn't. Виражає здивування."],
                 'explanations' => [
                     "Didn't" => "✅ Правильно! Заперечне питання у Past Simple з Didn't. Приклад: Didn't you see the sign?",
@@ -664,7 +816,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'but', 'so'],
                 'verb_hint' => 'alternative connector',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Альтернативні питання пропонують вибір через or."],
                 'explanations' => [
                     'or' => "✅ Правильно! Альтернативні питання використовують or. Приклад: Is it black or white?",
@@ -753,7 +905,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Haven't"],
                 'options' => ["Haven't", "Didn't", "Don't", "Aren't"],
                 'verb_hint' => 'negative perfect question',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання у Present Perfect з you використовує Haven't. Виражає здивування."],
                 'explanations' => [
                     "Haven't" => "✅ Правильно! Заперечне питання у Present Perfect. Приклад: Haven't you heard the news yet?",
@@ -821,7 +973,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'nor', 'but'],
                 'verb_hint' => 'choice between options',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Альтернативні питання з would like використовують or для вибору."],
                 'explanations' => [
                     'or' => "✅ Правильно! Альтернативне питання з or. Приклад: Would you like tea or coffee?",
@@ -838,7 +990,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Wouldn't"],
                 'options' => ["Wouldn't", "Won't", "Isn't", "Doesn't"],
                 'verb_hint' => 'negative modal suggestion',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання з would для ввічливої пропозиції використовує Wouldn't."],
                 'explanations' => [
                     "Wouldn't" => "✅ Правильно! Wouldn't для ввічливої пропозиції. Приклад: Wouldn't it be better to postpone?",
@@ -961,7 +1113,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Haven't"],
                 'options' => ["Haven't", "Hadn't", "Aren't", "Weren't"],
                 'verb_hint' => 'negative perfect continuous',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання у Present Perfect Continuous використовує Haven't been + V-ing."],
                 'explanations' => [
                     "Haven't" => "✅ Правильно! Заперечне питання у Present Perfect Continuous. Приклад: Haven't we been pursuing the wrong strategy?",
@@ -1029,7 +1181,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Shouldn't"],
                 'options' => ["Shouldn't", "Hadn't", "Wouldn't", "Didn't"],
                 'verb_hint' => 'negative modal criticism',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання з should have виражає критику або докір: Shouldn't + підмет + have + V3."],
                 'explanations' => [
                     "Shouldn't" => "✅ Правильно! Shouldn't have для критики за минуле. Приклад: Shouldn't you have informed me earlier?",
@@ -1063,7 +1215,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'than', 'but'],
                 'verb_hint' => 'preference between options',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Would rather... or для вибору між варіантами переваги."],
                 'explanations' => [
                     'or' => "✅ Правильно! Would rather... or для альтернативного питання. Приклад: Would you rather work independently or collaborate with a team?",
@@ -1080,7 +1232,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Wouldn't"],
                 'options' => ["Wouldn't", "Won't", "Don't", "Aren't"],
                 'verb_hint' => 'rhetorical conditional',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Wouldn't у риторичному питанні м\'якше та ввічливіше, припускає згоду."],
                 'explanations' => [
                     "Wouldn't" => "✅ Правильно! Wouldn't для риторичного питання. Приклад: Wouldn't we all benefit from better communication?",
@@ -1305,7 +1457,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'nor', 'but'],
                 'verb_hint' => 'choice in formal context',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Альтернативні питання навіть у формальних контекстах використовують or для вибору між варіантами."],
                 'explanations' => [
                     'or' => "✅ Правильно! Альтернативне питання з or. Приклад: Should we proceed with the original plan or reconsider our approach?",
