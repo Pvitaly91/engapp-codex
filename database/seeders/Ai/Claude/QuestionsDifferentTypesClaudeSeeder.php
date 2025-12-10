@@ -180,7 +180,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $tags[] = $tenseTags['future_simple'];
             $tags[] = $auxiliaryTags['will_would'];
         }
-        if (preg_match('/present continuous|be \+ -ing|continuous tense/', $hint) && !preg_match('/perfect/', $hint)) {
+        if (preg_match('/present continuous|be \+ \-ing|continuous tense/', $hint) && !preg_match('/perfect/', $hint)) {
             $tags[] = $tenseTags['present_continuous'];
             $tags[] = $auxiliaryTags['be_auxiliary'];
         }
