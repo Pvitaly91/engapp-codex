@@ -13,7 +13,16 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
     {
         $categoryId = Category::firstOrCreate(['name' => 'Questions - Different Types'])->id;
 
-        $sourceId = Source::firstOrCreate(['name' => 'AI generated: Questions: Different types (SET 1)'])->id;
+        // Create separate sources for each question topic
+        $sources = [
+            'yes_no' => Source::firstOrCreate(['name' => 'AI generated: Yes/No Questions (General Questions)'])->id,
+            'wh_questions' => Source::firstOrCreate(['name' => 'AI generated: Wh-Questions (Special Questions)'])->id,
+            'subject_questions' => Source::firstOrCreate(['name' => 'AI generated: Subject Questions'])->id,
+            'indirect_questions' => Source::firstOrCreate(['name' => 'AI generated: Indirect Questions'])->id,
+            'tag_questions' => Source::firstOrCreate(['name' => 'AI generated: Tag Questions (Disjunctive Questions)'])->id,
+            'alternative_questions' => Source::firstOrCreate(['name' => 'AI generated: Alternative Questions'])->id,
+            'negative_questions' => Source::firstOrCreate(['name' => 'AI generated: Negative Questions'])->id,
+        ];
 
         $themeTag = Tag::firstOrCreate(
             ['name' => 'Question Formation Practice'],
@@ -26,6 +35,8 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             'subject_questions' => Tag::firstOrCreate(['name' => 'Subject Questions'], ['category' => 'English Grammar Detail'])->id,
             'indirect_questions' => Tag::firstOrCreate(['name' => 'Indirect Questions'], ['category' => 'English Grammar Detail'])->id,
             'tag_questions' => Tag::firstOrCreate(['name' => 'Tag Questions'], ['category' => 'English Grammar Detail'])->id,
+            'alternative_questions' => Tag::firstOrCreate(['name' => 'Alternative Questions'], ['category' => 'English Grammar Detail'])->id,
+            'negative_questions' => Tag::firstOrCreate(['name' => 'Negative Questions'], ['category' => 'English Grammar Detail'])->id,
         ];
 
         $levelDifficulty = [
@@ -61,6 +72,12 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $tagIds = [$themeTag];
             if (isset($question['detail']) && isset($detailTags[$question['detail']])) {
                 $tagIds[] = $detailTags[$question['detail']];
+            }
+
+            // Determine source_id based on question detail/topic
+            $sourceId = $sources['yes_no']; // Default fallback
+            if (isset($question['detail']) && isset($sources[$question['detail']])) {
+                $sourceId = $sources[$question['detail']];
             }
 
             $items[] = [
@@ -511,7 +528,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Doesn't"],
                 'options' => ["Doesn't", "Don't", "Isn't", "Didn't"],
                 'verb_hint' => 'negative question form',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання у Present Simple з he формується з Doesn't. Виражає здивування або очікування."],
                 'explanations' => [
                     "Doesn't" => "✅ Правильно! Заперечне питання з he використовує Doesn't. Приклад: Doesn't he know about the meeting?",
@@ -528,7 +545,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'but', 'nor'],
                 'verb_hint' => 'choice connector',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Альтернативні питання використовують сполучник or (або) для вибору між варіантами."],
                 'explanations' => [
                     'or' => "✅ Правильно! Альтернативні питання використовують or для вибору. Приклад: Do you prefer coffee or tea?",
@@ -647,7 +664,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Didn't"],
                 'options' => ["Didn't", "Don't", "Haven't", "Weren't"],
                 'verb_hint' => 'negative past question',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання у Past Simple використовує Didn't. Виражає здивування."],
                 'explanations' => [
                     "Didn't" => "✅ Правильно! Заперечне питання у Past Simple з Didn't. Приклад: Didn't you see the sign?",
@@ -664,7 +681,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'but', 'so'],
                 'verb_hint' => 'alternative connector',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Альтернативні питання пропонують вибір через or."],
                 'explanations' => [
                     'or' => "✅ Правильно! Альтернативні питання використовують or. Приклад: Is it black or white?",
@@ -753,7 +770,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Haven't"],
                 'options' => ["Haven't", "Didn't", "Don't", "Aren't"],
                 'verb_hint' => 'negative perfect question',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання у Present Perfect з you використовує Haven't. Виражає здивування."],
                 'explanations' => [
                     "Haven't" => "✅ Правильно! Заперечне питання у Present Perfect. Приклад: Haven't you heard the news yet?",
@@ -821,7 +838,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'nor', 'but'],
                 'verb_hint' => 'choice between options',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Альтернативні питання з would like використовують or для вибору."],
                 'explanations' => [
                     'or' => "✅ Правильно! Альтернативне питання з or. Приклад: Would you like tea or coffee?",
@@ -838,7 +855,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Wouldn't"],
                 'options' => ["Wouldn't", "Won't", "Isn't", "Doesn't"],
                 'verb_hint' => 'negative modal suggestion',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання з would для ввічливої пропозиції використовує Wouldn't."],
                 'explanations' => [
                     "Wouldn't" => "✅ Правильно! Wouldn't для ввічливої пропозиції. Приклад: Wouldn't it be better to postpone?",
@@ -961,7 +978,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Haven't"],
                 'options' => ["Haven't", "Hadn't", "Aren't", "Weren't"],
                 'verb_hint' => 'negative perfect continuous',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання у Present Perfect Continuous використовує Haven't been + V-ing."],
                 'explanations' => [
                     "Haven't" => "✅ Правильно! Заперечне питання у Present Perfect Continuous. Приклад: Haven't we been pursuing the wrong strategy?",
@@ -1029,7 +1046,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Shouldn't"],
                 'options' => ["Shouldn't", "Hadn't", "Wouldn't", "Didn't"],
                 'verb_hint' => 'negative modal criticism',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Заперечне питання з should have виражає критику або докір: Shouldn't + підмет + have + V3."],
                 'explanations' => [
                     "Shouldn't" => "✅ Правильно! Shouldn't have для критики за минуле. Приклад: Shouldn't you have informed me earlier?",
@@ -1063,7 +1080,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'than', 'but'],
                 'verb_hint' => 'preference between options',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Would rather... or для вибору між варіантами переваги."],
                 'explanations' => [
                     'or' => "✅ Правильно! Would rather... or для альтернативного питання. Приклад: Would you rather work independently or collaborate with a team?",
@@ -1080,7 +1097,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => "Wouldn't"],
                 'options' => ["Wouldn't", "Won't", "Don't", "Aren't"],
                 'verb_hint' => 'rhetorical conditional',
-                'detail' => 'yes_no',
+                'detail' => 'negative_questions',
                 'hints' => ['a1' => "Wouldn't у риторичному питанні м\'якше та ввічливіше, припускає згоду."],
                 'explanations' => [
                     "Wouldn't" => "✅ Правильно! Wouldn't для риторичного питання. Приклад: Wouldn't we all benefit from better communication?",
@@ -1305,7 +1322,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'answers' => ['a1' => 'or'],
                 'options' => ['or', 'and', 'nor', 'but'],
                 'verb_hint' => 'choice in formal context',
-                'detail' => 'yes_no',
+                'detail' => 'alternative_questions',
                 'hints' => ['a1' => "Альтернативні питання навіть у формальних контекстах використовують or для вибору між варіантами."],
                 'explanations' => [
                     'or' => "✅ Правильно! Альтернативне питання з or. Приклад: Should we proceed with the original plan or reconsider our approach?",
