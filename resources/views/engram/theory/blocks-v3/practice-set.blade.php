@@ -8,12 +8,15 @@
     <div class="rounded-2xl border border-border/60 bg-card overflow-hidden">
         @if(!empty($data['title']))
             <div class="border-b border-border/40 bg-gradient-to-r from-primary/5 to-secondary/5 px-5 py-4">
-                <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
-                    <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-white text-xs font-bold">
-                        ⚡
-                    </span>
-                    {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
-                </h2>
+                <div class="flex items-center justify-between gap-3">
+                    <h2 class="flex items-center gap-3 text-lg font-bold text-foreground">
+                        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-white text-xs font-bold">
+                            ⚡
+                        </span>
+                        {{ preg_replace('/^\d+\.\s*/', '', $data['title']) }}
+                    </h2>
+                    <x-text-block-level-badge :level="$block->level ?? null" />
+                </div>
             </div>
         @endif
 
