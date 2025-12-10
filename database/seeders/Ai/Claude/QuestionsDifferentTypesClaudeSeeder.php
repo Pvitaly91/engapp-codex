@@ -29,14 +29,14 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ['category' => 'English Grammar Theme']
         )->id;
 
-        // Ukrainian general tags for all questions
+        // General tags for all questions
         $questionSentencesTag = Tag::firstOrCreate(
-            ['name' => 'питальні речення'],
+            ['name' => 'Question Sentences'],
             ['category' => 'English Grammar Theme']
         )->id;
 
         $typesOfQuestionSentencesTag = Tag::firstOrCreate(
-            ['name' => 'типи питальних речень'],
+            ['name' => 'Types of Question Sentences'],
             ['category' => 'English Grammar Theme']
         )->id;
 
