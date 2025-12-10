@@ -24,7 +24,7 @@
         </header>
 
         <!-- Navigation Tabs -->
-        @include('components.test-mode-nav')
+        @include('components.test-mode-nav-v2')
 
         <!-- Word Search Component -->
         @include('components.word-search')
