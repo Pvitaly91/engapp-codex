@@ -97,6 +97,9 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     Route::get('/test-v2/{slug}/js/step/input', [TestJsV2Controller::class, 'showSavedTestJsStepInputV2'])->name('saved-test.js-v2.step-input');
     Route::get('/test-v2/{slug}/js/step/manual', [TestJsV2Controller::class, 'showSavedTestJsStepManualV2'])->name('saved-test.js-v2.step-manual');
     Route::get('/test-v2/{slug}/js/step/select', [TestJsV2Controller::class, 'showSavedTestJsStepSelectV2'])->name('saved-test.js-v2.step-select');
+    Route::get('/test-v2/{slug}/js/select', [TestJsV2Controller::class, 'showSavedTestJsSelectV2'])->name('saved-test.js-v2.select');
+    Route::get('/test-v2/{slug}/js/input', [TestJsV2Controller::class, 'showSavedTestJsInputV2'])->name('saved-test.js-v2.input');
+    Route::get('/test-v2/{slug}/js/manual', [TestJsV2Controller::class, 'showSavedTestJsManualV2'])->name('saved-test.js-v2.manual');
 
     Route::prefix('admin')->group(function () {
         Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
