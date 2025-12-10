@@ -31,6 +31,14 @@ class TestJsV2Controller extends Controller
         return $this->renderSavedTestJsV2View($slug, 'saved-test-js-step-v2');
     }
 
+    /**
+     * Show the V2 version of the JS step input test page with new UI design.
+     */
+    public function showSavedTestJsStepInputV2($slug)
+    {
+        return $this->renderSavedTestJsV2View($slug, 'saved-test-js-step-input-v2');
+    }
+
     private function renderSavedTestJsV2View(string $slug, string $view)
     {
         $resolved = $this->savedTestResolver->resolve($slug);
