@@ -170,17 +170,17 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $tags[] = $tenseTags['present_simple'];
             $tags[] = $auxiliaryTags['do_does_did'];
         }
-        if (preg_match('/past simple|past.*auxiliary|did|past event|past without auxiliary/', $hint)) {
+        if (preg_match('/past simple|past.*auxiliary|\bdid\b|past event|past without auxiliary/', $hint)) {
             $tags[] = $tenseTags['past_simple'];
             if (!preg_match('/without auxiliary/', $hint)) {
                 $tags[] = $auxiliaryTags['do_does_did'];
             }
         }
-        if (preg_match('/future|will/', $hint) && !preg_match('/would/', $hint)) {
+        if (preg_match('/\bfuture\b|\bwill\b/', $hint) && !preg_match('/would/', $hint)) {
             $tags[] = $tenseTags['future_simple'];
             $tags[] = $auxiliaryTags['will_would'];
         }
-        if (preg_match('/present continuous|be \+ \-ing|continuous tense/', $hint) && !preg_match('/perfect/', $hint)) {
+        if (preg_match('/present continuous|be \+ -ing|continuous tense/', $hint) && !preg_match('/perfect/', $hint)) {
             $tags[] = $tenseTags['present_continuous'];
             $tags[] = $auxiliaryTags['be_auxiliary'];
         }
@@ -196,7 +196,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $tags[] = $tenseTags['past_perfect'];
             $tags[] = $auxiliaryTags['have_has_had'];
         }
-        if (preg_match('/present perfect continuous|perfect continuous/', $hint) && !preg_match('/past perfect/', $hint)) {
+        if (preg_match('/present perfect continuous/', $hint)) {
             $tags[] = $tenseTags['present_perfect_continuous'];
             $tags[] = $auxiliaryTags['have_has_had'];
         }
@@ -208,7 +208,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $tags[] = $tenseTags['to_be'];
             $tags[] = $auxiliaryTags['be_auxiliary'];
         }
-        if (preg_match('/modal|can|could|should|must|may|might|would|ought/', $hint)) {
+        if (preg_match('/modal|\bcan\b|could|should|must|\bmay\b|might|would|ought/', $hint)) {
             $tags[] = $tenseTags['modal_verbs'];
             
             if (preg_match('/\bcan\b|could/', $hint)) {
@@ -223,7 +223,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             if (preg_match('/\bmay\b|might/', $hint)) {
                 $tags[] = $auxiliaryTags['may_might'];
             }
-            if (preg_match('/would|wouldn\'t/', $hint)) {
+            if (preg_match('/would/', $hint)) {
                 $tags[] = $auxiliaryTags['will_would'];
             }
         }
