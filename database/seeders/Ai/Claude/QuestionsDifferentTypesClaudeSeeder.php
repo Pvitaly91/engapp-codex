@@ -29,6 +29,17 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ['category' => 'English Grammar Theme']
         )->id;
 
+        // Ukrainian general tags for all questions
+        $questionSentencesTag = Tag::firstOrCreate(
+            ['name' => 'питальні речення'],
+            ['category' => 'English Grammar Theme']
+        )->id;
+
+        $typesOfQuestionSentencesTag = Tag::firstOrCreate(
+            ['name' => 'типи питальних речень'],
+            ['category' => 'English Grammar Theme']
+        )->id;
+
         $detailTags = [
             'yes_no' => Tag::firstOrCreate(['name' => 'Yes/No Questions'], ['category' => 'English Grammar Detail'])->id,
             'wh_questions' => Tag::firstOrCreate(['name' => 'Wh-Questions'], ['category' => 'English Grammar Detail'])->id,
@@ -106,7 +117,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'verb_hint' => $this->normalizeHint($question['verb_hint'] ?? null),
             ];
 
-            $tagIds = [$themeTag];
+            $tagIds = [$themeTag, $questionSentencesTag, $typesOfQuestionSentencesTag];
             
             // Add detail tag (question type)
             if (isset($question['detail']) && isset($detailTags[$question['detail']])) {
