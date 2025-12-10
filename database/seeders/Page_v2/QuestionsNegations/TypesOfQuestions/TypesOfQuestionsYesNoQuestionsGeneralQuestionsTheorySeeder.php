@@ -46,6 +46,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'seeder' => self::class,
+                    'level' => 'A1',
                     'body' => json_encode([
                         'level' => 'A1–A2',
                         'intro' => 'У цій темі ти вивчиш <strong>загальні питання (Yes/No Questions)</strong> — найпростіший тип питань в англійській мові, на які можна відповісти "так" або "ні".',
@@ -74,6 +76,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'forms-grid',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A1',
                     'body' => json_encode([
                         'title' => '1. Що таке загальні питання?',
                         'intro' => 'Yes/No Questions (загальні питання) — це питання, на які можна відповісти "так" або "ні":',
@@ -87,6 +91,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A1',
                     'body' => json_encode([
                         'title' => '2. Загальні питання з DO/DOES/DID',
                         'sections' => [
@@ -127,6 +133,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A1',
                     'body' => json_encode([
                         'title' => '3. Загальні питання з TO BE',
                         'sections' => [
@@ -167,6 +175,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '4. Загальні питання з модальними дієсловами',
                         'sections' => [
@@ -209,6 +219,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '5. Загальні питання з HAVE GOT',
                         'sections' => [
@@ -239,6 +251,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'B1',
                     'body' => json_encode([
                         'title' => '6. Інші часи',
                         'sections' => [
@@ -279,6 +293,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
                     'body' => json_encode([
                         'title' => '7. Порівняльна таблиця',
                         'intro' => 'Як формувати загальні питання з різними типами дієслів:',
@@ -320,6 +336,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'mistakes-grid',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A1',
                     'body' => json_encode([
                         'title' => '8. Типові помилки',
                         'items' => [
@@ -357,6 +375,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A1',
                     'body' => json_encode([
                         'title' => '9. Короткий конспект',
                         'items' => [
@@ -374,6 +394,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'practice-set',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A1',
                     'body' => json_encode([
                         'title' => '10. Практика',
                         'select_title' => 'Вправа 1. Обери правильний варіант',
@@ -419,6 +441,8 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 [
                     'type' => 'navigation-chips',
                     'column' => 'footer',
+                    'seeder' => self::class,
+                    'level' => 'A1',
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [
