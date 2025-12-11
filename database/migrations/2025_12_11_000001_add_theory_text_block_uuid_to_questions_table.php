@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('questions', function (Blueprint $table) {
-            $table->string('theory_text_block_uuid', 36)->nullable()->after('type')->index();
+            $table->string('theory_text_block_uuid', 36)->nullable()->after('level');
         });
     }
 
@@ -20,4 +20,3 @@ return new class extends Migration
         });
     }
 };
-

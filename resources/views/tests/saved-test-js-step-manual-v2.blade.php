@@ -141,14 +141,6 @@ async function init(forceFresh = false) {
     }));
     state.current = 0;
     state.correct = 0;
-  } else if (Array.isArray(QUESTIONS)) {
-    const byId = new Map(QUESTIONS.map((q) => [q.id, q]));
-    state.items.forEach((item) => {
-      const base = byId.get(item.id);
-      if (base && base.theory_block && !item.theory_block) {
-        item.theory_block = base.theory_block;
-      }
-    });
   }
 
   if (state.current < 0) state.current = 0;
@@ -176,7 +168,6 @@ function render() {
             <span class="text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
           </div>
           <div class="text-lg sm:text-xl leading-relaxed text-gray-900 font-medium mb-4">${sentence}</div>
-          ${renderTheoryBlock(q, state.current)}
         </div>
         <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0">
           <div class="text-xs text-gray-500 font-medium">Q</div>
@@ -207,20 +198,6 @@ function render() {
     inp.addEventListener('change', handle);
     autoResize(inp);
   });
-  if (q.theory_block) {
-    const theoryBtn = wrap.querySelector(`#theory-toggle-${state.current}`);
-    const theoryPanel = wrap.querySelector(`#theory-panel-${state.current}`);
-    const body = theoryPanel?.querySelector('.theory-body');
-    if (body) {
-      body.innerHTML = q.theory_block.body || '';
-    }
-    if (theoryBtn && theoryPanel) {
-      theoryBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        theoryPanel.classList.toggle('hidden');
-      });
-    }
-  }
   wrap.querySelector('input')?.focus();
 }
 
@@ -309,34 +286,6 @@ function renderFeedback(q) {
     return `<div class="flex items-start gap-3 p-4 rounded-2xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div><div class="flex-1"><div class="font-semibold text-red-800">${html(q.feedback)}</div></div></div>`;
   }
   return '';
-}
-
-function renderTheoryBlock(q, idx) {
-  if (!q.theory_block) return '';
-  const badges = [];
-  if (q.theory_block.level) {
-    badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-100 text-indigo-700">${html(q.theory_block.level)}</span>`);
-  }
-  if (q.theory_block.heading) {
-    badges.push(`<span class="font-semibold text-indigo-900">${html(q.theory_block.heading)}</span>`);
-  }
-  const header = badges.length ? `<div class="flex flex-wrap items-center gap-2 mb-2">${badges.join('')}</div>` : '';
-  return `
-    <div class="mt-2">
-      <button type="button" id="theory-toggle-${idx}" class="inline-flex items-center text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors">
-        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"></path>
-        </svg>
-        Show Theory
-      </button>
-      <div id="theory-panel-${idx}" class="mt-2 hidden">
-        <div class="p-4 rounded-2xl bg-indigo-50 border border-indigo-200 text-sm text-indigo-900 leading-relaxed">
-          ${header}
-          <div class="theory-body space-y-2"></div>
-        </div>
-      </div>
-    </div>
-  `;
 }
 
 function showSummary() {

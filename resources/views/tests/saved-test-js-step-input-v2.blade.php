@@ -162,14 +162,6 @@ async function init(forceFresh = false) {
     }));
     state.current = 0;
     state.correct = 0;
-  } else if (Array.isArray(QUESTIONS)) {
-    const byId = new Map(QUESTIONS.map((q) => [q.id, q]));
-    state.items.forEach((item) => {
-      const base = byId.get(item.id);
-      if (base && base.theory_block && !item.theory_block) {
-        item.theory_block = base.theory_block;
-      }
-    });
   }
 
   if (state.current < 0) state.current = 0;
@@ -197,16 +189,20 @@ function render() {
             <span class="text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
           </div>
           <div class="text-lg sm:text-xl leading-relaxed text-gray-900 font-medium mb-3">${sentence}</div>
-          <div class="flex flex-wrap items-center gap-3 mb-1">
-            <button type="button" id="help" class="inline-flex items-center text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors">
-              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Show Help
-            </button>
-            ${renderTheoryBlock(q, state.current)}
-          </div>
+          <button type="button" id="help" class="inline-flex items-center text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Show Help
+          </button>
+          ${q.theory_block ? `<button type="button" id="theory-btn" class="ml-3 inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+            Show Theory
+          </button>` : ''}
           <div id="hints" class="mt-3 space-y-2"></div>
+          <div id="theory-panel" class="mt-3 hidden"></div>
         </div>
         <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0">
           <div class="text-xs text-gray-500 font-medium">Q</div>
@@ -222,20 +218,14 @@ function render() {
   document.getElementById('next').disabled = q.isCorrect === null;
   document.getElementById('help').addEventListener('click', () => fetchHints(q));
   renderHints(q);
-  if (q.theory_block) {
-    const theoryBtn = document.getElementById(`theory-toggle-${state.current}`);
-    const theoryPanel = document.getElementById(`theory-panel-${state.current}`);
-    const body = theoryPanel?.querySelector('.theory-body');
-    if (body) {
-      body.innerHTML = q.theory_block.body || '';
-    }
-    if (theoryBtn && theoryPanel) {
-      theoryBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        theoryPanel.classList.toggle('hidden');
-      });
-    }
+  
+  // Theory button handler
+  const theoryBtn = document.getElementById('theory-btn');
+  if (theoryBtn && q.theory_block) {
+    theoryBtn.addEventListener('click', () => toggleTheoryPanel(q));
+    renderTheoryPanel(q);
   }
+  
   if (q.isCorrect === null) {
     document.getElementById('check').addEventListener('click', onCheck);
     document.querySelectorAll('input[data-idx][data-word]').forEach((inp) => {
@@ -410,6 +400,93 @@ function renderHints(q) {
   document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
 }
 
+function toggleTheoryPanel(q) {
+  const panel = document.getElementById('theory-panel');
+  if (!panel) return;
+  
+  if (panel.classList.contains('hidden')) {
+    renderTheoryPanel(q);
+    panel.classList.remove('hidden');
+  } else {
+    panel.classList.add('hidden');
+  }
+}
+
+function renderTheoryPanel(q) {
+  const panel = document.getElementById('theory-panel');
+  if (!panel || !q.theory_block) return;
+  
+  const block = q.theory_block;
+  let content = '';
+  
+  try {
+    const body = typeof block.body === 'string' ? JSON.parse(block.body) : block.body;
+    
+    // Render based on block type
+    if (body.title) {
+      content += `<h4 class="font-semibold text-emerald-900 mb-2">${html(body.title)}</h4>`;
+    }
+    // Note: body.intro and section.description may contain intentional HTML formatting
+    // (e.g., <strong> tags) from trusted server-side seeders, so we preserve it
+    if (body.intro) {
+      content += `<p class="text-sm text-emerald-800 mb-3">${body.intro}</p>`;
+    }
+    if (body.sections && Array.isArray(body.sections)) {
+      body.sections.forEach(section => {
+        content += `<div class="mb-3">`;
+        if (section.label) {
+          content += `<p class="text-sm font-semibold text-emerald-700">${html(section.label)}</p>`;
+        }
+        if (section.description) {
+          content += `<p class="text-sm text-emerald-800">${section.description}</p>`;
+        }
+        if (section.examples && Array.isArray(section.examples)) {
+          content += `<ul class="mt-1 space-y-1">`;
+          section.examples.forEach(ex => {
+            content += `<li class="text-sm"><span class="text-emerald-900 font-medium">${html(ex.en || '')}</span>`;
+            if (ex.ua) content += ` — <span class="text-emerald-700">${html(ex.ua)}</span>`;
+            content += `</li>`;
+          });
+          content += `</ul>`;
+        }
+        if (section.note) {
+          content += `<p class="text-xs text-emerald-600 mt-1">${html(section.note)}</p>`;
+        }
+        content += `</div>`;
+      });
+    }
+    if (body.items && Array.isArray(body.items)) {
+      content += `<ul class="list-disc list-inside space-y-1">`;
+      body.items.forEach(item => {
+        if (typeof item === 'string') {
+          content += `<li class="text-sm text-emerald-800">${html(item)}</li>`;
+        } else if (item.title) {
+          content += `<li class="text-sm"><span class="font-medium text-emerald-900">${html(item.title)}</span>`;
+          if (item.subtitle) content += ` — <span class="text-emerald-700">${html(item.subtitle)}</span>`;
+          content += `</li>`;
+        }
+      });
+      content += `</ul>`;
+    }
+  } catch (e) {
+    // If body is not JSON, display as raw text
+    content = `<p class="text-sm text-emerald-800">${html(block.body || '')}</p>`;
+  }
+  
+  panel.innerHTML = `
+    <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200">
+      <div class="flex items-center gap-2 mb-2">
+        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+        <span class="text-sm font-semibold text-emerald-900">📚 Theory</span>
+        ${block.level ? `<span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-200 text-emerald-800">${html(block.level)}</span>` : ''}
+      </div>
+      ${content}
+    </div>
+  `;
+}
+
 function fetchExplanation(q, given) {
   showLoader(true);
   fetch(EXPLAIN_URL, {
@@ -540,34 +617,6 @@ function renderSentence(q) {
     text = text.replace(regex, replacement + hint);
   });
   return text;
-}
-
-function renderTheoryBlock(q, idx) {
-  if (!q.theory_block) return '';
-  const badges = [];
-  if (q.theory_block.level) {
-    badges.push(`<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-100 text-indigo-700">${html(q.theory_block.level)}</span>`);
-  }
-  if (q.theory_block.heading) {
-    badges.push(`<span class="font-semibold text-indigo-900">${html(q.theory_block.heading)}</span>`);
-  }
-  const header = badges.length ? `<div class="flex flex-wrap items-center gap-2 mb-2">${badges.join('')}</div>` : '';
-  return `
-    <div class="flex flex-col gap-2">
-      <button type="button" id="theory-toggle-${idx}" class="inline-flex items-center text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors">
-        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"></path>
-        </svg>
-        Show Theory
-      </button>
-      <div id="theory-panel-${idx}" class="hidden">
-        <div class="p-4 rounded-2xl bg-indigo-50 border border-indigo-200 text-sm text-indigo-900 leading-relaxed">
-          ${header}
-          <div class="theory-body space-y-2"></div>
-        </div>
-      </div>
-    </div>
-  `;
 }
 
 function autoResize(el) {

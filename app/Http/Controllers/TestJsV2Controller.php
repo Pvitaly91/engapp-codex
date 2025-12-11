@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\TextBlock;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
 
@@ -11,9 +11,7 @@ class TestJsV2Controller extends Controller
     public function __construct(
         private QuestionVariantService $variantService,
         private SavedTestResolver $savedTestResolver,
-    )
-    {
-    }
+    ) {}
 
     /**
      * Show the V2 version of the JS test page with new UI design.
@@ -99,7 +97,7 @@ class TestJsV2Controller extends Controller
     private function buildQuestionDataset($resolved, bool $freshVariants = false)
     {
         $test = $resolved->model;
-        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'theoryBlock'];
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option'];
         $supportsVariants = $this->variantService->supportsVariants();
         if ($supportsVariants) {
             $relations[] = 'variants';
@@ -115,6 +113,7 @@ class TestJsV2Controller extends Controller
             } else {
                 $questions = $questions->map(function ($question) use ($test) {
                     $this->variantService->applyStoredVariant($test->slug, $question);
+
                     return $question;
                 });
             }
@@ -141,15 +140,22 @@ class TestJsV2Controller extends Controller
             }
 
             $verbHints = $q->verbHints
-                ->mapWithKeys(fn($vh) => [$vh->marker => $vh->option->option ?? ''])
+                ->mapWithKeys(fn ($vh) => [$vh->marker => $vh->option->option ?? ''])
                 ->toArray();
 
-            $theoryBlock = $q->theoryBlock ? [
-                'uuid' => $q->theoryBlock->uuid,
-                'heading' => $q->theoryBlock->heading,
-                'body' => $q->theoryBlock->body,
-                'level' => $q->theoryBlock->level,
-            ] : null;
+            // Load theory text block if question has a theory_text_block_uuid
+            $theoryBlock = null;
+            if (! empty($q->theory_text_block_uuid)) {
+                $textBlock = TextBlock::where('uuid', $q->theory_text_block_uuid)->first();
+                if ($textBlock) {
+                    $theoryBlock = [
+                        'uuid' => $textBlock->uuid,
+                        'type' => $textBlock->type,
+                        'body' => $textBlock->body,
+                        'level' => $textBlock->level,
+                    ];
+                }
+            }
 
             return [
                 'id' => $q->id,

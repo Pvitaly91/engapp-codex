@@ -6,8 +6,8 @@ use App\Models\Category;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\QuestionOption;
-use App\Models\VerbHint;
 use App\Models\QuestionVariant;
+use App\Models\VerbHint;
 use Illuminate\Database\Seeder as LaravelSeeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -100,12 +100,12 @@ class QuestionSeedingService
     private function buildQuestionAttributes(array $data, ?string $seederClass): array
     {
         $attributes = [
-            'uuid'        => $data['uuid'],
-            'question'    => $data['question'],
+            'uuid' => $data['uuid'],
+            'question' => $data['question'],
             'category_id' => $data['category_id'] ?? null,
-            'difficulty'  => $data['difficulty'] ?? 1,
-            'source_id'   => $data['source_id'] ?? null,
-            'flag'        => $data['flag'] ?? 0,
+            'difficulty' => $data['difficulty'] ?? 1,
+            'source_id' => $data['source_id'] ?? null,
+            'flag' => $data['flag'] ?? 0,
         ];
 
         if (Schema::hasColumn('questions', 'level')) {
@@ -134,7 +134,7 @@ class QuestionSeedingService
 
         $existingVerbHints = VerbHint::where('question_id', $question->id)->get();
         $existingVerbHintMap = $existingVerbHints
-            ->mapWithKeys(fn (VerbHint $hint) => [$hint->marker . '|' . $hint->option_id => $hint]);
+            ->mapWithKeys(fn (VerbHint $hint) => [$hint->marker.'|'.$hint->option_id => $hint]);
         $verbHintIdsToKeep = [];
 
         QuestionVariant::where('question_id', $question->id)->delete();
@@ -148,8 +148,8 @@ class QuestionSeedingService
 
             QuestionAnswer::create([
                 'question_id' => $question->id,
-                'marker'      => $ans['marker'],
-                'option_id'   => $option->id,
+                'marker' => $ans['marker'],
+                'option_id' => $option->id,
             ]);
 
             $hint = $ans['verb_hint'] ?? null;
@@ -163,7 +163,7 @@ class QuestionSeedingService
             }
 
             $hintOption = $hintOptions[$hint];
-            $hintKey = $ans['marker'] . '|' . $hintOption->id;
+            $hintKey = $ans['marker'].'|'.$hintOption->id;
 
             if (isset($existingVerbHintMap[$hintKey])) {
                 $verbHintIdsToKeep[] = $existingVerbHintMap[$hintKey]->id;
@@ -174,8 +174,8 @@ class QuestionSeedingService
             if (! array_key_exists($hintKey, $queuedVerbHints)) {
                 $queuedVerbHints[$hintKey] = [
                     'question_id' => $question->id,
-                    'marker'      => $ans['marker'],
-                    'option_id'   => $hintOption->id,
+                    'marker' => $ans['marker'],
+                    'option_id' => $hintOption->id,
                 ];
             }
         }
@@ -214,7 +214,7 @@ class QuestionSeedingService
 
     private function ensureCategoryExists(int $categoryId): void
     {
-        $name = self::LEGACY_CATEGORY_NAMES[$categoryId] ?? ('Legacy Category ' . $categoryId);
+        $name = self::LEGACY_CATEGORY_NAMES[$categoryId] ?? ('Legacy Category '.$categoryId);
 
         Category::firstOrCreate(['id' => $categoryId], ['name' => $name]);
     }
