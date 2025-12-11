@@ -5,6 +5,14 @@ namespace Database\Seeders\Ai\Claude;
 use App\Models\Category;
 use App\Models\Source;
 use App\Models\Tag;
+use App\Support\TextBlock\TextBlockUuidGenerator;
+use Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsAlternativeQuestionsTheorySeeder;
+use Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsAnswersToQuestionsTheorySeeder;
+use Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsCategorySeeder;
+use Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsNegativeQuestionsTheorySeeder;
+use Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder;
+use Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder;
+use Database\Seeders\Page_v2\QuestionsNegations\TypesOfQuestions\TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder;
 use Database\Seeders\QuestionSeeder;
 
 class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
@@ -12,6 +20,16 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
     public function run(): void
     {
         $categoryId = Category::firstOrCreate(['name' => 'Questions - Different Types'])->id;
+
+        $this->call([
+            TypesOfQuestionsCategorySeeder::class,
+            TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder::class,
+            TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder::class,
+            TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder::class,
+            TypesOfQuestionsAlternativeQuestionsTheorySeeder::class,
+            TypesOfQuestionsAnswersToQuestionsTheorySeeder::class,
+            TypesOfQuestionsNegativeQuestionsTheorySeeder::class,
+        ]);
 
         // Create separate sources for each question topic
         $sources = [
@@ -96,6 +114,16 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             'C2' => 5,
         ];
 
+        $theoryUuidByDetail = [
+            'yes_no' => TextBlockUuidGenerator::generateWithKey(TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder::class, 'hero'),
+            'wh_questions' => TextBlockUuidGenerator::generateWithKey(TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder::class, 'hero'),
+            'subject_questions' => TextBlockUuidGenerator::generateWithKey(TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder::class, 'hero'),
+            'indirect_questions' => TextBlockUuidGenerator::generateWithKey(TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder::class, 'hero'),
+            'tag_questions' => TextBlockUuidGenerator::generateWithKey(TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder::class, 'hero'),
+            'alternative_questions' => TextBlockUuidGenerator::generateWithKey(TypesOfQuestionsAlternativeQuestionsTheorySeeder::class, 'hero'),
+            'negative_questions' => TextBlockUuidGenerator::generateWithKey(TypesOfQuestionsNegativeQuestionsTheorySeeder::class, 'hero'),
+        ];
+
         $questions = $this->buildQuestions();
 
         $items = [];
@@ -150,6 +178,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'flag' => 2,
                 'type' => 0,
                 'level' => $question['level'],
+                'theory_text_block_uuid' => $theoryUuidByDetail[$question['detail']] ?? null,
                 'tag_ids' => array_values(array_unique($tagIds)),
                 'answers' => $answers,
                 'options' => $question['options'],

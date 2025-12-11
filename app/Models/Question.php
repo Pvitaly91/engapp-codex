@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\TextBlock;
 
 class Question extends Model
 {
@@ -28,7 +29,7 @@ class Question extends Model
         return $questionText;
     }
 
-    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder', 'type'];
+    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder', 'type', 'theory_text_block_uuid'];
 
     public static function typeLabels(): array
     {
@@ -42,6 +43,11 @@ class Question extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function theoryBlock()
+    {
+        return $this->belongsTo(TextBlock::class, 'theory_text_block_uuid', 'uuid');
     }
 
     public function source()
