@@ -150,7 +150,7 @@
   <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_25%_20%,hsla(var(--primary),0.08),transparent_25%),radial-gradient(circle_at_80%_0%,hsla(var(--accent),0.08),transparent_20%),linear-gradient(135deg,hsla(var(--secondary),0.05),transparent_40%)]"></div>
   <!-- HEADER / NAV -->
   <header id="main-header" class="sticky top-0 z-40 border-b border-border/70 backdrop-blur bg-background/85 transition-transform duration-300">
-    <div class="page-shell mx-auto px-4">
+    <div class="page-shell mx-auto px-3 sm:px-4">
       <div class="flex flex-wrap items-center justify-between gap-4 py-4 lg:h-20 lg:flex-nowrap">
         <a href="{{ route('home') }}" class="flex items-center gap-3 flex-shrink-0" aria-label="Gramlyze">
           <x-gramlyze-logo class="hidden md:inline-flex" />
@@ -189,7 +189,7 @@
     </div>
   </header>
 
-  <main class="page-shell mx-auto px-4 py-10">
+  <main class="page-shell mx-auto px-3 sm:px-4 py-8 sm:py-10">
     @yield('content')
   </main>
 
