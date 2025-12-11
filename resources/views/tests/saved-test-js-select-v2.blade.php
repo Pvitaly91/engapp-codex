@@ -26,50 +26,56 @@
         <!-- Navigation Tabs -->
         @include('components.test-mode-nav-v2')
 
-        <!-- Word Search Component -->
-        @include('components.word-search')
-
-        <!-- Progress Tracker with Modern Design -->
-        @include('components.saved-test-progress')
-
-        <!-- Restart Button -->
-        @include('components.saved-test-js-restart-button')
-
-        <!-- Questions Container -->
-        <div id="questions" class="space-y-6"></div>
-
-        <!-- Check All Button -->
-        <div id="final-check" class="mt-8">
-            <button id="check-all" type="button" class="w-full sm:w-auto px-12 py-5 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
-                <span class="flex items-center justify-center">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    Check All Answers
-                </span>
-            </button>
+        <!-- Sticky Controls: Search + Progress -->
+        <div class="sticky top-0 z-30">
+            <div class="space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-4 sm:p-6 shadow-md backdrop-blur-md">
+                @include('components.word-search')
+                <div class="rounded-2xl border border-indigo-100 bg-gradient-to-r from-indigo-50 via-white to-purple-50 p-4 shadow-inner">
+                    @include('components.saved-test-progress')
+                </div>
+            </div>
         </div>
 
-        <!-- Summary Section with Celebration Design -->
-        <div id="summary" class="mt-12 hidden">
-            <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl shadow-xl border-2 border-emerald-200 p-8 text-center">
-                <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center">
-                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-3">Test Complete! 🎉</h2>
-                <p id="summary-text" class="text-xl text-gray-700 mb-8"></p>
-                <button id="retry" class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+        <main class="mt-8 rounded-3xl bg-white shadow-xl border border-gray-100 p-6 sm:p-8 space-y-6">
+            <!-- Restart Button -->
+            @include('components.saved-test-js-restart-button')
+
+            <!-- Questions Container -->
+            <div id="questions" class="space-y-6"></div>
+
+            <!-- Check All Button -->
+            <div id="final-check" class="pt-4">
+                <button id="check-all" type="button" class="w-full sm:w-auto px-12 py-5 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
                     <span class="flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        Try Again
+                        Check All Answers
                     </span>
                 </button>
             </div>
-        </div>
+
+            <!-- Summary Section with Celebration Design -->
+            <div id="summary" class="hidden">
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl shadow-xl border-2 border-emerald-200 p-8 text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-3">Test Complete! 🎉</h2>
+                    <p id="summary-text" class="text-xl text-gray-700 mb-8"></p>
+                    <button id="retry" class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                        <span class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                            Try Again
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </main>
     </div>
 </div>
 
