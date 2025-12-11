@@ -84,6 +84,7 @@ abstract class GrammarPageSeeder extends Seeder
 
         if (! empty($config['subtitle_html'])) {
             TextBlock::create([
+                'uuid' => $this->makeTextBlockUuid($slug, 0, ['type' => 'subtitle']),
                 'page_id' => $page->id,
                 'locale' => $config['locale'] ?? 'uk',
                 'type' => 'subtitle',
@@ -99,6 +100,7 @@ abstract class GrammarPageSeeder extends Seeder
 
         foreach ($config['blocks'] ?? [] as $index => $block) {
             TextBlock::create([
+                'uuid' => $this->makeTextBlockUuid($slug, $index + 1, $block),
                 'page_id' => $page->id,
                 'locale' => $config['locale'] ?? 'uk',
                 'type' => $block['type'] ?? 'box',
