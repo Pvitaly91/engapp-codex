@@ -397,6 +397,8 @@ function renderTheoryPanel(q, idx) {
     if (body.title) {
       content += `<h4 class="font-semibold text-emerald-900 mb-2">${html(body.title)}</h4>`;
     }
+    // Note: body.intro and section.description may contain intentional HTML formatting
+    // (e.g., <strong> tags) from trusted server-side seeders, so we preserve it
     if (body.intro) {
       content += `<p class="text-sm text-emerald-800 mb-3">${body.intro}</p>`;
     }
@@ -428,7 +430,7 @@ function renderTheoryPanel(q, idx) {
       content += `<ul class="list-disc list-inside space-y-1">`;
       body.items.forEach(item => {
         if (typeof item === 'string') {
-          content += `<li class="text-sm text-emerald-800">${item}</li>`;
+          content += `<li class="text-sm text-emerald-800">${html(item)}</li>`;
         } else if (item.title) {
           content += `<li class="text-sm"><span class="font-medium text-emerald-900">${html(item.title)}</span>`;
           if (item.subtitle) content += ` — <span class="text-emerald-700">${html(item.subtitle)}</span>`;
