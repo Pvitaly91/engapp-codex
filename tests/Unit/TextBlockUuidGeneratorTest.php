@@ -78,22 +78,6 @@ class TextBlockUuidGeneratorTest extends TestCase
         $this->assertNotSame($uuid1, $uuid2, 'Index-based and key-based generation should produce different UUIDs');
     }
 
-    public function test_get_uuid_for_block_returns_same_as_generate(): void
-    {
-        $uuid1 = TextBlockUuidGenerator::generate('TestSeeder', 5);
-        $uuid2 = TextBlockUuidGenerator::getUuidForBlock('TestSeeder', 5);
-
-        $this->assertSame($uuid1, $uuid2, 'getUuidForBlock should return same as generate');
-    }
-
-    public function test_get_uuid_for_block_by_key_returns_same_as_generate_with_key(): void
-    {
-        $uuid1 = TextBlockUuidGenerator::generateWithKey('TestSeeder', 'my-block');
-        $uuid2 = TextBlockUuidGenerator::getUuidForBlockByKey('TestSeeder', 'my-block');
-
-        $this->assertSame($uuid1, $uuid2, 'getUuidForBlockByKey should return same as generateWithKey');
-    }
-
     public function test_uuid_with_real_seeder_class_name(): void
     {
         $seederClass = 'Database\\Seeders\\Page_v2\\Adjectives\\AdjectivesComparativeVsSuperlativeTheorySeeder';

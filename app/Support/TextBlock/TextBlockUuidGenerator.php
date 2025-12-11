@@ -13,10 +13,11 @@ use Ramsey\Uuid\Uuid;
 class TextBlockUuidGenerator
 {
     /**
-     * Custom namespace UUID for text_blocks.
-     * Generated once and used consistently for all text_block UUIDs.
+     * Predefined namespace UUID (RFC 4122 URL namespace) used for generating
+     * deterministic UUIDs v5 for text blocks. Using a well-known namespace
+     * ensures consistent UUID generation across all seeders.
      */
-    private const NAMESPACE = '6ba7b810-9dad-11d1-80b4-00c04fd430c8'; // UUID namespace for URL
+    private const NAMESPACE = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
 
     /**
      * Generate a deterministic UUID for a text block.
@@ -62,31 +63,5 @@ class TextBlockUuidGenerator
     public static function findByUuid(string $uuid): ?TextBlock
     {
         return TextBlock::where('uuid', $uuid)->first();
-    }
-
-    /**
-     * Get the UUID for a block in a specific seeder by index.
-     * Useful for referencing blocks from other seeders.
-     *
-     * @param  string  $seederClass  The fully qualified seeder class name
-     * @param  int  $blockIndex  The index of the block within the seeder (0-based)
-     * @return string The deterministic UUID for that block
-     */
-    public static function getUuidForBlock(string $seederClass, int $blockIndex): string
-    {
-        return self::generate($seederClass, $blockIndex);
-    }
-
-    /**
-     * Get the UUID for a block in a specific seeder by key.
-     * Useful for referencing blocks from other seeders.
-     *
-     * @param  string  $seederClass  The fully qualified seeder class name
-     * @param  string  $key  A unique key within the seeder
-     * @return string The deterministic UUID for that block
-     */
-    public static function getUuidForBlockByKey(string $seederClass, string $key): string
-    {
-        return self::generateWithKey($seederClass, $key);
     }
 }
