@@ -27,28 +27,28 @@
         @include('components.test-mode-nav-v2')
 
         <!-- Sticky Controls: Search + Progress -->
-        <div class="sticky top-0 z-30">
-            <div class="space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-4 sm:p-6 shadow-md backdrop-blur-md">
+        <div class="sticky-test-header sticky top-0 z-30">
+            <div class="sticky-card space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-4 sm:p-6 shadow-md backdrop-blur-md">
                 @include('components.word-search')
-                <div class="bg-gradient-to-r from-indigo-50 via-white to-purple-50 rounded-2xl border border-indigo-100 p-4 shadow-inner">
+                <div class="progress-section bg-gradient-to-r from-indigo-50 via-white to-purple-50 rounded-2xl border border-indigo-100 p-4 shadow-inner">
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-3">
                         <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                            <div class="progress-icon w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
                                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-xs font-semibold uppercase tracking-wide text-gray-500">Progress</div>
-                                <div id="progress-label" class="text-xl font-bold text-gray-900">1 / 0</div>
+                                <div class="progress-label-text text-xs font-semibold uppercase tracking-wide text-gray-500">Progress</div>
+                                <div id="progress-label" class="progress-value text-xl font-bold text-gray-900">1 / 0</div>
                             </div>
                         </div>
                         <div class="text-right">
-                            <div class="text-xs font-semibold uppercase tracking-wide text-gray-500">Accuracy</div>
-                            <div id="score-label" class="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">0%</div>
+                            <div class="progress-label-text text-xs font-semibold uppercase tracking-wide text-gray-500">Accuracy</div>
+                            <div id="score-label" class="progress-value text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">0%</div>
                         </div>
                     </div>
-                    <div class="relative w-full h-3 bg-white border border-indigo-100 rounded-full overflow-hidden shadow-sm">
+                    <div class="progress-bar-container relative w-full h-3 bg-white border border-indigo-100 rounded-full overflow-hidden shadow-sm">
                         <div id="progress-bar" class="absolute top-0 left-0 h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-500 ease-out" style="width:0%"></div>
                     </div>
                 </div>

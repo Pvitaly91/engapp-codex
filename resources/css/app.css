@@ -19,3 +19,66 @@
     margin-bottom: 1rem;
   }
 }
+
+/* Mobile-compact styles for sticky test header (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Sticky container: limit height and reduce spacing */
+  .sticky-test-header {
+    max-height: 38vh;
+    overflow: hidden;
+  }
+
+  .sticky-test-header .sticky-card {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  /* Override Tailwind space-y-4 margins on mobile */
+  .sticky-test-header .sticky-card > * + * {
+    margin-top: 0.5rem;
+  }
+
+  /* Word search compact */
+  .sticky-test-header .word-search-label {
+    font-size: 0.75rem;
+  }
+
+  .sticky-test-header .word-search-subtitle {
+    font-size: 0.625rem;
+  }
+
+  .sticky-test-header .word-search-input {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  /* Progress section compact */
+  .sticky-test-header .progress-section {
+    padding: 0.625rem;
+    border-radius: 0.75rem;
+  }
+
+  .sticky-test-header .progress-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .sticky-test-header .progress-icon svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .sticky-test-header .progress-label-text {
+    font-size: 0.625rem;
+  }
+
+  .sticky-test-header .progress-value {
+    font-size: 0.875rem;
+  }
+
+  .sticky-test-header .progress-bar-container {
+    height: 0.5rem;
+  }
+}
