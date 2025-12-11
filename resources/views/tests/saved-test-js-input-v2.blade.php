@@ -28,10 +28,10 @@
         @include('components.test-mode-nav-v2')
 
         <!-- Sticky Controls: Search + Progress -->
-        <div class="sticky top-0 z-30">
-            <div class="space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-4 sm:p-6 shadow-md backdrop-blur-md">
+        <div class="sticky-test-header sticky top-0 z-30">
+            <div class="sticky-card space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-4 sm:p-6 shadow-md backdrop-blur-md">
                 @include('components.word-search')
-                <div class="rounded-2xl border border-indigo-100 bg-gradient-to-r from-indigo-50 via-white to-purple-50 p-4 shadow-inner">
+                <div class="progress-section rounded-2xl border border-indigo-100 bg-gradient-to-r from-indigo-50 via-white to-purple-50 p-4 shadow-inner">
                     @include('components.saved-test-progress')
                 </div>
             </div>

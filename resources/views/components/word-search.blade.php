@@ -1,11 +1,11 @@
 <div x-data="wordSearch()" class="space-y-2">
     <div class="flex items-center justify-between">
-        <label for="word-search" class="text-sm font-semibold text-gray-800">Пошук слова</label>
-        <span class="text-xs text-gray-500">Швидка допомога під час тесту</span>
+        <label for="word-search" class="word-search-label text-sm font-semibold text-gray-800">Пошук слова</label>
+        <span class="word-search-subtitle text-xs text-gray-500">Швидка допомога під час тесту</span>
     </div>
     <div class="relative">
         <input id="word-search" type="text" x-model="query" @input="search" placeholder="Введіть слово"
-               class="w-full rounded-2xl border border-indigo-100 bg-white px-4 py-3 text-base shadow-sm transition focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-200" autocomplete="off">
+               class="word-search-input w-full rounded-2xl border border-indigo-100 bg-white px-4 py-3 text-base shadow-sm transition focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-200" autocomplete="off">
         <div x-show="results.length" x-transition class="absolute left-0 right-0 z-20 mt-2 rounded-2xl border border-gray-200 bg-white shadow-xl">
             <div class="divide-y divide-gray-100 max-h-72 overflow-y-auto">
                 <template x-for="item in results" :key="item.word">
