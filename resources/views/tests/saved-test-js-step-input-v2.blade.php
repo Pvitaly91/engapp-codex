@@ -195,7 +195,14 @@ function render() {
             </svg>
             Show Help
           </button>
+          ${q.theory_block ? `<button type="button" id="theory-btn" class="ml-3 inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+            Show Theory
+          </button>` : ''}
           <div id="hints" class="mt-3 space-y-2"></div>
+          <div id="theory-panel" class="mt-3 hidden"></div>
         </div>
         <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0">
           <div class="text-xs text-gray-500 font-medium">Q</div>
@@ -211,6 +218,14 @@ function render() {
   document.getElementById('next').disabled = q.isCorrect === null;
   document.getElementById('help').addEventListener('click', () => fetchHints(q));
   renderHints(q);
+  
+  // Theory button handler
+  const theoryBtn = document.getElementById('theory-btn');
+  if (theoryBtn && q.theory_block) {
+    theoryBtn.addEventListener('click', () => toggleTheoryPanel(q));
+    renderTheoryPanel(q);
+  }
+  
   if (q.isCorrect === null) {
     document.getElementById('check').addEventListener('click', onCheck);
     document.querySelectorAll('input[data-idx][data-word]').forEach((inp) => {
@@ -383,6 +398,91 @@ function renderHints(q) {
   htmlStr += `<button type="button" id="refresh-hint" class="inline-flex items-center text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors mt-2"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>Refresh Hint</button>`;
   el.innerHTML = htmlStr;
   document.getElementById('refresh-hint').addEventListener('click', () => fetchHints(q, true));
+}
+
+function toggleTheoryPanel(q) {
+  const panel = document.getElementById('theory-panel');
+  if (!panel) return;
+  
+  if (panel.classList.contains('hidden')) {
+    renderTheoryPanel(q);
+    panel.classList.remove('hidden');
+  } else {
+    panel.classList.add('hidden');
+  }
+}
+
+function renderTheoryPanel(q) {
+  const panel = document.getElementById('theory-panel');
+  if (!panel || !q.theory_block) return;
+  
+  const block = q.theory_block;
+  let content = '';
+  
+  try {
+    const body = typeof block.body === 'string' ? JSON.parse(block.body) : block.body;
+    
+    // Render based on block type
+    if (body.title) {
+      content += `<h4 class="font-semibold text-emerald-900 mb-2">${html(body.title)}</h4>`;
+    }
+    if (body.intro) {
+      content += `<p class="text-sm text-emerald-800 mb-3">${body.intro}</p>`;
+    }
+    if (body.sections && Array.isArray(body.sections)) {
+      body.sections.forEach(section => {
+        content += `<div class="mb-3">`;
+        if (section.label) {
+          content += `<p class="text-sm font-semibold text-emerald-700">${html(section.label)}</p>`;
+        }
+        if (section.description) {
+          content += `<p class="text-sm text-emerald-800">${section.description}</p>`;
+        }
+        if (section.examples && Array.isArray(section.examples)) {
+          content += `<ul class="mt-1 space-y-1">`;
+          section.examples.forEach(ex => {
+            content += `<li class="text-sm"><span class="text-emerald-900 font-medium">${html(ex.en || '')}</span>`;
+            if (ex.ua) content += ` — <span class="text-emerald-700">${html(ex.ua)}</span>`;
+            content += `</li>`;
+          });
+          content += `</ul>`;
+        }
+        if (section.note) {
+          content += `<p class="text-xs text-emerald-600 mt-1">${html(section.note)}</p>`;
+        }
+        content += `</div>`;
+      });
+    }
+    if (body.items && Array.isArray(body.items)) {
+      content += `<ul class="list-disc list-inside space-y-1">`;
+      body.items.forEach(item => {
+        if (typeof item === 'string') {
+          content += `<li class="text-sm text-emerald-800">${item}</li>`;
+        } else if (item.title) {
+          content += `<li class="text-sm"><span class="font-medium text-emerald-900">${html(item.title)}</span>`;
+          if (item.subtitle) content += ` — <span class="text-emerald-700">${html(item.subtitle)}</span>`;
+          content += `</li>`;
+        }
+      });
+      content += `</ul>`;
+    }
+  } catch (e) {
+    // If body is not JSON, display as raw text
+    content = `<p class="text-sm text-emerald-800">${html(block.body || '')}</p>`;
+  }
+  
+  panel.innerHTML = `
+    <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200">
+      <div class="flex items-center gap-2 mb-2">
+        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+        <span class="text-sm font-semibold text-emerald-900">📚 Theory</span>
+        ${block.level ? `<span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-200 text-emerald-800">${html(block.level)}</span>` : ''}
+      </div>
+      ${content}
+    </div>
+  `;
 }
 
 function fetchExplanation(q, given) {
