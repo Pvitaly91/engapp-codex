@@ -104,7 +104,7 @@
                             } elseif ($preferredView === 'match') {
                                 $testRoute = route('saved-test.js.match', $test->slug);
                             } else {
-                                $testRoute = route('saved-test.js', $test->slug);
+                                $testRoute = route('test.show', $test->slug);
                             }
                         @endphp
                         <a href="{{ $testRoute }}" class="mt-auto inline-block text-center bg-primary hover:bg-primary/80 text-primary-foreground px-4 py-2 rounded-2xl text-sm font-semibold">Пройти тест</a>

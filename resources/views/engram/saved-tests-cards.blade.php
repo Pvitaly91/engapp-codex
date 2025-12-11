@@ -90,7 +90,7 @@
                             } elseif ($preferredView === 'match') {
                                 $testRoute = route('saved-test.js.match', $test->slug);
                             } else {
-                                $testRoute = route('saved-test.js', $test->slug);
+                                $testRoute = route('test.show', $test->slug);
                             }
                         @endphp
                         <div class="mt-auto grid grid-cols-1 gap-2">
