@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <main class="mt-8 rounded-3xl bg-white shadow-xl border border-gray-100 p-6 sm:p-8 space-y-6">
+        <main class="mt-8 rounded-3xl bg-white shadow-xl border border-gray-100 p-0 sm:p-8 space-y-6 overflow-hidden">
             <!-- Restart Button -->
             @include('components.saved-test-js-restart-button')
 
@@ -134,7 +134,7 @@ function renderQuestions() {
   wrap.innerHTML = '';
   state.items.forEach((_, i) => {
     const card = document.createElement('article');
-    card.className = 'group bg-white rounded-3xl shadow-md hover:shadow-xl border-2 border-gray-100 hover:border-indigo-200 p-6 sm:p-8 transition-all duration-300 transform hover:-translate-y-1';
+    card.className = 'group bg-white rounded-none sm:rounded-3xl shadow-md hover:shadow-xl border-y border-gray-100 sm:border-2 hover:border-indigo-200 p-5 sm:p-8 transition-all duration-300 transform hover:-translate-y-1 -mx-4 sm:mx-0';
     card.dataset.idx = i;
     wrap.appendChild(card);
     renderQuestion(i);
@@ -451,7 +451,7 @@ function renderTheoryPanel(q, idx) {
   }
   
   panel.innerHTML = `
-    <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200">
+    <div class="-mx-5 sm:mx-0 p-4 sm:p-5 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-none sm:rounded-2xl border-y border-emerald-200 sm:border">
       <div class="flex items-center gap-2 mb-2">
         <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>

@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <main class="mt-8 rounded-3xl bg-white shadow-xl border border-gray-100 p-6 sm:p-8 space-y-6">
+        <main class="mt-8 rounded-3xl bg-white shadow-xl border border-gray-100 p-0 sm:p-8 space-y-6 overflow-hidden">
             <!-- Restart Button -->
             @include('components.saved-test-js-restart-button')
 
@@ -133,7 +133,7 @@ function renderQuestions() {
   wrap.innerHTML = '';
   state.items.forEach((_, i) => {
     const card = document.createElement('article');
-    card.className = 'group bg-white rounded-3xl shadow-md hover:shadow-xl border-2 border-gray-100 hover:border-indigo-200 p-6 sm:p-8 transition-all duration-300 transform hover:-translate-y-1';
+    card.className = 'group bg-white rounded-none sm:rounded-3xl shadow-md hover:shadow-xl border-y border-gray-100 sm:border-2 hover:border-indigo-200 p-5 sm:p-8 transition-all duration-300 transform hover:-translate-y-1 -mx-4 sm:mx-0';
     card.dataset.idx = i;
     wrap.appendChild(card);
     renderQuestion(i);

@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <main class="mt-8 rounded-3xl bg-white shadow-xl border border-gray-100 p-6 sm:p-8 space-y-6">
+        <main class="mt-8 rounded-3xl bg-white shadow-xl border border-gray-100 p-0 sm:p-8 space-y-6 overflow-hidden">
             <!-- Restart Button -->
             @include('components.saved-test-js-restart-button')
 
@@ -164,7 +164,7 @@ function render() {
   const q = state.items[state.current];
   const sentence = renderSentence(q);
   wrap.innerHTML = `
-    <article class="group bg-white rounded-3xl shadow-md hover:shadow-xl border-2 border-gray-100 hover:border-indigo-200 p-6 sm:p-8 transition-all duration-300 focus-within:ring-4 ring-indigo-100 outline-none transform hover:-translate-y-1" data-idx="${state.current}">
+    <article class="group bg-white rounded-none sm:rounded-3xl shadow-md hover:shadow-xl border-y border-gray-100 sm:border-2 hover:border-indigo-200 p-5 sm:p-8 transition-all duration-300 focus-within:ring-4 ring-indigo-100 outline-none transform hover:-translate-y-1 -mx-4 sm:mx-0" data-idx="${state.current}">
       <div class="flex items-start justify-between gap-4 mb-6">
         <div class="flex-1">
           <div class="flex items-center gap-3 mb-3">
