@@ -64,7 +64,6 @@
                 </div>
             </div>
         </main>
-        </div>
 
         <!-- Summary Section with Celebration Design -->
         <div id="summary" class="mt-12 hidden">
