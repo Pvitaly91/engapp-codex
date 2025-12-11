@@ -44,6 +44,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'hero',
                     'body' => json_encode([
                         'level' => 'A2–B1',
                         'intro' => 'У цій темі ти вивчиш <strong>альтернативні питання (Alternative Questions)</strong> — питання, які пропонують вибір між варіантами за допомогою сполучника <strong>or</strong>.',
@@ -72,6 +75,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'forms-grid',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'forms-grid-what-is',
                     'body' => json_encode([
                         'title' => '1. Що таке альтернативні питання?',
                         'intro' => 'Alternative questions — це питання з вибором між варіантами:',
@@ -85,6 +91,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'usage-panels-basic-structure',
                     'body' => json_encode([
                         'title' => '2. Базова структура альтернативних питань',
                         'sections' => [
@@ -125,6 +134,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'usage-panels-do-does-did',
                     'body' => json_encode([
                         'title' => '3. Альтернативні питання з DO/DOES/DID',
                         'sections' => [
@@ -165,6 +177,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'usage-panels-to-be',
                     'body' => json_encode([
                         'title' => '4. Альтернативні питання з TO BE',
                         'sections' => [
@@ -205,6 +220,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'B1',
+                    'uuid_key' => 'usage-panels-modals',
                     'body' => json_encode([
                         'title' => '5. Альтернативні питання з модальними дієсловами',
                         'sections' => [
@@ -244,6 +262,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'B1',
+                    'uuid_key' => 'usage-panels-complex',
                     'body' => json_encode([
                         'title' => '6. Складніші альтернативні питання',
                         'sections' => [
@@ -284,6 +305,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'usage-panels',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'usage-panels-answers',
                     'body' => json_encode([
                         'title' => '7. Як відповідати на альтернативні питання',
                         'sections' => [
@@ -322,6 +346,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'comparison-table',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'B1',
+                    'uuid_key' => 'comparison-table',
                     'body' => json_encode([
                         'title' => '8. Порівняння Yes/No та Alternative Questions',
                         'intro' => 'Основні відмінності між двома типами питань:',
@@ -358,6 +385,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'mistakes-grid',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'B1',
+                    'uuid_key' => 'mistakes-grid',
                     'body' => json_encode([
                         'title' => '9. Типові помилки',
                         'items' => [
@@ -395,6 +425,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'summary-list',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'summary-list',
                     'body' => json_encode([
                         'title' => '10. Короткий конспект',
                         'items' => [
@@ -414,6 +447,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'practice-set',
                     'column' => 'left',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'practice-set',
                     'body' => json_encode([
                         'title' => '11. Практика',
                         'select_title' => 'Вправа 1. Обери правильний варіант',
@@ -458,6 +494,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 [
                     'type' => 'navigation-chips',
                     'column' => 'footer',
+                    'seeder' => self::class,
+                    'level' => 'A2',
+                    'uuid_key' => 'navigation-chips',
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [
