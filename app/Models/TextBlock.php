@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TextBlock extends Model
 {
     protected $fillable = [
+        'uuid',
         'page_id',
         'page_category_id',
         'locale',
@@ -19,6 +20,15 @@ class TextBlock extends Model
         'level',
         'seeder',
     ];
+
+    protected static function booted(): void
+    {
+        static::creating(function (TextBlock $block) {
+            if (blank($block->uuid)) {
+                $block->uuid = (string) \Illuminate\Support\Str::uuid();
+            }
+        });
+    }
 
     public function page()
     {

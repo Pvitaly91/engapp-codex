@@ -54,6 +54,7 @@ class PageBlockManagementTest extends TestCase
 
         Schema::create('text_blocks', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->foreignId('page_id')
                 ->nullable()
                 ->constrained('pages')
@@ -105,6 +106,17 @@ class PageBlockManagementTest extends TestCase
             ->get(route('pages.manage.blocks.edit', [$otherPage, $block]));
 
         $response->assertNotFound();
+    }
+
+    public function test_block_gets_uuid_on_create(): void
+    {
+        [, $block] = $this->createPageWithBlock();
+
+        $this->assertNotEmpty($block->uuid);
+        $this->assertDatabaseHas('text_blocks', [
+            'id' => $block->id,
+            'uuid' => $block->uuid,
+        ]);
     }
 
     private function createPageWithBlock(): array

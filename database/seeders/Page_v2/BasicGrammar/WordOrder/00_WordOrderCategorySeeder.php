@@ -63,6 +63,7 @@ class WordOrderCategorySeeder extends Seeder
 
         if (! empty($description['subtitle_html'])) {
             TextBlock::create([
+                'uuid' => $this->makeTextBlockUuid($slug, 0, ['type' => 'subtitle']),
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $locale,
@@ -80,6 +81,7 @@ class WordOrderCategorySeeder extends Seeder
             $blockType = $block['type'] ?? 'box';
 
             TextBlock::create([
+                'uuid' => $this->makeTextBlockUuid($slug, $index + 1, $block),
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $block['locale'] ?? $locale,

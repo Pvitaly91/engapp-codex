@@ -4,6 +4,7 @@ namespace Tests\Feature\Admin;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\TextBlock;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
@@ -40,6 +41,12 @@ class PageCategoryManagementTest extends TestCase
                 ->nullOnDelete();
         });
 
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->timestamps();
+        });
+
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('page_category_id')
@@ -52,8 +59,17 @@ class PageCategoryManagementTest extends TestCase
             $table->timestamps();
         });
 
+        Schema::create('page_category_tag', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('page_category_id')->constrained('page_categories')->cascadeOnDelete();
+            $table->unique(['tag_id', 'page_category_id']);
+            $table->timestamps();
+        });
+
         Schema::create('text_blocks', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->foreignId('page_id')
                 ->nullable()
                 ->constrained('pages')
@@ -79,8 +95,10 @@ class PageCategoryManagementTest extends TestCase
     {
         Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('text_blocks');
+        Schema::dropIfExists('page_category_tag');
         Schema::dropIfExists('pages');
         Schema::dropIfExists('page_categories');
+        Schema::dropIfExists('tags');
         Schema::enableForeignKeyConstraints();
 
         parent::tearDown();
@@ -271,6 +289,10 @@ class PageCategoryManagementTest extends TestCase
             'page_category_id' => $category->id,
             'heading' => 'Intro',
         ]);
+
+        $block = TextBlock::first();
+        $this->assertNotNull($block?->uuid);
+        $this->assertNotSame('', $block?->uuid);
     }
 
     public function test_category_block_edit_form_returns_not_found_for_foreign_category(): void
