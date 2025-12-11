@@ -472,7 +472,7 @@ class GrammarTestController extends Controller
     private function buildQuestionDataset(ResolvedSavedTest $resolved, bool $freshVariants = false)
     {
         $test = $resolved->model;
-        $relations = ['category', 'answers.option', 'options', 'verbHints.option'];
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'theoryBlock'];
         $supportsVariants = $this->variantService->supportsVariants();
         if ($supportsVariants) {
             $relations[] = 'variants';
@@ -518,6 +518,13 @@ class GrammarTestController extends Controller
                 ->mapWithKeys(fn($vh) => [$vh->marker => $vh->option->option ?? ''])
                 ->toArray();
 
+            $theoryBlock = $q->theoryBlock ? [
+                'uuid' => $q->theoryBlock->uuid,
+                'heading' => $q->theoryBlock->heading,
+                'body' => $q->theoryBlock->body,
+                'level' => $q->theoryBlock->level,
+            ] : null;
+
             return [
                 'id' => $q->id,
                 'question' => $q->question,
@@ -529,6 +536,7 @@ class GrammarTestController extends Controller
                 'options' => $options,
                 'tense' => $q->category->name ?? '',
                 'level' => $q->level ?? '',
+                'theory_block' => $theoryBlock,
             ];
         })->values()->all();
     }
