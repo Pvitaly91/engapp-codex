@@ -19,6 +19,7 @@ use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\SiteTreeController;
+use App\Http\Controllers\TestJsV2Controller;
 use App\Http\Controllers\TestTagController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
@@ -89,6 +90,16 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     Route::get('/test/{slug}/js/drag-drop', [GrammarTestController::class, 'showSavedTestJsDragDrop'])->name('saved-test.js.drag-drop');
     Route::get('/test/{slug}/js/match', [GrammarTestController::class, 'showSavedTestJsMatch'])->name('saved-test.js.match');
     Route::get('/test/{slug}/js/dialogue', [GrammarTestController::class, 'showSavedTestJsDialogue'])->name('saved-test.js.dialogue');
+
+    // Test JS V2 - New UI version
+    Route::get('/test-v2/{slug}/js', [TestJsV2Controller::class, 'showSavedTestJsV2'])->name('saved-test.js-v2');
+    Route::get('/test-v2/{slug}/js/step', [TestJsV2Controller::class, 'showSavedTestJsStepV2'])->name('saved-test.js-v2.step');
+    Route::get('/test-v2/{slug}/js/step/input', [TestJsV2Controller::class, 'showSavedTestJsStepInputV2'])->name('saved-test.js-v2.step-input');
+    Route::get('/test-v2/{slug}/js/step/manual', [TestJsV2Controller::class, 'showSavedTestJsStepManualV2'])->name('saved-test.js-v2.step-manual');
+    Route::get('/test-v2/{slug}/js/step/select', [TestJsV2Controller::class, 'showSavedTestJsStepSelectV2'])->name('saved-test.js-v2.step-select');
+    Route::get('/test-v2/{slug}/js/select', [TestJsV2Controller::class, 'showSavedTestJsSelectV2'])->name('saved-test.js-v2.select');
+    Route::get('/test-v2/{slug}/js/input', [TestJsV2Controller::class, 'showSavedTestJsInputV2'])->name('saved-test.js-v2.input');
+    Route::get('/test-v2/{slug}/js/manual', [TestJsV2Controller::class, 'showSavedTestJsManualV2'])->name('saved-test.js-v2.manual');
 
     Route::prefix('admin')->group(function () {
         Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
