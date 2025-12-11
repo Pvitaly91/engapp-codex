@@ -212,7 +212,7 @@
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <!-- Контент -->
-    <main class="flex-1 container mx-auto px-4">
+    <main class="flex-1 container mx-auto px-3 sm:px-4">
         @php $pageTitle = trim($__env->yieldContent('title')); @endphp
         @if(isset($breadcrumbs))
             @include('components.breadcrumbs', ['items' => $breadcrumbs])
