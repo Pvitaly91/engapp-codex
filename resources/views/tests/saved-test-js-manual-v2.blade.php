@@ -3,7 +3,8 @@
 @section('title', $test->name)
 
 @section('content')
-<div class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50" id="quiz-app">
+<div class="fixed inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-purple-50"></div>
+<div class="min-h-screen" id="quiz-app">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <!-- Header Section with Modern Design -->
         <header class="mb-8 sm:mb-12">
@@ -26,29 +27,35 @@
         <!-- Navigation Tabs -->
         @include('components.test-mode-nav-v2')
 
-        <!-- Word Search Component -->
-        @include('components.word-search')
+        <!-- Sticky Container for Search and Progress -->
+        <div id="sticky-container" class="sticky-search-progress sticky top-0 z-30 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 py-4 transition-shadow duration-300" style="background: linear-gradient(to bottom, rgba(238, 242, 255, 0.98) 0%, rgba(238, 242, 255, 0.95) 100%);">
+            <!-- Word Search Component -->
+            @include('components.word-search')
 
-        <!-- Progress Tracker with Modern Design -->
-        @include('components.saved-test-progress')
+            <!-- Progress Tracker with Modern Design -->
+            @include('components.saved-test-progress')
+        </div>
 
         <!-- Restart Button -->
         @include('components.saved-test-js-restart-button')
 
-        <!-- Questions Container -->
-        <div id="questions" class="space-y-6"></div>
+        <!-- Main Content Area - Card-like Container -->
+        <main class="mt-6 bg-white rounded-3xl shadow-lg border border-gray-100 p-6 sm:p-8">
+            <!-- Questions Container -->
+            <div id="questions" class="space-y-6"></div>
 
-        <!-- Check All Button -->
-        <div id="final-check" class="mt-8">
-            <button id="check-all" type="button" class="w-full sm:w-auto px-12 py-5 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
-                <span class="flex items-center justify-center">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    Check All Answers
-                </span>
-            </button>
-        </div>
+            <!-- Check All Button -->
+            <div id="final-check" class="mt-8">
+                <button id="check-all" type="button" class="w-full sm:w-auto px-12 py-5 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                    <span class="flex items-center justify-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Check All Answers
+                    </span>
+                </button>
+            </div>
+        </main>
 
         <!-- Summary Section with Celebration Design -->
         <div id="summary" class="mt-12 hidden">
@@ -279,5 +286,30 @@ if (restartButton) {
 }
 
 init();
+</script>
+<style>
+/* Sticky search and progress bar styling */
+.sticky-search-progress {
+  backdrop-filter: blur(8px);
+}
+.sticky-search-progress.is-stuck {
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.1);
+}
+</style>
+<script>
+// Add shadow when sticky element is stuck
+(function initStickyObserver() {
+  const stickyEl = document.getElementById('sticky-container');
+  if (!stickyEl) return;
+  
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      stickyEl.classList.toggle('is-stuck', entry.intersectionRatio < 1);
+    },
+    { threshold: [1], rootMargin: '-1px 0px 0px 0px' }
+  );
+  
+  observer.observe(stickyEl);
+})();
 </script>
 @endsection
