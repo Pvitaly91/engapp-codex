@@ -27,57 +27,43 @@
         <!-- Navigation Tabs -->
         @include('components.test-mode-nav-v2')
 
-        <!-- Word Search Component -->
-        @include('components.word-search')
+        <!-- Sticky Container for Search and Progress -->
+        <div id="sticky-container" class="sticky-search-progress sticky top-0 z-30 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 py-4 transition-shadow duration-300" style="background: linear-gradient(to bottom, rgba(238, 242, 255, 0.98) 0%, rgba(238, 242, 255, 0.95) 100%);">
+            <!-- Word Search Component -->
+            @include('components.word-search')
 
-        <!-- Progress Tracker with Modern Design -->
-        <div class="mb-8 bg-white rounded-3xl shadow-lg border border-gray-100 p-6">
-            <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="text-sm text-gray-500 font-medium">Progress</div>
-                        <div id="progress-label" class="text-xl font-bold text-gray-900">1 / 0</div>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <div class="text-sm text-gray-500 font-medium">Accuracy</div>
-                    <div id="score-label" class="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">0%</div>
-                </div>
-            </div>
-            <div class="relative w-full h-3 bg-gray-100 rounded-full overflow-hidden">
-                <div id="progress-bar" class="absolute top-0 left-0 h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-500 ease-out" style="width:0%"></div>
-            </div>
+            <!-- Progress Tracker with Modern Design -->
+            @include('components.saved-test-progress')
         </div>
 
         <!-- Restart Button -->
         @include('components.saved-test-js-restart-button')
 
-        <!-- Question Container -->
-        <div id="question-wrap">
-            <div id="question-card" class="mb-6"></div>
-            <div class="flex flex-col sm:flex-row gap-3 justify-between">
-                <button id="prev" class="group px-8 py-4 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 font-semibold hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                    <span class="flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                        Previous
-                    </span>
-                </button>
-                <button id="next" class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                    <span class="flex items-center justify-center">
-                        Next
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </span>
-                </button>
+        <!-- Main Content Area - Card-like Container -->
+        <main class="mt-6 bg-white rounded-3xl shadow-lg border border-gray-100 p-6 sm:p-8">
+            <!-- Question Container -->
+            <div id="question-wrap">
+                <div id="question-card" class="mb-6"></div>
+                <div class="flex flex-col sm:flex-row gap-3 justify-between">
+                    <button id="prev" class="group px-8 py-4 rounded-2xl border-2 border-gray-300 bg-white text-gray-700 font-semibold hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <span class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Previous
+                        </span>
+                    </button>
+                    <button id="next" class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <span class="flex items-center justify-center">
+                            Next
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
             </div>
+        </main>
         </div>
 
         <!-- Summary Section with Celebration Design -->
@@ -646,5 +632,30 @@ if (restartButton) {
 }
 
 init();
+</script>
+<style>
+/* Sticky search and progress bar styling */
+.sticky-search-progress {
+  backdrop-filter: blur(8px);
+}
+.sticky-search-progress.is-stuck {
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.1);
+}
+</style>
+<script>
+// Add shadow when sticky element is stuck
+(function initStickyObserver() {
+  const stickyEl = document.getElementById('sticky-container');
+  if (!stickyEl) return;
+  
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      stickyEl.classList.toggle('is-stuck', entry.intersectionRatio < 1);
+    },
+    { threshold: [1], rootMargin: '-1px 0px 0px 0px' }
+  );
+  
+  observer.observe(stickyEl);
+})();
 </script>
 @endsection
