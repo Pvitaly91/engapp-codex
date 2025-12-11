@@ -3,7 +3,8 @@
 @section('title', $test->name)
 
 @section('content')
-<div class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50" id="quiz-app">
+<div class="fixed inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-purple-50"></div>
+<div class="min-h-screen" id="quiz-app">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <!-- Header Section with Modern Design -->
         <header class="mb-8 sm:mb-12">
