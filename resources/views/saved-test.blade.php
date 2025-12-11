@@ -20,6 +20,7 @@
     <div class="text-sm text-gray-500 mb-6">
         Кількість питань: {{ count($questions) }}
         <div class="mt-2 space-x-4">
+            <a href="{{ route('test.show', $test->slug) }}" class="text-blue-600 underline font-semibold">Публічний тест (V2)</a>
             <a href="{{ route('saved-test.random', $test->slug) }}" class="text-blue-600 underline">Random Inputs</a>
             <a href="{{ route('saved-test.step', $test->slug) }}" class="text-blue-600 underline">Step Mode</a>
             <a href="{{ route('saved-test.tech', $test->slug) }}" class="text-blue-600 underline">Технічна сторінка</a>

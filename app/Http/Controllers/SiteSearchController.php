@@ -41,7 +41,7 @@ class SiteSearchController extends Controller
                 ->map(fn ($t) => [
                     'title' => $t->name,
                     'type' => 'test',
-                    'url' => route('saved-test.js', $t->slug),
+                    'url' => route('test.show', $t->slug),
                 ]);
         }
 

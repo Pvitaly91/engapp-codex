@@ -93,6 +93,17 @@
     </div>
 </div>
 
+<!-- Loading Overlay -->
+<div id="ajax-loader" class="hidden fixed inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20 backdrop-blur-sm flex items-center justify-center z-50">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 flex flex-col items-center">
+        <svg class="h-12 w-12 animate-spin text-indigo-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+        </svg>
+        <p class="text-gray-700 font-medium">Loading...</p>
+    </div>
+</div>
+
 <script>
 window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
@@ -100,6 +111,7 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
 const EXPLAIN_URL = '{{ route('question.explain') }}';
+const HINT_URL = '{{ route('question.hint') }}';
 const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
@@ -113,6 +125,12 @@ const state = {
 };
 
 let globalEventsHooked = false;
+
+const loaderEl = document.getElementById('ajax-loader');
+function showLoader(show) {
+  if (!loaderEl) return;
+  loaderEl.classList.toggle('hidden', !show);
+}
 
 function ensureGlobalEvents() {
   if (globalEventsHooked) return;
@@ -195,7 +213,21 @@ function renderQuestions(showOnlyWrong = false) {
             </span>
             <span class="text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
           </div>
-          <div class="text-lg sm:text-xl leading-relaxed text-gray-900 font-medium">${sentence}</div>
+          <div class="text-lg sm:text-xl leading-relaxed text-gray-900 font-medium mb-3">${sentence}</div>
+          <button type="button" class="help-btn inline-flex items-center text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors" data-help-idx="${idx}">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Show Help
+          </button>
+          ${q.theory_block ? `<button type="button" class="theory-btn ml-3 inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors" data-theory-idx="${idx}">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+            Show Theory
+          </button>` : ''}
+          <div id="hints-${idx}" class="mt-3 space-y-2"></div>
+          <div id="theory-panel-${idx}" class="mt-3 hidden"></div>
         </div>
         <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0">
           <div class="text-xs text-gray-500 font-medium">Q</div>
@@ -222,6 +254,27 @@ function renderQuestions(showOnlyWrong = false) {
         persistState(state);
       }
     });
+
+    // Help button handler
+    const helpBtn = card.querySelector('.help-btn');
+    if (helpBtn) {
+      helpBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fetchHints(q, idx);
+      });
+    }
+
+    // Theory button handler
+    const theoryBtn = card.querySelector('.theory-btn');
+    if (theoryBtn && q.theory_block) {
+      theoryBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleTheoryPanel(q, idx);
+      });
+    }
+
+    // Render existing hints if present
+    renderHints(q, idx);
 
     wrap.appendChild(card);
   });
@@ -469,6 +522,140 @@ function ensureExplanation(item, idx, selected, expected, key, slotIndex) {
 
       return '';
     });
+}
+
+function fetchHints(q, idx, refresh = false) {
+  const payload = q.id ? { question_id: q.id } : { question: q.question };
+  if (refresh) payload.refresh = true;
+  showLoader(true);
+  fetch(HINT_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((r) => r.json())
+    .then((d) => {
+      if (d.chatgpt) d.chatgpt = d.chatgpt.replace(/\{a\d+\}/g, '\n$&');
+      if (d.gemini) d.gemini = d.gemini.replace(/\{a\d+\}/g, '\n$&');
+      q.hints = d;
+      renderHints(q, idx);
+      persistState(state);
+    })
+    .catch((e) => console.error(e))
+    .finally(() => showLoader(false));
+}
+
+function renderHints(q, idx) {
+  const el = document.getElementById(`hints-${idx}`);
+  if (!el) return;
+  if (!q.hints || (!q.hints.chatgpt && !q.hints.gemini)) {
+    el.innerHTML = '';
+    return;
+  }
+  let htmlStr = '';
+  if (q.hints.chatgpt) {
+    htmlStr += `<div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200"><p class="text-sm font-semibold text-blue-900 mb-2">💡 ChatGPT Hint:</p><p class="text-sm text-blue-800 whitespace-pre-line leading-relaxed">${html(q.hints.chatgpt)}</p></div>`;
+  }
+  if (q.hints.gemini) {
+    htmlStr += `<div class="p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-200"><p class="text-sm font-semibold text-purple-900 mb-2">✨ Gemini Hint:</p><p class="text-sm text-purple-800 whitespace-pre-line leading-relaxed">${html(q.hints.gemini)}</p></div>`;
+  }
+  htmlStr += `<button type="button" class="refresh-hint-btn inline-flex items-center text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors mt-2" data-refresh-idx="${idx}"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>Refresh Hint</button>`;
+  el.innerHTML = htmlStr;
+  const refreshBtn = el.querySelector('.refresh-hint-btn');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      fetchHints(q, idx, true);
+    });
+  }
+}
+
+function toggleTheoryPanel(q, idx) {
+  const panel = document.getElementById(`theory-panel-${idx}`);
+  if (!panel) return;
+  
+  if (panel.classList.contains('hidden')) {
+    renderTheoryPanel(q, idx);
+    panel.classList.remove('hidden');
+  } else {
+    panel.classList.add('hidden');
+  }
+}
+
+function renderTheoryPanel(q, idx) {
+  const panel = document.getElementById(`theory-panel-${idx}`);
+  if (!panel || !q.theory_block) return;
+  
+  const block = q.theory_block;
+  let content = '';
+  
+  try {
+    const body = typeof block.body === 'string' ? JSON.parse(block.body) : block.body;
+    
+    if (body.title) {
+      content += `<h4 class="font-semibold text-emerald-900 mb-2">${html(body.title)}</h4>`;
+    }
+    // Note: body.intro and section.description may contain intentional HTML formatting
+    // (e.g., <strong> tags) from trusted server-side seeders, so we preserve it
+    if (body.intro) {
+      content += `<p class="text-sm text-emerald-800 mb-3">${body.intro}</p>`;
+    }
+    if (body.sections && Array.isArray(body.sections)) {
+      body.sections.forEach(section => {
+        content += `<div class="mb-3">`;
+        if (section.label) {
+          content += `<p class="text-sm font-semibold text-emerald-700">${html(section.label)}</p>`;
+        }
+        if (section.description) {
+          content += `<p class="text-sm text-emerald-800">${section.description}</p>`;
+        }
+        if (section.examples && Array.isArray(section.examples)) {
+          content += `<ul class="mt-1 space-y-1">`;
+          section.examples.forEach(ex => {
+            content += `<li class="text-sm"><span class="text-emerald-900 font-medium">${html(ex.en || '')}</span>`;
+            if (ex.ua) content += ` — <span class="text-emerald-700">${html(ex.ua)}</span>`;
+            content += `</li>`;
+          });
+          content += `</ul>`;
+        }
+        if (section.note) {
+          content += `<p class="text-xs text-emerald-600 mt-1">${html(section.note)}</p>`;
+        }
+        content += `</div>`;
+      });
+    }
+    if (body.items && Array.isArray(body.items)) {
+      content += `<ul class="list-disc list-inside space-y-1">`;
+      body.items.forEach(item => {
+        if (typeof item === 'string') {
+          content += `<li class="text-sm text-emerald-800">${html(item)}</li>`;
+        } else if (item.title) {
+          content += `<li class="text-sm"><span class="font-medium text-emerald-900">${html(item.title)}</span>`;
+          if (item.subtitle) content += ` — <span class="text-emerald-700">${html(item.subtitle)}</span>`;
+          content += `</li>`;
+        }
+      });
+      content += `</ul>`;
+    }
+  } catch (e) {
+    content = `<p class="text-sm text-emerald-800">${html(block.body || '')}</p>`;
+  }
+  
+  panel.innerHTML = `
+    <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200">
+      <div class="flex items-center gap-2 mb-2">
+        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+        <span class="text-sm font-semibold text-emerald-900">📚 Theory</span>
+        ${block.level ? `<span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-200 text-emerald-800">${html(block.level)}</span>` : ''}
+      </div>
+      ${content}
+    </div>
+  `;
 }
 
 function hookGlobalEvents() {

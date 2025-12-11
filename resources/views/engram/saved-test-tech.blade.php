@@ -10,7 +10,7 @@
     } elseif ($preferredView === 'match') {
         $primaryJsRoute = route('saved-test.js.match', $test->slug);
     } else {
-        $primaryJsRoute = route('saved-test.js', $test->slug);
+        $primaryJsRoute = route('test.show', $test->slug);
     }
 @endphp
 <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
