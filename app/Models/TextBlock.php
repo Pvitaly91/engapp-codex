@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TextBlock extends Model
 {
     protected $fillable = [
+        'uuid',
         'page_id',
         'page_category_id',
         'locale',

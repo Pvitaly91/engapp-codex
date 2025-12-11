@@ -54,6 +54,7 @@ class PageCategoryManagementTest extends TestCase
 
         Schema::create('text_blocks', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->nullable()->unique();
             $table->foreignId('page_id')
                 ->nullable()
                 ->constrained('pages')
