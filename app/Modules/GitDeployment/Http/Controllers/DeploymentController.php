@@ -44,6 +44,7 @@ class DeploymentController extends BaseController
             'currentBranch' => $currentBranch,
             'supportsShell' => $this->supportsShellCommands(),
             'recentUsage' => $recentUsage,
+            'existingPaths' => $this->getExistingPaths(),
         ]);
     }
 
@@ -597,6 +598,47 @@ class DeploymentController extends BaseController
         }
 
         return array_values(array_unique($paths));
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function getExistingPaths(): array
+    {
+        $preserve = collect(config('git-deployment.preserve_paths'));
+        $paths = [];
+        $basePath = base_path();
+        $maxDepth = 2;
+
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($basePath, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::SELF_FIRST
+        );
+
+        foreach ($iterator as $item) {
+            if (! $item->isDir() || $iterator->getDepth() > $maxDepth) {
+                continue;
+            }
+
+            $relative = ltrim(Str::after($item->getPathname(), $basePath), '/');
+
+            if ($relative === '') {
+                continue;
+            }
+
+            $topLevel = Str::before($relative, '/') ?: $relative;
+
+            if ($preserve->contains($topLevel)) {
+                continue;
+            }
+
+            $paths[] = $relative;
+        }
+
+        $unique = array_values(array_unique($paths));
+        sort($unique);
+
+        return array_slice($unique, 0, 200);
     }
 
     private function redirectWithFeedback(string $status, string $message, array $commandsOutput): RedirectResponse

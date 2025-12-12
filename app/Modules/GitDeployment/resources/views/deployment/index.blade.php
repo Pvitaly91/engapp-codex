@@ -155,6 +155,32 @@
               <input id="partial-branch" type="text" name="branch" value="{{ $feedback['branch'] ?? $currentBranch ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
             </div>
             <div class="space-y-2 md:col-span-2">
+              <label class="block text-sm font-medium" for="partial-existing-paths">Обрати існуючий шлях</label>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                <select
+                  id="partial-existing-paths"
+                  class="w-full rounded-2xl border border-input bg-background px-4 py-2"
+                  data-path-select
+                  data-target-textarea="partial-paths"
+                >
+                  <option value="">-- Оберіть шлях із структури сайту --</option>
+                  @foreach($existingPaths as $path)
+                    <option value="{{ $path }}">{{ $path }}</option>
+                  @endforeach
+                </select>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-2xl bg-muted px-4 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/80"
+                  data-path-picker
+                  data-path-select="partial-existing-paths"
+                  data-target-textarea="partial-paths"
+                >
+                  Додати до списку
+                </button>
+              </div>
+              <p class="text-xs text-muted-foreground">Подвійне натискання на списку також додає шлях у поле нижче.</p>
+            </div>
+            <div class="space-y-2 md:col-span-2">
               <label class="block text-sm font-medium" for="partial-paths">Шляхи для оновлення</label>
               <textarea id="partial-paths" name="paths" rows="4" class="w-full rounded-2xl border border-input bg-background px-4 py-2" placeholder="app/Modules/Quiz&#10;database/seeders"></textarea>
               <p class="text-xs text-muted-foreground">Кожен шлях з нового рядка або через кому/крапку з комою. Заборонено: .git, .env, storage, vendor, node_modules та відносні виходи на рівень вище.</p>
@@ -482,4 +508,5 @@
   @include('git-deployment::deployment.partials.branch-history-toggle-script')
   @include('git-deployment::deployment.partials.backup-branches-toggle-script')
   @include('git-deployment::deployment.partials.searchable-select-script')
+  @include('git-deployment::deployment.partials.path-picker-script')
 @endsection
