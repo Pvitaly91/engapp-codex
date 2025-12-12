@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="flex-1 min-h-0 space-y-3 border border-gray-200 rounded-2xl p-3 overflow-y-auto"
-                     x-data="{ openSections: { seeders: true, sources: true, levels: true, tags: false, aggregatedTags: false } }">
+                     x-data="{ openSections: { seeders: true, sources: true, levels: true, blankCounts: true, tags: false, aggregatedTags: false } }">
                     <div class="flex flex-wrap gap-2 text-xs text-gray-600 items-center justify-between sticky top-0 bg-white pb-2">
                         <div class="flex flex-wrap gap-2 items-center">
                             <span class="font-semibold text-gray-800">Фільтри:</span>
@@ -196,6 +196,28 @@
                                 </div>
                             </div>
                         @endif
+
+                        <div class="border border-gray-100 rounded-xl">
+                            <button type="button" class="w-full flex items-center justify-between px-3 py-2 text-left" @click="openSections.blankCounts = !openSections.blankCounts">
+                                <span class="text-xs font-semibold text-gray-700">Кількість пропусків</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 transition-transform" :class="{ 'rotate-180': openSections.blankCounts }" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.585l3.71-3.356a.75.75 0 011.04 1.08l-4.25 3.845a.75.75 0 01-1.04 0l-4.25-3.845a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div x-show="openSections.blankCounts" x-collapse class="px-3 pb-3 space-y-2">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <label class="flex flex-col gap-1 text-xs text-gray-700">
+                                        <span class="font-semibold">Від</span>
+                                        <input type="number" min="0" class="rounded border-gray-200 px-2 py-1" x-model.number="filters.blankCountFrom" @input="markFiltersDirty()" placeholder="1">
+                                    </label>
+                                    <label class="flex flex-col gap-1 text-xs text-gray-700">
+                                        <span class="font-semibold">До</span>
+                                        <input type="number" min="0" class="rounded border-gray-200 px-2 py-1" x-model.number="filters.blankCountTo" @input="markFiltersDirty()" placeholder="3">
+                                    </label>
+                                </div>
+                                <p class="text-[11px] text-gray-500">Фільтр за кількістю маркерів {aN} у питанні.</p>
+                            </div>
+                        </div>
 
                         @if(!empty($tagsByCategory))
                             <div class="border border-gray-100 rounded-xl">

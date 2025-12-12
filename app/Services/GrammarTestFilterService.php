@@ -46,6 +46,8 @@ class GrammarTestFilterService
         $selectedSeederClasses = $filters['seeder_classes'];
         $selectedQuestionTypes = $filters['question_types'];
         $randomizeFiltered = $filters['randomize_filtered'];
+        $blankCountFrom = $filters['blank_count_from'];
+        $blankCountTo = $filters['blank_count_to'];
 
         $groupBy = ! empty($selectedSources) ? 'source_id' : 'category_id';
         if (! empty($selectedSeederClasses) || ! empty($selectedTags) || ! empty($selectedAggregatedTags)) {
@@ -111,6 +113,14 @@ class GrammarTestFilterService
 
             if (! empty($selectedTags)) {
                 $query->whereHas('tags', fn ($q) => $q->whereIn('name', $selectedTags));
+            }
+
+            if ($blankCountFrom !== null) {
+                $query->has('answers', '>=', $blankCountFrom);
+            }
+
+            if ($blankCountTo !== null) {
+                $query->has('answers', '<=', $blankCountTo);
             }
 
             // Handle aggregated tags filtering
@@ -263,6 +273,8 @@ class GrammarTestFilterService
             'seederClasses' => $seederClasses,
             'seederSourceGroups' => $seederSourceGroups,
             'questionTypeOptions' => $questionTypeOptions,
+            'blankCountFrom' => $blankCountFrom,
+            'blankCountTo' => $blankCountTo,
             'normalizedFilters' => $filters,
         ];
     }
@@ -345,6 +357,8 @@ class GrammarTestFilterService
             'seeder_classes' => $seeders,
             'question_types' => $this->stringArray(Arr::get($input, 'question_types', [])),
             'randomize_filtered' => $this->toBool(Arr::get($input, 'randomize_filtered', false)),
+            'blank_count_from' => $this->intNullable(Arr::get($input, 'blank_count_from')),
+            'blank_count_to' => $this->intNullable(Arr::get($input, 'blank_count_to')),
         ];
     }
 
@@ -389,5 +403,14 @@ class GrammarTestFilterService
         }
 
         return (bool) $value;
+    }
+
+    private function intNullable($value): ?int
+    {
+        if (is_numeric($value)) {
+            return (int) $value;
+        }
+
+        return null;
     }
 }
