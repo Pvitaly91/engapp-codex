@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50" id="quiz-app">
-    <div class="mx-auto max-w-5xl px-3 sm:px-5 md:px-6 lg:px-8 py-6 sm:py-10">
+    <div class="max-w-5xl -mx-3 sm:mx-auto px-0 sm:px-5 md:px-6 lg:px-8 py-6 sm:py-10">
         <!-- Header Section with Modern Design -->
         <header class="mb-6 sm:mb-12">
             <div class="text-center space-y-3 sm:space-y-4">
@@ -164,7 +164,7 @@ function renderQuestion(idx) {
   const card = document.querySelector(`article[data-idx="${idx}"]`);
   const sentence = renderSentence(q, idx);
   card.innerHTML = `
-    <div class="flex items-start justify-between gap-4 mb-4">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
       <div class="flex-1">
         <div class="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-blue-100 to-indigo-100 text-indigo-700">
@@ -174,7 +174,7 @@ function renderQuestion(idx) {
         </div>
         <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium">${sentence}</div>
       </div>
-      <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0">
+    <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0 sm:self-start">
         <div class="text-xs text-gray-500 font-medium">Q</div>
         <div class="text-lg font-bold text-indigo-600">${idx + 1}</div>
       </div>

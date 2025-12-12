@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50" id="quiz-app">
-    <div class="mx-auto max-w-5xl px-3 sm:px-5 md:px-6 lg:px-8 py-6 sm:py-10">
+    <div class="max-w-5xl -mx-3 sm:mx-auto px-0 sm:px-5 md:px-6 lg:px-8 py-6 sm:py-10">
         <!-- Header Section with Modern Design -->
         <header class="mb-6 sm:mb-12">
             <div class="text-center space-y-3 sm:space-y-4">
@@ -163,9 +163,9 @@ function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
   const sentence = renderSentence(q);
-  wrap.innerHTML = `
-    <article class="group bg-white rounded-3xl shadow-md hover:shadow-xl border-2 border-gray-100 hover:border-indigo-200 p-4 sm:p-6 lg:p-8 transition-all duration-300 focus-within:ring-4 ring-indigo-100 outline-none transform hover:-translate-y-1" data-idx="${state.current}">
-      <div class="flex items-start justify-between gap-3.5 sm:gap-4 mb-5 sm:mb-6">
+    wrap.innerHTML = `
+      <article class="group bg-white rounded-3xl shadow-md hover:shadow-xl border-2 border-gray-100 hover:border-indigo-200 p-4 sm:p-6 lg:p-8 transition-all duration-300 focus-within:ring-4 ring-indigo-100 outline-none transform hover:-translate-y-1" data-idx="${state.current}">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3.5 sm:gap-4 mb-5 sm:mb-6">
         <div class="flex-1">
           <div class="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-blue-100 to-indigo-100 text-indigo-700">
@@ -175,7 +175,7 @@ function render() {
           </div>
           <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium mb-4">${sentence}</div>
         </div>
-        <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0">
+          <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0 sm:self-start">
           <div class="text-xs text-gray-500 font-medium">Q</div>
           <div class="text-lg font-bold text-indigo-600">${state.current + 1}</div>
         </div>
