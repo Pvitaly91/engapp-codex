@@ -33,6 +33,7 @@ class NativeDeploymentController extends BaseController
             ->withQueryString();
 
         $recentUsage = BranchUsageHistory::getRecentUsage(10);
+        $availableFolders = $this->getAvailableFolders();
 
         return view('git-deployment::deployment.native', [
             'backups' => $backups,
@@ -42,6 +43,7 @@ class NativeDeploymentController extends BaseController
             'currentCommit' => $this->deployment->headCommit(),
             'supportsShell' => $this->supportsShellCommands(),
             'recentUsage' => $recentUsage,
+            'availableFolders' => $availableFolders,
         ]);
     }
 
@@ -319,5 +321,48 @@ class NativeDeploymentController extends BaseController
     private function supportsShellCommands(): bool
     {
         return function_exists('proc_open');
+    }
+
+    /**
+     * Отримує список папок для часткового деплою (до 2 рівнів глибини).
+     *
+     * @return array<int, string>
+     */
+    private function getAvailableFolders(): array
+    {
+        $preservePaths = config('git-deployment.preserve_paths', []);
+        $basePath = base_path();
+        $folders = [];
+
+        // Отримуємо директорії першого рівня
+        $topLevelDirs = File::directories($basePath);
+
+        foreach ($topLevelDirs as $dir) {
+            $name = basename($dir);
+            
+            // Пропускаємо захищені та приховані директорії
+            if (in_array($name, $preservePaths, true) || str_starts_with($name, '.')) {
+                continue;
+            }
+
+            $folders[] = $name;
+
+            // Отримуємо директорії другого рівня
+            $subDirs = File::directories($dir);
+            foreach ($subDirs as $subDir) {
+                $subName = basename($subDir);
+                
+                // Пропускаємо приховані директорії
+                if (str_starts_with($subName, '.')) {
+                    continue;
+                }
+
+                $folders[] = $name . '/' . $subName;
+            }
+        }
+
+        sort($folders);
+
+        return $folders;
     }
 }

@@ -171,6 +171,33 @@
               placeholder="database/seeders&#10;app/Modules/Quiz&#10;resources/views/components"
             ></textarea>
             <p class="text-xs text-muted-foreground">Вкажіть шляхи до папок або файлів. Можна розділяти новими рядками, комами або крапкою з комою. Захищені директорії (.git, .env, storage, vendor, node_modules) не можна оновлювати.</p>
+            
+            @if(!empty($availableFolders))
+              <div class="mt-3">
+                <button type="button" class="text-sm text-primary hover:text-primary/80 font-medium" onclick="document.getElementById('folder-picker-ssh').classList.toggle('hidden')">
+                  <svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                  </svg>
+                  Вибрати з існуючих папок
+                </button>
+                <div id="folder-picker-ssh" class="hidden mt-2 p-3 rounded-xl border border-border/70 bg-muted/30 max-h-48 overflow-y-auto">
+                  <div class="flex flex-wrap gap-2">
+                    @foreach($availableFolders as $folder)
+                      <button 
+                        type="button" 
+                        class="inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-medium bg-background border border-border/70 hover:bg-primary/10 hover:border-primary/50 transition"
+                        onclick="addFolderToTextarea('partial-deploy-paths', '{{ $folder }}')"
+                      >
+                        <svg class="w-3.5 h-3.5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                        </svg>
+                        {{ $folder }}
+                      </button>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+            @endif
           </div>
           
           <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-orange-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-orange-600/90">Виконати частковий деплой</button>
@@ -494,4 +521,5 @@
   @include('git-deployment::deployment.partials.branch-history-toggle-script')
   @include('git-deployment::deployment.partials.backup-branches-toggle-script')
   @include('git-deployment::deployment.partials.searchable-select-script')
+  @include('git-deployment::deployment.partials.folder-picker-script')
 @endsection
