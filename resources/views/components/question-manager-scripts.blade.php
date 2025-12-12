@@ -171,6 +171,8 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
             levels: [],
             tags: [],
             aggregatedTags: [],
+            blankCountFrom: null,
+            blankCountTo: null,
         },
         onlyAiV2: false,
         appliedFilters: null,
@@ -199,6 +201,10 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
                         this.markFiltersDirty();
                     });
                 });
+
+            ['filters.blankCountFrom', 'filters.blankCountTo'].forEach((path) => {
+                this.$watch(path, () => this.markFiltersDirty());
+            });
 
             this.$watch('onlyAiV2', () => {
                 this.markFiltersDirty();
@@ -238,6 +244,8 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
                 levels: [...(this.filters.levels || [])],
                 tags: [...(this.filters.tags || [])],
                 aggregatedTags: [...(this.filters.aggregatedTags || [])],
+                blankCountFrom: this.filters.blankCountFrom,
+                blankCountTo: this.filters.blankCountTo,
                 onlyAiV2: !!this.onlyAiV2,
             };
         },
@@ -260,6 +268,8 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
                 levels: [],
                 tags: [],
                 aggregatedTags: [],
+                blankCountFrom: null,
+                blankCountTo: null,
             };
             this.onlyAiV2 = false;
             this.appliedFilters = this.snapshotFilters();
@@ -277,6 +287,8 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
                 levels: [],
                 tags: [],
                 aggregatedTags: [],
+                blankCountFrom: null,
+                blankCountTo: null,
             };
             this.onlyAiV2 = false;
             this.filtersDirty = true;
@@ -392,6 +404,14 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
                 params.set('only_ai_v2', '1');
             }
 
+            if (Number.isFinite(activeFilters.blankCountFrom)) {
+                params.set('blank_count_from', String(activeFilters.blankCountFrom));
+            }
+
+            if (Number.isFinite(activeFilters.blankCountTo)) {
+                params.set('blank_count_to', String(activeFilters.blankCountTo));
+            }
+
             fetch(`${searchUrl}?${params.toString()}`)
                 .then(res => res.json())
                 .then(data => {
@@ -439,6 +459,23 @@ function questionPicker(searchUrl, renderUrl, config = {}) {
                 entries.push({
                     label: 'AI',
                     value: this.filterLabels.only_ai_v2 || 'Тільки AI (flag = 2)',
+                });
+            }
+
+            if (Number.isFinite(applied.blankCountFrom) || Number.isFinite(applied.blankCountTo)) {
+                const parts = [];
+
+                if (Number.isFinite(applied.blankCountFrom)) {
+                    parts.push(`від ${applied.blankCountFrom}`);
+                }
+
+                if (Number.isFinite(applied.blankCountTo)) {
+                    parts.push(`до ${applied.blankCountTo}`);
+                }
+
+                entries.push({
+                    label: 'Пропуски',
+                    value: parts.join(' '),
                 });
             }
 
