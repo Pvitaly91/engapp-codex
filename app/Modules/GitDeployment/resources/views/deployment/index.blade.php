@@ -155,30 +155,15 @@
               <input id="partial-branch" type="text" name="branch" value="{{ $feedback['branch'] ?? $currentBranch ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
             </div>
             <div class="space-y-2 md:col-span-2">
-              <label class="block text-sm font-medium" for="partial-existing-paths">Обрати існуючий шлях</label>
-              <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-                <select
-                  id="partial-existing-paths"
-                  class="w-full rounded-2xl border border-input bg-background px-4 py-2"
-                  data-path-select
-                  data-target-textarea="partial-paths"
-                >
-                  <option value="">-- Оберіть шлях із структури сайту --</option>
-                  @foreach($existingPaths as $path)
-                    <option value="{{ $path }}">{{ $path }}</option>
-                  @endforeach
-                </select>
-                <button
-                  type="button"
-                  class="inline-flex items-center justify-center rounded-2xl bg-muted px-4 py-2 text-sm font-semibold text-foreground shadow-soft hover:bg-muted/80"
-                  data-path-picker
-                  data-path-select="partial-existing-paths"
-                  data-target-textarea="partial-paths"
-                >
-                  Додати до списку
-                </button>
+              <label class="block text-sm font-medium" for="partial-paths">Обрати існуючий шлях</label>
+              <div class="rounded-2xl border border-border/70 bg-muted/20">
+                <div class="border-b border-border/60 px-4 py-2 text-xs text-muted-foreground">
+                  Розкрийте дерево і натисніть на потрібну папку, щоб додати її у список нижче. Подвійне натискання також додає шлях.
+                </div>
+                <div class="max-h-64 overflow-y-auto px-3 py-2">
+                  @include('git-deployment::deployment.partials.path-tree', ['nodes' => $existingPathTree, 'textareaId' => 'partial-paths'])
+                </div>
               </div>
-              <p class="text-xs text-muted-foreground">Подвійне натискання на списку також додає шлях у поле нижче.</p>
             </div>
             <div class="space-y-2 md:col-span-2">
               <label class="block text-sm font-medium" for="partial-paths">Шляхи для оновлення</label>

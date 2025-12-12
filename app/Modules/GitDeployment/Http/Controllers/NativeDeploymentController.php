@@ -39,7 +39,7 @@ class NativeDeploymentController extends BaseController
             'currentCommit' => $this->deployment->headCommit(),
             'supportsShell' => $this->supportsShellCommands(),
             'recentUsage' => $recentUsage,
-            'existingPaths' => $this->getExistingPaths(),
+            'existingPathTree' => $this->getExistingPathTree(),
         ]);
     }
 
@@ -337,12 +337,12 @@ class NativeDeploymentController extends BaseController
     /**
      * @return array<int, string>
      */
-    private function getExistingPaths(): array
+    private function getExistingPathTree(): array
     {
         $preserve = collect(config('git-deployment.preserve_paths'));
         $paths = [];
         $basePath = base_path();
-        $maxDepth = 2;
+        $maxDepth = 3;
 
         $iterator = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator($basePath, \FilesystemIterator::SKIP_DOTS),
@@ -372,7 +372,45 @@ class NativeDeploymentController extends BaseController
         $unique = array_values(array_unique($paths));
         sort($unique);
 
-        return array_slice($unique, 0, 200);
+        return $this->buildPathTree(array_slice($unique, 0, 200));
+    }
+
+    private function buildPathTree(array $paths): array
+    {
+        $tree = [];
+
+        foreach ($paths as $path) {
+            $segments = explode('/', $path);
+            $node = &$tree;
+            $current = '';
+
+            foreach ($segments as $segment) {
+                $current = $current === '' ? $segment : $current.'/'.$segment;
+
+                if (! isset($node[$segment])) {
+                    $node[$segment] = [
+                        'name' => $segment,
+                        'path' => $current,
+                        'children' => [],
+                    ];
+                }
+
+                $node = &$node[$segment]['children'];
+            }
+        }
+
+        return $this->sortPathTree($tree);
+    }
+
+    private function sortPathTree(array $nodes): array
+    {
+        ksort($nodes, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return array_values(array_map(function ($node) {
+            $node['children'] = $this->sortPathTree($node['children']);
+
+            return $node;
+        }, $nodes));
     }
 
     private function supportsShellCommands(): bool
