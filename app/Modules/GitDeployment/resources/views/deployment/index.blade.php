@@ -141,6 +141,43 @@
       </div>
     </section>
 
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">1.5. Частковий деплой</h2>
+          <p class="text-sm text-muted-foreground">Оновіть лише вказані папки/файли з обраної гілки, не чіпаючи решту робочого дерева. Ідеально для оновлення окремих модулів чи сідерів без повного деплою.</p>
+        </div>
+        <form method="POST" action="{{ route('deployment.deploy-partial') }}" class="space-y-4">
+          @csrf
+          <div class="space-y-2">
+            <label class="block text-sm font-medium">Гілка для оновлення</label>
+            <div class="relative">
+              <input type="text" name="branch" value="{{ $feedback['branch'] ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" />
+              <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-medium" for="partial-deploy-paths">Шляхи для оновлення (кожен з нового рядка)</label>
+            <textarea 
+              id="partial-deploy-paths" 
+              name="paths" 
+              rows="4"
+              class="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm font-mono"
+              placeholder="database/seeders&#10;app/Modules/Quiz&#10;resources/views/components"
+            ></textarea>
+            <p class="text-xs text-muted-foreground">Вкажіть шляхи до папок або файлів. Можна розділяти новими рядками, комами або крапкою з комою. Захищені директорії (.git, .env, storage, vendor, node_modules) не можна оновлювати.</p>
+          </div>
+          
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-orange-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-orange-600/90">Виконати частковий деплой</button>
+        </form>
+      </div>
+    </section>
+
     @if($recentUsage->isNotEmpty())
       <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
         <div class="space-y-4 p-6">
@@ -187,6 +224,7 @@
                       @php
                         $actionLabels = [
                           'deploy' => 'Оновлення',
+                          'partial_deploy' => 'Частковий деплой',
                           'push' => 'Пуш',
                           'auto_push' => 'Автоматичний пуш',
                           'create_and_push' => 'Створення та пуш',
@@ -194,6 +232,7 @@
                         ];
                         $actionColors = [
                           'deploy' => 'bg-red-100 text-red-700',
+                          'partial_deploy' => 'bg-orange-100 text-orange-700',
                           'push' => 'bg-emerald-100 text-emerald-700',
                           'auto_push' => 'bg-purple-100 text-purple-700',
                           'create_and_push' => 'bg-blue-100 text-blue-700',

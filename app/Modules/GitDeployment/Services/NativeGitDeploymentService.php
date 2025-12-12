@@ -76,6 +76,59 @@ class NativeGitDeploymentService
     }
 
     /**
+     * Виконує частковий деплой — оновлює тільки вказані шляхи з гілки.
+     *
+     * @param string $branch Назва гілки
+     * @param array<int, string> $paths Список шляхів для оновлення
+     * @return array{logs: array<int, string>, message: string}
+     */
+    public function deployPartial(string $branch, array $paths): array
+    {
+        $logs = [];
+        $branch = $this->sanitizeBranch($branch);
+
+        $currentCommit = $this->headCommit();
+        if ($currentCommit) {
+            $this->storeBackup([
+                'timestamp' => now()->toIso8601String(),
+                'commit' => $currentCommit,
+                'branch' => $branch,
+            ]);
+            $logs[] = "Збережено резервну копію коміту {$currentCommit}.";
+        } else {
+            $logs[] = 'Не вдалося визначити поточний коміт для резервного копіювання.';
+        }
+
+        $logs[] = "Отримуємо останній стан гілки {$branch} через GitHub API.";
+        $branchInfo = $this->github()->getBranch($branch);
+        $remoteCommit = Arr::get($branchInfo, 'object.sha');
+
+        if (! $remoteCommit) {
+            throw new RuntimeException('GitHub не повернув останній коміт гілки.');
+        }
+
+        $logs[] = "Коміт віддаленої гілки: {$remoteCommit}";
+
+        $extracted = $this->fetchAndExtract($branch, $logs, "гілки {$branch}");
+
+        $logs[] = 'Оновлюємо тільки вказані шляхи.';
+        $stats = $this->filesystem->replacePaths($extracted, $paths);
+        $logs[] = "Скопійовано: {$stats['copied']}, видалено: {$stats['deleted']}.";
+
+        File::deleteDirectory(dirname($extracted));
+
+        // ВАЖЛИВО: у partial deploy НЕ оновлюємо локальний ref, бо ми не синхронізуємо все дерево
+
+        $pathsList = implode(', ', $paths);
+        $logs[] = "Частковий деплой завершено. Оновлені шляхи: {$pathsList}.";
+
+        return [
+            'logs' => $logs,
+            'message' => "Частковий деплой з гілки {$branch} виконано успішно. Оновлено шляхи: {$pathsList}. Коміт: {$remoteCommit}.",
+        ];
+    }
+
+    /**
      * @return array{logs: array<int, string>, message: string}
      */
     public function push(string $targetBranch): array

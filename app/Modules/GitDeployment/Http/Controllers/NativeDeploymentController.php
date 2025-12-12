@@ -10,9 +10,12 @@ use Illuminate\Support\Str;
 use App\Modules\GitDeployment\Models\BackupBranch;
 use App\Modules\GitDeployment\Models\BranchUsageHistory;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
+use App\Modules\GitDeployment\Http\Concerns\ParsesDeploymentPaths;
 
 class NativeDeploymentController extends BaseController
 {
+    use ParsesDeploymentPaths;
+
     private const BACKUP_FILE = 'deployment_backups.json';
 
     public function __construct(private readonly NativeGitDeploymentService $deployment)
@@ -98,6 +101,49 @@ class NativeDeploymentController extends BaseController
             } catch (\Throwable $throwable) {
                 $message .= " Проте не вдалося запушити на origin/{$autoPushBranch}: " . $throwable->getMessage();
             }
+        }
+
+        return $this->redirectWithFeedback('success', $message, $logs, $sanitized);
+    }
+
+    public function deployPartial(Request $request): RedirectResponse
+    {
+        $branch = $request->input('branch', 'main');
+        $sanitized = $this->sanitizeBranchName($branch ?? 'main');
+
+        $pathsInput = $request->input('paths', '');
+
+        // Парсимо та валідуємо шляхи
+        $parsed = $this->parseAndValidatePaths($pathsInput);
+        $paths = $parsed['valid'];
+        $pathErrors = $parsed['errors'];
+
+        if ($paths === []) {
+            $errorMessage = 'Не вказано жодного валідного шляху для часткового деплою.';
+            if ($pathErrors !== []) {
+                $errorMessage .= ' Помилки: ' . implode('; ', $pathErrors);
+            }
+            return $this->redirectWithFeedback('error', $errorMessage, [], $sanitized);
+        }
+
+        try {
+            $result = $this->deployment->deployPartial($sanitized, $paths);
+            $logs = $result['logs'];
+            $message = $result['message'];
+        } catch (\Throwable $throwable) {
+            return $this->redirectWithFeedback('error', $throwable->getMessage(), [], $sanitized);
+        }
+
+        // Track branch usage
+        $pathsList = implode(', ', $paths);
+        BranchUsageHistory::trackUsage(
+            $sanitized,
+            'partial_deploy',
+            "Частковий деплой через GitHub API. Шляхи: {$pathsList}"
+        );
+
+        if ($pathErrors !== []) {
+            $message .= ' Попередження: ' . implode('; ', $pathErrors);
         }
 
         return $this->redirectWithFeedback('success', $message, $logs, $sanitized);
