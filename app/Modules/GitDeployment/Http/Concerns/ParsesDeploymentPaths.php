@@ -32,27 +32,23 @@ trait ParsesDeploymentPaths
             // Нормалізуємо слеші до "/"
             $path = str_replace('\\', '/', $path);
             
-            // Прибираємо початковий "/"
-            $path = ltrim($path, '/');
+            // Перевіряємо на абсолютні шляхи (до нормалізації ltrim)
+            if (str_starts_with($path, '/')) {
+                $errors[] = "Шлях \"{$path}\" не може бути абсолютним";
+                continue;
+            }
+            
+            // Прибираємо початковий "./" якщо є
+            while (str_starts_with($path, './')) {
+                $path = substr($path, 2);
+            }
             
             // Прибираємо кінцевий "/" для директорій
             $path = rtrim($path, '/');
             
-            // Перевіряємо на ".." сегменти
-            if (str_contains($path, '..')) {
+            // Перевіряємо на directory traversal patterns: "../" або "/.." 
+            if (preg_match('#(^|/)\.\.(/|$)#', $path)) {
                 $errors[] = "Шлях \"{$path}\" містить заборонені сегменти \"..\"";
-                continue;
-            }
-            
-            // Перевіряємо на "./" на початку
-            if (str_starts_with($path, './')) {
-                $errors[] = "Шлях \"{$path}\" не може починатися з \"./\"";
-                continue;
-            }
-            
-            // Перевіряємо на абсолютні шляхи
-            if (str_starts_with($path, '/')) {
-                $errors[] = "Шлях \"{$path}\" не може бути абсолютним";
                 continue;
             }
             

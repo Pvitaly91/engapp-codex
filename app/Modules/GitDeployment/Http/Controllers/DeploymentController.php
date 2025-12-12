@@ -284,7 +284,7 @@ class DeploymentController extends BaseController
             // Розпаковуємо архів
             if (! class_exists(ZipArchive::class)) {
                 File::deleteDirectory($tmpDir);
-                return $this->redirectWithFeedback('error', 'Розширення ZipArchive недоступне на сервері.', $commandsOutput);
+                return $this->redirectWithFeedback('error', 'PHP ZipArchive extension не встановлено або не увімкнено на сервері.', $commandsOutput);
             }
 
             $zip = new ZipArchive();

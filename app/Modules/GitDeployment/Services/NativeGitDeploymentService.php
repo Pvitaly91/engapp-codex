@@ -117,7 +117,8 @@ class NativeGitDeploymentService
 
         File::deleteDirectory(dirname($extracted));
 
-        // ВАЖЛИВО: у partial deploy НЕ оновлюємо локальний ref, бо ми не синхронізуємо все дерево
+        // IMPORTANT: In partial deploy we do NOT update the local ref because we are not syncing the entire tree
+        // Partial deploy only updates specific paths, so HEAD should not "lie" about the working tree state
 
         $pathsList = implode(', ', $paths);
         $logs[] = "Частковий деплой завершено. Оновлені шляхи: {$pathsList}.";
