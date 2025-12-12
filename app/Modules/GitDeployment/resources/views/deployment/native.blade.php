@@ -174,19 +174,48 @@
                   </svg>
                   Вибрати з існуючих папок
                 </button>
-                <div id="folder-picker-api" class="hidden mt-2 p-3 rounded-xl border border-border/70 bg-muted/30 max-h-48 overflow-y-auto">
-                  <div class="flex flex-wrap gap-2">
-                    @foreach($availableFolders as $folder)
-                      <button 
-                        type="button" 
-                        class="inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-medium bg-background border border-border/70 hover:bg-primary/10 hover:border-primary/50 transition"
-                        onclick="addFolderToTextarea('native-partial-deploy-paths', '{{ $folder }}')"
-                      >
-                        <svg class="w-3.5 h-3.5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                        </svg>
-                        {{ $folder }}
-                      </button>
+                <div id="folder-picker-api" class="hidden mt-2 p-3 rounded-xl border border-border/70 bg-muted/30 max-h-64 overflow-y-auto">
+                  <div class="space-y-1">
+                    @foreach($availableFolders as $parentFolder => $children)
+                      <div class="folder-tree-item">
+                        <div class="flex items-center gap-1">
+                          @if(count($children) > 0)
+                            <button type="button" class="folder-toggle p-0.5 hover:bg-muted rounded transition" onclick="this.closest('.folder-tree-item').classList.toggle('expanded')">
+                              <svg class="w-3.5 h-3.5 text-muted-foreground transition-transform folder-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                              </svg>
+                            </button>
+                          @else
+                            <span class="w-4"></span>
+                          @endif
+                          <button 
+                            type="button" 
+                            class="inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-medium hover:bg-primary/10 transition"
+                            onclick="addFolderToTextarea('native-partial-deploy-paths', '{{ $parentFolder }}')"
+                          >
+                            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                            </svg>
+                            {{ $parentFolder }}
+                          </button>
+                        </div>
+                        @if(count($children) > 0)
+                          <div class="folder-children hidden ml-5 mt-1 space-y-0.5 border-l border-border/50 pl-2">
+                            @foreach($children as $child)
+                              <button 
+                                type="button" 
+                                class="flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-medium hover:bg-primary/10 transition w-full text-left"
+                                onclick="addFolderToTextarea('native-partial-deploy-paths', '{{ $parentFolder }}/{{ $child }}')"
+                              >
+                                <svg class="w-4 h-4 text-amber-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                                </svg>
+                                {{ $child }}
+                              </button>
+                            @endforeach
+                          </div>
+                        @endif
+                      </div>
                     @endforeach
                   </div>
                 </div>

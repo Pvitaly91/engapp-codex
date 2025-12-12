@@ -324,15 +324,15 @@ class NativeDeploymentController extends BaseController
     }
 
     /**
-     * Отримує список папок для часткового деплою (до 2 рівнів глибини).
+     * Отримує дерево папок для часткового деплою (до 2 рівнів глибини).
      *
-     * @return array<int, string>
+     * @return array<string, array<int, string>>
      */
     private function getAvailableFolders(): array
     {
         $preservePaths = config('git-deployment.preserve_paths', []);
         $basePath = base_path();
-        $folders = [];
+        $tree = [];
 
         // Отримуємо директорії першого рівня
         $topLevelDirs = File::directories($basePath);
@@ -345,7 +345,7 @@ class NativeDeploymentController extends BaseController
                 continue;
             }
 
-            $folders[] = $name;
+            $children = [];
 
             // Отримуємо директорії другого рівня
             $subDirs = File::directories($dir);
@@ -357,12 +357,15 @@ class NativeDeploymentController extends BaseController
                     continue;
                 }
 
-                $folders[] = $name . '/' . $subName;
+                $children[] = $subName;
             }
+
+            sort($children);
+            $tree[$name] = $children;
         }
 
-        sort($folders);
+        ksort($tree);
 
-        return $folders;
+        return $tree;
     }
 }

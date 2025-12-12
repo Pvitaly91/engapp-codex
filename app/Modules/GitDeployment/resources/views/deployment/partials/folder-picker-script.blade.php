@@ -21,3 +21,14 @@
     textarea.focus();
   }
 </script>
+<style>
+  .folder-tree-item .folder-chevron {
+    transform: rotate(0deg);
+  }
+  .folder-tree-item.expanded .folder-chevron {
+    transform: rotate(90deg);
+  }
+  .folder-tree-item.expanded .folder-children {
+    display: block !important;
+  }
+</style>
