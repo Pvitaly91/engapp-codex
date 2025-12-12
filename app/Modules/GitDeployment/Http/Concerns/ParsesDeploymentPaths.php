@@ -7,15 +7,20 @@ trait ParsesDeploymentPaths
     /**
      * Парсить та валідує список шляхів для часткового деплою.
      *
-     * @param string $input Сирий текст з textarea
+     * @param string|array $input Сирий текст з textarea або масив шляхів
      * @return array{valid: array<int, string>, errors: array<int, string>}
      */
-    protected function parseAndValidatePaths(string $input): array
+    protected function parseAndValidatePaths(string|array $input): array
     {
         $preservePaths = config('git-deployment.preserve_paths', []);
         
-        // Розбиваємо по різних роздільниках: \r\n, \n, кома, крапка з комою
-        $rawPaths = preg_split('/[\r\n,;]+/', $input);
+        // Якщо вхід - масив, використовуємо його напряму
+        if (is_array($input)) {
+            $rawPaths = $input;
+        } else {
+            // Розбиваємо по різних роздільниках: \r\n, \n, кома, крапка з комою
+            $rawPaths = preg_split('/[\r\n,;]+/', $input);
+        }
         
         $valid = [];
         $errors = [];

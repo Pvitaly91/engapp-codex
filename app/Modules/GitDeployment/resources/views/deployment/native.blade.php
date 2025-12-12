@@ -156,15 +156,21 @@
           </div>
           
           <div class="space-y-2">
-            <label class="block text-sm font-medium" for="native-partial-deploy-paths">Шляхи для оновлення (кожен з нового рядка)</label>
-            <textarea 
-              id="native-partial-deploy-paths" 
-              name="paths" 
-              rows="4"
-              class="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm font-mono"
-              placeholder="database/seeders&#10;app/Modules/Quiz&#10;resources/views/components"
-            ></textarea>
-            <p class="text-xs text-muted-foreground">Вкажіть шляхи до папок або файлів. Можна розділяти новими рядками, комами або крапкою з комою. Захищені директорії (.git, .env, storage, vendor, node_modules) не можна оновлювати.</p>
+            <label class="block text-sm font-medium">Шляхи для оновлення</label>
+            <div id="paths-container-api" class="space-y-2">
+              <!-- Динамічні inputs будуть додаватись сюди -->
+            </div>
+            <button 
+              type="button" 
+              class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/10 transition"
+              onclick="addPathInput('paths-container-api')"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              Додати шлях
+            </button>
+            <p class="text-xs text-muted-foreground">Вкажіть шляхи до папок або файлів. Захищені директорії (.git, .env, storage, vendor, node_modules) не можна оновлювати.</p>
             
             @if(!empty($availableFolders))
               <div class="mt-3">
@@ -178,7 +184,7 @@
                   <div class="space-y-1">
                     @include('git-deployment::deployment.partials.folder-tree-item', [
                       'folders' => $availableFolders,
-                      'textareaId' => 'native-partial-deploy-paths',
+                      'containerId' => 'paths-container-api',
                       'parentPath' => ''
                     ])
                   </div>

@@ -1,4 +1,4 @@
-@props(['folders', 'textareaId', 'parentPath' => ''])
+@props(['folders', 'containerId', 'parentPath' => ''])
 
 @foreach($folders as $folderName => $children)
   @php
@@ -19,7 +19,7 @@
       <button 
         type="button" 
         class="inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-medium hover:bg-primary/10 transition"
-        onclick="addFolderToTextarea('{{ $textareaId }}', '{{ $fullPath }}')"
+        onclick="addFolderToList('{{ $containerId }}', '{{ $fullPath }}')"
       >
         <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
@@ -31,7 +31,7 @@
       <div class="folder-children hidden ml-5 mt-1 space-y-0.5 border-l border-border/50 pl-2">
         @include('git-deployment::deployment.partials.folder-tree-item', [
           'folders' => $children,
-          'textareaId' => $textareaId,
+          'containerId' => $containerId,
           'parentPath' => $fullPath
         ])
       </div>

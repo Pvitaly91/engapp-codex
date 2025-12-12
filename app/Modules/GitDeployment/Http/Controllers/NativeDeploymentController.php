@@ -113,7 +113,7 @@ class NativeDeploymentController extends BaseController
         $branch = $request->input('branch', 'main');
         $sanitized = $this->sanitizeBranchName($branch ?? 'main');
 
-        $pathsInput = $request->input('paths', '');
+        $pathsInput = $request->input('paths', []);
 
         // Парсимо та валідуємо шляхи
         $parsed = $this->parseAndValidatePaths($pathsInput);

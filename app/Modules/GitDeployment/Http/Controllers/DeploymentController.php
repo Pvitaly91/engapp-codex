@@ -183,7 +183,7 @@ class DeploymentController extends BaseController
         $branch = Str::of($branch)->trim()->value() ?: 'main';
         $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'main';
 
-        $pathsInput = $request->input('paths', '');
+        $pathsInput = $request->input('paths', []);
 
         if ($redirect = $this->redirectIfShellUnavailable($branch)) {
             return $redirect;
