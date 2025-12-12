@@ -689,43 +689,51 @@ class DeploymentController extends BaseController
     }
 
     /**
-     * Отримує дерево папок для часткового деплою (до 2 рівнів глибини).
+     * Отримує дерево папок для часткового деплою (до 5 рівнів глибини).
      *
-     * @return array<string, array<int, string>>
+     * @return array
      */
     private function getAvailableFolders(): array
     {
         $preservePaths = config('git-deployment.preserve_paths', []);
         $basePath = base_path();
+
+        return $this->buildFolderTree($basePath, $preservePaths, 5);
+    }
+
+    /**
+     * Рекурсивно будує дерево папок.
+     *
+     * @param string $path Шлях до директорії
+     * @param array $preservePaths Захищені шляхи
+     * @param int $maxDepth Максимальна глибина
+     * @param int $currentDepth Поточна глибина
+     * @return array
+     */
+    private function buildFolderTree(string $path, array $preservePaths, int $maxDepth, int $currentDepth = 0): array
+    {
+        if ($currentDepth >= $maxDepth) {
+            return [];
+        }
+
         $tree = [];
+        $dirs = File::directories($path);
 
-        // Отримуємо директорії першого рівня
-        $topLevelDirs = File::directories($basePath);
-
-        foreach ($topLevelDirs as $dir) {
+        foreach ($dirs as $dir) {
             $name = basename($dir);
             
-            // Пропускаємо захищені та приховані директорії
-            if (in_array($name, $preservePaths, true) || str_starts_with($name, '.')) {
+            // Пропускаємо захищені та приховані директорії на першому рівні
+            if ($currentDepth === 0 && (in_array($name, $preservePaths, true) || str_starts_with($name, '.'))) {
+                continue;
+            }
+            
+            // Пропускаємо приховані директорії на всіх рівнях
+            if (str_starts_with($name, '.')) {
                 continue;
             }
 
-            $children = [];
-
-            // Отримуємо директорії другого рівня
-            $subDirs = File::directories($dir);
-            foreach ($subDirs as $subDir) {
-                $subName = basename($subDir);
-                
-                // Пропускаємо приховані директорії
-                if (str_starts_with($subName, '.')) {
-                    continue;
-                }
-
-                $children[] = $subName;
-            }
-
-            sort($children);
+            $children = $this->buildFolderTree($dir, $preservePaths, $maxDepth, $currentDepth + 1);
+            
             $tree[$name] = $children;
         }
 
