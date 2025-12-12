@@ -109,9 +109,16 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $optionMarkers = [];
 
             // Check if this is a multi-marker question (options are nested arrays with markers)
-            $isMultiMarker = isset($question['options']) && ! empty($question['options'])
-                && is_array(reset($question['options']))
-                && ! is_string(reset($question['options']));
+            // Multi-marker format: ['a1' => [...], 'a2' => [...]]
+            // Single-marker format: ['option1', 'option2', ...]
+            $isMultiMarker = false;
+            if (isset($question['options']) && ! empty($question['options'])) {
+                $firstKey = array_key_first($question['options']);
+                $firstValue = $question['options'][$firstKey] ?? null;
+                $isMultiMarker = is_string($firstKey)
+                    && preg_match('/^a\d+$/', $firstKey)
+                    && is_array($firstValue);
+            }
 
             if ($isMultiMarker) {
                 // Multi-marker question format (like MixedConditionalsAIGeneratedSeeder)
