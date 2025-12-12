@@ -103,6 +103,33 @@ class NativeDeploymentController extends BaseController
         return $this->redirectWithFeedback('success', $message, $logs, $sanitized);
     }
 
+    public function deployPartial(Request $request): RedirectResponse
+    {
+        $branch = $request->input('branch', 'main');
+        $sanitized = $this->sanitizeBranchName($branch ?? 'main');
+        $paths = $this->parsePaths($request->input('paths', ''));
+
+        if ($paths === []) {
+            return $this->redirectWithFeedback('error', 'Вкажіть хоча б один коректний шлях для часткового деплою.', [], $sanitized);
+        }
+
+        try {
+            $result = $this->deployment->deployPartial($sanitized, $paths);
+            $logs = $result['logs'];
+            $message = $result['message'];
+        } catch (\Throwable $throwable) {
+            return $this->redirectWithFeedback('error', $throwable->getMessage(), [], $sanitized);
+        }
+
+        BranchUsageHistory::trackUsage(
+            $sanitized,
+            'partial_deploy',
+            'Частковий деплой шляхів: ' . implode(', ', $paths)
+        );
+
+        return $this->redirectWithFeedback('success', $message, $logs, $sanitized);
+    }
+
     public function pushCurrent(Request $request): RedirectResponse
     {
         $branch = $request->input('branch', 'main');
@@ -268,6 +295,42 @@ class NativeDeploymentController extends BaseController
         $sanitized = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $normalized);
 
         return $sanitized !== null && $sanitized !== '' ? $sanitized : $normalized;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function parsePaths(string $rawPaths): array
+    {
+        $preserve = collect(config('git-deployment.preserve_paths'));
+        $parts = preg_split('/[\r\n,;]+/', $rawPaths) ?: [];
+        $paths = [];
+
+        foreach ($parts as $part) {
+            $raw = trim($part);
+            $isAbsolute = str_starts_with($raw, '/');
+            $normalized = str_replace('\\', '/', $raw);
+            $normalized = ltrim($normalized, '/');
+            $normalized = preg_replace('#/+#', '/', $normalized ?? '') ?? '';
+
+            if ($normalized === '' || $isAbsolute) {
+                continue;
+            }
+
+            if (str_contains($normalized, '..') || str_starts_with($normalized, './') || preg_match('#^[A-Za-z]:#', $normalized)) {
+                continue;
+            }
+
+            $topLevel = Str::before($normalized, '/') ?: $normalized;
+
+            if ($preserve->contains($topLevel)) {
+                continue;
+            }
+
+            $paths[] = $normalized;
+        }
+
+        return array_values(array_unique($paths));
     }
 
     private function supportsShellCommands(): bool

@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use App\Modules\GitDeployment\Models\BackupBranch;
 use App\Modules\GitDeployment\Models\BranchUsageHistory;
 use Symfony\Component\Process\Process;
+use ZipArchive;
 
 class DeploymentController extends BaseController
 {
@@ -169,6 +170,156 @@ class DeploymentController extends BaseController
         }
 
         return $this->redirectWithFeedback('success', $message, $commandsOutput);
+    }
+
+    public function deployPartial(Request $request): RedirectResponse
+    {
+        $branch = $request->input('branch', 'main');
+        $branch = Str::of($branch)->trim()->value() ?: 'main';
+        $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'main';
+
+        $rawPaths = $request->input('paths', '');
+        $paths = $this->parsePaths($rawPaths);
+
+        if ($paths === []) {
+            return $this->redirectWithFeedback('error', 'Вкажіть хоча б один коректний шлях для часткового деплою.', []);
+        }
+
+        if ($redirect = $this->redirectIfShellUnavailable($branch)) {
+            return $redirect;
+        }
+
+        $repoPath = base_path();
+        $commandsOutput = [];
+
+        $currentCommitProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
+        $currentCommit = trim($currentCommitProcess->getOutput());
+        $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $currentCommitProcess);
+
+        if (! $currentCommitProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося зчитати поточний коміт.', $commandsOutput);
+        }
+
+        if ($currentCommit !== '') {
+            $this->storeBackup([
+                'timestamp' => now()->toIso8601String(),
+                'commit' => $currentCommit,
+                'branch' => $branch,
+            ]);
+        }
+
+        $fetchProcess = $this->runCommand(['git', 'fetch', 'origin'], $repoPath);
+        $commandsOutput[] = $this->formatProcess('git fetch origin', $fetchProcess);
+
+        if (! $fetchProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Команда "git fetch" завершилась з помилкою.', $commandsOutput);
+        }
+
+        $remoteCommitProcess = $this->runCommand(['git', 'rev-parse', "origin/{$branch}"], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git rev-parse origin/{$branch}", $remoteCommitProcess);
+
+        if (! $remoteCommitProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося визначити віддалений коміт гілки.', $commandsOutput);
+        }
+
+        $tmpDir = storage_path('app/partial_deploy_' . Str::random(8));
+        File::ensureDirectoryExists($tmpDir);
+        $archivePath = $tmpDir . '/partial.zip';
+        $extractPath = $tmpDir . '/extract';
+        File::ensureDirectoryExists($extractPath);
+
+        $pathsForArchive = [];
+        foreach ($paths as $path) {
+            $catFile = $this->runCommand(['git', 'cat-file', '-e', "origin/{$branch}:{$path}"], $repoPath);
+            $commandsOutput[] = $this->formatProcess("git cat-file -e origin/{$branch}:{$path}", $catFile);
+
+            if ($catFile->isSuccessful()) {
+                $pathsForArchive[] = $path;
+            }
+        }
+
+        if ($pathsForArchive !== []) {
+            $archiveCommand = array_merge(
+                ['git', 'archive', '--format=zip', "--output={$archivePath}", "origin/{$branch}"],
+                $pathsForArchive
+            );
+            $archiveProcess = $this->runCommand($archiveCommand, $repoPath);
+            $commandsOutput[] = $this->formatProcess('git archive (partial)', $archiveProcess);
+
+            if (! $archiveProcess->isSuccessful()) {
+                File::deleteDirectory($tmpDir);
+
+                return $this->redirectWithFeedback('error', 'Не вдалося сформувати архів для часткового деплою.', $commandsOutput);
+            }
+
+            if (! class_exists(ZipArchive::class)) {
+                File::deleteDirectory($tmpDir);
+
+                return $this->redirectWithFeedback('error', 'Розширення ZipArchive недоступне для розпакування архіву.', $commandsOutput);
+            }
+
+            $zip = new ZipArchive();
+            if ($zip->open($archivePath) === true) {
+                $zip->extractTo($extractPath);
+                $zip->close();
+            } else {
+                File::deleteDirectory($tmpDir);
+
+                return $this->redirectWithFeedback('error', 'Не вдалося розпакувати архів для часткового деплою.', $commandsOutput);
+            }
+        }
+
+        foreach ($paths as $path) {
+            $targetPath = base_path($path);
+            $sourcePath = $extractPath . '/' . $path;
+
+            if (File::isDirectory($targetPath)) {
+                File::deleteDirectory($targetPath);
+                $commandsOutput[] = [
+                    'command' => "partial: delete {$path}",
+                    'successful' => true,
+                    'output' => 'OK',
+                ];
+            } elseif (File::exists($targetPath)) {
+                File::delete($targetPath);
+                $commandsOutput[] = [
+                    'command' => "partial: delete {$path}",
+                    'successful' => true,
+                    'output' => 'OK',
+                ];
+            }
+
+            if (File::isDirectory($sourcePath)) {
+                File::copyDirectory($sourcePath, $targetPath);
+                $commandsOutput[] = [
+                    'command' => "partial: copy {$path}",
+                    'successful' => true,
+                    'output' => 'OK',
+                ];
+            } elseif (File::exists($sourcePath)) {
+                File::ensureDirectoryExists(dirname($targetPath));
+                File::copy($sourcePath, $targetPath);
+                $commandsOutput[] = [
+                    'command' => "partial: copy {$path}",
+                    'successful' => true,
+                    'output' => 'OK',
+                ];
+            }
+        }
+
+        File::deleteDirectory($tmpDir);
+
+        BranchUsageHistory::trackUsage(
+            $branch,
+            'partial_deploy',
+            'Частковий деплой шляхів: ' . implode(', ', $paths)
+        );
+
+        return $this->redirectWithFeedback(
+            'success',
+            'Частковий деплой виконано успішно.',
+            $commandsOutput
+        );
     }
 
     public function pushCurrent(Request $request): RedirectResponse
@@ -410,6 +561,42 @@ class DeploymentController extends BaseController
             "Гілку {$branchName} успішно {$action} на віддалений репозиторій.",
             $commandsOutput
         );
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function parsePaths(string $rawPaths): array
+    {
+        $preserve = collect(config('git-deployment.preserve_paths'));
+        $parts = preg_split('/[\r\n,;]+/', $rawPaths) ?: [];
+        $paths = [];
+
+        foreach ($parts as $part) {
+            $raw = trim($part);
+            $isAbsolute = str_starts_with($raw, '/');
+            $normalized = str_replace('\\', '/', $raw);
+            $normalized = ltrim($normalized, '/');
+            $normalized = preg_replace('#/+#', '/', $normalized ?? '') ?? '';
+
+            if ($normalized === '' || $isAbsolute) {
+                continue;
+            }
+
+            if (str_contains($normalized, '..') || str_starts_with($normalized, './') || preg_match('#^[A-Za-z]:#', $normalized)) {
+                continue;
+            }
+
+            $topLevel = Str::before($normalized, '/') ?: $normalized;
+
+            if ($preserve->contains($topLevel)) {
+                continue;
+            }
+
+            $paths[] = $normalized;
+        }
+
+        return array_values(array_unique($paths));
     }
 
     private function redirectWithFeedback(string $status, string $message, array $commandsOutput): RedirectResponse
