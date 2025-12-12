@@ -108,15 +108,44 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $answers = [];
             $optionMarkers = [];
 
-            foreach ($question['options'] as $option) {
-                $optionMarkers[$option] = 'a1';
-            }
+            // Check if this is a multi-marker question (options are nested arrays with markers)
+            $isMultiMarker = isset($question['options']) && ! empty($question['options'])
+                && is_array(reset($question['options']))
+                && ! is_string(reset($question['options']));
 
-            $answers[] = [
-                'marker' => 'a1',
-                'answer' => $question['answers']['a1'],
-                'verb_hint' => $this->normalizeHint($question['verb_hint'] ?? null),
-            ];
+            if ($isMultiMarker) {
+                // Multi-marker question format (like MixedConditionalsAIGeneratedSeeder)
+                foreach ($question['options'] as $marker => $markerOptions) {
+                    foreach ($markerOptions as $option) {
+                        $optionMarkers[$option] = $marker;
+                    }
+                }
+
+                foreach ($question['answers'] as $marker => $answer) {
+                    $verbHint = $question['verb_hints'][$marker] ?? null;
+                    $answers[] = [
+                        'marker' => $marker,
+                        'answer' => $answer,
+                        'verb_hint' => $this->normalizeHint($verbHint),
+                    ];
+                }
+
+                // Flatten options for storage
+                $flatOptions = $this->flattenOptions($question['options']);
+            } else {
+                // Single-marker question format (original format)
+                foreach ($question['options'] as $option) {
+                    $optionMarkers[$option] = 'a1';
+                }
+
+                $answers[] = [
+                    'marker' => 'a1',
+                    'answer' => $question['answers']['a1'],
+                    'verb_hint' => $this->normalizeHint($question['verb_hint'] ?? null),
+                ];
+
+                $flatOptions = $question['options'];
+            }
 
             $tagIds = [$themeTag, $questionSentencesTag, $typesOfQuestionSentencesTag];
 
@@ -157,7 +186,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'theory_text_block_uuid' => $theoryTextBlockUuid,
                 'tag_ids' => array_values(array_unique($tagIds)),
                 'answers' => $answers,
-                'options' => $question['options'],
+                'options' => $flatOptions,
                 'variants' => [],
             ];
 
@@ -302,6 +331,27 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         return array_unique($tags);
     }
 
+    /**
+     * Flatten nested options array into a single array of unique options.
+     */
+    private function flattenOptions(array $options): array
+    {
+        $flat = [];
+        foreach ($options as $values) {
+            if (is_array($values)) {
+                foreach ($values as $value) {
+                    if (! in_array($value, $flat, true)) {
+                        $flat[] = $value;
+                    }
+                }
+            } elseif (! in_array($values, $flat, true)) {
+                $flat[] = $values;
+            }
+        }
+
+        return $flat;
+    }
+
     private function buildQuestions(): array
     {
         $questions = [];
@@ -320,6 +370,9 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         $questions = array_merge($questions, $this->getSet2SubjectQuestions());
         $questions = array_merge($questions, $this->getSet2TagQuestions());
         $questions = array_merge($questions, $this->getSet2IndirectQuestions());
+
+        // SET 3 - Multiple fill-in-the-blank questions ({a1}...{aN})
+        $questions = array_merge($questions, $this->getMultipleFillInBlankQuestions());
 
         return $questions;
     }
@@ -2749,6 +2802,665 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     'be this should' => '❌ Неправильно. Повністю неправильний порядок. Правильна відповідь: The question remains as to how this should be implemented.',
                 ],
                 'source' => 'SET 2: Indirect Questions',
+            ],
+        ];
+    }
+
+    /**
+     * SET 3: Multiple fill-in-the-blank questions ({a1}...{aN})
+     * Equal number of questions for each CEFR level (A1-C2)
+     * These questions have multiple blanks that need to be filled.
+     */
+    private function getMultipleFillInBlankQuestions(): array
+    {
+        return [
+            // ===== A1 Level: 4 questions =====
+            [
+                'level' => 'A1',
+                'question' => '{a1} you {a2} pizza?',
+                'answers' => ['a1' => 'Do', 'a2' => 'like'],
+                'options' => [
+                    'a1' => ['Do', 'Does', 'Are', 'Is'],
+                    'a2' => ['like', 'likes', 'liking', 'liked'],
+                ],
+                'verb_hints' => ['a1' => 'auxiliary for you', 'a2' => 'base form after do'],
+                'detail' => 'yes_no',
+                'hints' => [
+                    'a1' => 'Для формування питання з you використовуємо Do.',
+                    'a2' => 'Після допоміжного дієслова do/does використовується базова форма дієслова без закінчення -s.',
+                ],
+                'explanations' => [
+                    'Do' => '✅ Правильно! З you використовуємо Do.',
+                    'Does' => '❌ Неправильно. Does використовується з he/she/it.',
+                    'Are' => '❌ Неправильно. Are використовується з дієсловом to be.',
+                    'Is' => '❌ Неправильно. Is використовується з he/she/it та to be.',
+                    'like' => '✅ Правильно! Базова форма після do.',
+                    'likes' => '❌ Неправильно. Після do використовується базова форма без -s.',
+                    'liking' => '❌ Неправильно. -ing форма тут не потрібна.',
+                    'liked' => '❌ Неправильно. Минулий час тут не потрібен.',
+                ],
+            ],
+            [
+                'level' => 'A1',
+                'question' => '{a1} she {a2} English?',
+                'answers' => ['a1' => 'Does', 'a2' => 'speak'],
+                'options' => [
+                    'a1' => ['Does', 'Do', 'Is', 'Are'],
+                    'a2' => ['speak', 'speaks', 'speaking', 'spoke'],
+                ],
+                'verb_hints' => ['a1' => 'auxiliary for she', 'a2' => 'base form after does'],
+                'detail' => 'yes_no',
+                'hints' => [
+                    'a1' => 'Для формування питання з she використовуємо Does.',
+                    'a2' => 'Після does дієслово завжди у базовій формі.',
+                ],
+                'explanations' => [
+                    'Does' => '✅ Правильно! З she використовуємо Does.',
+                    'Do' => '❌ Неправильно. Do використовується з I/you/we/they.',
+                    'Is' => '❌ Неправильно. Is для дієслова to be.',
+                    'Are' => '❌ Неправильно. Are для множини з to be.',
+                    'speak' => '✅ Правильно! Базова форма після does.',
+                    'speaks' => '❌ Неправильно. Після does дієслово без -s.',
+                    'speaking' => '❌ Неправильно. -ing форма не використовується.',
+                    'spoke' => '❌ Неправильно. Past Simple тут не потрібен.',
+                ],
+            ],
+            [
+                'level' => 'A1',
+                'question' => 'What {a1} your name? My name {a2} Anna.',
+                'answers' => ['a1' => 'is', 'a2' => 'is'],
+                'options' => [
+                    'a1' => ['is', 'are', 'does', 'do'],
+                    'a2' => ['is', 'are', 'am', 'be'],
+                ],
+                'verb_hints' => ['a1' => 'to be singular', 'a2' => 'to be singular'],
+                'detail' => 'wh_questions',
+                'hints' => [
+                    'a1' => 'Your name — однина, тому is.',
+                    'a2' => 'My name — однина, тому is.',
+                ],
+                'explanations' => [
+                    'is' => '✅ Правильно! Is для однини.',
+                    'are' => '❌ Неправильно. Are для множини.',
+                    'does' => '❌ Неправильно. Does для дій.',
+                    'do' => '❌ Неправильно. Do для дій.',
+                    'am' => '❌ Неправильно. Am тільки з I.',
+                    'be' => '❌ Неправильно. Потрібна відмінена форма.',
+                ],
+            ],
+            [
+                'level' => 'A1',
+                'question' => '{a1} they {a2} at home now?',
+                'answers' => ['a1' => 'Are', 'a2' => 'staying'],
+                'options' => [
+                    'a1' => ['Are', 'Is', 'Do', 'Does'],
+                    'a2' => ['staying', 'stay', 'stays', 'stayed'],
+                ],
+                'verb_hints' => ['a1' => 'to be for continuous', 'a2' => 'present participle'],
+                'detail' => 'yes_no',
+                'hints' => [
+                    'a1' => 'Present Continuous: Are + they + V-ing.',
+                    'a2' => 'У Present Continuous дієслово має форму -ing.',
+                ],
+                'explanations' => [
+                    'Are' => '✅ Правильно! Are для Present Continuous з they.',
+                    'Is' => '❌ Неправильно. Is для he/she/it.',
+                    'Do' => '❌ Неправильно. Do для Present Simple.',
+                    'Does' => '❌ Неправильно. Does для Present Simple.',
+                    'staying' => '✅ Правильно! V-ing для Present Continuous.',
+                    'stay' => '❌ Неправильно. Базова форма для Present Simple.',
+                    'stays' => '❌ Неправильно. -s форма для Present Simple.',
+                    'stayed' => '❌ Неправильно. Past Simple тут не потрібен.',
+                ],
+            ],
+
+            // ===== A2 Level: 4 questions =====
+            [
+                'level' => 'A2',
+                'question' => '{a1} you {a2} to the cinema yesterday?',
+                'answers' => ['a1' => 'Did', 'a2' => 'go'],
+                'options' => [
+                    'a1' => ['Did', 'Do', 'Were', 'Was'],
+                    'a2' => ['go', 'went', 'going', 'gone'],
+                ],
+                'verb_hints' => ['a1' => 'past auxiliary', 'a2' => 'base form after did'],
+                'detail' => 'yes_no',
+                'hints' => [
+                    'a1' => 'Для Past Simple питань використовуємо Did.',
+                    'a2' => 'Після did завжди базова форма дієслова.',
+                ],
+                'explanations' => [
+                    'Did' => '✅ Правильно! Did для Past Simple питань.',
+                    'Do' => '❌ Неправильно. Do для Present Simple.',
+                    'Were' => '❌ Неправильно. Were для to be.',
+                    'Was' => '❌ Неправильно. Was для to be.',
+                    'go' => '✅ Правильно! Базова форма після did.',
+                    'went' => '❌ Неправильно. Після did — базова форма.',
+                    'going' => '❌ Неправильно. -ing тут не потрібна.',
+                    'gone' => '❌ Неправильно. V3 тут не потрібна.',
+                ],
+            ],
+            [
+                'level' => 'A2',
+                'question' => 'Where {a1} she {a2} last summer?',
+                'answers' => ['a1' => 'did', 'a2' => 'travel'],
+                'options' => [
+                    'a1' => ['did', 'does', 'was', 'is'],
+                    'a2' => ['travel', 'traveled', 'travelling', 'travels'],
+                ],
+                'verb_hints' => ['a1' => 'past auxiliary', 'a2' => 'base form'],
+                'detail' => 'wh_questions',
+                'hints' => [
+                    'a1' => 'Last summer — минулий час, потрібен did.',
+                    'a2' => 'Після did — базова форма дієслова.',
+                ],
+                'explanations' => [
+                    'did' => '✅ Правильно! Did для минулого часу.',
+                    'does' => '❌ Неправильно. Does для теперішнього.',
+                    'was' => '❌ Неправильно. Was для to be.',
+                    'is' => '❌ Неправильно. Is для теперішнього.',
+                    'travel' => '✅ Правильно! Базова форма після did.',
+                    'traveled' => '❌ Неправильно. V2 не потрібна після did.',
+                    'travelling' => '❌ Неправильно. -ing тут не потрібна.',
+                    'travels' => '❌ Неправильно. -s форма тут не потрібна.',
+                ],
+            ],
+            [
+                'level' => 'A2',
+                'question' => 'Can you tell me where the bank {a1}? I {a2} find it.',
+                'answers' => ['a1' => 'is', 'a2' => "can't"],
+                'options' => [
+                    'a1' => ['is', 'are', 'does', 'do'],
+                    'a2' => ["can't", "don't", "won't", "didn't"],
+                ],
+                'verb_hints' => ['a1' => 'statement order', 'a2' => 'modal negative'],
+                'detail' => 'indirect_questions',
+                'hints' => [
+                    'a1' => 'У непрямих питаннях прямий порядок слів.',
+                    'a2' => "Can't означає неможливість.",
+                ],
+                'explanations' => [
+                    'is' => '✅ Правильно! Прямий порядок: the bank is.',
+                    'are' => '❌ Неправильно. Bank — однина.',
+                    'does' => '❌ Неправильно. Does не підходить.',
+                    'do' => '❌ Неправильно. Do не підходить.',
+                    "can't" => '✅ Правильно! Неможливість знайти.',
+                    "don't" => '❌ Неправильно. Контекст вимагає can.',
+                    "won't" => '❌ Неправильно. Майбутній час не підходить.',
+                    "didn't" => '❌ Неправильно. Минулий час не підходить.',
+                ],
+            ],
+            [
+                'level' => 'A2',
+                'question' => 'You {a1} French, {a2} you?',
+                'answers' => ['a1' => 'speak', 'a2' => "don't"],
+                'options' => [
+                    'a1' => ['speak', 'speaks', 'speaking', 'spoke'],
+                    'a2' => ["don't", 'do', "aren't", 'are'],
+                ],
+                'verb_hints' => ['a1' => 'present simple', 'a2' => 'negative tag'],
+                'detail' => 'tag_questions',
+                'hints' => [
+                    'a1' => 'You speak — Present Simple з you.',
+                    'a2' => "Після ствердження — заперечний tag: don't you.",
+                ],
+                'explanations' => [
+                    'speak' => '✅ Правильно! Базова форма з you.',
+                    'speaks' => '❌ Неправильно. -s для he/she/it.',
+                    'speaking' => '❌ Неправильно. -ing тут не потрібна.',
+                    'spoke' => '❌ Неправильно. Минулий час.',
+                    "don't" => '✅ Правильно! Заперечний tag.',
+                    'do' => '❌ Неправильно. Потрібен заперечний tag.',
+                    "aren't" => '❌ Неправильно. Aren\'t для to be.',
+                    'are' => '❌ Неправильно. Are для to be.',
+                ],
+            ],
+
+            // ===== B1 Level: 4 questions =====
+            [
+                'level' => 'B1',
+                'question' => '{a1} you ever {a2} to London?',
+                'answers' => ['a1' => 'Have', 'a2' => 'been'],
+                'options' => [
+                    'a1' => ['Have', 'Has', 'Did', 'Were'],
+                    'a2' => ['been', 'be', 'being', 'was'],
+                ],
+                'verb_hints' => ['a1' => 'present perfect auxiliary', 'a2' => 'past participle'],
+                'detail' => 'yes_no',
+                'hints' => [
+                    'a1' => 'Present Perfect: Have + you + V3.',
+                    'a2' => 'Been — це V3 від be.',
+                ],
+                'explanations' => [
+                    'Have' => '✅ Правильно! Have для Present Perfect з you.',
+                    'Has' => '❌ Неправильно. Has для he/she/it.',
+                    'Did' => '❌ Неправильно. Did для Past Simple.',
+                    'Were' => '❌ Неправильно. Were не підходить.',
+                    'been' => '✅ Правильно! V3 від be.',
+                    'be' => '❌ Неправильно. Потрібна V3 форма.',
+                    'being' => '❌ Неправильно. -ing тут не потрібна.',
+                    'was' => '❌ Неправильно. Was — це Past Simple.',
+                ],
+            ],
+            [
+                'level' => 'B1',
+                'question' => 'How long {a1} you {a2} waiting here?',
+                'answers' => ['a1' => 'have', 'a2' => 'been'],
+                'options' => [
+                    'a1' => ['have', 'has', 'are', 'were'],
+                    'a2' => ['been', 'be', 'being', 'was'],
+                ],
+                'verb_hints' => ['a1' => 'perfect continuous', 'a2' => 'been for continuous'],
+                'detail' => 'wh_questions',
+                'hints' => [
+                    'a1' => 'Present Perfect Continuous: have/has + been + V-ing.',
+                    'a2' => 'Been обов\'язковий для Perfect Continuous.',
+                ],
+                'explanations' => [
+                    'have' => '✅ Правильно! Have з you для Perfect Continuous.',
+                    'has' => '❌ Неправильно. Has для he/she/it.',
+                    'are' => '❌ Неправильно. Are для Present Continuous.',
+                    'were' => '❌ Неправильно. Were для Past Continuous.',
+                    'been' => '✅ Правильно! Have + been + V-ing.',
+                    'be' => '❌ Неправильно. Потрібна форма been.',
+                    'being' => '❌ Неправильно. Being не підходить.',
+                    'was' => '❌ Неправильно. Was — Past Simple.',
+                ],
+            ],
+            [
+                'level' => 'B1',
+                'question' => "They {a1} arrived yet, {a2} they?",
+                'answers' => ['a1' => "haven't", 'a2' => 'have'],
+                'options' => [
+                    'a1' => ["haven't", "didn't", "don't", "weren't"],
+                    'a2' => ['have', "haven't", 'did', "didn't"],
+                ],
+                'verb_hints' => ['a1' => 'negative perfect', 'a2' => 'positive tag'],
+                'detail' => 'tag_questions',
+                'hints' => [
+                    'a1' => "Haven't — заперечення в Present Perfect.",
+                    'a2' => 'Після заперечення — ствердний tag.',
+                ],
+                'explanations' => [
+                    "haven't" => '✅ Правильно! Present Perfect заперечення.',
+                    "didn't" => '❌ Неправильно. Past Simple.',
+                    "don't" => '❌ Неправильно. Present Simple.',
+                    "weren't" => '❌ Неправильно. Past to be.',
+                    'have' => '✅ Правильно! Ствердний tag після заперечення.',
+                    "haven't" => '❌ Неправильно. Після заперечення — ствердний tag.',
+                    'did' => '❌ Неправильно. Did не відповідає haven\'t.',
+                    "didn't" => '❌ Неправильно. Didn\'t не відповідає haven\'t.',
+                ],
+            ],
+            [
+                'level' => 'B1',
+                'question' => 'I wonder where she {a1} and what she {a2}.',
+                'answers' => ['a1' => 'is', 'a2' => 'wants'],
+                'options' => [
+                    'a1' => ['is', 'does', 'was', 'did'],
+                    'a2' => ['wants', 'want', 'wanting', 'wanted'],
+                ],
+                'verb_hints' => ['a1' => 'statement order', 'a2' => 'present simple 3rd person'],
+                'detail' => 'indirect_questions',
+                'hints' => [
+                    'a1' => 'Непряме питання: прямий порядок слів.',
+                    'a2' => 'She wants — третя особа однини.',
+                ],
+                'explanations' => [
+                    'is' => '✅ Правильно! Where she is — прямий порядок.',
+                    'does' => '❌ Неправильно. Does для питань.',
+                    'was' => '❌ Неправильно. Контекст теперішній.',
+                    'did' => '❌ Неправильно. Did для минулого.',
+                    'wants' => '✅ Правильно! She wants — 3-я особа.',
+                    'want' => '❌ Неправильно. Потрібна -s для she.',
+                    'wanting' => '❌ Неправильно. -ing не потрібна.',
+                    'wanted' => '❌ Неправильно. Минулий час.',
+                ],
+            ],
+
+            // ===== B2 Level: 4 questions =====
+            [
+                'level' => 'B2',
+                'question' => '{a1} it not be better if we {a2} them first?',
+                'answers' => ['a1' => 'Would', 'a2' => 'asked'],
+                'options' => [
+                    'a1' => ['Would', 'Will', 'Should', 'Could'],
+                    'a2' => ['asked', 'ask', 'asking', 'have asked'],
+                ],
+                'verb_hints' => ['a1' => 'negative question modal', 'a2' => 'past simple in conditional'],
+                'detail' => 'negative_questions',
+                'hints' => [
+                    'a1' => "Would для гіпотетичних пропозицій.",
+                    'a2' => 'If + Past Simple для нереальної умови.',
+                ],
+                'explanations' => [
+                    'Would' => '✅ Правильно! Would для гіпотези.',
+                    'Will' => '❌ Неправильно. Will для реальних ситуацій.',
+                    'Should' => '❌ Неправильно. Should для порад.',
+                    'Could' => '❌ Неправильно. Could можливий, але would краще.',
+                    'asked' => '✅ Правильно! Past Simple в if-clause.',
+                    'ask' => '❌ Неправильно. Потрібен Past Simple.',
+                    'asking' => '❌ Неправильно. -ing не підходить.',
+                    'have asked' => '❌ Неправильно. Perfect тут не потрібен.',
+                ],
+            ],
+            [
+                'level' => 'B2',
+                'question' => 'Do you prefer tea {a1} coffee, or {a2} you like both?',
+                'answers' => ['a1' => 'or', 'a2' => 'do'],
+                'options' => [
+                    'a1' => ['or', 'and', 'but', 'nor'],
+                    'a2' => ['do', 'does', 'are', 'would'],
+                ],
+                'verb_hints' => ['a1' => 'alternative choice', 'a2' => 'auxiliary for you'],
+                'detail' => 'alternative_questions',
+                'hints' => [
+                    'a1' => 'Or для вибору між варіантами.',
+                    'a2' => 'Do you — питання з you.',
+                ],
+                'explanations' => [
+                    'or' => '✅ Правильно! Or для альтернативи.',
+                    'and' => '❌ Неправильно. And не для вибору.',
+                    'but' => '❌ Неправильно. But для протиставлення.',
+                    'nor' => '❌ Неправильно. Nor для заперечення.',
+                    'do' => '✅ Правильно! Do з you.',
+                    'does' => '❌ Неправильно. Does для he/she/it.',
+                    'are' => '❌ Неправильно. Are для to be.',
+                    'would' => '❌ Неправильно. Would тут не підходить.',
+                ],
+            ],
+            [
+                'level' => 'B2',
+                'question' => 'Who {a1} the idea and who {a2} the final decision?',
+                'answers' => ['a1' => 'suggested', 'a2' => 'made'],
+                'options' => [
+                    'a1' => ['suggested', 'did suggest', 'suggest', 'has suggested'],
+                    'a2' => ['made', 'did make', 'make', 'has made'],
+                ],
+                'verb_hints' => ['a1' => 'subject question past', 'a2' => 'subject question past'],
+                'detail' => 'subject_questions',
+                'hints' => [
+                    'a1' => 'У питаннях про підмет — V2 без did.',
+                    'a2' => 'Те саме правило: V2 без did.',
+                ],
+                'explanations' => [
+                    'suggested' => '✅ Правильно! V2 без допоміжного.',
+                    'did suggest' => '❌ Неправильно. Did не потрібен.',
+                    'suggest' => '❌ Неправильно. Потрібен Past Simple.',
+                    'has suggested' => '❌ Неправильно. Perfect не підходить.',
+                    'made' => '✅ Правильно! V2 без допоміжного.',
+                    'did make' => '❌ Неправильно. Did не потрібен.',
+                    'make' => '❌ Неправильно. Потрібен Past Simple.',
+                    'has made' => '❌ Неправильно. Perfect не підходить.',
+                ],
+            ],
+            [
+                'level' => 'B2',
+                'question' => 'Could you clarify what we {a1} do and when we {a2} start?',
+                'answers' => ['a1' => 'should', 'a2' => 'should'],
+                'options' => [
+                    'a1' => ['should', 'shall', 'will', 'must'],
+                    'a2' => ['should', 'shall', 'will', 'can'],
+                ],
+                'verb_hints' => ['a1' => 'modal for recommendation', 'a2' => 'modal in indirect'],
+                'detail' => 'indirect_questions',
+                'hints' => [
+                    'a1' => 'Should для рекомендацій.',
+                    'a2' => 'Непряме питання зберігає модальне дієслово.',
+                ],
+                'explanations' => [
+                    'should' => '✅ Правильно! Should для порад.',
+                    'shall' => '❌ Неправильно. Shall більш формальний.',
+                    'will' => '❌ Неправильно. Will для фактів.',
+                    'must' => '❌ Неправильно. Must занадто сильний.',
+                    'can' => '❌ Неправильно. Can для здатності.',
+                ],
+            ],
+
+            // ===== C1 Level: 4 questions =====
+            [
+                'level' => 'C1',
+                'question' => '{a1} the committee not {a2} consulted earlier, {a3} they?',
+                'answers' => ['a1' => 'Should', 'a2' => 'have been', 'a3' => "shouldn't"],
+                'options' => [
+                    'a1' => ['Should', 'Would', 'Could', 'Must'],
+                    'a2' => ['have been', 'be', 'been', 'have'],
+                    'a3' => ["shouldn't", 'should', "wouldn't", 'would'],
+                ],
+                'verb_hints' => ['a1' => 'modal past criticism', 'a2' => 'perfect passive', 'a3' => 'negative tag'],
+                'detail' => 'tag_questions',
+                'hints' => [
+                    'a1' => 'Should have been — критика минулої бездіяльності.',
+                    'a2' => 'Have been для Perfect Passive.',
+                    'a3' => "Після ствердного should — заперечний shouldn't.",
+                ],
+                'explanations' => [
+                    'Should' => '✅ Правильно! Should have been — критика.',
+                    'Would' => '❌ Неправильно. Would для гіпотез.',
+                    'Could' => '❌ Неправильно. Could для можливості.',
+                    'Must' => '❌ Неправильно. Must для обов\'язку.',
+                    'have been' => '✅ Правильно! Perfect Passive.',
+                    'be' => '❌ Неправильно. Потрібна Perfect форма.',
+                    'been' => '❌ Неправильно. Потрібен have.',
+                    'have' => '❌ Неправильно. Потрібен been.',
+                    "shouldn't" => '✅ Правильно! Заперечний tag.',
+                    'should' => '❌ Неправильно. Потрібен заперечний tag.',
+                    "wouldn't" => '❌ Неправильно. Має відповідати should.',
+                    'would' => '❌ Неправильно. Має відповідати should.',
+                ],
+            ],
+            [
+                'level' => 'C1',
+                'question' => '{a1} exactly {a2} the failure and how might we {a3} it?',
+                'answers' => ['a1' => 'What', 'a2' => 'caused', 'a3' => 'prevent'],
+                'options' => [
+                    'a1' => ['What', 'Who', 'Which', 'Why'],
+                    'a2' => ['caused', 'did cause', 'has caused', 'causing'],
+                    'a3' => ['prevent', 'preventing', 'prevented', 'have prevented'],
+                ],
+                'verb_hints' => ['a1' => 'subject question word', 'a2' => 'past without auxiliary', 'a3' => 'base form after might'],
+                'detail' => 'subject_questions',
+                'hints' => [
+                    'a1' => 'What caused — питання про причину (підмет).',
+                    'a2' => 'У питаннях про підмет — V2 без did.',
+                    'a3' => 'Після might — базова форма.',
+                ],
+                'explanations' => [
+                    'What' => '✅ Правильно! What для речі/причини.',
+                    'Who' => '❌ Неправильно. Who для людей.',
+                    'Which' => '❌ Неправильно. Which для вибору.',
+                    'Why' => '❌ Неправильно. Why не підходить як підмет.',
+                    'caused' => '✅ Правильно! V2 без did.',
+                    'did cause' => '❌ Неправильно. Did не потрібен.',
+                    'has caused' => '❌ Неправильно. Perfect не підходить.',
+                    'causing' => '❌ Неправильно. -ing не підходить.',
+                    'prevent' => '✅ Правильно! Базова форма після might.',
+                    'preventing' => '❌ Неправильно. -ing не потрібна.',
+                    'prevented' => '❌ Неправильно. Past не потрібен.',
+                    'have prevented' => '❌ Неправильно. Perfect не потрібен.',
+                ],
+            ],
+            [
+                'level' => 'C1',
+                'question' => "I'm uncertain as to whether they {a1} {a2} the implications fully.",
+                'answers' => ['a1' => 'have', 'a2' => 'understood'],
+                'options' => [
+                    'a1' => ['have', 'had', 'has', 'having'],
+                    'a2' => ['understood', 'understand', 'understanding', 'understands'],
+                ],
+                'verb_hints' => ['a1' => 'present perfect auxiliary', 'a2' => 'past participle'],
+                'detail' => 'indirect_questions',
+                'hints' => [
+                    'a1' => 'They have — Present Perfect з they.',
+                    'a2' => 'Understood — V3 для Present Perfect.',
+                ],
+                'explanations' => [
+                    'have' => '✅ Правильно! Have з they.',
+                    'had' => '❌ Неправильно. Had для Past Perfect.',
+                    'has' => '❌ Неправильно. Has для he/she/it.',
+                    'having' => '❌ Неправильно. -ing тут не підходить.',
+                    'understood' => '✅ Правильно! V3 для Perfect.',
+                    'understand' => '❌ Неправильно. Потрібна V3.',
+                    'understanding' => '❌ Неправильно. -ing не підходить.',
+                    'understands' => '❌ Неправильно. -s не підходить.',
+                ],
+            ],
+            [
+                'level' => 'C1',
+                'question' => '{a1} the regulations {a2} implemented properly, or {a3} there loopholes?',
+                'answers' => ['a1' => 'Were', 'a2' => 'being', 'a3' => 'were'],
+                'options' => [
+                    'a1' => ['Were', 'Was', 'Are', 'Is'],
+                    'a2' => ['being', 'been', 'be', 'to be'],
+                    'a3' => ['were', 'was', 'are', 'is'],
+                ],
+                'verb_hints' => ['a1' => 'past passive question', 'a2' => 'continuous passive', 'a3' => 'past plural'],
+                'detail' => 'alternative_questions',
+                'hints' => [
+                    'a1' => 'Were для Past Passive з множиною.',
+                    'a2' => 'Being implemented — Past Continuous Passive.',
+                    'a3' => 'Were there — існування в минулому.',
+                ],
+                'explanations' => [
+                    'Were' => '✅ Правильно! Were для множини.',
+                    'Was' => '❌ Неправильно. Was для однини.',
+                    'Are' => '❌ Неправильно. Are для теперішнього.',
+                    'Is' => '❌ Неправильно. Is для теперішнього.',
+                    'being' => '✅ Правильно! Being для Continuous Passive.',
+                    'been' => '❌ Неправильно. Been для Perfect.',
+                    'be' => '❌ Неправильно. Потрібна being.',
+                    'to be' => '❌ Неправильно. Інфінітив не підходить.',
+                    'were' => '✅ Правильно! Were there для множини.',
+                    'was' => '❌ Неправильно. Was для однини.',
+                    'are' => '❌ Неправильно. Are для теперішнього.',
+                    'is' => '❌ Неправильно. Is для теперішнього.',
+                ],
+            ],
+
+            // ===== C2 Level: 4 questions =====
+            [
+                'level' => 'C2',
+                'question' => '{a1} the epistemological foundations {a2} reconsidered, {a3} they not?',
+                'answers' => ['a1' => 'Ought', 'a2' => 'to be', 'a3' => 'ought'],
+                'options' => [
+                    'a1' => ['Ought', 'Should', 'Must', 'Would'],
+                    'a2' => ['to be', 'be', 'being', 'been'],
+                    'a3' => ['ought', "oughtn't", 'should', "shouldn't"],
+                ],
+                'verb_hints' => ['a1' => 'formal modal', 'a2' => 'infinitive after ought', 'a3' => 'positive tag'],
+                'detail' => 'tag_questions',
+                'hints' => [
+                    'a1' => 'Ought to — формальна рекомендація.',
+                    'a2' => 'Після ought завжди to + infinitive.',
+                    'a3' => "Після заперечного 'not' — ствердний tag.",
+                ],
+                'explanations' => [
+                    'Ought' => '✅ Правильно! Ought to — формальний стиль.',
+                    'Should' => '❌ Неправильно. Should менш формальний.',
+                    'Must' => '❌ Неправильно. Must для обов\'язку.',
+                    'Would' => '❌ Неправильно. Would для гіпотез.',
+                    'to be' => '✅ Правильно! Ought to be.',
+                    'be' => '❌ Неправильно. Потрібен to.',
+                    'being' => '❌ Неправильно. -ing не підходить.',
+                    'been' => '❌ Неправильно. Been для Perfect.',
+                    'ought' => '✅ Правильно! Ствердний tag.',
+                    "oughtn't" => '❌ Неправильно. Після заперечення — ствердний.',
+                    'should' => '❌ Неправильно. Tag має відповідати ought.',
+                    "shouldn't" => '❌ Неправильно. Tag має відповідати ought.',
+                ],
+            ],
+            [
+                'level' => 'C2',
+                'question' => '{a1} {a2} that precipitated the paradigm shift and {a3} might its ramifications be?',
+                'answers' => ['a1' => 'What', 'a2' => 'was it', 'a3' => 'what'],
+                'options' => [
+                    'a1' => ['What', 'Which', 'Who', 'Why'],
+                    'a2' => ['was it', 'it was', 'were it', 'it were'],
+                    'a3' => ['what', 'which', 'how', 'why'],
+                ],
+                'verb_hints' => ['a1' => 'thing question word', 'a2' => 'cleft sentence', 'a3' => 'thing question'],
+                'detail' => 'wh_questions',
+                'hints' => [
+                    'a1' => 'What для питання про річ/подію.',
+                    'a2' => 'Was it — cleft sentence (It was X that...).',
+                    'a3' => 'What might its ramifications be — питання про результати.',
+                ],
+                'explanations' => [
+                    'What' => '✅ Правильно! What для речі.',
+                    'Which' => '❌ Неправильно. Which для вибору.',
+                    'Who' => '❌ Неправильно. Who для людей.',
+                    'Why' => '❌ Неправильно. Why для причини.',
+                    'was it' => '✅ Правильно! Cleft sentence.',
+                    'it was' => '❌ Неправильно. Потрібна інверсія.',
+                    'were it' => '❌ Неправильно. It — однина.',
+                    'it were' => '❌ Неправильно. Неправильний порядок.',
+                    'what' => '✅ Правильно! Питання про результати.',
+                    'which' => '❌ Неправильно. Which для вибору.',
+                    'how' => '❌ Неправильно. How для способу.',
+                    'why' => '❌ Неправильно. Why для причини.',
+                ],
+            ],
+            [
+                'level' => 'C2',
+                'question' => 'One might inquire whether the methodology {a1} {a2} appropriately vetted.',
+                'answers' => ['a1' => 'had', 'a2' => 'been'],
+                'options' => [
+                    'a1' => ['had', 'has', 'have', 'having'],
+                    'a2' => ['been', 'be', 'being', 'was'],
+                ],
+                'verb_hints' => ['a1' => 'past perfect auxiliary', 'a2' => 'past participle passive'],
+                'detail' => 'indirect_questions',
+                'hints' => [
+                    'a1' => 'Had been — Past Perfect Passive.',
+                    'a2' => 'Been vetted — Passive Voice.',
+                ],
+                'explanations' => [
+                    'had' => '✅ Правильно! Had для Past Perfect.',
+                    'has' => '❌ Неправильно. Has для Present Perfect.',
+                    'have' => '❌ Неправильно. Have не підходить.',
+                    'having' => '❌ Неправильно. -ing не підходить.',
+                    'been' => '✅ Правильно! Been для Passive.',
+                    'be' => '❌ Неправильно. Потрібен been.',
+                    'being' => '❌ Неправильно. Being для Continuous.',
+                    'was' => '❌ Неправильно. Was не підходить тут.',
+                ],
+            ],
+            [
+                'level' => 'C2',
+                'question' => '{a1} it the case that the hypothesis {a2} {a3} substantiated, or {a4} there alternative explanations?',
+                'answers' => ['a1' => 'Is', 'a2' => 'has been', 'a3' => 'adequately', 'a4' => 'are'],
+                'options' => [
+                    'a1' => ['Is', 'Was', 'Are', 'Were'],
+                    'a2' => ['has been', 'had been', 'have been', 'was'],
+                    'a3' => ['adequately', 'adequate', 'adequacy', 'adequating'],
+                    'a4' => ['are', 'is', 'was', 'were'],
+                ],
+                'verb_hints' => ['a1' => 'present question', 'a2' => 'present perfect passive', 'a3' => 'adverb', 'a4' => 'plural existence'],
+                'detail' => 'alternative_questions',
+                'hints' => [
+                    'a1' => 'Is it the case that — формальна конструкція.',
+                    'a2' => 'Has been substantiated — Present Perfect Passive.',
+                    'a3' => 'Adequately — прислівник перед дієприкметником.',
+                    'a4' => 'Are there — існування множини.',
+                ],
+                'explanations' => [
+                    'Is' => '✅ Правильно! Is it the case.',
+                    'Was' => '❌ Неправильно. Контекст теперішній.',
+                    'Are' => '❌ Неправильно. It — однина.',
+                    'Were' => '❌ Неправильно. Минулий час.',
+                    'has been' => '✅ Правильно! Present Perfect Passive.',
+                    'had been' => '❌ Неправильно. Past Perfect.',
+                    'have been' => '❌ Неправильно. Hypothesis — однина.',
+                    'was' => '❌ Неправильно. Past Simple.',
+                    'adequately' => '✅ Правильно! Прислівник.',
+                    'adequate' => '❌ Неправильно. Потрібен прислівник.',
+                    'adequacy' => '❌ Неправильно. Іменник.',
+                    'adequating' => '❌ Неправильно. Такого слова немає.',
+                    'are' => '✅ Правильно! Are there для множини.',
+                    'is' => '❌ Неправильно. Explanations — множина.',
+                    'was' => '❌ Неправильно. Минулий час.',
+                    'were' => '❌ Неправильно. Минулий час.',
+                ],
             ],
         ];
     }
