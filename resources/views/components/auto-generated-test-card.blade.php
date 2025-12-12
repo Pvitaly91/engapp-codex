@@ -17,12 +17,12 @@
     // Build URL with filters for virtual tests
     if ($isVirtual) {
         $encodedFilters = base64_encode(json_encode($filters));
-        $testUrl = route('saved-test.js', $test->slug) . '?' . http_build_query([
+        $testUrl = route('test.show', $test->slug) . '?' . http_build_query([
             'filters' => $encodedFilters,
             'name' => $test->name,
         ]);
     } else {
-        $testUrl = route('saved-test.js', $test->slug);
+        $testUrl = route('test.show', $test->slug);
     }
 @endphp
 

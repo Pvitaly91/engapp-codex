@@ -135,6 +135,69 @@
       </div>
     </section>
 
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">1.5. Частковий деплой через API</h2>
+          <p class="text-sm text-muted-foreground">Оновіть лише вказані папки/файли з обраної гілки через GitHub API, не чіпаючи решту робочого дерева. Ідеально для оновлення окремих модулів чи сідерів без повного деплою.</p>
+        </div>
+        <form method="POST" action="{{ route('deployment.native.deploy-partial') }}" class="space-y-4">
+          @csrf
+          <div class="space-y-2">
+            <label class="block text-sm font-medium">Гілка для оновлення</label>
+            <div class="relative">
+              <input type="text" name="branch" value="{{ $feedback['branch'] ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2 pr-10" />
+              <button type="button" onclick="this.previousElementSibling.value=''; this.previousElementSibling.focus();" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition" title="Очистити поле">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <div class="space-y-2">
+            <label class="block text-sm font-medium">Шляхи для оновлення</label>
+            <div id="paths-container-api" class="space-y-2">
+              <!-- Динамічні inputs будуть додаватись сюди -->
+            </div>
+            <button 
+              type="button" 
+              class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/10 transition"
+              onclick="addPathInput('paths-container-api')"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              Додати шлях
+            </button>
+            <p class="text-xs text-muted-foreground">Вкажіть шляхи до папок або файлів. Захищені директорії (.git, .env, storage, vendor, node_modules) не можна оновлювати.</p>
+            
+            @if(!empty($availableFolders))
+              <div class="mt-3">
+                <button type="button" class="text-sm text-primary hover:text-primary/80 font-medium" onclick="document.getElementById('folder-picker-api').classList.toggle('hidden')">
+                  <svg class="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                  </svg>
+                  Вибрати з існуючих папок
+                </button>
+                <div id="folder-picker-api" class="hidden mt-2 p-3 rounded-xl border border-border/70 bg-muted/30 max-h-64 overflow-y-auto">
+                  <div class="space-y-1">
+                    @include('git-deployment::deployment.partials.folder-tree-item', [
+                      'folders' => $availableFolders,
+                      'containerId' => 'paths-container-api',
+                      'parentPath' => ''
+                    ])
+                  </div>
+                </div>
+              </div>
+            @endif
+          </div>
+          
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-orange-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-orange-600/90">Виконати частковий деплой через API</button>
+        </form>
+      </div>
+    </section>
+
     @if($recentUsage->isNotEmpty())
       <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
         <div class="space-y-4 p-6">
@@ -181,6 +244,7 @@
                       @php
                         $actionLabels = [
                           'deploy' => 'Оновлення',
+                          'partial_deploy' => 'Частковий деплой',
                           'push' => 'Пуш',
                           'auto_push' => 'Автоматичний пуш',
                           'create_and_push' => 'Створення та пуш',
@@ -188,6 +252,7 @@
                         ];
                         $actionColors = [
                           'deploy' => 'bg-red-100 text-red-700',
+                          'partial_deploy' => 'bg-orange-100 text-orange-700',
                           'push' => 'bg-emerald-100 text-emerald-700',
                           'auto_push' => 'bg-purple-100 text-purple-700',
                           'create_and_push' => 'bg-blue-100 text-blue-700',
@@ -439,4 +504,5 @@
   @include('git-deployment::deployment.partials.branch-history-toggle-script')
   @include('git-deployment::deployment.partials.backup-branches-toggle-script')
   @include('git-deployment::deployment.partials.searchable-select-script')
+  @include('git-deployment::deployment.partials.folder-picker-script')
 @endsection

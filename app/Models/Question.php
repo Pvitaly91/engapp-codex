@@ -28,7 +28,15 @@ class Question extends Model
         return $questionText;
     }
 
-    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'category_id', 'source_id', 'flag', 'seeder', 'type'];
+    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'theory_text_block_uuid', 'category_id', 'source_id', 'flag', 'seeder', 'type'];
+
+    /**
+     * Get the theory text block linked to this question.
+     */
+    public function theoryTextBlock()
+    {
+        return $this->belongsTo(TextBlock::class, 'theory_text_block_uuid', 'uuid');
+    }
 
     public static function typeLabels(): array
     {

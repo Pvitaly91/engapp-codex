@@ -1299,6 +1299,14 @@ class GrammarTestController extends Controller
             $builder->where('flag', 2);
         }
 
+        if ($filters['blank_count_from'] !== null) {
+            $builder->has('answers', '>=', $filters['blank_count_from']);
+        }
+
+        if ($filters['blank_count_to'] !== null) {
+            $builder->has('answers', '<=', $filters['blank_count_to']);
+        }
+
         $totalCount = (clone $builder)->count();
 
         $results = $builder->limit($limit)->get()->map(function (Question $question) {
@@ -1680,6 +1688,8 @@ class GrammarTestController extends Controller
             'difficultyFrom' => $base['minDifficulty'],
             'difficultyTo' => $base['maxDifficulty'],
             'numQuestions' => 10,
+            'blankCountFrom' => null,
+            'blankCountTo' => null,
             'manualInput' => false,
             'autocompleteInput' => false,
             'checkOneInput' => false,

@@ -19,6 +19,7 @@ use App\Http\Controllers\SeedRunController;
 use App\Http\Controllers\SentenceTranslationTestController;
 use App\Http\Controllers\SiteSearchController;
 use App\Http\Controllers\SiteTreeController;
+use App\Http\Controllers\TestJsV2Controller;
 use App\Http\Controllers\TestTagController;
 use App\Http\Controllers\TheoryController;
 use App\Http\Controllers\TrainController;
@@ -89,6 +90,16 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
     Route::get('/test/{slug}/js/drag-drop', [GrammarTestController::class, 'showSavedTestJsDragDrop'])->name('saved-test.js.drag-drop');
     Route::get('/test/{slug}/js/match', [GrammarTestController::class, 'showSavedTestJsMatch'])->name('saved-test.js.match');
     Route::get('/test/{slug}/js/dialogue', [GrammarTestController::class, 'showSavedTestJsDialogue'])->name('saved-test.js.dialogue');
+
+    // Test V2 - New UI version (public test pages without /js suffix)
+    Route::get('/test/{slug}', [TestJsV2Controller::class, 'showSavedTestJsV2'])->name('test.show');
+    Route::get('/test/{slug}/step', [TestJsV2Controller::class, 'showSavedTestJsStepV2'])->name('test.step');
+    Route::get('/test/{slug}/step/input', [TestJsV2Controller::class, 'showSavedTestJsStepInputV2'])->name('test.step-input');
+    Route::get('/test/{slug}/step/manual', [TestJsV2Controller::class, 'showSavedTestJsStepManualV2'])->name('test.step-manual');
+    Route::get('/test/{slug}/step/select', [TestJsV2Controller::class, 'showSavedTestJsStepSelectV2'])->name('test.step-select');
+    Route::get('/test/{slug}/select', [TestJsV2Controller::class, 'showSavedTestJsSelectV2'])->name('test.select');
+    Route::get('/test/{slug}/input', [TestJsV2Controller::class, 'showSavedTestJsInputV2'])->name('test.input');
+    Route::get('/test/{slug}/manual', [TestJsV2Controller::class, 'showSavedTestJsManualV2'])->name('test.manual');
 
     Route::prefix('admin')->group(function () {
         Route::get('/', [GitDeploymentController::class, 'index'])->name('admin.dashboard');
