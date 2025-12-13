@@ -142,7 +142,12 @@
                                     </button>
                                 </div>
                                 @if(!empty($seedRun['data_profile']))
-                                    <p class="text-xs text-gray-600">{{ $seedRun['data_profile'] }}</p>
+                                    @php
+                                        $dataProfile = is_array($seedRun['data_profile'])
+                                            ? implode(' ', array_filter($seedRun['data_profile']))
+                                            : $seedRun['data_profile'];
+                                    @endphp
+                                    <p class="text-xs text-gray-600">{{ $dataProfile }}</p>
                                 @endif
                             </li>
                         @endforeach
