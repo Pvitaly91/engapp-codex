@@ -13,7 +13,11 @@
         );
     @endphp
     @if($shouldShow)
-        <div class="space-y-2" style="margin-left: {{ max(0, $depth) * 1.5 }}rem">
+        <div
+            wire:key="executed-folder-{{ $nodeKey }}"
+            class="space-y-2"
+            style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
+        >
             <button 
                 type="button"
                 class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
@@ -51,7 +55,11 @@
         $shouldShow = empty($searchQuery) || stripos($displayName, $searchQuery) !== false;
     @endphp
     @if($shouldShow)
-        <div class="space-y-2" style="margin-left: {{ max(0, $depth) * 1.5 }}rem">
+        <div
+            wire:key="executed-item-{{ $seedRunId ?: $className }}"
+            class="space-y-2"
+            style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
+        >
             <div class="flex flex-col gap-3">
                 {{-- Seeder info --}}
                 <div class="flex items-center gap-2">

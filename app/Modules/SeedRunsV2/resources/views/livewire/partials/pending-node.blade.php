@@ -4,7 +4,11 @@
 @endphp
 
 @if($isFolder)
-    <div class="space-y-2" style="margin-left: {{ max(0, $depth) * 1.5 }}rem">
+    <div
+        wire:key="pending-folder-{{ $nodeKey }}"
+        class="space-y-2"
+        style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
+    >
         <button 
             type="button"
             class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
@@ -37,7 +41,11 @@
             ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'
             : 'inline-flex items-center px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold';
     @endphp
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" style="margin-left: {{ max(0, $depth) * 1.5 }}rem">
+    <div
+        wire:key="pending-item-{{ $className }}"
+        class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
+    >
         <div class="flex items-center gap-3 sm:flex-1">
             <span class="inline-flex text-sm font-mono text-gray-700 break-all min-w-[12rem] sm:min-w-[15rem]">
                 @if($displayNamespace)
