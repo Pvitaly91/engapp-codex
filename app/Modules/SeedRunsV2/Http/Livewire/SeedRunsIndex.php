@@ -200,22 +200,28 @@ class SeedRunsIndex extends Component
 
     public function executeConfirmedAction(): void
     {
-        $this->showConfirmModal = false;
+        // Store action and data before clearing modal state
+        $action = $this->confirmAction;
+        $data = $this->confirmData;
         
-        match ($this->confirmAction) {
-            'runSeeder' => $this->runSeeder($this->confirmData),
+        // Close modal immediately by clearing all modal state
+        $this->showConfirmModal = false;
+        $this->confirmAction = '';
+        $this->confirmMessage = '';
+        $this->confirmData = null;
+        
+        // Execute the action after modal is closed
+        match ($action) {
+            'runSeeder' => $this->runSeeder($data),
             'runMissingSeeders' => $this->runMissingSeeders(),
-            'markAsExecuted' => $this->markAsExecuted($this->confirmData),
-            'deleteSeedRun' => $this->deleteSeedRun($this->confirmData),
-            'deleteSeederFile' => $this->deleteSeederFile($this->confirmData, false),
-            'deleteSeederFileWithQuestions' => $this->deleteSeederFile($this->confirmData, true),
-            'refreshSeeder' => $this->refreshSeeder($this->confirmData),
-            'deleteSeedRunWithData' => $this->deleteSeedRunWithData($this->confirmData),
+            'markAsExecuted' => $this->markAsExecuted($data),
+            'deleteSeedRun' => $this->deleteSeedRun($data),
+            'deleteSeederFile' => $this->deleteSeederFile($data, false),
+            'deleteSeederFileWithQuestions' => $this->deleteSeederFile($data, true),
+            'refreshSeeder' => $this->refreshSeeder($data),
+            'deleteSeedRunWithData' => $this->deleteSeedRunWithData($data),
             default => null,
         };
-        
-        $this->confirmAction = '';
-        $this->confirmData = null;
     }
 
     public function cancelConfirm(): void
