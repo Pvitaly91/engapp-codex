@@ -116,7 +116,12 @@
                     <button type="button" wire:click="cancelConfirm" class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition">
                         Скасувати
                     </button>
-                    <button type="button" wire:click="executeConfirmedAction" data-confirm-accept class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-500 transition">
+                    <button
+                        type="button"
+                        wire:click="$set('showConfirmModal', false); $wire.executeConfirmedAction()"
+                        data-confirm-accept
+                        class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-500 transition"
+                    >
                         Підтвердити
                     </button>
                 </div>
