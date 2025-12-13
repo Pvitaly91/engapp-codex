@@ -205,6 +205,48 @@ class NativeGitFilesystem
         }
     }
 
+    /**
+     * @param array<int, string> $paths
+     * @return array{copied: int, deleted: int}
+     */
+    public function replacePaths(string $sourceDirectory, array $paths): array
+    {
+        $preserve = collect(config('git-deployment.preserve_paths'));
+        $copied = 0;
+        $deleted = 0;
+
+        foreach ($paths as $path) {
+            $normalized = $this->normalizePath($path);
+            $topLevel = Str::before($normalized, '/') ?: $normalized;
+
+            if ($preserve->contains($topLevel)) {
+                throw new RuntimeException("Шлях {$normalized} заборонено змінювати.");
+            }
+
+            $targetPath = $this->repositoryPath . '/' . $normalized;
+            $sourcePath = $sourceDirectory . '/' . $normalized;
+
+            if (File::isDirectory($targetPath)) {
+                File::deleteDirectory($targetPath);
+                $deleted++;
+            } elseif (File::exists($targetPath)) {
+                File::delete($targetPath);
+                $deleted++;
+            }
+
+            if (File::isDirectory($sourcePath)) {
+                File::copyDirectory($sourcePath, $targetPath);
+                $copied++;
+            } elseif (File::exists($sourcePath)) {
+                File::ensureDirectoryExists(dirname($targetPath));
+                File::copy($sourcePath, $targetPath);
+                $copied++;
+            }
+        }
+
+        return ['copied' => $copied, 'deleted' => $deleted];
+    }
+
     private function detectMode(\SplFileInfo $file): string
     {
         return $file->isExecutable() ? '100755' : '100644';
@@ -216,5 +258,24 @@ class NativeGitFilesystem
         $header = 'blob ' . $size . "\0";
 
         return sha1($header . $content);
+    }
+
+    private function normalizePath(string $path): string
+    {
+        $raw = trim($path);
+        $isAbsolute = str_starts_with($raw, '/');
+        $normalized = str_replace('\\', '/', $raw);
+        $normalized = ltrim($normalized, '/');
+        $normalized = preg_replace('#/+#', '/', $normalized ?? '') ?? '';
+
+        if ($normalized === '' || $isAbsolute) {
+            throw new RuntimeException('Некоректний шлях: порожнє або абсолютне значення.');
+        }
+
+        if (str_contains($normalized, '..') || str_starts_with($normalized, './') || preg_match('#^[A-Za-z]:#', $normalized)) {
+            throw new RuntimeException('Некоректний шлях: ' . $normalized);
+        }
+
+        return $normalized;
     }
 }

@@ -141,6 +141,42 @@
       </div>
     </section>
 
+    <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
+      <div class="space-y-6 p-6">
+        <div>
+          <h2 class="text-2xl font-semibold">1.5. Частковий деплой</h2>
+          <p class="text-sm text-muted-foreground">Оновлює тільки вибрані шляхи з вказаної гілки без скидання всього дерева. Шляхи задавайте з нового рядка або через кому/крапку з комою.</p>
+        </div>
+        <form method="POST" action="{{ route('deployment.deploy-partial') }}" class="space-y-4">
+          @csrf
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium" for="partial-branch">Гілка</label>
+              <input id="partial-branch" type="text" name="branch" value="{{ $feedback['branch'] ?? $currentBranch ?? 'main' }}" class="w-full rounded-2xl border border-input bg-background px-4 py-2" />
+            </div>
+            <div class="space-y-2 md:col-span-2">
+              <label class="block text-sm font-medium" for="partial-paths">Обрати існуючий шлях</label>
+              <div class="rounded-2xl border border-border/70 bg-muted/20">
+                <div class="border-b border-border/60 px-4 py-2 text-xs text-muted-foreground">
+                  Розкрийте дерево і натисніть на потрібну папку, щоб додати її у список нижче. Подвійне натискання також додає шлях.
+                </div>
+                <div class="max-h-64 overflow-y-auto px-3 py-2">
+                  @include('git-deployment::deployment.partials.path-tree', ['nodes' => $existingPathTree, 'textareaId' => 'partial-paths'])
+                </div>
+              </div>
+            </div>
+            <div class="space-y-2 md:col-span-2">
+              <label class="block text-sm font-medium" for="partial-paths">Шляхи для оновлення</label>
+              <textarea id="partial-paths" name="paths" rows="4" class="w-full rounded-2xl border border-input bg-background px-4 py-2" placeholder="app/Modules/Quiz&#10;database/seeders"></textarea>
+              <p class="text-xs text-muted-foreground">Кожен шлях з нового рядка або через кому/крапку з комою. Заборонено: .git, .env, storage, vendor, node_modules та відносні виходи на рівень вище.</p>
+            </div>
+          </div>
+
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:bg-indigo-600/90">Запустити частковий деплой</button>
+        </form>
+      </div>
+    </section>
+
     @if($recentUsage->isNotEmpty())
       <section class="rounded-3xl border border-border/70 bg-card shadow-soft">
         <div class="space-y-4 p-6">
@@ -191,6 +227,7 @@
                           'auto_push' => 'Автоматичний пуш',
                           'create_and_push' => 'Створення та пуш',
                           'backup' => 'Резервна копія',
+                          'partial_deploy' => 'Частковий деплой',
                         ];
                         $actionColors = [
                           'deploy' => 'bg-red-100 text-red-700',
@@ -198,6 +235,7 @@
                           'auto_push' => 'bg-purple-100 text-purple-700',
                           'create_and_push' => 'bg-blue-100 text-blue-700',
                           'backup' => 'bg-amber-100 text-amber-700',
+                          'partial_deploy' => 'bg-indigo-100 text-indigo-700',
                         ];
                       @endphp
                       <span @class(['inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold', $actionColors[$usage->action] ?? 'bg-muted text-foreground'])>
@@ -455,4 +493,5 @@
   @include('git-deployment::deployment.partials.branch-history-toggle-script')
   @include('git-deployment::deployment.partials.backup-branches-toggle-script')
   @include('git-deployment::deployment.partials.searchable-select-script')
+  @include('git-deployment::deployment.partials.path-picker-script')
 @endsection

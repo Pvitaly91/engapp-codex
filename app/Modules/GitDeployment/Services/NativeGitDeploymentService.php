@@ -78,6 +78,56 @@ class NativeGitDeploymentService
     /**
      * @return array{logs: array<int, string>, message: string}
      */
+    public function deployPartial(string $branch, array $paths): array
+    {
+        $logs = [];
+        $branch = $this->sanitizeBranch($branch);
+        $paths = $this->sanitizePaths($paths);
+
+        if ($paths === []) {
+            throw new RuntimeException('Вкажіть хоча б один коректний шлях для часткового деплою.');
+        }
+
+        $currentCommit = $this->headCommit();
+        if ($currentCommit) {
+            $this->storeBackup([
+                'timestamp' => now()->toIso8601String(),
+                'commit' => $currentCommit,
+                'branch' => $branch,
+            ]);
+            $logs[] = "Збережено резервну копію коміту {$currentCommit}.";
+        } else {
+            $logs[] = 'Не вдалося визначити поточний коміт для резервного копіювання.';
+        }
+
+        $logs[] = "Отримуємо вибрані шляхи з гілки {$branch} через GitHub API.";
+        $branchInfo = $this->github()->getBranch($branch);
+        $remoteCommit = Arr::get($branchInfo, 'object.sha');
+
+        if (! $remoteCommit) {
+            throw new RuntimeException('GitHub не повернув останній коміт гілки.');
+        }
+
+        $extracted = $this->fetchAndExtract($branch, $logs, "гілки {$branch}");
+        $logs[] = 'Застосовуємо вибрані шляхи: ' . implode(', ', $paths);
+        $stats = $this->filesystem->replacePaths($extracted, $paths);
+        File::deleteDirectory(dirname($extracted));
+
+        if ($stats) {
+            $logs[] = 'Скопійовано: ' . ($stats['copied'] ?? 0) . '; видалено: ' . ($stats['deleted'] ?? 0) . '.';
+        }
+
+        $logs[] = "Частковий деплой завершено. Віддалений коміт: {$remoteCommit}.";
+
+        return [
+            'logs' => $logs,
+            'message' => 'Частковий деплой виконано через GitHub API.',
+        ];
+    }
+
+    /**
+     * @return array{logs: array<int, string>, message: string}
+     */
     public function push(string $targetBranch): array
     {
         $targetBranch = $this->sanitizeBranch($targetBranch);
@@ -289,6 +339,42 @@ class NativeGitDeploymentService
         $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch ?? '') ?? '';
 
         return $branch;
+    }
+
+    /**
+     * @param array<int, string> $paths
+     * @return array<int, string>
+     */
+    private function sanitizePaths(array $paths): array
+    {
+        $preserve = collect(config('git-deployment.preserve_paths'));
+        $sanitized = [];
+
+        foreach ($paths as $path) {
+            $raw = trim($path);
+            $isAbsolute = str_starts_with($raw, '/');
+            $normalized = str_replace('\\', '/', $raw);
+            $normalized = ltrim($normalized, '/');
+            $normalized = preg_replace('#/+#', '/', $normalized ?? '') ?? '';
+
+            if ($normalized === '' || $isAbsolute) {
+                continue;
+            }
+
+            if (str_contains($normalized, '..') || str_starts_with($normalized, './') || preg_match('#^[A-Za-z]:#', $normalized)) {
+                continue;
+            }
+
+            $topLevel = Str::before($normalized, '/') ?: $normalized;
+
+            if ($preserve->contains($topLevel)) {
+                continue;
+            }
+
+            $sanitized[] = $normalized;
+        }
+
+        return array_values(array_unique($sanitized));
     }
 
     private function storeBackup(array $backup): void
