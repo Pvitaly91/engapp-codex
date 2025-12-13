@@ -141,7 +141,8 @@ class NativeDeploymentController extends BaseController
         BranchUsageHistory::trackUsage(
             $sanitized,
             'partial_deploy',
-            "Частковий деплой через GitHub API. Шляхи: {$pathsList}"
+            "Частковий деплой через GitHub API. Шляхи: {$pathsList}",
+            $paths
         );
 
         if ($pathErrors !== []) {

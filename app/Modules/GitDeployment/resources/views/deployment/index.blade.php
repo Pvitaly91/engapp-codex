@@ -228,6 +228,7 @@
                 <tr>
                   <th class="px-4 py-3">Гілка</th>
                   <th class="px-4 py-3">Дія</th>
+                  <th class="px-4 py-3">Шляхи</th>
                   <th class="px-4 py-3">Опис</th>
                   <th class="px-4 py-3">Час використання</th>
                 </tr>
@@ -269,6 +270,7 @@
                         {{ $actionLabels[$usage->action] ?? $usage->action }}
                       </span>
                     </td>
+                    @include('git-deployment::deployment.partials.paths-column', ['usage' => $usage])
                     <td class="px-4 py-3 text-xs text-muted-foreground">{{ $usage->description ?? '—' }}</td>
                     <td class="px-4 py-3 text-xs">{{ $usage->used_at ? $usage->used_at->format('d.m.Y H:i:s') : '—' }}</td>
                   </tr>
