@@ -176,6 +176,7 @@ return [
         App\Modules\MigrationManager\MigrationManagerServiceProvider::class,
         App\Modules\PageManager\PageManagerServiceProvider::class,
         App\Modules\PromptGenerator\PromptGeneratorServiceProvider::class,
+        App\Modules\SeedRunsV2\SeedRunsV2ServiceProvider::class,
     ])->toArray(),
 
     /*
