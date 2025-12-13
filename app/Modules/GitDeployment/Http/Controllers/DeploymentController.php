@@ -349,7 +349,8 @@ class DeploymentController extends BaseController
         BranchUsageHistory::trackUsage(
             $branch,
             'partial_deploy',
-            "Частковий деплой шляхів: {$pathsList}"
+            "Частковий деплой шляхів: {$pathsList}",
+            $paths
         );
 
         $message = "Частковий деплой виконано успішно з гілки {$branch}. Оновлено шляхи: {$pathsList}.";
