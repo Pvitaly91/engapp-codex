@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire\Admin\SeedRuns;
+namespace App\Modules\SeedRunsV2\Http\Livewire;
 
-use App\Services\SeedRuns\SeedRunsService;
+use App\Modules\SeedRunsV2\Services\SeedRunsService;
 use Livewire\Component;
 
-class Index extends Component
+class SeedRunsIndex extends Component
 {
     public bool $tableExists = false;
     public $pendingSeederHierarchy = [];
@@ -266,7 +266,6 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.admin.seed-runs.index')
-            ->layout('layouts.app', ['title' => 'Seed Runs (V2)']);
+        return view('seed-runs-v2::livewire.index');
     }
 }

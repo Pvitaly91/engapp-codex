@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\SeedRuns;
+namespace App\Modules\SeedRunsV2\Services;
 
 use App\Models\Page;
 use App\Models\PageCategory;

@@ -29,7 +29,7 @@
             </button>
             <div class="space-y-4" x-show="expandedFolders['{{ $nodeKey }}']" x-collapse>
                 @foreach(($node['children'] ?? []) as $childNode)
-                    @include('livewire.admin.seed-runs.partials.executed-node', ['node' => $childNode, 'depth' => $depth + 1])
+                    @include('seed-runs-v2::livewire.partials.executed-node', ['node' => $childNode, 'depth' => $depth + 1])
                 @endforeach
             </div>
         </div>

@@ -67,7 +67,7 @@
                 @else
                     <div class="space-y-3" x-data="{ expandedFolders: {} }">
                         @foreach($pendingSeederHierarchy as $node)
-                            @include('livewire.admin.seed-runs.partials.pending-node', ['node' => $node, 'depth' => 0])
+                            @include('seed-runs-v2::livewire.partials.pending-node', ['node' => $node, 'depth' => 0])
                         @endforeach
                     </div>
                 @endif
@@ -95,7 +95,7 @@
                 @else
                     <div class="space-y-4" x-data="{ expandedFolders: {}, expandedSeeders: {} }">
                         @foreach($executedSeederHierarchy as $node)
-                            @include('livewire.admin.seed-runs.partials.executed-node', ['node' => $node, 'depth' => 0])
+                            @include('seed-runs-v2::livewire.partials.executed-node', ['node' => $node, 'depth' => 0])
                         @endforeach
                     </div>
                 @endif
