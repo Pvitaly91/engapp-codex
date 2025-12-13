@@ -248,6 +248,144 @@ class SeedRunsService
         ];
     }
 
+    public function destroySeedRunWithData(int $seedRunId): array
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return ['success' => false, 'message' => __('The seed_runs table does not exist.')];
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            return ['success' => false, 'message' => __('Seed run record was not found.')];
+        }
+
+        $deletedQuestions = 0;
+        $deletedBlocks = 0;
+        $deletedPages = 0;
+        $profile = $this->describeSeederData($seedRun->class_name);
+
+        try {
+            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
+                $classNames = collect([$seedRun->class_name]);
+
+                if ($profile['type'] === 'questions') {
+                    $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
+                } elseif ($profile['type'] === 'pages') {
+                    $pageResult = $this->deletePageContentForSeeders($classNames);
+                    $deletedBlocks = $pageResult['blocks'];
+                    $deletedPages = $pageResult['pages_deleted'];
+                } else {
+                    $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
+                    $pageResult = $this->deletePageContentForSeeders($classNames);
+                    $deletedBlocks = $pageResult['blocks'];
+                    $deletedPages = $pageResult['pages_deleted'];
+                }
+
+                DB::table('seed_runs')->where('id', $seedRun->id)->delete();
+            });
+        } catch (\Throwable $exception) {
+            report($exception);
+            return ['success' => false, 'message' => $exception->getMessage()];
+        }
+
+        $message = match ($profile['type']) {
+            'pages' => __('Deleted seed run and :blocks text block(s).', ['blocks' => $deletedBlocks])
+                . ($deletedPages > 0 ? ' ' . __('Deleted :count page(s).', ['count' => $deletedPages]) : ''),
+            'questions' => __('Deleted seed run and :count question(s).', ['count' => $deletedQuestions]),
+            default => __('Deleted seed run. Questions: :q, Blocks: :b', ['q' => $deletedQuestions, 'b' => $deletedBlocks]),
+        };
+
+        return [
+            'success' => true,
+            'message' => $message,
+            'deleted_questions' => $deletedQuestions,
+            'deleted_blocks' => $deletedBlocks,
+            'deleted_pages' => $deletedPages,
+        ];
+    }
+
+    public function refreshSeeder(int $seedRunId): array
+    {
+        if (! Schema::hasTable('seed_runs')) {
+            return ['success' => false, 'message' => __('The seed_runs table does not exist.')];
+        }
+
+        $seedRun = DB::table('seed_runs')->where('id', $seedRunId)->first();
+
+        if (! $seedRun) {
+            return ['success' => false, 'message' => __('Seed run record was not found.')];
+        }
+
+        $className = $seedRun->class_name;
+
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            return ['success' => false, 'message' => __('Seeder :class was not found.', ['class' => $className])];
+        }
+
+        $filePath = $this->resolveSeederFilePath($className);
+
+        if (! $this->isInstantiableSeeder($className, $filePath)) {
+            return ['success' => false, 'message' => __('Seeder :class cannot be executed.', ['class' => $className])];
+        }
+
+        $deletedQuestions = 0;
+        $deletedBlocks = 0;
+        $deletedPages = 0;
+        $profile = $this->describeSeederData($seedRun->class_name);
+
+        try {
+            // Delete old data in a transaction
+            DB::transaction(function () use ($seedRun, &$deletedQuestions, &$deletedBlocks, &$deletedPages, $profile) {
+                $classNames = collect([$seedRun->class_name]);
+
+                if ($profile['type'] === 'questions') {
+                    $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
+                } elseif ($profile['type'] === 'pages') {
+                    $pageResult = $this->deletePageContentForSeeders($classNames);
+                    $deletedBlocks = $pageResult['blocks'];
+                    $deletedPages = $pageResult['pages_deleted'];
+                } else {
+                    $deletedQuestions = $this->deleteQuestionsForSeeders($classNames);
+                    $pageResult = $this->deletePageContentForSeeders($classNames);
+                    $deletedBlocks = $pageResult['blocks'];
+                    $deletedPages = $pageResult['pages_deleted'];
+                }
+            });
+
+            // Re-run the seeder outside the transaction
+            Artisan::call('db:seed', ['--class' => $className]);
+
+            // Update the ran_at timestamp
+            DB::table('seed_runs')
+                ->where('id', $seedRun->id)
+                ->update(['ran_at' => now()]);
+        } catch (\Throwable $exception) {
+            report($exception);
+            return ['success' => false, 'message' => $exception->getMessage()];
+        }
+
+        $message = match ($profile['type']) {
+            'pages' => __('Refreshed seeder :class. Deleted :blocks text block(s) and regenerated content.', [
+                'class' => $this->formatSeederClassName($seedRun->class_name),
+                'blocks' => $deletedBlocks,
+            ]) . ($deletedPages > 0 ? ' ' . __('Deleted :count page record(s).', ['count' => $deletedPages]) : ''),
+            'questions' => __('Refreshed seeder :class. Deleted :count question(s) and regenerated them.', [
+                'class' => $this->formatSeederClassName($seedRun->class_name),
+                'count' => $deletedQuestions,
+            ]),
+            default => __('Refreshed seeder :class.', ['class' => $this->formatSeederClassName($seedRun->class_name)]),
+        };
+
+        return [
+            'success' => true,
+            'message' => $message,
+            'deleted_questions' => $deletedQuestions,
+            'deleted_blocks' => $deletedBlocks,
+            'deleted_pages' => $deletedPages,
+        ];
+    }
+
     public function getSeederFile(string $className): array
     {
         $filePath = $this->resolveSeederFilePath($className);
@@ -884,6 +1022,129 @@ class SeedRunsService
             });
 
         return $deleted;
+    }
+
+    protected function deletePageContentForSeeders(Collection $classNames): array
+    {
+        $hasTextBlockTable = Schema::hasTable('text_blocks');
+        $hasPagesTable = Schema::hasTable('pages');
+
+        if ($classNames->isEmpty() || (! $hasTextBlockTable && ! $hasPagesTable)) {
+            return ['blocks' => 0, 'pages_deleted' => 0];
+        }
+
+        $classNames = $this->expandGrammarPageSeederClasses($classNames);
+
+        $deletedBlocks = 0;
+        $deletedPages = 0;
+        $processedPageIds = collect();
+
+        foreach ($classNames as $className) {
+            if ($hasTextBlockTable) {
+                TextBlock::query()
+                    ->where('seeder', $className)
+                    ->orderBy('id')
+                    ->chunkById(100, function ($blocks) use (&$deletedBlocks) {
+                        foreach ($blocks as $block) {
+                            $block->delete();
+                            $deletedBlocks++;
+                        }
+                    });
+            }
+
+            if (! $hasPagesTable) {
+                continue;
+            }
+
+            $pages = Page::query()
+                ->where('seeder', $className)
+                ->get();
+
+            if ($pages->isEmpty()) {
+                $slug = $this->resolvePageSlugForSeeder($className);
+
+                if ($slug !== null) {
+                    $page = Page::query()->where('slug', $slug)->first();
+
+                    if ($page) {
+                        $pages = collect([$page]);
+                    }
+                }
+            }
+
+            foreach ($pages as $page) {
+                if ($processedPageIds->contains($page->id)) {
+                    continue;
+                }
+
+                $processedPageIds->push($page->id);
+
+                if ($hasTextBlockTable) {
+                    $deletedBlocks += TextBlock::query()
+                        ->where('page_id', $page->id)
+                        ->delete();
+                }
+
+                $page->delete();
+                $deletedPages++;
+            }
+        }
+
+        return [
+            'blocks' => $deletedBlocks,
+            'pages_deleted' => $deletedPages,
+        ];
+    }
+
+    protected function expandGrammarPageSeederClasses(Collection $classNames): Collection
+    {
+        return $classNames
+            ->flatMap(function ($className) {
+                $classes = collect([$className]);
+
+                if (! $this->ensureSeederClassIsLoaded($className)) {
+                    return $classes;
+                }
+
+                if (is_subclass_of($className, GrammarPageSeederBase::class)) {
+                    return $classes;
+                }
+
+                $aggregateClasses = $this->resolveAggregateSeederClasses($className);
+
+                if ($aggregateClasses->isEmpty()) {
+                    return $classes;
+                }
+
+                return $classes->merge($aggregateClasses);
+            })
+            ->filter(fn ($class) => is_string($class) && $class !== '')
+            ->unique()
+            ->values();
+    }
+
+    protected function resolvePageSlugForSeeder(string $className): ?string
+    {
+        if (! $this->ensureSeederClassIsLoaded($className)) {
+            return null;
+        }
+
+        try {
+            $reflection = new \ReflectionClass($className);
+
+            $constant = collect($reflection->getReflectionConstants())
+                ->firstWhere(fn (\ReflectionClassConstant $constant) => $constant->getName() === 'PAGE_SLUG');
+
+            if (! $constant) {
+                return null;
+            }
+
+            $value = $constant->getValue();
+
+            return is_string($value) && $value !== '' ? $value : null;
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     public function resolveSeederFilePath(string $className): ?string

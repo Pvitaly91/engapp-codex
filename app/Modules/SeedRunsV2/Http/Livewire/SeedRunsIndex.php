@@ -158,6 +158,46 @@ class SeedRunsIndex extends Component
         $this->showConfirmModal = true;
     }
 
+    public function refreshSeeder(int $seedRunId): void
+    {
+        $result = $this->seedRunsService->refreshSeeder($seedRunId);
+        
+        $this->statusMessage = $result['message'];
+        $this->statusType = $result['success'] ? 'success' : 'error';
+        
+        if ($result['success']) {
+            $this->refreshOverview();
+        }
+    }
+
+    public function confirmRefreshSeeder(int $seedRunId, string $displayName): void
+    {
+        $this->confirmAction = 'refreshSeeder';
+        $this->confirmMessage = __('Оновити дані сидера «:name»? Всі поточні дані будуть видалені та створені заново.', ['name' => $displayName]);
+        $this->confirmData = $seedRunId;
+        $this->showConfirmModal = true;
+    }
+
+    public function deleteSeedRunWithData(int $seedRunId): void
+    {
+        $result = $this->seedRunsService->destroySeedRunWithData($seedRunId);
+        
+        $this->statusMessage = $result['message'];
+        $this->statusType = $result['success'] ? 'success' : 'error';
+        
+        if ($result['success']) {
+            $this->refreshOverview();
+        }
+    }
+
+    public function confirmDeleteSeedRunWithData(int $seedRunId, string $displayName, string $buttonLabel): void
+    {
+        $this->confirmAction = 'deleteSeedRunWithData';
+        $this->confirmMessage = __('Видалити запис та дані сидера «:name»?', ['name' => $displayName]);
+        $this->confirmData = $seedRunId;
+        $this->showConfirmModal = true;
+    }
+
     public function executeConfirmedAction(): void
     {
         $this->showConfirmModal = false;
@@ -169,6 +209,8 @@ class SeedRunsIndex extends Component
             'deleteSeedRun' => $this->deleteSeedRun($this->confirmData),
             'deleteSeederFile' => $this->deleteSeederFile($this->confirmData, false),
             'deleteSeederFileWithQuestions' => $this->deleteSeederFile($this->confirmData, true),
+            'refreshSeeder' => $this->refreshSeeder($this->confirmData),
+            'deleteSeedRunWithData' => $this->deleteSeedRunWithData($this->confirmData),
             default => null,
         };
         

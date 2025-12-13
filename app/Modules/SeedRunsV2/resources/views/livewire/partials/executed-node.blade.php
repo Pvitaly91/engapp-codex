@@ -45,79 +45,110 @@
         $dataProfile = $node['data_profile'] ?? [];
         $recentOrdinal = $recentSeedRunOrdinals[$seedRunId] ?? null;
         
+        // Get delete button text from data profile
+        $deleteButtonText = $dataProfile['delete_button'] ?? __('Видалити з даними');
+        
         $shouldShow = empty($searchQuery) || stripos($displayName, $searchQuery) !== false;
     @endphp
     @if($shouldShow)
         <div class="space-y-2" style="margin-left: {{ max(0, $depth) * 1.5 }}rem">
-            <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                <div class="flex-1">
-                    <div class="flex items-center gap-2">
-                        @if($recentOrdinal)
-                            <span class="inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold text-white bg-blue-600 rounded-full">
-                                {{ $recentOrdinal }}
-                            </span>
-                        @endif
-                        <span class="text-sm font-mono text-gray-800 break-all">
-                            @if($searchQuery && stripos($displayName, $searchQuery) !== false)
-                                {!! preg_replace('/(' . preg_quote($searchQuery, '/') . ')/i', '<mark class="bg-yellow-200">$1</mark>', e($displayName)) !!}
-                            @else
-                                {{ $displayName }}
-                            @endif
+            <div class="flex flex-col gap-3">
+                {{-- Seeder info --}}
+                <div class="flex items-center gap-2">
+                    @if($recentOrdinal)
+                        <span class="inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold text-white bg-blue-600 rounded-full">
+                            {{ $recentOrdinal }}
                         </span>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-1 text-xs text-gray-500">
-                        @if($ranAt)
-                            <span title="Виконано">
-                                <i class="fa-regular fa-clock"></i>
-                                {{ $ranAt->format('Y-m-d H:i') }}
-                            </span>
+                    @endif
+                    <span class="text-sm font-mono text-gray-800 break-all">
+                        @if($searchQuery && stripos($displayName, $searchQuery) !== false)
+                            {!! preg_replace('/(' . preg_quote($searchQuery, '/') . ')/i', '<mark class="bg-yellow-200">$1</mark>', e($displayName)) !!}
+                        @else
+                            {{ $displayName }}
                         @endif
-                        <span title="Кількість питань">
-                            <i class="fa-solid fa-question-circle"></i>
-                            {{ $questionCount }}
-                        </span>
-                        @if(!empty($dataProfile['type']))
-                            <span class="px-1.5 py-0.5 bg-gray-100 rounded text-[10px] uppercase">
-                                {{ $dataProfile['type'] }}
-                            </span>
-                        @endif
-                    </div>
+                    </span>
                 </div>
+                
+                {{-- Metadata row --}}
+                <div class="flex flex-wrap gap-2 text-xs text-gray-500">
+                    @if($ranAt)
+                        <span title="Виконано">
+                            <i class="fa-regular fa-clock"></i>
+                            {{ $ranAt->format('Y-m-d H:i:s') }}
+                        </span>
+                    @endif
+                    <span title="Кількість питань">
+                        <i class="fa-solid fa-question-circle"></i>
+                        {{ $questionCount }}
+                    </span>
+                    @if(!empty($dataProfile['type']))
+                        <span class="px-1.5 py-0.5 bg-gray-100 rounded text-[10px] uppercase">
+                            {{ $dataProfile['type'] }}
+                        </span>
+                    @endif
+                </div>
+
+                {{-- Action buttons --}}
                 <div class="flex flex-wrap gap-2">
+                    {{-- Preview button --}}
+                    <a 
+                        href="{{ route('seed-runs.preview', ['class_name' => $className]) }}"
+                        target="_blank"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-100 text-purple-700 text-xs font-medium rounded-md hover:bg-purple-200 transition"
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                        Попередній перегляд
+                    </a>
+                    
+                    {{-- Edit file button --}}
                     <button 
                         type="button"
                         wire:click="openFileModal('{{ addslashes($className) }}', '{{ addslashes($displayName) }}')"
-                        class="inline-flex items-center gap-1.5 px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded hover:bg-indigo-200 transition"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-md hover:bg-indigo-200 transition"
                     >
                         <i class="fa-solid fa-file-code"></i>
                         Код
                     </button>
-                    <a 
-                        href="{{ route('seed-runs.preview', ['class_name' => $className]) }}"
-                        target="_blank"
-                        class="inline-flex items-center gap-1.5 px-2 py-1 bg-sky-100 text-sky-700 text-xs font-medium rounded hover:bg-sky-200 transition"
+                    
+                    {{-- Delete file button --}}
+                    <button 
+                        type="button"
+                        wire:click="confirmDeleteSeederFile('{{ addslashes($className) }}', '{{ addslashes($displayName) }}', false)"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition"
                     >
-                        <i class="fa-solid fa-eye"></i>
-                        Перегляд
-                    </a>
+                        <i class="fa-solid fa-file-circle-xmark"></i>
+                        Видалити файл
+                    </button>
+                    
+                    {{-- Refresh button --}}
+                    <button 
+                        type="button"
+                        wire:click="confirmRefreshSeeder({{ $seedRunId }}, '{{ addslashes($displayName) }}')"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-500 transition"
+                    >
+                        <i class="fa-solid fa-rotate"></i>
+                        Оновити дані
+                    </button>
+                    
+                    {{-- Delete with data button --}}
+                    <button 
+                        type="button"
+                        wire:click="confirmDeleteSeedRunWithData({{ $seedRunId }}, '{{ addslashes($displayName) }}', '{{ addslashes($deleteButtonText) }}')"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-600 text-white text-xs font-medium rounded-md hover:bg-amber-500 transition"
+                    >
+                        <i class="fa-solid fa-broom"></i>
+                        {{ $deleteButtonText }}
+                    </button>
+                    
+                    {{-- Delete record only button --}}
                     <button 
                         type="button"
                         wire:click="confirmDeleteSeedRun({{ $seedRunId }}, '{{ addslashes($displayName) }}')"
-                        class="inline-flex items-center gap-1.5 px-2 py-1 bg-red-100 text-red-700 text-xs font-medium rounded hover:bg-red-200 transition"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-md hover:bg-red-500 transition"
                     >
-                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-trash"></i>
                         Видалити запис
                     </button>
-                    @if($questionCount > 0)
-                        <button 
-                            type="button"
-                            wire:click="confirmDeleteSeederFile('{{ addslashes($className) }}', '{{ addslashes($displayName) }}', true)"
-                            class="inline-flex items-center gap-1.5 px-2 py-1 bg-red-600 text-white text-xs font-medium rounded hover:bg-red-500 transition"
-                        >
-                            <i class="fa-solid fa-trash-can"></i>
-                            З питаннями
-                        </button>
-                    @endif
                 </div>
             </div>
         </div>
