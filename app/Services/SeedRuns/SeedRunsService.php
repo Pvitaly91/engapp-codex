@@ -7,7 +7,6 @@ use App\Services\QuestionDeletionService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use ReflectionMethod;
 
 class SeedRunsService
 {
@@ -19,10 +18,11 @@ class SeedRunsService
     {
         $controller ??= $this->makeController();
 
-        $method = new ReflectionMethod($controller, 'assembleSeedRunOverview');
-        $method->setAccessible(true);
+        if (method_exists($controller, 'getSeedRunOverview')) {
+            return $controller->getSeedRunOverview();
+        }
 
-        return $method->invoke($controller);
+        return [];
     }
 
     public function runMissing(?SeedRunController $controller = null): array

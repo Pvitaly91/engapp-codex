@@ -1,6 +1,6 @@
 @section('title', 'Seed Runs (V2)')
 
-<div class="max-w-6xl mx-auto space-y-6" x-data>
+<div class="max-w-6xl mx-auto space-y-6" x-data="{ confirmAction(message, callback) { if(window.confirm(message)) { callback() } } }">
     <div class="bg-white shadow rounded-lg p-6 space-y-4">
         <div class="flex items-center justify-between">
             <div>
@@ -10,8 +10,7 @@
             <div class="flex items-center gap-3">
                 <button
                     type="button"
-                    wire:click="runMissing"
-                    x-on:click.prevent="if(confirm('Виконати всі невиконані сидери?')) { $wire.runMissing() }"
+                    x-on:click.prevent="confirmAction('Виконати всі невиконані сидери?', () => $wire.runMissing())"
                     class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-500 transition disabled:opacity-50"
                     wire:loading.attr="disabled"
                 >
@@ -74,7 +73,7 @@
                                         <button
                                             type="button"
                                             class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 text-white text-xs font-semibold rounded-md hover:bg-emerald-500 transition"
-                                            x-on:click.prevent="if(confirm('Запустити сидер?')) { $wire.runSeeder('{{ $pending['class_name'] }}') }"
+                                            x-on:click.prevent="confirmAction('Запустити сидер?', () => $wire.runSeeder('{{ $pending['class_name'] }}'))"
                                             wire:loading.attr="disabled"
                                         >
                                             <i class="fa-solid fa-play"></i>
@@ -83,7 +82,7 @@
                                         <button
                                             type="button"
                                             class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 text-white text-xs font-semibold rounded-md hover:bg-indigo-500 transition"
-                                            x-on:click.prevent="if(confirm('Позначити як виконаний?')) { $wire.markExecuted('{{ $pending['class_name'] }}') }"
+                                            x-on:click.prevent="confirmAction('Позначити як виконаний?', () => $wire.markExecuted('{{ $pending['class_name'] }}'))"
                                             wire:loading.attr="disabled"
                                         >
                                             <i class="fa-solid fa-check"></i>

@@ -53,6 +53,11 @@ class SeedRunController extends Controller
         ]);
     }
 
+    public function getSeedRunOverview(): array
+    {
+        return $this->assembleSeedRunOverview();
+    }
+
     public function preview(Request $request)
     {
         $className = (string) $request->query('class_name', '');
