@@ -3,6 +3,7 @@
 namespace App\Services\SeedRuns;
 
 use App\Http\Controllers\SeedRunController;
+use App\Services\QuestionDeletionService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -54,23 +55,26 @@ class SeedRunsService
 
     protected function normalizeResponse(JsonResponse|RedirectResponse $response): array
     {
+        $status = $response->getStatusCode();
+        $ok = $status >= 200 && $status < 300;
+
         if ($response instanceof JsonResponse) {
             return [
-                'status' => $response->getStatusCode(),
-                'ok' => $response->isSuccessful(),
+                'status' => $status,
+                'ok' => $ok,
                 'data' => $response->getData(true),
             ];
         }
 
         return [
-            'status' => $response->getStatusCode(),
-            'ok' => $response->isRedirection(),
+            'status' => $status,
+            'ok' => $ok,
             'redirect' => $response->getTargetUrl(),
         ];
     }
 
     protected function makeController(): SeedRunController
     {
-        return app(SeedRunController::class);
+        return new SeedRunController(app(QuestionDeletionService::class), $this);
     }
 }

@@ -35,13 +35,16 @@ class SeedRunController extends Controller
      */
     private ?array $seederClassMap = null;
 
-    public function __construct(private QuestionDeletionService $questionDeletionService)
+    public function __construct(
+        private QuestionDeletionService $questionDeletionService,
+        private SeedRunsService $seedRunsService
+    )
     {
     }
 
     public function index(): View
     {
-        $overview = app(SeedRunsService::class)->overview($this);
+        $overview = $this->seedRunsService->overview($this);
 
         return view('seed-runs.index', [
             'tableExists' => $overview['tableExists'],
