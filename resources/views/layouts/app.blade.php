@@ -48,7 +48,9 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @livewireStyles
+    @if(class_exists(\Livewire\Livewire::class))
+        {!! \Livewire\Livewire::styles() !!}
+    @endif
     @stack('head-scripts')
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
