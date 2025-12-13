@@ -15,22 +15,25 @@ class BranchUsageHistory extends Model
         'branch_name',
         'action',
         'description',
+        'paths',
         'used_at',
     ];
 
     protected $casts = [
         'used_at' => 'datetime',
+        'paths' => 'array',
     ];
 
     /**
      * Track usage of a branch
      */
-    public static function trackUsage(string $branchName, string $action, ?string $description = null): void
+    public static function trackUsage(string $branchName, string $action, ?string $description = null, ?array $paths = null): void
     {
         static::create([
             'branch_name' => $branchName,
             'action' => $action,
             'description' => $description,
+            'paths' => $paths,
             'used_at' => now(),
         ]);
     }
