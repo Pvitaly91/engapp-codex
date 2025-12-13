@@ -63,6 +63,9 @@ class SeedRunsIndex extends Component
 
         $this->pendingTreeVersion++;
         $this->executedTreeVersion++;
+
+        // Force a full component refresh so Livewire updates all DOM fragments
+        $this->dispatch('$refresh');
     }
 
     public function runSeeder(string $className): void

@@ -939,6 +939,9 @@ class SeedRunsService
             ];
         }
 
+        // Ensure subsequent class discovery reflects the removal without requiring a full page reload
+        $this->seederClassMap = null;
+
         $runsDeleted = 0;
         $questionsDeleted = 0;
         $questionDeletionFailed = false;
