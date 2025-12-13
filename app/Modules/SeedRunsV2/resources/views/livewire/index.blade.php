@@ -65,7 +65,11 @@
                 @if(empty($pendingSeederHierarchy))
                     <p class="text-sm text-gray-500">Усі сидери вже виконані.</p>
                 @else
-                    <div class="space-y-3" x-data="{ expandedFolders: {} }">
+                    <div
+                        class="space-y-3"
+                        x-data="{ expandedFolders: {} }"
+                        wire:key="pending-tree-{{ $pendingTreeVersion }}"
+                    >
                         @foreach($pendingSeederHierarchy as $node)
                             @include('seed-runs-v2::livewire.partials.pending-node', ['node' => $node, 'depth' => 0])
                         @endforeach
@@ -93,7 +97,11 @@
                 @if(empty($executedSeederHierarchy))
                     <p class="text-sm text-gray-500">Поки що немає виконаних сидерів.</p>
                 @else
-                    <div class="space-y-4" x-data="{ expandedFolders: {}, expandedSeeders: {} }">
+                    <div
+                        class="space-y-4"
+                        x-data="{ expandedFolders: {}, expandedSeeders: {} }"
+                        wire:key="executed-tree-{{ $executedTreeVersion }}"
+                    >
                         @foreach($executedSeederHierarchy as $node)
                             @include('seed-runs-v2::livewire.partials.executed-node', ['node' => $node, 'depth' => 0])
                         @endforeach
