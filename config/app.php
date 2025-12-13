@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
-use Livewire\LivewireServiceProvider;
 
 return [
 
@@ -162,7 +160,7 @@ return [
          * Package Service Providers...
          */
 
-        Livewire\LivewireServiceProvider::class,
+        \Livewire\LivewireServiceProvider::class,
         App\Modules\GitDeployment\GitDeploymentServiceProvider::class,
 
         /*
@@ -194,7 +192,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'Livewire' => Livewire\Livewire::class,
+        'Livewire' => \Livewire\Livewire::class,
     ])->toArray(),
 
 ];
