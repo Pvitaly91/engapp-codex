@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use App\Modules\GitDeployment\Models\BackupBranch;
 use App\Modules\GitDeployment\Models\BranchUsageHistory;
+use App\Modules\GitDeployment\Http\Concerns\ParsesDeploymentPaths;
 use Symfony\Component\Process\Process;
+use ZipArchive;
 
 class DeploymentController extends BaseController
 {
+    use ParsesDeploymentPaths;
+
     private const BACKUP_FILE = 'deployment_backups.json';
 
     public function index()
@@ -35,6 +39,7 @@ class DeploymentController extends BaseController
             : null;
 
         $recentUsage = BranchUsageHistory::getRecentUsage(10);
+        $availableFolders = $this->getAvailableFolders();
 
         return view('git-deployment::deployment.index', [
             'backups' => $backups,
@@ -43,6 +48,7 @@ class DeploymentController extends BaseController
             'currentBranch' => $currentBranch,
             'supportsShell' => $this->supportsShellCommands(),
             'recentUsage' => $recentUsage,
+            'availableFolders' => $availableFolders,
         ]);
     }
 
@@ -166,6 +172,190 @@ class DeploymentController extends BaseController
                     $message .= " Проте не вдалося запушити на origin/{$autoPushBranch}.";
                 }
             }
+        }
+
+        return $this->redirectWithFeedback('success', $message, $commandsOutput);
+    }
+
+    public function deployPartial(Request $request): RedirectResponse
+    {
+        $branch = $request->input('branch', 'main');
+        $branch = Str::of($branch)->trim()->value() ?: 'main';
+        $branch = preg_replace('/[^A-Za-z0-9_\-\.\/]/', '', $branch) ?: 'main';
+
+        $pathsInput = $request->input('paths', []);
+
+        if ($redirect = $this->redirectIfShellUnavailable($branch)) {
+            return $redirect;
+        }
+
+        // Парсимо та валідуємо шляхи
+        $parsed = $this->parseAndValidatePaths($pathsInput);
+        $paths = $parsed['valid'];
+        $pathErrors = $parsed['errors'];
+
+        if ($paths === []) {
+            $errorMessage = 'Не вказано жодного валідного шляху для часткового деплою.';
+            if ($pathErrors !== []) {
+                $errorMessage .= ' Помилки: ' . implode('; ', $pathErrors);
+            }
+            return $this->redirectWithFeedback('error', $errorMessage, []);
+        }
+
+        $repoPath = base_path();
+        $commandsOutput = [];
+
+        // Зберігаємо поточний коміт для резервної копії
+        $currentCommitProcess = $this->runCommand(['git', 'rev-parse', 'HEAD'], $repoPath);
+        $currentCommit = trim($currentCommitProcess->getOutput());
+        $commandsOutput[] = $this->formatProcess('git rev-parse HEAD', $currentCommitProcess);
+
+        if (! $currentCommitProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Не вдалося зчитати поточний коміт.', $commandsOutput);
+        }
+
+        if ($currentCommit !== '') {
+            $this->storeBackup([
+                'timestamp' => now()->toIso8601String(),
+                'commit' => $currentCommit,
+                'branch' => $branch,
+            ]);
+        }
+
+        // Fetch origin
+        $fetchProcess = $this->runCommand(['git', 'fetch', 'origin'], $repoPath);
+        $commandsOutput[] = $this->formatProcess('git fetch origin', $fetchProcess);
+
+        if (! $fetchProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', 'Команда "git fetch" завершилась з помилкою.', $commandsOutput);
+        }
+
+        // Визначаємо remote SHA
+        $remoteShaProcess = $this->runCommand(['git', 'rev-parse', "origin/{$branch}"], $repoPath);
+        $commandsOutput[] = $this->formatProcess("git rev-parse origin/{$branch}", $remoteShaProcess);
+
+        if (! $remoteShaProcess->isSuccessful()) {
+            return $this->redirectWithFeedback('error', "Гілку origin/{$branch} не знайдено.", $commandsOutput);
+        }
+
+        $remoteSha = trim($remoteShaProcess->getOutput());
+
+        // Створюємо тимчасову директорію
+        $tmpDir = storage_path('app/partial_deploy_' . Str::random(8));
+        File::ensureDirectoryExists($tmpDir);
+
+        // Перевіряємо які шляхи існують у remote
+        $existingPaths = [];
+        $missingPaths = [];
+
+        foreach ($paths as $path) {
+            $checkProcess = $this->runCommand(['git', 'cat-file', '-e', "origin/{$branch}:{$path}"], $repoPath);
+            if ($checkProcess->isSuccessful()) {
+                $existingPaths[] = $path;
+            } else {
+                $missingPaths[] = $path;
+            }
+        }
+
+        $commandsOutput[] = [
+            'command' => 'partial: перевірка шляхів у remote',
+            'successful' => true,
+            'output' => 'Існують: ' . (empty($existingPaths) ? '—' : implode(', ', $existingPaths)) . 
+                        "\nВідсутні: " . (empty($missingPaths) ? '—' : implode(', ', $missingPaths)),
+        ];
+
+        // Якщо є шляхи для завантаження — створюємо архів
+        $extractDir = $tmpDir . '/extract';
+        File::ensureDirectoryExists($extractDir);
+
+        if (! empty($existingPaths)) {
+            $archivePath = $tmpDir . '/partial.zip';
+            $archiveCommand = array_merge(
+                ['git', 'archive', '--format=zip', "--output={$archivePath}", "origin/{$branch}"],
+                $existingPaths
+            );
+
+            $archiveProcess = $this->runCommand($archiveCommand, $repoPath);
+            $commandsOutput[] = $this->formatProcess('git archive ...', $archiveProcess);
+
+            if (! $archiveProcess->isSuccessful()) {
+                File::deleteDirectory($tmpDir);
+                return $this->redirectWithFeedback('error', 'Не вдалося створити архів вказаних шляхів.', $commandsOutput);
+            }
+
+            // Розпаковуємо архів
+            if (! class_exists(ZipArchive::class)) {
+                File::deleteDirectory($tmpDir);
+                return $this->redirectWithFeedback('error', 'PHP-клас ZipArchive недоступний на сервері. Перевірте чи встановлено та увімкнено розширення zip.', $commandsOutput);
+            }
+
+            $zip = new ZipArchive();
+            $openResult = $zip->open($archivePath);
+            if ($openResult !== true) {
+                File::deleteDirectory($tmpDir);
+                return $this->redirectWithFeedback('error', "Не вдалося відкрити архів (код помилки: {$openResult}).", $commandsOutput);
+            }
+
+            $zip->extractTo($extractDir);
+            $zip->close();
+
+            $commandsOutput[] = [
+                'command' => 'partial: розпакування архіву',
+                'successful' => true,
+                'output' => "Розпаковано до {$extractDir}",
+            ];
+        }
+
+        // Застосовуємо зміни до base_path()
+        foreach ($paths as $path) {
+            $localPath = $repoPath . '/' . $path;
+            $sourcePath = $extractDir . '/' . $path;
+
+            // Видаляємо локальний шлях (якщо існує)
+            if (File::exists($localPath)) {
+                if (File::isDirectory($localPath)) {
+                    File::deleteDirectory($localPath);
+                } else {
+                    File::delete($localPath);
+                }
+                $commandsOutput[] = [
+                    'command' => "partial: delete {$path}",
+                    'successful' => true,
+                    'output' => 'OK',
+                ];
+            }
+
+            // Копіюємо з архіву (якщо шлях існує у remote)
+            if (in_array($path, $existingPaths, true) && File::exists($sourcePath)) {
+                File::ensureDirectoryExists(dirname($localPath));
+                if (File::isDirectory($sourcePath)) {
+                    File::copyDirectory($sourcePath, $localPath);
+                } else {
+                    File::copy($sourcePath, $localPath);
+                }
+                $commandsOutput[] = [
+                    'command' => "partial: copy {$path}",
+                    'successful' => true,
+                    'output' => 'OK',
+                ];
+            }
+        }
+
+        // Видаляємо тимчасову директорію
+        File::deleteDirectory($tmpDir);
+
+        // Track branch usage
+        $pathsList = implode(', ', $paths);
+        BranchUsageHistory::trackUsage(
+            $branch,
+            'partial_deploy',
+            "Частковий деплой шляхів: {$pathsList}",
+            $paths
+        );
+
+        $message = "Частковий деплой виконано успішно з гілки {$branch}. Оновлено шляхи: {$pathsList}.";
+        if ($pathErrors !== []) {
+            $message .= ' Попередження: ' . implode('; ', $pathErrors);
         }
 
         return $this->redirectWithFeedback('success', $message, $commandsOutput);
@@ -497,5 +687,59 @@ class DeploymentController extends BaseController
             'successful' => $process->isSuccessful(),
             'output' => trim($process->getErrorOutput() . $process->getOutput()),
         ];
+    }
+
+    /**
+     * Отримує дерево папок для часткового деплою (до 5 рівнів глибини).
+     *
+     * @return array
+     */
+    private function getAvailableFolders(): array
+    {
+        $preservePaths = config('git-deployment.preserve_paths', []);
+        $basePath = base_path();
+
+        return $this->buildFolderTree($basePath, $preservePaths, 5);
+    }
+
+    /**
+     * Рекурсивно будує дерево папок.
+     *
+     * @param string $path Шлях до директорії
+     * @param array $preservePaths Захищені шляхи
+     * @param int $maxDepth Максимальна глибина
+     * @param int $currentDepth Поточна глибина
+     * @return array
+     */
+    private function buildFolderTree(string $path, array $preservePaths, int $maxDepth, int $currentDepth = 0): array
+    {
+        if ($currentDepth >= $maxDepth) {
+            return [];
+        }
+
+        $tree = [];
+        $dirs = File::directories($path);
+
+        foreach ($dirs as $dir) {
+            $name = basename($dir);
+            
+            // Пропускаємо захищені та приховані директорії на першому рівні
+            if ($currentDepth === 0 && (in_array($name, $preservePaths, true) || str_starts_with($name, '.'))) {
+                continue;
+            }
+            
+            // Пропускаємо приховані директорії на всіх рівнях
+            if (str_starts_with($name, '.')) {
+                continue;
+            }
+
+            $children = $this->buildFolderTree($dir, $preservePaths, $maxDepth, $currentDepth + 1);
+            
+            $tree[$name] = $children;
+        }
+
+        ksort($tree);
+
+        return $tree;
     }
 }

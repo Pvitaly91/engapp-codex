@@ -9,6 +9,7 @@ Route::middleware(['web', 'auth.admin'])
     ->group(function () {
         Route::get('/deployment', [DeploymentController::class, 'index'])->name('deployment.index');
         Route::post('/deployment/deploy', [DeploymentController::class, 'deploy'])->name('deployment.deploy');
+        Route::post('/deployment/deploy-partial', [DeploymentController::class, 'deployPartial'])->name('deployment.deploy-partial');
         Route::post('/deployment/push-current', [DeploymentController::class, 'pushCurrent'])->name('deployment.push-current');
         Route::post('/deployment/rollback', [DeploymentController::class, 'rollback'])->name('deployment.rollback');
         Route::post('/deployment/backup-branch', [DeploymentController::class, 'createBackupBranch'])->name('deployment.backup-branch');
@@ -18,6 +19,7 @@ Route::middleware(['web', 'auth.admin'])
         Route::prefix('deployment/native')->name('deployment.native.')->group(function () {
             Route::get('/', [NativeDeploymentController::class, 'index'])->name('index');
             Route::post('/deploy', [NativeDeploymentController::class, 'deploy'])->name('deploy');
+            Route::post('/deploy-partial', [NativeDeploymentController::class, 'deployPartial'])->name('deploy-partial');
             Route::post('/push-current', [NativeDeploymentController::class, 'pushCurrent'])->name('push-current');
             Route::post('/rollback', [NativeDeploymentController::class, 'rollback'])->name('rollback');
             Route::post('/backup-branch', [NativeDeploymentController::class, 'createBackupBranch'])->name('backup-branch');

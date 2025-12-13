@@ -10,9 +10,12 @@ use Illuminate\Support\Str;
 use App\Modules\GitDeployment\Models\BackupBranch;
 use App\Modules\GitDeployment\Models\BranchUsageHistory;
 use App\Modules\GitDeployment\Services\NativeGitDeploymentService;
+use App\Modules\GitDeployment\Http\Concerns\ParsesDeploymentPaths;
 
 class NativeDeploymentController extends BaseController
 {
+    use ParsesDeploymentPaths;
+
     private const BACKUP_FILE = 'deployment_backups.json';
 
     public function __construct(private readonly NativeGitDeploymentService $deployment)
@@ -30,6 +33,7 @@ class NativeDeploymentController extends BaseController
             ->withQueryString();
 
         $recentUsage = BranchUsageHistory::getRecentUsage(10);
+        $availableFolders = $this->getAvailableFolders();
 
         return view('git-deployment::deployment.native', [
             'backups' => $backups,
@@ -39,6 +43,7 @@ class NativeDeploymentController extends BaseController
             'currentCommit' => $this->deployment->headCommit(),
             'supportsShell' => $this->supportsShellCommands(),
             'recentUsage' => $recentUsage,
+            'availableFolders' => $availableFolders,
         ]);
     }
 
@@ -98,6 +103,50 @@ class NativeDeploymentController extends BaseController
             } catch (\Throwable $throwable) {
                 $message .= " Проте не вдалося запушити на origin/{$autoPushBranch}: " . $throwable->getMessage();
             }
+        }
+
+        return $this->redirectWithFeedback('success', $message, $logs, $sanitized);
+    }
+
+    public function deployPartial(Request $request): RedirectResponse
+    {
+        $branch = $request->input('branch', 'main');
+        $sanitized = $this->sanitizeBranchName($branch ?? 'main');
+
+        $pathsInput = $request->input('paths', []);
+
+        // Парсимо та валідуємо шляхи
+        $parsed = $this->parseAndValidatePaths($pathsInput);
+        $paths = $parsed['valid'];
+        $pathErrors = $parsed['errors'];
+
+        if ($paths === []) {
+            $errorMessage = 'Не вказано жодного валідного шляху для часткового деплою.';
+            if ($pathErrors !== []) {
+                $errorMessage .= ' Помилки: ' . implode('; ', $pathErrors);
+            }
+            return $this->redirectWithFeedback('error', $errorMessage, [], $sanitized);
+        }
+
+        try {
+            $result = $this->deployment->deployPartial($sanitized, $paths);
+            $logs = $result['logs'];
+            $message = $result['message'];
+        } catch (\Throwable $throwable) {
+            return $this->redirectWithFeedback('error', $throwable->getMessage(), [], $sanitized);
+        }
+
+        // Track branch usage
+        $pathsList = implode(', ', $paths);
+        BranchUsageHistory::trackUsage(
+            $sanitized,
+            'partial_deploy',
+            "Частковий деплой через GitHub API. Шляхи: {$pathsList}",
+            $paths
+        );
+
+        if ($pathErrors !== []) {
+            $message .= ' Попередження: ' . implode('; ', $pathErrors);
         }
 
         return $this->redirectWithFeedback('success', $message, $logs, $sanitized);
@@ -273,5 +322,59 @@ class NativeDeploymentController extends BaseController
     private function supportsShellCommands(): bool
     {
         return function_exists('proc_open');
+    }
+
+    /**
+     * Отримує дерево папок для часткового деплою (до 5 рівнів глибини).
+     *
+     * @return array
+     */
+    private function getAvailableFolders(): array
+    {
+        $preservePaths = config('git-deployment.preserve_paths', []);
+        $basePath = base_path();
+
+        return $this->buildFolderTree($basePath, $preservePaths, 5);
+    }
+
+    /**
+     * Рекурсивно будує дерево папок.
+     *
+     * @param string $path Шлях до директорії
+     * @param array $preservePaths Захищені шляхи
+     * @param int $maxDepth Максимальна глибина
+     * @param int $currentDepth Поточна глибина
+     * @return array
+     */
+    private function buildFolderTree(string $path, array $preservePaths, int $maxDepth, int $currentDepth = 0): array
+    {
+        if ($currentDepth >= $maxDepth) {
+            return [];
+        }
+
+        $tree = [];
+        $dirs = File::directories($path);
+
+        foreach ($dirs as $dir) {
+            $name = basename($dir);
+            
+            // Пропускаємо захищені та приховані директорії на першому рівні
+            if ($currentDepth === 0 && (in_array($name, $preservePaths, true) || str_starts_with($name, '.'))) {
+                continue;
+            }
+            
+            // Пропускаємо приховані директорії на всіх рівнях
+            if (str_starts_with($name, '.')) {
+                continue;
+            }
+
+            $children = $this->buildFolderTree($dir, $preservePaths, $maxDepth, $currentDepth + 1);
+            
+            $tree[$name] = $children;
+        }
+
+        ksort($tree);
+
+        return $tree;
     }
 }

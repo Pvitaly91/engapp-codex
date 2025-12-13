@@ -205,6 +205,57 @@ class NativeGitFilesystem
         }
     }
 
+    /**
+     * Замінює тільки вказані шляхи з source директорії у робоче дерево.
+     *
+     * @param string $sourceDirectory Директорія з розпакованим архівом
+     * @param array<int, string> $paths Список шляхів для заміни
+     * @return array{copied: int, deleted: int}
+     */
+    public function replacePaths(string $sourceDirectory, array $paths): array
+    {
+        $preserve = collect(config('git-deployment.preserve_paths'));
+        $copied = 0;
+        $deleted = 0;
+
+        foreach ($paths as $path) {
+            // Захисна валідація
+            $topLevel = explode('/', $path)[0];
+            if ($preserve->contains($topLevel)) {
+                continue;
+            }
+
+            $targetPath = $this->repositoryPath . '/' . $path;
+            $sourcePath = $sourceDirectory . '/' . $path;
+
+            // Видаляємо локальний шлях (якщо існує)
+            if (File::exists($targetPath)) {
+                if (File::isDirectory($targetPath)) {
+                    File::deleteDirectory($targetPath);
+                } else {
+                    File::delete($targetPath);
+                }
+                $deleted++;
+            }
+
+            // Копіюємо з source (якщо існує)
+            if (File::exists($sourcePath)) {
+                File::ensureDirectoryExists(dirname($targetPath));
+                if (File::isDirectory($sourcePath)) {
+                    File::copyDirectory($sourcePath, $targetPath);
+                } else {
+                    File::copy($sourcePath, $targetPath);
+                }
+                $copied++;
+            }
+        }
+
+        return [
+            'copied' => $copied,
+            'deleted' => $deleted,
+        ];
+    }
+
     private function detectMode(\SplFileInfo $file): string
     {
         return $file->isExecutable() ? '100755' : '100644';

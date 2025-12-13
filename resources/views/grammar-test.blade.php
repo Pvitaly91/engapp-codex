@@ -711,7 +711,7 @@
                     </div>
                 @endif
             
-                <div class="grid gap-4 sm:grid-cols-2">
+                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-1">Кількість питань</label>
@@ -722,8 +722,23 @@
                         @endif
                     </div>
 
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Мін. кількість пропусків</label>
+                        <input type="number" min="0" name="blank_count_from"
+                               value="{{ $blankCountFrom ?? '' }}" class="border rounded-lg px-3 py-2 w-full"
+                               placeholder="Наприклад, 1">
+                        <p class="text-xs text-gray-500 mt-1">Кількість маркерів типу {aN} у питанні.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Макс. кількість пропусків</label>
+                        <input type="number" min="0" name="blank_count_to"
+                               value="{{ $blankCountTo ?? '' }}" class="border rounded-lg px-3 py-2 w-full"
+                               placeholder="Наприклад, 3">
+                    </div>
+
                     @if(($canRandomizeFiltered ?? false) || !empty($randomizeFiltered))
-                        <label class="flex items-start gap-3 p-3 border border-blue-200 rounded-2xl bg-blue-50">
+                        <label class="flex items-start gap-3 p-3 border border-blue-200 rounded-2xl bg-blue-50 sm:col-span-2 lg:col-span-3">
                             <input type="checkbox" name="randomize_filtered" value="1"
                                    class="mt-1 h-5 w-5 text-blue-600 border-gray-300 rounded"
                                    {{ !empty($randomizeFiltered) ? 'checked' : '' }}>
@@ -913,6 +928,8 @@
                             'difficulty_from' => $difficultyFrom,
                             'difficulty_to' => $difficultyTo,
                             'num_questions' => $numQuestions,
+                            'blank_count_from' => $blankCountFrom,
+                            'blank_count_to' => $blankCountTo,
                             'manual_input' => (bool) $manualInput,
                             'autocomplete_input' => (bool) $autocompleteInput,
                             'check_one_input' => (bool) $checkOneInput,
@@ -963,6 +980,8 @@
                             'difficulty_from' => $difficultyFrom ?? null,
                             'difficulty_to' => $difficultyTo ?? null,
                             'num_questions' => $numQuestions ?? 0,
+                            'blank_count_from' => $blankCountFrom ?? null,
+                            'blank_count_to' => $blankCountTo ?? null,
                             'manual_input' => (bool) ($manualInput ?? false),
                             'autocomplete_input' => (bool) ($autocompleteInput ?? false),
                             'check_one_input' => (bool) ($checkOneInput ?? false),
