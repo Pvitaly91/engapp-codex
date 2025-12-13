@@ -105,7 +105,13 @@
 
     {{-- Confirmation Modal --}}
     @if($showConfirmModal)
-        <div class="fixed inset-0 z-50 flex items-center justify-center" x-data x-init="$el.querySelector('[data-confirm-accept]')?.focus()">
+        <div
+            class="fixed inset-0 z-50 flex items-center justify-center"
+            wire:loading.class="hidden"
+            wire:target="executeConfirmedAction"
+            x-data
+            x-init="$el.querySelector('[data-confirm-accept]')?.focus()"
+        >
             <div class="absolute inset-0 bg-slate-900/50" wire:click="cancelConfirm"></div>
             <div class="relative bg-white rounded-lg shadow-xl max-w-sm w-full mx-4 p-6 space-y-4">
                 <div class="space-y-1">
@@ -118,7 +124,7 @@
                     </button>
                     <button
                         type="button"
-                        wire:click="$set('showConfirmModal', false); $wire.executeConfirmedAction()"
+                        wire:click="executeConfirmedAction"
                         data-confirm-accept
                         class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-500 transition"
                     >
