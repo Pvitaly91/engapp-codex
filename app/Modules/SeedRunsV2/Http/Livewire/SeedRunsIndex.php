@@ -209,7 +209,7 @@ class SeedRunsIndex extends Component
         $this->confirmAction = '';
         $this->confirmMessage = '';
         $this->confirmData = null;
-        
+
         // Execute the action after modal is closed
         match ($action) {
             'runSeeder' => $this->runSeeder($data),
@@ -222,6 +222,9 @@ class SeedRunsIndex extends Component
             'deleteSeedRunWithData' => $this->deleteSeedRunWithData($data),
             default => null,
         };
+
+        // Ensure the trees are fully refreshed after any confirmed action
+        $this->refreshOverview();
     }
 
     public function cancelConfirm(): void
