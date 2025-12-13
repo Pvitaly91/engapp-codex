@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\QuestionHint;
 use App\Models\TextBlock;
 use App\Services\QuestionDeletionService;
+use App\Services\SeedRuns\SeedRunsService;
 use Database\Seeders\Pages\Concerns\GrammarPageSeeder as GrammarPageSeederBase;
 use Database\Seeders\Pages\Concerns\PageCategoryDescriptionSeeder as PageCategoryDescriptionSeederBase;
 use Database\Seeders\QuestionSeeder as QuestionSeederBase;
@@ -34,13 +35,16 @@ class SeedRunController extends Controller
      */
     private ?array $seederClassMap = null;
 
-    public function __construct(private QuestionDeletionService $questionDeletionService)
+    public function __construct(
+        private QuestionDeletionService $questionDeletionService,
+        private SeedRunsService $seedRunsService
+    )
     {
     }
 
     public function index(): View
     {
-        $overview = $this->assembleSeedRunOverview();
+        $overview = $this->seedRunsService->overview($this);
 
         return view('seed-runs.index', [
             'tableExists' => $overview['tableExists'],
@@ -50,6 +54,11 @@ class SeedRunController extends Controller
             'executedSeederHierarchy' => $overview['executedSeederHierarchy'],
             'recentSeedRunOrdinals' => $overview['recentSeedRunOrdinals'],
         ]);
+    }
+
+    public function getSeedRunOverview(): array
+    {
+        return $this->assembleSeedRunOverview();
     }
 
     public function preview(Request $request)

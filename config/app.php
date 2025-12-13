@@ -160,6 +160,7 @@ return [
          * Package Service Providers...
          */
 
+        \Livewire\LivewireServiceProvider::class,
         App\Modules\GitDeployment\GitDeploymentServiceProvider::class,
 
         /*
@@ -191,6 +192,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Livewire' => \Livewire\Livewire::class,
     ])->toArray(),
 
 ];

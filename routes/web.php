@@ -26,6 +26,7 @@ use App\Http\Controllers\TrainController;
 use App\Http\Controllers\VerbHintController;
 use App\Http\Controllers\WordSearchController;
 use App\Http\Controllers\WordsTestController;
+use App\Livewire\Admin\SeedRuns\Index as SeedRunsLivewire;
 use App\Modules\GitDeployment\Http\Controllers\DeploymentController as GitDeploymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -285,6 +286,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
 
         Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
+        Route::get('/seed-runs-v2', SeedRunsLivewire::class)->name('seed-runs.v2');
         Route::get('/seed-runs/preview', [SeedRunController::class, 'preview'])->name('seed-runs.preview');
         Route::get('/seed-runs/file', [SeedRunController::class, 'showSeederFile'])->name('seed-runs.file.show');
         Route::put('/seed-runs/file', [SeedRunController::class, 'updateSeederFile'])->name('seed-runs.file.update');
