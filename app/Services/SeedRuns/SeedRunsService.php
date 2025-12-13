@@ -3,16 +3,12 @@
 namespace App\Services\SeedRuns;
 
 use App\Http\Controllers\SeedRunController;
-use App\Services\QuestionDeletionService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class SeedRunsService
 {
-    public function __construct(private QuestionDeletionService $questionDeletionService)
-    {
-    }
 
     public function overview(?SeedRunController $controller = null): array
     {
