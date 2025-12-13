@@ -228,6 +228,9 @@
             ]])
         @endif
         @yield('content')
+        @isset($slot)
+            {{ $slot }}
+        @endisset
     </main>
 
     <!-- Підвал -->
