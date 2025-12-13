@@ -18,11 +18,7 @@ class SeedRunsService
     {
         $controller ??= $this->makeController();
 
-        if (method_exists($controller, 'getSeedRunOverview')) {
-            return $controller->getSeedRunOverview();
-        }
-
-        return [];
+        return $controller->getSeedRunOverview();
     }
 
     public function runMissing(?SeedRunController $controller = null): array
@@ -79,6 +75,6 @@ class SeedRunsService
 
     protected function makeController(): SeedRunController
     {
-        return new SeedRunController($this->questionDeletionService);
+        return app(SeedRunController::class);
     }
 }
