@@ -172,6 +172,14 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 $tagIds = array_merge($tagIds, $additionalTags);
             }
 
+            // Add kebab-case tags for tag intersection with text_blocks
+            if (isset($question['tags']) && is_array($question['tags'])) {
+                foreach ($question['tags'] as $tagName) {
+                    $tag = Tag::firstOrCreate(['name' => $tagName]);
+                    $tagIds[] = $tag->id;
+                }
+            }
+
             // Determine source_id based on question detail/topic
             $sourceId = $sources['yes_no']; // Default fallback
             if (isset($question['detail']) && isset($sources[$question['detail']])) {
