@@ -52,6 +52,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'hero',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                     'body' => json_encode([
                         'level' => 'A1–B1',
                         'intro' => 'У цій темі ти вивчиш <strong>спеціальні питання (Wh-questions)</strong> — питання, які починаються з питальних слів і вимагають конкретної інформації у відповіді.',
@@ -83,6 +84,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'forms-grid-what-is',
+                    'tags' => ['types-of-questions', 'wh-questions'],
                     'body' => json_encode([
                         'title' => '1. Що таке Wh-questions?',
                         'intro' => 'Wh-questions (спеціальні питання) — це питання з питальними словами, які потребують детальної відповіді:',
@@ -99,6 +101,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-who',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'subject-questions'],
                     'body' => json_encode([
                         'title' => '2. WHO — Хто? (про людей)',
                         'sections' => [
@@ -144,6 +147,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-what',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                     'body' => json_encode([
                         'title' => '3. WHAT — Що? (про речі та інформацію)',
                         'sections' => [
@@ -189,6 +193,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-where',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'prepositions-in-questions'],
                     'body' => json_encode([
                         'title' => '4. WHERE — Де? (про місце)',
                         'sections' => [
@@ -223,6 +228,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-when',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                     'body' => json_encode([
                         'title' => '5. WHEN — Коли? (про час)',
                         'sections' => [
@@ -257,6 +263,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-why',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words', 'modal-questions'],
                     'body' => json_encode([
                         'title' => '6. WHY — Чому? (про причину)',
                         'sections' => [
@@ -311,6 +318,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-how',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                     'body' => json_encode([
                         'title' => '7. HOW — Як? (про спосіб та ступінь)',
                         'sections' => [
@@ -357,6 +365,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'comparison-table',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                     'body' => json_encode([
                         'title' => '8. Порівняльна таблиця питальних слів',
                         'intro' => 'Основні питальні слова та їх значення:',
@@ -401,6 +410,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-structure',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-word-order', 'subject-questions', 'indirect-questions'],
                     'body' => json_encode([
                         'title' => '9. Структура Wh-questions',
                         'sections' => [
@@ -444,6 +454,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'mistakes-grid',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-word-order'],
                     'body' => json_encode([
                         'title' => '10. Типові помилки',
                         'items' => [
@@ -484,6 +495,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'summary-list',
+                    'tags' => ['types-of-questions', 'wh-questions'],
                     'body' => json_encode([
                         'title' => '11. Короткий конспект',
                         'items' => [
@@ -505,6 +517,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'practice-set',
+                    'tags' => ['types-of-questions', 'wh-questions', 'question-words'],
                     'body' => json_encode([
                         'title' => '12. Практика',
                         'select_title' => 'Вправа 1. Обери правильне питальне слово',
@@ -553,6 +566,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'navigation-chips',
+                    'tags' => ['types-of-questions'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [
