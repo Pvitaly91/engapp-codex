@@ -36,9 +36,6 @@ class SeedRunsIndex extends Component
     
     public array $selectedPendingSeeders = [];
     public array $selectedExecutedSeeders = [];
-
-    public int $pendingTreeVersion = 0;
-    public int $executedTreeVersion = 0;
     
     protected SeedRunsService $seedRunsService;
 
@@ -60,12 +57,6 @@ class SeedRunsIndex extends Component
         $this->pendingSeederHierarchy = $overview['pendingSeederHierarchy']->toArray();
         $this->executedSeederHierarchy = $overview['executedSeederHierarchy']->toArray();
         $this->recentSeedRunOrdinals = $overview['recentSeedRunOrdinals']->toArray();
-
-        $this->pendingTreeVersion++;
-        $this->executedTreeVersion++;
-
-        // Force a full component refresh so Livewire updates all DOM fragments
-        $this->emitSelf('$refresh');
     }
 
     public function runSeeder(string $className): void

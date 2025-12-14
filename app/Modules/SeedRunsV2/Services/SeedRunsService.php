@@ -57,7 +57,9 @@ class SeedRunsService
             ->orderByDesc('ran_at')
             ->get()
             ->map(function ($seedRun) {
+                // Parse Carbon for sorting/filtering, then pre-format for Livewire serialization
                 $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
+                $seedRun->ran_at_formatted = $seedRun->ran_at?->format('Y-m-d H:i:s');
                 $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
 
                 return $seedRun;
@@ -691,7 +693,8 @@ class SeedRunsService
                 return [
                     'type' => 'folder',
                     'name' => $folder['name'],
-                    'children' => $children,
+                    // Convert to array for consistent Livewire serialization
+                    'children' => $children->all(),
                     'seeder_count' => $seederCount,
                     'class_names' => $classNames->all(),
                     'path' => $folderPath,
@@ -705,10 +708,19 @@ class SeedRunsService
                 $className = $pendingSeeder->class_name ?? '';
                 $fullPath = ltrim(($path !== '' ? $path . '/' : '') . $seeder['name'], '/');
 
+                // Convert stdClass to array for consistent Livewire serialization
+                $pendingSeederArray = [
+                    'class_name' => $pendingSeeder->class_name ?? '',
+                    'display_class_name' => $pendingSeeder->display_class_name ?? '',
+                    'display_class_namespace' => $pendingSeeder->display_class_namespace ?? null,
+                    'display_class_basename' => $pendingSeeder->display_class_basename ?? '',
+                    'supports_preview' => $pendingSeeder->supports_preview ?? false,
+                ];
+
                 return [
                     'type' => 'seeder',
                     'name' => $seeder['name'],
-                    'pending_seeder' => $pendingSeeder,
+                    'pending_seeder' => $pendingSeederArray,
                     'seeder_count' => 1,
                     'class_names' => [$className],
                     'path' => $fullPath,
@@ -786,7 +798,8 @@ class SeedRunsService
                 return [
                     'type' => 'folder',
                     'name' => $folder['name'],
-                    'children' => $children,
+                    // Convert to array for consistent Livewire serialization
+                    'children' => $children->all(),
                     'seeder_count' => $seedRunIds->count(),
                     'seed_run_ids' => $seedRunIds->all(),
                     'class_names' => $classNames->all(),
@@ -803,10 +816,19 @@ class SeedRunsService
                 $classNames = [$seedRun->class_name];
                 $fullPath = ltrim(($path !== '' ? $path . '/' : '') . $seeder['name'], '/');
 
+                // Convert stdClass to array for consistent Livewire serialization
+                $seedRunArray = [
+                    'id' => $seedRun->id,
+                    'class_name' => $seedRun->class_name,
+                    'display_class_name' => $seedRun->display_class_name,
+                    'ran_at_formatted' => $seedRun->ran_at_formatted,
+                    'question_count' => $seedRun->question_count ?? 0,
+                ];
+
                 return [
                     'type' => 'seeder',
                     'name' => $seeder['name'],
-                    'seed_run' => $seedRun,
+                    'seed_run' => $seedRunArray,
                     'seeder_count' => 1,
                     'seed_run_ids' => $seedRunIds,
                     'class_names' => $classNames,
