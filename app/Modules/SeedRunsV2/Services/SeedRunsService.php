@@ -57,9 +57,9 @@ class SeedRunsService
             ->orderByDesc('ran_at')
             ->get()
             ->map(function ($seedRun) {
-                $ranAt = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
-                $seedRun->ran_at = $ranAt;
-                $seedRun->ran_at_formatted = $ranAt ? $ranAt->format('Y-m-d H:i:s') : null;
+                // Parse Carbon for sorting/filtering, then pre-format for Livewire serialization
+                $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
+                $seedRun->ran_at_formatted = $seedRun->ran_at?->format('Y-m-d H:i:s');
                 $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
 
                 return $seedRun;
@@ -693,6 +693,7 @@ class SeedRunsService
                 return [
                     'type' => 'folder',
                     'name' => $folder['name'],
+                    // Convert to array for consistent Livewire serialization
                     'children' => $children->all(),
                     'seeder_count' => $seederCount,
                     'class_names' => $classNames->all(),
@@ -788,6 +789,7 @@ class SeedRunsService
                 return [
                     'type' => 'folder',
                     'name' => $folder['name'],
+                    // Convert to array for consistent Livewire serialization
                     'children' => $children->all(),
                     'seeder_count' => $seedRunIds->count(),
                     'seed_run_ids' => $seedRunIds->all(),
