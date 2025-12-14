@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Schema;
 class TheoryBlockMatcherService
 {
     /**
+     * Tag name that should not be the sole matching criterion.
+     */
+    private const TYPES_OF_QUESTIONS_TAG = 'types-of-questions';
+
+    /**
      * Normalize tags to lowercase, trimmed, unique array.
      *
      * @param  array|string|null  $tags
@@ -133,7 +138,7 @@ class TheoryBlockMatcherService
                     continue;
                 }
 
-                $hasOtherTag = collect($matched)->contains(fn ($tag) => $tag !== 'types-of-questions');
+                $hasOtherTag = collect($matched)->contains(fn ($tag) => $tag !== self::TYPES_OF_QUESTIONS_TAG);
 
                 if (! $hasOtherTag) {
                     continue;
@@ -195,7 +200,7 @@ class TheoryBlockMatcherService
         $text = strip_tags($content);
 
         // Normalize whitespace
-        $text = preg_replace('/\s+/', ' ', $text);
+        $text = preg_replace('/\s+/', ' ', $text) ?? $text;
         $text = trim($text);
 
         if (mb_strlen($text) <= $maxLength) {
