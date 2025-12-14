@@ -29,6 +29,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                 'language' => 'uk',
             ],
             'tags' => [
+                'Question Sentences',
+                'Types of Question Sentences',
                 'Negative Questions',
                 'Заперечні питання',
                 'Don\'t you',
@@ -36,8 +38,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                 'Didn\'t they',
                 'Grammar',
                 'Theory',
-                'B1',
-                'B2',
+                'CEFR B1',
+                'CEFR B2',
             ],
             'blocks' => [
                 [
@@ -46,6 +48,13 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'hero',
+                    'tags' => [
+                        'Question Sentences',
+                        'Types of Question Sentences',
+                        'Negative Questions',
+                        'CEFR B1',
+                        'CEFR B2',
+                    ],
                     'body' => json_encode([
                         'level' => 'B1–B2',
                         'intro' => 'У цій темі ти вивчиш <strong>заперечні питання (Negative Questions)</strong> — питання з негативною формою, які виражають здивування, подив або очікування певної відповіді.',

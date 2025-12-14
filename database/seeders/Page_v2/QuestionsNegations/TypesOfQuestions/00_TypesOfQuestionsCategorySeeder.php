@@ -62,7 +62,7 @@ class TypesOfQuestionsCategorySeeder extends Seeder
         $locale = $description['locale'];
 
         if (! empty($description['subtitle_html'])) {
-            TextBlock::create([
+            $subtitle = TextBlock::create([
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $locale,
@@ -74,12 +74,18 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'body' => $description['subtitle_html'],
                 'seeder' => static::class,
             ]);
+
+            $subtitleTags = $this->resolveBlockTags($description, [
+                'tags' => $description['subtitle_tags'] ?? [],
+                'level' => $description['subtitle_level'] ?? null,
+            ]);
+            $this->syncBlockTags($subtitle, $subtitleTags);
         }
 
         foreach ($description['blocks'] ?? [] as $index => $block) {
             $blockType = $block['type'] ?? 'box';
 
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $block['locale'] ?? $locale,
@@ -91,6 +97,9 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'body' => $block['body'] ?? null,
                 'seeder' => static::class,
             ]);
+
+            $blockTags = $this->resolveBlockTags($description, $block);
+            $this->syncBlockTags($textBlock, $blockTags);
         }
     }
 
@@ -256,8 +265,41 @@ HTML,
 </div>
 </div>
 HTML,
-                ],
+                 ],
             ],
         ];
+    }
+
+    private function resolveBlockTags(array $description, array $block): array
+    {
+        $tags = [];
+
+        if (! empty($description['tags'])) {
+            $tags = array_merge($tags, $description['tags']);
+        }
+
+        if (! empty($block['tags'])) {
+            $tags = array_merge($tags, $block['tags']);
+        }
+
+        if (! empty($block['level'])) {
+            $tags[] = 'CEFR ' . $block['level'];
+        }
+
+        return array_values(array_unique($tags));
+    }
+
+    private function syncBlockTags(TextBlock $textBlock, array $tags): void
+    {
+        if (empty($tags)) {
+            return;
+        }
+
+        $tagIds = [];
+        foreach ($tags as $tagName) {
+            $tagIds[] = Tag::firstOrCreate(['name' => $tagName])->id;
+        }
+
+        $textBlock->tags()->sync($tagIds);
     }
 }
