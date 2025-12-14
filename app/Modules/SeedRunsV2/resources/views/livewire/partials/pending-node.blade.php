@@ -30,12 +30,12 @@
     </div>
 @else
     @php
-        $seeder = $node['pending_seeder'] ?? null;
-        $className = $seeder->class_name ?? '';
-        $displayName = $seeder->display_class_name ?? $node['name'] ?? 'Unknown';
-        $displayNamespace = $seeder->display_class_namespace ?? null;
-        $displayBasename = $seeder->display_class_basename ?? $displayName;
-        $supportsPreview = $seeder->supports_preview ?? false;
+        $seeder = $node['pending_seeder'] ?? [];
+        $className = $seeder['class_name'] ?? '';
+        $displayName = $seeder['display_class_name'] ?? $node['name'] ?? 'Unknown';
+        $displayNamespace = $seeder['display_class_namespace'] ?? null;
+        $displayBasename = $seeder['display_class_basename'] ?? $displayName;
+        $supportsPreview = $seeder['supports_preview'] ?? false;
         $isCategorySeeder = str_contains($displayBasename, 'Category');
         $labelClasses = $isCategorySeeder
             ? 'inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold ring-1 ring-emerald-200'

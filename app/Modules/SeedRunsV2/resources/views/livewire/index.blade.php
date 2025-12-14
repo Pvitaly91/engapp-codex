@@ -68,7 +68,6 @@
                     <div
                         class="space-y-3"
                         x-data="{ expandedFolders: {} }"
-                        wire:key="pending-tree-{{ $pendingTreeVersion }}"
                     >
                         @foreach($pendingSeederHierarchy as $node)
                             @include('seed-runs-v2::livewire.partials.pending-node', ['node' => $node, 'depth' => 0])
@@ -100,7 +99,6 @@
                     <div
                         class="space-y-4"
                         x-data="{ expandedFolders: {}, expandedSeeders: {} }"
-                        wire:key="executed-tree-{{ $executedTreeVersion }}"
                     >
                         @foreach($executedSeederHierarchy as $node)
                             @include('seed-runs-v2::livewire.partials.executed-node', ['node' => $node, 'depth' => 0])
