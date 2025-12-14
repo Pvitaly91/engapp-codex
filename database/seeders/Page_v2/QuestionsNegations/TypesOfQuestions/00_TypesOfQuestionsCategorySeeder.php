@@ -106,11 +106,17 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'Types of Questions',
                 'Yes/No Questions',
                 'Wh-Questions',
+                'Subject Questions',
+                'Indirect Questions',
                 'Загальні питання',
                 'Спеціальні питання',
                 'Альтернативні питання',
                 'Розділові питання',
                 'Question Tags',
+                'Negative Questions',
+                'Question Forms',
+                'Grammar',
+                'Theory',
             ],
             'blocks' => [
                 [

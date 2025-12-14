@@ -33,6 +33,7 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 'General Questions',
                 'Загальні питання',
                 'Question Forms',
+                'Types of Questions',
                 'Auxiliary Verbs',
                 'Do/Does/Did',
                 'To Be Questions',

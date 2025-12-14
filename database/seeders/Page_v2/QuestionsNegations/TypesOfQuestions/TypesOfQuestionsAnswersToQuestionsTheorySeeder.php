@@ -36,6 +36,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                 'Yes I do',
                 'No I don\'t',
                 'Question Answers',
+                'Question Forms',
+                'Types of Questions',
                 'Grammar',
                 'Theory',
                 'A1',

@@ -35,6 +35,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                 'Tag Questions',
                 'Isn\'t it',
                 'Don\'t you',
+                'Question Forms',
+                'Types of Questions',
                 'Grammar',
                 'Theory',
                 'B1',
