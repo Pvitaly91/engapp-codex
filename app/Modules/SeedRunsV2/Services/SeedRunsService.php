@@ -57,7 +57,9 @@ class SeedRunsService
             ->orderByDesc('ran_at')
             ->get()
             ->map(function ($seedRun) {
-                $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
+                $ranAt = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
+                $seedRun->ran_at = $ranAt;
+                $seedRun->ran_at_formatted = $ranAt ? $ranAt->format('Y-m-d H:i:s') : null;
                 $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
 
                 return $seedRun;
@@ -691,7 +693,7 @@ class SeedRunsService
                 return [
                     'type' => 'folder',
                     'name' => $folder['name'],
-                    'children' => $children,
+                    'children' => $children->all(),
                     'seeder_count' => $seederCount,
                     'class_names' => $classNames->all(),
                     'path' => $folderPath,
@@ -786,7 +788,7 @@ class SeedRunsService
                 return [
                     'type' => 'folder',
                     'name' => $folder['name'],
-                    'children' => $children,
+                    'children' => $children->all(),
                     'seeder_count' => $seedRunIds->count(),
                     'seed_run_ids' => $seedRunIds->all(),
                     'class_names' => $classNames->all(),

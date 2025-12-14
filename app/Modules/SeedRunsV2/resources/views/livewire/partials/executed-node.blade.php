@@ -44,7 +44,7 @@
         $seedRunId = $seedRun->id ?? 0;
         $className = $seedRun->class_name ?? '';
         $displayName = $seedRun->display_class_name ?? $node['name'] ?? 'Unknown';
-        $ranAt = $seedRun->ran_at ?? null;
+        $ranAtFormatted = $seedRun->ran_at_formatted ?? null;
         $questionCount = $seedRun->question_count ?? 0;
         $dataProfile = $node['data_profile'] ?? [];
         $recentOrdinal = $recentSeedRunOrdinals[$seedRunId] ?? null;
@@ -79,10 +79,10 @@
                 
                 {{-- Metadata row --}}
                 <div class="flex flex-wrap gap-2 text-xs text-gray-500">
-                    @if($ranAt)
+                    @if($ranAtFormatted)
                         <span title="Виконано">
                             <i class="fa-regular fa-clock"></i>
-                            {{ $ranAt->format('Y-m-d H:i:s') }}
+                            {{ $ranAtFormatted }}
                         </span>
                     @endif
                     <span title="Кількість питань">
