@@ -385,11 +385,12 @@ class SeedRunsIndex extends Component
         $this->expanded = array_values(array_intersect($this->expanded, $validPaths));
     }
 
-    protected function extractFolderPaths(array $nodes): array
+    protected function extractFolderPaths(array|Collection $nodes): array
     {
         $paths = [];
+        $items = $nodes instanceof Collection ? $nodes->all() : $nodes;
 
-        foreach ($nodes as $node) {
+        foreach ($items as $node) {
             if (($node['type'] ?? '') !== 'folder') {
                 continue;
             }
