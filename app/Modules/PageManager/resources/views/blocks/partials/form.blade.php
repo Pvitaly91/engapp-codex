@@ -89,6 +89,23 @@
             </div>
         </section>
 
+        @php
+            $selectedTagIds = collect(old('tags', $block->tags->pluck('id')->all() ?? []))
+                ->map(fn ($id) => (int) $id)
+                ->unique()
+                ->values()
+                ->all();
+        @endphp
+
+        @include('page-manager::partials.tag-selector', [
+            'label' => 'Теги блока',
+            'description' => 'Додайте теги, щоб блоки можна було шукати або групувати за темами.',
+            'tagsByCategory' => $tagsByCategory ?? collect(),
+            'selectedTagIds' => $selectedTagIds,
+            'inputName' => 'tags[]',
+            'idPrefix' => 'text-block-tags-' . ($block->id ?? 'new'),
+        ])
+
         <div class="flex items-center justify-end gap-3">
             <a href="{{ $cancelUrl }}" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900">Скасувати</a>
             <button type="submit" class="rounded-xl bg-blue-600 px-6 py-2 text-sm font-semibold text-white hover:bg-blue-700">

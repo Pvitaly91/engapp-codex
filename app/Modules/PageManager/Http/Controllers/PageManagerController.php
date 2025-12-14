@@ -250,14 +250,17 @@ class PageManagerController extends Controller
         return view('page-manager::blocks.create', [
             'page' => $page,
             'block' => $block,
+            'tagsByCategory' => $this->tagOptions(),
         ]);
     }
 
     public function storeBlock(Request $request, Page $page): RedirectResponse
     {
-        $data = $this->validatedBlockData($request, $page);
+        $payload = $this->validatedBlockData($request, $page);
 
-        $page->textBlocks()->create($data);
+        $block = $page->textBlocks()->create($payload['data']);
+
+        $this->syncTags($block, $payload['tags']);
 
         return redirect()
             ->route('pages.manage.edit', $page)
@@ -268,9 +271,12 @@ class PageManagerController extends Controller
     {
         $this->ensureBlockBelongsToPage($page, $block);
 
+        $block->loadMissing('tags');
+
         return view('page-manager::blocks.edit', [
             'page' => $page,
             'block' => $block,
+            'tagsByCategory' => $this->tagOptions(),
         ]);
     }
 
@@ -278,9 +284,11 @@ class PageManagerController extends Controller
     {
         $this->ensureBlockBelongsToPage($page, $block);
 
-        $data = $this->validatedBlockData($request, $page, $block);
+        $payload = $this->validatedBlockData($request, $page, $block);
 
-        $block->update($data);
+        $block->update($payload['data']);
+
+        $this->syncTags($block, $payload['tags']);
 
         return redirect()
             ->route('pages.manage.edit', $page)
@@ -322,14 +330,17 @@ class PageManagerController extends Controller
         return view('page-manager::categories.blocks.create', [
             'category' => $category,
             'block' => $block,
+            'tagsByCategory' => $this->tagOptions(),
         ]);
     }
 
     public function storeCategoryBlock(Request $request, PageCategory $category): RedirectResponse
     {
-        $data = $this->validatedCategoryBlockData($request, $category);
+        $payload = $this->validatedCategoryBlockData($request, $category);
 
-        $category->textBlocks()->create($data);
+        $block = $category->textBlocks()->create($payload['data']);
+
+        $this->syncTags($block, $payload['tags']);
 
         return redirect()
             ->route('pages.manage.categories.blocks.index', $category)
@@ -340,9 +351,12 @@ class PageManagerController extends Controller
     {
         $this->ensureBlockBelongsToCategory($category, $block);
 
+        $block->loadMissing('tags');
+
         return view('page-manager::categories.blocks.edit', [
             'category' => $category,
             'block' => $block,
+            'tagsByCategory' => $this->tagOptions(),
         ]);
     }
 
@@ -350,9 +364,11 @@ class PageManagerController extends Controller
     {
         $this->ensureBlockBelongsToCategory($category, $block);
 
-        $data = $this->validatedCategoryBlockData($request, $category, $block);
+        $payload = $this->validatedCategoryBlockData($request, $category, $block);
 
-        $block->update($data);
+        $block->update($payload['data']);
+
+        $this->syncTags($block, $payload['tags']);
 
         return redirect()
             ->route('pages.manage.categories.blocks.index', $category)
@@ -391,11 +407,14 @@ class PageManagerController extends Controller
             'sort_order' => ['nullable', 'integer', 'min:0'],
             'level' => ['nullable', 'string', 'max:16'],
             'body' => ['nullable', 'string'],
-        ]);
+        ] + $this->tagRules());
 
         $locale = trim((string) ($data['locale'] ?? ''));
         $type = trim((string) ($data['type'] ?? ''));
         $column = $data['column'] ?? null;
+
+        $tagIds = $data['tags'] ?? [];
+        unset($data['tags']);
 
         $normalised = [
             'locale' => $locale !== '' ? $locale : ($block?->locale ?? app()->getLocale() ?? 'uk'),
@@ -419,7 +438,10 @@ class PageManagerController extends Controller
             $normalised['column'] = 'header';
         }
 
-        return $normalised;
+        return [
+            'data' => $normalised,
+            'tags' => $tagIds,
+        ];
     }
 
     protected function normaliseNullableString($value, bool $preserveEmpty = false): ?string
