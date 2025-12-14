@@ -117,7 +117,7 @@ abstract class GrammarPageSeeder extends Seeder
                     ? TextBlockUuidGenerator::generateWithKey(static::class, $block['uuid_key'])
                     : TextBlockUuidGenerator::generate(static::class, $blockIndex));
 
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'uuid' => $uuid,
                 'page_id' => $page->id,
                 'locale' => $config['locale'] ?? 'uk',
@@ -130,6 +130,17 @@ abstract class GrammarPageSeeder extends Seeder
                 'level' => $block['level'] ?? null,
                 'seeder' => static::class,
             ]);
+
+            // Attach block-level tags if defined
+            if (! empty($block['tags'])) {
+                $blockTagIds = [];
+                foreach ($block['tags'] as $tagName) {
+                    $tag = Tag::firstOrCreate(['name' => $tagName]);
+                    $blockTagIds[] = $tag->id;
+                }
+                $textBlock->tags()->sync($blockTagIds);
+            }
+
             $blockIndex++;
         }
 
