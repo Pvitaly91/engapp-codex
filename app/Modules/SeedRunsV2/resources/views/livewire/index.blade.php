@@ -99,7 +99,6 @@
                 @else
                     <div
                         class="space-y-4"
-                        x-data="{ expandedFolders: {}, expandedSeeders: {} }"
                         wire:key="executed-tree-{{ $executedTreeVersion }}"
                     >
                         @foreach($executedSeederHierarchy as $node)
