@@ -30,6 +30,13 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             ['category' => 'English Grammar Theme']
         )->id;
 
+        $sharedTheoryTags = [
+            Tag::firstOrCreate(['name' => 'Types of Questions'], ['category' => 'English Grammar Theme'])->id,
+            Tag::firstOrCreate(['name' => 'Question Forms'], ['category' => 'English Grammar Theme'])->id,
+            Tag::firstOrCreate(['name' => 'Grammar'], ['category' => 'English Grammar Theme'])->id,
+            Tag::firstOrCreate(['name' => 'Theory'], ['category' => 'English Grammar Theme'])->id,
+        ];
+
         // General tags for all questions
         $questionSentencesTag = Tag::firstOrCreate(
             ['name' => 'Question Sentences'],
@@ -49,6 +56,32 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             'tag_questions' => Tag::firstOrCreate(['name' => 'Tag Questions'], ['category' => 'English Grammar Detail'])->id,
             'alternative_questions' => Tag::firstOrCreate(['name' => 'Alternative Questions'], ['category' => 'English Grammar Detail'])->id,
             'negative_questions' => Tag::firstOrCreate(['name' => 'Negative Questions'], ['category' => 'English Grammar Detail'])->id,
+        ];
+
+        $detailContextTags = [
+            'yes_no' => [
+                Tag::firstOrCreate(['name' => 'General Questions'], ['category' => 'English Grammar Detail'])->id,
+            ],
+            'wh_questions' => [
+                Tag::firstOrCreate(['name' => 'Special Questions'], ['category' => 'English Grammar Detail'])->id,
+                Tag::firstOrCreate(['name' => 'Question Words'], ['category' => 'English Grammar Detail'])->id,
+            ],
+            'subject_questions' => [
+                Tag::firstOrCreate(['name' => 'Subject Questions'], ['category' => 'English Grammar Detail'])->id,
+            ],
+            'indirect_questions' => [
+                Tag::firstOrCreate(['name' => 'Indirect Questions'], ['category' => 'English Grammar Detail'])->id,
+            ],
+            'tag_questions' => [
+                Tag::firstOrCreate(['name' => 'Question Tags'], ['category' => 'English Grammar Detail'])->id,
+                Tag::firstOrCreate(['name' => 'Disjunctive Questions'], ['category' => 'English Grammar Detail'])->id,
+            ],
+            'alternative_questions' => [
+                Tag::firstOrCreate(['name' => 'Choice Questions'], ['category' => 'English Grammar Detail'])->id,
+            ],
+            'negative_questions' => [
+                Tag::firstOrCreate(['name' => 'Negative Question Forms'], ['category' => 'English Grammar Detail'])->id,
+            ],
         ];
 
         // CEFR Level tags for filtering by proficiency
@@ -154,11 +187,19 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 $flatOptions = $question['options'];
             }
 
-            $tagIds = [$themeTag, $questionSentencesTag, $typesOfQuestionSentencesTag];
+            $tagIds = array_merge([
+                $themeTag,
+                $questionSentencesTag,
+                $typesOfQuestionSentencesTag,
+            ], $sharedTheoryTags);
 
             // Add detail tag (question type)
             if (isset($question['detail']) && isset($detailTags[$question['detail']])) {
                 $tagIds[] = $detailTags[$question['detail']];
+            }
+
+            if (isset($question['detail']) && isset($detailContextTags[$question['detail']])) {
+                $tagIds = array_merge($tagIds, $detailContextTags[$question['detail']]);
             }
 
             // Add CEFR level tag
