@@ -40,7 +40,6 @@ class SeedRunsService
         $pendingSeeders = collect();
         $executedSeederHierarchy = collect();
         $recentSeedRunOrdinals = collect();
-        $recentThreshold = now()->subDay();
 
         if (! $tableExists) {
             return [
@@ -53,64 +52,16 @@ class SeedRunsService
             ];
         }
 
-        $executedSeeders = DB::table('seed_runs')
-            ->orderByDesc('ran_at')
-            ->get()
-            ->map(function ($seedRun) {
-                $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
-                $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
+        $executedOverview = $this->loadExecutedSeeders();
 
-                return $seedRun;
-            });
+        $executedSeeders = $executedOverview['executedSeeders'];
+        $executedSeederHierarchy = $executedOverview['executedSeederHierarchy'];
+        $recentSeedRunOrdinals = $executedOverview['recentSeedRunOrdinals'];
+        $executedClasses = $executedSeeders->pluck('class_name')->all();
 
-        $recentSeedRuns = $executedSeeders
-            ->filter(fn ($seedRun) => optional($seedRun->ran_at)->greaterThanOrEqualTo($recentThreshold))
-            ->sortByDesc(fn ($seedRun) => optional($seedRun->ran_at)->timestamp ?? 0)
-            ->values();
-
-        $recentSeedRunOrdinals = $recentSeedRuns
-            ->mapWithKeys(fn ($seedRun, $index) => [$seedRun->id => $index + 1]);
-
-        $executedClasses = $executedSeeders
-            ->pluck('class_name')
-            ->all();
-
-        $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
-            ->reject(fn (string $class) => in_array($class, $executedClasses, true))
-            ->map(function (string $class) {
-                $displayName = $this->formatSeederClassName($class);
-                [$namespace, $baseName] = $this->splitSeederDisplayName($displayName);
-
-                return (object) [
-                    'class_name' => $class,
-                    'display_class_name' => $displayName,
-                    'display_class_namespace' => $namespace,
-                    'display_class_basename' => $baseName,
-                    'supports_preview' => $this->seederSupportsPreview($class),
-                ];
-            })
-            ->values();
-
-        $pendingSeederHierarchy = $this->buildPendingSeederHierarchy($pendingSeeders);
-
-        $questionCounts = collect();
-
-        if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
-            $questionCounts = Question::query()
-                ->select('seeder', DB::raw('COUNT(*) as aggregate'))
-                ->whereIn('seeder', $executedClasses)
-                ->groupBy('seeder')
-                ->pluck('aggregate', 'seeder');
-        }
-
-        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
-            $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
-            $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
-
-            return $seedRun;
-        });
-
-        $executedSeederHierarchy = $this->buildSeederHierarchy($executedSeeders);
+        $pendingOverview = $this->loadPendingSeeders($executedClasses);
+        $pendingSeeders = $pendingOverview['pendingSeeders'];
+        $pendingSeederHierarchy = $pendingOverview['pendingSeederHierarchy'];
 
         return [
             'tableExists' => true,
@@ -192,6 +143,84 @@ class SeedRunsService
             'message' => $message,
             'executed' => $ran->all(),
             'errors' => $errors->all(),
+        ];
+    }
+
+    public function loadExecutedSeeders(): array
+    {
+        $executedSeeders = collect();
+        $recentSeedRunOrdinals = collect();
+        $executedSeederHierarchy = collect();
+
+        if (! Schema::hasTable('seed_runs')) {
+            return compact('executedSeeders', 'recentSeedRunOrdinals', 'executedSeederHierarchy');
+        }
+
+        $recentThreshold = now()->subDay();
+
+        $executedSeeders = DB::table('seed_runs')
+            ->orderByDesc('ran_at')
+            ->get()
+            ->map(function ($seedRun) {
+                $seedRun->ran_at = $seedRun->ran_at ? Carbon::parse($seedRun->ran_at) : null;
+                $seedRun->display_class_name = $this->formatSeederClassName($seedRun->class_name);
+
+                return $seedRun;
+            });
+
+        $recentSeedRuns = $executedSeeders
+            ->filter(fn ($seedRun) => optional($seedRun->ran_at)->greaterThanOrEqualTo($recentThreshold))
+            ->sortByDesc(fn ($seedRun) => optional($seedRun->ran_at)->timestamp ?? 0)
+            ->values();
+
+        $recentSeedRunOrdinals = $recentSeedRuns
+            ->mapWithKeys(fn ($seedRun, $index) => [$seedRun->id => $index + 1]);
+
+        $questionCounts = collect();
+
+        if (Schema::hasColumn('questions', 'seeder') && $executedSeeders->isNotEmpty()) {
+            $executedClasses = $executedSeeders->pluck('class_name');
+
+            $questionCounts = Question::query()
+                ->select('seeder', DB::raw('COUNT(*) as aggregate'))
+                ->whereIn('seeder', $executedClasses)
+                ->groupBy('seeder')
+                ->pluck('aggregate', 'seeder');
+        }
+
+        $executedSeeders = $executedSeeders->map(function ($seedRun) use ($questionCounts) {
+            $seedRun->question_count = (int) ($questionCounts[$seedRun->class_name] ?? 0);
+            $seedRun->data_profile = $this->describeSeederData($seedRun->class_name);
+
+            return $seedRun;
+        });
+
+        $executedSeederHierarchy = $this->buildSeederHierarchy($executedSeeders);
+
+        return compact('executedSeeders', 'recentSeedRunOrdinals', 'executedSeederHierarchy');
+    }
+
+    public function loadPendingSeeders(array $executedClasses = []): array
+    {
+        $pendingSeeders = collect($this->discoverSeederClasses(database_path('seeders')))
+            ->reject(fn (string $class) => in_array($class, $executedClasses, true))
+            ->map(function (string $class) {
+                $displayName = $this->formatSeederClassName($class);
+                [$namespace, $baseName] = $this->splitSeederDisplayName($displayName);
+
+                return (object) [
+                    'class_name' => $class,
+                    'display_class_name' => $displayName,
+                    'display_class_namespace' => $namespace,
+                    'display_class_basename' => $baseName,
+                    'supports_preview' => $this->seederSupportsPreview($class),
+                ];
+            })
+            ->values();
+
+        return [
+            'pendingSeeders' => $pendingSeeders,
+            'pendingSeederHierarchy' => $this->buildPendingSeederHierarchy($pendingSeeders),
         ];
     }
 

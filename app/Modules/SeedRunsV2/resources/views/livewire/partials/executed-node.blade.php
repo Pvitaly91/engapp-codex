@@ -1,6 +1,6 @@
 @php
     $isFolder = ($node['type'] ?? '') === 'folder';
-    $nodeKey = 'executed_' . ($node['path'] ?? uniqid());
+    $nodePath = $node['path'] ?? '';
     $searchQuery = $searchQuery ?? '';
 @endphp
 
@@ -8,34 +8,37 @@
     @php
         $folderName = $node['name'] ?? 'Unknown';
         $folderProfile = $node['folder_profile'] ?? [];
-        $shouldShow = empty($searchQuery) || collect($node['class_names'] ?? [])->contains(fn($c) => 
+        $isExpanded = in_array($nodePath, $expanded ?? [], true);
+        $shouldShow = empty($searchQuery) || collect($node['class_names'] ?? [])->contains(fn($c) =>
             stripos($this->seedRunsService->formatSeederClassName($c), $searchQuery) !== false
         );
     @endphp
     @if($shouldShow)
         <div
-            wire:key="executed-folder-{{ $nodeKey }}"
+            wire:key="executed-node-{{ md5($nodePath) }}"
             class="space-y-2"
             style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
         >
-            <button 
+            <button
                 type="button"
                 class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
-                @click="expandedFolders['{{ $nodeKey }}'] = !expandedFolders['{{ $nodeKey }}']"
+                wire:click="toggleNode('{{ addslashes($nodePath) }}')"
             >
-                <i 
+                <i
                     class="fa-solid fa-chevron-down text-xs text-slate-500 transition-transform"
-                    :class="{ '-rotate-90': !expandedFolders['{{ $nodeKey }}'] }"
+                    @class(['-rotate-90' => ! $isExpanded])
                 ></i>
                 <i class="fa-solid fa-folder-tree text-slate-500"></i>
                 <span>{{ $folderName }}</span>
                 <span class="text-xs font-normal text-slate-500">({{ $node['seeder_count'] ?? 0 }})</span>
             </button>
-            <div class="space-y-4" x-show="expandedFolders['{{ $nodeKey }}']" x-collapse>
+            @if($isExpanded)
+            <div class="space-y-4">
                 @foreach(($node['children'] ?? []) as $childNode)
                     @include('seed-runs-v2::livewire.partials.executed-node', ['node' => $childNode, 'depth' => $depth + 1])
                 @endforeach
             </div>
+            @endif
         </div>
     @endif
 @else
@@ -56,7 +59,7 @@
     @endphp
     @if($shouldShow)
         <div
-            wire:key="executed-item-{{ $seedRunId ?: $className }}"
+            wire:key="executed-node-{{ md5($nodePath ?: $className) }}"
             class="space-y-2"
             style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
         >

@@ -3,6 +3,8 @@
 namespace App\Modules\SeedRunsV2\Http\Livewire;
 
 use App\Modules\SeedRunsV2\Services\SeedRunsService;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Schema;
 use Livewire\Component;
 
 class SeedRunsIndex extends Component
@@ -37,6 +39,8 @@ class SeedRunsIndex extends Component
     public array $selectedPendingSeeders = [];
     public array $selectedExecutedSeeders = [];
 
+    public array $expanded = [];
+
     public int $pendingTreeVersion = 0;
     public int $executedTreeVersion = 0;
     
@@ -54,12 +58,28 @@ class SeedRunsIndex extends Component
 
     public function refreshOverview(): void
     {
-        $overview = $this->seedRunsService->assembleSeedRunOverview();
-        
-        $this->tableExists = $overview['tableExists'];
-        $this->pendingSeederHierarchy = $overview['pendingSeederHierarchy']->toArray();
-        $this->executedSeederHierarchy = $overview['executedSeederHierarchy']->toArray();
-        $this->recentSeedRunOrdinals = $overview['recentSeedRunOrdinals']->toArray();
+        $this->tableExists = Schema::hasTable('seed_runs');
+
+        if (! $this->tableExists) {
+            $this->pendingSeederHierarchy = [];
+            $this->executedSeederHierarchy = [];
+            $this->recentSeedRunOrdinals = [];
+            $this->pendingTreeVersion++;
+            $this->executedTreeVersion++;
+            $this->emitSelf('$refresh');
+
+            return;
+        }
+
+        $executedOverview = $this->seedRunsService->loadExecutedSeeders();
+
+        $executedSeeders = $executedOverview['executedSeeders'];
+        $executedClasses = $executedSeeders->pluck('class_name')->all();
+        $this->recentSeedRunOrdinals = $executedOverview['recentSeedRunOrdinals']->toArray();
+        $this->applyExecutedHierarchy($executedOverview['executedSeederHierarchy']);
+
+        $pendingOverview = $this->seedRunsService->loadPendingSeeders($executedClasses);
+        $this->pendingSeederHierarchy = $pendingOverview['pendingSeederHierarchy']->toArray();
 
         $this->pendingTreeVersion++;
         $this->executedTreeVersion++;
@@ -74,9 +94,10 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
-        
+
         if ($result['success']) {
-            $this->refreshOverview();
+            $executedClasses = $this->refreshExecutedTree();
+            $this->refreshPendingTree($executedClasses);
         }
     }
 
@@ -91,7 +112,7 @@ class SeedRunsIndex extends Component
     public function runMissingSeeders(): void
     {
         $result = $this->seedRunsService->runMissingSeeders();
-        
+
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
         
@@ -112,9 +133,10 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
-        
+
         if ($result['success']) {
-            $this->refreshOverview();
+            $executedClasses = $this->refreshExecutedTree();
+            $this->refreshPendingTree($executedClasses);
         }
     }
 
@@ -132,7 +154,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = $result['success'] ? 'success' : 'error';
-        
+
         if ($result['success']) {
             $this->refreshOverview();
         }
@@ -152,7 +174,7 @@ class SeedRunsIndex extends Component
         
         $this->statusMessage = $result['message'];
         $this->statusType = ($result['status'] ?? '') === 'success' ? 'success' : 'error';
-        
+
         $this->refreshOverview();
     }
 
@@ -322,6 +344,67 @@ class SeedRunsIndex extends Component
     public function clearStatus(): void
     {
         $this->statusMessage = '';
+    }
+
+    public function toggleNode(string $path): void
+    {
+        if (in_array($path, $this->expanded, true)) {
+            $this->expanded = array_values(array_diff($this->expanded, [$path]));
+
+            return;
+        }
+
+        $this->expanded[] = $path;
+    }
+
+    public function refreshPendingTree(array $executedClasses = []): void
+    {
+        $pendingOverview = $this->seedRunsService->loadPendingSeeders($executedClasses);
+        $this->pendingSeederHierarchy = $pendingOverview['pendingSeederHierarchy']->toArray();
+        $this->pendingTreeVersion++;
+    }
+
+    public function refreshExecutedTree(): array
+    {
+        $executedOverview = $this->seedRunsService->loadExecutedSeeders();
+
+        $this->recentSeedRunOrdinals = $executedOverview['recentSeedRunOrdinals']->toArray();
+        $this->applyExecutedHierarchy($executedOverview['executedSeederHierarchy']);
+        $this->executedTreeVersion++;
+
+        return $executedOverview['executedSeeders']->pluck('class_name')->all();
+    }
+
+    protected function applyExecutedHierarchy(Collection $hierarchy): void
+    {
+        $this->executedSeederHierarchy = $hierarchy->toArray();
+
+        $validPaths = $this->extractFolderPaths($this->executedSeederHierarchy);
+
+        // executed tree rebuild uses shared normalizer; stable keys; expanded in Livewire
+        $this->expanded = array_values(array_intersect($this->expanded, $validPaths));
+    }
+
+    protected function extractFolderPaths(array|Collection $nodes): array
+    {
+        $paths = [];
+        $items = $nodes instanceof Collection ? $nodes->all() : $nodes;
+
+        foreach ($items as $node) {
+            if (($node['type'] ?? '') !== 'folder') {
+                continue;
+            }
+
+            $path = $node['path'] ?? '';
+
+            if ($path !== '') {
+                $paths[] = $path;
+            }
+
+            $paths = array_merge($paths, $this->extractFolderPaths($node['children'] ?? []));
+        }
+
+        return array_values(array_unique($paths));
     }
 
     public function render()
