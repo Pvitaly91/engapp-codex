@@ -27,6 +27,75 @@ class GapTagInferer
     private const MAX_TAGS = 3;
 
     /**
+     * Patterns that indicate indirect/embedded questions.
+     */
+    private const INDIRECT_QUESTION_PATTERNS = [
+        '/can you tell me\b/i',
+        '/could you tell me\b/i',
+        '/do you know\b/i',
+        '/i wonder\b/i',
+        '/i\'m not sure\b/i',
+        '/i\'m uncertain\b/i',
+        '/do you remember\b/i',
+        '/can you explain\b/i',
+        '/could you clarify\b/i',
+        '/we need to determine\b/i',
+        '/the question remains\b/i',
+        '/one might wonder\b/i',
+        '/one might inquire\b/i',
+        '/i\'d like to understand\b/i',
+    ];
+
+    /**
+     * Patterns for embedded wh-clauses (statement word order after wh-word).
+     */
+    private const EMBEDDED_WH_PATTERNS = [
+        '/\bwhere\s+\w+\s+is\b/i',
+        '/\bwhat\s+\w+\s+is\b/i',
+        '/\bwhen\s+\w+\s+(was|is|did)\b/i',
+        '/\bhow\s+\w+\s+(is|was|works?)\b/i',
+        '/\bwhether\s+\w+\s+(will|is|was|has|have|had)\b/i',
+        '/\bif\s+\w+\s+(is|was|will|has|have|had)\b/i',
+    ];
+
+    /**
+     * Negative tag endings pattern (e.g., "isn't he", "don't you").
+     */
+    private const TAG_NEGATIVE_PATTERN = '/^(isn\'t|aren\'t|wasn\'t|weren\'t|don\'t|doesn\'t|didn\'t|haven\'t|hasn\'t|hadn\'t|won\'t|wouldn\'t|can\'t|couldn\'t|shouldn\'t|mustn\'t|shan\'t)\s+(i|you|he|she|it|we|they)$/i';
+
+    /**
+     * Positive tag endings pattern (e.g., "is he", "do you").
+     */
+    private const TAG_POSITIVE_PATTERN = '/^(is|are|was|were|do|does|did|have|has|had|will|would|can|could|should|must|shall)\s+(i|you|he|she|it|we|they)$/i';
+
+    /**
+     * Ought tag pattern.
+     */
+    private const TAG_OUGHT_PATTERN = '/^(ought|oughtn\'t)\s+(i|you|he|she|it|we|they)(\s+not)?$/i';
+
+    /**
+     * Common irregular past tense verbs.
+     */
+    private const IRREGULAR_PAST_VERBS = [
+        'wrote', 'broke', 'made', 'gave', 'took', 'went', 'came', 'saw', 'knew',
+        'thought', 'found', 'said', 'got', 'put', 'told', 'left', 'felt', 'became',
+        'brought', 'began', 'kept', 'held', 'stood', 'heard', 'let', 'meant', 'set',
+        'met', 'paid', 'sat', 'spoke', 'led', 'read', 'ran', 'built', 'sent', 'spent',
+        'understood', 'caught', 'drawn', 'shown', 'chosen', 'grown', 'thrown', 'worn',
+        'torn', 'born', 'sworn', 'withdrawn', 'happened', 'caused', 'suggested', 'called',
+    ];
+
+    /**
+     * Auxiliary forms that indicate NOT a subject question.
+     */
+    private const AUXILIARY_FORMS = [
+        'am', 'is', 'are', 'was', 'were',                                      // be forms
+        'do', 'does', 'did',                                                    // do forms
+        'have', 'has', 'had',                                                   // have forms
+        'will', 'would', 'can', 'could', 'should', 'must', 'may', 'might',     // modals
+    ];
+
+    /**
      * Infer grammatical tags for a gap marker in a question.
      *
      * @param  string  $questionText  The full question text with markers like {a1}, {a2}
@@ -188,41 +257,15 @@ class GapTagInferer
      */
     private function detectIndirectEmbeddedQuestions(string $question, array $window): array
     {
-        // Indirect question intro patterns
-        $indirectPatterns = [
-            '/can you tell me\b/i',
-            '/could you tell me\b/i',
-            '/do you know\b/i',
-            '/i wonder\b/i',
-            '/i\'m not sure\b/i',
-            '/i\'m uncertain\b/i',
-            '/do you remember\b/i',
-            '/can you explain\b/i',
-            '/could you clarify\b/i',
-            '/we need to determine\b/i',
-            '/the question remains\b/i',
-            '/one might wonder\b/i',
-            '/one might inquire\b/i',
-            '/i\'d like to understand\b/i',
-        ];
-
-        foreach ($indirectPatterns as $pattern) {
+        // Check indirect question intro patterns
+        foreach (self::INDIRECT_QUESTION_PATTERNS as $pattern) {
             if (preg_match($pattern, $question)) {
                 return ['Indirect Questions', 'Question Word Order'];
             }
         }
 
         // Check for embedded wh-clause patterns (after wh-word, statement order is expected)
-        $embeddedWhPatterns = [
-            '/\bwhere\s+\w+\s+is\b/i',
-            '/\bwhat\s+\w+\s+is\b/i',
-            '/\bwhen\s+\w+\s+(was|is|did)\b/i',
-            '/\bhow\s+\w+\s+(is|was|works?)\b/i',
-            '/\bwhether\s+\w+\s+(will|is|was|has|have|had)\b/i',
-            '/\bif\s+\w+\s+(is|was|will|has|have|had)\b/i',
-        ];
-
-        foreach ($embeddedWhPatterns as $pattern) {
+        foreach (self::EMBEDDED_WH_PATTERNS as $pattern) {
             if (preg_match($pattern, $question)) {
                 return ['Indirect Questions', 'Embedded Questions'];
             }
@@ -252,11 +295,11 @@ class GapTagInferer
             return ['Tag Questions', 'Question Tags'];
         }
 
-        // Check if options look like tag endings
+        // Use constants for tag patterns
         $tagPatterns = [
-            '/^(isn\'t|aren\'t|wasn\'t|weren\'t|don\'t|doesn\'t|didn\'t|haven\'t|hasn\'t|hadn\'t|won\'t|wouldn\'t|can\'t|couldn\'t|shouldn\'t|mustn\'t|shan\'t)\s+(i|you|he|she|it|we|they)$/i',
-            '/^(is|are|was|were|do|does|did|have|has|had|will|would|can|could|should|must|shall)\s+(i|you|he|she|it|we|they)$/i',
-            '/^(ought|oughtn\'t)\s+(i|you|he|she|it|we|they)(\s+not)?$/i',
+            self::TAG_NEGATIVE_PATTERN,
+            self::TAG_POSITIVE_PATTERN,
+            self::TAG_OUGHT_PATTERN,
         ];
 
         $tagLikeOptions = 0;
@@ -302,40 +345,16 @@ class GapTagInferer
 
         if (preg_match($subjectQuestionPattern, $question)) {
             // Subject questions have a VERB as the answer, not an auxiliary
-            // If answer is an auxiliary (is, are, do, does, did, was, were, has, have, had),
-            // then it's NOT a subject question
-            $auxiliaryForms = [
-                'am', 'is', 'are', 'was', 'were',  // be forms
-                'do', 'does', 'did',                // do forms
-                'have', 'has', 'had',               // have forms
-                'will', 'would', 'can', 'could', 'should', 'must', 'may', 'might',  // modals
-            ];
-
-            if (in_array($answer, $auxiliaryForms)) {
-                // Answer is an auxiliary, not a subject question
+            // If answer is an auxiliary, then it's NOT a subject question
+            if (in_array($answer, self::AUXILIARY_FORMS)) {
                 return [];
             }
 
             // Check if answer looks like a verb form (past simple or present simple)
-            $verbFormPatterns = [
-                '/^[a-z]+ed$/i',  // regular past: worked, played
-                '/^(wrote|broke|made|gave|took|went|came|saw|knew|thought|found|said|got|put|told|left|felt|became|brought|began|kept|held|stood|heard|let|meant|set|met|paid|sat|spoke|led|read|ran|built|sent|spent|understood|caught|drawn|shown|chosen|grown|thrown|worn|torn|born|sworn|withdrawn)$/i',  // irregular past
-                '/^[a-z]+s$/i',   // 3rd person present: works, plays
-            ];
-
-            $isVerbForm = false;
-            foreach ($verbFormPatterns as $pattern) {
-                if (preg_match($pattern, $answer)) {
-                    $isVerbForm = true;
-                    break;
-                }
-            }
-
-            // Also check for specific common verbs
-            $commonPastForms = ['wrote', 'broke', 'made', 'gave', 'took', 'went', 'came', 'saw', 'knew', 'happened', 'caused', 'suggested', 'called'];
-            if (in_array($answer, $commonPastForms)) {
-                $isVerbForm = true;
-            }
+            // Regular past (-ed), irregular past (constant), or 3rd person present (-s)
+            $isVerbForm = preg_match('/^[a-z]+ed$/i', $answer)    // regular past: worked, played
+                       || in_array($answer, self::IRREGULAR_PAST_VERBS)  // irregular past
+                       || preg_match('/^[a-z]+s$/i', $answer);    // 3rd person present: works, plays
 
             // Only return subject question if the answer is a verb form (not auxiliary)
             if ($isVerbForm) {
