@@ -85,6 +85,27 @@ class Question extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+    /**
+     * Get tags for specific markers (a1, a2, etc.) via the question_marker_tag pivot table.
+     */
+    public function markerTags()
+    {
+        return $this->belongsToMany(Tag::class, 'question_marker_tag')
+            ->withPivot('marker')
+            ->withTimestamps();
+    }
+
+    /**
+     * Get tags for a specific marker.
+     *
+     * @param  string  $marker  The marker name (e.g., 'a1', 'a2')
+     * @return \Illuminate\Database\Eloquent\Collection<Tag>
+     */
+    public function getTagsForMarker(string $marker)
+    {
+        return $this->markerTags()->wherePivot('marker', $marker)->get();
+    }
+
     public function hints()
     {
         return $this->hasMany(QuestionHint::class);

@@ -117,10 +117,12 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
 const CSRF_TOKEN = '{{ csrf_token() }}';
 const EXPLAIN_URL = '{{ route('question.explain') }}';
 const HINT_URL = '{{ route('question.hint') }}';
+const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
+@include('components.marker-theory-js')
 <script>
 const state = {
   items: [],
@@ -160,6 +162,7 @@ async function init(forceFresh = false) {
         if (typeof item.explanation !== 'string') item.explanation = '';
         if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
         if (!('pendingExplanationKey' in item)) item.pendingExplanationKey = null;
+        if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
       });
     }
   }
@@ -181,6 +184,7 @@ async function init(forceFresh = false) {
         explanation: '',
         explanationsCache: {},
         pendingExplanationKey: null,
+        markerTheoryCache: {},
       };
     });
     state.correct = 0;
@@ -207,7 +211,7 @@ function renderQuestions(showOnlyWrong = false) {
     card.tabIndex = 0;
     card.dataset.idx = idx;
 
-    const sentence = renderSentence(q);
+    const sentence = renderSentence(q, idx);
 
     card.innerHTML = `
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3.5 sm:gap-4 mb-5 sm:mb-6">
@@ -248,6 +252,16 @@ function renderQuestions(showOnlyWrong = false) {
     `;
 
     card.addEventListener('click', (e) => {
+      // Handle marker theory button clicks (using delegation since sentence re-renders)
+      const markerTheoryBtn = e.target.closest('button.marker-theory-btn');
+      if (markerTheoryBtn) {
+        e.stopPropagation();
+        const marker = markerTheoryBtn.dataset.marker;
+        const btnIdx = parseInt(markerTheoryBtn.dataset.idx, 10);
+        fetchMarkerTheory(btnIdx, marker);
+        return;
+      }
+      
       const btn = e.target.closest('button[data-opt]');
       if (!btn) return;
       onChoose(idx, btn.dataset.opt);
@@ -399,7 +413,7 @@ function onChoose(idx, opt) {
 
   const container = document.querySelector(`article[data-idx="${idx}"]`);
   if (container) {
-    container.querySelector('.leading-relaxed').innerHTML = renderSentence(item);
+    container.querySelector('.leading-relaxed').innerHTML = renderSentence(item, idx);
     const group = container.querySelector('[role="group"]');
     group.innerHTML = item.options.map((optText, i) => renderOptionButton(item, idx, optText, i)).join('');
     container.querySelector(`#feedback-${idx}`).innerHTML = renderFeedback(item);
@@ -448,7 +462,7 @@ function checkAllDone() {
   }
 }
 
-function renderSentence(q) {
+function renderSentence(q, idx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
     const replacement = q.chosen[i]
@@ -461,7 +475,9 @@ function renderSentence(q) {
     const hint = q.verb_hints && q.verb_hints[marker]
       ? ` <span class="verb-hint text-red-600 text-sm font-bold">( ${html(q.verb_hints[marker])} )</span>`
       : '';
-    text = text.replace(regex, replacement + hint);
+    // Add marker theory button if marker has tags
+    const theoryBtn = renderMarkerTheoryButton(marker, idx, hasMarkerTags(q, marker));
+    text = text.replace(regex, replacement + hint + theoryBtn);
   });
   return text;
 }
@@ -646,7 +662,9 @@ function renderTheoryPanel(q, idx) {
       content += `</ul>`;
     }
   } catch (e) {
-    content = `<p class="text-sm text-emerald-800">${html(block.body || '')}</p>`;
+    // If body is not valid JSON, it may be raw HTML content from trusted server-side sources
+    // Render it directly without escaping
+    content = `<div class="text-sm text-emerald-800">${block.body || ''}</div>`;
   }
   
   panel.innerHTML = `

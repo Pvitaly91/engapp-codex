@@ -283,6 +283,7 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
 
         Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
         Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
+        Route::post('/question-marker-theory', [QuestionHelpController::class, 'markerTheory'])->name('question.marker-theory');
 
         Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
         Route::get('/seed-runs/preview', [SeedRunController::class, 'preview'])->name('seed-runs.preview');
