@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TextBlock;
+use App\Services\MarkerTheoryMatcherService;
 use App\Services\QuestionVariantService;
 use App\Services\SavedTestResolver;
 
@@ -11,6 +12,7 @@ class TestJsV2Controller extends Controller
     public function __construct(
         private QuestionVariantService $variantService,
         private SavedTestResolver $savedTestResolver,
+        private MarkerTheoryMatcherService $markerTheoryMatcher,
     ) {}
 
     /**
@@ -157,6 +159,9 @@ class TestJsV2Controller extends Controller
                 }
             }
 
+            // Load marker tags for each answer marker
+            $markerTags = $this->markerTheoryMatcher->getAllMarkerTags($q->id);
+
             return [
                 'id' => $q->id,
                 'question' => $q->question,
@@ -169,6 +174,7 @@ class TestJsV2Controller extends Controller
                 'tense' => $q->category->name ?? '',
                 'level' => $q->level ?? '',
                 'theory_block' => $theoryBlock,
+                'marker_tags' => $markerTags,
             ];
         })->values()->all();
     }

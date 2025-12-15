@@ -466,7 +466,9 @@ function renderTheoryPanel(q, idx) {
       content += `</ul>`;
     }
   } catch (e) {
-    content = `<p class="text-sm text-emerald-800">${html(block.body || '')}</p>`;
+    // If body is not valid JSON, it may be raw HTML content from trusted server-side sources
+    // Render it directly without escaping
+    content = `<div class="text-sm text-emerald-800">${block.body || ''}</div>`;
   }
   
   panel.innerHTML = `
