@@ -5,6 +5,7 @@ namespace Database\Seeders\Ai\Claude;
 use App\Models\Category;
 use App\Models\Source;
 use App\Models\Tag;
+use App\Services\EnglishTagging\GapTagInferer;
 use App\Support\TextBlock\TextBlockUuidGenerator;
 use Database\Seeders\QuestionSeeder;
 
@@ -12,6 +13,8 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 {
     public function run(): void
     {
+        // Initialize the GapTagInferer service for gap-focused tagging
+        $gapTagInferer = new GapTagInferer();
         $categoryId = Category::firstOrCreate(['name' => 'Questions - Different Types'])->id;
 
         // Create separate sources for each question topic
@@ -121,6 +124,37 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             'may_might' => Tag::firstOrCreate(['name' => 'May/Might'], ['category' => 'English Grammar Auxiliary'])->id,
         ];
 
+        // Map gap tag names (returned by GapTagInferer) to tag IDs
+        // This allows converting gap-focused inference results to actual tag IDs
+        $gapTagNameToId = [
+            // Structural patterns
+            'Indirect Questions' => $detailTags['indirect_questions'],
+            'Question Word Order' => Tag::firstOrCreate(['name' => 'Question Word Order'], ['category' => 'English Grammar Detail'])->id,
+            'Embedded Questions' => Tag::firstOrCreate(['name' => 'Embedded Questions'], ['category' => 'English Grammar Detail'])->id,
+            'Tag Questions' => $detailTags['tag_questions'],
+            'Question Tags' => Tag::firstOrCreate(['name' => 'Question Tags'], ['category' => 'English Grammar Detail'])->id,
+            'Subject Questions' => $detailTags['subject_questions'],
+            'Question Formation' => Tag::firstOrCreate(['name' => 'Question Formation'], ['category' => 'English Grammar Detail'])->id,
+            // Auxiliary/Tense patterns
+            'Do/Does/Did' => $auxiliaryTags['do_does_did'],
+            'Present Simple' => $tenseTags['present_simple'],
+            'Past Simple' => $tenseTags['past_simple'],
+            'Be (am/is/are/was/were)' => $auxiliaryTags['be_auxiliary'],
+            'To Be' => $tenseTags['to_be'],
+            'Present Continuous' => $tenseTags['present_continuous'],
+            'Past Continuous' => $tenseTags['past_continuous'],
+            'Have/Has/Had' => $auxiliaryTags['have_has_had'],
+            'Present Perfect' => $tenseTags['present_perfect'],
+            'Past Perfect' => $tenseTags['past_perfect'],
+            'Modal Verbs' => $tenseTags['modal_verbs'],
+            'Will/Would' => $auxiliaryTags['will_would'],
+            'Future Simple' => $tenseTags['future_simple'],
+            'Can/Could' => $auxiliaryTags['can_could'],
+            'Should' => $auxiliaryTags['should'],
+            'Must' => $auxiliaryTags['must'],
+            'May/Might' => $auxiliaryTags['may_might'],
+        ];
+
         $levelDifficulty = [
             'A1' => 1,
             'A2' => 2,
@@ -207,10 +241,73 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 $tagIds[] = $levelTags[$question['level']];
             }
 
-            // Add tense/structure and auxiliary tags based on verb_hint
-            if (isset($question['verb_hint'])) {
-                $additionalTags = $this->getTagsFromVerbHint($question['verb_hint'], $tenseTags, $auxiliaryTags);
-                $tagIds = array_merge($tagIds, $additionalTags);
+            // ============================================================
+            // Gap-focused tagging: Use GapTagInferer for each marker
+            // ============================================================
+            $gapTagsPerMarker = [];
+            $allGapTagIds = [];
+
+            // Process each marker for gap-focused tagging
+            $markersToProcess = $isMultiMarker
+                ? array_keys($question['answers'])
+                : ['a1'];
+
+            foreach ($markersToProcess as $marker) {
+                $correctAnswer = $question['answers'][$marker] ?? '';
+
+                // Get options for this specific marker
+                $markerOptions = $isMultiMarker
+                    ? ($question['options'][$marker] ?? [])
+                    : $question['options'];
+
+                // Get verb hint for this marker
+                $verbHint = $isMultiMarker
+                    ? ($question['verb_hints'][$marker] ?? null)
+                    : ($question['verb_hint'] ?? null);
+
+                // Call GapTagInferer to get gap-focused tags (returns tag names)
+                $gapTagNames = $gapTagInferer->infer(
+                    $question['question'],
+                    $marker,
+                    $correctAnswer,
+                    $markerOptions,
+                    $verbHint
+                );
+
+                // Convert tag names to tag IDs (limit 1-3 per marker)
+                $gapTagIdsForMarker = [];
+                foreach (array_slice($gapTagNames, 0, 3) as $tagName) {
+                    if (isset($gapTagNameToId[$tagName])) {
+                        $gapTagIdsForMarker[] = $gapTagNameToId[$tagName];
+                    }
+                }
+
+                // Store per-marker tags (names for meta, IDs for union)
+                $gapTagsPerMarker[$marker] = $gapTagNames;
+
+                // Collect gap tag IDs (using array_push with spread for efficiency)
+                array_push($allGapTagIds, ...$gapTagIdsForMarker);
+            }
+
+            // Deduplicate gap tag IDs before merging
+            $allGapTagIds = array_unique($allGapTagIds);
+
+            // If gap inference returned tags, use them as primary
+            if (! empty($allGapTagIds)) {
+                $tagIds = array_merge($tagIds, $allGapTagIds);
+            } else {
+                // Fallback: Add tense/structure and auxiliary tags based on verb_hints
+                // For multi-marker, try each marker's verb_hint; for single-marker, use the main verb_hint
+                $verbHintsToTry = $isMultiMarker
+                    ? array_values(array_filter($question['verb_hints'] ?? []))
+                    : [($question['verb_hint'] ?? null)];
+
+                foreach ($verbHintsToTry as $hint) {
+                    if ($hint !== null) {
+                        $additionalTags = $this->getTagsFromVerbHint($hint, $tenseTags, $auxiliaryTags);
+                        $tagIds = array_merge($tagIds, $additionalTags);
+                    }
+                }
             }
 
             // Determine source_id based on question detail/topic
@@ -244,6 +341,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'option_markers' => $optionMarkers,
                 'hints' => $question['hints'],
                 'explanations' => $question['explanations'],
+                'gap_tags' => $gapTagsPerMarker, // Store per-marker gap tags in meta
             ];
         }
 
