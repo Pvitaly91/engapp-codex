@@ -29,19 +29,25 @@ class TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder extends Questio
                 'language' => 'uk',
             ],
             'tags' => [
-                'Yes/No Questions',
-                'General Questions',
-                'Загальні питання',
-                'Question Forms',
+                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
-                'Auxiliary Verbs',
-                'Do/Does/Did',
-                'To Be Questions',
-                'Modal Questions',
+                'Question Forms',
                 'Grammar',
                 'Theory',
-                'A1',
-                'A2',
+                // Detail tags (canonical)
+                'Yes/No Questions',
+                'General Questions',
+                // Auxiliary tags (canonical)
+                'Do/Does/Did',
+                'Be (am/is/are/was/were)',
+                'Modal Verbs',
+                // Tense tags (canonical)
+                'Present Simple',
+                'Past Simple',
+                'To Be',
+                // Level tags (canonical CEFR format)
+                'CEFR A1',
+                'CEFR A2',
             ],
             'blocks' => [
                 [

@@ -29,17 +29,25 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 'language' => 'uk',
             ],
             'tags' => [
-                'Alternative Questions',
-                'Альтернативні питання',
-                'Question Forms',
+                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
-                'OR',
-                'Choice Questions',
-                'Питання з вибором',
+                'Question Forms',
                 'Grammar',
                 'Theory',
-                'A2',
-                'B1',
+                // Detail tags (canonical)
+                'Alternative Questions',
+                'Choice Questions',
+                // Auxiliary tags (canonical)
+                'Do/Does/Did',
+                'Be (am/is/are/was/were)',
+                'Modal Verbs',
+                // Tense tags (canonical)
+                'Present Simple',
+                'Past Simple',
+                'Future Simple',
+                // Level tags (canonical CEFR format)
+                'CEFR A2',
+                'CEFR B1',
             ],
             'blocks' => [
                 [
