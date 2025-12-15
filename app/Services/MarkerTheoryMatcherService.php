@@ -17,6 +17,95 @@ class MarkerTheoryMatcherService
     private const TYPES_OF_QUESTIONS_TAG = 'types-of-questions';
 
     /**
+     * Minimum weighted score required for a valid match.
+     */
+    private const MIN_SCORE_THRESHOLD = 3;
+
+    /**
+     * Tag weight categories for weighted scoring.
+     * Higher weights give priority to more specific/detailed tag matches.
+     *
+     * Weight tiers:
+     * - Theme/Section tags (general): weight 1
+     * - Subtopic/Forms tags: weight 2
+     * - Detail tags (question types): weight 3
+     * - Grammar feature tags (auxiliaries, tenses): weight 4
+     */
+    private const TAG_WEIGHTS = [
+        // General topic/section tags (weight 1)
+        'types of questions' => 1,
+        'question forms' => 1,
+        'grammar' => 1,
+        'theory' => 1,
+
+        // Subtopic/Forms tags (weight 2)
+        'introduction' => 2,
+        'overview' => 2,
+        'definition' => 2,
+        'summary' => 2,
+        'comparison' => 2,
+        'common mistakes' => 2,
+        'practice' => 2,
+        'exercises' => 2,
+
+        // Detail tags - question types (weight 3)
+        'yes/no questions' => 3,
+        'general questions' => 3,
+        'wh-questions' => 3,
+        'special questions' => 3,
+        'subject questions' => 3,
+        'indirect questions' => 3,
+        'tag questions' => 3,
+        'question tags' => 3,
+        'disjunctive questions' => 3,
+        'alternative questions' => 3,
+        'choice questions' => 3,
+        'negative questions' => 3,
+        'negative question forms' => 3,
+        'embedded questions' => 3,
+        'question word order' => 3,
+        'question formation' => 3,
+
+        // Grammar feature tags - auxiliaries and tenses (weight 4)
+        'do/does/did' => 4,
+        'be (am/is/are/was/were)' => 4,
+        'to be' => 4,
+        'have/has/had' => 4,
+        'modal verbs' => 4,
+        'can/could' => 4,
+        'will/would' => 4,
+        'should' => 4,
+        'must' => 4,
+        'may/might' => 4,
+        'auxiliaries' => 4,
+        'inversion' => 4,
+
+        // Tense tags (weight 4)
+        'present simple' => 4,
+        'past simple' => 4,
+        'future simple' => 4,
+        'present continuous' => 4,
+        'past continuous' => 4,
+        'present perfect' => 4,
+        'past perfect' => 4,
+        'present perfect continuous' => 4,
+        'past perfect continuous' => 4,
+
+        // CEFR level tags (weight 2 - bonus for level match)
+        'cefr a1' => 2,
+        'cefr a2' => 2,
+        'cefr b1' => 2,
+        'cefr b2' => 2,
+        'cefr c1' => 2,
+        'cefr c2' => 2,
+    ];
+
+    /**
+     * Default weight for tags not in the weight map.
+     */
+    private const DEFAULT_TAG_WEIGHT = 2;
+
+    /**
      * Find the best matching theory block for a specific marker in a question.
      *
      * @param  int  $questionId  The question ID
@@ -74,7 +163,13 @@ class MarkerTheoryMatcherService
     }
 
     /**
-     * Find the best matching text block based on tag intersection.
+     * Find the best matching text block based on weighted tag intersection.
+     *
+     * The algorithm:
+     * 1. Find all text blocks with tag intersection
+     * 2. Calculate weighted score for each match
+     * 3. Prioritize blocks with more specific/detailed tag matches
+     * 4. Return block with highest score above threshold
      *
      * @param  array  $normalizedTags  Normalized tag names
      * @return array|null Array with 'block', 'matched_tags', 'score' or null
@@ -100,9 +195,8 @@ class MarkerTheoryMatcherService
             );
 
             $matched = array_values(array_intersect($normalizedTags, $blockTags));
-            $score = count($matched);
 
-            if ($score < 1) {
+            if (empty($matched)) {
                 continue;
             }
 
@@ -112,6 +206,14 @@ class MarkerTheoryMatcherService
             );
 
             if (! $hasOtherTag) {
+                continue;
+            }
+
+            // Calculate weighted score
+            $score = $this->calculateWeightedScore($matched);
+
+            // Apply minimum threshold check
+            if ($score < self::MIN_SCORE_THRESHOLD) {
                 continue;
             }
 
@@ -126,6 +228,24 @@ class MarkerTheoryMatcherService
         }
 
         return $bestMatch;
+    }
+
+    /**
+     * Calculate weighted score for a set of matched tags.
+     *
+     * @param  array  $matchedTags  Normalized matched tag names
+     * @return float Total weighted score
+     */
+    private function calculateWeightedScore(array $matchedTags): float
+    {
+        $score = 0;
+
+        foreach ($matchedTags as $tag) {
+            $weight = self::TAG_WEIGHTS[$tag] ?? self::DEFAULT_TAG_WEIGHT;
+            $score += $weight;
+        }
+
+        return $score;
     }
 
     /**

@@ -127,6 +127,9 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         // Map gap tag names (returned by GapTagInferer) to tag IDs
         // This allows converting gap-focused inference results to actual tag IDs
         $gapTagNameToId = [
+            // General topic/section tags (for tag chain)
+            'Types of Questions' => $sharedTheoryTags[0], // Already in sharedTheoryTags
+            'Question Forms' => $sharedTheoryTags[1], // Already in sharedTheoryTags
             // Structural patterns
             'Indirect Questions' => $detailTags['indirect_questions'],
             'Question Word Order' => Tag::firstOrCreate(['name' => 'Question Word Order'], ['category' => 'English Grammar Detail'])->id,
@@ -135,6 +138,14 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             'Question Tags' => Tag::firstOrCreate(['name' => 'Question Tags'], ['category' => 'English Grammar Detail'])->id,
             'Subject Questions' => $detailTags['subject_questions'],
             'Question Formation' => Tag::firstOrCreate(['name' => 'Question Formation'], ['category' => 'English Grammar Detail'])->id,
+            // Detail type tags (question types)
+            'Yes/No Questions' => $detailTags['yes_no'],
+            'General Questions' => Tag::firstOrCreate(['name' => 'General Questions'], ['category' => 'English Grammar Detail'])->id,
+            'Wh-Questions' => $detailTags['wh_questions'],
+            'Special Questions' => Tag::firstOrCreate(['name' => 'Special Questions'], ['category' => 'English Grammar Detail'])->id,
+            'Alternative Questions' => $detailTags['alternative_questions'],
+            'Negative Questions' => $detailTags['negative_questions'],
+            'Negative Question Forms' => Tag::firstOrCreate(['name' => 'Negative Question Forms'], ['category' => 'English Grammar Detail'])->id,
             // Auxiliary/Tense patterns
             'Do/Does/Did' => $auxiliaryTags['do_does_did'],
             'Present Simple' => $tenseTags['present_simple'],
@@ -243,6 +254,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 
             // ============================================================
             // Gap-focused tagging: Use GapTagInferer for each marker
+            // Build a "chain" of tags from general to specific for tag-based theory matching
             // ============================================================
             $gapTagsPerMarker = [];
             $allGapTagIds = [];
@@ -251,6 +263,30 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             $markersToProcess = $isMultiMarker
                 ? array_keys($question['answers'])
                 : ['a1'];
+
+            // Get the detail type for this question to build the tag chain
+            $questionDetail = $question['detail'] ?? null;
+
+            // Build the general-to-specific tag chain based on question type
+            // This ensures marker tags contain both general (topic/section) and specific (detail/grammar) tags
+            $baseTagChain = ['Types of Questions', 'Question Forms'];
+
+            // Add detail-specific tags to the chain
+            $detailTagNames = [];
+            if ($questionDetail !== null) {
+                // Map detail keys to their tag names for the chain
+                $detailTagNameMap = [
+                    'yes_no' => ['Yes/No Questions', 'General Questions'],
+                    'wh_questions' => ['Wh-Questions', 'Special Questions'],
+                    'subject_questions' => ['Subject Questions'],
+                    'indirect_questions' => ['Indirect Questions'],
+                    'tag_questions' => ['Tag Questions', 'Question Tags'],
+                    'alternative_questions' => ['Alternative Questions'],
+                    'negative_questions' => ['Negative Questions', 'Negative Question Forms'],
+                ];
+
+                $detailTagNames = $detailTagNameMap[$questionDetail] ?? [];
+            }
 
             foreach ($markersToProcess as $marker) {
                 $correctAnswer = $question['answers'][$marker] ?? '';
@@ -266,7 +302,8 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     : ($question['verb_hint'] ?? null);
 
                 // Call GapTagInferer to get gap-focused tags (returns tag names)
-                $gapTagNames = $gapTagInferer->infer(
+                // These are typically auxiliary/tense patterns like 'Do/Does/Did', 'Modal Verbs', etc.
+                $inferredGapTagNames = $gapTagInferer->infer(
                     $question['question'],
                     $marker,
                     $correctAnswer,
@@ -274,16 +311,25 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     $verbHint
                 );
 
-                // Convert tag names to tag IDs (limit 1-3 per marker)
+                // Build the complete tag chain for this marker:
+                // 1. General topic tags (Types of Questions, Question Forms)
+                // 2. Detail type tags (e.g., Negative Questions, Tag Questions)
+                // 3. Inferred grammar/auxiliary tags (e.g., Modal Verbs, Do/Does/Did)
+                $fullTagChain = array_merge($baseTagChain, $detailTagNames, $inferredGapTagNames);
+
+                // Remove duplicates while preserving order
+                $fullTagChain = array_values(array_unique($fullTagChain));
+
+                // Convert tag names to tag IDs
                 $gapTagIdsForMarker = [];
-                foreach (array_slice($gapTagNames, 0, 3) as $tagName) {
+                foreach ($fullTagChain as $tagName) {
                     if (isset($gapTagNameToId[$tagName])) {
                         $gapTagIdsForMarker[] = $gapTagNameToId[$tagName];
                     }
                 }
 
-                // Store per-marker tags (names for meta, IDs for union)
-                $gapTagsPerMarker[$marker] = $gapTagNames;
+                // Store per-marker tags (full chain names for meta, IDs for union)
+                $gapTagsPerMarker[$marker] = $fullTagChain;
 
                 // Collect gap tag IDs (using array_push with spread for efficiency)
                 array_push($allGapTagIds, ...$gapTagIdsForMarker);
