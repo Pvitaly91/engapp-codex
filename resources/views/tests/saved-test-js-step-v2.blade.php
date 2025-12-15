@@ -28,28 +28,30 @@
         @include('components.test-mode-nav-v2')
 
         <!-- Sticky Controls: Search + Progress -->
-        <div class="sticky top-0 z-30 max-h-[40vh] md:max-h-none">
-            <div class="space-y-2.5 sm:space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-2.5 sm:p-5 lg:p-6 shadow backdrop-blur-md">
-                @include('components.word-search')
-                <div class="bg-gradient-to-r from-indigo-50 via-white to-purple-50 rounded-2xl border border-indigo-100 p-2.5 sm:p-4 shadow-inner">
-                    <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-2 sm:mb-3">
+        <div class="sticky-test-header sticky top-0 z-30 max-h-[40vh] md:max-h-none" id="sticky-header">
+            <div class="sticky-inner space-y-2.5 sm:space-y-4 rounded-2xl border border-indigo-100 bg-white/90 p-2.5 sm:p-5 lg:p-6 shadow backdrop-blur-md transition-all duration-300">
+                <div class="word-search-section transition-all duration-300">
+                    @include('components.word-search')
+                </div>
+                <div class="progress-section bg-gradient-to-r from-indigo-50 via-white to-purple-50 rounded-2xl border border-indigo-100 p-2.5 sm:p-4 shadow-inner transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
                         <div class="flex items-center space-x-2.5 sm:space-x-3">
-                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="progress-icon w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center transition-all duration-300">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500">Progress</div>
-                                <div id="progress-label" class="text-base sm:text-xl font-bold text-gray-900">1 / 0</div>
+                                <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">Progress</div>
+                                <div id="progress-label" class="progress-value text-base sm:text-xl font-bold text-gray-900 transition-all duration-300">1 / 0</div>
                             </div>
                         </div>
                         <div class="text-right space-y-0.5">
-                            <div class="text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500">Accuracy</div>
-                            <div id="score-label" class="text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">0%</div>
+                            <div class="progress-label-text text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 transition-all duration-300">Accuracy</div>
+                            <div id="score-label" class="progress-value text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent transition-all duration-300">0%</div>
                         </div>
                     </div>
-                    <div class="relative w-full h-2.5 sm:h-3 bg-white border border-indigo-100 rounded-full overflow-hidden shadow-sm">
+                    <div class="progress-bar-container relative w-full h-2.5 sm:h-3 bg-white border border-indigo-100 rounded-full overflow-hidden shadow-sm transition-all duration-300">
                         <div id="progress-bar" class="absolute top-0 left-0 h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-500 ease-out" style="width:0%"></div>
                     </div>
                 </div>
@@ -132,6 +134,53 @@ const TEST_SLUG = @json($test->slug);
 @include('components.saved-test-js-helpers')
 @include('components.marker-theory-js')
 <script>
+/**
+ * Build per-slot options arrays. If options divide evenly by markers count,
+ * chunk them so each marker gets its own subset. Otherwise fallback to full list.
+ */
+function buildOptionsBySlot(options, markersCount) {
+  const optionsBySlot = [];
+  if (markersCount > 0 && options.length % markersCount === 0) {
+    const chunkSize = Math.floor(options.length / markersCount);
+    if (chunkSize >= 2) {
+      for (let i = 0; i < markersCount; i++) {
+        const chunk = options.slice(i * chunkSize, (i + 1) * chunkSize);
+        shuffle(chunk);
+        optionsBySlot.push(chunk);
+      }
+      return optionsBySlot;
+    }
+  }
+  // Fallback: each slot gets full shuffled options
+  for (let i = 0; i < markersCount; i++) {
+    const all = [...options];
+    shuffle(all);
+    optionsBySlot.push(all);
+  }
+  return optionsBySlot;
+}
+
+/**
+ * Get active options for the current active slot
+ */
+function getActiveOptions(q) {
+  if (q.optionsBySlot && Array.isArray(q.optionsBySlot) && q.optionsBySlot[q.activeSlot]) {
+    return q.optionsBySlot[q.activeSlot];
+  }
+  // Fallback to full options list
+  return q.options || [];
+}
+
+/**
+ * Find the first unfilled slot index, or return -1 if all filled
+ */
+function findFirstUnfilledSlot(q) {
+  for (let i = 0; i < q.answers.length; i++) {
+    if (q.chosen[i] === null) return i;
+  }
+  return -1;
+}
+
 const state = {
   items: [],
   current: 0,
@@ -164,27 +213,51 @@ async function init(forceFresh = false) {
       state.current = Number.isFinite(saved.current) ? saved.current : 0;
       state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
       restored = true;
-      state.items.forEach((item) => {
+      state.items.forEach((item, idx) => {
         if (typeof item.explanation !== 'string') item.explanation = '';
         if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
         if (!('pendingExplanationKey' in item)) item.pendingExplanationKey = null;
         if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
+        
+        // Initialize new per-slot fields if missing (backward compatibility)
+        const markersCount = item.answers ? item.answers.length : 1;
+        if (!Array.isArray(item.attemptsBySlot)) {
+          item.attemptsBySlot = Array(markersCount).fill(0);
+        }
+        if (!Array.isArray(item.lastWrongBySlot)) {
+          item.lastWrongBySlot = Array(markersCount).fill(null);
+        }
+        if (typeof item.activeSlot !== 'number') {
+          // Set active slot to first unfilled or 0
+          item.activeSlot = findFirstUnfilledSlot(item);
+          if (item.activeSlot === -1) item.activeSlot = 0;
+        }
+        // Regenerate optionsBySlot from base questions if available
+        const baseQ = QUESTIONS[idx];
+        if (baseQ && Array.isArray(baseQ.options)) {
+          item.optionsBySlot = buildOptionsBySlot(baseQ.options, markersCount);
+        } else if (!Array.isArray(item.optionsBySlot)) {
+          item.optionsBySlot = buildOptionsBySlot(item.options || [], markersCount);
+        }
       });
     }
   }
 
   if (!restored) {
     state.items = QUESTIONS.map((q) => {
-      const opts = [...q.options];
-      shuffle(opts);
+      const optionsBySlot = buildOptionsBySlot(q.options, q.answers.length);
       return {
         ...q,
-        options: opts,
+        options: q.options, // Keep original options for fallback
+        optionsBySlot: optionsBySlot,
         chosen: Array(q.answers.length).fill(null),
-        slot: 0,
+        activeSlot: 0,
+        slot: 0, // Keep for backward compatibility
         done: false,
         wrongAttempt: false,
-        lastWrong: null,
+        attemptsBySlot: Array(q.answers.length).fill(0),
+        lastWrongBySlot: Array(q.answers.length).fill(null),
+        lastWrong: null, // Keep for backward compatibility
         feedback: '',
         attempts: 0,
         explanation: '',
@@ -212,6 +285,7 @@ function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
   const sentence = renderSentence(q, state.current);
+  const activeOptions = getActiveOptions(q);
   wrap.innerHTML = `
     <article class="group bg-white rounded-3xl shadow-md hover:shadow-xl border-2 border-gray-100 hover:border-indigo-200 p-4 sm:p-6 lg:p-8 transition-all duration-300 focus-within:ring-4 ring-indigo-100 outline-none transform hover:-translate-y-1" data-idx="${state.current}">
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3.5 sm:gap-4 mb-5 sm:mb-6">
@@ -244,7 +318,7 @@ function render() {
         </div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-5 sm:mb-6" role="group" aria-label="Answer options">
-        ${q.options.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
+        ${activeOptions.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
       </div>
       <div id="feedback">${renderFeedback(q)}</div>
     </article>
@@ -262,8 +336,21 @@ function render() {
     renderTheoryPanel(q);
   }
 
-  // Marker theory button handler (event delegation on wrap)
+  // Gap click and marker theory button handler (event delegation on wrap)
   wrap.addEventListener('click', (e) => {
+    // Handle gap click to switch active slot
+    const gapBtn = e.target.closest('button[data-gap]');
+    if (gapBtn) {
+      e.stopPropagation();
+      const gapIndex = parseInt(gapBtn.dataset.gap, 10);
+      if (!isNaN(gapIndex) && gapIndex !== q.activeSlot && q.chosen[gapIndex] === null) {
+        q.activeSlot = gapIndex;
+        render();
+        persistState(state);
+      }
+      return;
+    }
+    
     const markerTheoryBtn = e.target.closest('button.marker-theory-btn');
     if (markerTheoryBtn) {
       e.stopPropagation();
@@ -279,10 +366,13 @@ function renderOptionButton(q, opt, i) {
   let cls = 'border-gray-200 bg-white hover:border-indigo-300 hover:bg-indigo-50 hover:shadow-md transform hover:-translate-y-0.5';
   let iconColor = 'text-gray-400 group-hover:text-indigo-500';
   
+  // Use lastWrongBySlot for the active slot
+  const lastWrongForSlot = q.lastWrongBySlot && q.lastWrongBySlot[q.activeSlot];
+  
   if (q.done) {
     cls = 'border-gray-200 bg-gray-50 text-gray-500 cursor-not-allowed';
     iconColor = 'text-gray-300';
-  } else if (q.lastWrong === opt) {
+  } else if (lastWrongForSlot === opt) {
     cls = 'border-red-300 bg-red-50 text-red-700 shadow-md';
     iconColor = 'text-red-500';
   }
@@ -331,9 +421,12 @@ function onChoose(opt) {
   const q = state.items[state.current];
   if (!q || q.done) return;
 
-  const slotIndex = q.slot;
+  const slotIndex = q.activeSlot;
   const expected = q.answers[slotIndex];
   if (expected === undefined) return;
+  
+  // Check if slot is already filled
+  if (q.chosen[slotIndex] !== null) return;
 
   if (!q.explanationsCache) {
     q.explanationsCache = {};
@@ -351,26 +444,44 @@ function onChoose(opt) {
 
   if (opt === expected) {
     q.chosen[slotIndex] = opt;
-    q.slot += 1;
-    q.lastWrong = null;
+    q.attemptsBySlot[slotIndex] = 0;
+    q.lastWrongBySlot[slotIndex] = null;
     q.feedback = 'correct';
-    q.attempts = 0;
-    if (q.slot === q.answers.length) {
+    
+    // Check if all slots are filled
+    const allFilled = q.chosen.every(c => c !== null);
+    if (allFilled) {
       q.done = true;
       if (!q.wrongAttempt) state.correct += 1;
+    } else {
+      // Auto-advance to next unfilled slot
+      const nextSlot = findFirstUnfilledSlot(q);
+      if (nextSlot !== -1) {
+        q.activeSlot = nextSlot;
+      }
     }
   } else {
     q.wrongAttempt = true;
-    q.lastWrong = opt;
-    q.attempts += 1;
-    if (q.attempts >= 2) {
-      const correct = expected;
-      q.chosen[slotIndex] = correct;
-      q.slot += 1;
-      q.feedback = `Correct answer: ${correct}`;
-      q.attempts = 0;
-      if (q.slot === q.answers.length) {
+    q.lastWrongBySlot[slotIndex] = opt;
+    q.attemptsBySlot[slotIndex] = (q.attemptsBySlot[slotIndex] || 0) + 1;
+    
+    if (q.attemptsBySlot[slotIndex] >= 2) {
+      // Auto-fill with correct answer after 2 wrong attempts
+      q.chosen[slotIndex] = expected;
+      q.attemptsBySlot[slotIndex] = 0;
+      q.lastWrongBySlot[slotIndex] = null;
+      q.feedback = `Correct answer: ${expected}`;
+      
+      // Check if all slots are filled
+      const allFilled = q.chosen.every(c => c !== null);
+      if (allFilled) {
         q.done = true;
+      } else {
+        // Auto-advance to next unfilled slot
+        const nextSlot = findFirstUnfilledSlot(q);
+        if (nextSlot !== -1) {
+          q.activeSlot = nextSlot;
+        }
       }
     } else {
       q.feedback = 'Incorrect, try again';
@@ -430,11 +541,18 @@ function updateProgress() {
 function renderSentence(q, idx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
-    const replacement = q.chosen[i]
-      ? `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold">${html(q.chosen[i])}</mark>`
-      : (i === q.slot
-        ? `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-200 to-yellow-200 font-semibold">____</mark>`
-        : '____');
+    let replacement;
+    if (q.chosen[i]) {
+      // Filled slot - show chosen answer
+      replacement = `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold">${html(q.chosen[i])}</mark>`;
+    } else {
+      // Unfilled slot - make clickable
+      const isActive = i === q.activeSlot;
+      const activeClass = isActive
+        ? 'bg-gradient-to-r from-amber-200 to-yellow-200'
+        : 'bg-gray-100 hover:bg-amber-100';
+      replacement = `<button type="button" class="gap-btn px-2 py-1 rounded-lg ${activeClass} font-semibold cursor-pointer transition-colors" data-gap="${i}">____</button>`;
+    }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     const marker = `a${i + 1}`;
     const hint = q.verb_hints && q.verb_hints[marker]
@@ -657,7 +775,8 @@ function hookGlobalEvents() {
     if (!Number.isInteger(n) || n < 1 || n > 4) return;
     const q = state.items[state.current];
     if (!q || q.done) return;
-    const opt = q.options[n - 1];
+    const activeOptions = getActiveOptions(q);
+    const opt = activeOptions[n - 1];
     if (opt) onChoose(opt);
   });
 }
@@ -669,4 +788,5 @@ if (restartButton) {
 
 init();
 </script>
+@include('components.sticky-header-scroll')
 @endsection
