@@ -117,6 +117,7 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
 const CSRF_TOKEN = '{{ csrf_token() }}';
 const EXPLAIN_URL = '{{ route('question.explain') }}';
 const HINT_URL = '{{ route('question.hint') }}';
+const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
@@ -160,6 +161,7 @@ async function init(forceFresh = false) {
         if (typeof item.explanation !== 'string') item.explanation = '';
         if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
         if (!('pendingExplanationKey' in item)) item.pendingExplanationKey = null;
+        if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
       });
     }
   }
@@ -181,6 +183,7 @@ async function init(forceFresh = false) {
         explanation: '',
         explanationsCache: {},
         pendingExplanationKey: null,
+        markerTheoryCache: {},
       };
     });
     state.correct = 0;
@@ -207,7 +210,7 @@ function renderQuestions(showOnlyWrong = false) {
     card.tabIndex = 0;
     card.dataset.idx = idx;
 
-    const sentence = renderSentence(q);
+    const sentence = renderSentence(q, idx);
 
     card.innerHTML = `
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3.5 sm:gap-4 mb-5 sm:mb-6">
@@ -248,6 +251,16 @@ function renderQuestions(showOnlyWrong = false) {
     `;
 
     card.addEventListener('click', (e) => {
+      // Handle marker theory button clicks (using delegation since sentence re-renders)
+      const markerTheoryBtn = e.target.closest('button.marker-theory-btn');
+      if (markerTheoryBtn) {
+        e.stopPropagation();
+        const marker = markerTheoryBtn.dataset.marker;
+        const btnIdx = parseInt(markerTheoryBtn.dataset.idx, 10);
+        fetchMarkerTheory(btnIdx, marker);
+        return;
+      }
+      
       const btn = e.target.closest('button[data-opt]');
       if (!btn) return;
       onChoose(idx, btn.dataset.opt);
@@ -399,7 +412,7 @@ function onChoose(idx, opt) {
 
   const container = document.querySelector(`article[data-idx="${idx}"]`);
   if (container) {
-    container.querySelector('.leading-relaxed').innerHTML = renderSentence(item);
+    container.querySelector('.leading-relaxed').innerHTML = renderSentence(item, idx);
     const group = container.querySelector('[role="group"]');
     group.innerHTML = item.options.map((optText, i) => renderOptionButton(item, idx, optText, i)).join('');
     container.querySelector(`#feedback-${idx}`).innerHTML = renderFeedback(item);
@@ -448,7 +461,7 @@ function checkAllDone() {
   }
 }
 
-function renderSentence(q) {
+function renderSentence(q, idx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
     const replacement = q.chosen[i]
@@ -461,7 +474,12 @@ function renderSentence(q) {
     const hint = q.verb_hints && q.verb_hints[marker]
       ? ` <span class="verb-hint text-red-600 text-sm font-bold">( ${html(q.verb_hints[marker])} )</span>`
       : '';
-    text = text.replace(regex, replacement + hint);
+    // Add marker theory button if marker has tags
+    const hasMarkerTags = q.marker_tags && q.marker_tags[marker] && q.marker_tags[marker].length > 0;
+    const theoryBtn = hasMarkerTags
+      ? ` <button type="button" class="marker-theory-btn inline-flex items-center text-[11px] px-1.5 py-0.5 rounded-lg bg-cyan-50 hover:bg-cyan-100 text-cyan-700 hover:text-cyan-800 font-medium transition-colors" data-marker="${marker}" data-idx="${idx}"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>T</button>`
+      : '';
+    text = text.replace(regex, replacement + hint + theoryBtn);
   });
   return text;
 }
@@ -661,6 +679,152 @@ function renderTheoryPanel(q, idx) {
       ${content}
     </div>
   `;
+}
+
+function fetchMarkerTheory(idx, marker) {
+  const item = state.items[idx];
+  if (!item) return;
+
+  // Initialize markerTheoryCache if not present
+  if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') {
+    item.markerTheoryCache = {};
+  }
+
+  // If already in cache, just show it
+  if (Object.prototype.hasOwnProperty.call(item.markerTheoryCache, marker)) {
+    renderMarkerTheoryPanel(idx, marker, item.markerTheoryCache[marker]);
+    return;
+  }
+
+  const payload = {
+    question_id: item.id,
+    marker: marker,
+  };
+
+  if (TEST_SLUG) {
+    payload.test_slug = TEST_SLUG;
+  }
+
+  showLoader(true);
+  fetch(MARKER_THEORY_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Failed to load marker theory');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const theoryBlock = data && data.theory_block ? data.theory_block : null;
+      item.markerTheoryCache[marker] = theoryBlock;
+      renderMarkerTheoryPanel(idx, marker, theoryBlock);
+      persistState(state);
+    })
+    .catch((error) => {
+      console.error(error);
+      item.markerTheoryCache[marker] = null;
+      renderMarkerTheoryPanel(idx, marker, null);
+    })
+    .finally(() => showLoader(false));
+}
+
+function renderMarkerTheoryPanel(idx, marker, block) {
+  const panel = document.getElementById(`theory-panel-${idx}`);
+  if (!panel) return;
+
+  if (!block) {
+    panel.innerHTML = `
+      <div class="p-4 bg-gradient-to-r from-cyan-50 to-sky-50 rounded-2xl border border-cyan-200">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+          <span class="text-sm font-semibold text-cyan-900">📚 Theory for ${html(marker)}</span>
+        </div>
+        <p class="text-sm text-cyan-700">No matching theory found for this marker.</p>
+      </div>
+    `;
+    panel.classList.remove('hidden');
+    return;
+  }
+
+  let content = '';
+  
+  try {
+    const body = typeof block.body === 'string' ? JSON.parse(block.body) : block.body;
+    
+    if (body.title) {
+      content += `<h4 class="font-semibold text-cyan-900 mb-2">${html(body.title)}</h4>`;
+    }
+    if (body.intro) {
+      content += `<p class="text-sm text-cyan-800 mb-3">${body.intro}</p>`;
+    }
+    if (body.sections && Array.isArray(body.sections)) {
+      body.sections.forEach(section => {
+        content += `<div class="mb-3">`;
+        if (section.label) {
+          content += `<p class="text-sm font-semibold text-cyan-700">${html(section.label)}</p>`;
+        }
+        if (section.description) {
+          content += `<p class="text-sm text-cyan-800">${section.description}</p>`;
+        }
+        if (section.examples && Array.isArray(section.examples)) {
+          content += `<ul class="mt-1 space-y-1">`;
+          section.examples.forEach(ex => {
+            content += `<li class="text-sm"><span class="text-cyan-900 font-medium">${html(ex.en || '')}</span>`;
+            if (ex.ua) content += ` — <span class="text-cyan-700">${html(ex.ua)}</span>`;
+            content += `</li>`;
+          });
+          content += `</ul>`;
+        }
+        if (section.note) {
+          content += `<p class="text-xs text-cyan-600 mt-1">${html(section.note)}</p>`;
+        }
+        content += `</div>`;
+      });
+    }
+    if (body.items && Array.isArray(body.items)) {
+      content += `<ul class="list-disc list-inside space-y-1">`;
+      body.items.forEach(item => {
+        if (typeof item === 'string') {
+          content += `<li class="text-sm text-cyan-800">${html(item)}</li>`;
+        } else if (item.title) {
+          content += `<li class="text-sm"><span class="font-medium text-cyan-900">${html(item.title)}</span>`;
+          if (item.subtitle) content += ` — <span class="text-cyan-700">${html(item.subtitle)}</span>`;
+          content += `</li>`;
+        }
+      });
+      content += `</ul>`;
+    }
+  } catch (e) {
+    content = `<p class="text-sm text-cyan-800">${html(block.body || '')}</p>`;
+  }
+
+  const matchedTagsHtml = block.matched_tags && block.matched_tags.length > 0
+    ? `<div class="mt-2 text-xs text-cyan-600">Matched tags: ${block.matched_tags.map(t => html(t)).join(', ')}</div>`
+    : '';
+
+  panel.innerHTML = `
+    <div class="p-4 bg-gradient-to-r from-cyan-50 to-sky-50 rounded-2xl border border-cyan-200">
+      <div class="flex items-center gap-2 mb-2">
+        <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+        <span class="text-sm font-semibold text-cyan-900">📚 Theory for ${html(marker)}</span>
+        ${block.level ? `<span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-cyan-200 text-cyan-800">${html(block.level)}</span>` : ''}
+      </div>
+      ${content}
+      ${matchedTagsHtml}
+    </div>
+  `;
+  panel.classList.remove('hidden');
 }
 
 function hookGlobalEvents() {
