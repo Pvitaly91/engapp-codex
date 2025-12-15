@@ -29,19 +29,23 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                 'language' => 'uk',
             ],
             'tags' => [
-                'Short Answers',
-                'Full Answers',
-                'Короткі відповіді',
-                'Повні відповіді',
-                'Yes I do',
-                'No I don\'t',
-                'Question Answers',
-                'Question Forms',
+                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
+                'Question Forms',
                 'Grammar',
                 'Theory',
-                'A1',
-                'A2',
+                // Detail tags (canonical)
+                'Yes/No Questions',
+                'General Questions',
+                // Auxiliary tags (canonical)
+                'Do/Does/Did',
+                'Be (am/is/are/was/were)',
+                // Tense tags (canonical)
+                'Present Simple',
+                'Past Simple',
+                // Level tags (canonical CEFR format)
+                'CEFR A1',
+                'CEFR A2',
             ],
             'blocks' => [
                 [
