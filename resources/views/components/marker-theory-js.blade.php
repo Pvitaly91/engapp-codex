@@ -134,7 +134,9 @@ function renderMarkerTheoryPanel(idx, marker, block) {
       content += `</ul>`;
     }
   } catch (e) {
-    content = `<p class="text-sm text-cyan-800">${html(block.body || '')}</p>`;
+    // If body is not valid JSON, it may be raw HTML content from trusted server-side sources
+    // Render it directly without escaping
+    content = `<div class="text-sm text-cyan-800">${block.body || ''}</div>`;
   }
 
   const matchedTagsHtml = block.matched_tags && block.matched_tags.length > 0
