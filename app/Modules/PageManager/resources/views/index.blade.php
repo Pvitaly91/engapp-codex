@@ -279,18 +279,96 @@
                             </label>
                         </div>
 
+                        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                            <label class="flex flex-col gap-1">
+                                <span class="text-xs font-medium uppercase tracking-wide text-gray-500">ID</span>
+                                <input
+                                    type="text"
+                                    placeholder="Фільтр за ID"
+                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    data-pages-filter="id"
+                                    inputmode="numeric"
+                                />
+                            </label>
+                            <label class="flex flex-col gap-1">
+                                <span class="text-xs font-medium uppercase tracking-wide text-gray-500">Назва</span>
+                                <input
+                                    type="text"
+                                    placeholder="Фільтр за назвою"
+                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    data-pages-filter="title"
+                                />
+                            </label>
+                            <label class="flex flex-col gap-1">
+                                <span class="text-xs font-medium uppercase tracking-wide text-gray-500">Категорія</span>
+                                <select
+                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    data-pages-filter="category"
+                                >
+                                    <option value="">Усі категорії</option>
+                                    @foreach ($categories->sortBy('title') as $category)
+                                        <option value="{{ \Illuminate\Support\Str::lower(\Illuminate\Support\Str::squish($category->title)) }}">{{ $category->title }}</option>
+                                    @endforeach
+                                </select>
+                            </label>
+                            <label class="flex flex-col gap-1">
+                                <span class="text-xs font-medium uppercase tracking-wide text-gray-500">Slug</span>
+                                <input
+                                    type="text"
+                                    placeholder="Фільтр за slug"
+                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    data-pages-filter="slug"
+                                />
+                            </label>
+                            <label class="flex flex-col gap-1">
+                                <span class="text-xs font-medium uppercase tracking-wide text-gray-500">Оновлено</span>
+                                <input
+                                    type="text"
+                                    placeholder="Фільтр за датою/часом"
+                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                                    data-pages-filter="updated"
+                                />
+                            </label>
+                        </div>
+
                         <div class="-mx-4 -my-3 overflow-x-auto sm:mx-0 sm:my-0">
                             <table class="min-w-full divide-y divide-gray-200 text-sm">
                                 <thead class="bg-gray-50 text-gray-600">
                                 <tr>
-                                    <th class="px-4 py-3 text-left font-medium">Назва</th>
-                                    <th class="px-4 py-3 text-left font-medium">Категорія</th>
-                                    <th class="px-4 py-3 text-left font-medium">Slug</th>
-                                    <th class="px-4 py-3 text-left font-medium">Оновлено</th>
+                                    <th class="px-4 py-3 text-left font-medium">
+                                        <button type="button" class="flex items-center gap-1" data-pages-sort data-sort-key="id" data-default-direction="asc">
+                                            <span>ID</span>
+                                            <span class="text-xs text-gray-400" data-sort-icon>↕</span>
+                                        </button>
+                                    </th>
+                                    <th class="px-4 py-3 text-left font-medium">
+                                        <button type="button" class="flex items-center gap-1" data-pages-sort data-sort-key="title" data-default-direction="asc">
+                                            <span>Назва</span>
+                                            <span class="text-xs text-gray-400" data-sort-icon>↕</span>
+                                        </button>
+                                    </th>
+                                    <th class="px-4 py-3 text-left font-medium">
+                                        <button type="button" class="flex items-center gap-1" data-pages-sort data-sort-key="category" data-default-direction="asc">
+                                            <span>Категорія</span>
+                                            <span class="text-xs text-gray-400" data-sort-icon>↕</span>
+                                        </button>
+                                    </th>
+                                    <th class="px-4 py-3 text-left font-medium">
+                                        <button type="button" class="flex items-center gap-1" data-pages-sort data-sort-key="slug" data-default-direction="asc">
+                                            <span>Slug</span>
+                                            <span class="text-xs text-gray-400" data-sort-icon>↕</span>
+                                        </button>
+                                    </th>
+                                    <th class="px-4 py-3 text-left font-medium">
+                                        <button type="button" class="flex items-center gap-1" data-pages-sort data-sort-key="updated" data-default-direction="desc">
+                                            <span>Оновлено</span>
+                                            <span class="text-xs text-gray-400" data-sort-icon>↕</span>
+                                        </button>
+                                    </th>
                                     <th class="px-4 py-3 text-right font-medium">Дії</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-200">
+                            <tbody class="divide-y divide-gray-200" data-pages-table-body>
                                 @forelse ($pages as $page)
                                     @php
                                         $pageHiddenText = collect([
@@ -301,6 +379,7 @@
                                             ->filter()
                                             ->implode(' ');
                                         $pageSearchText = collect([
+                                            $page->id,
                                             $page->title,
                                             $page->slug,
                                             $page->category?->title,
@@ -316,7 +395,18 @@
                                         data-pages-search-item
                                         data-search-text="{{ \Illuminate\Support\Str::squish($pageSearchText) }}"
                                         data-search-hidden="{{ \Illuminate\Support\Str::squish($pageHiddenText) }}"
+                                        data-page-id="{{ $page->id }}"
+                                        data-page-title="{{ \Illuminate\Support\Str::squish($page->title) }}"
+                                        data-page-title-normalized="{{ \Illuminate\Support\Str::lower(\Illuminate\Support\Str::squish($page->title)) }}"
+                                        data-page-category="{{ \Illuminate\Support\Str::squish($page->category?->title ?? '') }}"
+                                        data-page-category-normalized="{{ \Illuminate\Support\Str::lower(\Illuminate\Support\Str::squish($page->category?->title ?? '')) }}"
+                                        data-page-slug="{{ $page->slug }}"
+                                        data-page-slug-normalized="{{ \Illuminate\Support\Str::lower($page->slug) }}"
+                                        data-page-updated="{{ $page->updated_at?->timestamp ?? '' }}"
+                                        data-page-updated-text="{{ $page->updated_at?->diffForHumans() }}"
+                                        data-page-updated-normalized="{{ \Illuminate\Support\Str::lower(\Illuminate\Support\Str::squish($page->updated_at?->diffForHumans() ?? '')) }}"
                                     >
+                                        <td class="px-4 py-3 text-gray-500" data-search-highlight>#{{ $page->id }}</td>
                                         <td class="px-4 py-3 font-medium">
                                             @if ($page->category)
                                                 <a href="{{ route('pages.show', [$page->category->slug, $page->slug]) }}" class="hover:underline" target="_blank" rel="noopener">
@@ -343,12 +433,12 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="px-4 py-6 text-center text-gray-500">Ще немає сторінок. Створіть першу сторінку.</td>
+                                        <td colspan="6" class="px-4 py-6 text-center text-gray-500">Ще немає сторінок. Створіть першу сторінку.</td>
                                     </tr>
                                 @endforelse
                                 @if ($pages->isNotEmpty())
                                     <tr class="hidden" data-pages-search-empty>
-                                        <td colspan="5" class="px-4 py-6 text-center text-gray-500">Немає збігів для вибраного запиту.</td>
+                                        <td colspan="6" class="px-4 py-6 text-center text-gray-500">Немає збігів для вибраного запиту.</td>
                                     </tr>
                                 @endif
                             </tbody>
@@ -577,11 +667,189 @@
                 emptySelector: '[data-category-search-empty]',
             });
 
-            setupLiveSearch({
-                inputSelector: '[data-pages-search-input]',
-                itemSelector: '[data-pages-search-item]',
-                emptySelector: '[data-pages-search-empty]',
-            });
+            const setupPagesTable = () => {
+                const searchInput = document.querySelector('[data-pages-search-input]');
+                const tbody = document.querySelector('[data-pages-table-body]');
+                const rows = Array.from(document.querySelectorAll('[data-pages-search-item]'));
+                const emptyState = document.querySelector('[data-pages-search-empty]');
+                const sortButtons = Array.from(document.querySelectorAll('[data-pages-sort]'));
+                const filters = {
+                    id: document.querySelector('[data-pages-filter="id"]'),
+                    title: document.querySelector('[data-pages-filter="title"]'),
+                    category: document.querySelector('[data-pages-filter="category"]'),
+                    slug: document.querySelector('[data-pages-filter="slug"]'),
+                    updated: document.querySelector('[data-pages-filter="updated"]'),
+                };
+
+                if (!tbody || !rows.length) {
+                    if (searchInput) {
+                        searchInput.disabled = true;
+                        searchInput.classList.add('cursor-not-allowed', 'bg-gray-100', 'text-gray-400');
+                        searchInput.placeholder = 'Немає даних для пошуку';
+                    }
+
+                    Object.values(filters).forEach((filter) => {
+                        if (!filter) {
+                            return;
+                        }
+
+                        filter.disabled = true;
+                        filter.classList.add('cursor-not-allowed', 'bg-gray-100', 'text-gray-400');
+                    });
+
+                    return;
+                }
+
+                let sortState = { key: 'title', direction: 'asc' };
+
+                const getFilterValue = (key) => {
+                    const input = filters[key];
+                    if (!input) {
+                        return '';
+                    }
+
+                    const value = input.tagName === 'SELECT' ? input.value : input.value || '';
+
+                    return normalizeSearchValue(value);
+                };
+
+                const getComparableValue = (row, key) => {
+                    switch (key) {
+                        case 'id':
+                            return Number(row.dataset.pageId || 0);
+                        case 'title':
+                            return row.dataset.pageTitleNormalized || '';
+                        case 'category':
+                            return row.dataset.pageCategoryNormalized || '';
+                        case 'slug':
+                            return row.dataset.pageSlugNormalized || '';
+                        case 'updated':
+                            return Number(row.dataset.pageUpdated || 0);
+                        default:
+                            return row.dataset.searchText || '';
+                    }
+                };
+
+                const updateSortIndicators = () => {
+                    sortButtons.forEach((button) => {
+                        const icon = button.querySelector('[data-sort-icon]');
+                        const isActive = button.dataset.sortKey === sortState.key;
+
+                        button.classList.toggle('text-gray-900', isActive);
+                        button.classList.toggle('font-semibold', isActive);
+                        button.setAttribute('aria-sort', isActive ? sortState.direction : 'none');
+
+                        if (!icon) {
+                            return;
+                        }
+
+                        if (!isActive) {
+                            icon.textContent = '↕';
+                            icon.classList.remove('text-gray-700');
+                            icon.classList.add('text-gray-400');
+                            return;
+                        }
+
+                        icon.textContent = sortState.direction === 'asc' ? '↑' : '↓';
+                        icon.classList.remove('text-gray-400');
+                        icon.classList.add('text-gray-700');
+                    });
+                };
+
+                const sortRows = () => {
+                    const sorted = [...rows].sort((a, b) => {
+                        const aValue = getComparableValue(a, sortState.key);
+                        const bValue = getComparableValue(b, sortState.key);
+
+                        if (aValue < bValue) {
+                            return sortState.direction === 'asc' ? -1 : 1;
+                        }
+
+                        if (aValue > bValue) {
+                            return sortState.direction === 'asc' ? 1 : -1;
+                        }
+
+                        return 0;
+                    });
+
+                    sorted.forEach((row) => tbody.appendChild(row));
+                };
+
+                const applyFilters = () => {
+                    const rawSearch = (searchInput?.value || '').trim();
+                    const normalizedSearch = normalizeSearchValue(rawSearch);
+                    const filterValues = {
+                        id: getFilterValue('id'),
+                        title: getFilterValue('title'),
+                        category: getFilterValue('category'),
+                        slug: getFilterValue('slug'),
+                        updated: getFilterValue('updated'),
+                    };
+
+                    let visibleCount = 0;
+
+                    rows.forEach((row) => {
+                        const matchesSearch =
+                            normalizedSearch === '' || normalizeSearchValue(row.dataset.searchText || '').includes(normalizedSearch);
+                        const matchesId = !filterValues.id || normalizeSearchValue(row.dataset.pageId || '').includes(filterValues.id);
+                        const matchesTitle = !filterValues.title || (row.dataset.pageTitleNormalized || '').includes(filterValues.title);
+                        const matchesCategory =
+                            !filterValues.category || (row.dataset.pageCategoryNormalized || '') === filterValues.category;
+                        const matchesSlug = !filterValues.slug || (row.dataset.pageSlugNormalized || '').includes(filterValues.slug);
+                        const matchesUpdated =
+                            !filterValues.updated || (row.dataset.pageUpdatedNormalized || '').includes(filterValues.updated);
+
+                        const shouldShow =
+                            matchesSearch && matchesId && matchesTitle && matchesCategory && matchesSlug && matchesUpdated;
+
+                        row.classList.toggle('hidden', !shouldShow);
+
+                        if (shouldShow) {
+                            visibleCount++;
+                        }
+
+                        const hasVisibleMatch = updateHighlightsForItem(row, rawSearch, normalizedSearch);
+                        updateSnippetForItem(row, rawSearch, normalizedSearch, hasVisibleMatch);
+                    });
+
+                    if (emptyState) {
+                        emptyState.classList.toggle('hidden', visibleCount !== 0);
+                    }
+
+                    sortRows();
+                };
+
+                sortButtons.forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const key = button.dataset.sortKey;
+                        if (!key) {
+                            return;
+                        }
+
+                        if (sortState.key === key) {
+                            sortState.direction = sortState.direction === 'asc' ? 'desc' : 'asc';
+                        } else {
+                            sortState.key = key;
+                            sortState.direction = button.dataset.defaultDirection || 'asc';
+                        }
+
+                        updateSortIndicators();
+                        sortRows();
+                    });
+                });
+
+                const filterInputs = [...Object.values(filters), searchInput].filter(Boolean);
+
+                filterInputs.forEach((input) => {
+                    const handler = input.tagName === 'SELECT' ? 'change' : 'input';
+                    input.addEventListener(handler, applyFilters);
+                });
+
+                updateSortIndicators();
+                applyFilters();
+            };
+
+            setupPagesTable();
 
             const modal = document.getElementById('delete-empty-categories-modal');
             const form = document.querySelector('[data-empty-categories-form]');
