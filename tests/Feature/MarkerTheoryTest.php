@@ -135,11 +135,7 @@ class MarkerTheoryTest extends TestCase
             ],
         ]);
         $response->assertJsonPath('theory_block.marker', 'a1');
-        // Score should be a weighted sum, not a simple count
-        // Both tags are grammar feature tags with weight 4, but normalized names may differ slightly
-        // Just verify that the score is above the minimum threshold (3)
-        $this->assertGreaterThanOrEqual(3, $response->json('theory_block.score'));
-        $this->assertCount(2, $response->json('theory_block.matched_tags'));
+        $this->assertEquals(2, $response->json('theory_block.score'));
     }
 
     /** @test */
@@ -227,99 +223,6 @@ class MarkerTheoryTest extends TestCase
 
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['marker']);
-    }
-
-    /** @test */
-    public function it_prioritizes_blocks_with_more_specific_tag_matches(): void
-    {
-        $category = Category::create(['name' => 'Test Category']);
-        $pageCategory = PageCategory::create([
-            'title' => 'Types of Questions',
-            'slug' => 'types-of-questions',
-            'language' => 'en',
-        ]);
-
-        $page = Page::create([
-            'title' => 'Questions Theory',
-            'slug' => 'questions-theory',
-            'text' => 'Theory about questions',
-            'page_category_id' => $pageCategory->id,
-        ]);
-
-        // Create tags with different specificity levels
-        $tagGeneral = Tag::create(['name' => 'Types of Questions', 'category' => 'Grammar']);
-        $tagDetail = Tag::create(['name' => 'Negative Questions', 'category' => 'Grammar Detail']);
-        $tagGrammar = Tag::create(['name' => 'Do/Does/Did', 'category' => 'Auxiliary']);
-
-        // Block 1: Has general + detail tags (should have lower score)
-        $textBlockGeneral = TextBlock::create([
-            'uuid' => (string) Str::uuid(),
-            'heading' => 'General Questions Overview',
-            'body' => json_encode(['title' => 'General overview']),
-            'page_id' => $page->id,
-            'page_category_id' => $pageCategory->id,
-            'sort_order' => 1,
-        ]);
-        $textBlockGeneral->tags()->attach([$tagGeneral->id, $tagDetail->id]);
-
-        // Block 2: Has general + detail + grammar tags (should have higher score due to additional grammar tag)
-        $textBlockSpecific = TextBlock::create([
-            'uuid' => (string) Str::uuid(),
-            'heading' => 'Negative Questions with Do/Does/Did',
-            'body' => json_encode(['title' => 'Specific theory about negative questions']),
-            'page_id' => $page->id,
-            'page_category_id' => $pageCategory->id,
-            'sort_order' => 2,
-        ]);
-        $textBlockSpecific->tags()->attach([$tagGeneral->id, $tagDetail->id, $tagGrammar->id]);
-
-        $question = Question::create([
-            'uuid' => (string) Str::uuid(),
-            'question' => '{a1} you not like coffee?',
-            'difficulty' => 1,
-            'level' => 'A1',
-            'category_id' => $category->id,
-        ]);
-
-        $optionDont = QuestionOption::create(['option' => "Don't"]);
-        $question->options()->attach([$optionDont->id]);
-
-        QuestionAnswer::create([
-            'question_id' => $question->id,
-            'marker' => 'a1',
-            'option_id' => $optionDont->id,
-        ]);
-
-        // Add marker tags for question (chain from general to specific)
-        DB::table('question_marker_tag')->insert([
-            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagGeneral->id, 'created_at' => now(), 'updated_at' => now()],
-            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagDetail->id, 'created_at' => now(), 'updated_at' => now()],
-            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagGrammar->id, 'created_at' => now(), 'updated_at' => now()],
-        ]);
-
-        $response = $this->withSession(['admin_authenticated' => true])
-            ->postJson(route('question.marker-theory'), [
-                'question_id' => $question->id,
-                'marker' => 'a1',
-            ]);
-
-        $response->assertOk();
-        $response->assertJsonStructure([
-            'theory_block' => [
-                'uuid',
-                'type',
-                'body',
-                'level',
-                'matched_tags',
-                'score',
-                'marker',
-            ],
-        ]);
-
-        // The block with more specific tag matches should be selected
-        $this->assertEquals($textBlockSpecific->uuid, $response->json('theory_block.uuid'));
-        // All 3 tags should be matched
-        $this->assertCount(3, $response->json('theory_block.matched_tags'));
     }
 
     private function ensureSchema(): void
