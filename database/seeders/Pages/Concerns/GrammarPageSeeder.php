@@ -10,6 +10,33 @@ use App\Support\Database\Seeder;
 use App\Support\TextBlock\TextBlockUuidGenerator;
 use Database\Seeders\Pages\GrammarPagesSeeder;
 
+/**
+ * Base class for grammar theory page seeders with BLOCK-FIRST TAGGING support.
+ *
+ * BLOCK-FIRST TAGGING Principle:
+ * 1. Each TextBlock has DETAILED tags (specific to that block's content)
+ * 2. Page has AGGREGATE tags: union(all block tags) + page anchor tags
+ * 3. base_tags provide controlled inheritance to blocks (not automatic page->block sync)
+ *
+ * Page config structure:
+ * [
+ *   'title' => '...',
+ *   'tags' => [...],              // Page anchor tags (short, 2-8 tags)
+ *   'base_tags' => [...],         // Tags inherited by blocks (controlled inheritance)
+ *   'blocks' => [
+ *     [
+ *       'type' => '...',
+ *       'body' => '...',
+ *       'tags' => [...],              // Block-specific detailed tags
+ *       'inherit_base_tags' => true,  // Default true - inherit base_tags
+ *     ],
+ *   ]
+ * ]
+ *
+ * Backward compatibility:
+ * - If base_tags is not defined, page['tags'] are used as base_tags for blocks
+ * - If block has no tags, it inherits base_tags (or page.tags for backward compat)
+ */
 abstract class GrammarPageSeeder extends Seeder
 {
     /**
@@ -92,21 +119,36 @@ abstract class GrammarPageSeeder extends Seeder
             ->whereIn('seeder', $this->cleanupSeederClasses())
             ->delete();
 
-        // Resolve page-level tags (including category slug as identifier tag for matching)
-        $pageTags = $config['tags'] ?? [];
-        if ($categorySlug && ! in_array($categorySlug, $pageTags, true)) {
-            $pageTags[] = $categorySlug;
+        // BLOCK-FIRST TAGGING: Resolve page anchor tags and base_tags
+        $pageAnchorTags = $config['tags'] ?? [];
+
+        // Add category slug as identifier tag if not already present
+        if ($categorySlug && ! in_array($categorySlug, $pageAnchorTags, true)) {
+            $pageAnchorTags[] = $categorySlug;
         }
-        $pageTagIds = $this->resolveTagIds($pageTags);
+
+        // Determine base_tags for block inheritance
+        // Backward compatibility: if base_tags not defined, use page.tags as base_tags
+        $baseTags = $config['base_tags'] ?? $pageAnchorTags;
+        $baseTagIds = $this->resolveTagIds($baseTags);
+
+        // Collect all block tag IDs for page aggregation
+        $aggregatedBlockTagIds = [];
 
         // Block index counter for UUID generation (starts from 0)
         $blockIndex = 0;
         $createdTextBlocks = [];
 
+        // Handle subtitle block with BLOCK-FIRST tagging support
         if (! empty($config['subtitle_html'])) {
-            // Generate UUID for subtitle block - use key 'subtitle' for clarity
             $subtitleUuid = $config['subtitle_uuid']
                 ?? TextBlockUuidGenerator::generateWithKey(static::class, 'subtitle');
+
+            // Subtitle config from page level or empty
+            $subtitleConfig = [
+                'tags' => $config['subtitle_tags'] ?? [],
+                'inherit_base_tags' => $config['subtitle_inherit_base_tags'] ?? true,
+            ];
 
             $textBlock = TextBlock::create([
                 'uuid' => $subtitleUuid,
@@ -123,16 +165,11 @@ abstract class GrammarPageSeeder extends Seeder
                 'seeder' => static::class,
             ]);
 
-            // Subtitle block inherits page tags by default
-            $createdTextBlocks[] = ['block' => $textBlock, 'config' => []];
+            $createdTextBlocks[] = ['block' => $textBlock, 'config' => $subtitleConfig];
             $blockIndex++;
         }
 
         foreach ($config['blocks'] ?? [] as $index => $block) {
-            // Generate UUID for block:
-            // 1. Use explicit 'uuid' from block if provided
-            // 2. Use 'uuid_key' to generate deterministic UUID with custom key
-            // 3. Fall back to index-based UUID generation
             $uuid = $block['uuid']
                 ?? (isset($block['uuid_key'])
                     ? TextBlockUuidGenerator::generateWithKey(static::class, $block['uuid_key'])
@@ -157,43 +194,51 @@ abstract class GrammarPageSeeder extends Seeder
             $blockIndex++;
         }
 
-        // Attach tags to page
-        if (! empty($pageTagIds)) {
-            $page->tags()->sync($pageTagIds);
-        }
-
-        // Sync tags to each TextBlock
+        // BLOCK-FIRST TAGGING: Sync tags to each TextBlock and aggregate for page
         foreach ($createdTextBlocks as $item) {
             $textBlock = $item['block'];
             $blockConfig = $item['config'];
 
-            // Check if tag inheritance is disabled for this block
-            $inheritTags = $blockConfig['inherit_tags'] ?? true;
+            // Determine if this block inherits base_tags
+            // Support both 'inherit_base_tags' (new) and 'inherit_tags' (legacy) keys
+            $inheritBaseTags = $blockConfig['inherit_base_tags']
+                ?? $blockConfig['inherit_tags']
+                ?? true;
 
-            if ($inheritTags) {
-                // Start with page tags
-                $blockTagIds = $pageTagIds;
+            // Calculate block tag IDs
+            $blockTagIds = [];
 
-                // Add block-specific tags if defined
-                if (! empty($blockConfig['tags'])) {
-                    $blockSpecificTagIds = $this->resolveTagIds($blockConfig['tags']);
-                    $blockTagIds = array_unique(array_merge($blockTagIds, $blockSpecificTagIds));
-                }
-            } else {
-                // Only use block-specific tags (no inheritance)
-                $blockTagIds = ! empty($blockConfig['tags'])
-                    ? $this->resolveTagIds($blockConfig['tags'])
-                    : [];
+            if ($inheritBaseTags) {
+                // Start with base_tags (controlled inheritance)
+                $blockTagIds = $baseTagIds;
             }
 
+            // Add block-specific tags if defined
+            if (! empty($blockConfig['tags'])) {
+                $blockSpecificTagIds = $this->resolveTagIds($blockConfig['tags']);
+                $blockTagIds = array_unique(array_merge($blockTagIds, $blockSpecificTagIds));
+            }
+
+            // Sync tags to block
             if (! empty($blockTagIds)) {
                 $textBlock->tags()->sync($blockTagIds);
             }
+
+            // Aggregate block tags for page (BLOCK-FIRST: page = union of all blocks)
+            $aggregatedBlockTagIds = array_unique(array_merge($aggregatedBlockTagIds, $blockTagIds));
+        }
+
+        // BLOCK-FIRST TAGGING: Page tags = union(all block tags) + page anchor tags
+        $pageAnchorTagIds = $this->resolveTagIds($pageAnchorTags);
+        $finalPageTagIds = array_unique(array_merge($aggregatedBlockTagIds, $pageAnchorTagIds));
+
+        if (! empty($finalPageTagIds)) {
+            $page->tags()->sync($finalPageTagIds);
         }
     }
 
     /**
-     * Resolve tag names to tag IDs with caching.
+     * Resolve tag names to tag IDs with caching and normalization.
      *
      * @param  array<string>  $tagNames
      * @return array<int>
@@ -203,15 +248,29 @@ abstract class GrammarPageSeeder extends Seeder
         $tagIds = [];
 
         foreach ($tagNames as $tagName) {
-            if (isset($this->tagCache[$tagName])) {
-                $tagIds[] = $this->tagCache[$tagName];
+            $normalizedName = $this->normalizeTagName($tagName);
+
+            if (empty($normalizedName)) {
+                continue;
+            }
+
+            if (isset($this->tagCache[$normalizedName])) {
+                $tagIds[] = $this->tagCache[$normalizedName];
             } else {
-                $tag = Tag::firstOrCreate(['name' => $tagName]);
-                $this->tagCache[$tagName] = $tag->id;
+                $tag = Tag::firstOrCreate(['name' => $normalizedName]);
+                $this->tagCache[$normalizedName] = $tag->id;
                 $tagIds[] = $tag->id;
             }
         }
 
         return $tagIds;
+    }
+
+    /**
+     * Normalize tag name by trimming whitespace and collapsing multiple spaces.
+     */
+    protected function normalizeTagName(string $tagName): string
+    {
+        return preg_replace('/\s+/', ' ', trim($tagName));
     }
 }

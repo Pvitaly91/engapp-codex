@@ -28,25 +28,23 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                 'title' => 'Види питальних речень',
                 'language' => 'uk',
             ],
+            // BLOCK-FIRST TAGGING: Page anchor tags (short, general page identifiers)
             'tags' => [
-                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
                 'Question Forms',
+                'Yes/No Questions',
+                'Short Answers',
                 'Grammar',
                 'Theory',
-                // Detail tags (canonical)
-                'Yes/No Questions',
-                'General Questions',
-                // Auxiliary tags (canonical)
-                'Do/Does/Did',
-                'Be (am/is/are/was/were)',
-                // Tense tags (canonical)
-                'Present Simple',
-                'Past Simple',
-                // Level tags (canonical CEFR format)
-                'CEFR A1',
-                'CEFR A2',
             ],
+            // BLOCK-FIRST TAGGING: Base tags inherited by all blocks (controlled inheritance)
+            'base_tags' => [
+                'Types of Questions',
+                'Question Forms',
+                'Short Answers',
+            ],
+            // Subtitle block tags configuration
+            'subtitle_tags' => ['Introduction', 'Overview'],
             'blocks' => [
                 [
                     'type' => 'hero',
@@ -54,6 +52,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'hero',
+                    // BLOCK-FIRST: Hero block detailed tags
+                    'tags' => ['Introduction', 'Overview', 'Full Answers', 'CEFR A1', 'CEFR A2'],
                     'body' => json_encode([
                         'level' => 'A1–A2',
                         'intro' => 'У цій темі ти вивчиш <strong>відповіді на питання (Answers to Questions)</strong> — як правильно відповідати на різні типи питань, використовуючи короткі та повні відповіді.',
@@ -85,6 +85,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'forms-grid-types',
+                    // BLOCK-FIRST: Answer types block detailed tags
+                    'tags' => ['Definition', 'Full Answers', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '1. Типи відповідей',
                         'intro' => 'В англійській мові є кілька способів відповісти на питання:',
@@ -101,6 +103,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    // BLOCK-FIRST: Do/Does/Did block detailed tags
+                    'tags' => ['Do/Does/Did', 'Present Simple', 'Past Simple', 'Auxiliaries', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '2. Короткі відповіді з DO/DOES/DID',
                         'sections' => [
@@ -142,6 +146,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-to-be',
+                    // BLOCK-FIRST: To Be block detailed tags
+                    'tags' => ['To Be', 'Be (am/is/are/was/were)', 'Contractions', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '3. Короткі відповіді з TO BE',
                         'sections' => [
@@ -185,6 +191,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-modals',
+                    // BLOCK-FIRST: Modal verbs block detailed tags
+                    'tags' => ['Modal Verbs', 'Can/Could', 'Will/Would', 'Should', 'Must', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '4. Короткі відповіді з модальними дієсловами',
                         'sections' => [
@@ -225,6 +233,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-have-has',
+                    // BLOCK-FIRST: Have/Has block detailed tags
+                    'tags' => ['Have/Has/Had', 'Have Got', 'Present Perfect', 'British vs American', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '5. Короткі відповіді з HAVE/HAS',
                         'sections' => [
@@ -264,6 +274,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-other-tenses',
+                    // BLOCK-FIRST: Other Tenses block detailed tags
+                    'tags' => ['Present Continuous', 'Past Continuous', 'Advanced Tenses', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '6. Короткі відповіді з іншими часами',
                         'sections' => [
@@ -305,6 +317,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-full-answers',
+                    // BLOCK-FIRST: Full answers block detailed tags
+                    'tags' => ['Full Answers', 'Additional Information', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '7. Повні відповіді',
                         'sections' => [
@@ -347,6 +361,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-wh-answers',
+                    // BLOCK-FIRST: Wh-answers block detailed tags
+                    'tags' => ['Wh-Questions', 'Concrete Information', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '8. Відповіді на Wh-питання',
                         'sections' => [
@@ -380,6 +396,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'comparison-table',
+                    // BLOCK-FIRST: Comparison table block detailed tags
+                    'tags' => ['Summary', 'Quick Reference', 'All Structures', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '9. Швидка таблиця відповідей',
                         'intro' => 'Як формувати короткі відповіді з різними дієсловами:',
@@ -419,6 +437,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'mistakes-grid',
+                    // BLOCK-FIRST: Common mistakes block detailed tags
+                    'tags' => ['Common Mistakes', 'Auxiliary Verbs', 'Grammar Errors', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '10. Типові помилки',
                         'items' => [
@@ -459,6 +479,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'summary-list',
+                    // BLOCK-FIRST: Summary block detailed tags
+                    'tags' => ['Summary', 'Key Rules', 'Quick Reference', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '11. Короткий конспект',
                         'items' => [
@@ -481,6 +503,8 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'practice-set',
+                    // BLOCK-FIRST: Practice block detailed tags
+                    'tags' => ['Practice', 'Exercises', 'Interactive', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '12. Практика',
                         'select_title' => 'Вправа 1. Обери правильну відповідь',
@@ -529,6 +553,9 @@ class TypesOfQuestionsAnswersToQuestionsTheorySeeder extends QuestionsNegationsP
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'navigation-chips',
+                    // BLOCK-FIRST: Navigation block - service block with no content tags
+                    'inherit_base_tags' => false,
+                    'tags' => ['Navigation'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [
