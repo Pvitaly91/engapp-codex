@@ -251,7 +251,7 @@ class MarkerTheoryTest extends TestCase
         $tagDetail = Tag::create(['name' => 'Negative Questions', 'category' => 'Grammar Detail']);
         $tagGrammar = Tag::create(['name' => 'Do/Does/Did', 'category' => 'Auxiliary']);
 
-        // Block 1: Has only general tag (should have lower score)
+        // Block 1: Has general + detail tags (should have lower score)
         $textBlockGeneral = TextBlock::create([
             'uuid' => (string) Str::uuid(),
             'heading' => 'General Questions Overview',
@@ -262,7 +262,7 @@ class MarkerTheoryTest extends TestCase
         ]);
         $textBlockGeneral->tags()->attach([$tagGeneral->id, $tagDetail->id]);
 
-        // Block 2: Has general + detail + grammar tags (should have higher score)
+        // Block 2: Has general + detail + grammar tags (should have higher score due to additional grammar tag)
         $textBlockSpecific = TextBlock::create([
             'uuid' => (string) Str::uuid(),
             'heading' => 'Negative Questions with Do/Does/Did',
