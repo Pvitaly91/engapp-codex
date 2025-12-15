@@ -28,28 +28,24 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                 'title' => 'Види питальних речень',
                 'language' => 'uk',
             ],
+            // BLOCK-FIRST TAGGING: Page anchor tags (short, general page identifiers)
             'tags' => [
-                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
                 'Question Forms',
-                'Grammar',
-                'Theory',
-                // Detail tags (canonical)
                 'Wh-Questions',
                 'Special Questions',
-                'Subject Questions',
-                'Question Words',
-                // Auxiliary tags (canonical)
-                'Do/Does/Did',
-                'Be (am/is/are/was/were)',
-                // Tense tags (canonical)
-                'Present Simple',
-                'Past Simple',
-                // Level tags (canonical CEFR format)
-                'CEFR A1',
-                'CEFR A2',
-                'CEFR B1',
+                'Grammar',
+                'Theory',
             ],
+            // BLOCK-FIRST TAGGING: Base tags inherited by all blocks (controlled inheritance)
+            'base_tags' => [
+                'Types of Questions',
+                'Question Forms',
+                'Wh-Questions',
+                'Special Questions',
+            ],
+            // Subtitle block tags configuration
+            'subtitle_tags' => ['Introduction', 'Overview'],
             'blocks' => [
                 [
                     'type' => 'hero',
@@ -57,6 +53,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'hero',
+                    // BLOCK-FIRST: Hero block detailed tags
+                    'tags' => ['Introduction', 'Overview', 'Question Words', 'CEFR A1', 'CEFR B1'],
                     'body' => json_encode([
                         'level' => 'A1–B1',
                         'intro' => 'У цій темі ти вивчиш <strong>спеціальні питання (Wh-questions)</strong> — питання, які починаються з питальних слів і вимагають конкретної інформації у відповіді.',
@@ -88,6 +86,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'forms-grid-what-is',
+                    // BLOCK-FIRST: Definition block detailed tags
+                    'tags' => ['Definition', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '1. Що таке Wh-questions?',
                         'intro' => 'Wh-questions (спеціальні питання) — це питання з питальними словами, які потребують детальної відповіді:',
@@ -104,6 +104,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-who',
+                    // BLOCK-FIRST: WHO block detailed tags
+                    'tags' => ['Who', 'Subject Questions', 'Question Words', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '2. WHO — Хто? (про людей)',
                         'sections' => [
@@ -149,6 +151,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-what',
+                    // BLOCK-FIRST: WHAT block detailed tags
+                    'tags' => ['What', 'Subject Questions', 'Question Words', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '3. WHAT — Що? (про речі та інформацію)',
                         'sections' => [
@@ -194,6 +198,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-where',
+                    // BLOCK-FIRST: WHERE block detailed tags
+                    'tags' => ['Where', 'Place', 'Question Words', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '4. WHERE — Де? (про місце)',
                         'sections' => [
@@ -228,6 +234,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'usage-panels-when',
+                    // BLOCK-FIRST: WHEN block detailed tags
+                    'tags' => ['When', 'Time', 'Question Words', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '5. WHEN — Коли? (про час)',
                         'sections' => [
@@ -262,6 +270,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-why',
+                    // BLOCK-FIRST: WHY block detailed tags
+                    'tags' => ['Why', 'Reason', 'Question Words', 'Modal Verbs', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '6. WHY — Чому? (про причину)',
                         'sections' => [
@@ -316,6 +326,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-how',
+                    // BLOCK-FIRST: HOW block detailed tags
+                    'tags' => ['How', 'How Much', 'How Many', 'Quantity', 'Question Words', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '7. HOW — Як? (про спосіб та ступінь)',
                         'sections' => [
@@ -362,6 +374,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'comparison-table',
+                    // BLOCK-FIRST: Comparison table block detailed tags
+                    'tags' => ['Summary', 'Comparison', 'Question Words', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '8. Порівняльна таблиця питальних слів',
                         'intro' => 'Основні питальні слова та їх значення:',
@@ -406,6 +420,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-structure',
+                    // BLOCK-FIRST: Structure block detailed tags
+                    'tags' => ['Structure', 'Word Order', 'Subject Questions', 'To Be', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '9. Структура Wh-questions',
                         'sections' => [
@@ -449,6 +465,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'mistakes-grid',
+                    // BLOCK-FIRST: Common mistakes block detailed tags
+                    'tags' => ['Common Mistakes', 'Word Order', 'Grammar Errors', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '10. Типові помилки',
                         'items' => [
@@ -489,6 +507,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'summary-list',
+                    // BLOCK-FIRST: Summary block detailed tags
+                    'tags' => ['Summary', 'Key Rules', 'Quick Reference', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '11. Короткий конспект',
                         'items' => [
@@ -510,6 +530,8 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'practice-set',
+                    // BLOCK-FIRST: Practice block detailed tags
+                    'tags' => ['Practice', 'Exercises', 'Interactive', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '12. Практика',
                         'select_title' => 'Вправа 1. Обери правильне питальне слово',
@@ -558,6 +580,9 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'seeder' => self::class,
                     'level' => 'A1',
                     'uuid_key' => 'navigation-chips',
+                    // BLOCK-FIRST: Navigation block - service block with no content tags
+                    'inherit_base_tags' => false,
+                    'tags' => ['Navigation'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [
