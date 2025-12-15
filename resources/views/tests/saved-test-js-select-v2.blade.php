@@ -103,9 +103,13 @@ window.__INITIAL_JS_TEST_QUESTIONS__ = @json($questionData);
 let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
+const CSRF_TOKEN = '{{ csrf_token() }}';
+const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
+const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
+@include('components.marker-theory-js')
 <script>
 const state = {
   items: [],
@@ -125,6 +129,9 @@ async function init(forceFresh = false) {
       state.correct = Number.isFinite(saved.correct) ? saved.correct : 0;
       state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
       restored = true;
+      state.items.forEach((item) => {
+        if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
+      });
     }
   }
 
@@ -133,6 +140,7 @@ async function init(forceFresh = false) {
       ...q,
       chosen: Array(q.answers.length).fill(''),
       isCorrect: null,
+      markerTheoryCache: {},
     }));
     state.correct = 0;
     state.answered = 0;
@@ -173,6 +181,7 @@ function renderQuestion(idx) {
           <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
         </div>
         <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium">${sentence}</div>
+        <div id="theory-panel-${idx}" class="mt-2.5 sm:mt-3 hidden"></div>
       </div>
     <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0 sm:self-start">
         <div class="text-xs text-gray-500 font-medium">Q</div>
@@ -193,6 +202,16 @@ function renderQuestion(idx) {
       update();
     });
   }
+  // Add event delegation for marker theory button clicks
+  card.addEventListener('click', (e) => {
+    const markerTheoryBtn = e.target.closest('button.marker-theory-btn');
+    if (markerTheoryBtn) {
+      e.stopPropagation();
+      const marker = markerTheoryBtn.dataset.marker;
+      const btnIdx = parseInt(markerTheoryBtn.dataset.idx, 10);
+      fetchMarkerTheory(btnIdx, marker);
+    }
+  });
 }
 
 function onCheck(idx) {
@@ -231,7 +250,12 @@ function renderSentence(q, qIdx) {
     const hint = q.verb_hints && q.verb_hints[marker]
       ? ` <span class="verb-hint text-red-600 text-sm font-bold">( ${html(q.verb_hints[marker])} )</span>`
       : '';
-    text = text.replace(regex, replacement + hint);
+    // Add marker theory button if marker has tags
+    const hasMarkerTagsFlag = q.marker_tags && q.marker_tags[marker] && q.marker_tags[marker].length > 0;
+    const theoryBtn = hasMarkerTagsFlag
+      ? ` <button type="button" class="marker-theory-btn inline-flex items-center text-[11px] px-1.5 py-0.5 rounded-lg bg-cyan-50 hover:bg-cyan-100 text-cyan-700 hover:text-cyan-800 font-medium transition-colors" data-marker="${marker}" data-idx="${qIdx}"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>T</button>`
+      : '';
+    text = text.replace(regex, replacement + hint + theoryBtn);
   });
   return text;
 }
