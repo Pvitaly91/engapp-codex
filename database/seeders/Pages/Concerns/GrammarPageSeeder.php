@@ -248,8 +248,7 @@ abstract class GrammarPageSeeder extends Seeder
         $tagIds = [];
 
         foreach ($tagNames as $tagName) {
-            // Normalize tag name: trim whitespace and collapse multiple spaces
-            $normalizedName = preg_replace('/\s+/', ' ', trim($tagName));
+            $normalizedName = $this->normalizeTagName($tagName);
 
             if (empty($normalizedName)) {
                 continue;
@@ -265,5 +264,13 @@ abstract class GrammarPageSeeder extends Seeder
         }
 
         return $tagIds;
+    }
+
+    /**
+     * Normalize tag name by trimming whitespace and collapsing multiple spaces.
+     */
+    protected function normalizeTagName(string $tagName): string
+    {
+        return preg_replace('/\s+/', ' ', trim($tagName));
     }
 }

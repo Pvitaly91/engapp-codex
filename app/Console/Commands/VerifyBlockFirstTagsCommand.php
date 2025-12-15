@@ -115,7 +115,7 @@ class VerifyBlockFirstTagsCommand extends Command
         $pageTagIds = $page->tags->pluck('id')->toArray();
         $pageTagNames = $page->tags->pluck('name')->toArray();
 
-        $this->line("   Page tags ({$page->tags->count()}): ".implode(', ', array_slice($pageTagNames, 0, 8)).(count($pageTagNames) > 8 ? '...' : ''));
+        $this->line('   Page tags ('.$page->tags->count().'): '.$this->formatTagList($pageTagNames, 8));
 
         $blocks = $page->textBlocks;
         $this->line("   Text blocks: {$blocks->count()}");
@@ -155,21 +155,8 @@ class VerifyBlockFirstTagsCommand extends Command
         }
 
         // Check 3: Not all blocks have identical tags (diversity)
-        if (count($blockTagSets) > 1) {
-            $uniqueSets = array_unique(array_map(function ($set) {
-                sort($set);
-
-                return implode(',', $set);
-            }, $blockTagSets));
-
-            if (count($uniqueSets) > 1) {
-                $checks[] = ['✅', 'Blocks have diverse tag sets ('.count($uniqueSets).' unique sets)'];
-            } else {
-                $checks[] = ['⚠️', 'All blocks with tags have identical tag sets'];
-            }
-        } else {
-            $checks[] = ['ℹ️', 'Only one block has tags (diversity check skipped)'];
-        }
+        $diversityCheck = $this->checkTagSetDiversity($blockTagSets);
+        $checks[] = $diversityCheck;
 
         foreach ($checks as $check) {
             $this->line("   {$check[0]} {$check[1]}");
@@ -193,5 +180,45 @@ class VerifyBlockFirstTagsCommand extends Command
         }
 
         return $passed;
+    }
+
+    /**
+     * Format a list of tag names for display, with optional truncation.
+     */
+    protected function formatTagList(array $tagNames, int $maxShow = 8): string
+    {
+        $shown = array_slice($tagNames, 0, $maxShow);
+        $result = implode(', ', $shown);
+
+        if (count($tagNames) > $maxShow) {
+            $result .= '...';
+        }
+
+        return $result;
+    }
+
+    /**
+     * Check tag set diversity and return a check result.
+     *
+     * @param  array<array<int>>  $blockTagSets
+     * @return array{0: string, 1: string}
+     */
+    protected function checkTagSetDiversity(array $blockTagSets): array
+    {
+        if (count($blockTagSets) <= 1) {
+            return ['ℹ️', 'Only one block has tags (diversity check skipped)'];
+        }
+
+        $uniqueSets = array_unique(array_map(function ($set) {
+            sort($set);
+
+            return implode(',', $set);
+        }, $blockTagSets));
+
+        if (count($uniqueSets) > 1) {
+            return ['✅', 'Blocks have diverse tag sets ('.count($uniqueSets).' unique sets)'];
+        }
+
+        return ['⚠️', 'All blocks with tags have identical tag sets'];
     }
 }
