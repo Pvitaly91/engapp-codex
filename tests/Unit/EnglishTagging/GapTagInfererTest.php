@@ -357,4 +357,101 @@ class GapTagInfererTest extends TestCase
 
         $this->assertContains('Modal Verbs', $result);
     }
+
+    // ========== MULTI-MARKER TESTS ==========
+
+    /** @test */
+    public function it_processes_multiple_markers_independently(): void
+    {
+        // Test that each marker gets independent inference
+        $question = '{a1} you {a2} pizza?';
+
+        // First marker: Do (auxiliary)
+        $result1 = $this->service->infer(
+            $question,
+            'a1',
+            'Do',
+            ['Do', 'Does', 'Are', 'Is'],
+            'auxiliary for you'
+        );
+
+        // Second marker: like (verb form)
+        $result2 = $this->service->infer(
+            $question,
+            'a2',
+            'like',
+            ['like', 'likes', 'liking', 'liked'],
+            'base form after do'
+        );
+
+        // a1 should detect Do/Does/Did
+        $this->assertContains('Do/Does/Did', $result1);
+
+        // a2 may not have auxiliary tags since it's a verb form
+        $this->assertIsArray($result2);
+    }
+
+    /** @test */
+    public function it_handles_indirect_questions_in_multimarker_context(): void
+    {
+        // Multi-marker indirect question
+        $question = 'Can you tell me where the bank {a1}? I {a2} find it.';
+
+        // First marker should detect indirect question
+        $result1 = $this->service->infer(
+            $question,
+            'a1',
+            'is',
+            ['is', 'are', 'does', 'do'],
+            'statement order'
+        );
+
+        $this->assertContains('Indirect Questions', $result1);
+    }
+
+    /** @test */
+    public function it_handles_tag_questions_in_multimarker_context(): void
+    {
+        // Multi-marker with tag question - marker at end with comma pattern
+        $question = 'She speaks French, {a1}?';
+
+        // Tag question marker
+        $result = $this->service->infer(
+            $question,
+            'a1',
+            "doesn't she",
+            ["doesn't she", 'does she', "isn't she", 'is she'],
+            'negative tag'
+        );
+
+        // Should detect tag question pattern from comma + marker position
+        $this->assertContains('Tag Questions', $result);
+    }
+
+    /** @test */
+    public function it_handles_subject_questions_in_multimarker_context(): void
+    {
+        // Subject question with multiple markers
+        $question = 'Who {a1} the idea and who {a2} the final decision?';
+
+        $result1 = $this->service->infer(
+            $question,
+            'a1',
+            'suggested',
+            ['suggested', 'did suggest', 'suggest', 'has suggested'],
+            'subject question past'
+        );
+
+        $result2 = $this->service->infer(
+            $question,
+            'a2',
+            'made',
+            ['made', 'did make', 'make', 'has made'],
+            'subject question past'
+        );
+
+        // Both should detect subject questions (verb form without auxiliary)
+        $this->assertContains('Subject Questions', $result1);
+        $this->assertContains('Subject Questions', $result2);
+    }
 }
