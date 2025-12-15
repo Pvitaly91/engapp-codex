@@ -124,6 +124,53 @@ const TEST_SLUG = @json($test->slug);
 @include('components.saved-test-js-helpers')
 @include('components.marker-theory-js')
 <script>
+/**
+ * Build per-slot options arrays. If options divide evenly by markers count,
+ * chunk them so each marker gets its own subset. Otherwise fallback to full list.
+ */
+function buildOptionsBySlot(options, markersCount) {
+  const optionsBySlot = [];
+  if (markersCount > 0 && options.length % markersCount === 0) {
+    const chunkSize = options.length / markersCount;
+    if (chunkSize >= 2) {
+      for (let i = 0; i < markersCount; i++) {
+        const chunk = options.slice(i * chunkSize, (i + 1) * chunkSize);
+        shuffle(chunk);
+        optionsBySlot.push(chunk);
+      }
+      return optionsBySlot;
+    }
+  }
+  // Fallback: each slot gets full shuffled options
+  for (let i = 0; i < markersCount; i++) {
+    const all = [...options];
+    shuffle(all);
+    optionsBySlot.push(all);
+  }
+  return optionsBySlot;
+}
+
+/**
+ * Get active options for the current active slot
+ */
+function getActiveOptions(q) {
+  if (q.optionsBySlot && Array.isArray(q.optionsBySlot) && q.optionsBySlot[q.activeSlot]) {
+    return q.optionsBySlot[q.activeSlot];
+  }
+  // Fallback to full options list
+  return q.options || [];
+}
+
+/**
+ * Find the first unfilled slot index, or return -1 if all filled
+ */
+function findFirstUnfilledSlot(q) {
+  for (let i = 0; i < q.answers.length; i++) {
+    if (q.chosen[i] === null) return i;
+  }
+  return -1;
+}
+
 const state = {
   items: [],
   correct: 0,
@@ -158,27 +205,51 @@ async function init(forceFresh = false) {
       state.answered = Number.isFinite(saved.answered) ? saved.answered : 0;
       state.activeCardIdx = Number.isFinite(saved.activeCardIdx) ? saved.activeCardIdx : 0;
       restored = true;
-      state.items.forEach((item) => {
+      state.items.forEach((item, idx) => {
         if (typeof item.explanation !== 'string') item.explanation = '';
         if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
         if (!('pendingExplanationKey' in item)) item.pendingExplanationKey = null;
         if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
+        
+        // Initialize new per-slot fields if missing (backward compatibility)
+        const markersCount = item.answers ? item.answers.length : 1;
+        if (!Array.isArray(item.attemptsBySlot)) {
+          item.attemptsBySlot = Array(markersCount).fill(0);
+        }
+        if (!Array.isArray(item.lastWrongBySlot)) {
+          item.lastWrongBySlot = Array(markersCount).fill(null);
+        }
+        if (typeof item.activeSlot !== 'number') {
+          // Set active slot to first unfilled or 0
+          item.activeSlot = findFirstUnfilledSlot(item);
+          if (item.activeSlot === -1) item.activeSlot = 0;
+        }
+        // Regenerate optionsBySlot from base questions if available
+        const baseQ = QUESTIONS[idx];
+        if (baseQ && Array.isArray(baseQ.options)) {
+          item.optionsBySlot = buildOptionsBySlot(baseQ.options, markersCount);
+        } else if (!Array.isArray(item.optionsBySlot)) {
+          item.optionsBySlot = buildOptionsBySlot(item.options || [], markersCount);
+        }
       });
     }
   }
 
   if (!restored) {
     state.items = QUESTIONS.map((q) => {
-      const opts = [...q.options];
-      shuffle(opts);
+      const optionsBySlot = buildOptionsBySlot(q.options, q.answers.length);
       return {
         ...q,
-        options: opts,
+        options: q.options, // Keep original options for fallback
+        optionsBySlot: optionsBySlot,
         chosen: Array(q.answers.length).fill(null),
-        slot: 0,
+        activeSlot: 0,
+        slot: 0, // Keep for backward compatibility
         done: false,
         wrongAttempt: false,
-        lastWrong: null,
+        attemptsBySlot: Array(q.answers.length).fill(0),
+        lastWrongBySlot: Array(q.answers.length).fill(null),
+        lastWrong: null, // Keep for backward compatibility
         feedback: '',
         attempts: 0,
         explanation: '',
@@ -199,6 +270,36 @@ async function init(forceFresh = false) {
   persistState(state, true);
 }
 
+/**
+ * Re-render a single card's content (sentence and options) without rebuilding all cards
+ */
+function rerenderCard(idx) {
+  const container = document.querySelector(`article[data-idx="${idx}"]`);
+  if (!container) return;
+  
+  const item = state.items[idx];
+  if (!item) return;
+  
+  // Update sentence
+  const sentenceEl = container.querySelector('.leading-relaxed');
+  if (sentenceEl) {
+    sentenceEl.innerHTML = renderSentence(item, idx);
+  }
+  
+  // Update options
+  const group = container.querySelector('[role="group"]');
+  if (group) {
+    const activeOptions = getActiveOptions(item);
+    group.innerHTML = activeOptions.map((optText, i) => renderOptionButton(item, idx, optText, i)).join('');
+  }
+  
+  // Update feedback
+  const feedbackEl = container.querySelector(`#feedback-${idx}`);
+  if (feedbackEl) {
+    feedbackEl.innerHTML = renderFeedback(item);
+  }
+}
+
 function renderQuestions(showOnlyWrong = false) {
   const wrap = document.getElementById('questions');
   wrap.innerHTML = '';
@@ -212,6 +313,7 @@ function renderQuestions(showOnlyWrong = false) {
     card.dataset.idx = idx;
 
     const sentence = renderSentence(q, idx);
+    const activeOptions = getActiveOptions(q);
 
     card.innerHTML = `
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3.5 sm:gap-4 mb-5 sm:mb-6">
@@ -245,13 +347,26 @@ function renderQuestions(showOnlyWrong = false) {
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3" role="group" aria-label="Answer options">
-        ${q.options.map((opt, i) => renderOptionButton(q, idx, opt, i)).join('')}
+        ${activeOptions.map((opt, i) => renderOptionButton(q, idx, opt, i)).join('')}
       </div>
 
       <div class="mt-5 sm:mt-6" id="feedback-${idx}">${renderFeedback(q)}</div>
     `;
 
     card.addEventListener('click', (e) => {
+      // Handle gap click to switch active slot
+      const gapBtn = e.target.closest('button[data-gap]');
+      if (gapBtn) {
+        e.stopPropagation();
+        const gapIndex = parseInt(gapBtn.dataset.gap, 10);
+        if (!isNaN(gapIndex) && gapIndex !== q.activeSlot && q.chosen[gapIndex] === null) {
+          q.activeSlot = gapIndex;
+          rerenderCard(idx);
+          persistState(state);
+        }
+        return;
+      }
+      
       // Handle marker theory button clicks (using delegation since sentence re-renders)
       const markerTheoryBtn = e.target.closest('button.marker-theory-btn');
       if (markerTheoryBtn) {
@@ -317,10 +432,13 @@ function renderOptionButton(q, idx, opt, i) {
   let cls = 'border-gray-200 bg-white hover:border-indigo-300 hover:bg-indigo-50 hover:shadow-md transform hover:-translate-y-0.5';
   let iconColor = 'text-gray-400 group-hover:text-indigo-500';
   
+  // Use lastWrongBySlot for the active slot
+  const lastWrongForSlot = q.lastWrongBySlot && q.lastWrongBySlot[q.activeSlot];
+  
   if (q.done) {
     cls = 'border-gray-200 bg-gray-50 text-gray-500 cursor-not-allowed';
     iconColor = 'text-gray-300';
-  } else if (q.lastWrong === opt) {
+  } else if (lastWrongForSlot === opt) {
     cls = 'border-red-300 bg-red-50 text-red-700 shadow-md';
     iconColor = 'text-red-500';
   }
@@ -363,9 +481,12 @@ function onChoose(idx, opt) {
   const item = state.items[idx];
   if (item.done) return;
 
-  const slotIndex = item.slot;
+  const slotIndex = item.activeSlot;
   const expected = item.answers[slotIndex];
   if (expected === undefined) return;
+  
+  // Check if slot is already filled
+  if (item.chosen[slotIndex] !== null) return;
 
   if (!item.explanationsCache) {
     item.explanationsCache = {};
@@ -383,42 +504,53 @@ function onChoose(idx, opt) {
 
   if (opt === expected) {
     item.chosen[slotIndex] = opt;
-    item.slot += 1;
-    item.lastWrong = null;
+    item.attemptsBySlot[slotIndex] = 0;
+    item.lastWrongBySlot[slotIndex] = null;
     item.feedback = 'correct';
-    item.attempts = 0;
-    if (item.slot === item.answers.length) {
+    
+    // Check if all slots are filled
+    const allFilled = item.chosen.every(c => c !== null);
+    if (allFilled) {
       item.done = true;
       state.answered += 1;
       if (!item.wrongAttempt) state.correct += 1;
+    } else {
+      // Auto-advance to next unfilled slot
+      const nextSlot = findFirstUnfilledSlot(item);
+      if (nextSlot !== -1) {
+        item.activeSlot = nextSlot;
+      }
     }
   } else {
     item.wrongAttempt = true;
-    item.lastWrong = opt;
-    item.attempts += 1;
-    if (item.attempts >= 2) {
-      const correct = expected;
-      item.chosen[slotIndex] = correct;
-      item.slot += 1;
-      item.feedback = `Correct answer: ${correct}`;
-      item.attempts = 0;
-      if (item.slot === item.answers.length) {
+    item.lastWrongBySlot[slotIndex] = opt;
+    item.attemptsBySlot[slotIndex] = (item.attemptsBySlot[slotIndex] || 0) + 1;
+    
+    if (item.attemptsBySlot[slotIndex] >= 2) {
+      // Auto-fill with correct answer after 2 wrong attempts
+      item.chosen[slotIndex] = expected;
+      item.attemptsBySlot[slotIndex] = 0;
+      item.lastWrongBySlot[slotIndex] = null;
+      item.feedback = `Correct answer: ${expected}`;
+      
+      // Check if all slots are filled
+      const allFilled = item.chosen.every(c => c !== null);
+      if (allFilled) {
         item.done = true;
         state.answered += 1;
+      } else {
+        // Auto-advance to next unfilled slot
+        const nextSlot = findFirstUnfilledSlot(item);
+        if (nextSlot !== -1) {
+          item.activeSlot = nextSlot;
+        }
       }
     } else {
       item.feedback = 'Incorrect, try again';
     }
   }
 
-  const container = document.querySelector(`article[data-idx="${idx}"]`);
-  if (container) {
-    container.querySelector('.leading-relaxed').innerHTML = renderSentence(item, idx);
-    const group = container.querySelector('[role="group"]');
-    group.innerHTML = item.options.map((optText, i) => renderOptionButton(item, idx, optText, i)).join('');
-    container.querySelector(`#feedback-${idx}`).innerHTML = renderFeedback(item);
-  }
-
+  rerenderCard(idx);
   updateProgress();
   checkAllDone();
   persistState(state);
@@ -465,11 +597,18 @@ function checkAllDone() {
 function renderSentence(q, idx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
-    const replacement = q.chosen[i]
-      ? `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold">${html(q.chosen[i])}</mark>`
-      : (i === q.slot
-        ? `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-200 to-yellow-200 font-semibold">____</mark>`
-        : '____');
+    let replacement;
+    if (q.chosen[i]) {
+      // Filled slot - show chosen answer
+      replacement = `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold">${html(q.chosen[i])}</mark>`;
+    } else {
+      // Unfilled slot - make clickable
+      const isActive = i === q.activeSlot;
+      const activeClass = isActive
+        ? 'bg-gradient-to-r from-amber-200 to-yellow-200'
+        : 'bg-gray-100 hover:bg-amber-100';
+      replacement = `<button type="button" class="gap-btn px-2 py-1 rounded-lg ${activeClass} font-semibold cursor-pointer transition-colors" data-gap="${i}">____</button>`;
+    }
     const regex = new RegExp(`\\{a${i + 1}\\}`);
     const marker = `a${i + 1}`;
     const hint = q.verb_hints && q.verb_hints[marker]
@@ -690,7 +829,8 @@ function hookGlobalEvents() {
     const item = state.items[idx];
     if (!item || item.done) return;
 
-    const opt = item.options[n - 1];
+    const activeOptions = getActiveOptions(item);
+    const opt = activeOptions[n - 1];
     if (!opt) return;
 
     onChoose(idx, opt);
