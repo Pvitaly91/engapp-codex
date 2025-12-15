@@ -28,27 +28,24 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 'title' => 'Види питальних речень',
                 'language' => 'uk',
             ],
+            // BLOCK-FIRST TAGGING: Page anchor tags (short, general page identifiers)
             'tags' => [
-                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
                 'Question Forms',
-                'Grammar',
-                'Theory',
-                // Detail tags (canonical)
                 'Alternative Questions',
                 'Choice Questions',
-                // Auxiliary tags (canonical)
-                'Do/Does/Did',
-                'Be (am/is/are/was/were)',
-                'Modal Verbs',
-                // Tense tags (canonical)
-                'Present Simple',
-                'Past Simple',
-                'Future Simple',
-                // Level tags (canonical CEFR format)
-                'CEFR A2',
-                'CEFR B1',
+                'Grammar',
+                'Theory',
             ],
+            // BLOCK-FIRST TAGGING: Base tags inherited by all blocks (controlled inheritance)
+            'base_tags' => [
+                'Types of Questions',
+                'Question Forms',
+                'Alternative Questions',
+                'Choice Questions',
+            ],
+            // Subtitle block tags configuration
+            'subtitle_tags' => ['Introduction', 'Overview'],
             'blocks' => [
                 [
                     'type' => 'hero',
@@ -56,6 +53,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'hero',
+                    // BLOCK-FIRST: Hero block detailed tags
+                    'tags' => ['Introduction', 'Overview', 'Or', 'CEFR A2', 'CEFR B1'],
                     'body' => json_encode([
                         'level' => 'A2–B1',
                         'intro' => 'У цій темі ти вивчиш <strong>альтернативні питання (Alternative Questions)</strong> — питання, які пропонують вибір між варіантами за допомогою сполучника <strong>or</strong>.',
@@ -87,6 +86,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'forms-grid-what-is',
+                    // BLOCK-FIRST: Definition block detailed tags
+                    'tags' => ['Definition', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '1. Що таке альтернативні питання?',
                         'intro' => 'Alternative questions — це питання з вибором між варіантами:',
@@ -103,6 +104,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-basic-structure',
+                    // BLOCK-FIRST: Basic structure block detailed tags
+                    'tags' => ['Structure', 'Basic', 'Nouns', 'Adjectives', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '2. Базова структура альтернативних питань',
                         'sections' => [
@@ -146,6 +149,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    // BLOCK-FIRST: Do/Does/Did block detailed tags
+                    'tags' => ['Do/Does/Did', 'Present Simple', 'Past Simple', 'Auxiliaries', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '3. Альтернативні питання з DO/DOES/DID',
                         'sections' => [
@@ -189,6 +194,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-to-be',
+                    // BLOCK-FIRST: To Be block detailed tags
+                    'tags' => ['To Be', 'Be (am/is/are/was/were)', 'Inversion', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '4. Альтернативні питання з TO BE',
                         'sections' => [
@@ -232,6 +239,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-modals',
+                    // BLOCK-FIRST: Modal verbs block detailed tags
+                    'tags' => ['Modal Verbs', 'Can/Could', 'Will/Would', 'Should', 'Must', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '5. Альтернативні питання з модальними дієсловами',
                         'sections' => [
@@ -274,6 +283,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-complex',
+                    // BLOCK-FIRST: Complex alternatives block detailed tags
+                    'tags' => ['Complex', 'Multiple Options', 'Wh-Questions', 'Which', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '6. Складніші альтернативні питання',
                         'sections' => [
@@ -317,6 +328,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'usage-panels-answers',
+                    // BLOCK-FIRST: Answers block detailed tags
+                    'tags' => ['Answers', 'Neither', 'Both', 'Response Patterns', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '7. Як відповідати на альтернативні питання',
                         'sections' => [
@@ -358,6 +371,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'comparison-table',
+                    // BLOCK-FIRST: Comparison table block detailed tags
+                    'tags' => ['Summary', 'Comparison', 'Yes/No Questions', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '8. Порівняння Yes/No та Alternative Questions',
                         'intro' => 'Основні відмінності між двома типами питань:',
@@ -397,6 +412,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'mistakes-grid',
+                    // BLOCK-FIRST: Common mistakes block detailed tags
+                    'tags' => ['Common Mistakes', 'Word Order', 'Grammar Errors', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '9. Типові помилки',
                         'items' => [
@@ -437,6 +454,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'summary-list',
+                    // BLOCK-FIRST: Summary block detailed tags
+                    'tags' => ['Summary', 'Key Rules', 'Quick Reference', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '10. Короткий конспект',
                         'items' => [
@@ -459,6 +478,8 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'practice-set',
+                    // BLOCK-FIRST: Practice block detailed tags
+                    'tags' => ['Practice', 'Exercises', 'Interactive', 'CEFR A2'],
                     'body' => json_encode([
                         'title' => '11. Практика',
                         'select_title' => 'Вправа 1. Обери правильний варіант',
@@ -506,6 +527,9 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                     'seeder' => self::class,
                     'level' => 'A2',
                     'uuid_key' => 'navigation-chips',
+                    // BLOCK-FIRST: Navigation block - service block with no content tags
+                    'inherit_base_tags' => false,
+                    'tags' => ['Navigation'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [

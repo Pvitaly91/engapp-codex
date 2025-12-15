@@ -38,6 +38,11 @@ class VerifyBlockFirstTagsCommand extends Command
      */
     protected array $targetSeeders = [
         'TypesOfQuestionsYesNoQuestionsGeneralQuestionsTheorySeeder',
+        'TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder',
+        'TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder',
+        'TypesOfQuestionsNegativeQuestionsTheorySeeder',
+        'TypesOfQuestionsAnswersToQuestionsTheorySeeder',
+        'TypesOfQuestionsAlternativeQuestionsTheorySeeder',
     ];
 
     /**

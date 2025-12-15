@@ -28,30 +28,25 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                 'title' => 'Види питальних речень',
                 'language' => 'uk',
             ],
+            // BLOCK-FIRST TAGGING: Page anchor tags (short, general page identifiers)
             'tags' => [
-                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
                 'Question Forms',
-                'Grammar',
-                'Theory',
-                // Detail tags (canonical)
                 'Tag Questions',
                 'Question Tags',
                 'Disjunctive Questions',
-                // Auxiliary tags (canonical)
-                'Do/Does/Did',
-                'Be (am/is/are/was/were)',
-                'Have/Has/Had',
-                'Will/Would',
-                'Can/Could',
-                // Tense tags (canonical)
-                'Present Simple',
-                'Past Simple',
-                'Present Perfect',
-                // Level tags (canonical CEFR format)
-                'CEFR B1',
-                'CEFR B2',
+                'Grammar',
+                'Theory',
             ],
+            // BLOCK-FIRST TAGGING: Base tags inherited by all blocks (controlled inheritance)
+            'base_tags' => [
+                'Types of Questions',
+                'Question Forms',
+                'Tag Questions',
+                'Question Tags',
+            ],
+            // Subtitle block tags configuration
+            'subtitle_tags' => ['Introduction', 'Overview'],
             'blocks' => [
                 [
                     'type' => 'hero',
@@ -59,6 +54,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'hero',
+                    // BLOCK-FIRST: Hero block detailed tags
+                    'tags' => ['Introduction', 'Overview', 'Positive-Negative Rule', 'Intonation', 'CEFR B1', 'CEFR B2'],
                     'body' => json_encode([
                         'level' => 'B1–B2',
                         'intro' => 'У цій темі ти вивчиш <strong>розділові питання (Question Tags)</strong> — короткі питання в кінці речення для підтвердження інформації або ввічливого спілкування.',
@@ -90,6 +87,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'forms-grid-what-is',
+                    // BLOCK-FIRST: Definition block detailed tags
+                    'tags' => ['Definition', 'Positive-Negative Rule', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '1. Що таке Question Tags?',
                         'intro' => 'Question tags — це короткі питання в кінці речення:',
@@ -106,6 +105,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-to-be',
+                    // BLOCK-FIRST: To Be block detailed tags
+                    'tags' => ['To Be', 'Be (am/is/are/was/were)', 'Present Simple', 'Past Simple', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '2. Question Tags з дієсловом TO BE',
                         'sections' => [
@@ -151,6 +152,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-do-does-did',
+                    // BLOCK-FIRST: Do/Does/Did block detailed tags
+                    'tags' => ['Do/Does/Did', 'Present Simple', 'Past Simple', 'Auxiliaries', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '3. Question Tags з DO/DOES/DID',
                         'sections' => [
@@ -195,6 +198,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-modals',
+                    // BLOCK-FIRST: Modal verbs block detailed tags
+                    'tags' => ['Modal Verbs', 'Can/Could', 'Will/Would', 'Should', 'Must', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '4. Question Tags з модальними дієсловами',
                         'sections' => [
@@ -239,6 +244,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-have-has',
+                    // BLOCK-FIRST: Have/Has block detailed tags
+                    'tags' => ['Have/Has/Had', 'Have Got', 'Present Perfect', 'British vs American', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '5. Question Tags з HAVE/HAS',
                         'sections' => [
@@ -281,6 +288,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-other-tenses',
+                    // BLOCK-FIRST: Other Tenses block detailed tags
+                    'tags' => ['Present Continuous', 'Past Continuous', 'Future Simple', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '6. Question Tags з іншими часами',
                         'sections' => [
@@ -324,6 +333,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-special-cases',
+                    // BLOCK-FIRST: Special cases block detailed tags
+                    'tags' => ['Special Cases', 'I Am', 'Imperatives', 'Lets', 'This/That', 'CEFR B2'],
                     'body' => json_encode([
                         'title' => '7. Спеціальні випадки та винятки',
                         'sections' => [
@@ -375,6 +386,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B2',
                     'uuid_key' => 'usage-panels-intonation',
+                    // BLOCK-FIRST: Intonation block detailed tags
+                    'tags' => ['Intonation', 'Rising vs Falling', 'Confirmation', 'Usage', 'CEFR B2'],
                     'body' => json_encode([
                         'title' => '8. Інтонація та використання',
                         'sections' => [
@@ -417,6 +430,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'comparison-table',
+                    // BLOCK-FIRST: Comparison table block detailed tags
+                    'tags' => ['Summary', 'Quick Reference', 'All Structures', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '9. Швидка таблиця Question Tags',
                         'intro' => 'Основні правила формування question tags:',
@@ -461,6 +476,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'mistakes-grid',
+                    // BLOCK-FIRST: Common mistakes block detailed tags
+                    'tags' => ['Common Mistakes', 'Word Order', 'Grammar Errors', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '10. Типові помилки',
                         'items' => [
@@ -501,6 +518,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'summary-list',
+                    // BLOCK-FIRST: Summary block detailed tags
+                    'tags' => ['Summary', 'Key Rules', 'Quick Reference', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '11. Короткий конспект',
                         'items' => [
@@ -523,6 +542,8 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'practice-set',
+                    // BLOCK-FIRST: Practice block detailed tags
+                    'tags' => ['Practice', 'Exercises', 'Interactive', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '12. Практика',
                         'select_title' => 'Вправа 1. Обери правильний tag',
@@ -571,6 +592,9 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'seeder' => self::class,
                     'level' => 'B1',
                     'uuid_key' => 'navigation-chips',
+                    // BLOCK-FIRST: Navigation block - service block with no content tags
+                    'inherit_base_tags' => false,
+                    'tags' => ['Navigation'],
                     'body' => json_encode([
                         'title' => 'Інші теми з розділу Види питальних речень',
                         'items' => [
