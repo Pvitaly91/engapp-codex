@@ -9,6 +9,13 @@ use App\Support\Database\Seeder;
 
 class TypesOfQuestionsCategorySeeder extends Seeder
 {
+    /**
+     * Cache for Tag::firstOrCreate to avoid N+1 queries.
+     *
+     * @var array<string, int>
+     */
+    protected array $tagCache = [];
+
     protected function slug(): string
     {
         return 'types-of-questions';
@@ -43,14 +50,16 @@ class TypesOfQuestionsCategorySeeder extends Seeder
             ]
         );
 
-        // Sync tags if provided
-        if (! empty($description['tags'])) {
-            $tagIds = [];
-            foreach ($description['tags'] as $tagName) {
-                $tag = Tag::firstOrCreate(['name' => $tagName]);
-                $tagIds[] = $tag->id;
-            }
-            $category->tags()->sync($tagIds);
+        // Resolve category tags (including category slug as identifier tag for matching)
+        $categoryTags = $description['tags'] ?? [];
+        if (! in_array($slug, $categoryTags, true)) {
+            $categoryTags[] = $slug;
+        }
+        $categoryTagIds = $this->resolveTagIds($categoryTags);
+
+        // Sync tags to category
+        if (! empty($categoryTagIds)) {
+            $category->tags()->sync($categoryTagIds);
         }
 
         TextBlock::query()
@@ -60,9 +69,10 @@ class TypesOfQuestionsCategorySeeder extends Seeder
             ->delete();
 
         $locale = $description['locale'];
+        $createdTextBlocks = [];
 
         if (! empty($description['subtitle_html'])) {
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $locale,
@@ -74,12 +84,13 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'body' => $description['subtitle_html'],
                 'seeder' => static::class,
             ]);
+            $createdTextBlocks[] = ['block' => $textBlock, 'config' => []];
         }
 
         foreach ($description['blocks'] ?? [] as $index => $block) {
             $blockType = $block['type'] ?? 'box';
 
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'page_id' => null,
                 'page_category_id' => $category->getKey(),
                 'locale' => $block['locale'] ?? $locale,
@@ -91,7 +102,60 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'body' => $block['body'] ?? null,
                 'seeder' => static::class,
             ]);
+            $createdTextBlocks[] = ['block' => $textBlock, 'config' => $block];
         }
+
+        // Sync tags to each TextBlock (category tags + optional block-specific tags)
+        foreach ($createdTextBlocks as $item) {
+            $textBlock = $item['block'];
+            $blockConfig = $item['config'];
+
+            // Check if tag inheritance is disabled for this block
+            $inheritTags = $blockConfig['inherit_tags'] ?? true;
+
+            if ($inheritTags) {
+                // Start with category tags
+                $blockTagIds = $categoryTagIds;
+
+                // Add block-specific tags if defined
+                if (! empty($blockConfig['tags'])) {
+                    $blockSpecificTagIds = $this->resolveTagIds($blockConfig['tags']);
+                    $blockTagIds = array_unique(array_merge($blockTagIds, $blockSpecificTagIds));
+                }
+            } else {
+                // Only use block-specific tags (no inheritance)
+                $blockTagIds = ! empty($blockConfig['tags'])
+                    ? $this->resolveTagIds($blockConfig['tags'])
+                    : [];
+            }
+
+            if (! empty($blockTagIds)) {
+                $textBlock->tags()->sync($blockTagIds);
+            }
+        }
+    }
+
+    /**
+     * Resolve tag names to tag IDs with caching.
+     *
+     * @param  array<string>  $tagNames
+     * @return array<int>
+     */
+    protected function resolveTagIds(array $tagNames): array
+    {
+        $tagIds = [];
+
+        foreach ($tagNames as $tagName) {
+            if (isset($this->tagCache[$tagName])) {
+                $tagIds[] = $this->tagCache[$tagName];
+            } else {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $this->tagCache[$tagName] = $tag->id;
+                $tagIds[] = $tag->id;
+            }
+        }
+
+        return $tagIds;
     }
 
     protected function description(): array
@@ -102,15 +166,35 @@ class TypesOfQuestionsCategorySeeder extends Seeder
             'subtitle_text' => 'Види питальних речень в англійській мові: загальні, спеціальні, альтернативні, розділові питання та питання до підмета.',
             'locale' => 'uk',
             'tags' => [
-                'Види питань',
+                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
+                'Question Forms',
+                'Grammar',
+                'Theory',
+                // All question type detail tags (canonical)
                 'Yes/No Questions',
+                'General Questions',
                 'Wh-Questions',
-                'Загальні питання',
-                'Спеціальні питання',
-                'Альтернативні питання',
-                'Розділові питання',
+                'Special Questions',
+                'Subject Questions',
+                'Indirect Questions',
+                'Tag Questions',
                 'Question Tags',
+                'Disjunctive Questions',
+                'Alternative Questions',
+                'Choice Questions',
+                'Negative Questions',
+                'Negative Question Forms',
+                // Auxiliary tags (canonical - common across all)
+                'Do/Does/Did',
+                'Be (am/is/are/was/were)',
+                'Have/Has/Had',
+                'Modal Verbs',
+                // Level tags (canonical CEFR format)
+                'CEFR A1',
+                'CEFR A2',
+                'CEFR B1',
+                'CEFR B2',
             ],
             'blocks' => [
                 [

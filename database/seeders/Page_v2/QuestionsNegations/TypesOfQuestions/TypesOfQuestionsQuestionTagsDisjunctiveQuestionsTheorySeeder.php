@@ -29,16 +29,28 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                 'language' => 'uk',
             ],
             'tags' => [
-                'Question Tags',
-                'Disjunctive Questions',
-                'Розділові питання',
-                'Tag Questions',
-                'Isn\'t it',
-                'Don\'t you',
+                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
+                'Types of Questions',
+                'Question Forms',
                 'Grammar',
                 'Theory',
-                'B1',
-                'B2',
+                // Detail tags (canonical)
+                'Tag Questions',
+                'Question Tags',
+                'Disjunctive Questions',
+                // Auxiliary tags (canonical)
+                'Do/Does/Did',
+                'Be (am/is/are/was/were)',
+                'Have/Has/Had',
+                'Will/Would',
+                'Can/Could',
+                // Tense tags (canonical)
+                'Present Simple',
+                'Past Simple',
+                'Present Perfect',
+                // Level tags (canonical CEFR format)
+                'CEFR B1',
+                'CEFR B2',
             ],
             'blocks' => [
                 [

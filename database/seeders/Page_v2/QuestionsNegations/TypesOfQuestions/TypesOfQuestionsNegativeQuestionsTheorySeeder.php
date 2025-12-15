@@ -29,15 +29,25 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                 'language' => 'uk',
             ],
             'tags' => [
-                'Negative Questions',
-                'Заперечні питання',
-                'Don\'t you',
-                'Isn\'t she',
-                'Didn\'t they',
+                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
+                'Types of Questions',
+                'Question Forms',
                 'Grammar',
                 'Theory',
-                'B1',
-                'B2',
+                // Detail tags (canonical)
+                'Negative Questions',
+                'Negative Question Forms',
+                // Auxiliary tags (canonical)
+                'Do/Does/Did',
+                'Be (am/is/are/was/were)',
+                'Have/Has/Had',
+                // Tense tags (canonical)
+                'Present Simple',
+                'Past Simple',
+                'Present Perfect',
+                // Level tags (canonical CEFR format)
+                'CEFR B1',
+                'CEFR B2',
             ],
             'blocks' => [
                 [

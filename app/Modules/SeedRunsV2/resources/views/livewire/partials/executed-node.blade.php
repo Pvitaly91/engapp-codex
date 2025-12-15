@@ -13,7 +13,11 @@
         );
     @endphp
     @if($shouldShow)
-        <div class="space-y-2" style="margin-left: {{ max(0, $depth) * 1.5 }}rem">
+        <div
+            wire:key="executed-folder-{{ $nodeKey }}"
+            class="space-y-2"
+            style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
+        >
             <button 
                 type="button"
                 class="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition"
@@ -36,12 +40,12 @@
     @endif
 @else
     @php
-        $seedRun = $node['seed_run'] ?? null;
-        $seedRunId = $seedRun->id ?? 0;
-        $className = $seedRun->class_name ?? '';
-        $displayName = $seedRun->display_class_name ?? $node['name'] ?? 'Unknown';
-        $ranAt = $seedRun->ran_at ?? null;
-        $questionCount = $seedRun->question_count ?? 0;
+        $seedRun = $node['seed_run'] ?? [];
+        $seedRunId = $seedRun['id'] ?? 0;
+        $className = $seedRun['class_name'] ?? '';
+        $displayName = $seedRun['display_class_name'] ?? $node['name'] ?? 'Unknown';
+        $ranAtFormatted = $seedRun['ran_at_formatted'] ?? null;
+        $questionCount = $seedRun['question_count'] ?? 0;
         $dataProfile = $node['data_profile'] ?? [];
         $recentOrdinal = $recentSeedRunOrdinals[$seedRunId] ?? null;
         
@@ -51,7 +55,11 @@
         $shouldShow = empty($searchQuery) || stripos($displayName, $searchQuery) !== false;
     @endphp
     @if($shouldShow)
-        <div class="space-y-2" style="margin-left: {{ max(0, $depth) * 1.5 }}rem">
+        <div
+            wire:key="executed-item-{{ $seedRunId ?: $className }}"
+            class="space-y-2"
+            style="margin-left: {{ max(0, $depth) * 1.5 }}rem"
+        >
             <div class="flex flex-col gap-3">
                 {{-- Seeder info --}}
                 <div class="flex items-center gap-2">
@@ -71,10 +79,10 @@
                 
                 {{-- Metadata row --}}
                 <div class="flex flex-wrap gap-2 text-xs text-gray-500">
-                    @if($ranAt)
+                    @if($ranAtFormatted)
                         <span title="Виконано">
                             <i class="fa-regular fa-clock"></i>
-                            {{ $ranAt->format('Y-m-d H:i:s') }}
+                            {{ $ranAtFormatted }}
                         </span>
                     @endif
                     <span title="Кількість питань">

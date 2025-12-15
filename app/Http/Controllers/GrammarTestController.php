@@ -20,6 +20,7 @@ use App\Services\GrammarTestFilterService;
 use App\Services\ResolvedSavedTest;
 use App\Services\SavedTestResolver;
 use App\Services\TagAggregationService;
+use App\Services\TheoryBlockMatcherService;
 use App\Services\VirtualSavedTest;
 use App\Models\QuestionHint;
 use Illuminate\Database\Eloquent\Model;
@@ -53,6 +54,7 @@ class GrammarTestController extends Controller
         private GrammarTestFilterService $filterService,
         private QuestionDeletionService $questionDeletionService,
         private TagAggregationService $aggregationService,
+        private TheoryBlockMatcherService $theoryBlockMatcherService,
     )
     {
     }
@@ -188,7 +190,7 @@ class GrammarTestController extends Controller
         $test = $resolved->model;
         $supportsVariants = $this->variantService->supportsVariants();
 
-        $relations = ['answers.option', 'options', 'verbHints.option', 'hints'];
+        $relations = ['answers.option', 'options', 'verbHints.option', 'hints', 'tags'];
         if ($supportsVariants) {
             $relations[] = 'variants';
         }
@@ -250,12 +252,20 @@ class GrammarTestController extends Controller
                 ->all();
         }
 
+        // Load theory blocks and match them to questions (once per request)
+        $theoryBlocks = $this->theoryBlockMatcherService->loadCandidateTheoryBlocks();
+        $matchedTheoryByQuestionId = $this->theoryBlockMatcherService->matchTheoryBlocksForQuestions(
+            $questions,
+            $theoryBlocks
+        );
+
         return view('engram.saved-test-tech', [
             'test' => $test,
             'questions' => $questions,
             'explanationsByQuestionId' => $explanationsByQuestionId,
             'hintProviders' => $hintProviders,
             'usesUuidLinks' => $resolved->usesUuidLinks,
+            'matchedTheoryByQuestionId' => $matchedTheoryByQuestionId,
         ]);
     }
 

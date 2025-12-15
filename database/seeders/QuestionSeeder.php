@@ -5,8 +5,10 @@ namespace Database\Seeders;
 use App\Models\ChatGPTExplanation;
 use App\Models\Question;
 use App\Models\QuestionHint;
+use App\Models\Tag;
 use App\Services\QuestionSeedingService;
 use App\Support\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
@@ -30,7 +32,7 @@ abstract class QuestionSeeder extends Seeder
 
         $suffix = '';
         if ($normalizedSegments) {
-            $suffix = '-' . implode('-', $normalizedSegments);
+            $suffix = '-'.implode('-', $normalizedSegments);
         }
 
         $maxLength = self::UUID_LENGTH - strlen($suffix);
@@ -45,7 +47,7 @@ abstract class QuestionSeeder extends Seeder
             return substr(ltrim($suffix, '-'), 0, self::UUID_LENGTH);
         }
 
-        return $base . $suffix;
+        return $base.$suffix;
     }
 
     protected function seedQuestionData(array $items, array $meta): void
@@ -60,7 +62,7 @@ abstract class QuestionSeeder extends Seeder
             return $item;
         }, $items);
 
-        $service = new QuestionSeedingService();
+        $service = new QuestionSeedingService;
         $service->seed($items);
 
         foreach ($meta as $data) {
@@ -80,6 +82,12 @@ abstract class QuestionSeeder extends Seeder
                     ['question_id' => $question->id, 'provider' => 'chatgpt', 'locale' => 'uk'],
                     ['hint' => $hintText]
                 );
+            }
+
+            // Process gap_tags if present (map of marker => array of tag names)
+            $gapTags = $data['gap_tags'] ?? [];
+            if (! empty($gapTags) && Schema::hasTable('question_marker_tag')) {
+                $this->syncMarkerTags($question->id, $gapTags);
             }
 
             $answers = $data['answers'] ?? [];
@@ -102,6 +110,51 @@ abstract class QuestionSeeder extends Seeder
                     ],
                     ['explanation' => $text]
                 );
+            }
+        }
+    }
+
+    /**
+     * Sync marker tags for a question.
+     *
+     * @param  array  $gapTags  Map of marker => array of tag names
+     */
+    protected function syncMarkerTags(int $questionId, array $gapTags): void
+    {
+        // Clear existing marker tags for this question
+        DB::table('question_marker_tag')
+            ->where('question_id', $questionId)
+            ->delete();
+
+        $now = now();
+
+        foreach ($gapTags as $marker => $tagNames) {
+            if (! is_array($tagNames)) {
+                continue;
+            }
+
+            foreach ($tagNames as $tagName) {
+                if (! is_string($tagName) || trim($tagName) === '') {
+                    continue;
+                }
+
+                // Find or create the tag
+                $tag = Tag::where('name', trim($tagName))->first();
+
+                if (! $tag) {
+                    // Try to find by normalized name (lowercase)
+                    $tag = Tag::whereRaw('LOWER(name) = ?', [strtolower(trim($tagName))])->first();
+                }
+
+                if ($tag) {
+                    DB::table('question_marker_tag')->insertOrIgnore([
+                        'question_id' => $questionId,
+                        'marker' => $marker,
+                        'tag_id' => $tag->id,
+                        'created_at' => $now,
+                        'updated_at' => $now,
+                    ]);
+                }
             }
         }
     }
@@ -144,7 +197,7 @@ abstract class QuestionSeeder extends Seeder
         $replacements = is_array($answer) ? $answer : ['a1' => $answer];
 
         foreach ($replacements as $marker => $value) {
-            $placeholder = '{' . $marker . '}';
+            $placeholder = '{'.$marker.'}';
             $question = str_replace($placeholder, (string) $value, $question);
         }
 
@@ -163,6 +216,6 @@ abstract class QuestionSeeder extends Seeder
         $first = mb_substr($value, 0, 1, 'UTF-8');
         $rest = mb_substr($value, 1, null, 'UTF-8');
 
-        return mb_strtoupper($first, 'UTF-8') . $rest;
+        return mb_strtoupper($first, 'UTF-8').$rest;
     }
 }
