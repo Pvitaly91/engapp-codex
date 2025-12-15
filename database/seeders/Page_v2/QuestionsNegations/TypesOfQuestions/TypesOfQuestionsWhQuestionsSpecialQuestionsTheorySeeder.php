@@ -29,25 +29,26 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                 'language' => 'uk',
             ],
             'tags' => [
-                'Wh-Questions',
-                'Special Questions',
-                'Спеціальні питання',
-                'Subject Questions',
-                'Indirect Questions',
-                'Question Words',
-                'Question Forms',
+                // Theme tags (canonical from QuestionsDifferentTypesClaudeSeeder)
                 'Types of Questions',
-                'Who',
-                'What',
-                'Where',
-                'When',
-                'Why',
-                'How',
+                'Question Forms',
                 'Grammar',
                 'Theory',
-                'A1',
-                'A2',
-                'B1',
+                // Detail tags (canonical)
+                'Wh-Questions',
+                'Special Questions',
+                'Subject Questions',
+                'Question Words',
+                // Auxiliary tags (canonical)
+                'Do/Does/Did',
+                'Be (am/is/are/was/were)',
+                // Tense tags (canonical)
+                'Present Simple',
+                'Past Simple',
+                // Level tags (canonical CEFR format)
+                'CEFR A1',
+                'CEFR A2',
+                'CEFR B1',
             ],
             'blocks' => [
                 [
