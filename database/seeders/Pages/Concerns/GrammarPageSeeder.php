@@ -12,6 +12,13 @@ use Database\Seeders\Pages\GrammarPagesSeeder;
 
 abstract class GrammarPageSeeder extends Seeder
 {
+    /**
+     * Cache for Tag::firstOrCreate to avoid N+1 queries.
+     *
+     * @var array<string, int>
+     */
+    protected array $tagCache = [];
+
     abstract protected function slug(): string;
 
     abstract protected function page(): array;
@@ -39,6 +46,7 @@ abstract class GrammarPageSeeder extends Seeder
 
         $categoryConfig = $config['category'] ?? $this->category();
         $categoryId = null;
+        $categorySlug = null;
 
         if ($categoryConfig && ! empty($categoryConfig['slug'])) {
             $language = $categoryConfig['language']
@@ -60,6 +68,7 @@ abstract class GrammarPageSeeder extends Seeder
                 );
 
             $categoryId = $category?->id;
+            $categorySlug = $categoryConfig['slug'];
         }
 
         $matchAttributes = ['slug' => $slug];
@@ -83,17 +92,26 @@ abstract class GrammarPageSeeder extends Seeder
             ->whereIn('seeder', $this->cleanupSeederClasses())
             ->delete();
 
+        // Resolve page-level tags (including category slug as anchor tag)
+        $pageTags = $config['tags'] ?? [];
+        if ($categorySlug && ! in_array($categorySlug, $pageTags, true)) {
+            $pageTags[] = $categorySlug;
+        }
+        $pageTagIds = $this->resolveTagIds($pageTags);
+
         // Block index counter for UUID generation (starts from 0)
         $blockIndex = 0;
+        $createdTextBlocks = [];
 
         if (! empty($config['subtitle_html'])) {
             // Generate UUID for subtitle block - use key 'subtitle' for clarity
             $subtitleUuid = $config['subtitle_uuid']
                 ?? TextBlockUuidGenerator::generateWithKey(static::class, 'subtitle');
 
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'uuid' => $subtitleUuid,
                 'page_id' => $page->id,
+                'page_category_id' => $categoryId,
                 'locale' => $config['locale'] ?? 'uk',
                 'type' => 'subtitle',
                 'column' => 'header',
@@ -104,6 +122,9 @@ abstract class GrammarPageSeeder extends Seeder
                 'level' => $config['subtitle_level'] ?? null,
                 'seeder' => static::class,
             ]);
+
+            // Subtitle block inherits page tags by default
+            $createdTextBlocks[] = ['block' => $textBlock, 'config' => []];
             $blockIndex++;
         }
 
@@ -117,9 +138,10 @@ abstract class GrammarPageSeeder extends Seeder
                     ? TextBlockUuidGenerator::generateWithKey(static::class, $block['uuid_key'])
                     : TextBlockUuidGenerator::generate(static::class, $blockIndex));
 
-            TextBlock::create([
+            $textBlock = TextBlock::create([
                 'uuid' => $uuid,
                 'page_id' => $page->id,
+                'page_category_id' => $categoryId,
                 'locale' => $config['locale'] ?? 'uk',
                 'type' => $block['type'] ?? 'box',
                 'column' => $block['column'],
@@ -130,17 +152,66 @@ abstract class GrammarPageSeeder extends Seeder
                 'level' => $block['level'] ?? null,
                 'seeder' => static::class,
             ]);
+
+            $createdTextBlocks[] = ['block' => $textBlock, 'config' => $block];
             $blockIndex++;
         }
 
-        // Attach tags if defined
-        if (! empty($config['tags'])) {
-            $tagIds = [];
-            foreach ($config['tags'] as $tagName) {
+        // Attach tags to page
+        if (! empty($pageTagIds)) {
+            $page->tags()->sync($pageTagIds);
+        }
+
+        // Sync tags to each TextBlock
+        foreach ($createdTextBlocks as $item) {
+            $textBlock = $item['block'];
+            $blockConfig = $item['config'];
+
+            // Check if tag inheritance is disabled for this block
+            $inheritTags = $blockConfig['inherit_tags'] ?? true;
+
+            if ($inheritTags) {
+                // Start with page tags
+                $blockTagIds = $pageTagIds;
+
+                // Add block-specific tags if defined
+                if (! empty($blockConfig['tags'])) {
+                    $blockSpecificTagIds = $this->resolveTagIds($blockConfig['tags']);
+                    $blockTagIds = array_unique(array_merge($blockTagIds, $blockSpecificTagIds));
+                }
+            } else {
+                // Only use block-specific tags (no inheritance)
+                $blockTagIds = ! empty($blockConfig['tags'])
+                    ? $this->resolveTagIds($blockConfig['tags'])
+                    : [];
+            }
+
+            if (! empty($blockTagIds)) {
+                $textBlock->tags()->sync($blockTagIds);
+            }
+        }
+    }
+
+    /**
+     * Resolve tag names to tag IDs with caching.
+     *
+     * @param  array<string>  $tagNames
+     * @return array<int>
+     */
+    protected function resolveTagIds(array $tagNames): array
+    {
+        $tagIds = [];
+
+        foreach ($tagNames as $tagName) {
+            if (isset($this->tagCache[$tagName])) {
+                $tagIds[] = $this->tagCache[$tagName];
+            } else {
                 $tag = Tag::firstOrCreate(['name' => $tagName]);
+                $this->tagCache[$tagName] = $tag->id;
                 $tagIds[] = $tag->id;
             }
-            $page->tags()->sync($tagIds);
         }
+
+        return $tagIds;
     }
 }
