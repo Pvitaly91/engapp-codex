@@ -32,6 +32,7 @@ class TypesOfQuestionsAlternativeQuestionsTheorySeeder extends QuestionsNegation
                 'Alternative Questions',
                 'Альтернативні питання',
                 'Question Forms',
+                'Types of Questions',
                 'OR',
                 'Choice Questions',
                 'Питання з вибором',

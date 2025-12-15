@@ -34,6 +34,8 @@ class TypesOfQuestionsNegativeQuestionsTheorySeeder extends QuestionsNegationsPa
                 'Don\'t you',
                 'Isn\'t she',
                 'Didn\'t they',
+                'Question Forms',
+                'Types of Questions',
                 'Grammar',
                 'Theory',
                 'B1',
