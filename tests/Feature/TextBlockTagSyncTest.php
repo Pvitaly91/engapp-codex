@@ -77,19 +77,21 @@ class TextBlockTagSyncTest extends TestCase
     /** @test */
     public function category_seeder_syncs_tags_to_category_text_blocks(): void
     {
-        // Create tags
+        // Create tags (note: slug tag simulates automatic category slug tag addition)
         $tag1 = Tag::create(['name' => 'Category Tag 1']);
         $tag2 = Tag::create(['name' => 'Category Tag 2']);
-        $slugTag = Tag::create(['name' => 'test-category-slug']);
 
-        // Create a page category
+        // Create a page category with a different slug
         $category = PageCategory::create([
-            'slug' => 'test-category-slug',
+            'slug' => 'test-category',
             'title' => 'Test Category',
             'language' => 'en',
         ]);
 
-        // Sync tags to category
+        // Create the slug tag (simulating what the seeder does automatically)
+        $slugTag = Tag::create(['name' => 'test-category']);
+
+        // Sync tags to category (including slug tag)
         $category->tags()->sync([$tag1->id, $tag2->id, $slugTag->id]);
 
         // Create text blocks under category (no page)

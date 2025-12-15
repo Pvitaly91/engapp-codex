@@ -10,9 +10,12 @@ use Illuminate\Support\Collection;
 class TheoryQuestionMatcherService
 {
     /**
-     * CEFR level tags for bonus scoring.
+     * CEFR level tags for bonus scoring (pre-normalized to lowercase).
      */
-    private const CEFR_TAGS = ['CEFR A1', 'CEFR A2', 'CEFR B1', 'CEFR B2', 'CEFR C1', 'CEFR C2', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    private const CEFR_TAGS_NORMALIZED = [
+        'cefr a1', 'cefr a2', 'cefr b1', 'cefr b2', 'cefr c1', 'cefr c2',
+        'a1', 'a2', 'b1', 'b2', 'c1', 'c2',
+    ];
 
     /**
      * Find questions that match a text block by tag intersection.
@@ -34,7 +37,7 @@ class TheoryQuestionMatcherService
             return collect();
         }
 
-        $blockTagNames = $block->tags->pluck('name')->map(fn ($n) => strtolower(trim($n)))->toArray();
+        $blockTagNames = $this->normalizeTagNames($block->tags->pluck('name')->toArray());
 
         // Find candidate questions that have at least one matching tag
         $candidates = Question::query()
@@ -51,7 +54,7 @@ class TheoryQuestionMatcherService
         $results = [];
 
         foreach ($candidates as $question) {
-            $questionTagNames = $question->tags->pluck('name')->map(fn ($n) => strtolower(trim($n)))->toArray();
+            $questionTagNames = $this->normalizeTagNames($question->tags->pluck('name')->toArray());
 
             // Calculate tag intersection
             $matchedTags = array_values(array_intersect($blockTagNames, $questionTagNames));
@@ -102,7 +105,7 @@ class TheoryQuestionMatcherService
             return collect();
         }
 
-        $questionTagNames = $question->tags->pluck('name')->map(fn ($n) => strtolower(trim($n)))->toArray();
+        $questionTagNames = $this->normalizeTagNames($question->tags->pluck('name')->toArray());
 
         // Find candidate text blocks that have at least one matching tag
         $candidates = TextBlock::query()
@@ -119,7 +122,7 @@ class TheoryQuestionMatcherService
         $results = [];
 
         foreach ($candidates as $block) {
-            $blockTagNames = $block->tags->pluck('name')->map(fn ($n) => strtolower(trim($n)))->toArray();
+            $blockTagNames = $this->normalizeTagNames($block->tags->pluck('name')->toArray());
 
             // Calculate tag intersection
             $matchedTags = array_values(array_intersect($questionTagNames, $blockTagNames));
@@ -150,10 +153,21 @@ class TheoryQuestionMatcherService
     }
 
     /**
+     * Normalize tag names to lowercase trimmed strings.
+     *
+     * @param  array<string>  $tagNames
+     * @return array<string>
+     */
+    private function normalizeTagNames(array $tagNames): array
+    {
+        return array_map(fn ($name) => strtolower(trim($name)), $tagNames);
+    }
+
+    /**
      * Calculate CEFR level bonus for matched tags.
      * Having matching CEFR tags indicates level-appropriate content.
      *
-     * @param  array<string>  $matchedTags
+     * @param  array<string>  $matchedTags  Already normalized tag names
      * @return int
      */
     private function calculateCefrBonus(array $matchedTags): int
@@ -161,13 +175,8 @@ class TheoryQuestionMatcherService
         $bonus = 0;
 
         foreach ($matchedTags as $tag) {
-            $normalizedTag = strtolower(trim($tag));
-
-            foreach (self::CEFR_TAGS as $cefrTag) {
-                if (strtolower($cefrTag) === $normalizedTag) {
-                    $bonus += 2; // Add 2 points for each matching CEFR tag
-                    break;
-                }
+            if (in_array($tag, self::CEFR_TAGS_NORMALIZED, true)) {
+                $bonus += 2; // Add 2 points for each matching CEFR tag
             }
         }
 

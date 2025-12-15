@@ -92,7 +92,7 @@ abstract class GrammarPageSeeder extends Seeder
             ->whereIn('seeder', $this->cleanupSeederClasses())
             ->delete();
 
-        // Resolve page-level tags (including category slug as anchor tag)
+        // Resolve page-level tags (including category slug as identifier tag for matching)
         $pageTags = $config['tags'] ?? [];
         if ($categorySlug && ! in_array($categorySlug, $pageTags, true)) {
             $pageTags[] = $categorySlug;

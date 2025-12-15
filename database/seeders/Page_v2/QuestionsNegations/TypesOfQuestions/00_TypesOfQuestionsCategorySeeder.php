@@ -50,7 +50,7 @@ class TypesOfQuestionsCategorySeeder extends Seeder
             ]
         );
 
-        // Resolve category tags (including category slug as anchor tag)
+        // Resolve category tags (including category slug as identifier tag for matching)
         $categoryTags = $description['tags'] ?? [];
         if (! in_array($slug, $categoryTags, true)) {
             $categoryTags[] = $slug;
