@@ -131,7 +131,7 @@ const TEST_SLUG = @json($test->slug);
 function buildOptionsBySlot(options, markersCount) {
   const optionsBySlot = [];
   if (markersCount > 0 && options.length % markersCount === 0) {
-    const chunkSize = options.length / markersCount;
+    const chunkSize = Math.floor(options.length / markersCount);
     if (chunkSize >= 2) {
       for (let i = 0; i < markersCount; i++) {
         const chunk = options.slice(i * chunkSize, (i + 1) * chunkSize);
