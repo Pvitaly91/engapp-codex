@@ -19,3 +19,84 @@
     margin-bottom: 1rem;
   }
 }
+
+/* Sticky header compact state when scrolled */
+.sticky-test-header {
+  transition: all 0.3s ease;
+}
+
+.sticky-test-header.is-stuck .sticky-inner {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+}
+
+.sticky-test-header.is-stuck .sticky-inner > .space-y-2\.5 {
+  gap: 0.375rem;
+}
+
+.sticky-test-header.is-stuck .progress-section {
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.5rem;
+}
+
+.sticky-test-header.is-stuck .progress-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.sticky-test-header.is-stuck .progress-icon svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.sticky-test-header.is-stuck .progress-label-text {
+  font-size: 0.625rem;
+}
+
+.sticky-test-header.is-stuck .progress-value {
+  font-size: 0.875rem;
+}
+
+.sticky-test-header.is-stuck .progress-bar-container {
+  height: 0.375rem;
+  margin-top: 0.25rem;
+}
+
+.sticky-test-header.is-stuck .word-search-section {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .sticky-test-header.is-stuck .sticky-inner {
+    padding: 0.625rem;
+    border-radius: 1rem;
+  }
+
+  .sticky-test-header.is-stuck .progress-section {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+  }
+
+  .sticky-test-header.is-stuck .progress-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .sticky-test-header.is-stuck .progress-icon svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .sticky-test-header.is-stuck .progress-label-text {
+    font-size: 0.65rem;
+  }
+
+  .sticky-test-header.is-stuck .progress-value {
+    font-size: 1rem;
+  }
+
+  .sticky-test-header.is-stuck .progress-bar-container {
+    height: 0.5rem;
+    margin-top: 0.375rem;
+  }
+}
