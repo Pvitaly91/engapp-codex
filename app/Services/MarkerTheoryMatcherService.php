@@ -27,6 +27,28 @@ class MarkerTheoryMatcherService
         'question-formation-practice',
     ];
 
+    /**
+     * Tags that indicate introductory/overview content - these blocks should
+     * only be returned when no better candidate exists.
+     */
+    private const INTRO_TAGS = [
+        'introduction',
+        'overview',
+        'summary',
+        'navigation',
+        'index',
+        'tips',
+        'learning',
+    ];
+
+    /**
+     * Block types that are considered intro/header blocks.
+     */
+    private const INTRO_BLOCK_TYPES = [
+        'subtitle',
+        'hero',
+    ];
+
     private const DETAIL_FIRST_TAGS = [
         'tag-questions',
         'question-tags',
@@ -59,11 +81,21 @@ class MarkerTheoryMatcherService
         'present-perfect-continuous',
         'past-perfect-continuous',
         'auxiliaries',
+        'have-has-had',
+        'can-could',
+        'will-would',
+        'may-might',
     ];
 
     private const TAG_ALIASES = [
         'question-tags' => 'tag-questions',
         'question-word-order' => 'statement-order',
+        // Map slash versions to dash versions for common auxiliary tags
+        'do/does/did' => 'do-does-did',
+        'can/could' => 'can-could',
+        'will/would' => 'will-would',
+        'may/might' => 'may-might',
+        'have/has/had' => 'have-has-had',
     ];
 
     /**
@@ -121,7 +153,8 @@ class MarkerTheoryMatcherService
             return null;
         }
 
-        $result = $this->findBestMatchingTextBlock($normalizedTags, $limit);
+        // Debug matches need the page relationship for context display
+        $result = $this->findBestMatchingTextBlock($normalizedTags, $limit, withPageRelation: true);
 
         if (! $result) {
             return null;
@@ -152,16 +185,22 @@ class MarkerTheoryMatcherService
     /**
      * Find the best matching text block based on tag intersection.
      *
+     * Strategy:
+     * 1. Score all candidates based on tag weights
+     * 2. Penalize intro/subtitle blocks so they don't win over detailed blocks
+     * 3. Skip blocks with only general tag matches
+     * 4. Return the best non-intro block if one exists with good score
+     *
      * @param  array  $normalizedTags  Normalized tag names
      * @return array|null Array with 'block', 'matched_tags', 'score' or null
      */
-    private function findBestMatchingTextBlock(array $normalizedTags, int $candidateLimit = 1): ?array
+    private function findBestMatchingTextBlock(array $normalizedTags, int $candidateLimit = 1, bool $withPageRelation = false): ?array
     {
         if (empty($normalizedTags)) {
             return null;
         }
 
-        $textBlocks = $this->loadCandidateTheoryBlocks();
+        $textBlocks = $this->loadCandidateTheoryBlocks($withPageRelation);
 
         if ($textBlocks->isEmpty()) {
             return null;
@@ -170,6 +209,8 @@ class MarkerTheoryMatcherService
         $bestMatch = null;
         $bestScore = 0;
         $candidates = [];
+        $introCandidate = null;
+        $introBestScore = 0;
 
         foreach ($textBlocks as $textBlock) {
             $blockTags = $this->normalizeTags(
@@ -188,29 +229,59 @@ class MarkerTheoryMatcherService
                 continue;
             }
 
+            // Check if this is an intro/overview block
+            $isIntroBlock = $this->isIntroBlock($textBlock, $blockTags);
+
             $candidate = [
                 'block' => $textBlock,
                 'matched_tags' => $matched,
                 'score' => $scoring['score'],
                 'detailed_matches' => $scoring['detailed_matches'],
                 'general_matches' => $scoring['general_matches'],
+                'is_intro' => $isIntroBlock,
             ];
 
             $candidates[] = $candidate;
 
-            if ($candidate['score'] > $bestScore
-                || ($candidate['score'] === $bestScore
-                    && $candidate['detailed_matches'] > ($bestMatch['detailed_matches'] ?? 0)
-                )
-            ) {
-                $bestScore = $candidate['score'];
-                $bestMatch = $candidate;
+            // Separate handling for intro vs non-intro blocks
+            if ($isIntroBlock) {
+                // Track best intro block as a fallback
+                if ($candidate['score'] > $introBestScore) {
+                    $introBestScore = $candidate['score'];
+                    $introCandidate = $candidate;
+                }
+            } else {
+                // Non-intro blocks compete for best match
+                if ($candidate['score'] > $bestScore
+                    || ($candidate['score'] === $bestScore
+                        && $candidate['detailed_matches'] > ($bestMatch['detailed_matches'] ?? 0)
+                    )
+                ) {
+                    $bestScore = $candidate['score'];
+                    $bestMatch = $candidate;
+                }
             }
         }
 
+        // If no non-intro block matched, fall back to intro block
+        if (! $bestMatch && $introCandidate) {
+            $bestMatch = $introCandidate;
+            $bestScore = $introBestScore;
+        }
+
+        // If best match is still null, no valid candidates found
+        if (! $bestMatch) {
+            return null;
+        }
+
         if ($candidateLimit > 0 && ! empty($candidates)) {
+            // Sort candidates: non-intro first, then by score/detailed matches
             $candidates = collect($candidates)
-                ->sortByDesc(fn ($item) => [$item['score'], $item['detailed_matches'], count($item['matched_tags'])])
+                ->sortBy([
+                    ['is_intro', 'asc'],  // Non-intro blocks first
+                    ['score', 'desc'],
+                    ['detailed_matches', 'desc'],
+                ])
                 ->take($candidateLimit)
                 ->values()
                 ->all();
@@ -222,18 +293,59 @@ class MarkerTheoryMatcherService
     }
 
     /**
+     * Determine if a text block is an intro/overview block.
+     *
+     * Intro blocks are:
+     * 1. Blocks with type 'subtitle' or 'hero'
+     * 2. Blocks where majority of tags are intro tags (introduction, overview, etc.)
+     *
+     * @param  TextBlock  $textBlock
+     * @param  array  $normalizedBlockTags
+     */
+    private function isIntroBlock(TextBlock $textBlock, array $normalizedBlockTags): bool
+    {
+        // Check block type
+        if (in_array($textBlock->type, self::INTRO_BLOCK_TYPES, true)) {
+            return true;
+        }
+
+        // Check if block has mostly intro tags
+        $introTagCount = 0;
+        foreach ($normalizedBlockTags as $tag) {
+            if (in_array($tag, self::INTRO_TAGS, true)) {
+                $introTagCount++;
+            }
+        }
+
+        // If more than half of tags are intro tags, it's an intro block
+        // Use integer arithmetic and strict greater than for true majority
+        if (count($normalizedBlockTags) > 0 && $introTagCount * 2 > count($normalizedBlockTags)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Load candidate theory blocks for matching.
      *
+     * @param  bool  $withPageRelation  Include page relationship (only needed for debugging)
      * @return \Illuminate\Database\Eloquent\Collection<TextBlock>
      */
-    private function loadCandidateTheoryBlocks()
+    private function loadCandidateTheoryBlocks(bool $withPageRelation = false)
     {
         if (! Schema::hasTable('text_blocks') || ! Schema::hasTable('tag_text_block')) {
             return collect();
         }
 
+        $relationships = ['tags:id,name'];
+
+        if ($withPageRelation) {
+            $relationships[] = 'page:id,title,slug';
+        }
+
         return TextBlock::query()
-            ->with('tags:id,name')
+            ->with($relationships)
             ->whereHas('tags')
             ->get();
     }
