@@ -8,6 +8,7 @@ use App\Models\TextBlock;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class MarkerTheoryMatcherService
 {
@@ -15,6 +16,55 @@ class MarkerTheoryMatcherService
      * Tag name that should not be the sole matching criterion.
      */
     private const TYPES_OF_QUESTIONS_TAG = 'types-of-questions';
+
+    private const GENERAL_TAGS = [
+        'types-of-questions',
+        'question-forms',
+        'grammar',
+        'theory',
+        'question-sentences',
+        'types-of-question-sentences',
+        'question-formation-practice',
+    ];
+
+    private const DETAIL_FIRST_TAGS = [
+        'tag-questions',
+        'question-tags',
+        'indirect-questions',
+        'embedded-questions',
+        'question-word-order',
+        'statement-order',
+        'subject-questions',
+        'negative-questions',
+        'alternative-questions',
+        'wh-questions',
+        'yes-no-questions',
+        'special-questions',
+        'question-formation',
+        'be-ing',
+    ];
+
+    private const DETAIL_SECOND_TAGS = [
+        'modal-verbs',
+        'do-does-did',
+        'to-be',
+        'be-am-is-are-was-were',
+        'present-simple',
+        'past-simple',
+        'future-simple',
+        'present-continuous',
+        'past-continuous',
+        'present-perfect',
+        'past-perfect',
+        'present-perfect-continuous',
+        'past-perfect-continuous',
+        'auxiliaries',
+    ];
+
+    private const TAG_ALIASES = [
+        'question-tags' => 'tag-questions',
+        'question-word-order' => 'statement-order',
+    ];
 
     /**
      * Find the best matching theory block for a specific marker in a question.
@@ -55,6 +105,32 @@ class MarkerTheoryMatcherService
     }
 
     /**
+     * Debug-friendly matcher output with candidates.
+     */
+    public function debugMatches(int $questionId, string $marker, int $limit = 3): ?array
+    {
+        $markerTags = $this->getMarkerTags($questionId, $marker);
+
+        if ($markerTags->isEmpty()) {
+            return null;
+        }
+
+        $normalizedTags = $this->normalizeTags($markerTags->pluck('name')->toArray());
+
+        if (empty($normalizedTags)) {
+            return null;
+        }
+
+        $result = $this->findBestMatchingTextBlock($normalizedTags, $limit);
+
+        if (! $result) {
+            return null;
+        }
+
+        return $result;
+    }
+
+    /**
      * Get tags associated with a specific marker for a question.
      *
      * @return Collection<Tag>
@@ -79,7 +155,7 @@ class MarkerTheoryMatcherService
      * @param  array  $normalizedTags  Normalized tag names
      * @return array|null Array with 'block', 'matched_tags', 'score' or null
      */
-    private function findBestMatchingTextBlock(array $normalizedTags): ?array
+    private function findBestMatchingTextBlock(array $normalizedTags, int $candidateLimit = 1): ?array
     {
         if (empty($normalizedTags)) {
             return null;
@@ -93,6 +169,7 @@ class MarkerTheoryMatcherService
 
         $bestMatch = null;
         $bestScore = 0;
+        $candidates = [];
 
         foreach ($textBlocks as $textBlock) {
             $blockTags = $this->normalizeTags(
@@ -100,29 +177,45 @@ class MarkerTheoryMatcherService
             );
 
             $matched = array_values(array_intersect($normalizedTags, $blockTags));
-            $score = count($matched);
 
-            if ($score < 1) {
+            if (empty($matched)) {
                 continue;
             }
 
-            // Filter out matches where the only common tag is 'types-of-questions'
-            $hasOtherTag = collect($matched)->contains(
-                fn ($tag) => $tag !== self::TYPES_OF_QUESTIONS_TAG
-            );
+            $scoring = $this->scoreMatchedTags($matched);
 
-            if (! $hasOtherTag) {
+            if ($scoring['skip']) {
                 continue;
             }
 
-            if ($score > $bestScore) {
-                $bestScore = $score;
-                $bestMatch = [
-                    'block' => $textBlock,
-                    'matched_tags' => $matched,
-                    'score' => $score,
-                ];
+            $candidate = [
+                'block' => $textBlock,
+                'matched_tags' => $matched,
+                'score' => $scoring['score'],
+                'detailed_matches' => $scoring['detailed_matches'],
+                'general_matches' => $scoring['general_matches'],
+            ];
+
+            $candidates[] = $candidate;
+
+            if ($candidate['score'] > $bestScore
+                || ($candidate['score'] === $bestScore
+                    && $candidate['detailed_matches'] > ($bestMatch['detailed_matches'] ?? 0)
+                )
+            ) {
+                $bestScore = $candidate['score'];
+                $bestMatch = $candidate;
             }
+        }
+
+        if ($candidateLimit > 0 && ! empty($candidates)) {
+            $candidates = collect($candidates)
+                ->sortByDesc(fn ($item) => [$item['score'], $item['detailed_matches'], count($item['matched_tags'])])
+                ->take($candidateLimit)
+                ->values()
+                ->all();
+
+            $bestMatch['candidates'] = $candidates;
         }
 
         return $bestMatch;
@@ -166,10 +259,78 @@ class MarkerTheoryMatcherService
 
         return collect($tags)
             ->filter(fn ($tag) => is_string($tag) && trim($tag) !== '')
-            ->map(fn ($tag) => strtolower(trim($tag)))
+            ->map(fn ($tag) => $this->normalizeTagName($tag))
+            ->map(fn ($tag) => self::TAG_ALIASES[$tag] ?? $tag)
             ->unique()
             ->values()
             ->all();
+    }
+
+    private function normalizeTagName(string $tag): string
+    {
+        $slug = Str::slug(trim($tag));
+
+        if ($slug === '') {
+            return '';
+        }
+
+        // Preserve slashes that Str::slug would drop for patterns like Do/Does/Did
+        if (str_contains($tag, '/')) {
+            return str_replace(' ', '-', strtolower(trim($tag)));
+        }
+
+        return $slug;
+    }
+
+    private function scoreMatchedTags(array $matchedTags): array
+    {
+        $score = 0.0;
+        $detailedMatches = 0;
+        $generalMatches = 0;
+
+        foreach ($matchedTags as $tag) {
+            $weight = $this->weightForTag($tag);
+            $score += $weight;
+
+            if (in_array($tag, self::GENERAL_TAGS, true)) {
+                $generalMatches++;
+            } elseif ($weight >= 2.5) {
+                $detailedMatches++;
+            }
+        }
+
+        $score += count($matchedTags) * 0.25;
+
+        $skip = $detailedMatches === 0 && count($matchedTags) <= 1;
+        $skip = $skip || ($generalMatches === count($matchedTags));
+
+        return [
+            'score' => round($score, 2),
+            'detailed_matches' => $detailedMatches,
+            'general_matches' => $generalMatches,
+            'skip' => $skip,
+        ];
+    }
+
+    private function weightForTag(string $tag): float
+    {
+        if (in_array($tag, self::GENERAL_TAGS, true)) {
+            return 0.5;
+        }
+
+        if (in_array($tag, self::DETAIL_FIRST_TAGS, true)) {
+            return 3.5;
+        }
+
+        if (in_array($tag, self::DETAIL_SECOND_TAGS, true)) {
+            return 2.5;
+        }
+
+        if (str_contains($tag, 'cefr')) {
+            return 0.75;
+        }
+
+        return 1.5;
     }
 
     /**

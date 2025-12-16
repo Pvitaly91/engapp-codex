@@ -43,6 +43,9 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                 'Question Forms',
                 'Wh-Questions',
                 'Special Questions',
+                'Question Word Order',
+                'Statement Order',
+                'Subject Questions',
             ],
             // Subtitle block tags configuration
             'subtitle_tags' => ['Introduction', 'Overview'],
@@ -87,7 +90,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'level' => 'A1',
                     'uuid_key' => 'forms-grid-what-is',
                     // BLOCK-FIRST: Definition block detailed tags
-                    'tags' => ['Definition', 'CEFR A1'],
+                    'tags' => ['Definition', 'Question Word Order', 'Statement Order', 'CEFR A1'],
                     'body' => json_encode([
                         'title' => '1. Що таке Wh-questions?',
                         'intro' => 'Wh-questions (спеціальні питання) — це питання з питальними словами, які потребують детальної відповіді:',
@@ -421,7 +424,7 @@ class TypesOfQuestionsWhQuestionsSpecialQuestionsTheorySeeder extends QuestionsN
                     'level' => 'B1',
                     'uuid_key' => 'usage-panels-structure',
                     // BLOCK-FIRST: Structure block detailed tags
-                    'tags' => ['Structure', 'Word Order', 'Subject Questions', 'To Be', 'CEFR B1'],
+                    'tags' => ['Structure', 'Word Order', 'Question Word Order', 'Statement Order', 'Subject Questions', 'To Be', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '9. Структура Wh-questions',
                         'sections' => [

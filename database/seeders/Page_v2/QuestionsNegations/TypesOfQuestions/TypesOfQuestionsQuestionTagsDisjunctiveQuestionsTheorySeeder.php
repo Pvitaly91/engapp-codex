@@ -44,6 +44,7 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                 'Question Forms',
                 'Tag Questions',
                 'Question Tags',
+                'Polarity',
             ],
             // Subtitle block tags configuration
             'subtitle_tags' => ['Introduction', 'Overview'],
@@ -55,7 +56,7 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'level' => 'B1',
                     'uuid_key' => 'hero',
                     // BLOCK-FIRST: Hero block detailed tags
-                    'tags' => ['Introduction', 'Overview', 'Positive-Negative Rule', 'Intonation', 'CEFR B1', 'CEFR B2'],
+                    'tags' => ['Introduction', 'Overview', 'Positive-Negative Rule', 'Polarity', 'Intonation', 'CEFR B1', 'CEFR B2'],
                     'body' => json_encode([
                         'level' => 'B1–B2',
                         'intro' => 'У цій темі ти вивчиш <strong>розділові питання (Question Tags)</strong> — короткі питання в кінці речення для підтвердження інформації або ввічливого спілкування.',
@@ -88,7 +89,7 @@ class TypesOfQuestionsQuestionTagsDisjunctiveQuestionsTheorySeeder extends Quest
                     'level' => 'B1',
                     'uuid_key' => 'forms-grid-what-is',
                     // BLOCK-FIRST: Definition block detailed tags
-                    'tags' => ['Definition', 'Positive-Negative Rule', 'CEFR B1'],
+                    'tags' => ['Definition', 'Positive-Negative Rule', 'Polarity', 'CEFR B1'],
                     'body' => json_encode([
                         'title' => '1. Що таке Question Tags?',
                         'intro' => 'Question tags — це короткі питання в кінці речення:',
