@@ -135,7 +135,7 @@ class MarkerTheoryTest extends TestCase
             ],
         ]);
         $response->assertJsonPath('theory_block.marker', 'a1');
-        $this->assertEquals(2, $response->json('theory_block.score'));
+        $this->assertEquals(5.5, $response->json('theory_block.score'));
     }
 
     /** @test */

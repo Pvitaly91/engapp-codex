@@ -11,6 +11,8 @@ use Database\Seeders\QuestionSeeder;
 
 class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 {
+    private array $tagNameCache = [];
+
     public function run(): void
     {
         // Initialize the GapTagInferer service for gap-focused tagging
@@ -169,6 +171,11 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         $items = [];
         $meta = [];
 
+        $anchorTagNames = $this->resolveTagNames([
+            $sharedTheoryTags[0],
+            $sharedTheoryTags[1],
+        ]);
+
         foreach ($questions as $index => $question) {
             $uuid = $this->generateQuestionUuid($question['level'], $index, $question['question']);
 
@@ -252,6 +259,23 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 ? array_keys($question['answers'])
                 : ['a1'];
 
+            $detailTagNames = [];
+            if (isset($question['detail'])) {
+                $detailTagIds = [];
+
+                if (isset($detailTags[$question['detail']])) {
+                    $detailTagIds[] = $detailTags[$question['detail']];
+                }
+
+                if (isset($detailContextTags[$question['detail']])) {
+                    $detailTagIds = array_merge($detailTagIds, $detailContextTags[$question['detail']]);
+                }
+
+                if (! empty($detailTagIds)) {
+                    $detailTagNames = $this->resolveTagNames($detailTagIds);
+                }
+            }
+
             foreach ($markersToProcess as $marker) {
                 $correctAnswer = $question['answers'][$marker] ?? '';
 
@@ -282,11 +306,27 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     }
                 }
 
+                $fallbackVerbHintTags = [];
+                if (empty($gapTagIdsForMarker)) {
+                    $fallbackVerbHintTags = $this->getTagsFromVerbHint(
+                        $verbHint ?? '',
+                        $tenseTags,
+                        $auxiliaryTags
+                    );
+                }
+
                 // Store per-marker tags (names for meta, IDs for union)
-                $gapTagsPerMarker[$marker] = $gapTagNames;
+                $gapTagsPerMarker[$marker] = $this->buildMarkerTagChain(
+                    $gapTagNames,
+                    $gapTagIdsForMarker,
+                    $fallbackVerbHintTags,
+                    $anchorTagNames,
+                    $detailTagNames
+                );
 
                 // Collect gap tag IDs (using array_push with spread for efficiency)
                 array_push($allGapTagIds, ...$gapTagIdsForMarker);
+                array_push($allGapTagIds, ...$fallbackVerbHintTags);
             }
 
             // Deduplicate gap tag IDs before merging
@@ -496,6 +536,58 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         }
 
         return $flat;
+    }
+
+    private function resolveTagNames(array $tagIds): array
+    {
+        $resolved = [];
+
+        foreach ($tagIds as $id) {
+            if (! is_int($id)) {
+                continue;
+            }
+
+            if (isset($this->tagNameCache[$id])) {
+                $resolved[] = $this->tagNameCache[$id];
+                continue;
+            }
+
+            $name = Tag::find($id)?->name;
+
+            if ($name) {
+                $this->tagNameCache[$id] = $name;
+                $resolved[] = $name;
+            }
+        }
+
+        return array_values(array_unique(array_filter($resolved)));
+    }
+
+    private function buildMarkerTagChain(
+        array $gapTagNames,
+        array $gapTagIds,
+        array $fallbackVerbHintTags,
+        array $anchorTagNames,
+        array $detailTagNames
+    ): array {
+        $tags = [];
+
+        $tags = array_merge($tags, $anchorTagNames);
+        $tags = array_merge($tags, $detailTagNames);
+        $tags = array_merge($tags, $gapTagNames);
+
+        if (empty($gapTagNames)) {
+            $tags = array_merge($tags, $this->resolveTagNames($gapTagIds));
+            $tags = array_merge($tags, $this->resolveTagNames($fallbackVerbHintTags));
+        }
+
+        $normalized = array_values(
+            array_unique(
+                array_map(fn ($tag) => trim((string) $tag), $tags)
+            )
+        );
+
+        return array_slice(array_filter($normalized), 0, 6);
     }
 
     private function buildQuestions(): array
