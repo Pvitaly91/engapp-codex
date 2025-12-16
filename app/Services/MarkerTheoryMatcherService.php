@@ -318,8 +318,8 @@ class MarkerTheoryMatcherService
         }
 
         // If more than half of tags are intro tags, it's an intro block
-        // Use integer arithmetic to avoid floating point comparison issues
-        if (count($normalizedBlockTags) > 0 && $introTagCount * 2 >= count($normalizedBlockTags)) {
+        // Use integer arithmetic and strict greater than for true majority
+        if (count($normalizedBlockTags) > 0 && $introTagCount * 2 > count($normalizedBlockTags)) {
             return true;
         }
 

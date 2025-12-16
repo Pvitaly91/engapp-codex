@@ -179,11 +179,13 @@ class TheoryDebugMarkerCommand extends Command
             $this->line('   need more specific tags.');
         }
 
-        // Check detailed match ratio
-        $detailedRatio = $result['detailed_matches'] / max(1, count($matchedTags));
-        if ($detailedRatio < 0.5) {
-            $this->warn('   ⚠️ Low detailed match ratio ('.round($detailedRatio * 100).'%).');
-            $this->line('   Consider adding more specific tags to marker or theory blocks.');
+        // Check detailed match ratio (only if we have matched tags)
+        if (! empty($matchedTags)) {
+            $detailedRatio = $result['detailed_matches'] / count($matchedTags);
+            if ($detailedRatio < 0.5) {
+                $this->warn('   ⚠️ Low detailed match ratio ('.round($detailedRatio * 100).'%).');
+                $this->line('   Consider adding more specific tags to marker or theory blocks.');
+            }
         }
     }
 }

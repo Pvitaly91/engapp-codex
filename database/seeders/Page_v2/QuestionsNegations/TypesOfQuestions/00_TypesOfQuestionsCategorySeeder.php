@@ -214,7 +214,8 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                     'column' => 'header',
                     // BLOCK-FIRST: Hero block gets only general Overview tags
                     // to avoid competing with specific theory blocks
-                    'tags' => ['Introduction', 'Overview', 'CEFR A1', 'CEFR B1'],
+                    // No CEFR tags to prevent matching on level alone
+                    'tags' => ['Introduction', 'Overview'],
                     'inherit_tags' => false,
                     'body' => json_encode([
                         'level' => 'A1–B1',
