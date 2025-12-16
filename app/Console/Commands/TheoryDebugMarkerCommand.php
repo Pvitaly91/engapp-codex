@@ -170,12 +170,10 @@ class TheoryDebugMarkerCommand extends Command
         }
 
         // Check if best match might be an intro block
-        $block = $result['block'];
-        $isIntroType = in_array($block->type, ['subtitle', 'hero'], true);
-        $hasIntroTag = in_array('introduction', array_map('strtolower', $matchedTags), true)
-            || in_array('overview', array_map('strtolower', $matchedTags), true);
+        // Use the is_intro flag from the candidate if available, otherwise check manually
+        $isIntroBlock = $result['is_intro'] ?? false;
 
-        if ($isIntroType || $hasIntroTag) {
+        if ($isIntroBlock) {
             $this->warn('   ⚠️ Best match appears to be an intro/overview block.');
             $this->line('   This may indicate marker tags are too general or theory blocks');
             $this->line('   need more specific tags.');

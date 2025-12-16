@@ -153,7 +153,8 @@ class MarkerTheoryMatcherService
             return null;
         }
 
-        $result = $this->findBestMatchingTextBlock($normalizedTags, $limit);
+        // Debug matches need the page relationship for context display
+        $result = $this->findBestMatchingTextBlock($normalizedTags, $limit, withPageRelation: true);
 
         if (! $result) {
             return null;
@@ -193,13 +194,13 @@ class MarkerTheoryMatcherService
      * @param  array  $normalizedTags  Normalized tag names
      * @return array|null Array with 'block', 'matched_tags', 'score' or null
      */
-    private function findBestMatchingTextBlock(array $normalizedTags, int $candidateLimit = 1): ?array
+    private function findBestMatchingTextBlock(array $normalizedTags, int $candidateLimit = 1, bool $withPageRelation = false): ?array
     {
         if (empty($normalizedTags)) {
             return null;
         }
 
-        $textBlocks = $this->loadCandidateTheoryBlocks();
+        $textBlocks = $this->loadCandidateTheoryBlocks($withPageRelation);
 
         if ($textBlocks->isEmpty()) {
             return null;
@@ -317,7 +318,8 @@ class MarkerTheoryMatcherService
         }
 
         // If more than half of tags are intro tags, it's an intro block
-        if (count($normalizedBlockTags) > 0 && $introTagCount >= count($normalizedBlockTags) / 2) {
+        // Use integer arithmetic to avoid floating point comparison issues
+        if (count($normalizedBlockTags) > 0 && $introTagCount * 2 >= count($normalizedBlockTags)) {
             return true;
         }
 
@@ -327,16 +329,23 @@ class MarkerTheoryMatcherService
     /**
      * Load candidate theory blocks for matching.
      *
+     * @param  bool  $withPageRelation  Include page relationship (only needed for debugging)
      * @return \Illuminate\Database\Eloquent\Collection<TextBlock>
      */
-    private function loadCandidateTheoryBlocks()
+    private function loadCandidateTheoryBlocks(bool $withPageRelation = false)
     {
         if (! Schema::hasTable('text_blocks') || ! Schema::hasTable('tag_text_block')) {
             return collect();
         }
 
+        $relationships = ['tags:id,name'];
+
+        if ($withPageRelation) {
+            $relationships[] = 'page:id,title,slug';
+        }
+
         return TextBlock::query()
-            ->with(['tags:id,name', 'page:id,title,slug'])
+            ->with($relationships)
             ->whereHas('tags')
             ->get();
     }
