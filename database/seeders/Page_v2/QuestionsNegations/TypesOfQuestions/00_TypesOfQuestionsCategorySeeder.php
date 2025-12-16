@@ -84,7 +84,16 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'body' => $description['subtitle_html'],
                 'seeder' => static::class,
             ]);
-            $createdTextBlocks[] = ['block' => $textBlock, 'config' => []];
+            // BLOCK-FIRST: Subtitle gets only very general tags to avoid winning matches
+            // over more specific theory blocks. Use inherit_tags=false to exclude
+            // category tags and only have Introduction/Overview tags.
+            $createdTextBlocks[] = [
+                'block' => $textBlock,
+                'config' => [
+                    'tags' => $description['subtitle_tags'] ?? ['Introduction', 'Overview'],
+                    'inherit_tags' => false,
+                ],
+            ];
         }
 
         foreach ($description['blocks'] ?? [] as $index => $block) {
@@ -196,10 +205,17 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                 'CEFR B1',
                 'CEFR B2',
             ],
+            // Subtitle gets only Introduction/Overview tags - no category inheritance
+            // to prevent it from winning over detailed theory blocks
+            'subtitle_tags' => ['Introduction', 'Overview'],
             'blocks' => [
                 [
                     'type' => 'hero',
                     'column' => 'header',
+                    // BLOCK-FIRST: Hero block gets only general Overview tags
+                    // to avoid competing with specific theory blocks
+                    'tags' => ['Introduction', 'Overview', 'CEFR A1', 'CEFR B1'],
+                    'inherit_tags' => false,
                     'body' => json_encode([
                         'level' => 'A1–B1',
                         'intro' => 'У цьому розділі ти вивчиш <strong>різні види питальних речень</strong> в англійській мові: від простих загальних питань до складних розділових.',
@@ -229,6 +245,9 @@ class TypesOfQuestionsCategorySeeder extends Seeder
                     'column' => 'left',
                     'heading' => 'Загальні питання (Yes/No Questions)',
                     'css_class' => null,
+                    // BLOCK-FIRST: Yes/No Questions summary block with specific tags
+                    'tags' => ['Yes/No Questions', 'General Questions', 'Do/Does/Did', 'To Be', 'Summary'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>Загальні питання</strong> — відповідь "так" або "ні": <span class="gw-en">Do you like coffee?</span></li>
@@ -242,6 +261,9 @@ HTML,
                     'column' => 'left',
                     'heading' => 'Спеціальні питання (Wh-Questions)',
                     'css_class' => null,
+                    // BLOCK-FIRST: Wh-Questions summary block with specific tags
+                    'tags' => ['Wh-Questions', 'Special Questions', 'Subject Questions', 'Question Words', 'Summary'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>Спеціальні питання</strong> — починаються з питальних слів: <span class="gw-en">What, Where, When, Why, Who, How</span></li>
@@ -255,6 +277,9 @@ HTML,
                     'column' => 'left',
                     'heading' => 'Альтернативні питання',
                     'css_class' => null,
+                    // BLOCK-FIRST: Alternative Questions summary block with specific tags
+                    'tags' => ['Alternative Questions', 'Choice Questions', 'Or', 'Summary'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>Альтернативні питання</strong> — вибір між варіантами з "or": <span class="gw-en">Do you prefer tea or coffee?</span></li>
@@ -268,6 +293,9 @@ HTML,
                     'column' => 'right',
                     'heading' => 'Теми у цьому розділі',
                     'css_class' => 'gw-box--scroll',
+                    // BLOCK-FIRST: Navigation/index table - no detailed matching tags
+                    'tags' => ['Navigation', 'Index'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <table class="gw-table" aria-label="Теми розділу Види питальних речень">
 <thead>
@@ -316,6 +344,9 @@ HTML,
                     'column' => 'right',
                     'heading' => 'Розділові питання (Question Tags)',
                     'css_class' => null,
+                    // BLOCK-FIRST: Question Tags summary block with specific tags
+                    'tags' => ['Tag Questions', 'Question Tags', 'Disjunctive Questions', 'Summary'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <ul class="gw-list">
 <li><strong>Question Tags</strong> — коротке питання в кінці речення: <span class="gw-en">You like tea, don't you?</span></li>
@@ -329,6 +360,9 @@ HTML,
                     'column' => 'right',
                     'heading' => 'Поради для вивчення',
                     'css_class' => null,
+                    // BLOCK-FIRST: Tips block - learning guidance, no matching tags
+                    'tags' => ['Tips', 'Learning'],
+                    'inherit_tags' => false,
                     'body' => <<<'HTML'
 <div class="gw-hint">
 <div class="gw-emoji">🧠</div>
