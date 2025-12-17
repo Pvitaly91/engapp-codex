@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Database\Seeders\Ai\Claude\QuestionsDifferentTypesClaudeSeeder;
 use ReflectionClass;
+use ReflectionMethod;
 use Tests\TestCase;
 
 class QuestionsDifferentTypesClaudeSeederTest extends TestCase
@@ -41,5 +42,33 @@ class QuestionsDifferentTypesClaudeSeederTest extends TestCase
             'modal mix' => ["Will she? She might, but she shouldn't.", [4, 8, 6]],
             'no auxiliary keywords' => ["Write the answer", []],
         ];
+    }
+
+    public function test_it_aligns_gap_tags_with_theory_tag_set(): void
+    {
+        $seeder = new QuestionsDifferentTypesClaudeSeeder();
+        $method = new ReflectionMethod($seeder, 'prepareGapTagsForMarker');
+        $method->setAccessible(true);
+
+        $gapTags = ['Tag Questions', 'Question Tags'];
+        $availableTagNames = ['Tag Questions', 'Question Tags', 'Do/Does/Did', 'Present Simple'];
+
+        $result = $method->invoke($seeder, $gapTags, 'does she', $availableTagNames);
+
+        $this->assertContains('Do/Does/Did', $result);
+    }
+
+    public function test_it_respects_theory_tags_when_auxiliary_missing(): void
+    {
+        $seeder = new QuestionsDifferentTypesClaudeSeeder();
+        $method = new ReflectionMethod($seeder, 'prepareGapTagsForMarker');
+        $method->setAccessible(true);
+
+        $gapTags = ['Tag Questions', 'Question Tags'];
+        $availableTagNames = ['Tag Questions', 'Question Tags'];
+
+        $result = $method->invoke($seeder, $gapTags, "doesn't he", $availableTagNames);
+
+        $this->assertNotContains('Do/Does/Did', $result);
     }
 }

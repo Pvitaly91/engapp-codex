@@ -49,7 +49,7 @@ class GapTagInfererTest extends TestCase
 
         $this->assertContains('Indirect Questions', $result);
         // Structural pattern should take priority, no tense tags
-        $this->assertLessThanOrEqual(3, count($result));
+        $this->assertLessThanOrEqual(4, count($result));
     }
 
     /** @test */
@@ -81,8 +81,8 @@ class GapTagInfererTest extends TestCase
 
         $this->assertContains('Tag Questions', $result);
         $this->assertContains('Question Tags', $result);
-        // Should not add auxiliary tags when structural pattern detected
-        $this->assertNotContains('Do/Does/Did', $result);
+        $this->assertContains('Do/Does/Did', $result);
+        $this->assertContains('Present Simple', $result);
     }
 
     /** @test */
@@ -98,6 +98,68 @@ class GapTagInfererTest extends TestCase
         );
 
         $this->assertContains('Tag Questions', $result);
+        $this->assertContains('Do/Does/Did', $result);
+    }
+
+    /** @test */
+    public function it_adds_auxiliary_for_tag_question_with_do_based_answer(): void
+    {
+        $result = $this->service->infer(
+            "She doesn't smoke, {a1}?",
+            'a1',
+            'does she',
+            ['does she', "doesn't she"],
+            'positive after negative'
+        );
+
+        $this->assertContains('Tag Questions', $result);
+        $this->assertContains('Do/Does/Did', $result);
+    }
+
+    /** @test */
+    public function it_adds_be_auxiliary_for_negative_tag_question(): void
+    {
+        $result = $this->service->infer(
+            "He is late, {a1}?",
+            'a1',
+            "isn't he",
+            ["isn't he", 'is he', "aren't they"],
+            'negative tag'
+        );
+
+        $this->assertContains('Tag Questions', $result);
+        $this->assertContains('Be (am/is/are/was/were)', $result);
+    }
+
+    /** @test */
+    public function it_adds_have_auxiliary_for_tag_question(): void
+    {
+        $result = $this->service->infer(
+            "They have arrived, {a1}?",
+            'a1',
+            "haven't they",
+            ["haven't they", 'have they'],
+            'present perfect tag'
+        );
+
+        $this->assertContains('Tag Questions', $result);
+        $this->assertContains('Have/Has/Had', $result);
+    }
+
+    /** @test */
+    public function it_adds_modal_auxiliary_for_tag_question(): void
+    {
+        $result = $this->service->infer(
+            "He'll join us, {a1}?",
+            'a1',
+            "won't he",
+            ["won't he", 'will he'],
+            'future tag'
+        );
+
+        $this->assertContains('Tag Questions', $result);
+        $this->assertContains('Modal Verbs', $result);
+        $this->assertContains('Will/Would', $result);
     }
 
     /** @test */
@@ -298,7 +360,7 @@ class GapTagInfererTest extends TestCase
     }
 
     /** @test */
-    public function it_limits_tags_to_maximum_three(): void
+    public function it_limits_tags_to_maximum_four(): void
     {
         $result = $this->service->infer(
             '{a1} you ever been to London?',
@@ -308,7 +370,7 @@ class GapTagInfererTest extends TestCase
             'present perfect auxiliary experience question'
         );
 
-        $this->assertLessThanOrEqual(3, count($result));
+        $this->assertLessThanOrEqual(4, count($result));
     }
 
     /** @test */

@@ -5,6 +5,7 @@ namespace Database\Seeders\Ai\Claude;
 use App\Models\Category;
 use App\Models\Source;
 use App\Models\Tag;
+use App\Models\TextBlock;
 use App\Services\EnglishTagging\GapTagInferer;
 use App\Support\TextBlock\TextBlockUuidGenerator;
 use Database\Seeders\QuestionSeeder;
@@ -12,6 +13,8 @@ use Database\Seeders\QuestionSeeder;
 class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 {
     private array $tagNameCache = [];
+    private array $pageTagsCacheByUuid = [];
+    private array $pageTagsCacheByPageId = [];
 
     public function run(): void
     {
@@ -276,6 +279,9 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 }
             }
 
+            $theoryTextBlockUuid = $this->getTheoryTextBlockUuid($question['detail'] ?? null);
+            $availableTagNamesForPage = $this->getPageTagNamesForTheory($theoryTextBlockUuid);
+
             foreach ($markersToProcess as $marker) {
                 $correctAnswer = $question['answers'][$marker] ?? '';
 
@@ -298,9 +304,15 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     $verbHint
                 );
 
-                // Convert tag names to tag IDs (limit 1-3 per marker)
+                $preparedGapTagNames = $this->prepareGapTagsForMarker(
+                    $gapTagNames,
+                    $correctAnswer,
+                    $availableTagNamesForPage
+                );
+
+                // Convert tag names to tag IDs (respecting availability)
                 $gapTagIdsForMarker = [];
-                foreach (array_slice($gapTagNames, 0, 3) as $tagName) {
+                foreach ($preparedGapTagNames as $tagName) {
                     if (isset($gapTagNameToId[$tagName])) {
                         $gapTagIdsForMarker[] = $gapTagNameToId[$tagName];
                     }
@@ -323,7 +335,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 
                 // Store per-marker tags (names for meta, IDs for union)
                 $gapTagsPerMarker[$marker] = $this->buildMarkerTagChain(
-                    $gapTagNames,
+                    $preparedGapTagNames,
                     $gapTagIdsForMarker,
                     $fallbackVerbHintTags,
                     $anchorTagNames,
@@ -361,9 +373,6 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             if (isset($question['detail']) && isset($sources[$question['detail']])) {
                 $sourceId = $sources[$question['detail']];
             }
-
-            // Get theory text block UUID based on question detail type
-            $theoryTextBlockUuid = $this->getTheoryTextBlockUuid($question['detail'] ?? null);
 
             $items[] = [
                 'uuid' => $uuid,
@@ -447,6 +456,166 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         $mapping = $theoryMappings[$questionType];
 
         return TextBlockUuidGenerator::generateWithKey($mapping['seeder'], $mapping['uuid_key']);
+    }
+
+    private function getPageTagNamesForTheory(?string $theoryTextBlockUuid): array
+    {
+        if ($theoryTextBlockUuid === null) {
+            return [];
+        }
+
+        if (isset($this->pageTagsCacheByUuid[$theoryTextBlockUuid])) {
+            return $this->pageTagsCacheByUuid[$theoryTextBlockUuid];
+        }
+
+        $textBlock = TextBlock::where('uuid', $theoryTextBlockUuid)->first();
+
+        if (! $textBlock || $textBlock->page_id === null) {
+            $this->pageTagsCacheByUuid[$theoryTextBlockUuid] = [];
+
+            return [];
+        }
+
+        $pageId = $textBlock->page_id;
+
+        if (! isset($this->pageTagsCacheByPageId[$pageId])) {
+            $this->pageTagsCacheByPageId[$pageId] = TextBlock::where('page_id', $pageId)
+                ->with('tags:id,name')
+                ->get()
+                ->flatMap(fn (TextBlock $block) => $block->tags->pluck('name'))
+                ->filter()
+                ->unique()
+                ->values()
+                ->all();
+        }
+
+        $this->pageTagsCacheByUuid[$theoryTextBlockUuid] = $this->pageTagsCacheByPageId[$pageId];
+
+        return $this->pageTagsCacheByPageId[$pageId];
+    }
+
+    private function prepareGapTagsForMarker(array $gapTagNames, string $answer, array $availableTagNames): array
+    {
+        $filtered = $this->filterTagsAgainstTheory($gapTagNames, $availableTagNames);
+
+        if (empty($filtered)) {
+            $filtered = $gapTagNames;
+        }
+
+        $aligned = $this->ensureAuxiliaryPresence($filtered, $answer, $availableTagNames);
+
+        return array_values(array_unique($aligned));
+    }
+
+    private function filterTagsAgainstTheory(array $gapTagNames, array $availableTagNames): array
+    {
+        if (empty($availableTagNames)) {
+            return $gapTagNames;
+        }
+
+        return array_values(array_intersect($gapTagNames, $availableTagNames));
+    }
+
+    private function ensureAuxiliaryPresence(array $gapTagNames, string $answer, array $availableTagNames): array
+    {
+        $auxGroups = [
+            'Do/Does/Did',
+            'Have/Has/Had',
+            'Be (am/is/are/was/were)',
+            'Will/Would',
+            'Can/Could',
+            'Should',
+            'Must',
+            'May/Might',
+            'Modal Verbs',
+        ];
+
+        $hasAuxGroup = (bool) array_intersect($gapTagNames, $auxGroups);
+
+        if ($hasAuxGroup) {
+            return $gapTagNames;
+        }
+
+        $auxToken = $this->extractLeadingAuxTokenFromAnswer($answer);
+        $auxTag = $this->mapAuxTokenToTag($auxToken);
+
+        if ($auxTag === null) {
+            return $gapTagNames;
+        }
+
+        if (! empty($availableTagNames) && ! in_array($auxTag, $availableTagNames, true)) {
+            return $gapTagNames;
+        }
+
+        $gapTagNames[] = $auxTag;
+
+        return $gapTagNames;
+    }
+
+    private function extractLeadingAuxTokenFromAnswer(string $answer): string
+    {
+        $normalized = strtolower(trim($answer));
+
+        if ($normalized === '') {
+            return '';
+        }
+
+        $parts = preg_split('/\s+/', $normalized, -1, PREG_SPLIT_NO_EMPTY);
+
+        if (count($parts) >= 2 && $parts[0] === 'am' && $parts[1] === 'not') {
+            return 'am not';
+        }
+
+        return $parts[0] ?? '';
+    }
+
+    private function mapAuxTokenToTag(string $auxToken): ?string
+    {
+        if ($auxToken === '') {
+            return null;
+        }
+
+        $mapping = [
+            'do' => 'Do/Does/Did',
+            'does' => 'Do/Does/Did',
+            "don't" => 'Do/Does/Did',
+            "doesn't" => 'Do/Does/Did',
+            'did' => 'Do/Does/Did',
+            "didn't" => 'Do/Does/Did',
+            'have' => 'Have/Has/Had',
+            'has' => 'Have/Has/Had',
+            'had' => 'Have/Has/Had',
+            "haven't" => 'Have/Has/Had',
+            "hasn't" => 'Have/Has/Had',
+            "hadn't" => 'Have/Has/Had',
+            'am' => 'Be (am/is/are/was/were)',
+            'am not' => 'Be (am/is/are/was/were)',
+            'is' => 'Be (am/is/are/was/were)',
+            'are' => 'Be (am/is/are/was/were)',
+            'was' => 'Be (am/is/are/was/were)',
+            'were' => 'Be (am/is/are/was/were)',
+            "isn't" => 'Be (am/is/are/was/were)',
+            "aren't" => 'Be (am/is/are/was/were)',
+            "wasn't" => 'Be (am/is/are/was/were)',
+            "weren't" => 'Be (am/is/are/was/were)',
+            'will' => 'Will/Would',
+            "won't" => 'Will/Would',
+            'would' => 'Will/Would',
+            "wouldn't" => 'Will/Would',
+            'can' => 'Can/Could',
+            "can't" => 'Can/Could',
+            'cannot' => 'Can/Could',
+            'could' => 'Can/Could',
+            "couldn't" => 'Can/Could',
+            'should' => 'Should',
+            "shouldn't" => 'Should',
+            'must' => 'Must',
+            "mustn't" => 'Must',
+            'may' => 'May/Might',
+            'might' => 'May/Might',
+        ];
+
+        return $mapping[$auxToken] ?? null;
     }
 
     /**
