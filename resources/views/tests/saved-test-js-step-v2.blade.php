@@ -560,7 +560,9 @@ function renderSentence(q, idx) {
       : '';
     // Add marker theory button if marker has tags
     const theoryBtn = renderMarkerTheoryButton(marker, idx, hasMarkerTags(q, marker));
-    text = text.replace(regex, replacement + hint + theoryBtn);
+    // Add marker tags debug display
+    const tagsDebug = renderMarkerTagsDebug(q, marker, idx);
+    text = text.replace(regex, replacement + hint + theoryBtn + tagsDebug);
   });
   return text;
 }

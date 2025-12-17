@@ -125,14 +125,35 @@ class MarkerTheoryMatcherService
             return null;
         }
 
+        $block = $matchedBlock['block'];
+        
+        // Load page and category relationship for URL generation
+        $block->load(['page.category']);
+        
+        $pageUrl = null;
+        $blockAnchor = null;
+        
+        if ($block->page) {
+            $blockAnchor = 'block-' . $block->id;
+            if ($block->page->category) {
+                $pageUrl = route('theory.show', [
+                    'category' => $block->page->category->slug,
+                    'pageSlug' => $block->page->slug,
+                ]) . '#' . $blockAnchor;
+            }
+        }
+
         return [
-            'uuid' => $matchedBlock['block']->uuid,
-            'type' => $matchedBlock['block']->type,
-            'body' => $matchedBlock['block']->body,
-            'level' => $matchedBlock['block']->level,
+            'uuid' => $block->uuid,
+            'type' => $block->type,
+            'body' => $block->body,
+            'level' => $block->level,
             'matched_tags' => $matchedBlock['matched_tags'],
             'score' => $matchedBlock['score'],
             'marker' => $marker,
+            'page_url' => $pageUrl,
+            'block_anchor' => $blockAnchor,
+            'page_title' => $block->page?->title,
         ];
     }
 
