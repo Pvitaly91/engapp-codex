@@ -57,9 +57,10 @@ class MarkerTheoryTagsTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_available_tags_via_question_theory_text_block_uuid(): void
+    public function it_returns_empty_when_question_has_theory_text_block_uuid_but_no_marker_tags(): void
     {
-        // Test fallback to question theory_text_block_uuid when no marker tags exist
+        // Tag-based functionality is independent from theory_text_block_uuid
+        // When no marker tags exist, available-theory-tags should return empty
         $category = Category::create(['name' => 'Test Category']);
         $pageCategory = PageCategory::create([
             'title' => 'Question Types',
@@ -116,20 +117,11 @@ class MarkerTheoryTagsTest extends TestCase
             ]));
 
         $response->assertOk();
-        $response->assertJsonStructure([
-            'tags' => [
-                '*' => ['id', 'name', 'category'],
-            ],
-            'page_id',
-            'marker',
-            'question_id',
+        // Should return empty since tag functionality doesn't depend on theory_text_block_uuid
+        $response->assertJson([
+            'tags' => [],
+            'page_id' => null,
         ]);
-
-        // Should return tags from the theory page linked via theory_text_block_uuid
-        $this->assertEquals($page->id, $response->json('page_id'));
-        $returnedTagNames = collect($response->json('tags'))->pluck('name')->toArray();
-        $this->assertContains('tag-questions', $returnedTagNames);
-        $this->assertContains('disjunctive-questions', $returnedTagNames);
     }
 
     /** @test */

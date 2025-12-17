@@ -511,28 +511,19 @@ class MarkerTheoryMatcherService
 
     /**
      * Get the theory page ID for a specific marker in a question.
-     * First tries to find it from the best matching text block via marker tags.
-     * Falls back to the question's directly linked theory_text_block_uuid.
+     * Works ONLY based on marker tags matching - does NOT fall back to theory_text_block_uuid.
+     * This keeps the tag-based functionality independent from the uuid-based "Show theory" feature.
      *
      * @return int|null The page ID or null if not found
      */
     public function getTheoryPageIdForMarker(int $questionId, string $marker): ?int
     {
-        // First try to find via marker tags matching
+        // Find theory block via marker tags matching only
         $theoryBlock = $this->findTheoryBlockForMarker($questionId, $marker);
 
         if ($theoryBlock) {
             // Load the text block to get its page_id
             $textBlock = TextBlock::where('uuid', $theoryBlock['uuid'])->first();
-            if ($textBlock?->page_id) {
-                return $textBlock->page_id;
-            }
-        }
-
-        // Fall back to the question's directly linked theory_text_block_uuid
-        $question = Question::find($questionId);
-        if ($question?->theory_text_block_uuid) {
-            $textBlock = TextBlock::where('uuid', $question->theory_text_block_uuid)->first();
             if ($textBlock?->page_id) {
                 return $textBlock->page_id;
             }
