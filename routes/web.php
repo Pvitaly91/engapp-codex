@@ -10,6 +10,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\QuestionAnswerController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionHelpController;
+use App\Http\Controllers\QuestionMarkerTagController;
 use App\Http\Controllers\QuestionHintController;
 use App\Http\Controllers\QuestionOptionController;
 use App\Http\Controllers\QuestionReviewController;
@@ -284,6 +285,17 @@ Route::middleware('auth.admin')->group(function () use ($reservedPrefixes) {
         Route::post('/question-hint', [QuestionHelpController::class, 'hint'])->name('question.hint');
         Route::post('/question-explain', [QuestionHelpController::class, 'explain'])->name('question.explain');
         Route::post('/question-marker-theory', [QuestionHelpController::class, 'markerTheory'])->name('question.marker-theory');
+        Route::prefix('api/v2')->group(function () {
+            Route::get(
+                '/questions/{question:uuid}/markers/{marker}/available-theory-tags',
+                [QuestionMarkerTagController::class, 'availableTheoryTags']
+            )->name('questions.markers.available-theory-tags');
+
+            Route::post(
+                '/questions/{question:uuid}/markers/{marker}/add-tags-from-theory-page',
+                [QuestionMarkerTagController::class, 'addTagsFromTheoryPage']
+            )->name('questions.markers.add-tags-from-theory-page');
+        });
 
         Route::get('/seed-runs', [SeedRunController::class, 'index'])->name('seed-runs.index');
         Route::get('/seed-runs/preview', [SeedRunController::class, 'preview'])->name('seed-runs.preview');

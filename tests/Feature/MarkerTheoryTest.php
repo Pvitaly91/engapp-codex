@@ -225,6 +225,159 @@ class MarkerTheoryTest extends TestCase
         $response->assertJsonValidationErrors(['marker']);
     }
 
+    /** @test */
+    public function available_theory_tags_are_limited_to_theory_page(): void
+    {
+        $category = Category::create(['name' => 'Test Category']);
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Present Simple',
+            'slug' => 'present-simple',
+            'text' => 'Theory about present simple',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $otherPage = Page::create([
+            'title' => 'Past Simple',
+            'slug' => 'past-simple',
+            'text' => 'Other theory',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Present Simple Questions',
+            'body' => '...',
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        $otherTextBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Past Simple Questions',
+            'body' => '...',
+            'page_id' => $otherPage->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        $tagPresentSimple = Tag::create(['name' => 'present-simple', 'category' => 'Tenses']);
+        $tagDo = Tag::create(['name' => 'do-auxiliary', 'category' => 'Auxiliary']);
+        $tagPast = Tag::create(['name' => 'past-simple', 'category' => 'Tenses']);
+
+        $textBlock->tags()->attach([$tagPresentSimple->id, $tagDo->id]);
+        $otherTextBlock->tags()->attach([$tagPast->id]);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => '{a1} you like coffee?',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+            'theory_text_block_uuid' => $textBlock->uuid,
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->getJson(route('questions.markers.available-theory-tags', [
+                'question' => $question->uuid,
+                'marker' => 'a1',
+            ]));
+
+        $response->assertOk();
+        $response->assertJsonPath('page_id', $page->id);
+
+        $returnedIds = collect($response->json('tags'))->pluck('id');
+        $this->assertCount(2, $returnedIds);
+        $this->assertTrue($returnedIds->contains($tagPresentSimple->id));
+        $this->assertTrue($returnedIds->contains($tagDo->id));
+        $this->assertFalse($returnedIds->contains($tagPast->id));
+    }
+
+    /** @test */
+    public function add_tags_from_theory_page_adds_only_allowed_unique_tags(): void
+    {
+        $category = Category::create(['name' => 'Test Category']);
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Present Simple',
+            'slug' => 'present-simple',
+            'text' => 'Theory about present simple',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Present Simple Questions',
+            'body' => '...',
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        $tagPresentSimple = Tag::create(['name' => 'present-simple', 'category' => 'Tenses']);
+        $tagDo = Tag::create(['name' => 'do-auxiliary', 'category' => 'Auxiliary']);
+        $tagPast = Tag::create(['name' => 'past-simple', 'category' => 'Tenses']);
+
+        $textBlock->tags()->attach([$tagPresentSimple->id, $tagDo->id]);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => '{a1} you like coffee?',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+            'theory_text_block_uuid' => $textBlock->uuid,
+        ]);
+
+        DB::table('question_marker_tag')->insert([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'tag_id' => $tagPresentSimple->id,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->postJson(route('questions.markers.add-tags-from-theory-page', [
+                'question' => $question->uuid,
+                'marker' => 'a1',
+            ]), [
+                'tag_ids' => [
+                    $tagPresentSimple->id, // duplicate
+                    $tagDo->id, // allowed new tag
+                    $tagPast->id, // not allowed
+                ],
+            ]);
+
+        $response->assertOk();
+
+        $savedTags = DB::table('question_marker_tag')
+            ->where('question_id', $question->id)
+            ->where('marker', 'a1')
+            ->pluck('tag_id');
+
+        $this->assertCount(2, $savedTags);
+        $this->assertTrue($savedTags->contains($tagPresentSimple->id));
+        $this->assertTrue($savedTags->contains($tagDo->id));
+        $this->assertFalse($savedTags->contains($tagPast->id));
+
+        $response->assertJsonPath('marker_tags', function ($tags) use ($tagDo, $tagPresentSimple) {
+            return in_array($tagPresentSimple->name, $tags, true)
+                && in_array($tagDo->name, $tags, true);
+        });
+    }
+
     private function ensureSchema(): void
     {
         if (! Schema::hasTable('categories')) {
