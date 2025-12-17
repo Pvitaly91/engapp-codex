@@ -606,6 +606,7 @@ class MarkerTheoryMatcherService
 
         // Validate tags belong to the theory page
         $validTagIds = $this->validateTagsForTheoryPage($pageId, $tagIds);
+        $invalidCount = count($tagIds) - count($validTagIds);
 
         if (empty($validTagIds)) {
             return ['added' => 0, 'skipped' => count($tagIds), 'marker_tags' => $this->getMarkerTags($questionId, $marker)];
@@ -620,9 +621,10 @@ class MarkerTheoryMatcherService
 
         // Filter out already existing tags
         $newTagIds = array_diff($validTagIds, $existingTagIds);
+        $duplicateCount = count($validTagIds) - count($newTagIds);
 
         $added = 0;
-        $skipped = count($tagIds) - count($newTagIds);
+        $skipped = $invalidCount + $duplicateCount;
 
         if (! empty($newTagIds)) {
             $now = now();

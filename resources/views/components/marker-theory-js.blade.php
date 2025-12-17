@@ -354,12 +354,12 @@ async function openAddTagsModal(questionId, marker, idx) {
     }
   }
   
-  // Get current marker tags to exclude them
+  // Get current marker tags to exclude them (tags are strings in marker_tags)
   const currentTags = getMarkerTags(item, marker) || [];
-  const currentTagNamesLower = currentTags.map(t => t.toLowerCase());
+  const currentTagNamesLower = currentTags.map(t => (typeof t === 'string' ? t : t.name || '').toLowerCase());
   
   // Filter out already added tags
-  const newTags = availableTags.filter(t => !currentTagNamesLower.includes(t.name.toLowerCase()));
+  const newTags = availableTags.filter(t => !currentTagNamesLower.includes((t.name || '').toLowerCase()));
   
   if (newTags.length === 0) {
     updateModalEmpty();
@@ -493,15 +493,18 @@ function renderTagsList(tags) {
   const content = document.getElementById('add-tags-content');
   if (!content) return;
   
-  const tagsHtml = tags.map(tag => `
-    <label class="tag-item flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors" data-name="${html(tag.name.toLowerCase())}">
+  const tagsHtml = tags.map(tag => {
+    const tagNameLower = (tag.name || '').toLowerCase();
+    return `
+    <label class="tag-item flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors" data-name="${html(tagNameLower)}">
       <input type="checkbox" value="${tag.id}" class="tag-checkbox w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateSubmitButton()">
       <div class="flex-1">
         <span class="text-sm font-medium text-gray-900">${html(tag.name)}</span>
         ${tag.category ? `<span class="ml-2 text-xs text-gray-500">(${html(tag.category)})</span>` : ''}
       </div>
     </label>
-  `).join('');
+  `;
+  }).join('');
   
   content.innerHTML = `<div class="space-y-1">${tagsHtml}</div>`;
 }

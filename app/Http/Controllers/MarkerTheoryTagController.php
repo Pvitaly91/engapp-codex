@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\Tag;
 use App\Services\MarkerTheoryMatcherService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class MarkerTheoryTagController extends Controller
 {
@@ -41,11 +43,7 @@ class MarkerTheoryTagController extends Controller
         $pageId = $this->matcherService->getTheoryPageIdForMarker($question->id, $marker);
 
         return response()->json([
-            'tags' => $tags->map(fn ($tag) => [
-                'id' => $tag->id,
-                'name' => $tag->name,
-                'category' => $tag->category,
-            ])->values(),
+            'tags' => $this->mapTagsForResponse($tags),
             'page_id' => $pageId,
             'marker' => $marker,
             'question_id' => $question->id,
@@ -107,14 +105,25 @@ class MarkerTheoryTagController extends Controller
         return response()->json([
             'added' => $result['added'],
             'skipped' => $result['skipped'],
-            'marker_tags' => $result['marker_tags']->map(fn ($tag) => [
-                'id' => $tag->id,
-                'name' => $tag->name,
-                'category' => $tag->category ?? null,
-            ])->values(),
+            'marker_tags' => $this->mapTagsForResponse($result['marker_tags']),
             'theory_block' => $theoryBlock,
             'marker' => $marker,
             'question_id' => $question->id,
         ]);
+    }
+
+    /**
+     * Map tags collection to response format.
+     *
+     * @param  Collection<int, Tag>  $tags
+     * @return array<int, array{id: int, name: string, category: string|null}>
+     */
+    private function mapTagsForResponse(Collection $tags): array
+    {
+        return $tags->map(fn ($tag) => [
+            'id' => $tag->id,
+            'name' => $tag->name,
+            'category' => $tag->category ?? null,
+        ])->values()->all();
     }
 }
