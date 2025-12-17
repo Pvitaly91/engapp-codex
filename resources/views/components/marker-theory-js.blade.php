@@ -197,7 +197,10 @@ function hasMarkerTags(q, marker) {
 
 /**
  * Get marker tags for a specific marker in a question
- * Returns array of tag objects {id, name} or strings for backward compatibility
+ * Returns the raw array from state which can contain either:
+ * - Tag objects {id, name} (new format from backend)
+ * - Strings (legacy format for backward compatibility)
+ * Use getTagName() and getTagId() helpers to safely extract values
  */
 function getMarkerTags(q, marker) {
   if (!q.marker_tags || !q.marker_tags[marker]) return [];
@@ -680,7 +683,10 @@ async function submitAddTags(questionId, marker, idx, questionUuid) {
     if (item) {
       // Update marker_tags in state - keep full structure with {id, name}
       if (!item.marker_tags) item.marker_tags = {};
-      item.marker_tags[marker] = data.marker_tags.map(t => ({ id: t.id, name: t.name }));
+      // Guard against null/undefined marker_tags from API
+      item.marker_tags[marker] = Array.isArray(data.marker_tags) 
+        ? data.marker_tags.map(t => ({ id: t.id, name: t.name }))
+        : [];
       
       // Clear theory cache to force refetch
       if (item.markerTheoryCache) {

@@ -114,6 +114,8 @@ class MarkerTheoryMatcherService
         }
 
         // Build a map of normalized tag name -> tag id for marker tags
+        // Note: If multiple tags normalize to the same name (via aliases), we keep
+        // the last one. This is acceptable since aliased tags represent the same concept.
         $markerTagNameToId = [];
         foreach ($markerTags as $tag) {
             $normalizedName = $this->normalizeTagName($tag->name);
