@@ -298,9 +298,9 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     $verbHint
                 );
 
-                // Convert tag names to tag IDs (limit 1-3 per marker)
+                // Convert tag names to tag IDs (limit to 5 per marker to match GapTagInferer MAX_TAGS)
                 $gapTagIdsForMarker = [];
-                foreach (array_slice($gapTagNames, 0, 3) as $tagName) {
+                foreach (array_slice($gapTagNames, 0, 5) as $tagName) {
                     if (isset($gapTagNameToId[$tagName])) {
                         $gapTagIdsForMarker[] = $gapTagNameToId[$tagName];
                     }

@@ -23,8 +23,9 @@ class GapTagInferer
 
     /**
      * Maximum number of tags to return per marker.
+     * Increased to 5 to accommodate structural + auxiliary + tense tags for tag questions.
      */
-    private const MAX_TAGS = 3;
+    private const MAX_TAGS = 5;
 
     /**
      * Patterns that indicate indirect/embedded questions.
@@ -96,6 +97,26 @@ class GapTagInferer
     ];
 
     /**
+     * All auxiliary tokens (positive and negative forms) for multi-word answer extraction.
+     */
+    private const ALL_AUX_TOKENS = [
+        // do forms
+        'do', 'does', 'did', "don't", "doesn't", "didn't",
+        // be forms
+        'am', 'is', 'are', 'was', 'were', "isn't", "aren't", "wasn't", "weren't", 'am not',
+        // have forms
+        'have', 'has', 'had', "haven't", "hasn't", "hadn't",
+        // modals
+        'will', 'would', "won't", "wouldn't",
+        'can', 'could', "can't", "couldn't",
+        'should', "shouldn't",
+        'must', "mustn't",
+        'may', 'might', "mightn't",
+        'shall', "shan't",
+        'ought', "oughtn't",
+    ];
+
+    /**
      * Infer grammatical tags for a gap marker in a question.
      *
      * @param  string  $questionText  The full question text with markers like {a1}, {a2}
@@ -122,8 +143,8 @@ class GapTagInferer
         // Get context window around marker
         $window = $this->getMarkerWindow($normalizedQuestion, $marker);
 
-        // Priority 1: Structural patterns (highest priority)
-        $structuralTags = $this->detectStructuralPatterns(
+        // Priority 1: Structural patterns detection
+        $structuralResult = $this->detectStructuralPatterns(
             $normalizedQuestion,
             $marker,
             $normalizedAnswer,
@@ -131,12 +152,34 @@ class GapTagInferer
             $window
         );
 
-        if (! empty($structuralTags)) {
-            // If structural patterns detected, return them (1-3 tags max)
-            return array_slice($structuralTags, 0, self::MAX_TAGS);
+        // For indirect/embedded questions, return only structural tags (statement order is key)
+        if (! empty($structuralResult['tags']) && $structuralResult['type'] === 'indirect') {
+            return array_slice($structuralResult['tags'], 0, self::MAX_TAGS);
         }
 
-        // Priority 2: Auxiliary/Tense patterns
+        // For tag questions and subject questions, collect structural tags and also add auxiliary/tense tags
+        if (! empty($structuralResult['tags'])) {
+            $tags = $structuralResult['tags'];
+
+            // For tag questions, extract leading auxiliary token from multi-word answer
+            // and add auxiliary/tense tags based on that token
+            if ($structuralResult['type'] === 'tag_question') {
+                $leadingAux = $this->extractLeadingAuxToken($normalizedAnswer);
+                if ($leadingAux !== '') {
+                    $auxTenseTags = $this->detectAuxiliaryTensePatterns(
+                        $leadingAux,
+                        $normalizedOptions,
+                        $window,
+                        $verbHint
+                    );
+                    $tags = array_merge($tags, $auxTenseTags);
+                }
+            }
+
+            return array_slice(array_unique($tags), 0, self::MAX_TAGS);
+        }
+
+        // Priority 2: Auxiliary/Tense patterns (no structural pattern detected)
         $auxTenseTags = $this->detectAuxiliaryTensePatterns(
             $normalizedAnswer,
             $normalizedOptions,
@@ -180,6 +223,51 @@ class GapTagInferer
     }
 
     /**
+     * Extract the leading auxiliary token from a multi-word answer.
+     *
+     * For tag question answers like "does she", "isn't he", "haven't you",
+     * extracts the auxiliary verb (does, isn't, haven't) for further processing.
+     *
+     * @param  string  $answer  Normalized answer text
+     * @return string The leading auxiliary token, or empty string if not found
+     */
+    private function extractLeadingAuxToken(string $answer): string
+    {
+        $answer = trim($answer);
+
+        if ($answer === '') {
+            return '';
+        }
+
+        // First, check for two-word negative contractions like "am not"
+        // that should be treated as a single auxiliary
+        if (str_starts_with($answer, 'am not')) {
+            return 'am not';
+        }
+
+        // Split by whitespace
+        $words = preg_split('/\s+/', $answer, -1, PREG_SPLIT_NO_EMPTY);
+
+        if (empty($words)) {
+            return '';
+        }
+
+        $firstWord = $words[0];
+
+        // Check if the first word is a known auxiliary token
+        if (in_array($firstWord, self::ALL_AUX_TOKENS, true)) {
+            return $firstWord;
+        }
+
+        // If answer itself is a single word that's an auxiliary, return it
+        if (count($words) === 1 && in_array($firstWord, self::ALL_AUX_TOKENS, true)) {
+            return $firstWord;
+        }
+
+        return '';
+    }
+
+    /**
      * Get context window around the marker (words before and after).
      *
      * @param  string  $text  Normalized question text
@@ -219,6 +307,8 @@ class GapTagInferer
      * 1. Indirect/Embedded question word order
      * 2. Tag questions polarity
      * 3. Subject questions (no auxiliary)
+     *
+     * @return array ['tags' => array, 'type' => string] or ['tags' => [], 'type' => '']
      */
     private function detectStructuralPatterns(
         string $question,
@@ -230,22 +320,22 @@ class GapTagInferer
         // 1. Check for Indirect/Embedded question word order
         $indirectTags = $this->detectIndirectEmbeddedQuestions($question, $window);
         if (! empty($indirectTags)) {
-            return $indirectTags;
+            return ['tags' => $indirectTags, 'type' => 'indirect'];
         }
 
         // 2. Check for Tag questions polarity
         $tagQuestionTags = $this->detectTagQuestions($question, $marker, $answer, $options, $window);
         if (! empty($tagQuestionTags)) {
-            return $tagQuestionTags;
+            return ['tags' => $tagQuestionTags, 'type' => 'tag_question'];
         }
 
         // 3. Check for Subject questions (no auxiliary)
         $subjectQuestionTags = $this->detectSubjectQuestions($question, $answer, $options, $window);
         if (! empty($subjectQuestionTags)) {
-            return $subjectQuestionTags;
+            return ['tags' => $subjectQuestionTags, 'type' => 'subject_question'];
         }
 
-        return [];
+        return ['tags' => [], 'type' => ''];
     }
 
     /**
