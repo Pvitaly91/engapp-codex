@@ -164,6 +164,7 @@ class TestJsV2Controller extends Controller
 
             return [
                 'id' => $q->id,
+                'uuid' => $q->uuid,
                 'question' => $q->question,
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
