@@ -145,6 +145,16 @@ function renderMarkerTheoryPanel(idx, marker, block) {
     ? `<div class="mt-2 text-xs text-cyan-600">Matched tags: ${block.matched_tags.map(t => html(t)).join(', ')}</div>`
     : '';
 
+  // Add link to full theory page if available
+  const pageLink = block.page_url 
+    ? `<a href="${html(block.page_url)}" target="_blank" class="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-cyan-700 hover:text-cyan-900 hover:underline transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+        ${block.page_title ? html(block.page_title) : 'Open full theory page'} →
+      </a>`
+    : '';
+
   panel.innerHTML = `
     <div class="p-4 bg-gradient-to-r from-cyan-50 to-sky-50 rounded-2xl border border-cyan-200">
       <div class="flex items-center gap-2 mb-2">
@@ -156,6 +166,7 @@ function renderMarkerTheoryPanel(idx, marker, block) {
       </div>
       ${content}
       ${matchedTagsHtml}
+      ${pageLink}
     </div>
   `;
   panel.classList.remove('hidden');
