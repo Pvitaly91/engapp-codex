@@ -390,10 +390,31 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'variants' => [],
             ];
 
+            // Build options_by_marker for multi-gap questions (as indexed array for consistency)
+            // Note: This is stored in meta for reference. The controller builds options_by_marker
+            // at runtime by chunking the flat options array.
+            $optionsByMarker = null;
+            if ($isMultiMarker) {
+                $optionsByMarker = [];
+                // Sort markers to ensure consistent order (a1, a2, a3...)
+                $sortedMarkers = $markersToProcess;
+                usort($sortedMarkers, function ($a, $b) {
+                    $numA = preg_match('/^a(\d+)$/', $a, $m) ? (int) $m[1] : PHP_INT_MAX;
+                    $numB = preg_match('/^a(\d+)$/', $b, $m) ? (int) $m[1] : PHP_INT_MAX;
+                    return $numA - $numB;
+                });
+                foreach ($sortedMarkers as $marker) {
+                    // Use numeric indices (push to array) instead of marker keys
+                    // Don't shuffle here - frontend handles shuffling
+                    $optionsByMarker[] = $question['options'][$marker] ?? [];
+                }
+            }
+
             $meta[] = [
                 'uuid' => $uuid,
                 'answers' => $question['answers'],
                 'option_markers' => $optionMarkers,
+                'options_by_marker' => $optionsByMarker,
                 'hints' => $question['hints'],
                 'explanations' => $question['explanations'],
                 'gap_tags' => $gapTagsPerMarker, // Store per-marker gap tags in meta
@@ -737,11 +758,24 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 
     /**
      * Flatten nested options array into a single array of unique options.
+     * For multi-marker questions, options are grouped by marker in order (a1, a2, a3...)
+     * so the frontend can chunk them back into per-marker arrays.
      */
     private function flattenOptions(array $options): array
     {
         $flat = [];
-        foreach ($options as $values) {
+        
+        // Sort by marker keys to ensure consistent order (a1, a2, a3...)
+        $sortedKeys = array_keys($options);
+        usort($sortedKeys, function ($a, $b) {
+            // Extract numeric part from marker (e.g., 'a1' -> 1, 'a2' -> 2)
+            $numA = is_string($a) && preg_match('/^a(\d+)$/', $a, $m) ? (int) $m[1] : PHP_INT_MAX;
+            $numB = is_string($b) && preg_match('/^a(\d+)$/', $b, $m) ? (int) $m[1] : PHP_INT_MAX;
+            return $numA - $numB;
+        });
+        
+        foreach ($sortedKeys as $key) {
+            $values = $options[$key];
             if (is_array($values)) {
                 foreach ($values as $value) {
                     if (! in_array($value, $flat, true)) {

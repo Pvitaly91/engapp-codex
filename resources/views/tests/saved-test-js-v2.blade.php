@@ -121,17 +121,30 @@ const EXPLAIN_URL = '{{ route('question.explain') }}';
 const HINT_URL = '{{ route('question.hint') }}';
 const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
+const IS_ADMIN = @json($isAdmin ?? false);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
 @include('components.marker-theory-js')
 <script>
 /**
- * Build per-slot options arrays. If options divide evenly by markers count,
- * chunk them so each marker gets its own subset. Otherwise fallback to full list.
+ * Build per-slot options arrays from backend options_by_marker if available,
+ * or chunk flat options by markers count. Otherwise fallback to full list.
  */
-function buildOptionsBySlot(options, markersCount) {
+function buildOptionsBySlot(options, markersCount, optionsByMarker = null) {
   const optionsBySlot = [];
+  
+  // Use backend-provided options_by_marker if available
+  if (optionsByMarker && Array.isArray(optionsByMarker) && optionsByMarker.length === markersCount) {
+    for (let i = 0; i < markersCount; i++) {
+      const slotOptions = [...(optionsByMarker[i] || [])];
+      shuffle(slotOptions);
+      optionsBySlot.push(slotOptions);
+    }
+    return optionsBySlot;
+  }
+  
+  // Fallback: chunk flat options if they divide evenly by markers count
   if (markersCount > 0 && options.length % markersCount === 0) {
     const chunkSize = Math.floor(options.length / markersCount);
     if (chunkSize >= 2) {
@@ -143,7 +156,8 @@ function buildOptionsBySlot(options, markersCount) {
       return optionsBySlot;
     }
   }
-  // Fallback: each slot gets full shuffled options
+  
+  // Final fallback: each slot gets full shuffled options
   for (let i = 0; i < markersCount; i++) {
     const all = [...options];
     shuffle(all);
@@ -230,9 +244,9 @@ async function init(forceFresh = false) {
         // Regenerate optionsBySlot from base questions if available
         const baseQ = QUESTIONS[idx];
         if (baseQ && Array.isArray(baseQ.options)) {
-          item.optionsBySlot = buildOptionsBySlot(baseQ.options, markersCount);
+          item.optionsBySlot = buildOptionsBySlot(baseQ.options, markersCount, baseQ.options_by_marker);
         } else if (!Array.isArray(item.optionsBySlot)) {
-          item.optionsBySlot = buildOptionsBySlot(item.options || [], markersCount);
+          item.optionsBySlot = buildOptionsBySlot(item.options || [], markersCount, item.options_by_marker);
         }
       });
     }
@@ -240,7 +254,7 @@ async function init(forceFresh = false) {
 
   if (!restored) {
     state.items = QUESTIONS.map((q) => {
-      const optionsBySlot = buildOptionsBySlot(q.options, q.answers.length);
+      const optionsBySlot = buildOptionsBySlot(q.options, q.answers.length, q.options_by_marker);
       return {
         ...q,
         options: q.options, // Keep original options for fallback
@@ -349,6 +363,13 @@ function renderQuestions(showOnlyWrong = false) {
           <div class="text-lg font-bold text-indigo-600">${idx + 1}</div>
         </div>
       </div>
+
+      ${q.answers.length > 1 ? `<div class="flex items-center gap-2 mb-2.5 sm:mb-3">
+        <span class="text-xs font-medium text-gray-500">Active gap:</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700">
+          a${q.activeSlot + 1} / a${q.answers.length}
+        </span>
+      </div>` : ''}
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3" role="group" aria-label="Answer options">
         ${activeOptions.map((opt, i) => renderOptionButton(q, idx, opt, i)).join('')}

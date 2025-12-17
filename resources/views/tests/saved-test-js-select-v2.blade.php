@@ -108,6 +108,7 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
 const CSRF_TOKEN = '{{ csrf_token() }}';
 const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
+const IS_ADMIN = @json($isAdmin ?? false);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
 @include('components.saved-test-js-helpers')
