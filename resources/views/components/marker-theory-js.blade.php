@@ -173,4 +173,36 @@ function renderMarkerTheoryButton(marker, idx, hasMarkerTags) {
 function hasMarkerTags(q, marker) {
   return q.marker_tags && q.marker_tags[marker] && q.marker_tags[marker].length > 0;
 }
+
+/**
+ * Get marker tags for a specific marker in a question
+ */
+function getMarkerTags(q, marker) {
+  if (!q.marker_tags || !q.marker_tags[marker]) return [];
+  return q.marker_tags[marker];
+}
+
+/**
+ * Render marker tags inline for debugging
+ * Shows tags in a collapsible badge next to markers
+ */
+function renderMarkerTagsDebug(q, marker, idx) {
+  const tags = getMarkerTags(q, marker);
+  if (!tags || tags.length === 0) return '';
+  
+  const tagId = `marker-tags-${idx}-${marker}`;
+  const tagsHtml = tags.map(t => `<span class="inline-block px-1.5 py-0.5 rounded bg-violet-100 text-violet-700 text-[9px] font-medium mr-1 mb-1">${html(t)}</span>`).join('');
+  
+  return ` <button type="button" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700 font-medium transition-colors" onclick="toggleMarkerTags('${tagId}')" title="Show/hide marker tags"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}</button><span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}</span>`;
+}
+
+/**
+ * Toggle visibility of marker tags debug display
+ */
+function toggleMarkerTags(tagId) {
+  const el = document.getElementById(tagId);
+  if (el) {
+    el.classList.toggle('hidden');
+  }
+}
 </script>

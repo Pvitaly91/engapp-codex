@@ -254,7 +254,9 @@ function renderSentence(q, qIdx) {
       : '';
     // Add marker theory button if marker has tags
     const theoryBtn = renderMarkerTheoryButton(marker, qIdx, hasMarkerTags(q, marker));
-    text = text.replace(regex, replacement + hint + theoryBtn);
+    // Add marker tags debug display
+    const tagsDebug = renderMarkerTagsDebug(q, marker, qIdx);
+    text = text.replace(regex, replacement + hint + theoryBtn + tagsDebug);
   });
   return text;
 }
