@@ -126,6 +126,15 @@ class MarkerTheoryMatcherService
         }
 
         $block = $matchedBlock['block'];
+
+        $markerTagIds = $markerTags->pluck('id')->toArray();
+        $blockTagIds = $block->tags->pluck('id')->toArray();
+        $matchedTagIds = array_values(array_intersect($markerTagIds, $blockTagIds));
+        $matchedTagNames = $block->tags
+            ->whereIn('id', $matchedTagIds)
+            ->pluck('name')
+            ->values()
+            ->all();
         
         // Load page and category relationship for URL generation
         $block->load(['page.category']);
@@ -149,6 +158,8 @@ class MarkerTheoryMatcherService
             'body' => $block->body,
             'level' => $block->level,
             'matched_tags' => $matchedBlock['matched_tags'],
+            'matched_tag_ids' => $matchedTagIds,
+            'matched_tag_names' => $matchedTagNames,
             'score' => $matchedBlock['score'],
             'marker' => $marker,
             'page_url' => $pageUrl,
@@ -495,7 +506,7 @@ class MarkerTheoryMatcherService
         $rows = DB::table('question_marker_tag')
             ->join('tags', 'question_marker_tag.tag_id', '=', 'tags.id')
             ->where('question_marker_tag.question_id', $questionId)
-            ->select('question_marker_tag.marker', 'tags.name')
+            ->select('question_marker_tag.marker', 'tags.id', 'tags.name')
             ->get();
 
         $result = [];
@@ -503,7 +514,10 @@ class MarkerTheoryMatcherService
             if (! isset($result[$row->marker])) {
                 $result[$row->marker] = [];
             }
-            $result[$row->marker][] = $row->name;
+            $result[$row->marker][] = [
+                'id' => $row->id,
+                'name' => $row->name,
+            ];
         }
 
         return $result;

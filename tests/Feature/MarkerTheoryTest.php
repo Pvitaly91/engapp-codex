@@ -58,6 +58,7 @@ class MarkerTheoryTest extends TestCase
         $response->assertJson([
             'theory_block' => null,
         ]);
+        $response->assertJsonPath('matched_tag_ids', []);
     }
 
     /** @test */
@@ -130,12 +131,26 @@ class MarkerTheoryTest extends TestCase
                 'body',
                 'level',
                 'matched_tags',
+                'matched_tag_ids',
+                'matched_tag_names',
                 'score',
                 'marker',
             ],
         ]);
         $response->assertJsonPath('theory_block.marker', 'a1');
         $this->assertEquals(5.5, $response->json('theory_block.score'));
+        $this->assertEqualsCanonicalizing(
+            [$tagPresentSimple->id, $tagDoDoesAuxiliary->id],
+            $response->json('matched_tag_ids')
+        );
+        $this->assertEqualsCanonicalizing(
+            [$tagPresentSimple->id, $tagDoDoesAuxiliary->id],
+            $response->json('theory_block.matched_tag_ids')
+        );
+        $this->assertEqualsCanonicalizing(
+            [$tagPresentSimple->name, $tagDoDoesAuxiliary->name],
+            $response->json('theory_block.matched_tag_names')
+        );
     }
 
     /** @test */
@@ -200,6 +215,82 @@ class MarkerTheoryTest extends TestCase
         $response->assertJson([
             'theory_block' => null,
         ]);
+        $response->assertJsonPath('matched_tag_ids', []);
+    }
+
+    /** @test */
+    public function it_ignores_question_uuid_links_for_tag_based_matching(): void
+    {
+        $category = Category::create(['name' => 'Test Category']);
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Present Simple',
+            'slug' => 'present-simple',
+            'text' => 'Theory about present simple',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $matchingBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Present Simple Questions',
+            'body' => json_encode(['title' => 'How to form questions', 'intro' => 'Use do/does + subject + base verb']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        $otherBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Unrelated theory',
+            'body' => 'Other content',
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 2,
+        ]);
+
+        $tagPresentSimple = Tag::create(['name' => 'present-simple', 'category' => 'Tenses']);
+        $matchingBlock->tags()->attach([$tagPresentSimple->id]);
+        $otherBlock->tags()->attach([]);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => '{a1} you like coffee?',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+            'theory_text_block_uuid' => $otherBlock->uuid,
+        ]);
+
+        $optionDo = QuestionOption::create(['option' => 'Do']);
+        $question->options()->attach([$optionDo->id]);
+
+        QuestionAnswer::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $optionDo->id,
+        ]);
+
+        DB::table('question_marker_tag')->insert([
+            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagPresentSimple->id, 'created_at' => now(), 'updated_at' => now()],
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->postJson(route('question.marker-theory'), [
+                'question_id' => $question->id,
+                'marker' => 'a1',
+            ]);
+
+        $response->assertOk();
+        $this->assertEquals($matchingBlock->uuid, $response->json('theory_block.uuid'));
+        $this->assertEqualsCanonicalizing(
+            [$tagPresentSimple->id],
+            $response->json('matched_tag_ids')
+        );
     }
 
     /** @test */

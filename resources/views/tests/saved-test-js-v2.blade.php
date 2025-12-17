@@ -212,6 +212,8 @@ async function init(forceFresh = false) {
         if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
         if (!('pendingExplanationKey' in item)) item.pendingExplanationKey = null;
         if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
+        if (!item.markerTheoryMatch || typeof item.markerTheoryMatch !== 'object') item.markerTheoryMatch = {};
+        if (!('activeTheoryMarker' in item)) item.activeTheoryMarker = null;
         
         // Initialize new per-slot fields if missing (backward compatibility)
         const markersCount = item.answers ? item.answers.length : 1;
@@ -258,6 +260,8 @@ async function init(forceFresh = false) {
         explanationsCache: {},
         pendingExplanationKey: null,
         markerTheoryCache: {},
+        markerTheoryMatch: {},
+        activeTheoryMarker: null,
       };
     });
     state.correct = 0;
@@ -316,6 +320,8 @@ function renderQuestions(showOnlyWrong = false) {
 
     const sentence = renderSentence(q, idx);
     const activeOptions = getActiveOptions(q);
+    const activeMarker = getActiveMarker(q);
+    const questionTagsHtml = renderQuestionTagsBlock(q, activeMarker);
 
     card.innerHTML = `
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3.5 sm:gap-4 mb-5 sm:mb-6">
@@ -327,6 +333,7 @@ function renderQuestions(showOnlyWrong = false) {
             <span class="text-xs sm:text-xs sm:text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
           </div>
           <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium mb-2.5 sm:mb-3">${sentence}</div>
+          ${questionTagsHtml}
           <button type="button" class="help-btn inline-flex items-center text-[13px] sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors" data-help-idx="${idx}">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>

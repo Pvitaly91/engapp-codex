@@ -99,7 +99,7 @@ class TestJsV2Controller extends Controller
     private function buildQuestionDataset($resolved, bool $freshVariants = false)
     {
         $test = $resolved->model;
-        $relations = ['category', 'answers.option', 'options', 'verbHints.option'];
+        $relations = ['category', 'answers.option', 'options', 'verbHints.option', 'tags'];
         $supportsVariants = $this->variantService->supportsVariants();
         if ($supportsVariants) {
             $relations[] = 'variants';
@@ -160,7 +160,14 @@ class TestJsV2Controller extends Controller
             }
 
             // Load marker tags for each answer marker
-            $markerTags = $this->markerTheoryMatcher->getAllMarkerTags($q->id);
+            $markerTagsDetailed = $this->markerTheoryMatcher->getAllMarkerTags($q->id);
+
+            $markerTags = [];
+            $markerTagIds = [];
+            foreach ($markerTagsDetailed as $marker => $tags) {
+                $markerTags[$marker] = collect($tags)->pluck('name')->all();
+                $markerTagIds[$marker] = collect($tags)->pluck('id')->all();
+            }
 
             return [
                 'id' => $q->id,
@@ -176,6 +183,11 @@ class TestJsV2Controller extends Controller
                 'level' => $q->level ?? '',
                 'theory_block' => $theoryBlock,
                 'marker_tags' => $markerTags,
+                'marker_tag_ids' => $markerTagIds,
+                'question_tags' => $q->tags->map(fn ($tag) => [
+                    'id' => $tag->id,
+                    'name' => $tag->name,
+                ])->toArray(),
             ];
         })->values()->all();
     }

@@ -225,8 +225,16 @@ class QuestionHelpController extends Controller
             $data['marker']
         );
 
+        $matchedTagIds = $theoryBlock['matched_tag_ids'] ?? [];
+        $matchedTagNames = $theoryBlock['matched_tag_names'] ?? ($theoryBlock['matched_tags'] ?? []);
+        $score = $theoryBlock['score'] ?? null;
+
         return response()->json([
             'theory_block' => $theoryBlock,
+            'matched_tag_ids' => $matchedTagIds,
+            'matched_tag_names' => $matchedTagNames,
+            'score' => $score,
+            'marker' => $data['marker'],
         ]);
     }
 }
