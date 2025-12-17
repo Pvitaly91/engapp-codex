@@ -81,7 +81,7 @@ class GapTagInfererTest extends TestCase
 
         $this->assertContains('Tag Questions', $result);
         $this->assertContains('Question Tags', $result);
-        // Now tag questions SHOULD include auxiliary tags extracted from the answer
+        // Tag questions include auxiliary tags extracted from the answer
         $this->assertContains('Do/Does/Did', $result);
     }
 

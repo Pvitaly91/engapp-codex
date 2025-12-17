@@ -11,7 +11,7 @@ namespace App\Services\EnglishTagging;
  * - Available options
  * - verb_hint as a weak signal (fallback only)
  *
- * Returns an array of tag names (slugs), not IDs. Maximum 1-3 tags per marker.
+ * Returns an array of tag names (slugs), not IDs. Maximum 1-5 tags per marker.
  * Only grammar-related tags are returned, no lexical/thematic tags.
  */
 class GapTagInferer
@@ -256,11 +256,6 @@ class GapTagInferer
 
         // Check if the first word is a known auxiliary token
         if (in_array($firstWord, self::ALL_AUX_TOKENS, true)) {
-            return $firstWord;
-        }
-
-        // If answer itself is a single word that's an auxiliary, return it
-        if (count($words) === 1 && in_array($firstWord, self::ALL_AUX_TOKENS, true)) {
             return $firstWord;
         }
 
