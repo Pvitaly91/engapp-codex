@@ -143,12 +143,16 @@ class MarkerTheoryMatcherService
             }
         }
 
+        $matchedTagData = $this->calculateMatchedTagData($matchedBlock['matched_tags'], $markerTags, $block->tags);
+
         return [
             'uuid' => $block->uuid,
             'type' => $block->type,
             'body' => $block->body,
             'level' => $block->level,
             'matched_tags' => $matchedBlock['matched_tags'],
+            'matched_tag_ids' => $matchedTagData['ids'],
+            'matched_tag_names' => $matchedTagData['names'],
             'score' => $matchedBlock['score'],
             'marker' => $marker,
             'page_url' => $pageUrl,
@@ -415,6 +419,70 @@ class MarkerTheoryMatcherService
         return $slug;
     }
 
+    /**
+     * Calculate matched tag IDs and original names based on normalized matches.
+     *
+     * @param  array<int, string>  $matchedNormalizedTags
+     * @param  Collection<int, Tag>  $markerTags
+     * @param  Collection<int, Tag>  $blockTags
+     * @return array{ids: array<int>, names: array<int, string>}
+     */
+    private function calculateMatchedTagData(array $matchedNormalizedTags, Collection $markerTags, Collection $blockTags): array
+    {
+        if (empty($matchedNormalizedTags)) {
+            return ['ids' => [], 'names' => []];
+        }
+
+        $markerMap = $this->mapNormalizedTagsToIds($markerTags);
+        $blockMap = $this->mapNormalizedTagsToIds($blockTags);
+
+        $matchedIds = [];
+        $matchedNames = [];
+
+        foreach ($matchedNormalizedTags as $tag) {
+            if (! isset($markerMap[$tag], $blockMap[$tag])) {
+                continue;
+            }
+
+            $markerIds = array_column($markerMap[$tag], 'id');
+            $blockEntries = $blockMap[$tag];
+            $blockIds = array_column($blockEntries, 'id');
+
+            $matchedIds = array_merge($matchedIds, array_intersect($markerIds, $blockIds));
+            $matchedNames = array_merge($matchedNames, array_column($blockEntries, 'name'));
+        }
+
+        return [
+            'ids' => array_values(array_unique($matchedIds)),
+            'names' => array_values(array_unique($matchedNames)),
+        ];
+    }
+
+    /**
+     * Map normalized tag names to their IDs and original names.
+     *
+     * @param  Collection<int, Tag>  $tags
+     * @return array<string, array<int, array{id: int, name: string}>>
+     */
+    private function mapNormalizedTagsToIds(Collection $tags): array
+    {
+        $map = [];
+
+        foreach ($tags as $tag) {
+            $normalized = $this->normalizeTagName($tag->name);
+            $normalized = self::TAG_ALIASES[$normalized] ?? $normalized;
+
+            if ($normalized === '') {
+                continue;
+            }
+
+            $map[$normalized] ??= [];
+            $map[$normalized][] = ['id' => $tag->id, 'name' => $tag->name];
+        }
+
+        return $map;
+    }
+
     private function scoreMatchedTags(array $matchedTags): array
     {
         $score = 0.0;
@@ -444,6 +512,7 @@ class MarkerTheoryMatcherService
             'skip' => $skip,
         ];
     }
+
 
     private function weightForTag(string $tag): float
     {
@@ -495,7 +564,7 @@ class MarkerTheoryMatcherService
         $rows = DB::table('question_marker_tag')
             ->join('tags', 'question_marker_tag.tag_id', '=', 'tags.id')
             ->where('question_marker_tag.question_id', $questionId)
-            ->select('question_marker_tag.marker', 'tags.name')
+            ->select('question_marker_tag.marker', 'tags.id', 'tags.name', 'tags.category')
             ->get();
 
         $result = [];
@@ -503,7 +572,11 @@ class MarkerTheoryMatcherService
             if (! isset($result[$row->marker])) {
                 $result[$row->marker] = [];
             }
-            $result[$row->marker][] = $row->name;
+            $result[$row->marker][] = [
+                'id' => $row->id,
+                'name' => $row->name,
+                'category' => $row->category,
+            ];
         }
 
         return $result;
