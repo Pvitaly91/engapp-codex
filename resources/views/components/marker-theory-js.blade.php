@@ -506,8 +506,10 @@ function getMatchedTagsForMarker(q, marker) {
  * Highlights tags that match with theory blocks
  */
 function renderMarkerTagsDebug(q, marker, idx) {
-  const tags = getMarkerTags(q, marker);
-  if (!tags || tags.length === 0) return '';
+  const tags = getMarkerTags(q, marker) || [];
+
+  // Without a question UUID we cannot open the modal to add tags
+  if (!q.uuid) return '';
 
   const matchedTags = getMatchedTagsForMarker(q, marker);
   const matchedTagsLower = matchedTags.map(t => t.toLowerCase());
@@ -522,24 +524,22 @@ function renderMarkerTagsDebug(q, marker, idx) {
       : 'bg-violet-100 text-violet-700';
     return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1">${html(t)}${isMatched ? ' ✓' : ''}</span>`;
   }).join('');
-  
+
   const matchCount = tags.filter(t => matchedTagsLower.includes(t.toLowerCase())).length;
   const badgeClass = matchCount > 0
     ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-600 hover:text-emerald-700'
     : 'bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700';
   const matchIndicator = matchCount > 0 ? ` <span class="text-emerald-500">(${matchCount}✓)</span>` : '';
 
-  const addButton = q.uuid
-    ? `<button type="button" id="${addButtonId}" class="marker-add-tags-btn hidden ml-1 inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50" onclick="openMarkerTagsModal('${q.uuid}', '${marker}', ${idx})" title="Додати теги">
-        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-        Додати теги
-      </button>`
-    : '';
+  const addButton = `<button type="button" id="${addButtonId}" class="marker-add-tags-btn hidden ml-1 inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50" onclick="openMarkerTagsModal('${q.uuid}', '${marker}', ${idx})" title="Додати теги">`
+      + `<svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>`
+      + `Додати теги`
+    + `</button>`;
 
   return ` <span class="inline-flex items-center">
     <button type="button" id="${toggleId}" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors" onclick="toggleMarkerTags('${tagId}', '${addButtonId}', ${idx}, '${marker}', '${q.uuid ?? ''}')" title="Show/hide marker tags"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}</button>
     <span class="inline-flex items-center ml-1">
-      <span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}</span>
+      <span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml || '<span class=\"text-[10px] text-slate-500\">Немає тегів</span>'}</span>
       ${addButton}
     </span>
   </span>`;
