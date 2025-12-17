@@ -57,6 +57,82 @@ class MarkerTheoryTagsTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_available_tags_via_question_theory_text_block_uuid(): void
+    {
+        // Test fallback to question theory_text_block_uuid when no marker tags exist
+        $category = Category::create(['name' => 'Test Category']);
+        $pageCategory = PageCategory::create([
+            'title' => 'Question Types',
+            'slug' => 'question-types',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Tag Questions',
+            'slug' => 'tag-questions',
+            'text' => 'Theory about tag questions',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Tag Questions',
+            'body' => json_encode(['title' => 'Tag Questions', 'intro' => 'Short questions at the end of sentences']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        // Create tags and attach them to text block
+        $tagTagQuestions = Tag::create(['name' => 'tag-questions', 'category' => 'Question Types']);
+        $tagDisjunctive = Tag::create(['name' => 'disjunctive-questions', 'category' => 'Question Types']);
+        $textBlock->tags()->attach([$tagTagQuestions->id, $tagDisjunctive->id]);
+
+        // Create question with theory_text_block_uuid but NO marker tags
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'They visited Paris last year, {a1} they?',
+            'difficulty' => 1,
+            'level' => 'B1',
+            'category_id' => $category->id,
+            'theory_text_block_uuid' => $textBlock->uuid,
+        ]);
+
+        $optionDidnt = QuestionOption::create(['option' => "didn't"]);
+        $question->options()->attach([$optionDidnt->id]);
+
+        QuestionAnswer::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $optionDidnt->id,
+        ]);
+
+        // Note: We intentionally do NOT add any marker tags here
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->getJson(route('api.v2.markers.available-theory-tags', [
+                'questionUuid' => $question->uuid,
+                'marker' => 'a1',
+            ]));
+
+        $response->assertOk();
+        $response->assertJsonStructure([
+            'tags' => [
+                '*' => ['id', 'name', 'category'],
+            ],
+            'page_id',
+            'marker',
+            'question_id',
+        ]);
+
+        // Should return tags from the theory page linked via theory_text_block_uuid
+        $this->assertEquals($page->id, $response->json('page_id'));
+        $returnedTagNames = collect($response->json('tags'))->pluck('name')->toArray();
+        $this->assertContains('tag-questions', $returnedTagNames);
+        $this->assertContains('disjunctive-questions', $returnedTagNames);
+    }
+
+    /** @test */
     public function available_theory_tags_returns_empty_when_no_theory_page(): void
     {
         $category = Category::create(['name' => 'Test Category']);
