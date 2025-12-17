@@ -113,7 +113,17 @@ class MarkerTheoryMatcherService
             return null;
         }
 
-        $normalizedTags = $this->normalizeTags($markerTags->pluck('name')->toArray());
+        // Build a map of normalized tag name -> tag id for marker tags
+        // Note: If multiple tags normalize to the same name (via aliases), we keep
+        // the last one. This is acceptable since aliased tags represent the same concept.
+        $markerTagNameToId = [];
+        foreach ($markerTags as $tag) {
+            $normalizedName = $this->normalizeTagName($tag->name);
+            $normalizedName = self::TAG_ALIASES[$normalizedName] ?? $normalizedName;
+            $markerTagNameToId[$normalizedName] = $tag->id;
+        }
+
+        $normalizedTags = array_keys($markerTagNameToId);
 
         if (empty($normalizedTags)) {
             return null;
@@ -143,12 +153,21 @@ class MarkerTheoryMatcherService
             }
         }
 
+        // Compute matched_tag_ids from matched_tags using the marker tag map
+        $matchedTagIds = [];
+        foreach ($matchedBlock['matched_tags'] as $tagName) {
+            if (isset($markerTagNameToId[$tagName])) {
+                $matchedTagIds[] = $markerTagNameToId[$tagName];
+            }
+        }
+
         return [
             'uuid' => $block->uuid,
             'type' => $block->type,
             'body' => $block->body,
             'level' => $block->level,
             'matched_tags' => $matchedBlock['matched_tags'],
+            'matched_tag_ids' => $matchedTagIds,
             'score' => $matchedBlock['score'],
             'marker' => $marker,
             'page_url' => $pageUrl,
@@ -483,8 +502,9 @@ class MarkerTheoryMatcherService
 
     /**
      * Get all marker tags for a question grouped by marker.
+     * Returns both tag names (for backward compatibility) and tag IDs.
      *
-     * @return array<string, array<string>> Map of marker => tag names
+     * @return array<string, array<array{id: int, name: string}>> Map of marker => tags with id and name
      */
     public function getAllMarkerTags(int $questionId): array
     {
@@ -495,7 +515,7 @@ class MarkerTheoryMatcherService
         $rows = DB::table('question_marker_tag')
             ->join('tags', 'question_marker_tag.tag_id', '=', 'tags.id')
             ->where('question_marker_tag.question_id', $questionId)
-            ->select('question_marker_tag.marker', 'tags.name')
+            ->select('question_marker_tag.marker', 'tags.id', 'tags.name')
             ->get();
 
         $result = [];
@@ -503,7 +523,7 @@ class MarkerTheoryMatcherService
             if (! isset($result[$row->marker])) {
                 $result[$row->marker] = [];
             }
-            $result[$row->marker][] = $row->name;
+            $result[$row->marker][] = ['id' => $row->id, 'name' => $row->name];
         }
 
         return $result;

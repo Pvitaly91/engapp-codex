@@ -141,9 +141,16 @@ function renderMarkerTheoryPanel(idx, marker, block) {
     content = `<div class="text-sm text-cyan-800">${block.body || ''}</div>`;
   }
 
+  // Show matched tags info (tag-based matching results)
   const matchedTagsHtml = block.matched_tags && block.matched_tags.length > 0
-    ? `<div class="mt-2 text-xs text-cyan-600">Matched tags: ${block.matched_tags.map(t => html(t)).join(', ')}</div>`
-    : '';
+    ? `<div class="mt-2 p-2 rounded-lg bg-emerald-50/70 border border-emerald-200">
+        <div class="text-xs font-semibold text-emerald-700 mb-1">✓ Matched tags (tag-based):</div>
+        <div class="flex flex-wrap gap-1">
+          ${block.matched_tags.map(t => `<span class="inline-block px-1.5 py-0.5 rounded bg-emerald-200 text-emerald-800 text-[10px] font-medium">${html(t)}</span>`).join('')}
+        </div>
+        ${block.score ? `<div class="mt-1 text-[10px] text-emerald-600">Score: ${block.score}</div>` : ''}
+      </div>`
+    : `<div class="mt-2 text-xs text-cyan-500">No tag match for this marker.</div>`;
 
   // Add link to full theory page if available
   const pageLink = block.page_url 
@@ -162,6 +169,7 @@ function renderMarkerTheoryPanel(idx, marker, block) {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
         </svg>
         <span class="text-sm font-semibold text-cyan-900">📚 Theory for ${html(marker)}</span>
+        <span class="text-[10px] text-cyan-500 italic">(tag-based)</span>
         ${block.level ? `<span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-cyan-200 text-cyan-800">${html(block.level)}</span>` : ''}
       </div>
       ${content}
@@ -189,6 +197,10 @@ function hasMarkerTags(q, marker) {
 
 /**
  * Get marker tags for a specific marker in a question
+ * Returns the raw array from state which can contain either:
+ * - Tag objects {id, name} (new format from backend)
+ * - Strings (legacy format for backward compatibility)
+ * Use getTagName() and getTagId() helpers to safely extract values
  */
 function getMarkerTags(q, marker) {
   if (!q.marker_tags || !q.marker_tags[marker]) return [];
@@ -196,7 +208,36 @@ function getMarkerTags(q, marker) {
 }
 
 /**
+ * Get tag name from a tag that can be either a string or object {id, name}
+ */
+function getTagName(tag) {
+  if (typeof tag === 'string') return tag;
+  return tag.name || '';
+}
+
+/**
+ * Get tag id from a tag that can be either a string or object {id, name}
+ * Returns null if tag is a string (legacy format)
+ */
+function getTagId(tag) {
+  if (typeof tag === 'string') return null;
+  return tag.id || null;
+}
+
+/**
+ * Get matched tag IDs for a specific marker from the theory cache
+ * Uses matched_tag_ids from the tag-based matching endpoint (not UUID-based Show Theory)
+ */
+function getMatchedTagIdsForMarker(q, marker) {
+  if (!q.markerTheoryCache || !q.markerTheoryCache[marker]) return [];
+  const theoryBlock = q.markerTheoryCache[marker];
+  if (!theoryBlock || !theoryBlock.matched_tag_ids) return [];
+  return theoryBlock.matched_tag_ids;
+}
+
+/**
  * Get matched tags for a specific marker from the theory cache
+ * Legacy function for backward compatibility - returns tag names
  */
 function getMatchedTagsForMarker(q, marker) {
   if (!q.markerTheoryCache || !q.markerTheoryCache[marker]) return [];
@@ -206,9 +247,26 @@ function getMatchedTagsForMarker(q, marker) {
 }
 
 /**
+ * Check if a tag is matched based on tag ID or name
+ * Prefers ID-based matching when available for accuracy
+ */
+function isTagMatched(tag, matchedTagIds, matchedTagNamesLower) {
+  const tagId = getTagId(tag);
+  const tagName = getTagName(tag);
+  
+  // Prefer ID-based matching
+  if (tagId !== null && matchedTagIds.length > 0) {
+    return matchedTagIds.includes(tagId);
+  }
+  
+  // Fall back to name-based matching for legacy support
+  return matchedTagNamesLower.includes(tagName.toLowerCase());
+}
+
+/**
  * Render marker tags inline for debugging
  * Shows tags in a collapsible badge next to markers
- * Highlights tags that match with theory blocks
+ * Highlights tags that match with theory blocks (tag-based matching only, NOT uuid Show Theory)
  * Also shows "Add tags" button for questions with linked theory blocks
  */
 function renderMarkerTagsDebug(q, marker, idx) {
@@ -219,6 +277,8 @@ function renderMarkerTagsDebug(q, marker, idx) {
   // If no tags and no theory block, don't render anything
   if (!hasTags && !hasTheoryBlock) return '';
   
+  // Get matched tag info from tag-based matcher cache (independent from UUID theory)
+  const matchedTagIds = getMatchedTagIdsForMarker(q, marker);
   const matchedTags = getMatchedTagsForMarker(q, marker);
   const matchedTagsLower = matchedTags.map(t => t.toLowerCase());
   
@@ -227,14 +287,15 @@ function renderMarkerTagsDebug(q, marker, idx) {
   // If we have tags, render them
   if (hasTags) {
     const tagsHtml = tags.map(t => {
-      const isMatched = matchedTagsLower.includes(t.toLowerCase());
+      const tagName = getTagName(t);
+      const isMatched = isTagMatched(t, matchedTagIds, matchedTagsLower);
       const matchClass = isMatched 
-        ? 'bg-emerald-200 text-emerald-800 ring-1 ring-emerald-400' 
+        ? 'bg-emerald-200 text-emerald-800 ring-1 ring-emerald-400 matched-tag' 
         : 'bg-violet-100 text-violet-700';
-      return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1">${html(t)}${isMatched ? ' ✓' : ''}</span>`;
+      return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1" data-tag-id="${getTagId(t) || ''}">${html(tagName)}${isMatched ? ' ✓' : ''}</span>`;
     }).join('');
     
-    const matchCount = tags.filter(t => matchedTagsLower.includes(t.toLowerCase())).length;
+    const matchCount = tags.filter(t => isTagMatched(t, matchedTagIds, matchedTagsLower)).length;
     const badgeClass = matchCount > 0 
       ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-600 hover:text-emerald-700' 
       : 'bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700';
@@ -243,7 +304,12 @@ function renderMarkerTagsDebug(q, marker, idx) {
     // Add "Додати теги" button
     const addTagsBtn = renderAddTagsButton(q, marker, idx);
     
-    return ` <button type="button" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors" onclick="toggleMarkerTags('${tagId}')" title="Show/hide marker tags"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}</button><span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}${addTagsBtn}</span>`;
+    // Add tooltip explaining tag highlighting
+    const tooltip = matchCount > 0 
+      ? ' title="✓ Highlighted tags = tags used to match this marker to theory block via tag-based matching"'
+      : ' title="Show/hide marker tags"';
+    
+    return ` <button type="button" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors" onclick="toggleMarkerTags('${tagId}')"${tooltip}><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}</button><span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}${addTagsBtn}</span>`;
   }
   
   // No tags but has theory block - just show the "Add tags" button directly
@@ -260,7 +326,8 @@ function renderAddTagsButton(q, marker, idx) {
 
 /**
  * Update marker tags highlighting after theory is fetched
- * This re-renders the tags list with proper highlighting
+ * This re-renders the tags list with proper highlighting based on tag-based matching
+ * Uses matched_tag_ids for accurate highlighting (independent of UUID-based Show Theory)
  */
 function updateMarkerTagsHighlighting(idx, marker, q) {
   const tagId = `marker-tags-${idx}-${marker}`;
@@ -270,16 +337,19 @@ function updateMarkerTagsHighlighting(idx, marker, q) {
   const tags = getMarkerTags(q, marker);
   if (!tags || tags.length === 0) return;
   
+  // Get matched tags from tag-based matcher (not UUID theory)
+  const matchedTagIds = getMatchedTagIdsForMarker(q, marker);
   const matchedTags = getMatchedTagsForMarker(q, marker);
   const matchedTagsLower = matchedTags.map(t => t.toLowerCase());
   
   // Re-render tags with highlighting
   const tagsHtml = tags.map(t => {
-    const isMatched = matchedTagsLower.includes(t.toLowerCase());
+    const tagName = getTagName(t);
+    const isMatched = isTagMatched(t, matchedTagIds, matchedTagsLower);
     const matchClass = isMatched 
-      ? 'bg-emerald-200 text-emerald-800 ring-1 ring-emerald-400' 
+      ? 'bg-emerald-200 text-emerald-800 ring-1 ring-emerald-400 matched-tag' 
       : 'bg-violet-100 text-violet-700';
-    return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1">${html(t)}${isMatched ? ' ✓' : ''}</span>`;
+    return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1" data-tag-id="${getTagId(t) || ''}">${html(tagName)}${isMatched ? ' ✓' : ''}</span>`;
   }).join('');
   
   // Add the "Додати теги" button
@@ -287,16 +357,21 @@ function updateMarkerTagsHighlighting(idx, marker, q) {
   
   tagsListEl.innerHTML = tagsHtml + addTagsBtn;
   
-  // Also update the toggle button to show match count
+  // Also update the toggle button to show match count and tooltip
   const toggleBtn = tagsListEl.previousElementSibling;
   if (toggleBtn && toggleBtn.classList.contains('marker-tags-toggle')) {
-    const matchCount = tags.filter(t => matchedTagsLower.includes(t.toLowerCase())).length;
+    const matchCount = tags.filter(t => isTagMatched(t, matchedTagIds, matchedTagsLower)).length;
     const badgeClass = matchCount > 0 
       ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-600 hover:text-emerald-700' 
       : 'bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700';
     
     // Update button classes
     toggleBtn.className = `marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors`;
+    
+    // Update tooltip
+    toggleBtn.title = matchCount > 0 
+      ? '✓ Highlighted tags = tags used to match this marker to theory block via tag-based matching'
+      : 'Show/hide marker tags';
     
     // Update button content
     const matchIndicator = matchCount > 0 ? ` <span class="text-emerald-500">(${matchCount}✓)</span>` : '';
@@ -606,9 +681,12 @@ async function submitAddTags(questionId, marker, idx, questionUuid) {
     // Update local state
     const item = state.items[idx];
     if (item) {
-      // Update marker_tags in state
+      // Update marker_tags in state - keep full structure with {id, name}
       if (!item.marker_tags) item.marker_tags = {};
-      item.marker_tags[marker] = data.marker_tags.map(t => t.name);
+      // Guard against null/undefined marker_tags from API
+      item.marker_tags[marker] = Array.isArray(data.marker_tags) 
+        ? data.marker_tags.map(t => ({ id: t.id, name: t.name }))
+        : [];
       
       // Clear theory cache to force refetch
       if (item.markerTheoryCache) {

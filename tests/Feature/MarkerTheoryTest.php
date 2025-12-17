@@ -130,12 +130,21 @@ class MarkerTheoryTest extends TestCase
                 'body',
                 'level',
                 'matched_tags',
+                'matched_tag_ids',
                 'score',
                 'marker',
             ],
         ]);
         $response->assertJsonPath('theory_block.marker', 'a1');
         $this->assertEquals(5.5, $response->json('theory_block.score'));
+
+        // Verify matched_tag_ids contains the correct IDs (intersection of marker tags and block tags)
+        $matchedTagIds = $response->json('theory_block.matched_tag_ids');
+        $this->assertIsArray($matchedTagIds);
+        $this->assertCount(2, $matchedTagIds);
+        // The matched_tag_ids should contain the IDs of the marker tags that matched with the text block
+        $this->assertContains($tagPresentSimple->id, $matchedTagIds);
+        $this->assertContains($tagDoDoesAuxiliary->id, $matchedTagIds);
     }
 
     /** @test */
@@ -223,6 +232,178 @@ class MarkerTheoryTest extends TestCase
 
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['marker']);
+    }
+
+    /** @test */
+    public function tag_based_matching_works_independently_of_uuid_theory_link(): void
+    {
+        // This test verifies that tag-based matching returns matched_tag_ids
+        // even when the question has NO theory_text_block_uuid set.
+        // This proves the two mechanisms are independent.
+
+        $category = Category::create(['name' => 'Test Category']);
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Tag Questions',
+            'slug' => 'tag-questions',
+            'text' => 'Theory about tag questions',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Tag Questions Formation',
+            'body' => json_encode(['title' => 'How to form tag questions']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        // Create tags
+        $tagTagQuestions = Tag::create(['name' => 'tag-questions', 'category' => 'Question Types']);
+        $tagPresentSimple = Tag::create(['name' => 'present-simple', 'category' => 'Tenses']);
+
+        // Attach tags to text block
+        $textBlock->tags()->attach([$tagTagQuestions->id, $tagPresentSimple->id]);
+
+        // Create question WITHOUT theory_text_block_uuid (null)
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'She likes coffee, {a1} she?',
+            'difficulty' => 1,
+            'level' => 'B1',
+            'category_id' => $category->id,
+            'theory_text_block_uuid' => null, // Explicitly null - no UUID-based theory link
+        ]);
+
+        $optionDoesnt = QuestionOption::create(['option' => "doesn't"]);
+        $question->options()->attach([$optionDoesnt->id]);
+
+        QuestionAnswer::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $optionDoesnt->id,
+        ]);
+
+        // Add marker tags for question (tag-based link)
+        DB::table('question_marker_tag')->insert([
+            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagTagQuestions->id, 'created_at' => now(), 'updated_at' => now()],
+            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagPresentSimple->id, 'created_at' => now(), 'updated_at' => now()],
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->postJson(route('question.marker-theory'), [
+                'question_id' => $question->id,
+                'marker' => 'a1',
+            ]);
+
+        $response->assertOk();
+        // Tag-based matching should work even without UUID theory link
+        $response->assertJsonStructure([
+            'theory_block' => [
+                'uuid',
+                'matched_tags',
+                'matched_tag_ids',
+                'score',
+                'marker',
+            ],
+        ]);
+
+        // Verify matched_tag_ids contains the intersection of marker tags and block tags
+        $matchedTagIds = $response->json('theory_block.matched_tag_ids');
+        $this->assertIsArray($matchedTagIds);
+        $this->assertCount(2, $matchedTagIds);
+        $this->assertContains($tagTagQuestions->id, $matchedTagIds);
+        $this->assertContains($tagPresentSimple->id, $matchedTagIds);
+    }
+
+    /** @test */
+    public function matched_tag_ids_is_intersection_of_marker_and_block_tags(): void
+    {
+        // Test that matched_tag_ids only contains tags that exist in BOTH
+        // the marker tags AND the text block tags (true intersection)
+
+        $category = Category::create(['name' => 'Test Category']);
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar-test',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Modal Verbs',
+            'slug' => 'modal-verbs',
+            'text' => 'Theory about modal verbs',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Modal Verbs in Questions',
+            'body' => json_encode(['title' => 'How to use modal verbs in questions']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        // Create tags - some shared, some unique to marker, some unique to block
+        $tagModalVerbs = Tag::create(['name' => 'modal-verbs', 'category' => 'Grammar']); // shared
+        $tagCanCould = Tag::create(['name' => 'can-could', 'category' => 'Modals']); // shared
+        $tagMarkerOnly = Tag::create(['name' => 'marker-specific-tag', 'category' => 'Other']); // marker only
+        $tagBlockOnly = Tag::create(['name' => 'block-specific-tag', 'category' => 'Other']); // block only
+
+        // Attach only some tags to text block (modal-verbs, can-could, block-specific)
+        $textBlock->tags()->attach([$tagModalVerbs->id, $tagCanCould->id, $tagBlockOnly->id]);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => '{a1} you speak English?',
+            'difficulty' => 1,
+            'level' => 'A2',
+            'category_id' => $category->id,
+        ]);
+
+        $optionCan = QuestionOption::create(['option' => 'Can']);
+        $question->options()->attach([$optionCan->id]);
+
+        QuestionAnswer::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $optionCan->id,
+        ]);
+
+        // Add marker tags (modal-verbs, can-could, marker-specific) - overlaps but not identical
+        DB::table('question_marker_tag')->insert([
+            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagModalVerbs->id, 'created_at' => now(), 'updated_at' => now()],
+            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagCanCould->id, 'created_at' => now(), 'updated_at' => now()],
+            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagMarkerOnly->id, 'created_at' => now(), 'updated_at' => now()],
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->postJson(route('question.marker-theory'), [
+                'question_id' => $question->id,
+                'marker' => 'a1',
+            ]);
+
+        $response->assertOk();
+        $response->assertJsonStructure([
+            'theory_block' => ['matched_tag_ids'],
+        ]);
+
+        // matched_tag_ids should only contain the intersection (modal-verbs, can-could)
+        // NOT marker-specific-tag (only in marker) or block-specific-tag (only in block)
+        $matchedTagIds = $response->json('theory_block.matched_tag_ids');
+        $this->assertIsArray($matchedTagIds);
+        $this->assertCount(2, $matchedTagIds); // Only shared tags
+        $this->assertContains($tagModalVerbs->id, $matchedTagIds);
+        $this->assertContains($tagCanCould->id, $matchedTagIds);
+        $this->assertNotContains($tagMarkerOnly->id, $matchedTagIds); // marker-only should NOT be in matched
+        $this->assertNotContains($tagBlockOnly->id, $matchedTagIds); // block-only should NOT be in matched
     }
 
     private function ensureSchema(): void
