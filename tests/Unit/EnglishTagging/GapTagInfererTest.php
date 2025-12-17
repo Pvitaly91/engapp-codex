@@ -81,8 +81,8 @@ class GapTagInfererTest extends TestCase
 
         $this->assertContains('Tag Questions', $result);
         $this->assertContains('Question Tags', $result);
-        // Should not add auxiliary tags when structural pattern detected
-        $this->assertNotContains('Do/Does/Did', $result);
+        // Tag questions include auxiliary tags extracted from the answer
+        $this->assertContains('Do/Does/Did', $result);
     }
 
     /** @test */
@@ -98,6 +98,79 @@ class GapTagInfererTest extends TestCase
         );
 
         $this->assertContains('Tag Questions', $result);
+        // Should also include Do/Does/Did tag from the answer "does she"
+        $this->assertContains('Do/Does/Did', $result);
+    }
+
+    /** @test */
+    public function it_detects_tag_question_with_be_auxiliary(): void
+    {
+        // "He is happy, {a1}?"
+        $result = $this->service->infer(
+            "He is happy, {a1}?",
+            'a1',
+            "isn't he",
+            ["isn't he", 'is he', "doesn't he", 'does he'],
+            'Use negative tag'
+        );
+
+        $this->assertContains('Tag Questions', $result);
+        $this->assertContains('Question Tags', $result);
+        // Should include Be auxiliary tag from "isn't he"
+        $this->assertContains('Be (am/is/are/was/were)', $result);
+    }
+
+    /** @test */
+    public function it_detects_tag_question_with_have_auxiliary(): void
+    {
+        // "You haven't seen my keys, {a1}?"
+        $result = $this->service->infer(
+            "You haven't seen my keys, {a1}?",
+            'a1',
+            'have you',
+            ['have you', "haven't you", 'do you', "don't you"],
+            'perfect tag'
+        );
+
+        $this->assertContains('Tag Questions', $result);
+        // Should include Have/Has/Had tag from "have you"
+        $this->assertContains('Have/Has/Had', $result);
+    }
+
+    /** @test */
+    public function it_detects_tag_question_with_modal_will(): void
+    {
+        // "She won't come, {a1}?"
+        $result = $this->service->infer(
+            "She won't come, {a1}?",
+            'a1',
+            'will she',
+            ['will she', "won't she", 'does she', "doesn't she"],
+            'future tag'
+        );
+
+        $this->assertContains('Tag Questions', $result);
+        // Should include Modal Verbs and Will/Would from "will she"
+        $this->assertContains('Modal Verbs', $result);
+        $this->assertContains('Will/Would', $result);
+    }
+
+    /** @test */
+    public function it_detects_tag_question_with_modal_can(): void
+    {
+        // "You can swim, {a1}?"
+        $result = $this->service->infer(
+            "You can swim, {a1}?",
+            'a1',
+            "can't you",
+            ["can't you", 'can you', "don't you", 'do you'],
+            'modal tag'
+        );
+
+        $this->assertContains('Tag Questions', $result);
+        // Should include Modal Verbs and Can/Could from "can't you"
+        $this->assertContains('Modal Verbs', $result);
+        $this->assertContains('Can/Could', $result);
     }
 
     /** @test */
