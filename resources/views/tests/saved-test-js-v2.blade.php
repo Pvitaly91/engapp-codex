@@ -364,6 +364,13 @@ function renderQuestions(showOnlyWrong = false) {
         </div>
       </div>
 
+      ${q.answers.length > 1 ? `<div class="flex items-center gap-2 mb-2.5 sm:mb-3">
+        <span class="text-xs font-medium text-gray-500">Active gap:</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700">
+          a${q.activeSlot + 1} / a${q.answers.length}
+        </span>
+      </div>` : ''}
+
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3" role="group" aria-label="Answer options">
         ${activeOptions.map((opt, i) => renderOptionButton(q, idx, opt, i)).join('')}
       </div>
