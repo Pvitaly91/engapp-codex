@@ -107,6 +107,8 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
 const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
+const AVAILABLE_MARKER_TAGS_URL_TEMPLATE = '{{ url('/api/v2/questions/:question_uuid/markers/:marker/available-theory-tags') }}';
+const ADD_MARKER_TAGS_URL_TEMPLATE = '{{ url('/api/v2/questions/:question_uuid/markers/:marker/add-tags-from-theory-page') }}';
 const TEST_SLUG = @json($test->slug);
 </script>
 @include('components.saved-test-js-persistence', ['mode' => $jsStateMode, 'savedState' => $savedState])
