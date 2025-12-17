@@ -57,6 +57,8 @@ class MarkerTheoryTest extends TestCase
         $response->assertOk();
         $response->assertJson([
             'theory_block' => null,
+            'matched_tag_ids' => [],
+            'matched_tag_names' => [],
         ]);
     }
 
@@ -130,12 +132,81 @@ class MarkerTheoryTest extends TestCase
                 'body',
                 'level',
                 'matched_tags',
+                'matched_tag_ids',
+                'matched_tag_names',
                 'score',
                 'marker',
             ],
+            'matched_tag_ids',
+            'matched_tag_names',
         ]);
         $response->assertJsonPath('theory_block.marker', 'a1');
+        $response->assertJsonPath('matched_tag_ids', [$tagPresentSimple->id, $tagDoDoesAuxiliary->id]);
+        $response->assertJsonPath('theory_block.matched_tag_ids', [$tagPresentSimple->id, $tagDoDoesAuxiliary->id]);
         $this->assertEquals(5.5, $response->json('theory_block.score'));
+    }
+
+    /** @test */
+    public function marker_theory_returns_matches_even_without_question_uuid_link(): void
+    {
+        $category = Category::create(['name' => 'Test Category']);
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Marker Based Theory',
+            'slug' => 'marker-theory',
+            'text' => 'Marker based block',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Tag match block',
+            'body' => 'Content',
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        $tagWhQuestion = Tag::create(['name' => 'wh-questions', 'category' => 'Grammar']);
+        $textBlock->tags()->attach([$tagWhQuestion->id]);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => '{a1} are you?',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+            'theory_text_block_uuid' => null,
+        ]);
+
+        $optionAre = QuestionOption::create(['option' => 'Are']);
+        $question->options()->attach([$optionAre->id]);
+
+        QuestionAnswer::create([
+            'question_id' => $question->id,
+            'marker' => 'a1',
+            'option_id' => $optionAre->id,
+        ]);
+
+        DB::table('question_marker_tag')->insert([
+            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagWhQuestion->id, 'created_at' => now(), 'updated_at' => now()],
+        ]);
+
+        $response = $this->withSession(['admin_authenticated' => true])
+            ->postJson(route('question.marker-theory'), [
+                'question_id' => $question->id,
+                'marker' => 'a1',
+            ]);
+
+        $response->assertOk();
+        $response->assertJsonPath('theory_block.uuid', $textBlock->uuid);
+        $response->assertJsonPath('matched_tag_ids', [$tagWhQuestion->id]);
+        $response->assertJsonPath('theory_block.matched_tag_ids', [$tagWhQuestion->id]);
     }
 
     /** @test */

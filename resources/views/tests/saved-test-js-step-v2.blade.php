@@ -218,6 +218,7 @@ async function init(forceFresh = false) {
         if (!item.explanationsCache || typeof item.explanationsCache !== 'object') item.explanationsCache = {};
         if (!('pendingExplanationKey' in item)) item.pendingExplanationKey = null;
         if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
+        if (!item.markerTheoryMatch || typeof item.markerTheoryMatch !== 'object') item.markerTheoryMatch = {};
         
         // Initialize new per-slot fields if missing (backward compatibility)
         const markersCount = item.answers ? item.answers.length : 1;
@@ -264,6 +265,7 @@ async function init(forceFresh = false) {
         explanationsCache: {},
         pendingExplanationKey: null,
         markerTheoryCache: {},
+        markerTheoryMatch: {},
       };
     });
     state.current = 0;

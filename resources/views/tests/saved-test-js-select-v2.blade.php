@@ -133,6 +133,7 @@ async function init(forceFresh = false) {
       restored = true;
       state.items.forEach((item) => {
         if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
+        if (!item.markerTheoryMatch || typeof item.markerTheoryMatch !== 'object') item.markerTheoryMatch = {};
       });
     }
   }
@@ -143,6 +144,7 @@ async function init(forceFresh = false) {
       chosen: Array(q.answers.length).fill(''),
       isCorrect: null,
       markerTheoryCache: {},
+      markerTheoryMatch: {},
     }));
     state.correct = 0;
     state.answered = 0;
