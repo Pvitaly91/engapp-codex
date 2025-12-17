@@ -171,7 +171,9 @@ class TestJsV2Controller extends Controller
             $optionsByMarker = null;
             
             // If we have multiple markers and options divide evenly by markers,
-            // assume options are stored in marker order and build per-marker arrays
+            // assume options are stored in marker order and build per-marker arrays.
+            // Minimum chunk size of 2 ensures each marker has meaningful options to choose from.
+            // For questions with fewer options per marker, the fallback uses the full options list.
             if ($markersCount > 1 && count($options) >= $markersCount && count($options) % $markersCount === 0) {
                 $chunkSize = (int) (count($options) / $markersCount);
                 if ($chunkSize >= 2) {

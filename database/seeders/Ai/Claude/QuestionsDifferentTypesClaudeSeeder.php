@@ -390,15 +390,23 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'variants' => [],
             ];
 
-            // Build options_by_marker for multi-gap questions
+            // Build options_by_marker for multi-gap questions (as indexed array for consistency)
+            // Note: This is stored in meta for reference. The controller builds options_by_marker
+            // at runtime by chunking the flat options array.
             $optionsByMarker = null;
             if ($isMultiMarker) {
                 $optionsByMarker = [];
-                foreach ($markersToProcess as $marker) {
-                    $markerOptions = $question['options'][$marker] ?? [];
-                    // Shuffle options for each marker
-                    shuffle($markerOptions);
-                    $optionsByMarker[$marker] = $markerOptions;
+                // Sort markers to ensure consistent order (a1, a2, a3...)
+                $sortedMarkers = $markersToProcess;
+                usort($sortedMarkers, function ($a, $b) {
+                    $numA = preg_match('/^a(\d+)$/', $a, $m) ? (int) $m[1] : PHP_INT_MAX;
+                    $numB = preg_match('/^a(\d+)$/', $b, $m) ? (int) $m[1] : PHP_INT_MAX;
+                    return $numA - $numB;
+                });
+                foreach ($sortedMarkers as $marker) {
+                    // Use numeric indices (push to array) instead of marker keys
+                    // Don't shuffle here - frontend handles shuffling
+                    $optionsByMarker[] = $question['options'][$marker] ?? [];
                 }
             }
 
