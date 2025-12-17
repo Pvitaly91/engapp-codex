@@ -306,6 +306,12 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     }
                 }
 
+                // Ensure auxiliary markers from the correct answer are tagged (do/did/does, have/has/had, etc.)
+                $gapTagIdsForMarker = array_values(array_unique(array_merge(
+                    $gapTagIdsForMarker,
+                    $this->getAuxiliaryTagsFromAnswer($correctAnswer, $auxiliaryTags)
+                )));
+
                 $fallbackVerbHintTags = [];
                 if (empty($gapTagIdsForMarker)) {
                     $fallbackVerbHintTags = $this->getTagsFromVerbHint(
@@ -515,6 +521,49 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         }
 
         return array_unique($tags);
+    }
+
+    /**
+     * Detect auxiliary-related tags directly from the correct answer text.
+     */
+    private function getAuxiliaryTagsFromAnswer(string $answer, array $auxiliaryTags): array
+    {
+        $tags = [];
+        $normalized = strtolower($answer);
+
+        if (preg_match('/\b(do|does|did|don\'t|doesn\'t|didn\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['do_does_did'];
+        }
+
+        if (preg_match('/\b(have|has|had|haven\'t|hasn\'t|hadn\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['have_has_had'];
+        }
+
+        if (preg_match('/\b(am|is|are|was|were|isn\'t|aren\'t|wasn\'t|weren\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['be_auxiliary'];
+        }
+
+        if (preg_match('/\b(will|would|won\'t|wouldn\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['will_would'];
+        }
+
+        if (preg_match('/\b(can|could|can\'t|cannot|couldn\'t)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['can_could'];
+        }
+
+        if (preg_match('/\bshould(n\'t)?\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['should'];
+        }
+
+        if (preg_match('/\bmust(n\'t)?\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['must'];
+        }
+
+        if (preg_match('/\b(may|might)\b/', $normalized)) {
+            $tags[] = $auxiliaryTags['may_might'];
+        }
+
+        return array_values(array_unique($tags));
     }
 
     /**
