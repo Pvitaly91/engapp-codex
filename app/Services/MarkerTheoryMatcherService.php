@@ -154,6 +154,7 @@ class MarkerTheoryMatcherService
             'page_url' => $pageUrl,
             'block_anchor' => $blockAnchor,
             'page_title' => $block->page?->title,
+            'page_id' => $block->page?->id,
         ];
     }
 
@@ -507,5 +508,95 @@ class MarkerTheoryMatcherService
         }
 
         return $result;
+    }
+
+    /**
+     * Add a tag to a marker in a question.
+     *
+     * @param  int  $questionId  The question ID
+     * @param  string  $marker  The marker name (e.g., 'a1', 'a2')
+     * @param  string  $tagName  The tag name to add
+     * @return bool Whether the tag was added successfully
+     */
+    public function addTagToMarker(int $questionId, string $marker, string $tagName): bool
+    {
+        if (! Schema::hasTable('question_marker_tag')) {
+            return false;
+        }
+
+        $tag = Tag::firstOrCreate(['name' => $tagName]);
+
+        // Check if already exists
+        $exists = DB::table('question_marker_tag')
+            ->where('question_id', $questionId)
+            ->where('marker', $marker)
+            ->where('tag_id', $tag->id)
+            ->exists();
+
+        if ($exists) {
+            return false;
+        }
+
+        DB::table('question_marker_tag')->insert([
+            'question_id' => $questionId,
+            'marker' => $marker,
+            'tag_id' => $tag->id,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return true;
+    }
+
+    /**
+     * Remove a tag from a marker in a question.
+     *
+     * @param  int  $questionId  The question ID
+     * @param  string  $marker  The marker name (e.g., 'a1', 'a2')
+     * @param  string  $tagName  The tag name to remove
+     * @return bool Whether the tag was removed successfully
+     */
+    public function removeTagFromMarker(int $questionId, string $marker, string $tagName): bool
+    {
+        if (! Schema::hasTable('question_marker_tag')) {
+            return false;
+        }
+
+        $tag = Tag::where('name', $tagName)->first();
+
+        if (! $tag) {
+            return false;
+        }
+
+        $deleted = DB::table('question_marker_tag')
+            ->where('question_id', $questionId)
+            ->where('marker', $marker)
+            ->where('tag_id', $tag->id)
+            ->delete();
+
+        return $deleted > 0;
+    }
+
+    /**
+     * Get all tags from a theory page's text blocks.
+     *
+     * @param  int  $pageId  The page ID
+     * @return array<string> Array of tag names
+     */
+    public function getPageTextBlockTags(int $pageId): array
+    {
+        if (! Schema::hasTable('text_blocks') || ! Schema::hasTable('tag_text_block')) {
+            return [];
+        }
+
+        return DB::table('tag_text_block')
+            ->join('text_blocks', 'tag_text_block.text_block_id', '=', 'text_blocks.id')
+            ->join('tags', 'tag_text_block.tag_id', '=', 'tags.id')
+            ->where('text_blocks.page_id', $pageId)
+            ->distinct()
+            ->pluck('tags.name')
+            ->sort()
+            ->values()
+            ->all();
     }
 }

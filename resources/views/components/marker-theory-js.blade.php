@@ -232,7 +232,10 @@ function renderMarkerTagsDebug(q, marker, idx) {
     : 'bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700';
   const matchIndicator = matchCount > 0 ? ` <span class="text-emerald-500">(${matchCount}✓)</span>` : '';
   
-  return ` <button type="button" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors" onclick="toggleMarkerTags('${tagId}')" title="Show/hide marker tags"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}</button><span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}</span>`;
+  // Add button for adding tags from theory page
+  const addTagBtn = `<button type="button" class="marker-add-tag-btn inline-flex items-center text-[9px] px-1 py-0.5 rounded bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium transition-colors ml-1" onclick="showAddTagModal(${idx}, '${marker}')" title="Add tag from theory page"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg></button>`;
+  
+  return ` <button type="button" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors" onclick="toggleMarkerTags('${tagId}')" title="Show/hide marker tags"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}</button><span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}${addTagBtn}</span>`;
 }
 
 /**
@@ -259,7 +262,10 @@ function updateMarkerTagsHighlighting(idx, marker, q) {
     return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1">${html(t)}${isMatched ? ' ✓' : ''}</span>`;
   }).join('');
   
-  tagsListEl.innerHTML = tagsHtml;
+  // Add button for adding tags from theory page
+  const addTagBtn = `<button type="button" class="marker-add-tag-btn inline-flex items-center text-[9px] px-1 py-0.5 rounded bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium transition-colors ml-1" onclick="showAddTagModal(${idx}, '${marker}')" title="Add tag from theory page"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg></button>`;
+  
+  tagsListEl.innerHTML = tagsHtml + addTagBtn;
   
   // Also update the toggle button to show match count
   const toggleBtn = tagsListEl.previousElementSibling;
@@ -286,5 +292,167 @@ function toggleMarkerTags(tagId) {
   if (el) {
     el.classList.toggle('hidden');
   }
+}
+
+/**
+ * Show modal to add tags from theory page to marker
+ */
+function showAddTagModal(idx, marker) {
+  const item = state.items[idx];
+  if (!item) return;
+  
+  // Get page_id from cached theory block
+  const theoryBlock = item.markerTheoryCache && item.markerTheoryCache[marker];
+  if (!theoryBlock || !theoryBlock.page_id) {
+    alert('Please fetch theory first by clicking the T button');
+    return;
+  }
+  
+  // Create or get modal
+  let modal = document.getElementById('add-tag-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'add-tag-modal';
+    modal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden';
+    modal.innerHTML = `
+      <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 max-h-[80vh] flex flex-col">
+        <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+          <h3 class="font-semibold text-gray-900">Add Tag to Marker</h3>
+          <button type="button" onclick="closeAddTagModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4 overflow-y-auto flex-1">
+          <p class="text-sm text-gray-600 mb-3">Select tags from the theory page:</p>
+          <div id="add-tag-modal-tags" class="flex flex-wrap gap-2">
+            <span class="text-gray-400">Loading...</span>
+          </div>
+        </div>
+        <div class="p-4 border-t border-gray-200 flex justify-end gap-2">
+          <button type="button" onclick="closeAddTagModal()" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200">
+            Close
+          </button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+  
+  // Store current context
+  modal.dataset.idx = idx;
+  modal.dataset.marker = marker;
+  modal.dataset.questionId = item.id;
+  
+  // Show modal
+  modal.classList.remove('hidden');
+  
+  // Fetch available tags
+  fetchAvailableTags(theoryBlock.page_id, idx, marker);
+}
+
+/**
+ * Close the add tag modal
+ */
+function closeAddTagModal() {
+  const modal = document.getElementById('add-tag-modal');
+  if (modal) {
+    modal.classList.add('hidden');
+  }
+}
+
+/**
+ * Fetch available tags from theory page
+ */
+function fetchAvailableTags(pageId, idx, marker) {
+  const container = document.getElementById('add-tag-modal-tags');
+  if (!container) return;
+  
+  container.innerHTML = '<span class="text-gray-400">Loading...</span>';
+  
+  fetch('{{ route("question.marker-tag.available") }}', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify({ page_id: pageId }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      const tags = data.tags || [];
+      const item = state.items[idx];
+      const currentTags = getMarkerTags(item, marker);
+      const currentTagsLower = currentTags.map(t => t.toLowerCase());
+      
+      if (tags.length === 0) {
+        container.innerHTML = '<span class="text-gray-400">No tags available</span>';
+        return;
+      }
+      
+      container.innerHTML = tags.map(tag => {
+        const isAlreadyAdded = currentTagsLower.includes(tag.toLowerCase());
+        const btnClass = isAlreadyAdded
+          ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+          : 'bg-blue-100 hover:bg-blue-200 text-blue-700 cursor-pointer';
+        return `<button type="button" 
+          class="px-2 py-1 rounded text-xs font-medium transition-colors ${btnClass}"
+          onclick="addTagToMarker(${idx}, '${marker}', '${html(tag)}')"
+          ${isAlreadyAdded ? 'disabled' : ''}
+        >${html(tag)}${isAlreadyAdded ? ' ✓' : ''}</button>`;
+      }).join('');
+    })
+    .catch(error => {
+      console.error(error);
+      container.innerHTML = '<span class="text-red-500">Failed to load tags</span>';
+    });
+}
+
+/**
+ * Add a tag to a marker
+ */
+function addTagToMarker(idx, marker, tag) {
+  const item = state.items[idx];
+  if (!item) return;
+  
+  fetch('{{ route("question.marker-tag.add") }}', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-CSRF-TOKEN': CSRF_TOKEN,
+    },
+    body: JSON.stringify({
+      question_id: item.id,
+      marker: marker,
+      tag: tag,
+    }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.marker_tags) {
+        // Update the item's marker_tags
+        if (!item.marker_tags) item.marker_tags = {};
+        item.marker_tags[marker] = data.marker_tags;
+        
+        // Re-render the tags display
+        updateMarkerTagsHighlighting(idx, marker, item);
+        
+        // Refresh the modal to show updated state
+        const theoryBlock = item.markerTheoryCache && item.markerTheoryCache[marker];
+        if (theoryBlock && theoryBlock.page_id) {
+          fetchAvailableTags(theoryBlock.page_id, idx, marker);
+        }
+        
+        // Persist state
+        if (typeof persistState === 'function') persistState(state);
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Failed to add tag');
+    });
 }
 </script>

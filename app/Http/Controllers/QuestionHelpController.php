@@ -229,4 +229,80 @@ class QuestionHelpController extends Controller
             'theory_block' => $theoryBlock,
         ]);
     }
+
+    /**
+     * Add a tag to a marker in a question.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addMarkerTag(Request $request, MarkerTheoryMatcherService $matcherService)
+    {
+        $data = $request->validate([
+            'question_id' => 'required|integer|exists:questions,id',
+            'marker' => 'required|string|regex:/^a\d+$/',
+            'tag' => 'required|string|max:255',
+        ]);
+
+        $added = $matcherService->addTagToMarker(
+            $data['question_id'],
+            $data['marker'],
+            $data['tag']
+        );
+
+        // Get updated marker tags
+        $allMarkerTags = $matcherService->getAllMarkerTags($data['question_id']);
+        $markerTags = $allMarkerTags[$data['marker']] ?? [];
+
+        return response()->json([
+            'success' => $added,
+            'marker_tags' => $markerTags,
+        ]);
+    }
+
+    /**
+     * Remove a tag from a marker in a question.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeMarkerTag(Request $request, MarkerTheoryMatcherService $matcherService)
+    {
+        $data = $request->validate([
+            'question_id' => 'required|integer|exists:questions,id',
+            'marker' => 'required|string|regex:/^a\d+$/',
+            'tag' => 'required|string|max:255',
+        ]);
+
+        $removed = $matcherService->removeTagFromMarker(
+            $data['question_id'],
+            $data['marker'],
+            $data['tag']
+        );
+
+        // Get updated marker tags
+        $allMarkerTags = $matcherService->getAllMarkerTags($data['question_id']);
+        $markerTags = $allMarkerTags[$data['marker']] ?? [];
+
+        return response()->json([
+            'success' => $removed,
+            'marker_tags' => $markerTags,
+        ]);
+    }
+
+    /**
+     * Get available tags from a theory page's text blocks.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getPageAvailableTags(Request $request, MarkerTheoryMatcherService $matcherService)
+    {
+        $data = $request->validate([
+            'page_id' => 'required|integer|exists:pages,id',
+        ]);
+
+        $tags = $matcherService->getPageTextBlockTags($data['page_id']);
+
+        return response()->json([
+            'tags' => $tags,
+        ]);
+    }
 }
