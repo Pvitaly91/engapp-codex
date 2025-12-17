@@ -96,6 +96,29 @@ class GapTagInferer
     ];
 
     /**
+     * Do/does/did forms for auxiliary detection.
+     */
+    private const DO_FORMS = ['do', 'does', 'did', "don't", "doesn't", "didn't"];
+
+    /**
+     * Have/has/had forms for auxiliary detection.
+     */
+    private const HAVE_FORMS = ['have', 'has', 'had', "haven't", "hasn't", "hadn't"];
+
+    /**
+     * Be verb forms for auxiliary detection.
+     */
+    private const BE_FORMS = ['am', 'is', 'are', 'was', 'were', "isn't", "aren't", "wasn't", "weren't"];
+
+    /**
+     * Modal verb forms for auxiliary detection.
+     */
+    private const MODAL_FORMS = [
+        'can', 'could', 'will', 'would', 'should', 'must', 'may', 'might',
+        "can't", "couldn't", "won't", "wouldn't", "shouldn't", "mustn't",
+    ];
+
+    /**
      * Infer grammatical tags for a gap marker in a question.
      *
      * @param  string  $questionText  The full question text with markers like {a1}, {a2}
@@ -172,43 +195,38 @@ class GapTagInferer
     private function detectAuxiliaryVerbFromAnswer(string $answer, array $window): array
     {
         // Check for do/does/did forms
-        $doForms = ['do', 'does', 'did', "don't", "doesn't", "didn't"];
-        if (in_array($answer, $doForms)) {
+        if (in_array($answer, self::DO_FORMS)) {
             return ['Do/Does/Did'];
         }
 
         // Check for have/has/had forms
-        $haveForms = ['have', 'has', 'had', "haven't", "hasn't", "hadn't"];
-        if (in_array($answer, $haveForms)) {
+        if (in_array($answer, self::HAVE_FORMS)) {
             return ['Have/Has/Had'];
         }
 
         // Check for be forms
-        $beForms = ['am', 'is', 'are', 'was', 'were', "isn't", "aren't", "wasn't", "weren't"];
-        if (in_array($answer, $beForms)) {
+        if (in_array($answer, self::BE_FORMS)) {
             return ['Be (am/is/are/was/were)'];
         }
 
         // Check for modal verbs
-        $modalForms = ['can', 'could', 'will', 'would', 'should', 'must', 'may', 'might',
-            "can't", "couldn't", "won't", "wouldn't", "shouldn't", "mustn't"];
-        if (in_array($answer, $modalForms)) {
+        if (in_array($answer, self::MODAL_FORMS)) {
             return ['Modal Verbs'];
         }
 
         // Check if answer contains auxiliary verb (for compound answers like "the station is")
         $answerWords = preg_split('/\s+/', $answer);
         foreach ($answerWords as $word) {
-            if (in_array($word, $beForms)) {
+            if (in_array($word, self::BE_FORMS)) {
                 return ['Be (am/is/are/was/were)'];
             }
-            if (in_array($word, $haveForms)) {
+            if (in_array($word, self::HAVE_FORMS)) {
                 return ['Have/Has/Had'];
             }
-            if (in_array($word, $doForms)) {
+            if (in_array($word, self::DO_FORMS)) {
                 return ['Do/Does/Did'];
             }
-            if (in_array($word, $modalForms)) {
+            if (in_array($word, self::MODAL_FORMS)) {
                 return ['Modal Verbs'];
             }
         }
@@ -576,7 +594,7 @@ class GapTagInferer
     private function detectBeFromAnswer(string $answer, array $window): array
     {
         $beForms = ['am', 'is', 'are', 'was', 'were', 'be', 'been', 'being'];
-        $beNegForms = ["isn't", "aren't", "wasn't", "weren't", "am not"];
+        $beNegForms = ["isn't", "aren't", "wasn't", "weren't", 'am not'];
 
         $allBeForms = array_merge($beForms, $beNegForms);
 

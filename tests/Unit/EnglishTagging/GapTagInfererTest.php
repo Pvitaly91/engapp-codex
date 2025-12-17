@@ -12,7 +12,7 @@ class GapTagInfererTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->service = new GapTagInferer();
+        $this->service = new GapTagInferer;
     }
 
     // ========== STRUCTURAL PATTERNS (Highest Priority) ==========
