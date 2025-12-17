@@ -170,15 +170,16 @@ function renderMarkerTheoryPanel(idx, marker, block) {
     ? `<div class="mt-2 text-xs text-cyan-600">Matched tags: ${matchedNames.map(t => html(t)).join(', ')}</div>`
     : `<div class="mt-2 text-xs text-cyan-500">No tag match</div>`;
 
-  const legendHtml = `<p class="mt-1 text-[11px] text-cyan-700">Highlighted tags = tags used to match this marker to theory block</p>`;
-
-  // Add link to full theory page if available
+  // Add prominent link to full theory page if available
   const pageLink = block.page_url 
-    ? `<a href="${html(block.page_url)}" target="_blank" class="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-cyan-700 hover:text-cyan-900 hover:underline transition-colors">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    ? `<a href="${html(block.page_url)}" target="_blank" class="mt-3 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-500 text-white font-semibold text-sm shadow-md hover:shadow-lg hover:from-cyan-600 hover:to-sky-600 transition-all duration-200 transform hover:-translate-y-0.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+        Open theory page
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
         </svg>
-        ${block.page_title ? html(block.page_title) : 'Open full theory page'} →
       </a>`
     : '';
 
@@ -192,8 +193,6 @@ function renderMarkerTheoryPanel(idx, marker, block) {
         ${block.level ? `<span class="ml-auto px-2 py-0.5 text-xs font-bold rounded-full bg-cyan-200 text-cyan-800">${html(block.level)}</span>` : ''}
       </div>
       ${content}
-      ${matchedTagsHtml}
-      ${legendHtml}
       ${pageLink}
     </div>
   `;
@@ -277,6 +276,16 @@ function renderMarkerTagsDebug(q, marker, idx) {
   const hasTags = tags && tags.length > 0;
   const hasTheoryBlock = q.theory_block?.uuid;
   
+  // For non-admin users: don't show tag UI at all
+  // Admin-only: show tags toggle, highlighting, and add button
+  const isAdmin = typeof IS_ADMIN !== 'undefined' && IS_ADMIN === true;
+  
+  if (!isAdmin) {
+    // Non-admin users don't see tag management UI
+    return '';
+  }
+  
+  // Admin-only code below
   // If no tags and no theory block, don't render anything
   if (!hasTags && !hasTheoryBlock) return '';
   
@@ -301,31 +310,37 @@ function renderMarkerTagsDebug(q, marker, idx) {
       : 'bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700';
     const matchIndicator = matchCount > 0 ? ` <span class="text-emerald-500">(${matchCount}✓)</span>` : '';
     
-    // Add "Додати теги" button
+    // Add "Додати теги" button (admin only)
     const addTagsBtn = renderAddTagsButton(q, marker, idx);
 
-    const legend = `<span class="ml-2 text-[10px] text-emerald-700">Highlighted tags = tags used to match this marker to theory block</span>`;
-
-    return ` <button type="button" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors" onclick="toggleMarkerTags('${tagId}')" title="Show/hide marker tags"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}</button><span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}${addTagsBtn}${legend}</span>`;
+    return ` <button type="button" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors" onclick="toggleMarkerTags('${tagId}')" title="Show/hide marker tags"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}</button><span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}${addTagsBtn}</span>`;
   }
   
-  // No tags but has theory block - just show the "Add tags" button directly
+  // No tags but has theory block - just show the "Add tags" button directly (admin only)
   const addTagsBtn = renderAddTagsButton(q, marker, idx);
   return ` <span id="${tagId}" class="marker-tags-list ml-1 inline-flex flex-wrap items-center">${addTagsBtn}</span>`;
 }
 
 /**
- * Render the "Додати теги" button for a marker
+ * Render the "Додати теги" button for a marker (admin-only)
  */
 function renderAddTagsButton(q, marker, idx) {
+  // Only render for admins
+  const isAdmin = typeof IS_ADMIN !== 'undefined' && IS_ADMIN === true;
+  if (!isAdmin) return '';
+  
   return `<button type="button" class="add-marker-tags-btn ml-1 inline-flex items-center text-[9px] px-1.5 py-0.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-600 hover:text-indigo-700 font-medium transition-colors" data-question-id="${q.id}" data-marker="${marker}" data-idx="${idx}" onclick="openAddTagsModal(${q.id}, '${marker}', ${idx})" title="Додати теги з теорії"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>+</button>`;
 }
 
 /**
  * Update marker tags highlighting after theory is fetched
- * This re-renders the tags list with proper highlighting
+ * This re-renders the tags list with proper highlighting (admin-only)
  */
 function updateMarkerTagsHighlighting(idx, marker, q) {
+  // Only for admins
+  const isAdmin = typeof IS_ADMIN !== 'undefined' && IS_ADMIN === true;
+  if (!isAdmin) return;
+  
   const tagId = `marker-tags-${idx}-${marker}`;
   const tagsListEl = document.getElementById(tagId);
   if (!tagsListEl) return;
@@ -345,11 +360,10 @@ function updateMarkerTagsHighlighting(idx, marker, q) {
     return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1">${html(tag.name)}${isMatched ? ' ✓' : ''}</span>`;
   }).join('');
   
-  // Add the "Додати теги" button
+  // Add the "Додати теги" button (admin only)
   const addTagsBtn = renderAddTagsButton(q, marker, idx);
   
-  const legend = `<span class="ml-2 text-[10px] text-emerald-700">Highlighted tags = tags used to match this marker to theory block</span>`;
-  tagsListEl.innerHTML = tagsHtml + addTagsBtn + legend;
+  tagsListEl.innerHTML = tagsHtml + addTagsBtn;
   
   // Also update the toggle button to show match count
   const toggleBtn = tagsListEl.previousElementSibling;

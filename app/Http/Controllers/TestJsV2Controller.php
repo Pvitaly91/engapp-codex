@@ -86,6 +86,9 @@ class TestJsV2Controller extends Controller
         $stateKey = $this->jsStateSessionKey($test, $view);
         $savedState = session($stateKey);
         $questions = $this->buildQuestionDataset($resolved, empty($savedState));
+        
+        // Check if the current user is an admin
+        $isAdmin = auth()->check() && auth()->user()->is_admin;
 
         return view("tests.$view", [
             'test' => $test,
@@ -93,6 +96,7 @@ class TestJsV2Controller extends Controller
             'jsStateMode' => $view,
             'savedState' => $savedState,
             'usesUuidLinks' => $resolved->usesUuidLinks,
+            'isAdmin' => $isAdmin,
         ]);
     }
 
@@ -162,6 +166,22 @@ class TestJsV2Controller extends Controller
             // Load marker tags for each answer marker
             $markerTags = $this->markerTheoryMatcher->getAllMarkerTags($q->id);
 
+            // Build options_by_marker for multi-marker questions
+            $markersCount = count($answerList);
+            $optionsByMarker = null;
+            
+            // If we have multiple markers and options divide evenly by markers,
+            // assume options are stored in marker order and build per-marker arrays
+            if ($markersCount > 1 && count($options) >= $markersCount && count($options) % $markersCount === 0) {
+                $chunkSize = (int) (count($options) / $markersCount);
+                if ($chunkSize >= 2) {
+                    $optionsByMarker = [];
+                    for ($i = 0; $i < $markersCount; $i++) {
+                        $optionsByMarker[] = array_slice($options, $i * $chunkSize, $chunkSize);
+                    }
+                }
+            }
+
             return [
                 'id' => $q->id,
                 'uuid' => $q->uuid,
@@ -172,6 +192,8 @@ class TestJsV2Controller extends Controller
                 'verb_hint' => $verbHints['a1'] ?? '',
                 'verb_hints' => $verbHints,
                 'options' => $options,
+                'markers_count' => $markersCount,
+                'options_by_marker' => $optionsByMarker,
                 'tense' => $q->category->name ?? '',
                 'level' => $q->level ?? '',
                 'theory_block' => $theoryBlock,
