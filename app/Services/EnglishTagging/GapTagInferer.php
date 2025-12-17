@@ -96,6 +96,29 @@ class GapTagInferer
     ];
 
     /**
+     * Do/does/did forms for auxiliary detection.
+     */
+    private const DO_FORMS = ['do', 'does', 'did', "don't", "doesn't", "didn't"];
+
+    /**
+     * Have/has/had forms for auxiliary detection.
+     */
+    private const HAVE_FORMS = ['have', 'has', 'had', "haven't", "hasn't", "hadn't"];
+
+    /**
+     * Be verb forms for auxiliary detection.
+     */
+    private const BE_FORMS = ['am', 'is', 'are', 'was', 'were', "isn't", "aren't", "wasn't", "weren't"];
+
+    /**
+     * Modal verb forms for auxiliary detection.
+     */
+    private const MODAL_FORMS = [
+        'can', 'could', 'will', 'would', 'should', 'must', 'may', 'might',
+        "can't", "couldn't", "won't", "wouldn't", "shouldn't", "mustn't",
+    ];
+
+    /**
      * Infer grammatical tags for a gap marker in a question.
      *
      * @param  string  $questionText  The full question text with markers like {a1}, {a2}
@@ -131,12 +154,20 @@ class GapTagInferer
             $window
         );
 
+        // Priority 2: Detect auxiliary verb tags from the answer
+        // These are always detected to ensure questions have relevant auxiliary tags
+        $auxiliaryTags = $this->detectAuxiliaryVerbFromAnswer($normalizedAnswer, $window);
+
         if (! empty($structuralTags)) {
-            // If structural patterns detected, return them (1-3 tags max)
-            return array_slice($structuralTags, 0, self::MAX_TAGS);
+            // Combine structural tags with auxiliary verb tags when applicable
+            // This ensures questions like indirect questions with 'do/does/did' answers
+            // get both structural and auxiliary tags
+            $combinedTags = array_merge($structuralTags, $auxiliaryTags);
+
+            return array_slice(array_unique($combinedTags), 0, self::MAX_TAGS);
         }
 
-        // Priority 2: Auxiliary/Tense patterns
+        // Priority 3: Full Auxiliary/Tense patterns (when no structural patterns detected)
         $auxTenseTags = $this->detectAuxiliaryTensePatterns(
             $normalizedAnswer,
             $normalizedOptions,
@@ -148,6 +179,59 @@ class GapTagInferer
 
         // Limit to MAX_TAGS
         return array_slice(array_unique($tags), 0, self::MAX_TAGS);
+    }
+
+    /**
+     * Detect auxiliary verb tag from the answer.
+     *
+     * Returns the primary auxiliary tag (e.g., 'Do/Does/Did', 'Have/Has/Had')
+     * based on the answer. This is used to ensure auxiliary tags are included
+     * even when structural patterns are detected.
+     *
+     * @param  string  $answer  Normalized answer
+     * @param  array  $window  Context window
+     * @return array Array of auxiliary tag names
+     */
+    private function detectAuxiliaryVerbFromAnswer(string $answer, array $window): array
+    {
+        // Check for do/does/did forms
+        if (in_array($answer, self::DO_FORMS)) {
+            return ['Do/Does/Did'];
+        }
+
+        // Check for have/has/had forms
+        if (in_array($answer, self::HAVE_FORMS)) {
+            return ['Have/Has/Had'];
+        }
+
+        // Check for be forms
+        if (in_array($answer, self::BE_FORMS)) {
+            return ['Be (am/is/are/was/were)'];
+        }
+
+        // Check for modal verbs
+        if (in_array($answer, self::MODAL_FORMS)) {
+            return ['Modal Verbs'];
+        }
+
+        // Check if answer contains auxiliary verb (for compound answers like "the station is")
+        $answerWords = preg_split('/\s+/', $answer);
+        foreach ($answerWords as $word) {
+            if (in_array($word, self::BE_FORMS)) {
+                return ['Be (am/is/are/was/were)'];
+            }
+            if (in_array($word, self::HAVE_FORMS)) {
+                return ['Have/Has/Had'];
+            }
+            if (in_array($word, self::DO_FORMS)) {
+                return ['Do/Does/Did'];
+            }
+            if (in_array($word, self::MODAL_FORMS)) {
+                return ['Modal Verbs'];
+            }
+        }
+
+        return [];
     }
 
     /**
@@ -510,7 +594,7 @@ class GapTagInferer
     private function detectBeFromAnswer(string $answer, array $window): array
     {
         $beForms = ['am', 'is', 'are', 'was', 'were', 'be', 'been', 'being'];
-        $beNegForms = ["isn't", "aren't", "wasn't", "weren't", "am not"];
+        $beNegForms = ["isn't", "aren't", "wasn't", "weren't", 'am not'];
 
         $allBeForms = array_merge($beForms, $beNegForms);
 

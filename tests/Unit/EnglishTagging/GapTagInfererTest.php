@@ -12,7 +12,7 @@ class GapTagInfererTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->service = new GapTagInferer();
+        $this->service = new GapTagInferer;
     }
 
     // ========== STRUCTURAL PATTERNS (Highest Priority) ==========
@@ -30,9 +30,8 @@ class GapTagInfererTest extends TestCase
         );
 
         $this->assertContains('Indirect Questions', $result);
-        $this->assertContains('Question Word Order', $result);
-        // Should not have other lower-priority tags
-        $this->assertNotContains('Do/Does/Did', $result);
+        // Should include auxiliary tag from the answer ("is" in "the station is")
+        $this->assertContains('Be (am/is/are/was/were)', $result);
     }
 
     /** @test */
@@ -48,7 +47,8 @@ class GapTagInfererTest extends TestCase
         );
 
         $this->assertContains('Indirect Questions', $result);
-        // Structural pattern should take priority, no tense tags
+        // Should include auxiliary tag from the answer ("was" in "she was")
+        $this->assertContains('Be (am/is/are/was/were)', $result);
         $this->assertLessThanOrEqual(3, count($result));
     }
 
@@ -80,9 +80,8 @@ class GapTagInfererTest extends TestCase
         );
 
         $this->assertContains('Tag Questions', $result);
-        $this->assertContains('Question Tags', $result);
-        // Should not add auxiliary tags when structural pattern detected
-        $this->assertNotContains('Do/Does/Did', $result);
+        // Should include auxiliary tag from the answer ("don't" in "don't you")
+        $this->assertContains('Do/Does/Did', $result);
     }
 
     /** @test */
@@ -281,9 +280,9 @@ class GapTagInfererTest extends TestCase
     // ========== PRIORITY TESTS ==========
 
     /** @test */
-    public function it_prioritizes_structural_over_auxiliary_tags(): void
+    public function it_includes_auxiliary_tags_with_structural_patterns(): void
     {
-        // Indirect question should not get Do/Does/Did tags even if options contain them
+        // Indirect question with 'is' in answer should include Be auxiliary tag
         $result = $this->service->infer(
             'Can you tell me where the station {a1}?',
             'a1',
@@ -292,9 +291,9 @@ class GapTagInfererTest extends TestCase
             'statement order'
         );
 
-        // Should detect indirect question pattern, not be auxiliary
+        // Should detect indirect question pattern AND auxiliary tag
         $this->assertContains('Indirect Questions', $result);
-        $this->assertNotContains('Do/Does/Did', $result);
+        $this->assertContains('Be (am/is/are/was/were)', $result);
     }
 
     /** @test */
@@ -453,5 +452,75 @@ class GapTagInfererTest extends TestCase
         // Both should detect subject questions (verb form without auxiliary)
         $this->assertContains('Subject Questions', $result1);
         $this->assertContains('Subject Questions', $result2);
+    }
+
+    // ========== AUXILIARY VERB WITH STRUCTURAL PATTERNS TESTS ==========
+
+    /** @test */
+    public function it_includes_do_auxiliary_tag_with_tag_question(): void
+    {
+        // Tag question with "do you" answer
+        $result = $this->service->infer(
+            'She likes tea, {a1}?',
+            'a1',
+            "doesn't she",
+            ["doesn't she", 'does she', "isn't she", 'is she'],
+            'negative tag'
+        );
+
+        // Should have both Tag Questions and Do/Does/Did tags
+        $this->assertContains('Tag Questions', $result);
+        $this->assertContains('Do/Does/Did', $result);
+    }
+
+    /** @test */
+    public function it_includes_have_auxiliary_tag_with_tag_question(): void
+    {
+        // Tag question with "haven't" answer
+        $result = $this->service->infer(
+            'They have arrived, {a1}?',
+            'a1',
+            "haven't they",
+            ["haven't they", 'have they', "don't they", 'do they'],
+            'negative perfect tag'
+        );
+
+        // Should have both Tag Questions and Have/Has/Had tags
+        $this->assertContains('Tag Questions', $result);
+        $this->assertContains('Have/Has/Had', $result);
+    }
+
+    /** @test */
+    public function it_includes_be_auxiliary_tag_with_indirect_question(): void
+    {
+        // Indirect question with "is" in answer
+        $result = $this->service->infer(
+            'Do you know what time it {a1}?',
+            'a1',
+            'is',
+            ['is', 'are', 'does', 'do'],
+            'embedded question'
+        );
+
+        // Should have both Indirect Questions and Be auxiliary tags
+        $this->assertContains('Indirect Questions', $result);
+        $this->assertContains('Be (am/is/are/was/were)', $result);
+    }
+
+    /** @test */
+    public function it_includes_modal_auxiliary_tag_with_indirect_question(): void
+    {
+        // Indirect question with "should" in answer
+        $result = $this->service->infer(
+            'Could you clarify what we {a1} do next?',
+            'a1',
+            'should',
+            ['should', 'shall', 'will', 'must'],
+            'modal in embedded'
+        );
+
+        // Should have both Indirect Questions and Modal Verbs tags
+        $this->assertContains('Indirect Questions', $result);
+        $this->assertContains('Modal Verbs', $result);
     }
 }
