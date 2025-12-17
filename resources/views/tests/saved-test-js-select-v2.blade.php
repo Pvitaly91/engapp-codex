@@ -133,6 +133,8 @@ async function init(forceFresh = false) {
       restored = true;
       state.items.forEach((item) => {
         if (!item.markerTheoryCache || typeof item.markerTheoryCache !== 'object') item.markerTheoryCache = {};
+        if (!item.markerTheoryMatch || typeof item.markerTheoryMatch !== 'object') item.markerTheoryMatch = {};
+        if (!('activeTheoryMarker' in item)) item.activeTheoryMarker = null;
       });
     }
   }
@@ -143,6 +145,8 @@ async function init(forceFresh = false) {
       chosen: Array(q.answers.length).fill(''),
       isCorrect: null,
       markerTheoryCache: {},
+      markerTheoryMatch: {},
+      activeTheoryMarker: null,
     }));
     state.correct = 0;
     state.answered = 0;
@@ -173,6 +177,8 @@ function renderQuestion(idx) {
   const q = state.items[idx];
   const card = document.querySelector(`article[data-idx="${idx}"]`);
   const sentence = renderSentence(q, idx);
+  const activeMarker = getActiveMarker(q);
+  const questionTagsHtml = renderQuestionTagsBlock(q, activeMarker, idx);
   card.innerHTML = `
     <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
       <div class="flex-1">
@@ -183,6 +189,7 @@ function renderQuestion(idx) {
           <span class="text-xs sm:text-sm text-gray-500 font-medium">${q.tense || 'Grammar'}</span>
         </div>
         <div class="text-base sm:text-xl leading-relaxed text-gray-900 font-medium">${sentence}</div>
+        ${questionTagsHtml}
         <div id="theory-panel-${idx}" class="mt-2.5 sm:mt-3 hidden"></div>
       </div>
     <div class="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 shrink-0 sm:self-start">
