@@ -508,4 +508,144 @@ class MarkerTheoryMatcherService
 
         return $result;
     }
+
+    /**
+     * Get the theory page ID for a specific marker in a question.
+     * First tries to find it from the best matching text block.
+     *
+     * @return int|null The page ID or null if not found
+     */
+    public function getTheoryPageIdForMarker(int $questionId, string $marker): ?int
+    {
+        $theoryBlock = $this->findTheoryBlockForMarker($questionId, $marker);
+
+        if (! $theoryBlock) {
+            return null;
+        }
+
+        // Load the text block to get its page_id
+        $textBlock = TextBlock::where('uuid', $theoryBlock['uuid'])->first();
+
+        return $textBlock?->page_id;
+    }
+
+    /**
+     * Get available tags from the theory page for a specific marker.
+     * Returns tags that are associated with text_blocks on that page.
+     *
+     * @return Collection<int, Tag>
+     */
+    public function getAvailableTheoryTagsForMarker(int $questionId, string $marker): Collection
+    {
+        $pageId = $this->getTheoryPageIdForMarker($questionId, $marker);
+
+        if (! $pageId) {
+            return collect();
+        }
+
+        return $this->getTagsForTheoryPage($pageId);
+    }
+
+    /**
+     * Get all tags associated with text blocks on a specific page.
+     *
+     * @return Collection<int, Tag>
+     */
+    public function getTagsForTheoryPage(int $pageId): Collection
+    {
+        if (! Schema::hasTable('text_blocks') || ! Schema::hasTable('tag_text_block')) {
+            return collect();
+        }
+
+        return Tag::query()
+            ->select('tags.id', 'tags.name', 'tags.category')
+            ->join('tag_text_block', 'tags.id', '=', 'tag_text_block.tag_id')
+            ->join('text_blocks', 'tag_text_block.text_block_id', '=', 'text_blocks.id')
+            ->where('text_blocks.page_id', $pageId)
+            ->distinct()
+            ->orderBy('tags.name')
+            ->get();
+    }
+
+    /**
+     * Validate that given tag IDs belong to a specific theory page.
+     *
+     * @param  array<int>  $tagIds
+     * @return array<int> Valid tag IDs that exist on the page
+     */
+    public function validateTagsForTheoryPage(int $pageId, array $tagIds): array
+    {
+        if (empty($tagIds)) {
+            return [];
+        }
+
+        $validTags = $this->getTagsForTheoryPage($pageId);
+        $validTagIds = $validTags->pluck('id')->toArray();
+
+        return array_values(array_intersect($tagIds, $validTagIds));
+    }
+
+    /**
+     * Add tags to a marker for a question.
+     * Only adds tags that are valid for the theory page and don't already exist.
+     *
+     * @param  array<int>  $tagIds
+     * @return array{added: int, skipped: int, marker_tags: Collection<int, Tag>}
+     */
+    public function addTagsToMarker(int $questionId, string $marker, array $tagIds): array
+    {
+        if (! Schema::hasTable('question_marker_tag')) {
+            return ['added' => 0, 'skipped' => count($tagIds), 'marker_tags' => collect()];
+        }
+
+        $pageId = $this->getTheoryPageIdForMarker($questionId, $marker);
+
+        if (! $pageId) {
+            return ['added' => 0, 'skipped' => count($tagIds), 'marker_tags' => $this->getMarkerTags($questionId, $marker)];
+        }
+
+        // Validate tags belong to the theory page
+        $validTagIds = $this->validateTagsForTheoryPage($pageId, $tagIds);
+
+        if (empty($validTagIds)) {
+            return ['added' => 0, 'skipped' => count($tagIds), 'marker_tags' => $this->getMarkerTags($questionId, $marker)];
+        }
+
+        // Get existing marker tags to avoid duplicates
+        $existingTagIds = DB::table('question_marker_tag')
+            ->where('question_id', $questionId)
+            ->where('marker', $marker)
+            ->pluck('tag_id')
+            ->toArray();
+
+        // Filter out already existing tags
+        $newTagIds = array_diff($validTagIds, $existingTagIds);
+
+        $added = 0;
+        $skipped = count($tagIds) - count($newTagIds);
+
+        if (! empty($newTagIds)) {
+            $now = now();
+            $inserts = [];
+
+            foreach ($newTagIds as $tagId) {
+                $inserts[] = [
+                    'question_id' => $questionId,
+                    'marker' => $marker,
+                    'tag_id' => $tagId,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ];
+            }
+
+            DB::table('question_marker_tag')->insert($inserts);
+            $added = count($newTagIds);
+        }
+
+        return [
+            'added' => $added,
+            'skipped' => $skipped,
+            'marker_tags' => $this->getMarkerTags($questionId, $marker),
+        ];
+    }
 }
