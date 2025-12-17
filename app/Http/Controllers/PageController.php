@@ -111,7 +111,7 @@ class PageController extends Controller
     public function show(PageCategory $category, string $pageSlug)
     {
         $page = Page::query()
-            ->with(['textBlocks', 'tags'])
+            ->with(['textBlocks.tags', 'tags'])
             ->forType($this->pageType)
             ->where('slug', $pageSlug)
             ->where('page_category_id', $category->getKey())

@@ -49,6 +49,8 @@ function fetchMarkerTheory(idx, marker) {
       const theoryBlock = data && data.theory_block ? data.theory_block : null;
       item.markerTheoryCache[marker] = theoryBlock;
       renderMarkerTheoryPanel(idx, marker, theoryBlock);
+      // Re-render the tags display to show highlighting
+      updateMarkerTagsHighlighting(idx, marker, item);
       if (typeof persistState === 'function') persistState(state);
     })
     .catch((error) => {
@@ -143,6 +145,16 @@ function renderMarkerTheoryPanel(idx, marker, block) {
     ? `<div class="mt-2 text-xs text-cyan-600">Matched tags: ${block.matched_tags.map(t => html(t)).join(', ')}</div>`
     : '';
 
+  // Add link to full theory page if available
+  const pageLink = block.page_url 
+    ? `<a href="${html(block.page_url)}" target="_blank" class="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-cyan-700 hover:text-cyan-900 hover:underline transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+        ${block.page_title ? html(block.page_title) : 'Open full theory page'} →
+      </a>`
+    : '';
+
   panel.innerHTML = `
     <div class="p-4 bg-gradient-to-r from-cyan-50 to-sky-50 rounded-2xl border border-cyan-200">
       <div class="flex items-center gap-2 mb-2">
@@ -154,6 +166,7 @@ function renderMarkerTheoryPanel(idx, marker, block) {
       </div>
       ${content}
       ${matchedTagsHtml}
+      ${pageLink}
     </div>
   `;
   panel.classList.remove('hidden');
@@ -172,5 +185,106 @@ function renderMarkerTheoryButton(marker, idx, hasMarkerTags) {
  */
 function hasMarkerTags(q, marker) {
   return q.marker_tags && q.marker_tags[marker] && q.marker_tags[marker].length > 0;
+}
+
+/**
+ * Get marker tags for a specific marker in a question
+ */
+function getMarkerTags(q, marker) {
+  if (!q.marker_tags || !q.marker_tags[marker]) return [];
+  return q.marker_tags[marker];
+}
+
+/**
+ * Get matched tags for a specific marker from the theory cache
+ */
+function getMatchedTagsForMarker(q, marker) {
+  if (!q.markerTheoryCache || !q.markerTheoryCache[marker]) return [];
+  const theoryBlock = q.markerTheoryCache[marker];
+  if (!theoryBlock || !theoryBlock.matched_tags) return [];
+  return theoryBlock.matched_tags;
+}
+
+/**
+ * Render marker tags inline for debugging
+ * Shows tags in a collapsible badge next to markers
+ * Highlights tags that match with theory blocks
+ */
+function renderMarkerTagsDebug(q, marker, idx) {
+  const tags = getMarkerTags(q, marker);
+  if (!tags || tags.length === 0) return '';
+  
+  const matchedTags = getMatchedTagsForMarker(q, marker);
+  const matchedTagsLower = matchedTags.map(t => t.toLowerCase());
+  
+  const tagId = `marker-tags-${idx}-${marker}`;
+  const tagsHtml = tags.map(t => {
+    const isMatched = matchedTagsLower.includes(t.toLowerCase());
+    const matchClass = isMatched 
+      ? 'bg-emerald-200 text-emerald-800 ring-1 ring-emerald-400' 
+      : 'bg-violet-100 text-violet-700';
+    return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1">${html(t)}${isMatched ? ' ✓' : ''}</span>`;
+  }).join('');
+  
+  const matchCount = tags.filter(t => matchedTagsLower.includes(t.toLowerCase())).length;
+  const badgeClass = matchCount > 0 
+    ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-600 hover:text-emerald-700' 
+    : 'bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700';
+  const matchIndicator = matchCount > 0 ? ` <span class="text-emerald-500">(${matchCount}✓)</span>` : '';
+  
+  return ` <button type="button" class="marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors" onclick="toggleMarkerTags('${tagId}')" title="Show/hide marker tags"><svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}</button><span id="${tagId}" class="marker-tags-list hidden ml-1 inline-flex flex-wrap items-center">${tagsHtml}</span>`;
+}
+
+/**
+ * Update marker tags highlighting after theory is fetched
+ * This re-renders the tags list with proper highlighting
+ */
+function updateMarkerTagsHighlighting(idx, marker, q) {
+  const tagId = `marker-tags-${idx}-${marker}`;
+  const tagsListEl = document.getElementById(tagId);
+  if (!tagsListEl) return;
+  
+  const tags = getMarkerTags(q, marker);
+  if (!tags || tags.length === 0) return;
+  
+  const matchedTags = getMatchedTagsForMarker(q, marker);
+  const matchedTagsLower = matchedTags.map(t => t.toLowerCase());
+  
+  // Re-render tags with highlighting
+  const tagsHtml = tags.map(t => {
+    const isMatched = matchedTagsLower.includes(t.toLowerCase());
+    const matchClass = isMatched 
+      ? 'bg-emerald-200 text-emerald-800 ring-1 ring-emerald-400' 
+      : 'bg-violet-100 text-violet-700';
+    return `<span class="inline-block px-1.5 py-0.5 rounded ${matchClass} text-[9px] font-medium mr-1 mb-1">${html(t)}${isMatched ? ' ✓' : ''}</span>`;
+  }).join('');
+  
+  tagsListEl.innerHTML = tagsHtml;
+  
+  // Also update the toggle button to show match count
+  const toggleBtn = tagsListEl.previousElementSibling;
+  if (toggleBtn && toggleBtn.classList.contains('marker-tags-toggle')) {
+    const matchCount = tags.filter(t => matchedTagsLower.includes(t.toLowerCase())).length;
+    const badgeClass = matchCount > 0 
+      ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-600 hover:text-emerald-700' 
+      : 'bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700';
+    
+    // Update button classes
+    toggleBtn.className = `marker-tags-toggle inline-flex items-center text-[10px] px-1.5 py-0.5 rounded-lg ${badgeClass} font-medium transition-colors`;
+    
+    // Update button content
+    const matchIndicator = matchCount > 0 ? ` <span class="text-emerald-500">(${matchCount}✓)</span>` : '';
+    toggleBtn.innerHTML = `<svg class="w-3 h-3 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>${tags.length}${matchIndicator}`;
+  }
+}
+
+/**
+ * Toggle visibility of marker tags debug display
+ */
+function toggleMarkerTags(tagId) {
+  const el = document.getElementById(tagId);
+  if (el) {
+    el.classList.toggle('hidden');
+  }
 }
 </script>

@@ -67,6 +67,9 @@
                     </p>
                 </div>
             @endif
+
+            {{-- Block Tags --}}
+            <x-text-block-tags :block="$block" />
         </div>
     </div>
 </section>
