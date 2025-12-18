@@ -15,6 +15,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
     private array $tagNameCache = [];
     private array $pageTagsCacheByUuid = [];
     private array $pageTagsCacheByPageId = [];
+    private int $optionsPerMarker = 3;
 
     public function run(): void
     {
@@ -184,6 +185,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 
             $answers = [];
             $optionMarkers = [];
+            $optionsByMarker = null;
 
             // Check if this is a multi-marker question (options are nested arrays with markers)
             // Multi-marker format: ['a1' => [...], 'a2' => [...]]
@@ -198,8 +200,14 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
             }
 
             if ($isMultiMarker) {
+                $optionsByMarker = $this->buildOptionsByMarker(
+                    $question['options'],
+                    $question['answers'],
+                    $this->optionsPerMarker
+                );
+
                 // Multi-marker question format (like MixedConditionalsAIGeneratedSeeder)
-                foreach ($question['options'] as $marker => $markerOptions) {
+                foreach ($optionsByMarker as $marker => $markerOptions) {
                     foreach ($markerOptions as $option) {
                         $optionMarkers[$option] = $marker;
                     }
@@ -214,11 +222,13 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     ];
                 }
 
-                // Flatten options for storage
-                $flatOptions = $this->flattenOptions($question['options']);
+                // Flatten options for storage using normalized per-marker options
+                $flatOptions = $this->flattenOptions($optionsByMarker);
             } else {
                 // Single-marker question format (original format)
-                foreach ($question['options'] as $option) {
+                $normalizedOptions = $this->normalizeOptionList($question['options']);
+
+                foreach ($normalizedOptions as $option) {
                     $optionMarkers[$option] = 'a1';
                 }
 
@@ -228,7 +238,8 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                     'verb_hint' => $this->normalizeHint($question['verb_hint'] ?? null),
                 ];
 
-                $flatOptions = $question['options'];
+                $optionsByMarker = [$normalizedOptions];
+                $flatOptions = $normalizedOptions;
             }
 
             $tagIds = array_merge([
@@ -287,8 +298,8 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
 
                 // Get options for this specific marker
                 $markerOptions = $isMultiMarker
-                    ? ($question['options'][$marker] ?? [])
-                    : $question['options'];
+                    ? ($optionsByMarker[$marker] ?? [])
+                    : $optionsByMarker[0];
 
                 // Get verb hint for this marker
                 $verbHint = $isMultiMarker
@@ -386,6 +397,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'theory_text_block_uuid' => $theoryTextBlockUuid,
                 'tag_ids' => array_values(array_unique($tagIds)),
                 'answers' => $answers,
+                'options_by_marker' => $optionsByMarker,
                 'options' => $flatOptions,
                 'variants' => [],
             ];
@@ -394,6 +406,7 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
                 'uuid' => $uuid,
                 'answers' => $question['answers'],
                 'option_markers' => $optionMarkers,
+                'options_by_marker' => $optionsByMarker,
                 'hints' => $question['hints'],
                 'explanations' => $question['explanations'],
                 'gap_tags' => $gapTagsPerMarker, // Store per-marker gap tags in meta
@@ -754,6 +767,99 @@ class QuestionsDifferentTypesClaudeSeeder extends QuestionSeeder
         }
 
         return $flat;
+    }
+
+    private function normalizeOptionList(array $options): array
+    {
+        $normalized = [];
+
+        foreach ($options as $option) {
+            $value = is_string($option) ? trim($option) : trim((string) $option);
+            if ($value === '') {
+                continue;
+            }
+
+            if (! in_array($value, $normalized, true)) {
+                $normalized[] = $value;
+            }
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * Build a normalized map of marker => options (shuffled per marker).
+     */
+    private function buildOptionsByMarker(array $options, array $answers, int $targetCount): array
+    {
+        $result = [];
+        $markers = array_keys($answers);
+        $pool = $this->normalizeOptionList($this->flattenOptions($options));
+
+        foreach ($markers as $marker) {
+            $markerOptions = $this->normalizeOptionList($options[$marker] ?? []);
+            $answer = $answers[$marker] ?? null;
+
+            $result[$marker] = $this->ensureOptionCount($markerOptions, $pool, $targetCount, $answer);
+        }
+
+        return $result;
+    }
+
+    private function ensureOptionCount(array $options, array $pool, int $targetCount, ?string $answer): array
+    {
+        $options = $this->normalizeOptionList($options);
+
+        if ($answer !== null && ! in_array($answer, $options, true)) {
+            array_unshift($options, $answer);
+        }
+
+        // Pad options from the global pool if needed
+        if ($targetCount > 0 && count($options) < $targetCount) {
+            foreach ($pool as $candidate) {
+                if (count($options) >= $targetCount) {
+                    break;
+                }
+                if (! in_array($candidate, $options, true)) {
+                    $options[] = $candidate;
+                }
+            }
+        }
+
+        $options = array_values(array_unique($options));
+
+        if ($targetCount <= 0) {
+            shuffle($options);
+
+            return $options;
+        }
+
+        // Keep answer, shuffle the rest, then trim to targetCount
+        $answerValue = $answer;
+        $remaining = array_values(array_filter(
+            $options,
+            fn ($opt) => $answerValue === null ? true : $opt !== $answerValue
+        ));
+
+        shuffle($remaining);
+
+        $final = [];
+        if ($answerValue !== null) {
+            $final[] = $answerValue;
+        }
+
+        foreach ($remaining as $opt) {
+            if (count($final) >= $targetCount) {
+                break;
+            }
+            $final[] = $opt;
+        }
+
+        if (count($final) < $targetCount) {
+            $final = array_merge($final, array_slice($pool, 0, $targetCount - count($final)));
+        }
+
+        return array_slice(array_values(array_unique($final)), 0, $targetCount);
     }
 
     private function resolveTagNames(array $tagIds): array

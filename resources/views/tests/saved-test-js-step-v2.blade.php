@@ -126,6 +126,8 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
+const IS_ADMIN = Boolean(@json($isAdmin ?? false));
+window.__IS_ADMIN__ = IS_ADMIN;
 const EXPLAIN_URL = '{{ route('question.explain') }}';
 const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
 const TEST_SLUG = @json($test->slug);
@@ -134,37 +136,77 @@ const TEST_SLUG = @json($test->slug);
 @include('components.saved-test-js-helpers')
 @include('components.marker-theory-js')
 <script>
-/**
- * Build per-slot options arrays. If options divide evenly by markers count,
- * chunk them so each marker gets its own subset. Otherwise fallback to full list.
- */
-function buildOptionsBySlot(options, markersCount) {
+const FALLBACK_OPTIONS_PER_SLOT = 3;
+
+function getMarkersCount(q) {
+  if (Number.isInteger(q?.markers_count)) {
+    return q.markers_count;
+  }
+  return Array.isArray(q?.answers) ? q.answers.length : 1;
+}
+
+function sanitizeOptions(options) {
+  const clean = [];
+  (options || []).forEach((opt) => {
+    const value = String(opt).trim();
+    if (!value) return;
+    if (!clean.includes(value)) clean.push(value);
+  });
+  return clean;
+}
+
+function buildFallbackOptionsBySlot(options, markersCount) {
+  const normalized = sanitizeOptions(options);
   const optionsBySlot = [];
-  if (markersCount > 0 && options.length % markersCount === 0) {
-    const chunkSize = Math.floor(options.length / markersCount);
+  if (markersCount > 0 && normalized.length % markersCount === 0) {
+    const chunkSize = Math.floor(normalized.length / markersCount);
     if (chunkSize >= 2) {
       for (let i = 0; i < markersCount; i++) {
-        const chunk = options.slice(i * chunkSize, (i + 1) * chunkSize);
+        const chunk = normalized.slice(i * chunkSize, (i + 1) * chunkSize);
         shuffle(chunk);
         optionsBySlot.push(chunk);
       }
       return optionsBySlot;
     }
   }
-  // Fallback: each slot gets full shuffled options
   for (let i = 0; i < markersCount; i++) {
-    const all = [...options];
+    const all = [...normalized];
     shuffle(all);
     optionsBySlot.push(all);
   }
   return optionsBySlot;
 }
 
+function normalizeOptionsBySlot(q) {
+  const markers = Array.isArray(q.markers) ? q.markers : Object.keys(q.answer_map || {});
+  const markersCount = getMarkersCount(q);
+  const raw = q.options_by_marker;
+  const optionsBySlot = [];
+
+  if (raw && typeof raw === 'object') {
+    for (let i = 0; i < markersCount; i++) {
+      const markerKey = markers[i] || `a${i + 1}`;
+      const markerOptions = Array.isArray(raw[markerKey])
+        ? raw[markerKey]
+        : Array.isArray(raw[i])
+          ? raw[i]
+          : [];
+      optionsBySlot.push(sanitizeOptions(markerOptions));
+    }
+    const hasValues = optionsBySlot.some((arr) => Array.isArray(arr) && arr.length > 0);
+    if (hasValues) {
+      return optionsBySlot.map((arr) => (arr.length ? arr : sanitizeOptions(q.options || [])));
+    }
+  }
+
+  return buildFallbackOptionsBySlot(q.options || [], markersCount);
+}
+
 /**
  * Get active options for the current active slot
  */
 function getActiveOptions(q) {
-  if (q.optionsBySlot && Array.isArray(q.optionsBySlot) && q.optionsBySlot[q.activeSlot]) {
+  if (q.optionsBySlot && Array.isArray(q.optionsBySlot) && Array.isArray(q.optionsBySlot[q.activeSlot])) {
     return q.optionsBySlot[q.activeSlot];
   }
   // Fallback to full options list
@@ -179,6 +221,27 @@ function findFirstUnfilledSlot(q) {
     if (q.chosen[i] === null) return i;
   }
   return -1;
+}
+
+function clampActiveSlot(q) {
+  const total = getMarkersCount(q);
+  if (!Number.isInteger(q.activeSlot) || q.activeSlot < 0) {
+    q.activeSlot = 0;
+  }
+  if (q.activeSlot >= total) {
+    q.activeSlot = Math.max(0, total - 1);
+  }
+}
+
+function getMarkerLabel(q, idx) {
+  const markers = Array.isArray(q.markers) ? q.markers : Object.keys(q.answer_map || {});
+  return markers[idx] || `a${idx + 1}`;
+}
+
+function formatSlotIndicator(q) {
+  const total = getMarkersCount(q);
+  const label = getMarkerLabel(q, q.activeSlot);
+  return `Gap ${label} (${q.activeSlot + 1} / ${total})`;
 }
 
 const state = {
@@ -221,7 +284,8 @@ async function init(forceFresh = false) {
         if (!item.markerTheoryMatch || typeof item.markerTheoryMatch !== 'object') item.markerTheoryMatch = {};
         
         // Initialize new per-slot fields if missing (backward compatibility)
-        const markersCount = item.answers ? item.answers.length : 1;
+        const markersCount = getMarkersCount(item);
+        item.markers_count = markersCount;
         if (!Array.isArray(item.attemptsBySlot)) {
           item.attemptsBySlot = Array(markersCount).fill(0);
         }
@@ -229,35 +293,33 @@ async function init(forceFresh = false) {
           item.lastWrongBySlot = Array(markersCount).fill(null);
         }
         if (typeof item.activeSlot !== 'number') {
-          // Set active slot to first unfilled or 0
           item.activeSlot = findFirstUnfilledSlot(item);
           if (item.activeSlot === -1) item.activeSlot = 0;
         }
+        clampActiveSlot(item);
         // Regenerate optionsBySlot from base questions if available
-        const baseQ = QUESTIONS[idx];
-        if (baseQ && Array.isArray(baseQ.options)) {
-          item.optionsBySlot = buildOptionsBySlot(baseQ.options, markersCount);
-        } else if (!Array.isArray(item.optionsBySlot)) {
-          item.optionsBySlot = buildOptionsBySlot(item.options || [], markersCount);
-        }
+        const baseQ = QUESTIONS[idx] || item;
+        item.optionsBySlot = normalizeOptionsBySlot(baseQ);
       });
     }
   }
 
   if (!restored) {
     state.items = QUESTIONS.map((q) => {
-      const optionsBySlot = buildOptionsBySlot(q.options, q.answers.length);
+      const optionsBySlot = normalizeOptionsBySlot(q);
+      const markersCount = getMarkersCount(q);
       return {
         ...q,
         options: q.options, // Keep original options for fallback
         optionsBySlot: optionsBySlot,
-        chosen: Array(q.answers.length).fill(null),
+        markers_count: markersCount,
+        chosen: Array(markersCount).fill(null),
         activeSlot: 0,
         slot: 0, // Keep for backward compatibility
         done: false,
         wrongAttempt: false,
-        attemptsBySlot: Array(q.answers.length).fill(0),
-        lastWrongBySlot: Array(q.answers.length).fill(null),
+        attemptsBySlot: Array(markersCount).fill(0),
+        lastWrongBySlot: Array(markersCount).fill(null),
         lastWrong: null, // Keep for backward compatibility
         feedback: '',
         attempts: 0,
@@ -286,6 +348,7 @@ async function init(forceFresh = false) {
 function render() {
   const wrap = document.getElementById('question-card');
   const q = state.items[state.current];
+  clampActiveSlot(q);
   const sentence = renderSentence(q, state.current);
   const activeOptions = getActiveOptions(q);
   wrap.innerHTML = `
@@ -319,6 +382,12 @@ function render() {
           <div class="text-lg font-bold text-indigo-600">${state.current + 1}</div>
         </div>
       </div>
+      <div class="flex items-center justify-between mb-2 sm:mb-3">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-indigo-50 text-[12px] sm:text-sm font-semibold text-indigo-700 border border-indigo-100" id="slot-indicator-${state.current}">
+          ${formatSlotIndicator(q)}
+        </span>
+        <span class="text-[12px] sm:text-sm text-gray-600 font-medium">Active marker: ${getMarkerLabel(q, q.activeSlot)}</span>
+      </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-5 sm:mb-6" role="group" aria-label="Answer options">
         ${activeOptions.map((opt, i) => renderOptionButton(q, opt, i)).join('')}
       </div>
@@ -345,8 +414,9 @@ function render() {
     if (gapBtn) {
       e.stopPropagation();
       const gapIndex = parseInt(gapBtn.dataset.gap, 10);
-      if (!isNaN(gapIndex) && gapIndex !== q.activeSlot && q.chosen[gapIndex] === null) {
+      if (!isNaN(gapIndex) && gapIndex !== q.activeSlot) {
         q.activeSlot = gapIndex;
+        clampActiveSlot(q);
         render();
         persistState(state);
       }
@@ -422,6 +492,7 @@ document.getElementById('question-card').addEventListener('click', (e) => {
 function onChoose(opt) {
   const q = state.items[state.current];
   if (!q || q.done) return;
+  clampActiveSlot(q);
 
   const slotIndex = q.activeSlot;
   const expected = q.answers[slotIndex];
@@ -543,20 +614,22 @@ function updateProgress() {
 function renderSentence(q, idx) {
   let text = q.question;
   q.answers.forEach((ans, i) => {
+    const marker = getMarkerLabel(q, i);
+    const placeholder = marker || `a${i + 1}`;
+    const regex = new RegExp(`\\{${placeholder}\\}`, 'g');
+    const isActive = i === q.activeSlot;
     let replacement;
     if (q.chosen[i]) {
       // Filled slot - show chosen answer
-      replacement = `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold">${html(q.chosen[i])}</mark>`;
+      const filledClass = isActive ? 'ring-2 ring-indigo-300 ring-offset-1' : '';
+      replacement = `<mark class="px-2 py-1 rounded-lg bg-gradient-to-r from-amber-100 to-yellow-100 font-semibold ${filledClass}">${html(q.chosen[i])}</mark>`;
     } else {
       // Unfilled slot - make clickable
-      const isActive = i === q.activeSlot;
       const activeClass = isActive
-        ? 'bg-gradient-to-r from-amber-200 to-yellow-200'
+        ? 'bg-gradient-to-r from-amber-200 to-yellow-200 ring-2 ring-indigo-300 ring-offset-1'
         : 'bg-gray-100 hover:bg-amber-100';
       replacement = `<button type="button" class="gap-btn px-2 py-1 rounded-lg ${activeClass} font-semibold cursor-pointer transition-colors" data-gap="${i}">____</button>`;
     }
-    const regex = new RegExp(`\\{a${i + 1}\\}`);
-    const marker = `a${i + 1}`;
     const hint = q.verb_hints && q.verb_hints[marker]
       ? ` <span class="verb-hint text-red-600 text-sm font-bold">( ${html(q.verb_hints[marker])} )</span>`
       : '';
