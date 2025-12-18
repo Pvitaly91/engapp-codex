@@ -121,6 +121,10 @@ class QuestionSeedingService
             $attributes['type'] = $type === null ? null : (string) $type;
         }
 
+        if (Schema::hasColumn('questions', 'options_by_marker')) {
+            $attributes['options_by_marker'] = $data['options_by_marker'] ?? null;
+        }
+
         if (Schema::hasColumn('questions', 'theory_text_block_uuid')) {
             $attributes['theory_text_block_uuid'] = $data['theory_text_block_uuid'] ?? null;
         }

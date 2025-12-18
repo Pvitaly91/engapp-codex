@@ -14,6 +14,7 @@ class Question extends Model
 
     protected $casts = [
         'flag' => 'integer',
+        'options_by_marker' => 'array',
     ];
 
     public function renderQuestionText(): string
@@ -28,7 +29,19 @@ class Question extends Model
         return $questionText;
     }
 
-    protected $fillable = ['uuid', 'question', 'difficulty', 'level', 'theory_text_block_uuid', 'category_id', 'source_id', 'flag', 'seeder', 'type'];
+    protected $fillable = [
+        'uuid',
+        'question',
+        'difficulty',
+        'level',
+        'theory_text_block_uuid',
+        'category_id',
+        'source_id',
+        'flag',
+        'seeder',
+        'type',
+        'options_by_marker',
+    ];
 
     /**
      * Get the theory text block linked to this question.

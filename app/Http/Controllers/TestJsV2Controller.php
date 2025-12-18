@@ -93,6 +93,7 @@ class TestJsV2Controller extends Controller
             'jsStateMode' => $view,
             'savedState' => $savedState,
             'usesUuidLinks' => $resolved->usesUuidLinks,
+            'isAdmin' => $this->isAdminUser(),
         ]);
     }
 
@@ -121,19 +122,26 @@ class TestJsV2Controller extends Controller
             }
         }
 
-        return $questions->map(function ($q) {
-            $answers = $q->answers->map(function ($a) {
-                return [
-                    'marker' => $a->marker,
-                    'value' => $a->option->option ?? $a->answer ?? '',
-                ];
-            });
+        $controller = $this;
 
-            $answerList = $answers->pluck('value')->values()->toArray();
+        return $questions->map(function ($q) use ($controller) {
+            $answers = $q->answers
+                ->sortBy('marker')
+                ->values()
+                ->map(function ($a) {
+                    return [
+                        'marker' => $a->marker,
+                        'value' => $a->option->option ?? $a->answer ?? '',
+                    ];
+                });
+
             $answerMap = $answers
                 ->filter(fn ($ans) => ! empty($ans['marker']))
                 ->mapWithKeys(fn ($ans) => [$ans['marker'] => $ans['value']])
                 ->toArray();
+            $markers = array_keys($answerMap);
+            $answerList = array_map(fn ($marker) => $answerMap[$marker] ?? '', $markers);
+
             $options = $q->options->pluck('option')->toArray();
             foreach ($answerList as $ans) {
                 if ($ans && ! in_array($ans, $options)) {
@@ -144,6 +152,9 @@ class TestJsV2Controller extends Controller
             $verbHints = $q->verbHints
                 ->mapWithKeys(fn ($vh) => [$vh->marker => $vh->option->option ?? ''])
                 ->toArray();
+
+            $optionsByMarker = $controller->normalizeOptionsByMarker($q->options_by_marker, $markers);
+            $firstMarker = $markers[0] ?? null;
 
             // Load theory text block if question has a theory_text_block_uuid
             $theoryBlock = null;
@@ -169,7 +180,10 @@ class TestJsV2Controller extends Controller
                 'answer' => $answerList[0] ?? '',
                 'answers' => $answerList,
                 'answer_map' => $answerMap,
-                'verb_hint' => $verbHints['a1'] ?? '',
+                'markers' => $markers,
+                'markers_count' => count($markers),
+                'options_by_marker' => $optionsByMarker,
+                'verb_hint' => $firstMarker ? ($verbHints[$firstMarker] ?? '') : '',
                 'verb_hints' => $verbHints,
                 'options' => $options,
                 'tense' => $q->category->name ?? '',
@@ -183,5 +197,47 @@ class TestJsV2Controller extends Controller
     private function jsStateSessionKey($test, string $view): string
     {
         return sprintf('saved_test_js_state:%s:%s', $test->slug, $view);
+    }
+
+    private function isAdminUser(): bool
+    {
+        return (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
+    }
+
+    private function normalizeOptionsByMarker($rawOptions, array $markers): ?array
+    {
+        if (! is_array($rawOptions)) {
+            return null;
+        }
+
+        $normalized = [];
+        $hasValues = false;
+
+        foreach ($markers as $index => $marker) {
+            $options = $rawOptions[$marker] ?? $rawOptions[$index] ?? [];
+            $options = is_array($options) ? $this->filterOptionArray($options) : [];
+            if (! empty($options)) {
+                $hasValues = true;
+            }
+            $normalized[] = $options;
+        }
+
+        return $hasValues ? $normalized : null;
+    }
+
+    private function filterOptionArray(array $options): array
+    {
+        $clean = [];
+        foreach ($options as $option) {
+            $value = is_string($option) ? trim($option) : trim((string) $option);
+            if ($value === '') {
+                continue;
+            }
+            if (! in_array($value, $clean, true)) {
+                $clean[] = $value;
+            }
+        }
+
+        return $clean;
     }
 }

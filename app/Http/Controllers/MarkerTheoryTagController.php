@@ -13,7 +13,9 @@ class MarkerTheoryTagController extends Controller
 {
     public function __construct(
         private MarkerTheoryMatcherService $matcherService,
-    ) {}
+    ) {
+        $this->middleware('auth.admin');
+    }
 
     /**
      * Get available theory tags for a marker.
