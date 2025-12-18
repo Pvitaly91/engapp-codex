@@ -564,6 +564,7 @@
       .sticky-test-header.is-stuck .sticky-inner {
         padding: 0.5rem 0.75rem;
         border-radius: 0.75rem;
+        gap: 0.25rem;
       }
 
       .sticky-test-header.is-stuck .progress-section {
@@ -599,11 +600,6 @@
       /* Hide word search section when stuck to reduce height by ~50% */
       .sticky-test-header.is-stuck .word-search-section {
         display: none;
-      }
-
-      /* Reduce spacing in sticky-inner when stuck */
-      .sticky-test-header.is-stuck .sticky-inner {
-        gap: 0.25rem;
       }
 
       /* Additional space adjustments for flex containers */
