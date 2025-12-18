@@ -4,7 +4,7 @@
  * Requires: MARKER_THEORY_URL, TEST_SLUG, CSRF_TOKEN, state, showLoader, persistState, html functions
  */
 
-const IS_ADMIN = typeof window.__IS_ADMIN__ !== 'undefined'
+const MARKER_IS_ADMIN = typeof window.__IS_ADMIN__ !== 'undefined'
   ? Boolean(window.__IS_ADMIN__)
   : Boolean(@json(auth()->user()?->is_admin ?? session('admin_authenticated', false)));
 
@@ -274,7 +274,7 @@ function getMatchedTagNamesForMarker(q, marker) {
  * Also shows "Add tags" button for questions with linked theory blocks
  */
 function renderMarkerTagsDebug(q, marker, idx) {
-  if (!IS_ADMIN) return '';
+  if (!MARKER_IS_ADMIN) return '';
   const tags = getMarkerTagObjects(q, marker);
   const hasTags = tags && tags.length > 0;
   const hasTheoryBlock = q.theory_block?.uuid;
@@ -326,7 +326,7 @@ function renderAddTagsButton(q, marker, idx) {
  * This re-renders the tags list with proper highlighting
  */
 function updateMarkerTagsHighlighting(idx, marker, q) {
-  if (!IS_ADMIN) return;
+  if (!MARKER_IS_ADMIN) return;
   const tagId = `marker-tags-${idx}-${marker}`;
   const tagsListEl = document.getElementById(tagId);
   if (!tagsListEl) return;
@@ -387,7 +387,7 @@ const availableTagsCache = {};
  * Open the modal to add tags from theory page
  */
 async function openAddTagsModal(questionId, marker, idx) {
-  if (!IS_ADMIN) return;
+  if (!MARKER_IS_ADMIN) return;
   const item = state.items[idx];
   if (!item) return;
   

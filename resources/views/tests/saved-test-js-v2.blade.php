@@ -117,8 +117,8 @@ let QUESTIONS = Array.isArray(window.__INITIAL_JS_TEST_QUESTIONS__)
     ? window.__INITIAL_JS_TEST_QUESTIONS__
     : [];
 const CSRF_TOKEN = '{{ csrf_token() }}';
-const IS_ADMIN = Boolean(@json($isAdmin ?? false));
-window.__IS_ADMIN__ = IS_ADMIN;
+const JS_IS_ADMIN = Boolean(@json($isAdmin ?? false));
+window.__IS_ADMIN__ = JS_IS_ADMIN;
 const EXPLAIN_URL = '{{ route('question.explain') }}';
 const HINT_URL = '{{ route('question.hint') }}';
 const MARKER_THEORY_URL = '{{ route('question.marker-theory') }}';
