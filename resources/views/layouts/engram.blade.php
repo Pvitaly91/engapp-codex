@@ -542,6 +542,71 @@
       scrollbar-width: thin;
       scrollbar-color: hsl(var(--border)) transparent;
     }
+
+    /* Sticky header compact state when scrolled - DESKTOP ONLY (>= 1024px) */
+    .sticky-test-header {
+      --sticky-transition-duration: 200ms;
+    }
+
+    .sticky-test-header .sticky-inner,
+    .sticky-test-header .progress-section,
+    .sticky-test-header .progress-icon,
+    .sticky-test-header .progress-icon svg,
+    .sticky-test-header .progress-label-text,
+    .sticky-test-header .progress-value,
+    .sticky-test-header .progress-bar-container,
+    .sticky-test-header .word-search-section {
+      transition: all var(--sticky-transition-duration) ease;
+    }
+
+    /* Desktop-only sticky compact state (min-width: 1024px) */
+    @media (min-width: 1024px) {
+      .sticky-test-header.is-stuck .sticky-inner {
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.75rem;
+        gap: 0.25rem;
+      }
+
+      .sticky-test-header.is-stuck .progress-section {
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+      }
+
+      .sticky-test-header.is-stuck .progress-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .sticky-test-header.is-stuck .progress-icon svg {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+
+      .sticky-test-header.is-stuck .progress-label-text {
+        font-size: 0.5625rem;
+        line-height: 1;
+      }
+
+      .sticky-test-header.is-stuck .progress-value {
+        font-size: 0.8125rem;
+        line-height: 1.2;
+      }
+
+      .sticky-test-header.is-stuck .progress-bar-container {
+        height: 0.25rem;
+        margin-top: 0.125rem;
+      }
+
+      /* Hide word search section when stuck to reduce height by ~50% */
+      .sticky-test-header.is-stuck .word-search-section {
+        display: none;
+      }
+
+      /* Additional space adjustments for flex containers */
+      .sticky-test-header.is-stuck .progress-section > div {
+        gap: 0.375rem;
+      }
+    }
   </style>
 
   @yield('scripts')
