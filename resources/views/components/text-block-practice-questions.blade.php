@@ -3,9 +3,32 @@
 @php
     $questions = $questions ?? collect();
     $uniqueId = $blockUuid ? 'practice-' . \Illuminate\Support\Str::slug($blockUuid) : 'practice-' . uniqid();
+    $isAdmin = (bool) (auth()->user()?->is_admin ?? session('admin_authenticated', false));
     
     // Prepare questions data for JavaScript
-    $questionsData = $questions->map(function($q) {
+    $questionsData = $questions->map(function($q) use ($isAdmin) {
+        $matchedTagIds = collect($q->getAttribute('matched_tag_ids') ?? []);
+
+        $tags = $q->tags->map(function($tag) use ($matchedTagIds) {
+            return [
+                'id' => $tag->id,
+                'name' => $tag->name,
+                'matched' => $matchedTagIds->contains($tag->id),
+            ];
+        });
+
+        $markerTags = $isAdmin
+            ? collect($q->getAttribute('marker_tags') ?? [])->map(function($tags, $marker) {
+                return collect($tags)->map(function($tag) {
+                    return [
+                        'id' => $tag['id'] ?? null,
+                        'name' => $tag['name'] ?? '',
+                        'category' => $tag['category'] ?? null,
+                    ];
+                })->values();
+            })
+            : collect();
+
         // Get verb hints by marker
         $verbHints = $q->verbHints->mapWithKeys(function($vh) {
             return [$vh->marker => $vh->option->option ?? ''];
@@ -32,6 +55,8 @@
             })->toArray(),
             'verb_hints' => $verbHints,
             'hints' => $hints,
+            'tags' => $tags->toArray(),
+            'marker_tags' => $markerTags->toArray(),
         ];
     })->values()->toArray();
 @endphp
@@ -63,16 +88,60 @@
                     <div>
                         {{-- Level badge --}}
                         <div class="mb-2" x-show="currentQuestion.level">
-                            <span 
+                            <span
                                 class="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-bold"
                                 :class="getLevelColor(currentQuestion.level)"
                                 x-text="currentQuestion.level"
                             ></span>
                         </div>
-                        
+
                         {{-- Question text --}}
                         <p class="text-sm text-foreground font-medium leading-relaxed" x-html="getDisplayText()"></p>
-                        
+
+                        {{-- Question tags (matched tags highlighted) --}}
+                        @if($isAdmin)
+                            <div class="mt-3 space-y-1" x-show="currentQuestion.tags && currentQuestion.tags.length">
+                                <div class="text-[11px] font-semibold text-muted-foreground">Tags (matched highlighted)</div>
+                                <div class="flex flex-wrap gap-1">
+                                    <template x-for="tag in currentQuestion.tags" :key="tag.id || tag.name">
+                                        <span
+                                            class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium border"
+                                            :class="tag.matched
+                                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                                : 'bg-muted/60 text-muted-foreground border-border/60'"
+                                        >
+                                            <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" x-show="tag.matched">
+                                                <path d="M7.172 2.172a4 4 0 0 1 5.656 0l4 4a4 4 0 0 1 0 5.656l-3.586 3.586a2 2 0 0 1-1.414.586H5a2 2 0 0 1-2-2v-6.828a2 2 0 0 1 .586-1.414z" />
+                                            </svg>
+                                            <span x-text="tag.name"></span>
+                                        </span>
+                                    </template>
+                                </div>
+                            </div>
+                        @endif
+
+                        {{-- Marker tags (admin only) --}}
+                        @if($isAdmin)
+                            <div class="mt-3 space-y-1" x-show="hasMarkerTags(currentQuestion)">
+                                <div class="text-[11px] font-semibold text-muted-foreground">Marker tags</div>
+                                <template x-for="(tags, marker) in currentQuestion.marker_tags" :key="marker">
+                                    <div class="flex items-start gap-2">
+                                        <span class="px-1.5 py-0.5 rounded bg-muted/60 text-[10px] font-semibold uppercase text-muted-foreground" x-text="marker"></span>
+                                        <div class="flex flex-wrap gap-1">
+                                            <template x-for="tag in tags" :key="tag.id || tag.name">
+                                                <span class="inline-flex items-center gap-1 rounded-full bg-indigo-50 text-indigo-700 px-2 py-0.5 text-[10px] font-medium">
+                                                    <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path d="M7.172 2.172a4 4 0 0 1 5.656 0l4 4a4 4 0 0 1 0 5.656l-3.586 3.586a2 2 0 0 1-1.414.586H5a2 2 0 0 1-2-2v-6.828a2 2 0 0 1 .586-1.414z" />
+                                                    </svg>
+                                                    <span x-text="tag.name"></span>
+                                                </span>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        @endif
+
                         {{-- Verb hint (shown before answering) --}}
                         <div x-show="!answered && currentVerbHint" class="mt-2">
                             <span class="text-xs text-rose-600 font-semibold">
@@ -298,7 +367,13 @@
                     };
                     return colors[level] || 'bg-muted text-muted-foreground border-border';
                 },
-                
+
+                hasMarkerTags(question) {
+                    const q = question || this.currentQuestion;
+                    if (!q || !q.marker_tags) return false;
+                    return Object.values(q.marker_tags).some(tags => Array.isArray(tags) && tags.length > 0);
+                },
+
                 selectAnswer(option) {
                     if (this.answered) return;
                     this.selectedOption = option;
