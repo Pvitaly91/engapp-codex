@@ -3,29 +3,17 @@
 namespace App\Services;
 
 use App\Models\Question;
-use App\Models\Tag;
 use App\Models\TextBlock;
+use App\Services\Theory\TagMatch\TagMatchScorer;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
 
 class MarkerTheoryMatcherService
 {
-    /**
-     * Tag name that should not be the sole matching criterion.
-     */
-    private const TYPES_OF_QUESTIONS_TAG = 'types-of-questions';
-
-    private const GENERAL_TAGS = [
-        'types-of-questions',
-        'question-forms',
-        'grammar',
-        'theory',
-        'question-sentences',
-        'types-of-question-sentences',
-        'question-formation-practice',
-    ];
+    public function __construct(private TagMatchScorer $tagMatchScorer)
+    {
+    }
 
     /**
      * Tags that indicate introductory/overview content - these blocks should
@@ -49,54 +37,6 @@ class MarkerTheoryMatcherService
         'hero',
     ];
 
-    private const DETAIL_FIRST_TAGS = [
-        'tag-questions',
-        'question-tags',
-        'indirect-questions',
-        'embedded-questions',
-        'question-word-order',
-        'statement-order',
-        'subject-questions',
-        'negative-questions',
-        'alternative-questions',
-        'wh-questions',
-        'yes-no-questions',
-        'special-questions',
-        'question-formation',
-        'be-ing',
-    ];
-
-    private const DETAIL_SECOND_TAGS = [
-        'modal-verbs',
-        'do-does-did',
-        'to-be',
-        'be-am-is-are-was-were',
-        'present-simple',
-        'past-simple',
-        'future-simple',
-        'present-continuous',
-        'past-continuous',
-        'present-perfect',
-        'past-perfect',
-        'present-perfect-continuous',
-        'past-perfect-continuous',
-        'auxiliaries',
-        'have-has-had',
-        'can-could',
-        'will-would',
-        'may-might',
-    ];
-
-    private const TAG_ALIASES = [
-        'question-tags' => 'tag-questions',
-        'question-word-order' => 'statement-order',
-        // Map slash versions to dash versions for common auxiliary tags
-        'do/does/did' => 'do-does-did',
-        'can/could' => 'can-could',
-        'will/would' => 'will-would',
-        'may/might' => 'may-might',
-        'have/has/had' => 'have-has-had',
-    ];
 
     /**
      * Find the best matching theory block for a specific marker in a question.
@@ -113,7 +53,7 @@ class MarkerTheoryMatcherService
             return null;
         }
 
-        $normalizedTags = $this->normalizeTags($markerTags->pluck('name')->toArray());
+        $normalizedTags = $this->tagMatchScorer->normalizeTags($markerTags->pluck('name')->toArray());
 
         if (empty($normalizedTags)) {
             return null;
@@ -143,7 +83,7 @@ class MarkerTheoryMatcherService
             }
         }
 
-        $matchedTagData = $this->calculateMatchedTagData($matchedBlock['matched_tags'], $markerTags, $block->tags);
+        $matchedTagData = $this->tagMatchScorer->calculateMatchedTagData($matchedBlock['matched_tags'], $markerTags, $block->tags);
 
         return [
             'uuid' => $block->uuid,
@@ -151,8 +91,8 @@ class MarkerTheoryMatcherService
             'body' => $block->body,
             'level' => $block->level,
             'matched_tags' => $matchedBlock['matched_tags'],
-            'matched_tag_ids' => $matchedTagData['ids'],
-            'matched_tag_names' => $matchedTagData['names'],
+            'matched_tag_ids' => $matchedTagData['matched_tag_ids'],
+            'matched_tag_names' => $matchedTagData['matched_tag_names'],
             'score' => $matchedBlock['score'],
             'marker' => $marker,
             'page_url' => $pageUrl,
@@ -172,7 +112,7 @@ class MarkerTheoryMatcherService
             return null;
         }
 
-        $normalizedTags = $this->normalizeTags($markerTags->pluck('name')->toArray());
+        $normalizedTags = $this->tagMatchScorer->normalizeTags($markerTags->pluck('name')->toArray());
 
         if (empty($normalizedTags)) {
             return null;
@@ -238,7 +178,7 @@ class MarkerTheoryMatcherService
         $introBestScore = 0;
 
         foreach ($textBlocks as $textBlock) {
-            $blockTags = $this->normalizeTags(
+            $blockTags = $this->tagMatchScorer->normalizeTags(
                 $textBlock->tags->pluck('name')->toArray()
             );
 
@@ -248,7 +188,7 @@ class MarkerTheoryMatcherService
                 continue;
             }
 
-            $scoring = $this->scoreMatchedTags($matched);
+            $scoring = $this->tagMatchScorer->scoreMatchedTags($matched);
 
             if ($scoring['skip']) {
                 continue;
@@ -373,166 +313,6 @@ class MarkerTheoryMatcherService
             ->with($relationships)
             ->whereHas('tags')
             ->get();
-    }
-
-    /**
-     * Normalize tags to lowercase, trimmed, unique array.
-     *
-     * @param  array|string|null  $tags
-     */
-    private function normalizeTags($tags): array
-    {
-        if ($tags === null) {
-            return [];
-        }
-
-        if (is_string($tags)) {
-            $tags = array_filter(array_map('trim', explode(',', $tags)));
-        }
-
-        if (! is_array($tags)) {
-            return [];
-        }
-
-        return collect($tags)
-            ->filter(fn ($tag) => is_string($tag) && trim($tag) !== '')
-            ->map(fn ($tag) => $this->normalizeTagName($tag))
-            ->map(fn ($tag) => self::TAG_ALIASES[$tag] ?? $tag)
-            ->unique()
-            ->values()
-            ->all();
-    }
-
-    private function normalizeTagName(string $tag): string
-    {
-        $slug = Str::slug(trim($tag));
-
-        if ($slug === '') {
-            return '';
-        }
-
-        // Preserve slashes that Str::slug would drop for patterns like Do/Does/Did
-        if (str_contains($tag, '/')) {
-            return str_replace(' ', '-', strtolower(trim($tag)));
-        }
-
-        return $slug;
-    }
-
-    /**
-     * Calculate matched tag IDs and original names based on normalized matches.
-     *
-     * @param  array<int, string>  $matchedNormalizedTags
-     * @param  Collection<int, Tag>  $markerTags
-     * @param  Collection<int, Tag>  $blockTags
-     * @return array{ids: array<int>, names: array<int, string>}
-     */
-    private function calculateMatchedTagData(array $matchedNormalizedTags, Collection $markerTags, Collection $blockTags): array
-    {
-        if (empty($matchedNormalizedTags)) {
-            return ['ids' => [], 'names' => []];
-        }
-
-        $markerMap = $this->mapNormalizedTagsToIds($markerTags);
-        $blockMap = $this->mapNormalizedTagsToIds($blockTags);
-
-        $matchedIds = [];
-        $matchedNames = [];
-
-        foreach ($matchedNormalizedTags as $tag) {
-            if (! isset($markerMap[$tag], $blockMap[$tag])) {
-                continue;
-            }
-
-            $markerIds = array_column($markerMap[$tag], 'id');
-            $blockEntries = $blockMap[$tag];
-            $blockIds = array_column($blockEntries, 'id');
-
-            $matchedIds = array_merge($matchedIds, array_intersect($markerIds, $blockIds));
-            $matchedNames = array_merge($matchedNames, array_column($blockEntries, 'name'));
-        }
-
-        return [
-            'ids' => array_values(array_unique($matchedIds)),
-            'names' => array_values(array_unique($matchedNames)),
-        ];
-    }
-
-    /**
-     * Map normalized tag names to their IDs and original names.
-     *
-     * @param  Collection<int, Tag>  $tags
-     * @return array<string, array<int, array{id: int, name: string}>>
-     */
-    private function mapNormalizedTagsToIds(Collection $tags): array
-    {
-        $map = [];
-
-        foreach ($tags as $tag) {
-            $normalized = $this->normalizeTagName($tag->name);
-            $normalized = self::TAG_ALIASES[$normalized] ?? $normalized;
-
-            if ($normalized === '') {
-                continue;
-            }
-
-            $map[$normalized] ??= [];
-            $map[$normalized][] = ['id' => $tag->id, 'name' => $tag->name];
-        }
-
-        return $map;
-    }
-
-    private function scoreMatchedTags(array $matchedTags): array
-    {
-        $score = 0.0;
-        $detailedMatches = 0;
-        $generalMatches = 0;
-
-        foreach ($matchedTags as $tag) {
-            $weight = $this->weightForTag($tag);
-            $score += $weight;
-
-            if (in_array($tag, self::GENERAL_TAGS, true)) {
-                $generalMatches++;
-            } elseif ($weight >= 2.5) {
-                $detailedMatches++;
-            }
-        }
-
-        $score += count($matchedTags) * 0.25;
-
-        $skip = $detailedMatches === 0 && count($matchedTags) <= 1;
-        $skip = $skip || ($generalMatches === count($matchedTags));
-
-        return [
-            'score' => round($score, 2),
-            'detailed_matches' => $detailedMatches,
-            'general_matches' => $generalMatches,
-            'skip' => $skip,
-        ];
-    }
-
-
-    private function weightForTag(string $tag): float
-    {
-        if (in_array($tag, self::GENERAL_TAGS, true)) {
-            return 0.5;
-        }
-
-        if (in_array($tag, self::DETAIL_FIRST_TAGS, true)) {
-            return 3.5;
-        }
-
-        if (in_array($tag, self::DETAIL_SECOND_TAGS, true)) {
-            return 2.5;
-        }
-
-        if (str_contains($tag, 'cefr')) {
-            return 0.75;
-        }
-
-        return 1.5;
     }
 
     /**
