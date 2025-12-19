@@ -78,6 +78,16 @@ class TagMatchScorer
         'may-might',
     ];
 
+    public function detailFirstTags(): array
+    {
+        return static::$detailFirstTags;
+    }
+
+    public function detailSecondTags(): array
+    {
+        return static::$detailSecondTags;
+    }
+
     /**
      * Tag aliases to normalize similar tags to a canonical form.
      */

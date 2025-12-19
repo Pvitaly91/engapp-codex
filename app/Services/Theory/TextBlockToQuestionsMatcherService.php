@@ -40,8 +40,15 @@ class TextBlockToQuestionsMatcherService
 
         $scored = [];
         $blockTags = $block->tags;
+        $blockNormalized = $this->tagMatchScorer->normalizeTags($blockTags->pluck('name')->toArray());
 
         foreach ($candidates as $question) {
+            $candidateNormalized = $this->tagMatchScorer->normalizeTags($question->tags->pluck('name')->toArray());
+
+            if (! $this->passesTagCoverage($blockNormalized, $candidateNormalized)) {
+                continue;
+            }
+
             $score = $this->tagMatchScorer->scoreCollections($blockTags, $question->tags);
 
             if ($score['skip']) {
@@ -225,6 +232,31 @@ class TextBlockToQuestionsMatcherService
         }
 
         return $baseScore;
+    }
+
+    private function passesTagCoverage(array $blockNormalized, array $candidateNormalized): bool
+    {
+        $overlap = array_intersect($blockNormalized, $candidateNormalized);
+
+        if (count($overlap) < 2) {
+            return false;
+        }
+
+        $detailFirst = array_intersect($blockNormalized, $this->tagMatchScorer->detailFirstTags());
+        $detailFirstOverlap = array_intersect($detailFirst, $candidateNormalized);
+
+        if (! empty($detailFirst) && count($detailFirstOverlap) < count($detailFirst)) {
+            return false;
+        }
+
+        $detailSecond = array_intersect($blockNormalized, $this->tagMatchScorer->detailSecondTags());
+        $detailSecondOverlap = array_intersect($detailSecond, $candidateNormalized);
+
+        if (! empty($detailSecond) && empty($detailSecondOverlap)) {
+            return false;
+        }
+
+        return true;
     }
 }
 

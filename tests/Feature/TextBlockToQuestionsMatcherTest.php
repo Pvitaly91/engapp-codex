@@ -215,6 +215,64 @@ class TextBlockToQuestionsMatcherTest extends TestCase
     }
 
     /** @test */
+    public function it_requires_multitag_overlap_with_modal_variants(): void
+    {
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Modal Yes/No',
+            'slug' => 'modal-yes-no',
+            'text' => 'Theory about modal questions',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Yes/No modal block',
+            'body' => json_encode(['title' => 'Practice']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        $tagGeneral = Tag::create(['name' => 'types-of-questions', 'category' => 'Grammar']);
+        $tagYesNo = Tag::create(['name' => 'yes-no-questions', 'category' => 'Detail']);
+        $tagCanCould = Tag::create(['name' => 'can-could', 'category' => 'Auxiliary']);
+        $tagWillWould = Tag::create(['name' => 'will-would', 'category' => 'Auxiliary']);
+
+        $textBlock->tags()->attach([$tagGeneral->id, $tagYesNo->id, $tagCanCould->id, $tagWillWould->id]);
+
+        $category = Category::create(['name' => 'Test Category']);
+
+        $questionMissingModal = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Do you like coffee?',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+        ]);
+        $questionMissingModal->tags()->attach([$tagGeneral->id, $tagYesNo->id]);
+
+        $questionWithModal = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Can you swim?',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+        ]);
+        $questionWithModal->tags()->attach([$tagGeneral->id, $tagYesNo->id, $tagCanCould->id]);
+
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock, 5);
+
+        $this->assertFalse($result->contains('id', $questionMissingModal->id), 'Questions without modal tag should be filtered out');
+        $this->assertTrue($result->contains('id', $questionWithModal->id), 'Questions with matching modal variant should be included');
+    }
+
+    /** @test */
     public function it_prioritizes_questions_with_more_matching_tags(): void
     {
         $pageCategory = PageCategory::create([
