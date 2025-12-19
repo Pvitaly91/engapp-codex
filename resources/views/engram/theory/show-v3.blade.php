@@ -299,6 +299,14 @@
                             'block' => $block,
                             'data' => json_decode($block->body ?? '[]', true),
                         ])
+                        
+                        {{-- Practice Questions for this block --}}
+                        @if(isset($textBlockPracticeQuestions[$block->id]))
+                            @include('engram.theory.partials.block-practice-questions', [
+                                'questions' => $textBlockPracticeQuestions[$block->id],
+                                'block' => $block,
+                            ])
+                        @endif
                     @endforeach
                 </div>
 
