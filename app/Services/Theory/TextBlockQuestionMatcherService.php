@@ -23,6 +23,15 @@ class TextBlockQuestionMatcherService
         'question-sentences',
         'types-of-question-sentences',
         'question-formation-practice',
+        'english-grammar-theme',
+        'introduction',
+        'overview',
+        'summary',
+        'quick-reference',
+        'navigation',
+        'practice',
+        'exercises',
+        'interactive',
     ];
 
     /**
@@ -32,18 +41,27 @@ class TextBlockQuestionMatcherService
     private const DETAIL_FIRST_TAGS = [
         'tag-questions',
         'question-tags',
+        'disjunctive-questions',
         'indirect-questions',
         'embedded-questions',
         'question-word-order',
         'statement-order',
+        'word-order',
         'subject-questions',
         'negative-questions',
+        'negative-question-forms',
         'alternative-questions',
+        'choice-questions',
         'wh-questions',
         'yes-no-questions',
+        'general-questions',
         'special-questions',
         'question-formation',
-        'be-ing',
+        'question-words',
+        'polarity',
+        'positive-negative-rule',
+        'intonation',
+        'rising-vs-falling',
     ];
 
     /**
@@ -66,9 +84,19 @@ class TextBlockQuestionMatcherService
         'past-perfect-continuous',
         'auxiliaries',
         'have-has-had',
+        'have-got',
         'can-could',
         'will-would',
         'may-might',
+        'should',
+        'must',
+        'i-am',
+        'imperatives',
+        'lets',
+        'this-that',
+        'special-cases',
+        'british-vs-american',
+        'confirmation',
     ];
 
     /**
@@ -425,9 +453,20 @@ class TextBlockQuestionMatcherService
 
     /**
      * Normalize a single tag name.
+     * Converts to lowercase and replaces spaces/special characters with hyphens.
      */
     private function normalizeTagName(string $tag): string
     {
-        return strtolower(trim($tag));
+        $normalized = strtolower(trim($tag));
+        // Replace spaces with hyphens
+        $normalized = preg_replace('/\s+/', '-', $normalized);
+        // Replace common special characters (parentheses, slashes) with hyphens
+        $normalized = preg_replace('/[\(\)\/]/', '-', $normalized);
+        // Remove consecutive hyphens
+        $normalized = preg_replace('/-+/', '-', $normalized);
+        // Trim leading/trailing hyphens
+        $normalized = trim($normalized, '-');
+
+        return $normalized;
     }
 }
