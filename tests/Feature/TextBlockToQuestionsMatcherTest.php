@@ -468,6 +468,76 @@ class TextBlockToQuestionsMatcherTest extends TestCase
         $this->assertNotEmpty($result->first()->getAttribute('matched_tag_ids'));
     }
 
+    /** @test */
+    public function it_returns_marker_tags_grouped_by_marker(): void
+    {
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Question Types',
+            'slug' => 'question-types',
+            'text' => 'Theory',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Tag-rich block',
+            'body' => json_encode(['title' => 'Overview']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+            'level' => 'B1',
+        ]);
+
+        $tagGeneral = Tag::create(['name' => 'types-of-questions', 'category' => 'Grammar']);
+        $tagDetail = Tag::create(['name' => 'yes-no-questions', 'category' => 'Detail']);
+        $textBlock->tags()->attach([$tagGeneral->id, $tagDetail->id]);
+
+        $category = Category::create(['name' => 'Test Category']);
+
+        $question = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Do you like coffee? {a1} {a2}',
+            'difficulty' => 1,
+            'level' => 'B1',
+            'category_id' => $category->id,
+        ]);
+
+        $question->tags()->attach([$tagGeneral->id, $tagDetail->id]);
+
+        $optionYes = DB::table('question_options')->insertGetId(['option' => 'do']);
+        $optionSubject = DB::table('question_options')->insertGetId(['option' => 'you']);
+
+        DB::table('question_option_question')->insert([
+            ['question_id' => $question->id, 'option_id' => $optionYes],
+            ['question_id' => $question->id, 'option_id' => $optionSubject],
+        ]);
+
+        DB::table('question_answers')->insert([
+            ['question_id' => $question->id, 'option_id' => $optionYes, 'marker' => 'a1'],
+            ['question_id' => $question->id, 'option_id' => $optionSubject, 'marker' => 'a2'],
+        ]);
+
+        DB::table('question_marker_tag')->insert([
+            ['question_id' => $question->id, 'marker' => 'a1', 'tag_id' => $tagGeneral->id, 'created_at' => now(), 'updated_at' => now()],
+            ['question_id' => $question->id, 'marker' => 'a2', 'tag_id' => $tagDetail->id, 'created_at' => now(), 'updated_at' => now()],
+        ]);
+
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock, 3);
+
+        $markerTags = $result->first()->getAttribute('marker_tags');
+
+        $this->assertArrayHasKey('a1', $markerTags);
+        $this->assertArrayHasKey('a2', $markerTags);
+        $this->assertSame($tagGeneral->id, $markerTags['a1'][0]['id']);
+        $this->assertSame($tagDetail->id, $markerTags['a2'][0]['id']);
+    }
+
     private function ensureSchema(): void
     {
         if (! Schema::hasTable('categories')) {
@@ -593,6 +663,17 @@ class TextBlockToQuestionsMatcherTest extends TestCase
             });
         }
 
+        if (! Schema::hasTable('question_marker_tag')) {
+            Schema::create('question_marker_tag', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('question_id');
+                $table->string('marker');
+                $table->unsignedBigInteger('tag_id');
+                $table->timestamps();
+                $table->unique(['question_id', 'marker', 'tag_id'], 'question_marker_tag_unique');
+            });
+        }
+
         if (! Schema::hasTable('verb_hints')) {
             Schema::create('verb_hints', function (Blueprint $table) {
                 $table->id();
@@ -621,6 +702,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
             'question_answers',
             'question_option_question',
             'question_options',
+            'question_marker_tag',
             'tag_text_block',
             'text_blocks',
             'pages',

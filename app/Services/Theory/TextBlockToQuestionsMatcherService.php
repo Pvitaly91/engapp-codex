@@ -71,6 +71,7 @@ class TextBlockToQuestionsMatcherService
             $question = $item['question'];
             $question->setAttribute('match_score', $item['score']);
             $question->setAttribute('matched_tag_ids', $item['matched_tag_ids']);
+            $question->setAttribute('marker_tags', $this->groupMarkerTags($question));
 
             return $question;
         });
@@ -118,7 +119,14 @@ class TextBlockToQuestionsMatcherService
         }
 
         $query = Question::query()
-            ->with(['tags:id,name', 'options', 'answers.option', 'verbHints.option', 'hints'])
+            ->with([
+                'tags:id,name',
+                'options',
+                'answers.option',
+                'verbHints.option',
+                'hints',
+                'markerTags:id,name,category',
+            ])
             ->whereHas('tags', function ($q) use ($blockTagIds) {
                 $q->whereIn('tags.id', $blockTagIds);
             })
@@ -133,6 +141,32 @@ class TextBlockToQuestionsMatcherService
         }
 
         return $query->get();
+    }
+
+    /**
+     * Group marker tags by marker name for front-end consumption.
+     */
+    private function groupMarkerTags(Question $question): array
+    {
+        if (! $question->relationLoaded('markerTags')) {
+            $question->load('markerTags:id,name,category');
+        }
+
+        if (! $question->relationLoaded('answers')) {
+            $question->load('answers');
+        }
+
+        $markers = $question->answers->pluck('marker')->filter()->unique();
+
+        return $question->markerTags
+            ->filter(fn ($tag) => $tag->pivot?->marker && $markers->contains($tag->pivot->marker))
+            ->groupBy(fn ($tag) => $tag->pivot->marker)
+            ->map(fn ($tags) => $tags->map(fn ($tag) => [
+                'id' => $tag->id,
+                'name' => $tag->name,
+                'category' => $tag->category,
+            ])->values()->toArray())
+            ->toArray();
     }
 
     private function weightedRandomSelection(array $candidates, int $limit): array
