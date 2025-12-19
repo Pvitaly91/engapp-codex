@@ -78,7 +78,7 @@
                             </h3>
                             <nav class="space-y-1">
                                 @foreach($categoryPages as $pageItem)
-                                    @php($isCurrentPage = $page->is($pageItem))
+                                    <?php $isCurrentPage = $page->is($pageItem); ?>
                                     <a
                                         href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
                                         class="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted/50 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:text-foreground' }}"
