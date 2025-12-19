@@ -441,11 +441,43 @@ class TextBlockQuestionMatcherTest extends TestCase
                 $table->primary(['question_id', 'tag_id']);
             });
         }
+
+        if (! Schema::hasTable('question_options')) {
+            Schema::create('question_options', function (Blueprint $table) {
+                $table->id();
+                $table->string('option')->unique();
+                $table->timestamps();
+            });
+        }
+
+        if (! Schema::hasTable('question_option_question')) {
+            Schema::create('question_option_question', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('question_id');
+                $table->unsignedBigInteger('option_id');
+                $table->tinyInteger('flag')->nullable();
+                $table->unique(['question_id', 'option_id', 'flag'], 'qoq_question_option_flag_unique');
+            });
+        }
+
+        if (! Schema::hasTable('question_answers')) {
+            Schema::create('question_answers', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('question_id');
+                $table->unsignedBigInteger('option_id');
+                $table->string('marker');
+                $table->timestamps();
+                $table->unique(['question_id', 'marker', 'option_id'], 'question_marker_option_unique');
+            });
+        }
     }
 
     private function resetData(): void
     {
         foreach ([
+            'question_answers',
+            'question_option_question',
+            'question_options',
             'tag_text_block',
             'text_blocks',
             'pages',

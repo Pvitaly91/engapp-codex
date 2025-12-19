@@ -116,7 +116,7 @@ class TextBlockQuestionMatcherService
 
         // Find candidate questions that have at least one matching tag
         $candidatesQuery = Question::query()
-            ->with('tags:id,name')
+            ->with(['tags:id,name', 'options', 'answers.option'])
             ->whereHas('tags', function ($query) use ($blockTagIds) {
                 $query->whereIn('tags.id', $blockTagIds);
             });
