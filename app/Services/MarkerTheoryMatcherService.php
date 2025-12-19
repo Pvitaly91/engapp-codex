@@ -5,41 +5,22 @@ namespace App\Services;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Models\TextBlock;
+use App\Services\Traits\TagMatchingTrait;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
 
+/**
+ * Service for finding the best matching theory text block for a question marker.
+ *
+ * This is the "forward" matcher:
+ * - MarkerTheoryMatcherService: question marker tags → best matching theory text block
+ *
+ * Uses TagMatchingTrait for shared tag matching logic with TextBlockQuestionMatcherService.
+ */
 class MarkerTheoryMatcherService
 {
-    /**
-     * Tag name that should not be the sole matching criterion.
-     */
-    private const TYPES_OF_QUESTIONS_TAG = 'types-of-questions';
-
-    private const GENERAL_TAGS = [
-        'types-of-questions',
-        'question-forms',
-        'grammar',
-        'theory',
-        'question-sentences',
-        'types-of-question-sentences',
-        'question-formation-practice',
-    ];
-
-    /**
-     * Tags that indicate introductory/overview content - these blocks should
-     * only be returned when no better candidate exists.
-     */
-    private const INTRO_TAGS = [
-        'introduction',
-        'overview',
-        'summary',
-        'navigation',
-        'index',
-        'tips',
-        'learning',
-    ];
+    use TagMatchingTrait;
 
     /**
      * Block types that are considered intro/header blocks.
@@ -47,55 +28,6 @@ class MarkerTheoryMatcherService
     private const INTRO_BLOCK_TYPES = [
         'subtitle',
         'hero',
-    ];
-
-    private const DETAIL_FIRST_TAGS = [
-        'tag-questions',
-        'question-tags',
-        'indirect-questions',
-        'embedded-questions',
-        'question-word-order',
-        'statement-order',
-        'subject-questions',
-        'negative-questions',
-        'alternative-questions',
-        'wh-questions',
-        'yes-no-questions',
-        'special-questions',
-        'question-formation',
-        'be-ing',
-    ];
-
-    private const DETAIL_SECOND_TAGS = [
-        'modal-verbs',
-        'do-does-did',
-        'to-be',
-        'be-am-is-are-was-were',
-        'present-simple',
-        'past-simple',
-        'future-simple',
-        'present-continuous',
-        'past-continuous',
-        'present-perfect',
-        'past-perfect',
-        'present-perfect-continuous',
-        'past-perfect-continuous',
-        'auxiliaries',
-        'have-has-had',
-        'can-could',
-        'will-would',
-        'may-might',
-    ];
-
-    private const TAG_ALIASES = [
-        'question-tags' => 'tag-questions',
-        'question-word-order' => 'statement-order',
-        // Map slash versions to dash versions for common auxiliary tags
-        'do/does/did' => 'do-does-did',
-        'can/could' => 'can-could',
-        'will/would' => 'will-would',
-        'may/might' => 'may-might',
-        'have/has/had' => 'have-has-had',
     ];
 
     /**
@@ -334,13 +266,8 @@ class MarkerTheoryMatcherService
             return true;
         }
 
-        // Check if block has mostly intro tags
-        $introTagCount = 0;
-        foreach ($normalizedBlockTags as $tag) {
-            if (in_array($tag, self::INTRO_TAGS, true)) {
-                $introTagCount++;
-            }
-        }
+        // Check if block has mostly intro tags (using trait's $introTags)
+        $introTagCount = $this->countIntroTags($normalizedBlockTags);
 
         // If more than half of tags are intro tags, it's an intro block
         // Use integer arithmetic and strict greater than for true majority
@@ -373,50 +300,6 @@ class MarkerTheoryMatcherService
             ->with($relationships)
             ->whereHas('tags')
             ->get();
-    }
-
-    /**
-     * Normalize tags to lowercase, trimmed, unique array.
-     *
-     * @param  array|string|null  $tags
-     */
-    private function normalizeTags($tags): array
-    {
-        if ($tags === null) {
-            return [];
-        }
-
-        if (is_string($tags)) {
-            $tags = array_filter(array_map('trim', explode(',', $tags)));
-        }
-
-        if (! is_array($tags)) {
-            return [];
-        }
-
-        return collect($tags)
-            ->filter(fn ($tag) => is_string($tag) && trim($tag) !== '')
-            ->map(fn ($tag) => $this->normalizeTagName($tag))
-            ->map(fn ($tag) => self::TAG_ALIASES[$tag] ?? $tag)
-            ->unique()
-            ->values()
-            ->all();
-    }
-
-    private function normalizeTagName(string $tag): string
-    {
-        $slug = Str::slug(trim($tag));
-
-        if ($slug === '') {
-            return '';
-        }
-
-        // Preserve slashes that Str::slug would drop for patterns like Do/Does/Did
-        if (str_contains($tag, '/')) {
-            return str_replace(' ', '-', strtolower(trim($tag)));
-        }
-
-        return $slug;
     }
 
     /**
@@ -470,7 +353,7 @@ class MarkerTheoryMatcherService
 
         foreach ($tags as $tag) {
             $normalized = $this->normalizeTagName($tag->name);
-            $normalized = self::TAG_ALIASES[$normalized] ?? $normalized;
+            $normalized = static::$tagAliases[$normalized] ?? $normalized;
 
             if ($normalized === '') {
                 continue;
@@ -481,58 +364,6 @@ class MarkerTheoryMatcherService
         }
 
         return $map;
-    }
-
-    private function scoreMatchedTags(array $matchedTags): array
-    {
-        $score = 0.0;
-        $detailedMatches = 0;
-        $generalMatches = 0;
-
-        foreach ($matchedTags as $tag) {
-            $weight = $this->weightForTag($tag);
-            $score += $weight;
-
-            if (in_array($tag, self::GENERAL_TAGS, true)) {
-                $generalMatches++;
-            } elseif ($weight >= 2.5) {
-                $detailedMatches++;
-            }
-        }
-
-        $score += count($matchedTags) * 0.25;
-
-        $skip = $detailedMatches === 0 && count($matchedTags) <= 1;
-        $skip = $skip || ($generalMatches === count($matchedTags));
-
-        return [
-            'score' => round($score, 2),
-            'detailed_matches' => $detailedMatches,
-            'general_matches' => $generalMatches,
-            'skip' => $skip,
-        ];
-    }
-
-
-    private function weightForTag(string $tag): float
-    {
-        if (in_array($tag, self::GENERAL_TAGS, true)) {
-            return 0.5;
-        }
-
-        if (in_array($tag, self::DETAIL_FIRST_TAGS, true)) {
-            return 3.5;
-        }
-
-        if (in_array($tag, self::DETAIL_SECOND_TAGS, true)) {
-            return 2.5;
-        }
-
-        if (str_contains($tag, 'cefr')) {
-            return 0.75;
-        }
-
-        return 1.5;
     }
 
     /**

@@ -86,6 +86,9 @@
 
             {{-- Block Tags --}}
             <x-text-block-tags :block="$block" />
+
+            {{-- Practice Questions --}}
+            <x-text-block-practice-questions :questions="$practiceQuestions ?? collect()" :blockUuid="$block->uuid" />
         </div>
     </div>
 </section>
