@@ -3,6 +3,22 @@
 @php
     $questions = $questions ?? collect();
     $uniqueId = $blockUuid ? 'practice-' . \Illuminate\Support\Str::slug($blockUuid) : 'practice-' . uniqid();
+    
+    // Prepare questions data for JavaScript
+    $questionsData = $questions->map(function($q) {
+        return [
+            'id' => $q->id,
+            'question' => $q->question,
+            'level' => $q->level,
+            'options' => $q->options->pluck('option')->toArray(),
+            'answers' => $q->answers->map(function($a) {
+                return [
+                    'marker' => $a->marker,
+                    'correct' => $a->option->option ?? null,
+                ];
+            })->toArray(),
+        ];
+    })->values()->toArray();
 @endphp
 
 @if($questions->isNotEmpty())
@@ -129,20 +145,7 @@
     <script>
         function practiceQuestion_{{ str_replace('-', '_', $uniqueId) }}() {
             return {
-                questions: @json($questions->map(function($q) {
-                    return [
-                        'id' => $q->id,
-                        'question' => $q->question,
-                        'level' => $q->level,
-                        'options' => $q->options->pluck('option')->toArray(),
-                        'answers' => $q->answers->map(function($a) {
-                            return [
-                                'marker' => $a->marker,
-                                'correct' => $a->option->option ?? null,
-                            ];
-                        })->toArray(),
-                    ];
-                })->values()),
+                questions: @json($questionsData),
                 currentIndex: 0,
                 currentQuestion: null,
                 currentOptions: [],
