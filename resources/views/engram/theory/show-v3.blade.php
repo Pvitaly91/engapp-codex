@@ -92,7 +92,11 @@
                     @endif
 
                     {{-- Table of Contents --}}
-                    @php($tocBlocks = $contentBlocks->filter(fn($b) => !empty(json_decode($b->body ?? '[]', true)['title'] ?? '')))
+                    <?php
+                        $tocBlocks = $contentBlocks->filter(function ($b) {
+                            return ! empty(json_decode($b->body ?? '[]', true)['title'] ?? '');
+                        });
+                    ?>
                     @if($tocBlocks->isNotEmpty())
                         <div class="rounded-2xl border border-border/60 bg-card p-5">
                             <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
