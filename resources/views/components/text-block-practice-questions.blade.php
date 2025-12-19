@@ -6,6 +6,19 @@
     
     // Prepare questions data for JavaScript
     $questionsData = $questions->map(function($q) {
+        // Get verb hints by marker
+        $verbHints = $q->verbHints->mapWithKeys(function($vh) {
+            return [$vh->marker => $vh->option->option ?? ''];
+        })->toArray();
+        
+        // Get hints/explanations
+        $hints = $q->hints->map(function($h) {
+            return [
+                'provider' => $h->provider,
+                'hint' => $h->hint,
+            ];
+        })->toArray();
+        
         return [
             'id' => $q->id,
             'question' => $q->question,
@@ -17,6 +30,8 @@
                     'correct' => $a->option->option ?? null,
                 ];
             })->toArray(),
+            'verb_hints' => $verbHints,
+            'hints' => $hints,
         ];
     })->values()->toArray();
 @endphp
@@ -57,6 +72,13 @@
                         
                         {{-- Question text --}}
                         <p class="text-sm text-foreground font-medium leading-relaxed" x-html="getDisplayText()"></p>
+                        
+                        {{-- Verb hint (shown before answering) --}}
+                        <div x-show="!answered && currentVerbHint" class="mt-2">
+                            <span class="text-xs text-rose-600 font-semibold">
+                                💡 Hint: <span x-text="currentVerbHint"></span>
+                            </span>
+                        </div>
                     </div>
                 </template>
             </div>
@@ -96,7 +118,7 @@
             </div>
             
             {{-- Feedback --}}
-            <div x-show="answered" class="mb-4">
+            <div x-show="answered" class="mb-4 space-y-3">
                 <div 
                     class="rounded-lg p-3 border"
                     :class="isCorrect 
@@ -123,10 +145,25 @@
                     </div>
                 </div>
                 
+                {{-- Explanation/Hint (shown after answering) --}}
+                <template x-if="currentExplanation">
+                    <div class="rounded-lg p-3 border border-blue-200 bg-blue-50 text-blue-800">
+                        <div class="flex items-start gap-2 text-sm">
+                            <svg class="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <div>
+                                <span class="font-semibold">Explanation:</span>
+                                <span x-text="currentExplanation" class="ml-1"></span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                
                 {{-- Next Question Button --}}
                 <button 
                     @click="nextQuestion()"
-                    class="w-full mt-3 py-2.5 rounded-lg border border-border bg-background text-foreground font-medium text-sm hover:bg-muted/50 transition-colors flex items-center justify-center gap-2"
+                    class="w-full py-2.5 rounded-lg border border-border bg-background text-foreground font-medium text-sm hover:bg-muted/50 transition-colors flex items-center justify-center gap-2"
                 >
                     <span x-text="hasMoreQuestions() ? 'Next Question' : 'Start Over'"></span>
                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -144,6 +181,16 @@
     
     <script>
         function practiceQuestion_{{ str_replace('-', '_', $uniqueId) }}() {
+            // Common filler options for grammar questions
+            const FILLER_OPTIONS = [
+                'do', 'does', 'did', 'is', 'are', 'was', 'were', 
+                'have', 'has', 'had', 'will', 'would', 'can', 'could',
+                'should', 'must', 'may', 'might', 'shall',
+                'am', "don't", "doesn't", "didn't", "isn't", "aren't",
+                "wasn't", "weren't", "haven't", "hasn't", "hadn't",
+                "won't", "wouldn't", "can't", "couldn't", "shouldn't"
+            ];
+            
             return {
                 questions: @json($questionsData),
                 currentIndex: 0,
@@ -155,6 +202,8 @@
                 correctAnswer: '',
                 correctCount: 0,
                 answeredIndices: [],
+                currentVerbHint: '',
+                currentExplanation: '',
                 
                 init() {
                     this.shuffleQuestions();
@@ -175,10 +224,18 @@
                     this.selectedOption = null;
                     this.answered = false;
                     this.isCorrect = false;
+                    this.currentExplanation = '';
                     
                     // Get the first marker's correct answer
                     const firstAnswer = this.currentQuestion.answers.find(a => a.marker === 'a1') || this.currentQuestion.answers[0];
                     this.correctAnswer = firstAnswer ? firstAnswer.correct : '';
+                    
+                    // Get verb hint for a1 marker
+                    this.currentVerbHint = this.currentQuestion.verb_hints?.['a1'] || '';
+                    
+                    // Get explanation hint
+                    const hint = this.currentQuestion.hints?.find(h => h.hint);
+                    this.currentExplanation = hint?.hint || '';
                     
                     // Mix options: include all question options
                     let options = [...this.currentQuestion.options];
@@ -186,6 +243,24 @@
                     // Make sure correct answer is included
                     if (this.correctAnswer && !options.includes(this.correctAnswer)) {
                         options.push(this.correctAnswer);
+                    }
+                    
+                    // Ensure at least 3 options (add fillers if needed)
+                    const minOptions = 3;
+                    if (options.length < minOptions) {
+                        // Get fillers that are not already in options
+                        const availableFillers = FILLER_OPTIONS.filter(f => !options.includes(f) && f !== this.correctAnswer);
+                        
+                        // Shuffle fillers
+                        for (let i = availableFillers.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [availableFillers[i], availableFillers[j]] = [availableFillers[j], availableFillers[i]];
+                        }
+                        
+                        // Add fillers until we have enough options
+                        while (options.length < minOptions && availableFillers.length > 0) {
+                            options.push(availableFillers.pop());
+                        }
                     }
                     
                     // Shuffle options

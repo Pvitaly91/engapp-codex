@@ -470,6 +470,27 @@ class TextBlockQuestionMatcherTest extends TestCase
                 $table->unique(['question_id', 'marker', 'option_id'], 'question_marker_option_unique');
             });
         }
+
+        if (! Schema::hasTable('verb_hints')) {
+            Schema::create('verb_hints', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('question_id');
+                $table->string('marker');
+                $table->unsignedBigInteger('option_id')->nullable();
+                $table->timestamps();
+            });
+        }
+
+        if (! Schema::hasTable('question_hints')) {
+            Schema::create('question_hints', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('question_id');
+                $table->string('provider')->nullable();
+                $table->string('locale')->nullable();
+                $table->text('hint')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     private function resetData(): void
@@ -486,6 +507,8 @@ class TextBlockQuestionMatcherTest extends TestCase
             'questions',
             'categories',
             'tags',
+            'verb_hints',
+            'question_hints',
         ] as $table) {
             if (Schema::hasTable($table)) {
                 DB::table($table)->delete();
