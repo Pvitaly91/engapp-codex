@@ -58,7 +58,13 @@ class TextBlockQuestionMatcherService
         }
 
         $this->candidateQuestions = Question::query()
-            ->with(['tags:id,name,category', 'category:id,name'])
+            ->with([
+                'tags:id,name,category',
+                'category:id,name',
+                'options:id,option',
+                'answers:id,question_id,marker,answer,option_id',
+                'answers.option:id,option',
+            ])
             ->whereHas('tags', fn ($query) => $query->whereIn('tags.id', $tagIds))
             ->get();
 
