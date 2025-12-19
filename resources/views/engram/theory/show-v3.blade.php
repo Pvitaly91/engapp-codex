@@ -3,7 +3,7 @@
 @section('title', $page->title)
 
 @section('content')
-    <?php
+    @php
         $blocks = $page->textBlocks ?? collect();
         $breadcrumbs = $breadcrumbs ?? [];
         $routePrefix = $routePrefix ?? 'theory';
@@ -16,7 +16,7 @@
         $categoryPages = $categoryPages ?? collect();
         $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
         $practiceQuestionCountsByBlock = $practiceQuestionCountsByBlock ?? [];
-    ?>
+    @endphp
 
     <div class="min-h-screen">
         {{-- Compact Breadcrumb Strip --}}
@@ -78,7 +78,7 @@
                             </h3>
                             <nav class="space-y-1">
                                 @foreach($categoryPages as $pageItem)
-                                    <?php $isCurrentPage = $page->is($pageItem); ?>
+                                    @php($isCurrentPage = $page->is($pageItem))
                                     <a
                                         href="{{ route($routePrefix . '.show', [$selectedCategory->slug, $pageItem->slug]) }}"
                                         class="block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted/50 {{ $isCurrentPage ? 'bg-secondary text-secondary-foreground font-semibold' : 'text-muted-foreground hover:text-foreground' }}"
@@ -92,11 +92,11 @@
                     @endif
 
                     {{-- Table of Contents --}}
-                    <?php
+                    @php
                         $tocBlocks = $contentBlocks->filter(function ($b) {
                             return ! empty(json_decode($b->body ?? '[]', true)['title'] ?? '');
                         });
-                    ?>
+                    @endphp
                     @if($tocBlocks->isNotEmpty())
                         <div class="rounded-2xl border border-border/60 bg-card p-5">
                             <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
