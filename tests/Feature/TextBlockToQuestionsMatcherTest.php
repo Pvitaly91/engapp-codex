@@ -215,7 +215,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
     }
 
     /** @test */
-    public function it_requires_multitag_overlap_with_modal_variants(): void
+    public function it_scores_modal_variants_higher_without_strict_exclusion(): void
     {
         $pageCategory = PageCategory::create([
             'title' => 'Grammar',
@@ -268,8 +268,16 @@ class TextBlockToQuestionsMatcherTest extends TestCase
 
         $result = $this->service->findBestQuestionsForTextBlock($textBlock, 5);
 
-        $this->assertFalse($result->contains('id', $questionMissingModal->id), 'Questions without modal tag should be filtered out');
+        $this->assertTrue($result->contains('id', $questionMissingModal->id), 'Questions without modal tag can still match on detailed tags');
         $this->assertTrue($result->contains('id', $questionWithModal->id), 'Questions with matching modal variant should be included');
+
+        $questionScores = $result->pluck('match_score', 'id');
+
+        $this->assertGreaterThan(
+            $questionScores[$questionMissingModal->id],
+            $questionScores[$questionWithModal->id],
+            'Questions with modal variants should rank higher via shared scorer logic'
+        );
     }
 
     /** @test */
