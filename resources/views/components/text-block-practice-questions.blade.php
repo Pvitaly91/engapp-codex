@@ -42,7 +42,7 @@
                         @php
                             // Build the question display text (replace markers with blanks)
                             $displayText = preg_replace('/\{[a-z]\d+\}/', '____', $question->question);
-                            $displayText = Str::limit($displayText, 100);
+                            $displayText = \Illuminate\Support\Str::limit($displayText, 100);
                             
                             // Get level badge color
                             $levelColor = match($question->level) {
