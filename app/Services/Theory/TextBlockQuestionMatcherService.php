@@ -62,7 +62,7 @@ class TextBlockQuestionMatcherService
                 'tags:id,name,category',
                 'category:id,name',
                 'options:id,option',
-                'answers:id,question_id,marker,answer,option_id',
+                'answers:id,question_id,marker,option_id',
                 'answers.option:id,option',
             ])
             ->whereHas('tags', fn ($query) => $query->whereIn('tags.id', $tagIds))

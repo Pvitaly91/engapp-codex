@@ -324,7 +324,7 @@
                                             foreach ($matches[0] as $index => $marker) {
                                                 $markerKey = 'a' . $matches[1][$index];
                                                 $answerRow = $question->answers->firstWhere('marker', $markerKey);
-                                                $correctValue = $answerRow?->option?->option ?? $answerRow?->answer ?? '';
+                                                $correctValue = $answerRow?->option?->option ?? '';
                                                 $correctMap[$markerKey] = $correctValue;
                                                 if ($question->options->isNotEmpty()) {
                                                     $select = '<select data-marker="' . $markerKey . '" class="border rounded px-2 py-1 mx-1 w-[90px] h-[30px]">';
