@@ -11,6 +11,8 @@
     @php($contentBlocks = $blocks->reject(fn($b) => in_array($b->type, ['hero', 'hero-v2', 'navigation-chips'])))
     @php($navBlock = $blocks->firstWhere('type', 'navigation-chips'))
     @php($categoryPages = $categoryPages ?? collect())
+    @php($practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [])
+    @php($practiceQuestionCountsByBlock = $practiceQuestionCountsByBlock ?? [])
 
     <div class="min-h-screen">
         {{-- Compact Breadcrumb Strip --}}
@@ -299,6 +301,52 @@
                             'block' => $block,
                             'data' => json_decode($block->body ?? '[]', true),
                         ])
+                        @php($practiceQuestions = $practiceQuestionsByBlock[$block->uuid] ?? collect())
+                        @php($practiceLimit = $practiceQuestionCountsByBlock[$block->uuid] ?? null)
+                        @if($practiceQuestions->isNotEmpty())
+                            <section class="rounded-2xl border border-border/60 bg-card p-5 md:p-6">
+                                <div class="flex items-start justify-between gap-4 mb-4">
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-muted-foreground">Random questions for practice</h3>
+                                        @if($practiceLimit)
+                                            <p class="text-xs text-muted-foreground/70">Підібрано {{ $practiceQuestions->count() }} з {{ $practiceLimit }}</p>
+                                        @endif
+                                    </div>
+                                    <span class="text-xs text-muted-foreground/70">Based on tags</span>
+                                </div>
+                                <div class="space-y-3">
+                                    @foreach($practiceQuestions as $question)
+                                        <article class="rounded-xl border border-border/60 bg-muted/20 p-4">
+                                            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                                                <div class="space-y-2">
+                                                    <p class="text-sm font-medium text-foreground leading-relaxed">
+                                                        {{ $question->question }}
+                                                    </p>
+                                                    <div class="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                                                        <span class="inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-[11px]">
+                                                            Level: {{ $question->level ?? 'N/A' }}
+                                                        </span>
+                                                        @if($question->category)
+                                                            <span class="inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-[11px]">
+                                                                {{ $question->category->name }}
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="flex shrink-0 items-center gap-2">
+                                                    <a
+                                                        href="{{ route('question-review.edit', $question->id) }}"
+                                                        class="inline-flex items-center justify-center rounded-full border border-primary/30 px-4 py-1.5 text-xs font-semibold text-primary transition hover:border-primary hover:bg-primary/10"
+                                                    >
+                                                        Try
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    @endforeach
+                                </div>
+                            </section>
+                        @endif
                     @endforeach
                 </div>
 
