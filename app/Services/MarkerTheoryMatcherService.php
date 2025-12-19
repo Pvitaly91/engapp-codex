@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Models\TextBlock;
-use App\Services\Traits\TagMatchingTrait;
+use App\Services\Theory\TagMatch\TagMatchScorer;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -15,12 +15,10 @@ use Illuminate\Support\Facades\Schema;
  *
  * This is the "forward" matcher:
  * - MarkerTheoryMatcherService: question marker tags → best matching theory text block
- *
- * Uses TagMatchingTrait for shared tag matching logic with TextBlockQuestionMatcherService.
  */
 class MarkerTheoryMatcherService
 {
-    use TagMatchingTrait;
+    public function __construct(private TagMatchScorer $tagMatchScorer) {}
 
     /**
      * Block types that are considered intro/header blocks.
@@ -45,7 +43,7 @@ class MarkerTheoryMatcherService
             return null;
         }
 
-        $normalizedTags = $this->normalizeTags($markerTags->pluck('name')->toArray());
+        $normalizedTags = $this->tagMatchScorer->normalizeTags($markerTags->pluck('name')->toArray());
 
         if (empty($normalizedTags)) {
             return null;
@@ -104,7 +102,7 @@ class MarkerTheoryMatcherService
             return null;
         }
 
-        $normalizedTags = $this->normalizeTags($markerTags->pluck('name')->toArray());
+        $normalizedTags = $this->tagMatchScorer->normalizeTags($markerTags->pluck('name')->toArray());
 
         if (empty($normalizedTags)) {
             return null;
@@ -170,7 +168,7 @@ class MarkerTheoryMatcherService
         $introBestScore = 0;
 
         foreach ($textBlocks as $textBlock) {
-            $blockTags = $this->normalizeTags(
+            $blockTags = $this->tagMatchScorer->normalizeTags(
                 $textBlock->tags->pluck('name')->toArray()
             );
 
@@ -180,7 +178,7 @@ class MarkerTheoryMatcherService
                 continue;
             }
 
-            $scoring = $this->scoreMatchedTags($matched);
+            $scoring = $this->tagMatchScorer->scoreMatchedTags($matched);
 
             if ($scoring['skip']) {
                 continue;
@@ -267,7 +265,7 @@ class MarkerTheoryMatcherService
         }
 
         // Check if block has mostly intro tags (using trait's $introTags)
-        $introTagCount = $this->countIntroTags($normalizedBlockTags);
+        $introTagCount = $this->tagMatchScorer->countIntroTags($normalizedBlockTags);
 
         // If more than half of tags are intro tags, it's an intro block
         // Use integer arithmetic and strict greater than for true majority
@@ -316,8 +314,8 @@ class MarkerTheoryMatcherService
             return ['ids' => [], 'names' => []];
         }
 
-        $markerMap = $this->mapNormalizedTagsToIds($markerTags);
-        $blockMap = $this->mapNormalizedTagsToIds($blockTags);
+        $markerMap = $this->tagMatchScorer->mapNormalizedTagsToIds($markerTags);
+        $blockMap = $this->tagMatchScorer->mapNormalizedTagsToIds($blockTags);
 
         $matchedIds = [];
         $matchedNames = [];
@@ -339,31 +337,6 @@ class MarkerTheoryMatcherService
             'ids' => array_values(array_unique($matchedIds)),
             'names' => array_values(array_unique($matchedNames)),
         ];
-    }
-
-    /**
-     * Map normalized tag names to their IDs and original names.
-     *
-     * @param  Collection<int, Tag>  $tags
-     * @return array<string, array<int, array{id: int, name: string}>>
-     */
-    private function mapNormalizedTagsToIds(Collection $tags): array
-    {
-        $map = [];
-
-        foreach ($tags as $tag) {
-            $normalized = $this->normalizeTagName($tag->name);
-            $normalized = static::$tagAliases[$normalized] ?? $normalized;
-
-            if ($normalized === '') {
-                continue;
-            }
-
-            $map[$normalized] ??= [];
-            $map[$normalized][] = ['id' => $tag->id, 'name' => $tag->name];
-        }
-
-        return $map;
     }
 
     /**

@@ -8,16 +8,16 @@ use App\Models\PageCategory;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Models\TextBlock;
-use App\Services\Theory\TextBlockQuestionMatcherService;
+use App\Services\Theory\TextBlockToQuestionsMatcherService;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
-class TextBlockQuestionMatcherTest extends TestCase
+class TextBlockToQuestionsMatcherTest extends TestCase
 {
-    protected TextBlockQuestionMatcherService $service;
+    protected TextBlockToQuestionsMatcherService $service;
 
     protected function setUp(): void
     {
@@ -25,7 +25,7 @@ class TextBlockQuestionMatcherTest extends TestCase
 
         $this->ensureSchema();
         $this->resetData();
-        $this->service = app(TextBlockQuestionMatcherService::class);
+        $this->service = app(TextBlockToQuestionsMatcherService::class);
     }
 
     /** @test */
@@ -53,7 +53,7 @@ class TextBlockQuestionMatcherTest extends TestCase
             'sort_order' => 1,
         ]);
 
-        $result = $this->service->findQuestionsForTextBlock($textBlock);
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock);
 
         $this->assertTrue($result->isEmpty());
     }
@@ -103,7 +103,7 @@ class TextBlockQuestionMatcherTest extends TestCase
         // Attach same tags to question
         $question->tags()->attach([$tagPresentSimple->id, $tagDoDoesAuxiliary->id]);
 
-        $result = $this->service->findQuestionsForTextBlock($textBlock);
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock);
 
         $this->assertFalse($result->isEmpty());
         $this->assertTrue($result->contains('id', $question->id));
@@ -150,7 +150,7 @@ class TextBlockQuestionMatcherTest extends TestCase
 
         $question->tags()->attach([$tagGeneral->id]);
 
-        $result = $this->service->findQuestionsForTextBlock($textBlock);
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock);
 
         // Should not match because only general tag
         $this->assertTrue($result->isEmpty());
@@ -211,7 +211,7 @@ class TextBlockQuestionMatcherTest extends TestCase
         ]);
         $question2->tags()->attach([$tag1->id, $tag2->id, $tag3->id]);
 
-        $result = $this->service->findQuestionsForTextBlock($textBlock, 5);
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock, 5);
 
         // Both should be in results (question2 has higher score)
         $this->assertTrue($result->contains('id', $question2->id));
@@ -268,7 +268,7 @@ class TextBlockQuestionMatcherTest extends TestCase
         $question2->tags()->attach([$tag1->id, $tag2->id]);
 
         // Exclude question1
-        $result = $this->service->findQuestionsForTextBlock($textBlock, 5, [$question1->id]);
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock, 5, [$question1->id]);
 
         $this->assertFalse($result->contains('id', $question1->id));
         $this->assertTrue($result->contains('id', $question2->id));
@@ -345,6 +345,69 @@ class TextBlockQuestionMatcherTest extends TestCase
         // No duplicates across blocks
         $intersection = array_intersect($block1QuestionIds, $block2QuestionIds);
         $this->assertEmpty($intersection, 'Questions should not be duplicated across blocks');
+
+        // Scores should respect threshold and be present
+        $allScores = collect($result[$textBlock1->uuid])->merge($result[$textBlock2->uuid])
+            ->pluck('match_score');
+        $this->assertTrue($allScores->filter(fn ($score) => $score >= 1.0)->count() > 0);
+    }
+
+    /** @test */
+    public function it_prioritizes_reference_seeder_questions_for_types_of_questions_blocks(): void
+    {
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Types of Questions',
+            'slug' => 'types-of-questions',
+            'text' => 'Theory',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Types of Questions',
+            'body' => json_encode(['title' => 'Overview']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+        ]);
+
+        $tagGeneral = Tag::create(['name' => 'types-of-questions', 'category' => 'Grammar']);
+        $tagDetail = Tag::create(['name' => 'wh-questions', 'category' => 'Detail']);
+
+        $textBlock->tags()->attach([$tagGeneral->id, $tagDetail->id]);
+
+        $category = Category::create(['name' => 'Test Category']);
+
+        $priorityQuestion = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Reference question',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+            'seeder' => 'Database\\Seeders\\Ai\\Claude\\QuestionsDifferentTypesClaudeSeeder',
+        ]);
+        $priorityQuestion->tags()->attach([$tagGeneral->id, $tagDetail->id]);
+
+        $secondaryQuestion = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Secondary question',
+            'difficulty' => 1,
+            'level' => 'A1',
+            'category_id' => $category->id,
+            'seeder' => 'OtherSeeder',
+        ]);
+        $secondaryQuestion->tags()->attach([$tagGeneral->id, $tagDetail->id]);
+
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock, 5);
+
+        $this->assertSame($priorityQuestion->id, $result->first()->id);
+        $this->assertNotEmpty($result->first()->getAttribute('matched_tag_ids'));
     }
 
     private function ensureSchema(): void
@@ -430,6 +493,7 @@ class TextBlockQuestionMatcherTest extends TestCase
                 $table->string('level', 2)->nullable();
                 $table->string('theory_text_block_uuid', 36)->nullable();
                 $table->unsignedBigInteger('category_id')->nullable();
+                $table->string('seeder')->nullable();
                 $table->timestamps();
             });
         }
