@@ -3,6 +3,7 @@
 namespace App\Services\Theory;
 
 use App\Models\Question;
+use App\Models\Tag;
 use App\Models\TextBlock;
 use App\Services\Theory\TagMatch\TagMatchScorer;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
@@ -11,70 +12,76 @@ use Illuminate\Support\Facades\Schema;
 
 class TextBlockToQuestionsMatcherService
 {
+    private const ANCHOR_TAGS = [
+        'types-of-questions',
+        'yes-no-questions',
+        'wh-questions',
+        'tag-questions',
+        'question-tags',
+        'indirect-questions',
+        'embedded-questions',
+        'negative-questions',
+        'subject-questions',
+        'alternative-questions',
+        'question-formation',
+    ];
+
+    private const DETAIL_TAGS = [
+        'can-could',
+        'will-would',
+        'may-might',
+        'must',
+        'should',
+        'do-does-did',
+        'have-has-had',
+        'to-be',
+        'be-am-is-are-was-were',
+        'auxiliaries',
+        'modal-verbs',
+        'present-simple',
+        'past-simple',
+        'future-simple',
+        'present-continuous',
+        'past-continuous',
+        'question-word-order',
+        'statement-order',
+    ];
+
+    private const CATEGORY_ANCHOR_KEYWORDS = ['question', 'type'];
+    private const CATEGORY_DETAIL_KEYWORDS = ['aux', 'modal', 'tense', 'verb', 'form'];
+
     public function __construct(private TagMatchScorer $tagMatchScorer) {}
 
-    /**
-     * Find the best matching questions for a specific text block using the same
-     * tag-based logic as marker → theory matching.
-     */
-    public function findBestQuestionsForTextBlock(
-        TextBlock $block,
-        int $limit = 5,
-        array $excludeQuestionIds = []
-    ): Collection {
-        if (! $block->relationLoaded('tags')) {
-            $block->load('tags:id,name');
-        }
+    public function findQuestionsForTextBlock(TextBlock $block, int $limit = 5, array $excludeQuestionIds = []): Collection
+    {
+        $matchData = $this->buildMatchData($block);
 
-        $blockTagIds = $block->tags->pluck('id')->toArray();
-
-        if (empty($blockTagIds)) {
+        if (empty($matchData['anchorTagIds'])) {
             return collect();
         }
 
-        $candidates = $this->loadCandidateQuestions($blockTagIds, $excludeQuestionIds, $block->level);
+        $candidates = $this->loadCandidateQuestions(
+            $matchData['anchorTagIds'],
+            $matchData['detailTagIds'],
+            $excludeQuestionIds,
+            $block->level
+        );
 
         if ($candidates->isEmpty()) {
             return collect();
         }
 
-        $scored = [];
-        $blockTags = $block->tags;
-        $blockNormalized = $this->tagMatchScorer->normalizeTags($blockTags->pluck('name')->toArray());
+        $scored = $this->scoreCandidates($matchData, $candidates);
 
-        foreach ($candidates as $question) {
-            $candidateNormalized = $this->tagMatchScorer->normalizeTags($question->tags->pluck('name')->toArray());
-
-            if (! $this->passesTagCoverage($blockNormalized, $candidateNormalized)) {
-                continue;
-            }
-
-            $score = $this->tagMatchScorer->scoreCollections($blockTags, $question->tags);
-
-            if ($score['skip']) {
-                continue;
-            }
-
-            $finalScore = $this->applyPriorityBonuses($blockTags, $question, $score['score']);
-
-            $scored[] = [
-                'question' => $question,
-                'score' => round($finalScore, 2),
-                'matched_tag_ids' => $score['matched_tag_ids'],
-                'matched_normalized_tags' => $score['matched_normalized_tags'],
-            ];
-        }
-
-        if (empty($scored)) {
+        if ($scored->isEmpty()) {
             return collect();
         }
 
-        usort($scored, fn ($a, $b) => $b['score'] <=> $a['score']);
-
-        $topCandidates = array_slice($scored, 0, 30);
+        $topCandidates = $scored->sortByDesc('score')->take(30)->values()->all();
         $selected = $this->weightedRandomSelection($topCandidates, $limit);
 
         return collect($selected)->map(function ($item) {
+            /** @var Question $question */
             $question = $item['question'];
             $question->setAttribute('match_score', $item['score']);
             $question->setAttribute('matched_tag_ids', $item['matched_tag_ids']);
@@ -85,9 +92,7 @@ class TextBlockToQuestionsMatcherService
     }
 
     /**
-     * Batch matcher for multiple blocks with duplicate avoidance.
-     *
-     * @param  EloquentCollection<TextBlock>  $blocks
+     * @param  EloquentCollection<int, TextBlock>  $blocks
      * @return array<string, Collection<Question>>
      */
     public function findQuestionsForTextBlocks(EloquentCollection $blocks, int $limitPerBlock = 5): array
@@ -95,14 +100,14 @@ class TextBlockToQuestionsMatcherService
         $results = [];
         $usedQuestionIds = [];
 
-        $blocks->load('tags:id,name');
+        $blocks->load('tags:id,name,category');
 
         foreach ($blocks as $block) {
             if ($block->tags->isEmpty()) {
                 continue;
             }
 
-            $questions = $this->findBestQuestionsForTextBlock($block, $limitPerBlock, $usedQuestionIds);
+            $questions = $this->findQuestionsForTextBlock($block, $limitPerBlock, $usedQuestionIds);
 
             if ($questions->isNotEmpty()) {
                 $results[$block->uuid] = $questions;
@@ -113,15 +118,155 @@ class TextBlockToQuestionsMatcherService
         return $results;
     }
 
-    /**
-     * Load candidate questions that share at least one tag with the block.
-     *
-     * @param  array<int>  $blockTagIds
-     * @param  array<int>  $excludeQuestionIds
-     */
-    private function loadCandidateQuestions(array $blockTagIds, array $excludeQuestionIds, ?string $blockLevel): EloquentCollection
+    public function debugMatches(TextBlock $block, int $limit = 10, array $excludeQuestionIds = []): array
     {
-        if (! Schema::hasTable('questions') || ! Schema::hasTable('question_tag')) {
+        $matchData = $this->buildMatchData($block);
+
+        $candidatesAfterAnchors = $this->loadCandidateQuestions(
+            $matchData['anchorTagIds'],
+            [],
+            $excludeQuestionIds,
+            $block->level
+        );
+
+        $candidatesAfterDetails = $matchData['detailTagIds']
+            ? $this->loadCandidateQuestions(
+                $matchData['anchorTagIds'],
+                $matchData['detailTagIds'],
+                $excludeQuestionIds,
+                $block->level
+            )
+            : $candidatesAfterAnchors;
+
+        $scored = $this->scoreCandidates($matchData, $candidatesAfterDetails)->sortByDesc('score')->take($limit);
+
+        $questions = $scored->map(function ($item) {
+            /** @var Question $q */
+            $q = $item['question'];
+
+            return [
+                'id' => $q->id,
+                'question' => $q->question,
+                'score' => $item['score'],
+                'matched_tags' => $item['matched_normalized_tags'],
+            ];
+        });
+
+        return [
+            'anchor_tags' => $matchData['anchorTagNames'],
+            'detail_tags' => $matchData['detailTagNames'],
+            'candidates_after_anchors' => $candidatesAfterAnchors->count(),
+            'candidates_after_details' => $candidatesAfterDetails->count(),
+            'questions' => $questions,
+        ];
+    }
+
+    private function buildMatchData(TextBlock $block): array
+    {
+        if (! $block->relationLoaded('tags')) {
+            $block->load('tags:id,name,category');
+        }
+
+        $tags = $block->tags;
+
+        if ($tags->isEmpty()) {
+            return [
+                'anchorTagIds' => [],
+                'detailTagIds' => [],
+                'anchorTagNames' => [],
+                'detailTagNames' => [],
+                'blockNormalized' => [],
+                'detailNormalized' => [],
+            ];
+        }
+
+        $normalizedMap = $tags->mapWithKeys(function (Tag $tag) {
+            $normalized = $this->tagMatchScorer->normalizeTags([$tag->name]);
+            $normalizedName = $normalized[0] ?? $this->tagMatchScorer->normalizeTagName($tag->name);
+
+            return [$tag->id => [
+                'id' => $tag->id,
+                'name' => $tag->name,
+                'category' => $tag->category,
+                'normalized' => $normalizedName,
+            ]];
+        });
+
+        $anchorTagIds = [];
+        $detailTagIds = [];
+        $anchorTagNames = [];
+        $detailTagNames = [];
+        $detailNormalized = [];
+        $blockNormalized = [];
+
+        foreach ($normalizedMap as $data) {
+            $blockNormalized[] = $data['normalized'];
+
+            if ($this->isAnchorTag($data['normalized'], $data['category'])) {
+                $anchorTagIds[] = $data['id'];
+                $anchorTagNames[] = $data['name'];
+                continue;
+            }
+
+            if ($this->isDetailTag($data['normalized'], $data['category'])) {
+                $detailTagIds[] = $data['id'];
+                $detailTagNames[] = $data['name'];
+                $detailNormalized[] = $data['normalized'];
+            }
+        }
+
+        return [
+            'anchorTagIds' => array_values(array_unique($anchorTagIds)),
+            'detailTagIds' => array_values(array_unique($detailTagIds)),
+            'anchorTagNames' => array_values(array_unique($anchorTagNames)),
+            'detailTagNames' => array_values(array_unique($detailTagNames)),
+            'blockNormalized' => array_values(array_filter(array_unique($blockNormalized))),
+            'detailNormalized' => array_values(array_filter(array_unique($detailNormalized))),
+            'blockTags' => $tags,
+        ];
+    }
+
+    private function isAnchorTag(string $normalized, ?string $category): bool
+    {
+        $category = strtolower((string) $category);
+
+        if (in_array($normalized, self::ANCHOR_TAGS, true)) {
+            return true;
+        }
+
+        foreach (self::CATEGORY_ANCHOR_KEYWORDS as $keyword) {
+            if (str_contains($category, $keyword)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function isDetailTag(string $normalized, ?string $category): bool
+    {
+        $category = strtolower((string) $category);
+
+        if (in_array($normalized, self::DETAIL_TAGS, true)) {
+            return true;
+        }
+
+        foreach (self::CATEGORY_DETAIL_KEYWORDS as $keyword) {
+            if (str_contains($category, $keyword)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function loadCandidateQuestions(
+        array $anchorTagIds,
+        array $detailTagIds,
+        array $excludeQuestionIds,
+        ?string $blockLevel
+    ): EloquentCollection {
+        if (empty($anchorTagIds) || ! Schema::hasTable('questions') || ! Schema::hasTable('question_tag')) {
             return new EloquentCollection();
         }
 
@@ -134,25 +279,59 @@ class TextBlockToQuestionsMatcherService
                 'hints',
                 'markerTags:id,name,category',
             ])
-            ->whereHas('tags', function ($q) use ($blockTagIds) {
-                $q->whereIn('tags.id', $blockTagIds);
-            })
-            ->limit(200);
+            ->where(function ($q) use ($anchorTagIds) {
+                foreach ($anchorTagIds as $anchorId) {
+                    $q->whereHas('tags', fn ($tagQuery) => $tagQuery->where('tags.id', $anchorId));
+                }
+            });
 
-        if ($blockLevel && Schema::hasColumn('questions', 'level')) {
-            $query->where('level', $blockLevel);
+        if (! empty($detailTagIds)) {
+            $query->whereHas('tags', fn ($q) => $q->whereIn('tags.id', $detailTagIds));
         }
 
         if (! empty($excludeQuestionIds)) {
             $query->whereNotIn('id', $excludeQuestionIds);
         }
 
-        return $query->get();
+        if ($blockLevel && Schema::hasColumn('questions', 'level')) {
+            $query->where('level', $blockLevel);
+        }
+
+        return $query->limit(200)->get();
     }
 
-    /**
-     * Group marker tags by marker name for front-end consumption.
-     */
+    private function scoreCandidates(array $matchData, EloquentCollection $candidates): Collection
+    {
+        $blockNormalized = $matchData['blockNormalized'];
+        $detailNormalized = $matchData['detailNormalized'];
+        /** @var Collection<int, Tag> $blockTags */
+        $blockTags = $matchData['blockTags'] ?? collect();
+
+        return $candidates->map(function (Question $question) use ($blockNormalized, $detailNormalized, $blockTags) {
+            $questionNormalized = $this->tagMatchScorer->normalizeTags($question->tags->pluck('name')->toArray());
+
+            $matchedNormalized = array_values(array_intersect($blockNormalized, $questionNormalized));
+
+            if (empty($matchedNormalized)) {
+                return null;
+            }
+
+            $score = 0;
+            foreach ($matchedNormalized as $tag) {
+                $score += in_array($tag, $detailNormalized, true) ? 2 : 1;
+            }
+
+            $matchedTagIds = $this->tagMatchScorer->calculateMatchedTagIds($matchedNormalized, $blockTags, $question->tags);
+
+            return [
+                'question' => $question,
+                'score' => $score,
+                'matched_tag_ids' => $matchedTagIds,
+                'matched_normalized_tags' => $matchedNormalized,
+            ];
+        })->filter();
+    }
+
     private function groupMarkerTags(Question $question): array
     {
         if (! $question->relationLoaded('markerTags')) {
@@ -213,50 +392,6 @@ class TextBlockToQuestionsMatcherService
         }
 
         return $selected;
-    }
-
-    private function applyPriorityBonuses(Collection $blockTags, Question $question, float $baseScore): float
-    {
-        if (! Schema::hasColumn('questions', 'seeder')) {
-            return $baseScore;
-        }
-
-        $normalizedBlockTags = $this->tagMatchScorer->normalizeTags($blockTags->pluck('name')->toArray());
-
-        $isTypesOfQuestions = in_array('types-of-questions', $normalizedBlockTags, true);
-        $fromReferenceSeeder = $question->seeder
-            && str_contains((string) $question->seeder, 'QuestionsDifferentTypesClaudeSeeder');
-
-        if ($isTypesOfQuestions && $fromReferenceSeeder) {
-            return $baseScore + 0.75;
-        }
-
-        return $baseScore;
-    }
-
-    private function passesTagCoverage(array $blockNormalized, array $candidateNormalized): bool
-    {
-        $overlap = array_intersect($blockNormalized, $candidateNormalized);
-
-        if (count($overlap) < 2) {
-            return false;
-        }
-
-        $detailFirst = array_intersect($blockNormalized, $this->tagMatchScorer->detailFirstTags());
-        $detailFirstOverlap = array_intersect($detailFirst, $candidateNormalized);
-
-        if (! empty($detailFirst) && count($detailFirstOverlap) < count($detailFirst)) {
-            return false;
-        }
-
-        $detailSecond = array_intersect($blockNormalized, $this->tagMatchScorer->detailSecondTags());
-        $detailSecondOverlap = array_intersect($detailSecond, $candidateNormalized);
-
-        if (! empty($detailSecond) && empty($detailSecondOverlap)) {
-            return false;
-        }
-
-        return true;
     }
 }
 
