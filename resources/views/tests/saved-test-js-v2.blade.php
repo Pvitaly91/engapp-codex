@@ -153,6 +153,10 @@ function sanitizeOptions(options) {
   return clean;
 }
 
+function normalizeAnswer(value) {
+  return String(value ?? '').trim().toLowerCase();
+}
+
 function buildFallbackOptionsBySlot(options, markersCount) {
   const normalized = sanitizeOptions(options);
   const optionsBySlot = [];
@@ -593,7 +597,7 @@ function onChoose(idx, opt) {
 
   const explanationPromise = ensureExplanation(item, idx, opt, expected, key, slotIndex);
 
-  if (opt === expected) {
+  if (normalizeAnswer(opt) === normalizeAnswer(expected)) {
     item.chosen[slotIndex] = opt;
     item.attemptsBySlot[slotIndex] = 0;
     item.lastWrongBySlot[slotIndex] = null;
