@@ -3,14 +3,20 @@
 @section('title', $page->title)
 
 @section('content')
-    @php($blocks = $page->textBlocks ?? collect())
-    @php($breadcrumbs = $breadcrumbs ?? [])
-    @php($routePrefix = $routePrefix ?? 'theory')
-    @php($heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero'))
-    @php($heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [])
-    @php($contentBlocks = $blocks->reject(fn($b) => in_array($b->type, ['hero', 'hero-v2', 'navigation-chips'])))
-    @php($navBlock = $blocks->firstWhere('type', 'navigation-chips'))
-    @php($categoryPages = $categoryPages ?? collect())
+    @php
+        $blocks = $page->textBlocks ?? collect();
+        $breadcrumbs = $breadcrumbs ?? [];
+        $routePrefix = $routePrefix ?? 'theory';
+        $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
+        $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
+        $contentBlocks = $blocks->reject(function ($b) {
+            return in_array($b->type, ['hero', 'hero-v2', 'navigation-chips']);
+        });
+        $navBlock = $blocks->firstWhere('type', 'navigation-chips');
+        $categoryPages = $categoryPages ?? collect();
+        $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
+        $practiceQuestionCountsByBlock = $practiceQuestionCountsByBlock ?? [];
+    @endphp
 
     <div class="min-h-screen">
         {{-- Compact Breadcrumb Strip --}}
@@ -86,7 +92,11 @@
                     @endif
 
                     {{-- Table of Contents --}}
-                    @php($tocBlocks = $contentBlocks->filter(fn($b) => !empty(json_decode($b->body ?? '[]', true)['title'] ?? '')))
+                    @php
+                        $tocBlocks = $contentBlocks->filter(function ($b) {
+                            return ! empty(json_decode($b->body ?? '[]', true)['title'] ?? '');
+                        });
+                    @endphp
                     @if($tocBlocks->isNotEmpty())
                         <div class="rounded-2xl border border-border/60 bg-card p-5">
                             <h3 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
@@ -299,6 +309,74 @@
                             'block' => $block,
                             'data' => json_decode($block->body ?? '[]', true),
                         ])
+                        @php($practiceQuestions = $practiceQuestionsByBlock[$block->uuid] ?? collect())
+                        @php($practiceLimit = $practiceQuestionCountsByBlock[$block->uuid] ?? null)
+                        @if($practiceQuestions->isNotEmpty())
+                            <section class="rounded-2xl border border-border/60 bg-card p-5 md:p-6" data-practice-block>
+                                <div class="flex items-start justify-between gap-4 mb-4">
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-muted-foreground">Random question for practice</h3>
+                                        @if($practiceLimit)
+                                            <p class="text-xs text-muted-foreground/70">Підібрано {{ $practiceQuestions->count() }} з {{ $practiceLimit }}</p>
+                                        @endif
+                                    </div>
+                                    <span class="text-xs text-muted-foreground/70">Based on tags</span>
+                                </div>
+                                <div class="space-y-3" data-practice-questions>
+                                    @foreach($practiceQuestions as $question)
+                                        @php
+                                            $questionText = $question->question;
+                                            preg_match_all('/\{a(\d+)\}/', $questionText, $matches);
+                                            $replacements = [];
+                                            $correctMap = [];
+                                            foreach ($matches[0] as $index => $marker) {
+                                                $markerKey = 'a' . $matches[1][$index];
+                                                $answerRow = $question->answers->firstWhere('marker', $markerKey);
+                                                $correctValue = $answerRow?->option?->option ?? '';
+                                                $correctMap[$markerKey] = $correctValue;
+                                                if ($question->options->isNotEmpty()) {
+                                                    $select = '<select data-marker="' . $markerKey . '" class="border rounded px-2 py-1 mx-1 w-[90px] h-[30px]">';
+                                                    $select .= '<option value="">---</option>';
+                                                    foreach ($question->options as $option) {
+                                                        $select .= '<option value="' . e($option->option) . '">' . e($option->option) . '</option>';
+                                                    }
+                                                    $select .= '</select>';
+                                                    $replacements[$marker] = $select;
+                                                } else {
+                                                    $replacements[$marker] = '<input type="text" data-marker="' . $markerKey . '" class="border rounded px-2 py-1 mx-1 w-[90px] h-[30px]" />';
+                                                }
+                                            }
+                                            $finalQuestion = strtr(e($questionText), $replacements);
+                                        @endphp
+                                        <article class="rounded-xl border border-border/60 bg-muted/20 p-4 hidden" data-practice-question data-correct='@json($correctMap)'>
+                                            <div class="flex flex-col gap-3">
+                                                <div class="space-y-2">
+                                                    <p class="text-sm font-medium text-foreground leading-relaxed">
+                                                        {!! $finalQuestion !!}
+                                                    </p>
+                                                    <div class="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                                                        <span class="inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-[11px]">
+                                                            Level: {{ $question->level ?? 'N/A' }}
+                                                        </span>
+                                                        @if($question->category)
+                                                            <span class="inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-[11px]">
+                                                                {{ $question->category->name }}
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-wrap items-center gap-3">
+                                                    <button type="button" class="rounded-full bg-primary px-4 py-1.5 text-xs font-semibold text-primary-foreground" data-practice-check>
+                                                        Check answer
+                                                    </button>
+                                                    <span class="text-xs font-semibold" data-practice-result></span>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    @endforeach
+                                </div>
+                            </section>
+                        @endif
                     @endforeach
                 </div>
 
@@ -438,4 +516,65 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.querySelectorAll('[data-practice-block]').forEach((block) => {
+            const questions = Array.from(block.querySelectorAll('[data-practice-question]'));
+            if (!questions.length) return;
+            let index = 0;
+
+            const showQuestion = (idx) => {
+                questions.forEach((item, itemIndex) => {
+                    item.classList.toggle('hidden', itemIndex !== idx);
+                    if (itemIndex !== idx) {
+                        item.querySelectorAll('[data-marker]').forEach((input) => {
+                            if (input.tagName === 'SELECT') {
+                                input.selectedIndex = 0;
+                            } else {
+                                input.value = '';
+                            }
+                        });
+                        const result = item.querySelector('[data-practice-result]');
+                        if (result) {
+                            result.textContent = '';
+                            result.classList.remove('text-emerald-600', 'text-rose-600');
+                        }
+                    }
+                });
+            };
+
+            showQuestion(index);
+
+            questions.forEach((question) => {
+                const checkButton = question.querySelector('[data-practice-check]');
+                if (!checkButton) return;
+                checkButton.addEventListener('click', () => {
+                    const correctMap = JSON.parse(question.dataset.correct || '{}');
+                    let isCorrect = true;
+
+                    Object.keys(correctMap).forEach((marker) => {
+                        const input = question.querySelector(`[data-marker="${marker}"]`);
+                        const value = input ? input.value : '';
+                        if (value === '' || value.toString().trim().toLowerCase() !== correctMap[marker].toString().trim().toLowerCase()) {
+                            isCorrect = false;
+                        }
+                    });
+
+                    const result = question.querySelector('[data-practice-result]');
+                    if (result) {
+                        result.textContent = isCorrect ? '✅ Правильно' : '❌ Неправильно';
+                        result.classList.toggle('text-emerald-600', isCorrect);
+                        result.classList.toggle('text-rose-600', !isCorrect);
+                    }
+
+                    setTimeout(() => {
+                        index = (index + 1) % questions.length;
+                        showQuestion(index);
+                    }, 1400);
+                });
+            });
+        });
+    </script>
 @endsection
