@@ -32,7 +32,7 @@ class TextBlockToQuestionsMatcherService
             return collect();
         }
 
-        $candidates = $this->loadCandidateQuestions($blockTagIds, $excludeQuestionIds);
+        $candidates = $this->loadCandidateQuestions($blockTagIds, $excludeQuestionIds, $block->level);
 
         if ($candidates->isEmpty()) {
             return collect();
@@ -111,7 +111,7 @@ class TextBlockToQuestionsMatcherService
      * @param  array<int>  $blockTagIds
      * @param  array<int>  $excludeQuestionIds
      */
-    private function loadCandidateQuestions(array $blockTagIds, array $excludeQuestionIds): EloquentCollection
+    private function loadCandidateQuestions(array $blockTagIds, array $excludeQuestionIds, ?string $blockLevel): EloquentCollection
     {
         if (! Schema::hasTable('questions') || ! Schema::hasTable('question_tag')) {
             return new EloquentCollection();
@@ -123,6 +123,10 @@ class TextBlockToQuestionsMatcherService
                 $q->whereIn('tags.id', $blockTagIds);
             })
             ->limit(200);
+
+        if ($blockLevel && Schema::hasColumn('questions', 'level')) {
+            $query->where('level', $blockLevel);
+        }
 
         if (! empty($excludeQuestionIds)) {
             $query->whereNotIn('id', $excludeQuestionIds);

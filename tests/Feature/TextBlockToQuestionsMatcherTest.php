@@ -81,6 +81,7 @@ class TextBlockToQuestionsMatcherTest extends TestCase
             'page_id' => $page->id,
             'page_category_id' => $pageCategory->id,
             'sort_order' => 1,
+            'level' => 'A1',
         ]);
 
         // Create tags
@@ -107,6 +108,63 @@ class TextBlockToQuestionsMatcherTest extends TestCase
 
         $this->assertFalse($result->isEmpty());
         $this->assertTrue($result->contains('id', $question->id));
+    }
+
+    /** @test */
+    public function it_matches_questions_with_the_same_level_as_the_block(): void
+    {
+        $pageCategory = PageCategory::create([
+            'title' => 'Grammar',
+            'slug' => 'grammar',
+            'language' => 'en',
+        ]);
+
+        $page = Page::create([
+            'title' => 'Past Simple',
+            'slug' => 'past-simple',
+            'text' => 'Theory about past simple',
+            'page_category_id' => $pageCategory->id,
+        ]);
+
+        $textBlock = TextBlock::create([
+            'uuid' => (string) Str::uuid(),
+            'heading' => 'Past Simple Questions',
+            'body' => json_encode(['title' => 'How to form questions in past simple']),
+            'page_id' => $page->id,
+            'page_category_id' => $pageCategory->id,
+            'sort_order' => 1,
+            'level' => 'B1',
+        ]);
+
+        $tagPastSimple = Tag::create(['name' => 'past-simple', 'category' => 'Tenses']);
+        $tagDid = Tag::create(['name' => 'do-does-did', 'category' => 'Auxiliary']);
+
+        $textBlock->tags()->attach([$tagPastSimple->id, $tagDid->id]);
+
+        $category = Category::create(['name' => 'Test Category']);
+
+        $correctLevelQuestion = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Did you enjoy the movie?',
+            'difficulty' => 1,
+            'level' => 'B1',
+            'category_id' => $category->id,
+        ]);
+        $correctLevelQuestion->tags()->attach([$tagPastSimple->id, $tagDid->id]);
+
+        $differentLevelQuestion = Question::create([
+            'uuid' => (string) Str::uuid(),
+            'question' => 'Do you like coffee?',
+            'difficulty' => 1,
+            'level' => 'A2',
+            'category_id' => $category->id,
+        ]);
+        $differentLevelQuestion->tags()->attach([$tagPastSimple->id, $tagDid->id]);
+
+        $result = $this->service->findBestQuestionsForTextBlock($textBlock);
+
+        $this->assertTrue($result->contains('id', $correctLevelQuestion->id));
+        $this->assertFalse($result->contains('id', $differentLevelQuestion->id));
     }
 
     /** @test */
