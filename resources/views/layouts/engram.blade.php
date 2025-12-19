@@ -602,6 +602,21 @@
         display: none;
       }
 
+      /* Show search button when stuck */
+      .sticky-test-header.is-stuck .sticky-search-btn {
+        display: flex;
+      }
+
+      /* When search is expanded in stuck mode, show the word search section */
+      .sticky-test-header.is-stuck.search-expanded .word-search-section {
+        display: block;
+      }
+
+      /* Hide search button when search is expanded */
+      .sticky-test-header.is-stuck.search-expanded .sticky-search-btn {
+        display: none;
+      }
+
       /* Additional space adjustments for flex containers */
       .sticky-test-header.is-stuck .progress-section > div {
         gap: 0.375rem;
