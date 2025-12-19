@@ -5,104 +5,27 @@ namespace App\Services\Theory;
 use App\Models\Question;
 use App\Models\Tag;
 use App\Models\TextBlock;
+use App\Services\Traits\TagMatchingTrait;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
+/**
+ * Service for finding practice questions that match a theory text block by tags.
+ *
+ * This is the "inverse" of MarkerTheoryMatcherService:
+ * - MarkerTheoryMatcherService: question marker tags → best matching theory text block
+ * - TextBlockQuestionMatcherService: theory text block tags → best matching questions
+ *
+ * Both use the same shared TagMatchingTrait for:
+ * - Tag normalization and aliasing
+ * - Tag weighting (general vs detailed)
+ * - Score calculation and skip threshold
+ */
 class TextBlockQuestionMatcherService
 {
-    /**
-     * General tags that have lower weight in scoring.
-     * These are broad category tags that don't indicate specific topic relevance.
-     */
-    private const GENERAL_TAGS = [
-        'types-of-questions',
-        'question-forms',
-        'grammar',
-        'theory',
-        'question-sentences',
-        'types-of-question-sentences',
-        'question-formation-practice',
-        'english-grammar-theme',
-        'introduction',
-        'overview',
-        'summary',
-        'quick-reference',
-        'navigation',
-        'practice',
-        'exercises',
-        'interactive',
-    ];
-
-    /**
-     * Detailed tags (first priority) - highest weight.
-     * These indicate very specific grammar concepts.
-     */
-    private const DETAIL_FIRST_TAGS = [
-        'tag-questions',
-        'question-tags',
-        'disjunctive-questions',
-        'indirect-questions',
-        'embedded-questions',
-        'question-word-order',
-        'statement-order',
-        'word-order',
-        'subject-questions',
-        'negative-questions',
-        'negative-question-forms',
-        'alternative-questions',
-        'choice-questions',
-        'wh-questions',
-        'yes-no-questions',
-        'general-questions',
-        'special-questions',
-        'question-formation',
-        'question-words',
-        'polarity',
-        'positive-negative-rule',
-        'intonation',
-        'rising-vs-falling',
-    ];
-
-    /**
-     * Detailed tags (second priority) - medium-high weight.
-     * These indicate specific tenses or auxiliary verbs.
-     */
-    private const DETAIL_SECOND_TAGS = [
-        'modal-verbs',
-        'do-does-did',
-        'to-be',
-        'be-am-is-are-was-were',
-        'present-simple',
-        'past-simple',
-        'future-simple',
-        'present-continuous',
-        'past-continuous',
-        'present-perfect',
-        'past-perfect',
-        'present-perfect-continuous',
-        'past-perfect-continuous',
-        'auxiliaries',
-        'have-has-had',
-        'have-got',
-        'can-could',
-        'will-would',
-        'may-might',
-        'should',
-        'must',
-        'i-am',
-        'imperatives',
-        'lets',
-        'this-that',
-        'special-cases',
-        'british-vs-american',
-        'confirmation',
-    ];
-
-    /**
-     * Minimum score threshold for including a question.
-     */
-    private const MIN_SCORE_THRESHOLD = 2.0;
+    use TagMatchingTrait;
 
     /**
      * Cache for tag frequencies (IDF calculation).
@@ -119,6 +42,9 @@ class TextBlockQuestionMatcherService
     /**
      * Find questions that match a text block by tag intersection.
      *
+     * Uses the same tag matching logic as MarkerTheoryMatcherService but in reverse:
+     * takes text block tags and finds questions with overlapping tags.
+     *
      * @param  TextBlock  $block  The text block to find matching questions for
      * @param  int  $limit  Maximum number of results to return (3-5 random with weights)
      * @param  array<int>  $excludeQuestionIds  Question IDs to exclude (to avoid duplicates)
@@ -134,59 +60,26 @@ class TextBlockQuestionMatcherService
             $block->load('tags:id,name');
         }
 
-        $blockTagIds = $block->tags->pluck('id')->toArray();
-
-        if (empty($blockTagIds)) {
+        if ($block->tags->isEmpty()) {
             return collect();
         }
 
-        $blockTagNames = $this->normalizeTagNames($block->tags->pluck('name')->toArray());
+        // Normalize block tags using shared trait logic
+        $blockTagNames = $this->normalizeTags($block->tags->pluck('name')->toArray());
 
-        // Find candidate questions that have at least one matching tag
-        $candidatesQuery = Question::query()
-            ->with(['tags:id,name', 'options', 'answers.option', 'verbHints.option', 'hints'])
-            ->whereHas('tags', function ($query) use ($blockTagIds) {
-                $query->whereIn('tags.id', $blockTagIds);
-            });
-
-        // Exclude already used questions if provided
-        if (! empty($excludeQuestionIds)) {
-            $candidatesQuery->whereNotIn('id', $excludeQuestionIds);
+        if (empty($blockTagNames)) {
+            return collect();
         }
 
-        // Limit initial candidates to prevent loading too many records
-        $candidates = $candidatesQuery->limit(200)->get();
+        // Load candidate questions
+        $candidates = $this->loadCandidateQuestions($block->tags->pluck('id')->toArray(), $excludeQuestionIds);
 
         if ($candidates->isEmpty()) {
             return collect();
         }
 
-        // Calculate scores for all candidates
-        $scoredCandidates = [];
-
-        foreach ($candidates as $question) {
-            $questionTagNames = $this->normalizeTagNames($question->tags->pluck('name')->toArray());
-
-            // Calculate tag intersection
-            $matchedTags = array_values(array_intersect($blockTagNames, $questionTagNames));
-            $score = $this->calculateScore($matchedTags, $question->tags);
-
-            // Filter out weak matches
-            if ($score < self::MIN_SCORE_THRESHOLD) {
-                continue;
-            }
-
-            // Check if match is only by general tags
-            if ($this->isOnlyGeneralTagMatch($matchedTags)) {
-                continue;
-            }
-
-            $scoredCandidates[] = [
-                'question' => $question,
-                'score' => $score,
-                'matched_tags' => $matchedTags,
-            ];
-        }
+        // Score and filter candidates
+        $scoredCandidates = $this->scoreCandidates($candidates, $blockTagNames);
 
         if (empty($scoredCandidates)) {
             return collect();
@@ -195,7 +88,7 @@ class TextBlockQuestionMatcherService
         // Sort by score descending
         usort($scoredCandidates, fn ($a, $b) => $b['score'] <=> $a['score']);
 
-        // Take top N candidates (e.g., 30) for weighted random selection
+        // Take top N candidates for weighted random selection
         $topCandidates = array_slice($scoredCandidates, 0, 30);
 
         // Apply weighted random selection
@@ -247,98 +140,116 @@ class TextBlockQuestionMatcherService
     }
 
     /**
-     * Calculate score for matched tags with IDF weighting.
+     * Load candidate questions that have at least one matching tag.
      *
-     * @param  array<string>  $matchedTags  Normalized matched tag names
-     * @param  Collection<Tag>  $questionTags  Original question tags (for IDF lookup)
+     * @param  array<int>  $blockTagIds
+     * @param  array<int>  $excludeQuestionIds
+     * @return EloquentCollection<Question>
      */
-    private function calculateScore(array $matchedTags, Collection $questionTags): float
+    private function loadCandidateQuestions(array $blockTagIds, array $excludeQuestionIds): EloquentCollection
     {
-        if (empty($matchedTags)) {
-            return 0.0;
+        if (! Schema::hasTable('questions') || ! Schema::hasTable('question_tag')) {
+            return new EloquentCollection();
         }
 
-        $score = 0.0;
+        $query = Question::query()
+            ->with(['tags:id,name', 'options', 'answers.option', 'verbHints.option', 'hints'])
+            ->whereHas('tags', function ($q) use ($blockTagIds) {
+                $q->whereIn('tags.id', $blockTagIds);
+            });
 
-        foreach ($matchedTags as $normalizedTag) {
-            // Base weight based on tag type
-            $baseWeight = $this->getTagWeight($normalizedTag);
-
-            // Apply IDF bonus (rare tags get higher scores)
-            $idfBonus = $this->getIdfBonus($normalizedTag, $questionTags);
-
-            $score += $baseWeight * (1 + $idfBonus);
+        if (! empty($excludeQuestionIds)) {
+            $query->whereNotIn('id', $excludeQuestionIds);
         }
 
-        // Bonus for having multiple matches
-        $matchCountBonus = count($matchedTags) * 0.25;
-        $score += $matchCountBonus;
-
-        return round($score, 2);
+        // Limit candidates to prevent loading too many records
+        return $query->limit(200)->get();
     }
 
     /**
-     * Get base weight for a tag based on its category.
+     * Score all candidate questions against block tags.
+     *
+     * @param  EloquentCollection<Question>  $candidates
+     * @param  array<string>  $blockTagNames  Normalized block tag names
+     * @return array<array{question: Question, score: float, matched_tags: array, detailed_matches: int}>
      */
-    private function getTagWeight(string $normalizedTag): float
+    private function scoreCandidates(EloquentCollection $candidates, array $blockTagNames): array
     {
-        if (in_array($normalizedTag, self::GENERAL_TAGS, true)) {
-            return 0.5;
+        $scoredCandidates = [];
+
+        foreach ($candidates as $question) {
+            $questionTagNames = $this->normalizeTags($question->tags->pluck('name')->toArray());
+
+            // Calculate tag intersection
+            $matchedTags = array_values(array_intersect($blockTagNames, $questionTagNames));
+
+            if (empty($matchedTags)) {
+                continue;
+            }
+
+            // Use shared scoring logic from trait
+            $scoring = $this->scoreMatchedTags($matchedTags);
+
+            // Skip weak matches (same logic as MarkerTheoryMatcherService)
+            if ($scoring['skip']) {
+                continue;
+            }
+
+            // Apply IDF bonus for rare tags
+            $idfBonus = $this->calculateIdfBonus($matchedTags, $question->tags);
+            $finalScore = $scoring['score'] + $idfBonus;
+
+            $scoredCandidates[] = [
+                'question' => $question,
+                'score' => round($finalScore, 2),
+                'matched_tags' => $matchedTags,
+                'detailed_matches' => $scoring['detailed_matches'],
+            ];
         }
 
-        if (in_array($normalizedTag, self::DETAIL_FIRST_TAGS, true)) {
-            return 3.5;
-        }
-
-        if (in_array($normalizedTag, self::DETAIL_SECOND_TAGS, true)) {
-            return 2.5;
-        }
-
-        // CEFR level tags (a1, a2, b1, etc.)
-        if (preg_match('/^(cefr[-\s]?)?(a[12]|b[12]|c[12])$/i', $normalizedTag)) {
-            return 0.75;
-        }
-
-        // Default weight for other tags
-        return 1.5;
+        return $scoredCandidates;
     }
 
     /**
-     * Calculate IDF bonus for a tag (tags that appear less frequently get higher bonus).
+     * Calculate IDF bonus for matched tags.
+     * Tags that appear less frequently get higher bonus.
      *
+     * @param  array<string>  $matchedTags
      * @param  Collection<Tag>  $questionTags
      */
-    private function getIdfBonus(string $normalizedTag, Collection $questionTags): float
+    private function calculateIdfBonus(array $matchedTags, Collection $questionTags): float
     {
         if ($this->tagFrequencyCache === null || $this->totalQuestionsCount === null) {
             return 0.0;
         }
 
-        // Find the tag ID by matching normalized names
-        $tagId = null;
-        foreach ($questionTags as $tag) {
-            if ($this->normalizeTagName($tag->name) === $normalizedTag) {
-                $tagId = $tag->id;
-                break;
+        $bonus = 0.0;
+
+        foreach ($matchedTags as $normalizedTag) {
+            // Find the tag ID by matching normalized names
+            $tagId = null;
+            foreach ($questionTags as $tag) {
+                if ($this->normalizeTagName($tag->name) === $normalizedTag) {
+                    $tagId = $tag->id;
+                    break;
+                }
+            }
+
+            if ($tagId === null || ! isset($this->tagFrequencyCache[$tagId])) {
+                continue;
+            }
+
+            $frequency = $this->tagFrequencyCache[$tagId];
+
+            // IDF = log(total / frequency)
+            if ($frequency > 0 && $this->totalQuestionsCount > 0) {
+                $idf = log(($this->totalQuestionsCount + 1) / ($frequency + 1));
+                // Cap the bonus per tag
+                $bonus += min($idf / 5, 0.5);
             }
         }
 
-        if ($tagId === null || ! isset($this->tagFrequencyCache[$tagId])) {
-            return 0.0;
-        }
-
-        $frequency = $this->tagFrequencyCache[$tagId];
-
-        // IDF = log(total / frequency)
-        // Higher IDF means the tag is rarer
-        if ($frequency > 0 && $this->totalQuestionsCount > 0) {
-            $idf = log(($this->totalQuestionsCount + 1) / ($frequency + 1));
-
-            // Normalize IDF to 0-1 range and cap the bonus
-            return min($idf / 5, 0.5);
-        }
-
-        return 0.0;
+        return $bonus;
     }
 
     /**
@@ -347,6 +258,13 @@ class TextBlockQuestionMatcherService
     private function initializeTagFrequencyCache(): void
     {
         if ($this->tagFrequencyCache !== null) {
+            return;
+        }
+
+        if (! Schema::hasTable('question_tag')) {
+            $this->tagFrequencyCache = [];
+            $this->totalQuestionsCount = 0;
+
             return;
         }
 
@@ -362,36 +280,7 @@ class TextBlockQuestionMatcherService
     }
 
     /**
-     * Check if the match is only by general (low-value) tags.
-     *
-     * @param  array<string>  $matchedTags
-     */
-    private function isOnlyGeneralTagMatch(array $matchedTags): bool
-    {
-        if (count($matchedTags) <= 1) {
-            // Single tag match - check if it's a general tag
-            foreach ($matchedTags as $tag) {
-                if (in_array($tag, self::GENERAL_TAGS, true)) {
-                    return true;
-                }
-            }
-        }
-
-        // Count non-general tags
-        $nonGeneralCount = 0;
-        foreach ($matchedTags as $tag) {
-            if (! in_array($tag, self::GENERAL_TAGS, true)) {
-                $nonGeneralCount++;
-            }
-        }
-
-        // If all matched tags are general, reject the match
-        return $nonGeneralCount === 0;
-    }
-
-    /**
      * Perform weighted random selection from candidates.
-     *
      * Higher score = higher probability of being selected.
      *
      * @param  array<array{question: Question, score: float, matched_tags: array}>  $candidates
@@ -438,35 +327,5 @@ class TextBlockQuestionMatcherService
         }
 
         return $selected;
-    }
-
-    /**
-     * Normalize tag names to lowercase, trimmed strings.
-     *
-     * @param  array<string>  $tagNames
-     * @return array<string>
-     */
-    private function normalizeTagNames(array $tagNames): array
-    {
-        return array_map(fn ($name) => $this->normalizeTagName($name), $tagNames);
-    }
-
-    /**
-     * Normalize a single tag name.
-     * Converts to lowercase and replaces spaces/special characters with hyphens.
-     */
-    private function normalizeTagName(string $tag): string
-    {
-        $normalized = strtolower(trim($tag));
-        // Replace spaces with hyphens
-        $normalized = preg_replace('/\s+/', '-', $normalized);
-        // Replace common special characters (parentheses, slashes) with hyphens
-        $normalized = preg_replace('/[\(\)\/]/', '-', $normalized);
-        // Remove consecutive hyphens
-        $normalized = preg_replace('/-+/', '-', $normalized);
-        // Trim leading/trailing hyphens
-        $normalized = trim($normalized, '-');
-
-        return $normalized;
     }
 }
