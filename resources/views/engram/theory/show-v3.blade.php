@@ -3,18 +3,20 @@
 @section('title', $page->title)
 
 @section('content')
-    @php($blocks = $page->textBlocks ?? collect())
-    @php($breadcrumbs = $breadcrumbs ?? [])
-    @php($routePrefix = $routePrefix ?? 'theory')
-    @php($heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero'))
-    @php($heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [])
-    @php($contentBlocks = $blocks->reject(function ($b) {
-        return in_array($b->type, ['hero', 'hero-v2', 'navigation-chips']);
-    }))
-    @php($navBlock = $blocks->firstWhere('type', 'navigation-chips'))
-    @php($categoryPages = $categoryPages ?? collect())
-    @php($practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [])
-    @php($practiceQuestionCountsByBlock = $practiceQuestionCountsByBlock ?? [])
+    <?php
+        $blocks = $page->textBlocks ?? collect();
+        $breadcrumbs = $breadcrumbs ?? [];
+        $routePrefix = $routePrefix ?? 'theory';
+        $heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero');
+        $heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [];
+        $contentBlocks = $blocks->reject(function ($b) {
+            return in_array($b->type, ['hero', 'hero-v2', 'navigation-chips']);
+        });
+        $navBlock = $blocks->firstWhere('type', 'navigation-chips');
+        $categoryPages = $categoryPages ?? collect();
+        $practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [];
+        $practiceQuestionCountsByBlock = $practiceQuestionCountsByBlock ?? [];
+    ?>
 
     <div class="min-h-screen">
         {{-- Compact Breadcrumb Strip --}}
