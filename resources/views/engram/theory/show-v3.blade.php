@@ -8,7 +8,9 @@
     @php($routePrefix = $routePrefix ?? 'theory')
     @php($heroBlock = $blocks->firstWhere('type', 'hero-v2') ?? $blocks->firstWhere('type', 'hero'))
     @php($heroData = $heroBlock ? (json_decode($heroBlock->body ?? '[]', true) ?? []) : [])
-    @php($contentBlocks = $blocks->reject(fn($b) => in_array($b->type, ['hero', 'hero-v2', 'navigation-chips'])))
+    @php($contentBlocks = $blocks->reject(function ($b) {
+        return in_array($b->type, ['hero', 'hero-v2', 'navigation-chips']);
+    }))
     @php($navBlock = $blocks->firstWhere('type', 'navigation-chips'))
     @php($categoryPages = $categoryPages ?? collect())
     @php($practiceQuestionsByBlock = $practiceQuestionsByBlock ?? [])
