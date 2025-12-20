@@ -44,6 +44,7 @@
             </div>
             <form method="POST" action="{{ route('words.test.reset') }}" class="mb-4">
                 @csrf
+                <input type="hidden" name="redirect_route" value="words.test">
                 <button type="submit" class="bg-gray-200 px-4 py-1 rounded hover:bg-gray-300 transition text-sm">Reset</button>
             </form>
         @endif
@@ -69,6 +70,7 @@
                 @csrf
                 <input type="hidden" name="word_id" value="{{ $word->id }}">
                 <input type="hidden" name="questionType" value="{{ $questionType }}">
+                <input type="hidden" name="redirect_route" value="words.test">
 
                 <div class="mb-6">
                     <div class="text-sm text-gray-500 mb-1">
