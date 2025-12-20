@@ -30,6 +30,7 @@ class WordsTest extends Component
 
     public ?array $feedback = null;
     public bool $isComplete = false;
+    public bool $hasWords = true;
     public bool $showFilters = false;
 
     public function mount(): void
@@ -81,11 +82,13 @@ class WordsTest extends Component
             $words = $this->getWords($this->selectedTags);
 
             if ($words->isEmpty()) {
-                $this->setCompleteState();
+                $this->hasWords = false;
+                $this->calculateProgress();
 
                 return;
             }
 
+            $this->hasWords = true;
             $this->queue = $words->pluck('id')->shuffle()->toArray();
             $this->totalCount = count($this->queue);
         }
@@ -117,12 +120,17 @@ class WordsTest extends Component
         $this->questionType = 'en_to_uk';
         $this->wordTags = [];
         $this->isComplete = false;
+        $this->hasWords = true;
     }
 
     private function loadNextQuestion(): void
     {
         $this->resetQuestionState();
         $this->ensureQueue();
+
+        if (! $this->hasWords) {
+            return;
+        }
 
         if ($this->isComplete || empty($this->queue)) {
             return;
@@ -230,6 +238,7 @@ class WordsTest extends Component
 
             $this->feedback = null;
             $this->isComplete = false;
+            $this->hasWords = true;
             $this->loadNextQuestion();
         }
         $this->showFilters = false;
@@ -245,6 +254,7 @@ class WordsTest extends Component
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
         $this->feedback = null;
         $this->isComplete = false;
+        $this->hasWords = true;
 
         $this->loadNextQuestion();
     }
@@ -269,6 +279,7 @@ class WordsTest extends Component
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
         $this->feedback = null;
         $this->isComplete = false;
+        $this->hasWords = true;
 
         $this->loadNextQuestion();
     }
