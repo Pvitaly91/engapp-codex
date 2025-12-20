@@ -11,7 +11,8 @@ class WordsTestController extends Controller
 {
     private function getWords(array $tags): Collection
     {
-        $query = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags']);
+        $query = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])
+            ->whereHas('translates', fn ($q) => $q->where('lang', 'uk'));
 
         if (! empty($tags)) {
             $query->whereHas('tags', fn ($q) => $q->whereIn('name', $tags));
@@ -20,7 +21,10 @@ class WordsTestController extends Controller
         return $query->get();
     }
 
-    public function index(Request $request)
+    /**
+     * Shared logic for preparing test data (used by both admin and public).
+     */
+    private function prepareTestData(Request $request): array
     {
         if ($request->boolean('reset')) {
             $selectedTags = [];
@@ -55,14 +59,31 @@ class WordsTestController extends Controller
             session(['words_queue' => $queue, 'words_total_count' => $totalCount]);
         }
 
-        if (empty($queue) || ($percentage >= 95 && $stats['total'] >= $totalCount)) {
-            return view('words.complete', [
-                'stats' => $stats,
-                'percentage' => $percentage,
-                'totalCount' => $totalCount,
-                'selectedTags' => $selectedTags,
-                'allTags' => Tag::whereHas('words')->get(),
-            ]);
+        // Calculate progress variables
+        $remainingCount = count($queue);
+        $currentIndex = $totalCount - $remainingCount;
+        $progressPercent = $totalCount > 0 ? round(($currentIndex / $totalCount) * 100, 2) : 0;
+
+        return [
+            'selectedTags' => $selectedTags,
+            'feedback' => $feedback,
+            'stats' => $stats,
+            'percentage' => $percentage,
+            'queue' => $queue,
+            'totalCount' => $totalCount,
+            'currentIndex' => $currentIndex,
+            'progressPercent' => $progressPercent,
+            'allTags' => Tag::whereHas('words')->get(),
+        ];
+    }
+
+    /**
+     * Shared logic for generating question data.
+     */
+    private function generateQuestionData(array $queue, array $selectedTags): ?array
+    {
+        if (empty($queue)) {
+            return null;
         }
 
         $wordId = array_shift($queue);
@@ -70,7 +91,12 @@ class WordsTestController extends Controller
 
         $word = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk'), 'tags'])->find($wordId);
 
+        if (! $word) {
+            return null;
+        }
+
         $otherWords = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
+            ->whereHas('translates', fn ($q) => $q->where('lang', 'uk'))
             ->when($selectedTags, fn ($q) => $q->whereHas('tags', fn ($q2) => $q2->whereIn('name', $selectedTags)))
             ->where('id', '!=', $wordId)
             ->inRandomOrder()
@@ -90,18 +116,57 @@ class WordsTestController extends Controller
         $options[] = $correct;
         shuffle($options);
 
-        return view('words.test', [
+        return [
             'word' => $word,
             'translation' => optional($word->translates->first())->translation ?? '',
             'options' => $options,
             'questionType' => $questionType,
-            'feedback' => $feedback,
-            'stats' => $stats,
-            'percentage' => $percentage,
-            'totalCount' => $totalCount,
-            'selectedTags' => $selectedTags,
-            'allTags' => Tag::whereHas('words')->get(),
-        ]);
+        ];
+    }
+
+    public function index(Request $request)
+    {
+        $data = $this->prepareTestData($request);
+
+        if (empty($data['queue']) || ($data['percentage'] >= 95 && $data['stats']['total'] >= $data['totalCount'])) {
+            return view('words.complete', [
+                'stats' => $data['stats'],
+                'percentage' => $data['percentage'],
+                'totalCount' => $data['totalCount'],
+                'selectedTags' => $data['selectedTags'],
+                'allTags' => $data['allTags'],
+            ]);
+        }
+
+        $questionData = $this->generateQuestionData($data['queue'], $data['selectedTags']);
+
+        return view('words.test', array_merge([
+            'feedback' => $data['feedback'],
+            'stats' => $data['stats'],
+            'percentage' => $data['percentage'],
+            'totalCount' => $data['totalCount'],
+            'selectedTags' => $data['selectedTags'],
+            'allTags' => $data['allTags'],
+        ], $questionData ?? ['word' => null, 'translation' => '', 'options' => [], 'questionType' => 'en_to_uk']));
+    }
+
+    /**
+     * Public index method for engram-styled view with Livewire.
+     */
+    public function publicIndex(Request $request)
+    {
+        // Handle reset and filter parameters for backward compatibility
+        if ($request->boolean('reset')) {
+            session()->forget(['words_selected_tags', 'words_test_stats', 'words_queue', 'words_total_count']);
+        } elseif ($request->has('filter')) {
+            $selectedTags = $request->input('tags', []);
+            if ($selectedTags !== session('words_selected_tags')) {
+                session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
+            }
+            session(['words_selected_tags' => $selectedTags]);
+        }
+
+        return view('engram.words.test');
     }
 
     public function check(Request $request)
@@ -142,6 +207,25 @@ class WordsTestController extends Controller
             'questionType' => $request->input('questionType'),
         ]);
 
-        return redirect()->route('words.test');
+        // Support redirect_route for both admin and public views
+        $redirectRoute = $request->input('redirect_route', 'words.test');
+
+        // Validate route name to prevent open redirect
+        $allowedRoutes = ['words.test', 'words.public.test'];
+        if (! in_array($redirectRoute, $allowedRoutes, true)) {
+            $redirectRoute = 'words.test';
+        }
+
+        return redirect()->route($redirectRoute);
+    }
+
+    /**
+     * Public reset method that redirects to public route.
+     */
+    public function publicReset()
+    {
+        session()->forget('words_test_stats');
+
+        return redirect()->route('words.public.test');
     }
 }

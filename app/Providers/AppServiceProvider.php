@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Question;
 use App\Observers\QuestionObserver;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         app()->setLocale(session('locale', config('app.locale')));
+
+        // Register Livewire components
+        Livewire::component('words-test', \App\Livewire\WordsTest::class);
 
         //  Question::observe(QuestionObserver::class);
     }

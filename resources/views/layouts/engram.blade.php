@@ -11,7 +11,7 @@
 
   <!-- Tailwind CDN + runtime config -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="//unpkg.com/alpinejs" defer></script>
+  @livewireStyles
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -625,5 +625,6 @@
   </style>
 
   @yield('scripts')
+  @livewireScripts
 </body>
 </html>

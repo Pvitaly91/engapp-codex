@@ -69,6 +69,7 @@
                 @csrf
                 <input type="hidden" name="word_id" value="{{ $word->id }}">
                 <input type="hidden" name="questionType" value="{{ $questionType }}">
+                <input type="hidden" name="redirect_route" value="words.test">
 
                 <div class="mb-6">
                     <div class="text-sm text-gray-500 mb-1">
