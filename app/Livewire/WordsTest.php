@@ -73,13 +73,10 @@ class WordsTest extends Component
 
     private function ensureQueue(): void
     {
-        if (empty($this->queue)) {
+        // Only build a new queue when none exists (initial load or after filters reset)
+        if (empty($this->queue) && $this->totalCount === 0) {
             $words = $this->getWords($this->selectedTags);
             $this->queue = $words->pluck('id')->shuffle()->toArray();
-            $this->totalCount = count($this->queue);
-        }
-
-        if ($this->totalCount === 0 && ! empty($this->queue)) {
             $this->totalCount = count($this->queue);
         }
 
@@ -216,6 +213,7 @@ class WordsTest extends Component
 
             // Reset queue and stats when filter changes
             $this->queue = [];
+            $this->totalCount = 0;
             $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
             session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
 
@@ -232,6 +230,7 @@ class WordsTest extends Component
         session()->forget(['words_selected_tags', 'words_test_stats', 'words_queue', 'words_total_count']);
 
         $this->queue = [];
+        $this->totalCount = 0;
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
         $this->feedback = null;
         $this->isComplete = false;
@@ -253,6 +252,7 @@ class WordsTest extends Component
     {
         session()->forget(['words_test_stats', 'words_queue', 'words_total_count']);
         $this->queue = [];
+        $this->totalCount = 0;
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
         $this->feedback = null;
         $this->isComplete = false;
