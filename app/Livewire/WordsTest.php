@@ -73,9 +73,19 @@ class WordsTest extends Component
 
     private function ensureQueue(): void
     {
-        // Build a queue whenever it's empty so the component can keep moving forward
+        // Always start from the latest session snapshot to avoid stale local state
+        $this->queue = session('words_queue', $this->queue);
+        $this->totalCount = session('words_total_count', $this->totalCount);
+
         if (empty($this->queue)) {
             $words = $this->getWords($this->selectedTags);
+
+            if ($words->isEmpty()) {
+                $this->setCompleteState();
+
+                return;
+            }
+
             $this->queue = $words->pluck('id')->shuffle()->toArray();
             $this->totalCount = count($this->queue);
         }
@@ -114,9 +124,7 @@ class WordsTest extends Component
         $this->resetQuestionState();
         $this->ensureQueue();
 
-        if (empty($this->queue)) {
-            $this->setCompleteState();
-
+        if ($this->isComplete || empty($this->queue)) {
             return;
         }
 
@@ -141,6 +149,9 @@ class WordsTest extends Component
         $this->wordText = $word->word;
         $this->translation = $word->translates->first()?->translation ?? '';
         $this->wordTags = $word->tags->pluck('name')->toArray();
+
+        // Clear previous feedback once a fresh prompt is ready to display
+        $this->feedback = null;
 
         // Generate options
         $otherWords = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
