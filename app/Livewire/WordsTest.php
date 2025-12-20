@@ -75,15 +75,20 @@ class WordsTest extends Component
     private function ensureQueue(): void
     {
         // Always start from the latest session snapshot to avoid stale local state
-        $this->queue = session('words_queue', $this->queue);
-        $this->totalCount = session('words_total_count', $this->totalCount);
+        $this->queue = session('words_queue', []);
+        $this->totalCount = session('words_total_count', 0);
 
+        // If we already had a queue and exhausted it, keep the empty state so completion logic can run
+        if (empty($this->queue) && $this->totalCount > 0) {
+            return;
+        }
+
+        // Build a new queue only when none exists yet
         if (empty($this->queue)) {
             $words = $this->getWords($this->selectedTags);
 
             if ($words->isEmpty()) {
                 $this->hasWords = false;
-                $this->calculateProgress();
 
                 return;
             }
@@ -125,23 +130,33 @@ class WordsTest extends Component
 
     private function loadNextQuestion(): void
     {
-        $this->resetQuestionState();
+        // Clear any prior feedback before attempting to show a fresh prompt
+        $this->feedback = null;
+
         $this->ensureQueue();
 
         if (! $this->hasWords) {
+            $this->resetQuestionState();
+
             return;
         }
 
-        if ($this->isComplete || empty($this->queue)) {
-            return;
-        }
+        // Recompute progress against the current queue snapshot before deciding on completion
+        $this->calculateProgress();
 
-        // Check for completion
-        if ($this->percentage >= 95 && $this->stats['total'] >= $this->totalCount) {
+        if ($this->totalCount > 0 && $this->stats['total'] >= $this->totalCount && $this->percentage >= 95) {
             $this->setCompleteState();
 
             return;
         }
+
+        if (empty($this->queue)) {
+            $this->setCompleteState();
+
+            return;
+        }
+
+        $this->resetQuestionState();
 
         $wordId = array_shift($this->queue);
         session(['words_queue' => $this->queue]);
@@ -157,9 +172,6 @@ class WordsTest extends Component
         $this->wordText = $word->word;
         $this->translation = $word->translates->first()?->translation ?? '';
         $this->wordTags = $word->tags->pluck('name')->toArray();
-
-        // Clear previous feedback once a fresh prompt is ready to display
-        $this->feedback = null;
 
         // Generate options
         $otherWords = Word::with(['translates' => fn ($q) => $q->where('lang', 'uk')])
