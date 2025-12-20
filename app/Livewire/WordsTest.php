@@ -85,10 +85,24 @@ class WordsTest extends Component
 
     private function loadNextWord(): void
     {
+        if (empty($this->queue)) {
+            $this->initializeQueue();
+
+            if (empty($this->queue)) {
+                $this->isComplete = true;
+                $this->wordId = null;
+                $this->options = [];
+
+                return;
+            }
+        }
+
         // Check for completion
-        if (empty($this->queue) || ($this->percentage >= 95 && $this->stats['total'] >= $this->totalCount)) {
+        if ($this->percentage >= 95 && $this->stats['total'] >= $this->totalCount) {
             $this->isComplete = true;
             $this->wordId = null;
+            $this->options = [];
+
             return;
         }
 
@@ -130,6 +144,7 @@ class WordsTest extends Component
         shuffle($this->options);
 
         // Recalculate progress after shifting queue
+        $this->isComplete = false;
         $this->calculateProgress();
     }
 
