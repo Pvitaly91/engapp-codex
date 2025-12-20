@@ -50,6 +50,24 @@ class WordsTestComponentTest extends TestCase
         $this->assertSame(0, $component->get('stats')['total']);
     }
 
+    /** @test */
+    public function it_restarts_after_resetting_progress(): void
+    {
+        $this->prepareWordsData();
+
+        $component = Livewire::test(WordsTest::class);
+        $firstWordId = $component->get('wordId');
+
+        $component->call('submitAnswerByIndex', 0);
+
+        $component->call('resetProgress');
+
+        $this->assertSame(0, $component->get('stats')['total']);
+        $this->assertNotNull($component->get('wordId'));
+        $this->assertNotSame($component->get('wordId'), $firstWordId);
+        $this->assertFalse($component->get('isComplete'));
+    }
+
     private function prepareWordsData(): void
     {
         Artisan::call('migrate', ['--path' => 'database/migrations/2025_07_18_182347_create_words_table.php']);

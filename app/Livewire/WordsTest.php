@@ -73,8 +73,8 @@ class WordsTest extends Component
 
     private function ensureQueue(): void
     {
-        // Only build a new queue when none exists (initial load or after filters reset)
-        if (empty($this->queue) && $this->totalCount === 0) {
+        // Build a queue whenever it's empty so the component can keep moving forward
+        if (empty($this->queue)) {
             $words = $this->getWords($this->selectedTags);
             $this->queue = $words->pluck('id')->shuffle()->toArray();
             $this->totalCount = count($this->queue);
@@ -242,6 +242,8 @@ class WordsTest extends Component
     {
         session()->forget('words_test_stats');
         $this->stats = ['correct' => 0, 'wrong' => 0, 'total' => 0];
+        $this->queue = [];
+        $this->totalCount = 0;
         $this->feedback = null;
         $this->isComplete = false;
 
